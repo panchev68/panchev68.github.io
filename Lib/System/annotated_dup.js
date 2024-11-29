@@ -1,13 +1,13 @@
 var annotated_dup =
 [
-    [ "Lib", "d1/d1f/namespace_lib.html", [
-      [ "System", "d9/d04/namespace_lib_1_1_system.html", [
-        [ "Configuration", "df/db3/class_lib_1_1_system_1_1_configuration.html", "df/db3/class_lib_1_1_system_1_1_configuration" ],
-        [ "Parameters", "d8/d3c/class_lib_1_1_system_1_1_parameters.html", "d8/d3c/class_lib_1_1_system_1_1_parameters" ],
-        [ "ProduceDate", "dc/da6/class_lib_1_1_system_1_1_produce_date.html", "dc/da6/class_lib_1_1_system_1_1_produce_date" ],
-        [ "SerialNumber", "d7/db5/class_lib_1_1_system_1_1_serial_number.html", "d7/db5/class_lib_1_1_system_1_1_serial_number" ],
-        [ "System", "d8/dc1/class_lib_1_1_system_1_1_system.html", "d8/dc1/class_lib_1_1_system_1_1_system" ],
-        [ "Version", "dd/d4c/class_lib_1_1_system_1_1_version.html", null ]
+    [ "Lib", "d1/d51/a00628.html", [
+      [ "System", "d3/da3/a00627.html", [
+        [ "Configuration", "dd/d08/a01448.html", "dd/d08/a01448" ],
+        [ "Parameters", "dd/d1c/a01452.html", "dd/d1c/a01452" ],
+        [ "ProduceDate", "db/d8b/a01464.html", "db/d8b/a01464" ],
+        [ "SerialNumber", "df/df3/a01468.html", "df/df3/a01468" ],
+        [ "System", "d2/d48/a01472.html", "d2/d48/a01472" ],
+        [ "Version", "d1/d38/a01480.html", null ]
       ] ]
     ] ]
 ];
