@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['encoderpins_0',['EncoderPins',['../d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html',1,'Lib::BSP']]],
-  ['encodertimer_1',['EncoderTimer',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html',1,'Lib::BSP']]]
+  ['encoderpins_0',['EncoderPins',['../d4/d13/a00377.html',1,'Lib::BSP']]],
+  ['encodertimer_1',['EncoderTimer',['../d5/d05/a00385.html',1,'Lib::BSP']]]
 ];

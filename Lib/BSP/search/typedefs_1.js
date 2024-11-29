@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['config_0',['Config',['../dc/ddd/class_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_01_1_1_i2_c_1_1_m24_c16.html#ab8c9f5f159ad90167036c6d7c8c2a13a',1,'Lib::BSP::EEPROM ::I2C::M24C16::Config'],['../d0/d06/class_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_m24_c64_w.html#aa8ff504216e3e0437cb82dba3074ef09',1,'Lib::BSP::EEPROM::I2C::M24C64W::Config']]]
+  ['config_0',['Config',['../df/dee/a00369.html#ab8c9f5f159ad90167036c6d7c8c2a13a',1,'Lib::BSP::EEPROM ::I2C::M24C16::Config'],['../dc/de3/a00373.html#aa8ff504216e3e0437cb82dba3074ef09',1,'Lib::BSP::EEPROM::I2C::M24C64W::Config']]]
 ];
