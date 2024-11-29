@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['findpeaks_0',['FindPeaks',['../d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html',1,'Lib::Helper']]]
+  ['findpeaks_0',['FindPeaks',['../d0/d90/a01641.html',1,'Lib::Helper']]]
 ];
