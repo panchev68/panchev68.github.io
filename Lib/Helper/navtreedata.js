@@ -26,13 +26,10 @@ var NAVTREE =
 [
   [ "Lib::Helper", "index.html", [
     [ "Helper Library", "index.html", null ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ]
-      ] ]
+    [ "Namespace Members", "namespacemembers.html", [
+      [ "All", "namespacemembers.html", null ],
+      [ "Functions", "namespacemembers_func.html", null ],
+      [ "Typedefs", "namespacemembers_type.html", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -51,8 +48,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d6/d82/a01565.html",
-"df/d3f/a01537.html#a76cb1a45a1a13ca0cd0bd23b09a57e63"
+"de/d96/a01685.html#a7d5233089e5d41d0ddeac9a476dce574"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
