@@ -24,12 +24,9 @@
 */
 var NAVTREE =
 [
-  [ "Free RTOS C++ Wrapper", "index.html", [
-    [ "Bug List", "de/da5/bug.html", null ],
+  [ "Lib::FreeRTOS", "index.html", [
+    [ "Bug List", "d4/d3a/a00101.html", null ],
     [ "Topics", "topics.html", "topics" ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
-    ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -49,7 +46,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dd/d78/group___semaphore.html#afb0e809a4af00a2bf75aaf8aa127f938"
+"df/d98/a00107.html#abf96ca324425c788bf168e95245b71a6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

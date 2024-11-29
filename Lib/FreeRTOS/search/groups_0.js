@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['binary_20semaphore_0',['Binary Semaphore',['../dd/d78/group___semaphore.html',1,'']]],
-  ['buffer_1',['Buffer',['../da/d2e/group__message__buffer.html',1,'Message Buffer'],['../d4/d0a/group__stream__buffer.html',1,'Stream Buffer']]]
+  ['binary_20semaphore_0',['Binary Semaphore',['../dd/d6d/a00111.html',1,'']]],
+  ['buffer_1',['Buffer',['../dd/d42/a00109.html',1,'Message Buffer'],['../d1/dd6/a00108.html',1,'Stream Buffer']]]
 ];
