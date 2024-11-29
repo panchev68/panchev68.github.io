@@ -15,12 +15,7 @@ var searchData=
   ['getregister_12',['getRegister',['../d8/ddd/a00380.html#a504e9043bb69bd7b50a3ef6300a2d2fd',1,'Lib::HAL::RTClock']]],
   ['getsize_13',['getsize',['../d6/db8/a00376.html#a07e4de1dc20bd447648e576be6ff2fd7',1,'Lib::HAL::OTP']]],
   ['getvalue_14',['getValue',['../dd/dd7/a00260.html#a950076900fd97260bc06715979c28b80',1,'Lib::HAL::Adc::Port&lt; IT &gt;']]],
-  ['gpio_2ehpp_15',['GPIO.hpp',['../d4/dee/a00008.html',1,'']]],
-  ['gpio_2fcomponents_2fmode_2ehpp_16',['Mode.hpp',['../d8/d75/a00555.html',1,'']]],
-  ['gpio_2fcomponents_2ftemplate_2ehpp_17',['Template.hpp',['../d2/d50/a00561.html',1,'']]],
-  ['gpio_2fhandle_2ehpp_18',['Handle.hpp',['../d5/d21/a00549.html',1,'']]],
-  ['gpio_2fport_2ehpp_19',['Port.hpp',['../d4/d9c/a00543.html',1,'']]],
-  ['gpiomode_20',['GPIOMode',['../d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6f',1,'Lib::HAL::GPIO::Mode']]],
-  ['gpiopull_21',['GPIOPull',['../d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931',1,'Lib::HAL::GPIO::Mode']]],
-  ['gpiospeed_22',['GPIOSpeed',['../d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08d',1,'Lib::HAL::GPIO::Mode']]]
+  ['gpiomode_15',['GPIOMode',['../d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6f',1,'Lib::HAL::GPIO::Mode']]],
+  ['gpiopull_16',['GPIOPull',['../d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931',1,'Lib::HAL::GPIO::Mode']]],
+  ['gpiospeed_17',['GPIOSpeed',['../d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08d',1,'Lib::HAL::GPIO::Mode']]]
 ];

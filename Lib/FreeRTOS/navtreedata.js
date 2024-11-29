@@ -42,13 +42,6 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
-    ] ],
     [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
@@ -56,7 +49,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dc/d7b/group___timer.html#aa443f8fb7e187643f5837f5e732dfe2b"
+"dd/d78/group___semaphore.html#afb0e809a4af00a2bf75aaf8aa127f938"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

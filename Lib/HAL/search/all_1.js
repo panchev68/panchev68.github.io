@@ -5,8 +5,7 @@ var searchData=
   ['beginaddr_2',['beginAddr',['../d6/db8/a00376.html#ac5e912fb2bb7b88506d30f4a5d211c4a',1,'Lib::HAL::OTP']]],
   ['beginreceive_3',['beginReceive',['../de/df8/a00440.html#a615a75d31e876805350b9ac3951e7767',1,'Lib::HAL::UART::TransperentBase::beginReceive()'],['../de/dfe/a00448.html#afeadeb269b34540e175f775387c4151a',1,'Lib::HAL::UART::Port&lt; DMA &gt;::beginReceive()'],['../d1/d0b/a00452.html#a9b968be1edc27d6869986e6b3c4de8cd',1,'Lib::HAL::UART::Port&lt; IT &gt;::beginReceive()']]],
   ['bind_4',['bind',['../d3/db8/a00316.html#a6301a8ebc9d990f5e6a5456521d0c9a2',1,'Lib::HAL::GPIO::ExtInterrupt']]],
-  ['bkpsram_2ehpp_5',['BKPSRAM.hpp',['../dd/dad/a00005.html',1,'']]],
-  ['block_6',['BLOCK',['../d1/de1/a00213.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4',1,'Lib::HAL']]],
-  ['block_5ftimeout_7',['BLOCK_TIMEOUT',['../d6/d9c/a00352.html#a90788f160ecf1f5e242180d4bdf55803',1,'Lib::HAL::I2C::Master::TransperentBase']]],
-  ['brownout_5freset_8',['BROWNOUT_RESET',['../db/d7e/a00372.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8',1,'Lib::HAL::LastResetState']]]
+  ['block_5',['BLOCK',['../d1/de1/a00213.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4',1,'Lib::HAL']]],
+  ['block_5ftimeout_6',['BLOCK_TIMEOUT',['../d6/d9c/a00352.html#a90788f160ecf1f5e242180d4bdf55803',1,'Lib::HAL::I2C::Master::TransperentBase']]],
+  ['brownout_5freset_7',['BROWNOUT_RESET',['../db/d7e/a00372.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8',1,'Lib::HAL::LastResetState']]]
 ];

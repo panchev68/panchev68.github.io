@@ -11,8 +11,7 @@ var searchData=
   ['_7estreambuffer_8',['~StreamBuffer',['../d4/d0a/group__stream__buffer.html#a0e24ee0bf5ba9ab27b53a885de253791',1,'Lib::FreeRTOS::StreamBuffer']]],
   ['_7etask_9',['~Task',['../d7/dbf/group___task.html#affcb2cbb9100384ebfb6e0ebf722ff20',1,'Lib::FreeRTOS::Task']]],
   ['_7etaskbase_10',['~TaskBase',['../d5/d32/class_lib_1_1_free_r_t_o_s_1_1_task_base.html#a72cd2892fadff31d7534c1fa925d17de',1,'Lib::FreeRTOS::TaskBase']]],
-  ['_7etaskbase_2ehpp_11',['~TaskBase.hpp',['../da/d52/_0i_task_base_8hpp.html',1,'']]],
-  ['_7etickcounter_12',['~TickCounter',['../dd/df0/group___tick_counter.html#a80f1e04c4843c14b6a2ec7e31ba07981',1,'Lib::FreeRTOS::TickCounter']]],
-  ['_7etimeout_13',['~Timeout',['../dd/d5e/group___timeout.html#a4f2dfba861c373b6540e469c308f08b7',1,'Lib::FreeRTOS::Timeout']]],
-  ['_7etimer_14',['~Timer',['../dc/d7b/group___timer.html#a2b2165eef64c713ec21e63efcee986d3',1,'Lib::FreeRTOS::Timer']]]
+  ['_7etickcounter_11',['~TickCounter',['../dd/df0/group___tick_counter.html#a80f1e04c4843c14b6a2ec7e31ba07981',1,'Lib::FreeRTOS::TickCounter']]],
+  ['_7etimeout_12',['~Timeout',['../dd/d5e/group___timeout.html#a4f2dfba861c373b6540e469c308f08b7',1,'Lib::FreeRTOS::Timeout']]],
+  ['_7etimer_13',['~Timer',['../dc/d7b/group___timer.html#a2b2165eef64c713ec21e63efcee986d3',1,'Lib::FreeRTOS::Timer']]]
 ];
