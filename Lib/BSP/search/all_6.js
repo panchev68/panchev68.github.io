@@ -6,7 +6,7 @@ var searchData=
   ['fast_5fread_5fdual_5foutput_3',['FAST_READ_DUAL_OUTPUT',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7da2eb73c7d2e17c1c219e1b3bbbf7b994a',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['fast_5fread_5fquad_5fio_4',['FAST_READ_QUAD_IO',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7da76c1e1b85270f6a66274a1a044fea762',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['fast_5fread_5fquad_5foutput_5',['FAST_READ_QUAD_OUTPUT',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7da123a9087fc6dcef7dc05bfffeadbfd00',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['flash_20memory_20drivers_6',['Flash Memory Drivers',['../db/d67/group__flash__mem.html',1,'']]],
+  ['flash_20memory_20drivers_6',['Flash Memory drivers',['../db/d67/group__flash__mem.html',1,'']]],
   ['framechksum_7',['frameChkSum',['../d7/d83/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4_1_1_diagnostic.html#af3b871c0941851046f6ed4ab87adddf9',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic']]],
   ['frctrl1_8',['FRCTRL1',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba7202902bdb5e98b1086fbc9fd7100629',1,'Lib::BSP::Display']]],
   ['frctrl2_9',['FRCTRL2',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba239fa48e9989811d70ce096a787c0d55',1,'Lib::BSP::Display']]],

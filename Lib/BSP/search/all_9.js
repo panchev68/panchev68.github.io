@@ -2,7 +2,7 @@ var searchData=
 [
   ['i_20o_20periferial_0',['Digital I/O Periferial',['../da/d9b/group___digital_peripheral.html',1,'']]],
   ['i2c_1',['i2c',['../d7/d12/struct_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_driver_base_1_1_config.html#abd51edc649e3ab49f048c31fa959e77a',1,'Lib::BSP::EEPROM::I2C::DriverBase::Config']]],
-  ['i2c_20eeprom_20memory_20drivers_2',['I2C EEPROM Memory Drivers',['../d7/d1a/group__i2c__eeprom.html',1,'']]],
+  ['i2c_20eeprom_20memory_20drivers_2',['I2C EEPROM Memory drivers',['../d7/d1a/group__i2c__eeprom.html',1,'']]],
   ['idleoff_3',['IDLEOFF',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba02f1a6c29d4fb0d5775b0a996e29ec25',1,'Lib::BSP::Display']]],
   ['idleon_4',['IDLEON',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba3b990a6f596db573e7d388dfb5721ef8',1,'Lib::BSP::Display']]],
   ['idmoff_5',['IDMOFF',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515bab69b1f5114f74ddf6e87942d173e530f',1,'Lib::BSP::Display']]],
@@ -11,7 +11,7 @@ var searchData=
   ['ili9341_8',['ILI9341',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#a62bc20ecfb713696b3f744fc5833d417',1,'Lib::BSP::Display::ILI9341'],['../d9/d23/group___display.html#ggabce278c9e48f7f4b0be0c20c7c142d73a56132a4ec9a1880f4963a4b9d8d7bfca',1,'Lib::BSP::Display::ILI9341']]],
   ['impl_9',['Impl',['../d3/d94/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_impl.html',1,'Lib::BSP::W25Q128JVSIQ::Impl'],['../d0/d45/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_version2_1_1_driver_1_1_impl.html',1,'Lib::BSP::XPT2046::Version2::Driver::Impl'],['../d3/d94/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_impl.html#a4ffae19acf3d3a8080880d1d7bf616fe',1,'Lib::BSP::W25Q128JVSIQ::Impl::Impl()'],['../d0/d45/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_version2_1_1_driver_1_1_impl.html#a5c3ee5cce12c8c8f6af9353119b709e0',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::Impl()']]],
   ['implement_20digital_20peripheral_20driver_10',['Implement Digital Peripheral Driver',['../d8/ddd/implement-digital-peripheral-driver.html',1,'']]],
-  ['incremental_20encoder_20driver_11',['Incremental Encoder Driver',['../d4/d97/group__encoder.html',1,'']]],
+  ['incremental_20encoder_20drivers_11',['Incremental Encoder drivers',['../d5/d94/group___encoder.html',1,'']]],
   ['individual_5fblock_5fsector_5flock_12',['INDIVIDUAL_BLOCK_SECTOR_LOCK',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7da250ab771a0cf18e297dd728a1d3a6d27',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['individual_5fblock_5fsector_5funlock_13',['INDIVIDUAL_BLOCK_SECTOR_UNLOCK',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7daff2174e896134864b7ff7c42718187bf',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['info_14',['Info',['../d6/d60/struct_lib_1_1_b_s_p_1_1_f_m_e_m_1_1_s_p_i_1_1_driver_base_1_1_info.html',1,'Lib::BSP::FMEM::SPI::DriverBase::Info'],['../d2/d7d/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_info.html',1,'Lib::BSP::W25Q128JVSIQ::Info']]],

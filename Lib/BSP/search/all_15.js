@@ -11,8 +11,9 @@ var searchData=
   ['vmctr1_8',['VMCTR1',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba429fb5d36816f6cec9d104a1c3098ef1',1,'Lib::BSP::Display']]],
   ['vmctr2_9',['VMCTR2',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba46487ad0c24c2b10e0145a3699304f31',1,'Lib::BSP::Display']]],
   ['volatile_5fsr_5fwrite_5fenable_10',['VOLATILE_SR_WRITE_ENABLE',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7da2dab8770f79478a603fdce1cc6946a03',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['vrhs_11',['VRHS',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515baa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
-  ['vscrdef_12',['VSCRDEF',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display']]],
-  ['vscrsadd_13',['VSCRSADD',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515badaaf3d170f76e19ffeed8fe25ef2a750',1,'Lib::BSP::Display']]],
-  ['vscsad_14',['VSCSAD',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba2c040526ab31d930a82ffcb730cbd399',1,'Lib::BSP::Display']]]
+  ['voltmeter_20drivers_11',['Voltmeter drivers',['../d5/d6a/group___voltmeter.html',1,'']]],
+  ['vrhs_12',['VRHS',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515baa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
+  ['vscrdef_13',['VSCRDEF',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display']]],
+  ['vscrsadd_14',['VSCRSADD',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515badaaf3d170f76e19ffeed8fe25ef2a750',1,'Lib::BSP::Display']]],
+  ['vscsad_15',['VSCSAD',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515ba2c040526ab31d930a82ffcb730cbd399',1,'Lib::BSP::Display']]]
 ];

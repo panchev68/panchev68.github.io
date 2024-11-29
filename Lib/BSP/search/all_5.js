@@ -1,12 +1,12 @@
 var searchData=
 [
   ['ecat_5freg_5fbase_5faddr_0',['ECAT_REG_BASE_ADDR',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a78da003e4c3ddb6d0917688052950152',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['eeprom_20memory_20drivers_1',['I2C EEPROM Memory Drivers',['../d7/d1a/group__i2c__eeprom.html',1,'']]],
+  ['eeprom_20memory_20drivers_1',['I2C EEPROM Memory drivers',['../d7/d1a/group__i2c__eeprom.html',1,'']]],
   ['emiterrorevent_2',['emitErrorEvent',['../d6/da2/class_lib_1_1_b_s_p_1_1_digital_peripheral_1_1_outputs_base.html#a866733e15fe6e17fef957e33b7c5201f',1,'Lib::BSP::DigitalPeripheral::OutputsBase']]],
   ['enable_5freset_3',['ENABLE_RESET',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a9e7e40062fd3d4026a69e924b51a5a7da307133468743d84278b97dfb95a4f301',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['enableoutputs_4',['enableOutputs',['../df/d04/class_lib_1_1_b_s_p_1_1_digital_peripheral_1_1_base.html#ab5d12dc398b6830021a398d04eb16893',1,'Lib::BSP::DigitalPeripheral::Base']]],
   ['enblable3g_5',['ENBLABLE3G',['../d1/d59/namespace_lib_1_1_b_s_p_1_1_display.html#afe2d246e2a2a5bc3699440ae4548515baf28ca416c600bf4f582df61824e0f822',1,'Lib::BSP::Display']]],
-  ['encoder_20driver_6',['Incremental Encoder Driver',['../d4/d97/group__encoder.html',1,'']]],
+  ['encoder_20drivers_6',['Incremental Encoder drivers',['../d5/d94/group___encoder.html',1,'']]],
   ['encoder_5fccw_7',['ENCODER_CCW',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b',1,'Lib::BSP::EncoderTimer']]],
   ['encoder_5fcw_8',['ENCODER_CW',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a4d2d8c2ad096e11ce5b644063a5916fda900afcef9f88f5d81725b2402b094404',1,'Lib::BSP::EncoderTimer']]],
   ['encoderpins_9',['EncoderPins',['../d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html',1,'Lib::BSP::EncoderPins'],['../d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html#afcfbb537534cec93efdea85076410c32',1,'Lib::BSP::EncoderPins::EncoderPins()']]],
