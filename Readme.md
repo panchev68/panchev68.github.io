@@ -1,1 +1,1 @@
-Mian page
+Main page
