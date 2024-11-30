@@ -1,13 +1,13 @@
 var annotated_dup =
 [
-    [ "Lib", "d5/de3/a00631.html", [
-      [ "System", "dc/d66/a00630.html", [
-        [ "Configuration", "d3/dbc/a01451.html", "d3/dbc/a01451" ],
-        [ "Parameters", "df/dc5/a01455.html", "df/dc5/a01455" ],
-        [ "ProduceDate", "df/d5e/a01467.html", "df/d5e/a01467" ],
-        [ "SerialNumber", "dd/d15/a01471.html", "dd/d15/a01471" ],
-        [ "System", "d7/d1d/a01475.html", "d7/d1d/a01475" ],
-        [ "Version", "d2/dc4/a01483.html", null ]
+    [ "Lib", "d7/de4/a00634.html", [
+      [ "System", "d9/d1d/a00633.html", [
+        [ "Configuration", "da/df6/a01454.html", "da/df6/a01454" ],
+        [ "Parameters", "d7/dd1/a01458.html", "d7/dd1/a01458" ],
+        [ "ProduceDate", "d0/da4/a01470.html", "d0/da4/a01470" ],
+        [ "SerialNumber", "df/d2f/a01474.html", "df/d2f/a01474" ],
+        [ "System", "d8/d7b/a01478.html", "d8/d7b/a01478" ],
+        [ "Version", "d0/d34/a01486.html", null ]
       ] ]
     ] ]
 ];
