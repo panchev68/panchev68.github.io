@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Lib::System Library", "index.html", [
+  [ "Lib::System", "index.html", [
     [ "System Library", "index.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
