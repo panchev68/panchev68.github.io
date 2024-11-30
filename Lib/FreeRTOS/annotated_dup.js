@@ -1,30 +1,29 @@
 var annotated_dup =
 [
-    [ "Lib", "d8/d87/a00118.html", [
-      [ "FreeRTOS", "d9/d4b/a00117.html", [
-        [ "Version1", "df/d6a/a00119.html", [
-          [ "EventGroup", "d9/dcc/a00102.html#d7/db6/a00940", "d9/dcc/a00102_d7/db6/a00940" ]
+    [ "Lib", "d2/da3/a00115.html", [
+      [ "FreeRTOS", "d8/d17/a00114.html", [
+        [ "Version1", "d4/d3e/a00116.html", [
+          [ "EventGroup", "da/d74/a00099.html#de/db9/a00937", "da/d74/a00099_de/db9/a00937" ]
         ] ],
-        [ "Version2", "d4/d98/a00120.html", [
-          [ "EventGroup", "d9/dcc/a00102.html#d9/dce/a00944", "d9/dcc/a00102_d9/dce/a00944" ]
+        [ "Version2", "d9/d4b/a00117.html", [
+          [ "EventGroup", "da/d74/a00099.html#d6/dad/a00941", "da/d74/a00099_d6/dad/a00941" ]
         ] ],
-        [ "EventGroup", "d9/dcc/a00102.html#d7/db6/a00940", "d9/dcc/a00102_d7/db6/a00940" ],
-        [ "Karnel", "d8/d18/a00948.html", "d8/d18/a00948" ],
-        [ "MemoryManager", "de/d49/a00952.html", null ],
-        [ "MessageBuffer", "dd/d42/a00109.html#d3/de5/a00956", "dd/d42/a00109_d3/de5/a00956" ],
-        [ "Mutex", "d3/d00/a00113.html#dd/d11/a00960", "d3/d00/a00113_dd/d11/a00960" ],
-        [ "Queue", "d8/d17/a00114.html#da/d17/a00964", "d8/d17/a00114_da/d17/a00964" ],
-        [ "QueueSet", "d2/da3/a00115.html#d7/dd4/a00968", "d2/da3/a00115_d7/dd4/a00968" ],
-        [ "Semaphore", "dd/d6d/a00111.html#de/d4e/a00972", "dd/d6d/a00111_de/d4e/a00972" ],
-        [ "SemaphoreBase", "d0/d85/a00976.html", "d0/d85/a00976" ],
-        [ "SemaphoreCounting", "db/d57/a00112.html#db/d20/a00980", "db/d57/a00112_db/d20/a00980" ],
-        [ "StreamBuffer", "d1/dd6/a00108.html#d2/d4c/a00984", "d1/dd6/a00108_d2/d4c/a00984" ],
-        [ "Task", "d5/d1e/a00103.html#d6/d48/a00988", "d5/d1e/a00103_d6/d48/a00988" ],
-        [ "TaskBase", "de/def/a01016.html", "de/def/a01016" ],
-        [ "TaskHelper", "d3/daa/a00996.html", "d3/daa/a00996" ],
-        [ "TickCounter", "d3/d32/a00105.html#d7/df2/a01000", "d3/d32/a00105_d7/df2/a01000" ],
-        [ "Timeout", "d7/d70/a00106.html#df/dbc/a01004", "d7/d70/a00106_df/dbc/a01004" ],
-        [ "Timer", "df/d98/a00107.html#dd/dac/a01008", "df/d98/a00107_dd/dac/a01008" ]
+        [ "EventGroup", "da/d74/a00099.html#de/db9/a00937", "da/d74/a00099_de/db9/a00937" ],
+        [ "Karnel", "d1/db0/a00945.html", "d1/db0/a00945" ],
+        [ "MemoryManager", "df/dc6/a00949.html", null ],
+        [ "MessageBuffer", "d7/d70/a00106.html#d5/da3/a00953", "d7/d70/a00106_d5/da3/a00953" ],
+        [ "Mutex", "d4/d81/a00110.html#d1/df7/a00957", "d4/d81/a00110_d1/df7/a00957" ],
+        [ "Queue", "dd/d6d/a00111.html#da/d45/a00961", "dd/d6d/a00111_da/d45/a00961" ],
+        [ "QueueSet", "db/d57/a00112.html#d3/dcd/a00965", "db/d57/a00112_d3/dcd/a00965" ],
+        [ "Semaphore", "d1/dd6/a00108.html#d7/dfd/a00969", "d1/dd6/a00108_d7/dfd/a00969" ],
+        [ "SemaphoreBase", "d3/da5/a00973.html", "d3/da5/a00973" ],
+        [ "SemaphoreCounting", "dd/d42/a00109.html#d5/d6c/a00977", "dd/d42/a00109_d5/d6c/a00977" ],
+        [ "StreamBuffer", "d3/d32/a00105.html#dd/d24/a00981", "d3/d32/a00105_dd/d24/a00981" ],
+        [ "Task", "d0/d61/a00100.html#da/deb/a00985", "d0/d61/a00100_da/deb/a00985" ],
+        [ "TaskHelper", "da/d0a/a00993.html", "da/d0a/a00993" ],
+        [ "TickCounter", "d9/dcc/a00102.html#d0/d28/a00997", "d9/dcc/a00102_d0/d28/a00997" ],
+        [ "Timeout", "d5/d1e/a00103.html#df/d59/a01001", "d5/d1e/a00103_df/d59/a01001" ],
+        [ "Timer", "d0/dc2/a00104.html#d7/d06/a01005", "d0/dc2/a00104_d7/d06/a01005" ]
       ] ]
     ] ]
 ];

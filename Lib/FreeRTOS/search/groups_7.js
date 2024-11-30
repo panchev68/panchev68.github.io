@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['semaphore_0',['Semaphore',['../dd/d6d/a00111.html',1,'Binary Semaphore'],['../db/d57/a00112.html',1,'Counting Semaphore']]],
-  ['semaphores_1',['Semaphores',['../d4/d81/a00110.html',1,'']]],
-  ['set_2',['Queue Set',['../d2/da3/a00115.html',1,'']]],
-  ['stream_20buffer_3',['Stream Buffer',['../d1/dd6/a00108.html',1,'']]]
+  ['semaphore_0',['Semaphore',['../d1/dd6/a00108.html',1,'Binary Semaphore'],['../dd/d42/a00109.html',1,'Counting Semaphore']]],
+  ['semaphores_1',['Semaphores',['../df/d98/a00107.html',1,'']]],
+  ['set_2',['Queue Set',['../db/d57/a00112.html',1,'']]],
+  ['stream_20buffer_3',['Stream Buffer',['../d3/d32/a00105.html',1,'']]]
 ];

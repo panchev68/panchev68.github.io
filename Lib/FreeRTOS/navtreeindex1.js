@@ -1,15 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"df/d98/a00107.html#abf96ca324425c788bf168e95245b71a6":[1,5,0,3],
-"df/d98/a00107.html#ac8c4d6f823ffe5bd524fea85e90eb06a":[1,5,0,10],
-"df/d98/a00107.html#af3c2744bbcd815754c6c7e5e63f68016":[1,5,0,18],
-"df/d98/a00107.html#af3daf1a7bfc60db804fa7ffd40641ca3":[1,5,0,15],
-"df/d98/a00107.html#af5e122fe357713f1537deeea7ada89ce":[1,5,0,7],
-"df/d98/a00107.html#afe787b1f6b5d8e2f703f529b04e14363":[1,5,0,1],
-"df/d98/a00107.html#dd/dac/a01008":[1,5,0],
-"examples.html":[3],
-"functions.html":[2,3,0],
-"functions.html":[2,3,0,0],
 "functions_b.html":[2,3,0,1],
 "functions_c.html":[2,3,0,2],
 "functions_d.html":[2,3,0,3],

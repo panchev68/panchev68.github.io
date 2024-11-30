@@ -1,40 +1,17 @@
 var a00103 =
 [
-    [ "Lib::FreeRTOS::Task", "d5/d1e/a00103.html#d6/d48/a00988", [
-      [ "Config", "d7/d76/a00992.html", [
-        [ "func", "d7/d76/a00992.html#aa1cbd9d531a85e7596228475c693fbee", null ],
-        [ "name", "d7/d76/a00992.html#a00c0ef217bb312f0820749a21f9cce6f", null ],
-        [ "priority", "d7/d76/a00992.html#a84c02b93bc259708fd276b6455cd4e4f", null ],
-        [ "stackDept", "d7/d76/a00992.html#a7f900c090524019231e8814381c6f352", null ]
-      ] ],
-      [ "Handle", "d5/d1e/a00103.html#a1226098e07f0f85c5f86c13598f9ce9a", null ],
-      [ "NotificationBits", "d5/d1e/a00103.html#a824c9deb92b92aab287df8f1e6bb998c", null ],
-      [ "NotifyAction", "d5/d1e/a00103.html#a849acb56b7fe43229168c9129244fe48", [
-        [ "NoAction", "d5/d1e/a00103.html#a849acb56b7fe43229168c9129244fe48a1e601ea653db1c729c9ee5746730fabe", null ],
-        [ "SetBits", "d5/d1e/a00103.html#a849acb56b7fe43229168c9129244fe48a5c843771bd2e2c4fd09e6082b6873c08", null ],
-        [ "Increment", "d5/d1e/a00103.html#a849acb56b7fe43229168c9129244fe48a6f15bdfa71aa83b0d197cad75757d580", null ],
-        [ "SetValueWithOverwrite", "d5/d1e/a00103.html#a849acb56b7fe43229168c9129244fe48a84e9c5698bde33c7e162fae5d977a1ec", null ],
-        [ "SetValueWithoutOverwrite", "d5/d1e/a00103.html#a849acb56b7fe43229168c9129244fe48a31e258677ea56c980d361e1252e0c7ba", null ]
-      ] ],
-      [ "Task", "d5/d1e/a00103.html#a3398372cc448469c49e79c19837bd979", null ],
-      [ "Task", "d5/d1e/a00103.html#a0160b0b2c967c122e0e0c47057858168", null ],
-      [ "~Task", "d5/d1e/a00103.html#affcb2cbb9100384ebfb6e0ebf722ff20", null ],
-      [ "create", "d5/d1e/a00103.html#a1ebfc9d28fec3731c77215b36339e9a1", null ],
-      [ "create", "d5/d1e/a00103.html#a54233e8ab915781c018a5506b23d1710", null ],
-      [ "getHandle", "d5/d1e/a00103.html#a3b137a55d761b1f78152e28b52130983", null ],
-      [ "getPriority", "d5/d1e/a00103.html#a8d6da28c3da519c4a394f0f1c838b039", null ],
-      [ "isCreated", "d5/d1e/a00103.html#a12077a348ae2dd242c12c341200968db", null ],
-      [ "notify", "d5/d1e/a00103.html#ad7b57636b4af3f226afafeb1fb44ef7d", null ],
-      [ "notifyAndQuery", "d5/d1e/a00103.html#a6fae5e9901f87803aa540d8624863c4f", null ],
-      [ "notifyAndQueryFromISR", "d5/d1e/a00103.html#a21f32eee3c9bc6571c41644688eddab1", null ],
-      [ "notifyFromISR", "d5/d1e/a00103.html#a1fd4751512e6cded198d4846f4799aeb", null ],
-      [ "notifyGive", "d5/d1e/a00103.html#a7ca5f301cfcdafa5f106994f9ec5e43a", null ],
-      [ "notifyGiveFromISR", "d5/d1e/a00103.html#a89ee126f85580f8c8a7b8b4188d2e500", null ],
-      [ "release", "d5/d1e/a00103.html#aae12872db39c580e601302f192b48050", null ],
-      [ "resume", "d5/d1e/a00103.html#ae553070505cda2f7dd78966e098b0814", null ],
-      [ "resumeFromISR", "d5/d1e/a00103.html#a840754926b0436a2efbcea0691ce737d", null ],
-      [ "setPriority", "d5/d1e/a00103.html#a4c5561255a112e0ef5c1a9348d854e56", null ],
-      [ "suspend", "d5/d1e/a00103.html#aaf1e23e56fa98ff0501f17c73337d511", null ],
-      [ "handle", "d5/d1e/a00103.html#a7b7e4594b6d91d56b869f265d60ed139", null ]
+    [ "Lib::FreeRTOS::Timeout", "d5/d1e/a00103.html#df/d59/a01001", [
+      [ "Timeout", "d5/d1e/a00103.html#a8c7119d3f819b0b73a98eec114c0d30b", null ],
+      [ "Timeout", "d5/d1e/a00103.html#a19ae87d13f16e5a7baabe2b161413651", null ],
+      [ "~Timeout", "d5/d1e/a00103.html#a4f2dfba861c373b6540e469c308f08b7", null ],
+      [ "check", "d5/d1e/a00103.html#a90af82736388b26add41da3886a12390", null ],
+      [ "disable", "d5/d1e/a00103.html#ae6a7d021b68b53dfcd6a3f9c6566ddde", null ],
+      [ "isDisable", "d5/d1e/a00103.html#a4b231b1cb4d749accbd86790c9d064c6", null ],
+      [ "operator uint32_t", "d5/d1e/a00103.html#a9822fb66e6f856de108727f9916fcd00", null ],
+      [ "operator+=", "d5/d1e/a00103.html#a2ed5bd685dddcae99312a5893457162a", null ],
+      [ "operator-=", "d5/d1e/a00103.html#a18796545c784b2e175cb6c893734d708", null ],
+      [ "operator=", "d5/d1e/a00103.html#a27a548cf01dc334119cb8cd0d0317ba6", null ],
+      [ "operator==", "d5/d1e/a00103.html#ab484ff778a0d1e45ef84fbb96d970a52", null ],
+      [ "set", "d5/d1e/a00103.html#a3dbcd64ec31d965a0222cd69a7bae477", null ]
     ] ]
 ];

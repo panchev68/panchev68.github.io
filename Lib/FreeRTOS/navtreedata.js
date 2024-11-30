@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Lib::FreeRTOS", "index.html", [
-    [ "Bug List", "d4/d3a/a00101.html", null ],
+    [ "Bug List", "d1/d44/a00098.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -46,7 +46,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"df/d98/a00107.html#abf96ca324425c788bf168e95245b71a6"
+"functions_b.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
