@@ -1,9 +1,10 @@
 var a01464 =
 [
-    [ "DateTime", "db/d8b/a01464.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "ProduceDate", "db/d8b/a01464.html#a9968e063dbe6a06225a03e1e7f59479d", null ],
-    [ "~ProduceDate", "db/d8b/a01464.html#a67a2a02b1507d400418a7fc37ba06966", null ],
-    [ "isEmpty", "db/d8b/a01464.html#a8e283a580bd673ea71227c819f3e1ced", null ],
-    [ "read", "db/d8b/a01464.html#a20e5a16f978c6b622409fb403fb191c2", null ],
-    [ "write", "db/d8b/a01464.html#a33840641869a3c6ec5f40e3893d3f8a9", null ]
+    [ "StorageBase", "df/df3/a01468.html", "df/df3/a01468" ],
+    [ "Parameters", "db/d8b/a01464.html#a6bdd06e11f661038aeb243a58760af46", null ],
+    [ "~Parameters", "db/d8b/a01464.html#a1e89694db632a004cf9db42e39e1dc7a", null ],
+    [ "getData", "db/d8b/a01464.html#afc14839c3c1a55fe5aeff91f840059b9", null ],
+    [ "restoreByDefault", "db/d8b/a01464.html#a68dd64d77b697a2b23b8298ad88b6600", null ],
+    [ "setup", "db/d8b/a01464.html#ad521c578c5a43082e0067bc6fc479f18", null ],
+    [ "write", "db/d8b/a01464.html#ab0ddfcac99ddbd96b3ba1716157b1c44", null ]
 ];

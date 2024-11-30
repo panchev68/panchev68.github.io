@@ -1,8 +1,10 @@
 var a01468 =
 [
-    [ "SerialNumber", "df/df3/a01468.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
-    [ "~SerialNumber", "df/df3/a01468.html#a454995c6e21a8effee4e4019c6e5656d", null ],
-    [ "operator std::string", "df/df3/a01468.html#a3709963a3a432039218bd34202b98f08", null ],
-    [ "operator uint32_t", "df/df3/a01468.html#a4a27d9e728d5c0e48be09780eee95052", null ],
-    [ "toString", "df/df3/a01468.html#ab71dcdccbf270e67c507c14287808b00", null ]
+    [ "StorageBase", "df/df3/a01468.html#add0be340d55ee940e56cfb7f302c1acc", null ],
+    [ "~StorageBase", "df/df3/a01468.html#a535f74dcdb40f34a87d60facef9c17b3", null ],
+    [ "close", "df/df3/a01468.html#a92c7c21387f2001eae28ad6c7e02cf3d", null ],
+    [ "open", "df/df3/a01468.html#ae2ce53b84ed1d88481b3e79ba6dede6d", null ],
+    [ "read", "df/df3/a01468.html#a76e900fdb8622a1d53f7bee8567f87c6", null ],
+    [ "write", "df/df3/a01468.html#aed4b5adeae154658b3fa6b8767c1e6a6", null ],
+    [ "Parameters", "df/df3/a01468.html#af2c47838465715d05124a81085fba34b", null ]
 ];
