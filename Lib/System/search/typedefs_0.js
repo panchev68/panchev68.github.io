@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['datetime_0',['DateTime',['../d0/da4/a01470.html#a0ce46a41b58672615f57aadbcd88fe18',1,'Lib::System::ProduceDate']]]
+  ['bitset_0',['Bitset',['../da/df7/a01457.html#ab48f7e68aa1f98a179164f2cf1cf73de',1,'Lib::System::Configuration']]]
 ];
