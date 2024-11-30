@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "Lib::System Library", "index.html", [
+  [ "Lib::System", "index.html", [
     [ "System Library", "index.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
@@ -37,7 +37,8 @@ var NAVTREE =
         [ "Typedefs", "functions_type.html", null ],
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
