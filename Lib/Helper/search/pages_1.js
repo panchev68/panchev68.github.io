@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_0',['Helper Library',['../index.html',1,'']]]
+  ['helper_20library_0',['Helper Library',['../index.html',1,'']]]
 ];
