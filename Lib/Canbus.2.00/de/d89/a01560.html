@@ -102,11 +102,140 @@ $(function(){initNavTree('de/d89/a01560.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Example Standalone Driver</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example Standalone CAN driver ///.</p>
-<p>Example Standalone CAN driver ///  </p>
-<p><code>Example Standalone CAN driver</code></p>
-<p>```cpp ///</p>
-<div class="fragment"> </div><!-- fragment --><p> Standalone Driver </p>
+<h1><a class="anchor" id="example-standalone-can-driver"></a>
+Example Standalone CAN driver</h1>
+<div class="fragment"><div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;can.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ************************************************************************</span></div>
+<div class="line"><span class="comment">//                               HAL Layer</span></div>
+<div class="line"><span class="comment">// ************************************************************************</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>HAL</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">class </span>CAN1Port : <span class="keyword">public</span> Canbus::Driver</div>
+<div class="line">    {</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">        CAN1Port () : Canbus::Driver (&amp;hcan1){};</div>
+<div class="line">    };</div>
+<div class="line">    </div>
+<div class="line">    HAL::CAN1Port can1Port;</div>
+<div class="line"> </div>
+<div class="line">}        <span class="comment">// namespace HAL</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ************************************************************************</span></div>
+<div class="line"><span class="comment">//                             OBD II Service</span></div>
+<div class="line"><span class="comment">// ************************************************************************</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>OBD2</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">class </span>Service</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> uint32_t OBD2_SENDER_ID   = 0x7df;</div>
+<div class="line">        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> uint32_t OBD2_RECEIVER_ID = 0x7e8;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line">    </div>
+<div class="line">        <span class="keywordtype">bool</span> Service::open ()</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// Open the driver...</span></div>
+<div class="line">    </div>
+<div class="line">            <span class="keywordflow">if</span> (_driver-&gt;open () == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">    </div>
+<div class="line">            <span class="comment">// Set the Filter...</span></div>
+<div class="line">    </div>
+<div class="line">            <span class="keyword">auto</span> filter                 = _driver-&gt;createFilter ();</div>
+<div class="line">            filter.FilterFIFOAssignment = CAN_FilterFIFO0;</div>
+<div class="line">            filter.FilterBank           = 14;</div>
+<div class="line">            filter.FilterMode           = CAN_FILTERMODE_IDMASK;</div>
+<div class="line">            filter.FilterScale          = CAN_FILTERSCALE_32BIT;</div>
+<div class="line">            filter.FilterActivation     = CAN_FILTER_ENABLE;</div>
+<div class="line">            filter.SlaveStartFilterBank = 14;</div>
+<div class="line">            filter.setId (OBD2_RECEIVER_ID);</div>
+<div class="line">    </div>
+<div class="line">            _driver-&gt;setFilter (filter);</div>
+<div class="line">    </div>
+<div class="line">            <span class="comment">// Start driver...</span></div>
+<div class="line">            <span class="keywordflow">if</span> (_driver-&gt;start () == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">    </div>
+<div class="line">            <span class="comment">// Create Service Tasks...</span></div>
+<div class="line">            <span class="keywordflow">if</span> (_taskRxMessage.create (<span class="stringliteral">&quot;OBD2_RX&quot;</span>, [<span class="keyword">this</span>] () { _taskFnRxMessage (); }) == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                assert (0);</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">    </div>
+<div class="line">            <span class="keywordflow">if</span> (_taskTxMessage.create (<span class="stringliteral">&quot;OBD2_TX&quot;</span>, [<span class="keyword">this</span>] () { _taskFnTxMessage (); }) == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                assert (0);</div>
+<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">private</span>:</div>
+<div class="line">    </div>
+<div class="line">        FreeRTOS::Task _taskRxMessage;</div>
+<div class="line">        FreeRTOS::Task _taskTxMessage;</div>
+<div class="line">        <span class="keywordtype">void</span> _taskFnRxMessage ();</div>
+<div class="line">        <span class="keywordtype">void</span> _taskFnTxMessage ();</div>
+<div class="line">        Canbus::Driver * _driver;</div>
+<div class="line">    };</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ********************************************************************</span></div>
+<div class="line">    <span class="comment">//                           Implementation</span></div>
+<div class="line">    <span class="comment">// ********************************************************************</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">void</span> Service::_taskFnRxMessage ()</div>
+<div class="line">    {</div>
+<div class="line">        Canbus::Message canMessage;</div>
+<div class="line">        <span class="keyword">auto</span> &amp; driver = *_driver;</div>
+<div class="line">    </div>
+<div class="line">        <span class="keywordflow">for</span> (;;)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="comment">// wait for a message</span></div>
+<div class="line">            _driver-&gt;receive (canMessage, portMAX_DELAY);</div>
+<div class="line">        }       </div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">void</span> Service::_taskFnTxMessage ()</div>
+<div class="line">    {</div>
+<div class="line">        uint8_t data [8];</div>
+<div class="line">        <span class="keywordflow">for</span> (;;)</div>
+<div class="line">        {</div>
+<div class="line">            <span class="keywordflow">if</span> (_driver-&gt;send (OBD2_SENDER_ID, &amp;data, sizeof (data)) == <span class="keyword">false</span>)</div>
+<div class="line">            {</div>
+<div class="line">                assert (0);</div>
+<div class="line">            }</div>
+<div class="line">            vTaskDelay (100);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// OBD II Service Instance</span></div>
+<div class="line">    <span class="keyword">inline</span> Service service;</div>
+<div class="line"> </div>
+<div class="line">}        <span class="comment">// namespace OBD2</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ************************************************************************</span></div>
+<div class="line"><span class="comment">//                                Startup</span></div>
+<div class="line"><span class="comment">// ************************************************************************</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> startup ()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (OBD2::service.open () == <span class="keyword">false</span>)</div>
+<div class="line">    {</div>
+<div class="line">        assert (0);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->  <div class="fragment"></div><!-- fragment --><p> Standalone Driver </p>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

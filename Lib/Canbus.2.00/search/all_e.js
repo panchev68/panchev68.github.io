@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['_7eservice_0',['~Service',['../d7/def/a01538.html#a30e6a9733d9f217ad7d68f54d009a286',1,'Lib::Canbus::Service&lt; Mode::CLIENT &gt;::~Service()'],['../d6/d02/a01542.html#aa70d5f9fd723805cc64c383864a55d17',1,'Lib::Canbus::Service&lt; Mode::SERVER &gt;::~Service()']]],
-  ['_7eservicebase_1',['~ServiceBase',['../d9/da1/a01546.html#a6594894f460fcebe7b8705a3ebca6938',1,'Lib::Canbus::ServiceBase']]]
+  ['taskfn_0',['taskFn',['../d7/def/a01538.html#ae31c6167214fdae44dad82822cfe4158',1,'Lib::Canbus::Service&lt; Mode::CLIENT &gt;::taskFn()'],['../d6/d02/a01542.html#adb2f1be9653b2e003159926c7e0deea1',1,'Lib::Canbus::Service&lt; Mode::SERVER &gt;::taskFn()'],['../d9/da1/a01546.html#a3f461c3e0f637c2be89463249c736b46',1,'Lib::Canbus::ServiceBase::taskFn()']]],
+  ['txmailboxabortcounter_1',['txMailboxAbortCounter',['../d7/d1d/a01554.html#a6176c9e8bec370d663cc4d97568af1fa',1,'Lib::Canbus::ServiceBase::Diagnostic']]]
 ];
