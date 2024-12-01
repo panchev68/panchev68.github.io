@@ -26,14 +26,6 @@ var NAVTREE =
 [
   [ "Lib::Canbus", "index.html", [
     [ "CAN bus Library", "index.html", "index" ],
-    [ "CAN bus How to calculate the speed", "d5/da8/a01865.html", null ],
-    [ "Canbus Server", "d3/d7e/a01866.html", [
-      [ "Class Diagram", "d3/d7e/a01866.html#class-diagram-1", null ],
-      [ "Implementation", "d3/d7e/a01866.html#implementation", [
-        [ "Data Application Layer", "d3/d7e/a01866.html#data-application-layer", null ]
-      ] ],
-      [ "Server class", "d3/d7e/a01866.html#canbusserver-class", null ]
-    ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
