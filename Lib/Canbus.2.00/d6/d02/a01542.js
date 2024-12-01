@@ -8,7 +8,7 @@ var a01542 =
     [ "~Service", "d6/d02/a01542.html#aa70d5f9fd723805cc64c383864a55d17", null ],
     [ "errorCallback", "d6/d02/a01542.html#a04e8cdbdabf606f93c7dcc3326df0ed4", null ],
     [ "getDiagnostic", "d6/d02/a01542.html#a568458f9461115a1ea8f443f2dfde355", null ],
-    [ "messageReceivedCallback", "d6/d02/a01542.html#ae271ee4a7061e5ab90cf33d058cecabe", null ],
+    [ "handleMessageReceivedEvent", "d6/d02/a01542.html#ace5b6e78c936db4750d314f03cc36411", null ],
     [ "postScanCallback", "d6/d02/a01542.html#a27104580b1fc9e02b6d14d4b5246238f", null ],
     [ "receive", "d6/d02/a01542.html#a436a6d1994f0c8c7cfbcebb1f8c0c8b5", null ],
     [ "send", "d6/d02/a01542.html#a8e25405c853d41579c8a88a9c39864f7", null ],

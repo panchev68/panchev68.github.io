@@ -8,7 +8,7 @@ var a01546 =
     [ "~ServiceBase", "d9/da1/a01546.html#a6594894f460fcebe7b8705a3ebca6938", null ],
     [ "errorCallback", "d9/da1/a01546.html#a04e8cdbdabf606f93c7dcc3326df0ed4", null ],
     [ "getDiagnostic", "d9/da1/a01546.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "d9/da1/a01546.html#a951b4b6393bde3655d9e93c6cc27dfd4", null ],
+    [ "handleMessageReceivedEvent", "d9/da1/a01546.html#a3a80ef9b7cbc02c431b38e3a74755b34", null ],
     [ "receive", "d9/da1/a01546.html#a436a6d1994f0c8c7cfbcebb1f8c0c8b5", null ],
     [ "send", "d9/da1/a01546.html#ad9db034a5b60601331e54ab3b10a1cec", null ],
     [ "send", "d9/da1/a01546.html#a7c10ffd112e84fe6db1920a7db59b8bc", null ],
