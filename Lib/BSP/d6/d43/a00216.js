@@ -1,23 +1,27 @@
 var a00216 =
 [
-    [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >", "d5/d0f/a00494.html", [
-      [ "Diagnostic", "d8/d57/a00498.html", [
-        [ "calculatedChkSum", "d8/d57/a00498.html#a13cf37b40e2b540d6b16616b3e69bfda", null ],
-        [ "frameChkSum", "d8/d57/a00498.html#af3b871c0941851046f6ed4ab87adddf9", null ],
-        [ "invalidFrameChkSum", "d8/d57/a00498.html#a014e643e2ec9665f6ff212341daa3665", null ],
-        [ "invalidHumidity", "d8/d57/a00498.html#a08b5247668e8957187a114c7edf63329", null ],
-        [ "invalidTemperature", "d8/d57/a00498.html#acb352564038d7025feb76bc120546473", null ],
-        [ "receivedTimeout", "d8/d57/a00498.html#ae243a8eeb3acdf578336c5ed9c189226", null ]
+    [ "Lib::BSP::Display::Driver< Controller >", "db/d53/a00321.html", null ],
+    [ "Lib::BSP::Display::Driver< Controller::ILI9341 >", "de/dc8/a00325.html", [
+      [ "Config", "dd/d4e/a00329.html", [
+        [ "di", "dd/d4e/a00329.html#aabf98a5ad309f2431fa7e7a31917ee85", null ],
+        [ "nrst", "dd/d4e/a00329.html#a2791788a0dacca54af259e2dd4843a79", null ],
+        [ "nss", "dd/d4e/a00329.html#ad81053b0c52295a482ff9145a6c44035", null ],
+        [ "spi", "dd/d4e/a00329.html#a1b22f2a90a16913b575e01266ea10035", null ]
       ] ],
-      [ "Driver", "d5/d0f/a00494.html#a494b132eb2516cd8361a2812f93dfeaf", null ],
-      [ "~Driver", "d5/d0f/a00494.html#af1cf24fdeb56661898c3aee37e94bffc", null ],
-      [ "getHumidity", "d5/d0f/a00494.html#a09b3175343f41199742a8c374d1fb72a", null ],
-      [ "getRawHumidity", "d5/d0f/a00494.html#a9e008b36bb2a4e9fffd9c6ef34d83be9", null ],
-      [ "getRawTemperature", "d5/d0f/a00494.html#a13f94917526f41817a367260352b4495", null ],
-      [ "getTemperature", "d5/d0f/a00494.html#a8ae02b3f89e4456053b20adcea8d4e4b", null ],
-      [ "isChanged", "d5/d0f/a00494.html#a92691682a6c04798d1beef608643021a", null ],
-      [ "start", "d5/d0f/a00494.html#a11df3bdf95bc4ca3a1b88d18e58557ff", null ],
-      [ "diagnostic", "d5/d0f/a00494.html#af5b30dbc5cd2e90fb979fc1e992ed178", null ]
+      [ "Driver", "de/dc8/a00325.html#aa297a4eb9cb6f85132d416ba012b0baa", null ],
+      [ "~Driver", "de/dc8/a00325.html#aee5bc4c7d5ac7ad78bc7320eb3e78935", null ],
+      [ "getTransferActive", "de/dc8/a00325.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
+      [ "init", "de/dc8/a00325.html#a73272e5dc75179573dc0e1116d0bdafd", null ],
+      [ "postInitCallback", "de/dc8/a00325.html#a5848e189d34c1797278359b6baca2453", null ],
+      [ "setBacklight", "de/dc8/a00325.html#af7de5a6b1d3c4d2cfc9fb4015c09396a", null ],
+      [ "setRotation", "de/dc8/a00325.html#a5f0da430b5306f52d21febcfc1644700", null ],
+      [ "setTransmitActive", "de/dc8/a00325.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
+      [ "shouldTransferBlock", "de/dc8/a00325.html#a77aefcf37afba46fc380bc49be704ee1", null ],
+      [ "transferCpltCallback", "de/dc8/a00325.html#a6382af7ea243103ca8616c6050667a84", null ],
+      [ "transmitBlock", "de/dc8/a00325.html#ae85f4059383696c97f769a5be9cfb6be", null ]
     ] ],
-    [ "Lib::BSP::Termometer::DTH::DTH22", "d6/d43/a00216.html#gab74242c0b383bb983737c6fc6ad9ca61", null ]
+    [ "Lib::BSP::Display::Controller", "d6/d43/a00216.html#gabce278c9e48f7f4b0be0c20c7c142d73", [
+      [ "Lib::BSP::Display::Controller::ILI9341", "d6/d43/a00216.html#ggabce278c9e48f7f4b0be0c20c7c142d73a56132a4ec9a1880f4963a4b9d8d7bfca", null ],
+      [ "Lib::BSP::Display::Controller::ST7789", "d6/d43/a00216.html#ggabce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199", null ]
+    ] ]
 ];
