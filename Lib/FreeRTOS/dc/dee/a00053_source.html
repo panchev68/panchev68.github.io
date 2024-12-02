@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Karnel.hpp Source File</title>
+<title>Lib::FreeRTOS: EventGroup_v2.hpp Source File</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,270 +99,326 @@ $(function(){initNavTree('dc/dee/a00053_source.html','../../'); initResizable(tr
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Karnel.hpp</div></div>
+  <div class="headertitle"><div class="title">EventGroup_v2.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/// \brief Karnel class</span><span class="comment"></span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/// Event Group class</span><span class="comment"></span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/// \file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// \version 1 \date 14.11.2024</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// \date 24.08.2023</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/da3/a00115.html">Lib::FreeRTOS</a></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{<span class="comment"></span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    /// \brief Karnel class</span></div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html">   10</a></span><span class="comment"></span>    <span class="keyword">class </span><a class="code hl_class" href="../../da/d40/a00946.html">Karnel</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"></span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">        /// \brief Scheduler state enum</span></div>
-<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a7d7707885a509b7666461c3040d69b9b">   15</a></span><span class="comment"></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../da/d40/a00946.html#a7d7707885a509b7666461c3040d69b9b">SchedulerState</a> : BaseType_t</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>            Suspended  = taskSCHEDULER_SUSPENDED,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>            NotStarted = taskSCHEDULER_NOT_STARTED,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>            Running    = taskSCHEDULER_RUNNING,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        };</div>
-</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">        /// \brief Karnel constructor</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a56ef75156dd525a4a074e0463aa0abdd">   23</a></span><span class="comment"></span>        <a class="code hl_function" href="../../da/d40/a00946.html#a56ef75156dd525a4a074e0463aa0abdd">Karnel</a> () = <span class="keyword">delete</span>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;event_groups.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;bitset&gt;</span>        <span class="comment">// https://cplusplus.com/reference/bitset/bitset/</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">// see: https://github.com/jonenz/FreeRTOS-Cpp/blob/develop/FreeRTOS-Cpp/include/FreeRTOS/EventGroups.hpp</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/dfa/a00121.html">Lib::FreeRTOS</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keyword">inline</span> <span class="keyword">namespace </span>Version2</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {<span class="comment"></span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">        /// \brief Event Group class</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">        /// \details #Event Group class</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">        /// \see [Event groups and event bits API functions](https://www.freertos.org/Documentation/02-Kernel/04-API-references/12-Event-groups-or-flags/00-Event-groups)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">        /// \ingroup EventGroup</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html">   20</a></span><span class="comment"></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d3/d32/a00105.html#d8/d18/a00948">EventGroup</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            <span class="keyword">using </span>TickType = TickType_t;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">using </span>Handle   = EventGroupHandle_t;</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#if (INCLUDE_xTaskGetSchedulerState == 1)</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">        /// \brief Get scheduler state</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">        /// \details Function that calls &lt;tt&gt;xTaskGetSchedulerState()&lt;/tt&gt;</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">        /// \see &lt;https://www.freertos.org/a00021.html#xTaskGetSchedulerState&gt;</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /// \retval SchedulerState Returns the scheduler state as Running, NotStarted, or           Suspended.</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"></span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">static</span> <a class="code hl_enumeration" href="../../da/d40/a00946.html#a7d7707885a509b7666461c3040d69b9b">SchedulerState</a> getSchedulerState ()</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="../../da/d40/a00946.html#a7d7707885a509b7666461c3040d69b9b">SchedulerState</a><span class="keyword">&gt;</span> (xTaskGetSchedulerState ());</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">        /// \brief Get the Number Of Tasks</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">        /// \details Function that calls &lt;tt&gt;uxTaskGetNumberOfTasks()&lt;/tt&gt;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">        /// \return UBaseType_t The number of tasks that the real time kernel iscurrently managing. This includes all ready, blocked and suspended tasks.</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">        /// A task that has been deleted but not yet freed by the idle task will also be included in the count.</span></div>
-<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a8052b055d5b7bb1ff0155a9e1298a7f5">   42</a></span><span class="comment"></span>        UBaseType_t <a class="code hl_function" href="../../da/d40/a00946.html#a8052b055d5b7bb1ff0155a9e1298a7f5">getNumberOfTasks</a> ()</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            <span class="keywordflow">return</span> uxTaskGetNumberOfTasks ();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#if (configTICK_TYPE_WIDTH_IN_BITS == TICK_TYPE_WIDTH_16_BITS)</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            <span class="keyword">using </span>EventBits = std::bitset&lt;8&gt;;        <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#elif (configTICK_TYPE_WIDTH_IN_BITS == TICK_TYPE_WIDTH_32_BITS)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keyword">using </span>EventBits = std::bitset&lt;24&gt;;        <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#elif (configTICK_TYPE_WIDTH_IN_BITS == TICK_TYPE_WIDTH_64_BITS)</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            <span class="keyword">using </span>EventBits = std::bitset&lt;56&gt;;        <span class="comment">// NOLINT</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#pragma region Constructor and destructor</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">            /// \brief EventGroup constructor</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a90c4256d066b7d14dc3f935e0c3f55d4">   38</a></span><span class="comment"></span>            <a class="code hl_function" href="../../d3/d32/a00105.html#a90c4256d066b7d14dc3f935e0c3f55d4">EventGroup</a> () : _handle (nullptr)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            }</div>
 </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#if (INCLUDE_xTaskGetIdleTaskHandle == 1 &amp;&amp; configGENERATE_RUN_TIME_STATS == 1)</span><span class="comment"></span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">        /// \brief Function that calls &lt;tt&gt;xTaskGetIdleRunTimeCounter()&lt;/tt&gt;</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">        /// \see &lt;https://www.freertos.org/a00021.html#vTaskGetIdleRunTimeCounter&gt;</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">        /// \retval TickType_t The run-time counter for the Idle task.</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">        /// This function can be used to determine how much CPU time the idle task</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">        /// receives.  See the Run Time Stats page for a full description of the</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">        /// run-time-stats feature.</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">        /// configGENERATE_RUN_TIME_STATS and INCLUDE_xTaskGetIdleTaskHandle must both be</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">        /// defined as 1 for this function to be available.  The application must also</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">        /// then provide definitions for portCONFIGURE_TIMER_FOR_RUN_TIME_STATS() and</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">        /// portGET_RUN_TIME_COUNTER_VALUE to configure a peripheral timer/counter and</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">        /// return the timer&#39;s current count value respectively.  It is recommended to</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">        /// make the timer at least 10 times the frequency of the tick count.</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        TickType_t getIdleRunTimeCounter ()</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordflow">return</span> xTaskGetIdleRunTimeCounter ();</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        }</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">#pragma region Tick counter</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">        /// \brief Gets the tick counter</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">        /// \details Function that calls &lt;tt&gt;xTaskGetTickCount()&lt;/tt&gt;</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">        /// \retval TickType_t The count of ticks since FreeRTOS::Kernel::startScheduler() was called.</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        /// \see &lt;https://www.freertos.org/a00021.html#xTaskGetTickCount&gt;</span></div>
-<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a80413fef80c962f92b4d4a58942e431f">   77</a></span><span class="comment"></span>        <span class="keyword">static</span> TickType_t <a class="code hl_function" href="../../da/d40/a00946.html#a80413fef80c962f92b4d4a58942e431f">getTickCount</a> ()</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span> xTaskGetTickCount ();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">            /// \brief EventGroup destructor</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="}">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a20730d499cb59a628a67564c0575ecb2">   43</a></span><span class="comment"></span>            <a class="code hl_function" href="../../d3/d32/a00105.html#a20730d499cb59a628a67564c0575ecb2">~EventGroup</a> ()</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                assert ((isValid () == <span class="keyword">false</span>) &amp;&amp; <span class="stringliteral">&quot;The EventGroup must be released before the object is destroyed&quot;</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            }</div>
 </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">        /// \brief Gets the Tick Count From ISR</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">        /// \details Function that calls &lt;tt&gt;xTaskGetTickCountFromISR()&lt;/tt&gt;</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">        /// \see [getTickCountFromISR ()](https://www.freertos.org/a00021.html#xTaskGetTickCountFromISR)</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">        /// \return  TickType_t The count of ticks since</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">        /// \note This is a version of FreeRTOS::Kernel::getTickCount() that is safe to be called from an ISR - provided that TickType_t is the natural word size of the microcontroller being used or interrupt nesting is either not supported or not being used.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#pragma region Create / Release functions</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">            /// \brief Create the event group</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">            /// \return \b true on successful creation of the EventGroup</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">            /// \sa [xEventGroupCreate()](https://www.freertos.org/Documentation/02-Kernel/04-API-references/12-Event-groups-or-flags/01-xEventGroupCreate)</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a19b94bda7851e3bf6c3e032508d17dca">   55</a></span><span class="comment"></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d32/a00105.html#a19b94bda7851e3bf6c3e032508d17dca">create</a> ()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">if</span> (isValid () == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                    assert (0 &amp;&amp; <span class="stringliteral">&quot;The EventGroup is allready created&quot;</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                _handle = xEventGroupCreate ();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                <span class="keywordflow">if</span> (isValid () == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                    assert (0 &amp;&amp; <span class="stringliteral">&quot;Error creating EventGroup&quot;</span>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            }</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">            /// \brief Delete an event group that was previously created</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">            /// \sa [vEventGroupDelete()](https://www.freertos.org/Documentation/02-Kernel/04-API-references/12-Event-groups-or-flags/03-vEventGroupDelete)</span></div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#ae9e77dd78fd86b31e965ff43e13c20a8">   74</a></span><span class="comment"></span>            <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d32/a00105.html#ae9e77dd78fd86b31e965ff43e13c20a8">release</a> ()</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                <span class="keywordflow">if</span> (isValid () == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                    vEventGroupDelete (_handle);        <span class="comment">// deletes the event group</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    _handle = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                <span class="keywordflow">else</span> assert (0 &amp;&amp; <span class="stringliteral">&quot;EventGroup has not been created or is already released&quot;</span>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#pragma region Set / SetFromISR functions</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"></span> </div>
-<div class="foldopen" id="foldopen00088" data-start="{" data-end="}">
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a9228e4fa685f97d7a7e5a53b876a2822">   88</a></span>        <span class="keyword">static</span> TickType_t <a class="code hl_function" href="../../da/d40/a00946.html#a9228e4fa685f97d7a7e5a53b876a2822">getTickCountFromISR</a> ()</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordflow">return</span> xTaskGetTickCountFromISR ();</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">            /// \brief Set bits (flags) within an RTOS event group.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">            /// Set bits (flags) within an RTOS event group. This function cannot be called from an interrupt.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">            /// `xEventGroupSetBitsFromISR()`  is a version that can be called from an interrupt.</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">            /// Setting bits in an event group will automatically unblock tasks that are blocked waiting for the bits.The</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">            /// RTOS source file  `FreeRTOS/source/event_groups.c` must be included in the build for the</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">            /// xEventGroupSetBits() function to be available.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">            /// \return</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">            /// The value of the event group at the time the call to `xEventGroupSetBits()` returns.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">            /// There are two reasons why the returned value might have the bits specifiedby the `uxBitsToSet`</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">            /// parameter cleared: If setting a bit results in a task that was waiting for the bit leaving the blocked state</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">            /// then it is possible the bit will have been cleared automatically (see the `xClearBitOnExit` parameter of</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">            /// `xEventGroupWaitBits()`). Any unblocked (or otherwise Ready state) task that has a priority above that of the</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">            /// task that called `xEventGroupSetBits ()` will execute and may change the event group value before the call to</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">            /// `xEventGroupSetBits ()` returns.</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">            /// \sa [xEventGroupSetBits()](https://www.freertos.org/xEventGroupSetBits.html)</span></div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a1132587369cd78e1ae49976bf1ef9bae">  104</a></span><span class="comment"></span>            EventBits <a class="code hl_function" href="../../d3/d32/a00105.html#a1132587369cd78e1ae49976bf1ef9bae">setBits</a> (<span class="keyword">const</span> EventBits &amp; bitsToSet)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                <span class="keywordflow">return</span> EventBits (xEventGroupSetBits (_handle, bitsToSet.to_ulong ()));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            }</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="preprocessor">#pragma region Task yield</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"></span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">        /// \brief Task yield</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">        /// \details Function that calls &lt;tt&gt;taskYIELD()&lt;/tt&gt;</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">        /// FreeRTOS::Kernel::yield () is used to request a context switch to another * task.However,if there are no other tasks at a higher or equal priority to * the task that calls FreeRTOS::Kernel::yield () then the RTOS scheduler will * simply select the task that called FreeRTOS::Kernel::yield () to run again.</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">        /// \see [taskYIELD](https://www.freertos.org/a00020.html#taskYIELD)</span></div>
-<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a123c155f71838182957a8c5d6946af84">  101</a></span><span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d40/a00946.html#a123c155f71838182957a8c5d6946af84">yield</a> ()</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            taskYIELD ();</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        }</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"></span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">            /// \brief Set bits (flags) within an RTOS event group form an interrupt service routine (ISR).</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">            /// Function that calls ```BaseType_t xEventGroupSetBitsFromISR( EventGroupHandle_t xEventGroup, const</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">            /// EventBits_t uxBitsToSet, BaseType_t *pxHigherPriorityTaskWoken )```</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">            /// \see [xEventGroupSetBitsFromISR()](https://www.freertos.org/xEventGroupSetBitsFromISR.html)</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">            /// \bug Calling xTimerPendFunctionCallFromISR()</span></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a96295db2aab48d095de1acb1db84891c">  116</a></span><span class="comment"></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d32/a00105.html#a96295db2aab48d095de1acb1db84891c">setBitsFromISR</a> (<span class="keyword">const</span> EventBits &amp; bitsToSet)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                BaseType_t woken (pdFALSE);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                <span class="keywordflow">if</span> (xEventGroupSetBitsFromISR (_handle, bitsToSet.to_ulong (), &amp;woken) == pdPASS)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>                {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                    portYIELD_FROM_ISR (woken);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>                    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                    assert (0);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            }</div>
 </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#pragma region Critical section</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> enterCritical ()</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            taskENTER_CRITICAL ();</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"></span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">        /// \brief Enter critical section from ISR</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">        /// \return uint32_t the interrupt mask state as it was before the macro was called. The value returned by FreeRTOS::Kernel::enterCriticalFromISR() must be used as the interruptStatus parameter in the matching call to</span></div>
-<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a59e8799ae9b518180ee97c408da1d6bd">  117</a></span><span class="comment"></span>        <span class="keyword">static</span> uint32_t <a class="code hl_function" href="../../da/d40/a00946.html#a59e8799ae9b518180ee97c408da1d6bd">enterCriticalFromISR</a> ()</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        {</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="keywordflow">return</span> taskENTER_CRITICAL_FROM_ISR ();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
-</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> exitCritical ()</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        {</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            taskEXIT_CRITICAL ();</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordtype">void</span> exitCriticalFromISR (<span class="keyword">const</span> uint32_t interruptStatus)</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            taskEXIT_CRITICAL_FROM_ISR (interruptStatus);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#pragma region Enable/Disable interrupts</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="preprocessor">#pragma region Get / GetFtomISR functions</span></div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"></span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">        /// \brief Enable interrupts</span></div>
-<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#abed6565a2bc0e0fd61334be341bd3847">  137</a></span><span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d40/a00946.html#abed6565a2bc0e0fd61334be341bd3847">enableInterrupts</a> ()</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        {</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            taskENABLE_INTERRUPTS ();</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">            /// \brief Returns the current value of the event bits (event flags) in an RTOS event group.</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">            /// \see [xEventGroupGetBits](https://www.freertos.org/xEventGroupGetBits.html)</span></div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#ae04bdb843d6eadf07b4fd1b6f3e6c3d7">  138</a></span><span class="comment"></span>            EventBits <a class="code hl_function" href="../../d3/d32/a00105.html#ae04bdb843d6eadf07b4fd1b6f3e6c3d7">getBits</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                <span class="keywordflow">return</span> xEventGroupGetBits (_handle);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            }</div>
 </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"></span> </div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">        /// \brief Disable interrupts</span></div>
-<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a793d9f14fcb50dd90d2d7e209661ea8b">  143</a></span><span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d40/a00946.html#a793d9f14fcb50dd90d2d7e209661ea8b">disableInterrupts</a> ()</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        {</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            taskDISABLE_INTERRUPTS ();</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment"></span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">            /// \brief Get the bits trom ISR</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">            /// Function that calls &#39;&#39;&#39;EventBits_t xEventGroupGetBitsFromISR( EventGroupHandle_t xEventGroup )&#39;&#39;&#39;</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">            /// \return EventBits The value of the event bits in the event group at the time getFromISR() was called.</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"></span> </div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="}">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a2a5a988886bc9255dc4c4d378bcb07db">  149</a></span>            EventBits <a class="code hl_function" href="../../d3/d32/a00105.html#a2a5a988886bc9255dc4c4d378bcb07db">getBitsFromISR</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                <span class="keywordflow">return</span> xEventGroupGetBitsFromISR (_handle);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            }</div>
 </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="preprocessor">#pragma region Start/End the scheduler</span></div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"></span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">        /// \brief Starts the scheduler</span></div>
-<div class="foldopen" id="foldopen00153" data-start="{" data-end="}">
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a08a2d0960f1b4ce8e39eb68cfc07bfbd">  153</a></span><span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d40/a00946.html#a08a2d0960f1b4ce8e39eb68cfc07bfbd">startScheduler</a> ()</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        {</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            vTaskStartScheduler ();</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        }</div>
-</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment"></span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">        /// \brief</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">        /// \details</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        /// Stops the real time kernel tick.  All created tasks will be automatically deleted and multitasking (either preemptive or cooperative) will stop.</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">        /// Execution then resumes from the point where FreeRTOS::Kernel::startScheduler() was called, as if FreeRTOS::Kernel::startScheduler() had just returned.</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">        /// \note At the time of writing only the x86 real mode port, which runs on a PC in place of DOS, implements this function.</span></div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        /// \see [vTaskEndScheduler ()](https://www.freertos.org/a00133.html)</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="preprocessor">#pragma region Clear / ClearFromISR functions</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"></span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">            /// \brief Clear bits within an RTOS event group.</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">            /// Function that calls ```EventBits_t xEventGroupClearBits( EventGroupHandle_t xEventGroup, const EventBits_t</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">            /// uxBitsToClear )```</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">            /// \return EventBits The value of the event group before the specified bits were cleared.</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">            /// \see [xEventGroupClearBits()](https://www.freertos.org/xEventGroupClearBits.html)</span></div>
 <div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a7d8dbd23216c7f5ba1f65f5abfab8766">  165</a></span><span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../da/d40/a00946.html#a7d8dbd23216c7f5ba1f65f5abfab8766">endScheduler</a> ()</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            vTaskEndScheduler ();</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        }</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a301cf3cec12a46fc1fef8fabad2b8792">  165</a></span><span class="comment"></span>            EventBits <a class="code hl_function" href="../../d3/d32/a00105.html#a301cf3cec12a46fc1fef8fabad2b8792">clearBits</a> (<span class="keyword">const</span> EventBits &amp; bitsToClear)</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                <span class="keywordflow">return</span> EventBits (xEventGroupClearBits (_handle, bitsToClear.to_ulong ()));</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            }</div>
 </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#pragma region Suspend/ Resume all</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> resumeAll ()</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        {</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">return</span> (xTaskResumeAll () == pdTRUE);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> suspendAll ()</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        {</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            vTaskSuspendAll ();</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        <span class="comment">// https://github.com/jonenz/FreeRTOS-Cpp/blob/5194b2e7cb97d6747761bb80609b87752ec71b5d/FreeRTOS-Cpp/include/FreeRTOS/Kernel.hpp#L399</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">#if (configUSE_TICKLESS_IDLE != 0)</span><span class="comment"></span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">        /// \brief</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">        /// \details</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">        /// Only available when configUSE_TICKLESS_IDLE is set to 1.  If tickless mode is</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">        /// being used, or a low power mode is implemented, then the tick interrupt will</span></div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">        /// not execute during idle periods.  When this is the case, the tick count value</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">        /// maintained by the scheduler needs to be kept up to date with the actual</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">        /// execution time by being skipped forward by a time equal to the idle period.</span></div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">        /// \param ticksToJump - he number of RTOS ticks that have passed since the tick interrupt was stopped.</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> stepTick (<span class="keyword">const</span> TickType_t ticksToJump)</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        {</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            vTaskStepTick (ticksToJump);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"></span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">        /// \brief</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">        ///</span></div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment">        /// \details Function that calls &lt;tt&gt;xTaskCatchUpTicks( TickType_t xTicksToCatchUp</span></div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">        /// \param ticksToCatchUp - he number of tick interrupts that have been</span></div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">        /// missed due to interrupts being disabled.  Its value is not computed</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">        /// automatically, so must be computed by the application writer.</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">        /// \return true If moving the tick count forward resulted in a task leaving the blocked state and a context switch being performed.</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">        /// \return false Otherwise.</span></div>
-<div class="foldopen" id="foldopen00212" data-start="{" data-end="}">
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="../../da/d40/a00946.html#a7f48b15af0c47de58c1753bd8db58741">  212</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../da/d40/a00946.html#a7f48b15af0c47de58c1753bd8db58741">catchUpTicks</a> (<span class="keyword">const</span> TickType_t ticksToCatchUp)</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        {</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>            <span class="keywordflow">return</span> (xTaskCatchUpTicks (ticksToCatchUp) == pdTRUE);</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"></span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">            /// \brief Clear bits  within an RTOS event group form an interrupt service routine (ISR).</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">            /// Function that calls ```BaseType_t xEventGroupClearBitsFromISR( * EventGroupHandle_t xEventGroup, const</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">            /// EventBits_t uxBitsToClear )```</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">            /// \see</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="comment">            /// [xEventGroupClearBitsFromISR()](https://www.freertos.org/xEventGroupClearBitsFromISR.html)</span></div>
+<div class="foldopen" id="foldopen00177" data-start="{" data-end="}">
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#a3cdc31e7ccbd4f0018833689a7604218">  177</a></span><span class="comment"></span>            <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d32/a00105.html#a3cdc31e7ccbd4f0018833689a7604218">clearBitsFromISR</a> (<span class="keyword">const</span> EventBits &amp; bitsToClear)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                <span class="keywordflow">return</span> (xEventGroupClearBitsFromISR (_handle, bitsToClear.to_ulong ()) == pdPASS);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            }</div>
 </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    };</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="preprocessor">#pragma region Wait for a bits function</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment"></span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">            /// \brief Wait for a bits</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">            /// \param bitsToWait</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">            /// A bitwise value that indicates the bit or bits to test inside the event group</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">            /// \param clearOnExit</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">            /// is set to pdTRUE then any bits set in the value passed as the uxBitsToWaitFor</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">            /// parameter will be cleared in the event group before</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">            /// \param waitForAllBytes</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">            /// is used to create either a logical AND test (where all bits must be set) or a logical OR test (where one or</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">            /// more bits must be set) as follows</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">            /// \param ticksToWait</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">            /// The maximum amount of time (specified in &#39;ticks&#39;) to wait for one/all (depending on the xWaitForAllBits</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">            /// value) of the bits specified by uxBitsToWaitFor to become set.</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">            /// \see</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">            /// [xEventGroupWaitBits()](https://www.freertos.org/Documentation/02-Kernel/04-API-references/12-Event-groups-or-flags/04-xEventGroupWaitBits)</span></div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#ad35c3c4ee47bf37fc450d06c3912237c">  201</a></span><span class="comment"></span>            EventBits <a class="code hl_function" href="../../d3/d32/a00105.html#ad35c3c4ee47bf37fc450d06c3912237c">waitForBits</a> (<span class="keyword">const</span> EventBits &amp; bitsToWaitFor = 0, <span class="keywordtype">bool</span> clearOnExit = <span class="keyword">false</span>, <span class="keywordtype">bool</span> waitForAllBits = <span class="keyword">false</span>, TickType ticksToWait = portMAX_DELAY)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                <span class="keywordflow">return</span> EventBits (xEventGroupWaitBits (_handle,</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                                                       bitsToWaitFor.to_ulong (),</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                                                       (clearOnExit ? pdTRUE : pdFALSE),</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                                                       (waitForAllBits ? pdTRUE : pdFALSE),</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                                                       ticksToWait));</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            }</div>
 </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>}        <span class="comment">// namespace Lib::FreeRTOS</span></div>
-<div class="ttc" id="aa00115_html"><div class="ttname"><a href="../../d2/da3/a00115.html">Lib::FreeRTOS</a></div><div class="ttdoc">C++ Wrapper.</div></div>
-<div class="ttc" id="aa00946_html"><div class="ttname"><a href="../../da/d40/a00946.html">Lib::FreeRTOS::Karnel</a></div><div class="ttdoc">Karnel class.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:11</div></div>
-<div class="ttc" id="aa00946_html_a08a2d0960f1b4ce8e39eb68cfc07bfbd"><div class="ttname"><a href="../../da/d40/a00946.html#a08a2d0960f1b4ce8e39eb68cfc07bfbd">Lib::FreeRTOS::Karnel::startScheduler</a></div><div class="ttdeci">static void startScheduler()</div><div class="ttdoc">Starts the scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:153</div></div>
-<div class="ttc" id="aa00946_html_a123c155f71838182957a8c5d6946af84"><div class="ttname"><a href="../../da/d40/a00946.html#a123c155f71838182957a8c5d6946af84">Lib::FreeRTOS::Karnel::yield</a></div><div class="ttdeci">static void yield()</div><div class="ttdoc">Task yield.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:101</div></div>
-<div class="ttc" id="aa00946_html_a56ef75156dd525a4a074e0463aa0abdd"><div class="ttname"><a href="../../da/d40/a00946.html#a56ef75156dd525a4a074e0463aa0abdd">Lib::FreeRTOS::Karnel::Karnel</a></div><div class="ttdeci">Karnel()=delete</div><div class="ttdoc">Karnel constructor.</div></div>
-<div class="ttc" id="aa00946_html_a59e8799ae9b518180ee97c408da1d6bd"><div class="ttname"><a href="../../da/d40/a00946.html#a59e8799ae9b518180ee97c408da1d6bd">Lib::FreeRTOS::Karnel::enterCriticalFromISR</a></div><div class="ttdeci">static uint32_t enterCriticalFromISR()</div><div class="ttdoc">Enter critical section from ISR.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:117</div></div>
-<div class="ttc" id="aa00946_html_a793d9f14fcb50dd90d2d7e209661ea8b"><div class="ttname"><a href="../../da/d40/a00946.html#a793d9f14fcb50dd90d2d7e209661ea8b">Lib::FreeRTOS::Karnel::disableInterrupts</a></div><div class="ttdeci">static void disableInterrupts()</div><div class="ttdoc">Disable interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:143</div></div>
-<div class="ttc" id="aa00946_html_a7d7707885a509b7666461c3040d69b9b"><div class="ttname"><a href="../../da/d40/a00946.html#a7d7707885a509b7666461c3040d69b9b">Lib::FreeRTOS::Karnel::SchedulerState</a></div><div class="ttdeci">SchedulerState</div><div class="ttdoc">Scheduler state enum.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:16</div></div>
-<div class="ttc" id="aa00946_html_a7d8dbd23216c7f5ba1f65f5abfab8766"><div class="ttname"><a href="../../da/d40/a00946.html#a7d8dbd23216c7f5ba1f65f5abfab8766">Lib::FreeRTOS::Karnel::endScheduler</a></div><div class="ttdeci">static void endScheduler()</div><div class="ttdef"><b>Definition</b> Karnel.hpp:165</div></div>
-<div class="ttc" id="aa00946_html_a7f48b15af0c47de58c1753bd8db58741"><div class="ttname"><a href="../../da/d40/a00946.html#a7f48b15af0c47de58c1753bd8db58741">Lib::FreeRTOS::Karnel::catchUpTicks</a></div><div class="ttdeci">bool catchUpTicks(const TickType_t ticksToCatchUp)</div><div class="ttdef"><b>Definition</b> Karnel.hpp:212</div></div>
-<div class="ttc" id="aa00946_html_a80413fef80c962f92b4d4a58942e431f"><div class="ttname"><a href="../../da/d40/a00946.html#a80413fef80c962f92b4d4a58942e431f">Lib::FreeRTOS::Karnel::getTickCount</a></div><div class="ttdeci">static TickType_t getTickCount()</div><div class="ttdoc">Gets the tick counter.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:77</div></div>
-<div class="ttc" id="aa00946_html_a8052b055d5b7bb1ff0155a9e1298a7f5"><div class="ttname"><a href="../../da/d40/a00946.html#a8052b055d5b7bb1ff0155a9e1298a7f5">Lib::FreeRTOS::Karnel::getNumberOfTasks</a></div><div class="ttdeci">UBaseType_t getNumberOfTasks()</div><div class="ttdoc">Get the Number Of Tasks.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:42</div></div>
-<div class="ttc" id="aa00946_html_a9228e4fa685f97d7a7e5a53b876a2822"><div class="ttname"><a href="../../da/d40/a00946.html#a9228e4fa685f97d7a7e5a53b876a2822">Lib::FreeRTOS::Karnel::getTickCountFromISR</a></div><div class="ttdeci">static TickType_t getTickCountFromISR()</div><div class="ttdoc">Gets the Tick Count From ISR.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:88</div></div>
-<div class="ttc" id="aa00946_html_abed6565a2bc0e0fd61334be341bd3847"><div class="ttname"><a href="../../da/d40/a00946.html#abed6565a2bc0e0fd61334be341bd3847">Lib::FreeRTOS::Karnel::enableInterrupts</a></div><div class="ttdeci">static void enableInterrupts()</div><div class="ttdoc">Enable interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:137</div></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="preprocessor">#pragma region Sync bits function</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment"></span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">            /// \brief Sync bits</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">            /// Atomically set bits (flags) within an RTOS event group, then wait for a combination of bits to be set within</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">            /// the same event group. This functionality is typically used to synchronise multiple tasks (often called a</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">            /// task rendezvous), where each task has to wait for the other tasks to reach a synchronisation point before</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">            /// proceeding.</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">            /// \param bitsToSet</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">            /// The bit or bits to set in the event group before determining if (and possibly waiting</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">            /// for), all the bits specified by the uxBitsToWait parameter are set. For example, set uxBitsToSet to 0x04 to</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">            /// set bit 2 within the event group.</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">            /// \param bitsToWaitFor</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">            /// A bitwise value that indicates the bit or bits to test inside the event group. For</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">            /// example, set uxBitsToWaitFor to 0x05 to wait for bits 0 and bit 2. Set uxBitsToWaitFor to 0x07 to wait for</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">            /// bit 0 and bit 1 and bit 2. Etc.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">            /// \param ticksToWait</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">            /// The maximum amount of time (specified in &#39;ticks&#39;) to wait for all the bits specifiedby the  uxBitsToWaitFor parameter value to become set.</span></div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">            /// \return The value of the event group at the time either the bits being waited for became set, or the block</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">            /// time expired. Test the return value to know which bits were set.</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">            /// If xEventGroupSync() returned because its timeout expired then not all the bits being waited for will be set.</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment">            /// If xEventGroupSync() returned because all the bits it was waiting for were set then the returned value is</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment">            /// the event group value before any bits were automatically cleared.</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">            /// \see [xEventGroupSync()](https://www.freertos.org/xEventGroupSync.html)</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">            ///</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">            /// &lt;b&gt;Example Usage&lt;/b&gt;</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">            /// \include EventGroups/sync.cpp</span></div>
+<div class="foldopen" id="foldopen00240" data-start="{" data-end="}">
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="../../d3/d32/a00105.html#ae8b97ff4e010b48f4057694dcde24239">  240</a></span><span class="comment"></span>            EventBits <a class="code hl_function" href="../../d3/d32/a00105.html#ae8b97ff4e010b48f4057694dcde24239">syncBits</a> (<span class="keyword">const</span> EventBits &amp; bitsToSet, <span class="keyword">const</span> EventBits &amp; bitsToWaitFor, TickType ticksToWait = portMAX_DELAY)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>                assert (isValid () &amp;&amp; <span class="stringliteral">&quot;The EventGroup has not been created&quot;</span>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                <span class="keywordflow">return</span> EventBits (xEventGroupSync (_handle,</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                                                   bitsToSet.to_ulong (),</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                                                   bitsToWaitFor.to_ulong (),</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                                                   ticksToWait));</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>            }</div>
+</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>            Handle _handle = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="preprocessor">#pragma region isValid function</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment"></span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment">            /// \brief Check for EventGroup is created</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment">            /// \details</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="comment">            /// Function that checks if the underlying event group handle is not `nullptr`. This should be used to ensure an</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment">            /// event group has been created correctly.</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment">            /// \return \b true the handle is not `nullptr`.</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment">            /// \return false the handle is `nullptr`.</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment"></span>            <span class="keywordtype">bool</span> isValid ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                <span class="keywordflow">return</span> _handle != <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        };</div>
+</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }        <span class="comment">// namespace Version2</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>}        <span class="comment">// namespace Lib::FreeRTOS</span></div>
+<div class="ttc" id="aa00105_html_a1132587369cd78e1ae49976bf1ef9bae"><div class="ttname"><a href="../../d3/d32/a00105.html#a1132587369cd78e1ae49976bf1ef9bae">Lib::FreeRTOS::Version2::EventGroup::setBits</a></div><div class="ttdeci">EventBits setBits(const EventBits &amp;bitsToSet)</div><div class="ttdoc">Set bits (flags) within an RTOS event group.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:104</div></div>
+<div class="ttc" id="aa00105_html_a19b94bda7851e3bf6c3e032508d17dca"><div class="ttname"><a href="../../d3/d32/a00105.html#a19b94bda7851e3bf6c3e032508d17dca">Lib::FreeRTOS::Version2::EventGroup::create</a></div><div class="ttdeci">bool create()</div><div class="ttdoc">Create the event group.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:55</div></div>
+<div class="ttc" id="aa00105_html_a20730d499cb59a628a67564c0575ecb2"><div class="ttname"><a href="../../d3/d32/a00105.html#a20730d499cb59a628a67564c0575ecb2">Lib::FreeRTOS::Version2::EventGroup::~EventGroup</a></div><div class="ttdeci">~EventGroup()</div><div class="ttdoc">EventGroup destructor.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:43</div></div>
+<div class="ttc" id="aa00105_html_a2a5a988886bc9255dc4c4d378bcb07db"><div class="ttname"><a href="../../d3/d32/a00105.html#a2a5a988886bc9255dc4c4d378bcb07db">Lib::FreeRTOS::Version2::EventGroup::getBitsFromISR</a></div><div class="ttdeci">EventBits getBitsFromISR() const</div><div class="ttdoc">Get the bits trom ISR.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:149</div></div>
+<div class="ttc" id="aa00105_html_a301cf3cec12a46fc1fef8fabad2b8792"><div class="ttname"><a href="../../d3/d32/a00105.html#a301cf3cec12a46fc1fef8fabad2b8792">Lib::FreeRTOS::Version2::EventGroup::clearBits</a></div><div class="ttdeci">EventBits clearBits(const EventBits &amp;bitsToClear)</div><div class="ttdoc">Clear bits within an RTOS event group.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:165</div></div>
+<div class="ttc" id="aa00105_html_a3cdc31e7ccbd4f0018833689a7604218"><div class="ttname"><a href="../../d3/d32/a00105.html#a3cdc31e7ccbd4f0018833689a7604218">Lib::FreeRTOS::Version2::EventGroup::clearBitsFromISR</a></div><div class="ttdeci">bool clearBitsFromISR(const EventBits &amp;bitsToClear)</div><div class="ttdoc">Clear bits within an RTOS event group form an interrupt service routine (ISR).</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:177</div></div>
+<div class="ttc" id="aa00105_html_a90c4256d066b7d14dc3f935e0c3f55d4"><div class="ttname"><a href="../../d3/d32/a00105.html#a90c4256d066b7d14dc3f935e0c3f55d4">Lib::FreeRTOS::Version2::EventGroup::EventGroup</a></div><div class="ttdeci">EventGroup()</div><div class="ttdoc">EventGroup constructor.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:38</div></div>
+<div class="ttc" id="aa00105_html_a96295db2aab48d095de1acb1db84891c"><div class="ttname"><a href="../../d3/d32/a00105.html#a96295db2aab48d095de1acb1db84891c">Lib::FreeRTOS::Version2::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(const EventBits &amp;bitsToSet)</div><div class="ttdoc">Set bits (flags) within an RTOS event group form an interrupt service routine (ISR).</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:116</div></div>
+<div class="ttc" id="aa00105_html_ad35c3c4ee47bf37fc450d06c3912237c"><div class="ttname"><a href="../../d3/d32/a00105.html#ad35c3c4ee47bf37fc450d06c3912237c">Lib::FreeRTOS::Version2::EventGroup::waitForBits</a></div><div class="ttdeci">EventBits waitForBits(const EventBits &amp;bitsToWaitFor=0, bool clearOnExit=false, bool waitForAllBits=false, TickType ticksToWait=portMAX_DELAY) const</div><div class="ttdoc">Wait for a bits.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:201</div></div>
+<div class="ttc" id="aa00105_html_ae04bdb843d6eadf07b4fd1b6f3e6c3d7"><div class="ttname"><a href="../../d3/d32/a00105.html#ae04bdb843d6eadf07b4fd1b6f3e6c3d7">Lib::FreeRTOS::Version2::EventGroup::getBits</a></div><div class="ttdeci">EventBits getBits() const</div><div class="ttdoc">Returns the current value of the event bits (event flags) in an RTOS event group.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:138</div></div>
+<div class="ttc" id="aa00105_html_ae8b97ff4e010b48f4057694dcde24239"><div class="ttname"><a href="../../d3/d32/a00105.html#ae8b97ff4e010b48f4057694dcde24239">Lib::FreeRTOS::Version2::EventGroup::syncBits</a></div><div class="ttdeci">EventBits syncBits(const EventBits &amp;bitsToSet, const EventBits &amp;bitsToWaitFor, TickType ticksToWait=portMAX_DELAY) const</div><div class="ttdoc">Sync bits.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:240</div></div>
+<div class="ttc" id="aa00105_html_ae9e77dd78fd86b31e965ff43e13c20a8"><div class="ttname"><a href="../../d3/d32/a00105.html#ae9e77dd78fd86b31e965ff43e13c20a8">Lib::FreeRTOS::Version2::EventGroup::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Delete an event group that was previously created.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:74</div></div>
+<div class="ttc" id="aa00105_html_d8/d18/a00948"><div class="ttname"><a href="../../d3/d32/a00105.html#d8/d18/a00948">Lib::FreeRTOS::Version2::EventGroup</a></div><div class="ttdoc">Event Group class.</div><div class="ttdef"><b>Definition</b> EventGroup_v2.hpp:21</div></div>
+<div class="ttc" id="aa00121_html"><div class="ttname"><a href="../../d8/dfa/a00121.html">Lib::FreeRTOS</a></div><div class="ttdoc">C++ Wrapper.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_ea13bd7665d5001cd25ab8d1358cae3e.html">FreeRTOS</a></li><li class="navelem"><b>Karnel.hpp</b></li>
+    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_ea13bd7665d5001cd25ab8d1358cae3e.html">FreeRTOS</a></li><li class="navelem"><b>EventGroup_v2.hpp</b></li>
     <li class="footer">Generated on Mon Dec 2 2024 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['config_0',['Config',['../dd/d7a/a00990.html',1,'Lib::FreeRTOS::Task::Config'],['../d0/d2b/a01010.html',1,'Lib::FreeRTOS::Timer::Config']]]
+  ['clientbase_0',['ClientBase',['../d4/dc5/a01024.html',1,'Lib::FreeRTOS::TimerDispatcher']]],
+  ['config_1',['Config',['../d3/daa/a00996.html',1,'Lib::FreeRTOS::Task::Config'],['../de/def/a01016.html',1,'Lib::FreeRTOS::Timer::Config']]]
 ];

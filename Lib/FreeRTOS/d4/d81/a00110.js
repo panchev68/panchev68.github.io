@@ -1,14 +1,30 @@
 var a00110 =
 [
-    [ "Lib::FreeRTOS::Mutex", "d4/d81/a00110.html#df/d9c/a00958", [
-      [ "Mutex", "d4/d81/a00110.html#ab40a1fec6fa8904a155fcb2791f9768d", null ],
-      [ "~Mutex", "d4/d81/a00110.html#a89d122298f5ce39c2fa0907db300d728", null ],
-      [ "create", "d4/d81/a00110.html#a0ff325eaaffe0bdabfb24e4bc24d325b", null ],
-      [ "give", "d4/d81/a00110.html#a65f8f7f26f6688544ca4c98beff81c06", null ],
-      [ "giveFromISR", "d4/d81/a00110.html#aea6ab11fa318eb0894f3cd88ad17feed", null ],
-      [ "isCreated", "d4/d81/a00110.html#a2f3fde303420f7057a7edb83fabd38a2", null ],
-      [ "release", "d4/d81/a00110.html#a166d1f206082850042a2833bc9a4e81c", null ],
-      [ "take", "d4/d81/a00110.html#a65096f4de57b69eaea8af1053a98aa96", null ],
-      [ "takeFromISR", "d4/d81/a00110.html#a4ed897026254f85a7266f770d6fa7314", null ]
+    [ "Lib::FreeRTOS::Timer", "d4/d81/a00110.html#d4/d45/a01012", [
+      [ "Config", "de/def/a01016.html", [
+        [ "autoReload", "de/def/a01016.html#ac5c33d97089332a4d25af41a2c8041b9", null ],
+        [ "func", "de/def/a01016.html#a8dfb5c358613b4bc7a8e71067734b92a", null ],
+        [ "name", "de/def/a01016.html#abbaf6e685702546abd307b8f61e0097e", null ],
+        [ "period", "de/def/a01016.html#a2efaeed1879a053a585ed05adef8eba9", null ]
+      ] ],
+      [ "Timer", "d4/d81/a00110.html#afe787b1f6b5d8e2f703f529b04e14363", null ],
+      [ "Timer", "d4/d81/a00110.html#a04a0ab44813262f22e6ddc38d8f5f1ea", null ],
+      [ "Timer", "d4/d81/a00110.html#abf96ca324425c788bf168e95245b71a6", null ],
+      [ "~Timer", "d4/d81/a00110.html#a2b2165eef64c713ec21e63efcee986d3", null ],
+      [ "create", "d4/d81/a00110.html#a9c8bf529754e53ecfab8d584a93637a7", null ],
+      [ "create", "d4/d81/a00110.html#aa443f8fb7e187643f5837f5e732dfe2b", null ],
+      [ "getExpiryTime", "d4/d81/a00110.html#af5e122fe357713f1537deeea7ada89ce", null ],
+      [ "getName", "d4/d81/a00110.html#a4ba600b4be9898d874282b6972e19cdb", null ],
+      [ "getPeriod", "d4/d81/a00110.html#aac9a9a78256b050ea6e906ef3b9fa138", null ],
+      [ "isActive", "d4/d81/a00110.html#ac8c4d6f823ffe5bd524fea85e90eb06a", null ],
+      [ "release", "d4/d81/a00110.html#a816ed5297e661d02b936f4d35f619bda", null ],
+      [ "reset", "d4/d81/a00110.html#a4b9fad3086c07e6a9204ef19d9bc1b21", null ],
+      [ "setPeriod", "d4/d81/a00110.html#a7c72bda6aa33539429d7fa44123cb905", null ],
+      [ "setPeriodFromISR", "d4/d81/a00110.html#aa97dd6b80c460b6f39cc157f52614ce9", null ],
+      [ "setReloadMode", "d4/d81/a00110.html#af3daf1a7bfc60db804fa7ffd40641ca3", null ],
+      [ "start", "d4/d81/a00110.html#a657e5d46b1b82f31333b628d75155ff9", null ],
+      [ "startFromISR", "d4/d81/a00110.html#a4c419b3692df60f0c579276b6a7737c5", null ],
+      [ "stop", "d4/d81/a00110.html#af3c2744bbcd815754c6c7e5e63f68016", null ],
+      [ "stopFromISR", "d4/d81/a00110.html#a4570ba33aca8c20b1191e62f91aab092", null ]
     ] ]
 ];

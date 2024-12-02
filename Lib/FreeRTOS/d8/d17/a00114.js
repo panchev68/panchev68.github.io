@@ -1,29 +1,14 @@
 var a00114 =
 [
-    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "d8/d17/a00114.html#da/d17/a00964", [
-      [ "Handle", "d8/d17/a00114.html#a3a9a66b61c5188474be1fa00a19ecb49", null ],
-      [ "Queue", "d8/d17/a00114.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
-      [ "~Queue", "d8/d17/a00114.html#ad2151344786c05df7051532ac93d1228", null ],
-      [ "addToRegistry", "d8/d17/a00114.html#af936f907fa857ee852f9952904eb1f28", null ],
-      [ "create", "d8/d17/a00114.html#ab1f118805f404fcc5fc7373a93594009", null ],
-      [ "getHandle", "d8/d17/a00114.html#a2c41ab96f85c46fcbfada25e38ae9195", null ],
-      [ "isCreated", "d8/d17/a00114.html#a368491dc78d2becc33c627a8402ab1e5", null ],
-      [ "messagesWaiting", "d8/d17/a00114.html#a4c8c176d001bf8671553f8f379a371c8", null ],
-      [ "messagesWaitingFromISR", "d8/d17/a00114.html#aafb3e379354706406f980c30e86e9e74", null ],
-      [ "operator Handle", "d8/d17/a00114.html#a88bed073e231ecb9da5411ed061d594d", null ],
-      [ "operator Handle &", "d8/d17/a00114.html#a29301d1bff80bd5e0ce0ffe15aa68333", null ],
-      [ "overwrite", "d8/d17/a00114.html#a3a861ad8c38ab3ea2086d1209daad180", null ],
-      [ "overwriteFromISR", "d8/d17/a00114.html#a14bcb8fb7e17f30a58df8debaa846ab1", null ],
-      [ "peek", "d8/d17/a00114.html#ae033ff52cdf237cdb88febef59d1877d", null ],
-      [ "peekFromISR", "d8/d17/a00114.html#a1c0d95eb7fa17bd9c6857bf868ab6426", null ],
-      [ "receive", "d8/d17/a00114.html#a758441a1968feda77ebb998dfdc4619a", null ],
-      [ "receiveFromISR", "d8/d17/a00114.html#a0eb815a468ecede046a7fc0ed9879887", null ],
-      [ "release", "d8/d17/a00114.html#a1e1db42d6e77a1c611e5a303083e934c", null ],
-      [ "removeFromRegistry", "d8/d17/a00114.html#a92c18e4f1175149a0629084f56633fe0", null ],
-      [ "reset", "d8/d17/a00114.html#a7dac0d66d07b97c5b89947a00ae73464", null ],
-      [ "send", "d8/d17/a00114.html#a12072c8a458156c078eef3381f3e68b8", null ],
-      [ "sendToBackFromISR", "d8/d17/a00114.html#ac2effb97aca4442a6a48c1c29e1f614d", null ],
-      [ "sendToFrontFromISR", "d8/d17/a00114.html#a148d7aefd27a967ce90ea804ce26f07a", null ],
-      [ "spacesAvailable", "d8/d17/a00114.html#adeb3149cccb765ada38a1d2ef55a1575", null ]
+    [ "Lib::FreeRTOS::Semaphore", "d8/d17/a00114.html#d0/d85/a00976", [
+      [ "Semaphore", "d8/d17/a00114.html#a63aeaf529966e505291afed03a11fda5", null ],
+      [ "~Semaphore", "d8/d17/a00114.html#a962b0e87eeae50b7a2b245050628d911", null ],
+      [ "create", "d8/d17/a00114.html#aa094fa83e5e9c385fa79de95cb2094d9", null ],
+      [ "give", "d8/d17/a00114.html#a2121df27f97694ff8972147e3e4c99f6", null ],
+      [ "giveFromISR", "d8/d17/a00114.html#ac35d77d9f4dad22c8ae60017d1d5aabf", null ],
+      [ "isCreated", "d8/d17/a00114.html#a92a05d95d899d18603b26731834c9281", null ],
+      [ "release", "d8/d17/a00114.html#a04f9f12d5b59aba89d48a0afbc18f096", null ],
+      [ "take", "d8/d17/a00114.html#a82838d2e2a7955808dd4c232112dc674", null ],
+      [ "takeFromISR", "d8/d17/a00114.html#afb0e809a4af00a2bf75aaf8aa127f938", null ]
     ] ]
 ];
