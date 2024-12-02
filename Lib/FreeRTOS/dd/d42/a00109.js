@@ -1,6 +1,6 @@
 var a00109 =
 [
-    [ "Lib::FreeRTOS::SemaphoreCounting", "dd/d42/a00109.html#d5/d6c/a00977", [
+    [ "Lib::FreeRTOS::SemaphoreCounting", "dd/d42/a00109.html#d2/ddd/a00978", [
       [ "SemaphoreCounting", "dd/d42/a00109.html#a57f5373ab498f7d43909cf1c15197cfd", null ],
       [ "~SemaphoreCounting", "dd/d42/a00109.html#a8a23fc3a063478d6f682bffba2ef78e3", null ],
       [ "create", "dd/d42/a00109.html#ad41efc69f8508537f2ed3232d913c2f0", null ],

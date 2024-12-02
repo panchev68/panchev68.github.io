@@ -1,7 +1,6 @@
 var a00106 =
 [
-    [ "Lib::FreeRTOS::MessageBuffer", "d7/d70/a00106.html#d5/da3/a00953", [
-      [ "Handle", "d7/d70/a00106.html#ab915903b175e6a665f3f068887e13064", null ],
+    [ "Lib::FreeRTOS::MessageBuffer", "d7/d70/a00106.html#d3/dca/a00954", [
       [ "MessageBuffer", "d7/d70/a00106.html#ad1aacd686aa8803995282391fe5dcd88", null ],
       [ "~MessageBuffer", "d7/d70/a00106.html#a2d7e901cf7a0dbc87830efa936d02b7e", null ],
       [ "create", "d7/d70/a00106.html#a16516aeccd9c706e8eee91172163f7b8", null ],

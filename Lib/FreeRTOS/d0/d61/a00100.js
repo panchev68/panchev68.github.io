@@ -1,21 +1,13 @@
 var a00100 =
 [
-    [ "Lib::FreeRTOS::Task", "d0/d61/a00100.html#da/deb/a00985", [
-      [ "Config", "d4/d95/a00989.html", [
-        [ "func", "d4/d95/a00989.html#aa1cbd9d531a85e7596228475c693fbee", null ],
-        [ "name", "d4/d95/a00989.html#a00c0ef217bb312f0820749a21f9cce6f", null ],
-        [ "priority", "d4/d95/a00989.html#a84c02b93bc259708fd276b6455cd4e4f", null ],
-        [ "stackDept", "d4/d95/a00989.html#a7f900c090524019231e8814381c6f352", null ]
+    [ "Lib::FreeRTOS::Task", "d0/d61/a00100.html#d3/d7b/a00986", [
+      [ "Config", "dd/d7a/a00990.html", [
+        [ "func", "dd/d7a/a00990.html#aa1cbd9d531a85e7596228475c693fbee", null ],
+        [ "name", "dd/d7a/a00990.html#a00c0ef217bb312f0820749a21f9cce6f", null ],
+        [ "priority", "dd/d7a/a00990.html#a84c02b93bc259708fd276b6455cd4e4f", null ],
+        [ "stackDept", "dd/d7a/a00990.html#a7f900c090524019231e8814381c6f352", null ]
       ] ],
       [ "Handle", "d0/d61/a00100.html#a1226098e07f0f85c5f86c13598f9ce9a", null ],
-      [ "NotificationBits", "d0/d61/a00100.html#a824c9deb92b92aab287df8f1e6bb998c", null ],
-      [ "NotifyAction", "d0/d61/a00100.html#a849acb56b7fe43229168c9129244fe48", [
-        [ "NoAction", "d0/d61/a00100.html#a849acb56b7fe43229168c9129244fe48a1e601ea653db1c729c9ee5746730fabe", null ],
-        [ "SetBits", "d0/d61/a00100.html#a849acb56b7fe43229168c9129244fe48a5c843771bd2e2c4fd09e6082b6873c08", null ],
-        [ "Increment", "d0/d61/a00100.html#a849acb56b7fe43229168c9129244fe48a6f15bdfa71aa83b0d197cad75757d580", null ],
-        [ "SetValueWithOverwrite", "d0/d61/a00100.html#a849acb56b7fe43229168c9129244fe48a84e9c5698bde33c7e162fae5d977a1ec", null ],
-        [ "SetValueWithoutOverwrite", "d0/d61/a00100.html#a849acb56b7fe43229168c9129244fe48a31e258677ea56c980d361e1252e0c7ba", null ]
-      ] ],
       [ "Task", "d0/d61/a00100.html#a3398372cc448469c49e79c19837bd979", null ],
       [ "Task", "d0/d61/a00100.html#a0160b0b2c967c122e0e0c47057858168", null ],
       [ "~Task", "d0/d61/a00100.html#affcb2cbb9100384ebfb6e0ebf722ff20", null ],
@@ -36,5 +28,8 @@ var a00100 =
       [ "setPriority", "d0/d61/a00100.html#a4c5561255a112e0ef5c1a9348d854e56", null ],
       [ "suspend", "d0/d61/a00100.html#aaf1e23e56fa98ff0501f17c73337d511", null ],
       [ "handle", "d0/d61/a00100.html#a7b7e4594b6d91d56b869f265d60ed139", null ]
+    ] ],
+    [ "Lib::FreeRTOS::TaskHelper", "d0/d61/a00100.html#d4/dd0/a00994", [
+      [ "Handle", "d0/d61/a00100.html#a3ae655c06dbf63326fd1b5640375f356", null ]
     ] ]
 ];

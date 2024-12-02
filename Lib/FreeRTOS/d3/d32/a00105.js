@@ -1,7 +1,6 @@
 var a00105 =
 [
-    [ "Lib::FreeRTOS::StreamBuffer", "d3/d32/a00105.html#dd/d24/a00981", [
-      [ "Handle", "d3/d32/a00105.html#a9ce35559d183f678dc3af4bebd0ed7d4", null ],
+    [ "Lib::FreeRTOS::StreamBuffer", "d3/d32/a00105.html#d1/d7a/a00982", [
       [ "StreamBuffer", "d3/d32/a00105.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
       [ "~StreamBuffer", "d3/d32/a00105.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
       [ "create", "d3/d32/a00105.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],

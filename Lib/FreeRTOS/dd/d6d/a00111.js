@@ -1,7 +1,6 @@
 var a00111 =
 [
-    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "dd/d6d/a00111.html#da/d45/a00961", [
-      [ "Handle", "dd/d6d/a00111.html#a3a9a66b61c5188474be1fa00a19ecb49", null ],
+    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "dd/d6d/a00111.html#df/d88/a00962", [
       [ "Queue", "dd/d6d/a00111.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
       [ "~Queue", "dd/d6d/a00111.html#ad2151344786c05df7051532ac93d1228", null ],
       [ "addToRegistry", "dd/d6d/a00111.html#af936f907fa857ee852f9952904eb1f28", null ],

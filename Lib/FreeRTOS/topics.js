@@ -10,5 +10,6 @@ var topics =
     [ "Message Buffer", "d7/d70/a00106.html", "d7/d70/a00106" ],
     [ "Semaphores", "df/d98/a00107.html", "df/d98/a00107" ],
     [ "Queue", "dd/d6d/a00111.html", "dd/d6d/a00111" ],
-    [ "Queue Set", "db/d57/a00112.html", "db/d57/a00112" ]
+    [ "Queue Set", "db/d57/a00112.html", "db/d57/a00112" ],
+    [ "Memory Manager", "d3/d00/a00113.html", "d3/d00/a00113" ]
 ];

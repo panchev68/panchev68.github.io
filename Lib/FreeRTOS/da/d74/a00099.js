@@ -1,6 +1,6 @@
 var a00099 =
 [
-    [ "Lib::FreeRTOS::Version1::EventGroup", "da/d74/a00099.html#de/db9/a00937", [
+    [ "Lib::FreeRTOS::Version1::EventGroup", "da/d74/a00099.html#d5/d54/a00938", [
       [ "EventGroup", "da/d74/a00099.html#a336d536e72a767c0da54e7fa4dd36ba0", null ],
       [ "~EventGroup", "da/d74/a00099.html#a9119191c2327f185d613fb94b220e429", null ],
       [ "clearBits", "da/d74/a00099.html#a46d6fc26c34f60eb7756fc4e2a239229", null ],
@@ -15,8 +15,7 @@ var a00099 =
       [ "wait", "da/d74/a00099.html#a45f12add7edbad5c4e116d531b1f3ce2", null ],
       [ "waitBits", "da/d74/a00099.html#a29b0039e87a12f2e42326d588e2e38b1", null ]
     ] ],
-    [ "Lib::FreeRTOS::Version2::EventGroup", "da/d74/a00099.html#d6/dad/a00941", [
-      [ "EventBits", "da/d74/a00099.html#af7a4728c9d3f1459365f05a445d6780b", null ],
+    [ "Lib::FreeRTOS::Version2::EventGroup", "da/d74/a00099.html#df/d12/a00942", [
       [ "EventGroup", "da/d74/a00099.html#a90c4256d066b7d14dc3f935e0c3f55d4", null ],
       [ "~EventGroup", "da/d74/a00099.html#a20730d499cb59a628a67564c0575ecb2", null ],
       [ "clearBits", "da/d74/a00099.html#a301cf3cec12a46fc1fef8fabad2b8792", null ],
