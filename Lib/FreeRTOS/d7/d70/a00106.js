@@ -1,35 +1,21 @@
 var a00106 =
 [
-    [ "Lib::FreeRTOS::Task", "d7/d70/a00106.html#d7/d76/a00992", [
-      [ "Config", "d3/daa/a00996.html", [
-        [ "func", "d3/daa/a00996.html#aa1cbd9d531a85e7596228475c693fbee", null ],
-        [ "name", "d3/daa/a00996.html#a00c0ef217bb312f0820749a21f9cce6f", null ],
-        [ "priority", "d3/daa/a00996.html#a84c02b93bc259708fd276b6455cd4e4f", null ],
-        [ "stackDept", "d3/daa/a00996.html#a7f900c090524019231e8814381c6f352", null ]
-      ] ],
-      [ "Handle", "d7/d70/a00106.html#a1226098e07f0f85c5f86c13598f9ce9a", null ],
-      [ "Task", "d7/d70/a00106.html#a3398372cc448469c49e79c19837bd979", null ],
-      [ "Task", "d7/d70/a00106.html#a0160b0b2c967c122e0e0c47057858168", null ],
-      [ "~Task", "d7/d70/a00106.html#affcb2cbb9100384ebfb6e0ebf722ff20", null ],
-      [ "create", "d7/d70/a00106.html#a1ebfc9d28fec3731c77215b36339e9a1", null ],
-      [ "create", "d7/d70/a00106.html#a54233e8ab915781c018a5506b23d1710", null ],
-      [ "getHandle", "d7/d70/a00106.html#a3b137a55d761b1f78152e28b52130983", null ],
-      [ "getPriority", "d7/d70/a00106.html#a8d6da28c3da519c4a394f0f1c838b039", null ],
-      [ "isCreated", "d7/d70/a00106.html#a12077a348ae2dd242c12c341200968db", null ],
-      [ "notify", "d7/d70/a00106.html#ad7b57636b4af3f226afafeb1fb44ef7d", null ],
-      [ "notifyAndQuery", "d7/d70/a00106.html#a6fae5e9901f87803aa540d8624863c4f", null ],
-      [ "notifyAndQueryFromISR", "d7/d70/a00106.html#a21f32eee3c9bc6571c41644688eddab1", null ],
-      [ "notifyFromISR", "d7/d70/a00106.html#a1fd4751512e6cded198d4846f4799aeb", null ],
-      [ "notifyGive", "d7/d70/a00106.html#a7ca5f301cfcdafa5f106994f9ec5e43a", null ],
-      [ "notifyGiveFromISR", "d7/d70/a00106.html#a89ee126f85580f8c8a7b8b4188d2e500", null ],
-      [ "release", "d7/d70/a00106.html#aae12872db39c580e601302f192b48050", null ],
-      [ "resume", "d7/d70/a00106.html#ae553070505cda2f7dd78966e098b0814", null ],
-      [ "resumeFromISR", "d7/d70/a00106.html#a840754926b0436a2efbcea0691ce737d", null ],
-      [ "setPriority", "d7/d70/a00106.html#a4c5561255a112e0ef5c1a9348d854e56", null ],
-      [ "suspend", "d7/d70/a00106.html#aaf1e23e56fa98ff0501f17c73337d511", null ],
-      [ "handle", "d7/d70/a00106.html#a7b7e4594b6d91d56b869f265d60ed139", null ]
-    ] ],
-    [ "Lib::FreeRTOS::TaskHelper", "d7/d70/a00106.html#d7/df2/a01000", [
-      [ "Handle", "d7/d70/a00106.html#a3ae655c06dbf63326fd1b5640375f356", null ]
+    [ "Lib::FreeRTOS::StreamBuffer", "de/d38/a00160.html", [
+      [ "StreamBuffer", "de/d38/a00160.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
+      [ "~StreamBuffer", "de/d38/a00160.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
+      [ "create", "de/d38/a00160.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],
+      [ "getBytesAvailable", "de/d38/a00160.html#af6ba5acfc1558a7838dec80b8ee34ef0", null ],
+      [ "getSpacesAvailable", "de/d38/a00160.html#aa274f35053d848a7a045a75a39d13742", null ],
+      [ "isCreated", "de/d38/a00160.html#a4e790af37fe33a98b7aa6b3cb1a542b6", null ],
+      [ "isEmpty", "de/d38/a00160.html#a4d938a1272b841d6f97916a0bb2cfd4a", null ],
+      [ "isFull", "de/d38/a00160.html#ad1854f3342eb9bf8c09a2f0ddc26be69", null ],
+      [ "operator Handle &", "de/d38/a00160.html#a2a5de86bc7d1fbed191a5f852a4e2b46", null ],
+      [ "receive", "de/d38/a00160.html#aeee0b648073b6bd01373c750c324653b", null ],
+      [ "receiveFromISR", "de/d38/a00160.html#a2318a48f2341571ed46c4ecb2671537b", null ],
+      [ "release", "de/d38/a00160.html#abe04a543930a1417c5d0371cbdfebff8", null ],
+      [ "reset", "de/d38/a00160.html#a86e319a0315fc87966c9c43f1e74b246", null ],
+      [ "send", "de/d38/a00160.html#a1964ea313a49c3231e60ea15469ef5ab", null ],
+      [ "sendFromISR", "de/d38/a00160.html#ac79ca9feb2e05f02b324219a571e79a5", null ],
+      [ "setTriggerLevel", "de/d38/a00160.html#a3d2741e023f31a9d2c9294ce0b6842c8", null ]
     ] ]
 ];

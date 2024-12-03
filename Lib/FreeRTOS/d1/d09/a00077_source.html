@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: SemaphoreBase.hpp Source File</title>
+<title>Lib::FreeRTOS: SemaphoreCounting.hpp Source File</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,149 +99,160 @@ $(function(){initNavTree('d1/d09/a00077_source.html','../../'); initResizable(tr
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SemaphoreBase.hpp</div></div>
+  <div class="headertitle"><div class="title">SemaphoreCounting.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/// \brief Semaphore Base class</span><span class="comment"></span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/// \brief Counting Semaphore class</span><span class="comment"></span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/// \file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// \date 24.08.2023</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// \version 1 \date 24.08.2023</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;semphr.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/dfa/a00121.html">Lib::FreeRTOS</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{<span class="comment"></span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    /// \brief Semaphore Base class</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    /// \details Base Class of \b Mutex , \b Semaphore and \b SemaphoreCounting</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    /// \ingroup Semaphores</span></div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html">   14</a></span><span class="comment"></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d3/d00/a00113.html#db/d20/a00980">SemaphoreBase</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keyword">using </span>Handler = SemaphoreHandle_t;<span class="comment"></span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">        /// \brief pointer to Semaphore Handle</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">   20</a></span><span class="comment"></span>        Handler <a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">        /// \brief SemaphoreBase constructor</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a240355463532b5f8151f606e1e89c0e1">   23</a></span><span class="comment"></span>        <a class="code hl_function" href="../../d3/d00/a00113.html#a240355463532b5f8151f606e1e89c0e1">SemaphoreBase</a> () = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">        /// \brief SemaphoreBase destructor</span></div>
-<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a253934193ee0de5b0fce552c75256ee3">   26</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a253934193ee0de5b0fce552c75256ee3">~SemaphoreBase</a> ()</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        {</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            assert ((<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> == <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Must be released before destroy the object&quot;</span>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        }</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;SemaphoreBase.hpp&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/da3/a00115.html">Lib::FreeRTOS</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{<span class="comment"></span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    /// \brief Counting Semaphore class</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    /// \details</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    /// FreeRTOS Counting semaphore class</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    /// ---------------------------------</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    /// Counting semaphore can be used to control the access to the resource.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /// To obtain control of a resource, a task must first obtain a semaphore.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    /// Thus decrementing the semaphore count value. When the count value reaches zero there are no free resources.</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">    /// When a task finishes with the resource it ‘gives’ the semaphore back and thus incrementing the semaphore count value.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">    /// \see [FreeRTOS Counting Semaphores](https://www.freertos.org/Real-time-embedded-RTOS-Counting-Semaphores.html)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    /// \ingroup SEMAPHORES SEMAPHORE_COUNTING</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html">   20</a></span><span class="comment"></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d2/d34/a00156.html">SemaphoreCounting</a> : <a class="code hl_class" href="../../d7/d9a/a00152.html">SemaphoreBase</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">        /// \brief Semaphore Counting constructor</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">        /// \param maxCount</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">        /// \param initCount</span></div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a57f5373ab498f7d43909cf1c15197cfd">   27</a></span><span class="comment"></span>        <a class="code hl_function" href="../../d2/d34/a00156.html#a57f5373ab498f7d43909cf1c15197cfd">SemaphoreCounting</a> (uint32_t maxCount, uint32_t initCount) : _maxCount (maxCount), _initCount (initCount)</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        {}</div>
 </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"></span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        /// \brief Create the semaphore</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        /// \return true if success</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a7984ce7686710bacb1b2e7239e79151e">   33</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a7984ce7686710bacb1b2e7239e79151e">create</a> () = 0;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">        /// \brief Delete the semaphore</span></div>
-<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a8a54584609b12a9c0dafac152ac50617">   36</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a8a54584609b12a9c0dafac152ac50617">release</a> ()</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                vSemaphoreDelete (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            }</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        }</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /// \brief SemaphoreCounting destructor</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a8a23fc3a063478d6f682bffba2ef78e3">   31</a></span><span class="comment"></span>        <a class="code hl_function" href="../../d2/d34/a00156.html#a8a23fc3a063478d6f682bffba2ef78e3">~SemaphoreCounting</a> () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"></span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">        /// \brief Creates a counting semaphore</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">        /// \param maxCount - The maximum count value that can be reached. When the semaphore reaches this value it can no longer be &#39;given&#39;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">        /// \param initCount - The count value assigned to the semaphore when it is created.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">        /// \return bool</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">        /// \see [xSemaphoreCreateCounting](https://www.freertos.org/CreateCounting.html)</span></div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#ad41efc69f8508537f2ed3232d913c2f0">   38</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d34/a00156.html#ad41efc69f8508537f2ed3232d913c2f0">create</a> ()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            assert (<a class="code hl_variable" href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> == <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            <a class="code hl_variable" href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> = xSemaphoreCreateCounting (_maxCount, _initCount);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            assert (<a class="code hl_variable" href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            <span class="keywordflow">return</span> (<a class="code hl_variable" href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        }</div>
 </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">        /// \brief Obtain a semaphore.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">        /// \param ticksToWait - The maximum amount of time the task should remain in the Blocked state to wait for enough space to become available</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">   48</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">take</a> (uint32_t ticksToWait = 0)</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            assert ((<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Semaphore is not created&quot;</span>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">return</span> (xSemaphoreTake (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>, ticksToWait) == pdTRUE);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">        /// \brief Returns the count of a semaphore</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">        /// \return uint32_t</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">        /// \see [uxSemaphoreGetCount](https://www.freertos.org/uxSemaphoreGetCount.html)</span></div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#aad5edccfa2773aaa3aecf77bcea1a8c9">   49</a></span><span class="comment"></span>        uint32_t <a class="code hl_function" href="../../d2/d34/a00156.html#aad5edccfa2773aaa3aecf77bcea1a8c9">getCount</a> ()</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            assert (<a class="code hl_variable" href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            <span class="keywordflow">return</span> (uxSemaphoreGetCount (<a class="code hl_variable" href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>));</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        }</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">        /// \brief Give a semaphore</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00056" data-start="{" data-end="}">
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a494f63a7a96566f17e1ac85cfb5b55a4">   56</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a494f63a7a96566f17e1ac85cfb5b55a4">give</a> ()</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            assert ((<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Semaphore is not created&quot;</span>);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">auto</span> result = (xSemaphoreGive (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>) == pdTRUE);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            <span class="comment">// assert (result &amp;&amp; &quot;A semaphore has already been given&quot;);</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            <span class="keywordflow">return</span> (result);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"></span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">        /// \brief Delete the semaphore.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">        /// \see [vSemaphoreDelete](https://www.freertos.org/a00113.html#vSemaphoreDelete)</span></div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a832b62ec703a78807cad724e9fc959a1">   57</a></span><span class="comment"></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/d34/a00156.html#a832b62ec703a78807cad724e9fc959a1">release</a> ()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <a class="code hl_function" href="../../d7/d9a/a00152.html#a8a54584609b12a9c0dafac152ac50617">SemaphoreBase::release</a> ();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
 </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"></span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">        /// \brief Obtain a semaphore from ISR.</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">        /// \return bool</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"></span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">        /// \brief Obtain a semaphore.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">        /// \param ticksToWait - The maximum amount of time the task should remain in the Blocked state to wait for enough space to become available</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">        /// \return bool</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">        /// \see [xSemaphoreTake](https://www.freertos.org/a00122.html)</span></div>
 <div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#ac0253cf90b5a647286873e2febb2da24">   66</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d00/a00113.html#ac0253cf90b5a647286873e2febb2da24">takeFromISR</a> ()</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            assert ((<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Semaphore is not created&quot;</span>);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordtype">long</span> woken (0);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keyword">auto</span> result = (xSemaphoreTakeFromISR (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>, &amp;woken) == pdTRUE);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            assert (result);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            portYIELD_FROM_ISR (woken);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        }</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a3b42128f16832e00da0b3013af344d46">   66</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d34/a00156.html#a3b42128f16832e00da0b3013af344d46">take</a> (uint32_t ticksToWait = 0)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d9a/a00152.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">SemaphoreBase::take</a> (ticksToWait);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        }</div>
 </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"></span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        /// \brief Give a semaphore from ISR.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#ad44726c956c5a3a3316a3a4fa0f0f952">   78</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d00/a00113.html#ad44726c956c5a3a3316a3a4fa0f0f952">giveFromISR</a> ()</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            assert ((<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Semaphore is not created&quot;</span>);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordtype">long</span> woken (0);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keyword">auto</span> result = (xSemaphoreGiveFromISR (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>, &amp;woken) == pdTRUE);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            assert (result);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            portYIELD_FROM_ISR (woken);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"></span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">        /// \brief Give a semaphore</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">        /// \return bool</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a6bfe5fea68fa0b84e0914a8a445152e7">   73</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d34/a00156.html#a6bfe5fea68fa0b84e0914a8a445152e7">give</a> ()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d9a/a00152.html#a494f63a7a96566f17e1ac85cfb5b55a4">SemaphoreBase::give</a> ();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">        /// \brief Type Convertion : Get Semaphore Handler</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">        /// \return handler</span></div>
-<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a5c3148b7e69f9e480993d2d67d10a096">   91</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keyword">operator</span> Handler &amp; ()</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        {</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"></span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">        /// \brief Obtain a semaphore from ISR.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">        /// \return bool</span></div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf">   80</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d34/a00156.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf">takeFromISR</a> ()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d9a/a00152.html#ac0253cf90b5a647286873e2febb2da24">SemaphoreBase::takeFromISR</a> ();</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
 </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"></span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">        /// \brief Returns whether the semaphore was created</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00098" data-start="{" data-end="}">
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="../../d3/d00/a00113.html#a58e8cc9baf2e1387aa62194834bcdee3">   98</a></span><span class="comment"></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a58e8cc9baf2e1387aa62194834bcdee3">isCreated</a> ()<span class="keyword"> const</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            <span class="keywordflow">return</span> (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">        /// \brief Give a semaphore from ISR.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">        /// \return bool</span></div>
+<div class="foldopen" id="foldopen00087" data-start="{" data-end="}">
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a3f8e436a15eac45c2242938b31d730f7">   87</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d34/a00156.html#a3f8e436a15eac45c2242938b31d730f7">giveFromISR</a> ()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d9a/a00152.html#ad44726c956c5a3a3316a3a4fa0f0f952">SemaphoreBase::giveFromISR</a> ();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
 </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    };</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"></span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">        /// \brief Returns whether the semaphore was created</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">        /// \return bool</span></div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="../../d2/d34/a00156.html#a19fd76a71af534b9735eb44f6b6b63e3">   94</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/d34/a00156.html#a19fd76a71af534b9735eb44f6b6b63e3">isCreated</a> ()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d9a/a00152.html#a58e8cc9baf2e1387aa62194834bcdee3">SemaphoreBase::isCreated</a> ();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        }</div>
 </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}        <span class="comment">// namespace Lib::FreeRTOS</span></div>
-<div class="ttc" id="aa00113_html_a1b7b02b8f1c37fb4f36dfd83dac2bb06"><div class="ttname"><a href="../../d3/d00/a00113.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">Lib::FreeRTOS::SemaphoreBase::take</a></div><div class="ttdeci">virtual bool take(uint32_t ticksToWait=0)</div><div class="ttdoc">Obtain a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:48</div></div>
-<div class="ttc" id="aa00113_html_a240355463532b5f8151f606e1e89c0e1"><div class="ttname"><a href="../../d3/d00/a00113.html#a240355463532b5f8151f606e1e89c0e1">Lib::FreeRTOS::SemaphoreBase::SemaphoreBase</a></div><div class="ttdeci">SemaphoreBase()=default</div><div class="ttdoc">SemaphoreBase constructor.</div></div>
-<div class="ttc" id="aa00113_html_a253934193ee0de5b0fce552c75256ee3"><div class="ttname"><a href="../../d3/d00/a00113.html#a253934193ee0de5b0fce552c75256ee3">Lib::FreeRTOS::SemaphoreBase::~SemaphoreBase</a></div><div class="ttdeci">virtual ~SemaphoreBase()</div><div class="ttdoc">SemaphoreBase destructor.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:26</div></div>
-<div class="ttc" id="aa00113_html_a494f63a7a96566f17e1ac85cfb5b55a4"><div class="ttname"><a href="../../d3/d00/a00113.html#a494f63a7a96566f17e1ac85cfb5b55a4">Lib::FreeRTOS::SemaphoreBase::give</a></div><div class="ttdeci">virtual bool give()</div><div class="ttdoc">Give a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:56</div></div>
-<div class="ttc" id="aa00113_html_a58e8cc9baf2e1387aa62194834bcdee3"><div class="ttname"><a href="../../d3/d00/a00113.html#a58e8cc9baf2e1387aa62194834bcdee3">Lib::FreeRTOS::SemaphoreBase::isCreated</a></div><div class="ttdeci">virtual bool isCreated() const</div><div class="ttdoc">Returns whether the semaphore was created.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:98</div></div>
-<div class="ttc" id="aa00113_html_a6f1d6f949aff814d48d60baeaa863ba3"><div class="ttname"><a href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">Lib::FreeRTOS::SemaphoreBase::handle</a></div><div class="ttdeci">Handler handle</div><div class="ttdoc">pointer to Semaphore Handle</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:20</div></div>
-<div class="ttc" id="aa00113_html_a7984ce7686710bacb1b2e7239e79151e"><div class="ttname"><a href="../../d3/d00/a00113.html#a7984ce7686710bacb1b2e7239e79151e">Lib::FreeRTOS::SemaphoreBase::create</a></div><div class="ttdeci">virtual bool create()=0</div><div class="ttdoc">Create the semaphore.</div></div>
-<div class="ttc" id="aa00113_html_a8a54584609b12a9c0dafac152ac50617"><div class="ttname"><a href="../../d3/d00/a00113.html#a8a54584609b12a9c0dafac152ac50617">Lib::FreeRTOS::SemaphoreBase::release</a></div><div class="ttdeci">virtual void release()</div><div class="ttdoc">Delete the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:36</div></div>
-<div class="ttc" id="aa00113_html_ac0253cf90b5a647286873e2febb2da24"><div class="ttname"><a href="../../d3/d00/a00113.html#ac0253cf90b5a647286873e2febb2da24">Lib::FreeRTOS::SemaphoreBase::takeFromISR</a></div><div class="ttdeci">virtual bool takeFromISR()</div><div class="ttdoc">Obtain a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:66</div></div>
-<div class="ttc" id="aa00113_html_ad44726c956c5a3a3316a3a4fa0f0f952"><div class="ttname"><a href="../../d3/d00/a00113.html#ad44726c956c5a3a3316a3a4fa0f0f952">Lib::FreeRTOS::SemaphoreBase::giveFromISR</a></div><div class="ttdeci">virtual bool giveFromISR()</div><div class="ttdoc">Give a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:78</div></div>
-<div class="ttc" id="aa00113_html_db/d20/a00980"><div class="ttname"><a href="../../d3/d00/a00113.html#db/d20/a00980">Lib::FreeRTOS::SemaphoreBase</a></div><div class="ttdoc">Semaphore Base class.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:15</div></div>
-<div class="ttc" id="aa00121_html"><div class="ttname"><a href="../../d8/dfa/a00121.html">Lib::FreeRTOS</a></div><div class="ttdoc">C++ Wrapper.</div></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>        <span class="keyword">const</span> uint32_t _maxCount;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        <span class="keyword">const</span> uint32_t _initCount;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    };</div>
+</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>}        <span class="comment">// namespace Lib::FreeRTOS</span></div>
+<div class="ttc" id="aa00115_html"><div class="ttname"><a href="../../d2/da3/a00115.html">Lib::FreeRTOS</a></div><div class="ttdoc">C++ Wrapper.</div></div>
+<div class="ttc" id="aa00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">Lib::FreeRTOS::SemaphoreBase</a></div><div class="ttdoc">Semaphore Base class.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:17</div></div>
+<div class="ttc" id="aa00152_html_a1b7b02b8f1c37fb4f36dfd83dac2bb06"><div class="ttname"><a href="../../d7/d9a/a00152.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">Lib::FreeRTOS::SemaphoreBase::take</a></div><div class="ttdeci">virtual bool take(uint32_t ticksToWait=0)</div><div class="ttdoc">Obtain a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:50</div></div>
+<div class="ttc" id="aa00152_html_a494f63a7a96566f17e1ac85cfb5b55a4"><div class="ttname"><a href="../../d7/d9a/a00152.html#a494f63a7a96566f17e1ac85cfb5b55a4">Lib::FreeRTOS::SemaphoreBase::give</a></div><div class="ttdeci">virtual bool give()</div><div class="ttdoc">Give a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:58</div></div>
+<div class="ttc" id="aa00152_html_a58e8cc9baf2e1387aa62194834bcdee3"><div class="ttname"><a href="../../d7/d9a/a00152.html#a58e8cc9baf2e1387aa62194834bcdee3">Lib::FreeRTOS::SemaphoreBase::isCreated</a></div><div class="ttdeci">virtual bool isCreated() const</div><div class="ttdoc">Returns whether the semaphore was created.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:100</div></div>
+<div class="ttc" id="aa00152_html_a6f1d6f949aff814d48d60baeaa863ba3"><div class="ttname"><a href="../../d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3">Lib::FreeRTOS::SemaphoreBase::handle</a></div><div class="ttdeci">Handler handle</div><div class="ttdoc">pointer to Semaphore Handle</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:22</div></div>
+<div class="ttc" id="aa00152_html_a8a54584609b12a9c0dafac152ac50617"><div class="ttname"><a href="../../d7/d9a/a00152.html#a8a54584609b12a9c0dafac152ac50617">Lib::FreeRTOS::SemaphoreBase::release</a></div><div class="ttdeci">virtual void release()</div><div class="ttdoc">Delete the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:38</div></div>
+<div class="ttc" id="aa00152_html_ac0253cf90b5a647286873e2febb2da24"><div class="ttname"><a href="../../d7/d9a/a00152.html#ac0253cf90b5a647286873e2febb2da24">Lib::FreeRTOS::SemaphoreBase::takeFromISR</a></div><div class="ttdeci">virtual bool takeFromISR()</div><div class="ttdoc">Obtain a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:68</div></div>
+<div class="ttc" id="aa00152_html_ad44726c956c5a3a3316a3a4fa0f0f952"><div class="ttname"><a href="../../d7/d9a/a00152.html#ad44726c956c5a3a3316a3a4fa0f0f952">Lib::FreeRTOS::SemaphoreBase::giveFromISR</a></div><div class="ttdeci">virtual bool giveFromISR()</div><div class="ttdoc">Give a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:80</div></div>
+<div class="ttc" id="aa00156_html"><div class="ttname"><a href="../../d2/d34/a00156.html">Lib::FreeRTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting Semaphore class.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:21</div></div>
+<div class="ttc" id="aa00156_html_a19fd76a71af534b9735eb44f6b6b63e3"><div class="ttname"><a href="../../d2/d34/a00156.html#a19fd76a71af534b9735eb44f6b6b63e3">Lib::FreeRTOS::SemaphoreCounting::isCreated</a></div><div class="ttdeci">bool isCreated() const override</div><div class="ttdoc">Returns whether the semaphore was created.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:94</div></div>
+<div class="ttc" id="aa00156_html_a3b42128f16832e00da0b3013af344d46"><div class="ttname"><a href="../../d2/d34/a00156.html#a3b42128f16832e00da0b3013af344d46">Lib::FreeRTOS::SemaphoreCounting::take</a></div><div class="ttdeci">bool take(uint32_t ticksToWait=0) override</div><div class="ttdoc">Obtain a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:66</div></div>
+<div class="ttc" id="aa00156_html_a3f8e436a15eac45c2242938b31d730f7"><div class="ttname"><a href="../../d2/d34/a00156.html#a3f8e436a15eac45c2242938b31d730f7">Lib::FreeRTOS::SemaphoreCounting::giveFromISR</a></div><div class="ttdeci">bool giveFromISR() override</div><div class="ttdoc">Give a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:87</div></div>
+<div class="ttc" id="aa00156_html_a57f5373ab498f7d43909cf1c15197cfd"><div class="ttname"><a href="../../d2/d34/a00156.html#a57f5373ab498f7d43909cf1c15197cfd">Lib::FreeRTOS::SemaphoreCounting::SemaphoreCounting</a></div><div class="ttdeci">SemaphoreCounting(uint32_t maxCount, uint32_t initCount)</div><div class="ttdoc">Semaphore Counting constructor.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:27</div></div>
+<div class="ttc" id="aa00156_html_a6bfe5fea68fa0b84e0914a8a445152e7"><div class="ttname"><a href="../../d2/d34/a00156.html#a6bfe5fea68fa0b84e0914a8a445152e7">Lib::FreeRTOS::SemaphoreCounting::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Give a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:73</div></div>
+<div class="ttc" id="aa00156_html_a832b62ec703a78807cad724e9fc959a1"><div class="ttname"><a href="../../d2/d34/a00156.html#a832b62ec703a78807cad724e9fc959a1">Lib::FreeRTOS::SemaphoreCounting::release</a></div><div class="ttdeci">void release() override</div><div class="ttdoc">Delete the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:57</div></div>
+<div class="ttc" id="aa00156_html_a8a23fc3a063478d6f682bffba2ef78e3"><div class="ttname"><a href="../../d2/d34/a00156.html#a8a23fc3a063478d6f682bffba2ef78e3">Lib::FreeRTOS::SemaphoreCounting::~SemaphoreCounting</a></div><div class="ttdeci">~SemaphoreCounting()=default</div><div class="ttdoc">SemaphoreCounting destructor.</div></div>
+<div class="ttc" id="aa00156_html_a9e7e00fe8a3a3e3e791a0f6bd45bdadf"><div class="ttname"><a href="../../d2/d34/a00156.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf">Lib::FreeRTOS::SemaphoreCounting::takeFromISR</a></div><div class="ttdeci">bool takeFromISR() override</div><div class="ttdoc">Obtain a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:80</div></div>
+<div class="ttc" id="aa00156_html_aad5edccfa2773aaa3aecf77bcea1a8c9"><div class="ttname"><a href="../../d2/d34/a00156.html#aad5edccfa2773aaa3aecf77bcea1a8c9">Lib::FreeRTOS::SemaphoreCounting::getCount</a></div><div class="ttdeci">uint32_t getCount()</div><div class="ttdoc">Returns the count of a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:49</div></div>
+<div class="ttc" id="aa00156_html_ad41efc69f8508537f2ed3232d913c2f0"><div class="ttname"><a href="../../d2/d34/a00156.html#ad41efc69f8508537f2ed3232d913c2f0">Lib::FreeRTOS::SemaphoreCounting::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a counting semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:38</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_ea13bd7665d5001cd25ab8d1358cae3e.html">FreeRTOS</a></li><li class="navelem"><b>SemaphoreBase.hpp</b></li>
-    <li class="footer">Generated on Mon Dec 2 2024 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_ea13bd7665d5001cd25ab8d1358cae3e.html">FreeRTOS</a></li><li class="navelem"><b>SemaphoreCounting.hpp</b></li>
+    <li class="footer">Generated on Tue Dec 3 2024 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['malloc_0',['malloc',['../df/d6a/a00119.html#ae53ced2d2f6bf1e67f94b617ddf050db',1,'Lib::FreeRTOS::MemoryManager']]],
-  ['messagebuffer_1',['MessageBuffer',['../db/d57/a00112.html#ad1aacd686aa8803995282391fe5dcd88',1,'Lib::FreeRTOS::MessageBuffer']]],
-  ['messageswaiting_2',['messagesWaiting',['../d9/d4b/a00117.html#a4c8c176d001bf8671553f8f379a371c8',1,'Lib::FreeRTOS::Queue']]],
-  ['messageswaitingfromisr_3',['messagesWaitingFromISR',['../d9/d4b/a00117.html#aafb3e379354706406f980c30e86e9e74',1,'Lib::FreeRTOS::Queue']]],
-  ['mutex_4',['Mutex',['../d4/d3e/a00116.html#ab40a1fec6fa8904a155fcb2791f9768d',1,'Lib::FreeRTOS::Mutex']]]
+  ['notify_0',['notify',['../db/ddf/a00164.html#ad7b57636b4af3f226afafeb1fb44ef7d',1,'Lib::FreeRTOS::Task']]],
+  ['notifyandquery_1',['notifyAndQuery',['../db/ddf/a00164.html#a6fae5e9901f87803aa540d8624863c4f',1,'Lib::FreeRTOS::Task']]],
+  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../db/ddf/a00164.html#a21f32eee3c9bc6571c41644688eddab1',1,'Lib::FreeRTOS::Task']]],
+  ['notifyfromisr_3',['notifyFromISR',['../db/ddf/a00164.html#a1fd4751512e6cded198d4846f4799aeb',1,'Lib::FreeRTOS::Task']]],
+  ['notifygive_4',['notifyGive',['../db/ddf/a00164.html#a7ca5f301cfcdafa5f106994f9ec5e43a',1,'Lib::FreeRTOS::Task']]],
+  ['notifygivefromisr_5',['notifyGiveFromISR',['../db/ddf/a00164.html#a89ee126f85580f8c8a7b8b4188d2e500',1,'Lib::FreeRTOS::Task']]]
 ];

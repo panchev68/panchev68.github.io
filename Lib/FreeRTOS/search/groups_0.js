@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['binary_20semaphore_0',['Binary Semaphore',['../d8/d17/a00114.html',1,'']]],
-  ['buffer_1',['Buffer',['../db/d57/a00112.html',1,'Message Buffer'],['../dd/d6d/a00111.html',1,'Stream Buffer']]]
+  ['binary_20semaphore_0',['Binary Semaphore',['../dd/d42/a00109.html',1,'']]],
+  ['buffer_1',['Buffer',['../df/d98/a00107.html',1,'Message Buffer'],['../d7/d70/a00106.html',1,'Stream Buffer']]]
 ];

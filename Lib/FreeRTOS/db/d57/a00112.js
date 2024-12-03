@@ -1,19 +1,28 @@
 var a00112 =
 [
-    [ "Lib::FreeRTOS::MessageBuffer", "db/d57/a00112.html#dd/d11/a00960", [
-      [ "MessageBuffer", "db/d57/a00112.html#ad1aacd686aa8803995282391fe5dcd88", null ],
-      [ "~MessageBuffer", "db/d57/a00112.html#a2d7e901cf7a0dbc87830efa936d02b7e", null ],
-      [ "create", "db/d57/a00112.html#a16516aeccd9c706e8eee91172163f7b8", null ],
-      [ "getSpacesAvailable", "db/d57/a00112.html#a34b67bca936765725907e6d33d232ab1", null ],
-      [ "isCreated", "db/d57/a00112.html#a428f709f716eaa601850ae56bd23a48d", null ],
-      [ "isEmpty", "db/d57/a00112.html#a2051f879f6137c89fe7885acce8c5595", null ],
-      [ "isFull", "db/d57/a00112.html#ad74e5ea770d15cd27cadd8e7121a5c04", null ],
-      [ "operator Handle", "db/d57/a00112.html#ad69b8323300cef1a13aa955ba4537f10", null ],
-      [ "receive", "db/d57/a00112.html#a8f160675bb113e76d3a32a9f78d3b7a1", null ],
-      [ "receiveFromISR", "db/d57/a00112.html#ad073e08a2e82cc5a5c96b210631cadc2", null ],
-      [ "release", "db/d57/a00112.html#a6e19504ccebb37e3057dbec82a850712", null ],
-      [ "reset", "db/d57/a00112.html#a21e78533ccd1e6994d8150895ccb4346", null ],
-      [ "send", "db/d57/a00112.html#a17561e31205ea64d3f3d8c17ca55ff69", null ],
-      [ "sendFromISR", "db/d57/a00112.html#af67d105243e7810fcf6e38544fda1383", null ]
+    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "d5/db1/a00140.html", [
+      [ "Queue", "d5/db1/a00140.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
+      [ "~Queue", "d5/db1/a00140.html#ad2151344786c05df7051532ac93d1228", null ],
+      [ "addToRegistry", "d5/db1/a00140.html#af936f907fa857ee852f9952904eb1f28", null ],
+      [ "create", "d5/db1/a00140.html#ab1f118805f404fcc5fc7373a93594009", null ],
+      [ "getHandle", "d5/db1/a00140.html#a2c41ab96f85c46fcbfada25e38ae9195", null ],
+      [ "isCreated", "d5/db1/a00140.html#a368491dc78d2becc33c627a8402ab1e5", null ],
+      [ "messagesWaiting", "d5/db1/a00140.html#a4c8c176d001bf8671553f8f379a371c8", null ],
+      [ "messagesWaitingFromISR", "d5/db1/a00140.html#aafb3e379354706406f980c30e86e9e74", null ],
+      [ "operator Handle", "d5/db1/a00140.html#a88bed073e231ecb9da5411ed061d594d", null ],
+      [ "operator Handle &", "d5/db1/a00140.html#a29301d1bff80bd5e0ce0ffe15aa68333", null ],
+      [ "overwrite", "d5/db1/a00140.html#a3a861ad8c38ab3ea2086d1209daad180", null ],
+      [ "overwriteFromISR", "d5/db1/a00140.html#a14bcb8fb7e17f30a58df8debaa846ab1", null ],
+      [ "peek", "d5/db1/a00140.html#ae033ff52cdf237cdb88febef59d1877d", null ],
+      [ "peekFromISR", "d5/db1/a00140.html#a1c0d95eb7fa17bd9c6857bf868ab6426", null ],
+      [ "receive", "d5/db1/a00140.html#a758441a1968feda77ebb998dfdc4619a", null ],
+      [ "receiveFromISR", "d5/db1/a00140.html#a0eb815a468ecede046a7fc0ed9879887", null ],
+      [ "release", "d5/db1/a00140.html#a1e1db42d6e77a1c611e5a303083e934c", null ],
+      [ "removeFromRegistry", "d5/db1/a00140.html#a92c18e4f1175149a0629084f56633fe0", null ],
+      [ "reset", "d5/db1/a00140.html#a7dac0d66d07b97c5b89947a00ae73464", null ],
+      [ "send", "d5/db1/a00140.html#a12072c8a458156c078eef3381f3e68b8", null ],
+      [ "sendToBackFromISR", "d5/db1/a00140.html#ac2effb97aca4442a6a48c1c29e1f614d", null ],
+      [ "sendToFrontFromISR", "d5/db1/a00140.html#a148d7aefd27a967ce90ea804ce26f07a", null ],
+      [ "spacesAvailable", "d5/db1/a00140.html#adeb3149cccb765ada38a1d2ef55a1575", null ]
     ] ]
 ];

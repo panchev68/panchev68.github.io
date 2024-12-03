@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: SemaphoreCounting.hpp Source File</title>
+<title>Lib::FreeRTOS: StreamBuffer.hpp Source File</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,157 +99,274 @@ $(function(){initNavTree('da/dec/a00080_source.html','../../'); initResizable(tr
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SemaphoreCounting.hpp</div></div>
+  <div class="headertitle"><div class="title">StreamBuffer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/// \brief Counting Semaphore class</span><span class="comment"></span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/// \brief Stream Buffer class</span><span class="comment"></span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">/// \file</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// \date 24.08.2023</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">/// \version 1 \date 24.08.2023</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"></span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;SemaphoreBase.hpp&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/dfa/a00121.html">Lib::FreeRTOS</a></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{<span class="comment"></span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    /// \brief Counting Semaphore class \ingroup SemaphoreCounting</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    /// \details Counting semaphore can be used to control the access to the resource.</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    /// To obtain control of a resource, a task must first obtain a semaphore.</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    /// Thus decrementing the semaphore count value. When the count value reaches zero there are no free resources.</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">    /// When a task finishes with the resource it ‘gives’ the semaphore back and thus incrementing the semaphore count value.</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /// \see [FreeRTOS Counting Semaphores](https://www.freertos.org/Real-time-embedded-RTOS-Counting-Semaphores.html)</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    /// \ingroup Semaphores SemaphoreCounting</span></div>
-<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html">   17</a></span><span class="comment"></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d2/da3/a00115.html#d2/d4c/a00984">SemaphoreCounting</a> : <a class="code hl_class" href="../../d3/d00/a00113.html#db/d20/a00980">SemaphoreBase</a></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">        /// \brief Semaphore Counting constructor</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">        /// \param maxCount</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">        /// \param initCount</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d2/da3/a00115.html">Lib::FreeRTOS</a></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{<span class="comment"></span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">    /// \brief Stream Buffer class</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">    /// \details</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">    /// FreeRTOS Stream Buffer class</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">    /// ----------------------------</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">    /// \ingroup STREAM_BUFFER</span></div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html">   14</a></span><span class="comment"></span>    <span class="keyword">class </span><a class="code hl_class" href="../../de/d38/a00160.html">StreamBuffer</a></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        <span class="keyword">using </span>Handle = StreamBufferHandle_t;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">        /// \brief StreamBuffer constructor</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a986de1d1df5239f3282b4d0b4f24a51b">   21</a></span><span class="comment"></span>        <a class="code hl_function" href="../../de/d38/a00160.html#a986de1d1df5239f3282b4d0b4f24a51b">StreamBuffer</a> () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">        /// \brief StreamBuffer destructor</span></div>
 <div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a57f5373ab498f7d43909cf1c15197cfd">   24</a></span><span class="comment"></span>        <a class="code hl_function" href="../../d2/da3/a00115.html#a57f5373ab498f7d43909cf1c15197cfd">SemaphoreCounting</a> (uint32_t maxCount, uint32_t initCount) : _maxCount (maxCount), _initCount (initCount)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {}</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a0e24ee0bf5ba9ab27b53a885de253791">   24</a></span><span class="comment"></span>        <a class="code hl_function" href="../../de/d38/a00160.html#a0e24ee0bf5ba9ab27b53a885de253791">~StreamBuffer</a> ()</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            assert (_handle == <span class="keyword">nullptr</span> &amp;&amp; <span class="stringliteral">&quot;Stream Buffer must be released before destroy the object&quot;</span>);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        }</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">        /// \brief SemaphoreCounting destructor</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a8a23fc3a063478d6f682bffba2ef78e3">   28</a></span><span class="comment"></span>        <a class="code hl_function" href="../../d2/da3/a00115.html#a8a23fc3a063478d6f682bffba2ef78e3">~SemaphoreCounting</a> () = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /// \brief Creates a counting semaphore</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        /// \param maxCount - The maximum count value that can be reached. When the semaphore reaches this value it can no longer be &#39;given&#39;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        /// \param initCount - The count value assigned to the semaphore when it is created.</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">        /// \return bool</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">        /// \see [xSemaphoreCreateCounting](https://www.freertos.org/CreateCounting.html)</span></div>
-<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#ad41efc69f8508537f2ed3232d913c2f0">   35</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/da3/a00115.html#ad41efc69f8508537f2ed3232d913c2f0">create</a> ()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            assert (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> == <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> = xSemaphoreCreateCounting (_maxCount, _initCount);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            assert (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            <span class="keywordflow">return</span> (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a> != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        }</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"></span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">        /// \brief Creates a new stream buffer</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /// \param bufferSize   The total number of bytes the stream buffer will be able to hold at any one time.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        /// \param triggerLevel The number of bytes that must be in the stream buffer before a task that is blocked on</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">        /// the stream buffer to wait for data is moved out of the blocked state. For example, if a task is blocked on a</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">        /// read of an empty stream buffer that has a trigger level of 1, then the task will be unblocked when a single</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">        /// byte is written to the buffer or the task&#39;s block time expires. As another example, if a task is blocked on</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">        /// a read of an empty stream buffer that has a trigger level of 10, then the task will not be unblocked until</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">        /// the stream buffer contains at least 10 bytes or the task&#39;s block time expires. If a reading task&#39;s block</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">        /// time expires before the trigger level is reached then the task will still receive as many bytes as are</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">        /// actually available. Setting a trigger level of 0 will result in a trigger level of 1 being used. It is not</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">        /// valid to specify a trigger level that is greater than the buffer size.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">        /// \return if \b false is returned, the stream buffer cannot be created because there is insufficient heap memory</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">        /// available for FreeRTOS to allocate the stream buffer data structures and storage area. If a \b true value</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">        /// is returned, the stream buffer has been created successfully - the returned value should be stored as the</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">        /// handle to the created stream buffer.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">        /// \see [xStreamBufferCreate](https://www.freertos.org/xStreamBufferCreate.html)</span></div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a46cd7db63b4b2312d1f8769a5b18da93">   45</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d38/a00160.html#a46cd7db63b4b2312d1f8769a5b18da93">create</a> (<span class="keywordtype">size_t</span> bufferSize, <span class="keywordtype">size_t</span> triggerLevel)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            assert (_handle == <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            _handle = xStreamBufferCreate (bufferSize, triggerLevel);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Error creating Stream Buffer&quot;</span>);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keywordflow">return</span> (_handle != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">        /// \brief Returns the count of a semaphore</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">        /// \return uint32_t</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">        /// \see [uxSemaphoreGetCount](https://www.freertos.org/uxSemaphoreGetCount.html)</span></div>
-<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#aad5edccfa2773aaa3aecf77bcea1a8c9">   46</a></span><span class="comment"></span>        uint32_t <a class="code hl_function" href="../../d2/da3/a00115.html#aad5edccfa2773aaa3aecf77bcea1a8c9">getCount</a> ()</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            assert (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            <span class="keywordflow">return</span> (uxSemaphoreGetCount (<a class="code hl_variable" href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">handle</a>));</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
-</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">        /// \brief Delete the semaphore.</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">        /// \see [vSemaphoreDelete](https://www.freertos.org/a00113.html#vSemaphoreDelete)</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"></span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">        /// \brief Releases the stream buffer</span></div>
 <div class="foldopen" id="foldopen00054" data-start="{" data-end="}">
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a832b62ec703a78807cad724e9fc959a1">   54</a></span><span class="comment"></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/da3/a00115.html#a832b62ec703a78807cad724e9fc959a1">release</a> ()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <a class="code hl_function" href="../../d3/d00/a00113.html#a8a54584609b12a9c0dafac152ac50617">SemaphoreBase::release</a> ();</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#abe04a543930a1417c5d0371cbdfebff8">   54</a></span><span class="comment"></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/d38/a00160.html#abe04a543930a1417c5d0371cbdfebff8">release</a> ()</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            <span class="keywordflow">if</span> (_handle != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                vStreamBufferDelete (_handle);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                _handle = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
 </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">        /// \brief Obtain a semaphore.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">        /// \param ticksToWait - The maximum amount of time the task should remain in the Blocked state to wait for enough space to become available</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">        /// \return bool</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">        /// \see [xSemaphoreTake](https://www.freertos.org/a00122.html)</span></div>
-<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a3b42128f16832e00da0b3013af344d46">   63</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/da3/a00115.html#a3b42128f16832e00da0b3013af344d46">take</a> (uint32_t ticksToWait = 0)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">SemaphoreBase::take</a> (ticksToWait);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">        /// \brief Write to a stream buffer from a task.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">        /// \param src - A pointer to the buffer that holds the bytes to be copied into the stream buffer</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">        /// \param len - The maximum number of bytes to copy from src into the stream buffer.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">        /// \param ticksToWait - The maximum amount of time the task should remain in the Blocked state to wait for</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">        /// enough space to become available in the stream buffer</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">        /// \return The number of bytes written to the stream buffer. If a task times out before it can write all</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">        /// `len` into the buffer it will still write as many bytes as possible.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferSend.html</span></div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="}">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a1964ea313a49c3231e60ea15469ef5ab">   71</a></span><span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../de/d38/a00160.html#a1964ea313a49c3231e60ea15469ef5ab">send</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len, uint32_t ticksToWait)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            assert (src);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            assert (len);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordtype">size_t</span> result = 0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keywordflow">if</span> (result = xStreamBufferSend (_handle, src, len, ticksToWait) != len) assert (0);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        }</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"></span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">        /// \brief Give a semaphore</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a6bfe5fea68fa0b84e0914a8a445152e7">   70</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/da3/a00115.html#a6bfe5fea68fa0b84e0914a8a445152e7">give</a> ()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a494f63a7a96566f17e1ac85cfb5b55a4">SemaphoreBase::give</a> ();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"></span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">        /// \brief Write to a stream buffer from a task from ISR.</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">        /// \param src - A pointer to the buffer that holds the bytes to be copied into the stream buffer</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">        /// \param len - The maximum number of bytes to copy from src into the stream buffer.</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">        /// \return size_t</span></div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#ac79ca9feb2e05f02b324219a571e79a5">   85</a></span><span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../de/d38/a00160.html#ac79ca9feb2e05f02b324219a571e79a5">sendFromISR</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            assert (src);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            assert (len);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordtype">long</span> woken (0);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keyword">auto</span> result = (xStreamBufferSendFromISR (_handle, src, len, &amp;woken));</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            assert (result == len);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            portYIELD_FROM_ISR (woken);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        }</div>
 </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">        /// \brief Obtain a semaphore from ISR.</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf">   77</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/da3/a00115.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf">takeFromISR</a> ()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d3/d00/a00113.html#ac0253cf90b5a647286873e2febb2da24">SemaphoreBase::takeFromISR</a> ();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"></span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">        /// \brief Read from a stream buffer from a task.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">        /// \param dst</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">        /// \param len</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">        /// \param ticksToWait</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">        /// \return size_t</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferReceive.html</span></div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#aeee0b648073b6bd01373c750c324653b">  103</a></span><span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../de/d38/a00160.html#aeee0b648073b6bd01373c750c324653b">receive</a> (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len, uint32_t ticksToWait)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            assert (dst);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>            assert (len);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>            <span class="keywordflow">return</span> xStreamBufferReceive (_handle, dst, len, ticksToWait);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        }</div>
 </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">        /// \brief Give a semaphore from ISR.</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a3f8e436a15eac45c2242938b31d730f7">   84</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/da3/a00115.html#a3f8e436a15eac45c2242938b31d730f7">giveFromISR</a> ()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d3/d00/a00113.html#ad44726c956c5a3a3316a3a4fa0f0f952">SemaphoreBase::giveFromISR</a> ();</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">        /// \brief An interrupt safe version of the API function that receives bytes from a stream buffer.</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">        /// \param dst</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">        /// \param len</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">        /// \return size_t</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferReceiveFromISR.html</span></div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a2318a48f2341571ed46c4ecb2671537b">  116</a></span><span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../de/d38/a00160.html#a2318a48f2341571ed46c4ecb2671537b">receiveFromISR</a> (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            assert (dst);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            assert (len);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keywordtype">long</span> woken (0);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keyword">auto</span> result = xStreamBufferReceiveFromISR (_handle, dst, len, &amp;woken);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            assert (result);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            portYIELD_FROM_ISR (woken);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        }</div>
 </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">        /// \brief Returns whether the semaphore was created</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">        /// \return bool</span></div>
-<div class="foldopen" id="foldopen00091" data-start="{" data-end="}">
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="../../d2/da3/a00115.html#a19fd76a71af534b9735eb44f6b6b63e3">   91</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d2/da3/a00115.html#a19fd76a71af534b9735eb44f6b6b63e3">isCreated</a> ()<span class="keyword"> const override</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keyword">        </span>{</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../d3/d00/a00113.html#a58e8cc9baf2e1387aa62194834bcdee3">SemaphoreBase::isCreated</a> ();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"></span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">        /// \brief Queries a stream buffer to see how much data it contains</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">        /// \return size_t</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">        /// \details  which is equal to the number of bytes that can be read from the stream buffer before the stream</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">        /// buffer would be empty.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">        /// \see  https://www.freertos.org/xStreamBufferBytesAvailable.html</span></div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#af6ba5acfc1558a7838dec80b8ee34ef0">  133</a></span><span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../de/d38/a00160.html#af6ba5acfc1558a7838dec80b8ee34ef0">getBytesAvailable</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            <span class="keywordflow">return</span> xStreamBufferBytesAvailable (_handle);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        }</div>
 </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="keyword">const</span> uint32_t _maxCount;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">const</span> uint32_t _initCount;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    };</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"></span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">        /// \brief Queries a stream buffer to see how much free space it contains, which is equal to the amount of data</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">        /// that can be sent to the stream buffer before it is full.</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">        /// \return size_t</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferSpacesAvailable.html</span></div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#aa274f35053d848a7a045a75a39d13742">  143</a></span><span class="comment"></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../de/d38/a00160.html#aa274f35053d848a7a045a75a39d13742">getSpacesAvailable</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            <span class="keywordflow">return</span> xStreamBufferSpacesAvailable (_handle);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
 </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>}        <span class="comment">// namespace Lib::FreeRTOS</span></div>
-<div class="ttc" id="aa00113_html_a1b7b02b8f1c37fb4f36dfd83dac2bb06"><div class="ttname"><a href="../../d3/d00/a00113.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06">Lib::FreeRTOS::SemaphoreBase::take</a></div><div class="ttdeci">virtual bool take(uint32_t ticksToWait=0)</div><div class="ttdoc">Obtain a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:48</div></div>
-<div class="ttc" id="aa00113_html_a494f63a7a96566f17e1ac85cfb5b55a4"><div class="ttname"><a href="../../d3/d00/a00113.html#a494f63a7a96566f17e1ac85cfb5b55a4">Lib::FreeRTOS::SemaphoreBase::give</a></div><div class="ttdeci">virtual bool give()</div><div class="ttdoc">Give a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:56</div></div>
-<div class="ttc" id="aa00113_html_a58e8cc9baf2e1387aa62194834bcdee3"><div class="ttname"><a href="../../d3/d00/a00113.html#a58e8cc9baf2e1387aa62194834bcdee3">Lib::FreeRTOS::SemaphoreBase::isCreated</a></div><div class="ttdeci">virtual bool isCreated() const</div><div class="ttdoc">Returns whether the semaphore was created.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:98</div></div>
-<div class="ttc" id="aa00113_html_a6f1d6f949aff814d48d60baeaa863ba3"><div class="ttname"><a href="../../d3/d00/a00113.html#a6f1d6f949aff814d48d60baeaa863ba3">Lib::FreeRTOS::SemaphoreBase::handle</a></div><div class="ttdeci">Handler handle</div><div class="ttdoc">pointer to Semaphore Handle</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:20</div></div>
-<div class="ttc" id="aa00113_html_a8a54584609b12a9c0dafac152ac50617"><div class="ttname"><a href="../../d3/d00/a00113.html#a8a54584609b12a9c0dafac152ac50617">Lib::FreeRTOS::SemaphoreBase::release</a></div><div class="ttdeci">virtual void release()</div><div class="ttdoc">Delete the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:36</div></div>
-<div class="ttc" id="aa00113_html_ac0253cf90b5a647286873e2febb2da24"><div class="ttname"><a href="../../d3/d00/a00113.html#ac0253cf90b5a647286873e2febb2da24">Lib::FreeRTOS::SemaphoreBase::takeFromISR</a></div><div class="ttdeci">virtual bool takeFromISR()</div><div class="ttdoc">Obtain a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:66</div></div>
-<div class="ttc" id="aa00113_html_ad44726c956c5a3a3316a3a4fa0f0f952"><div class="ttname"><a href="../../d3/d00/a00113.html#ad44726c956c5a3a3316a3a4fa0f0f952">Lib::FreeRTOS::SemaphoreBase::giveFromISR</a></div><div class="ttdeci">virtual bool giveFromISR()</div><div class="ttdoc">Give a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:78</div></div>
-<div class="ttc" id="aa00113_html_db/d20/a00980"><div class="ttname"><a href="../../d3/d00/a00113.html#db/d20/a00980">Lib::FreeRTOS::SemaphoreBase</a></div><div class="ttdoc">Semaphore Base class.</div><div class="ttdef"><b>Definition</b> SemaphoreBase.hpp:15</div></div>
-<div class="ttc" id="aa00115_html_a19fd76a71af534b9735eb44f6b6b63e3"><div class="ttname"><a href="../../d2/da3/a00115.html#a19fd76a71af534b9735eb44f6b6b63e3">Lib::FreeRTOS::SemaphoreCounting::isCreated</a></div><div class="ttdeci">bool isCreated() const override</div><div class="ttdoc">Returns whether the semaphore was created.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:91</div></div>
-<div class="ttc" id="aa00115_html_a3b42128f16832e00da0b3013af344d46"><div class="ttname"><a href="../../d2/da3/a00115.html#a3b42128f16832e00da0b3013af344d46">Lib::FreeRTOS::SemaphoreCounting::take</a></div><div class="ttdeci">bool take(uint32_t ticksToWait=0) override</div><div class="ttdoc">Obtain a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:63</div></div>
-<div class="ttc" id="aa00115_html_a3f8e436a15eac45c2242938b31d730f7"><div class="ttname"><a href="../../d2/da3/a00115.html#a3f8e436a15eac45c2242938b31d730f7">Lib::FreeRTOS::SemaphoreCounting::giveFromISR</a></div><div class="ttdeci">bool giveFromISR() override</div><div class="ttdoc">Give a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:84</div></div>
-<div class="ttc" id="aa00115_html_a57f5373ab498f7d43909cf1c15197cfd"><div class="ttname"><a href="../../d2/da3/a00115.html#a57f5373ab498f7d43909cf1c15197cfd">Lib::FreeRTOS::SemaphoreCounting::SemaphoreCounting</a></div><div class="ttdeci">SemaphoreCounting(uint32_t maxCount, uint32_t initCount)</div><div class="ttdoc">Semaphore Counting constructor.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:24</div></div>
-<div class="ttc" id="aa00115_html_a6bfe5fea68fa0b84e0914a8a445152e7"><div class="ttname"><a href="../../d2/da3/a00115.html#a6bfe5fea68fa0b84e0914a8a445152e7">Lib::FreeRTOS::SemaphoreCounting::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Give a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:70</div></div>
-<div class="ttc" id="aa00115_html_a832b62ec703a78807cad724e9fc959a1"><div class="ttname"><a href="../../d2/da3/a00115.html#a832b62ec703a78807cad724e9fc959a1">Lib::FreeRTOS::SemaphoreCounting::release</a></div><div class="ttdeci">void release() override</div><div class="ttdoc">Delete the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:54</div></div>
-<div class="ttc" id="aa00115_html_a8a23fc3a063478d6f682bffba2ef78e3"><div class="ttname"><a href="../../d2/da3/a00115.html#a8a23fc3a063478d6f682bffba2ef78e3">Lib::FreeRTOS::SemaphoreCounting::~SemaphoreCounting</a></div><div class="ttdeci">~SemaphoreCounting()=default</div><div class="ttdoc">SemaphoreCounting destructor.</div></div>
-<div class="ttc" id="aa00115_html_a9e7e00fe8a3a3e3e791a0f6bd45bdadf"><div class="ttname"><a href="../../d2/da3/a00115.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf">Lib::FreeRTOS::SemaphoreCounting::takeFromISR</a></div><div class="ttdeci">bool takeFromISR() override</div><div class="ttdoc">Obtain a semaphore from ISR.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:77</div></div>
-<div class="ttc" id="aa00115_html_aad5edccfa2773aaa3aecf77bcea1a8c9"><div class="ttname"><a href="../../d2/da3/a00115.html#aad5edccfa2773aaa3aecf77bcea1a8c9">Lib::FreeRTOS::SemaphoreCounting::getCount</a></div><div class="ttdeci">uint32_t getCount()</div><div class="ttdoc">Returns the count of a semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:46</div></div>
-<div class="ttc" id="aa00115_html_ad41efc69f8508537f2ed3232d913c2f0"><div class="ttname"><a href="../../d2/da3/a00115.html#ad41efc69f8508537f2ed3232d913c2f0">Lib::FreeRTOS::SemaphoreCounting::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a counting semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:35</div></div>
-<div class="ttc" id="aa00115_html_d2/d4c/a00984"><div class="ttname"><a href="../../d2/da3/a00115.html#d2/d4c/a00984">Lib::FreeRTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting Semaphore class.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:18</div></div>
-<div class="ttc" id="aa00121_html"><div class="ttname"><a href="../../d8/dfa/a00121.html">Lib::FreeRTOS</a></div><div class="ttdoc">C++ Wrapper.</div></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment"></span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">        /// \brief Set StreamBuffer Triger Level</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">        /// \param  triger_level - The new trigger level for the stream buffer.</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">        /// \return bool</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">        /// \note A stream buffer&#39;s trigger level is the number of bytes that must be in the stream buffer before a task</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">        /// that is blocked on the stream buffer to wait for data is moved out of the blocked state</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferSetTriggerLevel.html</span></div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a3d2741e023f31a9d2c9294ce0b6842c8">  155</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d38/a00160.html#a3d2741e023f31a9d2c9294ce0b6842c8">setTriggerLevel</a> (<span class="keywordtype">size_t</span> triger_level)</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">return</span> (xStreamBufferSetTriggerLevel (_handle, triger_level) == pdTRUE);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        }</div>
+</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"></span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        /// \brief Resets a stream buffer to its initial, empty, state. Any data that was in the stream buffer is discarded.</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">        /// \return bool</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferReset.html</span></div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a86e319a0315fc87966c9c43f1e74b246">  164</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d38/a00160.html#a86e319a0315fc87966c9c43f1e74b246">reset</a> ()</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            <span class="keywordflow">return</span> (xStreamBufferReset (_handle) == pdPASS);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        }</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"></span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">        /// \brief Queries a stream buffer to see if it is empty. A stream buffer is empty if it does not contain any data.</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">        /// \return returns \b true Stream buffer is empty</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferIsEmpty.html</span></div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a4d938a1272b841d6f97916a0bb2cfd4a">  173</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d38/a00160.html#a4d938a1272b841d6f97916a0bb2cfd4a">isEmpty</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">return</span> (xStreamBufferIsEmpty (_handle) == pdTRUE);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
+</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"></span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">        /// \brief Queries a stream buffer to see if it is full. A stream buffer is full if it does not have any free</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">        /// space, and therefore cannot accept any more data.</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">        /// \return bool</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">        /// \see https://www.freertos.org/xStreamBufferIsFull.html</span></div>
+<div class="foldopen" id="foldopen00183" data-start="{" data-end="}">
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#ad1854f3342eb9bf8c09a2f0ddc26be69">  183</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d38/a00160.html#ad1854f3342eb9bf8c09a2f0ddc26be69">isFull</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            assert ((_handle != <span class="keyword">nullptr</span>) &amp;&amp; <span class="stringliteral">&quot;Stream Buffer is not created&quot;</span>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>            <span class="keywordflow">return</span> (xStreamBufferIsFull (_handle) == pdTRUE);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        }</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment"></span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">        /// \brief Get StreamBufferHandle_t handle</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">        /// \return StreamBufferHandle_t</span></div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a2a5de86bc7d1fbed191a5f852a4e2b46">  191</a></span><span class="comment"></span>        <span class="keyword">operator</span> Handle &amp; ()</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <span class="keywordflow">return</span> _handle;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        }</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"></span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">        /// \brief Returns whether the Steram Buffer was created</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">        /// \return bool</span></div>
+<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="../../de/d38/a00160.html#a4e790af37fe33a98b7aa6b3cb1a542b6">  198</a></span><span class="comment"></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../de/d38/a00160.html#a4e790af37fe33a98b7aa6b3cb1a542b6">isCreated</a> ()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keyword">        </span>{</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            <span class="keywordflow">return</span> (_handle != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        }</div>
+</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment"></span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="comment">        /// \brief Pointer to FreeRTOS stream buffer handle</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment"></span>        Handle _handle = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    };</div>
+</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}        <span class="comment">// namespace Lib::FreeRTOS</span></div>
+<div class="ttc" id="aa00115_html"><div class="ttname"><a href="../../d2/da3/a00115.html">Lib::FreeRTOS</a></div><div class="ttdoc">C++ Wrapper.</div></div>
+<div class="ttc" id="aa00160_html"><div class="ttname"><a href="../../de/d38/a00160.html">Lib::FreeRTOS::StreamBuffer</a></div><div class="ttdoc">Stream Buffer class.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:15</div></div>
+<div class="ttc" id="aa00160_html_a0e24ee0bf5ba9ab27b53a885de253791"><div class="ttname"><a href="../../de/d38/a00160.html#a0e24ee0bf5ba9ab27b53a885de253791">Lib::FreeRTOS::StreamBuffer::~StreamBuffer</a></div><div class="ttdeci">~StreamBuffer()</div><div class="ttdoc">StreamBuffer destructor.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:24</div></div>
+<div class="ttc" id="aa00160_html_a1964ea313a49c3231e60ea15469ef5ab"><div class="ttname"><a href="../../de/d38/a00160.html#a1964ea313a49c3231e60ea15469ef5ab">Lib::FreeRTOS::StreamBuffer::send</a></div><div class="ttdeci">size_t send(const void *src, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Write to a stream buffer from a task.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:71</div></div>
+<div class="ttc" id="aa00160_html_a2318a48f2341571ed46c4ecb2671537b"><div class="ttname"><a href="../../de/d38/a00160.html#a2318a48f2341571ed46c4ecb2671537b">Lib::FreeRTOS::StreamBuffer::receiveFromISR</a></div><div class="ttdeci">size_t receiveFromISR(void *dst, size_t len)</div><div class="ttdoc">An interrupt safe version of the API function that receives bytes from a stream buffer.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:116</div></div>
+<div class="ttc" id="aa00160_html_a3d2741e023f31a9d2c9294ce0b6842c8"><div class="ttname"><a href="../../de/d38/a00160.html#a3d2741e023f31a9d2c9294ce0b6842c8">Lib::FreeRTOS::StreamBuffer::setTriggerLevel</a></div><div class="ttdeci">bool setTriggerLevel(size_t triger_level)</div><div class="ttdoc">Set StreamBuffer Triger Level.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:155</div></div>
+<div class="ttc" id="aa00160_html_a46cd7db63b4b2312d1f8769a5b18da93"><div class="ttname"><a href="../../de/d38/a00160.html#a46cd7db63b4b2312d1f8769a5b18da93">Lib::FreeRTOS::StreamBuffer::create</a></div><div class="ttdeci">bool create(size_t bufferSize, size_t triggerLevel)</div><div class="ttdoc">Creates a new stream buffer.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:45</div></div>
+<div class="ttc" id="aa00160_html_a4d938a1272b841d6f97916a0bb2cfd4a"><div class="ttname"><a href="../../de/d38/a00160.html#a4d938a1272b841d6f97916a0bb2cfd4a">Lib::FreeRTOS::StreamBuffer::isEmpty</a></div><div class="ttdeci">bool isEmpty() const</div><div class="ttdoc">Queries a stream buffer to see if it is empty. A stream buffer is empty if it does not contain any da...</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:173</div></div>
+<div class="ttc" id="aa00160_html_a4e790af37fe33a98b7aa6b3cb1a542b6"><div class="ttname"><a href="../../de/d38/a00160.html#a4e790af37fe33a98b7aa6b3cb1a542b6">Lib::FreeRTOS::StreamBuffer::isCreated</a></div><div class="ttdeci">bool isCreated() const</div><div class="ttdoc">Returns whether the Steram Buffer was created.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:198</div></div>
+<div class="ttc" id="aa00160_html_a86e319a0315fc87966c9c43f1e74b246"><div class="ttname"><a href="../../de/d38/a00160.html#a86e319a0315fc87966c9c43f1e74b246">Lib::FreeRTOS::StreamBuffer::reset</a></div><div class="ttdeci">bool reset()</div><div class="ttdoc">Resets a stream buffer to its initial, empty, state. Any data that was in the stream buffer is discar...</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:164</div></div>
+<div class="ttc" id="aa00160_html_a986de1d1df5239f3282b4d0b4f24a51b"><div class="ttname"><a href="../../de/d38/a00160.html#a986de1d1df5239f3282b4d0b4f24a51b">Lib::FreeRTOS::StreamBuffer::StreamBuffer</a></div><div class="ttdeci">StreamBuffer()=default</div><div class="ttdoc">StreamBuffer constructor.</div></div>
+<div class="ttc" id="aa00160_html_aa274f35053d848a7a045a75a39d13742"><div class="ttname"><a href="../../de/d38/a00160.html#aa274f35053d848a7a045a75a39d13742">Lib::FreeRTOS::StreamBuffer::getSpacesAvailable</a></div><div class="ttdeci">size_t getSpacesAvailable() const</div><div class="ttdoc">Queries a stream buffer to see how much free space it contains, which is equal to the amount of data ...</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:143</div></div>
+<div class="ttc" id="aa00160_html_abe04a543930a1417c5d0371cbdfebff8"><div class="ttname"><a href="../../de/d38/a00160.html#abe04a543930a1417c5d0371cbdfebff8">Lib::FreeRTOS::StreamBuffer::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Releases the stream buffer.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:54</div></div>
+<div class="ttc" id="aa00160_html_ac79ca9feb2e05f02b324219a571e79a5"><div class="ttname"><a href="../../de/d38/a00160.html#ac79ca9feb2e05f02b324219a571e79a5">Lib::FreeRTOS::StreamBuffer::sendFromISR</a></div><div class="ttdeci">size_t sendFromISR(const void *src, size_t len)</div><div class="ttdoc">Write to a stream buffer from a task from ISR.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:85</div></div>
+<div class="ttc" id="aa00160_html_ad1854f3342eb9bf8c09a2f0ddc26be69"><div class="ttname"><a href="../../de/d38/a00160.html#ad1854f3342eb9bf8c09a2f0ddc26be69">Lib::FreeRTOS::StreamBuffer::isFull</a></div><div class="ttdeci">bool isFull() const</div><div class="ttdoc">Queries a stream buffer to see if it is full. A stream buffer is full if it does not have any free sp...</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:183</div></div>
+<div class="ttc" id="aa00160_html_aeee0b648073b6bd01373c750c324653b"><div class="ttname"><a href="../../de/d38/a00160.html#aeee0b648073b6bd01373c750c324653b">Lib::FreeRTOS::StreamBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dst, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Read from a stream buffer from a task.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:103</div></div>
+<div class="ttc" id="aa00160_html_af6ba5acfc1558a7838dec80b8ee34ef0"><div class="ttname"><a href="../../de/d38/a00160.html#af6ba5acfc1558a7838dec80b8ee34ef0">Lib::FreeRTOS::StreamBuffer::getBytesAvailable</a></div><div class="ttdeci">size_t getBytesAvailable() const</div><div class="ttdoc">Queries a stream buffer to see how much data it contains.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:133</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_ea13bd7665d5001cd25ab8d1358cae3e.html">FreeRTOS</a></li><li class="navelem"><b>SemaphoreCounting.hpp</b></li>
-    <li class="footer">Generated on Mon Dec 2 2024 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
+    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_ea13bd7665d5001cd25ab8d1358cae3e.html">FreeRTOS</a></li><li class="navelem"><b>StreamBuffer.hpp</b></li>
+    <li class="footer">Generated on Tue Dec 3 2024 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>
 </body>

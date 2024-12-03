@@ -1,6 +1,6 @@
 var a00117 =
 [
-    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "d9/d4b/a00117.html#d7/dd4/a00968", [
+    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "d9/d4b/a00117.html#de/dad/a00963", [
       [ "Queue", "d9/d4b/a00117.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
       [ "~Queue", "d9/d4b/a00117.html#ad2151344786c05df7051532ac93d1228", null ],
       [ "addToRegistry", "d9/d4b/a00117.html#af936f907fa857ee852f9952904eb1f28", null ],

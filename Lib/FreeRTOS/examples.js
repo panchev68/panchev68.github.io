@@ -1,5 +1,5 @@
 var examples =
 [
-    [ "Co-Routine", "de/d02/a01026.html", null ],
-    [ "Task", "db/d08/a01028.html", null ]
+    [ "Co-Routine", "d7/d6e/a00190.html", null ],
+    [ "Task", "dd/da2/a00192.html", null ]
 ];

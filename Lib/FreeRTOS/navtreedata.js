@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Lib::FreeRTOS", "index.html", [
-    [ "Bug List", "d0/dc2/a00104.html", null ],
+    [ "Bug List", "d1/d44/a00098.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -33,7 +33,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
@@ -46,7 +46,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"de/d49/a00952.html#a56ef75156dd525a4a074e0463aa0abdd"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
