@@ -1,7 +1,8 @@
 var a00346 =
 [
-    [ "DriverBase", "d2/daf/a00346.html#af54ace0223f78644b54aa52e631d0e39", null ],
-    [ "~DriverBase", "d2/daf/a00346.html#aa10c663106c783c14bbe318373fb28bf", null ],
-    [ "handleTickEvent", "d2/daf/a00346.html#a5b29d4289b8d067dc685337acb03be65", null ],
-    [ "init", "d2/daf/a00346.html#a6c6d1b5cf996c841852fbca5d2547cb9", null ]
+    [ "bl", "d2/daf/a00346.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "d2/daf/a00346.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "d2/daf/a00346.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "d2/daf/a00346.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "d2/daf/a00346.html#acad30cda93015fd36a539714efd5a38e", null ]
 ];

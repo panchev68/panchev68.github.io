@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['termometer_20drivers_0',['Termometer drivers',['../dd/df3/a00219.html',1,'']]]
+  ['supported_20periferial_0',['Board Supported Periferial',['../dd/dc1/a00212.html',1,'']]]
 ];

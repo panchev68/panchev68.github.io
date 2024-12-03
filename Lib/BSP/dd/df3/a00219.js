@@ -1,23 +1,15 @@
 var a00219 =
 [
-    [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >", "d4/d1e/a00497.html", [
-      [ "Diagnostic", "d8/db6/a00501.html", [
-        [ "calculatedChkSum", "d8/db6/a00501.html#a13cf37b40e2b540d6b16616b3e69bfda", null ],
-        [ "frameChkSum", "d8/db6/a00501.html#af3b871c0941851046f6ed4ab87adddf9", null ],
-        [ "invalidFrameChkSum", "d8/db6/a00501.html#a014e643e2ec9665f6ff212341daa3665", null ],
-        [ "invalidHumidity", "d8/db6/a00501.html#a08b5247668e8957187a114c7edf63329", null ],
-        [ "invalidTemperature", "d8/db6/a00501.html#acb352564038d7025feb76bc120546473", null ],
-        [ "receivedTimeout", "d8/db6/a00501.html#ae243a8eeb3acdf578336c5ed9c189226", null ]
+    [ "Lib::BSP::Voltmeter::Base", "dd/de6/a00548.html", [
+      [ "Config", "dd/de9/a00552.html", [
+        [ "adcChannel", "dd/de9/a00552.html#a6f1b2b30866d2d51ec8b76450f48819f", null ],
+        [ "adcHandle", "dd/de9/a00552.html#addd0c44f90b189ab682f26b57a3dced3", null ],
+        [ "updatePeriod", "dd/de9/a00552.html#a8821cede391cdab81afb72f8749a89c3", null ]
       ] ],
-      [ "Driver", "d4/d1e/a00497.html#a494b132eb2516cd8361a2812f93dfeaf", null ],
-      [ "~Driver", "d4/d1e/a00497.html#af1cf24fdeb56661898c3aee37e94bffc", null ],
-      [ "getHumidity", "d4/d1e/a00497.html#a09b3175343f41199742a8c374d1fb72a", null ],
-      [ "getRawHumidity", "d4/d1e/a00497.html#a9e008b36bb2a4e9fffd9c6ef34d83be9", null ],
-      [ "getRawTemperature", "d4/d1e/a00497.html#a13f94917526f41817a367260352b4495", null ],
-      [ "getTemperature", "d4/d1e/a00497.html#a8ae02b3f89e4456053b20adcea8d4e4b", null ],
-      [ "isChanged", "d4/d1e/a00497.html#a92691682a6c04798d1beef608643021a", null ],
-      [ "start", "d4/d1e/a00497.html#a11df3bdf95bc4ca3a1b88d18e58557ff", null ],
-      [ "diagnostic", "d4/d1e/a00497.html#af5b30dbc5cd2e90fb979fc1e992ed178", null ]
-    ] ],
-    [ "Lib::BSP::Termometer::DTH::DTH22", "dd/df3/a00219.html#gab74242c0b383bb983737c6fc6ad9ca61", null ]
+      [ "Base", "dd/de6/a00548.html#a5c77cd47e554ce314048fbb66ee577e6", null ],
+      [ "~Base", "dd/de6/a00548.html#a60ff2ab400fae19db3e4edf57d7f6909", null ],
+      [ "getVoltage", "dd/de6/a00548.html#a681250b664699ecd7261e138987060b3", null ],
+      [ "handleValueChanged", "dd/de6/a00548.html#a481c4ec27b49a8e51a16fec28ec9d21e", null ],
+      [ "setup", "dd/de6/a00548.html#aef87be715665c934c25168e596a9e847", null ]
+    ] ]
 ];

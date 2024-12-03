@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lcmctrl_0',['LCMCTRL',['../dc/d55/a00226.html#afe2d246e2a2a5bc3699440ae4548515ba316624f978c3cb0e709f6b6828c13976',1,'Lib::BSP::Display']]]
+  ['lcmctrl_0',['LCMCTRL',['../dc/d98/a00225.html#afe2d246e2a2a5bc3699440ae4548515ba316624f978c3cb0e709f6b6828c13976',1,'Lib::BSP::Display']]]
 ];

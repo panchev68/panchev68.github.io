@@ -1,15 +1,23 @@
 var a00217 =
 [
-    [ "Lib::BSP::Voltmeter::Base", "dc/d2b/a00546.html", [
-      [ "Config", "de/de7/a00550.html", [
-        [ "adcChannel", "de/de7/a00550.html#a6f1b2b30866d2d51ec8b76450f48819f", null ],
-        [ "adcHandle", "de/de7/a00550.html#addd0c44f90b189ab682f26b57a3dced3", null ],
-        [ "updatePeriod", "de/de7/a00550.html#a8821cede391cdab81afb72f8749a89c3", null ]
-      ] ],
-      [ "Base", "dc/d2b/a00546.html#a5c77cd47e554ce314048fbb66ee577e6", null ],
-      [ "~Base", "dc/d2b/a00546.html#a60ff2ab400fae19db3e4edf57d7f6909", null ],
-      [ "getVoltage", "dc/d2b/a00546.html#a681250b664699ecd7261e138987060b3", null ],
-      [ "handleValueChanged", "dc/d2b/a00546.html#a481c4ec27b49a8e51a16fec28ec9d21e", null ],
-      [ "init", "dc/d2b/a00546.html#af91ae6a72301a62c6c58c67644887011", null ]
+    [ "Lib::BSP::EEPROM ::I2C::M24C16", "d8/d21/a00368.html", [
+      [ "Config", "d8/d21/a00368.html#ab8c9f5f159ad90167036c6d7c8c2a13a", null ],
+      [ "M24C16", "d8/d21/a00368.html#ac17ef86b93c96957882c7def951d668e", null ],
+      [ "~M24C16", "d8/d21/a00368.html#a79ba0ee2d03027107fa58593bbecaf6a", null ],
+      [ "close", "d8/d21/a00368.html#a33605731e3011f5bc75fa274cb2ad62f", null ],
+      [ "getChipSize", "d8/d21/a00368.html#ae48f7039637cb1da4c932bb0280e1cf0", null ],
+      [ "open", "d8/d21/a00368.html#ab0faf34613df906acef9388c57be81a2", null ],
+      [ "read", "d8/d21/a00368.html#a657d49d455e4f1c09636ad50bc3e00e6", null ],
+      [ "write", "d8/d21/a00368.html#ae77ef1df7ef77b67e78e6f47984ea07a", null ]
+    ] ],
+    [ "Lib::BSP::EEPROM::I2C::M24C64W", "db/d7e/a00372.html", [
+      [ "Config", "db/d7e/a00372.html#aa8ff504216e3e0437cb82dba3074ef09", null ],
+      [ "M24C64W", "db/d7e/a00372.html#a2392a35a8eec891f6a59b7ced7f236b4", null ],
+      [ "~M24C64W", "db/d7e/a00372.html#a112a36af39a87eeab2695c2141fb685c", null ],
+      [ "close", "db/d7e/a00372.html#a20d132c70742bd4f788eac1854aeacfb", null ],
+      [ "getChipSize", "db/d7e/a00372.html#a4b66655cedc1fa6e74f8bd72848198d2", null ],
+      [ "open", "db/d7e/a00372.html#ab812f114483dab97fdfcaf5cb4588a27", null ],
+      [ "read", "db/d7e/a00372.html#aa99707ebb5eb33b3b0f9a68005fbe1c7", null ],
+      [ "write", "db/d7e/a00372.html#ae3d8fcc8306ca33a382a0c9ad3935f74", null ]
     ] ]
 ];

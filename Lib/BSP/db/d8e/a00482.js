@@ -1,6 +1,7 @@
 var a00482 =
 [
     [ "Impl", "db/d8e/a00482.html#a4ffae19acf3d3a8080880d1d7bf616fe", null ],
+    [ "~Impl", "db/d8e/a00482.html#ab0d9bf927db990e2c1a486a320863ead", null ],
     [ "deinit", "db/d8e/a00482.html#a8af1970f3eb58534fc1d710c13f73163", null ],
     [ "deselect", "db/d8e/a00482.html#a4733a0dd8e6a89b80cb43a6fc1ef14b9", null ],
     [ "erase", "db/d8e/a00482.html#aa10c6d943c11971b1a43df58d1b27046", null ],
@@ -15,10 +16,10 @@ var a00482 =
     [ "send", "db/d8e/a00482.html#a45f7b29bb325f38a6148533b4d5c9784", null ],
     [ "sendCommand", "db/d8e/a00482.html#a0c98262d6fa2f176f689001c9e5179c3", null ],
     [ "sendCommand", "db/d8e/a00482.html#ac05f09f5ff3096e935f4dc00aade8ba1", null ],
-    [ "sendCommand", "db/d8e/a00482.html#a4effd961fcc5a448679d77cdd19f00ef", null ],
+    [ "sendCommand", "db/d8e/a00482.html#aa560a037ea07702af73649bad874f11a", null ],
     [ "sendCommandA24", "db/d8e/a00482.html#a6d8e686ab42d1d28f7645e2a10eedc77", null ],
     [ "sendCommandA32", "db/d8e/a00482.html#a6c195170a18382d32a1b24cb0ba329b5", null ],
-    [ "waitForWrtiteCompleted", "db/d8e/a00482.html#ac3facc68d563bd2dadee2b5a0cd07551", null ],
+    [ "waitingForWritingToComplete", "db/d8e/a00482.html#a3214710433195a58e8b6b5a44f80b6a5", null ],
     [ "writeDisable", "db/d8e/a00482.html#a8d27b2ba80dc5c5f83d51e23cebbdb3d", null ],
     [ "writeEnable", "db/d8e/a00482.html#aecddc615d6f7cff804655482e479c50b", null ],
     [ "isPresent", "db/d8e/a00482.html#af3460f0a14a08dafb939daeadb8f00a8", null ],

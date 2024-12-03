@@ -1,15 +1,11 @@
 var a00322 =
 [
-    [ "Config", "d8/d23/a00326.html", "d8/d23/a00326" ],
-    [ "Driver", "de/de9/a00322.html#aa297a4eb9cb6f85132d416ba012b0baa", null ],
-    [ "~Driver", "de/de9/a00322.html#aee5bc4c7d5ac7ad78bc7320eb3e78935", null ],
+    [ "DriverBase", "de/de9/a00322.html#a3e1b32d5719a8f888610f4e002c7f961", null ],
+    [ "~DriverBase", "de/de9/a00322.html#a59f968aba25598436eb1def357c56d59", null ],
     [ "getTransferActive", "de/de9/a00322.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
-    [ "init", "de/de9/a00322.html#a73272e5dc75179573dc0e1116d0bdafd", null ],
-    [ "postInitCallback", "de/de9/a00322.html#a5848e189d34c1797278359b6baca2453", null ],
-    [ "setBacklight", "de/de9/a00322.html#af7de5a6b1d3c4d2cfc9fb4015c09396a", null ],
-    [ "setRotation", "de/de9/a00322.html#a5f0da430b5306f52d21febcfc1644700", null ],
+    [ "init", "de/de9/a00322.html#a340e407a7873f92906eea84027f81801", null ],
     [ "setTransmitActive", "de/de9/a00322.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
     [ "shouldTransferBlock", "de/de9/a00322.html#a77aefcf37afba46fc380bc49be704ee1", null ],
-    [ "transferCpltCallback", "de/de9/a00322.html#a6382af7ea243103ca8616c6050667a84", null ],
-    [ "transmitBlock", "de/de9/a00322.html#ae85f4059383696c97f769a5be9cfb6be", null ]
+    [ "transferCpltCallback", "de/de9/a00322.html#aca116b23efef7c87ba2faf35d927e58c", null ],
+    [ "transmitBlock", "de/de9/a00322.html#ab4bbce27d3e377e3413432b820cf2340", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::BSP: Member List</title>
+<title>Lib::BSP: Lib::BSP::Display::DriverBase Class Reference</title>
 <link rel="icon" href="../../BSP.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('de/dc8/a00325.html','../../'); initResizable(true); });
+$(function(){initNavTree('de/de9/a00322.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,31 +99,441 @@ $(function(){initNavTree('de/dc8/a00325.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt; Member List</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="../../de/dab/a00319.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::BSP::Display::DriverBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>TouchGFX Display Driver Base Class. </p>
+<h1><code>BSP::Display::DriverBase</code> class</h1>
+<p><b>Базов клас за дисплени дайвери</b> съвместим с TouchGFX <br  />
+</p>
+<p><img src="../../Display_DriverBase.png" alt="" class="inline"/>     <br  />
+</p>
+<h2>Създаване</h2>
+<p>Има 3 тъпа драйвери :</p>
+<ol type="1">
+<li>Когато се използва <b>Частичен Буфер</b> Този тип е поднодящ за <b>16-bits TFT SPI Driver</b>. Тогава фунцкцията <code>update ()</code> не се използва. <em>предимства :</em> Използване на много малко RAM Памет.</li>
+<li><p class="startli">Когато се използва <b>Единичен Буфер</b></p>
+<p class="startli">Поради факта че <code>TouchGFX</code>прехвърля само блокове (области от дислеят) които са променети . При създаване на драйвер за B/W Дисплей оравим следното:</p>
+<p class="startli">Конфигурираме в <code>STM32QubeMX</code>/<code>TouchGFX</code> по следният начин</p>
+<p class="startli"><img src="../../X:\Lib\FW\EWARM\BSP\Docs\md\assets\Qe6P4rj7dLoImv5.png" alt="" class="inline"/></p>
+<p class="startli">Така се създава единичен буфер в който <code>TouchGFX</code> рендва екрана в паметта.</p>
+<p class="startli">адресът на този буфер може да се вземе с <code>TouchGFXGeneratedHAL::getInstance ()-&gt;getTFTFrameBuffer ()</code> функцията.</p>
+<p class="startli"><a href="https://support.touchgfx.com/4.14/docs/development/touchgfx-hal-development/scenarios/scenarios-fmc" target="_blank">TouchGFX Transferring the framebuffer</a></p>
+<p class="startli">за да може да се свърже с TouchGFX трябва да се добави следният ред</p>
+<p class="startli">**file : TouchGFX\target\TouchGFXHAL.cpp**</p>
+<div class="fragment"><div class="line">in file file : TouchGFX\target\TouchGFXHAL.cpp</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> TouchGFXHAL::flushFrameBuffer(<span class="keyword">const</span> touchgfx::Rect&amp; rect)</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// update entry display</span></div>
+<div class="line">    BSP::OLED.writeWindow (TouchGFXGeneratedHAL::getInstance ()-&gt;getTFTFrameBuffer(), rect.x, rect.y, rect.width, rect.height );</div>
+<div class="line">    TouchGFXGeneratedHAL::flushFrameBuffer (rect);</div>
+<div class="line">    </div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+<li>Когато се Използва LTDC Интерфейс</li>
+</ol>
+<h2>Имплементиране в IAR</h2>
+<p><img src="../../image-20231112081512694.png" alt="" class="inline"/>     <br  />
+ и избираме файлът</p>
+<div class="fragment"><div class="line">X:\Lib\FW\IAR\TouchGFX-PartialBufferSupport.ipcf</div>
+</div><!-- fragment --></div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for Lib::BSP::Display::DriverBase:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d53/a00321.png" border="0" usemap="#a_lib_1_1_b_s_p_1_1_display_1_1_driver_base_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_lib_1_1_b_s_p_1_1_display_1_1_driver_base_inherit__map" id="a_lib_1_1_b_s_p_1_1_display_1_1_driver_base_inherit__map">
+<area shape="rect" title="TouchGFX Display Driver Base Class." alt="" coords="85,5,233,240"/>
+<area shape="rect" href="../../dd/dbb/a00330.html" title="ILI9341 Driver class." alt="" coords="5,288,153,539"/>
+<area shape="poly" title=" " alt="" coords="126,255,116,289,111,288,120,254"/>
+<area shape="rect" href="../../d2/d45/a00342.html" title="TFT Display Driver class for ST7789." alt="" coords="177,331,301,496"/>
+<area shape="poly" title=" " alt="" coords="198,254,219,330,214,332,193,255"/>
+</map>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::BSP::Display::DriverBase:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/de2/a00320.png" border="0" usemap="#a_lib_1_1_b_s_p_1_1_display_1_1_driver_base_coll__map" alt="Collaboration graph"/></div>
+<map name="a_lib_1_1_b_s_p_1_1_display_1_1_driver_base_coll__map" id="a_lib_1_1_b_s_p_1_1_display_1_1_driver_base_coll__map">
+<area shape="rect" title="TouchGFX Display Driver Base Class." alt="" coords="5,5,153,240"/>
+<area shape="poly" title=" " alt="" coords="155,78,165,84,173,94,178,106,180,123,177,142,169,156,165,154,172,141,175,123,173,108,168,96,161,88,152,83"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3e1b32d5719a8f888610f4e002c7f961" id="r_a3e1b32d5719a8f888610f4e002c7f961"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e1b32d5719a8f888610f4e002c7f961">DriverBase</a> ()</td></tr>
+<tr class="memdesc:a3e1b32d5719a8f888610f4e002c7f961"><td class="mdescLeft">&#160;</td><td class="mdescRight">DriverBaseconstructor.  <br /></td></tr>
+<tr class="separator:a3e1b32d5719a8f888610f4e002c7f961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59f968aba25598436eb1def357c56d59" id="r_a59f968aba25598436eb1def357c56d59"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59f968aba25598436eb1def357c56d59">~DriverBase</a> ()=default</td></tr>
+<tr class="memdesc:a59f968aba25598436eb1def357c56d59"><td class="mdescLeft">&#160;</td><td class="mdescRight">DriverBase destructor.  <br /></td></tr>
+<tr class="separator:a59f968aba25598436eb1def357c56d59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340e407a7873f92906eea84027f81801" id="r_a340e407a7873f92906eea84027f81801"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a340e407a7873f92906eea84027f81801">init</a> ()=0</td></tr>
+<tr class="memdesc:a340e407a7873f92906eea84027f81801"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize TFT Display.  <br /></td></tr>
+<tr class="separator:a340e407a7873f92906eea84027f81801"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4bbce27d3e377e3413432b820cf2340" id="r_ab4bbce27d3e377e3413432b820cf2340"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4bbce27d3e377e3413432b820cf2340">transmitBlock</a> (const void *src, uint32_t x, uint32_t y, size_t w, size_t h)=0</td></tr>
+<tr class="memdesc:ab4bbce27d3e377e3413432b820cf2340"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transnit block to the display.  <br /></td></tr>
+<tr class="separator:ab4bbce27d3e377e3413432b820cf2340"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca116b23efef7c87ba2faf35d927e58c" id="r_aca116b23efef7c87ba2faf35d927e58c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aca116b23efef7c87ba2faf35d927e58c">transferCpltCallback</a> ()</td></tr>
+<tr class="memdesc:aca116b23efef7c87ba2faf35d927e58c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer Complete callback.  <br /></td></tr>
+<tr class="separator:aca116b23efef7c87ba2faf35d927e58c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c6d4fd3f37a54121208f462b76ed79d" id="r_a4c6d4fd3f37a54121208f462b76ed79d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c6d4fd3f37a54121208f462b76ed79d">getTransferActive</a> () const</td></tr>
+<tr class="memdesc:a4c6d4fd3f37a54121208f462b76ed79d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Transmit Active.  <br /></td></tr>
+<tr class="separator:a4c6d4fd3f37a54121208f462b76ed79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77aefcf37afba46fc380bc49be704ee1" id="r_a77aefcf37afba46fc380bc49be704ee1"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77aefcf37afba46fc380bc49be704ee1">shouldTransferBlock</a> (int16_t bottom)</td></tr>
+<tr class="memdesc:a77aefcf37afba46fc380bc49be704ee1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a Frame Buffer Block ending at bottom should be transferred.  <br /></td></tr>
+<tr class="separator:a77aefcf37afba46fc380bc49be704ee1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a3331471fd4ee8af29632b359d2cdb5b1" id="r_a3331471fd4ee8af29632b359d2cdb5b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../de/de9/a00322.html">DriverBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3331471fd4ee8af29632b359d2cdb5b1">instance</a> = nullptr</td></tr>
+<tr class="separator:a3331471fd4ee8af29632b359d2cdb5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:af198ebe031fe9bf9f542593ad4a85ec3" id="r_af198ebe031fe9bf9f542593ad4a85ec3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af198ebe031fe9bf9f542593ad4a85ec3">setTransmitActive</a> (int value)</td></tr>
+<tr class="memdesc:af198ebe031fe9bf9f542593ad4a85ec3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Transmit Active.  <br /></td></tr>
+<tr class="separator:af198ebe031fe9bf9f542593ad4a85ec3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3e1b32d5719a8f888610f4e002c7f961" name="a3e1b32d5719a8f888610f4e002c7f961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e1b32d5719a8f888610f4e002c7f961">&#9670;&#160;</a></span>DriverBase()</h2>
 
-<p>This is the complete list of members for <a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#aa297a4eb9cb6f85132d416ba012b0baa">Driver</a>(const Config &amp;conf)</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/de0/a00317.html#a3e1b32d5719a8f888610f4e002c7f961">DriverBase</a>()</td><td class="entry"><a class="el" href="../../da/de0/a00317.html">Lib::BSP::Display::DriverBase</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/de0/a00317.html#a4c6d4fd3f37a54121208f462b76ed79d">getTransferActive</a>() const</td><td class="entry"><a class="el" href="../../da/de0/a00317.html">Lib::BSP::Display::DriverBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#a73272e5dc75179573dc0e1116d0bdafd">init</a>()</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/de0/a00317.html#a3331471fd4ee8af29632b359d2cdb5b1">instance</a></td><td class="entry"><a class="el" href="../../da/de0/a00317.html">Lib::BSP::Display::DriverBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#a5848e189d34c1797278359b6baca2453">postInitCallback</a>()</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#af7de5a6b1d3c4d2cfc9fb4015c09396a">setBacklight</a>(uint8_t value)=0</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#a5f0da430b5306f52d21febcfc1644700">setRotation</a>(bool value)</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/de0/a00317.html#af198ebe031fe9bf9f542593ad4a85ec3">setTransmitActive</a>(int value)</td><td class="entry"><a class="el" href="../../da/de0/a00317.html">Lib::BSP::Display::DriverBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/de0/a00317.html#a77aefcf37afba46fc380bc49be704ee1">shouldTransferBlock</a>(int16_t bottom)</td><td class="entry"><a class="el" href="../../da/de0/a00317.html">Lib::BSP::Display::DriverBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#a6382af7ea243103ca8616c6050667a84">transferCpltCallback</a>() override</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#ae85f4059383696c97f769a5be9cfb6be">transmitBlock</a>(const void *src, uint32_t x, uint32_t y, size_t width, size_t height) override</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../de/dc8/a00325.html#aee5bc4c7d5ac7ad78bc7320eb3e78935">~Driver</a>()=default</td><td class="entry"><a class="el" href="../../de/dc8/a00325.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/de0/a00317.html#a59f968aba25598436eb1def357c56d59">~DriverBase</a>()=default</td><td class="entry"><a class="el" href="../../da/de0/a00317.html">Lib::BSP::Display::DriverBase</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::Display::DriverBase::DriverBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>DriverBaseconstructor. </p>
+
+</div>
+</div>
+<a id="a59f968aba25598436eb1def357c56d59" name="a59f968aba25598436eb1def357c56d59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59f968aba25598436eb1def357c56d59">&#9670;&#160;</a></span>~DriverBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::BSP::Display::DriverBase::~DriverBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>DriverBase destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4c6d4fd3f37a54121208f462b76ed79d" name="a4c6d4fd3f37a54121208f462b76ed79d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c6d4fd3f37a54121208f462b76ed79d">&#9670;&#160;</a></span>getTransferActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Lib::BSP::Display::DriverBase::getTransferActive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the Transmit Active. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+</div>
+</div>
+<a id="a340e407a7873f92906eea84027f81801" name="a340e407a7873f92906eea84027f81801"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340e407a7873f92906eea84027f81801">&#9670;&#160;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::BSP::Display::DriverBase::init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initialize TFT Display. </p>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+<p>Implemented in <a class="el" href="../../dd/dbb/a00330.html#a73272e5dc75179573dc0e1116d0bdafd">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a>, and <a class="el" href="../../d2/d45/a00342.html#a66535c75098f4fa93cf87e7ae6e20ea7">Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;</a>.</p>
+
+</div>
+</div>
+<a id="af198ebe031fe9bf9f542593ad4a85ec3" name="af198ebe031fe9bf9f542593ad4a85ec3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af198ebe031fe9bf9f542593ad4a85ec3">&#9670;&#160;</a></span>setTransmitActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::Display::DriverBase::setTransmitActive </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the Transmit Active. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/de9/a00322_af198ebe031fe9bf9f542593ad4a85ec3_icgraph.png" border="0" usemap="#ade/de9/a00322_af198ebe031fe9bf9f542593ad4a85ec3_icgraph" alt=""/></div>
+<map name="ade/de9/a00322_af198ebe031fe9bf9f542593ad4a85ec3_icgraph" id="ade/de9/a00322_af198ebe031fe9bf9f542593ad4a85ec3_icgraph">
+<area shape="rect" title="Set the Transmit Active." alt="" coords="219,96,413,139"/>
+<area shape="rect" href="../../d2/d45/a00342.html#a66535c75098f4fa93cf87e7ae6e20ea7" title="Initialize Display Controller." alt="" coords="22,5,154,64"/>
+<area shape="poly" title=" " alt="" coords="240,93,154,61,155,56,242,88"/>
+<area shape="rect" href="../../dd/dbb/a00330.html#ae85f4059383696c97f769a5be9cfb6be" title="Transnit block to the display." alt="" coords="7,88,169,147"/>
+<area shape="poly" title=" " alt="" coords="203,120,170,120,170,115,203,115"/>
+<area shape="rect" href="../../d2/d45/a00342.html#a71563d8b244195fb980571eb39a311c2" title="Write Window." alt="" coords="5,171,171,229"/>
+<area shape="poly" title=" " alt="" coords="241,147,172,173,170,168,240,142"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a77aefcf37afba46fc380bc49be704ee1" name="a77aefcf37afba46fc380bc49be704ee1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77aefcf37afba46fc380bc49be704ee1">&#9670;&#160;</a></span>shouldTransferBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Lib::BSP::Display::DriverBase::shouldTransferBlock </td>
+          <td>(</td>
+          <td class="paramtype">int16_t</td>          <td class="paramname"><span class="paramname"><em>bottom</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if a Frame Buffer Block ending at bottom should be transferred. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bottom</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>called from <code>touchgfxDisplayDriverShouldTransferBlock</code> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://community.st.com/t5/stm32-mcus-touch-gfx-and-gui/running-touchgfx-on-stm32f2-series-mcu/td-p/178850">https://community.st.com/t5/stm32-mcus-touch-gfx-and-gui/running-touchgfx-on-stm32f2-series-mcu/td-p/178850</a> </dd>
+<dd>
+<a href="https://support.touchgfx.com/docs/api/namespacetouchgfx#shouldtransferblock">https://support.touchgfx.com/docs/api/namespacetouchgfx#shouldtransferblock</a> </dd></dl>
+
+</div>
+</div>
+<a id="aca116b23efef7c87ba2faf35d927e58c" name="aca116b23efef7c87ba2faf35d927e58c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca116b23efef7c87ba2faf35d927e58c">&#9670;&#160;</a></span>transferCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::BSP::Display::DriverBase::transferCpltCallback </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transfer Complete callback. </p>
+<p>Notify TouchGFX Layer that Transfer Complete </p>
+
+<p>Reimplemented in <a class="el" href="../../dd/dbb/a00330.html#a6382af7ea243103ca8616c6050667a84">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/de9/a00322_aca116b23efef7c87ba2faf35d927e58c_icgraph.png" border="0" usemap="#ade/de9/a00322_aca116b23efef7c87ba2faf35d927e58c_icgraph" alt=""/></div>
+<map name="ade/de9/a00322_aca116b23efef7c87ba2faf35d927e58c_icgraph" id="ade/de9/a00322_aca116b23efef7c87ba2faf35d927e58c_icgraph">
+<area shape="rect" title="Transfer Complete callback." alt="" coords="252,13,459,56"/>
+<area shape="rect" href="../../dd/dbb/a00330.html#a6382af7ea243103ca8616c6050667a84" title="Transfer Complete callback." alt="" coords="5,5,204,64"/>
+<area shape="poly" title=" " alt="" coords="236,37,204,37,204,32,236,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab4bbce27d3e377e3413432b820cf2340" name="ab4bbce27d3e377e3413432b820cf2340"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4bbce27d3e377e3413432b820cf2340">&#9670;&#160;</a></span>transmitBlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::BSP::Display::DriverBase::transmitBlock </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>w</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>h</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Transnit block to the display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>- pointer to Buffer </td></tr>
+    <tr><td class="paramname">x</td><td>- X coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>- Y coordinate </td></tr>
+    <tr><td class="paramname">w</td><td>- buffer width </td></tr>
+    <tr><td class="paramname">h</td><td>- height per buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="../../dd/dbb/a00330.html#ae85f4059383696c97f769a5be9cfb6be">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;</a>, and <a class="el" href="../../d2/d45/a00342.html#a71563d8b244195fb980571eb39a311c2">Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a3331471fd4ee8af29632b359d2cdb5b1" name="a3331471fd4ee8af29632b359d2cdb5b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3331471fd4ee8af29632b359d2cdb5b1">&#9670;&#160;</a></span>instance</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../de/de9/a00322.html">DriverBase</a>* Lib::BSP::Display::DriverBase::instance = nullptr</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="../../dd/d52/a00221.html">Lib</a></li><li class="navelem"><a class="el" href="../../d5/d0b/a00220.html">BSP</a></li><li class="navelem"><a class="el" href="../../dc/d28/a00223.html">Display</a></li><li class="navelem"><a class="el" href="../../de/de9/a00322.html">DriverBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

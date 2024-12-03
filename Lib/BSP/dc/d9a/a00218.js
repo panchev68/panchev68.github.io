@@ -1,23 +1,23 @@
 var a00218 =
 [
-    [ "Lib::BSP::EEPROM ::I2C::M24C16", "df/dee/a00369.html", [
-      [ "Config", "df/dee/a00369.html#ab8c9f5f159ad90167036c6d7c8c2a13a", null ],
-      [ "M24C16", "df/dee/a00369.html#ac17ef86b93c96957882c7def951d668e", null ],
-      [ "~M24C16", "df/dee/a00369.html#a79ba0ee2d03027107fa58593bbecaf6a", null ],
-      [ "close", "df/dee/a00369.html#a33605731e3011f5bc75fa274cb2ad62f", null ],
-      [ "getChipSize", "df/dee/a00369.html#ae48f7039637cb1da4c932bb0280e1cf0", null ],
-      [ "open", "df/dee/a00369.html#ab0faf34613df906acef9388c57be81a2", null ],
-      [ "read", "df/dee/a00369.html#a657d49d455e4f1c09636ad50bc3e00e6", null ],
-      [ "write", "df/dee/a00369.html#ae77ef1df7ef77b67e78e6f47984ea07a", null ]
+    [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >", "d3/dad/a00496.html", [
+      [ "Diagnostic", "de/d4e/a00500.html", [
+        [ "calculatedChkSum", "de/d4e/a00500.html#a13cf37b40e2b540d6b16616b3e69bfda", null ],
+        [ "frameChkSum", "de/d4e/a00500.html#af3b871c0941851046f6ed4ab87adddf9", null ],
+        [ "invalidFrameChkSum", "de/d4e/a00500.html#a014e643e2ec9665f6ff212341daa3665", null ],
+        [ "invalidHumidity", "de/d4e/a00500.html#a08b5247668e8957187a114c7edf63329", null ],
+        [ "invalidTemperature", "de/d4e/a00500.html#acb352564038d7025feb76bc120546473", null ],
+        [ "receivedTimeout", "de/d4e/a00500.html#ae243a8eeb3acdf578336c5ed9c189226", null ]
+      ] ],
+      [ "Driver", "d3/dad/a00496.html#a494b132eb2516cd8361a2812f93dfeaf", null ],
+      [ "~Driver", "d3/dad/a00496.html#af1cf24fdeb56661898c3aee37e94bffc", null ],
+      [ "getHumidity", "d3/dad/a00496.html#a09b3175343f41199742a8c374d1fb72a", null ],
+      [ "getRawHumidity", "d3/dad/a00496.html#a9e008b36bb2a4e9fffd9c6ef34d83be9", null ],
+      [ "getRawTemperature", "d3/dad/a00496.html#a13f94917526f41817a367260352b4495", null ],
+      [ "getTemperature", "d3/dad/a00496.html#a8ae02b3f89e4456053b20adcea8d4e4b", null ],
+      [ "isChanged", "d3/dad/a00496.html#a92691682a6c04798d1beef608643021a", null ],
+      [ "start", "d3/dad/a00496.html#a11df3bdf95bc4ca3a1b88d18e58557ff", null ],
+      [ "diagnostic", "d3/dad/a00496.html#af5b30dbc5cd2e90fb979fc1e992ed178", null ]
     ] ],
-    [ "Lib::BSP::EEPROM::I2C::M24C64W", "dc/de3/a00373.html", [
-      [ "Config", "dc/de3/a00373.html#aa8ff504216e3e0437cb82dba3074ef09", null ],
-      [ "M24C64W", "dc/de3/a00373.html#a2392a35a8eec891f6a59b7ced7f236b4", null ],
-      [ "~M24C64W", "dc/de3/a00373.html#a112a36af39a87eeab2695c2141fb685c", null ],
-      [ "close", "dc/de3/a00373.html#a20d132c70742bd4f788eac1854aeacfb", null ],
-      [ "getChipSize", "dc/de3/a00373.html#a4b66655cedc1fa6e74f8bd72848198d2", null ],
-      [ "open", "dc/de3/a00373.html#ab812f114483dab97fdfcaf5cb4588a27", null ],
-      [ "read", "dc/de3/a00373.html#aa99707ebb5eb33b3b0f9a68005fbe1c7", null ],
-      [ "write", "dc/de3/a00373.html#ae3d8fcc8306ca33a382a0c9ad3935f74", null ]
-    ] ]
+    [ "Lib::BSP::Termometer::DTH::DTH22", "dc/d9a/a00218.html#gab74242c0b383bb983737c6fc6ad9ca61", null ]
 ];

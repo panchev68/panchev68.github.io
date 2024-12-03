@@ -26,8 +26,7 @@ var NAVTREE =
 [
   [ "Lib::BSP", "index.html", [
     [ "Board Supported Peripherals Library", "index.html", null ],
-    [ "Implement Digital Peripheral Driver", "d2/da3/a00593.html", null ],
-    [ "Deprecated List", "dd/dc1/a00212.html", null ],
+    [ "Implement Digital Peripheral Driver", "d9/dad/a00591.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespace Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", null ],
@@ -56,8 +55,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d7/d93/a00397.html#afd037810d0cac882509f9811be8895beabb1ca97ec761fc37101737ba0aa2e7c5",
-"dd/d72/a00541.html#a3ecf4117f9cfd855b732fb907a30a25e"
+"d8/d89/a00484.html#a99424c3720e35f62cdbe0aa3b3d9a633",
+"df/d15/a00416.html#a931d1a9c63acccefd93c9c42a5b95a4c"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
