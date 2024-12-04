@@ -1,22 +1,11 @@
 var a00468 =
 [
-    [ "Config", "d9/d34/a00476.html", "d9/d34/a00476" ],
-    [ "Impl", "d8/d89/a00484.html", "d8/d89/a00484" ],
-    [ "Info", "d9/dc5/a00480.html", "d9/dc5/a00480" ],
-    [ "Register", "d7/db5/a00472.html", null ],
-    [ "W25Q128JVSIQ", "df/d38/a00468.html#ae30c4c2a91eca00e0996c005df282d41", null ],
-    [ "~W25Q128JVSIQ", "df/d38/a00468.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
-    [ "close", "df/d38/a00468.html#a949717933a1c298041adcf500a7d8f9d", null ],
-    [ "eraseBlock32K", "df/d38/a00468.html#adc3744e22caae3113d030bd8430adbfe", null ],
-    [ "eraseBlock64K", "df/d38/a00468.html#a68bb8f71277722ce197b60dab426f6e2", null ],
-    [ "eraseChip", "df/d38/a00468.html#af052007cb755ca7e2efdca99552b6394", null ],
-    [ "eraseSector", "df/d38/a00468.html#a0e00412be17cc69665ac20b2bc41c8c0", null ],
-    [ "getInfo", "df/d38/a00468.html#ad3c91a869f9d9f3e83aa66d5305286a6", null ],
-    [ "isPresent", "df/d38/a00468.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
-    [ "open", "df/d38/a00468.html#a419e720a0a366e322b172d234eccd202", null ],
-    [ "read", "df/d38/a00468.html#ae3993d3922639e037e2d54472f27ae33", null ],
-    [ "readsector", "df/d38/a00468.html#ac03bbf1a808d01d6a1f47295fed063ca", null ],
-    [ "write", "df/d38/a00468.html#ad5b7df44cfed8124232890112bf8b057", null ],
-    [ "writePage", "df/d38/a00468.html#af9dd3e2259fd6822e5e73a136e649caf", null ],
-    [ "writeSector", "df/d38/a00468.html#a8c4457e1327f34519203ce4a0e9416ad", null ]
+    [ "chipId", "df/d38/a00468.html#a471f6103e6c324301367e617df7ab301", null ],
+    [ "chipManufacturer", "df/d38/a00468.html#a9470c10cac26145e170c04d1fa629786", null ],
+    [ "memoryCapacity", "df/d38/a00468.html#a49db40c30a6c29148ba6f7e5a1eab46d", null ],
+    [ "numberOfPages", "df/d38/a00468.html#ab04bb1deee11915ac8cce071e5530325", null ],
+    [ "pagePerSeconstructor", "df/d38/a00468.html#a75b68f74785acde0d39e0c91ac4f79ad", null ],
+    [ "pageSize", "df/d38/a00468.html#a0fd1287956915571cb9e05a9e3a38daa", null ],
+    [ "seconstructorCount", "df/d38/a00468.html#a4721d86fda7aa23a1ac15550fe9e6d7e", null ],
+    [ "seconstructorSize", "df/d38/a00468.html#a34732d72d8e5348ede9d5076b00a3867", null ]
 ];

@@ -1,7 +1,7 @@
 var a00249 =
 [
-    [ "fadeStep", "de/dbc/a00249.html#a7530eaad1df7a20ac282410f2267cb9d", null ],
-    [ "sleepTime", "de/dbc/a00249.html#ad5efea86d46c202df2a57ce2150b3e92", null ],
-    [ "timChannel", "de/dbc/a00249.html#ac45b6dcc885270e097a59c014a6356b0", null ],
-    [ "timHandle", "de/dbc/a00249.html#a29a43236b21a98896db7ba1c2465e6e2", null ]
+    [ "fadeStep", "de/dbc/a00249.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTime", "de/dbc/a00249.html#ad30dd39f20169c3d91c056daced3a362", null ],
+    [ "timChannel", "de/dbc/a00249.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "de/dbc/a00249.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

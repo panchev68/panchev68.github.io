@@ -1,5 +1,5 @@
 var a00264 =
 [
-    [ "DeviceBase", "db/d12/a00268.html", "db/d12/a00268" ],
-    [ "setup", "d3/dcc/a00264.html#af285f51d6a11fa30a26b7109f12fa9c3", null ]
+    [ "timerChannel", "d3/dcc/a00264.html#acf47a2c6d6854305f3aa60f818d44f03", null ],
+    [ "timerHande", "d3/dcc/a00264.html#ac82281acdb58c781bc45adb9656df22a", null ]
 ];

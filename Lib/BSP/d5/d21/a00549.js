@@ -5,5 +5,5 @@ var a00549 =
     [ "~Base", "d5/d21/a00549.html#a60ff2ab400fae19db3e4edf57d7f6909", null ],
     [ "getVoltage", "d5/d21/a00549.html#a681250b664699ecd7261e138987060b3", null ],
     [ "handleValueChanged", "d5/d21/a00549.html#a481c4ec27b49a8e51a16fec28ec9d21e", null ],
-    [ "init", "d5/d21/a00549.html#af91ae6a72301a62c6c58c67644887011", null ]
+    [ "setup", "d5/d21/a00549.html#aef87be715665c934c25168e596a9e847", null ]
 ];

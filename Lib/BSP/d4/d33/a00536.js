@@ -1,12 +1,8 @@
 var a00536 =
 [
-    [ "debounceDuration", "d4/d33/a00536.html#a2a2460143aa31b4c1ef6ad9d0aa31dee", null ],
-    [ "dispHeight", "d4/d33/a00536.html#a4fca05139dab8d28ab5a9e742e45b272", null ],
-    [ "dispWidth", "d4/d33/a00536.html#a5572323b788ad93edfcf64cba84af9fc", null ],
-    [ "rotationFlip", "d4/d33/a00536.html#aa20c2a94033067f271a5eea361a18385", null ],
-    [ "rotationNormal", "d4/d33/a00536.html#a97f5a0001f16abcf833258717904d2ee", null ],
-    [ "xMax", "d4/d33/a00536.html#a6c7c0c28f843b89815025a75aa96fe46", null ],
-    [ "xMin", "d4/d33/a00536.html#adad3e10ac51ad89058a628db12309997", null ],
-    [ "yMax", "d4/d33/a00536.html#ad1d383b45608ae9fc33e56e56033de1d", null ],
-    [ "yMin", "d4/d33/a00536.html#aa3e99cb525c7a0d78c89b6ffba216bd4", null ]
+    [ "nirq", "d4/d33/a00536.html#ad246ba296d343c3c877d312924dac9c8", null ],
+    [ "nss", "d4/d33/a00536.html#a65edee1937b1e5e9546818e881e572c4", null ],
+    [ "sck", "d4/d33/a00536.html#a1e4534285fc4594ca2ae2606ea574e4b", null ],
+    [ "si", "d4/d33/a00536.html#addba5f53437144cd1dbee5da0acb2e16", null ],
+    [ "so", "d4/d33/a00536.html#a23dd9ad18f05db6b6f55201d8b18d4e5", null ]
 ];

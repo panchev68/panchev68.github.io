@@ -7,8 +7,9 @@ var a00212 =
     [ "I2C EEPROM Memory drivers", "df/d24/a00217.html", "df/d24/a00217" ],
     [ "Termometer drivers", "dc/d9a/a00218.html", "dc/d9a/a00218" ],
     [ "Voltmeter drivers", "dd/df3/a00219.html", "dd/df3/a00219" ],
-    [ "Voltmeter drivers", "d5/d0b/a00220.html", null ],
-    [ "TOUCH_SCREEN", "dd/d52/a00221.html", "dd/d52/a00221" ],
+    [ "Beeper drivers", "d5/d0b/a00220.html", "d5/d0b/a00220" ],
+    [ "Touch screen driver", "dd/d52/a00221.html", "dd/d52/a00221" ],
+    [ "Device manager", "d0/d24/a00222.html", "d0/d24/a00222" ],
     [ "Lib::BSP::EncoderTimer::EventCode", "dd/dc1/a00212.html#ga4d2d8c2ad096e11ce5b644063a5916fd", [
       [ "Lib::BSP::EncoderTimer::EventCode::BUTTON_PUSH", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fdac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
       [ "Lib::BSP::EncoderTimer::EventCode::BUTTON_PULL", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fda87cc2515777cc275be23e4735ad2b972", null ],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::BSP: BitMask.hpp Source File</title>
+<title>Lib::BSP: DeviceManager.hpp Source File</title>
 <link rel="icon" href="../../BSP.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,111 +99,116 @@ $(function(){initNavTree('d1/d88/a00128_source.html','../../'); initResizable(tr
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">BitMask.hpp</div></div>
+  <div class="headertitle"><div class="title">DeviceManager.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dc/d98/a00225.html">Lib::BSP::DigitalPeripheral</a></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dc/d55/a00226.html">Lib::BSP</a></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="../../d5/d42/a00269.html">   13</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../d5/d42/a00269.html">BitMask</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="../../d5/d42/a00269.html#a392f449e2d86ea379ba5180b0eef16b7">   20</a></span>        <span class="keyword">static</span> uint64_t <a class="code hl_function" href="../../d5/d42/a00269.html#a392f449e2d86ea379ba5180b0eef16b7">at</a> (uint32_t index)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>            assert (index &lt; _array.size ());</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keywordflow">if</span> (index &lt; _array.size ()) <span class="keywordflow">return</span> _array [index];</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keywordflow">else</span> <span class="keywordflow">return</span> 0ULL;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="../../db/d12/a00268.html">   18</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../db/d12/a00268.html">DeviceManager</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        <span class="comment">// ---------------------- DeviceBase class ------------------------</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d9/dd6/a00272.html">   28</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d9/dd6/a00272.html">DeviceBase</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d9/dd6/a00272.html#a0407598c83f2cfdd1cb736fe7ddf4470">   33</a></span>            <a class="code hl_function" href="../../d9/dd6/a00272.html#a0407598c83f2cfdd1cb736fe7ddf4470">DeviceBase</a> ()</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                <span class="keywordflow">if</span> (DeviceManager::getInstance ().add (<span class="keyword">this</span>) == <span class="keyword">false</span>) assert (0);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            }</div>
 </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> std::array&lt;uint64_t, 64&gt; _array = {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            0x0000000000000001,</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>            0x0000000000000002,</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>            0x0000000000000004,</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>            0x0000000000000008,</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            0x0000000000000010,</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            0x0000000000000020,</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>            0x0000000000000040,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            0x0000000000000080,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            0x0000000000000100,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            0x0000000000000200,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>            0x0000000000000400,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            0x0000000000000800,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>            0x0000000000001000,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            0x0000000000002000,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>            0x0000000000004000,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>            0x0000000000008000,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>            0x0000000000010000,</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            0x0000000000020000,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>            0x0000000000040000,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            0x0000000000080000,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            0x0000000000100000,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            0x0000000000200000,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            0x0000000000400000,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            0x0000000000800000,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            0x0000000001000000,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            0x0000000002000000,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            0x0000000004000000,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            0x0000000008000000,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            0x0000000010000000,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            0x0000000020000000,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            0x0000000040000000,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            0x0000000080000000,</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            0x0000000100000000,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            0x0000000200000000,</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            0x0000000400000000,</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            0x0000000800000000,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            0x0000001000000000,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            0x0000002000000000,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            0x0000004000000000,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            0x0000008000000000,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            0x0000010000000000,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            0x0000020000000000,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            0x0000040000000000,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            0x0000080000000000,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            0x0000100000000000,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            0x0000200000000000,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            0x0000400000000000,</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            0x0000800000000000,</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            0x0001000000000000,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            0x0002000000000000,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            0x0004000000000000,</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            0x0008000000000000,</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            0x0010000000000000,</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            0x0020000000000000,</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            0x0040000000000000,</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            0x0080000000000000,</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            0x0100000000000000,</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            0x0200000000000000,</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            0x0400000000000000,</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            0x0800000000000000,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            0x1000000000000000,</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            0x2000000000000000,</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            0x4000000000000000,</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>            0x8000000000000000,</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        };</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    };</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d9/dd6/a00272.html#a1701521fc34a11c4554c947c914a7c1a">   39</a></span>            <span class="keyword">virtual</span> <a class="code hl_function" href="../../d9/dd6/a00272.html#a1701521fc34a11c4554c947c914a7c1a">~DeviceBase</a> ()</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                <span class="keywordflow">if</span> (DeviceManager::getInstance ().remove (<span class="keyword">this</span>) == <span class="keyword">false</span>) assert (0);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>            }</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}        <span class="comment">// namespace Lib::BSP::DigitalPeripheral</span></div>
-<div class="ttc" id="aa00225_html"><div class="ttname"><a href="../../dc/d98/a00225.html">Lib::BSP::DigitalPeripheral</a></div><div class="ttdoc">Digital Peripheral Driver.</div><div class="ttdef"><b>Definition</b> DigitalPeripheral/Base.hpp:48</div></div>
-<div class="ttc" id="aa00269_html"><div class="ttname"><a href="../../d5/d42/a00269.html">Lib::BSP::DigitalPeripheral::BitMask</a></div><div class="ttdoc">Bitmask class.</div><div class="ttdef"><b>Definition</b> BitMask.hpp:14</div></div>
-<div class="ttc" id="aa00269_html_a392f449e2d86ea379ba5180b0eef16b7"><div class="ttname"><a href="../../d5/d42/a00269.html#a392f449e2d86ea379ba5180b0eef16b7">Lib::BSP::DigitalPeripheral::BitMask::at</a></div><div class="ttdeci">static uint64_t at(uint32_t index)</div><div class="ttdoc">Class indexer.</div><div class="ttdef"><b>Definition</b> BitMask.hpp:20</div></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d9/dd6/a00272.html#a23686a31e14ff3cfac665f1cc1308fdf">   44</a></span>            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/dd6/a00272.html#a23686a31e14ff3cfac665f1cc1308fdf">setup</a> () {};</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d9/dd6/a00272.html#a011b74dc5e4142f0183dad31e84f9307">   48</a></span>            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d9/dd6/a00272.html#a011b74dc5e4142f0183dad31e84f9307">handleTickEvent</a> () = 0;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        };</div>
+</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="comment">// ----------------------------------------------------------------</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../db/d12/a00268.html#aae17c61d37d9d8a5da65c3e42a11f4f2">   55</a></span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d12/a00268.html#aae17c61d37d9d8a5da65c3e42a11f4f2">setup</a> ()</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keyword">auto</span> &amp; instance (getInstance ());</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp; device : instance._vector) device-&gt;setup ();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keywordflow">return</span> (FreeRTOS::Timer::run (<span class="stringliteral">&quot;Tick&quot;</span>, [&amp;instance] { <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp; device : instance._vector) device-&gt;handleTickEvent (); }) != <span class="keyword">nullptr</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        std::vector&lt;DeviceBase *&gt; _vector;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <span class="keyword">static</span> <a class="code hl_class" href="../../db/d12/a00268.html">DeviceManager</a> &amp; getInstance ()</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            <span class="keyword">static</span> <a class="code hl_class" href="../../db/d12/a00268.html">DeviceManager</a> instance;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordtype">bool</span> add (DeviceBase * device)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">if</span> (_vector.end () != std::find (_vector.begin (), _vector.end (), device)) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            _vector.push_back (device);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordtype">bool</span> remove (DeviceBase * device)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        {</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keyword">auto</span> iter = std::find (_vector.begin (), _vector.end (), device);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">if</span> (_vector.end () == iter) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            _vector.erase (iter);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        DeviceManager () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        ~DeviceManager () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    };</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}        <span class="comment">// namespace Lib::BSP</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">// ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>**&lt;b&gt; In the initial initialization&lt;/ b&gt; * \code * <span class="keywordtype">void</span> startup () *</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    *<a class="code hl_function" href="../../db/d12/a00268.html#aae17c61d37d9d8a5da65c3e42a11f4f2">Lib::BSP::DeviceManager::setup</a> ();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    *</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>}</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>* \endcode * /</div>
+<div class="ttc" id="aa00226_html"><div class="ttname"><a href="../../dc/d55/a00226.html">Lib::BSP</a></div><div class="ttdoc">Board Supported Periferial.</div></div>
+<div class="ttc" id="aa00268_html"><div class="ttname"><a href="../../db/d12/a00268.html">Lib::BSP::DeviceManager</a></div><div class="ttdoc">Device Manager class.</div><div class="ttdef"><b>Definition</b> DeviceManager.hpp:19</div></div>
+<div class="ttc" id="aa00268_html_aae17c61d37d9d8a5da65c3e42a11f4f2"><div class="ttname"><a href="../../db/d12/a00268.html#aae17c61d37d9d8a5da65c3e42a11f4f2">Lib::BSP::DeviceManager::setup</a></div><div class="ttdeci">static bool setup()</div><div class="ttdoc">Initial initialization.</div><div class="ttdef"><b>Definition</b> DeviceManager.hpp:55</div></div>
+<div class="ttc" id="aa00272_html"><div class="ttname"><a href="../../d9/dd6/a00272.html">Lib::BSP::DeviceManager::DeviceBase</a></div><div class="ttdoc">DeviceBase class.</div><div class="ttdef"><b>Definition</b> DeviceManager.hpp:29</div></div>
+<div class="ttc" id="aa00272_html_a011b74dc5e4142f0183dad31e84f9307"><div class="ttname"><a href="../../d9/dd6/a00272.html#a011b74dc5e4142f0183dad31e84f9307">Lib::BSP::DeviceManager::DeviceBase::handleTickEvent</a></div><div class="ttdeci">virtual void handleTickEvent()=0</div><div class="ttdoc">Handleing tick event.</div></div>
+<div class="ttc" id="aa00272_html_a0407598c83f2cfdd1cb736fe7ddf4470"><div class="ttname"><a href="../../d9/dd6/a00272.html#a0407598c83f2cfdd1cb736fe7ddf4470">Lib::BSP::DeviceManager::DeviceBase::DeviceBase</a></div><div class="ttdeci">DeviceBase()</div><div class="ttdoc">DeviceBase constructor.</div><div class="ttdef"><b>Definition</b> DeviceManager.hpp:33</div></div>
+<div class="ttc" id="aa00272_html_a1701521fc34a11c4554c947c914a7c1a"><div class="ttname"><a href="../../d9/dd6/a00272.html#a1701521fc34a11c4554c947c914a7c1a">Lib::BSP::DeviceManager::DeviceBase::~DeviceBase</a></div><div class="ttdeci">virtual ~DeviceBase()</div><div class="ttdoc">DeviceBase destructor.</div><div class="ttdef"><b>Definition</b> DeviceManager.hpp:39</div></div>
+<div class="ttc" id="aa00272_html_a23686a31e14ff3cfac665f1cc1308fdf"><div class="ttname"><a href="../../d9/dd6/a00272.html#a23686a31e14ff3cfac665f1cc1308fdf">Lib::BSP::DeviceManager::DeviceBase::setup</a></div><div class="ttdeci">virtual void setup()</div><div class="ttdef"><b>Definition</b> DeviceManager.hpp:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_350568dfae86f4cf38cf6de0c323abff.html">BSP</a></li><li class="navelem"><a class="el" href="../../dir_db847a97121c196cf6cc0c5fc9b6623e.html">DigitalPeripheral</a></li><li class="navelem"><a class="el" href="../../dir_041b90ea0c9d15c01fdd0fe614542bee.html">Components</a></li><li class="navelem"><b>BitMask.hpp</b></li>
+    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_350568dfae86f4cf38cf6de0c323abff.html">BSP</a></li><li class="navelem"><b>DeviceManager.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

@@ -1,10 +1,10 @@
 var a00253 =
 [
-    [ "Dimmer", "d0/d3e/a00253.html#abfba730f14d95052d374445525f6b1bf", null ],
-    [ "~Dimmer", "d0/d3e/a00253.html#a35dabc894db73e7047fbd5851be27736", null ],
-    [ "restart", "d0/d3e/a00253.html#ab183c03007a20f8ba7e1dedb834910d6", null ],
-    [ "setup", "d0/d3e/a00253.html#ad537a76dd4a51b3cfa59e3571103afd6", null ],
-    [ "start", "d0/d3e/a00253.html#a0291f54f258ed957370b69402cdab14e", null ],
-    [ "stop", "d0/d3e/a00253.html#ae5ffd70311058cc168353bc43a75156e", null ],
+    [ "Dimmer", "d0/d3e/a00253.html#aa3aaad43a63b510d89d996e329097b35", null ],
+    [ "~Dimmer", "d0/d3e/a00253.html#a88ac623019b044d22e1e17fd2cebe81d", null ],
+    [ "restart", "d0/d3e/a00253.html#a7ae9427b07174fe971b964c17316edfb", null ],
+    [ "setup", "d0/d3e/a00253.html#a363e0cdabbd3e8a9c2fd41f92e0deaea", null ],
+    [ "start", "d0/d3e/a00253.html#a9793769a5578d4ee53894a3a28990a69", null ],
+    [ "stop", "d0/d3e/a00253.html#af0786f33e7fa0c211ef9d1994128af27", null ],
     [ "Backlight", "d0/d3e/a00253.html#a781e1923c97f1f68b00435e21cc55703", null ]
 ];

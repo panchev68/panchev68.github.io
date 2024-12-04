@@ -1,5 +1,12 @@
 var a00288 =
 [
-    [ "mask", "da/ddc/a00288.html#aa0d4d39d260771cc7099d10c714fd11e", null ],
-    [ "port", "da/ddc/a00288.html#addece06c3cf93398b1bd50d282c79b64", null ]
+    [ "InputsBase", "da/ddc/a00288.html#a3105b67230287bc585ffe878117b8bb5", null ],
+    [ "~InputsBase", "da/ddc/a00288.html#ad4f7b8fb7c4fa7f4c76ace9e4e7ea666", null ],
+    [ "getChangedCounter", "da/ddc/a00288.html#ad3f7e6d66bc887552afe739b8f49f035", null ],
+    [ "getValue", "da/ddc/a00288.html#a9151101d0c28a2915329fa0d9e8bad20", null ],
+    [ "handleValueChangedEvent", "da/ddc/a00288.html#aec67aca94588da8441f24093e0cc212e", null ],
+    [ "init", "da/ddc/a00288.html#a558618c4cd1cc798b1999e27bd86b6ae", null ],
+    [ "preInit", "da/ddc/a00288.html#a618f2fd4ccde2ef2867fa310ab2ff5b8", null ],
+    [ "update", "da/ddc/a00288.html#ab7bf9b26bc6105ae2ec93ae7cdc9e59b", null ],
+    [ "waitForCompleted", "da/ddc/a00288.html#a8aefa93c0cd252742fbd5e23675e570b", null ]
 ];
