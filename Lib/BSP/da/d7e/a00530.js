@@ -1,8 +1,28 @@
 var a00530 =
 [
-    [ "nirq", "da/d7e/a00530.html#ad246ba296d343c3c877d312924dac9c8", null ],
-    [ "nss", "da/d7e/a00530.html#a65edee1937b1e5e9546818e881e572c4", null ],
-    [ "sck", "da/d7e/a00530.html#a1e4534285fc4594ca2ae2606ea574e4b", null ],
-    [ "si", "da/d7e/a00530.html#addba5f53437144cd1dbee5da0acb2e16", null ],
-    [ "so", "da/d7e/a00530.html#a23dd9ad18f05db6b6f55201d8b18d4e5", null ]
+    [ "Impl", "da/d7e/a00530.html#a4ffae19acf3d3a8080880d1d7bf616fe", null ],
+    [ "~Impl", "da/d7e/a00530.html#ab0d9bf927db990e2c1a486a320863ead", null ],
+    [ "deinit", "da/d7e/a00530.html#a8af1970f3eb58534fc1d710c13f73163", null ],
+    [ "deselect", "da/d7e/a00530.html#a4733a0dd8e6a89b80cb43a6fc1ef14b9", null ],
+    [ "erase", "da/d7e/a00530.html#aa10c6d943c11971b1a43df58d1b27046", null ],
+    [ "getChipInfo", "da/d7e/a00530.html#a80735b27d6e46ca75e85ea69e902bc51", null ],
+    [ "init", "da/d7e/a00530.html#afaf5997d0280a6550ab44e92b4964177", null ],
+    [ "powerDown", "da/d7e/a00530.html#adcd04054e4f546ea7af2cf70cf0ff5d7", null ],
+    [ "powerUp", "da/d7e/a00530.html#a9b6c42c85dcdedcff8b3ac83a1474bf1", null ],
+    [ "readStatusRegister", "da/d7e/a00530.html#a859c7d8f4386578174f1782a64846692", null ],
+    [ "receive", "da/d7e/a00530.html#aba4c3e6bf1e9ccea53cbf25d600a93b1", null ],
+    [ "reset", "da/d7e/a00530.html#a0e698e1eebf4a28727bd4ff30e5e307c", null ],
+    [ "select", "da/d7e/a00530.html#ae2b6b19bf99ea047d3cdd6bdd60c6ec7", null ],
+    [ "send", "da/d7e/a00530.html#a45f7b29bb325f38a6148533b4d5c9784", null ],
+    [ "sendCommand", "da/d7e/a00530.html#a0c98262d6fa2f176f689001c9e5179c3", null ],
+    [ "sendCommand", "da/d7e/a00530.html#ac05f09f5ff3096e935f4dc00aade8ba1", null ],
+    [ "sendCommand", "da/d7e/a00530.html#aa560a037ea07702af73649bad874f11a", null ],
+    [ "sendCommandA24", "da/d7e/a00530.html#a6d8e686ab42d1d28f7645e2a10eedc77", null ],
+    [ "sendCommandA32", "da/d7e/a00530.html#a6c195170a18382d32a1b24cb0ba329b5", null ],
+    [ "waitingForWritingToComplete", "da/d7e/a00530.html#a3214710433195a58e8b6b5a44f80b6a5", null ],
+    [ "writeDisable", "da/d7e/a00530.html#a8d27b2ba80dc5c5f83d51e23cebbdb3d", null ],
+    [ "writeEnable", "da/d7e/a00530.html#aecddc615d6f7cff804655482e479c50b", null ],
+    [ "isPresent", "da/d7e/a00530.html#af3460f0a14a08dafb939daeadb8f00a8", null ],
+    [ "nss", "da/d7e/a00530.html#a5e3229469776f3460b6bc394c7f06bb7", null ],
+    [ "spi", "da/d7e/a00530.html#a99424c3720e35f62cdbe0aa3b3d9a633", null ]
 ];

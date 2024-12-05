@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['hb_0',['hb',['../de/d3d/a00409.html#afbb2d537f5613013b4501650c4e3fead',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU16::hb'],['../d8/de7/a00417.html#aaee7dca3907d3cf906e30db4dc37e025',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32::hb']]],
-  ['hbi_5findexed_5fdata0_5freg_1',['HBI_INDEXED_DATA0_REG',['../da/dc3/a00453.html#a49fee33959a8f6a986955c8f9322ed32',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hbi_5findexed_5fdata1_5freg_2',['HBI_INDEXED_DATA1_REG',['../da/dc3/a00453.html#a3a1d447e9262ccbf925d91921a20708f',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hbi_5findexed_5fdata2_5freg_3',['HBI_INDEXED_DATA2_REG',['../da/dc3/a00453.html#a7548f747c64891b08115869a07e834dd',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hbi_5findexed_5findex0_5freg_4',['HBI_INDEXED_INDEX0_REG',['../da/dc3/a00453.html#ac04cfcabf16ee2ddcd9d119e14c17f1b',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hbi_5findexed_5findex1_5freg_5',['HBI_INDEXED_INDEX1_REG',['../da/dc3/a00453.html#a5a39c1c2c6934c4608e10a0d1c39cd7f',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hbi_5findexed_5findex2_5freg_6',['HBI_INDEXED_INDEX2_REG',['../da/dc3/a00453.html#a288c34038f07bfa29373cd9635ecfb4b',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hbi_5findexed_5fpram_5fread_5fwrite_5ffifo_7',['HBI_INDEXED_PRAM_READ_WRITE_FIFO',['../da/dc3/a00453.html#ab5f1ef06678c0813005ac03b799bf471',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['hd_8',['hd',['../dd/d07/a00433.html#a0625b038624889ab5bda6b59799b0109',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64']]],
-  ['high_9',['high',['../d8/de7/a00417.html#a44f36e4d047e3378a73a5875c74cb6de',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32']]],
-  ['hw_10',['hw',['../d8/de7/a00417.html#af160832d53e030d67ed085c34206154f',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32::hw'],['../dd/d07/a00433.html#a5be92f865c9777b16a085138359e636e',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64::hw']]]
+  ['lan9252_5fbyte_5forder_5freg_0',['LAN9252_BYTE_ORDER_REG',['../d8/d57/a00498.html#ad8e8e6a9397168cd97497cfef56c143c',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['lan9252_5fcsr_5fint_5fconf_1',['LAN9252_CSR_INT_CONF',['../d8/d57/a00498.html#abece2f4af4d284d820b138d4fedd1a66',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['lan9252_5fcsr_5fint_5fen_2',['LAN9252_CSR_INT_EN',['../d8/d57/a00498.html#a0b6467bebc356669fe9970c2c6d12831',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['lan9252_5fcsr_5fint_5fsts_3',['LAN9252_CSR_INT_STS',['../d8/d57/a00498.html#afb8f077465c52352bedd6c07fd1da6c0',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['lb_4',['lb',['../d7/d9f/a00454.html#afe289830108c99b20dfae4364b2b9b3f',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU16::lb'],['../de/dcb/a00462.html#a8ca465c9a265f74b3764b0a1f9ad8822',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32::lb']]],
+  ['ld_5',['ld',['../d9/dea/a00478.html#ac101f77780f6a5db8548a8163a1b93fe',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64']]],
+  ['low_6',['low',['../de/dcb/a00462.html#ae112c4cdbc09c618f70c9a0a77ea1c79',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32']]],
+  ['lw_7',['lw',['../de/dcb/a00462.html#a948fbebb7800da9662933ea92837efed',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32::lw'],['../d9/dea/a00478.html#a6339d3fd752790a95f19851b65baf6de',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64::lw']]]
 ];

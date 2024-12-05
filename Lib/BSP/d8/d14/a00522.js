@@ -1,5 +1,5 @@
 var a00522 =
 [
-    [ "X", "d8/d14/a00522.html#aeb5ab9334ea32dd7827e9c297f987280", null ],
-    [ "Y", "d8/d14/a00522.html#ae804e9ae2e05c0514670b456d36e1e4e", null ]
+    [ "nss", "d8/d14/a00522.html#af85ee7d75b038cf80f96fa395058786a", null ],
+    [ "spi", "d8/d14/a00522.html#af54f9dc8e10614b21fdaf1cfbd40964a", null ]
 ];

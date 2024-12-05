@@ -1,10 +1,15 @@
 var a00478 =
 [
-    [ "chipManufacturer", "d9/dea/a00478.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "d9/dea/a00478.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "numberOfPages", "d9/dea/a00478.html#a195a420e33b57b124b86debe633e8a3b", null ],
-    [ "pagePersector", "d9/dea/a00478.html#ae27fa7e2ece388d5335a1964aa2c402c", null ],
-    [ "pageSize", "d9/dea/a00478.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "d9/dea/a00478.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "d9/dea/a00478.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "d", "d9/dea/a00478.html#aaa47fde1555cb6ebcb98509692ab2017", null ],
+    [ "dwords", "d9/dea/a00478.html#af38ce091dcd531c9265d95b2ef4eefc2", null ],
+    [ "hd", "d9/dea/a00478.html#a0625b038624889ab5bda6b59799b0109", null ],
+    [ "hw", "d9/dea/a00478.html#a5be92f865c9777b16a085138359e636e", null ],
+    [ "ld", "d9/dea/a00478.html#ac101f77780f6a5db8548a8163a1b93fe", null ],
+    [ "lw", "d9/dea/a00478.html#a6339d3fd752790a95f19851b65baf6de", null ],
+    [ "mw", "d9/dea/a00478.html#a944fe8a1d1df768650b62dab4bf09482", null ],
+    [ "uw", "d9/dea/a00478.html#a17466bec43c049372a03889cae58f245", null ],
+    [ "v", "d9/dea/a00478.html#a4bd8f63b9b2074834ff9ab5d7f4fcac2", null ],
+    [ "val", "d9/dea/a00478.html#a2f3493c03d224d43d7e127ab842cac2a", null ],
+    [ "w", "d9/dea/a00478.html#a980e35ccfd2f356a476a19e7bc2804f6", null ],
+    [ "words", "d9/dea/a00478.html#a9e9096f6aaf50e0bcaa62f3682893291", null ]
 ];

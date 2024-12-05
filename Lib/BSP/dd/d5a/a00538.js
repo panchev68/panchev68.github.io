@@ -1,25 +1,6 @@
 var a00538 =
 [
-    [ "Position", "d0/ddb/a00542.html", "d0/ddb/a00542" ],
-    [ "Impl", "dd/d5a/a00538.html#a5c3ee5cce12c8c8f6af9353119b709e0", null ],
-    [ "~Impl", "dd/d5a/a00538.html#a00cb8e95705d27e6cb6110bb07a95902", null ],
-    [ "start", "dd/d5a/a00538.html#a7b2f38ac28ca6639d7e48788db53deb5", null ],
-    [ "taskFn", "dd/d5a/a00538.html#a7ce9ec66139618bc45f9e211fd2f08c6", null ],
-    [ "intergratorX", "dd/d5a/a00538.html#a5007612a82163d4767fd05a4afa16cb1", null ],
-    [ "intergratorY", "dd/d5a/a00538.html#a65e805eb30c8cc3f8c1df1dd570b7237", null ],
-    [ "isPressed", "dd/d5a/a00538.html#a368df95e11e3dfad4ff97973e3cf7bc9", null ],
-    [ "nirq", "dd/d5a/a00538.html#a07c692bb71962b820a18b0c974247fff", null ],
-    [ "nss", "dd/d5a/a00538.html#ad6b31057b484c7ca85c2d96f27ac39f8", null ],
-    [ "parameters", "dd/d5a/a00538.html#aca16b8b3ea32cbc64637d4f121f346a3", null ],
-    [ "position", "dd/d5a/a00538.html#a00a8108a869b44118b3d198b8a76fc85", null ],
-    [ "queueButtonPressed", "dd/d5a/a00538.html#ae40bb9903bf09349fb1f5ce570b211e4", null ],
-    [ "rawPosition", "dd/d5a/a00538.html#aed96d210ecc485599b2d54eb41d77fe0", null ],
-    [ "rotation", "dd/d5a/a00538.html#abb8755de53acf42725026dc54b1f20d9", null ],
-    [ "scaleFaconstructorX", "dd/d5a/a00538.html#a3ecf4117f9cfd855b732fb907a30a25e", null ],
-    [ "scaleFaconstructorY", "dd/d5a/a00538.html#a29f6f4a6be93494543ac5491e361c069", null ],
-    [ "sck", "dd/d5a/a00538.html#a9eba16cf6be493373fdee419f8230ce8", null ],
-    [ "si", "dd/d5a/a00538.html#a409e92ea8b2961f929e737ae5359309a", null ],
-    [ "so", "dd/d5a/a00538.html#ab3163a33a68c369c45188d019929eec4", null ],
-    [ "timeoutDebounce", "dd/d5a/a00538.html#a0fbf0b10b4daa42745a05aa657894aa6", null ],
-    [ "timeoutPinDebounce", "dd/d5a/a00538.html#a764b5e79419441f0862e31e0509bf0c3", null ]
+    [ "pin", "dd/d5a/a00538.html#a6f371e19c2d81bd1f7de9ad8eff9bbe3", null ],
+    [ "timerHandle", "dd/d5a/a00538.html#aae2f66cebf24d7ac46096c2b10121913", null ],
+    [ "updatePeriod", "dd/d5a/a00538.html#ac4611581d9455dff9f08f07eada748df", null ]
 ];

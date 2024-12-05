@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['backlight_0',['Backlight',['../d6/d22/a00245.html#a567df45aa8f839e0db4b12ffeabbd417',1,'Lib::BSP::Backlight']]],
-  ['base_1',['Base',['../d0/d19/a00273.html#adda498d2a04e39d37a8b4644248ad5b4',1,'Lib::BSP::DigitalPeripheral::Base::Base()'],['../d7/d93/a00397.html#a3f0f6e72092b7bd58e186df4f79e0801',1,'Lib::BSP::Ethercat::PDI::LAN9252::Base::Base()'],['../da/d05/a00489.html#a3f1c1b044fab6cc5daac56245a64d8f3',1,'Lib::BSP::Termometer::DTH::Base::Base()'],['../d5/d21/a00549.html#a5c77cd47e554ce314048fbb66ee577e6',1,'Lib::BSP::Voltmeter::Base::Base()']]],
-  ['beep_2',['Beep',['../d9/d39/a00257.html#ac38413dbd29b4f4932c2b8887af98113',1,'Lib::BSP::Beep']]],
-  ['beginreceivedata_3',['beginReceiveData',['../da/d05/a00489.html#a7b3a4f2a90dd2499007ba9e1a48f61ac',1,'Lib::BSP::Termometer::DTH::Base']]],
-  ['bootstrapinit_4',['bootstrapInit',['../d7/d93/a00397.html#a59f941728cd1e54a046f214c396d7bd8',1,'Lib::BSP::Ethercat::PDI::LAN9252::Base']]]
+  ['close_0',['close',['../d4/d6d/a00402.html#a22fcdee8339a9ed383a877e2d17a9335',1,'Lib::BSP::EEPROM::I2C::DriverBase::close()'],['../d4/dbc/a00414.html#a33605731e3011f5bc75fa274cb2ad62f',1,'Lib::BSP::EEPROM ::I2C::M24C16::close()'],['../de/df7/a00418.html#a20d132c70742bd4f788eac1854aeacfb',1,'Lib::BSP::EEPROM::I2C::M24C64W::close()'],['../db/d43/a00422.html#a02b19b224249d42a7b11d3269b813b2d',1,'Lib::BSP::EncoderPins::close()'],['../d7/daa/a00490.html#ad3f271a91a1170d7d7d8e3bebe2c100b',1,'Lib::BSP::Ethercat::PDI::LAN9252::Interface::close()'],['../d0/da2/a00502.html#a01032d41f09fdda36edb1f07225ec81e',1,'Lib::BSP::FMEM::SPI::DriverBase::close()'],['../d6/d90/a00514.html#a949717933a1c298041adcf500a7d8f9d',1,'Lib::BSP::W25Q128JVSIQ::close()']]]
 ];

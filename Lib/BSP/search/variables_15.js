@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['w_0',['w',['../d8/de7/a00417.html#aa4e8cde84b97e16183b5235a5c511704',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32::w'],['../dd/d07/a00433.html#a980e35ccfd2f356a476a19e7bc2804f6',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64::w']]],
-  ['words_1',['words',['../d8/de7/a00417.html#a7609e901236718dd231c22ef40049551',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32::words'],['../dd/d07/a00433.html#a9e9096f6aaf50e0bcaa62f3682893291',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64::words']]]
+  ['y_0',['Y',['../d8/da5/a00570.html#ae804e9ae2e05c0514670b456d36e1e4e',1,'Lib::BSP::XPT2046::Version1::Driver::Position::Y'],['../d7/db1/a00590.html#a36e8b89bc53847bf0632a15d1052092f',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::Position::Y']]],
+  ['ymax_1',['yMax',['../d0/d3e/a00566.html#a3ed4c24247b93e9a2c9827909ae4fb83',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::yMax'],['../d4/d2f/a00582.html#ad1d383b45608ae9fc33e56e56033de1d',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::yMax']]],
+  ['ymin_2',['yMin',['../d0/d3e/a00566.html#a07b903488a290e7448fc6fc792e82987',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::yMin'],['../d4/d2f/a00582.html#aa3e99cb525c7a0d78c89b6ffba216bd4',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::yMin']]]
 ];

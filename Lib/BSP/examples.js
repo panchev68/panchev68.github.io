@@ -1,10 +1,10 @@
 var examples =
 [
-    [ "Backlight", "d8/d75/a00555.html", null ],
-    [ "Beep", "d8/df0/a00557.html", null ],
-    [ "DeviceManager", "d2/d50/a00559.html", null ],
-    [ "Example DigitalPeripheral", "d2/d50/a00561.html", null ],
-    [ "Example M24C64W - 64-Kbit serial I²C bus EEPROM", "dc/dae/a00563.html", null ],
-    [ "Example DTH22-Temperature/Humidity Sensor", "d8/dd2/a00565.html", null ],
-    [ "Voltmeter", "d2/dd7/a00567.html", null ]
+    [ "Backlight", "d6/db2/a00601.html", null ],
+    [ "Beep", "de/d94/a00603.html", null ],
+    [ "DeviceManager", "d0/d1c/a00605.html", null ],
+    [ "Example Digital peripheral driver", "d9/d07/a00607.html", null ],
+    [ "Example M24C64W - 64-Kbit serial I²C bus EEPROM", "db/d3f/a00609.html", null ],
+    [ "Example DTH22-Temperature/Humidity Sensor", "dd/dc0/a00611.html", null ],
+    [ "Voltmeter", "d1/d6e/a00613.html", null ]
 ];

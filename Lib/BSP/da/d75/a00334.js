@@ -1,7 +1,11 @@
 var a00334 =
 [
-    [ "di", "da/d75/a00334.html#aabf98a5ad309f2431fa7e7a31917ee85", null ],
-    [ "nrst", "da/d75/a00334.html#a2791788a0dacca54af259e2dd4843a79", null ],
-    [ "nss", "da/d75/a00334.html#ad81053b0c52295a482ff9145a6c44035", null ],
-    [ "spi", "da/d75/a00334.html#a1b22f2a90a16913b575e01266ea10035", null ]
+    [ "Inputs", "da/d75/a00334.html#a016fefc4ad1fd71115c0a1d185a78848", null ],
+    [ "~Inputs", "da/d75/a00334.html#a087cb58ee2990cf68c57741b4988e6a6", null ],
+    [ "getSpiHandle", "da/d75/a00334.html#aeb707999f78c0b6946d55e9e693a7843", null ],
+    [ "getValue", "da/d75/a00334.html#a0a7286835da876621f4c606e117a3c95", null ],
+    [ "preUpdateCallback", "da/d75/a00334.html#ae77d45396a07e44ed27d0f549fa137f9", null ],
+    [ "setup", "da/d75/a00334.html#a8af0f5b69e6bac0e14f5c87fdef8cbea", null ],
+    [ "update", "da/d75/a00334.html#a11159b7db61ca3330def52d33e15f043", null ],
+    [ "onValueChanged", "da/d75/a00334.html#a8e1cc967acbd10a641e204ea3191ec1b", null ]
 ];

@@ -1,46 +1,84 @@
 var a00211 =
 [
-    [ "Lib::BSP::EncoderPins", "d5/db5/a00374.html", [
-      [ "XConfig", "d7/d08/a00378.html", [
-        [ "button", "d7/d08/a00378.html#ac08b3d86840bd97f4f929d5dda60bd4b", null ],
-        [ "channel1", "d7/d08/a00378.html#a255d7f507b66d4b83ee0324a3405aa63", null ],
-        [ "channel2", "d7/d08/a00378.html#a6b004f355cf12288b73a5a1477d359d5", null ],
-        [ "devider", "d7/d08/a00378.html#a56bb79aeeaa82a6c4cb881456c1f44be", null ],
-        [ "isReverse", "d7/d08/a00378.html#a4cdc04e2eed10c913752a40e43af84c6", null ]
+    [ "Lib::BSP::DigitalPeripheralBase", "d9/d2a/a00270.html", [
+      [ "Config", "dd/d56/a00274.html", [
+        [ "Inputs", "dc/d5d/a00278.html", [
+          [ "mapFields", "dc/d5d/a00278.html#a6ba986b69224c6da02e9101784aa392c", null ],
+          [ "nss", "dc/d5d/a00278.html#a552c483d980c1271fec712c347656bab", null ],
+          [ "numberOfPins", "dc/d5d/a00278.html#ae921988b64cb6909ec8f99335b1df639", null ],
+          [ "spi", "dc/d5d/a00278.html#adec84f81cf7ac0c4d0d9be206fc9b1e8", null ]
+        ] ],
+        [ "Outputs", "dc/dc9/a00282.html", [
+          [ "mapFields", "dc/dc9/a00282.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ],
+          [ "nss", "dc/dc9/a00282.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
+          [ "numberOfPins", "dc/dc9/a00282.html#a106affd182052cba0f62265136279344", null ],
+          [ "oe", "dc/dc9/a00282.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
+          [ "spi", "dc/dc9/a00282.html#a5f4cb6994710a675161af87d94b0b76f", null ]
+        ] ],
+        [ "inputs", "dd/d56/a00274.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+        [ "outputs", "dd/d56/a00274.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
       ] ],
-      [ "EventState", "d5/db5/a00374.html#aee34f1acaa5652c24213469ad6b5f133", [
-        [ "NONE", "d5/db5/a00374.html#aee34f1acaa5652c24213469ad6b5f133ab50339a10e1de285ac99d4c3990b8693", null ],
-        [ "CW", "d5/db5/a00374.html#aee34f1acaa5652c24213469ad6b5f133a9af3107a066f6b0defb1cafc0499f6ed", null ],
-        [ "CCW", "d5/db5/a00374.html#aee34f1acaa5652c24213469ad6b5f133a59ec5d573abd014f3ae2c26ca962e8cf", null ],
-        [ "BUT_PUSH", "d5/db5/a00374.html#aee34f1acaa5652c24213469ad6b5f133aec99b17e69f307181424c4145f5f6490", null ],
-        [ "BUT_PULL", "d5/db5/a00374.html#aee34f1acaa5652c24213469ad6b5f133a33a5524041986baf515293cd1d0c67e4", null ]
+      [ "Inputs", "d4/d5b/a00294.html", [
+        [ "Inputs", "d4/d5b/a00294.html#a016fefc4ad1fd71115c0a1d185a78848", null ],
+        [ "~Inputs", "d4/d5b/a00294.html#a087cb58ee2990cf68c57741b4988e6a6", null ],
+        [ "getSpiHandle", "d4/d5b/a00294.html#aeb707999f78c0b6946d55e9e693a7843", null ],
+        [ "getValue", "d4/d5b/a00294.html#a0a7286835da876621f4c606e117a3c95", null ],
+        [ "preUpdateCallback", "d4/d5b/a00294.html#ae77d45396a07e44ed27d0f549fa137f9", null ],
+        [ "setup", "d4/d5b/a00294.html#a8af0f5b69e6bac0e14f5c87fdef8cbea", null ],
+        [ "update", "d4/d5b/a00294.html#a11159b7db61ca3330def52d33e15f043", null ],
+        [ "onValueChanged", "d4/d5b/a00294.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
       ] ],
-      [ "EncoderPins", "d5/db5/a00374.html#afcfbb537534cec93efdea85076410c32", null ],
-      [ "~EncoderPins", "d5/db5/a00374.html#a28ca7195dd7fc1252a96e83ecc89c068", null ],
-      [ "close", "d5/db5/a00374.html#a02b19b224249d42a7b11d3269b813b2d", null ],
-      [ "getButtonHoldPeriod", "d5/db5/a00374.html#aeaa45b498e7648cbab2b82e80df1a1e3", null ],
-      [ "getButtonState", "d5/db5/a00374.html#aa9777fbf12860a6136abc1331bde23a6", null ],
-      [ "kbdhit", "d5/db5/a00374.html#a4b596e140dbc52af97d489200c126b2c", null ],
-      [ "open", "d5/db5/a00374.html#a6558921ea0932d4faf2f9b6cf4fd2340", null ],
-      [ "pinChangedCallback", "d5/db5/a00374.html#a59cbeaf1c591c1fbe02ada2badba47b7", null ],
-      [ "setPulseDevider", "d5/db5/a00374.html#a38ec1909e5780dee8db356fc92a5af8b", null ]
+      [ "Outputs", "d9/d0d/a00298.html", [
+        [ "Outputs", "d9/d0d/a00298.html#a153b4407a4c042193b8af82883239eb9", null ],
+        [ "~Outputs", "d9/d0d/a00298.html#a9c710894dcfe1f0b1933d0d0b28abd42", null ],
+        [ "getSpiHandle", "d9/d0d/a00298.html#a6ab0e139c6e6dd1f5c17cac7449d5e69", null ],
+        [ "preUpdateCallback", "d9/d0d/a00298.html#aa72840e8be2ca86b875893d646396a8c", null ],
+        [ "setup", "d9/d0d/a00298.html#a315f1093dae7ede0fb0d523296b5eac3", null ],
+        [ "setValue", "d9/d0d/a00298.html#ae4045d1106023e1f70d362762cf094b6", null ],
+        [ "update", "d9/d0d/a00298.html#aa75532af7fced68ec1b34f22c37315f9", null ],
+        [ "onSpiError", "d9/d0d/a00298.html#a5f32588bd17e8771f96a4c0f533efc9c", null ],
+        [ "onStatusChanged", "d9/d0d/a00298.html#a5e12d4653fc13761bdee086c6055ea7b", null ],
+        [ "onValueChanged", "d9/d0d/a00298.html#a49199bf482163a66ea5831e85060cecf", null ]
+      ] ],
+      [ "PortBase", "d5/d7b/a00286.html", [
+        [ "PortBase", "d5/d7b/a00286.html#a95d4af679e6a1c451c726bcd0a75ce90", null ],
+        [ "~PortBase", "d5/d7b/a00286.html#a2ba3e98ffcb5aeb7a0772c4bc26cf0b3", null ],
+        [ "getSpiHandle", "d5/d7b/a00286.html#a0f1716a3b2c1c4c25fb74cc3b31b5651", null ],
+        [ "preUpdateCallback", "d5/d7b/a00286.html#a272f56d313f1f815e350de24b1e5ee37", null ],
+        [ "setup", "d5/d7b/a00286.html#a151478864c2f0f67d2c08f163c9cfb86", null ],
+        [ "update", "d5/d7b/a00286.html#a647f5701366b004030c6be8bbc28add4", null ]
+      ] ],
+      [ "Test", "d0/d39/a00314.html", [
+        [ "Test", "d0/d39/a00314.html#a41add396cbffe930ff853b174c26421d", null ],
+        [ "~Test", "d0/d39/a00314.html#a80055fb97a11c8675cebd51347fe2f54", null ],
+        [ "getChangePeriod", "d0/d39/a00314.html#a6e3bb7faab2b66c30fad8b091eace544", null ],
+        [ "getMode", "d0/d39/a00314.html#aa7b9c20194d5cf5336b61dc34507821b", null ],
+        [ "setChangePeriod", "d0/d39/a00314.html#aa80bbc97a2887a3eed72c24c77512a94", null ],
+        [ "setMode", "d0/d39/a00314.html#ace712a078c9218278448db79f438b6fb", null ],
+        [ "start", "d0/d39/a00314.html#a6dfa619a87b77b4e5b0928cae56f0644", null ],
+        [ "stop", "d0/d39/a00314.html#ae2f66a809e46699f7b5ad3c9e5c7faf0", null ]
+      ] ],
+      [ "UpdateMode", "d9/d2a/a00270.html#a978444aac3217a942110d700b46f8fac", [
+        [ "SEQUENTAL", "d9/d2a/a00270.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510", null ],
+        [ "PARALLEL", "d9/d2a/a00270.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+      ] ],
+      [ "DigitalPeripheralBase", "d9/d2a/a00270.html#a5570fdb4f790bed8aee60eb4ec112c16", null ],
+      [ "~DigitalPeripheralBase", "d9/d2a/a00270.html#a39d8896a433b85ffa720242e59fbf76a", null ],
+      [ "handlePostUpdateEvent", "d9/d2a/a00270.html#a294663c97d720c464895fafc012a4320", null ],
+      [ "handlePreUpdateEvent", "d9/d2a/a00270.html#a9df6bf64afd75c520554f8a7347d69cc", null ],
+      [ "handleTestOutputsUpdate", "d9/d2a/a00270.html#a1f5f1f866ebd52551d7e41bb3500a620", null ],
+      [ "setup", "d9/d2a/a00270.html#ad4437f0f124b47d2bf64855328b57aeb", null ],
+      [ "DigitalPeripheralBase::Test", "d9/d2a/a00270.html#a6ae4ca3b1218699f2fba74e3ddf90042", null ],
+      [ "inputs", "d9/d2a/a00270.html#a4048b7c31dfe6668a54b929c8c56d4e3", null ],
+      [ "outputs", "d9/d2a/a00270.html#a51773719b9429f690be7e1128f2ff064", null ],
+      [ "test", "d9/d2a/a00270.html#aaf00f952a78a339c6e2523fbd683c75c", null ]
     ] ],
-    [ "Lib::BSP::EncoderTimer", "d3/d45/a00382.html", [
-      [ "Config", "dd/df5/a00386.html", [
-        [ "button", "dd/df5/a00386.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-        [ "timHandle", "dd/df5/a00386.html#a742631ff7bb7073d1d41a82b29487dee", null ]
-      ] ],
-      [ "EventCode", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fd", [
-        [ "BUTTON_PUSH", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fdac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-        [ "BUTTON_PULL", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fda87cc2515777cc275be23e4735ad2b972", null ],
-        [ "BUTTON_HOLD", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fdaa9ac7af6781d04fe7e05a387f285044e", null ],
-        [ "ENCODER_CW", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fda900afcef9f88f5d81725b2402b094404", null ],
-        [ "ENCODER_CCW", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b", null ],
-        [ "NONE", "d3/d45/a00382.html#a4d2d8c2ad096e11ce5b644063a5916fdab50339a10e1de285ac99d4c3990b8693", null ]
-      ] ],
-      [ "EncoderTimer", "d3/d45/a00382.html#a4b396f2a0c9fffc2e806d8b6f48d31c8", null ],
-      [ "~EncoderTimer", "d3/d45/a00382.html#ac94930ccccaf915988c8889a8506730e", null ],
-      [ "init", "d3/d45/a00382.html#a71d28d6d793be5c6e8d8b187b9174e85", null ],
-      [ "read", "d3/d45/a00382.html#a0b1c61c19c58792564f88bf25bc400e1", null ]
+    [ "Lib::BSP::DigitalPeripheralBase::MapField", "de/d25/a00290.html", [
+      [ "mask", "de/d25/a00290.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
+      [ "port", "de/d25/a00290.html#aeba565c07ca364748f572902aba40f3a", null ]
+    ] ],
+    [ "DigitalPeripheralBase::MapField", "dc/d84/a00338.html", [
+      [ "mask", "dc/d84/a00338.html#ad90a832a7bc9a2a920e923caabda8409", null ],
+      [ "port", "dc/d84/a00338.html#a9a5805b717fb0057ce8fa7e71c8865d4", null ]
     ] ]
 ];

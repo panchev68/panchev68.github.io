@@ -1,13 +1,11 @@
 var a00510 =
 [
-    [ "Config", "d6/d90/a00514.html", "d6/d90/a00514" ],
-    [ "Parameters", "d5/dee/a00518.html", "d5/dee/a00518" ],
-    [ "Position", "d8/d14/a00522.html", "d8/d14/a00522" ],
-    [ "Driver", "d6/d52/a00510.html#a670bfc98b54aa3a80b8155a10ef389ff", null ],
-    [ "~Driver", "d6/d52/a00510.html#a180012fe0de58aa14847de10c7ef8b2e", null ],
-    [ "init", "d6/d52/a00510.html#ab5ac84ed10da8cfe6c423f89f58e2eae", null ],
-    [ "sampleTouch", "d6/d52/a00510.html#aee61f8833f260330ecdecd2ac9b06d07", null ],
-    [ "setRotation", "d6/d52/a00510.html#a2cb123e63ab4458038ed9082bc4b8e3b", null ],
-    [ "position", "d6/d52/a00510.html#a61b422f4777ce36be360b53c8c81013d", null ],
-    [ "rawPosition", "d6/d52/a00510.html#abb6768971ba7042c8d0e9cf49f37474d", null ]
+    [ "chipId", "d6/d52/a00510.html#a471f6103e6c324301367e617df7ab301", null ],
+    [ "chipManufacturer", "d6/d52/a00510.html#a9470c10cac26145e170c04d1fa629786", null ],
+    [ "memoryCapacity", "d6/d52/a00510.html#a49db40c30a6c29148ba6f7e5a1eab46d", null ],
+    [ "numberOfPages", "d6/d52/a00510.html#ab04bb1deee11915ac8cce071e5530325", null ],
+    [ "pagePerSeconstructor", "d6/d52/a00510.html#a75b68f74785acde0d39e0c91ac4f79ad", null ],
+    [ "pageSize", "d6/d52/a00510.html#a0fd1287956915571cb9e05a9e3a38daa", null ],
+    [ "seconstructorCount", "d6/d52/a00510.html#a4721d86fda7aa23a1ac15550fe9e6d7e", null ],
+    [ "seconstructorSize", "d6/d52/a00510.html#a34732d72d8e5348ede9d5076b00a3867", null ]
 ];

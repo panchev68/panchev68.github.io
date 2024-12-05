@@ -1,12 +1,8 @@
 var a00282 =
 [
-    [ "InputsBase", "dc/dc9/a00282.html#a3105b67230287bc585ffe878117b8bb5", null ],
-    [ "~InputsBase", "dc/dc9/a00282.html#ad4f7b8fb7c4fa7f4c76ace9e4e7ea666", null ],
-    [ "getChangedCounter", "dc/dc9/a00282.html#ad3f7e6d66bc887552afe739b8f49f035", null ],
-    [ "getValue", "dc/dc9/a00282.html#a9151101d0c28a2915329fa0d9e8bad20", null ],
-    [ "handleValueChangedEvent", "dc/dc9/a00282.html#aec67aca94588da8441f24093e0cc212e", null ],
-    [ "init", "dc/dc9/a00282.html#a558618c4cd1cc798b1999e27bd86b6ae", null ],
-    [ "preInit", "dc/dc9/a00282.html#a618f2fd4ccde2ef2867fa310ab2ff5b8", null ],
-    [ "update", "dc/dc9/a00282.html#ab7bf9b26bc6105ae2ec93ae7cdc9e59b", null ],
-    [ "waitForCompleted", "dc/dc9/a00282.html#a8aefa93c0cd252742fbd5e23675e570b", null ]
+    [ "mapFields", "dc/dc9/a00282.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ],
+    [ "nss", "dc/dc9/a00282.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
+    [ "numberOfPins", "dc/dc9/a00282.html#a106affd182052cba0f62265136279344", null ],
+    [ "oe", "dc/dc9/a00282.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
+    [ "spi", "dc/dc9/a00282.html#a5f4cb6994710a675161af87d94b0b76f", null ]
 ];

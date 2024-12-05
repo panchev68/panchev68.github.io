@@ -1,6 +1,7 @@
 var a00278 =
 [
-    [ "Input", "dc/d5d/a00278.html#ab6c53991ed89a7fb9c7f643697951d97", null ],
-    [ "~Input", "dc/d5d/a00278.html#ad4fd27aa9e9142bc2dc9cc9137c5f7a9", null ],
-    [ "update", "dc/d5d/a00278.html#a92278db4edc68dbfe2647d15e9a526a0", null ]
+    [ "mapFields", "dc/d5d/a00278.html#a6ba986b69224c6da02e9101784aa392c", null ],
+    [ "nss", "dc/d5d/a00278.html#a552c483d980c1271fec712c347656bab", null ],
+    [ "numberOfPins", "dc/d5d/a00278.html#ae921988b64cb6909ec8f99335b1df639", null ],
+    [ "spi", "dc/d5d/a00278.html#adec84f81cf7ac0c4d0d9be206fc9b1e8", null ]
 ];

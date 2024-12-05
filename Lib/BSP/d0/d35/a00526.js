@@ -1,12 +1,10 @@
 var a00526 =
 [
-    [ "Config", "da/d7e/a00530.html", "da/d7e/a00530" ],
-    [ "Impl", "dd/d5a/a00538.html", "dd/d5a/a00538" ],
-    [ "Parameters", "dc/d20/a00534.html", "dc/d20/a00534" ],
-    [ "Driver", "d0/d35/a00526.html#a5bf8f688d7db82f03ea06ed9377a04b2", null ],
-    [ "Driver", "d0/d35/a00526.html#a32900c7d63cd1947aed3a78a4644538b", null ],
-    [ "~Driver", "d0/d35/a00526.html#ae388b2ccdc820835f29602779a797318", null ],
-    [ "init", "d0/d35/a00526.html#a018dde99aba37b36e027ccd592b0fa39", null ],
-    [ "sampleTouch", "d0/d35/a00526.html#ad0a9cea61d991d27f83ce1cfc1ab4b0e", null ],
-    [ "setRotation", "d0/d35/a00526.html#a1ebf6916843ffe06a25e07df394cee89", null ]
+    [ "chipManufacturer", "d0/d35/a00526.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "d0/d35/a00526.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "numberOfPages", "d0/d35/a00526.html#a195a420e33b57b124b86debe633e8a3b", null ],
+    [ "pagePersector", "d0/d35/a00526.html#ae27fa7e2ece388d5335a1964aa2c402c", null ],
+    [ "pageSize", "d0/d35/a00526.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "d0/d35/a00526.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "d0/d35/a00526.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

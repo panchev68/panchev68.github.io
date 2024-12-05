@@ -1,12 +1,13 @@
 var a00342 =
 [
-    [ "Config", "d2/daf/a00346.html", "d2/daf/a00346" ],
-    [ "Driver", "d2/d45/a00342.html#a86fc56666b22fdf5935ce9dbfdefc578", null ],
-    [ "~Driver", "d2/d45/a00342.html#a8b517fb74e02be5d5426841f802e2c9f", null ],
-    [ "getTransferActive", "d2/d45/a00342.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
-    [ "init", "d2/d45/a00342.html#a66535c75098f4fa93cf87e7ae6e20ea7", null ],
-    [ "setTransmitActive", "d2/d45/a00342.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
-    [ "shouldTransferBlock", "d2/d45/a00342.html#a77aefcf37afba46fc380bc49be704ee1", null ],
-    [ "transferCpltCallback", "d2/d45/a00342.html#aca116b23efef7c87ba2faf35d927e58c", null ],
-    [ "transmitBlock", "d2/d45/a00342.html#a71563d8b244195fb980571eb39a311c2", null ]
+    [ "Outputs", "d2/d45/a00342.html#a153b4407a4c042193b8af82883239eb9", null ],
+    [ "~Outputs", "d2/d45/a00342.html#a9c710894dcfe1f0b1933d0d0b28abd42", null ],
+    [ "getSpiHandle", "d2/d45/a00342.html#a6ab0e139c6e6dd1f5c17cac7449d5e69", null ],
+    [ "preUpdateCallback", "d2/d45/a00342.html#aa72840e8be2ca86b875893d646396a8c", null ],
+    [ "setup", "d2/d45/a00342.html#a315f1093dae7ede0fb0d523296b5eac3", null ],
+    [ "setValue", "d2/d45/a00342.html#ae4045d1106023e1f70d362762cf094b6", null ],
+    [ "update", "d2/d45/a00342.html#aa75532af7fced68ec1b34f22c37315f9", null ],
+    [ "onSpiError", "d2/d45/a00342.html#ab9f2cbfc57df6d3d0b366cb4e9424a36", null ],
+    [ "onStatusChanged", "d2/d45/a00342.html#aa4c647be03a79350b7987757ce57a230", null ],
+    [ "onValueChanged", "d2/d45/a00342.html#ad8e0abe09149eb8458ce9fdc338b1531", null ]
 ];

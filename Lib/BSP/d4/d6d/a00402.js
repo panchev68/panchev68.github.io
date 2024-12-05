@@ -1,6 +1,15 @@
 var a00402 =
 [
-    [ "UU16", "d1/d8b/a00406.html", "d1/d8b/a00406" ],
-    [ "UU32", "d4/dbc/a00414.html", "d4/dbc/a00414" ],
-    [ "UU64", "dc/d0c/a00430.html", "dc/d0c/a00430" ]
+    [ "Config", "d1/d8b/a00406.html", "d1/d8b/a00406" ],
+    [ "DriverBase", "d4/d6d/a00402.html#ad6e63f7c95ebef12a11f8ee339405e01", null ],
+    [ "~DriverBase", "d4/d6d/a00402.html#a08a74a2fa411c1b365413e0b93187d53", null ],
+    [ "close", "d4/d6d/a00402.html#a22fcdee8339a9ed383a877e2d17a9335", null ],
+    [ "getChipSize", "d4/d6d/a00402.html#a69acdf676bb0caa8da9e01d6c8dba068", null ],
+    [ "open", "d4/d6d/a00402.html#aaec0b33cfc5e3a04c99de913bc1d8a00", null ],
+    [ "read", "d4/d6d/a00402.html#a17c02f3b3a1a2d3aba15656ebd27a7df", null ],
+    [ "read16", "d4/d6d/a00402.html#a8ac40644fd061e23bf00c9ff9b7a188c", null ],
+    [ "read8", "d4/d6d/a00402.html#afca417e7fa947ee916e78d270accd840", null ],
+    [ "write", "d4/d6d/a00402.html#a9e03de314d498f1ed6fed9f49d96ba0e", null ],
+    [ "write16", "d4/d6d/a00402.html#afb301950c661c4daf29b3c4224c1e97d", null ],
+    [ "write8", "d4/d6d/a00402.html#a15d576717ece08693ae1f36757e42ea8", null ]
 ];

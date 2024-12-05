@@ -1,27 +1,23 @@
 var a00215 =
 [
-    [ "Lib::BSP::Display::Driver< Controller >", "dd/d4e/a00329.html", null ],
-    [ "Lib::BSP::Display::Driver< Controller::ILI9341 >", "d2/d0a/a00333.html", [
-      [ "Config", "d4/dce/a00337.html", [
-        [ "di", "d4/dce/a00337.html#aabf98a5ad309f2431fa7e7a31917ee85", null ],
-        [ "nrst", "d4/dce/a00337.html#a2791788a0dacca54af259e2dd4843a79", null ],
-        [ "nss", "d4/dce/a00337.html#ad81053b0c52295a482ff9145a6c44035", null ],
-        [ "spi", "d4/dce/a00337.html#a1b22f2a90a16913b575e01266ea10035", null ]
-      ] ],
-      [ "Driver", "d2/d0a/a00333.html#aa297a4eb9cb6f85132d416ba012b0baa", null ],
-      [ "~Driver", "d2/d0a/a00333.html#aee5bc4c7d5ac7ad78bc7320eb3e78935", null ],
-      [ "getTransferActive", "d2/d0a/a00333.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
-      [ "init", "d2/d0a/a00333.html#a73272e5dc75179573dc0e1116d0bdafd", null ],
-      [ "postInitCallback", "d2/d0a/a00333.html#a5848e189d34c1797278359b6baca2453", null ],
-      [ "setBacklight", "d2/d0a/a00333.html#af7de5a6b1d3c4d2cfc9fb4015c09396a", null ],
-      [ "setRotation", "d2/d0a/a00333.html#a5f0da430b5306f52d21febcfc1644700", null ],
-      [ "setTransmitActive", "d2/d0a/a00333.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
-      [ "shouldTransferBlock", "d2/d0a/a00333.html#a77aefcf37afba46fc380bc49be704ee1", null ],
-      [ "transferCpltCallback", "d2/d0a/a00333.html#a6382af7ea243103ca8616c6050667a84", null ],
-      [ "transmitBlock", "d2/d0a/a00333.html#ae85f4059383696c97f769a5be9cfb6be", null ]
+    [ "Lib::BSP::EEPROM ::I2C::M24C16", "d4/dbc/a00414.html", [
+      [ "Config", "d4/dbc/a00414.html#ab8c9f5f159ad90167036c6d7c8c2a13a", null ],
+      [ "M24C16", "d4/dbc/a00414.html#ac17ef86b93c96957882c7def951d668e", null ],
+      [ "~M24C16", "d4/dbc/a00414.html#a79ba0ee2d03027107fa58593bbecaf6a", null ],
+      [ "close", "d4/dbc/a00414.html#a33605731e3011f5bc75fa274cb2ad62f", null ],
+      [ "getChipSize", "d4/dbc/a00414.html#ae48f7039637cb1da4c932bb0280e1cf0", null ],
+      [ "open", "d4/dbc/a00414.html#ab0faf34613df906acef9388c57be81a2", null ],
+      [ "read", "d4/dbc/a00414.html#a657d49d455e4f1c09636ad50bc3e00e6", null ],
+      [ "write", "d4/dbc/a00414.html#ae77ef1df7ef77b67e78e6f47984ea07a", null ]
     ] ],
-    [ "Lib::BSP::Display::Controller", "d3/dd5/a00215.html#gabce278c9e48f7f4b0be0c20c7c142d73", [
-      [ "Lib::BSP::Display::Controller::ILI9341", "d3/dd5/a00215.html#ggabce278c9e48f7f4b0be0c20c7c142d73a56132a4ec9a1880f4963a4b9d8d7bfca", null ],
-      [ "Lib::BSP::Display::Controller::ST7789", "d3/dd5/a00215.html#ggabce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199", null ]
+    [ "Lib::BSP::EEPROM::I2C::M24C64W", "de/df7/a00418.html", [
+      [ "Config", "de/df7/a00418.html#aa8ff504216e3e0437cb82dba3074ef09", null ],
+      [ "M24C64W", "de/df7/a00418.html#a2392a35a8eec891f6a59b7ced7f236b4", null ],
+      [ "~M24C64W", "de/df7/a00418.html#a112a36af39a87eeab2695c2141fb685c", null ],
+      [ "close", "de/df7/a00418.html#a20d132c70742bd4f788eac1854aeacfb", null ],
+      [ "getChipSize", "de/df7/a00418.html#a4b66655cedc1fa6e74f8bd72848198d2", null ],
+      [ "open", "de/df7/a00418.html#ab812f114483dab97fdfcaf5cb4588a27", null ],
+      [ "read", "de/df7/a00418.html#aa99707ebb5eb33b3b0f9a68005fbe1c7", null ],
+      [ "write", "de/df7/a00418.html#ae3d8fcc8306ca33a382a0c9ad3935f74", null ]
     ] ]
 ];

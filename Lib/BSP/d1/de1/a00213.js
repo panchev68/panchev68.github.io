@@ -1,46 +1,27 @@
 var a00213 =
 [
-    [ "Lib::BSP::EncoderPins", "d4/d13/a00377.html", [
-      [ "XConfig", "de/d08/a00381.html", [
-        [ "button", "de/d08/a00381.html#ac08b3d86840bd97f4f929d5dda60bd4b", null ],
-        [ "channel1", "de/d08/a00381.html#a255d7f507b66d4b83ee0324a3405aa63", null ],
-        [ "channel2", "de/d08/a00381.html#a6b004f355cf12288b73a5a1477d359d5", null ],
-        [ "devider", "de/d08/a00381.html#a56bb79aeeaa82a6c4cb881456c1f44be", null ],
-        [ "isReverse", "de/d08/a00381.html#a4cdc04e2eed10c913752a40e43af84c6", null ]
+    [ "Lib::BSP::Backlight", "d2/dc8/a00242.html", [
+      [ "Config", "d4/d9a/a00246.html", [
+        [ "fadeStep", "d4/d9a/a00246.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+        [ "sleepTime", "d4/d9a/a00246.html#ad30dd39f20169c3d91c056daced3a362", null ],
+        [ "timChannel", "d4/d9a/a00246.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+        [ "timHandle", "d4/d9a/a00246.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
       ] ],
-      [ "EventState", "d4/d13/a00377.html#aee34f1acaa5652c24213469ad6b5f133", [
-        [ "NONE", "d4/d13/a00377.html#aee34f1acaa5652c24213469ad6b5f133ab50339a10e1de285ac99d4c3990b8693", null ],
-        [ "CW", "d4/d13/a00377.html#aee34f1acaa5652c24213469ad6b5f133a9af3107a066f6b0defb1cafc0499f6ed", null ],
-        [ "CCW", "d4/d13/a00377.html#aee34f1acaa5652c24213469ad6b5f133a59ec5d573abd014f3ae2c26ca962e8cf", null ],
-        [ "BUT_PUSH", "d4/d13/a00377.html#aee34f1acaa5652c24213469ad6b5f133aec99b17e69f307181424c4145f5f6490", null ],
-        [ "BUT_PULL", "d4/d13/a00377.html#aee34f1acaa5652c24213469ad6b5f133a33a5524041986baf515293cd1d0c67e4", null ]
+      [ "Dimmer", "d0/da7/a00250.html", [
+        [ "Dimmer", "d0/da7/a00250.html#aa3aaad43a63b510d89d996e329097b35", null ],
+        [ "~Dimmer", "d0/da7/a00250.html#a88ac623019b044d22e1e17fd2cebe81d", null ],
+        [ "restart", "d0/da7/a00250.html#a7ae9427b07174fe971b964c17316edfb", null ],
+        [ "setup", "d0/da7/a00250.html#a363e0cdabbd3e8a9c2fd41f92e0deaea", null ],
+        [ "start", "d0/da7/a00250.html#a9793769a5578d4ee53894a3a28990a69", null ],
+        [ "stop", "d0/da7/a00250.html#af0786f33e7fa0c211ef9d1994128af27", null ],
+        [ "Backlight", "d0/da7/a00250.html#a781e1923c97f1f68b00435e21cc55703", null ]
       ] ],
-      [ "EncoderPins", "d4/d13/a00377.html#afcfbb537534cec93efdea85076410c32", null ],
-      [ "~EncoderPins", "d4/d13/a00377.html#a28ca7195dd7fc1252a96e83ecc89c068", null ],
-      [ "close", "d4/d13/a00377.html#a02b19b224249d42a7b11d3269b813b2d", null ],
-      [ "getButtonHoldPeriod", "d4/d13/a00377.html#aeaa45b498e7648cbab2b82e80df1a1e3", null ],
-      [ "getButtonState", "d4/d13/a00377.html#aa9777fbf12860a6136abc1331bde23a6", null ],
-      [ "kbdhit", "d4/d13/a00377.html#a4b596e140dbc52af97d489200c126b2c", null ],
-      [ "open", "d4/d13/a00377.html#a6558921ea0932d4faf2f9b6cf4fd2340", null ],
-      [ "pinChangedCallback", "d4/d13/a00377.html#a59cbeaf1c591c1fbe02ada2badba47b7", null ],
-      [ "setPulseDevider", "d4/d13/a00377.html#a38ec1909e5780dee8db356fc92a5af8b", null ]
-    ] ],
-    [ "Lib::BSP::EncoderTimer", "d5/d05/a00385.html", [
-      [ "Config", "dc/dc9/a00389.html", [
-        [ "button", "dc/dc9/a00389.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-        [ "timHandle", "dc/dc9/a00389.html#a742631ff7bb7073d1d41a82b29487dee", null ]
-      ] ],
-      [ "EventCode", "dd/dc1/a00212.html#ga4d2d8c2ad096e11ce5b644063a5916fd", [
-        [ "BUTTON_PUSH", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fdac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-        [ "BUTTON_PULL", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fda87cc2515777cc275be23e4735ad2b972", null ],
-        [ "BUTTON_HOLD", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fdaa9ac7af6781d04fe7e05a387f285044e", null ],
-        [ "ENCODER_CW", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fda900afcef9f88f5d81725b2402b094404", null ],
-        [ "ENCODER_CCW", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b", null ],
-        [ "NONE", "dd/dc1/a00212.html#gga4d2d8c2ad096e11ce5b644063a5916fdab50339a10e1de285ac99d4c3990b8693", null ]
-      ] ],
-      [ "EncoderTimer", "d5/d05/a00385.html#a4b396f2a0c9fffc2e806d8b6f48d31c8", null ],
-      [ "~EncoderTimer", "d5/d05/a00385.html#ac94930ccccaf915988c8889a8506730e", null ],
-      [ "init", "d5/d05/a00385.html#a71d28d6d793be5c6e8d8b187b9174e85", null ],
-      [ "read", "d5/d05/a00385.html#a0b1c61c19c58792564f88bf25bc400e1", null ]
+      [ "Backlight", "d2/dc8/a00242.html#a567df45aa8f839e0db4b12ffeabbd417", null ],
+      [ "~Backlight", "d2/dc8/a00242.html#a02a775fbc033eea218493a833283f8fd", null ],
+      [ "get", "d2/dc8/a00242.html#a50a810c2a297031558286c9c20bb51ea", null ],
+      [ "operator=", "d2/dc8/a00242.html#a17dd552119b2281653baaa955b27f9ae", null ],
+      [ "set", "d2/dc8/a00242.html#a134cd822dea79a9267a7c08f599fa9f4", null ],
+      [ "setup", "d2/dc8/a00242.html#a7d23b2d4fabb9cc7ae9772e7853a8750", null ],
+      [ "dimmer", "d2/dc8/a00242.html#a71b8c1e8f9da8b626ef276112930f31c", null ]
     ] ]
 ];

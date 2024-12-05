@@ -1,9 +1,12 @@
 var searchData=
 [
-  ['deinit_0',['deinit',['../d6/d1a/a00485.html#a8af1970f3eb58534fc1d710c13f73163',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
-  ['deselect_1',['deselect',['../dd/d47/a00445.html#aea28ca5bd72c923ce2818ef533427e86',1,'Lib::BSP::Ethercat::PDI::LAN9252::Interface::deselect()'],['../d6/d1a/a00485.html#a4733a0dd8e6a89b80cb43a6fc1ef14b9',1,'Lib::BSP::W25Q128JVSIQ::Impl::deselect()']]],
-  ['devicebase_2',['DeviceBase',['../d5/d42/a00269.html#a0407598c83f2cfdd1cb736fe7ddf4470',1,'Lib::BSP::DeviceManager::DeviceBase']]],
-  ['dimmer_3',['Dimmer',['../d0/d3e/a00253.html#aa3aaad43a63b510d89d996e329097b35',1,'Lib::BSP::Backlight::Dimmer']]],
-  ['driver_4',['Driver',['../d2/d0a/a00333.html#aa297a4eb9cb6f85132d416ba012b0baa',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Driver()'],['../d9/d48/a00345.html#a86fc56666b22fdf5935ce9dbfdefc578',1,'Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Driver()'],['../d4/d1e/a00497.html#a494b132eb2516cd8361a2812f93dfeaf',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;::Driver()'],['../da/def/a00513.html#a670bfc98b54aa3a80b8155a10ef389ff',1,'Lib::BSP::XPT2046::Version1::Driver::Driver()'],['../d1/d0b/a00529.html#a5bf8f688d7db82f03ea06ed9377a04b2',1,'Lib::BSP::XPT2046::Version2::Driver::Driver(const Config &amp;config, const Parameters &amp;parameters)'],['../d1/d0b/a00529.html#a32900c7d63cd1947aed3a78a4644538b',1,'Lib::BSP::XPT2046::Version2::Driver::Driver(const Config &amp;config)']]],
-  ['driverbase_5',['DriverBase',['../de/dc8/a00325.html#a3e1b32d5719a8f888610f4e002c7f961',1,'Lib::BSP::Display::DriverBase::DriverBase()'],['../df/df1/a00357.html#ad6e63f7c95ebef12a11f8ee339405e01',1,'Lib::BSP::EEPROM::I2C::DriverBase::DriverBase()'],['../d1/dbd/a00457.html#a9f6021ae8bcddaee6154e62b125fb593',1,'Lib::BSP::FMEM::SPI::DriverBase::DriverBase()']]]
+  ['encoderpins_0',['EncoderPins',['../db/d43/a00422.html#afcfbb537534cec93efdea85076410c32',1,'Lib::BSP::EncoderPins']]],
+  ['encodertimer_1',['EncoderTimer',['../dc/d0c/a00430.html#a4b396f2a0c9fffc2e806d8b6f48d31c8',1,'Lib::BSP::EncoderTimer']]],
+  ['endreceiveddata_2',['endReceivedData',['../dc/d20/a00534.html#aa0a5210748d8446a16327f1b0d5540f9',1,'Lib::BSP::Termometer::DTH::Base']]],
+  ['erase_3',['erase',['../da/d7e/a00530.html#aa10c6d943c11971b1a43df58d1b27046',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
+  ['eraseblock32k_4',['eraseBlock32K',['../d6/d90/a00514.html#adc3744e22caae3113d030bd8430adbfe',1,'Lib::BSP::W25Q128JVSIQ']]],
+  ['eraseblock64k_5',['eraseBlock64K',['../d6/d90/a00514.html#a68bb8f71277722ce197b60dab426f6e2',1,'Lib::BSP::W25Q128JVSIQ']]],
+  ['erasechip_6',['eraseChip',['../d0/da2/a00502.html#a1cc2a6d57b0cb7133c23ea04c9822a5e',1,'Lib::BSP::FMEM::SPI::DriverBase::eraseChip()'],['../d6/d90/a00514.html#af052007cb755ca7e2efdca99552b6394',1,'Lib::BSP::W25Q128JVSIQ::eraseChip()']]],
+  ['eraseseconstructor_7',['eraseSeconstructor',['../d0/da2/a00502.html#aebe3faba93edebd667eee195c8d4814f',1,'Lib::BSP::FMEM::SPI::DriverBase']]],
+  ['erasesector_8',['eraseSector',['../d6/d90/a00514.html#a0e00412be17cc69665ac20b2bc41c8c0',1,'Lib::BSP::W25Q128JVSIQ']]]
 ];

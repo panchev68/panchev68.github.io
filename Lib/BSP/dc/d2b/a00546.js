@@ -1,9 +1,9 @@
 var a00546 =
 [
-    [ "Config", "de/de7/a00550.html", "de/de7/a00550" ],
-    [ "Base", "dc/d2b/a00546.html#a5c77cd47e554ce314048fbb66ee577e6", null ],
-    [ "~Base", "dc/d2b/a00546.html#a60ff2ab400fae19db3e4edf57d7f6909", null ],
-    [ "getVoltage", "dc/d2b/a00546.html#a681250b664699ecd7261e138987060b3", null ],
-    [ "handleValueChanged", "dc/d2b/a00546.html#a481c4ec27b49a8e51a16fec28ec9d21e", null ],
-    [ "init", "dc/d2b/a00546.html#af91ae6a72301a62c6c58c67644887011", null ]
+    [ "calculatedChkSum", "dc/d2b/a00546.html#a13cf37b40e2b540d6b16616b3e69bfda", null ],
+    [ "frameChkSum", "dc/d2b/a00546.html#af3b871c0941851046f6ed4ab87adddf9", null ],
+    [ "invalidFrameChkSum", "dc/d2b/a00546.html#a014e643e2ec9665f6ff212341daa3665", null ],
+    [ "invalidHumidity", "dc/d2b/a00546.html#a08b5247668e8957187a114c7edf63329", null ],
+    [ "invalidTemperature", "dc/d2b/a00546.html#acb352564038d7025feb76bc120546473", null ],
+    [ "receivedTimeout", "dc/d2b/a00546.html#ae243a8eeb3acdf578336c5ed9c189226", null ]
 ];
