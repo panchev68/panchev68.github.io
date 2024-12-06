@@ -2,10 +2,10 @@ var annotated_dup =
 [
     [ "Lib", null, [
       [ "Canbus", null, [
-        [ "Service", "da/dcf/a01558.html", null ],
-        [ "Service< Mode::CLIENT >", "d7/def/a01538.html", "d7/def/a01538" ],
-        [ "Service< Mode::SERVER >", "d6/d02/a01542.html", "d6/d02/a01542" ],
-        [ "ServiceBase", "d9/da1/a01546.html", "d9/da1/a01546" ]
+        [ "Service", "d7/d16/a00930.html", null ],
+        [ "Service< Mode::CLIENT >", "d3/dd1/a00914.html", "d3/dd1/a00914" ],
+        [ "Service< Mode::SERVER >", "d0/ddf/a00918.html", "d0/ddf/a00918" ],
+        [ "ServiceBase", "dd/dcf/a00922.html", "dd/dcf/a00922" ]
       ] ]
     ] ]
 ];

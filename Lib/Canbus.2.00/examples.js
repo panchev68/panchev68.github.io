@@ -1,5 +1,5 @@
 var examples =
 [
-    [ "Example Standalone Driver", "de/d89/a01560.html", null ],
-    [ "Example Implementation of Canbus Server", "d2/dc1/a01562.html", null ]
+    [ "Example Standalone Driver", "d8/dbb/a00932.html", null ],
+    [ "Example Implementation of Canbus Server", "d0/df0/a00934.html", null ]
 ];

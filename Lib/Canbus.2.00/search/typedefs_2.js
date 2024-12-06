@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['node_0',['Node',['../d6/d02/a01542.html#a51aab3e356ef21266eaf297ea243d837',1,'Lib::Canbus::Service&lt; Mode::SERVER &gt;']]]
+  ['nodes_0',['Nodes',['../d0/ddf/a00918.html#ab4a1099f1aaaa32aa33efb2242f6205a',1,'Lib::Canbus::Service&lt; Mode::SERVER &gt;']]]
 ];
