@@ -1,6 +1,5 @@
 var a00882 =
 [
-    [ "Bitset", "d3/d50/a00882.html#a942e0af1a522af427d507bc4646b2c3c", null ],
     [ "Configuration", "d3/d50/a00882.html#a0496b3d19c7bb3da8baa5eb827375bc4", null ],
     [ "~Configuration", "d3/d50/a00882.html#ab0a917963ddead9ca393b4a366eabb3b", null ],
     [ "isEmpty", "d3/d50/a00882.html#ac7addfec6bb7d8a898813e8e042a6409", null ],

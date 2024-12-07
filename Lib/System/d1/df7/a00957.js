@@ -1,9 +1,10 @@
 var a00957 =
 [
-    [ "Hardware", "d1/df7/a00957.html#a209231483fab6e2faf45a43f236b20ba", null ],
-    [ "getSubVersion", "d1/df7/a00957.html#af67e495f0343cc085794bfe583ec97cf", null ],
-    [ "getValue", "d1/df7/a00957.html#a088960f052bdadabcac8832a12add2a4", null ],
-    [ "operator const std::string", "d1/df7/a00957.html#aa164e48faf8bc6d7c0ccad90a9e55be3", null ],
-    [ "operator uint32_t", "d1/df7/a00957.html#ad3e97456d12f007b257afab25bc899a3", null ],
-    [ "toString", "d1/df7/a00957.html#a4969da17f1de98d1becb6a560bd1d41d", null ]
+    [ "Parameters", "d1/df7/a00957.html#aed8f10c365f1968aed1168cc7a5bb800", null ],
+    [ "~Parameters", "d1/df7/a00957.html#a245860a82f4ff4913863d92d76915052", null ],
+    [ "getData", "d1/df7/a00957.html#afc14839c3c1a55fe5aeff91f840059b9", null ],
+    [ "getStorage", "d1/df7/a00957.html#a8adf7d36874964f333b0de59a517a942", null ],
+    [ "restoreByDefault", "d1/df7/a00957.html#a68dd64d77b697a2b23b8298ad88b6600", null ],
+    [ "setup", "d1/df7/a00957.html#ad521c578c5a43082e0067bc6fc479f18", null ],
+    [ "write", "d1/df7/a00957.html#ab0ddfcac99ddbd96b3ba1716157b1c44", null ]
 ];

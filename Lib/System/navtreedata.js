@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "Lib::System", "index.html", [
     [ "System Library", "index.html", null ],
-    [ "Deprecated List", "d9/d2e/a00056.html", null ],
+    [ "Deprecated List", "d3/d8b/a00059.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -36,8 +36,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]

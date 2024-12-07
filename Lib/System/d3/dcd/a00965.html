@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::System: ProduceDate</title>
+<title>Lib::System: Configuration</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lib::System<span id="projectnumber">&#160;1.00</span>
+   <div id="projectname">Lib::System<span id="projectnumber">&#160;3.00</span>
    </div>
    <div id="projectbrief">System library</div>
   </td>
@@ -97,27 +97,40 @@ $(function(){initNavTree('d3/dcd/a00965.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ProduceDate</div></div>
+  <div class="headertitle"><div class="title">Configuration</div></div>
 </div><!--header-->
 <div class="contents">
-<h1><code>Lib::System::ProduceDate</code> example</h1>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;System/ProduceDate.hpp&gt;</span></div>
+<h1><code>Lib::System::Configuration</code> example</h1>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;System/Configuration.hpp&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/ddc/a00917.html">Lib::System::ProduceDate</a> produceDate (0);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> read()</div>
+<div class="line"><span class="keyword">enum</span> ConfigBits</div>
 <div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span> (produceDate.isEmpty() != <span class="keyword">true</span>)</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> produceDate.read()</div>
+<div class="line">    VOLTMETER_SUPPORT = 0x01,</div>
+<div class="line">    VOLTMETER_VPP_2V5 = 0x02,</div>
+<div class="line">    CANBUS_SUPPORT    = 0x04,</div>
+<div class="line">};</div>
 <div class="line"> </div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d18/a00885.html">Lib::System::Configuration</a> configuration (0x100);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> read ()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (configuration.isValid () == <span class="keyword">false</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> bits = configuration.read ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (bits.test (VOLTMETER_SUPPORT) == <span class="keyword">true</span>)</div>
 <div class="line">    {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }  </div>
+<div class="line">        <span class="comment">// The system supports a voltmeter</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00917_html"><div class="ttname"><a href="../../d4/ddc/a00917.html">Lib::System::ProduceDate</a></div><div class="ttdoc">Produce Date class.</div><div class="ttdef"><b>Definition</b> ProduceDate.hpp:15</div></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> write ()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (configuration.isValid () == <span class="keyword">true</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> configuration.write ({VOLTMETER_SUPPORT | CANBUS_SUPPORT});</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00885_html"><div class="ttname"><a href="../../db/d18/a00885.html">Lib::System::Configuration</a></div><div class="ttdoc">System configuration class.</div><div class="ttdef"><b>Definition</b> Configuration.hpp:16</div></div>
 </div><!-- fragment -->  <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

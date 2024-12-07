@@ -1,9 +1,8 @@
 var a00913 =
 [
-    [ "StorageBase", "d9/dfb/a00913.html#adc6d744bfbfc3f1b5a0b09426b32bb43", null ],
-    [ "~StorageBase", "d9/dfb/a00913.html#a9bbd624528be148ec8c2fd806ee6886f", null ],
-    [ "close", "d9/dfb/a00913.html#a3c755cf960d315014c69b63475bdff87", null ],
-    [ "open", "d9/dfb/a00913.html#af3a893817d5636d51a92906b86acbbb4", null ],
-    [ "read", "d9/dfb/a00913.html#af17bfbe8bcee114b205e936aba48dc51", null ],
-    [ "write", "d9/dfb/a00913.html#a8c037c4ba1de8a4c25dfdfc5bf45439a", null ]
+    [ "SerialNumber", "d9/dfb/a00913.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
+    [ "~SerialNumber", "d9/dfb/a00913.html#a454995c6e21a8effee4e4019c6e5656d", null ],
+    [ "operator const std::string", "d9/dfb/a00913.html#a3842cded3f0f473336caa6ad134287d3", null ],
+    [ "operator uint32_t", "d9/dfb/a00913.html#a4a27d9e728d5c0e48be09780eee95052", null ],
+    [ "toString", "d9/dfb/a00913.html#ac447affeca8c9170097f3b5e59289d99", null ]
 ];

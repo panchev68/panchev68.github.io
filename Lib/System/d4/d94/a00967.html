@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::System: System</title>
+<title>Lib::System: ParametersBase</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,7 +27,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lib::System<span id="projectnumber">&#160;1.00</span>
+   <div id="projectname">Lib::System<span id="projectnumber">&#160;3.00</span>
    </div>
    <div id="projectbrief">System library</div>
   </td>
@@ -97,59 +97,138 @@ $(function(){initNavTree('d4/d94/a00967.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">System</div></div>
+  <div class="headertitle"><div class="title">ParametersBase</div></div>
 </div><!--header-->
 <div class="contents">
-<h1><code>Lib::System::System</code> example</h1>
-<p><code>System.hpp</code></p>
+<h1><code>Lib::System::ParametersBase</code> implementation</h1>
+<p><b><code>ParametersData.hpp</code></b></p>
 <div class="fragment"><div class="line"> </div>
-<div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;System/System.hpp&gt;</span>        <span class="comment">// https://panchev68.github.io/Lib/System/d2/d21/a01484.html</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>System</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">class </span>System : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d36/a00925.html">Lib::System::System</a></div>
+<div class="line"> </div>
+<div class="line">    __packed <span class="keyword">struct </span>ParametersData</div>
+<div class="line">    {</div>
+<div class="line">        uint32_t parameter1;</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">}        <span class="comment">// namespace System</span></div>
+</div><!-- fragment --><p><b><code>Parameters.hpp</code></b></p>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma once</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Project/BSP/M24C64W.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Project/System/ParametersData.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;Lib/System/ParametersBase.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>BSP</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">extern</span> M24C64W eeprom;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>System</div>
+<div class="line">{</div>
+<div class="line">    <span class="keyword">using </span>ParametersBase = <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/dc8/a00889.html">Lib::System::ParametersBase&lt;ParametersData&gt;</a>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">class </span>Parameters : <span class="keyword">public</span> ParametersBase</div>
 <div class="line">    {</div>
 <div class="line">    <span class="keyword">public</span>:</div>
 <div class="line"> </div>
-<div class="line">        <span class="keyword">static</span> System &amp; getInstance ();</div>
+<div class="line">        Parameters ();</div>
+<div class="line"> </div>
+<div class="line">        ~Parameters ();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> setup () <span class="keyword">override</span>;</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">virtual</span> ParametersData &amp; getData ();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> write ();</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordtype">bool</span> restoreByDefault () <span class="keyword">override</span>;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">private</span>:</div>
 <div class="line"> </div>
-<div class="line">        System ();</div>
+<div class="line">        <span class="keyword">class </span>Storage;</div>
+<div class="line">        Storage * _storage;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span>:</div>
 <div class="line">    };</div>
-<div class="line">}        <span class="comment">// namespace System</span></div>
-<div class="ttc" id="aa00925_html"><div class="ttname"><a href="../../dc/d36/a00925.html">Lib::System::System</a></div><div class="ttdoc">System class.</div><div class="ttdef"><b>Definition</b> System.hpp:22</div></div>
-</div><!-- fragment --><p><code>System.cpp</code></p>
-<div class="fragment"><div class="line"> </div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;System.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Project/VersionDef.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#pragma region Implementation</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>System</div>
-<div class="line">{</div>
+<div class="line">    <span class="comment">// ------------------------- Implementation ---------------------------</span></div>
 <div class="line"> </div>
-<div class="line">    System &amp; System::getInstance ()</div>
+<div class="line">    <span class="keyword">class </span>Parameters::Storage : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../da/d5b/a00905.html">ParametersBase::StorageBase</a></div>
 <div class="line">    {</div>
-<div class="line">        <span class="keyword">static</span> System instance;</div>
-<div class="line">        <span class="keywordflow">return</span> instance;</div>
+<div class="line">        <span class="keyword">constexpr</span> <span class="keyword">static</span> uint32_t FLASH_ADDRESS = 0;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordtype">bool</span> open ()<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">        </span>{</div>
+<div class="line">            <span class="keywordflow">return</span> BSP::eeprom.<a id="a2" name="a2"></a><a class="code hl_function" href="../../da/d5b/a00905.html#af5417c9da3425d4582947f3be29e8d81">open</a> ();</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordtype">bool</span> close ()<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">        </span>{</div>
+<div class="line">            <span class="keywordflow">return</span> BSP::eeprom.close ();</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordtype">bool</span> read (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">        </span>{</div>
+<div class="line">            <span class="keywordflow">return</span> BSP::eeprom.read (FLASH_ADDRESS, dst, len);</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordtype">bool</span> write (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">        </span>{</div>
+<div class="line">            <span class="keywordflow">return</span> BSP::eeprom.write (FLASH_ADDRESS, src, len);</div>
+<div class="line">        }</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Parameters constructor</span></div>
+<div class="line">    <span class="keyword">inline</span> Parameters::Parameters () : ParametersBase ((new Storage))</div>
+<div class="line">    {</div>
+<div class="line">        _storage = <span class="keyword">reinterpret_cast&lt;</span>Storage *<span class="keyword">&gt;</span> (ParametersBase::getStorage ());</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    System::System () : <a class="code hl_class" href="../../dc/d36/a00925.html">Lib::System::System</a> (FIRMWARE_VERSION, FIRMWARE_SUBVERSION, HARDWARE_VERSION, HARDWARE_SUBVERSION)</div>
-<div class="line">    {}</div>
+<div class="line">    <span class="comment">// Parameters destructor</span></div>
+<div class="line">    <span class="keyword">inline</span> Parameters::~Parameters ()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">delete</span> _storage;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// Initial initialization of System parameters</span></div>
+<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">bool</span> Parameters::setup ()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> ParametersBase::setup ();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Gets the reference of parameters data area</span></div>
+<div class="line">    <span class="keyword">inline</span> ParametersData &amp; Parameters::getData ()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> ParametersBase::getData ();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Writes the system parameters data area</span></div>
+<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">bool</span> Parameters::write ()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> ParametersBase::write ();</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Restores default parameters</span></div>
+<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">bool</span> Parameters::restoreByDefault ()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">auto</span> &amp; data     = getData ();</div>
+<div class="line">        data.parameter1 = 1234;</div>
+<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma endregion</span></div>
 <div class="line">}        <span class="comment">// namespace System</span></div>
-</div><!-- fragment --><p><code>VersionDef.h</code></p>
-<div class="fragment"><div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#define FIRMWARE_VERSION    &quot;1.03&quot;</span></div>
-<div class="line"><span class="preprocessor">#define FIRMWARE_SUBVERSION 10</span></div>
-<div class="line"><span class="preprocessor">#define HARDWARE_VERSION    &quot;1.00&quot;</span></div>
-<div class="line"><span class="preprocessor">#define HARDWARE_SUBVERSION 1</span></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00889_html"><div class="ttname"><a href="../../de/dc8/a00889.html">Lib::System::ParametersBase</a></div><div class="ttdoc">ParametersBase class.</div><div class="ttdef"><b>Definition</b> ParametersBase.hpp:15</div></div>
+<div class="ttc" id="aa00905_html"><div class="ttname"><a href="../../da/d5b/a00905.html">ParametersBase::StorageBase</a></div><div class="ttdoc">ParametersBase::StorageBase class.</div><div class="ttdef"><b>Definition</b> StorageBase.hpp:9</div></div>
+<div class="ttc" id="aa00905_html_af5417c9da3425d4582947f3be29e8d81"><div class="ttname"><a href="../../da/d5b/a00905.html#af5417c9da3425d4582947f3be29e8d81">ParametersBase::StorageBase::open</a></div><div class="ttdeci">virtual bool open()=0</div><div class="ttdoc">Opens the storage.</div></div>
+</div><!-- fragment -->  <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

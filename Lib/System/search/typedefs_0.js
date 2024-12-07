@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bitset_0',['Bitset',['../d3/d50/a00882.html#a942e0af1a522af427d507bc4646b2c3c',1,'Lib::System::Configuration']]]
+  ['lastresetstate_0',['LastResetState',['../d4/ddc/a00917.html#a63ed16a1563842784a5f2426860ec21b',1,'Lib::System::System']]]
 ];

@@ -5,6 +5,5 @@ var a00950 =
     [ "close", "df/d39/a00950.html#a5076146d8e00f88390f706154263f9d9", null ],
     [ "open", "df/d39/a00950.html#a5589cde8e5b166f8ca22cfc9a4a23429", null ],
     [ "read", "df/d39/a00950.html#afe75f243cae6c3c34bc4dee14c79f93d", null ],
-    [ "write", "df/d39/a00950.html#af69e7cf0ff7c877a38abcde11085c513", null ],
-    [ "Parameters", "df/d39/a00950.html#af2c47838465715d05124a81085fba34b", null ]
+    [ "write", "df/d39/a00950.html#af69e7cf0ff7c877a38abcde11085c513", null ]
 ];
