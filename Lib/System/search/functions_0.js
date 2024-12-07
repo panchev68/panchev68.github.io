@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['close_0',['close',['../df/df3/a01468.html#a92c7c21387f2001eae28ad6c7e02cf3d',1,'Lib::System::Parameters::StorageBase']]],
-  ['configuration_1',['Configuration',['../d2/d2f/a01460.html#a0496b3d19c7bb3da8baa5eb827375bc4',1,'Lib::System::Configuration']]]
+  ['base_0',['Base',['../d8/d38/a00926.html#aea565dbf96f46b060c0cff628168b200',1,'Lib::System::Version::Base::Base()'],['../d5/d54/a00938.html#a44d5cb485b747efc3232b124ce12c239',1,'Version::Base::Base()']]]
 ];

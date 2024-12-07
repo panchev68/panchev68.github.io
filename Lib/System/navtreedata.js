@@ -26,10 +26,12 @@ var NAVTREE =
 [
   [ "Lib::System", "index.html", [
     [ "System Library", "index.html", null ],
+    [ "Deprecated List", "d9/d2e/a00056.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],

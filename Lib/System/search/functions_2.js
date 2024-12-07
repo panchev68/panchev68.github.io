@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['getbuilddate_0',['getBuildDate',['../dd/d05/a01504.html#a0715adfcd59057cbd37e8f5908952878',1,'Lib::System::Version::Firmware']]],
-  ['getdata_1',['getData',['../db/d8b/a01464.html#afc14839c3c1a55fe5aeff91f840059b9',1,'Lib::System::Parameters']]]
+  ['dataarea_0',['DataArea',['../d7/d46/a00890.html#a39098e84598a26a055b872983f1c0ee7',1,'Lib::System::ParametersBase::DataArea::DataArea()'],['../d2/d79/a00898.html#aef8a27772da58686862928ecb7f27e72',1,'ParametersBase::DataArea::DataArea()']]]
 ];

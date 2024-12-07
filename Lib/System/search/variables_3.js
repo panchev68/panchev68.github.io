@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lastresetstate_0',['lastResetState',['../d2/d21/a01484.html#a5d94ced782a1dd1b72fe8fb7027a4d49',1,'Lib::System::System']]]
+  ['hardwareversion_0',['hardwareVersion',['../d7/df7/a00058.html#ga548458ab403aa911f67d1c31bc9dcb42',1,'Lib::System::System']]]
 ];
