@@ -1,15 +1,17 @@
 var a00402 =
 [
-    [ "Config", "d1/d8b/a00406.html", "d1/d8b/a00406" ],
-    [ "DriverBase", "d4/d6d/a00402.html#ad6e63f7c95ebef12a11f8ee339405e01", null ],
-    [ "~DriverBase", "d4/d6d/a00402.html#a08a74a2fa411c1b365413e0b93187d53", null ],
-    [ "close", "d4/d6d/a00402.html#a22fcdee8339a9ed383a877e2d17a9335", null ],
-    [ "getChipSize", "d4/d6d/a00402.html#a69acdf676bb0caa8da9e01d6c8dba068", null ],
-    [ "open", "d4/d6d/a00402.html#aaec0b33cfc5e3a04c99de913bc1d8a00", null ],
-    [ "read", "d4/d6d/a00402.html#a17c02f3b3a1a2d3aba15656ebd27a7df", null ],
-    [ "read16", "d4/d6d/a00402.html#a8ac40644fd061e23bf00c9ff9b7a188c", null ],
-    [ "read8", "d4/d6d/a00402.html#afca417e7fa947ee916e78d270accd840", null ],
-    [ "write", "d4/d6d/a00402.html#a9e03de314d498f1ed6fed9f49d96ba0e", null ],
-    [ "write16", "d4/d6d/a00402.html#afb301950c661c4daf29b3c4224c1e97d", null ],
-    [ "write8", "d4/d6d/a00402.html#a15d576717ece08693ae1f36757e42ea8", null ]
+    [ "bytes", "d4/d6d/a00402.html#a654e5d7ab0613ef1fb28769a1ed73de2", null ],
+    [ "hb", "d4/d6d/a00402.html#aaee7dca3907d3cf906e30db4dc37e025", null ],
+    [ "high", "d4/d6d/a00402.html#a44f36e4d047e3378a73a5875c74cb6de", null ],
+    [ "hw", "d4/d6d/a00402.html#af160832d53e030d67ed085c34206154f", null ],
+    [ "lb", "d4/d6d/a00402.html#a8ca465c9a265f74b3764b0a1f9ad8822", null ],
+    [ "low", "d4/d6d/a00402.html#ae112c4cdbc09c618f70c9a0a77ea1c79", null ],
+    [ "lw", "d4/d6d/a00402.html#a948fbebb7800da9662933ea92837efed", null ],
+    [ "mb", "d4/d6d/a00402.html#a12b543134a025fb72b2f08ed1965be7f", null ],
+    [ "ub", "d4/d6d/a00402.html#a77183de506164220582c14e82a9217f2", null ],
+    [ "uwords", "d4/d6d/a00402.html#aeff5b5aacc48afb8061879c19c242ad1", null ],
+    [ "v", "d4/d6d/a00402.html#a931d1a9c63acccefd93c9c42a5b95a4c", null ],
+    [ "val", "d4/d6d/a00402.html#a39ff357f21b525421fdd3b1f21eea9f5", null ],
+    [ "w", "d4/d6d/a00402.html#aa4e8cde84b97e16183b5235a5c511704", null ],
+    [ "words", "d4/d6d/a00402.html#a7609e901236718dd231c22ef40049551", null ]
 ];

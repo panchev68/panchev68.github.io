@@ -1,8 +1,8 @@
 var a00394 =
 [
-    [ "bl", "d9/dad/a00394.html#a93656f94c882ca996c98bd294a4f268f", null ],
-    [ "dc", "d9/dad/a00394.html#a0a1a1de131448f5f9259510a9df8905e", null ],
-    [ "nrst", "d9/dad/a00394.html#a5f67207441de783f78571e1d72e2ad0e", null ],
-    [ "nss", "d9/dad/a00394.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
-    [ "spi", "d9/dad/a00394.html#acad30cda93015fd36a539714efd5a38e", null ]
+    [ "bytes", "d9/dad/a00394.html#aa323d07dd6d829e3cea61960a9cedcca", null ],
+    [ "hb", "d9/dad/a00394.html#afbb2d537f5613013b4501650c4e3fead", null ],
+    [ "lb", "d9/dad/a00394.html#afe289830108c99b20dfae4364b2b9b3f", null ],
+    [ "v", "d9/dad/a00394.html#ab18485206132610ce65e2feef44b253c", null ],
+    [ "val", "d9/dad/a00394.html#a667292456d89d4e1d84bbe256adf847d", null ]
 ];

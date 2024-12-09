@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['y_0',['Y',['../d8/da5/a00570.html#ae804e9ae2e05c0514670b456d36e1e4e',1,'Lib::BSP::XPT2046::Version1::Driver::Position::Y'],['../d7/db1/a00590.html#a36e8b89bc53847bf0632a15d1052092f',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::Position::Y']]],
-  ['ymax_1',['yMax',['../d0/d3e/a00566.html#a3ed4c24247b93e9a2c9827909ae4fb83',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::yMax'],['../d4/d2f/a00582.html#ad1d383b45608ae9fc33e56e56033de1d',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::yMax']]],
-  ['ymin_2',['yMin',['../d0/d3e/a00566.html#a07b903488a290e7448fc6fc792e82987',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::yMin'],['../d4/d2f/a00582.html#aa3e99cb525c7a0d78c89b6ffba216bd4',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::yMin']]]
+  ['y_0',['Y',['../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e',1,'Lib::BSP::XPT2046::Version1::Driver::Position::Y'],['../da/d7e/a00530.html#a36e8b89bc53847bf0632a15d1052092f',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::Position::Y']]],
+  ['ymax_1',['yMax',['../d4/d1f/a00506.html#a3ed4c24247b93e9a2c9827909ae4fb83',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::yMax'],['../d8/d14/a00522.html#ad1d383b45608ae9fc33e56e56033de1d',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::yMax']]],
+  ['ymin_2',['yMin',['../d4/d1f/a00506.html#a07b903488a290e7448fc6fc792e82987',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::yMin'],['../d8/d14/a00522.html#aa3e99cb525c7a0d78c89b6ffba216bd4',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::yMin']]]
 ];

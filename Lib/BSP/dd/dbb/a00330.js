@@ -1,8 +1,12 @@
 var a00330 =
 [
-    [ "mapFields", "dd/dbb/a00330.html#a27f1dca1e5767ac9319aee627a2fdf12", null ],
-    [ "nss", "dd/dbb/a00330.html#a2b50056fbf1bac1ccfcc93bfca7d9fe4", null ],
-    [ "numberOfPins", "dd/dbb/a00330.html#a3c8737166b9425931bc1916ac4b5b445", null ],
-    [ "oe", "dd/dbb/a00330.html#a6e46d9a760bbeb70f6f1fc33cbb40e74", null ],
-    [ "spi", "dd/dbb/a00330.html#a2d139e1cce7e8f471194bcf027ded165", null ]
+    [ "Config", "da/d75/a00334.html", "da/d75/a00334" ],
+    [ "Driver", "dd/dbb/a00330.html#a86fc56666b22fdf5935ce9dbfdefc578", null ],
+    [ "~Driver", "dd/dbb/a00330.html#a8b517fb74e02be5d5426841f802e2c9f", null ],
+    [ "getTransferActive", "dd/dbb/a00330.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
+    [ "init", "dd/dbb/a00330.html#a66535c75098f4fa93cf87e7ae6e20ea7", null ],
+    [ "setTransmitActive", "dd/dbb/a00330.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
+    [ "shouldTransferBlock", "dd/dbb/a00330.html#a77aefcf37afba46fc380bc49be704ee1", null ],
+    [ "transferCpltCallback", "dd/dbb/a00330.html#aca116b23efef7c87ba2faf35d927e58c", null ],
+    [ "transmitBlock", "dd/dbb/a00330.html#a71563d8b244195fb980571eb39a311c2", null ]
 ];

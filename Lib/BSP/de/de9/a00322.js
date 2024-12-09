@@ -1,7 +1,7 @@
 var a00322 =
 [
-    [ "Inputs", "d8/d23/a00326.html", "d8/d23/a00326" ],
-    [ "Outputs", "dd/dbb/a00330.html", "dd/dbb/a00330" ],
-    [ "inputs", "de/de9/a00322.html#a51509b889d6e5b2c159352ff2f0d1219", null ],
-    [ "outputs", "de/de9/a00322.html#af93f55da11abc3405ca3026af331d12c", null ]
+    [ "di", "de/de9/a00322.html#aabf98a5ad309f2431fa7e7a31917ee85", null ],
+    [ "nrst", "de/de9/a00322.html#a2791788a0dacca54af259e2dd4843a79", null ],
+    [ "nss", "de/de9/a00322.html#ad81053b0c52295a482ff9145a6c44035", null ],
+    [ "spi", "de/de9/a00322.html#a1b22f2a90a16913b575e01266ea10035", null ]
 ];

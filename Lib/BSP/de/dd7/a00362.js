@@ -1,11 +1,20 @@
 var a00362 =
 [
-    [ "Test", "de/dd7/a00362.html#a41add396cbffe930ff853b174c26421d", null ],
-    [ "~Test", "de/dd7/a00362.html#a80055fb97a11c8675cebd51347fe2f54", null ],
-    [ "getChangePeriod", "de/dd7/a00362.html#a6e3bb7faab2b66c30fad8b091eace544", null ],
-    [ "getMode", "de/dd7/a00362.html#aa7b9c20194d5cf5336b61dc34507821b", null ],
-    [ "setChangePeriod", "de/dd7/a00362.html#aa80bbc97a2887a3eed72c24c77512a94", null ],
-    [ "setMode", "de/dd7/a00362.html#ace712a078c9218278448db79f438b6fb", null ],
-    [ "start", "de/dd7/a00362.html#a6dfa619a87b77b4e5b0928cae56f0644", null ],
-    [ "stop", "de/dd7/a00362.html#ae2f66a809e46699f7b5ad3c9e5c7faf0", null ]
+    [ "XConfig", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
+    [ "EventState", "de/dd7/a00362.html#aee34f1acaa5652c24213469ad6b5f133", [
+      [ "NONE", "de/dd7/a00362.html#aee34f1acaa5652c24213469ad6b5f133ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "CW", "de/dd7/a00362.html#aee34f1acaa5652c24213469ad6b5f133a9af3107a066f6b0defb1cafc0499f6ed", null ],
+      [ "CCW", "de/dd7/a00362.html#aee34f1acaa5652c24213469ad6b5f133a59ec5d573abd014f3ae2c26ca962e8cf", null ],
+      [ "BUT_PUSH", "de/dd7/a00362.html#aee34f1acaa5652c24213469ad6b5f133aec99b17e69f307181424c4145f5f6490", null ],
+      [ "BUT_PULL", "de/dd7/a00362.html#aee34f1acaa5652c24213469ad6b5f133a33a5524041986baf515293cd1d0c67e4", null ]
+    ] ],
+    [ "EncoderPins", "de/dd7/a00362.html#afcfbb537534cec93efdea85076410c32", null ],
+    [ "~EncoderPins", "de/dd7/a00362.html#a28ca7195dd7fc1252a96e83ecc89c068", null ],
+    [ "close", "de/dd7/a00362.html#a02b19b224249d42a7b11d3269b813b2d", null ],
+    [ "getButtonHoldPeriod", "de/dd7/a00362.html#aeaa45b498e7648cbab2b82e80df1a1e3", null ],
+    [ "getButtonState", "de/dd7/a00362.html#aa9777fbf12860a6136abc1331bde23a6", null ],
+    [ "kbdhit", "de/dd7/a00362.html#a4b596e140dbc52af97d489200c126b2c", null ],
+    [ "open", "de/dd7/a00362.html#a6558921ea0932d4faf2f9b6cf4fd2340", null ],
+    [ "pinChangedCallback", "de/dd7/a00362.html#a59cbeaf1c591c1fbe02ada2badba47b7", null ],
+    [ "setPulseDevider", "de/dd7/a00362.html#a38ec1909e5780dee8db356fc92a5af8b", null ]
 ];

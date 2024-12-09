@@ -1,9 +1,13 @@
 var a00286 =
 [
-    [ "PortBase", "d5/d7b/a00286.html#a95d4af679e6a1c451c726bcd0a75ce90", null ],
-    [ "~PortBase", "d5/d7b/a00286.html#a2ba3e98ffcb5aeb7a0772c4bc26cf0b3", null ],
-    [ "getSpiHandle", "d5/d7b/a00286.html#a0f1716a3b2c1c4c25fb74cc3b31b5651", null ],
-    [ "preUpdateCallback", "d5/d7b/a00286.html#a272f56d313f1f815e350de24b1e5ee37", null ],
-    [ "setup", "d5/d7b/a00286.html#a151478864c2f0f67d2c08f163c9cfb86", null ],
-    [ "update", "d5/d7b/a00286.html#a647f5701366b004030c6be8bbc28add4", null ]
+    [ "Outputs", "d5/d7b/a00286.html#ae538a06e0b79ecd381024c1a01415deb", null ],
+    [ "~Outputs", "d5/d7b/a00286.html#aedda01b36ccb93ca338b30a0e75e4913", null ],
+    [ "getSpiHandle", "d5/d7b/a00286.html#aa11aa3e6213e3f5a94c651e06e1188a6", null ],
+    [ "preUpdateCallback", "d5/d7b/a00286.html#ab07b169268347fa5f91596147460f7b0", null ],
+    [ "setup", "d5/d7b/a00286.html#a1a262aaa4834837d5f30d7b4fe2b71f4", null ],
+    [ "setValue", "d5/d7b/a00286.html#ade2766fb6b60950349d8b36d16500c51", null ],
+    [ "update", "d5/d7b/a00286.html#ac43ef643950aded95ed1a271945086a7", null ],
+    [ "onSpiError", "d5/d7b/a00286.html#a5f32588bd17e8771f96a4c0f533efc9c", null ],
+    [ "onStatusChanged", "d5/d7b/a00286.html#a5e12d4653fc13761bdee086c6055ea7b", null ],
+    [ "onValueChanged", "d5/d7b/a00286.html#a49199bf482163a66ea5831e85060cecf", null ]
 ];

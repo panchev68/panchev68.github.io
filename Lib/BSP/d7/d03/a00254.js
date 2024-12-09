@@ -1,7 +1,7 @@
 var a00254 =
 [
-    [ "Config", "d7/d2f/a00258.html", "d7/d2f/a00258" ],
-    [ "Beep", "d7/d03/a00254.html#ac38413dbd29b4f4932c2b8887af98113", null ],
-    [ "~Beep", "d7/d03/a00254.html#ad01190acb2e318d5ab781c1c2111e327", null ],
-    [ "operator()", "d7/d03/a00254.html#a66f691a4dabd178590f3294a21b12a95", null ]
+    [ "DeviceBase", "d7/d03/a00254.html#a0407598c83f2cfdd1cb736fe7ddf4470", null ],
+    [ "~DeviceBase", "d7/d03/a00254.html#a1701521fc34a11c4554c947c914a7c1a", null ],
+    [ "handleTickEvent", "d7/d03/a00254.html#a011b74dc5e4142f0183dad31e84f9307", null ],
+    [ "setup", "d7/d03/a00254.html#a23686a31e14ff3cfac665f1cc1308fdf", null ]
 ];

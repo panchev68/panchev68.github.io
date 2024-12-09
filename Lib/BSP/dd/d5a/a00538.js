@@ -1,6 +1,6 @@
 var a00538 =
 [
-    [ "pin", "dd/d5a/a00538.html#a6f371e19c2d81bd1f7de9ad8eff9bbe3", null ],
-    [ "timerHandle", "dd/d5a/a00538.html#aae2f66cebf24d7ac46096c2b10121913", null ],
-    [ "updatePeriod", "dd/d5a/a00538.html#ac4611581d9455dff9f08f07eada748df", null ]
+    [ "adcChannel", "dd/d5a/a00538.html#a6f1b2b30866d2d51ec8b76450f48819f", null ],
+    [ "adcHandle", "dd/d5a/a00538.html#addd0c44f90b189ab682f26b57a3dced3", null ],
+    [ "updatePeriod", "dd/d5a/a00538.html#a8821cede391cdab81afb72f8749a89c3", null ]
 ];

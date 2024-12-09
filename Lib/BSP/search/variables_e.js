@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['raw_5fbits_5fnumber_0',['RAW_BITS_NUMBER',['../de/de7/a00550.html#a103b5461317f4cbffb1a06f52f939e4c',1,'Lib::BSP::Termometer::DTH::Parm']]],
-  ['raw_5fbytes_5fnumber_1',['RAW_BYTES_NUMBER',['../de/de7/a00550.html#a8568e90fe8db5c3cd801ecf6f4621116',1,'Lib::BSP::Termometer::DTH::Parm']]],
-  ['rawposition_2',['rawPosition',['../dc/dea/a00558.html#abb6768971ba7042c8d0e9cf49f37474d',1,'Lib::BSP::XPT2046::Version1::Driver::rawPosition'],['../d6/d92/a00586.html#aed96d210ecc485599b2d54eb41d77fe0',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::rawPosition']]],
-  ['receive_5fresponse_5ftimeout_3',['RECEIVE_RESPONSE_TIMEOUT',['../de/de7/a00550.html#a0bda0f61029abbeb35a71971c2ae49a9',1,'Lib::BSP::Termometer::DTH::Parm']]],
-  ['receivedtimeout_4',['receivedTimeout',['../dc/d2b/a00546.html#ae243a8eeb3acdf578336c5ed9c189226',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic']]],
-  ['rotation_5',['rotation',['../d6/d92/a00586.html#abb8755de53acf42725026dc54b1f20d9',1,'Lib::BSP::XPT2046::Version2::Driver::Impl']]],
-  ['rotationflip_6',['rotationFlip',['../d0/d3e/a00566.html#ab6c0cc2849c477a12c55b47a681068e7',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::rotationFlip'],['../d4/d2f/a00582.html#aa20c2a94033067f271a5eea361a18385',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::rotationFlip']]],
-  ['rotationnormal_7',['rotationNormal',['../d0/d3e/a00566.html#a7ed7e2911d0bf82c5d4e73dcdeb60d50',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::rotationNormal'],['../d4/d2f/a00582.html#a97f5a0001f16abcf833258717904d2ee',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::rotationNormal']]]
+  ['raw_5fbits_5fnumber_0',['RAW_BITS_NUMBER',['../d7/daa/a00490.html#a103b5461317f4cbffb1a06f52f939e4c',1,'Lib::BSP::Termometer::DTH::Parm']]],
+  ['raw_5fbytes_5fnumber_1',['RAW_BYTES_NUMBER',['../d7/daa/a00490.html#a8568e90fe8db5c3cd801ecf6f4621116',1,'Lib::BSP::Termometer::DTH::Parm']]],
+  ['rawposition_2',['rawPosition',['../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d',1,'Lib::BSP::XPT2046::Version1::Driver::rawPosition'],['../d0/d35/a00526.html#aed96d210ecc485599b2d54eb41d77fe0',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::rawPosition']]],
+  ['receive_5fresponse_5ftimeout_3',['RECEIVE_RESPONSE_TIMEOUT',['../d7/daa/a00490.html#a0bda0f61029abbeb35a71971c2ae49a9',1,'Lib::BSP::Termometer::DTH::Parm']]],
+  ['receivedtimeout_4',['receivedTimeout',['../db/df1/a00486.html#ae243a8eeb3acdf578336c5ed9c189226',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic']]],
+  ['rotation_5',['rotation',['../d0/d35/a00526.html#abb8755de53acf42725026dc54b1f20d9',1,'Lib::BSP::XPT2046::Version2::Driver::Impl']]],
+  ['rotationflip_6',['rotationFlip',['../d4/d1f/a00506.html#ab6c0cc2849c477a12c55b47a681068e7',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::rotationFlip'],['../d8/d14/a00522.html#aa20c2a94033067f271a5eea361a18385',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::rotationFlip']]],
+  ['rotationnormal_7',['rotationNormal',['../d4/d1f/a00506.html#a7ed7e2911d0bf82c5d4e73dcdeb60d50',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::rotationNormal'],['../d8/d14/a00522.html#a97f5a0001f16abcf833258717904d2ee',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::rotationNormal']]]
 ];

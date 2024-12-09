@@ -1,13 +1,9 @@
 var a00534 =
 [
     [ "Config", "dd/d5a/a00538.html", "dd/d5a/a00538" ],
-    [ "Base", "dc/d20/a00534.html#a3f1c1b044fab6cc5daac56245a64d8f3", null ],
-    [ "~Base", "dc/d20/a00534.html#a66a1c5756532c42453db806d6de0aad8", null ],
-    [ "beginReceiveData", "dc/d20/a00534.html#a7b3a4f2a90dd2499007ba9e1a48f61ac", null ],
-    [ "endReceivedData", "dc/d20/a00534.html#aa0a5210748d8446a16327f1b0d5540f9", null ],
-    [ "start", "dc/d20/a00534.html#ac9889a53ceb7278cdf8088ff7320703e", null ],
-    [ "startupImpulse", "dc/d20/a00534.html#a6122d05d481d14cf386ea703c6b6e828", null ],
-    [ "taskFn", "dc/d20/a00534.html#a5a12d0a5dca6f97ef85baf61e2bc3342", null ],
-    [ "waitForComplete", "dc/d20/a00534.html#ac9e3e3cf8f3b64fc513241e7b2450ffe", null ],
-    [ "config", "dc/d20/a00534.html#abde5ec47cb947111b39ed393a33cee6c", null ]
+    [ "Base", "dc/d20/a00534.html#a5c77cd47e554ce314048fbb66ee577e6", null ],
+    [ "~Base", "dc/d20/a00534.html#a60ff2ab400fae19db3e4edf57d7f6909", null ],
+    [ "getVoltage", "dc/d20/a00534.html#a681250b664699ecd7261e138987060b3", null ],
+    [ "handleValueChanged", "dc/d20/a00534.html#a481c4ec27b49a8e51a16fec28ec9d21e", null ],
+    [ "setup", "dc/d20/a00534.html#aef87be715665c934c25168e596a9e847", null ]
 ];

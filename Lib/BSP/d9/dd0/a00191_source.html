@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::BSP: Interface.hpp Source File</title>
+<title>Lib::BSP: Driver-v1.hpp Source File</title>
 <link rel="icon" href="../../BSP.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,7 +99,7 @@ $(function(){initNavTree('d9/dd0/a00191_source.html','../../'); initResizable(tr
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Interface.hpp</div></div>
+  <div class="headertitle"><div class="title">Driver-v1.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
@@ -107,189 +107,313 @@ $(function(){initNavTree('d9/dd0/a00191_source.html','../../'); initResizable(tr
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;HAL\GPIO.hpp&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;HAL\SPI.hpp&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d6/de1/a00233.html">Lib::BSP::Ethercat::PDI::LAN9252</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html">   14</a></span>    <span class="keyword">class </span><a class="code hl_class" href="../../dd/d47/a00445.html">Interface</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    {</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../d9/d10/a00449.html">   19</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d9/d10/a00449.html">Config</a></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d9/d10/a00449.html#a64f95c007499d4922e5fbf9abcf0eb31">   21</a></span>            SPI_HandleTypeDef * <a class="code hl_variable" href="../../d9/d10/a00449.html#a64f95c007499d4922e5fbf9abcf0eb31">spiHandle</a>;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d9/d10/a00449.html#a06d4a94b372654cc65dfc6cce9ea93aa">   22</a></span>            PinHandle <a class="code hl_variable" href="../../d9/d10/a00449.html#a06d4a94b372654cc65dfc6cce9ea93aa">pinNSS</a>;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        };</div>
-</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">   25</a></span>        Lib::HAL::SPI::Master::Port&lt;Lib::HAL::DriverMode::DMA&gt; <a class="code hl_variable" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">spiPort</a>;        </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a717e74f67c720730002a6999c4c95284">   26</a></span>        PinOutput <a class="code hl_variable" href="../../dd/d47/a00445.html#a717e74f67c720730002a6999c4c95284">pinNSS</a>;                                                      </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;HAL/GPIO.hpp&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;Helper/Integrator.hpp&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;algorithm&gt;</span>        <span class="comment">// std::min , std::max</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../dc/d28/a00223.html">   12</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../dc/d28/a00223.html">Lib::BSP::XPT2046</a></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="../../d5/ddf/a00224.html">   17</a></span>    <span class="keyword">inline</span> <span class="keyword">namespace </span>Version1</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    {</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html">   21</a></span>        <span class="keyword">class </span><a class="code hl_class" href="../../d8/d57/a00498.html">Driver</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t CMD_READ_X = 0b10010000;        <span class="comment">// 0x90</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>            <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> uint8_t CMD_READ_Y = 0b11010000;        <span class="comment">// 0xd0</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keyword">protected</span>:</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <a class="code hl_function" href="../../dd/d47/a00445.html#a0e4ae7ac5a85ba2db39b18d42a4d35e4">Interface</a> (<span class="keyword">const</span> <a class="code hl_struct" href="../../d9/d10/a00449.html">Config</a> &amp; conf);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#ab24421388488cf9f3cf868801f45253e">open</a> ();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#ad3f271a91a1170d7d7d8e3bebe2c100b">close</a> ();</div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d0/da2/a00502.html">   29</a></span>            <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/da2/a00502.html">Config</a></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d0/da2/a00502.html#ac80f5c36510856fcfd16b4b0b8459077">   31</a></span>                PinHandle <a class="code hl_variable" href="../../d0/da2/a00502.html#ac80f5c36510856fcfd16b4b0b8459077">nirq</a>;        </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d0/da2/a00502.html#abf56fe1392c6df27a581c93c69f788e2">   32</a></span>                PinHandle <a class="code hl_variable" href="../../d0/da2/a00502.html#abf56fe1392c6df27a581c93c69f788e2">si</a>;          </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d0/da2/a00502.html#adecebadf67117adacb3d152748762f73">   33</a></span>                PinHandle <a class="code hl_variable" href="../../d0/da2/a00502.html#adecebadf67117adacb3d152748762f73">so</a>;          </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d0/da2/a00502.html#a322af746e75bac89aa4d5d0a6a326982">   34</a></span>                PinHandle <a class="code hl_variable" href="../../d0/da2/a00502.html#a322af746e75bac89aa4d5d0a6a326982">sck</a>;         </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d0/da2/a00502.html#a63809700839d2bf822fc2fa6d0049792">   35</a></span>                PinHandle <a class="code hl_variable" href="../../d0/da2/a00502.html#a63809700839d2bf822fc2fa6d0049792">nss</a>;         </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>            };</div>
+</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#aff470ebb0c267940363873a58e6e0f3a">select</a> ();</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#aea28ca5bd72c923ce2818ef533427e86">deselect</a> ();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a8bb936b00ec84ebdc67cc6cd2a848321">readWrite</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> src_len, <span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> dst_len);</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="};">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html">   39</a></span>            <span class="keyword">struct </span><a class="code hl_struct" href="../../d4/d1f/a00506.html">Parameters</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>            {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#aa9f986e9de6ce1b9f9c925dfc8d8510c">   41</a></span>                int32_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#aa9f986e9de6ce1b9f9c925dfc8d8510c">xMin</a>;                  </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a318412e6e6406c3f63e01ee3b25a903c">   42</a></span>                int32_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#a318412e6e6406c3f63e01ee3b25a903c">xMax</a>;                  </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a07b903488a290e7448fc6fc792e82987">   43</a></span>                int32_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#a07b903488a290e7448fc6fc792e82987">yMin</a>;                  </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a3ed4c24247b93e9a2c9827909ae4fb83">   44</a></span>                int32_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#a3ed4c24247b93e9a2c9827909ae4fb83">yMax</a>;                  </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a52178c8a7db92b0bad69f5ce424bda5e">   45</a></span>                <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d4/d1f/a00506.html#a52178c8a7db92b0bad69f5ce424bda5e">dispWidth</a>;              </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a678686bcb5f3491cfb04cc3c1f73ce9e">   46</a></span>                <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d4/d1f/a00506.html#a678686bcb5f3491cfb04cc3c1f73ce9e">dispHeight</a>;             </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a7ed7e2911d0bf82c5d4e73dcdeb60d50">   47</a></span>                uint8_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#a7ed7e2911d0bf82c5d4e73dcdeb60d50">rotationNormal</a>;        </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#ab6c0cc2849c477a12c55b47a681068e7">   48</a></span>                uint8_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#ab6c0cc2849c477a12c55b47a681068e7">rotationFlip</a>;          </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d4/d1f/a00506.html#a9ca40bc14f8d175f629b9633eee8e5d8">   49</a></span>                uint32_t <a class="code hl_variable" href="../../d4/d1f/a00506.html#a9ca40bc14f8d175f629b9633eee8e5d8">debounceTime</a>;         </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            };</div>
+</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">write</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * scr, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">write</a> (uint8_t value);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">read</a> (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">read</a> (uint8_t &amp; result);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">private</span>:</div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../d6/d52/a00510.html">   53</a></span>            <span class="keyword">struct </span><a class="code hl_struct" href="../../d6/d52/a00510.html">Position</a></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">   55</a></span>                int32_t <a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = -1;        </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">   56</a></span>                int32_t <a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = -1;        </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            };</div>
+</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">   59</a></span>            <a class="code hl_struct" href="../../d6/d52/a00510.html">Position</a> <a class="code hl_variable" href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">rawPosition</a>;        </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">   60</a></span>            <a class="code hl_struct" href="../../d6/d52/a00510.html">Position</a> <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>;           </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#a670bfc98b54aa3a80b8155a10ef389ff">   65</a></span>            <a class="code hl_function" href="../../d8/d57/a00498.html#a670bfc98b54aa3a80b8155a10ef389ff">Driver</a> (<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/da2/a00502.html">Config</a> &amp; conf, <span class="keyword">const</span> <a class="code hl_struct" href="../../d4/d1f/a00506.html">Parameters</a> &amp; params) : _parameters (params),</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                                                                      _nirq (conf.nirq),</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                                                                      _si (conf.si),</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                                                                      _so (conf.so),</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                                                                      _sck (conf.sck),</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                                                                      _nss (conf.nss),</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                                                                      _debountTime (params.debounceTime),</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                                                                      _rotation (params.rotationNormal),</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                                                                      _devX ((static_cast&lt;float&gt; (params.xMax - params.xMin)) / params.dispWidth),</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                                                                      _devY (static_cast&lt;float&gt; ((params.yMax - params.yMin)) / params.dispHeight)</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        FreeRTOS::Mutex _mutexBlock;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    };</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            {}</div>
 </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="preprocessor">#pragma region Implementation</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#a180012fe0de58aa14847de10c7ef8b2e">   79</a></span>            <span class="keyword">virtual</span> <a class="code hl_function" href="../../d8/d57/a00498.html#a180012fe0de58aa14847de10c7ef8b2e">~Driver</a> () = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="comment">// Constructor</span></div>
 <div class="foldopen" id="foldopen00082" data-start="{" data-end="}">
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a0e4ae7ac5a85ba2db39b18d42a4d35e4">   82</a></span>    <span class="keyword">inline</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a0e4ae7ac5a85ba2db39b18d42a4d35e4">Interface::Interface</a> (<span class="keyword">const</span> <a class="code hl_struct" href="../../d9/d10/a00449.html">Config</a> &amp; conf) : spiPort (conf.spiHandle), pinNSS (conf.pinNSS)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {}</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#ab5ac84ed10da8cfe6c423f89f58e2eae">   82</a></span>            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d57/a00498.html#ab5ac84ed10da8cfe6c423f89f58e2eae">init</a> ()</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                <span class="keywordflow">if</span> (FreeRTOS::Task::run ({<span class="stringliteral">&quot;XPT2046 Driver&quot;</span>, [<span class="keyword">this</span>] { taskFn (); }, 128, 0}) == <span class="keyword">nullptr</span>) assert (0);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            }</div>
 </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="comment">// Opens the SPI Port</span></div>
-<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#ab24421388488cf9f3cf868801f45253e">   86</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#ab24421388488cf9f3cf868801f45253e">Interface::open</a> ()</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <a class="code hl_variable" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">spiPort</a>.open ();</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keywordflow">if</span> (_mutexBlock.create () == <span class="keyword">false</span>) assert (0);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            \brief Reads a the <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a> by the touch controller</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                <span class="keywordtype">bool</span></div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="}">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#aee61f8833f260330ecdecd2ac9b06d07">   92</a></span>                <a class="code hl_function" href="../../d8/d57/a00498.html#aee61f8833f260330ecdecd2ac9b06d07">sampleTouch</a> (int32_t &amp; x, int32_t &amp; y)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">            </span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <span class="keywordflow">if</span> (_isPressed == <span class="keyword">false</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                x = <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a>;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                y = <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            }</div>
 </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// Closes the SPI Port</span></div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#ad3f271a91a1170d7d7d8e3bebe2c100b">   93</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#ad3f271a91a1170d7d7d8e3bebe2c100b">Interface::close</a> ()</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <a class="code hl_variable" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">spiPort</a>.close ();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        _mutexBlock.release ();</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d57/a00498.html#a2cb123e63ab4458038ed9082bc4b8e3b">  103</a></span>            <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d57/a00498.html#a2cb123e63ab4458038ed9082bc4b8e3b">setRotation</a> (<span class="keywordtype">bool</span> value)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                _rotation = (value == <span class="keyword">false</span>) ? _parameters.<a class="code hl_variable" href="../../d4/d1f/a00506.html#a7ed7e2911d0bf82c5d4e73dcdeb60d50">rotationNormal</a> : _parameters.<a class="code hl_variable" href="../../d4/d1f/a00506.html#ab6c0cc2849c477a12c55b47a681068e7">rotationFlip</a>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            }</div>
 </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">// Chip select</span></div>
-<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#aff470ebb0c267940363873a58e6e0f3a">  100</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#aff470ebb0c267940363873a58e6e0f3a">Interface::select</a> ()</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        _mutexBlock.take (portMAX_DELAY);</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <a class="code hl_variable" href="../../dd/d47/a00445.html#a717e74f67c720730002a6999c4c95284">pinNSS</a>.write (0);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
-</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="comment">// Chip deselect</span></div>
-<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#aea28ca5bd72c923ce2818ef533427e86">  107</a></span>    <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dd/d47/a00445.html#aea28ca5bd72c923ce2818ef533427e86">Interface::deselect</a> ()</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    {</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <a class="code hl_variable" href="../../dd/d47/a00445.html#a717e74f67c720730002a6999c4c95284">pinNSS</a>.write (1);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>        _mutexBlock.give ();</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    }</div>
-</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a8bb936b00ec84ebdc67cc6cd2a848321">  113</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a8bb936b00ec84ebdc67cc6cd2a848321">Interface::readWrite</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> src_len, <span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> dst_len)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordtype">bool</span> res  = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">auto</span> size = src_len + dst_len;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            PinInput _nirq;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            PinOutput _si;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            PinInput _so;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>            PinOutput _sck;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            PinOutput _nss;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keywordtype">size_t</span> _taskStackSize;</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        uint8_t * wbuf = <span class="keyword">new</span> uint8_t [size];</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        uint8_t * rbuf = <span class="keyword">new</span> uint8_t [size];</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        memset (wbuf, 0xff, size);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">if</span> ((src != <span class="keyword">nullptr</span>) &amp;&amp; (src_len &gt; 0)) memcpy (wbuf, src, src_len);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        res = <a class="code hl_variable" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">spiPort</a>.sendReceive (wbuf, rbuf, size, 100);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">if</span> (res == <span class="keyword">true</span>)</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        {</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            <span class="keywordflow">if</span> ((dst != <span class="keyword">nullptr</span>) &amp;&amp; (dst_len &gt; 0)) memcpy (dst, (rbuf + src_len), dst_len);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">else</span> assert (0);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        taskYIELD ();</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keyword">delete</span> wbuf;</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keyword">delete</span> rbuf;</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    }</div>
-</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            Helper::Integrator&lt;uint32_t, 10&gt; _intergratorX;        </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            Helper::Integrator&lt;uint32_t, 10&gt; _intergratorY;        </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _devX;                                     </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> _devY;                                     </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="keywordtype">bool</span> _isPressed = <span class="keyword">false</span>;                               </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            uint8_t _rotation;                                     </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            uint32_t _debountTime;                                 </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            FreeRTOS::Timeout _timeoutDebount;                     </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keyword">const</span> Parameters _parameters;                          </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keywordtype">bool</span> _lastPressState = <span class="keyword">false</span>;                          </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            Position _position;                                    </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            Position _rawPosition;                                 </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            <span class="keywordtype">void</span> taskFn ()</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                <span class="comment">// Check pressed</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                <span class="keyword">auto</span> checkPressed = [<span class="keyword">this</span>] () {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                    <span class="keywordtype">bool</span> pinState = (_nirq.read () == 0);</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">  138</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">Interface::write</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        assert (src != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        assert (len &gt; 0);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="comment">// auto res = spiPort.send (src, len, SPI_DEFAULT_TIMEOUT);</span></div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        <span class="keyword">auto</span> res = <a class="code hl_variable" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">spiPort</a>.send (src, len, 10);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        taskYIELD ();</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        assert (res);</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    }</div>
-</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a8a26647013b7997a50ec1cf0fc90d730">  150</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">Interface::write</a> (uint8_t value)</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">write</a> (&amp;value, <span class="keyword">sizeof</span> (value));</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
-</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>                    <span class="keywordflow">if</span> (_debountTime == 0) <span class="keywordflow">return</span> pinState;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                    <span class="keywordflow">if</span> (pinState == <span class="keyword">true</span>)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>                    {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                        <span class="keywordflow">if</span> (_lastPressState == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                        {</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                            _lastPressState = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                            _timeoutDebount.set (_debountTime);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                        }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                        <span class="keywordflow">else</span> <span class="keywordflow">return</span> _timeoutDebount.check ();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                    }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                    <span class="keywordflow">else</span> _lastPressState = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                };</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                <span class="comment">// Read the internal a/d convertor</span></div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">  155</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">Interface::read</a> (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        assert (dst != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        assert (len &gt; 0);</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="comment">// auto res = spiPort.receive (dst, len, SPI_DEFAULT_TIMEOUT);</span></div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keyword">auto</span> res = <a class="code hl_variable" href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">spiPort</a>.receive (dst, len, 10);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        taskYIELD ();</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        assert (res);</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        <span class="keywordflow">return</span> res;</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>                <span class="keyword">auto</span> readAdc = [<span class="keyword">this</span>] (uint8_t cmd) {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    <span class="keyword">auto</span> writeByte = [<span class="keyword">this</span>] (uint8_t data) -&gt; <span class="keywordtype">void</span> {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 8; i++)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                        {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>                            _si.write ((data &amp; 0x80) != 0);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>                            __NOP ();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>                            data &lt;&lt;= 1;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>                            _sck.write (0);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                            __NOP ();</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                            _sck.write (1);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                            __NOP ();</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                        }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                    };</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>                    uint32_t num = 0;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                    _si.write (0);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>                    _nss.write (0);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>                    writeByte (cmd);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>                    _sck.write (0);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                    __NOP ();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                    _sck.write (1);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                    __NOP ();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 16; i++)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                    {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                        num &lt;&lt;= 1;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                        _sck.write (0);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>                        __NOP ();</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>                        _sck.write (1);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>                        __NOP ();</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                        <span class="keywordflow">if</span> (_so.read () == 1) num++;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                    }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                    num &gt;&gt;= 4;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                    _nss.write (1);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>uint16_t<span class="keyword">&gt;</span> (num);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                };</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                _sck.write (1);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                _nss.write (1);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                <span class="keywordtype">bool</span> isPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                <span class="comment">// Task loop</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>                <span class="keywordflow">for</span> (;;)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>                {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>                    <span class="keywordflow">if</span> (checkPressed ())</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>                    {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>                        <span class="keywordflow">if</span> (isPressed == <span class="keyword">false</span>)        <span class="comment">// 1st time afrer press</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>                        {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>                            isPressed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>                            _intergratorX.reset ();</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                            _intergratorY.reset ();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = -1;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = -1;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>                        }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                        <span class="comment">// Interpolate coordinates</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                        <a class="code hl_variable" href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">rawPosition</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = _intergratorX.process (readAdc (CMD_READ_X));</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                        <a class="code hl_variable" href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">rawPosition</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = _intergratorY.process (readAdc (CMD_READ_Y));</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>                        <span class="keywordflow">if</span> (_intergratorX.isFull () == <span class="keyword">false</span>)</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                        {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                            vTaskDelay (1);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>                        }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                        <span class="comment">// Read and averages the values from the XPT2046</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                        _rawPosition.X = std::max&lt;uint32_t&gt; (_parameters.xMin, <a class="code hl_variable" href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">rawPosition</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a>);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                        _rawPosition.Y = std::max&lt;uint32_t&gt; (_parameters.yMin, <a class="code hl_variable" href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">rawPosition</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a>);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                        _rawPosition.X = std::min&lt;uint32_t&gt; (_rawPosition.X, _parameters.xMax);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>                        _rawPosition.Y = std::min&lt;uint32_t&gt; (_rawPosition.Y, _parameters.yMax);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>                        _rawPosition.X -= _parameters.xMin;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>                        _rawPosition.Y -= _parameters.yMin;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                        _position.X = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span> (_rawPosition.X / _devX);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                        _position.Y = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span> (_rawPosition.Y / _devY);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                        <span class="comment">// Touch is pressed ad ready read data</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                        _isPressed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>                        <span class="keywordflow">switch</span> (_rotation)</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>                        {</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a> = _position;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = _parameters.dispWidth - _position.X;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = _position.Y;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                        <span class="keywordflow">case</span> 2:        <span class="comment">// flip X</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = _parameters.dispWidth - _position.X;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = _parameters.dispHeight - _position.Y;</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                        <span class="keywordflow">case</span> 3:        <span class="comment">// flip Y</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = _position.X;</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = _parameters.dispHeight - _position.Y;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>                        <span class="keywordflow">case</span> 4:        <span class="comment">// flip X,Y</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">X</a> = _parameters.dispWidth - _position.X;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                            <a class="code hl_variable" href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">position</a>.<a class="code hl_variable" href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Y</a> = _parameters.dispHeight - _position.Y;</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>                            assert (0);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>                            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>                        }</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                    }</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                    {</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                        isPressed  = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                        _isPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                    }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                    vTaskDelay (20);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>                }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        };</div>
 </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="../../dd/d47/a00445.html#a8fe1d047f4f88700ec92a6569c8dae18">  167</a></span>    <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">Interface::read</a> (uint8_t &amp; value)</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    {</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">read</a> (&amp;value, <span class="keyword">sizeof</span> (uint8_t));</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    }</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    }        <span class="comment">// namespace Version1</span></div>
 </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>}        <span class="comment">// namespace Lib::BSP::Ethercat::PDI::LAN9252</span></div>
-<div class="ttc" id="aa00233_html"><div class="ttname"><a href="../../d6/de1/a00233.html">Lib::BSP::Ethercat::PDI::LAN9252</a></div><div class="ttdef"><b>Definition</b> Ethercat/PDI/LAN9252/Driver.hpp:15</div></div>
-<div class="ttc" id="aa00445_html"><div class="ttname"><a href="../../dd/d47/a00445.html">Lib::BSP::Ethercat::PDI::LAN9252::Interface</a></div><div class="ttdoc">SPI Port of LAN9252 class.</div><div class="ttdef"><b>Definition</b> Interface.hpp:15</div></div>
-<div class="ttc" id="aa00445_html_a0e4ae7ac5a85ba2db39b18d42a4d35e4"><div class="ttname"><a href="../../dd/d47/a00445.html#a0e4ae7ac5a85ba2db39b18d42a4d35e4">Lib::BSP::Ethercat::PDI::LAN9252::Interface::Interface</a></div><div class="ttdeci">Interface(const Config &amp;conf)</div><div class="ttdoc">Interface constructor.</div><div class="ttdef"><b>Definition</b> Interface.hpp:82</div></div>
-<div class="ttc" id="aa00445_html_a5b7404c44e35f75382999271fc6438d9"><div class="ttname"><a href="../../dd/d47/a00445.html#a5b7404c44e35f75382999271fc6438d9">Lib::BSP::Ethercat::PDI::LAN9252::Interface::write</a></div><div class="ttdeci">bool write(const void *scr, size_t len)</div><div class="ttdoc">Sends buffer via SPI port.</div><div class="ttdef"><b>Definition</b> Interface.hpp:138</div></div>
-<div class="ttc" id="aa00445_html_a717e74f67c720730002a6999c4c95284"><div class="ttname"><a href="../../dd/d47/a00445.html#a717e74f67c720730002a6999c4c95284">Lib::BSP::Ethercat::PDI::LAN9252::Interface::pinNSS</a></div><div class="ttdeci">PinOutput pinNSS</div><div class="ttdoc">reset Pin</div><div class="ttdef"><b>Definition</b> Interface.hpp:26</div></div>
-<div class="ttc" id="aa00445_html_a89051b57fa5995f80a5465943eb95f66"><div class="ttname"><a href="../../dd/d47/a00445.html#a89051b57fa5995f80a5465943eb95f66">Lib::BSP::Ethercat::PDI::LAN9252::Interface::read</a></div><div class="ttdeci">bool read(void *dst, size_t len)</div><div class="ttdoc">Reads the Buffer.</div><div class="ttdef"><b>Definition</b> Interface.hpp:155</div></div>
-<div class="ttc" id="aa00445_html_a8bb936b00ec84ebdc67cc6cd2a848321"><div class="ttname"><a href="../../dd/d47/a00445.html#a8bb936b00ec84ebdc67cc6cd2a848321">Lib::BSP::Ethercat::PDI::LAN9252::Interface::readWrite</a></div><div class="ttdeci">bool readWrite(const void *src, size_t src_len, void *dst, size_t dst_len)</div><div class="ttdoc">Send/receive buffer via SPI port.</div><div class="ttdef"><b>Definition</b> Interface.hpp:113</div></div>
-<div class="ttc" id="aa00445_html_ab24421388488cf9f3cf868801f45253e"><div class="ttname"><a href="../../dd/d47/a00445.html#ab24421388488cf9f3cf868801f45253e">Lib::BSP::Ethercat::PDI::LAN9252::Interface::open</a></div><div class="ttdeci">void open()</div><div class="ttdoc">Opens the SPI Port.</div><div class="ttdef"><b>Definition</b> Interface.hpp:86</div></div>
-<div class="ttc" id="aa00445_html_acb9d152bb50d4e790fc4da689a309519"><div class="ttname"><a href="../../dd/d47/a00445.html#acb9d152bb50d4e790fc4da689a309519">Lib::BSP::Ethercat::PDI::LAN9252::Interface::spiPort</a></div><div class="ttdeci">Lib::HAL::SPI::Master::Port&lt; Lib::HAL::DriverMode::DMA &gt; spiPort</div><div class="ttdoc">SPI Port.</div><div class="ttdef"><b>Definition</b> Interface.hpp:25</div></div>
-<div class="ttc" id="aa00445_html_ad3f271a91a1170d7d7d8e3bebe2c100b"><div class="ttname"><a href="../../dd/d47/a00445.html#ad3f271a91a1170d7d7d8e3bebe2c100b">Lib::BSP::Ethercat::PDI::LAN9252::Interface::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Closes the SPI Port.</div><div class="ttdef"><b>Definition</b> Interface.hpp:93</div></div>
-<div class="ttc" id="aa00445_html_aea28ca5bd72c923ce2818ef533427e86"><div class="ttname"><a href="../../dd/d47/a00445.html#aea28ca5bd72c923ce2818ef533427e86">Lib::BSP::Ethercat::PDI::LAN9252::Interface::deselect</a></div><div class="ttdeci">void deselect()</div><div class="ttdoc">Chip deselect.</div><div class="ttdef"><b>Definition</b> Interface.hpp:107</div></div>
-<div class="ttc" id="aa00445_html_aff470ebb0c267940363873a58e6e0f3a"><div class="ttname"><a href="../../dd/d47/a00445.html#aff470ebb0c267940363873a58e6e0f3a">Lib::BSP::Ethercat::PDI::LAN9252::Interface::select</a></div><div class="ttdeci">void select()</div><div class="ttdoc">Chip select.</div><div class="ttdef"><b>Definition</b> Interface.hpp:100</div></div>
-<div class="ttc" id="aa00449_html"><div class="ttname"><a href="../../d9/d10/a00449.html">Lib::BSP::Ethercat::PDI::LAN9252::Interface::Config</a></div><div class="ttdoc">Configuration struct.</div><div class="ttdef"><b>Definition</b> Interface.hpp:20</div></div>
-<div class="ttc" id="aa00449_html_a06d4a94b372654cc65dfc6cce9ea93aa"><div class="ttname"><a href="../../d9/d10/a00449.html#a06d4a94b372654cc65dfc6cce9ea93aa">Lib::BSP::Ethercat::PDI::LAN9252::Interface::Config::pinNSS</a></div><div class="ttdeci">PinHandle pinNSS</div><div class="ttdef"><b>Definition</b> Interface.hpp:22</div></div>
-<div class="ttc" id="aa00449_html_a64f95c007499d4922e5fbf9abcf0eb31"><div class="ttname"><a href="../../d9/d10/a00449.html#a64f95c007499d4922e5fbf9abcf0eb31">Lib::BSP::Ethercat::PDI::LAN9252::Interface::Config::spiHandle</a></div><div class="ttdeci">SPI_HandleTypeDef * spiHandle</div><div class="ttdef"><b>Definition</b> Interface.hpp:21</div></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>}        <span class="comment">// namespace Lib::BSP::XPT2046</span></div>
+</div>
+<div class="ttc" id="aa00223_html"><div class="ttname"><a href="../../dc/d28/a00223.html">Lib::BSP::XPT2046</a></div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:13</div></div>
+<div class="ttc" id="aa00498_html"><div class="ttname"><a href="../../d8/d57/a00498.html">Lib::BSP::XPT2046::Driver</a></div><div class="ttdoc">Driver - Touch Screen Driver.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:22</div></div>
+<div class="ttc" id="aa00498_html_a180012fe0de58aa14847de10c7ef8b2e"><div class="ttname"><a href="../../d8/d57/a00498.html#a180012fe0de58aa14847de10c7ef8b2e">Lib::BSP::XPT2046::Version1::Driver::~Driver</a></div><div class="ttdeci">virtual ~Driver()=default</div><div class="ttdoc">Driver destructor.</div></div>
+<div class="ttc" id="aa00498_html_a2cb123e63ab4458038ed9082bc4b8e3b"><div class="ttname"><a href="../../d8/d57/a00498.html#a2cb123e63ab4458038ed9082bc4b8e3b">Lib::BSP::XPT2046::Version1::Driver::setRotation</a></div><div class="ttdeci">virtual void setRotation(bool value)</div><div class="ttdoc">Set the TouchScreen rotation.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:103</div></div>
+<div class="ttc" id="aa00498_html_a61b422f4777ce36be360b53c8c81013d"><div class="ttname"><a href="../../d8/d57/a00498.html#a61b422f4777ce36be360b53c8c81013d">Lib::BSP::XPT2046::Version1::Driver::position</a></div><div class="ttdeci">Position position</div><div class="ttdoc">Display Position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:60</div></div>
+<div class="ttc" id="aa00498_html_a670bfc98b54aa3a80b8155a10ef389ff"><div class="ttname"><a href="../../d8/d57/a00498.html#a670bfc98b54aa3a80b8155a10ef389ff">Lib::BSP::XPT2046::Version1::Driver::Driver</a></div><div class="ttdeci">Driver(const Config &amp;conf, const Parameters &amp;params)</div><div class="ttdoc">Driver constructor.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:65</div></div>
+<div class="ttc" id="aa00498_html_ab5ac84ed10da8cfe6c423f89f58e2eae"><div class="ttname"><a href="../../d8/d57/a00498.html#ab5ac84ed10da8cfe6c423f89f58e2eae">Lib::BSP::XPT2046::Version1::Driver::init</a></div><div class="ttdeci">virtual void init()</div><div class="ttdoc">Initialize the driver.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:82</div></div>
+<div class="ttc" id="aa00498_html_abb6768971ba7042c8d0e9cf49f37474d"><div class="ttname"><a href="../../d8/d57/a00498.html#abb6768971ba7042c8d0e9cf49f37474d">Lib::BSP::XPT2046::Version1::Driver::rawPosition</a></div><div class="ttdeci">Position rawPosition</div><div class="ttdoc">Raw Position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:59</div></div>
+<div class="ttc" id="aa00498_html_aee61f8833f260330ecdecd2ac9b06d07"><div class="ttname"><a href="../../d8/d57/a00498.html#aee61f8833f260330ecdecd2ac9b06d07">Lib::BSP::XPT2046::Version1::Driver::sampleTouch</a></div><div class="ttdeci">brief Reads a the position by the touch controller bool sampleTouch(int32_t &amp;x, int32_t &amp;y) const</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:92</div></div>
+<div class="ttc" id="aa00502_html"><div class="ttname"><a href="../../d0/da2/a00502.html">Lib::BSP::XPT2046::Version1::Driver::Config</a></div><div class="ttdoc">Touch screen controller configuration.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:30</div></div>
+<div class="ttc" id="aa00502_html_a322af746e75bac89aa4d5d0a6a326982"><div class="ttname"><a href="../../d0/da2/a00502.html#a322af746e75bac89aa4d5d0a6a326982">Lib::BSP::XPT2046::Version1::Driver::Config::sck</a></div><div class="ttdeci">PinHandle sck</div><div class="ttdoc">SCK pin handle.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:34</div></div>
+<div class="ttc" id="aa00502_html_a63809700839d2bf822fc2fa6d0049792"><div class="ttname"><a href="../../d0/da2/a00502.html#a63809700839d2bf822fc2fa6d0049792">Lib::BSP::XPT2046::Version1::Driver::Config::nss</a></div><div class="ttdeci">PinHandle nss</div><div class="ttdoc">NSS pin handle.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:35</div></div>
+<div class="ttc" id="aa00502_html_abf56fe1392c6df27a581c93c69f788e2"><div class="ttname"><a href="../../d0/da2/a00502.html#abf56fe1392c6df27a581c93c69f788e2">Lib::BSP::XPT2046::Version1::Driver::Config::si</a></div><div class="ttdeci">PinHandle si</div><div class="ttdoc">SI pin handle.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:32</div></div>
+<div class="ttc" id="aa00502_html_ac80f5c36510856fcfd16b4b0b8459077"><div class="ttname"><a href="../../d0/da2/a00502.html#ac80f5c36510856fcfd16b4b0b8459077">Lib::BSP::XPT2046::Version1::Driver::Config::nirq</a></div><div class="ttdeci">PinHandle nirq</div><div class="ttdoc">NIRQ pin handle.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:31</div></div>
+<div class="ttc" id="aa00502_html_adecebadf67117adacb3d152748762f73"><div class="ttname"><a href="../../d0/da2/a00502.html#adecebadf67117adacb3d152748762f73">Lib::BSP::XPT2046::Version1::Driver::Config::so</a></div><div class="ttdeci">PinHandle so</div><div class="ttdoc">SO pin handle.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:33</div></div>
+<div class="ttc" id="aa00506_html"><div class="ttname"><a href="../../d4/d1f/a00506.html">Lib::BSP::XPT2046::Version1::Driver::Parameters</a></div><div class="ttdoc">TouchScreen controller parameters.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:40</div></div>
+<div class="ttc" id="aa00506_html_a07b903488a290e7448fc6fc792e82987"><div class="ttname"><a href="../../d4/d1f/a00506.html#a07b903488a290e7448fc6fc792e82987">Lib::BSP::XPT2046::Version1::Driver::Parameters::yMin</a></div><div class="ttdeci">int32_t yMin</div><div class="ttdoc">Touch screen top position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:43</div></div>
+<div class="ttc" id="aa00506_html_a318412e6e6406c3f63e01ee3b25a903c"><div class="ttname"><a href="../../d4/d1f/a00506.html#a318412e6e6406c3f63e01ee3b25a903c">Lib::BSP::XPT2046::Version1::Driver::Parameters::xMax</a></div><div class="ttdeci">int32_t xMax</div><div class="ttdoc">Touch screen right position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:42</div></div>
+<div class="ttc" id="aa00506_html_a3ed4c24247b93e9a2c9827909ae4fb83"><div class="ttname"><a href="../../d4/d1f/a00506.html#a3ed4c24247b93e9a2c9827909ae4fb83">Lib::BSP::XPT2046::Version1::Driver::Parameters::yMax</a></div><div class="ttdeci">int32_t yMax</div><div class="ttdoc">Touch screen bottom position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:44</div></div>
+<div class="ttc" id="aa00506_html_a52178c8a7db92b0bad69f5ce424bda5e"><div class="ttname"><a href="../../d4/d1f/a00506.html#a52178c8a7db92b0bad69f5ce424bda5e">Lib::BSP::XPT2046::Version1::Driver::Parameters::dispWidth</a></div><div class="ttdeci">size_t dispWidth</div><div class="ttdoc">Display width.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:45</div></div>
+<div class="ttc" id="aa00506_html_a678686bcb5f3491cfb04cc3c1f73ce9e"><div class="ttname"><a href="../../d4/d1f/a00506.html#a678686bcb5f3491cfb04cc3c1f73ce9e">Lib::BSP::XPT2046::Version1::Driver::Parameters::dispHeight</a></div><div class="ttdeci">size_t dispHeight</div><div class="ttdoc">Display height.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:46</div></div>
+<div class="ttc" id="aa00506_html_a7ed7e2911d0bf82c5d4e73dcdeb60d50"><div class="ttname"><a href="../../d4/d1f/a00506.html#a7ed7e2911d0bf82c5d4e73dcdeb60d50">Lib::BSP::XPT2046::Version1::Driver::Parameters::rotationNormal</a></div><div class="ttdeci">uint8_t rotationNormal</div><div class="ttdoc">Rotation normal.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:47</div></div>
+<div class="ttc" id="aa00506_html_a9ca40bc14f8d175f629b9633eee8e5d8"><div class="ttname"><a href="../../d4/d1f/a00506.html#a9ca40bc14f8d175f629b9633eee8e5d8">Lib::BSP::XPT2046::Version1::Driver::Parameters::debounceTime</a></div><div class="ttdeci">uint32_t debounceTime</div><div class="ttdoc">Touch debount time in ms if 0.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:49</div></div>
+<div class="ttc" id="aa00506_html_aa9f986e9de6ce1b9f9c925dfc8d8510c"><div class="ttname"><a href="../../d4/d1f/a00506.html#aa9f986e9de6ce1b9f9c925dfc8d8510c">Lib::BSP::XPT2046::Version1::Driver::Parameters::xMin</a></div><div class="ttdeci">int32_t xMin</div><div class="ttdoc">Touch screen left position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:41</div></div>
+<div class="ttc" id="aa00506_html_ab6c0cc2849c477a12c55b47a681068e7"><div class="ttname"><a href="../../d4/d1f/a00506.html#ab6c0cc2849c477a12c55b47a681068e7">Lib::BSP::XPT2046::Version1::Driver::Parameters::rotationFlip</a></div><div class="ttdeci">uint8_t rotationFlip</div><div class="ttdoc">Rotation flipped.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:48</div></div>
+<div class="ttc" id="aa00510_html"><div class="ttname"><a href="../../d6/d52/a00510.html">Lib::BSP::XPT2046::Version1::Driver::Position</a></div><div class="ttdoc">TouchScreen controller position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:54</div></div>
+<div class="ttc" id="aa00510_html_ae804e9ae2e05c0514670b456d36e1e4e"><div class="ttname"><a href="../../d6/d52/a00510.html#ae804e9ae2e05c0514670b456d36e1e4e">Lib::BSP::XPT2046::Version1::Driver::Position::Y</a></div><div class="ttdeci">int32_t Y</div><div class="ttdoc">Y Position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:56</div></div>
+<div class="ttc" id="aa00510_html_aeb5ab9334ea32dd7827e9c297f987280"><div class="ttname"><a href="../../d6/d52/a00510.html#aeb5ab9334ea32dd7827e9c297f987280">Lib::BSP::XPT2046::Version1::Driver::Position::X</a></div><div class="ttdeci">int32_t X</div><div class="ttdoc">X Position.</div><div class="ttdef"><b>Definition</b> Driver-v1.hpp:55</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_350568dfae86f4cf38cf6de0c323abff.html">BSP</a></li><li class="navelem"><a class="el" href="../../dir_62c3073b055829b5a13e5c069522aba9.html">Ethercat</a></li><li class="navelem"><a class="el" href="../../dir_46dfdc81b2f8526ba72a478ec8a12a2a.html">PDI</a></li><li class="navelem"><a class="el" href="../../dir_eec24a550ca3b8f0a8d18e0939a378d3.html">LAN9252</a></li><li class="navelem"><b>Interface.hpp</b></li>
+    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../dir_0a20df7f0a15c91d25ec3dff06b317c3.html">TouchScreen</a></li><li class="navelem"><a class="el" href="../../dir_4ddda1a084e548e038c084463926c382.html">XPT2046</a></li><li class="navelem"><b>Driver-v1.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

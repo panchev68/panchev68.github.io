@@ -1,11 +1,16 @@
 var a00370 =
 [
-    [ "DriverBase", "d3/d30/a00370.html#a3e1b32d5719a8f888610f4e002c7f961", null ],
-    [ "~DriverBase", "d3/d30/a00370.html#a59f968aba25598436eb1def357c56d59", null ],
-    [ "getTransferActive", "d3/d30/a00370.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
-    [ "init", "d3/d30/a00370.html#a340e407a7873f92906eea84027f81801", null ],
-    [ "setTransmitActive", "d3/d30/a00370.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
-    [ "shouldTransferBlock", "d3/d30/a00370.html#a77aefcf37afba46fc380bc49be704ee1", null ],
-    [ "transferCpltCallback", "d3/d30/a00370.html#aca116b23efef7c87ba2faf35d927e58c", null ],
-    [ "transmitBlock", "d3/d30/a00370.html#ab4bbce27d3e377e3413432b820cf2340", null ]
+    [ "Config", "d5/db5/a00374.html", "d5/db5/a00374" ],
+    [ "EventCode", "de/db1/a00197.html#ga4d2d8c2ad096e11ce5b644063a5916fd", [
+      [ "BUTTON_PUSH", "de/db1/a00197.html#gga4d2d8c2ad096e11ce5b644063a5916fdac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
+      [ "BUTTON_PULL", "de/db1/a00197.html#gga4d2d8c2ad096e11ce5b644063a5916fda87cc2515777cc275be23e4735ad2b972", null ],
+      [ "BUTTON_HOLD", "de/db1/a00197.html#gga4d2d8c2ad096e11ce5b644063a5916fdaa9ac7af6781d04fe7e05a387f285044e", null ],
+      [ "ENCODER_CW", "de/db1/a00197.html#gga4d2d8c2ad096e11ce5b644063a5916fda900afcef9f88f5d81725b2402b094404", null ],
+      [ "ENCODER_CCW", "de/db1/a00197.html#gga4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b", null ],
+      [ "NONE", "de/db1/a00197.html#gga4d2d8c2ad096e11ce5b644063a5916fdab50339a10e1de285ac99d4c3990b8693", null ]
+    ] ],
+    [ "EncoderTimer", "d3/d30/a00370.html#a4b396f2a0c9fffc2e806d8b6f48d31c8", null ],
+    [ "~EncoderTimer", "d3/d30/a00370.html#ac94930ccccaf915988c8889a8506730e", null ],
+    [ "init", "d3/d30/a00370.html#a71d28d6d793be5c6e8d8b187b9174e85", null ],
+    [ "read", "d3/d30/a00370.html#a0b1c61c19c58792564f88bf25bc400e1", null ]
 ];

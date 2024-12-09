@@ -1,4 +1,4 @@
 var topics =
 [
-    [ "Board Supported Periferial", "d3/de5/a00209.html", "d3/de5/a00209" ]
+    [ "Board Supported Periferial", "de/db1/a00197.html", "de/db1/a00197" ]
 ];

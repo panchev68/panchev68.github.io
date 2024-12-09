@@ -1,22 +1,10 @@
 var a00466 =
 [
-    [ "Config", "d5/d26/a00474.html", "d5/d26/a00474" ],
-    [ "Impl", "db/d8e/a00482.html", "db/d8e/a00482" ],
-    [ "Info", "d9/dea/a00478.html", "d9/dea/a00478" ],
-    [ "Register", "d0/d29/a00470.html", null ],
-    [ "W25Q128JVSIQ", "db/d2c/a00466.html#ae30c4c2a91eca00e0996c005df282d41", null ],
-    [ "~W25Q128JVSIQ", "db/d2c/a00466.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
-    [ "close", "db/d2c/a00466.html#a949717933a1c298041adcf500a7d8f9d", null ],
-    [ "eraseBlock32K", "db/d2c/a00466.html#adc3744e22caae3113d030bd8430adbfe", null ],
-    [ "eraseBlock64K", "db/d2c/a00466.html#a68bb8f71277722ce197b60dab426f6e2", null ],
-    [ "eraseChip", "db/d2c/a00466.html#af052007cb755ca7e2efdca99552b6394", null ],
-    [ "eraseSector", "db/d2c/a00466.html#a0e00412be17cc69665ac20b2bc41c8c0", null ],
-    [ "getInfo", "db/d2c/a00466.html#ad3c91a869f9d9f3e83aa66d5305286a6", null ],
-    [ "isPresent", "db/d2c/a00466.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
-    [ "open", "db/d2c/a00466.html#a419e720a0a366e322b172d234eccd202", null ],
-    [ "read", "db/d2c/a00466.html#ae3993d3922639e037e2d54472f27ae33", null ],
-    [ "readsector", "db/d2c/a00466.html#ac03bbf1a808d01d6a1f47295fed063ca", null ],
-    [ "write", "db/d2c/a00466.html#ad5b7df44cfed8124232890112bf8b057", null ],
-    [ "writePage", "db/d2c/a00466.html#af9dd3e2259fd6822e5e73a136e649caf", null ],
-    [ "writeSector", "db/d2c/a00466.html#a8c4457e1327f34519203ce4a0e9416ad", null ]
+    [ "chipManufacturer", "db/d2c/a00466.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "db/d2c/a00466.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "numberOfPages", "db/d2c/a00466.html#a195a420e33b57b124b86debe633e8a3b", null ],
+    [ "pagePersector", "db/d2c/a00466.html#ae27fa7e2ece388d5335a1964aa2c402c", null ],
+    [ "pageSize", "db/d2c/a00466.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "db/d2c/a00466.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "db/d2c/a00466.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];
