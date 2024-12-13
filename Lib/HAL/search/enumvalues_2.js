@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dma_0',['DMA',['../d1/de1/a00213.html#a9de00459d7bcd95866936fd723022743a04487a0fa5ed0ed8d8e197288957053b',1,'Lib::HAL']]]
+  ['crce_0',['CRCE',['../d0/d65/a00360.html#a112b3cb6379c5ec4853273cff8ee4ccea5866605df857a8b511aec873d0fa6440',1,'Lib::HAL::SPIx']]]
 ];

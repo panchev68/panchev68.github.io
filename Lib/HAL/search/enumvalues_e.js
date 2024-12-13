@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unknown_0',['UNKNOWN',['../db/d7e/a00372.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e',1,'Lib::HAL::LastResetState']]]
+  ['software_5freset_0',['SOFTWARE_RESET',['../df/d03/a00348.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b',1,'Lib::HAL::LastResetState']]]
 ];

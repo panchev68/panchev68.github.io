@@ -1,14 +1,17 @@
 var a00388 =
 [
-    [ "Base", "d9/dc1/a00388.html#a6a81067d7e53d1aad115788c968bca6b", null ],
-    [ "~Base", "d9/dc1/a00388.html#a196ad46582cd01b24c10603ec7f70e60", null ],
-    [ "abort", "d9/dc1/a00388.html#affe84a0d4ac4bf3b92541907e1765e6f", null ],
-    [ "close", "d9/dc1/a00388.html#a48d5bedf92851ab7ccbfe833ddf288e6", null ],
-    [ "deinit", "d9/dc1/a00388.html#a21d3d5d2f04f2a3529e72a4e3d434e0b", null ],
-    [ "getHandle", "d9/dc1/a00388.html#ac9f923b4465170dbd5fae34dcaa30224", null ],
-    [ "init", "d9/dc1/a00388.html#a9ff4161ea19c49aeb6f983588f90d0f2", null ],
-    [ "open", "d9/dc1/a00388.html#acdc0d0b66dae57105bee9efb3f101f62", null ],
-    [ "receive", "d9/dc1/a00388.html#aaa143f6515f28f3f14d9959fbd4c2826", null ],
-    [ "send", "d9/dc1/a00388.html#ac28f7b7b6e08b1399c0b1ec995737e0d", null ],
-    [ "sendReceive", "d9/dc1/a00388.html#a8600233bb2815cf2884756bfb1349015", null ]
+    [ "State", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
+      [ "UNKNOWN", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
+      [ "LOW_POWER_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
+      [ "WINDOW_WATCHDOG_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
+      [ "INDEPENDENT_WATCHDOG_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
+      [ "SOFTWARE_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
+      [ "POWER_ON_POWER_DOWN_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
+      [ "EXTERNAL_RESET_PIN_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
+      [ "BROWNOUT_RESET", "d9/dc1/a00388.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
+    ] ],
+    [ "LastResetState", "d9/dc1/a00388.html#abbd01627966d996019ebe16bb0d685d0", null ],
+    [ "~LastResetState", "d9/dc1/a00388.html#a9764e97ea414a4a782184c9e0e81789c", null ],
+    [ "get", "d9/dc1/a00388.html#aceb01a835768bfb0b1af57d2be901501", null ],
+    [ "operator State", "d9/dc1/a00388.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ]
 ];

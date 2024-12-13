@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['very_5fhigh_0',['VERY_HIGH',['../d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08da2eae31361b8d1a454cadc17a8d4b70ac',1,'Lib::HAL::GPIO::Mode']]]
+  ['tx_0',['TX',['../d7/da0/a00198.html#ac2feb35492efeb810666c536b5debe28a2c67cc781633beee7355a4345f89d162',1,'Lib::HAL']]],
+  ['tx_5fcompleted_1',['TX_COMPLETED',['../d0/d65/a00360.html#aa68c26054b78691f855daf390d0dfc69a229b2dfcb0098ddf5d2ebee705fda4aa',1,'Lib::HAL::SPIx']]],
+  ['tx_5frx_5fcompleted_2',['TX_RX_COMPLETED',['../d0/d65/a00360.html#aa68c26054b78691f855daf390d0dfc69a025e2ae0a1a56cc25fd29e82502807a3',1,'Lib::HAL::SPIx']]]
 ];

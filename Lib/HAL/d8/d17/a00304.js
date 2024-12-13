@@ -1,7 +1,11 @@
 var a00304 =
 [
-    [ "Handle", "d8/d17/a00304.html#a149e4a305d72749363e08bf37760d8db", null ],
-    [ "~Handle", "d8/d17/a00304.html#ad49584b1103bdcb6798a678d2f2318cf", null ],
-    [ "getHandle", "d8/d17/a00304.html#ab9f912660d5843d0cb1d0bdc54d3b538", null ],
-    [ "operator T_HANDLE *", "d8/d17/a00304.html#aef3d0dfbddd2d635d4865d726dd9179c", null ]
+    [ "DeviceManager", "d5/d0f/a00308.html", "d5/d0f/a00308" ],
+    [ "EXTIx", "d8/d17/a00304.html#a95b88be6469838cdf9366faf015cff70", null ],
+    [ "~EXTIx", "d8/d17/a00304.html#a31a362ca6365e5e52ff8b073155c65a4", null ],
+    [ "bind", "d8/d17/a00304.html#aee7ebb127afc81b2c35701cdfa2865b5", null ],
+    [ "getHandle", "d8/d17/a00304.html#aac8c639de30116c6e4e13dab43c99df3", null ],
+    [ "operator==", "d8/d17/a00304.html#a095194ac85548934d5850ce68c1b8b40", null ],
+    [ "read", "d8/d17/a00304.html#ac6413450415b488bdc3d5907b016a5ca", null ],
+    [ "unbind", "d8/d17/a00304.html#a03cf9106e7d736ccb7aaf537f1971fa1", null ]
 ];

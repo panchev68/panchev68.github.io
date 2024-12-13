@@ -1,16 +1,13 @@
 var a00276 =
 [
-    [ "Filter", "dc/d28/a00276.html#a0d2539280e5bd0d65a792ae89cafe5de", null ],
-    [ "Filter", "dc/d28/a00276.html#a2ab294a045da6c29a81d909934fd763b", null ],
-    [ "~Filter", "dc/d28/a00276.html#aa402b8835257e53f7ea0936744c772fd", null ],
-    [ "enable", "dc/d28/a00276.html#a325c373c3bd483d57d79db1f64fe9d1b", null ],
-    [ "operator CAN_FilterTypeDef *", "dc/d28/a00276.html#a0c408a2a4c2cb645d67f2e34af91566c", null ],
-    [ "setBank", "dc/d28/a00276.html#a3249e6d0ad23afd5e5f4e0f7a065d5c9", null ],
-    [ "setFilterActivation", "dc/d28/a00276.html#ab97efbfcb6adf01b76b3e4b918e0796e", null ],
-    [ "setFilterFIFOAssignment", "dc/d28/a00276.html#ad3d132fb5cae81cdf89a927fd369e77b", null ],
-    [ "setFilterScale", "dc/d28/a00276.html#a4645ea2ac0f1064ffa1fb66695365a2d", null ],
-    [ "setId", "dc/d28/a00276.html#a3ace50d629ae2d006c89c7dadf9b7f9e", null ],
-    [ "setMask", "dc/d28/a00276.html#a32306db0a9a6aadc3a85c611c8cebffd", null ],
-    [ "setMode", "dc/d28/a00276.html#ae395c740edb0e6e684d97d39c6b22f38", null ],
-    [ "setSlaveStartFilterBank", "dc/d28/a00276.html#a9a8a3704d72e8e8c28b53fca59248306", null ]
+    [ "Port", "dc/d28/a00276.html#a510c2c8ae147f232ce75dba96a17542d", null ],
+    [ "~Port", "dc/d28/a00276.html#aed497348f60814dc72dd29b9a51e6ccb", null ],
+    [ "close", "dc/d28/a00276.html#a118315cc6a47c8c720d0f47e6e0d4e8e", null ],
+    [ "handleErrorEvent", "dc/d28/a00276.html#a81b92d8021d538c5dc177912e91772e9", null ],
+    [ "handleMessageReceivedEvent", "dc/d28/a00276.html#ae37890d8cae6b524fd554d1aa73c5ec5", null ],
+    [ "handlePostSendEvent", "dc/d28/a00276.html#a33697fc302518628c26b9f257847df53", null ],
+    [ "handlePreSendEvent", "dc/d28/a00276.html#ad645649d1531303aa8476b8a57e0492d", null ],
+    [ "open", "dc/d28/a00276.html#ae02ae673c20f629b1af29f74b1562ccb", null ],
+    [ "send", "dc/d28/a00276.html#afa83ed9bcc84d943b2c0e6b8e32d9f22", null ],
+    [ "setFilter", "dc/d28/a00276.html#af2028bbd5afcd65d8e3d1b4eebbd3cce", null ]
 ];

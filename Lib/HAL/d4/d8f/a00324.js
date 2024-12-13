@@ -1,9 +1,10 @@
 var a00324 =
 [
-    [ "Handle", "d4/d8f/a00324.html#a4009ba467a2aa712efafd2d6b8552efe", null ],
-    [ "Handle", "d4/d8f/a00324.html#a38fc18570331a635fc804a7a665849cd", null ],
-    [ "~Handle", "d4/d8f/a00324.html#af5367d50b92a46c289825d4a0e55112b", null ],
-    [ "operator==", "d4/d8f/a00324.html#ac66b29ec18af312c4137ea90cb657a17", null ],
-    [ "number", "d4/d8f/a00324.html#a889bbf284e7828319d31e2960a93001e", null ],
-    [ "port", "d4/d8f/a00324.html#a9fe63e76c3f91573e13801bc8359a449", null ]
+    [ "Config", "d4/d8f/a00324.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Port", "d4/d8f/a00324.html#a3b44fabfe796316ff21231ab84e9aae5", null ],
+    [ "~Port", "d4/d8f/a00324.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "getInputs", "d4/d8f/a00324.html#a6eb674f7b775026359e91c7f09a39396", null ],
+    [ "setOutputs", "d4/d8f/a00324.html#ab6cce21713f6c84b730577d403ca90a9", null ],
+    [ "setPullupPulldown", "d4/d8f/a00324.html#ab56d05994bd491c6412034e04261fc67", null ],
+    [ "setup", "d4/d8f/a00324.html#ab580571a964639ef45ed11819acebd57", null ]
 ];

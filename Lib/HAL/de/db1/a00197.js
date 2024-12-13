@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "Lib::HAL::RTClock", "d8/ddd/a00380.html", "d8/ddd/a00380" ]
+    [ "HAL", "d7/da0/a00198.html", "d7/da0/a00198" ]
 ];

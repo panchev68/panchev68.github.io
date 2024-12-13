@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['datetime_0',['DateTime',['../d8/ddd/a00380.html#af5965f0efcc74cfb29d8e84080e48ebe',1,'Lib::HAL::RTClock']]]
+  ['datetime_0',['DateTime',['../d6/de1/a00356.html#a8be0499725843010546098c03a9006f9',1,'Lib::HAL::RTCBase']]]
 ];

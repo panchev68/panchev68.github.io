@@ -1,7 +1,7 @@
 var a00264 =
 [
-    [ "disable", "d3/dcc/a00264.html#a21d7b8822cd6b84265f9b0acea31a271", null ],
-    [ "enable", "d3/dcc/a00264.html#ac4fbdc02fda3782b0d9b1f5ceb7315f0", null ],
-    [ "isEnable", "d3/dcc/a00264.html#adfbefbbbe48edf627f16169eb9c7698c", null ],
-    [ "reset", "d3/dcc/a00264.html#a26df8a41e8dbe7f07161a3f024b05426", null ]
+    [ "getData", "d3/dcc/a00264.html#a71d96b8435f2bf88a1c4c00cf0ff6336", null ],
+    [ "getData", "d3/dcc/a00264.html#ac039c876232e9e05865b8f93f4f099e2", null ],
+    [ "getId", "d3/dcc/a00264.html#abf6e2b3a33202d3a30d59f89ecd89abd", null ],
+    [ "getLen", "d3/dcc/a00264.html#abbe911255c295e0cda816f82d2a8cc78", null ]
 ];

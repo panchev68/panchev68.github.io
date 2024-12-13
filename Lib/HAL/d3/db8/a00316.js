@@ -1,11 +1,10 @@
 var a00316 =
 [
-    [ "DeviceManager", "dd/de2/a00320.html", "dd/de2/a00320" ],
-    [ "ExtInterrupt", "d3/db8/a00316.html#ad23a4192490982558749ff3cfa1f4cbb", null ],
-    [ "~ExtInterrupt", "d3/db8/a00316.html#a6bd50b237fa22e831a6d46fce2f59632", null ],
-    [ "bind", "d3/db8/a00316.html#a6301a8ebc9d990f5e6a5456521d0c9a2", null ],
-    [ "getHandle", "d3/db8/a00316.html#a9bb137c5f7837782b9bc9f62f005d17d", null ],
-    [ "operator==", "d3/db8/a00316.html#a43c1f4d4a3e7b1e60ff9a48774570e16", null ],
-    [ "read", "d3/db8/a00316.html#a0b011d0bcf10592f6cd4e18b13f9d268", null ],
-    [ "unbind", "d3/db8/a00316.html#aa97095656a7722cd726dcb602fee85fa", null ]
+    [ "Port", "d3/db8/a00316.html#aa643d214d5beb118687997dc773f94aa", null ],
+    [ "~Port", "d3/db8/a00316.html#ac35b65c0dbc5f396fed40c838a79d0cc", null ],
+    [ "close", "d3/db8/a00316.html#a66baded00c48cedf1a4e64b6c5adb79f", null ],
+    [ "open", "d3/db8/a00316.html#ae273b8b549b094bd8cfa8b45cf21328b", null ],
+    [ "operator I2C_HandleTypeDef *", "d3/db8/a00316.html#a3c0d89314fa50575aebd981a6a8cc338", null ],
+    [ "receive", "d3/db8/a00316.html#a615e379bd6f2227970b3b95b42f22ca5", null ],
+    [ "send", "d3/db8/a00316.html#a66f959d9c3321b4a8872f4435e574624", null ]
 ];

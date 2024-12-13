@@ -1,5 +1,9 @@
 var a00272 =
 [
-    [ "add", "d9/dd6/a00272.html#abe3b95c363bdad23d16f46b70907fe0e", null ],
-    [ "remove", "d9/dd6/a00272.html#aa2151310d7bd9d140fb53e18b5c83274", null ]
+    [ "TxMessage", "d9/dd6/a00272.html#a0f7b18d5fb18f668058358ca713f1837", null ],
+    [ "TxMessage", "d9/dd6/a00272.html#a35a746ab76ab539d6bb79fa7743f0d9f", null ],
+    [ "TxMessage", "d9/dd6/a00272.html#ad1707323c881b3fafe0ddc6cd1844d9e", null ],
+    [ "getData", "d9/dd6/a00272.html#a69cdd6d8c6538b94fc6d0a881f92a64c", null ],
+    [ "getId", "d9/dd6/a00272.html#a5de860dc77c863b746b88c256bf82274", null ],
+    [ "getLen", "d9/dd6/a00272.html#add6591fff2bc157ac11183d0e1b158d9", null ]
 ];

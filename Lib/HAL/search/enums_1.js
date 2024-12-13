@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['gpiomode_0',['GPIOMode',['../d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6f',1,'Lib::HAL::GPIO::Mode']]],
-  ['gpiopull_1',['GPIOPull',['../d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931',1,'Lib::HAL::GPIO::Mode']]],
-  ['gpiospeed_2',['GPIOSpeed',['../d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08d',1,'Lib::HAL::GPIO::Mode']]]
+  ['errorcode_0',['ErrorCode',['../d0/d65/a00360.html#a112b3cb6379c5ec4853273cff8ee4cce',1,'Lib::HAL::SPIx::ErrorCode'],['../d2/d56/a00384.html#a2c29c4d985dcbd85d1dbf60038067b0f',1,'Lib::HAL::UARTx::ErrorCode']]],
+  ['eventbit_1',['EventBit',['../d0/d65/a00360.html#aa68c26054b78691f855daf390d0dfc69',1,'Lib::HAL::SPIx']]],
+  ['eventflags_2',['EventFlags',['../d2/d56/a00384.html#ac12f66ca0b1d083d08631179bd2b96c5',1,'Lib::HAL::UARTx']]]
 ];

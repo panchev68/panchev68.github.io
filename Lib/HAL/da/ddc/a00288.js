@@ -1,7 +1,10 @@
 var a00288 =
 [
-    [ "getData", "da/ddc/a00288.html#a71d96b8435f2bf88a1c4c00cf0ff6336", null ],
-    [ "getData", "da/ddc/a00288.html#ac039c876232e9e05865b8f93f4f099e2", null ],
-    [ "getId", "da/ddc/a00288.html#abf6e2b3a33202d3a30d59f89ecd89abd", null ],
-    [ "getLen", "da/ddc/a00288.html#abbe911255c295e0cda816f82d2a8cc78", null ]
+    [ "PinHandle", "da/ddc/a00288.html#a4169b074e06afd7ae1d018da7f44d11e", null ],
+    [ "PinHandle", "da/ddc/a00288.html#a86f91cd47c13e9fd410f6b4da4478b61", null ],
+    [ "~PinHandle", "da/ddc/a00288.html#a3edce66ec4b0d807728701d24d5f1f86", null ],
+    [ "getPinNumber", "da/ddc/a00288.html#aa138e04a1b8c1a54cc9e93f284304b93", null ],
+    [ "getPointerToPinNumber", "da/ddc/a00288.html#a07344ebabd66fa31d6f596612cb08139", null ],
+    [ "getPort", "da/ddc/a00288.html#a23c97450966f1d56016b82dcd82d504b", null ],
+    [ "operator==", "da/ddc/a00288.html#af2774469d2e9236b4c994502d26b3940", null ]
 ];

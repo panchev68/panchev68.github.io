@@ -1,12 +1,9 @@
 var a00256 =
 [
-    [ "Port", "d0/def/a00256.html#ab0ec8999b12c5d0e67d7b4bfe45b228c", null ],
-    [ "~Port", "d0/def/a00256.html#a8d4f69a9de3cf47afee1792f5c6e45c8", null ],
-    [ "close", "d0/def/a00256.html#adff8db05ff65190fffc1ab69b8ac5bdb", null ],
-    [ "getHandle", "d0/def/a00256.html#a8f0cf1079764e4eb8deab1e1075287c1", null ],
-    [ "getRawValue", "d0/def/a00256.html#ab9e4a5fee490f2b834ef2a2fe680b873", null ],
-    [ "open", "d0/def/a00256.html#a80289b19682bb899caacfddca8ff6ef5", null ],
-    [ "read", "d0/def/a00256.html#a7fcbd05b79a400becb96e3fff8fcbbad", null ],
-    [ "start", "d0/def/a00256.html#ae3a2e5bc4da171636385482a191029f4", null ],
-    [ "stop", "d0/def/a00256.html#a2c3f5ae93b298b9ab03d3755e9613dcc", null ]
+    [ "Container", "d0/def/a00256.html#a9cf9955986be4ceeae44ac360cbb87e8", null ],
+    [ "DeviceManagerBase", "d0/def/a00256.html#abdfac94f393ea76ce81101fa3ec4e0c1", null ],
+    [ "~DeviceManagerBase", "d0/def/a00256.html#ac224e47704f9cf11a1d242f49fc01ab6", null ],
+    [ "add", "d0/def/a00256.html#a02525534e0f3709fe5dd2164cd1543b4", null ],
+    [ "getDevice", "d0/def/a00256.html#aabfe1fe6de74384902fb187bf365e674", null ],
+    [ "remove", "d0/def/a00256.html#a92a61cd08aed0e18c54eaaadc9b6d45c", null ]
 ];

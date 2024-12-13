@@ -1,20 +1,7 @@
 var a00308 =
 [
-    [ "GPIOMode", "d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6f", [
-      [ "INPUT", "d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6faa84cc046d48610b05c21fd3670d0c829", null ],
-      [ "OUT_PP", "d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6fa05d0658f04c6c6a3f596e042bddd78cc", null ],
-      [ "OUT_OD", "d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6fa48dc0d96bf9f37e03974e063c27d39c9", null ]
-    ] ],
-    [ "GPIOPull", "d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931", [
-      [ "NOPULL", "d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931af43b0f41977e72ada334d920faf460d5", null ],
-      [ "PULLUP", "d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931a2989a4b0b16772a6f65da71eda483c9f", null ],
-      [ "PULLDOWN", "d5/d0f/a00308.html#a594393574e8f1d2da31a6fafdd5da931ad08b3001fc1b2f26c5ba712336e16a17", null ]
-    ] ],
-    [ "GPIOSpeed", "d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08d", [
-      [ "LOW", "d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08da41bc94cbd8eebea13ce0491b2ac11b88", null ],
-      [ "MEDIUM", "d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08dac87f3be66ffc3c0d4249f1c2cc5f3cce", null ],
-      [ "HIGH", "d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08dab89de3b4b81c4facfac906edf29aec8c", null ],
-      [ "VERY_HIGH", "d5/d0f/a00308.html#a834d3e672a2b017454eb6fba26e7a08da2eae31361b8d1a454cadc17a8d4b70ac", null ]
-    ] ],
-    [ "setMode", "d5/d0f/a00308.html#a3483475e58c4d7d1946c0ddf0f7a2368", null ]
+    [ "add", "d5/d0f/a00308.html#a396cfbf20fdd82cb43c6545d2caf49e7", null ],
+    [ "eventHandler", "d5/d0f/a00308.html#a0c8d42b3f0fbdc2c8f3da0c680431171", null ],
+    [ "getDevice", "d5/d0f/a00308.html#ad0d7c84012f0a6d08cf6201f10b59bdd", null ],
+    [ "remove", "d5/d0f/a00308.html#a01608aae473604a5422a90f138bbce56", null ]
 ];

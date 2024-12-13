@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['independent_5fwatchdog_5freset_0',['INDEPENDENT_WATCHDOG_RESET',['../db/d7e/a00372.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0',1,'Lib::HAL::LastResetState']]],
-  ['input_1',['INPUT',['../d5/d0f/a00308.html#a04736b4434e386d0f4323bbe3ccf5a6faa84cc046d48610b05c21fd3670d0c829',1,'Lib::HAL::GPIO::Mode::INPUT'],['../df/d24/a00217.html#ade5058e364fbe042379b55038689e87caa84cc046d48610b05c21fd3670d0c829',1,'Lib::HAL::GPIO::INPUT']]],
-  ['it_2',['IT',['../d1/de1/a00213.html#a9de00459d7bcd95866936fd723022743ab1bb871e144ff9fd10db6f53ee2495d1',1,'Lib::HAL']]]
+  ['flag_0',['FLAG',['../d0/d65/a00360.html#a112b3cb6379c5ec4853273cff8ee4ccea0f4d0db3668dd58cabb9eb409657eaa8',1,'Lib::HAL::SPIx']]],
+  ['flag_5fabort_5fcomplete_1',['FLAG_ABORT_COMPLETE',['../d2/d56/a00384.html#ac12f66ca0b1d083d08631179bd2b96c5acb28247f59d3e4ba87a98854d83e44f9',1,'Lib::HAL::UARTx']]],
+  ['flag_5ftx_5fcomplete_2',['FLAG_TX_COMPLETE',['../d2/d56/a00384.html#ac12f66ca0b1d083d08631179bd2b96c5ac19c54d8a7fe985d1964a7316adbec1d',1,'Lib::HAL::UARTx']]],
+  ['frame_5ferror_3',['FRAME_ERROR',['../d2/d56/a00384.html#a2c29c4d985dcbd85d1dbf60038067b0fa6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UARTx']]],
+  ['fre_4',['FRE',['../d0/d65/a00360.html#a112b3cb6379c5ec4853273cff8ee4ccea7b8419f19a58b307ad1cd9b9aa05e278',1,'Lib::HAL::SPIx']]]
 ];

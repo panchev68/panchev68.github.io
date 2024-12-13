@@ -1,11 +1,25 @@
 var searchData=
 [
-  ['waitforabortcompleted_0',['waitForAbortCompleted',['../d9/da1/a00396.html#ac337f19d36c3aca4377d3f0397bcbe50',1,'Lib::HAL::SPI::Master::TransperentBase::waitForAbortCompleted()'],['../dd/dea/a00408.html#a4d8e589ff66bc022b44dba826de980ef',1,'Lib::HAL::SPI::Master::Port&lt; IT &gt;::waitForAbortCompleted()']]],
-  ['waitforcomplete_1',['waitForComplete',['../d6/d9c/a00352.html#a06257f9f162ff1ace5791472f6ce93bd',1,'Lib::HAL::I2C::Master::TransperentBase']]],
-  ['waitforcompletehandler_2',['waitForCompleteHandler',['../d9/da1/a00396.html#a1547f93fceda610f1c4afbc324331179',1,'Lib::HAL::SPI::Master::TransperentBase']]],
-  ['waitforrxcompleted_3',['waitForRxCompleted',['../d9/da1/a00396.html#aa97578858a404daf8fa5cbad6afd156e',1,'Lib::HAL::SPI::Master::TransperentBase::waitForRxCompleted()'],['../d9/de6/a00404.html#aae714d4d670e20b023ed3390c7bee42b',1,'Lib::HAL::SPI::Master::Port&lt; DMA &gt;::waitForRxCompleted()'],['../dd/dea/a00408.html#a5d7e8c79341ece7b194ca08485bf97f4',1,'Lib::HAL::SPI::Master::Port&lt; IT &gt;::waitForRxCompleted()']]],
-  ['waitfortxcompleted_4',['waitForTxCompleted',['../d9/da1/a00396.html#ae176e9ab9148380f2307a54cc00bb7a6',1,'Lib::HAL::SPI::Master::TransperentBase::waitForTxCompleted()'],['../d9/de6/a00404.html#ac921b42dda90efd8a5c413edd30df20f',1,'Lib::HAL::SPI::Master::Port&lt; DMA &gt;::waitForTxCompleted()'],['../dd/dea/a00408.html#a9a0e685fcf10e4bf29bf6f95cb4d4509',1,'Lib::HAL::SPI::Master::Port&lt; IT &gt;::waitForTxCompleted()'],['../de/df8/a00440.html#a0ed4ac72808386eba09eaa710036638b',1,'Lib::HAL::UART::TransperentBase::waitForTxCompleted()']]],
-  ['waitfortxrxcompleted_5',['waitForTxRxCompleted',['../d9/da1/a00396.html#ac4eeb5db1bc8932abe015e9732a72b3c',1,'Lib::HAL::SPI::Master::TransperentBase::waitForTxRxCompleted()'],['../d9/de6/a00404.html#a6d589a9746e6eae7e802e86652701d1a',1,'Lib::HAL::SPI::Master::Port&lt; DMA &gt;::waitForTxRxCompleted()'],['../dd/dea/a00408.html#a830d64ea45fe1132905385123511e925',1,'Lib::HAL::SPI::Master::Port&lt; IT &gt;::waitForTxRxCompleted()']]],
-  ['watchdog_6',['Watchdog',['../d8/d21/a00368.html#aa5c41b479010b817d39a83456f4015ee',1,'Lib::HAL::Watchdog']]],
-  ['write_7',['write',['../dc/d50/a00332.html#a4ba46b2ba0eabd53be172a06a6c68406',1,'Lib::HAL::GPIO::Pin&lt; Type::OUTPUT &gt;::write()'],['../d6/db8/a00376.html#ae27a2294584feb9016a95bd56b06b8b3',1,'Lib::HAL::OTP::write(uint32_t addr, T value)'],['../d6/db8/a00376.html#a8b57c99d2789fc7aceb826e082efe61d',1,'Lib::HAL::OTP::write(uint32_t addr, uint8_t data)'],['../d6/db8/a00376.html#aef4f9a5a2282fed85c656f971c92a28b',1,'Lib::HAL::OTP::write(uint32_t addr, uint16_t data)'],['../d6/db8/a00376.html#a696780f2c858284f0021afcea5e71378',1,'Lib::HAL::OTP::write(uint32_t addr, uint32_t data)'],['../d6/db8/a00376.html#ae053ffae24d48d87bf6bc585b3c37a05',1,'Lib::HAL::OTP::write(uint32_t addr, uint64_t data)']]]
+  ['_7ebase_0',['~Base',['../dd/de2/a00320.html#a9280008b408922b5c5c3f22755a6f1f7',1,'Lib::HAL::I2C::Master::Base::~Base()'],['../dc/d59/a00364.html#a820ebb6e57ddcfceec7b9c5df70e4cf4',1,'Lib::HAL::TIM::Base::~Base()']]],
+  ['_7ecanx_1',['~CANx',['../d6/d08/a00244.html#aa569a836a5e13d558a6c72150ad5ba1c',1,'Lib::HAL::CANx']]],
+  ['_7echannel_2',['~Channel',['../dc/d31/a00208.html#ad16cbd767285122806f7c9ab51481603',1,'Lib::HAL::Adc::Channel']]],
+  ['_7edevicemanagerbase_3',['~DeviceManagerBase',['../d0/def/a00256.html#ac224e47704f9cf11a1d242f49fc01ab6',1,'Lib::HAL::DeviceManagerBase']]],
+  ['_7eextix_4',['~EXTIx',['../d8/d17/a00304.html#a31a362ca6365e5e52ff8b073155c65a4',1,'Lib::HAL::GPIO::EXTIx']]],
+  ['_7efilter_5',['~Filter',['../dc/ded/a00252.html#aa402b8835257e53f7ea0936744c772fd',1,'Lib::HAL::CAN::Filter']]],
+  ['_7ehandle_6',['~Handle',['../d0/dcd/a00280.html#ad49584b1103bdcb6798a678d2f2318cf',1,'Lib::HAL::Handle']]],
+  ['_7einterface_7',['~Interface',['../dd/dc1/a00212.html#a86ba3dc0bde04c071461705622c9f08b',1,'Lib::HAL::Adc::Interface']]],
+  ['_7elastresetstate_8',['~LastResetState',['../df/d03/a00348.html#a9764e97ea414a4a782184c9e0e81789c',1,'Lib::HAL::LastResetState']]],
+  ['_7epinhandle_9',['~PinHandle',['../da/ddc/a00288.html#a3edce66ec4b0d807728701d24d5f1f86',1,'Lib::HAL::GPIO::PinHandle']]],
+  ['_7epininput_10',['~PinInput',['../db/d7b/a00296.html#ab499ec4a69db867862590dda3fd65f89',1,'Lib::HAL::GPIO::PinInput']]],
+  ['_7epinoutput_11',['~PinOutput',['../db/da2/a00300.html#a1628e227f22ce3271674f6d93830e264',1,'Lib::HAL::GPIO::PinOutput']]],
+  ['_7eport_12',['~Port',['../d0/d53/a00232.html#a649b398ab5dfbfb980fd157f9ffd900b',1,'Lib::HAL::Adc::Port&lt; DriverMode::BLOCK &gt;::~Port()'],['../d7/d40/a00236.html#a8d4f69a9de3cf47afee1792f5c6e45c8',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::~Port()'],['../d9/d21/a00240.html#a04606e280f53d81bdfd36d4b0b7781a5',1,'Lib::HAL::Adc::Port&lt; IT &gt;::~Port()'],['../dc/d28/a00276.html#aed497348f60814dc72dd29b9a51e6ccb',1,'Lib::HAL::CAN::Port::~Port()'],['../d7/df2/a00312.html#ae773a0aa1b575a77ffccb2bc215289c1',1,'Lib::HAL::GPIO::Port::~Port()'],['../d3/db8/a00316.html#ac35b65c0dbc5f396fed40c838a79d0cc',1,'Lib::HAL::I2C::Master::Port&lt; BLOCK &gt;::~Port()'],['../dd/d1d/a00336.html#a20676d66004937c26a6dbc97b4a28d65',1,'Lib::HAL::I2C::Master::Port&lt; DMA &gt;::~Port()'],['../df/df1/a00340.html#a0b6102be266a7ed9a6a3071bdf64c148',1,'Lib::HAL::I2C::Master::Port&lt; IT &gt;::~Port()']]],
+  ['_7eportbase_13',['~PortBase',['../d6/d43/a00216.html#a4dc33e8a3f98ab2c6ebf0d85c705e8c7',1,'Lib::HAL::Adc::PortBase::~PortBase()'],['../dd/dd7/a00260.html#a0d5e6fc01fab6004342325c857f586d4',1,'Lib::HAL::CAN::PortBase::~PortBase()']]],
+  ['_7eporttransparentbase_14',['~PortTransparentBase',['../d5/ddf/a00224.html#ab4cfa51e40f7293563592f65a70d4e8c',1,'Lib::HAL::Adc::PortTransparentBase']]],
+  ['_7ertcbase_15',['~RTCBase',['../d6/de1/a00356.html#a58f9b23a0d4c03192bd597a78e70b6f3',1,'Lib::HAL::RTCBase']]],
+  ['_7espix_16',['~SPIx',['../d0/d65/a00360.html#ac6940b66d2c4bc8bd836af4b721bcecd',1,'Lib::HAL::SPIx']]],
+  ['_7etimer_17',['~Timer',['../d8/ddd/a00380.html#a43aee021e54610f1179901bf7fcbaecf',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;']]],
+  ['_7etransperentbase_18',['~TransperentBase',['../d4/db5/a00328.html#ab24fbd6e8f42d83b2f7ab38e5994750d',1,'Lib::HAL::I2C::Master::TransperentBase']]],
+  ['_7etxheader_19',['~TxHeader',['../db/d12/a00268.html#a238e6fee0d0264b17b8350e32013d8e2',1,'Lib::HAL::CAN::TxHeader']]],
+  ['_7euartx_20',['~UARTx',['../d2/d56/a00384.html#a0f644c4969303d22cf758a31757ca138',1,'Lib::HAL::UARTx']]],
+  ['_7ewatchdog_21',['~Watchdog',['../d8/d8e/a00344.html#ab8d71b5b90fc8b1b6beb24ddb297fe69',1,'Lib::HAL::Watchdog']]]
 ];

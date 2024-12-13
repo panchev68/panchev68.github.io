@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['encoder_0',['ENCODER',['../d0/d24/a00222.html#a2c308e1b88d91e3dab6478a68fee595da9e1de45ee3c680d9a2ff400816f05e0f',1,'Lib::HAL::TIM']]],
-  ['external_5freset_5fpin_5freset_1',['EXTERNAL_RESET_PIN_RESET',['../db/d7e/a00372.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665',1,'Lib::HAL::LastResetState']]]
+  ['dma_0',['DMA',['../d0/d65/a00360.html#a112b3cb6379c5ec4853273cff8ee4ccea33fd5f6391f2f0cb4c91179d7f521949',1,'Lib::HAL::SPIx::DMA'],['../d7/da0/a00198.html#a9de00459d7bcd95866936fd723022743a04487a0fa5ed0ed8d8e197288957053b',1,'Lib::HAL::DMA']]],
+  ['dma_5ftransfer_5ferror_1',['DMA_TRANSFER_ERROR',['../d2/d56/a00384.html#a2c29c4d985dcbd85d1dbf60038067b0faa347986104d500024d8d699e0b72b24d',1,'Lib::HAL::UARTx']]]
 ];

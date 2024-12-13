@@ -1,6 +1,8 @@
 var a00420 =
 [
-    [ "Handle", "db/d4f/a00420.html#abbd04182f93a2391f6707767af071b16", null ],
-    [ "channel", "db/d4f/a00420.html#a9f83b0a69bfc7d74d0d8814692cea48a", null ],
-    [ "handle", "db/d4f/a00420.html#a05b187c3737b76be770380f3d05879bf", null ]
+    [ "Timer", "db/d4f/a00420.html#a81d3914d81cd5098207a541106829154", null ],
+    [ "~Timer", "db/d4f/a00420.html#a43aee021e54610f1179901bf7fcbaecf", null ],
+    [ "close", "db/d4f/a00420.html#a30e3fabb9057f35427bb6a23666cc6e5", null ],
+    [ "open", "db/d4f/a00420.html#a2e360de332a83d537ba388388e58122a", null ],
+    [ "onValueChanged", "db/d4f/a00420.html#a145dfe43deb7592d70805a54b5074b2d", null ]
 ];
