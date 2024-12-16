@@ -1,6 +1,10 @@
 var a00328 =
 [
-    [ "Handle", "d4/db5/a00328.html#abbd04182f93a2391f6707767af071b16", null ],
-    [ "channel", "d4/db5/a00328.html#a9f83b0a69bfc7d74d0d8814692cea48a", null ],
-    [ "handle", "d4/db5/a00328.html#a05b187c3737b76be770380f3d05879bf", null ]
+    [ "DeviceManager", "dc/d50/a00332.html", "dc/d50/a00332" ],
+    [ "Base", "d4/db5/a00328.html#a563f6e2bf6b978f526c5fa87583bc588", null ],
+    [ "~Base", "d4/db5/a00328.html#a820ebb6e57ddcfceec7b9c5df70e4cf4", null ],
+    [ "close", "d4/db5/a00328.html#a722cf0939b693295625e6e6407105bf0", null ],
+    [ "getHandle", "d4/db5/a00328.html#a9c1d70b49613a972382dcbf845474280", null ],
+    [ "handleEvent", "d4/db5/a00328.html#ab35824b087e7d7c17c11fc266814a4e7", null ],
+    [ "open", "d4/db5/a00328.html#ac65559737120cd6ab6d522a27a70e8af", null ]
 ];

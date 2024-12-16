@@ -1,5 +1,48 @@
 var a00324 =
 [
-    [ "add", "d4/d8f/a00324.html#ad52b33bb8cd29f654a0f7c999d0201ad", null ],
-    [ "remove", "d4/d8f/a00324.html#a67c0a77eddcebf540d07f6e7bbb9fe20", null ]
+    [ "CallbackID", "d4/d8f/a00324.html#abac16d140eba734a046977efd063157c", null ],
+    [ "Handle", "d4/d8f/a00324.html#a25650ecf82fbc69f7c4be0decb0b25c4", null ],
+    [ "State", "d4/d8f/a00324.html#a755cd67474a63b3e8531de8032a58e8a", null ],
+    [ "ErrorCode", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686ee", [
+      [ "NONE", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eeab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODF", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea91878509fb81342b00185ddabe606b87", null ],
+      [ "CRCE", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea5866605df857a8b511aec873d0fa6440", null ],
+      [ "OVR", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea5454e7edaaa12e3d5761aaa2cdbc75df", null ],
+      [ "FRE", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea7b8419f19a58b307ad1cd9b9aa05e278", null ],
+      [ "DMA", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea33fd5f6391f2f0cb4c91179d7f521949", null ],
+      [ "FLAG", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea0f4d0db3668dd58cabb9eb409657eaa8", null ],
+      [ "ABORT", "d4/d8f/a00324.html#a612252e7bca2c13799d2184a530686eea8d12a2ca7e5a64036d7251a3eda51a38", null ]
+    ] ],
+    [ "EventBit", "d4/d8f/a00324.html#a36e5369742beafb14536f90db9a3ba0d", [
+      [ "TX_COMPLETED", "d4/d8f/a00324.html#a36e5369742beafb14536f90db9a3ba0da844151f916a0661b67674075414c4bad", null ],
+      [ "RX_COMPLETED", "d4/d8f/a00324.html#a36e5369742beafb14536f90db9a3ba0da9d1b5e06456589dcaa34abe9b210a368", null ],
+      [ "TX_RX_COMPLETED", "d4/d8f/a00324.html#a36e5369742beafb14536f90db9a3ba0da3d649b966220840038b373aeafc896bc", null ],
+      [ "ABORT_COMPLETED", "d4/d8f/a00324.html#a36e5369742beafb14536f90db9a3ba0da803257020caeaa175ec2282e330ce8f7", null ],
+      [ "ERROR", "d4/d8f/a00324.html#a36e5369742beafb14536f90db9a3ba0da8ec70adf18db40810025caa9d0c207ac", null ]
+    ] ],
+    [ "SPIBase", "d4/d8f/a00324.html#a4ca0eb349d769dd4eaefe7d28bf239b5", null ],
+    [ "~SPIBase", "d4/d8f/a00324.html#af8c32c65fcc821b66024fdbecc14e169", null ],
+    [ "abort", "d4/d8f/a00324.html#a2b86c38d4eb17d8555421dbfa5ce9aa0", null ],
+    [ "abortFunc", "d4/d8f/a00324.html#a67122e3332d920e1d3acb8ec5cb557ed", null ],
+    [ "deinit", "d4/d8f/a00324.html#a9a2fc87e4d9e12164a458a38deafc604", null ],
+    [ "getHandle", "d4/d8f/a00324.html#a28c89dfccf416f59a3f50a258a6109de", null ],
+    [ "getState", "d4/d8f/a00324.html#a10a54d7f9ade678c368c0a95bf28c8c3", null ],
+    [ "handleAbortCompleteEvent", "d4/d8f/a00324.html#ab0ae6803f9bbbdae2295e38a59297ffd", null ],
+    [ "handleErrorEvent", "d4/d8f/a00324.html#a412644d25dd0dfd9b9c0e19f3794e3f0", null ],
+    [ "handleRxCompleteEvent", "d4/d8f/a00324.html#a5c642cedf640aeafad284f953db872fe", null ],
+    [ "handleTxCompleteEvent", "d4/d8f/a00324.html#a361fd89ed1b1b1294d687175ce795b9b", null ],
+    [ "handleTxRxCompleteEvent", "d4/d8f/a00324.html#a1780ab75628eccfbc540875792645396", null ],
+    [ "init", "d4/d8f/a00324.html#ad767fdb65b276e2c86d5f18c22c88517", null ],
+    [ "receive", "d4/d8f/a00324.html#af0f38a3c06fe16736ab900cef6a3de09", null ],
+    [ "receiveFunc", "d4/d8f/a00324.html#abdd13abeb4d7a3919523edf7796ea7e8", null ],
+    [ "send", "d4/d8f/a00324.html#a9d0fd0143160037ee44e1587b7b5d6e1", null ],
+    [ "sendFunc", "d4/d8f/a00324.html#aa804e4b69bf68ff4ef5dedce3d2462af", null ],
+    [ "sendReceive", "d4/d8f/a00324.html#a08e1bbf15d2cd263a5bd7624ffadf2d8", null ],
+    [ "sendReceiveFunc", "d4/d8f/a00324.html#a1b2d548451091e81a4b4be694760a91c", null ],
+    [ "setup", "d4/d8f/a00324.html#ae09711abb6ec2181b243770aa7c98fa2", null ],
+    [ "waitForAbortCompleted", "d4/d8f/a00324.html#a7a676601675899760c21ad98f6866f24", null ],
+    [ "waitForRxCompleted", "d4/d8f/a00324.html#a605fc38605a689dbf3d592d599300f18", null ],
+    [ "waitForTxCompleted", "d4/d8f/a00324.html#a0a3341536bd86c1035fd65919e9b344d", null ],
+    [ "waitForTxRxCompleted", "d4/d8f/a00324.html#a25b9fa5a10875dea805faa9ffa74a756", null ],
+    [ "Lib::HAL::DeviceManagerBase< SPIBase, SPI_HandleTypeDef >", "d4/d8f/a00324.html#ab2c257c06b0108907dbf3065ed7f10f6", null ]
 ];

@@ -1,0 +1,27 @@
+var a00192 =
+[
+    [ "Lib::BSP::Backlight", "dd/d52/a00221.html", [
+      [ "Config", "dc/d98/a00225.html", [
+        [ "fadeStep", "dc/d98/a00225.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+        [ "sleepTime", "dc/d98/a00225.html#ad30dd39f20169c3d91c056daced3a362", null ],
+        [ "timChannel", "dc/d98/a00225.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+        [ "timHandle", "dc/d98/a00225.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
+      ] ],
+      [ "Dimmer", "dd/d2d/a00229.html", [
+        [ "Dimmer", "dd/d2d/a00229.html#aa3aaad43a63b510d89d996e329097b35", null ],
+        [ "~Dimmer", "dd/d2d/a00229.html#a88ac623019b044d22e1e17fd2cebe81d", null ],
+        [ "restart", "dd/d2d/a00229.html#a7ae9427b07174fe971b964c17316edfb", null ],
+        [ "setup", "dd/d2d/a00229.html#a363e0cdabbd3e8a9c2fd41f92e0deaea", null ],
+        [ "start", "dd/d2d/a00229.html#a9793769a5578d4ee53894a3a28990a69", null ],
+        [ "stop", "dd/d2d/a00229.html#af0786f33e7fa0c211ef9d1994128af27", null ],
+        [ "Backlight", "dd/d2d/a00229.html#a781e1923c97f1f68b00435e21cc55703", null ]
+      ] ],
+      [ "Backlight", "dd/d52/a00221.html#a567df45aa8f839e0db4b12ffeabbd417", null ],
+      [ "~Backlight", "dd/d52/a00221.html#a02a775fbc033eea218493a833283f8fd", null ],
+      [ "get", "dd/d52/a00221.html#a50a810c2a297031558286c9c20bb51ea", null ],
+      [ "operator=", "dd/d52/a00221.html#a17dd552119b2281653baaa955b27f9ae", null ],
+      [ "set", "dd/d52/a00221.html#a134cd822dea79a9267a7c08f599fa9f4", null ],
+      [ "setup", "dd/d52/a00221.html#a7d23b2d4fabb9cc7ae9772e7853a8750", null ],
+      [ "dimmer", "dd/d52/a00221.html#a71b8c1e8f9da8b626ef276112930f31c", null ]
+    ] ]
+];

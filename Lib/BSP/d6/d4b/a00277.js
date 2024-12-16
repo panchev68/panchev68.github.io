@@ -1,12 +1,13 @@
 var a00277 =
 [
-    [ "InputsBase", "d6/d4b/a00277.html#a3105b67230287bc585ffe878117b8bb5", null ],
-    [ "~InputsBase", "d6/d4b/a00277.html#ad4f7b8fb7c4fa7f4c76ace9e4e7ea666", null ],
-    [ "getChangedCounter", "d6/d4b/a00277.html#ad3f7e6d66bc887552afe739b8f49f035", null ],
-    [ "getValue", "d6/d4b/a00277.html#a9151101d0c28a2915329fa0d9e8bad20", null ],
-    [ "handleValueChangedEvent", "d6/d4b/a00277.html#aec67aca94588da8441f24093e0cc212e", null ],
-    [ "init", "d6/d4b/a00277.html#a558618c4cd1cc798b1999e27bd86b6ae", null ],
-    [ "preInit", "d6/d4b/a00277.html#a618f2fd4ccde2ef2867fa310ab2ff5b8", null ],
-    [ "update", "d6/d4b/a00277.html#ab7bf9b26bc6105ae2ec93ae7cdc9e59b", null ],
-    [ "waitForCompleted", "d6/d4b/a00277.html#a8aefa93c0cd252742fbd5e23675e570b", null ]
+    [ "Outputs", "d6/d4b/a00277.html#ae538a06e0b79ecd381024c1a01415deb", null ],
+    [ "~Outputs", "d6/d4b/a00277.html#aedda01b36ccb93ca338b30a0e75e4913", null ],
+    [ "getSpiHandle", "d6/d4b/a00277.html#aa11aa3e6213e3f5a94c651e06e1188a6", null ],
+    [ "preUpdateCallback", "d6/d4b/a00277.html#ab07b169268347fa5f91596147460f7b0", null ],
+    [ "setup", "d6/d4b/a00277.html#a1a262aaa4834837d5f30d7b4fe2b71f4", null ],
+    [ "setValue", "d6/d4b/a00277.html#ade2766fb6b60950349d8b36d16500c51", null ],
+    [ "update", "d6/d4b/a00277.html#ac43ef643950aded95ed1a271945086a7", null ],
+    [ "onSpiError", "d6/d4b/a00277.html#a5f32588bd17e8771f96a4c0f533efc9c", null ],
+    [ "onStatusChanged", "d6/d4b/a00277.html#a5e12d4653fc13761bdee086c6055ea7b", null ],
+    [ "onValueChanged", "d6/d4b/a00277.html#a49199bf482163a66ea5831e85060cecf", null ]
 ];

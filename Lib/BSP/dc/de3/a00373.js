@@ -1,11 +1,9 @@
 var a00373 =
 [
-    [ "Config", "dc/de3/a00373.html#aa8ff504216e3e0437cb82dba3074ef09", null ],
-    [ "M24C64W", "dc/de3/a00373.html#a2392a35a8eec891f6a59b7ced7f236b4", null ],
-    [ "~M24C64W", "dc/de3/a00373.html#a112a36af39a87eeab2695c2141fb685c", null ],
-    [ "close", "dc/de3/a00373.html#a20d132c70742bd4f788eac1854aeacfb", null ],
-    [ "getChipSize", "dc/de3/a00373.html#a4b66655cedc1fa6e74f8bd72848198d2", null ],
-    [ "open", "dc/de3/a00373.html#ab812f114483dab97fdfcaf5cb4588a27", null ],
-    [ "read", "dc/de3/a00373.html#aa99707ebb5eb33b3b0f9a68005fbe1c7", null ],
-    [ "write", "dc/de3/a00373.html#ae3d8fcc8306ca33a382a0c9ad3935f74", null ]
+    [ "pinNIRQ", "dc/de3/a00373.html#a544e551d42fb2cec3e9442332763ee2b", null ],
+    [ "pinNRST", "dc/de3/a00373.html#aa8eb49c26a1e1929e22d05823c59ee6e", null ],
+    [ "pinNSS", "dc/de3/a00373.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinSync0", "dc/de3/a00373.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "dc/de3/a00373.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "dc/de3/a00373.html#aed57b8892979041579d2eb130d453151", null ]
 ];

@@ -1,7 +1,9 @@
 var a00269 =
 [
-    [ "DeviceBase", "d5/d42/a00269.html#a0407598c83f2cfdd1cb736fe7ddf4470", null ],
-    [ "~DeviceBase", "d5/d42/a00269.html#a1701521fc34a11c4554c947c914a7c1a", null ],
-    [ "handleTickEvent", "d5/d42/a00269.html#a011b74dc5e4142f0183dad31e84f9307", null ],
-    [ "setup", "d5/d42/a00269.html#a23686a31e14ff3cfac665f1cc1308fdf", null ]
+    [ "PortBase", "d5/d42/a00269.html#a95d4af679e6a1c451c726bcd0a75ce90", null ],
+    [ "~PortBase", "d5/d42/a00269.html#a2ba3e98ffcb5aeb7a0772c4bc26cf0b3", null ],
+    [ "getSpiHandle", "d5/d42/a00269.html#a0f1716a3b2c1c4c25fb74cc3b31b5651", null ],
+    [ "preUpdateCallback", "d5/d42/a00269.html#a272f56d313f1f815e350de24b1e5ee37", null ],
+    [ "setup", "d5/d42/a00269.html#a151478864c2f0f67d2c08f163c9cfb86", null ],
+    [ "update", "d5/d42/a00269.html#a647f5701366b004030c6be8bbc28add4", null ]
 ];

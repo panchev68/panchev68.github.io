@@ -1,5 +1,5 @@
 var a00449 =
 [
-    [ "pinNSS", "d9/d10/a00449.html#a06d4a94b372654cc65dfc6cce9ea93aa", null ],
-    [ "spiHandle", "d9/d10/a00449.html#a64f95c007499d4922e5fbf9abcf0eb31", null ]
+    [ "nss", "d9/d10/a00449.html#af85ee7d75b038cf80f96fa395058786a", null ],
+    [ "spi", "d9/d10/a00449.html#af54f9dc8e10614b21fdaf1cfbd40964a", null ]
 ];

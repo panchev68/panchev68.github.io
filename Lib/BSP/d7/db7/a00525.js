@@ -1,5 +1,6 @@
 var a00525 =
 [
-    [ "X", "d7/db7/a00525.html#aeb5ab9334ea32dd7827e9c297f987280", null ],
-    [ "Y", "d7/db7/a00525.html#ae804e9ae2e05c0514670b456d36e1e4e", null ]
+    [ "adcChannel", "d7/db7/a00525.html#a6f1b2b30866d2d51ec8b76450f48819f", null ],
+    [ "adcHandle", "d7/db7/a00525.html#addd0c44f90b189ab682f26b57a3dced3", null ],
+    [ "updatePeriod", "d7/db7/a00525.html#a8821cede391cdab81afb72f8749a89c3", null ]
 ];

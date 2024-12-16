@@ -1,8 +1,7 @@
 var a00300 =
 [
-    [ "Handle", "db/da2/a00300.html#a9ebf05c58d2298ec0c0716547737f22e", null ],
-    [ "Watchdog", "db/da2/a00300.html#afe27b8d5b6bb6339d170ebfd2a31e05a", null ],
-    [ "~Watchdog", "db/da2/a00300.html#ab8d71b5b90fc8b1b6beb24ddb297fe69", null ],
-    [ "refresh", "db/da2/a00300.html#ad27b24b3697814973ad3702709e9c8da", null ],
-    [ "setup", "db/da2/a00300.html#a85b9f16cfa70a6bab2897a8e2c4cec56", null ]
+    [ "add", "db/da2/a00300.html#a5da5639a233d29aea006aba16ca3c3f1", null ],
+    [ "eventHandler", "db/da2/a00300.html#a3e338df0cdcc4d3aa4befd9336982c56", null ],
+    [ "getDevice", "db/da2/a00300.html#a1c4937e0c1a17a0246f0b6eda6e520dd", null ],
+    [ "remove", "db/da2/a00300.html#addbc0fffb056f54a55dd3fbb4f21388f", null ]
 ];

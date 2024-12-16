@@ -1,15 +1,16 @@
 var a00357 =
 [
     [ "Config", "d7/ddb/a00361.html", "d7/ddb/a00361" ],
-    [ "DriverBase", "df/df1/a00357.html#ad6e63f7c95ebef12a11f8ee339405e01", null ],
-    [ "~DriverBase", "df/df1/a00357.html#a08a74a2fa411c1b365413e0b93187d53", null ],
-    [ "close", "df/df1/a00357.html#a22fcdee8339a9ed383a877e2d17a9335", null ],
-    [ "getChipSize", "df/df1/a00357.html#a69acdf676bb0caa8da9e01d6c8dba068", null ],
-    [ "open", "df/df1/a00357.html#aaec0b33cfc5e3a04c99de913bc1d8a00", null ],
-    [ "read", "df/df1/a00357.html#a17c02f3b3a1a2d3aba15656ebd27a7df", null ],
-    [ "read16", "df/df1/a00357.html#a8ac40644fd061e23bf00c9ff9b7a188c", null ],
-    [ "read8", "df/df1/a00357.html#afca417e7fa947ee916e78d270accd840", null ],
-    [ "write", "df/df1/a00357.html#a9e03de314d498f1ed6fed9f49d96ba0e", null ],
-    [ "write16", "df/df1/a00357.html#afb301950c661c4daf29b3c4224c1e97d", null ],
-    [ "write8", "df/df1/a00357.html#a15d576717ece08693ae1f36757e42ea8", null ]
+    [ "EventCode", "da/d15/a00188.html#ga4d2d8c2ad096e11ce5b644063a5916fd", [
+      [ "BUTTON_PUSH", "da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fdac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
+      [ "BUTTON_PULL", "da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fda87cc2515777cc275be23e4735ad2b972", null ],
+      [ "BUTTON_HOLD", "da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fdaa9ac7af6781d04fe7e05a387f285044e", null ],
+      [ "ENCODER_CW", "da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fda900afcef9f88f5d81725b2402b094404", null ],
+      [ "ENCODER_CCW", "da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b", null ],
+      [ "NONE", "da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fdab50339a10e1de285ac99d4c3990b8693", null ]
+    ] ],
+    [ "EncoderTimer", "df/df1/a00357.html#a4b396f2a0c9fffc2e806d8b6f48d31c8", null ],
+    [ "~EncoderTimer", "df/df1/a00357.html#ac94930ccccaf915988c8889a8506730e", null ],
+    [ "init", "df/df1/a00357.html#a71d28d6d793be5c6e8d8b187b9174e85", null ],
+    [ "read", "df/df1/a00357.html#a0b1c61c19c58792564f88bf25bc400e1", null ]
 ];

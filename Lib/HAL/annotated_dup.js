@@ -1,45 +1,46 @@
 var annotated_dup =
 [
-    [ "Lib", "db/dd9/a00179.html", [
-      [ "HAL", "d0/d81/a00180.html", [
-        [ "Adc", "d8/d64/a00181.html", [
-          [ "Channel", "da/d15/a00188.html", "da/d15/a00188" ],
-          [ "Interface", "dd/da2/a00192.html", "dd/da2/a00192" ],
-          [ "Port", "d3/db1/a00200.html", null ],
-          [ "Port< DMA >", "d6/d43/a00216.html", "d6/d43/a00216" ],
-          [ "Port< DriverMode::BLOCK >", "dd/dc1/a00212.html", "dd/dc1/a00212" ],
-          [ "Port< IT >", "d5/d0b/a00220.html", "d5/d0b/a00220" ],
-          [ "PortBase", "d7/ded/a00196.html", "d7/ded/a00196" ],
-          [ "PortTransparentBase", "d1/d72/a00204.html", "d1/d72/a00204" ]
+    [ "Lib", "d8/d64/a00181.html", [
+      [ "HAL", "d7/d25/a00182.html", [
+        [ "Adc", "dc/d52/a00183.html", [
+          [ "Channel", "d7/d6e/a00190.html", "d7/d6e/a00190" ],
+          [ "Interface", "dc/d57/a00194.html", "dc/d57/a00194" ],
+          [ "Port", "db/d53/a00202.html", null ],
+          [ "Port< DMA >", "dc/d9a/a00218.html", "dc/d9a/a00218" ],
+          [ "Port< DriverMode::BLOCK >", "d3/dd1/a00214.html", "d3/dd1/a00214" ],
+          [ "Port< IT >", "d0/d24/a00222.html", "d0/d24/a00222" ],
+          [ "PortBase", "d7/da0/a00198.html", "d7/da0/a00198" ],
+          [ "PortTransparentBase", "d5/df1/a00206.html", "d5/df1/a00206" ]
         ] ],
-        [ "CAN", "d7/d25/a00182.html", [
-          [ "DeviceManager", "de/dc2/a00228.html", "de/dc2/a00228" ],
-          [ "Filter", "d0/d53/a00232.html", "d0/d53/a00232" ],
-          [ "Port", "d0/def/a00256.html", "d0/def/a00256" ],
-          [ "PortBase", "d9/d21/a00240.html", "d9/d21/a00240" ],
-          [ "RxMessage", "d6/d08/a00244.html", "d6/d08/a00244" ],
-          [ "TxHeader", "dd/dd7/a00248.html", "dd/dd7/a00248" ],
-          [ "TxMessage", "dc/ded/a00252.html", "dc/ded/a00252" ]
+        [ "CAN", "d2/d94/a00184.html", [
+          [ "DeviceManager", "da/d2e/a00238.html", "da/d2e/a00238" ],
+          [ "Filter", "d2/dc8/a00242.html", "d2/dc8/a00242" ],
+          [ "Port", "d5/d35/a00266.html", "d5/d35/a00266" ],
+          [ "PortBase", "d0/da7/a00250.html", "d0/da7/a00250" ],
+          [ "RxMessage", "d7/d03/a00254.html", "d7/d03/a00254" ],
+          [ "TxHeader", "d7/d2f/a00258.html", "d7/d2f/a00258" ],
+          [ "TxMessage", "d9/d8d/a00262.html", "d9/d8d/a00262" ]
         ] ],
-        [ "TIM", "dc/d52/a00183.html", [
-          [ "Base", "dd/de2/a00320.html", "dd/de2/a00320" ],
-          [ "Timer", "dc/d50/a00332.html", null ],
-          [ "Timer< Mode::ENCODER >", "dd/d1d/a00336.html", "dd/d1d/a00336" ]
+        [ "TIM", "de/df3/a00185.html", [
+          [ "Base", "dd/dbb/a00330.html", "dd/dbb/a00330" ],
+          [ "Timer", "d2/d45/a00342.html", null ],
+          [ "Timer< Mode::ENCODER >", "d2/daf/a00346.html", "d2/daf/a00346" ]
         ] ],
-        [ "Timer", "d2/d94/a00184.html", [
-          [ "Handle", "d4/db5/a00328.html", "d4/db5/a00328" ]
+        [ "Timer", "d8/d00/a00186.html", [
+          [ "Handle", "dc/d84/a00338.html", "dc/d84/a00338" ]
         ] ],
-        [ "CanBase", "d5/ddf/a00224.html", "d5/ddf/a00224" ],
-        [ "DeviceManagerBase", "d7/d40/a00236.html", "d7/d40/a00236" ],
-        [ "GPIO", "d3/dcc/a00264.html", "d3/dcc/a00264" ],
-        [ "Handle", "dd/dd7/a00260.html", "dd/dd7/a00260" ],
-        [ "I2CBase", "db/d7b/a00296.html", "db/d7b/a00296" ],
-        [ "LastResetState", "d8/d17/a00304.html", "d8/d17/a00304" ],
-        [ "OTP", "d5/d0f/a00308.html", "d5/d0f/a00308" ],
-        [ "RTCBase", "d7/df2/a00312.html", "d7/df2/a00312" ],
-        [ "SPIBase", "d3/db8/a00316.html", "d3/db8/a00316" ],
-        [ "UARTBase", "df/df1/a00340.html", "df/df1/a00340" ],
-        [ "Watchdog", "db/da2/a00300.html", "db/da2/a00300" ]
+        [ "BKPSRAM", "dc/d55/a00226.html", "dc/d55/a00226" ],
+        [ "CanBase", "da/d31/a00234.html", "da/d31/a00234" ],
+        [ "DeviceManagerBase", "d4/d9a/a00246.html", "d4/d9a/a00246" ],
+        [ "GPIO", "dd/d56/a00274.html", null ],
+        [ "Handle", "d9/d2a/a00270.html", "d9/d2a/a00270" ],
+        [ "I2Cx", "d1/de3/a00306.html", "d1/de3/a00306" ],
+        [ "LastResetState", "d0/d39/a00314.html", "d0/d39/a00314" ],
+        [ "OTP", "d2/d41/a00318.html", "d2/d41/a00318" ],
+        [ "RTCBase", "de/de9/a00322.html", "de/de9/a00322" ],
+        [ "SPIx", "d8/d23/a00326.html", "d8/d23/a00326" ],
+        [ "UARTx", "db/d10/a00350.html", "db/d10/a00350" ],
+        [ "Watchdog", "d1/d67/a00310.html", "d1/d67/a00310" ]
       ] ]
     ] ]
 ];

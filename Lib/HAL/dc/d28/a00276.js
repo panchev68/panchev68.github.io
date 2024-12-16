@@ -1,10 +1,11 @@
 var a00276 =
 [
-    [ "Config", "dc/d28/a00276.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "dc/d28/a00276.html#a3b44fabfe796316ff21231ab84e9aae5", null ],
-    [ "~Port", "dc/d28/a00276.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "getInputs", "dc/d28/a00276.html#a6eb674f7b775026359e91c7f09a39396", null ],
-    [ "setOutputs", "dc/d28/a00276.html#ab6cce21713f6c84b730577d403ca90a9", null ],
-    [ "setPullupPulldown", "dc/d28/a00276.html#ab56d05994bd491c6412034e04261fc67", null ],
-    [ "setup", "dc/d28/a00276.html#ab580571a964639ef45ed11819acebd57", null ]
+    [ "PinHandle", "dc/d28/a00276.html#a4169b074e06afd7ae1d018da7f44d11e", null ],
+    [ "PinHandle", "dc/d28/a00276.html#a86f91cd47c13e9fd410f6b4da4478b61", null ],
+    [ "~PinHandle", "dc/d28/a00276.html#a3edce66ec4b0d807728701d24d5f1f86", null ],
+    [ "getPinNumber", "dc/d28/a00276.html#aa138e04a1b8c1a54cc9e93f284304b93", null ],
+    [ "getPointerToPinNumber", "dc/d28/a00276.html#a07344ebabd66fa31d6f596612cb08139", null ],
+    [ "getPort", "dc/d28/a00276.html#a13a772b409b8537b27df30cda9504b6a", null ],
+    [ "getPort", "dc/d28/a00276.html#a23c97450966f1d56016b82dcd82d504b", null ],
+    [ "operator==", "dc/d28/a00276.html#af2774469d2e9236b4c994502d26b3940", null ]
 ];

@@ -1,7 +1,5 @@
 var a00337 =
 [
-    [ "di", "d4/dce/a00337.html#aabf98a5ad309f2431fa7e7a31917ee85", null ],
-    [ "nrst", "d4/dce/a00337.html#a2791788a0dacca54af259e2dd4843a79", null ],
-    [ "nss", "d4/dce/a00337.html#ad81053b0c52295a482ff9145a6c44035", null ],
-    [ "spi", "d4/dce/a00337.html#a1b22f2a90a16913b575e01266ea10035", null ]
+    [ "devAddr", "d4/dce/a00337.html#a12bb2977aabb329aba241009bf5d2ea4", null ],
+    [ "I2CHandle", "d4/dce/a00337.html#a34bd1f1a4de54d7db4357c51f35e7a11", null ]
 ];

@@ -1,17 +1,50 @@
 var a00304 =
 [
-    [ "State", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
-      [ "UNKNOWN", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
-      [ "LOW_POWER_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
-      [ "WINDOW_WATCHDOG_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
-      [ "INDEPENDENT_WATCHDOG_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
-      [ "SOFTWARE_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
-      [ "POWER_ON_POWER_DOWN_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
-      [ "EXTERNAL_RESET_PIN_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
-      [ "BROWNOUT_RESET", "d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
+    [ "CallbackID", "d8/d17/a00304.html#abe21effdda559692ccd432118f55cb0f", null ],
+    [ "Handle", "d8/d17/a00304.html#a908731b05aab43f81c226e4fc3c5b882", null ],
+    [ "State", "d8/d17/a00304.html#a800411647b309a28346fa258adecb21e", null ],
+    [ "ErrorCode", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515e", [
+      [ "NONE", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515eab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "BERR", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea49b05888444e28e5320044dc9a61bfaf", null ],
+      [ "ARLO", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea695fc4ceb5733c86b76c5813d35c02ad", null ],
+      [ "AF", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea06fa567b72d78b7e3ea746973fbbd1d5", null ],
+      [ "OVR", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea5454e7edaaa12e3d5761aaa2cdbc75df", null ],
+      [ "DMA", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea33fd5f6391f2f0cb4c91179d7f521949", null ],
+      [ "TIMEOUT", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea070a0fb40f6c308ab544b227660aadff", null ],
+      [ "SIZE", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea62e5cef85d46f1a5a2144d9fd463b79e", null ],
+      [ "DMA_PARAM", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea7eadf5dc47997570a82b3bad2d8ef38d", null ],
+      [ "WRONG_START", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea7c7fca98c6be611d0284c6ee1a8a0a30", null ]
     ] ],
-    [ "LastResetState", "d8/d17/a00304.html#abbd01627966d996019ebe16bb0d685d0", null ],
-    [ "~LastResetState", "d8/d17/a00304.html#a9764e97ea414a4a782184c9e0e81789c", null ],
-    [ "get", "d8/d17/a00304.html#aceb01a835768bfb0b1af57d2be901501", null ],
-    [ "operator State", "d8/d17/a00304.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ]
+    [ "MemaddressSize", "d8/d17/a00304.html#afce7fc161b174670f47c87b6bafaa747", [
+      [ "ADDR_8BITS", "d8/d17/a00304.html#afce7fc161b174670f47c87b6bafaa747a088bdc009ca79147eba93d2931d540fe", null ],
+      [ "ADDR_16BITS", "d8/d17/a00304.html#afce7fc161b174670f47c87b6bafaa747a9990dd355fcb596ae478c4035a8a1d12", null ]
+    ] ],
+    [ "I2CBase", "d8/d17/a00304.html#a4001bb4951c8507ff3db388e0cbc36c6", null ],
+    [ "~I2CBase", "d8/d17/a00304.html#a58c6b60f41c8cec19f44c9e5e6407107", null ],
+    [ "abort", "d8/d17/a00304.html#aec36c413742a11bb9def337ce34992bd", null ],
+    [ "abortFunc", "d8/d17/a00304.html#af60acfc6a84a3657cce7bb26e505b151", null ],
+    [ "deinit", "d8/d17/a00304.html#aabc03a99c07ba7d0401ccf2acefed8d2", null ],
+    [ "getState", "d8/d17/a00304.html#af5f5b279ff0643b71ca7105adf69fe21", null ],
+    [ "handleAbortCompleteEvent", "d8/d17/a00304.html#aabeeada2f23217dc80efffca469ae0fb", null ],
+    [ "handleErrorEvent", "d8/d17/a00304.html#a68493f8443f6836f207f45d22fdc2ff0", null ],
+    [ "handleMemRxCompleteEvent", "d8/d17/a00304.html#a674dc74c2b5709046391e89c9176983d", null ],
+    [ "handleMemTxCompleteEvent", "d8/d17/a00304.html#a8c644c8dae70e2db4a76939b6d4714e0", null ],
+    [ "handleRxCompleteEvent", "d8/d17/a00304.html#a6a647258ca09366640e57c8801b9fb45", null ],
+    [ "handleTxCompleteEvent", "d8/d17/a00304.html#a57baa06a8462016a7ebc41af031a46fe", null ],
+    [ "init", "d8/d17/a00304.html#a02b6dd912cd34ab8f2f9940ea3d5303c", null ],
+    [ "receive", "d8/d17/a00304.html#ad32da647dc8ff5a90ca4407e54a222b4", null ],
+    [ "receive", "d8/d17/a00304.html#a5bd7c9089c77c34e6ccbf9758ef9b630", null ],
+    [ "receiveDevFunc", "d8/d17/a00304.html#af908a07dff8b260b0ae6907a784c3f43", null ],
+    [ "receiveFunc", "d8/d17/a00304.html#af1d1d2dac120c9a55942f872ba0a2d0b", null ],
+    [ "send", "d8/d17/a00304.html#a2575f1cd9b94be942c749b4370773299", null ],
+    [ "send", "d8/d17/a00304.html#a6b72bfc48de494609e7369b8d365b59c", null ],
+    [ "sendDevFunc", "d8/d17/a00304.html#aa49bf8946eb3b14f8eb5345fe66e92fe", null ],
+    [ "sendFunc", "d8/d17/a00304.html#a040fc96dd5d14c94d73bd054ba4cb779", null ],
+    [ "setup", "d8/d17/a00304.html#a608db2fb5b94433ccf66c30ba18444cc", null ],
+    [ "waitForAbortCompleted", "d8/d17/a00304.html#a6c2686ac7af3da29688e550b4cdfb99b", null ],
+    [ "waitForDevRxCompleted", "d8/d17/a00304.html#af080209296b2f9993245a67537a8bc5b", null ],
+    [ "waitForDevTxCompleted", "d8/d17/a00304.html#ad578061726ce98f93d0f1ed7ef7f0371", null ],
+    [ "waitForRxCompleted", "d8/d17/a00304.html#a0742c48f6603c8b63078b554f732526d", null ],
+    [ "waitForTxCompleted", "d8/d17/a00304.html#abff7ff5f4a60f2399e4b1bcf5ab2d922", null ],
+    [ "Lib::HAL::DeviceManagerBase< I2CBase, I2C_HandleTypeDef >", "d8/d17/a00304.html#aa6897fd2eb4619e4b19624660977d7f5", null ]
 ];

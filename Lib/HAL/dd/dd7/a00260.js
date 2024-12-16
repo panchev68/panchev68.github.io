@@ -1,7 +1,9 @@
 var a00260 =
 [
-    [ "Handle", "dd/dd7/a00260.html#a149e4a305d72749363e08bf37760d8db", null ],
-    [ "~Handle", "dd/dd7/a00260.html#ad49584b1103bdcb6798a678d2f2318cf", null ],
-    [ "getHandle", "dd/dd7/a00260.html#ab9f912660d5843d0cb1d0bdc54d3b538", null ],
-    [ "operator T_HANDLE *", "dd/dd7/a00260.html#aef3d0dfbddd2d635d4865d726dd9179c", null ]
+    [ "TxMessage", "dd/dd7/a00260.html#a0f7b18d5fb18f668058358ca713f1837", null ],
+    [ "TxMessage", "dd/dd7/a00260.html#a35a746ab76ab539d6bb79fa7743f0d9f", null ],
+    [ "TxMessage", "dd/dd7/a00260.html#ad1707323c881b3fafe0ddc6cd1844d9e", null ],
+    [ "getData", "dd/dd7/a00260.html#a69cdd6d8c6538b94fc6d0a881f92a64c", null ],
+    [ "getId", "dd/dd7/a00260.html#a5de860dc77c863b746b88c256bf82274", null ],
+    [ "getLen", "dd/dd7/a00260.html#add6591fff2bc157ac11183d0e1b158d9", null ]
 ];

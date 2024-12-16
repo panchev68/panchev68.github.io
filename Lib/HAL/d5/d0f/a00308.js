@@ -1,15 +1,8 @@
 var a00308 =
 [
-    [ "lock", "d5/d0f/a00308.html#a1d6e1e7645b5a8242314315f989770ff", null ],
-    [ "read", "d5/d0f/a00308.html#abdd314428e48944cb7f52d23b22f722e", null ],
-    [ "read", "d5/d0f/a00308.html#a6ca137d3c4ea692a9604f1ce7ebac0ea", null ],
-    [ "read", "d5/d0f/a00308.html#ac06b46d28d3e89575aa6f921ba6037a4", null ],
-    [ "read", "d5/d0f/a00308.html#a776379f24455eb68258256ef339e9388", null ],
-    [ "read", "d5/d0f/a00308.html#a7e21e0b711b4bd8abaf098de8a42fd2c", null ],
-    [ "unlock", "d5/d0f/a00308.html#ad1393be4f030a47d4380ac6f81653cf4", null ],
-    [ "write", "d5/d0f/a00308.html#ae27a2294584feb9016a95bd56b06b8b3", null ],
-    [ "write", "d5/d0f/a00308.html#aef4f9a5a2282fed85c656f971c92a28b", null ],
-    [ "write", "d5/d0f/a00308.html#a696780f2c858284f0021afcea5e71378", null ],
-    [ "write", "d5/d0f/a00308.html#ae053ffae24d48d87bf6bc585b3c37a05", null ],
-    [ "write", "d5/d0f/a00308.html#a8b57c99d2789fc7aceb826e082efe61d", null ]
+    [ "Handle", "d5/d0f/a00308.html#a9ebf05c58d2298ec0c0716547737f22e", null ],
+    [ "Watchdog", "d5/d0f/a00308.html#afe27b8d5b6bb6339d170ebfd2a31e05a", null ],
+    [ "~Watchdog", "d5/d0f/a00308.html#ab8d71b5b90fc8b1b6beb24ddb297fe69", null ],
+    [ "refresh", "d5/d0f/a00308.html#ad27b24b3697814973ad3702709e9c8da", null ],
+    [ "setup", "d5/d0f/a00308.html#a85b9f16cfa70a6bab2897a8e2c4cec56", null ]
 ];

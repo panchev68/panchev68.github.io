@@ -1,11 +1,30 @@
 var a00369 =
 [
-    [ "Config", "df/dee/a00369.html#ab8c9f5f159ad90167036c6d7c8c2a13a", null ],
-    [ "M24C16", "df/dee/a00369.html#ac17ef86b93c96957882c7def951d668e", null ],
-    [ "~M24C16", "df/dee/a00369.html#a79ba0ee2d03027107fa58593bbecaf6a", null ],
-    [ "close", "df/dee/a00369.html#a33605731e3011f5bc75fa274cb2ad62f", null ],
-    [ "getChipSize", "df/dee/a00369.html#ae48f7039637cb1da4c932bb0280e1cf0", null ],
-    [ "open", "df/dee/a00369.html#ab0faf34613df906acef9388c57be81a2", null ],
-    [ "read", "df/dee/a00369.html#a657d49d455e4f1c09636ad50bc3e00e6", null ],
-    [ "write", "df/dee/a00369.html#ae77ef1df7ef77b67e78e6f47984ea07a", null ]
+    [ "Config", "dc/de3/a00373.html", "dc/de3/a00373" ],
+    [ "State", "df/dee/a00369.html#afd037810d0cac882509f9811be8895be", [
+      [ "NO_INIT", "df/dee/a00369.html#afd037810d0cac882509f9811be8895bea72144f138e8a9f73854d58b59deca26d", null ],
+      [ "READY", "df/dee/a00369.html#afd037810d0cac882509f9811be8895bea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "DISABLE", "df/dee/a00369.html#afd037810d0cac882509f9811be8895beafc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "ERROR", "df/dee/a00369.html#afd037810d0cac882509f9811be8895beabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Base", "df/dee/a00369.html#a3f0f6e72092b7bd58e186df4f79e0801", null ],
+    [ "~Base", "df/dee/a00369.html#aa9f11ccc2dd39f23cc2812b7787d7175", null ],
+    [ "bootstrapInit", "df/dee/a00369.html#a59f941728cd1e54a046f214c396d7bd8", null ],
+    [ "init", "df/dee/a00369.html#a6793d0ac82442ee5dfc4e77a16776c0d", null ],
+    [ "readAlEventReg", "df/dee/a00369.html#a42597a0a26e0b841c990fac2f0725181", null ],
+    [ "readBurstMode", "df/dee/a00369.html#af5210952b59bbcb05e58064fba813e02", null ],
+    [ "readCSR", "df/dee/a00369.html#ae630b6c3bb07296b8d105d7614d128fa", null ],
+    [ "readDLStatus", "df/dee/a00369.html#adb246fd70cb455421cfff3e711f97172", null ],
+    [ "readPDIRegister", "df/dee/a00369.html#a4b303ce0d5005126ec216ed546013453", null ],
+    [ "readPRAM", "df/dee/a00369.html#a1e5a056410514f920d10002ef5c9c0b0", null ],
+    [ "readReg", "df/dee/a00369.html#ab98effb1625c8e866fb2abd9811f7d73", null ],
+    [ "readU32", "df/dee/a00369.html#aaab5b863c1ddcc7bc00947cf057c95ef", null ],
+    [ "resetChip", "df/dee/a00369.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
+    [ "resetPin", "df/dee/a00369.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
+    [ "verifyChipID", "df/dee/a00369.html#a74e8741e1fb7827a6537a1ab1623c4ac", null ],
+    [ "writeCSR", "df/dee/a00369.html#acb046413a3f1785e05a2eb75f6e2d2be", null ],
+    [ "writePRAM", "df/dee/a00369.html#a1cd40242d08bcfea90d01e67e33abce9", null ],
+    [ "writeReg", "df/dee/a00369.html#a3f628ad2f3f7bfa9aed0eb2201dfbe83", null ],
+    [ "writeU32", "df/dee/a00369.html#ad040cf1ec4eff98a2e4d598b65a0fd7f", null ],
+    [ "state", "df/dee/a00369.html#a8ff7491a3890d3bcc5bad052d1abece1", null ]
 ];

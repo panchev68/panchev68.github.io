@@ -1,8 +1,8 @@
 var a00381 =
 [
-    [ "button", "de/d08/a00381.html#ac08b3d86840bd97f4f929d5dda60bd4b", null ],
-    [ "channel1", "de/d08/a00381.html#a255d7f507b66d4b83ee0324a3405aa63", null ],
-    [ "channel2", "de/d08/a00381.html#a6b004f355cf12288b73a5a1477d359d5", null ],
-    [ "devider", "de/d08/a00381.html#a56bb79aeeaa82a6c4cb881456c1f44be", null ],
-    [ "isReverse", "de/d08/a00381.html#a4cdc04e2eed10c913752a40e43af84c6", null ]
+    [ "bytes", "de/d08/a00381.html#aa323d07dd6d829e3cea61960a9cedcca", null ],
+    [ "hb", "de/d08/a00381.html#afbb2d537f5613013b4501650c4e3fead", null ],
+    [ "lb", "de/d08/a00381.html#afe289830108c99b20dfae4364b2b9b3f", null ],
+    [ "v", "de/d08/a00381.html#ab18485206132610ce65e2feef44b253c", null ],
+    [ "val", "de/d08/a00381.html#a667292456d89d4e1d84bbe256adf847d", null ]
 ];

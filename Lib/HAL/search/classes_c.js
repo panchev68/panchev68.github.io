@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['spibase_0',['SPIBase',['../d3/db8/a00316.html',1,'Lib::HAL']]]
+  ['spix_0',['SPIx',['../d8/d23/a00326.html',1,'Lib::HAL']]]
 ];

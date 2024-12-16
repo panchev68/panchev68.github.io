@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['i2cbase_0',['I2CBase',['../db/d7b/a00296.html',1,'Lib::HAL']]],
-  ['interface_1',['Interface',['../dd/da2/a00192.html',1,'Lib::HAL::Adc']]]
+  ['i2cx_0',['I2Cx',['../d1/de3/a00306.html',1,'Lib::HAL']]],
+  ['interface_1',['Interface',['../dc/d57/a00194.html',1,'Lib::HAL::Adc']]]
 ];

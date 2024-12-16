@@ -1,9 +1,11 @@
 var a00183 =
 [
-    [ "Base", "dd/de2/a00320.html", "dd/de2/a00320" ],
-    [ "Timer", "dc/d50/a00332.html", null ],
-    [ "Timer< Mode::ENCODER >", "dd/d1d/a00336.html", "dd/d1d/a00336" ],
-    [ "Mode", "dc/d52/a00183.html#a2c308e1b88d91e3dab6478a68fee595d", [
-      [ "ENCODER", "dc/d52/a00183.html#a2c308e1b88d91e3dab6478a68fee595da9e1de45ee3c680d9a2ff400816f05e0f", null ]
-    ] ]
+    [ "Channel", "d7/d6e/a00190.html", "d7/d6e/a00190" ],
+    [ "Interface", "dc/d57/a00194.html", "dc/d57/a00194" ],
+    [ "Port", "db/d53/a00202.html", null ],
+    [ "Port< DMA >", "dc/d9a/a00218.html", "dc/d9a/a00218" ],
+    [ "Port< DriverMode::BLOCK >", "d3/dd1/a00214.html", "d3/dd1/a00214" ],
+    [ "Port< IT >", "d0/d24/a00222.html", "d0/d24/a00222" ],
+    [ "PortBase", "d7/da0/a00198.html", "d7/da0/a00198" ],
+    [ "PortTransparentBase", "d5/df1/a00206.html", "d5/df1/a00206" ]
 ];

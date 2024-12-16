@@ -1,6 +1,7 @@
 var a00313 =
 [
-    [ "mapFields", "dd/db3/a00313.html#abe79c7829e8c0195cbe515c0520c8e31", null ],
-    [ "nss", "dd/db3/a00313.html#a3e58635eb73576ae9e3e60f73aca27cb", null ],
-    [ "spi", "dd/db3/a00313.html#aba2bafd8628c4ab6f7e13becee29a076", null ]
+    [ "di", "dd/db3/a00313.html#aabf98a5ad309f2431fa7e7a31917ee85", null ],
+    [ "nrst", "dd/db3/a00313.html#a2791788a0dacca54af259e2dd4843a79", null ],
+    [ "nss", "dd/db3/a00313.html#ad81053b0c52295a482ff9145a6c44035", null ],
+    [ "spi", "dd/db3/a00313.html#a1b22f2a90a16913b575e01266ea10035", null ]
 ];

@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['i2cbase_0',['I2CBase',['../db/d7b/a00296.html#a4001bb4951c8507ff3db388e0cbc36c6',1,'Lib::HAL::I2CBase']]],
-  ['init_1',['init',['../db/d7b/a00296.html#a02b6dd912cd34ab8f2f9940ea3d5303c',1,'Lib::HAL::I2CBase::init()'],['../d3/db8/a00316.html#ad767fdb65b276e2c86d5f18c22c88517',1,'Lib::HAL::SPIBase::init()'],['../df/df1/a00340.html#ae535c5c205a8acd55f868cbf0c7479d6',1,'Lib::HAL::UARTBase::init()']]],
-  ['interface_2',['Interface',['../dd/da2/a00192.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface']]]
+  ['i2cx_0',['I2Cx',['../d1/de3/a00306.html#ab564be627253d076fa124dee52123ca3',1,'Lib::HAL::I2Cx']]],
+  ['init_1',['init',['../d1/de3/a00306.html#a940001e1475477ba863f5b8e3b82d9c4',1,'Lib::HAL::I2Cx::init()'],['../d8/d23/a00326.html#a9d25bc6ac94ea14f4564d5fe3f16f299',1,'Lib::HAL::SPIx::init()'],['../db/d10/a00350.html#af15c2bca1f8ba382c285d7006408572a',1,'Lib::HAL::UARTx::init()']]],
+  ['interface_2',['Interface',['../dc/d57/a00194.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface']]],
+  ['isenable_3',['isEnable',['../d1/da8/a00230.html#adfbefbbbe48edf627f16169eb9c7698c',1,'Lib::HAL::BKPSRAM::Domain']]],
+  ['isready_4',['isReady',['../d1/de3/a00306.html#af8d90c45322ed307e9a311035226fd4a',1,'Lib::HAL::I2Cx']]]
 ];

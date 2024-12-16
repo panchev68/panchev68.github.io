@@ -1,18 +1,17 @@
 var a00312 =
 [
-    [ "DateTime", "d7/df2/a00312.html#a8be0499725843010546098c03a9006f9", null ],
-    [ "Handle", "d7/df2/a00312.html#ab32592926aec51867e2e5d0a723545f6", null ],
-    [ "RTCBase", "d7/df2/a00312.html#a519b0ac8ac4b2b34c4ea946a6bda0ea7", null ],
-    [ "~RTCBase", "d7/df2/a00312.html#a58f9b23a0d4c03192bd597a78e70b6f3", null ],
-    [ "getHandle", "d7/df2/a00312.html#a02658f68ce0d8c88b32abbded67cf6f9", null ],
-    [ "handleTimeChanged", "d7/df2/a00312.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "handleTimeChanged", "d7/df2/a00312.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "read", "d7/df2/a00312.html#a94a5d5e04476593464ed3f2aa3681da4", null ],
-    [ "readRegister", "d7/df2/a00312.html#a4943a40ed3df578b2339c0e7a2b5fc89", null ],
-    [ "release", "d7/df2/a00312.html#ac6d5caa751cdab5b336019bbe9010a0a", null ],
-    [ "setup", "d7/df2/a00312.html#a7ab0eb25cb4b19654d6006c2914abd1e", null ],
-    [ "writeDate", "d7/df2/a00312.html#aafba84d7fc847c99ec5c309e96991ac2", null ],
-    [ "writeDateTime", "d7/df2/a00312.html#a399814ecc17cc1835d2a06e1041cdd86", null ],
-    [ "writeRegister", "d7/df2/a00312.html#a74846d3feacf83e53dbdadf8b0cb58a2", null ],
-    [ "writeTime", "d7/df2/a00312.html#a2c037bceed143dd13437bb6a2b602160", null ]
+    [ "State", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
+      [ "UNKNOWN", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
+      [ "LOW_POWER_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
+      [ "WINDOW_WATCHDOG_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
+      [ "INDEPENDENT_WATCHDOG_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
+      [ "SOFTWARE_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
+      [ "POWER_ON_POWER_DOWN_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
+      [ "EXTERNAL_RESET_PIN_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
+      [ "BROWNOUT_RESET", "d7/df2/a00312.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
+    ] ],
+    [ "LastResetState", "d7/df2/a00312.html#abbd01627966d996019ebe16bb0d685d0", null ],
+    [ "~LastResetState", "d7/df2/a00312.html#a9764e97ea414a4a782184c9e0e81789c", null ],
+    [ "get", "d7/df2/a00312.html#aceb01a835768bfb0b1af57d2be901501", null ],
+    [ "operator State", "d7/df2/a00312.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ]
 ];

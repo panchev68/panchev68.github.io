@@ -1,12 +1,7 @@
 var a00225 =
 [
-    [ "Lib::BSP::Beep", "dd/dd7/a00260.html", [
-      [ "Config", "d3/dcc/a00264.html", [
-        [ "timerChannel", "d3/dcc/a00264.html#acf47a2c6d6854305f3aa60f818d44f03", null ],
-        [ "timerHande", "d3/dcc/a00264.html#ac82281acdb58c781bc45adb9656df22a", null ]
-      ] ],
-      [ "Beep", "dd/dd7/a00260.html#ac38413dbd29b4f4932c2b8887af98113", null ],
-      [ "~Beep", "dd/dd7/a00260.html#ad01190acb2e318d5ab781c1c2111e327", null ],
-      [ "operator()", "dd/dd7/a00260.html#a66f691a4dabd178590f3294a21b12a95", null ]
-    ] ]
+    [ "fadeStep", "dc/d98/a00225.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTime", "dc/d98/a00225.html#ad30dd39f20169c3d91c056daced3a362", null ],
+    [ "timChannel", "dc/d98/a00225.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "dc/d98/a00225.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

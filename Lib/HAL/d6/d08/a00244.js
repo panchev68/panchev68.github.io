@@ -1,7 +1,9 @@
 var a00244 =
 [
-    [ "getData", "d6/d08/a00244.html#a71d96b8435f2bf88a1c4c00cf0ff6336", null ],
-    [ "getData", "d6/d08/a00244.html#ac039c876232e9e05865b8f93f4f099e2", null ],
-    [ "getId", "d6/d08/a00244.html#abf6e2b3a33202d3a30d59f89ecd89abd", null ],
-    [ "getLen", "d6/d08/a00244.html#abbe911255c295e0cda816f82d2a8cc78", null ]
+    [ "Container", "d6/d08/a00244.html#a9cf9955986be4ceeae44ac360cbb87e8", null ],
+    [ "DeviceManagerBase", "d6/d08/a00244.html#abdfac94f393ea76ce81101fa3ec4e0c1", null ],
+    [ "~DeviceManagerBase", "d6/d08/a00244.html#ac224e47704f9cf11a1d242f49fc01ab6", null ],
+    [ "add", "d6/d08/a00244.html#a02525534e0f3709fe5dd2164cd1543b4", null ],
+    [ "getDevice", "d6/d08/a00244.html#aabfe1fe6de74384902fb187bf365e674", null ],
+    [ "remove", "d6/d08/a00244.html#a92a61cd08aed0e18c54eaaadc9b6d45c", null ]
 ];
