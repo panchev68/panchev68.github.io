@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "cfhlps",
   5: "l",
   6: "dpsv",
-  7: "dls"
+  7: "ls"
 };
 
 var indexSectionNames =

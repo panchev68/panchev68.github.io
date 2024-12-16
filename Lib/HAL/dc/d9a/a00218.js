@@ -1,12 +1,8 @@
 var a00218 =
 [
-    [ "Port", "dc/d9a/a00218.html#ab0ec8999b12c5d0e67d7b4bfe45b228c", null ],
-    [ "~Port", "dc/d9a/a00218.html#a8d4f69a9de3cf47afee1792f5c6e45c8", null ],
-    [ "close", "dc/d9a/a00218.html#adff8db05ff65190fffc1ab69b8ac5bdb", null ],
-    [ "getHandle", "dc/d9a/a00218.html#a8f0cf1079764e4eb8deab1e1075287c1", null ],
-    [ "getRawValue", "dc/d9a/a00218.html#ab9e4a5fee490f2b834ef2a2fe680b873", null ],
-    [ "open", "dc/d9a/a00218.html#a80289b19682bb899caacfddca8ff6ef5", null ],
-    [ "read", "dc/d9a/a00218.html#a7fcbd05b79a400becb96e3fff8fcbbad", null ],
-    [ "start", "dc/d9a/a00218.html#ae3a2e5bc4da171636385482a191029f4", null ],
-    [ "stop", "dc/d9a/a00218.html#a2c3f5ae93b298b9ab03d3755e9613dcc", null ]
+    [ "Port", "dc/d9a/a00218.html#a1f626790f5f0dbe436eb3b3e58073d70", null ],
+    [ "Port", "dc/d9a/a00218.html#a5c1562642fba3e62e59bb68b69841889", null ],
+    [ "~Port", "dc/d9a/a00218.html#a649b398ab5dfbfb980fd157f9ffd900b", null ],
+    [ "close", "dc/d9a/a00218.html#a749a364858bd4ef19d5604a9ed1a8c9e", null ],
+    [ "open", "dc/d9a/a00218.html#a154c7a8d2ea6d75539b7c3fc3c4bb270", null ]
 ];

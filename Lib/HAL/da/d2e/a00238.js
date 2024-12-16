@@ -1,5 +1,5 @@
 var a00238 =
 [
-    [ "add", "da/d2e/a00238.html#abe3b95c363bdad23d16f46b70907fe0e", null ],
-    [ "remove", "da/d2e/a00238.html#aa2151310d7bd9d140fb53e18b5c83274", null ]
+    [ "CanBase", "da/d2e/a00238.html#a26be704ddbb9a632c982b572928bd3c6", null ],
+    [ "~CanBase", "da/d2e/a00238.html#ab8e9a77ed56466fa4185956af5e372c0", null ]
 ];

@@ -1,4 +1,4 @@
 var examples =
 [
-    [ "Example Device Manager", "d6/d9c/a00352.html", null ]
+    [ "Example Device Manager", "d7/ddb/a00361.html", null ]
 ];

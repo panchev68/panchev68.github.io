@@ -1,32 +1,8 @@
 var a00350 =
 [
-    [ "CallbackID", "db/d10/a00350.html#a2b97a2bad16440a3783f13c49e9cf4ab", null ],
-    [ "ErrorCode", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0f", [
-      [ "NONE", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0fab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "PARITY_ERROR", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0fac660efeaf70229ba5fd5e53da70c9a7c", null ],
-      [ "NOISE_ERROR", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0fae49a752ccd857ad9b6e962aa31551f73", null ],
-      [ "FRAME_ERROR", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0fa6f688deb98243b55da9393ed2d968f3f", null ],
-      [ "OVERRUN_ERROR", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0faa607a4a202294658bd387cd8e3636566", null ],
-      [ "DMA_TRANSFER_ERROR", "db/d10/a00350.html#a2c29c4d985dcbd85d1dbf60038067b0faa347986104d500024d8d699e0b72b24d", null ]
-    ] ],
-    [ "EventFlags", "db/d10/a00350.html#ac12f66ca0b1d083d08631179bd2b96c5", [
-      [ "FLAG_TX_COMPLETE", "db/d10/a00350.html#ac12f66ca0b1d083d08631179bd2b96c5ac19c54d8a7fe985d1964a7316adbec1d", null ],
-      [ "FLAG_ABORT_COMPLETE", "db/d10/a00350.html#ac12f66ca0b1d083d08631179bd2b96c5acb28247f59d3e4ba87a98854d83e44f9", null ]
-    ] ],
-    [ "UARTx", "db/d10/a00350.html#a808f393a027a23e612e9ddd2f1169100", null ],
-    [ "~UARTx", "db/d10/a00350.html#a0f644c4969303d22cf758a31757ca138", null ],
-    [ "abortFunc", "db/d10/a00350.html#ac3e7157f5ad17216441788774c4aec34", null ],
-    [ "deinit", "db/d10/a00350.html#aac4839270151f122d47911769d5965e2", null ],
-    [ "getBaudrate", "db/d10/a00350.html#aa6eba0a256527fd52f44773154f3c318", null ],
-    [ "getHandle", "db/d10/a00350.html#a95f7af920452223c5ba8b489effa1769", null ],
-    [ "handleErrorEvent", "db/d10/a00350.html#aa84f4ccdcc69afc237c60961e5484ccd", null ],
-    [ "init", "db/d10/a00350.html#af15c2bca1f8ba382c285d7006408572a", null ],
-    [ "receive", "db/d10/a00350.html#af5ed10eb7c1abb3ba24e76256890d2a6", null ],
-    [ "receiveFunc", "db/d10/a00350.html#ad51e236d7545cb820ff11a3a76cd1745", null ],
-    [ "send", "db/d10/a00350.html#ab4e681914649c4d4d53214a5ad8a7e0c", null ],
-    [ "sendFunc", "db/d10/a00350.html#ab1e64340087fece7e28de7d9551e1d1a", null ],
-    [ "setBaudrate", "db/d10/a00350.html#a093e751889de1bac1905f9fa50fbfd03", null ],
-    [ "setup", "db/d10/a00350.html#af3e0d5cad11edaaad30920925be5227c", null ],
-    [ "waitForSendCompleted", "db/d10/a00350.html#a320ed3a24357f71a6ae32276f8e8436e", null ],
-    [ "Lib::HAL::DeviceManagerBase< UARTx, UART_HandleTypeDef >", "db/d10/a00350.html#a9036c76439a5ac0381b614509f2906e1", null ]
+    [ "Timer", "db/d10/a00350.html#a81d3914d81cd5098207a541106829154", null ],
+    [ "~Timer", "db/d10/a00350.html#a43aee021e54610f1179901bf7fcbaecf", null ],
+    [ "close", "db/d10/a00350.html#a30e3fabb9057f35427bb6a23666cc6e5", null ],
+    [ "open", "db/d10/a00350.html#a2e360de332a83d537ba388388e58122a", null ],
+    [ "onValueChanged", "db/d10/a00350.html#a145dfe43deb7592d70805a54b5074b2d", null ]
 ];

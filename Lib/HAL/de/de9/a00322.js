@@ -1,18 +1,15 @@
 var a00322 =
 [
-    [ "DateTime", "de/de9/a00322.html#a8be0499725843010546098c03a9006f9", null ],
-    [ "Handle", "de/de9/a00322.html#ab32592926aec51867e2e5d0a723545f6", null ],
-    [ "RTCBase", "de/de9/a00322.html#a519b0ac8ac4b2b34c4ea946a6bda0ea7", null ],
-    [ "~RTCBase", "de/de9/a00322.html#a58f9b23a0d4c03192bd597a78e70b6f3", null ],
-    [ "getHandle", "de/de9/a00322.html#a02658f68ce0d8c88b32abbded67cf6f9", null ],
-    [ "handleTimeChanged", "de/de9/a00322.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "handleTimeChanged", "de/de9/a00322.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "read", "de/de9/a00322.html#a94a5d5e04476593464ed3f2aa3681da4", null ],
-    [ "readRegister", "de/de9/a00322.html#a4943a40ed3df578b2339c0e7a2b5fc89", null ],
-    [ "release", "de/de9/a00322.html#ac6d5caa751cdab5b336019bbe9010a0a", null ],
-    [ "setup", "de/de9/a00322.html#a7ab0eb25cb4b19654d6006c2914abd1e", null ],
-    [ "writeDate", "de/de9/a00322.html#aafba84d7fc847c99ec5c309e96991ac2", null ],
-    [ "writeDateTime", "de/de9/a00322.html#a399814ecc17cc1835d2a06e1041cdd86", null ],
-    [ "writeRegister", "de/de9/a00322.html#a74846d3feacf83e53dbdadf8b0cb58a2", null ],
-    [ "writeTime", "de/de9/a00322.html#a2c037bceed143dd13437bb6a2b602160", null ]
+    [ "lock", "de/de9/a00322.html#a1d6e1e7645b5a8242314315f989770ff", null ],
+    [ "read", "de/de9/a00322.html#abdd314428e48944cb7f52d23b22f722e", null ],
+    [ "read", "de/de9/a00322.html#a6ca137d3c4ea692a9604f1ce7ebac0ea", null ],
+    [ "read", "de/de9/a00322.html#ac06b46d28d3e89575aa6f921ba6037a4", null ],
+    [ "read", "de/de9/a00322.html#a776379f24455eb68258256ef339e9388", null ],
+    [ "read", "de/de9/a00322.html#a7e21e0b711b4bd8abaf098de8a42fd2c", null ],
+    [ "unlock", "de/de9/a00322.html#ad1393be4f030a47d4380ac6f81653cf4", null ],
+    [ "write", "de/de9/a00322.html#ae27a2294584feb9016a95bd56b06b8b3", null ],
+    [ "write", "de/de9/a00322.html#aef4f9a5a2282fed85c656f971c92a28b", null ],
+    [ "write", "de/de9/a00322.html#a696780f2c858284f0021afcea5e71378", null ],
+    [ "write", "de/de9/a00322.html#ae053ffae24d48d87bf6bc585b3c37a05", null ],
+    [ "write", "de/de9/a00322.html#a8b57c99d2789fc7aceb826e082efe61d", null ]
 ];

@@ -1,6 +1,5 @@
 var a00338 =
 [
-    [ "Handle", "dc/d84/a00338.html#abbd04182f93a2391f6707767af071b16", null ],
-    [ "channel", "dc/d84/a00338.html#a9f83b0a69bfc7d74d0d8814692cea48a", null ],
-    [ "handle", "dc/d84/a00338.html#a05b187c3737b76be770380f3d05879bf", null ]
+    [ "add", "dc/d84/a00338.html#ad52b33bb8cd29f654a0f7c999d0201ad", null ],
+    [ "remove", "dc/d84/a00338.html#a67c0a77eddcebf540d07f6e7bbb9fe20", null ]
 ];

@@ -41,7 +41,6 @@ var a00306 =
     [ "send", "d1/de3/a00306.html#ab205ae31ba83737573a059cac2ed8127", null ],
     [ "sendDevFunc", "d1/de3/a00306.html#a3885539116eb2e0e1af4bbbb0c8778a1", null ],
     [ "sendFunc", "d1/de3/a00306.html#ac1e813ea22d4afee2213216cd34fe66b", null ],
-    [ "setup", "d1/de3/a00306.html#abd961c8475b165c47d6a6985c35e902e", null ],
     [ "waitForAbortCompleted", "d1/de3/a00306.html#aea8600de1a11ef27b89b2bcdb7fd2cb3", null ],
     [ "waitForDevRxCompleted", "d1/de3/a00306.html#a5599c3b2e892f9cdcd212494b65128ef", null ],
     [ "waitForDevTxCompleted", "d1/de3/a00306.html#a2be59da8e86845aff51ffb5be96dac92", null ],

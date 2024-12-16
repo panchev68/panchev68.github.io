@@ -1,7 +1,9 @@
 var a00194 =
 [
-    [ "Interface", "dc/d57/a00194.html#a383a17781a0b22b499c31cd84970b3eb", null ],
-    [ "~Interface", "dc/d57/a00194.html#a86ba3dc0bde04c071461705622c9f08b", null ],
-    [ "getHandle", "dc/d57/a00194.html#a1282c6d6482a36be04a09164eb408b23", null ],
-    [ "DeviceManagerBase", "dc/d57/a00194.html#ad3a378e8a42fbd669f8364e5c1d93154", null ]
+    [ "Base", "d0/d01/a00339.html", "d0/d01/a00339" ],
+    [ "Timer", "d0/d48/a00351.html", null ],
+    [ "Timer< Mode::ENCODER >", "d3/dc9/a00355.html", "d3/dc9/a00355" ],
+    [ "Mode", "dc/d57/a00194.html#a2c308e1b88d91e3dab6478a68fee595d", [
+      [ "ENCODER", "dc/d57/a00194.html#a2c308e1b88d91e3dab6478a68fee595da9e1de45ee3c680d9a2ff400816f05e0f", null ]
+    ] ]
 ];

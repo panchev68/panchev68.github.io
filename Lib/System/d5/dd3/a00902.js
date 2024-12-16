@@ -1,9 +1,10 @@
 var a00902 =
 [
-    [ "StorageBase", "d5/dd3/a00902.html#aff37316629898c8cfda3bcbaa3e31c6f", null ],
-    [ "~StorageBase", "d5/dd3/a00902.html#af87cf2f2dbdef19a9bc79eb1408acdb2", null ],
-    [ "close", "d5/dd3/a00902.html#a355f97abb0becb9d1cce2b6c3aa06b60", null ],
-    [ "open", "d5/dd3/a00902.html#af5417c9da3425d4582947f3be29e8d81", null ],
-    [ "read", "d5/dd3/a00902.html#acb60d78457203a98d03cb9ac30e55ccb", null ],
-    [ "write", "d5/dd3/a00902.html#a8b78dc38797a7c35887f8505033176bc", null ]
+    [ "Base", "d5/dd3/a00902.html#aea565dbf96f46b060c0cff628168b200", null ],
+    [ "~Base", "d5/dd3/a00902.html#ac25b019f5ba111cbb0223da7ee317340", null ],
+    [ "getSubVersion", "d5/dd3/a00902.html#aeebc95e3834667f1934b679f4ee429a7", null ],
+    [ "getValue", "d5/dd3/a00902.html#a8cf125ec822b8161929f7fa1c18002f2", null ],
+    [ "operator const std::string", "d5/dd3/a00902.html#ac5cc98dd2ecaec6b41bcbbc9a98dc7b1", null ],
+    [ "operator uint32_t", "d5/dd3/a00902.html#ac49086f942e11242d1e78157d052686d", null ],
+    [ "toString", "d5/dd3/a00902.html#a553aa043c75b3317114a1a8836c77ef8", null ]
 ];

@@ -1,7 +1,7 @@
 var a00230 =
 [
-    [ "~Domain", "d1/da8/a00230.html#abf3f4c14c37ae58bdfef52f0f3ae7631", null ],
-    [ "disable", "d1/da8/a00230.html#a21d7b8822cd6b84265f9b0acea31a271", null ],
-    [ "enable", "d1/da8/a00230.html#ac4fbdc02fda3782b0d9b1f5ceb7315f0", null ],
-    [ "isEnable", "d1/da8/a00230.html#adfbefbbbe48edf627f16169eb9c7698c", null ]
+    [ "BKPSRAM", "d1/da8/a00230.html#adbad0ffe98be42450163098fa8a5b6a0", null ],
+    [ "~BKPSRAM", "d1/da8/a00230.html#a512335c0af3304397e78336d3fe16042", null ],
+    [ "clear", "d1/da8/a00230.html#ac7c2e7bab87a00703c1626a23f4b6e8a", null ],
+    [ "setup", "d1/da8/a00230.html#a098e4304f2d6380980f1986772bf7141", null ]
 ];

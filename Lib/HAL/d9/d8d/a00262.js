@@ -1,9 +1,7 @@
 var a00262 =
 [
-    [ "TxMessage", "d9/d8d/a00262.html#a0f7b18d5fb18f668058358ca713f1837", null ],
-    [ "TxMessage", "d9/d8d/a00262.html#a35a746ab76ab539d6bb79fa7743f0d9f", null ],
-    [ "TxMessage", "d9/d8d/a00262.html#ad1707323c881b3fafe0ddc6cd1844d9e", null ],
-    [ "getData", "d9/d8d/a00262.html#a69cdd6d8c6538b94fc6d0a881f92a64c", null ],
-    [ "getId", "d9/d8d/a00262.html#a5de860dc77c863b746b88c256bf82274", null ],
-    [ "getLen", "d9/d8d/a00262.html#add6591fff2bc157ac11183d0e1b158d9", null ]
+    [ "TxHeader", "d9/d8d/a00262.html#af58e4ea7f8a5849cdc70a2feb3547f22", null ],
+    [ "TxHeader", "d9/d8d/a00262.html#a6ede6a4cbff1b421e5f55f52d7ff6e7c", null ],
+    [ "~TxHeader", "d9/d8d/a00262.html#a238e6fee0d0264b17b8350e32013d8e2", null ],
+    [ "setLen", "d9/d8d/a00262.html#a8510f629a91c5f219c27529ebbd073bc", null ]
 ];

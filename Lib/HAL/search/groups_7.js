@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['to_20digital_20convertor_0',['Analog to Digital Convertor',['../db/dd9/a00179.html',1,'']]]
+  ['memory_0',['OTP - One-Time-Programmable Memory',['../d2/d94/a00184.html',1,'']]]
 ];

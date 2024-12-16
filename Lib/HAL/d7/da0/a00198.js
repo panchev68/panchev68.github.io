@@ -1,10 +1,7 @@
 var a00198 =
 [
-    [ "PortBase", "d7/da0/a00198.html#a49ae681b6b1cc7a356dc409c58aa496e", null ],
-    [ "~PortBase", "d7/da0/a00198.html#a4dc33e8a3f98ab2c6ebf0d85c705e8c7", null ],
-    [ "close", "d7/da0/a00198.html#a7328625d8bbae52f8a990a0196889a08", null ],
-    [ "getRawValue", "d7/da0/a00198.html#a6a5cc1a6f51cfa3b5f676ccd4824ccae", null ],
-    [ "open", "d7/da0/a00198.html#aff8748ee5b00cbf4d9cefd2a99a03add", null ],
-    [ "start", "d7/da0/a00198.html#adf014ce46e6cebaedf2f98a92001d644", null ],
-    [ "stop", "d7/da0/a00198.html#a3589eb9b51a7f578974c26e168f2a958", null ]
+    [ "Interface", "d7/da0/a00198.html#a383a17781a0b22b499c31cd84970b3eb", null ],
+    [ "~Interface", "d7/da0/a00198.html#a86ba3dc0bde04c071461705622c9f08b", null ],
+    [ "getHandle", "d7/da0/a00198.html#a1282c6d6482a36be04a09164eb408b23", null ],
+    [ "DeviceManagerBase", "d7/da0/a00198.html#ad3a378e8a42fbd669f8364e5c1d93154", null ]
 ];

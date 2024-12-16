@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HAL: Example Device Manager</title>
+<title>HAL: Member List</title>
 <link rel="icon" href="../../HAL.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('d6/d9c/a00352.html','../../'); initResizable(true); });
+$(function(){initNavTree('d3/dc9/a00355.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,115 +99,18 @@ $(function(){initNavTree('d6/d9c/a00352.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Example Device Manager</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt; Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<p><code>XDeviceManager</code> наследява CDeviceManagerBase със съответният тип на <code>Handle</code>-</p>
-<p><code>XDeviceManager</code> наследява CDeviceManagerBase със съответният тип на <code>Handle</code>- </p><div class="fragment"><div class="line">CDeviceManagerBase&lt;ADC_HandleTypeDef&gt;</div>
-</div><!-- fragment --><p>example:</p>
-<div class="fragment"><div class="line"><span class="keyword">class </span>XDeviceManager : CDeviceManagerBase&lt;ADC_HandleTypeDef&gt;</div>
-<div class="line">{</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keywordtype">bool</span> add (CDeviceBase&lt;ADC_HandleTypeDef&gt; * device)<span class="keyword"> override</span></div>
-<div class="line"><span class="keyword">    </span>{</div>
-<div class="line">        CDeviceManagerBase::add (device);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// bind ISR callbacks</span></div>
-<div class="line">        <span class="keyword">auto</span> hnd = device-&gt;getHandle ();</div>
-<div class="line">        <span class="keywordflow">if</span> (hnd != <span class="keyword">nullptr</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_CONVERSION_COMPLETE_CB_ID, _callbackConvertionComplete) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_CONVERSION_HALF_CB_ID, _callbackConvertionHalf) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_ERROR_CB_ID, _callbackError) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_INJ_CONVERSION_COMPLETE_CB_ID, _callbackINJConvertionComplete) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_LEVEL_OUT_OF_WINDOW_1_CB_ID, _callbackLevelOutWindow1) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_MSPDEINIT_CB_ID, _callbackMSPDeinit) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_RegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_MSPINIT_CB_ID, _callbackMSPInit) != HAL_OK) assert (0);</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">    }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /// \brief Remove the deice from the Device Manager</span></div>
-<div class="line"><span class="comment">    /// \param device - pointer to device</span></div>
-<div class="line"><span class="comment">    /// \return true if success</span></div>
-<div class="line"><span class="comment"></span>    <span class="keywordtype">bool</span> remove (CDeviceBase&lt;ADC_HandleTypeDef&gt; * device)<span class="keyword"> override</span></div>
-<div class="line"><span class="keyword">    </span>{</div>
-<div class="line">        assert (device);</div>
-<div class="line">        <span class="keyword">auto</span> hnd = device-&gt;getHandle ();</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (CDeviceManagerBase::remove (device) == <span class="keyword">true</span>)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// un-bind ISR callbacks</span></div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_CONVERSION_COMPLETE_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_CONVERSION_HALF_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_ERROR_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_INJ_CONVERSION_COMPLETE_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_LEVEL_OUT_OF_WINDOW_1_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_MSPDEINIT_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">if</span> (HAL_ADC_UnRegisterCallback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_MSPINIT_CB_ID) != HAL_OK) assert (0);</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /// \brief Get the Singleton Instance</span></div>
-<div class="line"><span class="comment">    /// \return XDeviceManager &amp;</span></div>
-<div class="line"><span class="comment"></span>    <span class="keyword">static</span> XDeviceManager &amp; getInstance ()</div>
-<div class="line"> </div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">static</span> XDeviceManager instance;</div>
-<div class="line">        <span class="keywordflow">return</span> instance;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /// \brief XDeviceManager Constructor</span></div>
-<div class="line"><span class="comment"></span>    XDeviceManager () = <span class="keywordflow">default</span>;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callback (ADC_HandleTypeDef * hnd, HAL_ADC_CallbackIDTypeDef <span class="keywordtype">id</span>)</div>
-<div class="line">    {</div>
-<div class="line">        CADCTransparentBase * ptr = <span class="keyword">reinterpret_cast&lt;</span>CADCTransparentBase *<span class="keyword">&gt;</span> (getInstance ().getDevice (hnd));</div>
-<div class="line"> </div>
-<div class="line">        <span class="keywordflow">if</span> (ptr != <span class="keyword">nullptr</span>) ptr-&gt;eventHandler (<span class="keywordtype">id</span>);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackConvertionComplete (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_CONVERSION_COMPLETE_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackConvertionHalf (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_CONVERSION_HALF_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackError (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_ERROR_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackINJConvertionComplete (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_INJ_CONVERSION_COMPLETE_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackLevelOutWindow1 (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_LEVEL_OUT_OF_WINDOW_1_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackMSPDeinit (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_MSPDEINIT_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> _callbackMSPInit (ADC_HandleTypeDef * hnd)</div>
-<div class="line">    {</div>
-<div class="line">        _callback (hnd, HAL_ADC_CallbackIDTypeDef::HAL_ADC_MSPINIT_CB_ID);</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-</div><!-- fragment -->  <div class="fragment"></div><!-- fragment --><p> Device Manager </p>
-</div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../d3/dc9/a00355.html">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/dc9/a00355.html#a30e3fabb9057f35427bb6a23666cc6e5">close</a>() override</td><td class="entry"><a class="el" href="../../d3/dc9/a00355.html">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d3/dc9/a00355.html#a145dfe43deb7592d70805a54b5074b2d">onValueChanged</a></td><td class="entry"><a class="el" href="../../d3/dc9/a00355.html">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/dc9/a00355.html#a2e360de332a83d537ba388388e58122a">open</a>() override</td><td class="entry"><a class="el" href="../../d3/dc9/a00355.html">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d3/dc9/a00355.html#a81d3914d81cd5098207a541106829154">Timer</a>(TIM_HandleTypeDef *hnd)</td><td class="entry"><a class="el" href="../../d3/dc9/a00355.html">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../d3/dc9/a00355.html#a43aee021e54610f1179901bf7fcbaecf">~Timer</a>()=default</td><td class="entry"><a class="el" href="../../d3/dc9/a00355.html">Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
