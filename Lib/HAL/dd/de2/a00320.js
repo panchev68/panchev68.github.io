@@ -1,11 +1,10 @@
 var a00320 =
 [
-    [ "Base", "dd/de2/a00320.html#a47da953109cbd1a8b810b4544929c234", null ],
-    [ "~Base", "dd/de2/a00320.html#a9280008b408922b5c5c3f22755a6f1f7", null ],
-    [ "close", "dd/de2/a00320.html#abfb3566104fbd518832630039557c5c8", null ],
-    [ "getHandle", "dd/de2/a00320.html#a370647e610deac51357a6d7320b202de", null ],
-    [ "isReady", "dd/de2/a00320.html#abb8beb0c2f16811df71765a2a1c47f6e", null ],
-    [ "open", "dd/de2/a00320.html#ac36f8256b6857fde9c5f5544dc59a699", null ],
-    [ "receive", "dd/de2/a00320.html#adc9d25f1de8c590bd612e69c48b6427a", null ],
-    [ "send", "dd/de2/a00320.html#a0ee89d1607338322e9667c22a011b941", null ]
+    [ "DeviceManager", "d4/d8f/a00324.html", "d4/d8f/a00324" ],
+    [ "Base", "dd/de2/a00320.html#a563f6e2bf6b978f526c5fa87583bc588", null ],
+    [ "~Base", "dd/de2/a00320.html#a820ebb6e57ddcfceec7b9c5df70e4cf4", null ],
+    [ "close", "dd/de2/a00320.html#a722cf0939b693295625e6e6407105bf0", null ],
+    [ "getHandle", "dd/de2/a00320.html#a9c1d70b49613a972382dcbf845474280", null ],
+    [ "handleEvent", "dd/de2/a00320.html#ab35824b087e7d7c17c11fc266814a4e7", null ],
+    [ "open", "dd/de2/a00320.html#ac65559737120cd6ab6d522a27a70e8af", null ]
 ];

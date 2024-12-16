@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['default_5ftimeout_0',['DEFAULT_TIMEOUT',['../dd/de2/a00320.html#a730e1bda0828b642abe24ea4ebff9239',1,'Lib::HAL::I2C::Master::Base']]]
+  ['onvaluechanged_0',['onValueChanged',['../dd/d1d/a00336.html#a145dfe43deb7592d70805a54b5074b2d',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['block_5ftimeout_0',['BLOCK_TIMEOUT',['../d4/db5/a00328.html#a90788f160ecf1f5e242180d4bdf55803',1,'Lib::HAL::I2C::Master::TransperentBase']]]
+  ['channel_0',['channel',['../d4/db5/a00328.html#a9f83b0a69bfc7d74d0d8814692cea48a',1,'Lib::HAL::Timer::Handle']]]
 ];

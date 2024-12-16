@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "HAL", "index.html", [
     [ "Hardware Abstract Layer Library", "index.html", null ],
-    [ "Device Driver Implementation", "d3/dea/a00444.html", null ],
+    [ "Device Driver Implementation", "d9/d95/a00400.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -56,9 +56,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/db5/a00328.html#ab7fcc8487d3d386869a8f18ddda402c2",
-"d8/ddd/a00380.html#a2e360de332a83d537ba388388e58122a",
-"dd/dc1/a00212.html#ad3a378e8a42fbd669f8364e5c1d93154"
+"d5/d0b/a00220.html#a6d1fe9963863689984c467b964cb0324",
+"da/ddc/a00288.html#a1ab78af444b37369c3f7dc41a13d5b5f",
+"dd/de2/a00320.html#ab35824b087e7d7c17c11fc266814a4e7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

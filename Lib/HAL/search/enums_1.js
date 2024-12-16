@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['errorcode_0',['ErrorCode',['../d0/d65/a00360.html#a112b3cb6379c5ec4853273cff8ee4cce',1,'Lib::HAL::SPIx::ErrorCode'],['../d2/d56/a00384.html#a2c29c4d985dcbd85d1dbf60038067b0f',1,'Lib::HAL::UARTx::ErrorCode']]],
-  ['eventbit_1',['EventBit',['../d0/d65/a00360.html#aa68c26054b78691f855daf390d0dfc69',1,'Lib::HAL::SPIx']]],
-  ['eventflags_2',['EventFlags',['../d2/d56/a00384.html#ac12f66ca0b1d083d08631179bd2b96c5',1,'Lib::HAL::UARTx']]]
+  ['errorcode_0',['ErrorCode',['../db/d7b/a00296.html#af0479db858fc106105be07c3d049515e',1,'Lib::HAL::I2CBase::ErrorCode'],['../d3/db8/a00316.html#a612252e7bca2c13799d2184a530686ee',1,'Lib::HAL::SPIBase::ErrorCode'],['../df/df1/a00340.html#ab895d375e3d4a50f29c3904659de8326',1,'Lib::HAL::UARTBase::ErrorCode']]],
+  ['eventbit_1',['EventBit',['../d3/db8/a00316.html#a36e5369742beafb14536f90db9a3ba0d',1,'Lib::HAL::SPIBase']]],
+  ['eventflags_2',['EventFlags',['../df/df1/a00340.html#a7a4fb8714a5555ae3be1a1c59767e56f',1,'Lib::HAL::UARTBase']]]
 ];

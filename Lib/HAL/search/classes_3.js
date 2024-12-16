@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['extix_0',['EXTIx',['../d8/d17/a00304.html',1,'Lib::HAL::GPIO']]]
+  ['extibase_0',['EXTIBase',['../da/ddc/a00288.html',1,'Lib::HAL::GPIO']]]
 ];

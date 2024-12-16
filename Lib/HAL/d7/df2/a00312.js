@@ -1,10 +1,18 @@
 var a00312 =
 [
-    [ "Config", "d7/df2/a00312.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "d7/df2/a00312.html#a3b44fabfe796316ff21231ab84e9aae5", null ],
-    [ "~Port", "d7/df2/a00312.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "getInputs", "d7/df2/a00312.html#a6eb674f7b775026359e91c7f09a39396", null ],
-    [ "setOutputs", "d7/df2/a00312.html#ab6cce21713f6c84b730577d403ca90a9", null ],
-    [ "setPullupPulldown", "d7/df2/a00312.html#ab56d05994bd491c6412034e04261fc67", null ],
-    [ "setup", "d7/df2/a00312.html#ab580571a964639ef45ed11819acebd57", null ]
+    [ "DateTime", "d7/df2/a00312.html#a8be0499725843010546098c03a9006f9", null ],
+    [ "Handle", "d7/df2/a00312.html#ab32592926aec51867e2e5d0a723545f6", null ],
+    [ "RTCBase", "d7/df2/a00312.html#a519b0ac8ac4b2b34c4ea946a6bda0ea7", null ],
+    [ "~RTCBase", "d7/df2/a00312.html#a58f9b23a0d4c03192bd597a78e70b6f3", null ],
+    [ "getHandle", "d7/df2/a00312.html#a02658f68ce0d8c88b32abbded67cf6f9", null ],
+    [ "handleTimeChanged", "d7/df2/a00312.html#a8381456a598d16314ecb85658c84c509", null ],
+    [ "handleTimeChanged", "d7/df2/a00312.html#a8381456a598d16314ecb85658c84c509", null ],
+    [ "read", "d7/df2/a00312.html#a94a5d5e04476593464ed3f2aa3681da4", null ],
+    [ "readRegister", "d7/df2/a00312.html#a4943a40ed3df578b2339c0e7a2b5fc89", null ],
+    [ "release", "d7/df2/a00312.html#ac6d5caa751cdab5b336019bbe9010a0a", null ],
+    [ "setup", "d7/df2/a00312.html#a7ab0eb25cb4b19654d6006c2914abd1e", null ],
+    [ "writeDate", "d7/df2/a00312.html#aafba84d7fc847c99ec5c309e96991ac2", null ],
+    [ "writeDateTime", "d7/df2/a00312.html#a399814ecc17cc1835d2a06e1041cdd86", null ],
+    [ "writeRegister", "d7/df2/a00312.html#a74846d3feacf83e53dbdadf8b0cb58a2", null ],
+    [ "writeTime", "d7/df2/a00312.html#a2c037bceed143dd13437bb6a2b602160", null ]
 ];

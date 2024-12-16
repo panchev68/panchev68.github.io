@@ -1,9 +1,20 @@
 var a00272 =
 [
-    [ "TxMessage", "d9/dd6/a00272.html#a0f7b18d5fb18f668058358ca713f1837", null ],
-    [ "TxMessage", "d9/dd6/a00272.html#a35a746ab76ab539d6bb79fa7743f0d9f", null ],
-    [ "TxMessage", "d9/dd6/a00272.html#ad1707323c881b3fafe0ddc6cd1844d9e", null ],
-    [ "getData", "d9/dd6/a00272.html#a69cdd6d8c6538b94fc6d0a881f92a64c", null ],
-    [ "getId", "d9/dd6/a00272.html#a5de860dc77c863b746b88c256bf82274", null ],
-    [ "getLen", "d9/dd6/a00272.html#add6591fff2bc157ac11183d0e1b158d9", null ]
+    [ "GPIOMode", "d9/dd6/a00272.html#af12aeb7414170c02136d3d25c575ff81", [
+      [ "INPUT", "d9/dd6/a00272.html#af12aeb7414170c02136d3d25c575ff81aa84cc046d48610b05c21fd3670d0c829", null ],
+      [ "OUT_PP", "d9/dd6/a00272.html#af12aeb7414170c02136d3d25c575ff81a05d0658f04c6c6a3f596e042bddd78cc", null ],
+      [ "OUT_OD", "d9/dd6/a00272.html#af12aeb7414170c02136d3d25c575ff81a48dc0d96bf9f37e03974e063c27d39c9", null ]
+    ] ],
+    [ "GPIOPull", "d9/dd6/a00272.html#ae924772446ea7c67b58fa85260c95b4c", [
+      [ "NOPULL", "d9/dd6/a00272.html#ae924772446ea7c67b58fa85260c95b4caf43b0f41977e72ada334d920faf460d5", null ],
+      [ "PULLUP", "d9/dd6/a00272.html#ae924772446ea7c67b58fa85260c95b4ca2989a4b0b16772a6f65da71eda483c9f", null ],
+      [ "PULLDOWN", "d9/dd6/a00272.html#ae924772446ea7c67b58fa85260c95b4cad08b3001fc1b2f26c5ba712336e16a17", null ]
+    ] ],
+    [ "GPIOSpeed", "d9/dd6/a00272.html#a0c90279501ad6b710061a0dbab455862", [
+      [ "LOW", "d9/dd6/a00272.html#a0c90279501ad6b710061a0dbab455862a41bc94cbd8eebea13ce0491b2ac11b88", null ],
+      [ "MEDIUM", "d9/dd6/a00272.html#a0c90279501ad6b710061a0dbab455862ac87f3be66ffc3c0d4249f1c2cc5f3cce", null ],
+      [ "HIGH", "d9/dd6/a00272.html#a0c90279501ad6b710061a0dbab455862ab89de3b4b81c4facfac906edf29aec8c", null ],
+      [ "VERY_HIGH", "d9/dd6/a00272.html#a0c90279501ad6b710061a0dbab455862a2eae31361b8d1a454cadc17a8d4b70ac", null ]
+    ] ],
+    [ "setMode", "d9/dd6/a00272.html#af6c57c84833268f37d6a300c49cd3c1a", null ]
 ];

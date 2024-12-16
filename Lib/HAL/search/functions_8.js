@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['init_0',['init',['../d0/d65/a00360.html#a9d25bc6ac94ea14f4564d5fe3f16f299',1,'Lib::HAL::SPIx::init()'],['../d2/d56/a00384.html#af15c2bca1f8ba382c285d7006408572a',1,'Lib::HAL::UARTx::init()']]],
-  ['interface_1',['Interface',['../dd/dc1/a00212.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface']]],
-  ['isready_2',['isReady',['../dd/de2/a00320.html#abb8beb0c2f16811df71765a2a1c47f6e',1,'Lib::HAL::I2C::Master::Base::isReady()'],['../d4/db5/a00328.html#adc2d98a200cba8f10c1054caf8501b9a',1,'Lib::HAL::I2C::Master::TransperentBase::isReady()'],['../df/df1/a00340.html#a4406f8731ed19a50067f79c1c04ca093',1,'Lib::HAL::I2C::Master::Port&lt; IT &gt;::isReady()']]]
+  ['i2cbase_0',['I2CBase',['../db/d7b/a00296.html#a4001bb4951c8507ff3db388e0cbc36c6',1,'Lib::HAL::I2CBase']]],
+  ['init_1',['init',['../db/d7b/a00296.html#a02b6dd912cd34ab8f2f9940ea3d5303c',1,'Lib::HAL::I2CBase::init()'],['../d3/db8/a00316.html#ad767fdb65b276e2c86d5f18c22c88517',1,'Lib::HAL::SPIBase::init()'],['../df/df1/a00340.html#ae535c5c205a8acd55f868cbf0c7479d6',1,'Lib::HAL::UARTBase::init()']]],
+  ['interface_2',['Interface',['../dd/da2/a00192.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface']]]
 ];

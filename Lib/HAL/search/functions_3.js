@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['deinit_0',['deinit',['../d0/d65/a00360.html#ad9cff2ee807fdc40cbd85b68f7283a91',1,'Lib::HAL::SPIx::deinit()'],['../d2/d56/a00384.html#aac4839270151f122d47911769d5965e2',1,'Lib::HAL::UARTx::deinit()']]],
-  ['devicemanagerbase_1',['DeviceManagerBase',['../d0/def/a00256.html#abdfac94f393ea76ce81101fa3ec4e0c1',1,'Lib::HAL::DeviceManagerBase']]]
+  ['deinit_0',['deinit',['../db/d7b/a00296.html#aabc03a99c07ba7d0401ccf2acefed8d2',1,'Lib::HAL::I2CBase::deinit()'],['../d3/db8/a00316.html#a9a2fc87e4d9e12164a458a38deafc604',1,'Lib::HAL::SPIBase::deinit()'],['../df/df1/a00340.html#a1b5e082af5c591d9528458fde7c64950',1,'Lib::HAL::UARTBase::deinit()']]],
+  ['devicemanagerbase_1',['DeviceManagerBase',['../d7/d40/a00236.html#abdfac94f393ea76ce81101fa3ec4e0c1',1,'Lib::HAL::DeviceManagerBase']]]
 ];

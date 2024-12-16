@@ -1,25 +1,6 @@
 var a00328 =
 [
-    [ "DeviceManager", "dc/d50/a00332.html", "dc/d50/a00332" ],
-    [ "CallbackID", "d4/db5/a00328.html#a67ec0c17cfb6b65ed68b2f61efc3f5e7", null ],
-    [ "TransperentBase", "d4/db5/a00328.html#a8c629e3e418855f39c098542fc0de9af", null ],
-    [ "~TransperentBase", "d4/db5/a00328.html#ab24fbd6e8f42d83b2f7ab38e5994750d", null ],
-    [ "close", "d4/db5/a00328.html#a7b5a40f4a3e1c5121101130f3ba2ca90", null ],
-    [ "getHandle", "d4/db5/a00328.html#a4e137588ada4f6c87b238843587e5f13", null ],
-    [ "handleAbortEvent", "d4/db5/a00328.html#ab7fcc8487d3d386869a8f18ddda402c2", null ],
-    [ "handleErrorEvent", "d4/db5/a00328.html#ac0a06cca10c6a70979d4e3d0e01e5b17", null ],
-    [ "handleRxCompleteEvent", "d4/db5/a00328.html#a4f20b2e761789a452cb4c2c00bc9a640", null ],
-    [ "handleTxCompleteEvent", "d4/db5/a00328.html#a418353f010c680b1b02c6f9c4a5b46dc", null ],
-    [ "isReady", "d4/db5/a00328.html#adc2d98a200cba8f10c1054caf8501b9a", null ],
-    [ "open", "d4/db5/a00328.html#a6621238b12887630af33818c173c3913", null ],
-    [ "receive", "d4/db5/a00328.html#a7fce6f3574c4def3d701916557c9d3dc", null ],
-    [ "receive", "d4/db5/a00328.html#a929c3eff09d55ef72933e7fa363cbbd1", null ],
-    [ "receiveDevFunc", "d4/db5/a00328.html#a26833e0e44a6106537494e1252d9be12", null ],
-    [ "receiveFunc", "d4/db5/a00328.html#a8392c598b714d3ea807c8dadb2011ac6", null ],
-    [ "send", "d4/db5/a00328.html#a5936ef0440994f77de5ddd73a770fc02", null ],
-    [ "send", "d4/db5/a00328.html#a41cabd5d94bf267a966fe1e5cdc7d8f6", null ],
-    [ "sendDevFunc", "d4/db5/a00328.html#ae2704376d879bcb5b634b3092923aab5", null ],
-    [ "sendFunc", "d4/db5/a00328.html#a0ad2ee0bfdd480f4a512af8769ac67ae", null ],
-    [ "waitForComplete", "d4/db5/a00328.html#a06257f9f162ff1ace5791472f6ce93bd", null ],
-    [ "semComplete", "d4/db5/a00328.html#a3683f4db126f424b6f0122c7b9f59303", null ]
+    [ "Handle", "d4/db5/a00328.html#abbd04182f93a2391f6707767af071b16", null ],
+    [ "channel", "d4/db5/a00328.html#a9f83b0a69bfc7d74d0d8814692cea48a", null ],
+    [ "handle", "d4/db5/a00328.html#a05b187c3737b76be770380f3d05879bf", null ]
 ];

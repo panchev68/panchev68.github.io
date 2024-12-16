@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['i2chandle_0',['I2CHandle',['../d7/da0/a00198.html#a08aeae32dc9ff8c770ee7f90688f2b66',1,'Lib::HAL']]],
-  ['implementation_1',['Device Driver Implementation',['../d3/dea/a00444.html',1,'']]],
-  ['independent_5fwatchdog_5freset_2',['INDEPENDENT_WATCHDOG_RESET',['../df/d03/a00348.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0',1,'Lib::HAL::LastResetState']]],
-  ['init_3',['init',['../d0/d65/a00360.html#a9d25bc6ac94ea14f4564d5fe3f16f299',1,'Lib::HAL::SPIx::init()'],['../d2/d56/a00384.html#af15c2bca1f8ba382c285d7006408572a',1,'Lib::HAL::UARTx::init()']]],
-  ['input_4',['INPUT',['../d8/d0a/a00292.html#af12aeb7414170c02136d3d25c575ff81aa84cc046d48610b05c21fd3670d0c829',1,'Lib::HAL::GPIO::PinMode']]],
-  ['interface_5',['Interface',['../dd/dc1/a00212.html',1,'Lib::HAL::Adc::Interface'],['../dd/dc1/a00212.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface::Interface()']]],
-  ['isready_6',['isReady',['../dd/de2/a00320.html#abb8beb0c2f16811df71765a2a1c47f6e',1,'Lib::HAL::I2C::Master::Base::isReady()'],['../d4/db5/a00328.html#adc2d98a200cba8f10c1054caf8501b9a',1,'Lib::HAL::I2C::Master::TransperentBase::isReady()'],['../df/df1/a00340.html#a4406f8731ed19a50067f79c1c04ca093',1,'Lib::HAL::I2C::Master::Port&lt; IT &gt;::isReady()']]],
-  ['it_7',['IT',['../d7/da0/a00198.html#a9de00459d7bcd95866936fd723022743ab1bb871e144ff9fd10db6f53ee2495d1',1,'Lib::HAL']]]
+  ['i2cbase_0',['I2CBase',['../db/d7b/a00296.html',1,'Lib::HAL::I2CBase'],['../db/d7b/a00296.html#a4001bb4951c8507ff3db388e0cbc36c6',1,'Lib::HAL::I2CBase::I2CBase()']]],
+  ['implementation_1',['Device Driver Implementation',['../d9/d95/a00400.html',1,'']]],
+  ['independent_5fwatchdog_5freset_2',['INDEPENDENT_WATCHDOG_RESET',['../d8/d17/a00304.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0',1,'Lib::HAL::LastResetState']]],
+  ['init_3',['init',['../db/d7b/a00296.html#a02b6dd912cd34ab8f2f9940ea3d5303c',1,'Lib::HAL::I2CBase::init()'],['../d3/db8/a00316.html#ad767fdb65b276e2c86d5f18c22c88517',1,'Lib::HAL::SPIBase::init()'],['../df/df1/a00340.html#ae535c5c205a8acd55f868cbf0c7479d6',1,'Lib::HAL::UARTBase::init()']]],
+  ['input_4',['INPUT',['../d9/dd6/a00272.html#af12aeb7414170c02136d3d25c575ff81aa84cc046d48610b05c21fd3670d0c829',1,'Lib::HAL::GPIO::PinMode']]],
+  ['interface_5',['Interface',['../dd/da2/a00192.html',1,'Lib::HAL::Adc::Interface'],['../dd/da2/a00192.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface::Interface()']]],
+  ['it_6',['IT',['../d0/d81/a00180.html#a9de00459d7bcd95866936fd723022743ab1bb871e144ff9fd10db6f53ee2495d1',1,'Lib::HAL']]]
 ];

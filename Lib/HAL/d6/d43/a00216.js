@@ -1,10 +1,12 @@
 var a00216 =
 [
-    [ "PortBase", "d6/d43/a00216.html#a49ae681b6b1cc7a356dc409c58aa496e", null ],
-    [ "~PortBase", "d6/d43/a00216.html#a4dc33e8a3f98ab2c6ebf0d85c705e8c7", null ],
-    [ "close", "d6/d43/a00216.html#a7328625d8bbae52f8a990a0196889a08", null ],
-    [ "getRawValue", "d6/d43/a00216.html#a6a5cc1a6f51cfa3b5f676ccd4824ccae", null ],
-    [ "open", "d6/d43/a00216.html#aff8748ee5b00cbf4d9cefd2a99a03add", null ],
-    [ "start", "d6/d43/a00216.html#adf014ce46e6cebaedf2f98a92001d644", null ],
-    [ "stop", "d6/d43/a00216.html#a3589eb9b51a7f578974c26e168f2a958", null ]
+    [ "Port", "d6/d43/a00216.html#ab0ec8999b12c5d0e67d7b4bfe45b228c", null ],
+    [ "~Port", "d6/d43/a00216.html#a8d4f69a9de3cf47afee1792f5c6e45c8", null ],
+    [ "close", "d6/d43/a00216.html#adff8db05ff65190fffc1ab69b8ac5bdb", null ],
+    [ "getHandle", "d6/d43/a00216.html#a8f0cf1079764e4eb8deab1e1075287c1", null ],
+    [ "getRawValue", "d6/d43/a00216.html#ab9e4a5fee490f2b834ef2a2fe680b873", null ],
+    [ "open", "d6/d43/a00216.html#a80289b19682bb899caacfddca8ff6ef5", null ],
+    [ "read", "d6/d43/a00216.html#a7fcbd05b79a400becb96e3fff8fcbbad", null ],
+    [ "start", "d6/d43/a00216.html#ae3a2e5bc4da171636385482a191029f4", null ],
+    [ "stop", "d6/d43/a00216.html#a2c3f5ae93b298b9ab03d3755e9613dcc", null ]
 ];

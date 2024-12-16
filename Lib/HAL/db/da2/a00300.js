@@ -1,9 +1,8 @@
 var a00300 =
 [
-    [ "PinOutput", "db/da2/a00300.html#aa68a0db88a1892300b801a783a50ff41", null ],
-    [ "PinOutput", "db/da2/a00300.html#ad716edd54eaa5ff2cf83e92513aa6f29", null ],
-    [ "PinOutput", "db/da2/a00300.html#a96cd39b3891b12a6c63993ac1ff549e8", null ],
-    [ "~PinOutput", "db/da2/a00300.html#a1628e227f22ce3271674f6d93830e264", null ],
-    [ "toggle", "db/da2/a00300.html#ac78179248822fa391a5230fb05ae1baf", null ],
-    [ "write", "db/da2/a00300.html#afd16eb9619b09481347eec20efd89211", null ]
+    [ "Handle", "db/da2/a00300.html#a9ebf05c58d2298ec0c0716547737f22e", null ],
+    [ "Watchdog", "db/da2/a00300.html#afe27b8d5b6bb6339d170ebfd2a31e05a", null ],
+    [ "~Watchdog", "db/da2/a00300.html#ab8d71b5b90fc8b1b6beb24ddb297fe69", null ],
+    [ "refresh", "db/da2/a00300.html#ad27b24b3697814973ad3702709e9c8da", null ],
+    [ "setup", "db/da2/a00300.html#a85b9f16cfa70a6bab2897a8e2c4cec56", null ]
 ];

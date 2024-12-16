@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['channel_0',['channel',['../db/d7e/a00372.html#a9f83b0a69bfc7d74d0d8814692cea48a',1,'Lib::HAL::Timer::Handle']]]
+  ['handle_0',['handle',['../d4/db5/a00328.html#a05b187c3737b76be770380f3d05879bf',1,'Lib::HAL::Timer::Handle']]]
 ];
