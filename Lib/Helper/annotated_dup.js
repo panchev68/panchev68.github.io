@@ -4,7 +4,7 @@ var annotated_dup =
       [ "Helper", null, [
         [ "Convert", null, [
           [ "Ascii", "df/d9c/a00958.html", null ],
-          [ "Bcd", "df/d88/a00962.html", "df/d88/a00962" ],
+          [ "Bcd", "df/d88/a00962.html", null ],
           [ "dBM", "d2/d6e/a00966.html", null ],
           [ "Hex", "d0/daf/a00970.html", null ],
           [ "Hex< uint16_t >", "d2/ddd/a00978.html", "d2/ddd/a00978" ],
