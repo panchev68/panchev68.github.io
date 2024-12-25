@@ -71,5 +71,6 @@ var menudata={children:[
 {text:"u",url:"functions_func_u.html#index_u"},
 {text:"v",url:"functions_func_v.html#index_v"},
 {text:"~",url:"functions_func_~.html#index__7E"}]},
-{text:"Variables",url:"functions_vars.html"}]}]},
+{text:"Variables",url:"functions_vars.html"},
+{text:"Enumerations",url:"functions_enum.html"}]}]},
 {text:"Examples",url:"examples.html"}]}

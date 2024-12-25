@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['time_0',['Time',['../db/d7c/a01614.html',1,'Lib::Helper::DateTime']]],
-  ['timeperiod_1',['TimePeriod',['../d6/d01/a01690.html',1,'Lib::Helper']]]
+  ['singletone_0',['Singletone',['../d5/d4c/a01058.html',1,'Lib::Helper']]],
+  ['stringhelper_1',['StringHelper',['../d4/d8a/a01062.html',1,'Lib::Helper']]],
+  ['sunset_2',['Sunset',['../d0/dfb/a01066.html',1,'Lib::Helper']]]
 ];

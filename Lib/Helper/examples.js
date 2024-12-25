@@ -1,14 +1,13 @@
 var examples =
 [
-    [ "CityHash", "d9/d49/a01696.html", null ],
-    [ "Container", "d5/da6/a01698.html", null ],
-    [ "Hex convertor", "d4/d26/a01700.html", null ],
-    [ "crc16", "de/d05/a01702.html", null ],
-    [ "Delay", "d0/dbc/a01704.html", null ],
-    [ "FindPeaks", "db/dbe/a01706.html", null ],
-    [ "Integrator", "de/d5c/a01708.html", null ],
-    [ "JaggedArray", "d6/d9a/a01710.html", null ],
-    [ "MoonPhase", "dc/d3e/a01712.html", null ],
-    [ "Property", "d8/dce/a01714.html", null ],
-    [ "Value", "d4/df6/a01716.html", null ]
+    [ "CityHash", "d6/d80/a01076.html", null ],
+    [ "Container", "db/dba/a01078.html", null ],
+    [ "Hex convertor", "d9/d67/a01080.html", null ],
+    [ "crc16", "dd/df1/a01082.html", null ],
+    [ "Delay", "da/d93/a01084.html", null ],
+    [ "FindPeaks", "d9/df5/a01086.html", null ],
+    [ "Integrator", "da/db7/a01088.html", null ],
+    [ "JaggedArray", "da/d73/a01090.html", null ],
+    [ "MoonPhase", "de/d9c/a01092.html", null ],
+    [ "Value", "d6/dea/a01094.html", null ]
 ];
