@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xconfig_0',['XConfig',['../db/ddc/a00353.html',1,'Lib::BSP::EncoderPins']]]
+  ['w25q128jvsiq_0',['W25Q128JVSIQ',['../d6/d66/a00441.html',1,'Lib::BSP']]]
 ];

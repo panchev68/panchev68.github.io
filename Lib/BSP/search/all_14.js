@@ -11,7 +11,7 @@ var searchData=
   ['verifychipid_8',['verifyChipID',['../df/dee/a00369.html#a74e8741e1fb7827a6537a1ab1623c4ac',1,'Lib::BSP::Ethercat::PDI::LAN9252::Base']]],
   ['vmctr1_9',['VMCTR1',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba429fb5d36816f6cec9d104a1c3098ef1',1,'Lib::BSP::Display']]],
   ['vmctr2_10',['VMCTR2',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba46487ad0c24c2b10e0145a3699304f31',1,'Lib::BSP::Display']]],
-  ['volatile_5fsr_5fwrite_5fenable_11',['VOLATILE_SR_WRITE_ENABLE',['../dd/d47/a00445.html#a9e7e40062fd3d4026a69e924b51a5a7da2dab8770f79478a603fdce1cc6946a03',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['volatile_5fsr_5fwrite_5fenable_11',['VOLATILE_SR_WRITE_ENABLE',['../dd/d47/a00445.html#a60affb628639188caa59cd9f70b1409fa2dab8770f79478a603fdce1cc6946a03',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['voltmeter_20drivers_12',['Voltmeter drivers',['../d7/ded/a00196.html',1,'']]],
   ['vrhs_13',['VRHS',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515baa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
   ['vscrdef_14',['VSCRDEF',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display']]],

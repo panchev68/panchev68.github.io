@@ -4,8 +4,8 @@ var annotated_dup =
       [ "BSP", "d3/db1/a00200.html", [
         [ "Display", "db/d53/a00202.html", [
           [ "Driver", "d3/d07/a00305.html", null ],
-          [ "Driver< Controller::ILI9341 >", "d2/d71/a00309.html", "d2/d71/a00309" ],
-          [ "Driver< Controller::ST7789 >", "db/d53/a00321.html", "db/d53/a00321" ],
+          [ "Driver< Controller::ILI9341 >", "d3/d07/a00305.html", "d3/d07/a00305" ],
+          [ "Driver< Controller::ST7789 >", "d3/d07/a00305.html", "d3/d07/a00305" ],
           [ "DriverBase", "da/d50/a00301.html", "da/d50/a00301" ]
         ] ],
         [ "EEPROM", "de/d79/a00203.html", [
@@ -38,7 +38,7 @@ var annotated_dup =
           [ "DTH", "d1/de1/a00213.html", [
             [ "Base", "d5/d5f/a00461.html", "d5/d5f/a00461" ],
             [ "Driver", "d3/d58/a00481.html", null ],
-            [ "Driver< Type::DTH22 >", "dc/ddf/a00469.html", "dc/ddf/a00469" ],
+            [ "Driver< Type::DTH22 >", "d3/d58/a00481.html", "d3/d58/a00481" ],
             [ "Parm", "d9/dca/a00477.html", null ]
           ] ]
         ] ],

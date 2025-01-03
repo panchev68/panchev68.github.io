@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['sector_5ferase_0',['sector_ERASE',['../dd/d47/a00445.html#a9e7e40062fd3d4026a69e924b51a5a7da2cc5ffe8d00e8da346917295a271b9b4',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['sector_5ferase_0',['sector_ERASE',['../dd/d47/a00445.html#a60affb628639188caa59cd9f70b1409fa2cc5ffe8d00e8da346917295a271b9b4',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['sequental_1',['SEQUENTAL',['../de/dbc/a00249.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510',1,'Lib::BSP::DigitalPeripheralBase']]],
-  ['set_5fburst_5fwith_5fwrap_2',['SET_BURST_WITH_WRAP',['../dd/d47/a00445.html#a9e7e40062fd3d4026a69e924b51a5a7da199200d723e9baef3af9e830203bba61',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['set_5fburst_5fwith_5fwrap_2',['SET_BURST_WITH_WRAP',['../dd/d47/a00445.html#a60affb628639188caa59cd9f70b1409fa199200d723e9baef3af9e830203bba61',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['slpin_3',['SLPIN',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515bae74e3fadf80e85e7ab04d335e02410c4',1,'Lib::BSP::Display']]],
   ['slpout_4',['SLPOUT',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba71527fa5f199a376bd3e2d3775aaab0c',1,'Lib::BSP::Display']]],
   ['spi2en_5',['SPI2EN',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba2a3aad958b55e3585c329703d03a768a',1,'Lib::BSP::Display']]],

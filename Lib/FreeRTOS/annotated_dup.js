@@ -1,23 +1,24 @@
 var annotated_dup =
 [
     [ "Lib", null, [
-      [ "FreeRTOS", "d2/da3/a00115.html", [
-        [ "EventGroup", "d4/d98/a00120.html", "d4/d98/a00120" ],
-        [ "Karnel", "da/d72/a00124.html", "da/d72/a00124" ],
-        [ "MemoryManager", "d1/d88/a00128.html", null ],
-        [ "MessageBuffer", "d5/deb/a00132.html", "d5/deb/a00132" ],
-        [ "Mutex", "d0/d5e/a00136.html", "d0/d5e/a00136" ],
-        [ "Queue", "d5/db1/a00140.html", "d5/db1/a00140" ],
-        [ "QueueSet", "d5/da7/a00144.html", "d5/da7/a00144" ],
-        [ "Semaphore", "db/d48/a00148.html", "db/d48/a00148" ],
-        [ "SemaphoreBase", "d7/d9a/a00152.html", "d7/d9a/a00152" ],
-        [ "SemaphoreCounting", "d2/d34/a00156.html", "d2/d34/a00156" ],
-        [ "StreamBuffer", "de/d38/a00160.html", "de/d38/a00160" ],
-        [ "Task", "db/ddf/a00164.html", "db/ddf/a00164" ],
-        [ "TaskHelper", "d6/dfb/a00172.html", "d6/dfb/a00172" ],
-        [ "TickCounter", "d5/de9/a00176.html", "d5/de9/a00176" ],
-        [ "Timeout", "d0/d81/a00180.html", "d0/d81/a00180" ],
-        [ "Timer", "d2/d94/a00184.html", "d2/d94/a00184" ]
+      [ "FreeRTOS", "d8/d17/a00114.html", [
+        [ "EventGroup", "df/d6a/a00119.html", "df/d6a/a00119" ],
+        [ "Karnel", "de/d36/a00123.html", "de/d36/a00123" ],
+        [ "MemoryManager", "df/dcd/a00127.html", null ],
+        [ "MessageBuffer", "d7/d06/a00131.html", "d7/d06/a00131" ],
+        [ "Mutex", "d5/d5b/a00135.html", "d5/d5b/a00135" ],
+        [ "Queue", "de/d14/a00139.html", "de/d14/a00139" ],
+        [ "QueueSet", "d7/dce/a00143.html", "d7/dce/a00143" ],
+        [ "Semaphore", "d0/d4a/a00147.html", "d0/d4a/a00147" ],
+        [ "SemaphoreBase", "dd/db2/a00151.html", "dd/db2/a00151" ],
+        [ "SemaphoreCounting", "d3/df8/a00155.html", "d3/df8/a00155" ],
+        [ "StreamBuffer", "de/db9/a00159.html", "de/db9/a00159" ],
+        [ "Task", "dd/dae/a00163.html", "dd/dae/a00163" ],
+        [ "TaskHelper", "d1/d0d/a00171.html", "d1/d0d/a00171" ],
+        [ "TickCounter", "de/d45/a00175.html", "de/d45/a00175" ],
+        [ "Timeout", "db/dd9/a00179.html", "db/dd9/a00179" ]
       ] ]
-    ] ]
+    ] ],
+    [ "EventGroup", "dc/d52/a00183.html", null ],
+    [ "SemaphoreBase", "d6/daa/a00187.html", null ]
 ];

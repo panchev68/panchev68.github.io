@@ -6,15 +6,10 @@ var searchData=
   ['getchangeperiod_3',['getChangePeriod',['../d6/d82/a00293.html#a525781a2d1887a1b019abf6147249343',1,'Lib::BSP::DigitalPeripheralBase::Test']]],
   ['getchipinfo_4',['getChipInfo',['../d1/dbd/a00457.html#a80735b27d6e46ca75e85ea69e902bc51',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
   ['getchipsize_5',['getChipSize',['../d2/d0a/a00333.html#a69acdf676bb0caa8da9e01d6c8dba068',1,'Lib::BSP::EEPROM::I2C::DriverBase::getChipSize()'],['../d3/d93/a00341.html#ae48f7039637cb1da4c932bb0280e1cf0',1,'Lib::BSP::EEPROM ::I2C::M24C16::getChipSize()'],['../d9/d48/a00345.html#a4b66655cedc1fa6e74f8bd72848198d2',1,'Lib::BSP::EEPROM::I2C::M24C64W::getChipSize()']]],
-  ['gethumidity_6',['getHumidity',['../dc/ddf/a00469.html#a09b3175343f41199742a8c374d1fb72a',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
-  ['getinfo_7',['getInfo',['../d4/d53/a00429.html#aa2bbb24b1a14b4746b6eb4d6bbeab556',1,'Lib::BSP::FMEM::SPI::DriverBase::getInfo()'],['../d6/d66/a00441.html#ad3c91a869f9d9f3e83aa66d5305286a6',1,'Lib::BSP::W25Q128JVSIQ::getInfo()']]],
-  ['getinstance_8',['getInstance',['../dc/ddf/a00469.html#a865c184e0e0efb8151344917b7df055c',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
-  ['getmode_9',['getMode',['../d6/d82/a00293.html#a81144a7efcb0dd6bb80da8774eb458b6',1,'Lib::BSP::DigitalPeripheralBase::Test']]],
-  ['getrawhumidity_10',['getRawHumidity',['../dc/ddf/a00469.html#a9e008b36bb2a4e9fffd9c6ef34d83be9',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
-  ['getrawtemperature_11',['getRawTemperature',['../dc/ddf/a00469.html#a13f94917526f41817a367260352b4495',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
-  ['getspihandle_12',['getSpiHandle',['../d5/d42/a00269.html#a0f1716a3b2c1c4c25fb74cc3b31b5651',1,'Lib::BSP::DigitalPeripheralBase::PortBase::getSpiHandle()'],['../d0/d19/a00273.html#a538350b78ac090147824913f334082b9',1,'Lib::BSP::DigitalPeripheralBase::Inputs::getSpiHandle()'],['../d6/d4b/a00277.html#aa11aa3e6213e3f5a94c651e06e1188a6',1,'Lib::BSP::DigitalPeripheralBase::Outputs::getSpiHandle()']]],
-  ['gettemperature_13',['getTemperature',['../dc/ddf/a00469.html#a8ae02b3f89e4456053b20adcea8d4e4b',1,'Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;']]],
-  ['gettransferactive_14',['getTransferActive',['../da/d50/a00301.html#a4c6d4fd3f37a54121208f462b76ed79d',1,'Lib::BSP::Display::DriverBase']]],
-  ['getvalue_15',['getValue',['../d0/d19/a00273.html#a1ee5007f7a0c6ba0e9e214efae69b3c2',1,'Lib::BSP::DigitalPeripheralBase::Inputs']]],
-  ['getvoltage_16',['getVoltage',['../d7/def/a00521.html#a681250b664699ecd7261e138987060b3',1,'Lib::BSP::Voltmeter::Base']]]
+  ['getinfo_6',['getInfo',['../d4/d53/a00429.html#aa2bbb24b1a14b4746b6eb4d6bbeab556',1,'Lib::BSP::FMEM::SPI::DriverBase::getInfo()'],['../d6/d66/a00441.html#ad3c91a869f9d9f3e83aa66d5305286a6',1,'Lib::BSP::W25Q128JVSIQ::getInfo()']]],
+  ['getmode_7',['getMode',['../d6/d82/a00293.html#a81144a7efcb0dd6bb80da8774eb458b6',1,'Lib::BSP::DigitalPeripheralBase::Test']]],
+  ['getspihandle_8',['getSpiHandle',['../d5/d42/a00269.html#a0f1716a3b2c1c4c25fb74cc3b31b5651',1,'Lib::BSP::DigitalPeripheralBase::PortBase::getSpiHandle()'],['../d0/d19/a00273.html#a538350b78ac090147824913f334082b9',1,'Lib::BSP::DigitalPeripheralBase::Inputs::getSpiHandle()'],['../d6/d4b/a00277.html#aa11aa3e6213e3f5a94c651e06e1188a6',1,'Lib::BSP::DigitalPeripheralBase::Outputs::getSpiHandle()']]],
+  ['gettransferactive_9',['getTransferActive',['../da/d50/a00301.html#a4c6d4fd3f37a54121208f462b76ed79d',1,'Lib::BSP::Display::DriverBase']]],
+  ['getvalue_10',['getValue',['../d0/d19/a00273.html#a1ee5007f7a0c6ba0e9e214efae69b3c2',1,'Lib::BSP::DigitalPeripheralBase::Inputs']]],
+  ['getvoltage_11',['getVoltage',['../d7/def/a00521.html#a681250b664699ecd7261e138987060b3',1,'Lib::BSP::Voltmeter::Base']]]
 ];

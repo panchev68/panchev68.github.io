@@ -7,8 +7,8 @@ var hierarchy =
     [ "Lib::BSP::Backlight::Config", "dc/d98/a00225.html", null ],
     [ "Lib::BSP::Beep::Config", "d4/d08/a00237.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Config", "d9/d39/a00257.html", null ],
-    [ "Lib::BSP::Display::Driver< Controller::ILI9341 >::Config", "dd/db3/a00313.html", null ],
-    [ "Lib::BSP::Display::Driver< Controller::ST7789 >::Config", "de/dc8/a00325.html", null ],
+    [ "Lib::BSP::Display::Driver< Controller::ILI9341 >::Config", "d3/d07/a00305.html", null ],
+    [ "Lib::BSP::Display::Driver< Controller::ST7789 >::Config", "d3/d07/a00305.html", null ],
     [ "Lib::BSP::EEPROM::I2C::DriverBase::Config", "d4/dce/a00337.html", null ],
     [ "Lib::BSP::EncoderTimer::Config", "d7/ddb/a00361.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "dc/de3/a00373.html", null ],
@@ -25,7 +25,7 @@ var hierarchy =
       [ "Lib::BSP::Voltmeter::Base", "d7/def/a00521.html", null ]
     ] ],
     [ "Lib::BSP::DeviceManager", "d6/db6/a00241.html", null ],
-    [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >::Diagnostic", "dc/d8e/a00473.html", null ],
+    [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >::Diagnostic", "d3/d58/a00481.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase", "de/dbc/a00249.html", null ],
     [ "Lib::BSP::Display::Driver< Controller >", "d3/d07/a00305.html", null ],
     [ "Lib::BSP::Termometer::DTH::Driver< Type >", "d3/d58/a00481.html", null ],
@@ -36,8 +36,8 @@ var hierarchy =
       [ "Lib::BSP::EEPROM ::I2C::M24C16", "d3/d93/a00341.html", null ]
     ] ],
     [ "Lib::BSP::Display::DriverBase", "da/d50/a00301.html", [
-      [ "Lib::BSP::Display::Driver< Controller::ILI9341 >", "d2/d71/a00309.html", null ],
-      [ "Lib::BSP::Display::Driver< Controller::ST7789 >", "db/d53/a00321.html", null ]
+      [ "Lib::BSP::Display::Driver< Controller::ILI9341 >", "d3/d07/a00305.html", null ],
+      [ "Lib::BSP::Display::Driver< Controller::ST7789 >", "d3/d07/a00305.html", null ]
     ] ],
     [ "Lib::BSP::EEPROM::I2C::DriverBase", "d2/d0a/a00333.html", [
       [ "Lib::BSP::EEPROM::I2C::M24C64W", "d9/d48/a00345.html", null ]
@@ -68,7 +68,7 @@ var hierarchy =
     [ "Lib::BSP::XPT2046::Version2::Driver::Parameters", "df/db6/a00509.html", null ],
     [ "Lib::BSP::Termometer::DTH::Parm", "d9/dca/a00477.html", [
       [ "Lib::BSP::Termometer::DTH::Base", "d5/d5f/a00461.html", [
-        [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >", "dc/ddf/a00469.html", null ]
+        [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >", "d3/d58/a00481.html", null ]
       ] ]
     ] ],
     [ "Lib::BSP::DigitalPeripheralBase::PortBase", "d5/d42/a00269.html", [

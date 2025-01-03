@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['semaphore_0',['Semaphore',['../db/d48/a00148.html',1,'Lib::FreeRTOS']]],
-  ['semaphorebase_1',['SemaphoreBase',['../d7/d9a/a00152.html',1,'Lib::FreeRTOS']]],
-  ['semaphorecounting_2',['SemaphoreCounting',['../d2/d34/a00156.html',1,'Lib::FreeRTOS']]],
-  ['streambuffer_3',['StreamBuffer',['../de/d38/a00160.html',1,'Lib::FreeRTOS']]]
+  ['semaphore_0',['Semaphore',['../d0/d4a/a00147.html',1,'Lib::FreeRTOS']]],
+  ['semaphorebase_1',['SemaphoreBase',['../dd/db2/a00151.html',1,'Lib::FreeRTOS::SemaphoreBase'],['../d6/daa/a00187.html',1,'SemaphoreBase']]],
+  ['semaphorecounting_2',['SemaphoreCounting',['../d3/df8/a00155.html',1,'Lib::FreeRTOS']]],
+  ['streambuffer_3',['StreamBuffer',['../de/db9/a00159.html',1,'Lib::FreeRTOS']]]
 ];

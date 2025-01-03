@@ -2,7 +2,7 @@ var searchData=
 [
   ['ecat_5freg_5fbase_5faddr_0',['ECAT_REG_BASE_ADDR',['../dc/d2f/a00425.html#a78da003e4c3ddb6d0917688052950152',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
   ['eeprom_20memory_20drivers_1',['I2C EEPROM Memory drivers',['../dc/d57/a00194.html',1,'']]],
-  ['enable_5freset_2',['ENABLE_RESET',['../dd/d47/a00445.html#a9e7e40062fd3d4026a69e924b51a5a7da307133468743d84278b97dfb95a4f301',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['enable_5freset_2',['ENABLE_RESET',['../dd/d47/a00445.html#a60affb628639188caa59cd9f70b1409fa307133468743d84278b97dfb95a4f301',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['enblable3g_3',['ENBLABLE3G',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515baf28ca416c600bf4f582df61824e0f822',1,'Lib::BSP::Display']]],
   ['encoder_20drivers_4',['Incremental Encoder drivers',['../da/deb/a00189.html',1,'']]],
   ['encoder_5fccw_5',['ENCODER_CCW',['../da/d15/a00188.html#gga4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b',1,'Lib::BSP::EncoderTimer']]],
@@ -12,7 +12,7 @@ var searchData=
   ['endreceiveddata_9',['endReceivedData',['../d5/d5f/a00461.html#aa0a5210748d8446a16327f1b0d5540f9',1,'Lib::BSP::Termometer::DTH::Base']]],
   ['eqctrl_10',['EQCTRL',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba632be5d289c8b4188586aaf4e2aa20d2',1,'Lib::BSP::Display']]],
   ['erase_11',['erase',['../d1/dbd/a00457.html#aa10c6d943c11971b1a43df58d1b27046',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
-  ['erase_5fsecurity_5fregisters_12',['ERASE_SECURITY_REGISTERS',['../dd/d47/a00445.html#a9e7e40062fd3d4026a69e924b51a5a7da9ec3af32e1db075b23cabafe1694f3e3',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['erase_5fsecurity_5fregisters_12',['ERASE_SECURITY_REGISTERS',['../dd/d47/a00445.html#a60affb628639188caa59cd9f70b1409fa9ec3af32e1db075b23cabafe1694f3e3',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['eraseblock32k_13',['eraseBlock32K',['../d6/d66/a00441.html#adc3744e22caae3113d030bd8430adbfe',1,'Lib::BSP::W25Q128JVSIQ']]],
   ['eraseblock64k_14',['eraseBlock64K',['../d6/d66/a00441.html#a68bb8f71277722ce197b60dab426f6e2',1,'Lib::BSP::W25Q128JVSIQ']]],
   ['erasechip_15',['eraseChip',['../d4/d53/a00429.html#a1cc2a6d57b0cb7133c23ea04c9822a5e',1,'Lib::BSP::FMEM::SPI::DriverBase::eraseChip()'],['../d6/d66/a00441.html#af052007cb755ca7e2efdca99552b6394',1,'Lib::BSP::W25Q128JVSIQ::eraseChip()']]],

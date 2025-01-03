@@ -6,9 +6,11 @@ var a00152 =
     [ "give", "d7/d9a/a00152.html#a494f63a7a96566f17e1ac85cfb5b55a4", null ],
     [ "giveFromISR", "d7/d9a/a00152.html#ad44726c956c5a3a3316a3a4fa0f0f952", null ],
     [ "isCreated", "d7/d9a/a00152.html#a58e8cc9baf2e1387aa62194834bcdee3", null ],
-    [ "operator Handler &", "d7/d9a/a00152.html#a5c3148b7e69f9e480993d2d67d10a096", null ],
+    [ "operator Handle &", "d7/d9a/a00152.html#a3180f95a05d722aee73dda27ae4020b5", null ],
+    [ "overwrite", "d7/d9a/a00152.html#adcee056645a87bc1f08c23e6ff0923a3", null ],
+    [ "overwriteFromISR", "d7/d9a/a00152.html#a5765bdc831d4c447f76cd2362ab52e24", null ],
     [ "release", "d7/d9a/a00152.html#a8a54584609b12a9c0dafac152ac50617", null ],
     [ "take", "d7/d9a/a00152.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06", null ],
     [ "takeFromISR", "d7/d9a/a00152.html#ac0253cf90b5a647286873e2febb2da24", null ],
-    [ "handle", "d7/d9a/a00152.html#a6f1d6f949aff814d48d60baeaa863ba3", null ]
+    [ "handle", "d7/d9a/a00152.html#aeba9aef9fbf175aa1ecbb778553874ea", null ]
 ];

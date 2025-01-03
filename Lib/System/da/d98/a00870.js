@@ -1,7 +1,7 @@
 var a00870 =
 [
-    [ "DataArea", "df/d2a/a00874.html", "df/d2a/a00874" ],
-    [ "StorageBase", "d5/d69/a00878.html", "d5/d69/a00878" ],
+    [ "DataArea", "da/d98/a00870.html", "da/d98/a00870_dup" ],
+    [ "StorageBase", "da/d98/a00870.html", "da/d98/a00870_dup" ],
     [ "ParametersBase", "da/d98/a00870.html#afd7f3db0cb39c88695378bffee41dbda", null ],
     [ "~ParametersBase", "da/d98/a00870.html#aed9c6ac19b7943ac8910ae7093ccf90a", null ],
     [ "getData", "da/d98/a00870.html#a7f45bc9c73fdcfc895419ed6f5584a09", null ],

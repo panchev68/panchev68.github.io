@@ -2,6 +2,6 @@ var searchData=
 [
   ['taskfn_0',['taskFn',['../d5/d5f/a00461.html#a5a12d0a5dca6f97ef85baf61e2bc3342',1,'Lib::BSP::Termometer::DTH::Base::taskFn()'],['../da/def/a00513.html#a7ce9ec66139618bc45f9e211fd2f08c6',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::taskFn()']]],
   ['test_1',['Test',['../d6/d82/a00293.html#a681f6df372676259cb74654d972786aa',1,'Lib::BSP::DigitalPeripheralBase::Test']]],
-  ['transfercpltcallback_2',['transferCpltCallback',['../da/d50/a00301.html#aca116b23efef7c87ba2faf35d927e58c',1,'Lib::BSP::Display::DriverBase::transferCpltCallback()'],['../d2/d71/a00309.html#a6382af7ea243103ca8616c6050667a84',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::transferCpltCallback()']]],
-  ['transmitblock_3',['transmitBlock',['../da/d50/a00301.html#ab4bbce27d3e377e3413432b820cf2340',1,'Lib::BSP::Display::DriverBase::transmitBlock()'],['../d2/d71/a00309.html#ae85f4059383696c97f769a5be9cfb6be',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::transmitBlock()'],['../db/d53/a00321.html#a71563d8b244195fb980571eb39a311c2',1,'Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::transmitBlock()']]]
+  ['transfercpltcallback_2',['transferCpltCallback',['../da/d50/a00301.html#aca116b23efef7c87ba2faf35d927e58c',1,'Lib::BSP::Display::DriverBase']]],
+  ['transmitblock_3',['transmitBlock',['../da/d50/a00301.html#ab4bbce27d3e377e3413432b820cf2340',1,'Lib::BSP::Display::DriverBase']]]
 ];

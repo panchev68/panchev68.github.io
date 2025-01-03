@@ -1,28 +1,13 @@
 var a00112 =
 [
-    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "d5/db1/a00140.html", [
-      [ "Queue", "d5/db1/a00140.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
-      [ "~Queue", "d5/db1/a00140.html#ad2151344786c05df7051532ac93d1228", null ],
-      [ "addToRegistry", "d5/db1/a00140.html#af936f907fa857ee852f9952904eb1f28", null ],
-      [ "create", "d5/db1/a00140.html#ab1f118805f404fcc5fc7373a93594009", null ],
-      [ "getHandle", "d5/db1/a00140.html#a2c41ab96f85c46fcbfada25e38ae9195", null ],
-      [ "isCreated", "d5/db1/a00140.html#a368491dc78d2becc33c627a8402ab1e5", null ],
-      [ "messagesWaiting", "d5/db1/a00140.html#a4c8c176d001bf8671553f8f379a371c8", null ],
-      [ "messagesWaitingFromISR", "d5/db1/a00140.html#aafb3e379354706406f980c30e86e9e74", null ],
-      [ "operator Handle", "d5/db1/a00140.html#a88bed073e231ecb9da5411ed061d594d", null ],
-      [ "operator Handle &", "d5/db1/a00140.html#a29301d1bff80bd5e0ce0ffe15aa68333", null ],
-      [ "overwrite", "d5/db1/a00140.html#a3a861ad8c38ab3ea2086d1209daad180", null ],
-      [ "overwriteFromISR", "d5/db1/a00140.html#a14bcb8fb7e17f30a58df8debaa846ab1", null ],
-      [ "peek", "d5/db1/a00140.html#ae033ff52cdf237cdb88febef59d1877d", null ],
-      [ "peekFromISR", "d5/db1/a00140.html#a1c0d95eb7fa17bd9c6857bf868ab6426", null ],
-      [ "receive", "d5/db1/a00140.html#a758441a1968feda77ebb998dfdc4619a", null ],
-      [ "receiveFromISR", "d5/db1/a00140.html#a0eb815a468ecede046a7fc0ed9879887", null ],
-      [ "release", "d5/db1/a00140.html#a1e1db42d6e77a1c611e5a303083e934c", null ],
-      [ "removeFromRegistry", "d5/db1/a00140.html#a92c18e4f1175149a0629084f56633fe0", null ],
-      [ "reset", "d5/db1/a00140.html#a7dac0d66d07b97c5b89947a00ae73464", null ],
-      [ "send", "d5/db1/a00140.html#a12072c8a458156c078eef3381f3e68b8", null ],
-      [ "sendToBackFromISR", "d5/db1/a00140.html#ac2effb97aca4442a6a48c1c29e1f614d", null ],
-      [ "sendToFrontFromISR", "d5/db1/a00140.html#a148d7aefd27a967ce90ea804ce26f07a", null ],
-      [ "spacesAvailable", "d5/db1/a00140.html#adeb3149cccb765ada38a1d2ef55a1575", null ]
+    [ "Lib::FreeRTOS::QueueSet", "d7/dce/a00143.html", [
+      [ "Handle", "d7/dce/a00143.html#a25c4dd56e8d8062de85afb6484bda6ac", null ],
+      [ "Member", "d7/dce/a00143.html#ade8aa1efc6485f2bce0dd30c5de327a1", null ],
+      [ "QueueSet", "d7/dce/a00143.html#a1e6d075a49de4167193aef3d04bb5da0", null ],
+      [ "~QueueSet", "d7/dce/a00143.html#ad8c95c6a9e35e8e25a1e498546941c3b", null ],
+      [ "create", "d7/dce/a00143.html#a5117e14cccf6619acb4541208ab3516d", null ],
+      [ "remove", "d7/dce/a00143.html#a6c833a9d231e9d0441d6d8408c96759b", null ],
+      [ "select", "d7/dce/a00143.html#ab3fe7745489b98bdd687815cb8e5ffd3", null ],
+      [ "selectFromISR", "d7/dce/a00143.html#a9bef0c0685cfe5a2abddea96db0d1f34", null ]
     ] ]
 ];
