@@ -1,5 +1,6 @@
 var a00139 =
 [
+    [ "Handle", "de/d14/a00139.html#a3a9a66b61c5188474be1fa00a19ecb49", null ],
     [ "Queue", "de/d14/a00139.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
     [ "~Queue", "de/d14/a00139.html#ad2151344786c05df7051532ac93d1228", null ],
     [ "addToRegistry", "de/d14/a00139.html#af936f907fa857ee852f9952904eb1f28", null ],

@@ -10,7 +10,7 @@ var topics =
     [ "Stream Buffer", "d3/d32/a00105.html", null ],
     [ "Message Buffer", "d7/d70/a00106.html", null ],
     [ "Semaphores", "df/d98/a00107.html", "df/d98/a00107" ],
-    [ "Queue", "dd/d6d/a00111.html", "dd/d6d/a00111" ],
-    [ "Queue Set", "db/d57/a00112.html", "db/d57/a00112" ],
+    [ "Queue", "dd/d6d/a00111.html", null ],
+    [ "Queue Set", "db/d57/a00112.html", null ],
     [ "Memory Manager", "d3/d00/a00113.html", null ]
 ];

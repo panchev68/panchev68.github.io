@@ -1,16 +1,13 @@
 var a00151 =
 [
-    [ "Handle", "dd/db2/a00151.html#ac31e3b88075f241424a80adbb7b0641d", null ],
-    [ "~SemaphoreBase", "dd/db2/a00151.html#a253934193ee0de5b0fce552c75256ee3", null ],
-    [ "create", "dd/db2/a00151.html#a7984ce7686710bacb1b2e7239e79151e", null ],
-    [ "give", "dd/db2/a00151.html#a494f63a7a96566f17e1ac85cfb5b55a4", null ],
-    [ "giveFromISR", "dd/db2/a00151.html#ad44726c956c5a3a3316a3a4fa0f0f952", null ],
-    [ "isCreated", "dd/db2/a00151.html#a58e8cc9baf2e1387aa62194834bcdee3", null ],
-    [ "operator Handle &", "dd/db2/a00151.html#a3180f95a05d722aee73dda27ae4020b5", null ],
-    [ "overwrite", "dd/db2/a00151.html#adcee056645a87bc1f08c23e6ff0923a3", null ],
-    [ "overwriteFromISR", "dd/db2/a00151.html#a5765bdc831d4c447f76cd2362ab52e24", null ],
-    [ "release", "dd/db2/a00151.html#a8a54584609b12a9c0dafac152ac50617", null ],
-    [ "take", "dd/db2/a00151.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06", null ],
-    [ "takeFromISR", "dd/db2/a00151.html#ac0253cf90b5a647286873e2febb2da24", null ],
-    [ "handle", "dd/db2/a00151.html#aeba9aef9fbf175aa1ecbb778553874ea", null ]
+    [ "SemaphoreCounting", "dd/db2/a00151.html#a57f5373ab498f7d43909cf1c15197cfd", null ],
+    [ "~SemaphoreCounting", "dd/db2/a00151.html#a8a23fc3a063478d6f682bffba2ef78e3", null ],
+    [ "create", "dd/db2/a00151.html#ad41efc69f8508537f2ed3232d913c2f0", null ],
+    [ "getCount", "dd/db2/a00151.html#aad5edccfa2773aaa3aecf77bcea1a8c9", null ],
+    [ "give", "dd/db2/a00151.html#a6bfe5fea68fa0b84e0914a8a445152e7", null ],
+    [ "giveFromISR", "dd/db2/a00151.html#a3f8e436a15eac45c2242938b31d730f7", null ],
+    [ "isCreated", "dd/db2/a00151.html#a19fd76a71af534b9735eb44f6b6b63e3", null ],
+    [ "release", "dd/db2/a00151.html#a832b62ec703a78807cad724e9fc959a1", null ],
+    [ "take", "dd/db2/a00151.html#a3b42128f16832e00da0b3013af344d46", null ],
+    [ "takeFromISR", "dd/db2/a00151.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf", null ]
 ];
