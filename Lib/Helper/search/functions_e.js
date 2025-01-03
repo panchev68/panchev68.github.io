@@ -1,18 +1,15 @@
 var searchData=
 [
-  ['send_0',['send',['../d7/df7/a01074.html#a98a0510d2bb555d552b8578e8cb11892',1,'Lib::Helper::Value']]],
-  ['sendfromisr_1',['sendFromISR',['../d7/df7/a01074.html#a374ace77a230f3a04335a408834f5ead',1,'Lib::Helper::Value']]],
-  ['set_2',['set',['../df/d12/a00942.html#a69db0c676b30ecba12ebf3622f4bdcd1',1,'Lib::Helper::BufferHandle']]],
-  ['setcurrentdate_3',['setCurrentDate',['../d0/dfb/a01066.html#a8203fb9b1573625770282a528ae52b66',1,'Lib::Helper::Sunset']]],
-  ['setdate_4',['setDate',['../d0/d56/a01014.html#acf66a1307fb6f6631a2598341719bfa3',1,'Lib::Helper::DateTime::Date']]],
-  ['setexsist_5',['setExsist',['../d0/df0/a00934.html#a93421e56c7e66407b6b6567a02c55355',1,'Lib::Helper::Buffer']]],
-  ['setposition_6',['setPosition',['../d0/dfb/a01066.html#a7d5233089e5d41d0ddeac9a476dce574',1,'Lib::Helper::Sunset']]],
-  ['setsize_7',['setSize',['../d0/df0/a00934.html#a44d28f117f561e52889860c89eb76c4e',1,'Lib::Helper::Buffer']]],
-  ['settime_8',['setTime',['../d0/d2b/a01010.html#ae85e32d686210a884d7dee20a7e12ed8',1,'Lib::Helper::DateTime::Time']]],
-  ['settzoffset_9',['setTZOffset',['../d0/dfb/a01066.html#abef78e5fa05898ee0d0f91762e392c1d',1,'Lib::Helper::Sunset']]],
-  ['size_10',['size',['../df/d12/a00942.html#a3db17f39fbd16b66183a9d2e7f7914f8',1,'Lib::Helper::BufferHandle::size()'],['../d4/dd0/a00994.html#a1ab62273b2aafabb60c8364361f48522',1,'Lib::Helper::crc16::size()'],['../d9/d9a/a00998.html#aa0b7350e971dc7a4cb9d6036d464ce96',1,'Lib::Helper::DataHandle::size()'],['../da/d17/a01046.html#a630d53b950624b5cbde88e1bb114aa6d',1,'Lib::Helper::Base::size()']]],
-  ['start_11',['start',['../de/d02/a01026.html#aad9bed439216968ff66ba842c4942c5b',1,'Lib::Helper::FindPeaks::start()'],['../d5/d67/a01070.html#a829179faac040d4ed988fbf92db3f77e',1,'Lib::Helper::TimePeriod::start()']]],
-  ['stop_12',['stop',['../d5/d67/a01070.html#a9ba1de096eb47802cb059a48771e6fd2',1,'Lib::Helper::TimePeriod']]],
-  ['strtod_13',['strtod',['../dd/d6d/a00111.html#a1d78476214d74ba1865c798355c03db4',1,'std']]],
-  ['sunset_14',['Sunset',['../d0/dfb/a01066.html#a5811be9c987eb6595b2c67d6e3ddcd76',1,'Lib::Helper::Sunset::Sunset()'],['../d0/dfb/a01066.html#a745b916d691647db04a1a8946dbe7dda',1,'Lib::Helper::Sunset::Sunset(double lat, double lon, double tz)']]]
+  ['time_0',['Time',['../d7/df2/a01000.html#a35813903334b1837e7b8bd8c435d321b',1,'Lib::Helper::DateTime::Time::Time()'],['../d7/df2/a01000.html#a56696c65240a54c4fbead2e9191062a8',1,'Lib::Helper::DateTime::Time::Time(const Time &amp;time)'],['../d7/df2/a01000.html#a47248275ecc37474c1e5e742f34b0b63',1,'Lib::Helper::DateTime::Time::Time(uint8_t hours, uint8_t minutes, uint8_t seconds)']]],
+  ['timeperiod_1',['TimePeriod',['../dc/d19/a01056.html#a5176a34df2aac4af5da2b100dad657b4',1,'Lib::Helper::TimePeriod']]],
+  ['toasc_2',['toAsc',['../d3/de5/a00956.html#a75d675feecd0a57931b7b529d22e4745',1,'Lib::Helper::Convert::Bcd']]],
+  ['toascii_3',['toAscii',['../db/d20/a00980.html#a2a3766630b2cc78f56956706c1be5c44',1,'Lib::Helper::Convert::HexHelper']]],
+  ['tobcd_4',['toBcd',['../db/d20/a00980.html#a70b32df1acb57334582d40b97ef90a44',1,'Lib::Helper::Convert::HexHelper']]],
+  ['tobcd8_5',['toBcd8',['../db/d20/a00980.html#af39b53c46934060071e2e82d5fdc7999',1,'Lib::Helper::Convert::HexHelper']]],
+  ['todbm_6',['toDBm',['../d2/d4c/a00984.html#aa53c3748cec1775a917594f5873185d6',1,'Lib::Helper::Convert::Percent']]],
+  ['todigipercent_7',['toDigiPercent',['../dd/d11/a00960.html#af873a2a6c069b9692394fd0aacd3ec68',1,'Lib::Helper::Convert::dBM']]],
+  ['tohex_8',['toHex',['../de/d49/a00952.html#aa039d4b0cecb86fd231a7c50d7743dac',1,'Lib::Helper::Convert::Ascii::toHex()'],['../d3/de5/a00956.html#aa198934ee59a8099cfde7e6b7e6f9ce0',1,'Lib::Helper::Convert::Bcd::toHex()']]],
+  ['topercent_9',['toPercent',['../dd/d11/a00960.html#a1d586b6a6829d1a5b13d35f3baba39a8',1,'Lib::Helper::Convert::dBM']]],
+  ['tostring_10',['toString',['../d7/df2/a01000.html#a6c4399b5920aea3d08f25098d48148d1',1,'Lib::Helper::DateTime::Time::toString() const'],['../d7/df2/a01000.html#ad9b0d6aa235eb9b0ace5f78d12610049',1,'Lib::Helper::DateTime::Time::toString(const Time &amp;time)'],['../df/dbc/a01004.html#abf683e82adbcbc01ef62f6b68493a86e',1,'Lib::Helper::DateTime::Date::toString() const'],['../df/dbc/a01004.html#a69557ed54fd62c669571e75c4c3df522',1,'Lib::Helper::DateTime::Date::toString(const Date &amp;date)'],['../d7/d76/a00992.html#aaacec3f9331420c369568da129cafce1',1,'Lib::Helper::DateTime::toString()']]],
+  ['totime_11',['toTime',['../d9/dce/a01052.html#ada4792428ee83c4f3d030008e5975564',1,'Lib::Helper::Sunset']]]
 ];

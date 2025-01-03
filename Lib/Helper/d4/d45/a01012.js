@@ -1,9 +1,9 @@
 var a01012 =
 [
-    [ "DataHandle", "d4/d45/a01012.html#a4221c3cb4b6e670816b6c828a74bb8e8", null ],
-    [ "DataHandle", "d4/d45/a01012.html#a2a881290f6a88f30e1cd4071bc571228", null ],
-    [ "DataHandle", "d4/d45/a01012.html#a41a8a9542d7e4e274a606e489a65b100", null ],
-    [ "data", "d4/d45/a01012.html#a865be8b8070d2f5b6da5aaad588626b9", null ],
-    [ "operator()", "d4/d45/a01012.html#a21e55860e6e53154e079350d0c898197", null ],
-    [ "size", "d4/d45/a01012.html#aa0b7350e971dc7a4cb9d6036d464ce96", null ]
+    [ "FindPeaks", "d4/d45/a01012.html#a1a73c4d7467f653ce20ccb9e38d4b9e0", null ],
+    [ "~FindPeaks", "d4/d45/a01012.html#a611adbbde26b2cab9564821ec60d8c96", null ],
+    [ "enterData", "d4/d45/a01012.html#af9091b50b0b9151d28989045a5bc3e22", null ],
+    [ "getFallingEdgePosition", "d4/d45/a01012.html#ac8aeb21a3e4030c257d001fa6beaac7d", null ],
+    [ "getRisingEdgePosition", "d4/d45/a01012.html#a9aa3aaadcf97f5ba4adc4ce579753f42", null ],
+    [ "start", "d4/d45/a01012.html#aad9bed439216968ff66ba842c4942c5b", null ]
 ];

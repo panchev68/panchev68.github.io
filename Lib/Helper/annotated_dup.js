@@ -1,41 +1,45 @@
 var annotated_dup =
 [
     [ "Lib", null, [
-      [ "Helper", null, [
-        [ "Convert", null, [
-          [ "Ascii", "df/d9c/a00958.html", null ],
-          [ "Bcd", "df/d88/a00962.html", null ],
-          [ "dBM", "d2/d6e/a00966.html", null ],
-          [ "Hex", "d0/daf/a00970.html", null ],
-          [ "Hex< uint16_t >", "d2/ddd/a00978.html", "d2/ddd/a00978" ],
-          [ "Hex< uint64_t >", "d1/d7a/a00982.html", "d1/d7a/a00982" ],
-          [ "Hex< uint8_t >", "df/dce/a00974.html", "df/dce/a00974" ],
-          [ "HexHelper", "d3/d7b/a00986.html", null ],
-          [ "Percent", "dd/d7a/a00990.html", null ]
+      [ "Helper", "df/d98/a00107.html", [
+        [ "Convert", "d1/dd6/a00108.html", [
+          [ "Ascii", "de/d49/a00952.html", null ],
+          [ "Bcd", "d3/de5/a00956.html", null ],
+          [ "dBM", "dd/d11/a00960.html", null ],
+          [ "Hex", "da/d17/a00964.html", null ],
+          [ "Hex< uint16_t >", "da/d17/a00964.html", "da/d17/a00964" ],
+          [ "Hex< uint64_t >", "da/d17/a00964.html", "da/d17/a00964" ],
+          [ "Hex< uint8_t >", "da/d17/a00964.html", "da/d17/a00964" ],
+          [ "HexHelper", "db/d20/a00980.html", null ],
+          [ "Percent", "d2/d4c/a00984.html", null ]
         ] ],
-        [ "Base", "da/d17/a01046.html", "da/d17/a01046" ],
-        [ "Buffer", "d0/df0/a00934.html", "d0/df0/a00934" ],
-        [ "BufferHandle", "df/d12/a00942.html", "df/d12/a00942" ],
-        [ "BufferStatic", "d5/d54/a00938.html", "d5/d54/a00938" ],
-        [ "CityHash", "da/d40/a00946.html", "da/d40/a00946" ],
-        [ "Container", "df/d39/a00950.html", "df/d39/a00950" ],
-        [ "ContainerBase", "d3/dca/a00954.html", "d3/dca/a00954" ],
-        [ "crc16", "d4/dd0/a00994.html", "d4/dd0/a00994" ],
-        [ "DataHandle", "d9/d9a/a00998.html", "d9/d9a/a00998" ],
-        [ "DateTime", "d2/dd5/a01002.html", "d2/dd5/a01002" ],
-        [ "Delay_us", "d3/d08/a01018.html", "d3/d08/a01018" ],
-        [ "Event", "d1/dd8/a01022.html", "d1/dd8/a01022" ],
-        [ "FindPeaks", "de/d02/a01026.html", "de/d02/a01026" ],
-        [ "Instance", "de/d91/a01034.html", "de/d91/a01034" ],
-        [ "InstanceWithArg", "d4/dbc/a01038.html", null ],
-        [ "Integrator", "d4/d56/a01042.html", "d4/d56/a01042" ],
-        [ "MoonPhase", "d9/d8e/a01050.html", "d9/d8e/a01050" ],
-        [ "RingBuffer", "dd/d57/a01054.html", "dd/d57/a01054" ],
-        [ "Singletone", "d5/d4c/a01058.html", null ],
-        [ "StringHelper", "d4/d8a/a01062.html", null ],
-        [ "Sunset", "d0/dfb/a01066.html", "d0/dfb/a01066" ],
-        [ "TimePeriod", "d5/d67/a01070.html", "d5/d67/a01070" ],
-        [ "Value", "d7/df7/a01074.html", "d7/df7/a01074" ]
+        [ "Base", "df/d89/a01032.html", "df/d89/a01032" ],
+        [ "Buffer", "dd/d38/a00928.html", "dd/d38/a00928" ],
+        [ "BufferHandle", "dc/d2b/a00936.html", "dc/d2b/a00936" ],
+        [ "BufferStatic", "d8/dbb/a00932.html", "d8/dbb/a00932" ],
+        [ "CityHash", "d7/db6/a00940.html", "d7/db6/a00940" ],
+        [ "Container", "d9/dce/a00944.html", "d9/dce/a00944" ],
+        [ "ContainerBase", "d8/d18/a00948.html", "d8/d18/a00948" ],
+        [ "DataHandle", "d6/d48/a00988.html", "d6/d48/a00988" ],
+        [ "DateTime", "d7/d76/a00992.html", "d7/d76/a00992" ],
+        [ "Delay_us", "dd/dac/a01008.html", "dd/dac/a01008" ],
+        [ "FindPeaks", "d4/d45/a01012.html", "d4/d45/a01012" ],
+        [ "Instance", "d0/d43/a01020.html", "d0/d43/a01020" ],
+        [ "InstanceWithArg", "d4/dc5/a01024.html", "d4/dc5/a01024" ],
+        [ "Integrator", "db/d08/a01028.html", "db/d08/a01028" ],
+        [ "MoonPhase", "d8/d79/a01036.html", "d8/d79/a01036" ],
+        [ "RingBuffer", "db/d14/a01040.html", "db/d14/a01040" ],
+        [ "Singletone", "d0/ddd/a01044.html", null ],
+        [ "StringHelper", "d5/de7/a01048.html", null ],
+        [ "Sunset", "d9/dce/a01052.html", "d9/dce/a01052" ],
+        [ "TimePeriod", "dc/d19/a01056.html", "dc/d19/a01056" ]
       ] ]
-    ] ]
+    ] ],
+    [ "Buffer", "d1/de7/a01434.html", "d1/de7/a01434" ],
+    [ "BufferHandle", "d0/de2/a01442.html", "d0/de2/a01442" ],
+    [ "BufferStatic", "d5/dd0/a01438.html", "d5/dd0/a01438" ],
+    [ "crc16", "d5/d16/a01060.html", null ],
+    [ "DataHandle", "d8/d22/a01446.html", "d8/d22/a01446" ],
+    [ "Singletone", "d3/da3/a01450.html", null ],
+    [ "Sunset", "d9/db3/a01064.html", null ]
 ];

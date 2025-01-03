@@ -1,9 +1,9 @@
 var a01040 =
 [
-    [ "FindPeaks", "db/d14/a01040.html#a1a73c4d7467f653ce20ccb9e38d4b9e0", null ],
-    [ "~FindPeaks", "db/d14/a01040.html#a611adbbde26b2cab9564821ec60d8c96", null ],
-    [ "enterData", "db/d14/a01040.html#af9091b50b0b9151d28989045a5bc3e22", null ],
-    [ "getFallingEdgePosition", "db/d14/a01040.html#ac8aeb21a3e4030c257d001fa6beaac7d", null ],
-    [ "getRisingEdgePosition", "db/d14/a01040.html#a9aa3aaadcf97f5ba4adc4ce579753f42", null ],
-    [ "start", "db/d14/a01040.html#aad9bed439216968ff66ba842c4942c5b", null ]
+    [ "RingBuffer", "db/d14/a01040.html#a414b1b47340a34b3357ae52cf71edc97", null ],
+    [ "~RingBuffer", "db/d14/a01040.html#ae801f9952b8712f75a79d6e81011f01e", null ],
+    [ "available", "db/d14/a01040.html#a3cf3933002a2f553de36bd1e3f8225c1", null ],
+    [ "claer", "db/d14/a01040.html#ab5ec9c228b1a0c0200a01dd6682fe8b9", null ],
+    [ "pop", "db/d14/a01040.html#a2a3ef332e80c9dbf680acd07903fa606", null ],
+    [ "push", "db/d14/a01040.html#a18d7b40f1b75a01cf0c4c14b8ad51d7d", null ]
 ];

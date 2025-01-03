@@ -1,25 +1,8 @@
 var searchData=
 [
-  ['seconds_0',['This example shows how to implement a time delay of nano Seconds or micro Seconds',['../X:/Lib/FW/IAR/EWARM/Helper/inc/Delay.hpp#autotoc_md5',1,'']]],
-  ['seconds_1',['seconds',['../d0/d2b/a01010.html#acffd8038132dc5a2078816b9d0dae829',1,'Lib::Helper::DateTime::Time']]],
-  ['seconds_20or_20micro_20seconds_2',['This example shows how to implement a time delay of nano Seconds or micro Seconds',['../X:/Lib/FW/IAR/EWARM/Helper/inc/Delay.hpp#autotoc_md5',1,'']]],
-  ['send_3',['send',['../d7/df7/a01074.html#a98a0510d2bb555d552b8578e8cb11892',1,'Lib::Helper::Value']]],
-  ['sendfromisr_4',['sendFromISR',['../d7/df7/a01074.html#a374ace77a230f3a04335a408834f5ead',1,'Lib::Helper::Value']]],
-  ['set_5',['set',['../df/d12/a00942.html#a69db0c676b30ecba12ebf3622f4bdcd1',1,'Lib::Helper::BufferHandle']]],
-  ['setcurrentdate_6',['setCurrentDate',['../d0/dfb/a01066.html#a8203fb9b1573625770282a528ae52b66',1,'Lib::Helper::Sunset']]],
-  ['setdate_7',['setDate',['../d0/d56/a01014.html#acf66a1307fb6f6631a2598341719bfa3',1,'Lib::Helper::DateTime::Date']]],
-  ['setexsist_8',['setExsist',['../d0/df0/a00934.html#a93421e56c7e66407b6b6567a02c55355',1,'Lib::Helper::Buffer']]],
-  ['setposition_9',['setPosition',['../d0/dfb/a01066.html#a7d5233089e5d41d0ddeac9a476dce574',1,'Lib::Helper::Sunset']]],
-  ['setsize_10',['setSize',['../d0/df0/a00934.html#a44d28f117f561e52889860c89eb76c4e',1,'Lib::Helper::Buffer']]],
-  ['settime_11',['setTime',['../d0/d2b/a01010.html#ae85e32d686210a884d7dee20a7e12ed8',1,'Lib::Helper::DateTime::Time']]],
-  ['settzoffset_12',['setTZOffset',['../d0/dfb/a01066.html#abef78e5fa05898ee0d0f91762e392c1d',1,'Lib::Helper::Sunset']]],
-  ['shows_20how_20to_20implement_20a_20time_20delay_20of_20nano_20seconds_20or_20micro_20seconds_13',['This example shows how to implement a time delay of nano Seconds or micro Seconds',['../X:/Lib/FW/IAR/EWARM/Helper/inc/Delay.hpp#autotoc_md5',1,'']]],
-  ['singletone_14',['Singletone',['../d5/d4c/a01058.html',1,'Lib::Helper']]],
-  ['size_15',['size',['../d0/df0/a00934.html#af52ba2918109cf541cb5ebe41de80240',1,'Lib::Helper::Buffer::size'],['../df/d12/a00942.html#a3db17f39fbd16b66183a9d2e7f7914f8',1,'Lib::Helper::BufferHandle::size()'],['../d4/dd0/a00994.html#a1ab62273b2aafabb60c8364361f48522',1,'Lib::Helper::crc16::size()'],['../d9/d9a/a00998.html#aa0b7350e971dc7a4cb9d6036d464ce96',1,'Lib::Helper::DataHandle::size()'],['../da/d17/a01046.html#a630d53b950624b5cbde88e1bb114aa6d',1,'Lib::Helper::Base::size()']]],
-  ['start_16',['start',['../de/d02/a01026.html#aad9bed439216968ff66ba842c4942c5b',1,'Lib::Helper::FindPeaks::start()'],['../d5/d67/a01070.html#a829179faac040d4ed988fbf92db3f77e',1,'Lib::Helper::TimePeriod::start()']]],
-  ['std_17',['std',['../dd/d6d/a00111.html',1,'']]],
-  ['stop_18',['stop',['../d5/d67/a01070.html#a9ba1de096eb47802cb059a48771e6fd2',1,'Lib::Helper::TimePeriod']]],
-  ['stringhelper_19',['StringHelper',['../d4/d8a/a01062.html',1,'Lib::Helper']]],
-  ['strtod_20',['strtod',['../dd/d6d/a00111.html#a1d78476214d74ba1865c798355c03db4',1,'std']]],
-  ['sunset_21',['Sunset',['../d0/dfb/a01066.html',1,'Lib::Helper::Sunset'],['../d0/dfb/a01066.html#a5811be9c987eb6595b2c67d6e3ddcd76',1,'Lib::Helper::Sunset::Sunset()'],['../d0/dfb/a01066.html#a745b916d691647db04a1a8946dbe7dda',1,'Lib::Helper::Sunset::Sunset(double lat, double lon, double tz)']]]
+  ['remove_0',['remove',['../d9/dce/a00944.html#a2de083e968c5fdeadb85885ed4fa54b6',1,'Lib::Helper::Container::remove()'],['../d8/d18/a00948.html#abc751e24d3ef3b668dd0766ffe0f3013',1,'Lib::Helper::ContainerBase::remove()'],['../df/d89/a01032.html#ad8a377939df18fc83a1f26ff7f9b8951',1,'Lib::Helper::Base::remove()']]],
+  ['reset_1',['reset',['../db/d08/a01028.html#a26e9b49e7e0a9eb5d5fbb30375e260fe',1,'Lib::Helper::Integrator']]],
+  ['result_2',['result',['../db/d08/a01028.html#a3d9848a8fcf869f0abf9c17337385d31',1,'Lib::Helper::Integrator']]],
+  ['ringbuffer_3',['RingBuffer',['../db/d14/a01040.html',1,'Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;'],['../db/d14/a01040.html#a414b1b47340a34b3357ae52cf71edc97',1,'Lib::Helper::RingBuffer::RingBuffer()']]],
+  ['row_4',['Row',['../df/d98/a00107.html#ab2dc50d91bebd9157a6e0a8a96c5f2a8',1,'Lib::Helper']]]
 ];

@@ -1,19 +1,10 @@
 var a00948 =
 [
-    [ "Buffer", "d8/d18/a00948.html#af9ab2e45b1d521e81c19589542b4b0b0", null ],
-    [ "Buffer", "d8/d18/a00948.html#a00c94185413b2ffa03f01c6eeffd74c8", null ],
-    [ "Buffer", "d8/d18/a00948.html#afc235cba5b43abb8c59632bc12a6c824", null ],
-    [ "Buffer", "d8/d18/a00948.html#a673cbd44b87cf900982433619fd7680f", null ],
-    [ "Buffer", "d8/d18/a00948.html#a4152df5fad433c572bef169ee46cb991", null ],
-    [ "~Buffer", "d8/d18/a00948.html#a8272763e62ebf2533d9504ad3c2e4ccc", null ],
-    [ "clear", "d8/d18/a00948.html#a1bb2eec77281d4dca8975cff25654415", null ],
-    [ "getSize", "d8/d18/a00948.html#acc24103eef1ab4a7b639bff60303891a", null ],
-    [ "operator const uint8_t *", "d8/d18/a00948.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
-    [ "operator uint8_t *", "d8/d18/a00948.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
-    [ "operator[]", "d8/d18/a00948.html#a2fb0edb4c9d528ffcd068cb93c9a85ca", null ],
-    [ "setExsist", "d8/d18/a00948.html#a93421e56c7e66407b6b6567a02c55355", null ],
-    [ "setSize", "d8/d18/a00948.html#a44d28f117f561e52889860c89eb76c4e", null ],
-    [ "data", "d8/d18/a00948.html#a670a5c2899e1057421e3e3f1a4792ec4", null ],
-    [ "isLocally", "d8/d18/a00948.html#ac59f61ffa7b8864765c3c132d4935a92", null ],
-    [ "size", "d8/d18/a00948.html#af52ba2918109cf541cb5ebe41de80240", null ]
+    [ "ContainerBase", "d8/d18/a00948.html#a9d5709d7db2809547d9c37e6de9bae90", null ],
+    [ "~ContainerBase", "d8/d18/a00948.html#a8d59f44119df2a736949bee0ce8d4ea7", null ],
+    [ "add", "d8/d18/a00948.html#a42f8ab2b699928ef4838031ed2ce34ad", null ],
+    [ "clear", "d8/d18/a00948.html#a34268207efb37f8d8e18703fb7063f3d", null ],
+    [ "each", "d8/d18/a00948.html#af1125453bdd2b31198fd52efc5ede82b", null ],
+    [ "operator[]", "d8/d18/a00948.html#a4797e9342e0a4e3f054fa52e23837b40", null ],
+    [ "remove", "d8/d18/a00948.html#abc751e24d3ef3b668dd0766ffe0f3013", null ]
 ];
