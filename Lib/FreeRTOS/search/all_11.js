@@ -15,7 +15,7 @@ var searchData=
   ['setpriority_12',['setPriority',['../de/db9/a00159.html#a4c5561255a112e0ef5c1a9348d854e56',1,'Lib::FreeRTOS::Task::setPriority()'],['../dc/de6/a00167.html#a9fac57894f361f7da3bfe26b87b88436',1,'Lib::FreeRTOS::TaskHelper::setPriority()']]],
   ['settriggerlevel_13',['setTriggerLevel',['../d3/df8/a00155.html#a3d2741e023f31a9d2c9294ce0b6842c8',1,'Lib::FreeRTOS::StreamBuffer']]],
   ['spacesavailable_14',['spacesAvailable',['../de/d14/a00139.html#adeb3149cccb765ada38a1d2ef55a1575',1,'Lib::FreeRTOS::Queue']]],
-  ['stackdept_15',['stackDept',['../dd/dae/a00163.html#a7f900c090524019231e8814381c6f352',1,'Lib::FreeRTOS::Task::Config']]],
+  ['stackdepth_15',['stackDepth',['../dd/dae/a00163.html#a14104e3c00b859ce6e2268a8bbceac73',1,'Lib::FreeRTOS::Task::Config']]],
   ['startscheduler_16',['startScheduler',['../de/d36/a00123.html#a08a2d0960f1b4ce8e39eb68cfc07bfbd',1,'Lib::FreeRTOS::Karnel']]],
   ['stream_20buffer_17',['Stream Buffer',['../d3/d32/a00105.html',1,'']]],
   ['streambuffer_18',['StreamBuffer',['../d3/df8/a00155.html',1,'Lib::FreeRTOS::StreamBuffer'],['../d3/df8/a00155.html#a986de1d1df5239f3282b4d0b4f24a51b',1,'Lib::FreeRTOS::StreamBuffer::StreamBuffer()']]],

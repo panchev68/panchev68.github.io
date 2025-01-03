@@ -9,7 +9,7 @@ var searchData=
   ['getfromisr_6',['getFromISR',['../d1/d0d/a00171.html#a78ad0c298cc7c89a8abd56f2a349f8b0',1,'Lib::FreeRTOS::TickCounter']]],
   ['gethandle_7',['getHandle',['../de/d14/a00139.html#a2c41ab96f85c46fcbfada25e38ae9195',1,'Lib::FreeRTOS::Queue::getHandle()'],['../de/db9/a00159.html#a3b137a55d761b1f78152e28b52130983',1,'Lib::FreeRTOS::Task::getHandle()']]],
   ['getname_8',['getName',['../dc/de6/a00167.html#a40d27753dfd4973b85c9312d07ccd7df',1,'Lib::FreeRTOS::TaskHelper']]],
-  ['getnumberoftasks_9',['getNumberOfTasks',['../de/d36/a00123.html#a8052b055d5b7bb1ff0155a9e1298a7f5',1,'Lib::FreeRTOS::Karnel']]],
+  ['getnumberoftasks_9',['getNumberOfTasks',['../de/d36/a00123.html#a39b5fde4c9ecfb124940496473c9e43a',1,'Lib::FreeRTOS::Karnel']]],
   ['getpriority_10',['getPriority',['../de/db9/a00159.html#a8d6da28c3da519c4a394f0f1c838b039',1,'Lib::FreeRTOS::Task::getPriority()'],['../dc/de6/a00167.html#a0f550ec26d24f109b1eae5f2d29485cf',1,'Lib::FreeRTOS::TaskHelper::getPriority()']]],
   ['getspacesavailable_11',['getSpacesAvailable',['../d7/d06/a00131.html#a34b67bca936765725907e6d33d232ab1',1,'Lib::FreeRTOS::MessageBuffer::getSpacesAvailable()'],['../d3/df8/a00155.html#aa274f35053d848a7a045a75a39d13742',1,'Lib::FreeRTOS::StreamBuffer::getSpacesAvailable()']]],
   ['gettickcount_12',['getTickCount',['../de/d36/a00123.html#a80413fef80c962f92b4d4a58942e431f',1,'Lib::FreeRTOS::Karnel::getTickCount()'],['../dc/de6/a00167.html#ab2d630cf0ca401f32d2707cbd4da930b',1,'Lib::FreeRTOS::TaskHelper::getTickCount()']]],

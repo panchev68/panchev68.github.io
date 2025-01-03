@@ -9,5 +9,5 @@ var searchData=
   ['resumeall_6',['resumeAll',['../de/d36/a00123.html#aa4cfef6c6191294b9534d6d0eabb824d',1,'Lib::FreeRTOS::Karnel']]],
   ['resumefromisr_7',['resumeFromISR',['../de/db9/a00159.html#a840754926b0436a2efbcea0691ce737d',1,'Lib::FreeRTOS::Task::resumeFromISR()'],['../dc/de6/a00167.html#af73361ef0675599ae92c1dde3d485e7a',1,'Lib::FreeRTOS::TaskHelper::resumeFromISR(Handle handle)']]],
   ['resumescheduler_8',['resumeScheduler',['../dc/de6/a00167.html#a2494e6838dcc68006ad472bd911f99d4',1,'Lib::FreeRTOS::TaskHelper']]],
-  ['run_9',['run',['../de/db9/a00159.html#a964fca4f43292dbe1428865e7dd69665',1,'Lib::FreeRTOS::Task::run(const std::string &amp;name, const std::function&lt; void()&gt; &amp;func, size_t stackDept=configMINIMAL_STACK_SIZE, int32_t priority=DEFAULT_TASK_PRIORITY)'],['../de/db9/a00159.html#aa33e66eef3d3ab93e361adaec09b1274',1,'Lib::FreeRTOS::Task::run(const Config &amp;conf)']]]
+  ['run_9',['run',['../de/db9/a00159.html#a83c88479944e945ad67f45a6e5d07c4c',1,'Lib::FreeRTOS::Task::run(const std::string &amp;name, const std::function&lt; void()&gt; &amp;func, size_t stackDepth=configMINIMAL_STACK_SIZE, int32_t priority=DEFAULT_TASK_PRIORITY)'],['../de/db9/a00159.html#aa33e66eef3d3ab93e361adaec09b1274',1,'Lib::FreeRTOS::Task::run(const Config &amp;conf)']]]
 ];
