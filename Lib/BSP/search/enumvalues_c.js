@@ -6,7 +6,7 @@ var searchData=
   ['slpin_3',['SLPIN',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515bae74e3fadf80e85e7ab04d335e02410c4',1,'Lib::BSP::Display']]],
   ['slpout_4',['SLPOUT',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba71527fa5f199a376bd3e2d3775aaab0c',1,'Lib::BSP::Display']]],
   ['spi2en_5',['SPI2EN',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba2a3aad958b55e3585c329703d03a768a',1,'Lib::BSP::Display']]],
-  ['st7789_6',['ST7789',['../d9/dd0/a00191.html#ggabce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199',1,'Lib::BSP::Display']]],
+  ['st7789_6',['ST7789',['../db/d53/a00202.html#abce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199',1,'Lib::BSP::Display']]],
   ['ste_7',['STE',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515bae527e6a1e4c0f58008a5972f58006fc8',1,'Lib::BSP::Display']]],
   ['swreset_8',['SWRESET',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba710cf29764a32e64d2d70db3e4850044',1,'Lib::BSP::Display']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::BSP: Example DTH22-Temperature/Humidity Sensor</title>
+<title>Lib::BSP: Voltmeter</title>
 <link rel="icon" href="../../BSP.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,13 +99,112 @@ $(function(){initNavTree('d8/d6e/a00537.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Example DTH22-Temperature/Humidity Sensor</div></div>
+  <div class="headertitle"><div class="title">Voltmeter</div></div>
 </div><!--header-->
 <div class="contents">
-<p>under Construction  </p>
-<p>under Construction  </p>
-<div class="fragment"></div><!-- fragment --><p> DTH22-Temperature/Humidity Sensor </p>
-</div><!-- contents -->
+<p>This example demonstrates how to use the Voltmeter Base class to create a voltmeter device. The voltmeter reads voltage values from an ADC and converts them to a voltage value using an interpolator. The voltage value is then processed by an integrator to smooth out the readings. The example shows how to set up the voltmeter device and handle changes in the voltage value.   </p><h4><code>Voltmeter.hpp</code></h4>
+<div class="fragment"><div class="line"></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma once</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;Project/System/System.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;adc.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;BSP/Voltmeter/Base.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>BSP</div>
+<div class="line">{</div>
+<div class="line"></div>
+<div class="line">    <span class="keyword">class </span>Voltmeter final : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/def/a00521.html">Lib::BSP::Voltmeter::Base</a></div>
+<div class="line">    {</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line"></div>
+<div class="line">        Voltmeter ();</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordtype">bool</span> init () <span class="keyword">override</span>;</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordtype">float</span> getVoltage () <span class="keyword">const override</span>;</div>
+<div class="line"></div>
+<div class="line">        <span class="keywordtype">float</span> read ();</div>
+<div class="line"></div>
+<div class="line">        std::function&lt;void (<span class="keyword">const</span> <span class="keywordtype">float</span> &amp;)&gt; onValueChanged;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordtype">void</span> emitValueChanged (<span class="keywordtype">float</span> value) <span class="keyword">override</span>;</div>
+<div class="line">        <span class="keywordtype">bool</span> _isReady = <span class="keyword">false</span>;</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">}        <span class="comment">// namespace BSP</span></div>
+<div class="ttc" id="aa00521_html"><div class="ttname"><a href="../../d7/def/a00521.html">Lib::BSP::Voltmeter::Base</a></div><div class="ttdoc">The base class for voltmeter devices.</div><div class="ttdef"><b>Definition</b> Voltmeter/Base.hpp:76</div></div>
+</div><!-- fragment --><h4><code>Voltmeter.cpp</code></h4>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Voltmeter.hpp&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>BSP;</div>
+<div class="line"> </div>
+<div class="line">Voltmeter::Voltmeter () : Base ({&amp;hadc1, ADC_CHANNEL_10, 25})</div>
+<div class="line">{}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">bool</span> Voltmeter::init ()</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (System::hardwareVersion.revision.read () &gt; 0)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// VREF = 2.5V (for new hardware versions)</span></div>
+<div class="line">        <span class="comment">// VREF = 2.5 V</span></div>
+<div class="line"> </div>
+<div class="line">        Base::Interpolator.addPoint ({969, 7.0F});          <span class="comment">// 7 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({1436, 10.0F});        <span class="comment">// 10 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2072, 15.0F});        <span class="comment">// 15 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2400, 17.0F});        <span class="comment">// 18 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2520, 18.0F});        <span class="comment">// 18 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2600, 19.0F});        <span class="comment">// 20 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2700, 20.0F});        <span class="comment">// 20 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2870, 22.0F});        <span class="comment">// 22 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2920, 23.0F});        <span class="comment">// 23 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2960, 24.0F});        <span class="comment">// 24 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({3000, 25.0F});        <span class="comment">// 25 V*</span></div>
+<div class="line">        Base::Interpolator.addPoint ({3072, 26.0F});        <span class="comment">// 26 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({3100, 27.0F});        <span class="comment">// 27 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({3130, 28.0F});        <span class="comment">// 28 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({3178, 30.0F});        <span class="comment">// 30 V</span></div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">    {</div>
+<div class="line">        <span class="comment">// VREF = 3.3V (for old hardware versions)</span></div>
+<div class="line"> </div>
+<div class="line">        Base::Interpolator.addPoint ({735, 6.5F});          <span class="comment">// 6.5 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({1103, 10.0F});        <span class="comment">// 10 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({1603, 15.0F});        <span class="comment">// 15 V</span></div>
+<div class="line">        <span class="comment">// Interpolator.addPoint ({1192, 18.00});           // 18 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2047, 20.0F});        <span class="comment">// 20 V</span></div>
+<div class="line">        <span class="comment">// Interpolator.addPoint ({2175, 22.00});           // 22 V</span></div>
+<div class="line">        <span class="comment">// Interpolator.addPoint ({2251, 23.00});           // 23 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2220, 24.0F});        <span class="comment">// 24 V</span></div>
+<div class="line">        <span class="comment">// Interpolator.addPoint ({2550, 25.00});           // 25 V</span></div>
+<div class="line">        <span class="comment">// Interpolator.addPoint ({2600, 26.00});           // 26 V</span></div>
+<div class="line">        Base::Interpolator.addPoint ({2305, 27.0F});        <span class="comment">// 27 V</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> (_isReady = Base::init ());        <span class="comment">// initialize base class</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> Voltmeter::getVoltage ()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword"></span>{</div>
+<div class="line">    <span class="keywordflow">return</span> Base::getVoltage ();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> Voltmeter::read ()</div>
+<div class="line">{</div>
+<div class="line">    assert (_isReady);</div>
+<div class="line">    <span class="keywordflow">return</span> getVoltage ();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> Voltmeter::emitValueChanged (<span class="keywordtype">float</span> value)</div>
+<div class="line">{</div>
+<div class="line">    <span class="keywordflow">if</span> (onValueChanged != <span class="keyword">nullptr</span>) onValueChanged (value);</div>
+<div class="line">}</div>
+</div><!-- fragment -->  <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

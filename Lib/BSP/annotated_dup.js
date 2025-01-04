@@ -62,5 +62,6 @@ var annotated_dup =
         [ "EncoderTimer", "df/df1/a00357.html", "df/df1/a00357" ],
         [ "W25Q128JVSIQ", "d6/d66/a00441.html", "d6/d66/a00441" ]
       ] ]
-    ] ]
+    ] ],
+    [ "M24C64W", "d1/d0b/a00529.html", null ]
 ];

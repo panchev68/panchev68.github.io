@@ -1,8 +1,8 @@
 var a00353 =
 [
-    [ "button", "db/ddc/a00353.html#ac08b3d86840bd97f4f929d5dda60bd4b", null ],
-    [ "channel1", "db/ddc/a00353.html#a255d7f507b66d4b83ee0324a3405aa63", null ],
-    [ "channel2", "db/ddc/a00353.html#a6b004f355cf12288b73a5a1477d359d5", null ],
-    [ "devider", "db/ddc/a00353.html#a56bb79aeeaa82a6c4cb881456c1f44be", null ],
-    [ "isReverse", "db/ddc/a00353.html#a4cdc04e2eed10c913752a40e43af84c6", null ]
+    [ "button", "db/ddc/a00353.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
+    [ "channel1", "db/ddc/a00353.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
+    [ "channel2", "db/ddc/a00353.html#a360d21f775c66781831db2507e7a73fc", null ],
+    [ "devider", "db/ddc/a00353.html#a7e14a7dcda3100d25e74b7ecd5e2590f", null ],
+    [ "isReverse", "db/ddc/a00353.html#acdbd5f5444a2a4043fb482a41e65dc74", null ]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pageperseconstructor_0',['pagePerSeconstructor',['../d4/da8/a00437.html#a75b68f74785acde0d39e0c91ac4f79ad',1,'Lib::BSP::FMEM::SPI::DriverBase::Info']]],
+  ['pagepersector_0',['pagePerSector',['../d4/da8/a00437.html#ae2ecfb5f0c00d09d6aa5f3c94c399459',1,'Lib::BSP::FMEM::SPI::DriverBase::Info']]],
   ['pagepersector_1',['pagePersector',['../da/dc3/a00453.html#ae27fa7e2ece388d5335a1964aa2c402c',1,'Lib::BSP::W25Q128JVSIQ::Info']]],
   ['pagesize_2',['pageSize',['../d4/da8/a00437.html#a0fd1287956915571cb9e05a9e3a38daa',1,'Lib::BSP::FMEM::SPI::DriverBase::Info::pageSize'],['../da/dc3/a00453.html#ace5c0d6ba822112eee6eafb348ac82f1',1,'Lib::BSP::W25Q128JVSIQ::Info::pageSize']]],
   ['parameters_3',['parameters',['../da/def/a00513.html#aca16b8b3ea32cbc64637d4f121f346a3',1,'Lib::BSP::XPT2046::Version2::Driver::Impl']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sampletouch_0',['sampleTouch',['../d6/d1a/a00485.html#aee61f8833f260330ecdecd2ac9b06d07',1,'Lib::BSP::XPT2046::Version1::Driver::sampleTouch()'],['../d8/db6/a00501.html#ad0a9cea61d991d27f83ce1cfc1ab4b0e',1,'Lib::BSP::XPT2046::Version2::Driver::sampleTouch()']]],
+  ['sampletouch_0',['sampleTouch',['../d6/d1a/a00485.html#a46b5b3ce02bc18dadee6566f09442340',1,'Lib::BSP::XPT2046::Version1::Driver::sampleTouch()'],['../d8/db6/a00501.html#ad0a9cea61d991d27f83ce1cfc1ab4b0e',1,'Lib::BSP::XPT2046::Version2::Driver::sampleTouch()']]],
   ['select_1',['select',['../d8/de7/a00417.html#aff470ebb0c267940363873a58e6e0f3a',1,'Lib::BSP::Ethercat::PDI::LAN9252::Interface::select()'],['../d1/dbd/a00457.html#ae2b6b19bf99ea047d3cdd6bdd60c6ec7',1,'Lib::BSP::W25Q128JVSIQ::Impl::select()']]],
   ['send_2',['send',['../d1/dbd/a00457.html#a45f7b29bb325f38a6148533b4d5c9784',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
   ['sendcommand_3',['sendCommand',['../d1/dbd/a00457.html#a0c98262d6fa2f176f689001c9e5179c3',1,'Lib::BSP::W25Q128JVSIQ::Impl::sendCommand(uint8_t command)'],['../d1/dbd/a00457.html#aa560a037ea07702af73649bad874f11a',1,'Lib::BSP::W25Q128JVSIQ::Impl::sendCommand(uint8_t command, uint8_t byte)'],['../d1/dbd/a00457.html#ac05f09f5ff3096e935f4dc00aade8ba1',1,'Lib::BSP::W25Q128JVSIQ::Impl::sendCommand(uint8_t command, uint8_t *data, size_t len)']]],

@@ -9,5 +9,5 @@ var searchData=
   ['is_5fpram_5fspace_5favbl_5fmask_6',['IS_PRAM_SPACE_AVBL_MASK',['../dc/d2f/a00425.html#a6ab4a98df3f9e8ad2f14b229e77f8adc',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
   ['ispresent_7',['isPresent',['../d1/dbd/a00457.html#af3460f0a14a08dafb939daeadb8f00a8',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
   ['ispressed_8',['isPressed',['../da/def/a00513.html#a368df95e11e3dfad4ff97973e3cf7bc9',1,'Lib::BSP::XPT2046::Version2::Driver::Impl']]],
-  ['isreverse_9',['isReverse',['../db/ddc/a00353.html#a4cdc04e2eed10c913752a40e43af84c6',1,'Lib::BSP::EncoderPins::XConfig']]]
+  ['isreverse_9',['isReverse',['../db/ddc/a00353.html#acdbd5f5444a2a4043fb482a41e65dc74',1,'Lib::BSP::EncoderPins::Config']]]
 ];

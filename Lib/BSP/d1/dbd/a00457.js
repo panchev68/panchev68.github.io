@@ -24,5 +24,5 @@ var a00457 =
     [ "writeEnable", "d1/dbd/a00457.html#aecddc615d6f7cff804655482e479c50b", null ],
     [ "isPresent", "d1/dbd/a00457.html#af3460f0a14a08dafb939daeadb8f00a8", null ],
     [ "nss", "d1/dbd/a00457.html#a5e3229469776f3460b6bc394c7f06bb7", null ],
-    [ "spi", "d1/dbd/a00457.html#a99424c3720e35f62cdbe0aa3b3d9a633", null ]
+    [ "spi", "d1/dbd/a00457.html#aa783b4e1da7803f87d7e5d94239d6c6d", null ]
 ];

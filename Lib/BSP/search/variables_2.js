@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['channel1_0',['channel1',['../db/ddc/a00353.html#a255d7f507b66d4b83ee0324a3405aa63',1,'Lib::BSP::EncoderPins::XConfig']]],
-  ['channel2_1',['channel2',['../db/ddc/a00353.html#a6b004f355cf12288b73a5a1477d359d5',1,'Lib::BSP::EncoderPins::XConfig']]],
+  ['channel1_0',['channel1',['../db/ddc/a00353.html#a0718f2449bbbaaf9cb4f37beb1d2f85b',1,'Lib::BSP::EncoderPins::Config']]],
+  ['channel2_1',['channel2',['../db/ddc/a00353.html#a360d21f775c66781831db2507e7a73fc',1,'Lib::BSP::EncoderPins::Config']]],
   ['chipid_2',['chipId',['../d4/da8/a00437.html#a471f6103e6c324301367e617df7ab301',1,'Lib::BSP::FMEM::SPI::DriverBase::Info']]],
   ['chipmanufacturer_3',['chipManufacturer',['../d4/da8/a00437.html#a9470c10cac26145e170c04d1fa629786',1,'Lib::BSP::FMEM::SPI::DriverBase::Info::chipManufacturer'],['../da/dc3/a00453.html#a0699528d9734e0f26fa0ba87d7132204',1,'Lib::BSP::W25Q128JVSIQ::Info::chipManufacturer']]],
   ['cmd_5fdual_5faddr_5fdata_5fwrite_4',['CMD_DUAL_ADDR_DATA_WRITE',['../dc/d2f/a00425.html#a39aed90ced4731a7b4dea4e3d5cde262',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],

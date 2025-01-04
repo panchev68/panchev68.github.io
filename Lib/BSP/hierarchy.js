@@ -10,6 +10,7 @@ var hierarchy =
     [ "Lib::BSP::Display::Driver< Controller::ILI9341 >::Config", "d3/d07/a00305.html", null ],
     [ "Lib::BSP::Display::Driver< Controller::ST7789 >::Config", "d3/d07/a00305.html", null ],
     [ "Lib::BSP::EEPROM::I2C::DriverBase::Config", "d4/dce/a00337.html", null ],
+    [ "Lib::BSP::EncoderPins::Config", "db/ddc/a00353.html", null ],
     [ "Lib::BSP::EncoderTimer::Config", "d7/ddb/a00361.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "dc/de3/a00373.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface::Config", "d2/de1/a00421.html", null ],
@@ -62,6 +63,7 @@ var hierarchy =
     [ "Interpolator", null, [
       [ "Lib::BSP::Voltmeter::Base", "d7/def/a00521.html", null ]
     ] ],
+    [ "M24C64W", "d1/d0b/a00529.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::MapField", "d0/d3e/a00253.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Config::Outputs", "da/d53/a00265.html", null ],
     [ "Lib::BSP::XPT2046::Version1::Driver::Parameters", "d9/da5/a00493.html", null ],
@@ -90,6 +92,5 @@ var hierarchy =
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU16", "de/d08/a00381.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU32", "dc/dc9/a00389.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Helper::UU64", "de/de8/a00405.html", null ],
-    [ "Lib::BSP::W25Q128JVSIQ", "d6/d66/a00441.html", null ],
-    [ "Lib::BSP::EncoderPins::XConfig", "db/ddc/a00353.html", null ]
+    [ "Lib::BSP::W25Q128JVSIQ", "d6/d66/a00441.html", null ]
 ];

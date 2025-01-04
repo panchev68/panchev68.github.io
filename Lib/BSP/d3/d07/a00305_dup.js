@@ -6,5 +6,5 @@ var a00305_dup =
     [ "dc", "d3/d07/a00305.html#a1d72a4a32b6ad356706946a8faf50636", null ],
     [ "nrst", "d3/d07/a00305.html#a586a93b7ccec564f7c50699272e3e203", null ],
     [ "nss", "d3/d07/a00305.html#a0a8afe392ae00d43ddeebb36e9fe42de", null ],
-    [ "spi", "d3/d07/a00305.html#a0ea4c09cc362e4c6b754d740f784954a", null ]
+    [ "spi", "d3/d07/a00305.html#a3ea12970c5f043e9f1c300c0ad2ed4b1", null ]
 ];

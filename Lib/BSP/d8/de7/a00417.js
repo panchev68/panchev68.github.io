@@ -12,5 +12,5 @@ var a00417 =
     [ "write", "d8/de7/a00417.html#a5b7404c44e35f75382999271fc6438d9", null ],
     [ "write", "d8/de7/a00417.html#a8a26647013b7997a50ec1cf0fc90d730", null ],
     [ "pinNSS", "d8/de7/a00417.html#a717e74f67c720730002a6999c4c95284", null ],
-    [ "spiPort", "d8/de7/a00417.html#acb9d152bb50d4e790fc4da689a309519", null ]
+    [ "spi", "d8/de7/a00417.html#a821d0edaf1ef2610d1e830c390efcb37", null ]
 ];

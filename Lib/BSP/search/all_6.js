@@ -6,7 +6,7 @@ var searchData=
   ['gctrl_3',['GCTRL',['../db/d53/a00202.html#afe2d246e2a2a5bc3699440ae4548515ba45f6c1b09b52d4fa3648aed2d9c48b14',1,'Lib::BSP::Display']]],
   ['get_4',['get',['../dd/d52/a00221.html#a50a810c2a297031558286c9c20bb51ea',1,'Lib::BSP::Backlight']]],
   ['getbuttonholdperiod_5',['getButtonHoldPeriod',['../d7/dfc/a00349.html#aeaa45b498e7648cbab2b82e80df1a1e3',1,'Lib::BSP::EncoderPins']]],
-  ['getbuttonstate_6',['getButtonState',['../d7/dfc/a00349.html#aa9777fbf12860a6136abc1331bde23a6',1,'Lib::BSP::EncoderPins']]],
+  ['getbuttonstate_6',['getButtonState',['../d7/dfc/a00349.html#aa2372bef48b6ef179c4f628a36a2cc89',1,'Lib::BSP::EncoderPins']]],
   ['getchangeperiod_7',['getChangePeriod',['../d6/d82/a00293.html#a525781a2d1887a1b019abf6147249343',1,'Lib::BSP::DigitalPeripheralBase::Test']]],
   ['getchipinfo_8',['getChipInfo',['../d1/dbd/a00457.html#a80735b27d6e46ca75e85ea69e902bc51',1,'Lib::BSP::W25Q128JVSIQ::Impl']]],
   ['getchipsize_9',['getChipSize',['../d2/d0a/a00333.html#a69acdf676bb0caa8da9e01d6c8dba068',1,'Lib::BSP::EEPROM::I2C::DriverBase::getChipSize()'],['../d3/d93/a00341.html#ae48f7039637cb1da4c932bb0280e1cf0',1,'Lib::BSP::EEPROM ::I2C::M24C16::getChipSize()'],['../d9/d48/a00345.html#a4b66655cedc1fa6e74f8bd72848198d2',1,'Lib::BSP::EEPROM::I2C::M24C64W::getChipSize()']]],

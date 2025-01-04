@@ -9,11 +9,11 @@ var a00190 =
           [ "spi", "dc/d6a/a00261.html#adec84f81cf7ac0c4d0d9be206fc9b1e8", null ]
         ] ],
         [ "Outputs", "da/d53/a00265.html", [
-          [ "mapFields", "da/d53/a00265.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ],
+          [ "mapFields", "da/d53/a00265.html#af86722814204d1445822f5b0c85d2b07", null ],
           [ "nss", "da/d53/a00265.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
           [ "numberOfPins", "da/d53/a00265.html#a106affd182052cba0f62265136279344", null ],
           [ "oe", "da/d53/a00265.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
-          [ "spi", "da/d53/a00265.html#a5f4cb6994710a675161af87d94b0b76f", null ]
+          [ "spi", "da/d53/a00265.html#acfd445066d51ff1987c3871075b1a2db", null ]
         ] ],
         [ "inputs", "d9/d39/a00257.html#a83f591b4be154cb08f68588d557cfc3e", null ],
         [ "outputs", "d9/d39/a00257.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
@@ -27,6 +27,10 @@ var a00190 =
         [ "setup", "d0/d19/a00273.html#a7a16102031e71b0c482fe8e2617b052e", null ],
         [ "update", "d0/d19/a00273.html#a476ee1e07ffc8f5835fbcd27eaa7aa3a", null ],
         [ "onValueChanged", "d0/d19/a00273.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
+      ] ],
+      [ "MapField", "d0/d3e/a00253.html", [
+        [ "mask", "d0/d3e/a00253.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
+        [ "port", "d0/d3e/a00253.html#aeba565c07ca364748f572902aba40f3a", null ]
       ] ],
       [ "Outputs", "d6/d4b/a00277.html", [
         [ "Outputs", "d6/d4b/a00277.html#ae538a06e0b79ecd381024c1a01415deb", null ],
@@ -48,16 +52,6 @@ var a00190 =
         [ "setup", "d5/d42/a00269.html#a151478864c2f0f67d2c08f163c9cfb86", null ],
         [ "update", "d5/d42/a00269.html#a647f5701366b004030c6be8bbc28add4", null ]
       ] ],
-      [ "Test", "d6/d82/a00293.html", [
-        [ "Test", "d6/d82/a00293.html#a681f6df372676259cb74654d972786aa", null ],
-        [ "~Test", "d6/d82/a00293.html#a52eb9ca50a8d4465ecc3c5984eb34355", null ],
-        [ "getChangePeriod", "d6/d82/a00293.html#a525781a2d1887a1b019abf6147249343", null ],
-        [ "getMode", "d6/d82/a00293.html#a81144a7efcb0dd6bb80da8774eb458b6", null ],
-        [ "setChangePeriod", "d6/d82/a00293.html#a93178191ba7bea9ac61b270170f49c7b", null ],
-        [ "setMode", "d6/d82/a00293.html#a9e00d993e46df91b56f69babbba0e7f2", null ],
-        [ "start", "d6/d82/a00293.html#a2a923d6ffbe2dbfee1b7a35927448de0", null ],
-        [ "stop", "d6/d82/a00293.html#ac53955a5232dc863fca3b04555a22fe5", null ]
-      ] ],
       [ "UpdateMode", "de/dbc/a00249.html#a978444aac3217a942110d700b46f8fac", [
         [ "SEQUENTAL", "de/dbc/a00249.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510", null ],
         [ "PARALLEL", "de/dbc/a00249.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb", null ]
@@ -73,8 +67,14 @@ var a00190 =
       [ "outputs", "de/dbc/a00249.html#a51773719b9429f690be7e1128f2ff064", null ],
       [ "test", "de/dbc/a00249.html#aaf00f952a78a339c6e2523fbd683c75c", null ]
     ] ],
-    [ "Lib::BSP::DigitalPeripheralBase::MapField", "d0/d3e/a00253.html", [
-      [ "mask", "d0/d3e/a00253.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-      [ "port", "d0/d3e/a00253.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "Lib::BSP::DigitalPeripheralBase::Test", "d6/d82/a00293.html", [
+      [ "Test", "d6/d82/a00293.html#a681f6df372676259cb74654d972786aa", null ],
+      [ "~Test", "d6/d82/a00293.html#a52eb9ca50a8d4465ecc3c5984eb34355", null ],
+      [ "getChangePeriod", "d6/d82/a00293.html#a525781a2d1887a1b019abf6147249343", null ],
+      [ "getMode", "d6/d82/a00293.html#a81144a7efcb0dd6bb80da8774eb458b6", null ],
+      [ "setChangePeriod", "d6/d82/a00293.html#a93178191ba7bea9ac61b270170f49c7b", null ],
+      [ "setMode", "d6/d82/a00293.html#a9e00d993e46df91b56f69babbba0e7f2", null ],
+      [ "start", "d6/d82/a00293.html#a2a923d6ffbe2dbfee1b7a35927448de0", null ],
+      [ "stop", "d6/d82/a00293.html#ac53955a5232dc863fca3b04555a22fe5", null ]
     ] ]
 ];
