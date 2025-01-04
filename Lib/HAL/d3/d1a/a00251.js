@@ -1,16 +1,17 @@
 var a00251 =
 [
-    [ "Filter", "d3/d1a/a00251.html#a0d2539280e5bd0d65a792ae89cafe5de", null ],
-    [ "Filter", "d3/d1a/a00251.html#a2ab294a045da6c29a81d909934fd763b", null ],
-    [ "~Filter", "d3/d1a/a00251.html#aa402b8835257e53f7ea0936744c772fd", null ],
-    [ "enable", "d3/d1a/a00251.html#a325c373c3bd483d57d79db1f64fe9d1b", null ],
-    [ "operator CAN_FilterTypeDef *", "d3/d1a/a00251.html#a0c408a2a4c2cb645d67f2e34af91566c", null ],
-    [ "setBank", "d3/d1a/a00251.html#a3249e6d0ad23afd5e5f4e0f7a065d5c9", null ],
-    [ "setFilterActivation", "d3/d1a/a00251.html#ab97efbfcb6adf01b76b3e4b918e0796e", null ],
-    [ "setFilterFIFOAssignment", "d3/d1a/a00251.html#ad3d132fb5cae81cdf89a927fd369e77b", null ],
-    [ "setFilterScale", "d3/d1a/a00251.html#a4645ea2ac0f1064ffa1fb66695365a2d", null ],
-    [ "setId", "d3/d1a/a00251.html#a3ace50d629ae2d006c89c7dadf9b7f9e", null ],
-    [ "setMask", "d3/d1a/a00251.html#a32306db0a9a6aadc3a85c611c8cebffd", null ],
-    [ "setMode", "d3/d1a/a00251.html#ae395c740edb0e6e684d97d39c6b22f38", null ],
-    [ "setSlaveStartFilterBank", "d3/d1a/a00251.html#a9a8a3704d72e8e8c28b53fca59248306", null ]
+    [ "State", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
+      [ "UNKNOWN", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
+      [ "LOW_POWER_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
+      [ "WINDOW_WATCHDOG_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
+      [ "INDEPENDENT_WATCHDOG_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
+      [ "SOFTWARE_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
+      [ "POWER_ON_POWER_DOWN_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
+      [ "EXTERNAL_RESET_PIN_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
+      [ "BROWNOUT_RESET", "d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
+    ] ],
+    [ "LastResetState", "d3/d1a/a00251.html#abbd01627966d996019ebe16bb0d685d0", null ],
+    [ "~LastResetState", "d3/d1a/a00251.html#a9764e97ea414a4a782184c9e0e81789c", null ],
+    [ "get", "d3/d1a/a00251.html#aceb01a835768bfb0b1af57d2be901501", null ],
+    [ "operator State", "d3/d1a/a00251.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ]
 ];

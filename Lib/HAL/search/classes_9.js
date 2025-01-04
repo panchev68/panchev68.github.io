@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['otp_0',['OTP',['../d8/dfc/a00327.html',1,'Lib::HAL']]]
+  ['spix_0',['SPIx',['../d0/d2f/a00259.html',1,'Lib::HAL']]]
 ];

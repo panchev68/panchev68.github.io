@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['uartx_0',['UARTx',['../d4/def/a00359.html#a808f393a027a23e612e9ddd2f1169100',1,'Lib::HAL::UARTx']]],
-  ['unbind_1',['unbind',['../d0/da2/a00307.html#a03cf9106e7d736ccb7aaf537f1971fa1',1,'Lib::HAL::GPIO::EXTIx']]],
-  ['unlock_2',['unlock',['../d8/dfc/a00327.html#ad1393be4f030a47d4380ac6f81653cf4',1,'Lib::HAL::OTP']]],
-  ['updateresultfromisr_3',['updateResultFromISR',['../d3/dd5/a00215.html#a929c5d09cbb9554fcf409f0890a3791d',1,'Lib::HAL::Adc::PortTransparentBase']]]
+  ['waitforabortcompleted_0',['waitForAbortCompleted',['../d0/d2f/a00259.html#addb320a67f3b9b9f1d2fbae121f224e9',1,'Lib::HAL::SPIx']]],
+  ['waitforrxcompleted_1',['waitForRxCompleted',['../d0/d2f/a00259.html#affec4fcaf0a752bf6940cca4ef48b1e0',1,'Lib::HAL::SPIx']]],
+  ['waitfortxcompleted_2',['waitForTxCompleted',['../d0/d2f/a00259.html#a1cecd60fd1e084b187e0709b52cabb9b',1,'Lib::HAL::SPIx']]],
+  ['waitfortxrxcompleted_3',['waitForTxRxCompleted',['../d0/d2f/a00259.html#ae724026f4d8c557d2bb000474748326f',1,'Lib::HAL::SPIx']]],
+  ['writedate_4',['writeDate',['../d4/d04/a00255.html#aafba84d7fc847c99ec5c309e96991ac2',1,'Lib::HAL::RTCBase']]],
+  ['writedatetime_5',['writeDateTime',['../d4/d04/a00255.html#a399814ecc17cc1835d2a06e1041cdd86',1,'Lib::HAL::RTCBase']]],
+  ['writeregister_6',['writeRegister',['../d4/d04/a00255.html#a74846d3feacf83e53dbdadf8b0cb58a2',1,'Lib::HAL::RTCBase']]],
+  ['writetime_7',['writeTime',['../d4/d04/a00255.html#a2c037bceed143dd13437bb6a2b602160',1,'Lib::HAL::RTCBase']]]
 ];

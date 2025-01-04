@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['low_0',['LOW',['../da/dd4/a00291.html#a0c90279501ad6b710061a0dbab455862a41bc94cbd8eebea13ce0491b2ac11b88',1,'Lib::HAL::GPIO::PinMode']]],
-  ['low_5fpower_5freset_1',['LOW_POWER_RESET',['../de/d55/a00323.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb',1,'Lib::HAL::LastResetState']]]
+  ['modf_0',['MODF',['../d0/d2f/a00259.html#a112b3cb6379c5ec4853273cff8ee4ccea91878509fb81342b00185ddabe606b87',1,'Lib::HAL::SPIx']]]
 ];

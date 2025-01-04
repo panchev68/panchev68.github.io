@@ -1,7 +1,7 @@
 var a00235 =
 [
-    [ "BKPSRAM", "d3/d42/a00235.html#adbad0ffe98be42450163098fa8a5b6a0", null ],
-    [ "~BKPSRAM", "d3/d42/a00235.html#a512335c0af3304397e78336d3fe16042", null ],
-    [ "clear", "d3/d42/a00235.html#ac7c2e7bab87a00703c1626a23f4b6e8a", null ],
-    [ "setup", "d3/d42/a00235.html#a098e4304f2d6380980f1986772bf7141", null ]
+    [ "TxHeader", "d3/d42/a00235.html#af58e4ea7f8a5849cdc70a2feb3547f22", null ],
+    [ "TxHeader", "d3/d42/a00235.html#a6ede6a4cbff1b421e5f55f52d7ff6e7c", null ],
+    [ "~TxHeader", "d3/d42/a00235.html#a238e6fee0d0264b17b8350e32013d8e2", null ],
+    [ "setLen", "d3/d42/a00235.html#a8510f629a91c5f219c27529ebbd073bc", null ]
 ];

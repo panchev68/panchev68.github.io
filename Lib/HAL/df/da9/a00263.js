@@ -1,7 +1,10 @@
 var a00263 =
 [
-    [ "getData", "df/da9/a00263.html#a71d96b8435f2bf88a1c4c00cf0ff6336", null ],
-    [ "getData", "df/da9/a00263.html#ac039c876232e9e05865b8f93f4f099e2", null ],
-    [ "getId", "df/da9/a00263.html#abf6e2b3a33202d3a30d59f89ecd89abd", null ],
-    [ "getLen", "df/da9/a00263.html#abbe911255c295e0cda816f82d2a8cc78", null ]
+    [ "DeviceManager", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
+    [ "Base", "df/da9/a00263.html#a563f6e2bf6b978f526c5fa87583bc588", null ],
+    [ "~Base", "df/da9/a00263.html#a820ebb6e57ddcfceec7b9c5df70e4cf4", null ],
+    [ "close", "df/da9/a00263.html#a722cf0939b693295625e6e6407105bf0", null ],
+    [ "getHandle", "df/da9/a00263.html#a9c1d70b49613a972382dcbf845474280", null ],
+    [ "handleEvent", "df/da9/a00263.html#ab35824b087e7d7c17c11fc266814a4e7", null ],
+    [ "open", "df/da9/a00263.html#ac65559737120cd6ab6d522a27a70e8af", null ]
 ];

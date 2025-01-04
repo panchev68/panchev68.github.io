@@ -1,4 +1,12 @@
 var searchData=
 [
-  ['very_5fhigh_0',['VERY_HIGH',['../da/dd4/a00291.html#a0c90279501ad6b710061a0dbab455862a2eae31361b8d1a454cadc17a8d4b70ac',1,'Lib::HAL::GPIO::PinMode']]]
+  ['waitforabortcompleted_0',['waitForAbortCompleted',['../d0/d2f/a00259.html#addb320a67f3b9b9f1d2fbae121f224e9',1,'Lib::HAL::SPIx']]],
+  ['waitforrxcompleted_1',['waitForRxCompleted',['../d0/d2f/a00259.html#affec4fcaf0a752bf6940cca4ef48b1e0',1,'Lib::HAL::SPIx']]],
+  ['waitfortxcompleted_2',['waitForTxCompleted',['../d0/d2f/a00259.html#a1cecd60fd1e084b187e0709b52cabb9b',1,'Lib::HAL::SPIx']]],
+  ['waitfortxrxcompleted_3',['waitForTxRxCompleted',['../d0/d2f/a00259.html#ae724026f4d8c557d2bb000474748326f',1,'Lib::HAL::SPIx']]],
+  ['window_5fwatchdog_5freset_4',['WINDOW_WATCHDOG_RESET',['../d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6',1,'Lib::HAL::LastResetState']]],
+  ['writedate_5',['writeDate',['../d4/d04/a00255.html#aafba84d7fc847c99ec5c309e96991ac2',1,'Lib::HAL::RTCBase']]],
+  ['writedatetime_6',['writeDateTime',['../d4/d04/a00255.html#a399814ecc17cc1835d2a06e1041cdd86',1,'Lib::HAL::RTCBase']]],
+  ['writeregister_7',['writeRegister',['../d4/d04/a00255.html#a74846d3feacf83e53dbdadf8b0cb58a2',1,'Lib::HAL::RTCBase']]],
+  ['writetime_8',['writeTime',['../d4/d04/a00255.html#a2c037bceed143dd13437bb6a2b602160',1,'Lib::HAL::RTCBase']]]
 ];

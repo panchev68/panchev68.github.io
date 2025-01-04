@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['berr_0',['BERR',['../d4/d6f/a00315.html#a0f9f8cf893e95cc0b5b45eabc68074cfa49b05888444e28e5320044dc9a61bfaf',1,'Lib::HAL::I2Cx']]],
-  ['block_1',['BLOCK',['../d9/dd0/a00191.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4',1,'Lib::HAL']]],
-  ['brownout_5freset_2',['BROWNOUT_RESET',['../de/d55/a00323.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8',1,'Lib::HAL::LastResetState']]]
+  ['block_0',['BLOCK',['../d9/dd0/a00191.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4',1,'Lib::HAL']]],
+  ['brownout_5freset_1',['BROWNOUT_RESET',['../d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8',1,'Lib::HAL::LastResetState']]]
 ];

@@ -1,12 +1,16 @@
 var a00227 =
 [
-    [ "Port", "d9/d01/a00227.html#ab0ec8999b12c5d0e67d7b4bfe45b228c", null ],
-    [ "~Port", "d9/d01/a00227.html#a8d4f69a9de3cf47afee1792f5c6e45c8", null ],
-    [ "close", "d9/d01/a00227.html#adff8db05ff65190fffc1ab69b8ac5bdb", null ],
-    [ "getHandle", "d9/d01/a00227.html#a8f0cf1079764e4eb8deab1e1075287c1", null ],
-    [ "getRawValue", "d9/d01/a00227.html#ab9e4a5fee490f2b834ef2a2fe680b873", null ],
-    [ "open", "d9/d01/a00227.html#a80289b19682bb899caacfddca8ff6ef5", null ],
-    [ "read", "d9/d01/a00227.html#a7fcbd05b79a400becb96e3fff8fcbbad", null ],
-    [ "start", "d9/d01/a00227.html#ae3a2e5bc4da171636385482a191029f4", null ],
-    [ "stop", "d9/d01/a00227.html#a2c3f5ae93b298b9ab03d3755e9613dcc", null ]
+    [ "Filter", "d9/d01/a00227.html#a0d2539280e5bd0d65a792ae89cafe5de", null ],
+    [ "Filter", "d9/d01/a00227.html#a2ab294a045da6c29a81d909934fd763b", null ],
+    [ "~Filter", "d9/d01/a00227.html#aa402b8835257e53f7ea0936744c772fd", null ],
+    [ "enable", "d9/d01/a00227.html#a325c373c3bd483d57d79db1f64fe9d1b", null ],
+    [ "operator CAN_FilterTypeDef *", "d9/d01/a00227.html#a0c408a2a4c2cb645d67f2e34af91566c", null ],
+    [ "setBank", "d9/d01/a00227.html#a3249e6d0ad23afd5e5f4e0f7a065d5c9", null ],
+    [ "setFilterActivation", "d9/d01/a00227.html#ab97efbfcb6adf01b76b3e4b918e0796e", null ],
+    [ "setFilterFIFOAssignment", "d9/d01/a00227.html#ad3d132fb5cae81cdf89a927fd369e77b", null ],
+    [ "setFilterScale", "d9/d01/a00227.html#a4645ea2ac0f1064ffa1fb66695365a2d", null ],
+    [ "setId", "d9/d01/a00227.html#a3ace50d629ae2d006c89c7dadf9b7f9e", null ],
+    [ "setMask", "d9/d01/a00227.html#a32306db0a9a6aadc3a85c611c8cebffd", null ],
+    [ "setMode", "d9/d01/a00227.html#ae395c740edb0e6e684d97d39c6b22f38", null ],
+    [ "setSlaveStartFilterBank", "d9/d01/a00227.html#a9a8a3704d72e8e8c28b53fca59248306", null ]
 ];
