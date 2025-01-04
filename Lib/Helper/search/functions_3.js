@@ -1,11 +1,17 @@
 var searchData=
 [
-  ['data_0',['data',['../dc/d2b/a00936.html#a45678882c50cc0d94c995bc7821538e2',1,'Lib::Helper::BufferHandle::data()'],['../d6/d48/a00988.html#a865be8b8070d2f5b6da5aaad588626b9',1,'Lib::Helper::DataHandle::data()'],['../d0/de2/a01442.html#a45678882c50cc0d94c995bc7821538e2',1,'BufferHandle::data()'],['../d8/d22/a01446.html#a865be8b8070d2f5b6da5aaad588626b9',1,'DataHandle::data()']]],
-  ['datahandle_1',['DataHandle',['../d6/d48/a00988.html#a4221c3cb4b6e670816b6c828a74bb8e8',1,'Lib::Helper::DataHandle::DataHandle()=default'],['../d6/d48/a00988.html#a2a881290f6a88f30e1cd4071bc571228',1,'Lib::Helper::DataHandle::DataHandle(T &amp;src)'],['../d6/d48/a00988.html#a41a8a9542d7e4e274a606e489a65b100',1,'Lib::Helper::DataHandle::DataHandle(void *src, size_t size)'],['../d8/d22/a01446.html#a4221c3cb4b6e670816b6c828a74bb8e8',1,'DataHandle::DataHandle()=default'],['../d8/d22/a01446.html#a2a881290f6a88f30e1cd4071bc571228',1,'DataHandle::DataHandle(T &amp;src)'],['../d8/d22/a01446.html#a41a8a9542d7e4e274a606e489a65b100',1,'DataHandle::DataHandle(void *src, size_t size)']]],
-  ['date_2',['Date',['../df/dbc/a01004.html#aaaa2869b56ac2a73e43377ae29287efe',1,'Lib::Helper::DateTime::Date::Date()'],['../df/dbc/a01004.html#ae3ed6821f3100cfbd4a72a9475404d26',1,'Lib::Helper::DateTime::Date::Date(const Date &amp;date)'],['../df/dbc/a01004.html#a56efe8f50352ac513fb62423892bf055',1,'Lib::Helper::DateTime::Date::Date(uint8_t day_, uint8_t month_, uint16_t year_)']]],
-  ['datetime_3',['DateTime',['../d7/d76/a00992.html#aa26751a72a19513ae168d19c318748c5',1,'Lib::Helper::DateTime::DateTime()=default'],['../d7/d76/a00992.html#a3d836e58c222b4f32351749f6a28384b',1,'Lib::Helper::DateTime::DateTime(const Date &amp;date_, Time time_)'],['../d7/d76/a00992.html#a3b0323882b1a314ced3a32f291d68168',1,'Lib::Helper::DateTime::DateTime(const DateTime &amp;datetime)=default']]],
-  ['dayofweek_4',['dayOfWeek',['../df/dbc/a01004.html#a66eae7c3ed1258b8284a3bdbd6cb9f96',1,'Lib::Helper::DateTime::Date::dayOfWeek() const'],['../df/dbc/a01004.html#a4fd3d12320b1753a6bad72e3365af8d3',1,'Lib::Helper::DateTime::Date::dayOfWeek(const Date &amp;date)']]],
-  ['dayofweeklongstring_5',['dayOfWeekLongString',['../df/dbc/a01004.html#a2329e2c859f24c26afd74af1a8410f5d',1,'Lib::Helper::DateTime::Date']]],
-  ['dayofweekshortstring_6',['dayOfWeekShortString',['../df/dbc/a01004.html#af04226787aa167fff8c8830a6ba836ce',1,'Lib::Helper::DateTime::Date']]],
-  ['delay_5fus_7',['Delay_us',['../dd/dac/a01008.html#a8607d4fe2907d2e7cfcf87cda9143fb6',1,'Lib::Helper::Delay_us']]]
+  ['calcastronomicalsunrise_0',['calcAstronomicalSunrise',['../d2/d71/a01055.html#a951fd8d20cee44b97c95407a0e5ad6e8',1,'Lib::Helper::Sunset']]],
+  ['calcastronomicalsunset_1',['calcAstronomicalSunset',['../d2/d71/a01055.html#a22c211e028627e01d860c61a67ed674e',1,'Lib::Helper::Sunset']]],
+  ['calccivilsunrise_2',['calcCivilSunrise',['../d2/d71/a01055.html#a4e06169e5d7b03558857e7f5c32e53c4',1,'Lib::Helper::Sunset']]],
+  ['calccivilsunset_3',['calcCivilSunset',['../d2/d71/a01055.html#a915c174c564c43e77409dbca5e04d43c',1,'Lib::Helper::Sunset']]],
+  ['calcnauticalsunrise_4',['calcNauticalSunrise',['../d2/d71/a01055.html#ac2da16a03e3b920517cd5dabc39fb19a',1,'Lib::Helper::Sunset']]],
+  ['calcnauticalsunset_5',['calcNauticalSunset',['../d2/d71/a01055.html#a4a7977c8d21dde276177d7f2d35426cb',1,'Lib::Helper::Sunset']]],
+  ['calcsunrise_6',['calcSunrise',['../d2/d71/a01055.html#a3b7ba83872f71ca38e3509137d1606fb',1,'Lib::Helper::Sunset']]],
+  ['calcsunset_7',['calcSunset',['../d2/d71/a01055.html#ac5b5077c63d6ff0f4bb7bd55489446e5',1,'Lib::Helper::Sunset']]],
+  ['calculate_8',['calculate',['../df/d21/a01039.html#a3c3d764af02ebda6d76ed522a3c7048d',1,'Lib::Helper::MoonPhase']]],
+  ['cityhash_9',['CityHash',['../d1/ddd/a00943.html#aa8a75a22187bbfd3f29b726f1349417a',1,'Lib::Helper::CityHash']]],
+  ['claer_10',['claer',['../d8/d27/a01043.html#ab5ec9c228b1a0c0200a01dd6682fe8b9',1,'Lib::Helper::RingBuffer']]],
+  ['clear_11',['clear',['../df/dbc/a00931.html#a1bb2eec77281d4dca8975cff25654415',1,'Lib::Helper::Buffer::clear()'],['../dc/da0/a00951.html#a34268207efb37f8d8e18703fb7063f3d',1,'Lib::Helper::ContainerBase::clear()'],['../de/d26/a01035.html#ae4c4ec59253248d10630e6569f781708',1,'Lib::Helper::Base::clear()'],['../d4/dfd/a01465.html#a1bb2eec77281d4dca8975cff25654415',1,'Buffer::clear()']]],
+  ['container_12',['Container',['../d3/d29/a00947.html#a17e42e7f93f744411b8b47677b84d069',1,'Lib::Helper::Container']]],
+  ['containerbase_13',['ContainerBase',['../dc/da0/a00951.html#a9d5709d7db2809547d9c37e6de9bae90',1,'Lib::Helper::ContainerBase']]]
 ];

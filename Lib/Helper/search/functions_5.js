@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['findpeaks_0',['FindPeaks',['../d4/d45/a01012.html#a1a73c4d7467f653ce20ccb9e38d4b9e0',1,'Lib::Helper::FindPeaks']]],
-  ['findstringinarray_1',['findStringInArray',['../d5/de7/a01048.html#a90009a72dfde0f9489811ac7b2b7e4b7',1,'Lib::Helper::StringHelper']]]
+  ['each_0',['each',['../dc/da0/a00951.html#af1125453bdd2b31198fd52efc5ede82b',1,'Lib::Helper::ContainerBase']]],
+  ['enterdata_1',['enterData',['../d1/dac/a01015.html#af9091b50b0b9151d28989045a5bc3e22',1,'Lib::Helper::FindPeaks']]],
+  ['erase_2',['erase',['../d3/d29/a00947.html#a237c7dcb35d281a846453bf8a730528f',1,'Lib::Helper::Container']]]
 ];

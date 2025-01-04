@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['singletone_0',['Singletone',['../d0/ddd/a01044.html',1,'Lib::Helper::Singletone&lt; T &gt;'],['../d3/da3/a01450.html',1,'Singletone&lt; T &gt;']]],
-  ['stringhelper_1',['StringHelper',['../d5/de7/a01048.html',1,'Lib::Helper']]],
-  ['sunset_2',['Sunset',['../d9/dce/a01052.html',1,'Lib::Helper::Sunset'],['../d9/db3/a01064.html',1,'Sunset']]]
+  ['singleton_0',['Singleton',['../db/dbb/a01047.html',1,'Lib::Helper::Singleton&lt; T &gt;'],['../d1/de4/a01481.html',1,'Singleton&lt; T &gt;']]],
+  ['stringhelper_1',['StringHelper',['../d3/d42/a01051.html',1,'Lib::Helper']]],
+  ['sunset_2',['Sunset',['../d2/d71/a01055.html',1,'Lib::Helper::Sunset'],['../dd/d80/a01075.html',1,'Sunset']]]
 ];

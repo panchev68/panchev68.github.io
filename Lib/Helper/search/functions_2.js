@@ -1,17 +1,7 @@
 var searchData=
 [
-  ['calcastronomicalsunrise_0',['calcAstronomicalSunrise',['../d9/dce/a01052.html#a951fd8d20cee44b97c95407a0e5ad6e8',1,'Lib::Helper::Sunset']]],
-  ['calcastronomicalsunset_1',['calcAstronomicalSunset',['../d9/dce/a01052.html#a22c211e028627e01d860c61a67ed674e',1,'Lib::Helper::Sunset']]],
-  ['calccivilsunrise_2',['calcCivilSunrise',['../d9/dce/a01052.html#a4e06169e5d7b03558857e7f5c32e53c4',1,'Lib::Helper::Sunset']]],
-  ['calccivilsunset_3',['calcCivilSunset',['../d9/dce/a01052.html#a915c174c564c43e77409dbca5e04d43c',1,'Lib::Helper::Sunset']]],
-  ['calcnauticalsunrise_4',['calcNauticalSunrise',['../d9/dce/a01052.html#ac2da16a03e3b920517cd5dabc39fb19a',1,'Lib::Helper::Sunset']]],
-  ['calcnauticalsunset_5',['calcNauticalSunset',['../d9/dce/a01052.html#a4a7977c8d21dde276177d7f2d35426cb',1,'Lib::Helper::Sunset']]],
-  ['calcsunrise_6',['calcSunrise',['../d9/dce/a01052.html#a3b7ba83872f71ca38e3509137d1606fb',1,'Lib::Helper::Sunset']]],
-  ['calcsunset_7',['calcSunset',['../d9/dce/a01052.html#ac5b5077c63d6ff0f4bb7bd55489446e5',1,'Lib::Helper::Sunset']]],
-  ['calculate_8',['calculate',['../d8/d79/a01036.html#a3c3d764af02ebda6d76ed522a3c7048d',1,'Lib::Helper::MoonPhase']]],
-  ['cityhash_9',['CityHash',['../d7/db6/a00940.html#aa8a75a22187bbfd3f29b726f1349417a',1,'Lib::Helper::CityHash']]],
-  ['claer_10',['claer',['../db/d14/a01040.html#ab5ec9c228b1a0c0200a01dd6682fe8b9',1,'Lib::Helper::RingBuffer']]],
-  ['clear_11',['clear',['../dd/d38/a00928.html#a1bb2eec77281d4dca8975cff25654415',1,'Lib::Helper::Buffer::clear()'],['../d8/d18/a00948.html#a34268207efb37f8d8e18703fb7063f3d',1,'Lib::Helper::ContainerBase::clear()'],['../df/d89/a01032.html#ae4c4ec59253248d10630e6569f781708',1,'Lib::Helper::Base::clear()'],['../d1/de7/a01434.html#a1bb2eec77281d4dca8975cff25654415',1,'Buffer::clear()']]],
-  ['container_12',['Container',['../d9/dce/a00944.html#a17e42e7f93f744411b8b47677b84d069',1,'Lib::Helper::Container']]],
-  ['containerbase_13',['ContainerBase',['../d8/d18/a00948.html#a9d5709d7db2809547d9c37e6de9bae90',1,'Lib::Helper::ContainerBase']]]
+  ['base_0',['Base',['../de/d26/a01035.html#a56e540810b5c5bb492bd3990ba7d7ac1',1,'Lib::Helper::Base']]],
+  ['buffer_1',['Buffer',['../df/dbc/a00931.html#af9ab2e45b1d521e81c19589542b4b0b0',1,'Lib::Helper::Buffer::Buffer()'],['../df/dbc/a00931.html#a00c94185413b2ffa03f01c6eeffd74c8',1,'Lib::Helper::Buffer::Buffer(const Buffer &amp;ref)'],['../df/dbc/a00931.html#afc235cba5b43abb8c59632bc12a6c824',1,'Lib::Helper::Buffer::Buffer(uint8_t *data, size_t size)'],['../df/dbc/a00931.html#a673cbd44b87cf900982433619fd7680f',1,'Lib::Helper::Buffer::Buffer(const uint8_t *data, size_t size)'],['../df/dbc/a00931.html#a4152df5fad433c572bef169ee46cb991',1,'Lib::Helper::Buffer::Buffer(size_t size)'],['../d4/dfd/a01465.html#af9ab2e45b1d521e81c19589542b4b0b0',1,'Buffer::Buffer()'],['../d4/dfd/a01465.html#a00c94185413b2ffa03f01c6eeffd74c8',1,'Buffer::Buffer(const Buffer &amp;ref)'],['../d4/dfd/a01465.html#afc235cba5b43abb8c59632bc12a6c824',1,'Buffer::Buffer(uint8_t *data, size_t size)'],['../d4/dfd/a01465.html#a673cbd44b87cf900982433619fd7680f',1,'Buffer::Buffer(const uint8_t *data, size_t size)'],['../d4/dfd/a01465.html#a4152df5fad433c572bef169ee46cb991',1,'Buffer::Buffer(size_t size)']]],
+  ['bufferhandle_2',['BufferHandle',['../dd/d20/a00939.html#a178fee8d1c634241a55a4c8a8e80bffa',1,'Lib::Helper::BufferHandle::BufferHandle()=default'],['../dd/d20/a00939.html#ae6779c6f58901626ecda358767f60e90',1,'Lib::Helper::BufferHandle::BufferHandle(const BufferHandle &amp;)=default'],['../dd/d20/a00939.html#a88232cac8454c4b3a77062d515f58005',1,'Lib::Helper::BufferHandle::BufferHandle(void *src, size_t size)'],['../de/d13/a01473.html#a178fee8d1c634241a55a4c8a8e80bffa',1,'BufferHandle::BufferHandle()=default'],['../de/d13/a01473.html#ae6779c6f58901626ecda358767f60e90',1,'BufferHandle::BufferHandle(const BufferHandle &amp;)=default'],['../de/d13/a01473.html#a88232cac8454c4b3a77062d515f58005',1,'BufferHandle::BufferHandle(void *src, size_t size)']]],
+  ['bufferstatic_3',['BufferStatic',['../d8/d19/a00935.html#a0dc25520d77bf4d387cfab337ac1e758',1,'Lib::Helper::BufferStatic::BufferStatic()'],['../d9/d8b/a01469.html#a0dc25520d77bf4d387cfab337ac1e758',1,'BufferStatic::BufferStatic()']]]
 ];

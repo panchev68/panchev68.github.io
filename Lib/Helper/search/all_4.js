@@ -1,6 +1,17 @@
 var searchData=
 [
-  ['each_0',['each',['../d8/d18/a00948.html#af1125453bdd2b31198fd52efc5ede82b',1,'Lib::Helper::ContainerBase']]],
-  ['enterdata_1',['enterData',['../d4/d45/a01012.html#af9091b50b0b9151d28989045a5bc3e22',1,'Lib::Helper::FindPeaks']]],
-  ['erase_2',['erase',['../d9/dce/a00944.html#a237c7dcb35d281a846453bf8a730528f',1,'Lib::Helper::Container']]]
+  ['data_0',['data',['../df/dbc/a00931.html#a670a5c2899e1057421e3e3f1a4792ec4',1,'Lib::Helper::Buffer::data'],['../dd/d20/a00939.html#a45678882c50cc0d94c995bc7821538e2',1,'Lib::Helper::BufferHandle::data()'],['../df/d2f/a00991.html#a865be8b8070d2f5b6da5aaad588626b9',1,'Lib::Helper::DataHandle::data()'],['../d4/dfd/a01465.html#a670a5c2899e1057421e3e3f1a4792ec4',1,'Buffer::data'],['../de/d13/a01473.html#a45678882c50cc0d94c995bc7821538e2',1,'BufferHandle::data()'],['../d8/d67/a01477.html#a865be8b8070d2f5b6da5aaad588626b9',1,'DataHandle::data()']]],
+  ['datahandle_1',['DataHandle',['../d8/d67/a01477.html',1,'DataHandle&lt; T &gt;'],['../df/d2f/a00991.html',1,'Lib::Helper::DataHandle&lt; T &gt;'],['../df/d2f/a00991.html#a4221c3cb4b6e670816b6c828a74bb8e8',1,'Lib::Helper::DataHandle::DataHandle()=default'],['../df/d2f/a00991.html#a2a881290f6a88f30e1cd4071bc571228',1,'Lib::Helper::DataHandle::DataHandle(T &amp;src)'],['../df/d2f/a00991.html#a41a8a9542d7e4e274a606e489a65b100',1,'Lib::Helper::DataHandle::DataHandle(void *src, size_t size)'],['../d8/d67/a01477.html#a4221c3cb4b6e670816b6c828a74bb8e8',1,'DataHandle::DataHandle()=default'],['../d8/d67/a01477.html#a2a881290f6a88f30e1cd4071bc571228',1,'DataHandle::DataHandle(T &amp;src)'],['../d8/d67/a01477.html#a41a8a9542d7e4e274a606e489a65b100',1,'DataHandle::DataHandle(void *src, size_t size)']]],
+  ['date_2',['Date',['../d6/d8d/a01007.html',1,'Lib::Helper::DateTime::Date'],['../d6/d8d/a01007.html#aaaa2869b56ac2a73e43377ae29287efe',1,'Lib::Helper::DateTime::Date::Date()'],['../d6/d8d/a01007.html#ae3ed6821f3100cfbd4a72a9475404d26',1,'Lib::Helper::DateTime::Date::Date(const Date &amp;date)'],['../d6/d8d/a01007.html#a56efe8f50352ac513fb62423892bf055',1,'Lib::Helper::DateTime::Date::Date(uint8_t day_, uint8_t month_, uint16_t year_)']]],
+  ['date_3',['date',['../dd/d48/a00995.html#a3900e41a15e618ab5fc0d7bbb32b24cb',1,'Lib::Helper::DateTime']]],
+  ['datetime_4',['DateTime',['../dd/d48/a00995.html',1,'Lib::Helper::DateTime'],['../dd/d48/a00995.html#aa26751a72a19513ae168d19c318748c5',1,'Lib::Helper::DateTime::DateTime()=default'],['../dd/d48/a00995.html#a3d836e58c222b4f32351749f6a28384b',1,'Lib::Helper::DateTime::DateTime(const Date &amp;date_, Time time_)'],['../dd/d48/a00995.html#a3b0323882b1a314ced3a32f291d68168',1,'Lib::Helper::DateTime::DateTime(const DateTime &amp;datetime)=default']]],
+  ['datetimetoutcminutes_5',['dateTimeToUTCMinutes',['../de/de6/a01063.html#ab254dd776f2a4770ea32868ffc93bde8',1,'TimeZone']]],
+  ['day_6',['day',['../d6/d8d/a01007.html#a28104067bdc87b286c7be7cec2b75e1a',1,'Lib::Helper::DateTime::Date']]],
+  ['dayofweek_7',['DayOfWeek',['../d6/d8d/a01007.html#a724952aa462edbcb037a3df5569cd099',1,'Lib::Helper::DateTime::Date']]],
+  ['dayofweek_8',['dayOfWeek',['../d6/d8d/a01007.html#a66eae7c3ed1258b8284a3bdbd6cb9f96',1,'Lib::Helper::DateTime::Date::dayOfWeek() const'],['../d6/d8d/a01007.html#a4fd3d12320b1753a6bad72e3365af8d3',1,'Lib::Helper::DateTime::Date::dayOfWeek(const Date &amp;date)']]],
+  ['dayofweeklongstring_9',['dayOfWeekLongString',['../d6/d8d/a01007.html#a2329e2c859f24c26afd74af1a8410f5d',1,'Lib::Helper::DateTime::Date']]],
+  ['dayofweekshortstring_10',['dayOfWeekShortString',['../d6/d8d/a01007.html#af04226787aa167fff8c8830a6ba836ce',1,'Lib::Helper::DateTime::Date']]],
+  ['dbm_11',['dBM',['../de/dad/a00963.html',1,'Lib::Helper::Convert']]],
+  ['delay_5fus_12',['Delay_us',['../d6/d36/a01011.html',1,'Lib::Helper::Delay_us'],['../d6/d36/a01011.html#a8607d4fe2907d2e7cfcf87cda9143fb6',1,'Lib::Helper::Delay_us::Delay_us()']]],
+  ['deprecated_20list_13',['Deprecated List',['../df/d98/a00107.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::Helper: SingleTone.hpp Source File</title>
+<title>Lib::Helper: RingBuffer.hpp Source File</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -97,45 +97,92 @@ $(function(){initNavTree('da/dec/a00080_source.html','../../'); initResizable(tr
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SingleTone.hpp</div></div>
+  <div class="headertitle"><div class="title">RingBuffer.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../df/d98/a00107.html">Lib::Helper</a></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d0/ddd/a01044.html">   40</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span><a class="code hl_class" href="../../d0/ddd/a01044.html">Singletone</a></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span></div>
-<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../d0/ddd/a01044.html#a5606c56586f57f48fd7e03f48fac85b0">   48</a></span>        <span class="keyword">static</span> T &amp; <a class="code hl_function" href="../../d0/ddd/a01044.html#a5606c56586f57f48fd7e03f48fac85b0">getInstance</a> ()</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            <span class="keyword">static</span> T <a class="code hl_function" href="../../df/d98/a00107.html#ab3e0db985bcaac97f793a230bdcd6543">instance</a>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="../../df/d98/a00107.html#ab3e0db985bcaac97f793a230bdcd6543">instance</a>;</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        }</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d4/d81/a00110.html">Lib::Helper</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html">   22</a></span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keywordtype">size_t</span> T_SIZE&gt; <span class="keyword">class </span><a class="code hl_function" href="../../d8/d27/a01043.html#a414b1b47340a34b3357ae52cf71edc97">RingBuffer</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    {</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html#a414b1b47340a34b3357ae52cf71edc97">   31</a></span>        <a class="code hl_function" href="../../d8/d27/a01043.html#a414b1b47340a34b3357ae52cf71edc97">RingBuffer</a> () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html#ae801f9952b8712f75a79d6e81011f01e">   40</a></span>        <a class="code hl_function" href="../../d8/d27/a01043.html#ae801f9952b8712f75a79d6e81011f01e">~RingBuffer</a> () = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html#a18d7b40f1b75a01cf0c4c14b8ad51d7d">   51</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d27/a01043.html#a18d7b40f1b75a01cf0c4c14b8ad51d7d">push</a> (T &amp; value)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            <span class="keyword">auto</span> n = (_wpos + 1) % T_SIZE;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            <span class="keywordflow">if</span> (n == _rpos)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                assert (0);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            }</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            _buffer [n] = value;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            _wpos       = n;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            _available++;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        }</div>
 </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    };</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html#a2a3ef332e80c9dbf680acd07903fa606">   74</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d8/d27/a01043.html#a2a3ef332e80c9dbf680acd07903fa606">pop</a> (T &amp; result)</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">if</span> (_rpos == _wpos) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            result = _buffer [_rpos];</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            _rpos  = (_rpos + 1) % T_SIZE;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            _available--;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        }</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}        <span class="comment">// namespace Lib::Helper</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">using </span><a class="code hl_class" href="../../d0/ddd/a01044.html">Lib::Helper::Singletone</a>;</div>
-<div class="ttc" id="aa00107_html"><div class="ttname"><a href="../../df/d98/a00107.html">Lib::Helper</a></div><div class="ttdef"><b>Definition</b> Buffer.hpp:10</div></div>
-<div class="ttc" id="aa00107_html_ab3e0db985bcaac97f793a230bdcd6543"><div class="ttname"><a href="../../df/d98/a00107.html#ab3e0db985bcaac97f793a230bdcd6543">Lib::Helper::instance</a></div><div class="ttdeci">T &amp; instance()</div><div class="ttdoc">Template function to create a single instance of an object.</div><div class="ttdef"><b>Definition</b> Instance.hpp:99</div></div>
-<div class="ttc" id="aa01044_html"><div class="ttname"><a href="../../d0/ddd/a01044.html">Lib::Helper::Singletone</a></div><div class="ttdoc">A template class that implements the Singleton design pattern.</div><div class="ttdef"><b>Definition</b> SingleTone.hpp:41</div></div>
-<div class="ttc" id="aa01044_html_a5606c56586f57f48fd7e03f48fac85b0"><div class="ttname"><a href="../../d0/ddd/a01044.html#a5606c56586f57f48fd7e03f48fac85b0">Lib::Helper::Singletone::getInstance</a></div><div class="ttdeci">static T &amp; getInstance()</div><div class="ttdoc">Gets the instance of the class, creating it if it does not exist.</div><div class="ttdef"><b>Definition</b> SingleTone.hpp:48</div></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span></div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html#ab5ec9c228b1a0c0200a01dd6682fe8b9">   89</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d8/d27/a01043.html#ab5ec9c228b1a0c0200a01dd6682fe8b9">claer</a> ()</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            _rpos      = 0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            _wpos      = 0;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>            _available = 0;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        }</div>
+</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d27/a01043.html#a3cf3933002a2f553de36bd1e3f8225c1">  103</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../d8/d27/a01043.html#a3cf3933002a2f553de36bd1e3f8225c1">available</a> ()</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">return</span> _available;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
+</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        T _buffer [T_SIZE];</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <span class="keywordtype">size_t</span> _wpos = 0;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordtype">size_t</span> _rpos = 0;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordtype">size_t</span> _available = 0;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    };</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>}        <span class="comment">// namespace Lib::Helper</span></div>
+<div class="ttc" id="aa00110_html"><div class="ttname"><a href="../../d4/d81/a00110.html">Lib::Helper</a></div><div class="ttdef"><b>Definition</b> Buffer.hpp:14</div></div>
+<div class="ttc" id="aa01043_html_a18d7b40f1b75a01cf0c4c14b8ad51d7d"><div class="ttname"><a href="../../d8/d27/a01043.html#a18d7b40f1b75a01cf0c4c14b8ad51d7d">Lib::Helper::RingBuffer::push</a></div><div class="ttdeci">bool push(T &amp;value)</div><div class="ttdoc">Pushes an element onto the buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:51</div></div>
+<div class="ttc" id="aa01043_html_a2a3ef332e80c9dbf680acd07903fa606"><div class="ttname"><a href="../../d8/d27/a01043.html#a2a3ef332e80c9dbf680acd07903fa606">Lib::Helper::RingBuffer::pop</a></div><div class="ttdeci">bool pop(T &amp;result)</div><div class="ttdoc">Pops an element from the buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:74</div></div>
+<div class="ttc" id="aa01043_html_a3cf3933002a2f553de36bd1e3f8225c1"><div class="ttname"><a href="../../d8/d27/a01043.html#a3cf3933002a2f553de36bd1e3f8225c1">Lib::Helper::RingBuffer::available</a></div><div class="ttdeci">size_t available()</div><div class="ttdoc">Returns the number of elements available in the buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:103</div></div>
+<div class="ttc" id="aa01043_html_a414b1b47340a34b3357ae52cf71edc97"><div class="ttname"><a href="../../d8/d27/a01043.html#a414b1b47340a34b3357ae52cf71edc97">Lib::Helper::RingBuffer::RingBuffer</a></div><div class="ttdeci">RingBuffer()=default</div><div class="ttdoc">Default constructor for the RingBuffer class.</div></div>
+<div class="ttc" id="aa01043_html_ab5ec9c228b1a0c0200a01dd6682fe8b9"><div class="ttname"><a href="../../d8/d27/a01043.html#ab5ec9c228b1a0c0200a01dd6682fe8b9">Lib::Helper::RingBuffer::claer</a></div><div class="ttdeci">void claer()</div><div class="ttdoc">Clears the buffer.</div><div class="ttdef"><b>Definition</b> RingBuffer.hpp:89</div></div>
+<div class="ttc" id="aa01043_html_ae801f9952b8712f75a79d6e81011f01e"><div class="ttname"><a href="../../d8/d27/a01043.html#ae801f9952b8712f75a79d6e81011f01e">Lib::Helper::RingBuffer::~RingBuffer</a></div><div class="ttdeci">~RingBuffer()=default</div><div class="ttdoc">Destructor for the RingBuffer class.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><b>SingleTone.hpp</b></li>
-    <li class="footer">Generated on Fri Jan 3 2025 for Lib::Helper by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><b>RingBuffer.hpp</b></li>
+    <li class="footer">Generated on Sat Jan 4 2025 for Lib::Helper by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

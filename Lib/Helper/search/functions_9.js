@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../d8/d79/a01036.html#a535a0ccb9979e6054fc46dfc01e5e0ea',1,'Lib::Helper::MoonPhase']]]
+  ['locisdst_0',['locIsDST',['../de/de6/a01063.html#ae8c012ed755d6a566b988b11668c7cd1',1,'TimeZone']]]
 ];

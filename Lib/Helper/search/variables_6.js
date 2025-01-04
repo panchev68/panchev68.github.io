@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['time_0',['time',['../d7/d76/a00992.html#a99c6886879b06c9396a2df8bd08ce997',1,'Lib::Helper::DateTime']]]
+  ['seconds_0',['seconds',['../dc/d10/a01003.html#acffd8038132dc5a2078816b9d0dae829',1,'Lib::Helper::DateTime::Time']]],
+  ['size_1',['size',['../df/dbc/a00931.html#af52ba2918109cf541cb5ebe41de80240',1,'Lib::Helper::Buffer::size'],['../d4/dfd/a01465.html#af52ba2918109cf541cb5ebe41de80240',1,'Buffer::size']]]
 ];
