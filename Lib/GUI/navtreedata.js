@@ -44,14 +44,16 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "annotated.html",
-"da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a6d76681f1d7cffc7bc9a7c8980d648ec"
+"da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a68c1ac76c1f8706c9194b29bfe5c473c",
+"namespacemembers.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

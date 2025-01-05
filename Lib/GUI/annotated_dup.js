@@ -16,6 +16,5 @@ var annotated_dup =
         [ "ProgressBar", "d0/d61/a00100.html", "d0/d61/a00100" ],
         [ "Text", "d1/dd6/a00108.html", "d1/dd6/a00108" ]
       ] ]
-    ] ],
-    [ "Position", "db/d57/a00112.html", null ]
+    ] ]
 ];

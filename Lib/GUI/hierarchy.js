@@ -17,7 +17,6 @@ var hierarchy =
     [ "Lib::GUI::Position", "d9/df8/a00096.html", [
       [ "Lib::GUI::Box", "d9/d2e/a00056.html", null ]
     ] ],
-    [ "Position", "db/d57/a00112.html", null ],
     [ "Lib::GUI::Text", "d1/dd6/a00108.html", null ],
     [ "Lib::GUI::ProgressBar::ValueMargins", "d0/dc2/a00104.html", null ]
 ];

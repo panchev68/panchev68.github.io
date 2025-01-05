@@ -94,4 +94,5 @@ var menudata={children:[
 {text:"t",url:"functions_eval.html#index_t"},
 {text:"v",url:"functions_eval.html#index_v"},
 {text:"w",url:"functions_eval.html#index_w"},
-{text:"y",url:"functions_eval.html#index_y"}]}]}]}]}
+{text:"y",url:"functions_eval.html#index_y"}]}]}]},
+{text:"Examples",url:"examples.html"}]}
