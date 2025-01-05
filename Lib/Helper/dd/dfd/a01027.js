@@ -1,5 +1,5 @@
 var a01027 =
 [
-    [ "InstanceWithArg", "dd/dfd/a01027.html#a37a6813118fa1f2703bb7c6b1b6e3b53", null ],
-    [ "operator T&", "dd/dfd/a01027.html#addbcb0e95dd7dee2638d0b2e40ad9d67", null ]
+    [ "Delay_us", "dd/dfd/a01027.html#a8607d4fe2907d2e7cfcf87cda9143fb6", null ],
+    [ "~Delay_us", "dd/dfd/a01027.html#adaea516fd7ff9805b199f1f8f9a9e6f2", null ]
 ];

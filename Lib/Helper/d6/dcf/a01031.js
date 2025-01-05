@@ -1,11 +1,9 @@
 var a01031 =
 [
-    [ "Integrator", "d6/dcf/a01031.html#afd90302cca2811e14514fb9ee9ba16ce", null ],
-    [ "~Integrator", "d6/dcf/a01031.html#a7fe02edfed7ef74aa9d19bb5d757c4e3", null ],
-    [ "add", "d6/dcf/a01031.html#a737b1599fb59754a695476d49fc294c5", null ],
-    [ "isFull", "d6/dcf/a01031.html#abd1e2dc95087acebab886a71415ad5a9", null ],
-    [ "operator()", "d6/dcf/a01031.html#a201366b8b06e6a22adbb0ca59c4a05b1", null ],
-    [ "process", "d6/dcf/a01031.html#af98e142e2856bfe78e0e011d27f71a6b", null ],
-    [ "reset", "d6/dcf/a01031.html#a26e9b49e7e0a9eb5d5fbb30375e260fe", null ],
-    [ "result", "d6/dcf/a01031.html#a3d9848a8fcf869f0abf9c17337385d31", null ]
+    [ "FindPeaks", "d6/dcf/a01031.html#a1a73c4d7467f653ce20ccb9e38d4b9e0", null ],
+    [ "~FindPeaks", "d6/dcf/a01031.html#a611adbbde26b2cab9564821ec60d8c96", null ],
+    [ "enterData", "d6/dcf/a01031.html#af9091b50b0b9151d28989045a5bc3e22", null ],
+    [ "getFallingEdgePosition", "d6/dcf/a01031.html#ac8aeb21a3e4030c257d001fa6beaac7d", null ],
+    [ "getRisingEdgePosition", "d6/dcf/a01031.html#a9aa3aaadcf97f5ba4adc4ce579753f42", null ],
+    [ "start", "d6/dcf/a01031.html#aad9bed439216968ff66ba842c4942c5b", null ]
 ];

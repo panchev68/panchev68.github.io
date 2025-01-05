@@ -1,19 +1,11 @@
 var a01055 =
 [
-    [ "Sunset", "d2/d71/a01055.html#a6a74b067b402ee32476944dfb7aa40e5", null ],
-    [ "Sunset", "d2/d71/a01055.html#aa9e478cc7537082d2575318d4cf1bd3c", null ],
-    [ "~Sunset", "d2/d71/a01055.html#ae3749edcf1d24051169be2a6a3e14fb7", null ],
-    [ "calcAstronomicalSunrise", "d2/d71/a01055.html#a951fd8d20cee44b97c95407a0e5ad6e8", null ],
-    [ "calcAstronomicalSunset", "d2/d71/a01055.html#a22c211e028627e01d860c61a67ed674e", null ],
-    [ "calcCivilSunrise", "d2/d71/a01055.html#a4e06169e5d7b03558857e7f5c32e53c4", null ],
-    [ "calcCivilSunset", "d2/d71/a01055.html#a915c174c564c43e77409dbca5e04d43c", null ],
-    [ "calcNauticalSunrise", "d2/d71/a01055.html#ac2da16a03e3b920517cd5dabc39fb19a", null ],
-    [ "calcNauticalSunset", "d2/d71/a01055.html#a4a7977c8d21dde276177d7f2d35426cb", null ],
-    [ "calcSunrise", "d2/d71/a01055.html#a3b7ba83872f71ca38e3509137d1606fb", null ],
-    [ "calcSunset", "d2/d71/a01055.html#ac5b5077c63d6ff0f4bb7bd55489446e5", null ],
-    [ "moonPhase", "d2/d71/a01055.html#a656070067cdd78807220e7adbe7984f1", null ],
-    [ "moonPhase", "d2/d71/a01055.html#aecfc6acab5d57be175a99ebb401e8f30", null ],
-    [ "setCurrentDate", "d2/d71/a01055.html#a0438b300b75c78273f02d51489a5b285", null ],
-    [ "setPosition", "d2/d71/a01055.html#a63b94ed5c190baeda360c6f87a05fce3", null ],
-    [ "setTZOffset", "d2/d71/a01055.html#a72542c5e98063440ece740e4699dd604", null ]
+    [ "MoonPhase", "d2/d71/a01055.html#a7f7186b33d83f79ab229e3c7bc4b787a", null ],
+    [ "MoonPhase", "d2/d71/a01055.html#acc3daabfb29a95c39da3439ec453d576", null ],
+    [ "~MoonPhase", "d2/d71/a01055.html#a09b7df7620634482ff06b8f17367a7c9", null ],
+    [ "calculate", "d2/d71/a01055.html#a3c3d764af02ebda6d76ed522a3c7048d", null ],
+    [ "index", "d2/d71/a01055.html#a7053f318f5c93816be4d145fae2972fa", null ],
+    [ "name", "d2/d71/a01055.html#a535a0ccb9979e6054fc46dfc01e5e0ea", null ],
+    [ "operator const std::string &", "d2/d71/a01055.html#ab8afd18d645d2b7642d99f7d8bc5e66c", null ],
+    [ "operator uint32_t", "d2/d71/a01055.html#afa23ed768db232d0ac576e91b490112f", null ]
 ];

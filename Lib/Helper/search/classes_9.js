@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ringbuffer_0',['RingBuffer',['../d8/d27/a01043.html',1,'Lib::Helper']]]
+  ['ringbuffer_0',['RingBuffer',['../d0/d90/a01059.html',1,'Lib::Helper']]]
 ];
