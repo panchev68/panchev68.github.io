@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['lavender_0',['LAVENDER',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a0eadec6ebafc0930194d2ec3a8e7252c',1,'Lib::GUI::Color']]],
+  ['lavenderblush_1',['LAVENDERBLUSH',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3ae9d1da1eb34d492040f8f7277b5f4adf',1,'Lib::GUI::Color']]],
+  ['lawngreen_2',['LAWNGREEN',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3abf0d292e53da4d8e7d2245ca3b4dc604',1,'Lib::GUI::Color']]],
+  ['left_3',['LEFT',['../d1/d84/a00052.html#aaa20676038b8e7b8655c93e4e0559968af6bd4f796f8214458e5097ce98d5fc7e',1,'Lib::GUI::Align']]],
+  ['lemonchiffon_4',['LEMONCHIFFON',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a70ba6874c1992fe177228a3c9ed8fadb',1,'Lib::GUI::Color']]],
+  ['lightblue_5',['LIGHTBLUE',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a75b819c862d4281edbbd4fc6cb7148f3',1,'Lib::GUI::Color']]],
+  ['lightcoral_6',['LIGHTCORAL',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a067460892928380ff8b45e8c2bab7f30',1,'Lib::GUI::Color']]],
+  ['lightcyan_7',['LIGHTCYAN',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3acf99c38776889c4f8b8b515edbbb7a58',1,'Lib::GUI::Color']]],
+  ['lightgoldenrodyellow_8',['LIGHTGOLDENRODYELLOW',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a4d0a851592ae50698ccdb110f8ecbccf',1,'Lib::GUI::Color']]],
+  ['lightgray_9',['LIGHTGRAY',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a123d39c08ed2f97db2b183b54f9030c8',1,'Lib::GUI::Color']]],
+  ['lightgreen_10',['LIGHTGREEN',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3aa120e8453f62fd8f57f5d4764b033469',1,'Lib::GUI::Color']]],
+  ['lightpink_11',['LIGHTPINK',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3adcbd0385f5bfe2f435a9fb0c5435d46a',1,'Lib::GUI::Color']]],
+  ['lightsalmon_12',['LIGHTSALMON',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a44152ba18aa841a3b3edd3b78ee22f31',1,'Lib::GUI::Color']]],
+  ['lightseagreen_13',['LIGHTSEAGREEN',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a47dcd059309c8995eeb068b9aeb4af15',1,'Lib::GUI::Color']]],
+  ['lightskyblue_14',['LIGHTSKYBLUE',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3aada6ce50180be8af63c63469a2aac125',1,'Lib::GUI::Color']]],
+  ['lightslategray_15',['LIGHTSLATEGRAY',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a78810133eeff9f9bf0761e38f3e8b7a2',1,'Lib::GUI::Color']]],
+  ['lightsteelblue_16',['LIGHTSTEELBLUE',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a0179f9b72bafa0930b083eaf3d35bc8f',1,'Lib::GUI::Color']]],
+  ['lightyellow_17',['LIGHTYELLOW',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a4acd6209b0b7f3ff8d87cf459c82d509',1,'Lib::GUI::Color']]],
+  ['lime_18',['LIME',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a235e02613d3793e37a36f81122640bb6',1,'Lib::GUI::Color']]],
+  ['limegreen_19',['LIMEGREEN',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a18741510c1c15ff5c7dd7c48dae6f556',1,'Lib::GUI::Color']]],
+  ['linen_20',['LINEN',['../da/d24/a00068.html#a3cdf47e05af1adf899c056c219356ff3a50c7687dfed55ac0eded8f739fa7d5d4',1,'Lib::GUI::Color']]]
+];
