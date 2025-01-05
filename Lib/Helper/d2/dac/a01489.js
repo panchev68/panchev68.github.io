@@ -1,12 +1,14 @@
 var a01489 =
 [
-    [ "BufferHandle", "d2/dac/a01489.html#a178fee8d1c634241a55a4c8a8e80bffa", null ],
-    [ "BufferHandle", "d2/dac/a01489.html#ae6779c6f58901626ecda358767f60e90", null ],
-    [ "BufferHandle", "d2/dac/a01489.html#a88232cac8454c4b3a77062d515f58005", null ],
-    [ "~BufferHandle", "d2/dac/a01489.html#a00a6eb14738fe5d9fbac363c30ff5d6e", null ],
-    [ "data", "d2/dac/a01489.html#a45678882c50cc0d94c995bc7821538e2", null ],
-    [ "operator uint8_t *", "d2/dac/a01489.html#a5496cc5e917049aec0263acbe2f6c22b", null ],
-    [ "operator()", "d2/dac/a01489.html#ad5245c58c7c765fb095411056f3c9a69", null ],
-    [ "set", "d2/dac/a01489.html#ab1da8b5e69bcd8cf6230caf6a9f90d15", null ],
-    [ "size", "d2/dac/a01489.html#a3db17f39fbd16b66183a9d2e7f7914f8", null ]
+    [ "BufferStatic", "d2/dac/a01489.html#a0dc25520d77bf4d387cfab337ac1e758", null ],
+    [ "clear", "d2/dac/a01489.html#a1bb2eec77281d4dca8975cff25654415", null ],
+    [ "getSize", "d2/dac/a01489.html#acc24103eef1ab4a7b639bff60303891a", null ],
+    [ "operator const uint8_t *", "d2/dac/a01489.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
+    [ "operator uint8_t *", "d2/dac/a01489.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
+    [ "operator[]", "d2/dac/a01489.html#a2fb0edb4c9d528ffcd068cb93c9a85ca", null ],
+    [ "setExsist", "d2/dac/a01489.html#a93421e56c7e66407b6b6567a02c55355", null ],
+    [ "setSize", "d2/dac/a01489.html#a44d28f117f561e52889860c89eb76c4e", null ],
+    [ "data", "d2/dac/a01489.html#a670a5c2899e1057421e3e3f1a4792ec4", null ],
+    [ "isLocally", "d2/dac/a01489.html#ac59f61ffa7b8864765c3c132d4935a92", null ],
+    [ "size", "d2/dac/a01489.html#af52ba2918109cf541cb5ebe41de80240", null ]
 ];

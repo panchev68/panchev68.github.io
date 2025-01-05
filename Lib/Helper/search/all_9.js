@@ -11,7 +11,7 @@ var searchData=
   ['isfull_8',['isFull',['../db/dbb/a01047.html#abd1e2dc95087acebab886a71415ad5a9',1,'Lib::Helper::Integrator']]],
   ['ishexdigit_9',['isHexDigit',['../dc/db6/a00955.html#ae6c4cec7bf4bacdd8097cb6e33dcfd39',1,'Lib::Helper::Convert::Ascii']]],
   ['isleapyear_10',['isLeapYear',['../d6/dcd/a01023.html#ac80a50651ff4665469953c782b7f73a2',1,'Lib::Helper::DateTime::Date']]],
-  ['islocally_11',['isLocally',['../df/dbc/a00931.html#ac59f61ffa7b8864765c3c132d4935a92',1,'Lib::Helper::Buffer::isLocally'],['../d1/de4/a01481.html#ac59f61ffa7b8864765c3c132d4935a92',1,'Buffer::isLocally']]],
+  ['islocally_11',['isLocally',['../df/dbc/a00931.html#ac59f61ffa7b8864765c3c132d4935a92',1,'Lib::Helper::Buffer::isLocally'],['../d1/d34/a01519.html#ac59f61ffa7b8864765c3c132d4935a92',1,'Buffer::isLocally']]],
   ['isvalid_12',['isValid',['../db/daf/a01019.html#aaa5217e113e686edeace28c25aa7a376',1,'Lib::Helper::DateTime::Time::isValid() const'],['../db/daf/a01019.html#ac6ce7f3311cf965da42e0cfcc8e0c198',1,'Lib::Helper::DateTime::Time::isValid(const Time &amp;time)'],['../d6/dcd/a01023.html#af2a373924057631a295b1ea250ac4c7a',1,'Lib::Helper::DateTime::Date::isValid() const'],['../d6/dcd/a01023.html#a4b92ec724741f3e07a79377f331117cc',1,'Lib::Helper::DateTime::Date::isValid(const Date &amp;date)'],['../d6/d36/a01011.html#a65a0cb9b70f003d8210a937f6d20c6e7',1,'Lib::Helper::DateTime::isValid() const'],['../d6/d36/a01011.html#a4e1c9084408680f895333aca9f05c364',1,'Lib::Helper::DateTime::isValid(const DateTime &amp;datetime)']]],
   ['itoa_13',['itoa',['../d1/dd6/a00108.html#aac5e51483dba62842e32eab423a7625f',1,'std']]]
 ];

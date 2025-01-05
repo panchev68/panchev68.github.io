@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['make_0',['make',['../df/dbc/a00931.html#adaeef6af846a520bb28d629685a136bb',1,'Lib::Helper::Buffer::make(uint8_t *data, size_t size)'],['../df/dbc/a00931.html#a43a90f3a9ac117cf2de9a7a2551194a6',1,'Lib::Helper::Buffer::make(size_t size)'],['../d1/de4/a01481.html#adaeef6af846a520bb28d629685a136bb',1,'Buffer::make(uint8_t *data, size_t size)'],['../d1/de4/a01481.html#a43a90f3a9ac117cf2de9a7a2551194a6',1,'Buffer::make(size_t size)']]],
+  ['make_0',['make',['../df/dbc/a00931.html#adaeef6af846a520bb28d629685a136bb',1,'Lib::Helper::Buffer::make(uint8_t *data, size_t size)'],['../df/dbc/a00931.html#a43a90f3a9ac117cf2de9a7a2551194a6',1,'Lib::Helper::Buffer::make(size_t size)'],['../d1/d34/a01519.html#adaeef6af846a520bb28d629685a136bb',1,'Buffer::make(uint8_t *data, size_t size)'],['../d1/d34/a01519.html#a43a90f3a9ac117cf2de9a7a2551194a6',1,'Buffer::make(size_t size)']]],
   ['mar_1',['MAR',['../d6/dcd/a01023.html#a519e49ceac546d47a84e189ce3720845a6ab0461982f82fe5bc6c71e6faef45b3',1,'Lib::Helper::DateTime::Date']]],
   ['maxexponent_2',['maxExponent',['../d1/dd6/a00108.html#a795be37ca5e95186696ced11a6cf2857',1,'std']]],
   ['may_3',['MAY',['../d6/dcd/a01023.html#a519e49ceac546d47a84e189ce3720845af94061e4bbcb32597c80ba304f781006',1,'Lib::Helper::DateTime::Date']]],

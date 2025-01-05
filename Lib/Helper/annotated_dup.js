@@ -35,16 +35,16 @@ var annotated_dup =
         [ "TimePeriod", "dd/d80/a01075.html", "dd/d80/a01075" ]
       ] ]
     ] ],
-    [ "Buffer", "d1/de4/a01481.html", "d1/de4/a01481" ],
-    [ "BufferHandle", "d2/dac/a01489.html", "d2/dac/a01489" ],
-    [ "BufferStatic", "d4/d39/a01485.html", "d4/d39/a01485" ],
+    [ "Buffer", "d1/d34/a01519.html", "d1/d34/a01519" ],
+    [ "BufferHandle", "d8/d8c/a01527.html", "d8/d8c/a01527" ],
+    [ "BufferStatic", "db/d8e/a01523.html", "db/d8e/a01523" ],
     [ "crc16", "d0/d1f/a01087.html", null ],
-    [ "DataHandle", "d2/d41/a01493.html", "d2/d41/a01493" ],
+    [ "DataHandle", "d4/d62/a01531.html", "d4/d62/a01531" ],
     [ "FreeRTOSMutex", "dd/d48/a00995.html", "dd/d48/a00995" ],
     [ "FreeRTOSQueue", "de/de2/a00999.html", "de/de2/a00999" ],
     [ "FreeRTOSSemaphore", "dc/d10/a01003.html", "dc/d10/a01003" ],
     [ "FreeRTOSTask", "df/d2f/a00991.html", "df/d2f/a00991" ],
-    [ "Singleton", "db/d1e/a01497.html", "db/d1e/a01497" ],
+    [ "Singleton", "dc/d93/a01535.html", "dc/d93/a01535" ],
     [ "Sunset", "d6/d0d/a01091.html", null ],
     [ "TimeZone", "d2/d4d/a01079.html", "d2/d4d/a01079" ]
 ];

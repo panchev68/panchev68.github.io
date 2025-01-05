@@ -4,19 +4,19 @@ var hierarchy =
     [ "Lib::Helper::Base< T >", "d3/d42/a01051.html", null ],
     [ "Lib::Helper::Base< Row< T > >", "d3/d42/a01051.html", null ],
     [ "Lib::Helper::Convert::Bcd", "db/d40/a00959.html", null ],
-    [ "Buffer", "d1/de4/a01481.html", [
+    [ "Buffer", "d1/d34/a01519.html", [
       [ "Lib::Helper::BufferStatic< T_SIZE >", "d8/d19/a00935.html", null ]
     ] ],
     [ "Lib::Helper::Buffer", "df/dbc/a00931.html", [
       [ "Lib::Helper::BufferStatic< T_SIZE >", "d8/d19/a00935.html", null ]
     ] ],
-    [ "BufferHandle", "d2/dac/a01489.html", null ],
+    [ "BufferHandle", "d8/d8c/a01527.html", null ],
     [ "Lib::Helper::BufferHandle", "dd/d20/a00939.html", null ],
     [ "Lib::Helper::CityHash", "d1/ddd/a00943.html", null ],
     [ "Lib::Helper::Container< T >", "d3/d29/a00947.html", null ],
     [ "Lib::Helper::ContainerBase< T >", "dc/da0/a00951.html", null ],
     [ "crc16", "d0/d1f/a01087.html", null ],
-    [ "DataHandle< T >", "d2/d41/a01493.html", null ],
+    [ "DataHandle< T >", "d4/d62/a01531.html", null ],
     [ "Lib::Helper::DataHandle< T >", "d6/d8d/a01007.html", null ],
     [ "Lib::Helper::DateTime::Date", "d6/dcd/a01023.html", null ],
     [ "Lib::Helper::DateTime", "d6/d36/a01011.html", null ],
@@ -40,7 +40,7 @@ var hierarchy =
     [ "Lib::Helper::Convert::Percent", "d4/d21/a00987.html", null ],
     [ "Lib::Helper::RingBuffer< T, T_SIZE >", "d0/d90/a01059.html", null ],
     [ "Lib::Helper::Singleton< T >", "de/de6/a01063.html", null ],
-    [ "Singleton< T >", "db/d1e/a01497.html", null ],
+    [ "Singleton< T >", "dc/d93/a01535.html", null ],
     [ "Lib::Helper::StringHelper", "d2/d49/a01067.html", null ],
     [ "Lib::Helper::Sunset", "df/d18/a01071.html", null ],
     [ "Sunset", "d6/d0d/a01091.html", null ],

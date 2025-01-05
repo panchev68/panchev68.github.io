@@ -1,8 +1,8 @@
 var searchData=
 [
   ['_7ebase_0',['~Base',['../d3/d42/a01051.html#ab3f8b1557b945971f9bcc957bb2abb5b',1,'Lib::Helper::Base']]],
-  ['_7ebuffer_1',['~Buffer',['../df/dbc/a00931.html#a8272763e62ebf2533d9504ad3c2e4ccc',1,'Lib::Helper::Buffer::~Buffer()'],['../d1/de4/a01481.html#a8272763e62ebf2533d9504ad3c2e4ccc',1,'Buffer::~Buffer()']]],
-  ['_7ebufferhandle_2',['~BufferHandle',['../dd/d20/a00939.html#a00a6eb14738fe5d9fbac363c30ff5d6e',1,'Lib::Helper::BufferHandle::~BufferHandle()'],['../d2/dac/a01489.html#a00a6eb14738fe5d9fbac363c30ff5d6e',1,'BufferHandle::~BufferHandle()']]],
+  ['_7ebuffer_1',['~Buffer',['../df/dbc/a00931.html#a8272763e62ebf2533d9504ad3c2e4ccc',1,'Lib::Helper::Buffer::~Buffer()'],['../d1/d34/a01519.html#a8272763e62ebf2533d9504ad3c2e4ccc',1,'Buffer::~Buffer()']]],
+  ['_7ebufferhandle_2',['~BufferHandle',['../dd/d20/a00939.html#a00a6eb14738fe5d9fbac363c30ff5d6e',1,'Lib::Helper::BufferHandle::~BufferHandle()'],['../d8/d8c/a01527.html#a00a6eb14738fe5d9fbac363c30ff5d6e',1,'BufferHandle::~BufferHandle()']]],
   ['_7ecityhash_3',['~CityHash',['../d1/ddd/a00943.html#a7ff320bc0299a67d1bebe2c3c87d4e17',1,'Lib::Helper::CityHash']]],
   ['_7econtainer_4',['~Container',['../d3/d29/a00947.html#a0733cacf4b6ce2d7d56e648c13ef7abf',1,'Lib::Helper::Container']]],
   ['_7econtainerbase_5',['~ContainerBase',['../dc/da0/a00951.html#a8d59f44119df2a736949bee0ce8d4ea7',1,'Lib::Helper::ContainerBase']]],
@@ -17,7 +17,7 @@ var searchData=
   ['_7eintegrator_14',['~Integrator',['../db/dbb/a01047.html#a7fe02edfed7ef74aa9d19bb5d757c4e3',1,'Lib::Helper::Integrator']]],
   ['_7emoonphase_15',['~MoonPhase',['../d2/d71/a01055.html#a09b7df7620634482ff06b8f17367a7c9',1,'Lib::Helper::MoonPhase']]],
   ['_7eringbuffer_16',['~RingBuffer',['../d0/d90/a01059.html#ae801f9952b8712f75a79d6e81011f01e',1,'Lib::Helper::RingBuffer']]],
-  ['_7esingleton_17',['~Singleton',['../de/de6/a01063.html#a91ab2cb6eaef63ff8192e1acdab52955',1,'Lib::Helper::Singleton::~Singleton()'],['../db/d1e/a01497.html#a91ab2cb6eaef63ff8192e1acdab52955',1,'Singleton::~Singleton()']]],
+  ['_7esingleton_17',['~Singleton',['../de/de6/a01063.html#a91ab2cb6eaef63ff8192e1acdab52955',1,'Lib::Helper::Singleton::~Singleton()'],['../dc/d93/a01535.html#a91ab2cb6eaef63ff8192e1acdab52955',1,'Singleton::~Singleton()']]],
   ['_7esunset_18',['~Sunset',['../df/d18/a01071.html#ae3749edcf1d24051169be2a6a3e14fb7',1,'Lib::Helper::Sunset']]],
   ['_7etime_19',['~Time',['../db/daf/a01019.html#ae64125d54175895d3f648deb5fc60044',1,'Lib::Helper::DateTime::Time']]],
   ['_7etimeperiod_20',['~TimePeriod',['../dd/d80/a01075.html#a130adc5f133ca48bf6a0000f7f8c5b1a',1,'Lib::Helper::TimePeriod']]]

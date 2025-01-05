@@ -11,7 +11,7 @@ var searchData=
   ['calculate_8',['calculate',['../d2/d71/a01055.html#a3c3d764af02ebda6d76ed522a3c7048d',1,'Lib::Helper::MoonPhase']]],
   ['cityhash_9',['CityHash',['../d1/ddd/a00943.html#aa8a75a22187bbfd3f29b726f1349417a',1,'Lib::Helper::CityHash']]],
   ['claer_10',['claer',['../d0/d90/a01059.html#ab5ec9c228b1a0c0200a01dd6682fe8b9',1,'Lib::Helper::RingBuffer']]],
-  ['clear_11',['clear',['../df/dbc/a00931.html#a1bb2eec77281d4dca8975cff25654415',1,'Lib::Helper::Buffer::clear()'],['../dc/da0/a00951.html#a34268207efb37f8d8e18703fb7063f3d',1,'Lib::Helper::ContainerBase::clear()'],['../d3/d42/a01051.html#ae4c4ec59253248d10630e6569f781708',1,'Lib::Helper::Base::clear()'],['../d1/de4/a01481.html#a1bb2eec77281d4dca8975cff25654415',1,'Buffer::clear()']]],
+  ['clear_11',['clear',['../df/dbc/a00931.html#a1bb2eec77281d4dca8975cff25654415',1,'Lib::Helper::Buffer::clear()'],['../dc/da0/a00951.html#a34268207efb37f8d8e18703fb7063f3d',1,'Lib::Helper::ContainerBase::clear()'],['../d3/d42/a01051.html#ae4c4ec59253248d10630e6569f781708',1,'Lib::Helper::Base::clear()'],['../d1/d34/a01519.html#a1bb2eec77281d4dca8975cff25654415',1,'Buffer::clear()']]],
   ['container_12',['Container',['../d3/d29/a00947.html#a17e42e7f93f744411b8b47677b84d069',1,'Lib::Helper::Container']]],
   ['containerbase_13',['ContainerBase',['../dc/da0/a00951.html#a9d5709d7db2809547d9c37e6de9bae90',1,'Lib::Helper::ContainerBase']]]
 ];
