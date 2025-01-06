@@ -1,13 +1,17 @@
 var a01060 =
 [
-    [ "Base", "d5/d16/a01060.html#af52f3eb03e0baf5cc248991df910adfb", null ],
-    [ "~Base", "d5/d16/a01060.html#aef0f7ebf911768d8d7c6d01775ba7ef5", null ],
-    [ "add", "d5/d16/a01060.html#a02ff042d00f054924c958872efea586f", null ],
-    [ "add", "d5/d16/a01060.html#a66e8ce182bbc55a1a989a03fa776c6d5", null ],
-    [ "clear", "d5/d16/a01060.html#abc0e83e139b7bc89dcd587cd21a03ee8", null ],
-    [ "operator[]", "d5/d16/a01060.html#afb1d5bfc012abdf97ef0e8c458791766", null ],
-    [ "remove", "d5/d16/a01060.html#a9f441eab9ba8398ce4cb81031c0547f7", null ],
-    [ "size", "d5/d16/a01060.html#a4766cd055c4c42b503a0b5ec14f359e1", null ],
-    [ "vector", "d5/d16/a01060.html#abd7876845a1da5e4c41133d73d705d85", null ],
-    [ "vector", "d5/d16/a01060.html#a28d6f2eae29f36c19ec87b217d7b03ab", null ]
+    [ "TimeChangeRule", "d9/db3/a01064.html", null ],
+    [ "dateTimeToUTCMinutes", "d5/d16/a01060.html#ab254dd776f2a4770ea32868ffc93bde8", null ],
+    [ "getName", "d5/d16/a01060.html#a5ffa4a3b5884b9895965eb01ca55b1e4", null ],
+    [ "getOffset", "d5/d16/a01060.html#aa4f50d941c98c358bd37ce4c04aa7eef", null ],
+    [ "getRules", "d5/d16/a01060.html#a736f697a2931d4dc406628e7f1cbf255", null ],
+    [ "locIsDST", "d5/d16/a01060.html#ae8c012ed755d6a566b988b11668c7cd1", null ],
+    [ "setName", "d5/d16/a01060.html#a2cd7386378335ce05ef1c9ed3d806e98", null ],
+    [ "setOffset", "d5/d16/a01060.html#a31a19b5fece667db862a23b49df0d341", null ],
+    [ "setRules", "d5/d16/a01060.html#aacbbe75da8faf76b783e1ce767a3c2cb", null ],
+    [ "toLocal", "d5/d16/a01060.html#a17c0a0b9f02b9761f8275caee07a3664", null ],
+    [ "toLocal", "d5/d16/a01060.html#a65385d279137d6f8724be86c1772aea3", null ],
+    [ "toUTC", "d5/d16/a01060.html#a5d9f637ec920b37526559f791664631f", null ],
+    [ "toUTC", "d5/d16/a01060.html#afd7999e4335f5e97bfce8274da162ee5", null ],
+    [ "utcIsDST", "d5/d16/a01060.html#a9be40ac88c4d8bb5433da47616cfb3ca", null ]
 ];

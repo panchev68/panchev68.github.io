@@ -10,6 +10,7 @@ var a00928 =
     [ "getSize", "dd/d38/a00928.html#acc24103eef1ab4a7b639bff60303891a", null ],
     [ "operator const uint8_t *", "dd/d38/a00928.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
     [ "operator uint8_t *", "dd/d38/a00928.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
+    [ "operator=", "dd/d38/a00928.html#abe006225118ac5ea417af2f57bc3bf33", null ],
     [ "operator[]", "dd/d38/a00928.html#a2fb0edb4c9d528ffcd068cb93c9a85ca", null ],
     [ "setExsist", "dd/d38/a00928.html#a93421e56c7e66407b6b6567a02c55355", null ],
     [ "setSize", "dd/d38/a00928.html#a44d28f117f561e52889860c89eb76c4e", null ],
