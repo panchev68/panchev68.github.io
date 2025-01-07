@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "DESIGN PATTERNS", "index.html", [
+  [ "C++ Design Patterns", "index.html", [
     [ "DESIGN_PATTERN DESIGN PATTERNS in C++", "index.html", "index" ]
   ] ]
 ];
