@@ -1,9 +1,9 @@
 var a00878 =
 [
-    [ "StorageBase", "d5/d69/a00878.html#a309419f56ad6ff72ca318a45b92949bf", null ],
-    [ "~StorageBase", "d5/d69/a00878.html#ac6bd07184cd3c9cedb26809038f5fd62", null ],
-    [ "close", "d5/d69/a00878.html#abe8f9d4d1ead81c4f9c2ca7928c35883", null ],
-    [ "open", "d5/d69/a00878.html#a9a151bb3d1bec4d19ec7c3df460534d5", null ],
-    [ "read", "d5/d69/a00878.html#abcce1257446a68008fc50b4d26ad23f5", null ],
-    [ "write", "d5/d69/a00878.html#a96357d28517e2e5726596c8baa91c3cb", null ]
+    [ "DataArea", "d5/d69/a00878.html#a39098e84598a26a055b872983f1c0ee7", null ],
+    [ "~DataArea", "d5/d69/a00878.html#a4b89c7c1b7f38b843e0b59c0f13b2027", null ],
+    [ "isValid", "d5/d69/a00878.html#a2f801020365ffde3fbefd71cf5845f1b", null ],
+    [ "updateValidation", "d5/d69/a00878.html#ae8e172a383e58c2132102f25ae1c5f88", null ],
+    [ "crc", "d5/d69/a00878.html#a78657ae464cfb3b417a05f1e2be9ccc8", null ],
+    [ "data", "d5/d69/a00878.html#a3756b0117ec3a3c6c5d1f9cdde012d5f", null ]
 ];

@@ -1,12 +1,12 @@
 var a00870 =
 [
-    [ "DataArea", "da/d98/a00870.html", "da/d98/a00870_dup" ],
-    [ "StorageBase", "da/d98/a00870.html", "da/d98/a00870_dup" ],
-    [ "ParametersBase", "da/d98/a00870.html#afd7f3db0cb39c88695378bffee41dbda", null ],
-    [ "~ParametersBase", "da/d98/a00870.html#aed9c6ac19b7943ac8910ae7093ccf90a", null ],
-    [ "getData", "da/d98/a00870.html#a7f45bc9c73fdcfc895419ed6f5584a09", null ],
-    [ "getStorage", "da/d98/a00870.html#afb04f22e9dac97257941e5c1f3381a8c", null ],
+    [ "DataArea", "d5/d69/a00878.html", "d5/d69/a00878" ],
+    [ "StorageBase", "df/d2a/a00874.html", "df/d2a/a00874" ],
+    [ "ParametersBase", "da/d98/a00870.html#a109a955cbd8ed11a153b25064d9f59fd", null ],
+    [ "~ParametersBase", "da/d98/a00870.html#ae6f0ff5b1f381e878f9edb5581c7022f", null ],
+    [ "getData", "da/d98/a00870.html#a2b60cd0b64c566a625344da38c8927f4", null ],
+    [ "getStorage", "da/d98/a00870.html#acde720f61a7d1fa91c4f9d276299b256", null ],
     [ "restoreByDefault", "da/d98/a00870.html#ad7f4b7673fbab80745eaed0735e2db6a", null ],
-    [ "setup", "da/d98/a00870.html#a7f69c3d11f387dadab235f308d0dbb87", null ],
-    [ "write", "da/d98/a00870.html#a8892c4d3c0418bdf66c157617d4f0041", null ]
+    [ "setup", "da/d98/a00870.html#a913226ec181930d0e65a4a2f4a0303a4", null ],
+    [ "write", "da/d98/a00870.html#ae167cd6549fd784e82a47c39d447772d", null ]
 ];
