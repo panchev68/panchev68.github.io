@@ -11,6 +11,8 @@ var NAVTREEINDEX0 =
 "d6/d5b/a00026.html":[0,2,6],
 "d7/d7a/a00016.html":[0,1,3],
 "d7/dd4/a00013.html":[0,1,0],
+"d7/dd4/a00013.html#ConceptualExample":[0,1,0,0],
+"d7/dd4/a00013.html#MultipleInheritance":[0,1,0,1],
 "d7/de0/a00022.html":[0,2,2],
 "d7/dec/a00010.html":[0,0,2],
 "da/d45/a00011.html":[0,0,3],

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['patterns_0',['Patterns',['../de/d5e/a00007.html',1,'Behavioral Patterns'],['../dd/dad/a00005.html',1,'Creational Patterns'],['../de/d21/a00006.html',1,'Structural Patterns']]],
-  ['patterns_20in_20c_1',['Design Patterns in C++',['../index.html',1,'']]],
-  ['prototype_2',['Prototype',['../da/d45/a00011.html',1,'CreationalPatterns']]],
-  ['proxy_3',['Proxy',['../dd/da2/a00019.html',1,'StructuralPatterns']]]
+  ['observer_0',['Observer',['../d3/dfe/a00025.html',1,'BehavioralPatterns']]],
+  ['of_20responsibility_1',['Chain of Responsibility',['../db/db2/a00020.html',1,'BehavioralPatterns']]]
 ];

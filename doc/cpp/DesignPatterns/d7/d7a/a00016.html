@@ -102,8 +102,126 @@ $(function(){initNavTree('d7/d7a/a00016.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Decorator</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да прикрепите нови поведения към обекти, като поставите тези обекти в специални обвиващи обекти, които съдържат поведенията.</p>
-<p><a href="https://refactoring.guru/design-patterns/decorator/cpp/example#lang-features">Decorator</a> </p>
+<div class="textblock"><p>Decorator е структурен модел, който позволява динамично добавяне на нови поведения към обекти чрез поставянето им в специални обвиващи обекти, наречени декоратори .</p>
+<p>С помощта на декоратори можете да обвивате обекти безброй пъти, тъй като и целевите обекти, и декораторите следват един и същ интерфейс. Полученият обект ще получи поведение на подреждане на всички обвивки.</p>
+<dl class="section user"><dt>Примери за използване: </dt><dd>Декораторът е доста стандартен в кода на C++, особено в кода, свързан с потоци.</dd></dl>
+<dl class="section user"><dt>Идентификация: </dt><dd>Декораторът може да бъде разпознат чрез методи за създаване или конструктори, които приемат обекти от същия клас или интерфейс като текущия клас.</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The base Component interface defines operations that can be altered by</span></div>
+<div class="line"><span class="comment"> * decorators.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Component {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~Component() {}</div>
+<div class="line">  <span class="keyword">virtual</span> std::string Operation() <span class="keyword">const</span> = 0;</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Concrete Components provide default implementations of the operations. There</span></div>
+<div class="line"><span class="comment"> * might be several variations of these classes.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteComponent : <span class="keyword">public</span> Component {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string Operation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;ConcreteComponent&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The base Decorator class follows the same interface as the other components.</span></div>
+<div class="line"><span class="comment"> * The primary purpose of this class is to define the wrapping interface for all</span></div>
+<div class="line"><span class="comment"> * concrete decorators. The default implementation of the wrapping code might</span></div>
+<div class="line"><span class="comment"> * include a field for storing a wrapped component and the means to initialize</span></div>
+<div class="line"><span class="comment"> * it.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Decorator : <span class="keyword">public</span> Component {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * @var Component</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  Component* component_;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  Decorator(Component* component) : component_(component) {</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * The Decorator delegates all work to the wrapped component.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  std::string Operation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> this-&gt;component_-&gt;Operation();</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Concrete Decorators call the wrapped object and alter its result in some way.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteDecoratorA : <span class="keyword">public</span> Decorator {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * Decorators may call parent implementation of the operation, instead of</span></div>
+<div class="line"><span class="comment">   * calling the wrapped object directly. This approach simplifies extension of</span></div>
+<div class="line"><span class="comment">   * decorator classes.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ConcreteDecoratorA(Component* component) : Decorator(component) {</div>
+<div class="line">  }</div>
+<div class="line">  std::string Operation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;ConcreteDecoratorA(&quot;</span> + Decorator::Operation() + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Decorators can execute their behavior either before or after the call to a</span></div>
+<div class="line"><span class="comment"> * wrapped object.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteDecoratorB : <span class="keyword">public</span> Decorator {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ConcreteDecoratorB(Component* component) : Decorator(component) {</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  std::string Operation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;ConcreteDecoratorB(&quot;</span> + Decorator::Operation() + <span class="stringliteral">&quot;)&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code works with all objects using the Component interface. This</span></div>
+<div class="line"><span class="comment"> * way it can stay independent of the concrete classes of components it works</span></div>
+<div class="line"><span class="comment"> * with.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(Component* component) {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;RESULT: &quot;</span> &lt;&lt; component-&gt;Operation();</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * This way the client code can support both simple components...</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  Component* simple = <span class="keyword">new</span> ConcreteComponent;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: I&#39;ve got a simple component:\n&quot;</span>;</div>
+<div class="line">  ClientCode(simple);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * ...as well as decorated ones.</span></div>
+<div class="line"><span class="comment">   *</span></div>
+<div class="line"><span class="comment">   * Note how decorators can wrap not only simple components but the other</span></div>
+<div class="line"><span class="comment">   * decorators as well.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  Component* decorator1 = <span class="keyword">new</span> ConcreteDecoratorA(simple);</div>
+<div class="line">  Component* decorator2 = <span class="keyword">new</span> ConcreteDecoratorB(decorator1);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: Now I&#39;ve got a decorated component:\n&quot;</span>;</div>
+<div class="line">  ClientCode(decorator2);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> simple;</div>
+<div class="line">  <span class="keyword">delete</span> decorator1;</div>
+<div class="line">  <span class="keyword">delete</span> decorator2;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment">Client: I've got a simple component:
+RESULT: ConcreteComponent
+
+Client: Now I've got a decorated component:
+RESULT: ConcreteDecoratorB(ConcreteDecoratorA(ConcreteComponent))
+</pre></dd></dl>
+<p>[Decorator](<a href="https://refactoring.guru/design-patterns/decorator/cpp/example#lang-features">https://refactoring.guru/design-patterns/decorator/cpp/example#lang-features</a>) </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -111,7 +229,7 @@ $(function(){initNavTree('d7/d7a/a00016.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">Structural Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:07:02 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

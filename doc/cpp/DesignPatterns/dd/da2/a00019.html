@@ -102,8 +102,110 @@ $(function(){initNavTree('dd/da2/a00019.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Proxy</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да предоставите заместител или контейнер за друг обект. Проксито контролира достъпа до оригиналния обект, което ви позволява да извършите нещо преди или след като заявката стигне до</p>
-<p><a href="https://refactoring.guru/design-patterns/proxy/cpp/example#lang-features">Proxy</a></p>
+<div class="textblock"><p>Proxy е структурен модел на проектиране, който предоставя обект, който действа като заместител на обект на реална услуга, използван от клиент. Проксито получава клиентски заявки, извършва някаква работа (контрол на достъпа, кеширане и т.н.) и след това предава заявката на обслужващ обект.</p>
+<p>Прокси обектът има същия интерфейс като услуга, което го прави взаимозаменяем с реален обект, когато се предава на клиент.</p>
+<dl class="section user"><dt>Примери за използване: </dt><dd>Въпреки че прокси моделът не е чест гост в повечето C++ приложения, той все пак е много удобен в някои специални случаи. Незаменим е, когато искате да добавите някои допълнителни поведения към обект от някакъв съществуващ клас, без да променяте клиентския код.</dd></dl>
+<dl class="section user"><dt>Идентификация: </dt><dd>Проксита делегират цялата реална работа на друг обект. Всеки прокси метод трябва в крайна сметка да се отнася до обект на услуга, освен ако проксито не е подклас на услуга.</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Subject interface declares common operations for both RealSubject and the</span></div>
+<div class="line"><span class="comment"> * Proxy. As long as the client works with RealSubject using this interface,</span></div>
+<div class="line"><span class="comment"> * you&#39;ll be able to pass it a proxy instead of a real subject.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Subject {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Request() <span class="keyword">const</span> = 0;</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The RealSubject contains some core business logic. Usually, RealSubjects are</span></div>
+<div class="line"><span class="comment"> * capable of doing some useful work which may also be very slow or sensitive -</span></div>
+<div class="line"><span class="comment"> * e.g. correcting input data. A Proxy can solve these issues without any</span></div>
+<div class="line"><span class="comment"> * changes to the RealSubject&#39;s code.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>RealSubject : <span class="keyword">public</span> Subject {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> Request()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;RealSubject: Handling request.\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Proxy has an interface identical to the RealSubject.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Proxy : <span class="keyword">public</span> Subject {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * @var RealSubject</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  RealSubject *real_subject_;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> CheckAccess()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="comment">// Some real checks should go here.</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Proxy: Checking access prior to firing a real request.\n&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> LogAccess()<span class="keyword"> const </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Proxy: Logging the time of request.\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * The Proxy maintains a reference to an object of the RealSubject class. It</span></div>
+<div class="line"><span class="comment">   * can be either lazy-loaded or passed to the Proxy by the client.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  Proxy(RealSubject *real_subject) : real_subject_(new RealSubject(*real_subject)) {</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  ~Proxy() {</div>
+<div class="line">    <span class="keyword">delete</span> real_subject_;</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * The most common applications of the Proxy pattern are lazy loading,</span></div>
+<div class="line"><span class="comment">   * caching, controlling the access, logging, etc. A Proxy can perform one of</span></div>
+<div class="line"><span class="comment">   * these things and then, depending on the result, pass the execution to the</span></div>
+<div class="line"><span class="comment">   * same method in a linked RealSubject object.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  <span class="keywordtype">void</span> Request()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">if</span> (this-&gt;CheckAccess()) {</div>
+<div class="line">      this-&gt;real_subject_-&gt;Request();</div>
+<div class="line">      this-&gt;LogAccess();</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code is supposed to work with all objects (both subjects and</span></div>
+<div class="line"><span class="comment"> * proxies) via the Subject interface in order to support both real subjects and</span></div>
+<div class="line"><span class="comment"> * proxies. In real life, however, clients mostly work with their real subjects</span></div>
+<div class="line"><span class="comment"> * directly. In this case, to implement the pattern more easily, you can extend</span></div>
+<div class="line"><span class="comment"> * your proxy from the real subject&#39;s class.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(<span class="keyword">const</span> Subject &amp;subject) {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  subject.Request();</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: Executing the client code with a real subject:\n&quot;</span>;</div>
+<div class="line">  RealSubject *real_subject = <span class="keyword">new</span> RealSubject;</div>
+<div class="line">  ClientCode(*real_subject);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: Executing the same client code with a proxy:\n&quot;</span>;</div>
+<div class="line">  Proxy *proxy = <span class="keyword">new</span> Proxy(real_subject);</div>
+<div class="line">  ClientCode(*proxy);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> real_subject;</div>
+<div class="line">  <span class="keyword">delete</span> proxy;</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment">Client: Executing the client code with a real subject:
+RealSubject: Handling request.
+
+Client: Executing the same client code with a proxy:
+Proxy: Checking access prior to firing a real request.
+RealSubject: Handling request.
+Proxy: Logging the time of request.
+</pre> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/proxy/cpp/example#lang-features">Proxy</a></dd></dl>
 <hr  />
  </div></div><!-- contents -->
 </div><!-- PageDoc -->
@@ -112,7 +214,7 @@ $(function(){initNavTree('dd/da2/a00019.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">Structural Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:07:02 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

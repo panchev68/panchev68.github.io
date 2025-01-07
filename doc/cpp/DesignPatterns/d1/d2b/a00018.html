@@ -102,16 +102,213 @@ $(function(){initNavTree('d1/d2b/a00018.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Flyweight</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да поставите повече обекти в наличното количество RAM чрез споделяне на общи части от състоянието между множество обекти, вместо да съхранявате всички данни във всеки обект.</p>
-<p><a href="https://refactoring.guru/design-patterns/flyweight/cpp/example#lang-features">Flyweight</a> </p>
-</div></div><!-- contents -->
+<div class="textblock"><p>Flyweight е модел на структурно проектиране, който позволява на програмите да поддържат огромни количества обекти, като поддържат ниска консумация на памет.</p>
+<p>Моделът го постига чрез споделяне на части от състоянието на обекта между множество обекти. С други думи, Flyweight спестява RAM, като кешира едни и същи данни, използвани от различни обекти.</p>
+<dl class="section user"><dt>Примери за употреба: </dt><dd>Моделът Flyweight има една единствена цел: минимизиране на потреблението на памет. Ако вашата програма не се бори с недостиг на RAM, тогава можете просто да игнорирате този модел за известно време.</dd></dl>
+<dl class="section user"><dt>Идентификация: </dt><dd>Flyweight може да бъде разпознат чрез метод за създаване, който връща кеширани обекти, вместо да създава нови. <div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Flyweight Design Pattern</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * Intent: Lets you fit more objects into the available amount of RAM by sharing</span></div>
+<div class="line"><span class="comment"> * common parts of state between multiple objects, instead of keeping all of the</span></div>
+<div class="line"><span class="comment"> * data in each object.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>SharedState</div>
+<div class="line">{</div>
+<div class="line">    std::string brand_;</div>
+<div class="line">    std::string model_;</div>
+<div class="line">    std::string color_;</div>
+<div class="line"> </div>
+<div class="line">    SharedState(<span class="keyword">const</span> std::string &amp;brand, <span class="keyword">const</span> std::string &amp;model, <span class="keyword">const</span> std::string &amp;color)</div>
+<div class="line">        : brand_(brand), model_(model), color_(color)</div>
+<div class="line">    {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> SharedState &amp;ss)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;[ &quot;</span> &lt;&lt; ss.brand_ &lt;&lt; <span class="stringliteral">&quot; , &quot;</span> &lt;&lt; ss.model_ &lt;&lt; <span class="stringliteral">&quot; , &quot;</span> &lt;&lt; ss.color_ &lt;&lt; <span class="stringliteral">&quot; ]&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">struct </span>UniqueState</div>
+<div class="line">{</div>
+<div class="line">    std::string owner_;</div>
+<div class="line">    std::string plates_;</div>
+<div class="line"> </div>
+<div class="line">    UniqueState(<span class="keyword">const</span> std::string &amp;owner, <span class="keyword">const</span> std::string &amp;plates)</div>
+<div class="line">        : owner_(owner), plates_(plates)</div>
+<div class="line">    {</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">friend</span> std::ostream &amp;operator&lt;&lt;(std::ostream &amp;os, <span class="keyword">const</span> UniqueState &amp;us)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">return</span> os &lt;&lt; <span class="stringliteral">&quot;[ &quot;</span> &lt;&lt; us.owner_ &lt;&lt; <span class="stringliteral">&quot; , &quot;</span> &lt;&lt; us.plates_ &lt;&lt; <span class="stringliteral">&quot; ]&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Flyweight stores a common portion of the state (also called intrinsic</span></div>
+<div class="line"><span class="comment"> * state) that belongs to multiple real business entities. The Flyweight accepts</span></div>
+<div class="line"><span class="comment"> * the rest of the state (extrinsic state, unique for each entity) via its</span></div>
+<div class="line"><span class="comment"> * method parameters.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Flyweight</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    SharedState *shared_state_;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    Flyweight(<span class="keyword">const</span> SharedState *shared_state) : shared_state_(new SharedState(*shared_state))</div>
+<div class="line">    {</div>
+<div class="line">    }</div>
+<div class="line">    Flyweight(<span class="keyword">const</span> Flyweight &amp;other) : shared_state_(new SharedState(*other.shared_state_))</div>
+<div class="line">    {</div>
+<div class="line">    }</div>
+<div class="line">    ~Flyweight()</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">delete</span> shared_state_;</div>
+<div class="line">    }</div>
+<div class="line">    SharedState *shared_state()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">return</span> shared_state_;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">void</span> Operation(<span class="keyword">const</span> UniqueState &amp;unique_state)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Flyweight: Displaying shared (&quot;</span> &lt;&lt; *shared_state_ &lt;&lt; <span class="stringliteral">&quot;) and unique (&quot;</span> &lt;&lt; unique_state &lt;&lt; <span class="stringliteral">&quot;) state.\n&quot;</span>;</div>
+<div class="line">    }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Flyweight Factory creates and manages the Flyweight objects. It ensures</span></div>
+<div class="line"><span class="comment"> * that flyweights are shared correctly. When the client requests a flyweight,</span></div>
+<div class="line"><span class="comment"> * the factory either returns an existing instance or creates a new one, if it</span></div>
+<div class="line"><span class="comment"> * doesn&#39;t exist yet.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>FlyweightFactory</div>
+<div class="line">{<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @var Flyweight[]</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    std::unordered_map&lt;std::string, Flyweight&gt; flyweights_;<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * Returns a Flyweight&#39;s string hash for a given state.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line">    std::string GetKey(<span class="keyword">const</span> SharedState &amp;ss)<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">return</span> ss.brand_ + <span class="stringliteral">&quot;_&quot;</span> + ss.model_ + <span class="stringliteral">&quot;_&quot;</span> + ss.color_;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    FlyweightFactory(std::initializer_list&lt;SharedState&gt; share_states)</div>
+<div class="line">    {</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keyword">const</span> SharedState &amp;ss : share_states)</div>
+<div class="line">        {</div>
+<div class="line">            this-&gt;flyweights_.insert(std::make_pair&lt;std::string, Flyweight&gt;(this-&gt;GetKey(ss), Flyweight(&amp;ss)));</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * Returns an existing Flyweight with a given state or creates a new one.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line">    Flyweight GetFlyweight(<span class="keyword">const</span> SharedState &amp;shared_state)</div>
+<div class="line">    {</div>
+<div class="line">        std::string key = this-&gt;GetKey(shared_state);</div>
+<div class="line">        <span class="keywordflow">if</span> (this-&gt;flyweights_.find(key) == this-&gt;flyweights_.end())</div>
+<div class="line">        {</div>
+<div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;FlyweightFactory: Can&#39;t find a flyweight, creating new one.\n&quot;</span>;</div>
+<div class="line">            this-&gt;flyweights_.insert(std::make_pair(key, Flyweight(&amp;shared_state)));</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">else</span></div>
+<div class="line">        {</div>
+<div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;FlyweightFactory: Reusing existing flyweight.\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">        <span class="keywordflow">return</span> this-&gt;flyweights_.at(key);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">void</span> ListFlyweights()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordtype">size_t</span> count = this-&gt;flyweights_.size();</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;\nFlyweightFactory: I have &quot;</span> &lt;&lt; count &lt;&lt; <span class="stringliteral">&quot; flyweights:\n&quot;</span>;</div>
+<div class="line">        <span class="keywordflow">for</span> (std::pair&lt;std::string, Flyweight&gt; pair : this-&gt;flyweights_)</div>
+<div class="line">        {</div>
+<div class="line">            std::cout &lt;&lt; pair.first &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ...</span></div>
+<div class="line"><span class="keywordtype">void</span> AddCarToPoliceDatabase(</div>
+<div class="line">    FlyweightFactory &amp;ff, <span class="keyword">const</span> std::string &amp;plates, <span class="keyword">const</span> std::string &amp;owner,</div>
+<div class="line">    <span class="keyword">const</span> std::string &amp;brand, <span class="keyword">const</span> std::string &amp;model, <span class="keyword">const</span> std::string &amp;color)</div>
+<div class="line">{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;\nClient: Adding a car to database.\n&quot;</span>;</div>
+<div class="line">    <span class="keyword">const</span> Flyweight &amp;flyweight = ff.GetFlyweight({brand, model, color});</div>
+<div class="line">    <span class="comment">// The client code either stores or calculates extrinsic state and passes it</span></div>
+<div class="line">    <span class="comment">// to the flyweight&#39;s methods.</span></div>
+<div class="line">    flyweight.Operation({owner, plates});</div>
+<div class="line">}</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code usually creates a bunch of pre-populated flyweights in the</span></div>
+<div class="line"><span class="comment"> * initialization stage of the application.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    FlyweightFactory *factory = <span class="keyword">new</span> FlyweightFactory({{<span class="stringliteral">&quot;Chevrolet&quot;</span>, <span class="stringliteral">&quot;Camaro2018&quot;</span>, <span class="stringliteral">&quot;pink&quot;</span>}, {<span class="stringliteral">&quot;Mercedes Benz&quot;</span>, <span class="stringliteral">&quot;C300&quot;</span>, <span class="stringliteral">&quot;black&quot;</span>}, {<span class="stringliteral">&quot;Mercedes Benz&quot;</span>, <span class="stringliteral">&quot;C500&quot;</span>, <span class="stringliteral">&quot;red&quot;</span>}, {<span class="stringliteral">&quot;BMW&quot;</span>, <span class="stringliteral">&quot;M5&quot;</span>, <span class="stringliteral">&quot;red&quot;</span>}, {<span class="stringliteral">&quot;BMW&quot;</span>, <span class="stringliteral">&quot;X6&quot;</span>, <span class="stringliteral">&quot;white&quot;</span>}});</div>
+<div class="line">    factory-&gt;ListFlyweights();</div>
+<div class="line"> </div>
+<div class="line">    AddCarToPoliceDatabase(*factory,</div>
+<div class="line">                            <span class="stringliteral">&quot;CL234IR&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;James Doe&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;BMW&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;M5&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;red&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">    AddCarToPoliceDatabase(*factory,</div>
+<div class="line">                            <span class="stringliteral">&quot;CL234IR&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;James Doe&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;BMW&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;X1&quot;</span>,</div>
+<div class="line">                            <span class="stringliteral">&quot;red&quot;</span>);</div>
+<div class="line">    factory-&gt;ListFlyweights();</div>
+<div class="line">    <span class="keyword">delete</span> factory;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Output:</dt><dd><pre class="fragment">FlyweightFactory: I have 5 flyweights:
+BMW_X6_white
+Mercedes Benz_C500_red
+Mercedes Benz_C300_black
+BMW_M5_red
+Chevrolet_Camaro2018_pink
+
+Client: Adding a car to database.
+FlyweightFactory: Reusing existing flyweight.
+Flyweight: Displaying shared ([ BMW , M5 , red ]) and unique ([ CL234IR , James Doe ]) state.
+
+Client: Adding a car to database.
+FlyweightFactory: Can't find a flyweight, creating new one.
+Flyweight: Displaying shared ([ BMW , X1 , red ]) and unique ([ CL234IR , James Doe ]) state.
+
+FlyweightFactory: I have 6 flyweights:
+BMW_X1_red
+Mercedes Benz_C300_black
+BMW_X6_white
+Mercedes Benz_C500_red
+BMW_M5_red
+Chevrolet_Camaro2018_pink
+</pre></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/flyweight/cpp/example#lang-features">Flyweight</a></dd></dl>
+<hr  />
+ </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">Structural Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:07:02 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

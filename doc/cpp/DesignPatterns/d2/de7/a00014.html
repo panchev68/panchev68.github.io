@@ -102,8 +102,119 @@ $(function(){initNavTree('d2/de7/a00014.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Bridge</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да разделите голям клас или набор от тясно свързани класове в две отделни йерархии – абстракция и реализация – които могат да бъдат разработени независимо една от друга.</p>
-<p><a href="https://refactoring.guru/design-patterns/bridge/cpp/example#lang-features">Bridge</a> </p>
+<div class="textblock"><p>Bridge е структурен модел на проектиране, който разделя бизнес логиката или огромния клас на отделни йерархии на класове, които могат да бъдат разработени независимо.</p>
+<p>Една от тези йерархии (често наричана Абстракция) ще получи препратка към обект от втората йерархия (Имплементация). Абстракцията ще може да делегира някои (понякога повечето) от своите извиквания към обекта за имплементации. Тъй като всички реализации ще имат общ интерфейс, те биха били взаимозаменяеми вътре в абстракцията.</p>
+<dl class="section user"><dt>Примери за използване: </dt><dd>Моделът Bridge е особено полезен, когато работите с приложения на различни платформи, поддържате множество типове сървъри на бази данни или работите с няколко доставчици на API от определен вид (например облачни платформи, социални мрежи и т.н.)</dd></dl>
+<dl class="section user"><dt>Идентификация: </dt><dd>Bridge може да бъде разпознат чрез ясно разграничение между някакъв контролиращ субект и няколко различни платформи, на които разчита.</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Implementation defines the interface for all implementation classes. It</span></div>
+<div class="line"><span class="comment"> * doesn&#39;t have to match the Abstraction&#39;s interface. In fact, the two</span></div>
+<div class="line"><span class="comment"> * interfaces can be entirely different. Typically the Implementation interface</span></div>
+<div class="line"><span class="comment"> * provides only primitive operations, while the Abstraction defines higher-</span></div>
+<div class="line"><span class="comment"> * level operations based on those primitives.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Implementation {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~Implementation() {}</div>
+<div class="line">  <span class="keyword">virtual</span> std::string OperationImplementation() <span class="keyword">const</span> = 0;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Each Concrete Implementation corresponds to a specific platform and</span></div>
+<div class="line"><span class="comment"> * implements the Implementation interface using that platform&#39;s API.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteImplementationA : <span class="keyword">public</span> Implementation {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string OperationImplementation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;ConcreteImplementationA: Here&#39;s the result on the platform A.\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">class </span>ConcreteImplementationB : <span class="keyword">public</span> Implementation {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string OperationImplementation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;ConcreteImplementationB: Here&#39;s the result on the platform B.\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Abstraction defines the interface for the &quot;control&quot; part of the two class</span></div>
+<div class="line"><span class="comment"> * hierarchies. It maintains a reference to an object of the Implementation</span></div>
+<div class="line"><span class="comment"> * hierarchy and delegates all of the real work to this object.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Abstraction {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * @var Implementation</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  Implementation* implementation_;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  Abstraction(Implementation* implementation) : implementation_(implementation) {</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">virtual</span> ~Abstraction() {</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">virtual</span> std::string Operation()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Abstraction: Base operation with:\n&quot;</span> +</div>
+<div class="line">           this-&gt;implementation_-&gt;OperationImplementation();</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * You can extend the Abstraction without changing the Implementation classes.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ExtendedAbstraction : <span class="keyword">public</span> Abstraction {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ExtendedAbstraction(Implementation* implementation) : Abstraction(implementation) {</div>
+<div class="line">  }</div>
+<div class="line">  std::string Operation()<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;ExtendedAbstraction: Extended operation with:\n&quot;</span> +</div>
+<div class="line">           this-&gt;implementation_-&gt;OperationImplementation();</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Except for the initialization phase, where an Abstraction object gets linked</span></div>
+<div class="line"><span class="comment"> * with a specific Implementation object, the client code should only depend on</span></div>
+<div class="line"><span class="comment"> * the Abstraction class. This way the client code can support any abstraction-</span></div>
+<div class="line"><span class="comment"> * implementation combination.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(<span class="keyword">const</span> Abstraction&amp; abstraction) {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  std::cout &lt;&lt; abstraction.Operation();</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code should be able to work with any pre-configured abstraction-</span></div>
+<div class="line"><span class="comment"> * implementation combination.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  Implementation* implementation = <span class="keyword">new</span> ConcreteImplementationA;</div>
+<div class="line">  Abstraction* abstraction = <span class="keyword">new</span> Abstraction(implementation);</div>
+<div class="line">  ClientCode(*abstraction);</div>
+<div class="line">  std::cout &lt;&lt; std::endl;</div>
+<div class="line">  <span class="keyword">delete</span> implementation;</div>
+<div class="line">  <span class="keyword">delete</span> abstraction;</div>
+<div class="line"> </div>
+<div class="line">  implementation = <span class="keyword">new</span> ConcreteImplementationB;</div>
+<div class="line">  abstraction = <span class="keyword">new</span> ExtendedAbstraction(implementation);</div>
+<div class="line">  ClientCode(*abstraction);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> implementation;</div>
+<div class="line">  <span class="keyword">delete</span> abstraction;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment">Abstraction: Base operation with:
+ConcreteImplementationA: Here's the result on the platform A.
+
+ExtendedAbstraction: Extended operation with:
+ConcreteImplementationB: Here's the result on the platform B.
+</pre></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/bridge/cpp/example#lang-features">Bridge</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -111,7 +222,7 @@ $(function(){initNavTree('d2/de7/a00014.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">Structural Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:07:02 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

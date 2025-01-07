@@ -102,8 +102,166 @@ $(function(){initNavTree('d7/dd4/a00013.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Adapter</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява на обекти с несъвместими интерфейси да си сътрудничат.</p>
-<p><a href="https://refactoring.guru/design-patterns/adapter/cpp/example#lang-features">Adapter</a> </p>
+<div class="textblock"><p>Адаптерът е структурен дизайн, който позволява на несъвместими обекти да си сътрудничат.</p>
+<p>Адаптерът действа като обвивка между два обекта. Той улавя повиквания за един обект и ги трансформира във формат и интерфейс, разпознаваем от втория обект.</p>
+<h1><a class="anchor" id="ConceptualExample"></a>
+Conceptual Example</h1>
+<dl class="section user"><dt>Примери за употреба: </dt><dd>Моделът на адаптера е доста често срещан в C++ кода. Много често се използва в системи, базирани на някакъв наследен код. В такива случаи адаптерите карат стария код да работи с модерни класове.</dd></dl>
+<dl class="section user"><dt>Идентификация: </dt><dd>Адаптерът се разпознава от конструктор, който взема екземпляр от различен тип абстракт/интерфейс. Когато адаптерът получи извикване към някой от своите методи, той превежда параметрите в подходящия формат и след това насочва извикването към един или няколко метода на обвития обект.</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Target defines the domain-specific interface used by the client code.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Target {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~Target() = <span class="keywordflow">default</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">virtual</span> std::string Request()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Target: The default target&#39;s behavior.&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Adaptee contains some useful behavior, but its interface is incompatible</span></div>
+<div class="line"><span class="comment"> * with the existing client code. The Adaptee needs some adaptation before the</span></div>
+<div class="line"><span class="comment"> * client code can use it.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Adaptee {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string SpecificRequest()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;.eetpadA eht fo roivaheb laicepS&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Adapter makes the Adaptee&#39;s interface compatible with the Target&#39;s</span></div>
+<div class="line"><span class="comment"> * interface.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Adapter : <span class="keyword">public</span> Target {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  Adaptee *adaptee_;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  Adapter(Adaptee *adaptee) : adaptee_(adaptee) {}</div>
+<div class="line">  std::string Request()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::string to_reverse = this-&gt;adaptee_-&gt;SpecificRequest();</div>
+<div class="line">    std::reverse(to_reverse.begin(), to_reverse.end());</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Adapter: (TRANSLATED) &quot;</span> + to_reverse;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code supports all classes that follow the Target interface.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(<span class="keyword">const</span> Target *target) {</div>
+<div class="line">  std::cout &lt;&lt; target-&gt;Request();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: I can work just fine with the Target objects:\n&quot;</span>;</div>
+<div class="line">  Target *target = <span class="keyword">new</span> Target;</div>
+<div class="line">  ClientCode(target);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">  Adaptee *adaptee = <span class="keyword">new</span> Adaptee;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: The Adaptee class has a weird interface. See, I don&#39;t understand it:\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Adaptee: &quot;</span> &lt;&lt; adaptee-&gt;SpecificRequest();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: But I can work with it via the Adapter:\n&quot;</span>;</div>
+<div class="line">  Adapter *adapter = <span class="keyword">new</span> Adapter(adaptee);</div>
+<div class="line">  ClientCode(adapter);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> target;</div>
+<div class="line">  <span class="keyword">delete</span> adaptee;</div>
+<div class="line">  <span class="keyword">delete</span> adapter;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment">Client: I can work just fine with the Target objects:
+Target: The default target's behavior.
+
+Client: The Adaptee class has a weird interface. See, I don't understand it:
+Adaptee: .eetpadA eht fo roivaheb laicepS
+
+Client: But I can work with it via the Adapter:
+Adapter: (TRANSLATED) Special behavior of the Adaptee.
+</pre></dd></dl>
+<h1><a class="anchor" id="MultipleInheritance"></a>
+Multiple Inheritance</h1>
+<dl class="section user"><dt>В C++ моделът на адаптера може да бъде реализиран с помощта на множествено наследяване.</dt><dd><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Target defines the domain-specific interface used by the client code.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Target {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~Target() = <span class="keywordflow">default</span>;</div>
+<div class="line">  <span class="keyword">virtual</span> std::string Request()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Target: The default target&#39;s behavior.&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Adaptee contains some useful behavior, but its interface is incompatible</span></div>
+<div class="line"><span class="comment"> * with the existing client code. The Adaptee needs some adaptation before the</span></div>
+<div class="line"><span class="comment"> * client code can use it.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Adaptee {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string SpecificRequest()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;.eetpadA eht fo roivaheb laicepS&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Adapter makes the Adaptee&#39;s interface compatible with the Target&#39;s</span></div>
+<div class="line"><span class="comment"> * interface using multiple inheritance.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Adapter : <span class="keyword">public</span> Target, <span class="keyword">public</span> Adaptee {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  Adapter() {}</div>
+<div class="line">  std::string Request()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::string to_reverse = SpecificRequest();</div>
+<div class="line">    std::reverse(to_reverse.begin(), to_reverse.end());</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Adapter: (TRANSLATED) &quot;</span> + to_reverse;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code supports all classes that follow the Target interface.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(<span class="keyword">const</span> Target *target) {</div>
+<div class="line">  std::cout &lt;&lt; target-&gt;Request();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: I can work just fine with the Target objects:\n&quot;</span>;</div>
+<div class="line">  Target *target = <span class="keyword">new</span> Target;</div>
+<div class="line">  ClientCode(target);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">  Adaptee *adaptee = <span class="keyword">new</span> Adaptee;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: The Adaptee class has a weird interface. See, I don&#39;t understand it:\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Adaptee: &quot;</span> &lt;&lt; adaptee-&gt;SpecificRequest();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client: But I can work with it via the Adapter:\n&quot;</span>;</div>
+<div class="line">  Adapter *adapter = <span class="keyword">new</span> Adapter;</div>
+<div class="line">  ClientCode(adapter);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> target;</div>
+<div class="line">  <span class="keyword">delete</span> adaptee;</div>
+<div class="line">  <span class="keyword">delete</span> adapter;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Output:</dt><dd><pre class="fragment">Client: I can work just fine with the Target objects:
+Target: The default target's behavior.
+
+Client: The Adaptee class has a weird interface. See, I don't understand it:
+Adaptee: .eetpadA eht fo roivaheb laicepS
+
+Client: But I can work with it via the Adapter:
+Adapter: (TRANSLATED) Special behavior of the Adaptee.
+</pre></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/adapter/cpp/example#lang-features">Adapter</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -111,7 +269,7 @@ $(function(){initNavTree('d7/dd4/a00013.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">Structural Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:07:02 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

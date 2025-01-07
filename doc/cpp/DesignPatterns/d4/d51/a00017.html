@@ -102,8 +102,121 @@ $(function(){initNavTree('d4/d51/a00017.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Facade</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Осигурява опростен интерфейс към библиотека, рамка или друг сложен набор от класове.</p>
-<p><a href="https://refactoring.guru/design-patterns/facade/cpp/example#lang-features">Facade</a> </p>
+<div class="textblock"><p>Facade е структурен дизайн, който предоставя опростен (но ограничен) интерфейс към сложна система от класове, библиотека или рамка.</p>
+<p>Въпреки че Facade намалява цялостната сложност на приложението, той също така помага да се преместят нежеланите зависимости на едно място.</p>
+<dl class="section user"><dt>Примери за използване:</dt><dd>Фасадният шаблон обикновено се използва в приложения, написани на C++. Това е особено удобно при работа със сложни библиотеки и API.</dd></dl>
+<dl class="section user"><dt>Идентификация: </dt><dd>Facade може да бъде разпознат в клас, който има прост интерфейс, но делегира по-голямата част от работата на други класове. Обикновено фасадите управляват пълния жизнен цикъл на обектите, които използват.</dd></dl>
+<p>@ Концептуален пример Този пример илюстрира структурата на шаблона за проектиране на фасадата . Той се фокусира върху отговорите на тези въпроси:</p>
+<p>От какви класове се състои? Какви роли играят тези класове? По какъв начин са свързани елементите на модела?</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Subsystem can accept requests either from the facade or client directly.</span></div>
+<div class="line"><span class="comment"> * In any case, to the Subsystem, the Facade is yet another client, and it&#39;s not</span></div>
+<div class="line"><span class="comment"> * a part of the Subsystem.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Subsystem1 {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string Operation1()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Subsystem1: Ready!\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  std::string OperationN()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Subsystem1: Go!\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Some facades can work with multiple subsystems at the same time.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Subsystem2 {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  std::string Operation1()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Subsystem2: Get ready!\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  std::string OperationZ()<span class="keyword"> const </span>{</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="stringliteral">&quot;Subsystem2: Fire!\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Facade class provides a simple interface to the complex logic of one or</span></div>
+<div class="line"><span class="comment"> * several subsystems. The Facade delegates the client requests to the</span></div>
+<div class="line"><span class="comment"> * appropriate objects within the subsystem. The Facade is also responsible for</span></div>
+<div class="line"><span class="comment"> * managing their lifecycle. All of this shields the client from the undesired</span></div>
+<div class="line"><span class="comment"> * complexity of the subsystem.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Facade {</div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  Subsystem1 *subsystem1_;</div>
+<div class="line">  Subsystem2 *subsystem2_;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * Depending on your application&#39;s needs, you can provide the Facade with</span></div>
+<div class="line"><span class="comment">   * existing subsystem objects or force the Facade to create them on its own.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * In this case we will delegate the memory ownership to Facade Class</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  Facade(</div>
+<div class="line">      Subsystem1 *subsystem1 = <span class="keyword">nullptr</span>,</div>
+<div class="line">      Subsystem2 *subsystem2 = <span class="keyword">nullptr</span>) {</div>
+<div class="line">    this-&gt;subsystem1_ = subsystem1 ?: <span class="keyword">new</span> Subsystem1;</div>
+<div class="line">    this-&gt;subsystem2_ = subsystem2 ?: <span class="keyword">new</span> Subsystem2;</div>
+<div class="line">  }</div>
+<div class="line">  ~Facade() {</div>
+<div class="line">    <span class="keyword">delete</span> subsystem1_;</div>
+<div class="line">    <span class="keyword">delete</span> subsystem2_;</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * The Facade&#39;s methods are convenient shortcuts to the sophisticated</span></div>
+<div class="line"><span class="comment">   * functionality of the subsystems. However, clients get only to a fraction of</span></div>
+<div class="line"><span class="comment">   * a subsystem&#39;s capabilities.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  std::string Operation() {</div>
+<div class="line">    std::string result = <span class="stringliteral">&quot;Facade initializes subsystems:\n&quot;</span>;</div>
+<div class="line">    result += this-&gt;subsystem1_-&gt;Operation1();</div>
+<div class="line">    result += this-&gt;subsystem2_-&gt;Operation1();</div>
+<div class="line">    result += <span class="stringliteral">&quot;Facade orders subsystems to perform the action:\n&quot;</span>;</div>
+<div class="line">    result += this-&gt;subsystem1_-&gt;OperationN();</div>
+<div class="line">    result += this-&gt;subsystem2_-&gt;OperationZ();</div>
+<div class="line">    <span class="keywordflow">return</span> result;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code works with complex subsystems through a simple interface</span></div>
+<div class="line"><span class="comment"> * provided by the Facade. When a facade manages the lifecycle of the subsystem,</span></div>
+<div class="line"><span class="comment"> * the client might not even know about the existence of the subsystem. This</span></div>
+<div class="line"><span class="comment"> * approach lets you keep the complexity under control.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(Facade *facade) {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  std::cout &lt;&lt; facade-&gt;Operation();</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code may have some of the subsystem&#39;s objects already created. In</span></div>
+<div class="line"><span class="comment"> * this case, it might be worthwhile to initialize the Facade with these objects</span></div>
+<div class="line"><span class="comment"> * instead of letting the Facade create new instances.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  Subsystem1 *subsystem1 = <span class="keyword">new</span> Subsystem1;</div>
+<div class="line">  Subsystem2 *subsystem2 = <span class="keyword">new</span> Subsystem2;</div>
+<div class="line">  Facade *facade = <span class="keyword">new</span> Facade(subsystem1, subsystem2);</div>
+<div class="line">  ClientCode(facade);</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> facade;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd></dd></dl>
+<pre class="fragment">Facade initializes subsystems:
+Subsystem1: Ready!
+Subsystem2: Get ready!
+Facade orders subsystems to perform the action:
+Subsystem1: Go!
+Subsystem2: Fire!
+</pre><p><a href="https://refactoring.guru/design-patterns/facade/cpp/example#lang-features">Facade</a> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -111,7 +224,7 @@ $(function(){initNavTree('d4/d51/a00017.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d21/a00006.html">Structural Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:07:02 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>
