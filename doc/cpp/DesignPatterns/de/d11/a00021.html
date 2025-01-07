@@ -102,8 +102,151 @@ $(function(){initNavTree('de/d11/a00021.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Command</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Превръща заявка в самостоятелен обект, който съдържа цялата информация за заявката. Тази трансформация ви позволява да предавате заявки като аргументи на метод, да забавяте или поставяте на опашка изпълнението на заявка и да поддържате операции, които могат да бъдат отменен</p>
-<p><a href="https://refactoring.guru/design-patterns/command/cpp/example#lang-features">Command</a> </p>
+<div class="textblock"><p>Командата е модел на поведенчески дизайн, който преобразува заявки или прости операции в обекти.</p>
+<p>Преобразуването позволява отложено или дистанционно изпълнение на команди, съхраняване на хронологията на командите и др.</p>
+<dl class="section user"><dt>Начин на употреба </dt><dd>Моделът Command е доста често срещан в C++ кода. Най-често се използва като алтернатива за обратни извиквания за параметризиране на UI елементи с действия. Използва се и за задачи на опашка, проследяване на хронологията на операциите и т.н.</dd></dl>
+<dl class="section user"><dt>Идентификация</dt><dd>Моделът на командата се разпознава чрез поведенчески методи в абстрактен/интерфейсен тип (подател), който извиква метод в имплементация на различен абстрактен/интерфейсен тип (получател), който е бил капсулиран от реализацията на командата по време на нейното създаване. Командните класове обикновено са ограничени до конкретни действия.</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Command interface declares a method for executing a command.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Command {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~Command() {</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Execute() <span class="keyword">const</span> = 0;</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Some commands can implement simple operations on their own.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>SimpleCommand : <span class="keyword">public</span> Command {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  std::string pay_load_;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">explicit</span> SimpleCommand(std::string pay_load) : pay_load_(pay_load) {</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> Execute()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;SimpleCommand: See, I can do simple things like printing (&quot;</span> &lt;&lt; this-&gt;pay_load_ &lt;&lt; <span class="stringliteral">&quot;)\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Receiver classes contain some important business logic. They know how to</span></div>
+<div class="line"><span class="comment"> * perform all kinds of operations, associated with carrying out a request. In</span></div>
+<div class="line"><span class="comment"> * fact, any class may serve as a Receiver.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Receiver {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> DoSomething(<span class="keyword">const</span> std::string &amp;a) {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Receiver: Working on (&quot;</span> &lt;&lt; a &lt;&lt; <span class="stringliteral">&quot;.)\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> DoSomethingElse(<span class="keyword">const</span> std::string &amp;b) {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Receiver: Also working on (&quot;</span> &lt;&lt; b &lt;&lt; <span class="stringliteral">&quot;.)\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * However, some commands can delegate more complex operations to other objects,</span></div>
+<div class="line"><span class="comment"> * called &quot;receivers.&quot;</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ComplexCommand : <span class="keyword">public</span> Command {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * @var Receiver</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  Receiver *receiver_;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * Context data, required for launching the receiver&#39;s methods.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  std::string a_;</div>
+<div class="line">  std::string b_;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * Complex commands can accept one or several receiver objects along with any</span></div>
+<div class="line"><span class="comment">   * context data via the constructor.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ComplexCommand(Receiver *receiver, std::string a, std::string b) : receiver_(receiver), a_(a), b_(b) {</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * Commands can delegate to any methods of a receiver.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  <span class="keywordtype">void</span> Execute()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ComplexCommand: Complex stuff should be done by a receiver object.\n&quot;</span>;</div>
+<div class="line">    this-&gt;receiver_-&gt;DoSomething(this-&gt;a_);</div>
+<div class="line">    this-&gt;receiver_-&gt;DoSomethingElse(this-&gt;b_);</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Invoker is associated with one or several commands. It sends a request to</span></div>
+<div class="line"><span class="comment"> * the command.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Invoker {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * @var Command</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  Command *on_start_;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * @var Command</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  Command *on_finish_;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * Initialize commands.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ~Invoker() {</div>
+<div class="line">    <span class="keyword">delete</span> on_start_;</div>
+<div class="line">    <span class="keyword">delete</span> on_finish_;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> SetOnStart(Command *command) {</div>
+<div class="line">    this-&gt;on_start_ = command;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> SetOnFinish(Command *command) {</div>
+<div class="line">    this-&gt;on_finish_ = command;</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * The Invoker does not depend on concrete command or receiver classes. The</span></div>
+<div class="line"><span class="comment">   * Invoker passes a request to a receiver indirectly, by executing a command.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  <span class="keywordtype">void</span> DoSomethingImportant() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Invoker: Does anybody want something done before I begin?\n&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (this-&gt;on_start_) {</div>
+<div class="line">      this-&gt;on_start_-&gt;Execute();</div>
+<div class="line">    }</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Invoker: ...doing something really important...\n&quot;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Invoker: Does anybody want something done after I finish?\n&quot;</span>;</div>
+<div class="line">    <span class="keywordflow">if</span> (this-&gt;on_finish_) {</div>
+<div class="line">      this-&gt;on_finish_-&gt;Execute();</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code can parameterize an invoker with any commands.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  Invoker *invoker = <span class="keyword">new</span> Invoker;</div>
+<div class="line">  invoker-&gt;SetOnStart(<span class="keyword">new</span> SimpleCommand(<span class="stringliteral">&quot;Say Hi!&quot;</span>));</div>
+<div class="line">  Receiver *receiver = <span class="keyword">new</span> Receiver;</div>
+<div class="line">  invoker-&gt;SetOnFinish(<span class="keyword">new</span> ComplexCommand(receiver, <span class="stringliteral">&quot;Send email&quot;</span>, <span class="stringliteral">&quot;Save report&quot;</span>));</div>
+<div class="line">  invoker-&gt;DoSomethingImportant();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> invoker;</div>
+<div class="line">  <span class="keyword">delete</span> receiver;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Изход</dt><dd></dd></dl>
+<pre class="fragment">Invoker: Does anybody want something done before I begin?
+SimpleCommand: See, I can do simple things like printing (Say Hi!)
+Invoker: ...doing something really important...
+Invoker: Does anybody want something done after I finish?
+ComplexCommand: Complex stuff should be done by a receiver object.
+Receiver: Working on (Send email.)
+Receiver: Also working on (Save report.)
+</pre> <dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/command/cpp/example#lang-features">Command</a> </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
@@ -111,7 +254,7 @@ $(function(){initNavTree('de/d11/a00021.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Behavioral Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 12:12:41 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

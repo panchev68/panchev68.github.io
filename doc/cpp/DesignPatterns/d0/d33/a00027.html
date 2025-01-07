@@ -102,8 +102,124 @@ $(function(){initNavTree('d0/d33/a00027.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Strategy</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да дефинирате семейство от алгоритми, да поставите всеки от тях в отделен клас и да направите обектите им взаимозаменяеми.</p>
-<div class="fragment"></div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment"></pre> </dd></dl>
+<div class="textblock"><p>Strategy е модел на поведенчески дизайн, който превръща набор от поведения в обекти и ги прави взаимозаменяеми в оригиналния контекстен обект.</p>
+<p>Позволява ви да дефинирате семейство от алгоритми, да поставите всеки от тях в отделен клас и да направите обектите им взаимозаменяеми.</p>
+<p>Оригиналният обект, наречен контекст, съдържа препратка към стратегически обект. Контекстът делегира изпълнението на поведението на свързания стратегически обект. За да променят начина, по който контекстът изпълнява своята работа, други обекти могат да заменят текущо свързания стратегически обект с друг.</p>
+<dl class="section user"><dt>Начин на употреба </dt><dd>Стратегическият модел е много често срещан в C++ кода. Често се използва в различни рамки, за да предостави на потребителите начин да променят поведението на клас, без да го разширяват.</dd></dl>
+<dl class="section user"><dt>Идентификация</dt><dd>Стратегическият модел може да бъде разпознат чрез метод, който позволява на вложен обект да върши действителната работа, както и чрез сетер, който позволява замяната на този обект с различен.</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Strategy interface declares operations common to all supported versions</span></div>
+<div class="line"><span class="comment"> * of some algorithm.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The Context uses this interface to call the algorithm defined by Concrete</span></div>
+<div class="line"><span class="comment"> * Strategies.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Strategy</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">virtual</span> ~Strategy() = <span class="keywordflow">default</span>;</div>
+<div class="line">    <span class="keyword">virtual</span> std::string doAlgorithm(std::string_view data) <span class="keyword">const</span> = 0;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Context defines the interface of interest to clients.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Context</div>
+<div class="line">{<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @var Strategy The Context maintains a reference to one of the Strategy</span></div>
+<div class="line"><span class="comment">     * objects. The Context does not know the concrete class of a strategy. It</span></div>
+<div class="line"><span class="comment">     * should work with all strategies via the Strategy interface.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line"><span class="keyword">private</span>:</div>
+<div class="line">    std::unique_ptr&lt;Strategy&gt; strategy_;<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * Usually, the Context accepts a strategy through the constructor, but also</span></div>
+<div class="line"><span class="comment">     * provides a setter to change it at runtime.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">explicit</span> Context(std::unique_ptr&lt;Strategy&gt; &amp;&amp;strategy = {}) : strategy_(std::move(strategy))</div>
+<div class="line">    {</div>
+<div class="line">    }<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * Usually, the Context allows replacing a Strategy object at runtime.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line">    <span class="keywordtype">void</span> set_strategy(std::unique_ptr&lt;Strategy&gt; &amp;&amp;strategy)</div>
+<div class="line">    {</div>
+<div class="line">        strategy_ = std::move(strategy);</div>
+<div class="line">    }<span class="comment"></span></div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * The Context delegates some work to the Strategy object instead of</span></div>
+<div class="line"><span class="comment">     * implementing +multiple versions of the algorithm on its own.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line">    <span class="keywordtype">void</span> doSomeBusinessLogic()<span class="keyword"> const</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        <span class="keywordflow">if</span> (strategy_) {</div>
+<div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;Context: Sorting data using the strategy (not sure how it&#39;ll do it)\n&quot;</span>;</div>
+<div class="line">            std::string result = strategy_-&gt;doAlgorithm(<span class="stringliteral">&quot;aecbd&quot;</span>);</div>
+<div class="line">            std::cout &lt;&lt; result &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            std::cout &lt;&lt; <span class="stringliteral">&quot;Context: Strategy isn&#39;t set\n&quot;</span>;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Concrete Strategies implement the algorithm while following the base Strategy</span></div>
+<div class="line"><span class="comment"> * interface. The interface makes them interchangeable in the Context.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteStrategyA : <span class="keyword">public</span> Strategy</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    std::string doAlgorithm(std::string_view data)<span class="keyword"> const override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        std::string result(data);</div>
+<div class="line">        std::sort(std::begin(result), std::end(result));</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> result;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"><span class="keyword">class </span>ConcreteStrategyB : <span class="keyword">public</span> Strategy</div>
+<div class="line">{</div>
+<div class="line">    std::string doAlgorithm(std::string_view data)<span class="keyword"> const override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">        std::string result(data);</div>
+<div class="line">        std::sort(std::begin(result), std::end(result), std::greater&lt;&gt;());</div>
+<div class="line"> </div>
+<div class="line">        <span class="keywordflow">return</span> result;</div>
+<div class="line">    }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code picks a concrete strategy and passes it to the context. The</span></div>
+<div class="line"><span class="comment"> * client should be aware of the differences between strategies in order to make</span></div>
+<div class="line"><span class="comment"> * the right choice.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> clientCode()</div>
+<div class="line">{</div>
+<div class="line">    Context context(std::make_unique&lt;ConcreteStrategyA&gt;());</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Client: Strategy is set to normal sorting.\n&quot;</span>;</div>
+<div class="line">    context.doSomeBusinessLogic();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Client: Strategy is set to reverse sorting.\n&quot;</span>;</div>
+<div class="line">    context.set_strategy(std::make_unique&lt;ConcreteStrategyB&gt;());</div>
+<div class="line">    context.doSomeBusinessLogic();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main()</div>
+<div class="line">{</div>
+<div class="line">    clientCode();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Изход</dt><dd><pre class="fragment">Client: Strategy is set to normal sorting.
+Context: Sorting data using the strategy (not sure how it'll do it)
+abcde
+
+Client: Strategy is set to reverse sorting.
+Context: Sorting data using the strategy (not sure how it'll do it)
+edcba
+</pre> </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/strategy/cpp/example#lang-features">Strategy</a></dd></dl>
 <hr  />
  </div></div><!-- contents -->
@@ -113,7 +229,7 @@ $(function(){initNavTree('d0/d33/a00027.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Behavioral Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 12:12:41 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

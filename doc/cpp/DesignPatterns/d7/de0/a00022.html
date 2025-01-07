@@ -102,8 +102,147 @@ $(function(){initNavTree('d7/de0/a00022.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Iterator</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да преминавате през елементи на колекция, без да разкривате нейното основно представяне (списък, стек, дърво и т.н.).</p>
-<div class="fragment"></div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment"></pre> </dd></dl>
+<div class="textblock"><p>Iterator е модел на поведенчески дизайн, който позволява последователно преминаване през сложна структура от данни, без да разкрива вътрешните й детайли.</p>
+<p>Позволява ви да преминавате през елементи на колекция, без да разкривате нейното основно представяне (списък, стек, дърво и т.н.).</p>
+<p>Благодарение на итератора, клиентите могат да преминават през елементи от различни колекции по подобен начин, използвайки един интерфейс на итератор.</p>
+<dl class="section user"><dt>Начин на употреба </dt><dd>Моделът е много често срещан в C++ кода. Много рамки и библиотеки го използват, за да осигурят стандартен начин за преминаване на техните колекции.</dd></dl>
+<dl class="section user"><dt>Идентификация</dt><dd>Итераторът се разпознава лесно чрез методите за навигация (като next, previousи други). Клиентският код, който използва итератори, може да няма директен достъп до обхожданата колекция. <div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Iterator Design Pattern</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * Intent: Lets you traverse elements of a collection without exposing its</span></div>
+<div class="line"><span class="comment"> * underlying representation (list, stack, tree, etc.).</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * C++ has its own implementation of iterator that works with a different</span></div>
+<div class="line"><span class="comment"> * generics containers defined by the standard library.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> U&gt;</div>
+<div class="line"><span class="keyword">class </span>Iterator {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">typedef</span> <span class="keyword">typename</span> std::vector&lt;T&gt;::iterator iter_type;</div>
+<div class="line">  Iterator(U *p_data, <span class="keywordtype">bool</span> reverse = <span class="keyword">false</span>) : m_p_data_(p_data) {</div>
+<div class="line">    m_it_ = m_p_data_-&gt;m_data_.begin();</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> First() {</div>
+<div class="line">    m_it_ = m_p_data_-&gt;m_data_.begin();</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> Next() {</div>
+<div class="line">    m_it_++;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> IsDone() {</div>
+<div class="line">    <span class="keywordflow">return</span> (m_it_ == m_p_data_-&gt;m_data_.end());</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  iter_type Current() {</div>
+<div class="line">    <span class="keywordflow">return</span> m_it_;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  U *m_p_data_;</div>
+<div class="line">  iter_type m_it_;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Generic Collections/Containers provides one or several methods for retrieving</span></div>
+<div class="line"><span class="comment"> * fresh iterator instances, compatible with the collection class.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><span class="keyword">class </span>Container {</div>
+<div class="line">  <span class="keyword">friend</span> <span class="keyword">class </span>Iterator&lt;T, Container&gt;;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> Add(T a) {</div>
+<div class="line">    m_data_.push_back(a);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  Iterator&lt;T, Container&gt; *CreateIterator() {</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">new</span> Iterator&lt;T, Container&gt;(<span class="keyword">this</span>);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  std::vector&lt;T&gt; m_data_;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Data {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  Data(<span class="keywordtype">int</span> a = 0) : m_data_(a) {}</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> set_data(<span class="keywordtype">int</span> a) {</div>
+<div class="line">    m_data_ = a;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">int</span> data() {</div>
+<div class="line">    <span class="keywordflow">return</span> m_data_;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <span class="keywordtype">int</span> m_data_;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code may or may not know about the Concrete Iterator or Collection</span></div>
+<div class="line"><span class="comment"> * classes, for this implementation the container is generic so you can used</span></div>
+<div class="line"><span class="comment"> * with an int or with a custom class.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode() {</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;________________Iterator with int______________________________________&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  Container&lt;int&gt; cont;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 10; i++) {</div>
+<div class="line">    cont.Add(i);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  Iterator&lt;int, Container&lt;int&gt;&gt; *it = cont.CreateIterator();</div>
+<div class="line">  <span class="keywordflow">for</span> (it-&gt;First(); !it-&gt;IsDone(); it-&gt;Next()) {</div>
+<div class="line">    std::cout &lt;&lt; *it-&gt;Current() &lt;&lt; std::endl;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  Container&lt;Data&gt; cont2;</div>
+<div class="line">  Data a(100), b(1000), c(10000);</div>
+<div class="line">  cont2.Add(a);</div>
+<div class="line">  cont2.Add(b);</div>
+<div class="line">  cont2.Add(c);</div>
+<div class="line"> </div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;________________Iterator with custom Class______________________________&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">  Iterator&lt;Data, Container&lt;Data&gt;&gt; *it2 = cont2.CreateIterator();</div>
+<div class="line">  <span class="keywordflow">for</span> (it2-&gt;First(); !it2-&gt;IsDone(); it2-&gt;Next()) {</div>
+<div class="line">    std::cout &lt;&lt; it2-&gt;Current()-&gt;data() &lt;&lt; std::endl;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keyword">delete</span> it;</div>
+<div class="line">  <span class="keyword">delete</span> it2;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  ClientCode();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Изход</dt><dd><pre class="fragment">________________Iterator with int______________________________________
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+________________Iterator with custom Class______________________________
+100
+1000
+10000
+</pre> </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/iterator/cpp/example#lang-features">Iterator</a></dd></dl>
 <hr  />
  </div></div><!-- contents -->
@@ -113,7 +252,7 @@ $(function(){initNavTree('d7/de0/a00022.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Behavioral Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 12:12:41 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>

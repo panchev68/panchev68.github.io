@@ -102,8 +102,127 @@ $(function(){initNavTree('d3/d52/a00023.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Mediator</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Позволява ви да намалите хаотичните зависимости между обектите. Моделът ограничава директните комуникации между обектите и ги принуждава да си сътрудничат само чрез обект посредник.</p>
-<div class="fragment"></div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd><pre class="fragment"></pre> </dd></dl>
+<div class="textblock"><p>Mediator е модел на поведенчески дизайн, който намалява свързването между компонентите на програма, като ги кара да комуникират индиректно, чрез специален обект-медиатор.</p>
+<p>Mediator улеснява модифицирането, разширяването и повторното използване на отделни компоненти, тъй като те вече не зависят от десетките други класове.</p>
+<dl class="section user"><dt>Начин на употреба </dt><dd>Най-популярната употреба на модела Mediator в кода на C++ е улесняване на комуникациите между GUI компонентите на приложението. Синонимът на Mediator е контролната част на MVC шаблона.</dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Mediator interface declares a method used by components to notify the</span></div>
+<div class="line"><span class="comment"> * mediator about various events. The Mediator may react to these events and</span></div>
+<div class="line"><span class="comment"> * pass the execution to other components.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>BaseComponent;</div>
+<div class="line"><span class="keyword">class </span>Mediator {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Notify(BaseComponent *sender, std::string event) <span class="keyword">const</span> = 0;</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Base Component provides the basic functionality of storing a mediator&#39;s</span></div>
+<div class="line"><span class="comment"> * instance inside component objects.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>BaseComponent {</div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  Mediator *mediator_;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  BaseComponent(Mediator *mediator = <span class="keyword">nullptr</span>) : mediator_(mediator) {</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> set_mediator(Mediator *mediator) {</div>
+<div class="line">    this-&gt;mediator_ = mediator;</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Concrete Components implement various functionality. They don&#39;t depend on</span></div>
+<div class="line"><span class="comment"> * other components. They also don&#39;t depend on any concrete mediator classes.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>Component1 : <span class="keyword">public</span> BaseComponent {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> DoA() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Component 1 does A.\n&quot;</span>;</div>
+<div class="line">    this-&gt;mediator_-&gt;Notify(<span class="keyword">this</span>, <span class="stringliteral">&quot;A&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> DoB() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Component 1 does B.\n&quot;</span>;</div>
+<div class="line">    this-&gt;mediator_-&gt;Notify(<span class="keyword">this</span>, <span class="stringliteral">&quot;B&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>Component2 : <span class="keyword">public</span> BaseComponent {</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> DoC() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Component 2 does C.\n&quot;</span>;</div>
+<div class="line">    this-&gt;mediator_-&gt;Notify(<span class="keyword">this</span>, <span class="stringliteral">&quot;C&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> DoD() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Component 2 does D.\n&quot;</span>;</div>
+<div class="line">    this-&gt;mediator_-&gt;Notify(<span class="keyword">this</span>, <span class="stringliteral">&quot;D&quot;</span>);</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Concrete Mediators implement cooperative behavior by coordinating several</span></div>
+<div class="line"><span class="comment"> * components.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteMediator : <span class="keyword">public</span> Mediator {</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  Component1 *component1_;</div>
+<div class="line">  Component2 *component2_;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ConcreteMediator(Component1 *c1, Component2 *c2) : component1_(c1), component2_(c2) {</div>
+<div class="line">    this-&gt;component1_-&gt;set_mediator(<span class="keyword">this</span>);</div>
+<div class="line">    this-&gt;component2_-&gt;set_mediator(<span class="keyword">this</span>);</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> Notify(BaseComponent *sender, std::string event)<span class="keyword"> const override </span>{</div>
+<div class="line">    <span class="keywordflow">if</span> (event == <span class="stringliteral">&quot;A&quot;</span>) {</div>
+<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;Mediator reacts on A and triggers following operations:\n&quot;</span>;</div>
+<div class="line">      this-&gt;component2_-&gt;DoC();</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (event == <span class="stringliteral">&quot;D&quot;</span>) {</div>
+<div class="line">      std::cout &lt;&lt; <span class="stringliteral">&quot;Mediator reacts on D and triggers following operations:\n&quot;</span>;</div>
+<div class="line">      this-&gt;component1_-&gt;DoB();</div>
+<div class="line">      this-&gt;component2_-&gt;DoC();</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> ClientCode() {</div>
+<div class="line">  Component1 *c1 = <span class="keyword">new</span> Component1;</div>
+<div class="line">  Component2 *c2 = <span class="keyword">new</span> Component2;</div>
+<div class="line">  ConcreteMediator *mediator = <span class="keyword">new</span> ConcreteMediator(c1, c2);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client triggers operation A.\n&quot;</span>;</div>
+<div class="line">  c1-&gt;DoA();</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Client triggers operation D.\n&quot;</span>;</div>
+<div class="line">  c2-&gt;DoD();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">delete</span> c1;</div>
+<div class="line">  <span class="keyword">delete</span> c2;</div>
+<div class="line">  <span class="keyword">delete</span> mediator;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  ClientCode();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section user"><dt>Изход</dt><dd><pre class="fragment">Client triggers operation A.
+Component 1 does A.
+Mediator reacts on A and triggers following operations:
+Component 2 does C.
+
+Client triggers operation D.
+Component 2 does D.
+Mediator reacts on D and triggers following operations:
+Component 1 does B.
+Component 2 does C.
+</pre> </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/mediator/cpp/example#lang-features">Mediator</a></dd></dl>
 <hr  />
  </div></div><!-- contents -->
@@ -113,7 +232,7 @@ $(function(){initNavTree('d3/d52/a00023.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Behavioral Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 11:45:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 12:12:41 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>
