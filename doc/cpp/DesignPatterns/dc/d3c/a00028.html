@@ -102,10 +102,123 @@ $(function(){initNavTree('dc/d3c/a00028.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">Template Method</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Дефинира скелета на алгоритъм в суперкласа, но позволява на подкласовете да заменят конкретни стъпки на алгоритъма, без да променят структурата му.</p>
-<dl class="section user"><dt>Начин на употреба </dt><dd></dd></dl>
-<dl class="section user"><dt>Идентификация</dt><dd></dd></dl>
-<div class="fragment"></div><!-- fragment --><dl class="section user"><dt>Изход</dt><dd><pre class="fragment"></pre> </dd></dl>
+<div class="textblock"><p>Template Method е модел на поведенчески дизайн, който ви позволява да дефинирате скелет на алгоритъм в базов клас и да позволите на подкласовете да заменят стъпките, без да променяте цялостната структура на алгоритъма.</p>
+<dl class="section user"><dt>Начин на употреба </dt><dd>Моделът Template Method е доста често срещан в рамките на C++. Разработчиците често го използват, за да предоставят на потребителите на рамка прости средства за разширяване на стандартната функционалност чрез наследяване. </dd></dl>
+<dl class="section user"><dt>Идентификация</dt><dd>Методът на шаблона може да бъде разпознат, ако видите метод в базовия клас, който извиква куп други методи, които са или абстрактни, или празни. <div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The Abstract Class defines a template method that contains a skeleton of some</span></div>
+<div class="line"><span class="comment"> * algorithm, composed of calls to (usually) abstract primitive operations.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * Concrete subclasses should implement these operations, but leave the template</span></div>
+<div class="line"><span class="comment"> * method itself intact.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>AbstractClass {<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * The template method defines the skeleton of an algorithm.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> TemplateMethod()<span class="keyword"> const </span>{</div>
+<div class="line">    this-&gt;BaseOperation1();</div>
+<div class="line">    this-&gt;RequiredOperations1();</div>
+<div class="line">    this-&gt;BaseOperation2();</div>
+<div class="line">    this-&gt;Hook1();</div>
+<div class="line">    this-&gt;RequiredOperation2();</div>
+<div class="line">    this-&gt;BaseOperation3();</div>
+<div class="line">    this-&gt;Hook2();</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * These operations already have implementations.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> BaseOperation1()<span class="keyword"> const </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;AbstractClass says: I am doing the bulk of the work\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> BaseOperation2()<span class="keyword"> const </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;AbstractClass says: But I let subclasses override some operations\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> BaseOperation3()<span class="keyword"> const </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;AbstractClass says: But I am doing the bulk of the work anyway\n&quot;</span>;</div>
+<div class="line">  }<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * These operations have to be implemented in subclasses.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> RequiredOperations1() <span class="keyword">const</span> = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> RequiredOperation2() <span class="keyword">const</span> = 0;<span class="comment"></span></div>
+<div class="line"><span class="comment">  /**</span></div>
+<div class="line"><span class="comment">   * These are &quot;hooks.&quot; Subclasses may override them, but it&#39;s not mandatory</span></div>
+<div class="line"><span class="comment">   * since the hooks already have default (but empty) implementation. Hooks</span></div>
+<div class="line"><span class="comment">   * provide additional extension points in some crucial places of the</span></div>
+<div class="line"><span class="comment">   * algorithm.</span></div>
+<div class="line"><span class="comment">   */</span></div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Hook1()<span class="keyword"> const </span>{}</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> Hook2()<span class="keyword"> const </span>{}</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Concrete classes have to implement all abstract operations of the base class.</span></div>
+<div class="line"><span class="comment"> * They can also override some operations with a default implementation.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteClass1 : <span class="keyword">public</span> AbstractClass {</div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> RequiredOperations1()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ConcreteClass1 says: Implemented Operation1\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> RequiredOperation2()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ConcreteClass1 says: Implemented Operation2\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Usually, concrete classes override only a fraction of base class&#39; operations.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keyword">class </span>ConcreteClass2 : <span class="keyword">public</span> AbstractClass {</div>
+<div class="line"> <span class="keyword">protected</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> RequiredOperations1()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ConcreteClass2 says: Implemented Operation1\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> RequiredOperation2()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ConcreteClass2 says: Implemented Operation2\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> Hook1()<span class="keyword"> const override </span>{</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ConcreteClass2 says: Overridden Hook1\n&quot;</span>;</div>
+<div class="line">  }</div>
+<div class="line">};<span class="comment"></span></div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * The client code calls the template method to execute the algorithm. Client</span></div>
+<div class="line"><span class="comment"> * code does not have to know the concrete class of an object it works with, as</span></div>
+<div class="line"><span class="comment"> * long as it works with objects through the interface of their base class.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> ClientCode(AbstractClass *class_) {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  class_-&gt;TemplateMethod();</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Same client code can work with different subclasses:\n&quot;</span>;</div>
+<div class="line">  ConcreteClass1 *concreteClass1 = <span class="keyword">new</span> ConcreteClass1;</div>
+<div class="line">  ClientCode(concreteClass1);</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">  std::cout &lt;&lt; <span class="stringliteral">&quot;Same client code can work with different subclasses:\n&quot;</span>;</div>
+<div class="line">  ConcreteClass2 *concreteClass2 = <span class="keyword">new</span> ConcreteClass2;</div>
+<div class="line">  ClientCode(concreteClass2);</div>
+<div class="line">  <span class="keyword">delete</span> concreteClass1;</div>
+<div class="line">  <span class="keyword">delete</span> concreteClass2;</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --></dd></dl>
+<dl class="section user"><dt>Изход</dt><dd><pre class="fragment">Same client code can work with different subclasses:
+AbstractClass says: I am doing the bulk of the work
+ConcreteClass1 says: Implemented Operation1
+AbstractClass says: But I let subclasses override some operations
+ConcreteClass1 says: Implemented Operation2
+AbstractClass says: But I am doing the bulk of the work anyway
+
+Same client code can work with different subclasses:
+AbstractClass says: I am doing the bulk of the work
+ConcreteClass2 says: Implemented Operation1
+AbstractClass says: But I let subclasses override some operations
+ConcreteClass2 says: Overridden Hook1
+ConcreteClass2 says: Implemented Operation2
+AbstractClass says: But I am doing the bulk of the work anyway
+</pre> </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a href="https://refactoring.guru/design-patterns/template-method/cpp/example#lang-features">Template Method</a></dd></dl>
 <hr  />
  </div></div><!-- contents -->
@@ -115,7 +228,7 @@ $(function(){initNavTree('dc/d3c/a00028.html','../../'); initResizable(true); })
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">Design Patterns in C++</a></li><li class="navelem"><a class="el" href="../../de/d5e/a00007.html">Behavioral Patterns</a></li>
-    <li class="footer">Generated on Tue Jan 7 2025 12:12:41 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="footer">Generated on Tue Jan 7 2025 12:22:28 for C++ Design Patterns by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>
