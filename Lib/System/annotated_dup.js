@@ -9,5 +9,6 @@ var annotated_dup =
         [ "System", "d7/d46/a00890.html", "d7/d46/a00890" ],
         [ "Version", "d2/d79/a00898.html", "d2/d79/a00898" ]
       ] ]
-    ] ]
+    ] ],
+    [ "ParametersBase< T >", "d3/dd1/a00914.html", null ]
 ];

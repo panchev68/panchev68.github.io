@@ -9,6 +9,7 @@ var a00870_dup =
     [ "open", "da/d98/a00870.html#a9a151bb3d1bec4d19ec7c3df460534d5", null ],
     [ "ParametersBase", "da/d98/a00870.html#afd7f3db0cb39c88695378bffee41dbda", null ],
     [ "read", "da/d98/a00870.html#abcce1257446a68008fc50b4d26ad23f5", null ],
+    [ "restoreByDefault", "da/d98/a00870.html#ad7f4b7673fbab80745eaed0735e2db6a", null ],
     [ "setup", "da/d98/a00870.html#a7f69c3d11f387dadab235f308d0dbb87", null ],
     [ "write", "da/d98/a00870.html#a8892c4d3c0418bdf66c157617d4f0041", null ],
     [ "write", "da/d98/a00870.html#a96357d28517e2e5726596c8baa91c3cb", null ]
