@@ -1,10 +1,8 @@
 var a00880 =
 [
-    [ "Parameters", "d1/d8f/a00880.html#aed8f10c365f1968aed1168cc7a5bb800", null ],
-    [ "~Parameters", "d1/d8f/a00880.html#a245860a82f4ff4913863d92d76915052", null ],
-    [ "getData", "d1/d8f/a00880.html#afc14839c3c1a55fe5aeff91f840059b9", null ],
-    [ "getStorage", "d1/d8f/a00880.html#a8adf7d36874964f333b0de59a517a942", null ],
-    [ "restoreByDefault", "d1/d8f/a00880.html#a68dd64d77b697a2b23b8298ad88b6600", null ],
-    [ "setup", "d1/d8f/a00880.html#ad521c578c5a43082e0067bc6fc479f18", null ],
-    [ "write", "d1/d8f/a00880.html#ab0ddfcac99ddbd96b3ba1716157b1c44", null ]
+    [ "DateTime", "d1/d8f/a00880.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
+    [ "ProduceDate", "d1/d8f/a00880.html#a9968e063dbe6a06225a03e1e7f59479d", null ],
+    [ "~ProduceDate", "d1/d8f/a00880.html#a67a2a02b1507d400418a7fc37ba06966", null ],
+    [ "read", "d1/d8f/a00880.html#a20e5a16f978c6b622409fb403fb191c2", null ],
+    [ "write", "d1/d8f/a00880.html#a33840641869a3c6ec5f40e3893d3f8a9", null ]
 ];

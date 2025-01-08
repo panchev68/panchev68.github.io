@@ -1,10 +1,9 @@
 var a00876 =
 [
-    [ "ParameresStorageBase", "d2/dac/a00876.html#a8cf835b37fe7cb333e4cf4b6582a47bb", null ],
-    [ "~ParameresStorageBase", "d2/dac/a00876.html#a9e30a6149131f15e66c720f46dce98f6", null ],
-    [ "close", "d2/dac/a00876.html#a5076146d8e00f88390f706154263f9d9", null ],
-    [ "open", "d2/dac/a00876.html#a5589cde8e5b166f8ca22cfc9a4a23429", null ],
-    [ "read", "d2/dac/a00876.html#afe75f243cae6c3c34bc4dee14c79f93d", null ],
-    [ "write", "d2/dac/a00876.html#af69e7cf0ff7c877a38abcde11085c513", null ],
-    [ "Parameters", "d2/dac/a00876.html#af2c47838465715d05124a81085fba34b", null ]
+    [ "Data", "d2/dac/a00876.html#a178f3a4d9f49854050367718641ef1c2", null ],
+    [ "~Data", "d2/dac/a00876.html#a6d51391ea981453d25c81b08e732bd72", null ],
+    [ "isValid", "d2/dac/a00876.html#a5fd08ecb3149290cf15910c5a22a5955", null ],
+    [ "updateValidation", "d2/dac/a00876.html#a1b85bc25bc8c0ac1471d2ca815add3d1", null ],
+    [ "crc", "d2/dac/a00876.html#aa16111405cef7d4b8a1c7e79e0a876b0", null ],
+    [ "data", "d2/dac/a00876.html#a7c5858fab00e46d5ef0ca215eb77f84c", null ]
 ];
