@@ -105,48 +105,80 @@ $(function(){initNavTree('df/dbc/a00931.html','../../'); initResizable(true); })
 <h1><a class="anchor" id="server-implementation"></a>
 Server Implementation</h1>
 <p><code>Server.hpp</code></p>
-<div class="fragment"><div class="line"></div>
+<div class="fragment"><div class="line"><span class="comment">/// \file</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/// \brief Canbus Server class</span></div>
+<div class="line"><span class="comment">/// \date 31.01.2024</span></div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"><span class="preprocessor">#include &lt;Canbus/ServerBase.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>Canbus</div>
-<div class="line">{</div>
+<div class="line">{<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// \brief Canbus Server class</span></div>
 <div class="line">    <span class="keyword">class </span>Server : Lib::Canbus::ServerBase</div>
 <div class="line">    {</div>
 <div class="line">        FreeRTOS::Queue _queueMessageReceived;</div>
 <div class="line">        <span class="keyword">struct </span>QueueDataRxMessage;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Server constructor</span></div>
 <div class="line">        Server ();</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Server destructor</span></div>
 <div class="line">        ~Server ();</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Start the Server</span></div>
+<div class="line"><span class="comment">        /// \return bool</span></div>
 <div class="line">        <span class="keywordtype">bool</span> start () <span class="keyword">override</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Stop the Server</span></div>
+<div class="line"><span class="comment">        /// \return bool</span></div>
 <div class="line">        <span class="keywordtype">bool</span> stop () <span class="keyword">override</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Sent the Echo (empty message)</span></div>
+<div class="line"><span class="comment">        /// \param id       id of the destination node</span></div>
+<div class="line"><span class="comment">        /// \param timeout  time for which the data must be sent</span></div>
+<div class="line"><span class="comment">        /// \return true if success</span></div>
 <div class="line">        <span class="keywordtype">bool</span> send (uint8_t <span class="keywordtype">id</span>, uint32_t timeout = SEND_TIMEOUT) <span class="keyword">override</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Send memory buffer</span></div>
+<div class="line"><span class="comment">        /// \param id       id of the destination node</span></div>
+<div class="line"><span class="comment">        /// \param data     pointer to the data to be sent</span></div>
+<div class="line"><span class="comment">        /// \param len      lengh of data</span></div>
+<div class="line"><span class="comment">        /// \param timeout  time for which the data must be sent</span></div>
+<div class="line"><span class="comment">        /// \return true is success</span></div>
 <div class="line">        <span class="keywordtype">bool</span> send (uint8_t <span class="keywordtype">id</span>, <span class="keyword">const</span> <span class="keywordtype">void</span> * data, <span class="keywordtype">size_t</span> len, uint32_t timeout = SEND_TIMEOUT) <span class="keyword">override</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Send `uint64_t` value</span></div>
+<div class="line"><span class="comment">        /// \param id       id of the destinatin node</span></div>
+<div class="line"><span class="comment">        /// \param value    64-bits value</span></div>
+<div class="line"><span class="comment">        /// \param timeout  time for which the data must be sent</span></div>
+<div class="line"><span class="comment">        /// \return true is success</span></div>
 <div class="line">        <span class="keywordtype">bool</span> send (uint8_t <span class="keywordtype">id</span>, uint64_t value, uint32_t timeout = SEND_TIMEOUT) <span class="keyword">override</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Post Scan Callback</span></div>
+<div class="line"><span class="comment">        /// \param nodes</span></div>
+<div class="line"><span class="comment">        /// \note Occurs after the scan is complete</span></div>
 <div class="line">        <span class="keywordtype">void</span> postScanCallback (<span class="keyword">const</span> std::array&lt;Node, NUM_OF_CANBUS_CLIENT_NODES&gt; &amp; nodes) <span class="keyword">override</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// \brief Task Function</span></div>
+<div class="line"><span class="comment">        /// \details The process of outgoing message callback and sending a message</span></div>
 <div class="line">        <span class="keywordtype">void</span> taskFn () <span class="keyword">override</span>;</div>
 <div class="line">    };</div>
 <div class="line">}        <span class="comment">// namespace Canbus</span></div>
 </div><!-- fragment --><p><code>Server.cpp</code></p>
-<div class="fragment"><div class="line"></div>
+<div class="fragment"><div class="line"><span class="comment">/// \file</span><span class="comment"></span></div>
+<div class="line"><span class="comment">/// \brief Canbus Server class</span></div>
+<div class="line"><span class="comment">/// \date 31.01.2024</span></div>
 <div class="line"><span class="preprocessor">#include &quot;Server.hpp&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;can.h&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using </span>ServerBase = Lib::Canbus::ServerBase;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>Canbus</div>
-<div class="line">{</div>
+<div class="line">{<span class="comment"></span></div>
+<div class="line"><span class="comment">    /// \brief Data of Rx Message Queue</span></div>
 <div class="line">    <span class="keyword">struct </span>Server::QueueDataRxMessage</div>
 <div class="line">    {</div>
 <div class="line">        uint8_t id;</div>
