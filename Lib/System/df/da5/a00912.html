@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::System: Example of using the ParametersBase class</title>
+<title>Lib::System: Lib::System::Version::Firmware Class Reference</title>
 <link rel="icon" href="../../Guillendesign-Variations-2-System.ico" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,196 +99,458 @@ $(function(){initNavTree('df/da5/a00912.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Example of using the ParametersBase class</div></div>
+  <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
+<a href="../../de/dc3/a00909.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::System::Version::Firmware Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<dl class="section user"><dt>Example of using the ParametersBase class</dt><dd><div class="fragment"><div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file ParametersBase.hpp</span></div>
-<div class="line"><span class="comment"> * @brief This file contains the definition and implementation of the Parameters class and its nested Storage class.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * The Parameters class is a singleton that manages the parameters for the system. It inherits from</span></div>
-<div class="line"><span class="comment"> * Lib::System::ParametersBase and provides methods to setup, retrieve, and write parameter data.</span></div>
-<div class="line"><span class="comment"> * The nested Storage class handles the storage operations using an external EEPROM memory chip of type M24C64W.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note The EEPROM operations are performed at a fixed flash address defined by FLASH_ADDRESS.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @author Bobby</span></div>
-<div class="line"><span class="comment"> * @date 08.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;Project/BSP/M24C64W.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;Lib/System/ParametersBase.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>System {</div>
-<div class="line"> </div>
-<div class="line">    __packed <span class="keyword">struct </span>ParametersData {</div>
-<div class="line">        uint32_t parameter1;</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">}  <span class="comment">// namespace System</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>BSP {</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief External EEPROM instance of type M24C64W.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This variable represents an external EEPROM memory chip of type M24C64W.</span></div>
-<div class="line"><span class="comment">     * It is declared as an external variable, meaning it is defined in another</span></div>
-<div class="line"><span class="comment">     * translation unit and can be used across multiple files.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    <span class="keyword">extern</span> M24C64W eeprom;</div>
-<div class="line">}  <span class="comment">// namespace BSP</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>System {</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">using </span>ParametersBase = Lib::System::ParametersBase&lt;ParametersData&gt;;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @class Parameters</span></div>
-<div class="line"><span class="comment">     * @brief Manages the parameters for the system.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * The Parameters class is a singleton that manages the parameters for the system.</span></div>
-<div class="line"><span class="comment">     * It inherits from Lib::System::ParametersBase and provides methods to setup,</span></div>
-<div class="line"><span class="comment">     * retrieve, and write parameter data. It also contains a nested Storage class</span></div>
-<div class="line"><span class="comment">     * that handles the storage operations.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    <span class="keyword">class </span>Parameters : <span class="keyword">public</span> ParametersBase {<span class="comment"></span></div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @class Parameters::Storage</span></div>
-<div class="line"><span class="comment">         * @brief A class that provides storage functionalities for parameters using EEPROM.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This class inherits from ParametersBase::StorageBase and implements methods to</span></div>
-<div class="line"><span class="comment">         * open, close, read from, and write to EEPROM storage.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * @note The EEPROM operations are performed at a fixed flash address defined by FLASH_ADDRESS.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        <span class="keyword">class </span>Parameters::Storage : <span class="keyword">public</span> ParametersBase::StorageBase {</div>
-<div class="line">            <span class="keyword">constexpr</span> <span class="keyword">static</span> uint32_t FLASH_ADDRESS = 0;</div>
-<div class="line"> </div>
-<div class="line">        <span class="keyword">public</span>:</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">            /**</span></div>
-<div class="line"><span class="comment">             * @brief Opens the EEPROM interface.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * This function overrides the base class implementation to open the EEPROM</span></div>
-<div class="line"><span class="comment">             * interface using the BSP (Board Support Package) layer.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * @return true if the EEPROM interface was successfully opened, false otherwise.</span></div>
-<div class="line"><span class="comment">             */</span></div>
-<div class="line">            <span class="keywordtype">bool</span> open ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.open (); }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">            /**</span></div>
-<div class="line"><span class="comment">             * @brief Closes the EEPROM interface.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * This function overrides the base class implementation to close the EEPROM</span></div>
-<div class="line"><span class="comment">             * interface using the BSP (Board Support Package) functionality.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * @return true if the EEPROM interface was successfully closed, false otherwise.</span></div>
-<div class="line"><span class="comment">             */</span></div>
-<div class="line">            <span class="keywordtype">bool</span> close ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.close (); }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">            /**</span></div>
-<div class="line"><span class="comment">             * @brief Reads data from EEPROM into the provided destination buffer.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * This function overrides the base class read function. It reads a specified</span></div>
-<div class="line"><span class="comment">             * length of data from the EEPROM starting at a predefined flash address and</span></div>
-<div class="line"><span class="comment">             * stores it in the provided destination buffer.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * @param dst Pointer to the destination buffer where the read data will be stored.</span></div>
-<div class="line"><span class="comment">             * @param len The number of bytes to read from the EEPROM.</span></div>
-<div class="line"><span class="comment">             * @return true if the read operation was successful, false otherwise.</span></div>
-<div class="line"><span class="comment">             */</span></div>
-<div class="line">            <span class="keywordtype">bool</span> read (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.read (FLASH_ADDRESS, dst, len); }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">            /**</span></div>
-<div class="line"><span class="comment">             * @brief Writes data to the EEPROM.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * This function writes a block of data to the EEPROM at a specified address.</span></div>
-<div class="line"><span class="comment">             *</span></div>
-<div class="line"><span class="comment">             * @param src Pointer to the source data to be written.</span></div>
-<div class="line"><span class="comment">             * @param len Length of the data to be written in bytes.</span></div>
-<div class="line"><span class="comment">             * @return true if the write operation was successful, false otherwise.</span></div>
-<div class="line"><span class="comment">             */</span></div>
-<div class="line">            <span class="keywordtype">bool</span> write (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.write (FLASH_ADDRESS, src, len); }</div>
-<div class="line">        };</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Constructs a Parameters object.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This constructor initializes a Parameters object by calling the</span></div>
-<div class="line"><span class="comment">         * constructor of the base class ParametersBase with a unique pointer</span></div>
-<div class="line"><span class="comment">         * to a Storage object.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        Parameters () : ParametersBase (std::make_unique&lt;Storage&gt; ()) {}</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Destructor for the Parameters class.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        ~Parameters () = <span class="keywordflow">default</span>;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Sets up the necessary parameters or configurations.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This function overrides the base class setup function to provide</span></div>
-<div class="line"><span class="comment">         * specific setup functionality for the derived class.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * @return true if the setup is successful, false otherwise.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> setup ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> ParametersBase::setup (); }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Retrieves the data.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This function overrides the base class getData function to provide</span></div>
-<div class="line"><span class="comment">         * access to the data of type ParametersData.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * @return A reference to the data of type ParametersData.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        <span class="keyword">virtual</span> ParametersData * getData ()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> ParametersBase::getData (); }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Writes the data to storage.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This function overrides the base class write function to write the</span></div>
-<div class="line"><span class="comment">         * data to storage using the EEPROM interface.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * @return true if the write operation was successful, false otherwise.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> write ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> ParametersBase::write (); }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Restores the parameters to their default values.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This function overrides the base class restoreByDefault function to</span></div>
-<div class="line"><span class="comment">         * restore the parameters to their default values. It sets the parameter1</span></div>
-<div class="line"><span class="comment">         * value to 1234.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * @return true if the parameters were successfully restored to their default values, false otherwise.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        <span class="keywordtype">bool</span> restoreByDefault ()<span class="keyword"> override </span>{</div>
-<div class="line">            <span class="keyword">auto</span> data       = getData ();  <span class="comment">// get the pointer to the data</span></div>
-<div class="line">            data.parameter1 = 1234;        <span class="comment">// set the parameter1 value to 1234</span></div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">private</span>:</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">}  <span class="comment">// namespace System</span></div>
-</div><!-- fragment --></dd></dl>
-<div class="fragment"></div><!-- fragment --><p> of using the ParametersBase class </p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class representing firmware version information, derived from the Base class. </p>
+<p>This class provides functionalities to retrieve firmware version details, including build date and version values.</p>
+<dl class="section note"><dt>Note</dt><dd>This class is protectedly inherited from the Base class. </dd></dl>
+</div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Inheritance diagram for Lib::System::Version::Firmware:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/d12/a00911.png" border="0" usemap="#a_lib_1_1_system_1_1_version_1_1_firmware_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_lib_1_1_system_1_1_version_1_1_firmware_inherit__map" id="a_lib_1_1_system_1_1_version_1_1_firmware_inherit__map">
+<area shape="rect" title="A class representing firmware version information, derived from the Base class." alt="" coords="5,304,140,533"/>
+<area shape="rect" href="../../d0/d85/a00908.html" title="A base class for handling version information." alt="" coords="5,5,140,256"/>
+<area shape="poly" title=" " alt="" coords="75,271,75,304,70,304,70,271"/>
+</map>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::System::Version::Firmware:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d4/d12/a00910.png" border="0" usemap="#a_lib_1_1_system_1_1_version_1_1_firmware_coll__map" alt="Collaboration graph"/></div>
+<map name="a_lib_1_1_system_1_1_version_1_1_firmware_coll__map" id="a_lib_1_1_system_1_1_version_1_1_firmware_coll__map">
+<area shape="rect" title="A class representing firmware version information, derived from the Base class." alt="" coords="5,304,140,533"/>
+<area shape="rect" href="../../d0/d85/a00908.html" title="A base class for handling version information." alt="" coords="5,5,140,256"/>
+<area shape="poly" title=" " alt="" coords="75,271,75,304,70,304,70,271"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac571094e7df62bb54fa9a1ab125b03da" id="r_ac571094e7df62bb54fa9a1ab125b03da"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac571094e7df62bb54fa9a1ab125b03da">Firmware</a> (const std::string &amp;<a class="el" href="#a9259861607470d6d5c89df420b9b379e">string</a>, uint32_t subVersion)</td></tr>
+<tr class="memdesc:ac571094e7df62bb54fa9a1ab125b03da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Firmware object with the specified version string and sub-version.  <br /></td></tr>
+<tr class="separator:ac571094e7df62bb54fa9a1ab125b03da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98f7f93c4dd838cc33f4615cb3b5930a" id="r_a98f7f93c4dd838cc33f4615cb3b5930a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98f7f93c4dd838cc33f4615cb3b5930a">~Firmware</a> ()=default</td></tr>
+<tr class="memdesc:a98f7f93c4dd838cc33f4615cb3b5930a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor for the Firmware class.  <br /></td></tr>
+<tr class="separator:a98f7f93c4dd838cc33f4615cb3b5930a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0715adfcd59057cbd37e8f5908952878" id="r_a0715adfcd59057cbd37e8f5908952878"><td class="memItemLeft" align="right" valign="top">virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0715adfcd59057cbd37e8f5908952878">getBuildDate</a> () const</td></tr>
+<tr class="memdesc:a0715adfcd59057cbd37e8f5908952878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the build date and time of the application.  <br /></td></tr>
+<tr class="separator:a0715adfcd59057cbd37e8f5908952878"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a944f105533d8fe79ff4275c4b94df618" id="r_a944f105533d8fe79ff4275c4b94df618"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a944f105533d8fe79ff4275c4b94df618">getSubVersion</a> () const override</td></tr>
+<tr class="memdesc:a944f105533d8fe79ff4275c4b94df618"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the value from the base class.  <br /></td></tr>
+<tr class="separator:a944f105533d8fe79ff4275c4b94df618"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5867b1b7163ad39cb323eff978a4298" id="r_aa5867b1b7163ad39cb323eff978a4298"><td class="memItemLeft" align="right" valign="top">virtual const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5867b1b7163ad39cb323eff978a4298">toString</a> () const override</td></tr>
+<tr class="memdesc:aa5867b1b7163ad39cb323eff978a4298"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the object to a string representation.  <br /></td></tr>
+<tr class="separator:aa5867b1b7163ad39cb323eff978a4298"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afedb9181213d1e046e045faa9a4aefcf" id="r_afedb9181213d1e046e045faa9a4aefcf"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afedb9181213d1e046e045faa9a4aefcf">operator uint32_t</a> () const override</td></tr>
+<tr class="memdesc:afedb9181213d1e046e045faa9a4aefcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to uint32_t.  <br /></td></tr>
+<tr class="separator:afedb9181213d1e046e045faa9a4aefcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9259861607470d6d5c89df420b9b379e" id="r_a9259861607470d6d5c89df420b9b379e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9259861607470d6d5c89df420b9b379e">operator const std::string</a> () const override</td></tr>
+<tr class="memdesc:a9259861607470d6d5c89df420b9b379e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to std::string.  <br /></td></tr>
+<tr class="separator:a9259861607470d6d5c89df420b9b379e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8cf125ec822b8161929f7fa1c18002f2" id="r_a8cf125ec822b8161929f7fa1c18002f2"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d85/a00908.html#a8cf125ec822b8161929f7fa1c18002f2">getValue</a> () const</td></tr>
+<tr class="memdesc:a8cf125ec822b8161929f7fa1c18002f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the version value.  <br /></td></tr>
+<tr class="separator:a8cf125ec822b8161929f7fa1c18002f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:a4eda9801de9b8bd9a90761ff09a4e717" id="r_a4eda9801de9b8bd9a90761ff09a4e717"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d85/a00908.html#a4eda9801de9b8bd9a90761ff09a4e717">stringToU32</a> (const std::string &amp;<a class="el" href="#a9259861607470d6d5c89df420b9b379e">string</a>)</td></tr>
+<tr class="memdesc:a4eda9801de9b8bd9a90761ff09a4e717"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a version string in the format "X.Y" to a 32-bit unsigned integer.  <br /></td></tr>
+<tr class="separator:a4eda9801de9b8bd9a90761ff09a4e717"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac571094e7df62bb54fa9a1ab125b03da" name="ac571094e7df62bb54fa9a1ab125b03da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac571094e7df62bb54fa9a1ab125b03da">&#9670;&#160;</a></span>Firmware()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::System::Version::Firmware::Firmware </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subVersion</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a Firmware object with the specified version string and sub-version. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The version string of the firmware. </td></tr>
+    <tr><td class="paramname">subVersion</td><td>The sub-version number of the firmware. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/da5/a00912_ac571094e7df62bb54fa9a1ab125b03da_cgraph.png" border="0" usemap="#adf/da5/a00912_ac571094e7df62bb54fa9a1ab125b03da_cgraph" alt=""/></div>
+<map name="adf/da5/a00912_ac571094e7df62bb54fa9a1ab125b03da_cgraph" id="adf/da5/a00912_ac571094e7df62bb54fa9a1ab125b03da_cgraph">
+<area shape="rect" title="Constructs a Firmware object with the specified version string and sub&#45;version." alt="" coords="5,72,149,115"/>
+<area shape="rect" href="../../d0/d85/a00908.html#aea565dbf96f46b060c0cff628168b200" title="Constructs a Base object with a version string and an optional subversion." alt="" coords="197,39,340,81"/>
+<area shape="poly" title=" " alt="" coords="149,78,181,73,182,78,150,83"/>
+<area shape="rect" href="../../df/da5/a00912.html#a9259861607470d6d5c89df420b9b379e" title="Conversion operator to std::string." alt="" coords="197,105,340,148"/>
+<area shape="poly" title=" " alt="" coords="150,103,182,109,181,114,149,108"/>
+<area shape="rect" href="../../d0/d85/a00908.html#ac5cc98dd2ecaec6b41bcbbc9a98dc7b1" title="Converts the object to a std::string." alt="" coords="388,5,531,48"/>
+<area shape="poly" title=" " alt="" coords="340,45,372,39,373,44,341,50"/>
+<area shape="rect" href="../../d0/d85/a00908.html#a4eda9801de9b8bd9a90761ff09a4e717" title="Converts a version string in the format &quot;X.Y&quot; to a 32&#45;bit unsigned integer." alt="" coords="388,72,531,115"/>
+<area shape="poly" title=" " alt="" coords="341,70,373,76,372,81,340,75"/>
+<area shape="rect" href="../../d0/d85/a00908.html#a553aa043c75b3317114a1a8836c77ef8" title="Converts the version information to a string representation." alt="" coords="579,5,723,48"/>
+<area shape="poly" title=" " alt="" coords="532,24,564,24,564,29,532,29"/>
+<area shape="rect" href="../../d0/d85/a00908.html#aeebc95e3834667f1934b679f4ee429a7" title="Retrieves the subversion number." alt="" coords="771,5,923,48"/>
+<area shape="poly" title=" " alt="" coords="723,24,755,24,755,29,723,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a98f7f93c4dd838cc33f4615cb3b5930a" name="a98f7f93c4dd838cc33f4615cb3b5930a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f7f93c4dd838cc33f4615cb3b5930a">&#9670;&#160;</a></span>~Firmware()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::System::Version::Firmware::~Firmware </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default destructor for the Firmware class. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0715adfcd59057cbd37e8f5908952878" name="a0715adfcd59057cbd37e8f5908952878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0715adfcd59057cbd37e8f5908952878">&#9670;&#160;</a></span>getBuildDate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string Lib::System::Version::Firmware::getBuildDate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the build date and time of the application. </p>
+<p>This function uses the predefined macros <b>TIME</b> and <b>DATE</b> to obtain the build time and date, respectively. It constructs a DateTime object with the extracted values and returns the date as a string.</p>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the build date in the format "YYYY-MM-DD". </dd></dl>
+
+</div>
+</div>
+<a id="a944f105533d8fe79ff4275c4b94df618" name="a944f105533d8fe79ff4275c4b94df618"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944f105533d8fe79ff4275c4b94df618">&#9670;&#160;</a></span>getSubVersion()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint32_t Lib::System::Version::Firmware::getSubVersion </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the value from the base class. </p>
+<p>This function overrides the getValue method from the base class and returns the value obtained from the base class implementation.</p>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t The value retrieved from the base class.</dd></dl>
+<p>Retrieves the sub-version number.</p>
+<p>This function overrides the base class implementation to return the sub-version number.</p>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t The sub-version number. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d0/d85/a00908.html#aeebc95e3834667f1934b679f4ee429a7">Lib::System::Version::Base</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/da5/a00912_a944f105533d8fe79ff4275c4b94df618_cgraph.png" border="0" usemap="#adf/da5/a00912_a944f105533d8fe79ff4275c4b94df618_cgraph" alt=""/></div>
+<map name="adf/da5/a00912_a944f105533d8fe79ff4275c4b94df618_cgraph" id="adf/da5/a00912_a944f105533d8fe79ff4275c4b94df618_cgraph">
+<area shape="rect" title="Retrieves the value from the base class." alt="" coords="5,5,181,48"/>
+<area shape="rect" href="../../d0/d85/a00908.html#aeebc95e3834667f1934b679f4ee429a7" title="Retrieves the subversion number." alt="" coords="229,5,381,48"/>
+<area shape="poly" title=" " alt="" coords="181,24,213,24,213,29,181,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8cf125ec822b8161929f7fa1c18002f2" name="a8cf125ec822b8161929f7fa1c18002f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cf125ec822b8161929f7fa1c18002f2">&#9670;&#160;</a></span>getValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual uint32_t Lib::System::Version::Base::getValue </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the version value. </p>
+<dl class="section return"><dt>Returns</dt><dd>uint32_t The version value. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d85/a00908_a8cf125ec822b8161929f7fa1c18002f2_icgraph.png" border="0" usemap="#ad0/d85/a00908_a8cf125ec822b8161929f7fa1c18002f2_icgraph" alt=""/></div>
+<map name="ad0/d85/a00908_a8cf125ec822b8161929f7fa1c18002f2_icgraph" id="ad0/d85/a00908_a8cf125ec822b8161929f7fa1c18002f2_icgraph">
+<area shape="rect" title="Retrieves the version value." alt="" coords="218,5,361,48"/>
+<area shape="rect" href="../../d0/d85/a00908.html#ac49086f942e11242d1e78157d052686d" title="Conversion operator to uint32_t." alt="" coords="5,5,170,48"/>
+<area shape="poly" title=" " alt="" coords="202,29,170,29,170,24,202,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9259861607470d6d5c89df420b9b379e" name="a9259861607470d6d5c89df420b9b379e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9259861607470d6d5c89df420b9b379e">&#9670;&#160;</a></span>operator const std::string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::System::Version::Firmware::operator const std::string </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion operator to std::string. </p>
+<p>This operator overrides the base class implementation to provide a conversion to a std::string.</p>
+<dl class="section return"><dt>Returns</dt><dd>A std::string representation of the object. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d0/d85/a00908.html#ac5cc98dd2ecaec6b41bcbbc9a98dc7b1">Lib::System::Version::Base</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/da5/a00912_a9259861607470d6d5c89df420b9b379e_icgraph.png" border="0" usemap="#adf/da5/a00912_a9259861607470d6d5c89df420b9b379e_icgraph" alt=""/></div>
+<map name="adf/da5/a00912_a9259861607470d6d5c89df420b9b379e_icgraph" id="adf/da5/a00912_a9259861607470d6d5c89df420b9b379e_icgraph">
+<area shape="rect" title="Conversion operator to std::string." alt="" coords="197,5,340,48"/>
+<area shape="rect" href="../../df/da5/a00912.html#ac571094e7df62bb54fa9a1ab125b03da" title="Constructs a Firmware object with the specified version string and sub&#45;version." alt="" coords="5,5,149,48"/>
+<area shape="poly" title=" " alt="" coords="181,29,149,29,149,24,181,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afedb9181213d1e046e045faa9a4aefcf" name="afedb9181213d1e046e045faa9a4aefcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afedb9181213d1e046e045faa9a4aefcf">&#9670;&#160;</a></span>operator uint32_t()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::System::Version::Firmware::operator uint32_t </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion operator to uint32_t. </p>
+<p>This operator overrides the base class implementation to provide a conversion to a 32-bit unsigned integer.</p>
+<dl class="section return"><dt>Returns</dt><dd>The 32-bit unsigned integer representation of the object. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d0/d85/a00908.html#ac49086f942e11242d1e78157d052686d">Lib::System::Version::Base</a>.</p>
+
+</div>
+</div>
+<a id="a4eda9801de9b8bd9a90761ff09a4e717" name="a4eda9801de9b8bd9a90761ff09a4e717"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eda9801de9b8bd9a90761ff09a4e717">&#9670;&#160;</a></span>stringToU32()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static uint32_t Lib::System::Version::Base::stringToU32 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>string</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts a version string in the format "X.Y" to a 32-bit unsigned integer. </p>
+<p>This function takes a version string with two components separated by a dot (e.g., "1.2") and converts it to a 32-bit unsigned integer. The first component is placed in the higher byte and the second component is placed in the lower byte of the resulting integer.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">string</td><td>The version string to convert. It should be in the format "X.Y". </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A 32-bit unsigned integer representing the version. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d0/d85/a00908_a4eda9801de9b8bd9a90761ff09a4e717_icgraph.png" border="0" usemap="#ad0/d85/a00908_a4eda9801de9b8bd9a90761ff09a4e717_icgraph" alt=""/></div>
+<map name="ad0/d85/a00908_a4eda9801de9b8bd9a90761ff09a4e717_icgraph" id="ad0/d85/a00908_a4eda9801de9b8bd9a90761ff09a4e717_icgraph">
+<area shape="rect" title="Converts a version string in the format &quot;X.Y&quot; to a 32&#45;bit unsigned integer." alt="" coords="388,5,531,48"/>
+<area shape="rect" href="../../d0/d85/a00908.html#aea565dbf96f46b060c0cff628168b200" title="Constructs a Base object with a version string and an optional subversion." alt="" coords="197,5,340,48"/>
+<area shape="poly" title=" " alt="" coords="372,29,340,29,340,24,372,24"/>
+<area shape="rect" href="../../df/da5/a00912.html#ac571094e7df62bb54fa9a1ab125b03da" title="Constructs a Firmware object with the specified version string and sub&#45;version." alt="" coords="5,5,149,48"/>
+<area shape="poly" title=" " alt="" coords="181,29,149,29,149,24,181,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa5867b1b7163ad39cb323eff978a4298" name="aa5867b1b7163ad39cb323eff978a4298"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5867b1b7163ad39cb323eff978a4298">&#9670;&#160;</a></span>toString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const std::string Lib::System::Version::Firmware::toString </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts the object to a string representation. </p>
+<p>This method overrides the base class implementation to provide a string representation of the object.</p>
+<dl class="section return"><dt>Returns</dt><dd>A string representation of the object. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d0/d85/a00908.html#a553aa043c75b3317114a1a8836c77ef8">Lib::System::Version::Base</a>.</p>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/da5/a00912_aa5867b1b7163ad39cb323eff978a4298_cgraph.png" border="0" usemap="#adf/da5/a00912_aa5867b1b7163ad39cb323eff978a4298_cgraph" alt=""/></div>
+<map name="adf/da5/a00912_aa5867b1b7163ad39cb323eff978a4298_cgraph" id="adf/da5/a00912_aa5867b1b7163ad39cb323eff978a4298_cgraph">
+<area shape="rect" title="Converts the object to a string representation." alt="" coords="5,5,149,48"/>
+<area shape="rect" href="../../d0/d85/a00908.html#a553aa043c75b3317114a1a8836c77ef8" title="Converts the version information to a string representation." alt="" coords="197,5,340,48"/>
+<area shape="poly" title=" " alt="" coords="149,24,181,24,181,29,149,29"/>
+<area shape="rect" href="../../d0/d85/a00908.html#aeebc95e3834667f1934b679f4ee429a7" title="Retrieves the subversion number." alt="" coords="388,5,540,48"/>
+<area shape="poly" title=" " alt="" coords="340,24,372,24,372,29,340,29"/>
+</map>
+</div>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed Jan 8 2025 for Lib::System by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
+    <li class="navelem"><b>Lib</b></li><li class="navelem"><a class="el" href="../../d2/d79/a00051.html">System</a></li><li class="navelem"><a class="el" href="../../d8/d0a/a00904.html">Version</a></li><li class="navelem"><a class="el" href="../../df/da5/a00912.html">Firmware</a></li>
+    <li class="footer">Generated on Thu Jan 9 2025 for Lib::System by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>
 </body>
