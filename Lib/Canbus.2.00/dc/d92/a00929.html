@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::Canbus: Example Standalone Driver</title>
+<title>Lib::Canbus: ServiceBase::Diagnostic Struct Reference</title>
 <link rel="icon" href="../../canbus.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,157 +99,138 @@ $(function(){initNavTree('dc/d92/a00929.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Example Standalone Driver</div></div>
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d8/d38/a00926.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">ServiceBase::Diagnostic Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<h1><a class="anchor" id="example-standalone-can-driver"></a>
-Example Standalone CAN driver</h1>
-<div class="fragment"><div class="line"><span class="comment">/// \brief Example Standalone CAN driver</span><span class="comment"></span></div>
-<div class="line"><span class="comment">/// \file </span></div>
-<div class="line"><span class="comment">/// \date 01.02.2024,21.05.2022</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;can.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// ************************************************************************</span></div>
-<div class="line"><span class="comment">//                               HAL Layer</span></div>
-<div class="line"><span class="comment">// ************************************************************************</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>HAL</div>
-<div class="line">{<span class="comment"></span></div>
-<div class="line"><span class="comment">    /// \brief Canbus Port1 driver class</span></div>
-<div class="line">    <span class="keyword">class </span>CAN1Port : <span class="keyword">public</span> Canbus::Driver</div>
-<div class="line">    {</div>
-<div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /// \brief CAN1Port constructor</span></div>
-<div class="line">        CAN1Port () : Canbus::Driver (&amp;hcan1){};</div>
-<div class="line">    };</div>
-<div class="line">    </div>
-<div class="line">    HAL::CAN1Port can1Port;</div>
-<div class="line"> </div>
-<div class="line">}        <span class="comment">// namespace HAL</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// ************************************************************************</span></div>
-<div class="line"><span class="comment">//                             OBD II Service</span></div>
-<div class="line"><span class="comment">// ************************************************************************</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>OBD2</div>
-<div class="line">{</div>
-<div class="line">    <span class="keyword">class </span>Service</div>
-<div class="line">    {</div>
-<div class="line">        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> uint32_t OBD2_SENDER_ID   = 0x7df;</div>
-<div class="line">        <span class="keyword">constexpr</span> <span class="keyword">static</span> <span class="keyword">inline</span> uint32_t OBD2_RECEIVER_ID = 0x7e8;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">public</span>:</div>
-<div class="line">    <span class="comment"></span></div>
-<div class="line"><span class="comment">        /// \brief Open OBD II Service</span></div>
-<div class="line"><span class="comment">        /// \return bool</span></div>
-<div class="line">        <span class="keywordtype">bool</span> Service::open ()</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// Open the driver...</span></div>
-<div class="line">    </div>
-<div class="line">            <span class="keywordflow">if</span> (_driver-&gt;open () == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">    </div>
-<div class="line">            <span class="comment">// Set the Filter...</span></div>
-<div class="line">    </div>
-<div class="line">            <span class="keyword">auto</span> filter                 = _driver-&gt;createFilter ();</div>
-<div class="line">            filter.FilterFIFOAssignment = CAN_FilterFIFO0;</div>
-<div class="line">            filter.FilterBank           = 14;</div>
-<div class="line">            filter.FilterMode           = CAN_FILTERMODE_IDMASK;</div>
-<div class="line">            filter.FilterScale          = CAN_FILTERSCALE_32BIT;</div>
-<div class="line">            filter.FilterActivation     = CAN_FILTER_ENABLE;</div>
-<div class="line">            filter.SlaveStartFilterBank = 14;</div>
-<div class="line">            filter.setId (OBD2_RECEIVER_ID);</div>
-<div class="line">    </div>
-<div class="line">            _driver-&gt;setFilter (filter);</div>
-<div class="line">    </div>
-<div class="line">            <span class="comment">// Start driver...</span></div>
-<div class="line">            <span class="keywordflow">if</span> (_driver-&gt;start () == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">    </div>
-<div class="line">            <span class="comment">// Create Service Tasks...</span></div>
-<div class="line">            <span class="keywordflow">if</span> (_taskRxMessage.create (<span class="stringliteral">&quot;OBD2_RX&quot;</span>, [<span class="keyword">this</span>] () { _taskFnRxMessage (); }) == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                assert (0);</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">    </div>
-<div class="line">            <span class="keywordflow">if</span> (_taskTxMessage.create (<span class="stringliteral">&quot;OBD2_TX&quot;</span>, [<span class="keyword">this</span>] () { _taskFnTxMessage (); }) == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                assert (0);</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    </div>
-<div class="line">    <span class="keyword">private</span>:</div>
-<div class="line">    </div>
-<div class="line">        FreeRTOS::Task _taskRxMessage;</div>
-<div class="line">        FreeRTOS::Task _taskTxMessage;</div>
-<div class="line">        <span class="keywordtype">void</span> _taskFnRxMessage ();</div>
-<div class="line">        <span class="keywordtype">void</span> _taskFnTxMessage ();</div>
-<div class="line">        Canbus::Driver * _driver;</div>
-<div class="line">    };</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// ********************************************************************</span></div>
-<div class="line">    <span class="comment">//                           Implementation</span></div>
-<div class="line">    <span class="comment">// ********************************************************************</span></div>
-<div class="line">    <span class="comment"></span></div>
-<div class="line"><span class="comment">    /// \brief Task Function Message Received</span></div>
-<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">void</span> Service::_taskFnRxMessage ()</div>
-<div class="line">    {</div>
-<div class="line">        Canbus::Message canMessage;</div>
-<div class="line">        <span class="keyword">auto</span> &amp; driver = *_driver;</div>
-<div class="line">    </div>
-<div class="line">        <span class="keywordflow">for</span> (;;)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="comment">// wait for a message</span></div>
-<div class="line">            _driver-&gt;receive (canMessage, portMAX_DELAY);</div>
-<div class="line">        }       </div>
-<div class="line">    }</div>
-<div class="line">    <span class="comment"></span></div>
-<div class="line"><span class="comment">    /// \brief Task Function Send Message Send</span></div>
-<div class="line">    <span class="keyword">inline</span> <span class="keywordtype">void</span> Service::_taskFnTxMessage ()</div>
-<div class="line">    {</div>
-<div class="line">        uint8_t data [8];</div>
-<div class="line">        <span class="keywordflow">for</span> (;;)</div>
-<div class="line">        {</div>
-<div class="line">            <span class="keywordflow">if</span> (_driver-&gt;send (OBD2_SENDER_ID, &amp;data, sizeof (data)) == <span class="keyword">false</span>)</div>
-<div class="line">            {</div>
-<div class="line">                assert (0);</div>
-<div class="line">            }</div>
-<div class="line">            vTaskDelay (100);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">    </div>
-<div class="line">    <span class="comment">// OBD II Service Instance</span></div>
-<div class="line">    <span class="keyword">inline</span> Service service;</div>
-<div class="line"> </div>
-<div class="line">}        <span class="comment">// namespace OBD2</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// ************************************************************************</span></div>
-<div class="line"><span class="comment">//                                Startup</span></div>
-<div class="line"><span class="comment">// ************************************************************************</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/// \brief Startup</span></div>
-<div class="line"><span class="keywordtype">void</span> startup ()</div>
-<div class="line">{</div>
-<div class="line">    <span class="keywordflow">if</span> (OBD2::service.open () == <span class="keyword">false</span>)</div>
-<div class="line">    {</div>
-<div class="line">        assert (0);</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-</div><!-- fragment -->  <div class="fragment"></div><!-- fragment --><p> Standalone Driver </p>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure to hold diagnostic information for CAN bus communication. </p>
+<p>This structure contains various counters and error codes related to CAN bus communication, including the number of received and sent messages, the number of times the transmit mailbox was aborted, the number of times the receive FIFO was full, and error-related information. </p>
+</div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for ServiceBase::Diagnostic:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d98/a00927.png" border="0" usemap="#a_service_base_1_1_diagnostic_coll__map" alt="Collaboration graph"/></div>
+<map name="a_service_base_1_1_diagnostic_coll__map" id="a_service_base_1_1_diagnostic_coll__map">
+<area shape="rect" title="Structure to hold diagnostic information for CAN bus communication." alt="" coords="5,5,161,181"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ab1dab6aaaa14df9fcdcd2775f4f3c635" id="r_ab1dab6aaaa14df9fcdcd2775f4f3c635"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1dab6aaaa14df9fcdcd2775f4f3c635">receivedMessages</a> = 0</td></tr>
+<tr class="separator:ab1dab6aaaa14df9fcdcd2775f4f3c635"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae27f88501e326d795b2e0d4902336f5f" id="r_ae27f88501e326d795b2e0d4902336f5f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae27f88501e326d795b2e0d4902336f5f">sentMessages</a> = 0</td></tr>
+<tr class="separator:ae27f88501e326d795b2e0d4902336f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a521d3a300494275b3e312ac851ca9784" id="r_a521d3a300494275b3e312ac851ca9784"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a521d3a300494275b3e312ac851ca9784">txMailboxAbortCounter</a> = 0</td></tr>
+<tr class="separator:a521d3a300494275b3e312ac851ca9784"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac827289203edd8dca31e3c40a1aea783" id="r_ac827289203edd8dca31e3c40a1aea783"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac827289203edd8dca31e3c40a1aea783">rxFifoFullCounter</a> = 0</td></tr>
+<tr class="separator:ac827289203edd8dca31e3c40a1aea783"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af01c96d690887303a5e5d5432739801a" id="r_af01c96d690887303a5e5d5432739801a"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af01c96d690887303a5e5d5432739801a">errorCounter</a> = 0</td></tr>
+<tr class="separator:af01c96d690887303a5e5d5432739801a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75f2a7ee1e2966546dbf807734bf7ef0" id="r_a75f2a7ee1e2966546dbf807734bf7ef0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75f2a7ee1e2966546dbf807734bf7ef0">errorCode</a> = 0</td></tr>
+<tr class="separator:a75f2a7ee1e2966546dbf807734bf7ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a75f2a7ee1e2966546dbf807734bf7ef0" name="a75f2a7ee1e2966546dbf807734bf7ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75f2a7ee1e2966546dbf807734bf7ef0">&#9670;&#160;</a></span>errorCode</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t errorCode = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Error code indicating the type of error encountered. </p>
+
+</div>
+</div>
+<a id="af01c96d690887303a5e5d5432739801a" name="af01c96d690887303a5e5d5432739801a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af01c96d690887303a5e5d5432739801a">&#9670;&#160;</a></span>errorCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t errorCounter = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Counter for the number of errors encountered. </p>
+
+</div>
+</div>
+<a id="ab1dab6aaaa14df9fcdcd2775f4f3c635" name="ab1dab6aaaa14df9fcdcd2775f4f3c635"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1dab6aaaa14df9fcdcd2775f4f3c635">&#9670;&#160;</a></span>receivedMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t receivedMessages = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of messages received. </p>
+
+</div>
+</div>
+<a id="ac827289203edd8dca31e3c40a1aea783" name="ac827289203edd8dca31e3c40a1aea783"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac827289203edd8dca31e3c40a1aea783">&#9670;&#160;</a></span>rxFifoFullCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t rxFifoFullCounter = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Counter for the number of times the receive FIFO was full. </p>
+
+</div>
+</div>
+<a id="ae27f88501e326d795b2e0d4902336f5f" name="ae27f88501e326d795b2e0d4902336f5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae27f88501e326d795b2e0d4902336f5f">&#9670;&#160;</a></span>sentMessages</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t sentMessages = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of messages sent. </p>
+
+</div>
+</div>
+<a id="a521d3a300494275b3e312ac851ca9784" name="a521d3a300494275b3e312ac851ca9784"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a521d3a300494275b3e312ac851ca9784">&#9670;&#160;</a></span>txMailboxAbortCounter</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t txMailboxAbortCounter = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Counter for the number of times the transmit mailbox was aborted. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>Lib</b></li><li class="navelem"><b>Canbus</b></li><li class="navelem"><a class="el" href="../../dc/d36/a00925.html">ServiceBase</a></li><li class="navelem"><a class="el" href="../../dc/d92/a00929.html">Diagnostic</a></li>
     <li class="footer">Generated on Wed Jan 8 2025 for Lib::Canbus by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.1 </li>
   </ul>
 </div>

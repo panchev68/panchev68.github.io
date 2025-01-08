@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['bus_20library_0',['CAN bus Library',['../index.html',1,'']]]
+  ['bus_20library_0',['CAN bus Library',['../index.html',1,'']]],
+  ['bus_20server_1',['Example of a CAN bus server',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#EXAMPLE_CANBUS_SERVER',1,'']]]
 ];
