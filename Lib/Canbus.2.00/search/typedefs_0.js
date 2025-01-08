@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['diagnostic_0',['Diagnostic',['../d0/ddf/a00918.html#aee08baab01fb75da53ffa2afb7297ec0',1,'Lib::Canbus::Service&lt; Mode::SERVER &gt;']]],
-  ['dignostic_1',['Dignostic',['../d3/dd1/a00914.html#a4561206981341e1572b5881f6ae54540',1,'Lib::Canbus::Service&lt; Mode::CLIENT &gt;']]]
+  ['filter_0',['Filter',['../d1/d0b/a00919.html#acc6b4c2e5c3b0a6a83bc16c1755d9a05',1,'Lib::Canbus::ServiceBase']]]
 ];
