@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['read_0',['read',['../dd/db2/a00866.html#a829cd6bf97063a323450609fcbc1903b',1,'Lib::System::Configuration::read()'],['../df/d2a/a00874.html#abcce1257446a68008fc50b4d26ad23f5',1,'Lib::System::ParametersBase::StorageBase::read()'],['../d6/d42/a00043.html#a20e5a16f978c6b622409fb403fb191c2',1,'Lib::System::ProduceDate::read()']]],
-  ['restart_1',['restart',['../d7/d46/a00890.html#ace422e15e30cdd7b81bc32ad89186d6d',1,'Lib::System::System']]],
-  ['restorebydefault_2',['restoreByDefault',['../da/d98/a00870.html#ad7f4b7673fbab80745eaed0735e2db6a',1,'Lib::System::ParametersBase']]]
+  ['serialnumber_0',['SerialNumber',['../d2/dab/a00886.html#a303f21a745ca36366d4bc5bfc2c47e1e',1,'Lib::System::SerialNumber']]],
+  ['setup_1',['setup',['../da/d98/a00870.html#a913226ec181930d0e65a4a2f4a0303a4',1,'Lib::System::ParametersBase']]],
+  ['stringtou32_2',['stringToU32',['../d5/dd3/a00902.html#a4eda9801de9b8bd9a90761ff09a4e717',1,'Lib::System::Version::Base']]],
+  ['system_3',['System',['../d7/d46/a00890.html#a1460817725ada707ab0fb240c1a7a494',1,'Lib::System::System']]]
 ];

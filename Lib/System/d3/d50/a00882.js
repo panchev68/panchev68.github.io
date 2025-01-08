@@ -1,9 +1,8 @@
 var a00882 =
 [
-    [ "Configuration", "d3/d50/a00882.html#a0496b3d19c7bb3da8baa5eb827375bc4", null ],
-    [ "~Configuration", "d3/d50/a00882.html#ab0a917963ddead9ca393b4a366eabb3b", null ],
-    [ "isEmpty", "d3/d50/a00882.html#ac7addfec6bb7d8a898813e8e042a6409", null ],
-    [ "isValid", "d3/d50/a00882.html#a501a820122f197008bfe6b25bb49a5ef", null ],
-    [ "read", "d3/d50/a00882.html#a829cd6bf97063a323450609fcbc1903b", null ],
-    [ "write", "d3/d50/a00882.html#a2e70135672fd233c1adb9eb7d48e97f0", null ]
+    [ "DateTime", "d3/d50/a00882.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
+    [ "ProduceDate", "d3/d50/a00882.html#a9968e063dbe6a06225a03e1e7f59479d", null ],
+    [ "~ProduceDate", "d3/d50/a00882.html#a67a2a02b1507d400418a7fc37ba06966", null ],
+    [ "read", "d3/d50/a00882.html#a20e5a16f978c6b622409fb403fb191c2", null ],
+    [ "write", "d3/d50/a00882.html#a33840641869a3c6ec5f40e3893d3f8a9", null ]
 ];
