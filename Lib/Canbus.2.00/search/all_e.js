@@ -5,7 +5,7 @@ var searchData=
   ['send_5ftimeout_2',['SEND_TIMEOUT',['../dc/d36/a00925.html#a766641f50dc5c430f6ba7961be6e1dcd',1,'Lib::Canbus::ServiceBase']]],
   ['sentmessages_3',['sentMessages',['../dc/d92/a00929.html#ae27f88501e326d795b2e0d4902336f5f',1,'Lib::Canbus::ServiceBase::Diagnostic']]],
   ['server_4',['CANBUS Server',['../d1/d84/a00097.html',1,'']]],
-  ['server_5',['Example of a CAN bus server',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#EXAMPLE_CANBUS_SERVER',1,'']]],
+  ['server_5',['Example of a CAN bus server',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#CANBUS_SERVER',1,'']]],
   ['server_20cpp_6',['Server.cpp',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#SERVER_CPP',1,'']]],
   ['server_20hpp_7',['Server.hpp',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#SERVER_HPP',1,'']]],
   ['service_8',['Service',['../d0/d5b/a00933.html',1,'Lib::Canbus']]],

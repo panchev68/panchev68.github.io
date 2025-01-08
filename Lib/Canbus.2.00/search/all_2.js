@@ -1,7 +1,7 @@
 var searchData=
 [
   ['can_20bus_20library_0',['CAN bus Library',['../index.html',1,'']]],
-  ['can_20bus_20server_1',['Example of a CAN bus server',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#EXAMPLE_CANBUS_SERVER',1,'']]],
+  ['can_20bus_20server_1',['Example of a CAN bus server',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/ServerImplementation.dox#CANBUS_SERVER',1,'']]],
   ['can_20controlled_20area_20network_20protocol_2',['CAN (Controlled Area Network) Protocol',['../index.html#can-controlled-area-network-protocol',1,'']]],
   ['can_20driver_3',['Example of a standalone CAN driver',['../X:/Lib/FW/IAR/EWARM/Canbus/2.00/Docs/Examples/StandaloneDriver.dox#STANDALONE_CAN_DRIVER',1,'']]],
   ['canbus_20client_4',['CANBUS Client',['../d9/df8/a00096.html',1,'']]],
