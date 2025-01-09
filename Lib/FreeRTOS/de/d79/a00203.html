@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: TaskHelperExample</title>
+<title>Lib::FreeRTOS: SemaphoreCounting</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,48 +99,54 @@ $(function(){initNavTree('de/d79/a00203.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">TaskHelperExample</div></div>
+  <div class="headertitle"><div class="title">SemaphoreCounting</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the TaskHelper class.</p>
-<p>Example usage of the TaskHelper class.This example demonstrates how to use the TaskHelper class to interact with FreeRTOS tasks.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d2a/a00086.html">TaskHelper.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
+<p>This is an example of how to use the SemaphoreCounting class.</p>
+<p>This is an example of how to use the SemaphoreCounting class.This example demonstrates how to create a counting semaphore with a maximum count of 10 and an initial count of 5. It then shows how to take and give the semaphore, and how to get the current count of the semaphore.</p>
+<div class="fragment"><div class="line"><span class="comment">// Example usage of SemaphoreCounting class</span></div>
+<div class="line"><span class="keywordtype">void</span> exampleUsage() {</div>
+<div class="line">    <span class="comment">// Create a counting semaphore with a maximum count of 10 and an initial count of 5</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dd/db2/a00151.html">Lib::FreeRTOS::SemaphoreCounting</a> semaphore(10, 5);</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTaskFunction(<span class="keywordtype">void</span> *pvParameters) {</div>
-<div class="line">    <span class="comment">// Get the handle of the current task</span></div>
-<div class="line">    TaskHelper::Handle currentTaskHandle = TaskHelper::getCurrentTaskHandler();</div>
+<div class="line">    <span class="comment">// Create the semaphore</span></div>
+<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/db2/a00151.html#ad41efc69f8508537f2ed3232d913c2f0">create</a>()) {</div>
+<div class="line">        <span class="comment">// Successfully created the semaphore</span></div>
+<div class="line">        <span class="comment">// Get the current count of the semaphore</span></div>
+<div class="line">        uint32_t count = semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/db2/a00151.html#aad5edccfa2773aaa3aecf77bcea1a8c9">getCount</a>();</div>
+<div class="line">        printf(<span class="stringliteral">&quot;Semaphore count: %u\n&quot;</span>, count);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Print the name of the current task</span></div>
-<div class="line">    std::string taskName = TaskHelper::getName(currentTaskHandle);</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Task name: %s\n&quot;</span>, taskName.c_str());</div>
+<div class="line">        <span class="comment">// Take the semaphore</span></div>
+<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dd/db2/a00151.html#a3b42128f16832e00da0b3013af344d46">take</a>(100)) {</div>
+<div class="line">            <span class="comment">// Successfully took the semaphore</span></div>
+<div class="line">            printf(<span class="stringliteral">&quot;Semaphore taken\n&quot;</span>);</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="comment">// Failed to take the semaphore</span></div>
+<div class="line">            printf(<span class="stringliteral">&quot;Failed to take semaphore\n&quot;</span>);</div>
+<div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Set the priority of the current task</span></div>
-<div class="line">    TaskHelper::setPriority(currentTaskHandle, 2);</div>
+<div class="line">        <span class="comment">// Give the semaphore</span></div>
+<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dd/db2/a00151.html#a6bfe5fea68fa0b84e0914a8a445152e7">give</a>()) {</div>
+<div class="line">            <span class="comment">// Successfully gave the semaphore</span></div>
+<div class="line">            printf(<span class="stringliteral">&quot;Semaphore given\n&quot;</span>);</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="comment">// Failed to give the semaphore</span></div>
+<div class="line">            printf(<span class="stringliteral">&quot;Failed to give semaphore\n&quot;</span>);</div>
+<div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Get the current tick count</span></div>
-<div class="line">    uint32_t tickCount = TaskHelper::getTickCount();</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Current tick count: %u\n&quot;</span>, tickCount);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Delay the task for 1000 milliseconds</span></div>
-<div class="line">    TaskHelper::delay(1000);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Suspend the current task</span></div>
-<div class="line">    TaskHelper::suspend(currentTaskHandle);</div>
+<div class="line">        <span class="comment">// Release the semaphore</span></div>
+<div class="line">        semaphore.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dd/db2/a00151.html#a832b62ec703a78807cad724e9fc959a1">release</a>();</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Failed to create the semaphore</span></div>
+<div class="line">        printf(<span class="stringliteral">&quot;Failed to create semaphore\n&quot;</span>);</div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Create a task using FreeRTOS API</span></div>
-<div class="line">    xTaskCreate(exampleTaskFunction, <span class="stringliteral">&quot;ExampleTask&quot;</span>, configMINIMAL_STACK_SIZE, <span class="keyword">nullptr</span>, 1, <span class="keyword">nullptr</span>);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Start the scheduler</span></div>
-<div class="line">    vTaskStartScheduler();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// The program should never reach here</span></div>
-<div class="line">    <span class="keywordflow">for</span> (;;);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00086_html"><div class="ttname"><a href="../../da/d2a/a00086.html">TaskHelper.hpp</a></div><div class="ttdoc">A class providing helper functions for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa00151_html"><div class="ttname"><a href="../../dd/db2/a00151.html">Lib::FreeRTOS::SemaphoreCounting</a></div><div class="ttdoc">A class representing a counting semaphore in FreeRTOS.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:21</div></div>
+<div class="ttc" id="aa00151_html_a3b42128f16832e00da0b3013af344d46"><div class="ttname"><a href="../../dd/db2/a00151.html#a3b42128f16832e00da0b3013af344d46">Lib::FreeRTOS::SemaphoreCounting::take</a></div><div class="ttdeci">bool take(uint32_t ticksToWait=0) override</div><div class="ttdoc">Attempts to take the semaphore, blocking for a specified amount of time.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:85</div></div>
+<div class="ttc" id="aa00151_html_a6bfe5fea68fa0b84e0914a8a445152e7"><div class="ttname"><a href="../../dd/db2/a00151.html#a6bfe5fea68fa0b84e0914a8a445152e7">Lib::FreeRTOS::SemaphoreCounting::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:96</div></div>
+<div class="ttc" id="aa00151_html_a832b62ec703a78807cad724e9fc959a1"><div class="ttname"><a href="../../dd/db2/a00151.html#a832b62ec703a78807cad724e9fc959a1">Lib::FreeRTOS::SemaphoreCounting::release</a></div><div class="ttdeci">void release() override</div><div class="ttdoc">Releases the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:72</div></div>
+<div class="ttc" id="aa00151_html_aad5edccfa2773aaa3aecf77bcea1a8c9"><div class="ttname"><a href="../../dd/db2/a00151.html#aad5edccfa2773aaa3aecf77bcea1a8c9">Lib::FreeRTOS::SemaphoreCounting::getCount</a></div><div class="ttdeci">uint32_t getCount()</div><div class="ttdoc">Gets the current count of the counting semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:61</div></div>
+<div class="ttc" id="aa00151_html_ad41efc69f8508537f2ed3232d913c2f0"><div class="ttname"><a href="../../dd/db2/a00151.html#ad41efc69f8508537f2ed3232d913c2f0">Lib::FreeRTOS::SemaphoreCounting::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a new counting semaphore using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:47</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

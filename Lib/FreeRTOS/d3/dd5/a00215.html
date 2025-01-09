@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: MemoryManager</title>
+<title>Lib::FreeRTOS: Timer</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('d9/dd0/a00191.html','../../'); initResizable(true); });
+$(function(){initNavTree('d3/dd5/a00215.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,44 +99,34 @@ $(function(){initNavTree('d9/dd0/a00191.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MemoryManager</div></div>
+  <div class="headertitle"><div class="title">Timer</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the MemoryManager class to allocate and free memory.</p>
-<p>Example usage of the MemoryManager class to allocate and free memory.This example demonstrates how to use the MemoryManager class to allocate and free memory using FreeRTOS memory management functions.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d2e/a00056.html">MemoryManager.hpp</a>&quot;</span></div>
+<p>Example usage of the Timer class to create and manage FreeRTOS timers.</p>
+<p>Example usage of the Timer class to create and manage FreeRTOS timers.This example demonstrates how to create, start, and stop a FreeRTOS timer using the Timer class. It shows how to set up a timer with a callback function and manage its lifecycle.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d77/a00095.html">Timer.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> timerCallback() {</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Timer expired!&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Allocate a block of memory</span></div>
-<div class="line">    <span class="keywordtype">size_t</span> size = 128;</div>
-<div class="line">    <span class="keywordtype">void</span> * memory = <a id="a0" name="a0"></a><a class="code hl_function" href="../../df/dcd/a00127.html#ae53ced2d2f6bf1e67f94b617ddf050db">Lib::FreeRTOS::MemoryManager::malloc</a>(size);</div>
-<div class="line">    <span class="keywordflow">if</span> (memory == <span class="keyword">nullptr</span>) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to allocate memory&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Create a timer with a period of 1000 ticks (1 second) and auto-reload enabled</span></div>
+<div class="line">    Lib::FreeRTOS::Timer timer(<span class="stringliteral">&quot;ExampleTimer&quot;</span>, timerCallback, 1000, <span class="keyword">true</span>, <span class="keyword">true</span>);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Use the allocated memory</span></div>
-<div class="line">    <span class="comment">// (For demonstration purposes, we&#39;ll just fill it with zeros)</span></div>
-<div class="line">    memset(memory, 0, size);</div>
+<div class="line">    <span class="comment">// Wait for some time to let the timer expire a few times</span></div>
+<div class="line">    vTaskDelay(pdMS_TO_TICKS(5000));</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Print the amount of free heap memory</span></div>
-<div class="line">    <span class="keywordtype">size_t</span> freeHeapSize = <a id="a1" name="a1"></a><a class="code hl_function" href="../../df/dcd/a00127.html#aab90777357326de00dfdfea928abaaab">Lib::FreeRTOS::MemoryManager::getFreeHeapSize</a>();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Free heap size: &quot;</span> &lt;&lt; freeHeapSize &lt;&lt; <span class="stringliteral">&quot; bytes&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Stop the timer</span></div>
+<div class="line">    timer.stop();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Free the allocated memory</span></div>
-<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../df/dcd/a00127.html#aa257207c53cf157433dcc77dae82c3ce">Lib::FreeRTOS::MemoryManager::free</a>(memory);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Print the amount of free heap memory after freeing</span></div>
-<div class="line">    freeHeapSize = <a class="code hl_function" href="../../df/dcd/a00127.html#aab90777357326de00dfdfea928abaaab">Lib::FreeRTOS::MemoryManager::getFreeHeapSize</a>();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Free heap size after freeing: &quot;</span> &lt;&lt; freeHeapSize &lt;&lt; <span class="stringliteral">&quot; bytes&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Release the timer</span></div>
+<div class="line">    timer.release();</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">MemoryManager.hpp</a></div><div class="ttdoc">Header file for the MemoryManager class.</div></div>
-<div class="ttc" id="aa00127_html_aa257207c53cf157433dcc77dae82c3ce"><div class="ttname"><a href="../../df/dcd/a00127.html#aa257207c53cf157433dcc77dae82c3ce">Lib::FreeRTOS::MemoryManager::free</a></div><div class="ttdeci">static void free(void *block)</div><div class="ttdoc">Frees memory using the FreeRTOS memory management functions.</div><div class="ttdef"><b>Definition</b> MemoryManager.hpp:94</div></div>
-<div class="ttc" id="aa00127_html_aab90777357326de00dfdfea928abaaab"><div class="ttname"><a href="../../df/dcd/a00127.html#aab90777357326de00dfdfea928abaaab">Lib::FreeRTOS::MemoryManager::getFreeHeapSize</a></div><div class="ttdeci">static size_t getFreeHeapSize()</div><div class="ttdoc">Retrieves the current amount of free heap memory.</div><div class="ttdef"><b>Definition</b> MemoryManager.hpp:112</div></div>
-<div class="ttc" id="aa00127_html_ae53ced2d2f6bf1e67f94b617ddf050db"><div class="ttname"><a href="../../df/dcd/a00127.html#ae53ced2d2f6bf1e67f94b617ddf050db">Lib::FreeRTOS::MemoryManager::malloc</a></div><div class="ttdeci">static void * malloc(size_t size)</div><div class="ttdoc">Allocates memory using the FreeRTOS memory management functions.</div><div class="ttdef"><b>Definition</b> MemoryManager.hpp:68</div></div>
+<div class="ttc" id="aa00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">Timer.hpp</a></div><div class="ttdoc">A class providing a C++ interface for FreeRTOS timers.</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
