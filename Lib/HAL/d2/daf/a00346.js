@@ -1,8 +1,6 @@
 var a00346 =
 [
-    [ "Timer", "d2/daf/a00346.html#a81d3914d81cd5098207a541106829154", null ],
-    [ "~Timer", "d2/daf/a00346.html#a43aee021e54610f1179901bf7fcbaecf", null ],
-    [ "close", "d2/daf/a00346.html#a30e3fabb9057f35427bb6a23666cc6e5", null ],
-    [ "open", "d2/daf/a00346.html#a2e360de332a83d537ba388388e58122a", null ],
-    [ "onValueChanged", "d2/daf/a00346.html#a145dfe43deb7592d70805a54b5074b2d", null ]
+    [ "Lib::HAL::Uart_DMA", "d9/dd0/a00191.html#a81ca056ad49dfa641aa3d1d1d89e03c2", null ],
+    [ "Lib::HAL::Uart_IT", "d9/dd0/a00191.html#a74537b657e50d65b25d0586592fd4f43", null ],
+    [ "Lib::HAL::UartHandle", "d9/dd0/a00191.html#af19a8304ef187cc851502e33873fb68a", null ]
 ];

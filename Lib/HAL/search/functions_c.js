@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['read_0',['read',['../d4/d04/a00255.html#a94a5d5e04476593464ed3f2aa3681da4',1,'Lib::HAL::RTCBase']]],
+  ['read_0',['read',['../d3/dd5/a00215.html#a7fcbd05b79a400becb96e3fff8fcbbad',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::read()'],['../dd/df3/a00219.html#adbac6054a638522f270f458d87d324f7',1,'Lib::HAL::Adc::Port&lt; IT &gt;::read()'],['../d4/d04/a00255.html#a94a5d5e04476593464ed3f2aa3681da4',1,'Lib::HAL::RTCBase::read()']]],
   ['readregister_1',['readRegister',['../d4/d04/a00255.html#a4943a40ed3df578b2339c0e7a2b5fc89',1,'Lib::HAL::RTCBase']]],
   ['receive_2',['receive',['../d0/d2f/a00259.html#ad065bb9123ca0183a3499b426df40147',1,'Lib::HAL::SPIx']]],
   ['receivefunc_3',['receiveFunc',['../d0/d2f/a00259.html#afd258083c44937c72db6d7776972369b',1,'Lib::HAL::SPIx']]],

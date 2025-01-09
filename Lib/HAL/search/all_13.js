@@ -1,15 +1,12 @@
 var searchData=
 [
-  ['_7ebase_0',['~Base',['../df/da9/a00263.html#a820ebb6e57ddcfceec7b9c5df70e4cf4',1,'Lib::HAL::TIM::Base']]],
-  ['_7ecanbase_1',['~CanBase',['../dc/d28/a00223.html#ab8e9a77ed56466fa4185956af5e372c0',1,'Lib::HAL::CanBase']]],
-  ['_7echannel_2',['~Channel',['../d8/d72/a00199.html#ad16cbd767285122806f7c9ab51481603',1,'Lib::HAL::Adc::Channel']]],
-  ['_7edevicemanagerbase_3',['~DeviceManagerBase',['../d6/d82/a00243.html#ac224e47704f9cf11a1d242f49fc01ab6',1,'Lib::HAL::DeviceManagerBase']]],
-  ['_7efilter_4',['~Filter',['../d9/d01/a00227.html#aa402b8835257e53f7ea0936744c772fd',1,'Lib::HAL::CAN::Filter']]],
-  ['_7ehandle_5',['~Handle',['../d0/d1f/a00247.html#ad49584b1103bdcb6798a678d2f2318cf',1,'Lib::HAL::Handle']]],
-  ['_7einterface_6',['~Interface',['../de/d79/a00203.html#a86ba3dc0bde04c071461705622c9f08b',1,'Lib::HAL::Adc::Interface']]],
-  ['_7elastresetstate_7',['~LastResetState',['../d3/d1a/a00251.html#a9764e97ea414a4a782184c9e0e81789c',1,'Lib::HAL::LastResetState']]],
-  ['_7eportbase_8',['~PortBase',['../de/dd2/a00207.html#a4dc33e8a3f98ab2c6ebf0d85c705e8c7',1,'Lib::HAL::Adc::PortBase']]],
-  ['_7ertcbase_9',['~RTCBase',['../d4/d04/a00255.html#a58f9b23a0d4c03192bd597a78e70b6f3',1,'Lib::HAL::RTCBase']]],
-  ['_7espix_10',['~SPIx',['../d0/d2f/a00259.html#ac6940b66d2c4bc8bd836af4b721bcecd',1,'Lib::HAL::SPIx']]],
-  ['_7etxheader_11',['~TxHeader',['../d3/d42/a00235.html#a238e6fee0d0264b17b8350e32013d8e2',1,'Lib::HAL::CAN::TxHeader']]]
+  ['waitforabortcompleted_0',['waitForAbortCompleted',['../d0/d2f/a00259.html#addb320a67f3b9b9f1d2fbae121f224e9',1,'Lib::HAL::SPIx']]],
+  ['waitforrxcompleted_1',['waitForRxCompleted',['../d0/d2f/a00259.html#affec4fcaf0a752bf6940cca4ef48b1e0',1,'Lib::HAL::SPIx']]],
+  ['waitfortxcompleted_2',['waitForTxCompleted',['../d0/d2f/a00259.html#a1cecd60fd1e084b187e0709b52cabb9b',1,'Lib::HAL::SPIx']]],
+  ['waitfortxrxcompleted_3',['waitForTxRxCompleted',['../d0/d2f/a00259.html#ae724026f4d8c557d2bb000474748326f',1,'Lib::HAL::SPIx']]],
+  ['window_5fwatchdog_5freset_4',['WINDOW_WATCHDOG_RESET',['../d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6',1,'Lib::HAL::LastResetState']]],
+  ['writedate_5',['writeDate',['../d4/d04/a00255.html#aafba84d7fc847c99ec5c309e96991ac2',1,'Lib::HAL::RTCBase']]],
+  ['writedatetime_6',['writeDateTime',['../d4/d04/a00255.html#a399814ecc17cc1835d2a06e1041cdd86',1,'Lib::HAL::RTCBase']]],
+  ['writeregister_7',['writeRegister',['../d4/d04/a00255.html#a74846d3feacf83e53dbdadf8b0cb58a2',1,'Lib::HAL::RTCBase']]],
+  ['writetime_8',['writeTime',['../d4/d04/a00255.html#a2c037bceed143dd13437bb6a2b602160',1,'Lib::HAL::RTCBase']]]
 ];

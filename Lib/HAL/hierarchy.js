@@ -6,7 +6,7 @@ var hierarchy =
       ] ]
     ] ],
     [ "Lib::HAL::TIM::Base", "df/da9/a00263.html", [
-      [ "Lib::HAL::TIM::Timer< Mode::ENCODER >", "d3/d5e/a00275.html", null ]
+      [ "Lib::HAL::TIM::Timer< Mode::ENCODER >", "d2/d82/a00279.html", null ]
     ] ],
     [ "CAN_FilterTypeDef", null, [
       [ "Lib::HAL::CAN::Filter", "d9/d01/a00227.html", null ]
@@ -40,10 +40,9 @@ var hierarchy =
     ] ],
     [ "Lib::HAL::LastResetState", "d3/d1a/a00251.html", null ],
     [ "Lib::HAL::Adc::Port< DriverMode >", "dd/ded/a00211.html", null ],
-    [ "Lib::HAL::Adc::Port< T_MODE >", "dd/ded/a00211.html", null ],
     [ "PortTransparentBase", null, [
-      [ "Lib::HAL::Adc::Port< DMA >", "dd/ded/a00211.html", null ],
-      [ "Lib::HAL::Adc::Port< IT >", "dd/ded/a00211.html", null ]
+      [ "Lib::HAL::Adc::Port< DMA >", "d3/dd5/a00215.html", null ],
+      [ "Lib::HAL::Adc::Port< IT >", "dd/df3/a00219.html", null ]
     ] ],
     [ "Lib::HAL::RTCBase", "d4/d04/a00255.html", null ],
     [ "RxMessage", "d6/d7f/a00287.html", null ],

@@ -6,8 +6,8 @@ var annotated_dup =
           [ "Channel", "d8/d72/a00199.html", "d8/d72/a00199" ],
           [ "Interface", "de/d79/a00203.html", "de/d79/a00203" ],
           [ "Port", "dd/ded/a00211.html", null ],
-          [ "Port< DMA >", "dd/ded/a00211.html", "dd/ded/a00211" ],
-          [ "Port< IT >", "dd/ded/a00211.html", "dd/ded/a00211" ],
+          [ "Port< DMA >", "d3/dd5/a00215.html", "d3/dd5/a00215" ],
+          [ "Port< IT >", "dd/df3/a00219.html", "dd/df3/a00219" ],
           [ "PortBase", "de/dd2/a00207.html", "de/dd2/a00207" ]
         ] ],
         [ "CAN", "dd/df4/a00193.html", [
@@ -19,7 +19,7 @@ var annotated_dup =
         [ "TIM", "dc/d57/a00194.html", [
           [ "Base", "df/da9/a00263.html", "df/da9/a00263" ],
           [ "Timer", "d3/d5e/a00275.html", null ],
-          [ "Timer< Mode::ENCODER >", "d3/d5e/a00275.html", "d3/d5e/a00275" ]
+          [ "Timer< Mode::ENCODER >", "d2/d82/a00279.html", "d2/d82/a00279" ]
         ] ],
         [ "Timer", "d3/d2a/a00195.html", [
           [ "Handle", "dd/d86/a00271.html", "dd/d86/a00271" ]

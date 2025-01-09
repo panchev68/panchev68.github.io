@@ -1,7 +1,8 @@
 var a00279 =
 [
-    [ "Handle", "d2/d82/a00279.html#a149e4a305d72749363e08bf37760d8db", null ],
-    [ "~Handle", "d2/d82/a00279.html#ad49584b1103bdcb6798a678d2f2318cf", null ],
-    [ "getHandle", "d2/d82/a00279.html#ab9f912660d5843d0cb1d0bdc54d3b538", null ],
-    [ "operator T_HANDLE *", "d2/d82/a00279.html#aef3d0dfbddd2d635d4865d726dd9179c", null ]
+    [ "Timer", "d2/d82/a00279.html#a81d3914d81cd5098207a541106829154", null ],
+    [ "~Timer", "d2/d82/a00279.html#a43aee021e54610f1179901bf7fcbaecf", null ],
+    [ "close", "d2/d82/a00279.html#a30e3fabb9057f35427bb6a23666cc6e5", null ],
+    [ "open", "d2/d82/a00279.html#a2e360de332a83d537ba388388e58122a", null ],
+    [ "onValueChanged", "d2/d82/a00279.html#a145dfe43deb7592d70805a54b5074b2d", null ]
 ];

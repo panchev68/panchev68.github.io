@@ -1,13 +1,17 @@
 var searchData=
 [
-  ['i2c_20inter_20integrated_20circuit_0',['I2C - Inter-Integrated Circuit',['../da/deb/a00189.html',1,'']]],
-  ['implementation_1',['Device Driver Implementation',['../d3/d93/a00341.html',1,'']]],
-  ['independent_5fwatchdog_5freset_2',['INDEPENDENT_WATCHDOG_RESET',['../d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0',1,'Lib::HAL::LastResetState']]],
-  ['init_3',['init',['../d0/d2f/a00259.html#a9d25bc6ac94ea14f4564d5fe3f16f299',1,'Lib::HAL::SPIx']]],
-  ['input_20output_4',['GPIO - General-purpose input/output',['../d0/d81/a00180.html',1,'']]],
-  ['integrated_20circuit_5',['I2C - Inter-Integrated Circuit',['../da/deb/a00189.html',1,'']]],
-  ['inter_20integrated_20circuit_6',['I2C - Inter-Integrated Circuit',['../da/deb/a00189.html',1,'']]],
-  ['interface_7',['Interface',['../de/d79/a00203.html',1,'Lib::HAL::Adc::Interface'],['../de/d79/a00203.html#a383a17781a0b22b499c31cd84970b3eb',1,'Lib::HAL::Adc::Interface::Interface()'],['../d6/daa/a00187.html',1,'SPI - Serial Peripheral Interface']]],
-  ['interface_8',['Communication interface',['../d8/d00/a00186.html',1,'']]],
-  ['it_9',['IT',['../d9/dd0/a00191.html#a9de00459d7bcd95866936fd723022743ab1bb871e144ff9fd10db6f53ee2495d1',1,'Lib::HAL']]]
+  ['hal_2edox_0',['HAL.dox',['../d7/d3f/a00173.html',1,'']]],
+  ['handle_1',['Handle',['../d0/d1f/a00247.html',1,'Lib::HAL::Handle&lt; T_HANDLE &gt;'],['../dd/d86/a00271.html',1,'Lib::HAL::Timer::Handle'],['../d4/d04/a00255.html#ab32592926aec51867e2e5d0a723545f6',1,'Lib::HAL::RTCBase::Handle'],['../d0/d2f/a00259.html#a5e62e6eb4660bd13b72a6fbe3d9be48f',1,'Lib::HAL::SPIx::Handle'],['../d0/d1f/a00247.html#a149e4a305d72749363e08bf37760d8db',1,'Lib::HAL::Handle::Handle()'],['../dd/d86/a00271.html#abbd04182f93a2391f6707767af071b16',1,'Lib::HAL::Timer::Handle::Handle(TIM_HandleTypeDef *hnd, uint32_t channel)']]],
+  ['handle_2',['handle',['../dd/d86/a00271.html#a05b187c3737b76be770380f3d05879bf',1,'Lib::HAL::Timer::Handle']]],
+  ['handle_3c_20adc_5fhandletypedef_20_3e_3',['Handle&lt; ADC_HandleTypeDef &gt;',['../d0/d1f/a00247.html',1,'Lib::HAL']]],
+  ['handle_3c_20spi_5fhandletypedef_20_3e_4',['Handle&lt; SPI_HandleTypeDef &gt;',['../d0/d1f/a00247.html',1,'Lib::HAL']]],
+  ['handleabortcompleteevent_5',['handleAbortCompleteEvent',['../d0/d2f/a00259.html#a1af38624f227cf6601315646891bc5bb',1,'Lib::HAL::SPIx']]],
+  ['handleerrorevent_6',['handleErrorEvent',['../d0/d2f/a00259.html#a3e9dd0c4b775cfe790dfcb85da380bf4',1,'Lib::HAL::SPIx']]],
+  ['handleevent_7',['handleEvent',['../df/da9/a00263.html#ab35824b087e7d7c17c11fc266814a4e7',1,'Lib::HAL::TIM::Base']]],
+  ['handleisrcallbackevent_8',['handleIsrCallbackEvent',['../dd/df3/a00219.html#a63ae32e0dca13f673dad2b6b7adf2b64',1,'Lib::HAL::Adc::Port&lt; IT &gt;']]],
+  ['handlerxcompleteevent_9',['handleRxCompleteEvent',['../d0/d2f/a00259.html#a43e5705928230d24eb3245c5a2b91ba2',1,'Lib::HAL::SPIx']]],
+  ['handletimechanged_10',['handleTimeChanged',['../d4/d04/a00255.html#a8381456a598d16314ecb85658c84c509',1,'Lib::HAL::RTCBase::handleTimeChanged(const DateTime &amp;datetime)'],['../d4/d04/a00255.html#a8381456a598d16314ecb85658c84c509',1,'Lib::HAL::RTCBase::handleTimeChanged(const DateTime &amp;datetime)']]],
+  ['handletxcompleteevent_11',['handleTxCompleteEvent',['../d0/d2f/a00259.html#ae2a41a3a0dc6b5629ee35150ccdf4892',1,'Lib::HAL::SPIx']]],
+  ['handletxrxcompleteevent_12',['handleTxRxCompleteEvent',['../d0/d2f/a00259.html#a4cfd2d009ccb744065ca8598effaa506',1,'Lib::HAL::SPIx']]],
+  ['hardware_20abstract_20layer_20library_13',['Hardware Abstract Layer Library',['../index.html',1,'']]]
 ];

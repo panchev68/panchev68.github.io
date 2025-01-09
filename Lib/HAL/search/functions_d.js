@@ -15,6 +15,6 @@ var searchData=
   ['setslavestartfilterbank_12',['setSlaveStartFilterBank',['../d9/d01/a00227.html#a9a8a3704d72e8e8c28b53fca59248306',1,'Lib::HAL::CAN::Filter']]],
   ['setup_13',['setup',['../d8/d72/a00199.html#a36e88097543681a9530c8e14ab8b3398',1,'Lib::HAL::Adc::Channel::setup()'],['../d4/d04/a00255.html#a7ab0eb25cb4b19654d6006c2914abd1e',1,'Lib::HAL::RTCBase::setup()']]],
   ['spix_14',['SPIx',['../d0/d2f/a00259.html#af8c844b1ae71b21562da50762afbc0c0',1,'Lib::HAL::SPIx']]],
-  ['start_15',['start',['../de/dd2/a00207.html#adf014ce46e6cebaedf2f98a92001d644',1,'Lib::HAL::Adc::PortBase']]],
-  ['stop_16',['stop',['../de/dd2/a00207.html#a3589eb9b51a7f578974c26e168f2a958',1,'Lib::HAL::Adc::PortBase']]]
+  ['start_15',['start',['../de/dd2/a00207.html#adf014ce46e6cebaedf2f98a92001d644',1,'Lib::HAL::Adc::PortBase::start()'],['../d3/dd5/a00215.html#ae3a2e5bc4da171636385482a191029f4',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::start()'],['../dd/df3/a00219.html#a5bc2028411b7f024cd5643c2ebc5f420',1,'Lib::HAL::Adc::Port&lt; IT &gt;::start()']]],
+  ['stop_16',['stop',['../de/dd2/a00207.html#a3589eb9b51a7f578974c26e168f2a958',1,'Lib::HAL::Adc::PortBase::stop()'],['../d3/dd5/a00215.html#a2c3f5ae93b298b9ab03d3755e9613dcc',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::stop()'],['../dd/df3/a00219.html#a5119c7df77621841b50aaef6606581ff',1,'Lib::HAL::Adc::Port&lt; IT &gt;::stop()']]]
 ];
