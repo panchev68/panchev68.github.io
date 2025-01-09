@@ -27,11 +27,14 @@ var NAVTREE =
   [ "Lib::Helper", "index.html", [
     [ "Helper Library", "index.html", null ],
     [ "Deprecated List", "d0/dc2/a00104.html", null ],
-    [ "Namespace Members", "namespacemembers.html", [
-      [ "All", "namespacemembers.html", null ],
-      [ "Functions", "namespacemembers_func.html", null ],
-      [ "Variables", "namespacemembers_vars.html", null ],
-      [ "Typedefs", "namespacemembers_type.html", null ]
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ],
+        [ "Variables", "namespacemembers_vars.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -44,6 +47,14 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ],
     [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
@@ -51,7 +62,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dd/d38/a00928.html#acc24103eef1ab4a7b639bff60303891a"
+"d8/dbb/a00932.html#a2fb0edb4c9d528ffcd068cb93c9a85ca",
+"de/d65/a01500.html#a93421e56c7e66407b6b6567a02c55355"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

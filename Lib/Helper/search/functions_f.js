@@ -1,27 +1,7 @@
 var searchData=
 [
-  ['set_0',['set',['../dc/d2b/a00936.html#ab1da8b5e69bcd8cf6230caf6a9f90d15',1,'Lib::Helper::BufferHandle::set()'],['../d0/deb/a01508.html#ab1da8b5e69bcd8cf6230caf6a9f90d15',1,'BufferHandle::set()']]],
-  ['setcurrentdate_1',['setCurrentDate',['../d9/dce/a01052.html#a0438b300b75c78273f02d51489a5b285',1,'Lib::Helper::Sunset']]],
-  ['setdate_2',['setDate',['../df/dbc/a01004.html#acf66a1307fb6f6631a2598341719bfa3',1,'Lib::Helper::DateTime::Date']]],
-  ['setexsist_3',['setExsist',['../dd/d38/a00928.html#a93421e56c7e66407b6b6567a02c55355',1,'Lib::Helper::Buffer::setExsist()'],['../de/d65/a01500.html#a93421e56c7e66407b6b6567a02c55355',1,'Buffer::setExsist()']]],
-  ['setname_4',['setName',['../d5/d16/a01060.html#a2cd7386378335ce05ef1c9ed3d806e98',1,'TimeZone']]],
-  ['setoffset_5',['setOffset',['../d5/d16/a01060.html#a31a19b5fece667db862a23b49df0d341',1,'TimeZone']]],
-  ['setposition_6',['setPosition',['../d9/dce/a01052.html#a63b94ed5c190baeda360c6f87a05fce3',1,'Lib::Helper::Sunset']]],
-  ['setrules_7',['setRules',['../d5/d16/a01060.html#aacbbe75da8faf76b783e1ce767a3c2cb',1,'TimeZone']]],
-  ['setsize_8',['setSize',['../dd/d38/a00928.html#a44d28f117f561e52889860c89eb76c4e',1,'Lib::Helper::Buffer::setSize()'],['../de/d65/a01500.html#a44d28f117f561e52889860c89eb76c4e',1,'Buffer::setSize()']]],
-  ['settime_9',['setTime',['../d7/df2/a01000.html#ae85e32d686210a884d7dee20a7e12ed8',1,'Lib::Helper::DateTime::Time']]],
-  ['settzoffset_10',['setTZOffset',['../d9/dce/a01052.html#a72542c5e98063440ece740e4699dd604',1,'Lib::Helper::Sunset']]],
-  ['singleton_11',['Singleton',['../d0/ddd/a01044.html#a3b13d4c7892ee9566e8c123f54c6a6ad',1,'Lib::Helper::Singleton::Singleton()'],['../db/dbf/a01516.html#a3b13d4c7892ee9566e8c123f54c6a6ad',1,'Singleton::Singleton()']]],
-  ['size_12',['size',['../dc/d2b/a00936.html#a3db17f39fbd16b66183a9d2e7f7914f8',1,'Lib::Helper::BufferHandle::size()'],['../d6/d48/a00988.html#aa0b7350e971dc7a4cb9d6036d464ce96',1,'Lib::Helper::DataHandle::size()'],['../df/d89/a01032.html#a630d53b950624b5cbde88e1bb114aa6d',1,'Lib::Helper::Base::size()'],['../d0/deb/a01508.html#a3db17f39fbd16b66183a9d2e7f7914f8',1,'BufferHandle::size()'],['../dc/d57/a01512.html#aa0b7350e971dc7a4cb9d6036d464ce96',1,'DataHandle::size()']]],
-  ['start_13',['start',['../d4/d45/a01012.html#aad9bed439216968ff66ba842c4942c5b',1,'Lib::Helper::FindPeaks::start()'],['../dc/d19/a01056.html#a829179faac040d4ed988fbf92db3f77e',1,'Lib::Helper::TimePeriod::start()']]],
-  ['stop_14',['stop',['../dc/d19/a01056.html#a9ba1de096eb47802cb059a48771e6fd2',1,'Lib::Helper::TimePeriod']]],
-  ['strtod_15',['strtod',['../d3/d32/a00105.html#a1d78476214d74ba1865c798355c03db4',1,'std']]],
-  ['sunset_16',['Sunset',['../d9/dce/a01052.html#a6a74b067b402ee32476944dfb7aa40e5',1,'Lib::Helper::Sunset::Sunset()'],['../d9/dce/a01052.html#aa9e478cc7537082d2575318d4cf1bd3c',1,'Lib::Helper::Sunset::Sunset(double lat, double lon, double tz)']]],
-  ['swapbytes_17',['swapBytes',['../df/d98/a00107.html#ade64217684dec7bf56c9d413438ac6d5',1,'Lib::Helper::swapBytes(T value)'],['../df/d98/a00107.html#a8c472b1052ffec76c87db0698eb60884',1,'Lib::Helper::swapBytes(const void *ptr)'],['../df/d98/a00107.html#afc485ea12bc7dbe8b1ed474004c62758',1,'Lib::Helper::swapBytes(const void *src, void *dst, size_t len)']]],
-  ['swapbytes_3c_20int16_5ft_20_3e_18',['swapBytes&lt; int16_t &gt;',['../df/d98/a00107.html#a34ccc99e14608ea6ff1708b7f034e8de',1,'Lib::Helper::swapBytes&lt; int16_t &gt;(int16_t value)'],['../df/d98/a00107.html#af3f114d118949e057ac0595636fb64ba',1,'Lib::Helper::swapBytes&lt; int16_t &gt;(const void *ptr)']]],
-  ['swapbytes_3c_20int32_5ft_20_3e_19',['swapBytes&lt; int32_t &gt;',['../df/d98/a00107.html#a7faa59382a1ab44fc15b4c35d5ce0c99',1,'Lib::Helper::swapBytes&lt; int32_t &gt;(int32_t value)'],['../df/d98/a00107.html#a8524b8275debcbdd81fc79904aea579e',1,'Lib::Helper::swapBytes&lt; int32_t &gt;(const void *ptr)']]],
-  ['swapbytes_3c_20int64_5ft_20_3e_20',['swapBytes&lt; int64_t &gt;',['../df/d98/a00107.html#a80ea1d671eaa6e07d966a5b0fd300ba4',1,'Lib::Helper::swapBytes&lt; int64_t &gt;(int64_t value)'],['../df/d98/a00107.html#a1d338bbc4a9af8e6c8e38795d6b411e6',1,'Lib::Helper::swapBytes&lt; int64_t &gt;(const void *ptr)']]],
-  ['swapbytes_3c_20uint16_5ft_20_3e_21',['swapBytes&lt; uint16_t &gt;',['../df/d98/a00107.html#a752ea78c1cafe5310e360589a7ba8cee',1,'Lib::Helper::swapBytes&lt; uint16_t &gt;(uint16_t value)'],['../df/d98/a00107.html#a29252a12f2b2ab091aae7124031e3daa',1,'Lib::Helper::swapBytes&lt; uint16_t &gt;(const void *ptr)']]],
-  ['swapbytes_3c_20uint32_5ft_20_3e_22',['swapBytes&lt; uint32_t &gt;',['../df/d98/a00107.html#acf5014be04a5824ccbad63c67613955d',1,'Lib::Helper::swapBytes&lt; uint32_t &gt;(uint32_t value)'],['../df/d98/a00107.html#af3ce4bcb81e1b9ca52e337ef6f5bef80',1,'Lib::Helper::swapBytes&lt; uint32_t &gt;(const void *ptr)']]],
-  ['swapbytes_3c_20uint64_5ft_20_3e_23',['swapBytes&lt; uint64_t &gt;',['../df/d98/a00107.html#a849c52a38f96c02fb2401ee480afda6a',1,'Lib::Helper::swapBytes&lt; uint64_t &gt;(uint64_t value)'],['../df/d98/a00107.html#a8895f262b4b4c2d732ed4300f5dd5597',1,'Lib::Helper::swapBytes&lt; uint64_t &gt;(const void *ptr)']]]
+  ['remove_0',['remove',['../d9/dce/a00944.html#a2de083e968c5fdeadb85885ed4fa54b6',1,'Lib::Helper::Container::remove()'],['../d8/d18/a00948.html#abc751e24d3ef3b668dd0766ffe0f3013',1,'Lib::Helper::ContainerBase::remove()'],['../df/d89/a01032.html#ad8a377939df18fc83a1f26ff7f9b8951',1,'Lib::Helper::Base::remove()']]],
+  ['reset_1',['reset',['../db/d08/a01028.html#a26e9b49e7e0a9eb5d5fbb30375e260fe',1,'Lib::Helper::Integrator']]],
+  ['result_2',['result',['../db/d08/a01028.html#a3d9848a8fcf869f0abf9c17337385d31',1,'Lib::Helper::Integrator']]],
+  ['ringbuffer_3',['RingBuffer',['../db/d14/a01040.html#a414b1b47340a34b3357ae52cf71edc97',1,'Lib::Helper::RingBuffer']]]
 ];

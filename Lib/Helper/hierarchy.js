@@ -2,7 +2,6 @@ var hierarchy =
 [
     [ "Lib::Helper::Convert::Ascii", "de/d49/a00952.html", null ],
     [ "Lib::Helper::Base< T >", "df/d89/a01032.html", null ],
-    [ "Lib::Helper::Base< Row< T > >", "df/d89/a01032.html", null ],
     [ "Lib::Helper::Convert::Bcd", "d3/de5/a00956.html", null ],
     [ "Buffer", "de/d65/a01500.html", [
       [ "Lib::Helper::BufferStatic< T_SIZE >", "d8/dbb/a00932.html", null ]
@@ -24,14 +23,13 @@ var hierarchy =
     [ "Lib::Helper::Delay_us", "dd/dac/a01008.html", null ],
     [ "Lib::Helper::FindPeaks", "d4/d45/a01012.html", null ],
     [ "Lib::Helper::Convert::Hex< T >", "da/d17/a00964.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint16_t >", "da/d17/a00964.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint64_t >", "da/d17/a00964.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint8_t >", "da/d17/a00964.html", null ],
+    [ "Lib::Helper::Convert::Hex< uint16_t >", "de/d4e/a00972.html", null ],
+    [ "Lib::Helper::Convert::Hex< uint64_t >", "d0/d85/a00976.html", null ],
+    [ "Lib::Helper::Convert::Hex< uint8_t >", "d7/dd4/a00968.html", null ],
     [ "Lib::Helper::Convert::HexHelper", "db/d20/a00980.html", null ],
     [ "Lib::Helper::Instance< T_OBJ >", "d0/d43/a01020.html", null ],
     [ "Lib::Helper::InstanceWithArg< T, T_CONFIG >", "d4/dc5/a01024.html", null ],
     [ "Lib::Helper::Integrator< T, t_size >", "db/d08/a01028.html", null ],
-    [ "Lib::Helper::Integrator< T, SIZE >", "db/d08/a01028.html", null ],
     [ "Lib::Helper::MoonPhase", "d8/d79/a01036.html", null ],
     [ "Lib::Helper::Convert::Percent", "d2/d4c/a00984.html", null ],
     [ "Lib::Helper::RingBuffer< T, T_SIZE >", "db/d14/a01040.html", null ],
