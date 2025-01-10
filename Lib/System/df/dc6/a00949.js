@@ -1,9 +1,9 @@
 var a00949 =
 [
-    [ "Hardware", "df/dc6/a00949.html#a209231483fab6e2faf45a43f236b20ba", null ],
-    [ "getSubVersion", "df/dc6/a00949.html#af67e495f0343cc085794bfe583ec97cf", null ],
-    [ "getValue", "df/dc6/a00949.html#a088960f052bdadabcac8832a12add2a4", null ],
-    [ "operator const std::string", "df/dc6/a00949.html#aa164e48faf8bc6d7c0ccad90a9e55be3", null ],
-    [ "operator uint32_t", "df/dc6/a00949.html#ad3e97456d12f007b257afab25bc899a3", null ],
-    [ "toString", "df/dc6/a00949.html#a4969da17f1de98d1becb6a560bd1d41d", null ]
+    [ "HardwareVersion", "df/dc6/a00949.html#a2505a6d7a0862cf27f7316e0278d5d88", null ],
+    [ "getSubVersion", "df/dc6/a00949.html#a5edef576d8d3acef610a5f919d26c3fd", null ],
+    [ "getValue", "df/dc6/a00949.html#a1cb3df72d043928daea469c79ff4193f", null ],
+    [ "operator const std::string", "df/dc6/a00949.html#a813da3b532d49e0168a67c436d64e150", null ],
+    [ "operator uint32_t", "df/dc6/a00949.html#aac847eebdb42234ce4842544e8a0569b", null ],
+    [ "toString", "df/dc6/a00949.html#a50ae815140a6167ad71e597a5f40c511", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['datetime_0',['DateTime',['../d5/dd3/a00902.html#a0ce46a41b58672615f57aadbcd88fe18',1,'Lib::System::ProduceDate']]]
+  ['lastresetstate_0',['LastResetState',['../d3/da5/a00973.html#a566f465e32b8d5313bf0eaddd3e34c2e',1,'Lib::System::System']]]
 ];

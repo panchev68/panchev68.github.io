@@ -1,6 +1,6 @@
 var namespaces_dup =
 [
     [ "Lib", null, [
-      [ "System", "d1/d22/a00057.html", "d1/d22/a00057" ]
+      [ "System", "d4/d98/a00120.html", "d4/d98/a00120" ]
     ] ]
 ];

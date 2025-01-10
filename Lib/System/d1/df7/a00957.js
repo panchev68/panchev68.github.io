@@ -1,10 +1,8 @@
 var a00957 =
 [
-    [ "Parameters", "d1/df7/a00957.html#aed8f10c365f1968aed1168cc7a5bb800", null ],
-    [ "~Parameters", "d1/df7/a00957.html#a245860a82f4ff4913863d92d76915052", null ],
-    [ "getData", "d1/df7/a00957.html#afc14839c3c1a55fe5aeff91f840059b9", null ],
-    [ "getStorage", "d1/df7/a00957.html#a8adf7d36874964f333b0de59a517a942", null ],
-    [ "restoreByDefault", "d1/df7/a00957.html#a68dd64d77b697a2b23b8298ad88b6600", null ],
-    [ "setup", "d1/df7/a00957.html#ad521c578c5a43082e0067bc6fc479f18", null ],
-    [ "write", "d1/df7/a00957.html#ab0ddfcac99ddbd96b3ba1716157b1c44", null ]
+    [ "~StorageBase", "d1/df7/a00957.html#ac6bd07184cd3c9cedb26809038f5fd62", null ],
+    [ "close", "d1/df7/a00957.html#abe8f9d4d1ead81c4f9c2ca7928c35883", null ],
+    [ "open", "d1/df7/a00957.html#a9a151bb3d1bec4d19ec7c3df460534d5", null ],
+    [ "read", "d1/df7/a00957.html#abcce1257446a68008fc50b4d26ad23f5", null ],
+    [ "write", "d1/df7/a00957.html#a96357d28517e2e5726596c8baa91c3cb", null ]
 ];

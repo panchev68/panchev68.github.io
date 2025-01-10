@@ -1,10 +1,10 @@
 var a00941 =
 [
-    [ "Base", "d6/dad/a00941.html#a44d5cb485b747efc3232b124ce12c239", null ],
-    [ "~Base", "d6/dad/a00941.html#abe7e90347540b807323effe777106b41", null ],
-    [ "getSubVersion", "d6/dad/a00941.html#a1165b8913d127567dcd32ba614a42fe4", null ],
-    [ "getValue", "d6/dad/a00941.html#a3547f0e50c616830acb8a1fb2b442a86", null ],
-    [ "operator const std::string", "d6/dad/a00941.html#a06c7c6a7f48ca4eba0942e5e48a574ee", null ],
-    [ "operator uint32_t", "d6/dad/a00941.html#aed2603317e78e67d61d49a7d37b3cf6c", null ],
-    [ "toString", "d6/dad/a00941.html#a41006e32c977eb335c337e7b8c14e9e5", null ]
+    [ "Bitset", "d6/dad/a00941.html#a942e0af1a522af427d507bc4646b2c3c", null ],
+    [ "Configuration", "d6/dad/a00941.html#a0496b3d19c7bb3da8baa5eb827375bc4", null ],
+    [ "~Configuration", "d6/dad/a00941.html#ab0a917963ddead9ca393b4a366eabb3b", null ],
+    [ "isEmpty", "d6/dad/a00941.html#ac7addfec6bb7d8a898813e8e042a6409", null ],
+    [ "isValid", "d6/dad/a00941.html#a501a820122f197008bfe6b25bb49a5ef", null ],
+    [ "read", "d6/dad/a00941.html#a829cd6bf97063a323450609fcbc1903b", null ],
+    [ "write", "d6/dad/a00941.html#a2e70135672fd233c1adb9eb7d48e97f0", null ]
 ];
