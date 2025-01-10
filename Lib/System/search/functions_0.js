@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['base_0',['Base',['../d0/d85/a00908.html#aea565dbf96f46b060c0cff628168b200',1,'Lib::System::Version::Base']]]
+  ['close_0',['close',['../dc/dfa/a00894.html#abe8f9d4d1ead81c4f9c2ca7928c35883',1,'Lib::System::ParametersBase::StorageBase']]],
+  ['configuration_1',['Configuration',['../d5/d69/a00878.html#a0496b3d19c7bb3da8baa5eb827375bc4',1,'Lib::System::Configuration']]]
 ];

@@ -1,9 +1,10 @@
 var a00878 =
 [
-    [ "Data", "d5/d69/a00878.html#a178f3a4d9f49854050367718641ef1c2", null ],
-    [ "~Data", "d5/d69/a00878.html#a6d51391ea981453d25c81b08e732bd72", null ],
-    [ "isValid", "d5/d69/a00878.html#a5fd08ecb3149290cf15910c5a22a5955", null ],
-    [ "updateValidation", "d5/d69/a00878.html#a1b85bc25bc8c0ac1471d2ca815add3d1", null ],
-    [ "crc", "d5/d69/a00878.html#aa16111405cef7d4b8a1c7e79e0a876b0", null ],
-    [ "data", "d5/d69/a00878.html#a7c5858fab00e46d5ef0ca215eb77f84c", null ]
+    [ "Bitset", "d5/d69/a00878.html#a942e0af1a522af427d507bc4646b2c3c", null ],
+    [ "Configuration", "d5/d69/a00878.html#a0496b3d19c7bb3da8baa5eb827375bc4", null ],
+    [ "~Configuration", "d5/d69/a00878.html#ab0a917963ddead9ca393b4a366eabb3b", null ],
+    [ "isEmpty", "d5/d69/a00878.html#ac7addfec6bb7d8a898813e8e042a6409", null ],
+    [ "isValid", "d5/d69/a00878.html#a501a820122f197008bfe6b25bb49a5ef", null ],
+    [ "read", "d5/d69/a00878.html#a829cd6bf97063a323450609fcbc1903b", null ],
+    [ "write", "d5/d69/a00878.html#a2e70135672fd233c1adb9eb7d48e97f0", null ]
 ];

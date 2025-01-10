@@ -1,8 +1,14 @@
 var a00910 =
 [
-    [ "SerialNumber", "d4/d12/a00910.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
-    [ "~SerialNumber", "d4/d12/a00910.html#a454995c6e21a8effee4e4019c6e5656d", null ],
-    [ "operator const std::string", "d4/d12/a00910.html#a3842cded3f0f473336caa6ad134287d3", null ],
-    [ "operator uint32_t", "d4/d12/a00910.html#a4a27d9e728d5c0e48be09780eee95052", null ],
-    [ "toString", "d4/d12/a00910.html#ac447affeca8c9170097f3b5e59289d99", null ]
+    [ "LastResetState", "d4/d12/a00910.html#a566f465e32b8d5313bf0eaddd3e34c2e", null ],
+    [ "System", "d4/d12/a00910.html#a1460817725ada707ab0fb240c1a7a494", null ],
+    [ "~System", "d4/d12/a00910.html#a11b8ca0e17004e6d825d07712d2a6703", null ],
+    [ "restart", "d4/d12/a00910.html#ace422e15e30cdd7b81bc32ad89186d6d", null ],
+    [ "configuration", "d4/d12/a00910.html#a97e928b4c78a8a3e74760b983ea17573", null ],
+    [ "firmwareVersion", "d4/d12/a00910.html#ab2cee70f45a9983819db3e9230ceeb95", null ],
+    [ "hardwareVersion", "d4/d12/a00910.html#a8cc92326b4a8214960afddcd1b18c7d9", null ],
+    [ "lastResetState", "d4/d12/a00910.html#a5d94ced782a1dd1b72fe8fb7027a4d49", null ],
+    [ "produceDate", "d4/d12/a00910.html#a542e9245a4b9791006636abac56b2574", null ],
+    [ "saleDate", "d4/d12/a00910.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
+    [ "serialNumber", "d4/d12/a00910.html#aa9fcd27cc60406665aec3f3db9d5a5d6", null ]
 ];

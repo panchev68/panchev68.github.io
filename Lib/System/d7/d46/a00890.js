@@ -1,14 +1,12 @@
 var a00890 =
 [
-    [ "LastResetState", "d7/d46/a00890.html#a566f465e32b8d5313bf0eaddd3e34c2e", null ],
-    [ "System", "d7/d46/a00890.html#a1460817725ada707ab0fb240c1a7a494", null ],
-    [ "~System", "d7/d46/a00890.html#a11b8ca0e17004e6d825d07712d2a6703", null ],
-    [ "restart", "d7/d46/a00890.html#ace422e15e30cdd7b81bc32ad89186d6d", null ],
-    [ "configuration", "d7/d46/a00890.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "d7/d46/a00890.html#aa77e08c054fcdf7d3e525bd4b25d076f", null ],
-    [ "hardwareVersion", "d7/d46/a00890.html#a548458ab403aa911f67d1c31bc9dcb42", null ],
-    [ "lastResetState", "d7/d46/a00890.html#a5d94ced782a1dd1b72fe8fb7027a4d49", null ],
-    [ "produceDate", "d7/d46/a00890.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "d7/d46/a00890.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "d7/d46/a00890.html#aa9fcd27cc60406665aec3f3db9d5a5d6", null ]
+    [ "Data", "d2/d79/a00898.html", "d2/d79/a00898" ],
+    [ "StorageBase", "dc/dfa/a00894.html", "dc/dfa/a00894" ],
+    [ "ParametersBase", "d7/d46/a00890.html#a109a955cbd8ed11a153b25064d9f59fd", null ],
+    [ "~ParametersBase", "d7/d46/a00890.html#ae6f0ff5b1f381e878f9edb5581c7022f", null ],
+    [ "getData", "d7/d46/a00890.html#ae902605486494b30c0c1cf8b6f286b75", null ],
+    [ "getStorage", "d7/d46/a00890.html#acde720f61a7d1fa91c4f9d276299b256", null ],
+    [ "restoreByDefault", "d7/d46/a00890.html#ad7f4b7673fbab80745eaed0735e2db6a", null ],
+    [ "setup", "d7/d46/a00890.html#a913226ec181930d0e65a4a2f4a0303a4", null ],
+    [ "write", "d7/d46/a00890.html#ae167cd6549fd784e82a47c39d447772d", null ]
 ];

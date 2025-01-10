@@ -1,8 +1,9 @@
 var a00886 =
 [
-    [ "SerialNumber", "d2/dab/a00886.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
-    [ "~SerialNumber", "d2/dab/a00886.html#a454995c6e21a8effee4e4019c6e5656d", null ],
-    [ "operator const std::string", "d2/dab/a00886.html#a3842cded3f0f473336caa6ad134287d3", null ],
-    [ "operator uint32_t", "d2/dab/a00886.html#a4a27d9e728d5c0e48be09780eee95052", null ],
-    [ "toString", "d2/dab/a00886.html#ab71dcdccbf270e67c507c14287808b00", null ]
+    [ "HardwareVersion", "d2/dab/a00886.html#a2505a6d7a0862cf27f7316e0278d5d88", null ],
+    [ "getSubVersion", "d2/dab/a00886.html#a5edef576d8d3acef610a5f919d26c3fd", null ],
+    [ "getValue", "d2/dab/a00886.html#a1cb3df72d043928daea469c79ff4193f", null ],
+    [ "operator const std::string", "d2/dab/a00886.html#a813da3b532d49e0168a67c436d64e150", null ],
+    [ "operator uint32_t", "d2/dab/a00886.html#aac847eebdb42234ce4842544e8a0569b", null ],
+    [ "toString", "d2/dab/a00886.html#a50ae815140a6167ad71e597a5f40c511", null ]
 ];

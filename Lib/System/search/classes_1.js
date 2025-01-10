@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['configuration_0',['Configuration',['../dc/d17/a00872.html',1,'Lib::System']]]
+  ['data_0',['Data',['../d2/d79/a00898.html',1,'Lib::System::ParametersBase']]]
 ];

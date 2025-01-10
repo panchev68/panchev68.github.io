@@ -1,9 +1,10 @@
 var a00918 =
 [
-    [ "DateTime", "d0/ddf/a00918.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "ProduceDate", "d0/ddf/a00918.html#a9968e063dbe6a06225a03e1e7f59479d", null ],
-    [ "~ProduceDate", "d0/ddf/a00918.html#a67a2a02b1507d400418a7fc37ba06966", null ],
-    [ "isEmpty", "d0/ddf/a00918.html#a8e283a580bd673ea71227c819f3e1ced", null ],
-    [ "read", "d0/ddf/a00918.html#a20e5a16f978c6b622409fb403fb191c2", null ],
-    [ "write", "d0/ddf/a00918.html#a33840641869a3c6ec5f40e3893d3f8a9", null ]
+    [ "VersionBase", "d0/ddf/a00918.html#a81469e54459719f9872350fcacb86166", null ],
+    [ "~VersionBase", "d0/ddf/a00918.html#a1f1814a7eb235640ee2325f8f8f4da2b", null ],
+    [ "getSubVersion", "d0/ddf/a00918.html#ae155e5992c4f390d6533602933291731", null ],
+    [ "getValue", "d0/ddf/a00918.html#af4f4e0bccaddab3a81a9f6197c1e7557", null ],
+    [ "operator const std::string", "d0/ddf/a00918.html#a15e734927e4bd51ace5a690941c5dd92", null ],
+    [ "operator uint32_t", "d0/ddf/a00918.html#a9a5b82d1cf5dffb736764fad5ff38c95", null ],
+    [ "toString", "d0/ddf/a00918.html#a6c8720efadc047eadc70df380c0fbaba", null ]
 ];
