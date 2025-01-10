@@ -24,7 +24,7 @@ var a00074 =
     [ "Composite Design Pattern документация", "d8/d53/a00081.html", [
       [ "Въведение", "d8/d53/a00081.html#COMPOSITE_INTRO", null ],
       [ "Пример", "d8/d53/a00081.html#COMPOSITE_EXAMPLE", null ],
-      [ "Въпроси:", "d8/d53/a00081.html#COMPOSITE_QUESTIONS", null ]
+      [ "Диаграма на класовете", "d8/d53/a00081.html#COMPOSITE_CLASSDIAGRAM", null ]
     ] ],
     [ "Decorator Design Pattern документация", "d4/d63/a00082.html", [
       [ "Въведение", "d4/d63/a00082.html#DECORATOR_INTRO", null ],
