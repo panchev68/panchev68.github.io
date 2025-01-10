@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Lib::System", "index.html", [
-    [ "System Library", "index.html", null ],
+    [ "System Library", "index.html", "index" ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]

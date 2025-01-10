@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::System: Example of using the System class</title>
+<title>Lib::System: Configuration</title>
 <link rel="icon" href="../../Guillendesign-Variations-2-System.ico" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,268 +99,63 @@ $(function(){initNavTree('d5/d89/a00907.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Example of using the System class</div></div>
+  <div class="headertitle"><div class="title">Configuration</div></div>
 </div><!--header-->
 <div class="contents">
-<dl class="section user"><dt>ParametersData.hpp</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file ParametersData.hpp</span></div>
-<div class="line"><span class="comment"> * @brief Defines the ParametersData structure used in the system.</span></div>
+<hr  />
+<p>Example of using the Configuration class. The Configuration class is used to read the configuration from a file and store them in a map. The configuration can be accessed using the getConfiguration method. The Configuration class is used to read the configuration from the file and store them in the ConfigurationData class. The Configuration class also provides a method to get the configuration from the ConfigurationData class. </p><dl class="section user"><dt>Configuration.cpp</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Configuration.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Example code for configuring system settings.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file contains the definition of the ParametersData structure, which includes</span></div>
-<div class="line"><span class="comment"> * the application mode parameter. The structure is packed to ensure no padding is added</span></div>
-<div class="line"><span class="comment"> * between its members.</span></div>
+<div class="line"><span class="comment"> * This file contains example code for reading and writing system configuration</span></div>
+<div class="line"><span class="comment"> * settings using the Lib::System::Configuration class. The configuration settings</span></div>
+<div class="line"><span class="comment"> * include support for a voltmeter and CAN bus.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note This file is part of the U123-Firmware project.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @include &quot;Project/App/ApplicationMode.hpp&quot;</span></div>
+<div class="line"><span class="comment"> * @date 08.01.2025</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Project/App/ApplicationMode.hpp&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;System/Configuration.hpp&quot;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @struct ParametersData</span></div>
-<div class="line"><span class="comment"> * @brief Represents the system parameters data.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * The ParametersData structure includes the application mode parameter, which</span></div>
-<div class="line"><span class="comment"> * defines the current mode of operation for the application.</span></div>
+<div class="line"><span class="comment"> * @brief Enumerates the configuration bits.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line">__packed <span class="keyword">struct </span>ParametersData {<span class="comment"></span></div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief The application mode parameter.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    <span class="keyword">using </span>ApplicationMode = App::ApplicationMode;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief The application mode.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    ApplicationMode applicationMode;</div>
+<div class="line"><span class="keyword">enum</span> ConfigBits {</div>
+<div class="line">    VOLTMETER_SUPPORT = 0x01,  <span class="comment">///&lt; Bit indicating support for a voltmeter.</span></div>
+<div class="line">    VOLTMETER_VPP_2V5 = 0x02,  <span class="comment">///&lt; Bit indicating a voltmeter with a Vpp of 2.5V.</span></div>
+<div class="line">    CANBUS_SUPPORT    = 0x04,  <span class="comment">///&lt; Bit indicating support for a CAN bus.</span></div>
 <div class="line">};</div>
-</div><!-- fragment --><dl class="section user"><dt>System.hpp</dt><dd></dd></dl>
-<div class="fragment"><div class="line"> </div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file System.hpp</span></div>
-<div class="line"><span class="comment"> * @brief This file contains the declaration of the System class and its nested Parameters class.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * The System class inherits from Lib::System::System and provides a singleton instance of the system.</span></div>
-<div class="line"><span class="comment"> * The nested Parameters class inherits from Lib::System::ParametersBase&lt;ParametersData&gt; and manages</span></div>
-<div class="line"><span class="comment"> * system parameters, including setup, data retrieval, writing, and restoring defaults.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @date 07.01.2025</span></div>
+<div class="line"><span class="comment"> * @brief The system configuration object.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;ParametersData.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;Lib/System/ParametersBase.hpp&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;Lib/System/System.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>System : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/d01/a00897.html">Lib::System::System</a> {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">class </span>Parameters;</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/db2/a00869.html">Lib::System::Configuration</a> configuration (0x100);</div>
 <div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief Retrieves the singleton instance of the System class</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This function returns a reference to the singleton instance of the System class.</span></div>
-<div class="line"><span class="comment">     * If the instance does not exist, it will be created.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @return System&amp; A reference to the singleton instance of the System class.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    <span class="keyword">static</span> System &amp; getInstance () {</div>
-<div class="line">        <span class="keyword">static</span> System instance;</div>
-<div class="line">        <span class="keywordflow">return</span> instance;</div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Reads the system configuration.</span></div>
+<div class="line"><span class="comment"> * @return true if the configuration is valid, false otherwise.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">bool</span> read () {</div>
+<div class="line">    <span class="keywordflow">if</span> (configuration.isValid () == <span class="keyword">false</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> bits = configuration.read ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (bits.test (VOLTMETER_SUPPORT) == <span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// The system supports a voltmeter</span></div>
 <div class="line">    }</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @class Parameters</span></div>
-<div class="line"><span class="comment">     * @brief A class that manages system parameters.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * The Parameters class is responsible for handling system parameters, providing</span></div>
-<div class="line"><span class="comment">     * functionality to restore default values and retrieve the current parameters data.</span></div>
-<div class="line"><span class="comment">     * It inherits from Lib::System::ParametersBase.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @note This class is part of the System module.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    <span class="keyword">class </span>Parameters : <span class="keyword">public</span> <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../df/d41/a00881.html">Lib::System::ParametersBase</a> {</div>
-<div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Default constructor for the Parameters class.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        Parameters ();</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /**</span></div>
-<div class="line"><span class="comment">         * @brief Default destructor for the Parameters class.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * This destructor is explicitly defaulted, meaning it will be automatically</span></div>
-<div class="line"><span class="comment">         * generated by the compiler. It ensures that any resources managed by an</span></div>
-<div class="line"><span class="comment">         * instance of the Parameters class are properly released when the instance</span></div>
-<div class="line"><span class="comment">         * is destroyed.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        ~Parameters () = <span class="keywordflow">default</span>;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /** Restores the parameters to their default values. */</span></div>
-<div class="line">        <span class="keywordtype">void</span> restoreByDefault () <span class="keyword">override</span>;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">        /** Retrieves the system parameters data.</span></div>
-<div class="line"><span class="comment">         *</span></div>
-<div class="line"><span class="comment">         * @return ParametersData&amp; A reference to the system parameters data.</span></div>
-<div class="line"><span class="comment">         */</span></div>
-<div class="line">        ParametersData &amp; getData ();</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    Parameters parameters;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief Initializes and sets up the system.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This function performs the necessary setup operations to initialize the system.</span></div>
-<div class="line"><span class="comment">     * It should be called before any other system functions are used.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @note This function should be called only once during the system initialization.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @return true if the setup was successful, false otherwise.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    <span class="keywordtype">bool</span> setup ();</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief Constructor for the System class.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This constructor initializes the System class and its Parameters object.</span></div>
-<div class="line"><span class="comment">     * It is responsible for setting up the system and its parameters.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @note This constructor is private to prevent external instantiation of the System class.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    System ();</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief Destructor for the System class.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This destructor is responsible for cleaning up any resources</span></div>
-<div class="line"><span class="comment">     * that the System class may have allocated during its lifetime.</span></div>
-<div class="line"><span class="comment">     * It is also responsible for destroying the Parameters object.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @note This destructor is private to prevent external deletion of the System object.</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    ~System ();</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief Deleted copy constructor to prevent copying of System objects.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This constructor is explicitly deleted to ensure that System objects</span></div>
-<div class="line"><span class="comment">     * cannot be copied. This is typically done to prevent issues related</span></div>
-<div class="line"><span class="comment">     * to resource management, such as double deletion or resource leaks.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @param other The System object to copy from (deleted).</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    System (<span class="keyword">const</span> System &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">    /**</span></div>
-<div class="line"><span class="comment">     * @brief Deleted copy assignment operator to prevent copying of System objects.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * This operator is explicitly deleted to ensure that System objects cannot be</span></div>
-<div class="line"><span class="comment">     * assigned to one another, which helps to avoid unintended copying and potential</span></div>
-<div class="line"><span class="comment">     * resource management issues.</span></div>
-<div class="line"><span class="comment">     *</span></div>
-<div class="line"><span class="comment">     * @param other The System object to be assigned from (deleted, not used).</span></div>
-<div class="line"><span class="comment">     * @return System&amp; Reference to the current object (deleted, not used).</span></div>
-<div class="line"><span class="comment">     */</span></div>
-<div class="line">    System &amp; operator= (<span class="keyword">const</span> System &amp;) = <span class="keyword">delete</span>;</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00881_html"><div class="ttname"><a href="../../df/d41/a00881.html">Lib::System::ParametersBase</a></div><div class="ttdoc">Manages system parameters with storage and validation.</div><div class="ttdef"><b>Definition</b> ParametersBase.hpp:41</div></div>
-<div class="ttc" id="aa00897_html"><div class="ttname"><a href="../../de/d01/a00897.html">Lib::System::System</a></div><div class="ttdoc">Represents the system configuration and state.</div><div class="ttdef"><b>Definition</b> System.hpp:43</div></div>
-</div><!-- fragment --><dl class="section user"><dt>System.cpp</dt><dd></dd></dl>
-<div class="fragment"><div class="line"> </div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/dee/a00008.html">System.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;ParametersData.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Project/BSP/M24C64W.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Project/VersionDef.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;Lib/System/ParametersBase.hpp&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">namespace </span>{</div>
-<div class="line">    <span class="keyword">class </span>Storage : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d18/a00885.html">Lib::System::ParametersBase::StorageBase</a> {</div>
-<div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/* Constructor for the Storage class. */</span></div>
-<div class="line">        Storage () : eeprom (BSP::M24C64W::getInstance ()) {}</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/* Destructor for the Storage class. */</span></div>
-<div class="line">        ~Storage () = <span class="keywordflow">default</span>;</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/* Opens the EEPROM for reading and writing. */</span></div>
-<div class="line">        <span class="keywordtype">bool</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d18/a00885.html#a46463ccb362606f42ee88639767ff271">open</a> ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> eeprom.open (); }</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/* Closes the EEPROM and releases any associated resources. */</span></div>
-<div class="line">        <span class="keywordtype">bool</span> <a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d18/a00885.html#aeebfc7e3f7a92046cdbbc04498051edc">close</a> ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> eeprom.close (); }</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/*  Reads data from the EEPROM starting at the specified address. */</span></div>
-<div class="line">        <span class="keywordtype">bool</span> <a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d18/a00885.html#a5bb8cfc0222c40360974814971cb8289">read</a> (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> eeprom.read (0, dst, len); }</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/* Writes data to the EEPROM starting at the specified address. */</span></div>
-<div class="line">        <span class="keywordtype">bool</span> <a id="a4" name="a4"></a><a class="code hl_function" href="../../df/d41/a00881.html#a5f843338ad5eca7d63bdb46079ed6abd">write</a> (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> eeprom.write (0, src, len); }</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">/* M24C64W EEPROM object. */</span></div>
-<div class="line">        BSP::M24C64W &amp; eeprom;</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    ParametersData parametersData;</div>
-<div class="line">    Storage storage;</div>
-<div class="line"> </div>
-<div class="line">}  <span class="comment">// namespace</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma region System::Parameters</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* Constructor for the Parameters class. */</span></div>
-<div class="line">System::Parameters::Parameters () : ParametersBase (&amp;storage, &amp;parametersData, sizeof (ParametersData)) {}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* Restores the parameters to their default values. */</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> System::Parameters::restoreByDefault () {</div>
-<div class="line">    parametersData.applicationMode = ParametersData::ApplicationMode::NONE;</div>
+<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Retrieves the system parameters data.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return ParametersData&amp; A reference to the system parameters data.</span></div>
+<div class="line"><span class="comment"> * @brief Writes the system configuration.</span></div>
+<div class="line"><span class="comment"> * @return true if the configuration was written successfully, false otherwise.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line">ParametersData &amp; System::Parameters::getData () {</div>
-<div class="line">    <span class="keywordflow">return</span> parametersData;</div>
+<div class="line"><span class="keywordtype">bool</span> write () {</div>
+<div class="line">    <span class="keywordflow">if</span> (configuration.isValid () == <span class="keyword">true</span>) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">    <span class="keywordflow">return</span> configuration.write ({VOLTMETER_SUPPORT | CANBUS_SUPPORT});</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">/* ************************************************************************** */</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma region System</span></div>
-<div class="line"> </div>
-<div class="line">System::System () : Lib::System::System (FIRMWARE_VERSION, FIRMWARE_SUBVERSION, HARDWARE_VERSION, HARDWARE_SUBVERSION) {}</div>
-<div class="line"> </div>
-<div class="line">System::~System () {</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> System::setup () {</div>
-<div class="line">    <span class="keywordflow">return</span> parameters.setup ();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma region System</span></div>
-<div class="ttc" id="aa00008_html"><div class="ttname"><a href="../../d4/dee/a00008.html">System.hpp</a></div><div class="ttdoc">This file contains the definition of the System class and its associated members.</div></div>
-<div class="ttc" id="aa00881_html_a5f843338ad5eca7d63bdb46079ed6abd"><div class="ttname"><a href="../../df/d41/a00881.html#a5f843338ad5eca7d63bdb46079ed6abd">Lib::System::ParametersBase::write</a></div><div class="ttdeci">bool write()</div><div class="ttdoc">Writes the finalized data to the storage.</div><div class="ttdef"><b>Definition</b> ParametersBase.hpp:196</div></div>
-<div class="ttc" id="aa00885_html"><div class="ttname"><a href="../../db/d18/a00885.html">Lib::System::ParametersBase::StorageBase</a></div><div class="ttdoc">Abstract base class for storage operations.</div><div class="ttdef"><b>Definition</b> ParametersBase.hpp:58</div></div>
-<div class="ttc" id="aa00885_html_a46463ccb362606f42ee88639767ff271"><div class="ttname"><a href="../../db/d18/a00885.html#a46463ccb362606f42ee88639767ff271">Lib::System::ParametersBase::StorageBase::open</a></div><div class="ttdeci">virtual bool open()=0</div><div class="ttdoc">Opens the parameter base.</div></div>
-<div class="ttc" id="aa00885_html_a5bb8cfc0222c40360974814971cb8289"><div class="ttname"><a href="../../db/d18/a00885.html#a5bb8cfc0222c40360974814971cb8289">Lib::System::ParametersBase::StorageBase::read</a></div><div class="ttdeci">virtual bool read(void *dst, size_t len)=0</div><div class="ttdoc">Pure virtual function to read data into a destination buffer.</div></div>
-<div class="ttc" id="aa00885_html_aeebfc7e3f7a92046cdbbc04498051edc"><div class="ttname"><a href="../../db/d18/a00885.html#aeebfc7e3f7a92046cdbbc04498051edc">Lib::System::ParametersBase::StorageBase::close</a></div><div class="ttdeci">virtual bool close()=0</div><div class="ttdoc">Closes the resource or connection.</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --><p> of using the System class </p>
-</div><!-- contents -->
+<div class="ttc" id="aa00869_html"><div class="ttname"><a href="../../d3/db2/a00869.html">Lib::System::Configuration</a></div><div class="ttdoc">Manages configuration data stored in OTP (One-Time Programmable) memory.</div><div class="ttdef"><b>Definition</b> Configuration.hpp:35</div></div>
+</div><!-- fragment --><hr  />
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

@@ -1,11 +1,8 @@
 var a00882 =
 [
-    [ "FirmwareVersion", "d3/d50/a00882.html#a7a24277dc712d6eaac2a35ffcdb2b20f", null ],
-    [ "~FirmwareVersion", "d3/d50/a00882.html#acd2dfb7dd8d9b9fd050130339e143217", null ],
-    [ "getBuildDate", "d3/d50/a00882.html#afabcc128299be3dd758292590859e4e3", null ],
-    [ "getSubVersion", "d3/d50/a00882.html#a30c00cfd6548de2ea25da0d6ac37a120", null ],
-    [ "getValue", "d3/d50/a00882.html#af4835cb434810b6f6f8765196095f687", null ],
-    [ "operator const std::string", "d3/d50/a00882.html#a4d2e6d0a5500baa1c99540c9cb8edcb0", null ],
-    [ "operator uint32_t", "d3/d50/a00882.html#a8e7d6edd322e1f5a77d19503b4bfa444", null ],
-    [ "toString", "d3/d50/a00882.html#a689bc9969052ce977f805bb096b55112", null ]
+    [ "~StorageBase", "d3/d50/a00882.html#a20e2b711248ad495e8b7d9fae457b474", null ],
+    [ "close", "d3/d50/a00882.html#aeebfc7e3f7a92046cdbbc04498051edc", null ],
+    [ "open", "d3/d50/a00882.html#a46463ccb362606f42ee88639767ff271", null ],
+    [ "read", "d3/d50/a00882.html#a5bb8cfc0222c40360974814971cb8289", null ],
+    [ "write", "d3/d50/a00882.html#a5d99bc28828df5c6eece00688ee0b156", null ]
 ];

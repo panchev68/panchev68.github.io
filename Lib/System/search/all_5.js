@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hardwareversion_0',['HardwareVersion',['../d1/d8f/a00880.html',1,'Lib::System::HardwareVersion'],['../d1/d8f/a00880.html#a2505a6d7a0862cf27f7316e0278d5d88',1,'Lib::System::HardwareVersion::HardwareVersion()']]],
-  ['hardwareversion_1',['hardwareVersion',['../d9/db0/a00900.html#a8cc92326b4a8214960afddcd1b18c7d9',1,'Lib::System::System']]],
-  ['hardwareversion_2ehpp_2',['HardwareVersion.hpp',['../dc/d87/a00032.html',1,'']]]
+  ['getbuilddate_0',['getBuildDate',['../d4/dca/a00048.html#afabcc128299be3dd758292590859e4e3',1,'Lib::System::FirmwareVersion']]],
+  ['getsubversion_1',['getSubVersion',['../d4/dca/a00048.html#a30c00cfd6548de2ea25da0d6ac37a120',1,'Lib::System::FirmwareVersion::getSubVersion()'],['../d4/dca/a00048.html#a5edef576d8d3acef610a5f919d26c3fd',1,'Lib::System::HardwareVersion::getSubVersion()'],['../d4/dca/a00048.html#ae155e5992c4f390d6533602933291731',1,'Lib::System::VersionBase::getSubVersion()']]],
+  ['getvalue_2',['getValue',['../d4/dca/a00048.html#af4835cb434810b6f6f8765196095f687',1,'Lib::System::FirmwareVersion::getValue()'],['../d4/dca/a00048.html#a1cb3df72d043928daea469c79ff4193f',1,'Lib::System::HardwareVersion::getValue()'],['../d4/dca/a00048.html#af4f4e0bccaddab3a81a9f6197c1e7557',1,'Lib::System::VersionBase::getValue()']]]
 ];

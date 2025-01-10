@@ -1,4 +1,4 @@
 var topics =
 [
-    [ "System", "d6/d2d/a00047.html", "d6/d2d/a00047" ]
+    [ "System Library", "d6/d2d/a00047.html", "d6/d2d/a00047" ]
 ];

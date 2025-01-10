@@ -1,8 +1,8 @@
 var a00887 =
 [
-    [ "SerialNumber", "d7/d92/a00887.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
-    [ "~SerialNumber", "d7/d92/a00887.html#a454995c6e21a8effee4e4019c6e5656d", null ],
-    [ "operator const std::string", "d7/d92/a00887.html#a3842cded3f0f473336caa6ad134287d3", null ],
-    [ "operator uint32_t", "d7/d92/a00887.html#a4a27d9e728d5c0e48be09780eee95052", null ],
-    [ "toString", "d7/d92/a00887.html#ab71dcdccbf270e67c507c14287808b00", null ]
+    [ "~StorageBase", "d7/d92/a00887.html#a20e2b711248ad495e8b7d9fae457b474", null ],
+    [ "close", "d7/d92/a00887.html#aeebfc7e3f7a92046cdbbc04498051edc", null ],
+    [ "open", "d7/d92/a00887.html#a46463ccb362606f42ee88639767ff271", null ],
+    [ "read", "d7/d92/a00887.html#a5bb8cfc0222c40360974814971cb8289", null ],
+    [ "write", "d7/d92/a00887.html#a5d99bc28828df5c6eece00688ee0b156", null ]
 ];

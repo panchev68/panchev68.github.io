@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['version_0',['Version',['../d5/db6/a00042.html',1,'']]]
+  ['hardware_20version_0',['Firmware and Hardware Version',['../d4/dca/a00048.html',1,'']]]
 ];
