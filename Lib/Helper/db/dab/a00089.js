@@ -1,4 +1,4 @@
 var a00089 =
 [
-    [ "Lib::Helper::Sunset", "d9/dce/a01052.html", "d9/dce/a01052" ]
+    [ "Lib::Helper::StringHelper", "d5/de7/a01048.html", null ]
 ];
