@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['pattern_0',['Pattern',['../d1/d09/a00077.html#BUILDER_INTRO',1,'Ведение в Builder Pattern'],['../d9/da5/a00075.html',1,'Abstract Factory Design Pattern'],['../db/df8/a00076.html',1,'Adapter Pattern'],['../d9/da4/a00078.html',1,'Bridge Design Pattern'],['../d1/d09/a00077.html',1,'Builder Pattern'],['../d1/d51/a00079.html',1,'Chain of Responsibility Design Pattern'],['../da/dec/a00080.html',1,'Command Design Pattern'],['../d2/d1f/a00083.html',1,'Facade Design Pattern'],['../df/d5d/a00084.html',1,'Factory Method Design Pattern'],['../df/d13/a00085.html',1,'Flyweight Design Pattern'],['../da/d2a/a00086.html',1,'Interpreter Design Pattern'],['../d1/d1e/a00087.html',1,'Iterator Design Pattern'],['../db/ddf/a00088.html',1,'Mediator Design Pattern'],['../db/dab/a00089.html',1,'Memento Design Pattern'],['../d9/dec/a00090.html',1,'Observer Design Pattern'],['../da/d82/a00091.html',1,'Prototype Design Pattern'],['../d1/dc1/a00092.html',1,'Proxy Design Pattern'],['../d4/d7d/a00093.html',1,'Singleton Design Pattern'],['../dc/d54/a00094.html',1,'State Design Pattern'],['../d9/d77/a00095.html',1,'Strategy Design Pattern'],['../d9/df8/a00096.html',1,'Template Method Design Pattern'],['../d1/d84/a00097.html',1,'Visitor Design Pattern']]],
+  ['pattern_20документация_1',['Pattern документация',['../d8/d53/a00081.html',1,'Composite Design Pattern документация'],['../d4/d63/a00082.html',1,'Decorator Design Pattern документация']]],
+  ['patterns_20in_20c_2',['Design Patterns in C++',['../db/db6/a00074.html',1,'index']]],
+  ['prototype_20design_20pattern_3',['Prototype Design Pattern',['../da/d82/a00091.html',1,'DESIGN_PATTERNS']]],
+  ['proxy_20design_20pattern_4',['Proxy Design Pattern',['../d1/dc1/a00092.html',1,'DESIGN_PATTERNS']]]
+];
