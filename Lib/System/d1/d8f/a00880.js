@@ -1,8 +1,9 @@
 var a00880 =
 [
-    [ "~StorageBase", "d1/d8f/a00880.html#ac6bd07184cd3c9cedb26809038f5fd62", null ],
-    [ "close", "d1/d8f/a00880.html#abe8f9d4d1ead81c4f9c2ca7928c35883", null ],
-    [ "open", "d1/d8f/a00880.html#a9a151bb3d1bec4d19ec7c3df460534d5", null ],
-    [ "read", "d1/d8f/a00880.html#abcce1257446a68008fc50b4d26ad23f5", null ],
-    [ "write", "d1/d8f/a00880.html#a96357d28517e2e5726596c8baa91c3cb", null ]
+    [ "HardwareVersion", "d1/d8f/a00880.html#a2505a6d7a0862cf27f7316e0278d5d88", null ],
+    [ "getSubVersion", "d1/d8f/a00880.html#a5edef576d8d3acef610a5f919d26c3fd", null ],
+    [ "getValue", "d1/d8f/a00880.html#a1cb3df72d043928daea469c79ff4193f", null ],
+    [ "operator const std::string", "d1/d8f/a00880.html#a813da3b532d49e0168a67c436d64e150", null ],
+    [ "operator uint32_t", "d1/d8f/a00880.html#aac847eebdb42234ce4842544e8a0569b", null ],
+    [ "toString", "d1/d8f/a00880.html#a50ae815140a6167ad71e597a5f40c511", null ]
 ];

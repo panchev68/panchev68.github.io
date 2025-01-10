@@ -1,8 +1,8 @@
 var a00888 =
 [
-    [ "DateTime", "dd/d94/a00888.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "ProduceDate", "dd/d94/a00888.html#a9968e063dbe6a06225a03e1e7f59479d", null ],
-    [ "~ProduceDate", "dd/d94/a00888.html#a67a2a02b1507d400418a7fc37ba06966", null ],
-    [ "read", "dd/d94/a00888.html#a4b08b91916492f13fbfe81868fd6b523", null ],
-    [ "write", "dd/d94/a00888.html#a9dde16df90838ef71f177cb06780086a", null ]
+    [ "~StorageBase", "dd/d94/a00888.html#a20e2b711248ad495e8b7d9fae457b474", null ],
+    [ "close", "dd/d94/a00888.html#aeebfc7e3f7a92046cdbbc04498051edc", null ],
+    [ "open", "dd/d94/a00888.html#a46463ccb362606f42ee88639767ff271", null ],
+    [ "read", "dd/d94/a00888.html#a5bb8cfc0222c40360974814971cb8289", null ],
+    [ "write", "dd/d94/a00888.html#a5d99bc28828df5c6eece00688ee0b156", null ]
 ];

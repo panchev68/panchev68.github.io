@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['firmwareversion_0',['FirmwareVersion',['../d3/d50/a00882.html',1,'Lib::System']]]
+  ['hardwareversion_0',['HardwareVersion',['../d1/d8f/a00880.html',1,'Lib::System']]]
 ];

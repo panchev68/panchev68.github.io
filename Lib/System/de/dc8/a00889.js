@@ -1,8 +1,8 @@
 var a00889 =
 [
-    [ "SerialNumber", "de/dc8/a00889.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
-    [ "~SerialNumber", "de/dc8/a00889.html#a454995c6e21a8effee4e4019c6e5656d", null ],
-    [ "operator const std::string", "de/dc8/a00889.html#a3842cded3f0f473336caa6ad134287d3", null ],
-    [ "operator uint32_t", "de/dc8/a00889.html#a4a27d9e728d5c0e48be09780eee95052", null ],
-    [ "toString", "de/dc8/a00889.html#ab71dcdccbf270e67c507c14287808b00", null ]
+    [ "ProduceDate", "de/dc8/a00889.html#a9968e063dbe6a06225a03e1e7f59479d", null ],
+    [ "~ProduceDate", "de/dc8/a00889.html#a67a2a02b1507d400418a7fc37ba06966", null ],
+    [ "isEmpty", "de/dc8/a00889.html#a8e283a580bd673ea71227c819f3e1ced", null ],
+    [ "read", "de/dc8/a00889.html#a4b08b91916492f13fbfe81868fd6b523", null ],
+    [ "write", "de/dc8/a00889.html#a9dde16df90838ef71f177cb06780086a", null ]
 ];

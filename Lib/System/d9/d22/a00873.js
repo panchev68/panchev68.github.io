@@ -1,12 +1,11 @@
 var a00873 =
 [
-    [ "Data", "df/d41/a00881.html", "df/d41/a00881" ],
-    [ "StorageBase", "d1/de7/a00877.html", "d1/de7/a00877" ],
-    [ "ParametersBase", "d9/d22/a00873.html#a109a955cbd8ed11a153b25064d9f59fd", null ],
-    [ "~ParametersBase", "d9/d22/a00873.html#ae6f0ff5b1f381e878f9edb5581c7022f", null ],
-    [ "getData", "d9/d22/a00873.html#ae902605486494b30c0c1cf8b6f286b75", null ],
-    [ "getStorage", "d9/d22/a00873.html#acde720f61a7d1fa91c4f9d276299b256", null ],
-    [ "restoreByDefault", "d9/d22/a00873.html#ad7f4b7673fbab80745eaed0735e2db6a", null ],
-    [ "setup", "d9/d22/a00873.html#a913226ec181930d0e65a4a2f4a0303a4", null ],
-    [ "write", "d9/d22/a00873.html#ae167cd6549fd784e82a47c39d447772d", null ]
+    [ "FirmwareVersion", "d9/d22/a00873.html#a7a24277dc712d6eaac2a35ffcdb2b20f", null ],
+    [ "~FirmwareVersion", "d9/d22/a00873.html#acd2dfb7dd8d9b9fd050130339e143217", null ],
+    [ "getBuildDate", "d9/d22/a00873.html#afabcc128299be3dd758292590859e4e3", null ],
+    [ "getSubVersion", "d9/d22/a00873.html#a30c00cfd6548de2ea25da0d6ac37a120", null ],
+    [ "getValue", "d9/d22/a00873.html#af4835cb434810b6f6f8765196095f687", null ],
+    [ "operator const std::string", "d9/d22/a00873.html#a4d2e6d0a5500baa1c99540c9cb8edcb0", null ],
+    [ "operator uint32_t", "d9/d22/a00873.html#a8e7d6edd322e1f5a77d19503b4bfa444", null ],
+    [ "toString", "d9/d22/a00873.html#a689bc9969052ce977f805bb096b55112", null ]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['data_0',['Data',['../d2/d79/a00898.html',1,'Lib::System::ParametersBase&lt; T &gt;::Data'],['../d2/d79/a00898.html#a178f3a4d9f49854050367718641ef1c2',1,'Lib::System::ParametersBase::Data::Data()=default']]],
-  ['data_1',['data',['../d2/d79/a00898.html#a7c5858fab00e46d5ef0ca215eb77f84c',1,'Lib::System::ParametersBase::Data']]],
-  ['date_2',['Produce Date',['../d4/d6d/a00055.html',1,'']]]
+  ['date_0',['Produce Date',['../d2/dee/a00049.html',1,'']]]
 ];

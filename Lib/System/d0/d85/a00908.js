@@ -1,10 +1,10 @@
 var a00908 =
 [
-    [ "Base", "d0/d85/a00908.html#aea565dbf96f46b060c0cff628168b200", null ],
-    [ "~Base", "d0/d85/a00908.html#ac25b019f5ba111cbb0223da7ee317340", null ],
-    [ "getSubVersion", "d0/d85/a00908.html#aeebc95e3834667f1934b679f4ee429a7", null ],
-    [ "getValue", "d0/d85/a00908.html#a8cf125ec822b8161929f7fa1c18002f2", null ],
-    [ "operator const std::string", "d0/d85/a00908.html#ac5cc98dd2ecaec6b41bcbbc9a98dc7b1", null ],
-    [ "operator uint32_t", "d0/d85/a00908.html#ac49086f942e11242d1e78157d052686d", null ],
-    [ "toString", "d0/d85/a00908.html#a553aa043c75b3317114a1a8836c77ef8", null ]
+    [ "VersionBase", "d0/d85/a00908.html#a81469e54459719f9872350fcacb86166", null ],
+    [ "~VersionBase", "d0/d85/a00908.html#a1f1814a7eb235640ee2325f8f8f4da2b", null ],
+    [ "getSubVersion", "d0/d85/a00908.html#ae155e5992c4f390d6533602933291731", null ],
+    [ "getValue", "d0/d85/a00908.html#af4f4e0bccaddab3a81a9f6197c1e7557", null ],
+    [ "operator const std::string", "d0/d85/a00908.html#a15e734927e4bd51ace5a690941c5dd92", null ],
+    [ "operator uint32_t", "d0/d85/a00908.html#a9a5b82d1cf5dffb736764fad5ff38c95", null ],
+    [ "toString", "d0/d85/a00908.html#a6c8720efadc047eadc70df380c0fbaba", null ]
 ];
