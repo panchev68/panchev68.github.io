@@ -1,0 +1,73 @@
+@startuml inline_umlgraph_1.png
+class FirmwareVersion {
+- _version: uint32_t
+- _subversion: uint32_t
++ FirmwareVersion(string: const std::string &, subVersion: uint32_t)
++ ~FirmwareVersion() = default
++ getBuildDate() const: const std::string
++ getValue() const: uint32_t
++ getSubVersion() const: uint32_t
++ toString() const: const std::string
++ operator uint32_t() const: uint32_t
++ operator const std::string() const: const std::string
+}
+
+class Configuration {
+- _configuration: ConfigurationData
++ Configuration()
++ ~Configuration() = default
++ getConfiguration() const: const ConfigurationData &
++ readConfiguration(): bool
+}
+
+class ConfigurationData {
+- _configuration: std::map<std::string, std::string>
++ ConfigurationData()
++ ~ConfigurationData() = default
++ getConfiguration() const: const std::map<std::string, std::string> &
++ setConfiguration(configuration: const std::map<std::string, std::string> &)
+}
+
+class ParametersData {
+- _parameters: std::map<std::string, std::string>
++ ParametersData()
++ ~ParametersData() = default
++ getParameter() const: const std::map<std::string, std::string> &
++ setParameter(parameters: const std::map<std::string, std::string> &)
+}
+
+class System {
+- _parameters: ParametersData
++ System()
++ ~System() = default
++ getParameter() const: const ParametersData &
++ readParameters(): bool
+}
+
+class ProduceDate {
+- _produceDate: std::string
++ ProduceDate(string: const std::string &)
++ ~ProduceDate() = default
++ getValue() const: const std::string
++ toString() const: const std::string
++ operator const std::string() const: const std::string
+}
+
+class Version {
+- _version: FirmwareVersion
+- _produceDate: ProduceDate
++ Version(string: const std::string &, subVersion: uint32_t, produceDate: const std::string &)
++ ~Version() = default
++ getProduceDate() const: const ProduceDate &
++ getVersion() const: const FirmwareVersion &
++ toString() const: const std::string
++ operator const std::string() const: const std::string
+}
+
+ConfigurationData --> Configuration
+ParametersData --> System
+FirmwareVersion --> Version
+ProduceDate --> Version
+Version --> FirmwareVersion
+Version --> ProduceDate
+@enduml
