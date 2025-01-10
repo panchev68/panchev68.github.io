@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['size_0',['size',['../d6/d22/a00245.html#a06cdb9e7982d68ae1dcfee4b88149433',1,'Ethercat::FileInfo']]],
-  ['spi_1',['spi',['../d6/db6/a00241.html#ab87514722a28cfbd427444a5be25a0c8',1,'Lib::Ethercat::Dev::Lan9252Base::Config']]],
-  ['state_2',['state',['../dd/df4/a00193.html#a29cd92501ddd7a3741f2d38015146306',1,'_MBXcontrol::state'],['../dd/de3/a00201.html#ab99c5d449e4bb47ecf5302f431a07fd4',1,'_App::state'],['../d4/d08/a00237.html#a6470ea30818ff2a7350758a89b9d9247',1,'Lib::Ethercat::Dev::Lan9252Base::state']]],
-  ['sync0_3',['sync0',['../d6/db6/a00241.html#aac092986ba2a3c6ff2f8d00c87df58ce',1,'Lib::Ethercat::Dev::Lan9252Base::Config']]],
-  ['sync1_4',['sync1',['../d6/db6/a00241.html#a71662fc6810ec98e6770ff3171b5beb3',1,'Lib::Ethercat::Dev::Lan9252Base::Config']]]
+  ['r1_0',['R1',['../dd/dcb/a00375.html#adbbe71e5d589dfb9a25348d0c30b05f7',1,'R1:&#160;esc.h'],['../db/d7e/a00372.html#adbbe71e5d589dfb9a25348d0c30b05f7',1,'R1:&#160;esc.h']]],
+  ['r1_1',['r1',['../dd/dcb/a00375.html#a8321471905fa41833d37333925f7cb89',1,'r1:&#160;esc.h'],['../db/d7e/a00372.html#a8321471905fa41833d37333925f7cb89',1,'r1:&#160;esc.h']]],
+  ['r2_2',['R2',['../dd/dcb/a00375.html#a367ca5292e09eb4e02aba31c918028ea',1,'R2:&#160;esc.h'],['../db/d7e/a00372.html#a367ca5292e09eb4e02aba31c918028ea',1,'R2:&#160;esc.h']]],
+  ['r2_3',['r2',['../dd/dcb/a00375.html#a4026ea78600068f90846f180046bfd3a',1,'r2:&#160;esc.h'],['../db/d7e/a00372.html#a4026ea78600068f90846f180046bfd3a',1,'r2:&#160;esc.h']]],
+  ['r3_4',['R3',['../dd/dcb/a00375.html#a300b7f1f8d8cfb7c1fcdeeb198ec3245',1,'R3:&#160;esc.h'],['../db/d7e/a00372.html#a300b7f1f8d8cfb7c1fcdeeb198ec3245',1,'R3:&#160;esc.h']]],
+  ['readbuf_5',['readBuf',['../df/d73/a00358.html#a29b205066402289fe64d1c967b440dde',1,'Lib::Ethercat::SlaveBase::Config']]],
+  ['reserved_6',['reserved',['../dd/dcb/a00375.html#acb7bc06bed6f6408d719334fc41698c7',1,'reserved:&#160;esc.h'],['../db/d7e/a00372.html#acb7bc06bed6f6408d719334fc41698c7',1,'reserved:&#160;esc.h']]]
 ];

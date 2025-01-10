@@ -25,8 +25,7 @@
 var NAVTREE =
 [
   [ "EtherCAT Slave Library", "index.html", [
-    [ "Simple Open EtherCAT Slave or SOES", "index.html", "index" ],
-    [ "SOES Native Library", "d7/d08/a00378.html", null ],
+    [ "EtherCAT Slave 2.00", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
@@ -41,6 +40,16 @@ var NAVTREE =
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Variables", "globals_vars.html", "globals_vars" ],
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Macros", "globals_defs.html", "globals_defs" ]
+      ] ]
     ] ]
   ] ]
 ];
@@ -48,8 +57,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"dc/de3/a00373.html#a2271fe51345d8c66f37c7d6dcff72dd0"
+"d5/df1/a00206.html#a361e321e610d92ca9452a939a14b2630",
+"db/d7e/a00372.html#a23acf79dfc57e83246612b7aa187810c",
+"db/d7e/a00372.html#afdb0e90d504f4b5c5779b14039fcf098",
+"dd/dcb/a00375.html#aa3f8f02c01274b53a1135448c86ade49",
+"globals_p.html"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
