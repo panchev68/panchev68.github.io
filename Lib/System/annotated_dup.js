@@ -1,15 +1,15 @@
 var annotated_dup =
 [
     [ "Lib", null, [
-      [ "System", "dc/dee/a00053.html", [
-        [ "Configuration", "d5/de0/a00050.html#df/d2a/a00874", "d5/de0/a00050_df/d2a/a00874" ],
-        [ "FirmwareVersion", "d4/dca/a00048.html#d5/d69/a00878", "d4/dca/a00048_d5/d69/a00878" ],
-        [ "HardwareVersion", "d4/dca/a00048.html#d3/d50/a00882", "d4/dca/a00048_d3/d50/a00882" ],
-        [ "ParametersBase", "d2/d79/a00051.html#d2/dab/a00886", "d2/d79/a00051_d2/dab/a00886" ],
-        [ "ProduceDate", "d2/dee/a00049.html#dc/dfa/a00894", "d2/dee/a00049_dc/dfa/a00894" ],
-        [ "SerialNumber", "d6/d2d/a00047.html#d2/d79/a00898", "d6/d2d/a00047_d2/d79/a00898" ],
-        [ "System", "d6/d2d/a00047.html#d5/dd3/a00902", "d6/d2d/a00047_d5/dd3/a00902" ],
-        [ "VersionBase", "d4/dca/a00048.html#d4/d12/a00910", "d4/dca/a00048_d4/d12/a00910" ]
+      [ "System", "d9/d73/a00060.html", [
+        [ "Configuration", "d9/d2e/a00056.html#d1/d8f/a00880", "d9/d2e/a00056_d1/d8f/a00880" ],
+        [ "FirmwareVersion", "d1/dea/a00054.html#dd/d08/a00884", "d1/dea/a00054_dd/d08/a00884" ],
+        [ "HardwareVersion", "d1/dea/a00054.html#dd/d94/a00888", "d1/dea/a00054_dd/d94/a00888" ],
+        [ "ParametersBase", "d1/d22/a00057.html#d0/de2/a00892", "d1/d22/a00057_d0/de2/a00892" ],
+        [ "ProduceDate", "d4/d6d/a00055.html#d9/db0/a00900", "d4/d6d/a00055_d9/db0/a00900" ],
+        [ "SerialNumber", "dc/dee/a00053.html#d8/d0a/a00904", "dc/dee/a00053_d8/d0a/a00904" ],
+        [ "System", "dc/dee/a00053.html#d0/d85/a00908", "dc/dee/a00053_d0/d85/a00908" ],
+        [ "VersionBase", "d1/dea/a00054.html#d6/d66/a00916", "d1/dea/a00054_d6/d66/a00916" ]
       ] ]
     ] ]
 ];

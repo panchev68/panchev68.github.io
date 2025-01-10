@@ -1,20 +1,50 @@
 var a00280 =
 [
-    [ "GPIOMode", "d0/dcd/a00280.html#af12aeb7414170c02136d3d25c575ff81", [
-      [ "INPUT", "d0/dcd/a00280.html#af12aeb7414170c02136d3d25c575ff81aa84cc046d48610b05c21fd3670d0c829", null ],
-      [ "OUT_PP", "d0/dcd/a00280.html#af12aeb7414170c02136d3d25c575ff81a05d0658f04c6c6a3f596e042bddd78cc", null ],
-      [ "OUT_OD", "d0/dcd/a00280.html#af12aeb7414170c02136d3d25c575ff81a48dc0d96bf9f37e03974e063c27d39c9", null ]
+    [ "CallbackID", "d0/dcd/a00280.html#aad8c0c1f33729906c4f465b1bdb64e1d", null ],
+    [ "Handle", "d0/dcd/a00280.html#a4c11e4c7bda117fe38bc0db423c9f9dc", null ],
+    [ "State", "d0/dcd/a00280.html#a8206a52b759a3edb8043ddbdf2fc9594", null ],
+    [ "ErrorCode", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cf", [
+      [ "NONE", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "BERR", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa49b05888444e28e5320044dc9a61bfaf", null ],
+      [ "ARLO", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa695fc4ceb5733c86b76c5813d35c02ad", null ],
+      [ "AF", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa06fa567b72d78b7e3ea746973fbbd1d5", null ],
+      [ "OVR", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa5454e7edaaa12e3d5761aaa2cdbc75df", null ],
+      [ "DMA", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa33fd5f6391f2f0cb4c91179d7f521949", null ],
+      [ "TIMEOUT", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa070a0fb40f6c308ab544b227660aadff", null ],
+      [ "SIZE", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa62e5cef85d46f1a5a2144d9fd463b79e", null ],
+      [ "DMA_PARAM", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa7eadf5dc47997570a82b3bad2d8ef38d", null ],
+      [ "WRONG_START", "d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa7c7fca98c6be611d0284c6ee1a8a0a30", null ]
     ] ],
-    [ "GPIOPull", "d0/dcd/a00280.html#ae924772446ea7c67b58fa85260c95b4c", [
-      [ "NOPULL", "d0/dcd/a00280.html#ae924772446ea7c67b58fa85260c95b4caf43b0f41977e72ada334d920faf460d5", null ],
-      [ "PULLUP", "d0/dcd/a00280.html#ae924772446ea7c67b58fa85260c95b4ca2989a4b0b16772a6f65da71eda483c9f", null ],
-      [ "PULLDOWN", "d0/dcd/a00280.html#ae924772446ea7c67b58fa85260c95b4cad08b3001fc1b2f26c5ba712336e16a17", null ]
+    [ "MemAddrSize", "d0/dcd/a00280.html#a1c70f0535bfc30f11cee5781b2b223ca", [
+      [ "ADDR_8BITS", "d0/dcd/a00280.html#a1c70f0535bfc30f11cee5781b2b223caa088bdc009ca79147eba93d2931d540fe", null ],
+      [ "ADDR_16BITS", "d0/dcd/a00280.html#a1c70f0535bfc30f11cee5781b2b223caa9990dd355fcb596ae478c4035a8a1d12", null ]
     ] ],
-    [ "GPIOSpeed", "d0/dcd/a00280.html#a0c90279501ad6b710061a0dbab455862", [
-      [ "LOW", "d0/dcd/a00280.html#a0c90279501ad6b710061a0dbab455862a41bc94cbd8eebea13ce0491b2ac11b88", null ],
-      [ "MEDIUM", "d0/dcd/a00280.html#a0c90279501ad6b710061a0dbab455862ac87f3be66ffc3c0d4249f1c2cc5f3cce", null ],
-      [ "HIGH", "d0/dcd/a00280.html#a0c90279501ad6b710061a0dbab455862ab89de3b4b81c4facfac906edf29aec8c", null ],
-      [ "VERY_HIGH", "d0/dcd/a00280.html#a0c90279501ad6b710061a0dbab455862a2eae31361b8d1a454cadc17a8d4b70ac", null ]
-    ] ],
-    [ "setMode", "d0/dcd/a00280.html#af6c57c84833268f37d6a300c49cd3c1a", null ]
+    [ "I2Cx", "d0/dcd/a00280.html#ab564be627253d076fa124dee52123ca3", null ],
+    [ "~I2Cx", "d0/dcd/a00280.html#a311e191cf199bf660bad8dd1db1debda", null ],
+    [ "abort", "d0/dcd/a00280.html#a7deb5ad671183158b7d2fb372debf4b3", null ],
+    [ "abortFunc", "d0/dcd/a00280.html#aa3922099569f2af8dcd806b365d6c726", null ],
+    [ "deinit", "d0/dcd/a00280.html#a2701309c93fe47a80ecaa2dc552af773", null ],
+    [ "getState", "d0/dcd/a00280.html#a80ae1cc8745c6f1c9dbc00c755e0588b", null ],
+    [ "handleAbortCompleteEvent", "d0/dcd/a00280.html#a86a6135318d45182f490aa61e1ff8605", null ],
+    [ "handleErrorEvent", "d0/dcd/a00280.html#ae0f2c8fa10b5cc1873568653b37cc0f0", null ],
+    [ "handleMemRxCompleteEvent", "d0/dcd/a00280.html#af33c2a96b53b325e2633a045f643230f", null ],
+    [ "handleMemTxCompleteEvent", "d0/dcd/a00280.html#a06059f3e99362bc91df38e1c70bd8354", null ],
+    [ "handleRxCompleteEvent", "d0/dcd/a00280.html#acc2c72ad913a28b2bd0c313b1a0d1082", null ],
+    [ "handleTxCompleteEvent", "d0/dcd/a00280.html#aeaab0ff00667b1d8489b3709f3efa388", null ],
+    [ "init", "d0/dcd/a00280.html#a940001e1475477ba863f5b8e3b82d9c4", null ],
+    [ "isReady", "d0/dcd/a00280.html#af8d90c45322ed307e9a311035226fd4a", null ],
+    [ "receive", "d0/dcd/a00280.html#a74a68c9b665e9f874f2ce7ab7aced4dc", null ],
+    [ "receive", "d0/dcd/a00280.html#aacd18e8eee97bfb9967927f99daaf8f9", null ],
+    [ "receiveDevFunc", "d0/dcd/a00280.html#aafc80f94fdfecf498c8a91e241e010db", null ],
+    [ "receiveFunc", "d0/dcd/a00280.html#aaf8f167c9d78b5b5463db53a5add85a3", null ],
+    [ "send", "d0/dcd/a00280.html#abedf6e64b65f0531852549aadcd675b9", null ],
+    [ "send", "d0/dcd/a00280.html#ab205ae31ba83737573a059cac2ed8127", null ],
+    [ "sendDevFunc", "d0/dcd/a00280.html#a3885539116eb2e0e1af4bbbb0c8778a1", null ],
+    [ "sendFunc", "d0/dcd/a00280.html#ac1e813ea22d4afee2213216cd34fe66b", null ],
+    [ "waitForAbortCompleted", "d0/dcd/a00280.html#aea8600de1a11ef27b89b2bcdb7fd2cb3", null ],
+    [ "waitForDevRxCompleted", "d0/dcd/a00280.html#a5599c3b2e892f9cdcd212494b65128ef", null ],
+    [ "waitForDevTxCompleted", "d0/dcd/a00280.html#a2be59da8e86845aff51ffb5be96dac92", null ],
+    [ "waitForRxCompleted", "d0/dcd/a00280.html#a5f860f4ea584c0c48d8edcfa2d41707e", null ],
+    [ "waitForTxCompleted", "d0/dcd/a00280.html#a550c1a85005dfac40cf6d41941f5d7c1", null ],
+    [ "Lib::HAL::DeviceManagerBase< I2Cx, I2C_HandleTypeDef >", "d0/dcd/a00280.html#a8f0e07a4a81d89e1689c8c20294822cc", null ]
 ];

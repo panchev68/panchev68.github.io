@@ -1,33 +1,35 @@
 var a00188 =
 [
-    [ "Lib::HAL::UARTx", "d4/def/a00359.html", [
-      [ "CallbackID", "d4/def/a00359.html#a2b97a2bad16440a3783f13c49e9cf4ab", null ],
-      [ "ErrorCode", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0f", [
-        [ "NONE", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0fab50339a10e1de285ac99d4c3990b8693", null ],
-        [ "PARITY_ERROR", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0fac660efeaf70229ba5fd5e53da70c9a7c", null ],
-        [ "NOISE_ERROR", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0fae49a752ccd857ad9b6e962aa31551f73", null ],
-        [ "FRAME_ERROR", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0fa6f688deb98243b55da9393ed2d968f3f", null ],
-        [ "OVERRUN_ERROR", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0faa607a4a202294658bd387cd8e3636566", null ],
-        [ "DMA_TRANSFER_ERROR", "d4/def/a00359.html#a2c29c4d985dcbd85d1dbf60038067b0faa347986104d500024d8d699e0b72b24d", null ]
-      ] ],
-      [ "EventFlags", "d4/def/a00359.html#ac12f66ca0b1d083d08631179bd2b96c5", [
-        [ "FLAG_TX_COMPLETE", "d4/def/a00359.html#ac12f66ca0b1d083d08631179bd2b96c5ac19c54d8a7fe985d1964a7316adbec1d", null ],
-        [ "FLAG_ABORT_COMPLETE", "d4/def/a00359.html#ac12f66ca0b1d083d08631179bd2b96c5acb28247f59d3e4ba87a98854d83e44f9", null ]
-      ] ],
-      [ "UARTx", "d4/def/a00359.html#a808f393a027a23e612e9ddd2f1169100", null ],
-      [ "~UARTx", "d4/def/a00359.html#a0f644c4969303d22cf758a31757ca138", null ],
-      [ "abortFunc", "d4/def/a00359.html#ac3e7157f5ad17216441788774c4aec34", null ],
-      [ "deinit", "d4/def/a00359.html#aac4839270151f122d47911769d5965e2", null ],
-      [ "getBaudrate", "d4/def/a00359.html#aa6eba0a256527fd52f44773154f3c318", null ],
-      [ "getHandle", "d4/def/a00359.html#a95f7af920452223c5ba8b489effa1769", null ],
-      [ "handleErrorEvent", "d4/def/a00359.html#aa84f4ccdcc69afc237c60961e5484ccd", null ],
-      [ "init", "d4/def/a00359.html#af15c2bca1f8ba382c285d7006408572a", null ],
-      [ "receive", "d4/def/a00359.html#af5ed10eb7c1abb3ba24e76256890d2a6", null ],
-      [ "receiveFunc", "d4/def/a00359.html#ad51e236d7545cb820ff11a3a76cd1745", null ],
-      [ "send", "d4/def/a00359.html#ab4e681914649c4d4d53214a5ad8a7e0c", null ],
-      [ "sendFunc", "d4/def/a00359.html#ab1e64340087fece7e28de7d9551e1d1a", null ],
-      [ "setBaudrate", "d4/def/a00359.html#a093e751889de1bac1905f9fa50fbfd03", null ],
-      [ "waitForSendCompleted", "d4/def/a00359.html#a320ed3a24357f71a6ae32276f8e8436e", null ],
-      [ "Lib::HAL::DeviceManagerBase< UARTx, UART_HandleTypeDef >", "d4/def/a00359.html#a9036c76439a5ac0381b614509f2906e1", null ]
+    [ "Adc", "da/deb/a00189.html", "da/deb/a00189" ],
+    [ "CAN", "d7/d6e/a00190.html", "d7/d6e/a00190" ],
+    [ "TIM", "d9/dd0/a00191.html", "d9/dd0/a00191" ],
+    [ "Timer", "dd/da2/a00192.html", "dd/da2/a00192" ],
+    [ "CanBase", "d5/d0b/a00220.html", "d5/d0b/a00220" ],
+    [ "DeviceManagerBase", "d9/d21/a00240.html", "d9/d21/a00240" ],
+    [ "GPIO", "dd/dd7/a00248.html", "dd/dd7/a00248" ],
+    [ "Handle", "d6/d08/a00244.html", "d6/d08/a00244" ],
+    [ "I2Cx", "d0/dcd/a00280.html", "d0/dcd/a00280" ],
+    [ "LastResetState", "da/ddc/a00288.html", "da/ddc/a00288" ],
+    [ "RTCBase", "d8/d0a/a00292.html", "d8/d0a/a00292" ],
+    [ "SPIx", "db/d7b/a00296.html", "db/d7b/a00296" ],
+    [ "UARTx", "dd/de2/a00320.html", "dd/de2/a00320" ],
+    [ "Watchdog", "db/dc3/a00284.html", "db/dc3/a00284" ],
+    [ "AdcPort", "da/d15/a00188.html#a3e8a6e973532e43d34d002cb880fb564", null ],
+    [ "SPI_BLOCK", "da/d15/a00188.html#a9f22ed45da4b995eb6cb3b8461ad6ed4", null ],
+    [ "SPI_DMA", "da/d15/a00188.html#afefd339296cc97707945b608971a00cd", null ],
+    [ "SPI_IT", "da/d15/a00188.html#a2c0b733f1a7d50da78a1bfe2e925e9d2", null ],
+    [ "SPIHandle", "da/d15/a00188.html#adf4babf0e5b540d1ae9b7c96c148fa9d", null ],
+    [ "Uart_DMA", "da/d15/a00188.html#a81ca056ad49dfa641aa3d1d1d89e03c2", null ],
+    [ "Uart_IT", "da/d15/a00188.html#a74537b657e50d65b25d0586592fd4f43", null ],
+    [ "UartHandle", "da/d15/a00188.html#af19a8304ef187cc851502e33873fb68a", null ],
+    [ "DriverDataDirection", "da/d15/a00188.html#ac2feb35492efeb810666c536b5debe28", [
+      [ "RX", "da/d15/a00188.html#ac2feb35492efeb810666c536b5debe28aba61e080110d6ed61b17a8ac10fc538c", null ],
+      [ "TX", "da/d15/a00188.html#ac2feb35492efeb810666c536b5debe28a2c67cc781633beee7355a4345f89d162", null ],
+      [ "RX_TX", "da/d15/a00188.html#ac2feb35492efeb810666c536b5debe28a4406c7d74a50c1d8e5476238f4b55812", null ]
+    ] ],
+    [ "DriverMode", "da/d15/a00188.html#a9de00459d7bcd95866936fd723022743", [
+      [ "BLOCK", "da/d15/a00188.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4", null ],
+      [ "IT", "da/d15/a00188.html#a9de00459d7bcd95866936fd723022743ab1bb871e144ff9fd10db6f53ee2495d1", null ],
+      [ "DMA", "da/d15/a00188.html#a9de00459d7bcd95866936fd723022743a04487a0fa5ed0ed8d8e197288957053b", null ]
     ] ]
 ];

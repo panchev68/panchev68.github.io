@@ -1,17 +1,16 @@
 var searchData=
 [
-  ['_7ebase_0',['~Base',['../df/da9/a00263.html#a820ebb6e57ddcfceec7b9c5df70e4cf4',1,'Lib::HAL::TIM::Base']]],
-  ['_7ecanbase_1',['~CanBase',['../dc/d28/a00223.html#ab8e9a77ed56466fa4185956af5e372c0',1,'Lib::HAL::CanBase']]],
-  ['_7echannel_2',['~Channel',['../d8/d72/a00199.html#ad16cbd767285122806f7c9ab51481603',1,'Lib::HAL::Adc::Channel']]],
-  ['_7edevicemanagerbase_3',['~DeviceManagerBase',['../d6/d82/a00243.html#ac224e47704f9cf11a1d242f49fc01ab6',1,'Lib::HAL::DeviceManagerBase']]],
-  ['_7efilter_4',['~Filter',['../d9/d01/a00227.html#aa402b8835257e53f7ea0936744c772fd',1,'Lib::HAL::CAN::Filter']]],
-  ['_7ehandle_5',['~Handle',['../d0/d1f/a00247.html#ad49584b1103bdcb6798a678d2f2318cf',1,'Lib::HAL::Handle']]],
-  ['_7einterface_6',['~Interface',['../de/d79/a00203.html#a86ba3dc0bde04c071461705622c9f08b',1,'Lib::HAL::Adc::Interface']]],
-  ['_7elastresetstate_7',['~LastResetState',['../d3/d1a/a00251.html#a9764e97ea414a4a782184c9e0e81789c',1,'Lib::HAL::LastResetState']]],
-  ['_7eport_8',['~Port',['../d3/dd5/a00215.html#a8d4f69a9de3cf47afee1792f5c6e45c8',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::~Port()'],['../dd/df3/a00219.html#a04606e280f53d81bdfd36d4b0b7781a5',1,'Lib::HAL::Adc::Port&lt; IT &gt;::~Port()']]],
-  ['_7eportbase_9',['~PortBase',['../de/dd2/a00207.html#a4dc33e8a3f98ab2c6ebf0d85c705e8c7',1,'Lib::HAL::Adc::PortBase']]],
-  ['_7ertcbase_10',['~RTCBase',['../d4/d04/a00255.html#a58f9b23a0d4c03192bd597a78e70b6f3',1,'Lib::HAL::RTCBase']]],
-  ['_7espix_11',['~SPIx',['../d0/d2f/a00259.html#ac6940b66d2c4bc8bd836af4b721bcecd',1,'Lib::HAL::SPIx']]],
-  ['_7etimer_12',['~Timer',['../d2/d82/a00279.html#a43aee021e54610f1179901bf7fcbaecf',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;']]],
-  ['_7etxheader_13',['~TxHeader',['../d3/d42/a00235.html#a238e6fee0d0264b17b8350e32013d8e2',1,'Lib::HAL::CAN::TxHeader']]]
+  ['waitforabortcompleted_0',['waitForAbortCompleted',['../d0/dcd/a00280.html#aea8600de1a11ef27b89b2bcdb7fd2cb3',1,'Lib::HAL::I2Cx::waitForAbortCompleted()'],['../db/d7b/a00296.html#addb320a67f3b9b9f1d2fbae121f224e9',1,'Lib::HAL::SPIx::waitForAbortCompleted()']]],
+  ['waitfordevrxcompleted_1',['waitForDevRxCompleted',['../d0/dcd/a00280.html#a5599c3b2e892f9cdcd212494b65128ef',1,'Lib::HAL::I2Cx']]],
+  ['waitfordevtxcompleted_2',['waitForDevTxCompleted',['../d0/dcd/a00280.html#a2be59da8e86845aff51ffb5be96dac92',1,'Lib::HAL::I2Cx']]],
+  ['waitforrxcompleted_3',['waitForRxCompleted',['../d0/dcd/a00280.html#a5f860f4ea584c0c48d8edcfa2d41707e',1,'Lib::HAL::I2Cx::waitForRxCompleted()'],['../db/d7b/a00296.html#affec4fcaf0a752bf6940cca4ef48b1e0',1,'Lib::HAL::SPIx::waitForRxCompleted()']]],
+  ['waitforsendcompleted_4',['waitForSendCompleted',['../dd/de2/a00320.html#a320ed3a24357f71a6ae32276f8e8436e',1,'Lib::HAL::UARTx']]],
+  ['waitfortxcompleted_5',['waitForTxCompleted',['../d0/dcd/a00280.html#a550c1a85005dfac40cf6d41941f5d7c1',1,'Lib::HAL::I2Cx::waitForTxCompleted()'],['../db/d7b/a00296.html#a1cecd60fd1e084b187e0709b52cabb9b',1,'Lib::HAL::SPIx::waitForTxCompleted(uint32_t timeout)']]],
+  ['waitfortxrxcompleted_6',['waitForTxRxCompleted',['../db/d7b/a00296.html#ae724026f4d8c557d2bb000474748326f',1,'Lib::HAL::SPIx']]],
+  ['watchdog_7',['Watchdog',['../db/dc3/a00284.html#afe27b8d5b6bb6339d170ebfd2a31e05a',1,'Lib::HAL::Watchdog']]],
+  ['write_8',['write',['../db/d12/a00268.html#afd16eb9619b09481347eec20efd89211',1,'Lib::HAL::GPIO::PinOutput']]],
+  ['writedate_9',['writeDate',['../d8/d0a/a00292.html#aafba84d7fc847c99ec5c309e96991ac2',1,'Lib::HAL::RTCBase']]],
+  ['writedatetime_10',['writeDateTime',['../d8/d0a/a00292.html#a399814ecc17cc1835d2a06e1041cdd86',1,'Lib::HAL::RTCBase']]],
+  ['writeregister_11',['writeRegister',['../d8/d0a/a00292.html#a74846d3feacf83e53dbdadf8b0cb58a2',1,'Lib::HAL::RTCBase']]],
+  ['writetime_12',['writeTime',['../d8/d0a/a00292.html#a2c037bceed143dd13437bb6a2b602160',1,'Lib::HAL::RTCBase']]]
 ];

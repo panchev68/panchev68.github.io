@@ -1,6 +1,6 @@
 var examples =
 [
-    [ "Configuration", "df/da5/a00912.html", null ],
-    [ "System", "d3/dd1/a00914.html", null ],
-    [ "FirmwareVersion", "d6/d66/a00916.html", null ]
+    [ "Configuration", "d0/ddf/a00918.html", null ],
+    [ "System", "d6/d82/a00920.html", null ],
+    [ "FirmwareVersion", "dd/dcf/a00922.html", null ]
 ];

@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['unknown_0',['UNKNOWN',['../d3/d1a/a00251.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e',1,'Lib::HAL::LastResetState']]]
+  ['timeout_0',['TIMEOUT',['../d0/dcd/a00280.html#a0f9f8cf893e95cc0b5b45eabc68074cfa070a0fb40f6c308ab544b227660aadff',1,'Lib::HAL::I2Cx']]],
+  ['tx_1',['TX',['../da/d15/a00188.html#ac2feb35492efeb810666c536b5debe28a2c67cc781633beee7355a4345f89d162',1,'Lib::HAL']]],
+  ['tx_5fcompleted_2',['TX_COMPLETED',['../db/d7b/a00296.html#aa68c26054b78691f855daf390d0dfc69a229b2dfcb0098ddf5d2ebee705fda4aa',1,'Lib::HAL::SPIx']]],
+  ['tx_5frx_5fcompleted_3',['TX_RX_COMPLETED',['../db/d7b/a00296.html#aa68c26054b78691f855daf390d0dfc69a025e2ae0a1a56cc25fd29e82502807a3',1,'Lib::HAL::SPIx']]]
 ];

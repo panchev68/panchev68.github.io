@@ -1,9 +1,10 @@
 var a00260 =
 [
-    [ "TxMessage", "dd/dd7/a00260.html#a0f7b18d5fb18f668058358ca713f1837", null ],
-    [ "TxMessage", "dd/dd7/a00260.html#a35a746ab76ab539d6bb79fa7743f0d9f", null ],
-    [ "TxMessage", "dd/dd7/a00260.html#ad1707323c881b3fafe0ddc6cd1844d9e", null ],
-    [ "getData", "dd/dd7/a00260.html#a69cdd6d8c6538b94fc6d0a881f92a64c", null ],
-    [ "getId", "dd/dd7/a00260.html#a5de860dc77c863b746b88c256bf82274", null ],
-    [ "getLen", "dd/dd7/a00260.html#add6591fff2bc157ac11183d0e1b158d9", null ]
+    [ "Config", "dd/dd7/a00260.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Port", "dd/dd7/a00260.html#a3b44fabfe796316ff21231ab84e9aae5", null ],
+    [ "~Port", "dd/dd7/a00260.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "getInputs", "dd/dd7/a00260.html#a6eb674f7b775026359e91c7f09a39396", null ],
+    [ "setOutputs", "dd/dd7/a00260.html#ab6cce21713f6c84b730577d403ca90a9", null ],
+    [ "setPullupPulldown", "dd/dd7/a00260.html#ab56d05994bd491c6412034e04261fc67", null ],
+    [ "setup", "dd/dd7/a00260.html#ab580571a964639ef45ed11819acebd57", null ]
 ];

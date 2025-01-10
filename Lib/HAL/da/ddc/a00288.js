@@ -1,19 +1,17 @@
 var a00288 =
 [
-    [ "Mode", "da/ddc/a00288.html#aaea727a912033d9dd8a701158d0093ae", null ],
-    [ "Port", "da/ddc/a00288.html#ae28309bd4f557b6d6cd2abf2bf90342b", null ],
-    [ "Pull", "da/ddc/a00288.html#afde1b87194af043d9ce0ba784a047bc3", null ],
-    [ "Speed", "da/ddc/a00288.html#a422be70258922144f5920bf6d2c73c3a", null ],
-    [ "PinInput", "da/ddc/a00288.html#a70e22816d777bad901562f2ce744c759", null ],
-    [ "PinInput", "da/ddc/a00288.html#a6404ccf573711e5397f9097e09476c64", null ],
-    [ "PinInput", "da/ddc/a00288.html#a91247ee8f0dc102e80f93f993f421d8f", null ],
-    [ "PinInput", "da/ddc/a00288.html#a692ef701a052cb66bda861157ddcfd89", null ],
-    [ "PinInput", "da/ddc/a00288.html#a30e5cd0f0204284bfecd7ca448d83773", null ],
-    [ "~PinInput", "da/ddc/a00288.html#ab499ec4a69db867862590dda3fd65f89", null ],
-    [ "getHandle", "da/ddc/a00288.html#a6fbf6c99339e6a337cdb8133eba09477", null ],
-    [ "getPort", "da/ddc/a00288.html#aa5579ac0e59bc8670974472f3cf4b1ad", null ],
-    [ "operator=", "da/ddc/a00288.html#a27bf25c921b8d7b322c00ee9c71612b7", null ],
-    [ "operator==", "da/ddc/a00288.html#aa6540f3c5a55dc9f0a249561fc21d3e7", null ],
-    [ "read", "da/ddc/a00288.html#a0a0d5405de9602bfad38c1a8a7ef0392", null ],
-    [ "setMode", "da/ddc/a00288.html#a831a8820a9d7f4c9669556b8445d5196", null ]
+    [ "State", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
+      [ "UNKNOWN", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
+      [ "LOW_POWER_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
+      [ "WINDOW_WATCHDOG_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
+      [ "INDEPENDENT_WATCHDOG_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
+      [ "SOFTWARE_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
+      [ "POWER_ON_POWER_DOWN_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
+      [ "EXTERNAL_RESET_PIN_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
+      [ "BROWNOUT_RESET", "da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
+    ] ],
+    [ "LastResetState", "da/ddc/a00288.html#abbd01627966d996019ebe16bb0d685d0", null ],
+    [ "~LastResetState", "da/ddc/a00288.html#a9764e97ea414a4a782184c9e0e81789c", null ],
+    [ "get", "da/ddc/a00288.html#aceb01a835768bfb0b1af57d2be901501", null ],
+    [ "operator State", "da/ddc/a00288.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ]
 ];

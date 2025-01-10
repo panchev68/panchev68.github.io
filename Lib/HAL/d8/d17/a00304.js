@@ -1,50 +1,5 @@
 var a00304 =
 [
-    [ "CallbackID", "d8/d17/a00304.html#abe21effdda559692ccd432118f55cb0f", null ],
-    [ "Handle", "d8/d17/a00304.html#a908731b05aab43f81c226e4fc3c5b882", null ],
-    [ "State", "d8/d17/a00304.html#a800411647b309a28346fa258adecb21e", null ],
-    [ "ErrorCode", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515e", [
-      [ "NONE", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515eab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "BERR", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea49b05888444e28e5320044dc9a61bfaf", null ],
-      [ "ARLO", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea695fc4ceb5733c86b76c5813d35c02ad", null ],
-      [ "AF", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea06fa567b72d78b7e3ea746973fbbd1d5", null ],
-      [ "OVR", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea5454e7edaaa12e3d5761aaa2cdbc75df", null ],
-      [ "DMA", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea33fd5f6391f2f0cb4c91179d7f521949", null ],
-      [ "TIMEOUT", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea070a0fb40f6c308ab544b227660aadff", null ],
-      [ "SIZE", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea62e5cef85d46f1a5a2144d9fd463b79e", null ],
-      [ "DMA_PARAM", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea7eadf5dc47997570a82b3bad2d8ef38d", null ],
-      [ "WRONG_START", "d8/d17/a00304.html#af0479db858fc106105be07c3d049515ea7c7fca98c6be611d0284c6ee1a8a0a30", null ]
-    ] ],
-    [ "MemaddressSize", "d8/d17/a00304.html#afce7fc161b174670f47c87b6bafaa747", [
-      [ "ADDR_8BITS", "d8/d17/a00304.html#afce7fc161b174670f47c87b6bafaa747a088bdc009ca79147eba93d2931d540fe", null ],
-      [ "ADDR_16BITS", "d8/d17/a00304.html#afce7fc161b174670f47c87b6bafaa747a9990dd355fcb596ae478c4035a8a1d12", null ]
-    ] ],
-    [ "I2CBase", "d8/d17/a00304.html#a4001bb4951c8507ff3db388e0cbc36c6", null ],
-    [ "~I2CBase", "d8/d17/a00304.html#a58c6b60f41c8cec19f44c9e5e6407107", null ],
-    [ "abort", "d8/d17/a00304.html#aec36c413742a11bb9def337ce34992bd", null ],
-    [ "abortFunc", "d8/d17/a00304.html#af60acfc6a84a3657cce7bb26e505b151", null ],
-    [ "deinit", "d8/d17/a00304.html#aabc03a99c07ba7d0401ccf2acefed8d2", null ],
-    [ "getState", "d8/d17/a00304.html#af5f5b279ff0643b71ca7105adf69fe21", null ],
-    [ "handleAbortCompleteEvent", "d8/d17/a00304.html#aabeeada2f23217dc80efffca469ae0fb", null ],
-    [ "handleErrorEvent", "d8/d17/a00304.html#a68493f8443f6836f207f45d22fdc2ff0", null ],
-    [ "handleMemRxCompleteEvent", "d8/d17/a00304.html#a674dc74c2b5709046391e89c9176983d", null ],
-    [ "handleMemTxCompleteEvent", "d8/d17/a00304.html#a8c644c8dae70e2db4a76939b6d4714e0", null ],
-    [ "handleRxCompleteEvent", "d8/d17/a00304.html#a6a647258ca09366640e57c8801b9fb45", null ],
-    [ "handleTxCompleteEvent", "d8/d17/a00304.html#a57baa06a8462016a7ebc41af031a46fe", null ],
-    [ "init", "d8/d17/a00304.html#a02b6dd912cd34ab8f2f9940ea3d5303c", null ],
-    [ "receive", "d8/d17/a00304.html#ad32da647dc8ff5a90ca4407e54a222b4", null ],
-    [ "receive", "d8/d17/a00304.html#a5bd7c9089c77c34e6ccbf9758ef9b630", null ],
-    [ "receiveDevFunc", "d8/d17/a00304.html#af908a07dff8b260b0ae6907a784c3f43", null ],
-    [ "receiveFunc", "d8/d17/a00304.html#af1d1d2dac120c9a55942f872ba0a2d0b", null ],
-    [ "send", "d8/d17/a00304.html#a2575f1cd9b94be942c749b4370773299", null ],
-    [ "send", "d8/d17/a00304.html#a6b72bfc48de494609e7369b8d365b59c", null ],
-    [ "sendDevFunc", "d8/d17/a00304.html#aa49bf8946eb3b14f8eb5345fe66e92fe", null ],
-    [ "sendFunc", "d8/d17/a00304.html#a040fc96dd5d14c94d73bd054ba4cb779", null ],
-    [ "setup", "d8/d17/a00304.html#a608db2fb5b94433ccf66c30ba18444cc", null ],
-    [ "waitForAbortCompleted", "d8/d17/a00304.html#a6c2686ac7af3da29688e550b4cdfb99b", null ],
-    [ "waitForDevRxCompleted", "d8/d17/a00304.html#af080209296b2f9993245a67537a8bc5b", null ],
-    [ "waitForDevTxCompleted", "d8/d17/a00304.html#ad578061726ce98f93d0f1ed7ef7f0371", null ],
-    [ "waitForRxCompleted", "d8/d17/a00304.html#a0742c48f6603c8b63078b554f732526d", null ],
-    [ "waitForTxCompleted", "d8/d17/a00304.html#abff7ff5f4a60f2399e4b1bcf5ab2d922", null ],
-    [ "Lib::HAL::DeviceManagerBase< I2CBase, I2C_HandleTypeDef >", "d8/d17/a00304.html#aa6897fd2eb4619e4b19624660977d7f5", null ]
+    [ "add", "d8/d17/a00304.html#ad52b33bb8cd29f654a0f7c999d0201ad", null ],
+    [ "remove", "d8/d17/a00304.html#a67c0a77eddcebf540d07f6e7bbb9fe20", null ]
 ];

@@ -1,7 +1,9 @@
 var a00268 =
 [
-    [ "Handle", "db/d12/a00268.html#a149e4a305d72749363e08bf37760d8db", null ],
-    [ "~Handle", "db/d12/a00268.html#ad49584b1103bdcb6798a678d2f2318cf", null ],
-    [ "getHandle", "db/d12/a00268.html#ab9f912660d5843d0cb1d0bdc54d3b538", null ],
-    [ "operator T_HANDLE *", "db/d12/a00268.html#aef3d0dfbddd2d635d4865d726dd9179c", null ]
+    [ "PinOutput", "db/d12/a00268.html#aa68a0db88a1892300b801a783a50ff41", null ],
+    [ "PinOutput", "db/d12/a00268.html#ad716edd54eaa5ff2cf83e92513aa6f29", null ],
+    [ "PinOutput", "db/d12/a00268.html#a96cd39b3891b12a6c63993ac1ff549e8", null ],
+    [ "~PinOutput", "db/d12/a00268.html#a1628e227f22ce3271674f6d93830e264", null ],
+    [ "toggle", "db/d12/a00268.html#ac78179248822fa391a5230fb05ae1baf", null ],
+    [ "write", "db/d12/a00268.html#afd16eb9619b09481347eec20efd89211", null ]
 ];

@@ -1,15 +1,10 @@
 var a00204 =
 [
-    [ "PortTransparentBase", "d1/d72/a00204.html#ab97e26678230907cf59e1396f1328eb4", null ],
-    [ "~PortTransparentBase", "d1/d72/a00204.html#ab4cfa51e40f7293563592f65a70d4e8c", null ],
-    [ "close", "d1/d72/a00204.html#a8e5ff249ebc1417ae94939eda7781959", null ],
-    [ "getRawValue", "d1/d72/a00204.html#aa341fde0ff03ffb534865dae326ffd87", null ],
-    [ "handleIsrCallbackEvent", "d1/d72/a00204.html#a044c96cda089aff29b1c3247d415999f", null ],
-    [ "open", "d1/d72/a00204.html#a6c9f15aa183ec060217b78aa213ec7fd", null ],
-    [ "read", "d1/d72/a00204.html#adfb92fc608789ffb60e00e5d5d17c671", null ],
-    [ "start", "d1/d72/a00204.html#af09fc3afb64c7d76bb35768452c75e91", null ],
-    [ "stop", "d1/d72/a00204.html#a987d84ac68e42428d9f2158af97b3b05", null ],
-    [ "updateResultFromISR", "d1/d72/a00204.html#a929c5d09cbb9554fcf409f0890a3791d", null ],
-    [ "DeviceManagerBase< PortTransparentBase, ADC_HandleTypeDef >", "d1/d72/a00204.html#add345bb338977e1ed3c7e6820aeb0d03", null ],
-    [ "result", "d1/d72/a00204.html#afe4416d6741122e6d8137e009192281e", null ]
+    [ "PortBase", "d1/d72/a00204.html#a49ae681b6b1cc7a356dc409c58aa496e", null ],
+    [ "~PortBase", "d1/d72/a00204.html#a4dc33e8a3f98ab2c6ebf0d85c705e8c7", null ],
+    [ "close", "d1/d72/a00204.html#a7328625d8bbae52f8a990a0196889a08", null ],
+    [ "getRawValue", "d1/d72/a00204.html#a6a5cc1a6f51cfa3b5f676ccd4824ccae", null ],
+    [ "open", "d1/d72/a00204.html#aff8748ee5b00cbf4d9cefd2a99a03add", null ],
+    [ "start", "d1/d72/a00204.html#adf014ce46e6cebaedf2f98a92001d644", null ],
+    [ "stop", "d1/d72/a00204.html#a3589eb9b51a7f578974c26e168f2a958", null ]
 ];

@@ -1,8 +1,7 @@
 var a00279 =
 [
-    [ "Timer", "d2/d82/a00279.html#a81d3914d81cd5098207a541106829154", null ],
-    [ "~Timer", "d2/d82/a00279.html#a43aee021e54610f1179901bf7fcbaecf", null ],
-    [ "close", "d2/d82/a00279.html#a30e3fabb9057f35427bb6a23666cc6e5", null ],
-    [ "open", "d2/d82/a00279.html#a2e360de332a83d537ba388388e58122a", null ],
-    [ "onValueChanged", "d2/d82/a00279.html#a145dfe43deb7592d70805a54b5074b2d", null ]
+    [ "add", "d2/d82/a00279.html#a396cfbf20fdd82cb43c6545d2caf49e7", null ],
+    [ "eventHandler", "d2/d82/a00279.html#a0c8d42b3f0fbdc2c8f3da0c680431171", null ],
+    [ "getDevice", "d2/d82/a00279.html#ad0d7c84012f0a6d08cf6201f10b59bdd", null ],
+    [ "remove", "d2/d82/a00279.html#a01608aae473604a5422a90f138bbce56", null ]
 ];

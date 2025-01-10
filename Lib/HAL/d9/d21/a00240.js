@@ -1,16 +1,9 @@
 var a00240 =
 [
-    [ "Filter", "d9/d21/a00240.html#a0d2539280e5bd0d65a792ae89cafe5de", null ],
-    [ "Filter", "d9/d21/a00240.html#a2ab294a045da6c29a81d909934fd763b", null ],
-    [ "~Filter", "d9/d21/a00240.html#aa402b8835257e53f7ea0936744c772fd", null ],
-    [ "enable", "d9/d21/a00240.html#a325c373c3bd483d57d79db1f64fe9d1b", null ],
-    [ "operator CAN_FilterTypeDef *", "d9/d21/a00240.html#a0c408a2a4c2cb645d67f2e34af91566c", null ],
-    [ "setBank", "d9/d21/a00240.html#a3249e6d0ad23afd5e5f4e0f7a065d5c9", null ],
-    [ "setFilterActivation", "d9/d21/a00240.html#ab97efbfcb6adf01b76b3e4b918e0796e", null ],
-    [ "setFilterFIFOAssignment", "d9/d21/a00240.html#ad3d132fb5cae81cdf89a927fd369e77b", null ],
-    [ "setFilterScale", "d9/d21/a00240.html#a4645ea2ac0f1064ffa1fb66695365a2d", null ],
-    [ "setId", "d9/d21/a00240.html#a3ace50d629ae2d006c89c7dadf9b7f9e", null ],
-    [ "setMask", "d9/d21/a00240.html#a32306db0a9a6aadc3a85c611c8cebffd", null ],
-    [ "setMode", "d9/d21/a00240.html#ae395c740edb0e6e684d97d39c6b22f38", null ],
-    [ "setSlaveStartFilterBank", "d9/d21/a00240.html#a9a8a3704d72e8e8c28b53fca59248306", null ]
+    [ "Container", "d9/d21/a00240.html#a9cf9955986be4ceeae44ac360cbb87e8", null ],
+    [ "DeviceManagerBase", "d9/d21/a00240.html#abdfac94f393ea76ce81101fa3ec4e0c1", null ],
+    [ "~DeviceManagerBase", "d9/d21/a00240.html#ac224e47704f9cf11a1d242f49fc01ab6", null ],
+    [ "add", "d9/d21/a00240.html#a02525534e0f3709fe5dd2164cd1543b4", null ],
+    [ "getDevice", "d9/d21/a00240.html#aabfe1fe6de74384902fb187bf365e674", null ],
+    [ "remove", "d9/d21/a00240.html#a92a61cd08aed0e18c54eaaadc9b6d45c", null ]
 ];

@@ -1,18 +1,31 @@
 var a00320 =
 [
-    [ "DateTime", "dd/de2/a00320.html#a8be0499725843010546098c03a9006f9", null ],
-    [ "Handle", "dd/de2/a00320.html#ab32592926aec51867e2e5d0a723545f6", null ],
-    [ "RTCBase", "dd/de2/a00320.html#a519b0ac8ac4b2b34c4ea946a6bda0ea7", null ],
-    [ "~RTCBase", "dd/de2/a00320.html#a58f9b23a0d4c03192bd597a78e70b6f3", null ],
-    [ "getHandle", "dd/de2/a00320.html#a02658f68ce0d8c88b32abbded67cf6f9", null ],
-    [ "handleTimeChanged", "dd/de2/a00320.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "handleTimeChanged", "dd/de2/a00320.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "read", "dd/de2/a00320.html#a94a5d5e04476593464ed3f2aa3681da4", null ],
-    [ "readRegister", "dd/de2/a00320.html#a4943a40ed3df578b2339c0e7a2b5fc89", null ],
-    [ "release", "dd/de2/a00320.html#ac6d5caa751cdab5b336019bbe9010a0a", null ],
-    [ "setup", "dd/de2/a00320.html#a7ab0eb25cb4b19654d6006c2914abd1e", null ],
-    [ "writeDate", "dd/de2/a00320.html#aafba84d7fc847c99ec5c309e96991ac2", null ],
-    [ "writeDateTime", "dd/de2/a00320.html#a399814ecc17cc1835d2a06e1041cdd86", null ],
-    [ "writeRegister", "dd/de2/a00320.html#a74846d3feacf83e53dbdadf8b0cb58a2", null ],
-    [ "writeTime", "dd/de2/a00320.html#a2c037bceed143dd13437bb6a2b602160", null ]
+    [ "CallbackID", "dd/de2/a00320.html#a2b97a2bad16440a3783f13c49e9cf4ab", null ],
+    [ "ErrorCode", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0f", [
+      [ "NONE", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0fab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "PARITY_ERROR", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0fac660efeaf70229ba5fd5e53da70c9a7c", null ],
+      [ "NOISE_ERROR", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0fae49a752ccd857ad9b6e962aa31551f73", null ],
+      [ "FRAME_ERROR", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0fa6f688deb98243b55da9393ed2d968f3f", null ],
+      [ "OVERRUN_ERROR", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0faa607a4a202294658bd387cd8e3636566", null ],
+      [ "DMA_TRANSFER_ERROR", "dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0faa347986104d500024d8d699e0b72b24d", null ]
+    ] ],
+    [ "EventFlags", "dd/de2/a00320.html#ac12f66ca0b1d083d08631179bd2b96c5", [
+      [ "FLAG_TX_COMPLETE", "dd/de2/a00320.html#ac12f66ca0b1d083d08631179bd2b96c5ac19c54d8a7fe985d1964a7316adbec1d", null ],
+      [ "FLAG_ABORT_COMPLETE", "dd/de2/a00320.html#ac12f66ca0b1d083d08631179bd2b96c5acb28247f59d3e4ba87a98854d83e44f9", null ]
+    ] ],
+    [ "UARTx", "dd/de2/a00320.html#a808f393a027a23e612e9ddd2f1169100", null ],
+    [ "~UARTx", "dd/de2/a00320.html#a0f644c4969303d22cf758a31757ca138", null ],
+    [ "abortFunc", "dd/de2/a00320.html#ac3e7157f5ad17216441788774c4aec34", null ],
+    [ "deinit", "dd/de2/a00320.html#aac4839270151f122d47911769d5965e2", null ],
+    [ "getBaudrate", "dd/de2/a00320.html#aa6eba0a256527fd52f44773154f3c318", null ],
+    [ "getHandle", "dd/de2/a00320.html#a95f7af920452223c5ba8b489effa1769", null ],
+    [ "handleErrorEvent", "dd/de2/a00320.html#aa84f4ccdcc69afc237c60961e5484ccd", null ],
+    [ "init", "dd/de2/a00320.html#af15c2bca1f8ba382c285d7006408572a", null ],
+    [ "receive", "dd/de2/a00320.html#af5ed10eb7c1abb3ba24e76256890d2a6", null ],
+    [ "receiveFunc", "dd/de2/a00320.html#ad51e236d7545cb820ff11a3a76cd1745", null ],
+    [ "send", "dd/de2/a00320.html#ab4e681914649c4d4d53214a5ad8a7e0c", null ],
+    [ "sendFunc", "dd/de2/a00320.html#ab1e64340087fece7e28de7d9551e1d1a", null ],
+    [ "setBaudrate", "dd/de2/a00320.html#a093e751889de1bac1905f9fa50fbfd03", null ],
+    [ "waitForSendCompleted", "dd/de2/a00320.html#a320ed3a24357f71a6ae32276f8e8436e", null ],
+    [ "Lib::HAL::DeviceManagerBase< UARTx, UART_HandleTypeDef >", "dd/de2/a00320.html#a9036c76439a5ac0381b614509f2906e1", null ]
 ];

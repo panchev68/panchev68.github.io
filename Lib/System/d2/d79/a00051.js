@@ -1,18 +1,30 @@
 var a00051 =
 [
-    [ "Lib::System::ParametersBase", "d2/d79/a00051.html#d2/dab/a00886", [
-      [ "StorageBase", "d7/d46/a00890.html", [
-        [ "~StorageBase", "d7/d46/a00890.html#a20e2b711248ad495e8b7d9fae457b474", null ],
-        [ "close", "d7/d46/a00890.html#aeebfc7e3f7a92046cdbbc04498051edc", null ],
-        [ "open", "d7/d46/a00890.html#a46463ccb362606f42ee88639767ff271", null ],
-        [ "read", "d7/d46/a00890.html#a5bb8cfc0222c40360974814971cb8289", null ],
-        [ "write", "d7/d46/a00890.html#a5d99bc28828df5c6eece00688ee0b156", null ]
-      ] ],
-      [ "ParametersBase", "d2/d79/a00051.html#acf2fd851e30d23cef0e3bed220052c2a", null ],
-      [ "~ParametersBase", "d2/d79/a00051.html#ab6fd4c72ce22ce4ea574929b3a3ecff8", null ],
-      [ "isValid", "d2/d79/a00051.html#aeada284daa8e3064301ed0bf4d4f2e7a", null ],
-      [ "restoreByDefault", "d2/d79/a00051.html#a9d631ad203d54b4830885bdf9564a2b1", null ],
-      [ "setup", "d2/d79/a00051.html#a845afa05ee1322ea8b51cf760f2f37ba", null ],
-      [ "write", "d2/d79/a00051.html#a5f843338ad5eca7d63bdb46079ed6abd", null ]
+    [ "Lib::System::FirmwareVersion", "d2/d79/a00051.html#df/d41/a00881", [
+      [ "FirmwareVersion", "d2/d79/a00051.html#a7a24277dc712d6eaac2a35ffcdb2b20f", null ],
+      [ "~FirmwareVersion", "d2/d79/a00051.html#acd2dfb7dd8d9b9fd050130339e143217", null ],
+      [ "getBuildDate", "d2/d79/a00051.html#afabcc128299be3dd758292590859e4e3", null ],
+      [ "getSubVersion", "d2/d79/a00051.html#a30c00cfd6548de2ea25da0d6ac37a120", null ],
+      [ "getValue", "d2/d79/a00051.html#af4835cb434810b6f6f8765196095f687", null ],
+      [ "operator const std::string", "d2/d79/a00051.html#a4d2e6d0a5500baa1c99540c9cb8edcb0", null ],
+      [ "operator uint32_t", "d2/d79/a00051.html#a8e7d6edd322e1f5a77d19503b4bfa444", null ],
+      [ "toString", "d2/d79/a00051.html#a689bc9969052ce977f805bb096b55112", null ]
+    ] ],
+    [ "Lib::System::HardwareVersion", "d2/d79/a00051.html#db/d18/a00885", [
+      [ "HardwareVersion", "d2/d79/a00051.html#a2505a6d7a0862cf27f7316e0278d5d88", null ],
+      [ "getSubVersion", "d2/d79/a00051.html#a5edef576d8d3acef610a5f919d26c3fd", null ],
+      [ "getValue", "d2/d79/a00051.html#a1cb3df72d043928daea469c79ff4193f", null ],
+      [ "operator const std::string", "d2/d79/a00051.html#a813da3b532d49e0168a67c436d64e150", null ],
+      [ "operator uint32_t", "d2/d79/a00051.html#aac847eebdb42234ce4842544e8a0569b", null ],
+      [ "toString", "d2/d79/a00051.html#a50ae815140a6167ad71e597a5f40c511", null ]
+    ] ],
+    [ "Lib::System::VersionBase", "d2/d79/a00051.html#d9/dfb/a00913", [
+      [ "VersionBase", "d2/d79/a00051.html#a81469e54459719f9872350fcacb86166", null ],
+      [ "~VersionBase", "d2/d79/a00051.html#a1f1814a7eb235640ee2325f8f8f4da2b", null ],
+      [ "getSubVersion", "d2/d79/a00051.html#ae155e5992c4f390d6533602933291731", null ],
+      [ "getValue", "d2/d79/a00051.html#af4f4e0bccaddab3a81a9f6197c1e7557", null ],
+      [ "operator const std::string", "d2/d79/a00051.html#a15e734927e4bd51ace5a690941c5dd92", null ],
+      [ "operator uint32_t", "d2/d79/a00051.html#a9a5b82d1cf5dffb736764fad5ff38c95", null ],
+      [ "toString", "d2/d79/a00051.html#a6c8720efadc047eadc70df380c0fbaba", null ]
     ] ]
 ];
