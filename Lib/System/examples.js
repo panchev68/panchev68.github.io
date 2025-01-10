@@ -1,8 +1,8 @@
 var examples =
 [
-    [ "Example of using the Config class", "d7/d98/a00983.html", null ],
-    [ "Example of using the Parameters class", "da/deb/a00985.html", null ],
-    [ "Example of using the ParametersBase class", "d4/d21/a00987.html", null ],
-    [ "Example of using the ProduceDate class", "d4/d95/a00989.html", null ],
-    [ "Example of using the System class", "df/d2f/a00991.html", null ]
+    [ "Example of using the Config class", "d6/d82/a00920.html", null ],
+    [ "Example of using the Parameters class", "dd/dcf/a00922.html", null ],
+    [ "Example of using the ParametersBase class", "de/d62/a00924.html", null ],
+    [ "Example of using the ProduceDate class", "d8/d38/a00926.html", null ],
+    [ "Example of using the System class", "dd/d38/a00928.html", null ]
 ];

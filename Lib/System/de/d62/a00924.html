@@ -103,7 +103,19 @@ $(function(){initNavTree('de/d62/a00924.html','../../'); initResizable(true); })
 </div><!--header-->
 <div class="contents">
 <dl class="section user"><dt>ParametersBase.hpp</dt><dd></dd></dl>
-<div class="fragment"><div class="line"></div>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file ParametersBase.hpp</span></div>
+<div class="line"><span class="comment"> * @brief This file contains the definition and implementation of the Parameters class and its nested Storage class.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The Parameters class is a singleton that manages the parameters for the system. It inherits from</span></div>
+<div class="line"><span class="comment"> * Lib::System::ParametersBase and provides methods to setup, retrieve, and write parameter data.</span></div>
+<div class="line"><span class="comment"> * The nested Storage class handles the storage operations using an external EEPROM memory chip of type M24C64W.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @note The EEPROM operations are performed at a fixed flash address defined by START_PARM_ADDRESS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @author Bobby</span></div>
+<div class="line"><span class="comment"> * @date 08.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
@@ -120,41 +132,145 @@ $(function(){initNavTree('de/d62/a00924.html','../../'); initResizable(true); })
 <div class="line">}  <span class="comment">// namespace System</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>BSP {</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @brief External EEPROM instance of type M24C64W.</span></div>
+<div class="line"><span class="comment">     *</span></div>
+<div class="line"><span class="comment">     * This variable represents an external EEPROM memory chip of type M24C64W.</span></div>
+<div class="line"><span class="comment">     * It is declared as an external variable, meaning it is defined in another</span></div>
+<div class="line"><span class="comment">     * translation unit and can be used across multiple files.</span></div>
+<div class="line"><span class="comment">     */</span></div>
 <div class="line">    <span class="keyword">extern</span> M24C64W eeprom;</div>
 <div class="line">}  <span class="comment">// namespace BSP</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>System {</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">using </span>ParametersBase = Lib::System::ParametersBase&lt;ParametersData&gt;;</div>
-<div class="line"></div>
-<div class="line">    <span class="keyword">class </span>Parameters : <span class="keyword">public</span> ParametersBase {</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @class Parameters</span></div>
+<div class="line"><span class="comment">     * @brief Manages the parameters for the system.</span></div>
+<div class="line"><span class="comment">     *</span></div>
+<div class="line"><span class="comment">     * The Parameters class is a singleton that manages the parameters for the system.</span></div>
+<div class="line"><span class="comment">     * It inherits from Lib::System::ParametersBase and provides methods to setup,</span></div>
+<div class="line"><span class="comment">     * retrieve, and write parameter data. It also contains a nested Storage class</span></div>
+<div class="line"><span class="comment">     * that handles the storage operations.</span></div>
+<div class="line"><span class="comment">     */</span></div>
+<div class="line">    <span class="keyword">class </span>Parameters : <span class="keyword">public</span> ParametersBase {<span class="comment"></span></div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @class Parameters::Storage</span></div>
+<div class="line"><span class="comment">         * @brief A class that provides storage functionalities for parameters using EEPROM.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This class inherits from ParametersBase::StorageBase and implements methods to</span></div>
+<div class="line"><span class="comment">         * open, close, read from, and write to EEPROM storage.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @note The EEPROM operations are performed at a fixed flash address defined by START_PARM_ADDRESS.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">class </span>Parameters::Storage : <span class="keyword">public</span> ParametersBase::StorageBase {</div>
 <div class="line">            <span class="keyword">constexpr</span> <span class="keyword">static</span> uint32_t START_PARM_ADDRESS = 0;</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">public</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Opens the EEPROM interface.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function overrides the base class implementation to open the EEPROM</span></div>
+<div class="line"><span class="comment">             * interface using the BSP (Board Support Package) layer.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @return true if the EEPROM interface was successfully opened, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> open ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.open (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Closes the EEPROM interface.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function overrides the base class implementation to close the EEPROM</span></div>
+<div class="line"><span class="comment">             * interface using the BSP (Board Support Package) functionality.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @return true if the EEPROM interface was successfully closed, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> close ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.close (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Reads data from EEPROM into the provided destination buffer.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function overrides the base class read function. It reads a specified</span></div>
+<div class="line"><span class="comment">             * length of data from the EEPROM starting at a predefined flash address and</span></div>
+<div class="line"><span class="comment">             * stores it in the provided destination buffer.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @param dst Pointer to the destination buffer where the read data will be stored.</span></div>
+<div class="line"><span class="comment">             * @param len The number of bytes to read from the EEPROM.</span></div>
+<div class="line"><span class="comment">             * @return true if the read operation was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> read (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.read (START_PARM_ADDRESS, dst, len); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Writes data to the EEPROM.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function writes a block of data to the EEPROM at a specified address.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @param src Pointer to the source data to be written.</span></div>
+<div class="line"><span class="comment">             * @param len Length of the data to be written in bytes.</span></div>
+<div class="line"><span class="comment">             * @return true if the write operation was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> write (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> BSP::eeprom.write (START_PARM_ADDRESS, src, len); }</div>
 <div class="line">        };</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Constructs a Parameters object.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This constructor initializes a Parameters object by calling the</span></div>
+<div class="line"><span class="comment">         * constructor of the base class ParametersBase with a unique pointer</span></div>
+<div class="line"><span class="comment">         * to a Storage object.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        Parameters () : ParametersBase (std::make_unique&lt;Storage&gt; ()) {}</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Destructor for the Parameters class.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        ~Parameters () = <span class="keywordflow">default</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Sets up the necessary parameters or configurations.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the base class setup function to provide</span></div>
+<div class="line"><span class="comment">         * specific setup functionality for the derived class.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true if the setup is successful, false otherwise.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> setup ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> ParametersBase::setup (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Retrieves the data.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the base class getData function to provide</span></div>
+<div class="line"><span class="comment">         * access to the data of type ParametersData.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return A reference to the data of type ParametersData.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">virtual</span> ParametersData * getData ()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> ParametersBase::getData (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Writes the data to storage.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the base class write function to write the</span></div>
+<div class="line"><span class="comment">         * data to storage using the EEPROM interface.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true if the write operation was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> write ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> ParametersBase::write (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Restores the parameters to their default values.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the base class restoreByDefault function to</span></div>
+<div class="line"><span class="comment">         * restore the parameters to their default values. It sets the parameter1</span></div>
+<div class="line"><span class="comment">         * value to 1234.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true if the parameters were successfully restored to their default values, false otherwise.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keywordtype">bool</span> restoreByDefault ()<span class="keyword"> override </span>{</div>
 <div class="line">            <span class="keyword">auto</span> data       = getData ();  <span class="comment">// get the pointer to the data</span></div>
 <div class="line">            data.parameter1 = 1234;        <span class="comment">// set the parameter1 value to 1234</span></div>

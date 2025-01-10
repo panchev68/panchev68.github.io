@@ -103,18 +103,57 @@ $(function(){initNavTree('dd/d38/a00928.html','../../'); initResizable(true); })
 </div><!--header-->
 <div class="contents">
 <dl class="section user"><dt>ParametersData.hpp</dt><dd></dd></dl>
-<div class="fragment"><div class="line"></div>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file ParametersData.hpp</span></div>
+<div class="line"><span class="comment"> * @brief Defines the ParametersData structure used for holding parameter data.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains the definition of the ParametersData structure, which is</span></div>
+<div class="line"><span class="comment"> * packed to ensure no padding between its members. This is crucial for</span></div>
+<div class="line"><span class="comment"> * memory-constrained environments or when interfacing with hardware or network</span></div>
+<div class="line"><span class="comment"> * protocols that require a specific data layout.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @note The structure is defined within the System namespace.</span></div>
+<div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>System {</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @brief A packed structure to hold parameter data.</span></div>
+<div class="line"><span class="comment">     *</span></div>
+<div class="line"><span class="comment">     * This structure is packed to ensure that there is no padding between its members,</span></div>
+<div class="line"><span class="comment">     * which is important for memory-constrained environments or when interfacing with</span></div>
+<div class="line"><span class="comment">     * hardware or network protocols that require a specific data layout.</span></div>
+<div class="line"><span class="comment">     */</span></div>
 <div class="line">    __packed <span class="keyword">struct </span>ParametersData {</div>
 <div class="line">        uint16_t parameter1;</div>
 <div class="line">        uint32_t parameter2;</div>
 <div class="line">    };</div>
 <div class="line">}  <span class="comment">// namespace System</span></div>
 </div><!-- fragment --><dl class="section user"><dt>System.cpp</dt><dd></dd></dl>
-<div class="fragment"><div class="line"></div>
+<div class="fragment"><div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file System.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Implementation of the System class and its nested Parameters class.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains the implementation of the System class, which is a singleton</span></div>
+<div class="line"><span class="comment"> * that provides system-level functionalities. It also includes the nested Parameters</span></div>
+<div class="line"><span class="comment"> * class, which handles system parameters and their storage in EEPROM.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @note This file is part of the IAR Embedded Workbench project.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @details</span></div>
+<div class="line"><span class="comment"> * The System class inherits from Lib::System::System and provides a singleton</span></div>
+<div class="line"><span class="comment"> * instance through the getInstance() method. It contains a nested Parameters class</span></div>
+<div class="line"><span class="comment"> * that manages system parameters using a storage mechanism implemented with EEPROM.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The Parameters class inherits from Lib::System::ParametersBase and overrides</span></div>
+<div class="line"><span class="comment"> * methods for setup, data retrieval, writing, and restoring default parameters.</span></div>
+<div class="line"><span class="comment"> * The storage mechanism is implemented in the nested Storage class, which interacts</span></div>
+<div class="line"><span class="comment"> * with the BSP::M24C64W EEPROM.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @date 08.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"><span class="preprocessor">#include &quot;ParametersData.hpp&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &quot;Project/BSP/M24C64W.hpp&quot;</span></div>
@@ -124,47 +163,159 @@ $(function(){initNavTree('dd/d38/a00928.html','../../'); initResizable(true); })
 <div class="line"><span class="preprocessor">#include &lt;Lib/System/System.hpp&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">namespace </span>System {</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /// @typedef SystemBase</span></div>
+<div class="line"><span class="comment">    /// @brief Alias for the Lib::System::System class.</span></div>
+<div class="line"><span class="comment">    ///</span></div>
+<div class="line"><span class="comment">    /// This typedef provides a shorthand notation for referring to the</span></div>
+<div class="line"><span class="comment">    /// Lib::System::System class, making the code more concise and readable.</span></div>
 <div class="line">    <span class="keyword">using </span>SystemBase = <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d12/a00910.html">Lib::System::System</a>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @class System</span></div>
+<div class="line"><span class="comment">     * @brief A class representing the system, inheriting from SystemBase.</span></div>
+<div class="line"><span class="comment">     *</span></div>
+<div class="line"><span class="comment">     * The System class provides a singleton instance of the system and manages its parameters.</span></div>
+<div class="line"><span class="comment">     */</span></div>
 <div class="line">    <span class="keyword">class </span>System : <span class="keyword">public</span> SystemBase {</div>
 <div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @typedef ParametersBase</span></div>
+<div class="line"><span class="comment">         * @brief Alias for the Lib::System::ParametersBase template class specialized with ParametersData.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This typedef provides a convenient alias for the Lib::System::ParametersBase template class,</span></div>
+<div class="line"><span class="comment">         * which is specialized with the ParametersData type. It is used to simplify the code and improve readability.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">using </span>ParametersBase = <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../d7/d46/a00890.html">Lib::System::ParametersBase&lt;ParametersData&gt;</a>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @class Parameters</span></div>
+<div class="line"><span class="comment">         * @brief A class to handle system parameters.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This class is designed to manage and store various system parameters.</span></div>
+<div class="line"><span class="comment">         * It provides an interface to access and modify these parameters as needed.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">class </span>Parameters;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Get the singleton instance of the System class.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function returns a reference to the single instance of the System class,</span></div>
+<div class="line"><span class="comment">         * ensuring that only one instance of the class exists throughout the program.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return System&amp; Reference to the singleton instance of the System class.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">static</span> System &amp; getInstance () {</div>
 <div class="line">            <span class="keyword">static</span> System instance;</div>
 <div class="line">            <span class="keywordflow">return</span> instance;</div>
 <div class="line">        }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /// @brief Reference to a Parameters object.</span></div>
+<div class="line"><span class="comment">        /// This member holds a reference to a Parameters object, which</span></div>
+<div class="line"><span class="comment">        /// contains configuration or settings used by the system.</span></div>
 <div class="line">        Parameters &amp; parameters;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Sets up the system.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function initializes the system and prepares it for operation.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true if the setup was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keywordtype">bool</span> setup () { parameters.setup (); }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">private</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Constructor for the System class.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This constructor initializes the System object.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        System () : <a class="code hl_class" href="../../d4/d12/a00910.html">Lib::System::System</a> (FIRMWARE_VERSION, FIRMWARE_SUBVERSION, HARDWARE_VERSION, HARDWARE_SUBVERSION),</div>
 <div class="line">                    parameters (*<span class="keyword">new</span> Parameters) {}</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Destructor for the System class.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This destructor is responsible for cleaning up any resources</span></div>
+<div class="line"><span class="comment">         * that the System class may have allocated during its lifetime.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        ~System () = <span class="keywordflow">default</span>;</div>
 <div class="line">    };</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">    /**</span></div>
+<div class="line"><span class="comment">     * @class Parameters</span></div>
+<div class="line"><span class="comment">     * @brief A class to manage system parameters.</span></div>
+<div class="line"><span class="comment">     *</span></div>
+<div class="line"><span class="comment">     * The Parameters class is a singleton that manages system parameters.</span></div>
+<div class="line"><span class="comment">     * It inherits from Lib::System::ParametersBase and provides methods to</span></div>
+<div class="line"><span class="comment">     * set up, retrieve, and write parameter data. It also contains a nested</span></div>
+<div class="line"><span class="comment">     * Storage class that handles the storage operations.</span></div>
+<div class="line"><span class="comment">     */</span></div>
 <div class="line">    <span class="keyword">class </span>Parameters : <span class="keyword">public</span> ParametersBase {</div>
 <div class="line">    <span class="keyword">public</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Constructor for the Parameters class.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This constructor initializes the Parameters object by calling the</span></div>
+<div class="line"><span class="comment">         * constructor of the base class ParametersBase with a unique pointer</span></div>
+<div class="line"><span class="comment">         * to a Storage object.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        Parameters () : ParametersBase (std::make_unique&lt;Storage&gt; ()) {</div>
 <div class="line">        }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Default destructor for the Parameters class.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This destructor is explicitly defaulted, meaning it will use the compiler-generated</span></div>
+<div class="line"><span class="comment">         * default implementation. It ensures that any resources managed by an instance of</span></div>
+<div class="line"><span class="comment">         * Parameters are properly released when the instance is destroyed.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        ~Parameters () = <span class="keywordflow">default</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Sets up the system parameters.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the setup function from the base class.</span></div>
+<div class="line"><span class="comment">         * It calls the setup function of the ParametersBase class to</span></div>
+<div class="line"><span class="comment">         * initialize the system parameters.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true if the setup is successful, false otherwise.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> setup ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> ParametersBase::setup (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Retrieves the data associated with the parameters.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the base class implementation to return a reference</span></div>
+<div class="line"><span class="comment">         * to the ParametersData object. It calls the base class&#39;s getData() method.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return ParametersData&amp; Reference to the ParametersData object.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">virtual</span> ParametersData &amp; getData () { <span class="keywordflow">return</span> ParametersBase::getData (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Writes the current parameters to the underlying storage.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the write method from the ParametersBase class.</span></div>
+<div class="line"><span class="comment">         * It performs the necessary operations to save the current state of the parameters.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true if the write operation was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> write () { <span class="keywordflow">return</span> ParametersBase::write (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @brief Restores the system to its default state.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This function overrides the base class implementation to restore</span></div>
+<div class="line"><span class="comment">         * the system to its default state. It modifies the `parameter1` of</span></div>
+<div class="line"><span class="comment">         * the data object to a default value of 1234.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @return true Always returns true indicating the restore operation</span></div>
+<div class="line"><span class="comment">         *         was successful.</span></div>
+<div class="line"><span class="comment">         */</span></div>
 <div class="line">        <span class="keywordtype">bool</span> restoreByDefault ()<span class="keyword"> override </span>{</div>
 <div class="line">            <span class="keyword">auto</span> data        = getData ();</div>
 <div class="line">            data-&gt;parameter1 = 1234;</div>
@@ -172,26 +323,92 @@ $(function(){initNavTree('dd/d38/a00928.html','../../'); initResizable(true); })
 <div class="line">        }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keyword">private</span>:</div>
-<div class="line"></div>
-<div class="line">        <span class="keyword">class </span>Storage : <span class="keyword">public</span> ParametersBase::StorageBase {</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">        /**</span></div>
+<div class="line"><span class="comment">         * @class Storage</span></div>
+<div class="line"><span class="comment">         * @brief A class that provides storage operations using EEPROM.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * This class inherits from ParametersBase::StorageBase and implements</span></div>
+<div class="line"><span class="comment">         * methods to open, close, read from, and write to EEPROM storage.</span></div>
+<div class="line"><span class="comment">         *</span></div>
+<div class="line"><span class="comment">         * @note The EEPROM used is M24C64W from the BSP library.</span></div>
+<div class="line"><span class="comment">         */</span></div>
+<div class="line">        <span class="keyword">class </span>Storage : <span class="keyword">public</span> ParametersBase::StorageBase {<span class="comment"></span></div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Starting address for parameter storage.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This constant defines the starting address in memory where parameters</span></div>
+<div class="line"><span class="comment">             * are stored. It is set to 0, indicating the beginning of the memory space.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keyword">constexpr</span> <span class="keyword">static</span> uint32_t START_PARM_ADDRESS = 0;</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">public</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Constructor for the Storage class.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This constructor initializes the Storage object by obtaining an instance</span></div>
+<div class="line"><span class="comment">             * of the M24C64W EEPROM from the BSP (Board Support Package).</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            Storage () : _eeprom (BSP::M24C64W::getInstance ()) {}</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Default destructor for the Storage class.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This destructor is explicitly defaulted, meaning it will be automatically</span></div>
+<div class="line"><span class="comment">             * generated by the compiler. It ensures that any resources managed by the</span></div>
+<div class="line"><span class="comment">             * Storage class are properly released when an instance of the class is destroyed.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            ~Storage () = <span class="keywordflow">default</span>;</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Opens the EEPROM.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function overrides the base class implementation to open the EEPROM.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @return true if the EEPROM was successfully opened, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> open ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> _eeprom.open (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Closes the EEPROM interface.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function overrides the base class implementation to close the EEPROM interface.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @return true if the EEPROM interface was successfully closed, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> close ()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> _eeprom.close (); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Reads data from the EEPROM.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function reads a specified number of bytes from the EEPROM starting</span></div>
+<div class="line"><span class="comment">             * from a predefined flash address and stores the data in the provided</span></div>
+<div class="line"><span class="comment">             * destination buffer.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @param dst Pointer to the destination buffer where the read data will be stored.</span></div>
+<div class="line"><span class="comment">             * @param len Number of bytes to read from the EEPROM.</span></div>
+<div class="line"><span class="comment">             * @return true if the read operation was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> read (<span class="keywordtype">void</span> * dst, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> _eeprom.read (START_PARM_ADDRESS, dst, len); }</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Writes data to the EEPROM.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * This function writes a specified number of bytes from the source buffer to the EEPROM</span></div>
+<div class="line"><span class="comment">             * at a predefined flash address.</span></div>
+<div class="line"><span class="comment">             *</span></div>
+<div class="line"><span class="comment">             * @param src Pointer to the source buffer containing the data to be written.</span></div>
+<div class="line"><span class="comment">             * @param len The number of bytes to write from the source buffer.</span></div>
+<div class="line"><span class="comment">             * @return True if the write operation was successful, false otherwise.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            <span class="keywordtype">bool</span> write (<span class="keyword">const</span> <span class="keywordtype">void</span> * src, <span class="keywordtype">size_t</span> len)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> _eeprom.write (START_PARM_ADDRESS, src, len); }</div>
 <div class="line"> </div>
 <div class="line">        <span class="keyword">private</span>:</div>
-<div class="line"></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">            /**</span></div>
+<div class="line"><span class="comment">             * @brief Reference to an instance of the M24C64W EEPROM.</span></div>
+<div class="line"><span class="comment">             */</span></div>
 <div class="line">            BSP::M24C64W &amp; _eeprom;</div>
 <div class="line">        };</div>
 <div class="line">    };</div>

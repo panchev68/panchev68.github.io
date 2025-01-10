@@ -1,15 +1,15 @@
 var annotated_dup =
 [
     [ "Lib", null, [
-      [ "System", "d4/d98/a00120.html", [
-        [ "Configuration", "d6/dad/a00941.html", "d6/dad/a00941" ],
-        [ "FirmwareVersion", "d1/db0/a00945.html", "d1/db0/a00945" ],
-        [ "HardwareVersion", "df/dc6/a00949.html", "df/dc6/a00949" ],
-        [ "ParametersBase", "d5/da3/a00953.html", "d5/da3/a00953" ],
-        [ "ProduceDate", "d3/dcd/a00965.html", "d3/dcd/a00965" ],
-        [ "SerialNumber", "d7/dfd/a00969.html", "d7/dfd/a00969" ],
-        [ "System", "d3/da5/a00973.html", "d3/da5/a00973" ],
-        [ "VersionBase", "dd/d24/a00981.html", "dd/d24/a00981" ]
+      [ "System", "d1/d22/a00057.html", [
+        [ "Configuration", "d5/d69/a00878.html", "d5/d69/a00878" ],
+        [ "FirmwareVersion", "d3/d50/a00882.html", "d3/d50/a00882" ],
+        [ "HardwareVersion", "d2/dab/a00886.html", "d2/dab/a00886" ],
+        [ "ParametersBase", "d7/d46/a00890.html", "d7/d46/a00890" ],
+        [ "ProduceDate", "d5/dd3/a00902.html", "d5/dd3/a00902" ],
+        [ "SerialNumber", "da/dd8/a00906.html", "da/dd8/a00906" ],
+        [ "System", "d4/d12/a00910.html", "d4/d12/a00910" ],
+        [ "VersionBase", "d0/ddf/a00918.html", "d0/ddf/a00918" ]
       ] ]
     ] ]
 ];
