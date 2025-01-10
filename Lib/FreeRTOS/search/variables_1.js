@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['handle_0',['handle',['../d0/d4a/a00147.html#aeba9aef9fbf175aa1ecbb778553874ea',1,'Lib::FreeRTOS::SemaphoreBase::handle'],['../de/db9/a00159.html#a7b7e4594b6d91d56b869f265d60ed139',1,'Lib::FreeRTOS::Task::handle']]]
+  ['func_0',['func',['../dc/de6/a00167.html#aa1cbd9d531a85e7596228475c693fbee',1,'Lib::FreeRTOS::Task::Config']]]
 ];
