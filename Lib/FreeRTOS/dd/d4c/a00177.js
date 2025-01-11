@@ -1,16 +1,16 @@
 var a00177 =
 [
-    [ "Handle", "dd/d4c/a00177.html#ac31e3b88075f241424a80adbb7b0641d", null ],
-    [ "~SemaphoreBase", "dd/d4c/a00177.html#a253934193ee0de5b0fce552c75256ee3", null ],
-    [ "create", "dd/d4c/a00177.html#a7984ce7686710bacb1b2e7239e79151e", null ],
-    [ "give", "dd/d4c/a00177.html#a494f63a7a96566f17e1ac85cfb5b55a4", null ],
-    [ "giveFromISR", "dd/d4c/a00177.html#ad44726c956c5a3a3316a3a4fa0f0f952", null ],
-    [ "isCreated", "dd/d4c/a00177.html#a58e8cc9baf2e1387aa62194834bcdee3", null ],
-    [ "operator Handle &", "dd/d4c/a00177.html#a3180f95a05d722aee73dda27ae4020b5", null ],
-    [ "overwrite", "dd/d4c/a00177.html#adcee056645a87bc1f08c23e6ff0923a3", null ],
-    [ "overwriteFromISR", "dd/d4c/a00177.html#a5765bdc831d4c447f76cd2362ab52e24", null ],
-    [ "release", "dd/d4c/a00177.html#a8a54584609b12a9c0dafac152ac50617", null ],
-    [ "take", "dd/d4c/a00177.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06", null ],
-    [ "takeFromISR", "dd/d4c/a00177.html#ac0253cf90b5a647286873e2febb2da24", null ],
-    [ "handle", "dd/d4c/a00177.html#aeba9aef9fbf175aa1ecbb778553874ea", null ]
+    [ "Handle", "dd/d4c/a00177.html#ac80d3786cef88222f14f12823eec8d2c", null ],
+    [ "Semaphore", "dd/d4c/a00177.html#a63aeaf529966e505291afed03a11fda5", null ],
+    [ "~Semaphore", "dd/d4c/a00177.html#a962b0e87eeae50b7a2b245050628d911", null ],
+    [ "create", "dd/d4c/a00177.html#aa094fa83e5e9c385fa79de95cb2094d9", null ],
+    [ "give", "dd/d4c/a00177.html#a2121df27f97694ff8972147e3e4c99f6", null ],
+    [ "giveFromISR", "dd/d4c/a00177.html#ac35d77d9f4dad22c8ae60017d1d5aabf", null ],
+    [ "isCreated", "dd/d4c/a00177.html#a92a05d95d899d18603b26731834c9281", null ],
+    [ "operator Handle &", "dd/d4c/a00177.html#a395ab7d345178800c281e43bac6a645f", null ],
+    [ "overwrite", "dd/d4c/a00177.html#a4dbc436dcf20112be10ca8684818be9e", null ],
+    [ "overwriteFromISR", "dd/d4c/a00177.html#a5bd1892f09dcb386b073fa4f925e9309", null ],
+    [ "release", "dd/d4c/a00177.html#a04f9f12d5b59aba89d48a0afbc18f096", null ],
+    [ "take", "dd/d4c/a00177.html#a82838d2e2a7955808dd4c232112dc674", null ],
+    [ "takeFromISR", "dd/d4c/a00177.html#afb0e809a4af00a2bf75aaf8aa127f938", null ]
 ];

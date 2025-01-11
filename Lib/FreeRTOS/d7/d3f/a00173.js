@@ -1,16 +1,11 @@
 var a00173 =
 [
-    [ "Handle", "d7/d3f/a00173.html#ac80d3786cef88222f14f12823eec8d2c", null ],
-    [ "Semaphore", "d7/d3f/a00173.html#a63aeaf529966e505291afed03a11fda5", null ],
-    [ "~Semaphore", "d7/d3f/a00173.html#a962b0e87eeae50b7a2b245050628d911", null ],
-    [ "create", "d7/d3f/a00173.html#aa094fa83e5e9c385fa79de95cb2094d9", null ],
-    [ "give", "d7/d3f/a00173.html#a2121df27f97694ff8972147e3e4c99f6", null ],
-    [ "giveFromISR", "d7/d3f/a00173.html#ac35d77d9f4dad22c8ae60017d1d5aabf", null ],
-    [ "isCreated", "d7/d3f/a00173.html#a92a05d95d899d18603b26731834c9281", null ],
-    [ "operator Handle &", "d7/d3f/a00173.html#a395ab7d345178800c281e43bac6a645f", null ],
-    [ "overwrite", "d7/d3f/a00173.html#a4dbc436dcf20112be10ca8684818be9e", null ],
-    [ "overwriteFromISR", "d7/d3f/a00173.html#a5bd1892f09dcb386b073fa4f925e9309", null ],
-    [ "release", "d7/d3f/a00173.html#a04f9f12d5b59aba89d48a0afbc18f096", null ],
-    [ "take", "d7/d3f/a00173.html#a82838d2e2a7955808dd4c232112dc674", null ],
-    [ "takeFromISR", "d7/d3f/a00173.html#afb0e809a4af00a2bf75aaf8aa127f938", null ]
+    [ "Handle", "d7/d3f/a00173.html#a25c4dd56e8d8062de85afb6484bda6ac", null ],
+    [ "Member", "d7/d3f/a00173.html#ade8aa1efc6485f2bce0dd30c5de327a1", null ],
+    [ "QueueSet", "d7/d3f/a00173.html#a1e6d075a49de4167193aef3d04bb5da0", null ],
+    [ "~QueueSet", "d7/d3f/a00173.html#ad8c95c6a9e35e8e25a1e498546941c3b", null ],
+    [ "create", "d7/d3f/a00173.html#a5117e14cccf6619acb4541208ab3516d", null ],
+    [ "remove", "d7/d3f/a00173.html#a6c833a9d231e9d0441d6d8408c96759b", null ],
+    [ "select", "d7/d3f/a00173.html#ab3fe7745489b98bdd687815cb8e5ffd3", null ],
+    [ "selectFromISR", "d7/d3f/a00173.html#a9bef0c0685cfe5a2abddea96db0d1f34", null ]
 ];
