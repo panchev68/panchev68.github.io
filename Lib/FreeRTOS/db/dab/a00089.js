@@ -1,4 +1,4 @@
 var a00089 =
 [
-    [ "Lib::FreeRTOS::Mutex", "d0/d48/a00165.html", "d0/d48/a00165" ]
+    [ "Lib::FreeRTOS::MessageBuffer", "db/ddf/a00164.html", "db/ddf/a00164" ]
 ];

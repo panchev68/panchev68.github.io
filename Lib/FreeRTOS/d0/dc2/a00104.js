@@ -1,4 +1,4 @@
 var a00104 =
 [
-    [ "Lib::FreeRTOS::SemaphoreCounting", "d8/d64/a00181.html", "d8/d64/a00181" ]
+    [ "Lib::FreeRTOS::SemaphoreBase", "d0/d81/a00180.html", "d0/d81/a00180" ]
 ];

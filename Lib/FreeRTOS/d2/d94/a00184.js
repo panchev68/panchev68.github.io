@@ -1,15 +1,13 @@
 var a00184 =
 [
-    [ "Timeout", "d2/d94/a00184.html#a8c7119d3f819b0b73a98eec114c0d30b", null ],
-    [ "Timeout", "d2/d94/a00184.html#a19ae87d13f16e5a7baabe2b161413651", null ],
-    [ "~Timeout", "d2/d94/a00184.html#a4f2dfba861c373b6540e469c308f08b7", null ],
-    [ "check", "d2/d94/a00184.html#a90af82736388b26add41da3886a12390", null ],
-    [ "disable", "d2/d94/a00184.html#ae6a7d021b68b53dfcd6a3f9c6566ddde", null ],
-    [ "isDisable", "d2/d94/a00184.html#a4b231b1cb4d749accbd86790c9d064c6", null ],
-    [ "operator uint32_t", "d2/d94/a00184.html#a9822fb66e6f856de108727f9916fcd00", null ],
-    [ "operator+=", "d2/d94/a00184.html#a2ed5bd685dddcae99312a5893457162a", null ],
-    [ "operator-=", "d2/d94/a00184.html#a18796545c784b2e175cb6c893734d708", null ],
-    [ "operator=", "d2/d94/a00184.html#a27a548cf01dc334119cb8cd0d0317ba6", null ],
-    [ "operator==", "d2/d94/a00184.html#ab484ff778a0d1e45ef84fbb96d970a52", null ],
-    [ "set", "d2/d94/a00184.html#a3dbcd64ec31d965a0222cd69a7bae477", null ]
+    [ "SemaphoreCounting", "d2/d94/a00184.html#a57f5373ab498f7d43909cf1c15197cfd", null ],
+    [ "~SemaphoreCounting", "d2/d94/a00184.html#a8a23fc3a063478d6f682bffba2ef78e3", null ],
+    [ "create", "d2/d94/a00184.html#ad41efc69f8508537f2ed3232d913c2f0", null ],
+    [ "getCount", "d2/d94/a00184.html#aad5edccfa2773aaa3aecf77bcea1a8c9", null ],
+    [ "give", "d2/d94/a00184.html#a6bfe5fea68fa0b84e0914a8a445152e7", null ],
+    [ "giveFromISR", "d2/d94/a00184.html#a3f8e436a15eac45c2242938b31d730f7", null ],
+    [ "isCreated", "d2/d94/a00184.html#a19fd76a71af534b9735eb44f6b6b63e3", null ],
+    [ "release", "d2/d94/a00184.html#a832b62ec703a78807cad724e9fc959a1", null ],
+    [ "take", "d2/d94/a00184.html#a3b42128f16832e00da0b3013af344d46", null ],
+    [ "takeFromISR", "d2/d94/a00184.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf", null ]
 ];

@@ -1,7 +1,20 @@
 var a00188 =
 [
-    [ "autoReload", "da/d15/a00188.html#ac5c33d97089332a4d25af41a2c8041b9", null ],
-    [ "func", "da/d15/a00188.html#a8dfb5c358613b4bc7a8e71067734b92a", null ],
-    [ "name", "da/d15/a00188.html#abbaf6e685702546abd307b8f61e0097e", null ],
-    [ "period", "da/d15/a00188.html#a2efaeed1879a053a585ed05adef8eba9", null ]
+    [ "Handle", "da/d15/a00188.html#a9ce35559d183f678dc3af4bebd0ed7d4", null ],
+    [ "StreamBuffer", "da/d15/a00188.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
+    [ "~StreamBuffer", "da/d15/a00188.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
+    [ "create", "da/d15/a00188.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],
+    [ "getBytesAvailable", "da/d15/a00188.html#af6ba5acfc1558a7838dec80b8ee34ef0", null ],
+    [ "getSpacesAvailable", "da/d15/a00188.html#aa274f35053d848a7a045a75a39d13742", null ],
+    [ "isCreated", "da/d15/a00188.html#a4e790af37fe33a98b7aa6b3cb1a542b6", null ],
+    [ "isEmpty", "da/d15/a00188.html#a4d938a1272b841d6f97916a0bb2cfd4a", null ],
+    [ "isFull", "da/d15/a00188.html#ad1854f3342eb9bf8c09a2f0ddc26be69", null ],
+    [ "operator Handle &", "da/d15/a00188.html#a2a5de86bc7d1fbed191a5f852a4e2b46", null ],
+    [ "receive", "da/d15/a00188.html#aeee0b648073b6bd01373c750c324653b", null ],
+    [ "receiveFromISR", "da/d15/a00188.html#a2318a48f2341571ed46c4ecb2671537b", null ],
+    [ "release", "da/d15/a00188.html#abe04a543930a1417c5d0371cbdfebff8", null ],
+    [ "reset", "da/d15/a00188.html#a86e319a0315fc87966c9c43f1e74b246", null ],
+    [ "send", "da/d15/a00188.html#a1964ea313a49c3231e60ea15469ef5ab", null ],
+    [ "sendFromISR", "da/d15/a00188.html#ac79ca9feb2e05f02b324219a571e79a5", null ],
+    [ "setTriggerLevel", "da/d15/a00188.html#a3d2741e023f31a9d2c9294ce0b6842c8", null ]
 ];
