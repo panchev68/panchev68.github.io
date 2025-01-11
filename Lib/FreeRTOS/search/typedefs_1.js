@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['member_0',['Member',['../d7/dce/a00143.html#ade8aa1efc6485f2bce0dd30c5de327a1',1,'Lib::FreeRTOS::QueueSet']]]
+  ['notificationbits_0',['NotificationBits',['../db/d44/a00162.html#a824c9deb92b92aab287df8f1e6bb998c',1,'Lib::FreeRTOS::Task']]]
 ];

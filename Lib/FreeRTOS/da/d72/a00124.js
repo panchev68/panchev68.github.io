@@ -1,7 +1,27 @@
 var a00124 =
 [
-    [ "Karnel", "da/d72/a00124.html#a56ef75156dd525a4a074e0463aa0abdd", null ],
-    [ "catchUpTicks", "da/d72/a00124.html#a7f48b15af0c47de58c1753bd8db58741", null ],
-    [ "exitCriticalFromISR", "da/d72/a00124.html#af088d61e512717b4d98ea74d8ac06f1b", null ],
-    [ "getNumberOfTasks", "da/d72/a00124.html#a8052b055d5b7bb1ff0155a9e1298a7f5", null ]
+    [ "Handle", "da/d72/a00124.html#a3a9a66b61c5188474be1fa00a19ecb49", null ],
+    [ "Queue", "da/d72/a00124.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
+    [ "~Queue", "da/d72/a00124.html#ad2151344786c05df7051532ac93d1228", null ],
+    [ "addToRegistry", "da/d72/a00124.html#af936f907fa857ee852f9952904eb1f28", null ],
+    [ "create", "da/d72/a00124.html#ab1f118805f404fcc5fc7373a93594009", null ],
+    [ "getHandle", "da/d72/a00124.html#a2c41ab96f85c46fcbfada25e38ae9195", null ],
+    [ "isCreated", "da/d72/a00124.html#a368491dc78d2becc33c627a8402ab1e5", null ],
+    [ "messagesWaiting", "da/d72/a00124.html#a4c8c176d001bf8671553f8f379a371c8", null ],
+    [ "messagesWaitingFromISR", "da/d72/a00124.html#aafb3e379354706406f980c30e86e9e74", null ],
+    [ "operator Handle", "da/d72/a00124.html#a88bed073e231ecb9da5411ed061d594d", null ],
+    [ "operator Handle &", "da/d72/a00124.html#a29301d1bff80bd5e0ce0ffe15aa68333", null ],
+    [ "overwrite", "da/d72/a00124.html#a3a861ad8c38ab3ea2086d1209daad180", null ],
+    [ "overwriteFromISR", "da/d72/a00124.html#a14bcb8fb7e17f30a58df8debaa846ab1", null ],
+    [ "peek", "da/d72/a00124.html#ae033ff52cdf237cdb88febef59d1877d", null ],
+    [ "peekFromISR", "da/d72/a00124.html#a1c0d95eb7fa17bd9c6857bf868ab6426", null ],
+    [ "receive", "da/d72/a00124.html#a758441a1968feda77ebb998dfdc4619a", null ],
+    [ "receiveFromISR", "da/d72/a00124.html#a0eb815a468ecede046a7fc0ed9879887", null ],
+    [ "release", "da/d72/a00124.html#a1e1db42d6e77a1c611e5a303083e934c", null ],
+    [ "removeFromRegistry", "da/d72/a00124.html#a92c18e4f1175149a0629084f56633fe0", null ],
+    [ "reset", "da/d72/a00124.html#a7dac0d66d07b97c5b89947a00ae73464", null ],
+    [ "send", "da/d72/a00124.html#a12072c8a458156c078eef3381f3e68b8", null ],
+    [ "sendToBackFromISR", "da/d72/a00124.html#ac2effb97aca4442a6a48c1c29e1f614d", null ],
+    [ "sendToFrontFromISR", "da/d72/a00124.html#a148d7aefd27a967ce90ea804ce26f07a", null ],
+    [ "spacesAvailable", "da/d72/a00124.html#adeb3149cccb765ada38a1d2ef55a1575", null ]
 ];

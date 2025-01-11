@@ -1,12 +1,13 @@
 var a00136 =
 [
-    [ "Mutex", "d0/d5e/a00136.html#ab40a1fec6fa8904a155fcb2791f9768d", null ],
-    [ "~Mutex", "d0/d5e/a00136.html#a89d122298f5ce39c2fa0907db300d728", null ],
-    [ "create", "d0/d5e/a00136.html#a0ff325eaaffe0bdabfb24e4bc24d325b", null ],
-    [ "give", "d0/d5e/a00136.html#a65f8f7f26f6688544ca4c98beff81c06", null ],
-    [ "giveFromISR", "d0/d5e/a00136.html#aea6ab11fa318eb0894f3cd88ad17feed", null ],
-    [ "isCreated", "d0/d5e/a00136.html#a2f3fde303420f7057a7edb83fabd38a2", null ],
-    [ "release", "d0/d5e/a00136.html#a166d1f206082850042a2833bc9a4e81c", null ],
-    [ "take", "d0/d5e/a00136.html#a65096f4de57b69eaea8af1053a98aa96", null ],
-    [ "takeFromISR", "d0/d5e/a00136.html#a4ed897026254f85a7266f770d6fa7314", null ]
+    [ "SemaphoreCounting", "d0/d5e/a00136.html#a57f5373ab498f7d43909cf1c15197cfd", null ],
+    [ "~SemaphoreCounting", "d0/d5e/a00136.html#a8a23fc3a063478d6f682bffba2ef78e3", null ],
+    [ "create", "d0/d5e/a00136.html#ad41efc69f8508537f2ed3232d913c2f0", null ],
+    [ "getCount", "d0/d5e/a00136.html#aad5edccfa2773aaa3aecf77bcea1a8c9", null ],
+    [ "give", "d0/d5e/a00136.html#a6bfe5fea68fa0b84e0914a8a445152e7", null ],
+    [ "giveFromISR", "d0/d5e/a00136.html#a3f8e436a15eac45c2242938b31d730f7", null ],
+    [ "isCreated", "d0/d5e/a00136.html#a19fd76a71af534b9735eb44f6b6b63e3", null ],
+    [ "release", "d0/d5e/a00136.html#a832b62ec703a78807cad724e9fc959a1", null ],
+    [ "take", "d0/d5e/a00136.html#a3b42128f16832e00da0b3013af344d46", null ],
+    [ "takeFromISR", "d0/d5e/a00136.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf", null ]
 ];

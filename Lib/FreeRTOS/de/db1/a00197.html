@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: CoRoutine</title>
+<title>Lib::FreeRTOS: Queue</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,20 +99,49 @@ $(function(){initNavTree('de/db1/a00197.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">CoRoutine</div></div>
+  <div class="headertitle"><div class="title">Queue</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This example demonstrates how to create and use a FreeRTOS co-routine using the CoRoutine class. The co-routine function uses crSTART, crDELAY, and crEND macros to manage the co-routine's execution.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> example() {</div>
-<div class="line">        <span class="keyword">auto</span> func = [] (CoRoutineHandle_t hnd, UBaseType_t index) {</div>
-<div class="line">        crSTART(hnd);</div>
-<div class="line">        <span class="keywordflow">for</span> (;;) {</div>
-<div class="line">            crDELAY(hnd, 100);</div>
-<div class="line">        }</div>
-<div class="line">        crEND();</div>
-<div class="line">    };</div>
-<div class="line">    Lib::FreeRTOS::CoRoutine coRoutine(func, 0, 0);</div>
+<p>Example usage of the Queue class to interact with FreeRTOS queues.</p>
+<p>Example usage of the Queue class to interact with FreeRTOS queues.This example demonstrates how to use the Queue class to create, send, and receive messages using FreeRTOS.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../df/d03/a00062.html">Queue.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <span class="comment">// Create a queue for integers with a length of 5</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/d14/a00139.html">Lib::FreeRTOS::Queue&lt;int, 5&gt;</a> queue;</div>
+<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a1" name="a1"></a><a class="code hl_function" href="../../de/d14/a00139.html#ab1f118805f404fcc5fc7373a93594009">create</a>()) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create queue&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Send a message to the queue</span></div>
+<div class="line">    <span class="keywordtype">int</span> message = 42;</div>
+<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d14/a00139.html#a12072c8a458156c078eef3381f3e68b8">send</a>(message, 100)) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to send message to queue&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">*     }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Receive a message from the queue</span></div>
+<div class="line">    <span class="keywordtype">int</span> receivedMessage;</div>
+<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a3" name="a3"></a><a class="code hl_function" href="../../de/d14/a00139.html#a758441a1968feda77ebb998dfdc4619a">receive</a>(receivedMessage, 100)) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message from queue&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; receivedMessage &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Release the queue</span></div>
+<div class="line">    queue.<a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d14/a00139.html#a1e1db42d6e77a1c611e5a303083e934c">release</a>();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00062_html"><div class="ttname"><a href="../../df/d03/a00062.html">Queue.hpp</a></div><div class="ttdoc">This file contains the definition of the Queue class template for FreeRTOS.</div></div>
+<div class="ttc" id="aa00139_html"><div class="ttname"><a href="../../de/d14/a00139.html">Lib::FreeRTOS::Queue</a></div><div class="ttdoc">A wrapper class for FreeRTOS queue operations.</div><div class="ttdef"><b>Definition</b> Queue.hpp:29</div></div>
+<div class="ttc" id="aa00139_html_a12072c8a458156c078eef3381f3e68b8"><div class="ttname"><a href="../../de/d14/a00139.html#a12072c8a458156c078eef3381f3e68b8">Lib::FreeRTOS::Queue::send</a></div><div class="ttdeci">virtual bool send(const T &amp;src, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:202</div></div>
+<div class="ttc" id="aa00139_html_a1e1db42d6e77a1c611e5a303083e934c"><div class="ttname"><a href="../../de/d14/a00139.html#a1e1db42d6e77a1c611e5a303083e934c">Lib::FreeRTOS::Queue::release</a></div><div class="ttdeci">virtual void release()</div><div class="ttdoc">Releases the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:98</div></div>
+<div class="ttc" id="aa00139_html_a758441a1968feda77ebb998dfdc4619a"><div class="ttname"><a href="../../de/d14/a00139.html#a758441a1968feda77ebb998dfdc4619a">Lib::FreeRTOS::Queue::receive</a></div><div class="ttdeci">virtual bool receive(T &amp;dst, uint32_t ticksToWait) const</div><div class="ttdoc">Receives a message from the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:130</div></div>
+<div class="ttc" id="aa00139_html_ab1f118805f404fcc5fc7373a93594009"><div class="ttname"><a href="../../de/d14/a00139.html#ab1f118805f404fcc5fc7373a93594009">Lib::FreeRTOS::Queue::create</a></div><div class="ttdeci">virtual bool create()</div><div class="ttdoc">Creates a new queue using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> Queue.hpp:66</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

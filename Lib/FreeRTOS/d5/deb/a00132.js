@@ -1,17 +1,16 @@
 var a00132 =
 [
-    [ "MessageBuffer", "d5/deb/a00132.html#ad1aacd686aa8803995282391fe5dcd88", null ],
-    [ "~MessageBuffer", "d5/deb/a00132.html#a2d7e901cf7a0dbc87830efa936d02b7e", null ],
-    [ "create", "d5/deb/a00132.html#a16516aeccd9c706e8eee91172163f7b8", null ],
-    [ "getSpacesAvailable", "d5/deb/a00132.html#a34b67bca936765725907e6d33d232ab1", null ],
-    [ "isCreated", "d5/deb/a00132.html#a428f709f716eaa601850ae56bd23a48d", null ],
-    [ "isEmpty", "d5/deb/a00132.html#a2051f879f6137c89fe7885acce8c5595", null ],
-    [ "isFull", "d5/deb/a00132.html#ad74e5ea770d15cd27cadd8e7121a5c04", null ],
-    [ "operator Handle", "d5/deb/a00132.html#ad69b8323300cef1a13aa955ba4537f10", null ],
-    [ "receive", "d5/deb/a00132.html#a8f160675bb113e76d3a32a9f78d3b7a1", null ],
-    [ "receiveFromISR", "d5/deb/a00132.html#ad073e08a2e82cc5a5c96b210631cadc2", null ],
-    [ "release", "d5/deb/a00132.html#a6e19504ccebb37e3057dbec82a850712", null ],
-    [ "reset", "d5/deb/a00132.html#a21e78533ccd1e6994d8150895ccb4346", null ],
-    [ "send", "d5/deb/a00132.html#a17561e31205ea64d3f3d8c17ca55ff69", null ],
-    [ "sendFromISR", "d5/deb/a00132.html#af67d105243e7810fcf6e38544fda1383", null ]
+    [ "Handle", "d5/deb/a00132.html#ac31e3b88075f241424a80adbb7b0641d", null ],
+    [ "~SemaphoreBase", "d5/deb/a00132.html#a253934193ee0de5b0fce552c75256ee3", null ],
+    [ "create", "d5/deb/a00132.html#a7984ce7686710bacb1b2e7239e79151e", null ],
+    [ "give", "d5/deb/a00132.html#a494f63a7a96566f17e1ac85cfb5b55a4", null ],
+    [ "giveFromISR", "d5/deb/a00132.html#ad44726c956c5a3a3316a3a4fa0f0f952", null ],
+    [ "isCreated", "d5/deb/a00132.html#a58e8cc9baf2e1387aa62194834bcdee3", null ],
+    [ "operator Handle &", "d5/deb/a00132.html#a3180f95a05d722aee73dda27ae4020b5", null ],
+    [ "overwrite", "d5/deb/a00132.html#adcee056645a87bc1f08c23e6ff0923a3", null ],
+    [ "overwriteFromISR", "d5/deb/a00132.html#a5765bdc831d4c447f76cd2362ab52e24", null ],
+    [ "release", "d5/deb/a00132.html#a8a54584609b12a9c0dafac152ac50617", null ],
+    [ "take", "d5/deb/a00132.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06", null ],
+    [ "takeFromISR", "d5/deb/a00132.html#ac0253cf90b5a647286873e2febb2da24", null ],
+    [ "handle", "d5/deb/a00132.html#aeba9aef9fbf175aa1ecbb778553874ea", null ]
 ];

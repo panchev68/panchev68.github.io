@@ -102,16 +102,32 @@ $(function(){initNavTree('de/df3/a00185.html','../../'); initResizable(true); })
   <div class="headertitle"><div class="title">CoRoutine</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This example demonstrates how to create and use a FreeRTOS co-routine using the CoRoutine class. The co-routine function uses crSTART, crDELAY, and crEND macros to manage the co-routine's execution.</p>
-<div class="fragment"><div class="line"><span class="keywordtype">void</span> example() {</div>
-<div class="line">*     <span class="keyword">auto</span> func = [] (CoRoutineHandle_t hnd, UBaseType_t index) {</div>
-<div class="line">        crSTART(hnd);</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Example function demonstrating the usage of a FreeRTOS co-routine.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function creates a co-routine using a lambda function. The lambda function</span></div>
+<div class="line"><span class="comment"> * contains an infinite loop with a delay of 100 ticks.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The lambda function is defined as follows:</span></div>
+<div class="line"><span class="comment"> * - @param hnd: The handle to the co-routine.</span></div>
+<div class="line"><span class="comment"> * - @param index: The index of the co-routine.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The co-routine is created with the following parameters:</span></div>
+<div class="line"><span class="comment"> * - func: The lambda function defined above.</span></div>
+<div class="line"><span class="comment"> * - 0: The priority of the co-routine.</span></div>
+<div class="line"><span class="comment"> * - 0: The index of the co-routine.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> example () {</div>
+<div class="line">    <span class="keyword">auto</span> func = [] (CoRoutineHandle_t hnd, UBaseType_t index) {</div>
+<div class="line">        crSTART (hnd);</div>
 <div class="line">        <span class="keywordflow">for</span> (;;) {</div>
-<div class="line">            crDELAY(hnd, 100);</div>
+<div class="line">            crDELAY (hnd, 100);</div>
 <div class="line">        }</div>
-<div class="line">        crEND();</div>
+<div class="line">        crEND ();</div>
 <div class="line">    };</div>
-<div class="line">    Lib::FreeRTOS::CoRoutine coRoutine(func, 0, 0);</div>
+<div class="line">    Lib::FreeRTOS::CoRoutine coRoutine (func, 0, 0);</div>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->

@@ -1,19 +1,15 @@
 var a00160 =
 [
-    [ "StreamBuffer", "de/d38/a00160.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
-    [ "~StreamBuffer", "de/d38/a00160.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
-    [ "create", "de/d38/a00160.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],
-    [ "getBytesAvailable", "de/d38/a00160.html#af6ba5acfc1558a7838dec80b8ee34ef0", null ],
-    [ "getSpacesAvailable", "de/d38/a00160.html#aa274f35053d848a7a045a75a39d13742", null ],
-    [ "isCreated", "de/d38/a00160.html#a4e790af37fe33a98b7aa6b3cb1a542b6", null ],
-    [ "isEmpty", "de/d38/a00160.html#a4d938a1272b841d6f97916a0bb2cfd4a", null ],
-    [ "isFull", "de/d38/a00160.html#ad1854f3342eb9bf8c09a2f0ddc26be69", null ],
-    [ "operator Handle &", "de/d38/a00160.html#a2a5de86bc7d1fbed191a5f852a4e2b46", null ],
-    [ "receive", "de/d38/a00160.html#aeee0b648073b6bd01373c750c324653b", null ],
-    [ "receiveFromISR", "de/d38/a00160.html#a2318a48f2341571ed46c4ecb2671537b", null ],
-    [ "release", "de/d38/a00160.html#abe04a543930a1417c5d0371cbdfebff8", null ],
-    [ "reset", "de/d38/a00160.html#a86e319a0315fc87966c9c43f1e74b246", null ],
-    [ "send", "de/d38/a00160.html#a1964ea313a49c3231e60ea15469ef5ab", null ],
-    [ "sendFromISR", "de/d38/a00160.html#ac79ca9feb2e05f02b324219a571e79a5", null ],
-    [ "setTriggerLevel", "de/d38/a00160.html#a3d2741e023f31a9d2c9294ce0b6842c8", null ]
+    [ "Timeout", "de/d38/a00160.html#a8c7119d3f819b0b73a98eec114c0d30b", null ],
+    [ "Timeout", "de/d38/a00160.html#a19ae87d13f16e5a7baabe2b161413651", null ],
+    [ "~Timeout", "de/d38/a00160.html#a4f2dfba861c373b6540e469c308f08b7", null ],
+    [ "check", "de/d38/a00160.html#a90af82736388b26add41da3886a12390", null ],
+    [ "disable", "de/d38/a00160.html#ae6a7d021b68b53dfcd6a3f9c6566ddde", null ],
+    [ "isDisable", "de/d38/a00160.html#a4b231b1cb4d749accbd86790c9d064c6", null ],
+    [ "operator uint32_t", "de/d38/a00160.html#a9822fb66e6f856de108727f9916fcd00", null ],
+    [ "operator+=", "de/d38/a00160.html#a2ed5bd685dddcae99312a5893457162a", null ],
+    [ "operator-=", "de/d38/a00160.html#a18796545c784b2e175cb6c893734d708", null ],
+    [ "operator=", "de/d38/a00160.html#a27a548cf01dc334119cb8cd0d0317ba6", null ],
+    [ "operator==", "de/d38/a00160.html#ab484ff778a0d1e45ef84fbb96d970a52", null ],
+    [ "set", "de/d38/a00160.html#a3dbcd64ec31d965a0222cd69a7bae477", null ]
 ];

@@ -1,6 +1,4 @@
 var a00108 =
 [
-    [ "Binary Semaphore", "dd/d42/a00109.html", null ],
-    [ "Counting Semaphore", "d4/d81/a00110.html", "d4/d81/a00110" ],
-    [ "Mutex", "dd/d6d/a00111.html", "dd/d6d/a00111" ]
+    [ "Karnel", "d1/dd6/a00108.html#a56ef75156dd525a4a074e0463aa0abdd", null ]
 ];

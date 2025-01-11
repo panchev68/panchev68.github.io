@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['queue_0',['Queue',['../de/d14/a00139.html',1,'Lib::FreeRTOS']]],
-  ['queueset_1',['QueueSet',['../d7/dce/a00143.html',1,'Lib::FreeRTOS']]]
+  ['queue_0',['Queue',['../d2/d82/a00142.html',1,'Lib::FreeRTOS']]]
 ];
