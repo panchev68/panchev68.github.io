@@ -1,4 +1,4 @@
 var a00074 =
 [
-    [ "Lib::FreeRTOS::SemaphoreBase", "d9/d7d/a00150.html", "d9/d7d/a00150" ]
+    [ "Lib::FreeRTOS::MessageBuffer", "da/d1e/a00149.html", "da/d1e/a00149" ]
 ];

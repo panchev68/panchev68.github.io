@@ -1,16 +1,15 @@
 var a00128 =
 [
-    [ "Handle", "d1/d88/a00128.html#ac80d3786cef88222f14f12823eec8d2c", null ],
-    [ "Semaphore", "d1/d88/a00128.html#a63aeaf529966e505291afed03a11fda5", null ],
-    [ "~Semaphore", "d1/d88/a00128.html#a962b0e87eeae50b7a2b245050628d911", null ],
-    [ "create", "d1/d88/a00128.html#aa094fa83e5e9c385fa79de95cb2094d9", null ],
-    [ "give", "d1/d88/a00128.html#a2121df27f97694ff8972147e3e4c99f6", null ],
-    [ "giveFromISR", "d1/d88/a00128.html#ac35d77d9f4dad22c8ae60017d1d5aabf", null ],
-    [ "isCreated", "d1/d88/a00128.html#a92a05d95d899d18603b26731834c9281", null ],
-    [ "operator Handle &", "d1/d88/a00128.html#a395ab7d345178800c281e43bac6a645f", null ],
-    [ "overwrite", "d1/d88/a00128.html#a4dbc436dcf20112be10ca8684818be9e", null ],
-    [ "overwriteFromISR", "d1/d88/a00128.html#a5bd1892f09dcb386b073fa4f925e9309", null ],
-    [ "release", "d1/d88/a00128.html#a04f9f12d5b59aba89d48a0afbc18f096", null ],
-    [ "take", "d1/d88/a00128.html#a82838d2e2a7955808dd4c232112dc674", null ],
-    [ "takeFromISR", "d1/d88/a00128.html#afb0e809a4af00a2bf75aaf8aa127f938", null ]
+    [ "~EventGroup", "d1/d88/a00128.html#acb0fbb840bf181958f3e7edc81f2a644", null ],
+    [ "clearBits", "d1/d88/a00128.html#a2dc0fc601a6be926470359dd0a22b9e3", null ],
+    [ "clearBitsFromISR", "d1/d88/a00128.html#a97ea8c5b232ca4b7abcb7b15f7c224b3", null ],
+    [ "create", "d1/d88/a00128.html#a89eb1195dee2cb2b9ca34001dee08b96", null ],
+    [ "getBits", "d1/d88/a00128.html#a039ad5d0cfdd0268f0d5b3d16e64f47e", null ],
+    [ "getBitsFromISR", "d1/d88/a00128.html#aa0d5697fc4ffd665d0a7bc52a9799dff", null ],
+    [ "isCreated", "d1/d88/a00128.html#a6ad2b1b07641d6e84ffa57a7b37bae92", null ],
+    [ "release", "d1/d88/a00128.html#ac507c3531e056a4591fc14cb051ef3cb", null ],
+    [ "setBits", "d1/d88/a00128.html#abd5e7a9d70c53c7e7c66afc5d12de43d", null ],
+    [ "setBitsFromISR", "d1/d88/a00128.html#abf8680bfb496317427a9f2779b5ccf01", null ],
+    [ "syncBits", "d1/d88/a00128.html#a0c0cf0a87fcd0a27ff127e2e7d438c73", null ],
+    [ "waitForBits", "d1/d88/a00128.html#a72dd46a1c97d37b0e35c2b2857153d66", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Semaphore</title>
+<title>Lib::FreeRTOS: Karnel</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,35 +99,74 @@ $(function(){initNavTree('d1/d72/a00204.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Semaphore</div></div>
+  <div class="headertitle"><div class="title">Karnel</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the Semaphore class.</p>
-<p>Example usage of the Semaphore class.This function demonstrates how to create and use a binary semaphore in FreeRTOS using the Semaphore class. </p><div class="fragment"><div class="line"><span class="keywordtype">void</span> exampleUsage() {</div>
-<div class="line">    <span class="comment">// Create a semaphore object</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/db6/a00146.html">Lib::FreeRTOS::Semaphore</a> semaphore;</div>
+<p>This example demonstrates how to use the Karnel class to interact with the FreeRTOS kernel. </p><div class="fragment"><div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Karnel.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Demonstrates various FreeRTOS kernel operations.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains a main function that demonstrates the following FreeRTOS kernel operations:</span></div>
+<div class="line"><span class="comment"> * - Retrieving and printing the current tick count.</span></div>
+<div class="line"><span class="comment"> * - Retrieving and printing the number of tasks in the scheduler.</span></div>
+<div class="line"><span class="comment"> * - If the macro INCLUDE_xTaskGetSchedulerState is set to 1, retrieving and printing the current state of the scheduler.</span></div>
+<div class="line"><span class="comment"> * - Entering and exiting a critical section.</span></div>
+<div class="line"><span class="comment"> * - Disabling and enabling interrupts.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../de/de1/a00065.html">Karnel.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create the semaphore</span></div>
-<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/db6/a00146.html#aa094fa83e5e9c385fa79de95cb2094d9">create</a>()) {</div>
-<div class="line">        <span class="comment">// Successfully created the semaphore</span></div>
-<div class="line">        <span class="comment">// Take the semaphore</span></div>
-<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d9/db6/a00146.html#a82838d2e2a7955808dd4c232112dc674">take</a>(100)) {</div>
-<div class="line">            <span class="comment">// Successfully took the semaphore</span></div>
-<div class="line">            <span class="comment">// Perform some critical section code here</span></div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating various FreeRTOS kernel operations.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function performs the following operations:</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the current tick count.</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the number of tasks in the scheduler.</span></div>
+<div class="line"><span class="comment"> * - If the macro INCLUDE_xTaskGetSchedulerState is set to 1, retrieves and prints the current state of the scheduler.</span></div>
+<div class="line"><span class="comment"> * - Enters and exits a critical section.</span></div>
+<div class="line"><span class="comment"> * - Disables and enables interrupts.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 upon successful completion.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="comment">// Get the current tick count</span></div>
+<div class="line">    TickType_t tickCount = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d4/ddd/a00138.html#a80413fef80c962f92b4d4a58942e431f">Lib::FreeRTOS::Karnel::getTickCount</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current tick count: &quot;</span> &lt;&lt; tickCount &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">            <span class="comment">// Give the semaphore back</span></div>
-<div class="line">            semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d9/db6/a00146.html#a2121df27f97694ff8972147e3e4c99f6">give</a>();</div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            <span class="comment">// Failed to take the semaphore within the specified time</span></div>
-<div class="line">        }</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Failed to create the semaphore</span></div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Get the number of tasks in the scheduler</span></div>
+<div class="line">    UBaseType_t numberOfTasks = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d4/ddd/a00138.html#a39b5fde4c9ecfb124940496473c9e43a">Lib::FreeRTOS::Karnel::getNumberOfTasks</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Number of tasks: &quot;</span> &lt;&lt; numberOfTasks &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if (INCLUDE_xTaskGetSchedulerState == 1)</span></div>
+<div class="line">    <span class="comment">// Get the current state of the scheduler</span></div>
+<div class="line">    Lib::FreeRTOS::Karnel::SchedulerState schedulerState = Lib::FreeRTOS::Karnel::getSchedulerState ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Scheduler state: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span>BaseType_t<span class="keyword">&gt;</span> (schedulerState) &lt;&lt; std::endl;</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Enter and exit a critical section</span></div>
+<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../d4/ddd/a00138.html#a7fac97f778f8fe2bba7e766ff2705183">Lib::FreeRTOS::Karnel::enterCritical</a> ();</div>
+<div class="line">    <span class="comment">// Critical section code here</span></div>
+<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/ddd/a00138.html#a61a7d0c43fff2534b37481b3efd7f518">Lib::FreeRTOS::Karnel::exitCritical</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Enable and disable interrupts</span></div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/ddd/a00138.html#a793d9f14fcb50dd90d2d7e209661ea8b">Lib::FreeRTOS::Karnel::disableInterrupts</a> ();</div>
+<div class="line">    <span class="comment">// Code that should not be interrupted</span></div>
+<div class="line">    <a id="a5" name="a5"></a><a class="code hl_function" href="../../d4/ddd/a00138.html#abed6565a2bc0e0fd61334be341bd3847">Lib::FreeRTOS::Karnel::enableInterrupts</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00146_html"><div class="ttname"><a href="../../d9/db6/a00146.html">Lib::FreeRTOS::Semaphore</a></div><div class="ttdoc">A class representing a binary semaphore in FreeRTOS.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:24</div></div>
-<div class="ttc" id="aa00146_html_a2121df27f97694ff8972147e3e4c99f6"><div class="ttname"><a href="../../d9/db6/a00146.html#a2121df27f97694ff8972147e3e4c99f6">Lib::FreeRTOS::Semaphore::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:95</div></div>
-<div class="ttc" id="aa00146_html_a82838d2e2a7955808dd4c232112dc674"><div class="ttname"><a href="../../d9/db6/a00146.html#a82838d2e2a7955808dd4c232112dc674">Lib::FreeRTOS::Semaphore::take</a></div><div class="ttdeci">bool take(uint32_t ticksToWait=0) override</div><div class="ttdoc">Takes the semaphore.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:84</div></div>
-<div class="ttc" id="aa00146_html_aa094fa83e5e9c385fa79de95cb2094d9"><div class="ttname"><a href="../../d9/db6/a00146.html#aa094fa83e5e9c385fa79de95cb2094d9">Lib::FreeRTOS::Semaphore::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a new binary semaphore using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:56</div></div>
+<div class="ttc" id="aa00065_html"><div class="ttname"><a href="../../de/de1/a00065.html">Karnel.hpp</a></div><div class="ttdoc">Header file for the Karnel class providing access to FreeRTOS kernel functions.</div></div>
+<div class="ttc" id="aa00138_html_a39b5fde4c9ecfb124940496473c9e43a"><div class="ttname"><a href="../../d4/ddd/a00138.html#a39b5fde4c9ecfb124940496473c9e43a">Lib::FreeRTOS::Karnel::getNumberOfTasks</a></div><div class="ttdeci">static UBaseType_t getNumberOfTasks()</div><div class="ttdoc">Gets the number of tasks in the FreeRTOS scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:81</div></div>
+<div class="ttc" id="aa00138_html_a61a7d0c43fff2534b37481b3efd7f518"><div class="ttname"><a href="../../d4/ddd/a00138.html#a61a7d0c43fff2534b37481b3efd7f518">Lib::FreeRTOS::Karnel::exitCritical</a></div><div class="ttdeci">static void exitCritical()</div><div class="ttdoc">Exits a critical section.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:176</div></div>
+<div class="ttc" id="aa00138_html_a793d9f14fcb50dd90d2d7e209661ea8b"><div class="ttname"><a href="../../d4/ddd/a00138.html#a793d9f14fcb50dd90d2d7e209661ea8b">Lib::FreeRTOS::Karnel::disableInterrupts</a></div><div class="ttdeci">static void disableInterrupts()</div><div class="ttdoc">Disables all interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:210</div></div>
+<div class="ttc" id="aa00138_html_a7fac97f778f8fe2bba7e766ff2705183"><div class="ttname"><a href="../../d4/ddd/a00138.html#a7fac97f778f8fe2bba7e766ff2705183">Lib::FreeRTOS::Karnel::enterCritical</a></div><div class="ttdeci">static void enterCritical()</div><div class="ttdoc">Enters a critical section by disabling interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:149</div></div>
+<div class="ttc" id="aa00138_html_a80413fef80c962f92b4d4a58942e431f"><div class="ttname"><a href="../../d4/ddd/a00138.html#a80413fef80c962f92b4d4a58942e431f">Lib::FreeRTOS::Karnel::getTickCount</a></div><div class="ttdeci">static TickType_t getTickCount()</div><div class="ttdoc">Gets the current tick count from the FreeRTOS scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:106</div></div>
+<div class="ttc" id="aa00138_html_abed6565a2bc0e0fd61334be341bd3847"><div class="ttname"><a href="../../d4/ddd/a00138.html#abed6565a2bc0e0fd61334be341bd3847">Lib::FreeRTOS::Karnel::enableInterrupts</a></div><div class="ttdeci">static void enableInterrupts()</div><div class="ttdoc">Enables interrupts in the system.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:199</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

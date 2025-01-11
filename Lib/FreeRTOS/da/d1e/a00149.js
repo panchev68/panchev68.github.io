@@ -1,20 +1,15 @@
 var a00149 =
 [
-    [ "Handle", "da/d1e/a00149.html#a9ce35559d183f678dc3af4bebd0ed7d4", null ],
-    [ "StreamBuffer", "da/d1e/a00149.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
-    [ "~StreamBuffer", "da/d1e/a00149.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
-    [ "create", "da/d1e/a00149.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],
-    [ "getBytesAvailable", "da/d1e/a00149.html#af6ba5acfc1558a7838dec80b8ee34ef0", null ],
-    [ "getSpacesAvailable", "da/d1e/a00149.html#aa274f35053d848a7a045a75a39d13742", null ],
-    [ "isCreated", "da/d1e/a00149.html#a4e790af37fe33a98b7aa6b3cb1a542b6", null ],
-    [ "isEmpty", "da/d1e/a00149.html#a4d938a1272b841d6f97916a0bb2cfd4a", null ],
-    [ "isFull", "da/d1e/a00149.html#ad1854f3342eb9bf8c09a2f0ddc26be69", null ],
-    [ "operator Handle &", "da/d1e/a00149.html#a2a5de86bc7d1fbed191a5f852a4e2b46", null ],
-    [ "receive", "da/d1e/a00149.html#aeee0b648073b6bd01373c750c324653b", null ],
-    [ "receiveFromISR", "da/d1e/a00149.html#a2318a48f2341571ed46c4ecb2671537b", null ],
-    [ "release", "da/d1e/a00149.html#abe04a543930a1417c5d0371cbdfebff8", null ],
-    [ "reset", "da/d1e/a00149.html#a86e319a0315fc87966c9c43f1e74b246", null ],
-    [ "send", "da/d1e/a00149.html#a1964ea313a49c3231e60ea15469ef5ab", null ],
-    [ "sendFromISR", "da/d1e/a00149.html#ac79ca9feb2e05f02b324219a571e79a5", null ],
-    [ "setTriggerLevel", "da/d1e/a00149.html#a3d2741e023f31a9d2c9294ce0b6842c8", null ]
+    [ "~EventGroup", "da/d1e/a00149.html#acb0fbb840bf181958f3e7edc81f2a644", null ],
+    [ "clearBits", "da/d1e/a00149.html#a2dc0fc601a6be926470359dd0a22b9e3", null ],
+    [ "clearBitsFromISR", "da/d1e/a00149.html#a97ea8c5b232ca4b7abcb7b15f7c224b3", null ],
+    [ "create", "da/d1e/a00149.html#a89eb1195dee2cb2b9ca34001dee08b96", null ],
+    [ "getBits", "da/d1e/a00149.html#a039ad5d0cfdd0268f0d5b3d16e64f47e", null ],
+    [ "getBitsFromISR", "da/d1e/a00149.html#aa0d5697fc4ffd665d0a7bc52a9799dff", null ],
+    [ "isCreated", "da/d1e/a00149.html#a6ad2b1b07641d6e84ffa57a7b37bae92", null ],
+    [ "release", "da/d1e/a00149.html#ac507c3531e056a4591fc14cb051ef3cb", null ],
+    [ "setBits", "da/d1e/a00149.html#abd5e7a9d70c53c7e7c66afc5d12de43d", null ],
+    [ "setBitsFromISR", "da/d1e/a00149.html#abf8680bfb496317427a9f2779b5ccf01", null ],
+    [ "syncBits", "da/d1e/a00149.html#a0c0cf0a87fcd0a27ff127e2e7d438c73", null ],
+    [ "waitForBits", "da/d1e/a00149.html#a72dd46a1c97d37b0e35c2b2857153d66", null ]
 ];

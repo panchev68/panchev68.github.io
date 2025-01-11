@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: MemoryManager</title>
+<title>Lib::FreeRTOS: EventGroup Class Reference</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,74 +99,34 @@ $(function(){initNavTree('d9/dd0/a00191.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MemoryManager</div></div>
+  <div class="headertitle"><div class="title">EventGroup Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file MemoryManager.cpp</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @brief MemoryManager class example</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @version 1.0</span></div>
-<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d2e/a00056.html">MessageBuffer.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a message buffer in FreeRTOS.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function performs the following steps:</span></div>
-<div class="line"><span class="comment"> * 1. Creates a message buffer with a size of 100 bytes.</span></div>
-<div class="line"><span class="comment"> * 2. Sends a message &quot;Hello, FreeRTOS!&quot; to the message buffer.</span></div>
-<div class="line"><span class="comment"> * 3. Receives the message from the message buffer and prints it.</span></div>
-<div class="line"><span class="comment"> * 4. Releases the message buffer.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create a message buffer with a size of 100 bytes</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d06/a00131.html">Lib::FreeRTOS::MessageBuffer</a> messageBuffer;</div>
-<div class="line">    <span class="keywordflow">if</span> (!messageBuffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a16516aeccd9c706e8eee91172163f7b8">create</a> (100)) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create message buffer&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Send a message to the message buffer</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * message = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
-<div class="line">    <span class="keywordtype">size_t</span> messageLength = strlen (message) + 1;  <span class="comment">// Include null terminator</span></div>
-<div class="line">    <span class="keywordflow">if</span> (messageBuffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a17561e31205ea64d3f3d8c17ca55ff69">send</a> (message, messageLength, 100) != messageLength) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to send message&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Receive a message from the message buffer</span></div>
-<div class="line">    <span class="keywordtype">char</span> receivedMessage [100];</div>
-<div class="line">    <span class="keywordtype">size_t</span> receivedLength = messageBuffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a8f160675bb113e76d3a32a9f78d3b7a1">receive</a> (receivedMessage, <span class="keyword">sizeof</span> (receivedMessage), 100);</div>
-<div class="line">    <span class="keywordflow">if</span> (receivedLength &gt; 0) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; receivedMessage &lt;&lt; std::endl;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the message buffer</span></div>
-<div class="line">    messageBuffer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a6e19504ccebb37e3057dbec82a850712">release</a> ();</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00056_html"><div class="ttname"><a href="../../d9/d2e/a00056.html">MessageBuffer.hpp</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS message buffers.</div></div>
-<div class="ttc" id="aa00131_html"><div class="ttname"><a href="../../d7/d06/a00131.html">Lib::FreeRTOS::MessageBuffer</a></div><div class="ttdoc">A class providing a C++ wrapper for FreeRTOS message buffers.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:26</div></div>
-<div class="ttc" id="aa00131_html_a16516aeccd9c706e8eee91172163f7b8"><div class="ttname"><a href="../../d7/d06/a00131.html#a16516aeccd9c706e8eee91172163f7b8">Lib::FreeRTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t nsize)</div><div class="ttdoc">Creates a new message buffer using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:62</div></div>
-<div class="ttc" id="aa00131_html_a17561e31205ea64d3f3d8c17ca55ff69"><div class="ttname"><a href="../../d7/d06/a00131.html#a17561e31205ea64d3f3d8c17ca55ff69">Lib::FreeRTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *src, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:107</div></div>
-<div class="ttc" id="aa00131_html_a6e19504ccebb37e3057dbec82a850712"><div class="ttname"><a href="../../d7/d06/a00131.html#a6e19504ccebb37e3057dbec82a850712">Lib::FreeRTOS::MessageBuffer::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Releases the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:80</div></div>
-<div class="ttc" id="aa00131_html_a8f160675bb113e76d3a32a9f78d3b7a1"><div class="ttname"><a href="../../d7/d06/a00131.html#a8f160675bb113e76d3a32a9f78d3b7a1">Lib::FreeRTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dst, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Receives a message from the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:158</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class representing an event group in FreeRTOS. </p>
+<p>This class provides an interface to create and manage event groups in FreeRTOS. Event groups are used to manage sets of events, where each event is represented by a bit in a 32-bit value.</p>
+<dl class="section note"><dt>Note</dt><dd>This class initializes the event group handle to nullptr. </dd></dl>
+</div>
+<p><code>#include &lt;EventGroup.hpp&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for EventGroup:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../da/deb/a00189.png" border="0" usemap="#a_event_group_coll__map" alt="Collaboration graph"/></div>
+<map name="a_event_group_coll__map" id="a_event_group_coll__map">
+<area shape="rect" title="A class representing an event group in FreeRTOS." alt="" coords="5,5,85,75"/>
+</map>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d3/d8b/a00059.html">EventGroup.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">EventGroup</a></li>
     <li class="footer">Generated on Sat Jan 11 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>

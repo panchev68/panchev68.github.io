@@ -1,4 +1,4 @@
 var a00056 =
 [
-    [ "Lib::FreeRTOS::MemoryManager", "d6/db3/a00130.html", null ]
+    [ "Lib::FreeRTOS::EventGroup", "d1/d88/a00128.html", "d1/d88/a00128" ]
 ];

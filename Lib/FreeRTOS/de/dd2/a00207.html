@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Task</title>
+<title>Lib::FreeRTOS: Karnel</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,52 +99,74 @@ $(function(){initNavTree('de/dd2/a00207.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Task</div></div>
+  <div class="headertitle"><div class="title">Karnel</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the Task class.</p>
-<p>Example usage of the Task class.This example demonstrates how to use the Task class to create and manage FreeRTOS tasks.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/dec/a00080.html">Task.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<p>This example demonstrates how to use the Karnel class to interact with the FreeRTOS kernel. </p><div class="fragment"><div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Karnel.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Demonstrates various FreeRTOS kernel operations.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains a main function that demonstrates the following FreeRTOS kernel operations:</span></div>
+<div class="line"><span class="comment"> * - Retrieving and printing the current tick count.</span></div>
+<div class="line"><span class="comment"> * - Retrieving and printing the number of tasks in the scheduler.</span></div>
+<div class="line"><span class="comment"> * - If the macro INCLUDE_xTaskGetSchedulerState is set to 1, retrieving and printing the current state of the scheduler.</span></div>
+<div class="line"><span class="comment"> * - Entering and exiting a critical section.</span></div>
+<div class="line"><span class="comment"> * - Disabling and enabling interrupts.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d24/a00068.html">Karnel.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTaskFunction() {</div>
-<div class="line">    <span class="comment">// Print a message indicating the task is running</span></div>
-<div class="line">    printf(<span class="stringliteral">&quot;Example task is running\n&quot;</span>);</div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating various FreeRTOS kernel operations.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function performs the following operations:</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the current tick count.</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the number of tasks in the scheduler.</span></div>
+<div class="line"><span class="comment"> * - If the macro INCLUDE_xTaskGetSchedulerState is set to 1, retrieves and prints the current state of the scheduler.</span></div>
+<div class="line"><span class="comment"> * - Enters and exits a critical section.</span></div>
+<div class="line"><span class="comment"> * - Disables and enables interrupts.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 upon successful completion.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="comment">// Get the current tick count</span></div>
+<div class="line">    TickType_t tickCount = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d5/d4e/a00141.html#a80413fef80c962f92b4d4a58942e431f">Lib::FreeRTOS::Karnel::getTickCount</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current tick count: &quot;</span> &lt;&lt; tickCount &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Simulate some work by delaying for 1000 milliseconds</span></div>
-<div class="line">    <a id="a0" name="a0"></a><a class="code hl_function" href="../../dc/de6/a00167.html#a691a163c86981b2ddab32d34734ff952">Lib::FreeRTOS::TaskHelper::delay</a>(1000);</div>
+<div class="line">    <span class="comment">// Get the number of tasks in the scheduler</span></div>
+<div class="line">    UBaseType_t numberOfTasks = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d4e/a00141.html#a39b5fde4c9ecfb124940496473c9e43a">Lib::FreeRTOS::Karnel::getNumberOfTasks</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Number of tasks: &quot;</span> &lt;&lt; numberOfTasks &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Print a message indicating the task is completing</span></div>
-<div class="line">    printf(<span class="stringliteral">&quot;Example task is completing\n&quot;</span>);</div>
+<div class="line"><span class="preprocessor">#if (INCLUDE_xTaskGetSchedulerState == 1)</span></div>
+<div class="line">    <span class="comment">// Get the current state of the scheduler</span></div>
+<div class="line">    Lib::FreeRTOS::Karnel::SchedulerState schedulerState = Lib::FreeRTOS::Karnel::getSchedulerState ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Scheduler state: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span>BaseType_t<span class="keyword">&gt;</span> (schedulerState) &lt;&lt; std::endl;</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Enter and exit a critical section</span></div>
+<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d4e/a00141.html#a7fac97f778f8fe2bba7e766ff2705183">Lib::FreeRTOS::Karnel::enterCritical</a> ();</div>
+<div class="line">    <span class="comment">// Critical section code here</span></div>
+<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../d5/d4e/a00141.html#a61a7d0c43fff2534b37481b3efd7f518">Lib::FreeRTOS::Karnel::exitCritical</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Enable and disable interrupts</span></div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../d5/d4e/a00141.html#a793d9f14fcb50dd90d2d7e209661ea8b">Lib::FreeRTOS::Karnel::disableInterrupts</a> ();</div>
+<div class="line">    <span class="comment">// Code that should not be interrupted</span></div>
+<div class="line">    <a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/d4e/a00141.html#abed6565a2bc0e0fd61334be341bd3847">Lib::FreeRTOS::Karnel::enableInterrupts</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Create a task configuration</span></div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_struct" href="../../dd/dae/a00163.html">Lib::FreeRTOS::Task::Config</a> config {</div>
-<div class="line">        .name = <span class="stringliteral">&quot;ExampleTask&quot;</span>,</div>
-<div class="line">        .func = exampleTaskFunction,</div>
-<div class="line">        .stackDepth = configMINIMAL_STACK_SIZE,</div>
-<div class="line">        .priority = DEFAULT_TASK_PRIORITY</div>
-<div class="line">    };</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create and run the task</span></div>
-<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../de/db9/a00159.html">Lib::FreeRTOS::Task</a> *task = <a id="a3" name="a3"></a><a class="code hl_function" href="../../de/db9/a00159.html#a83c88479944e945ad67f45a6e5d07c4c">Lib::FreeRTOS::Task::run</a>(config);</div>
-<div class="line">    <span class="keywordflow">if</span> (task == <span class="keyword">nullptr</span>) {</div>
-<div class="line">        printf(<span class="stringliteral">&quot;Failed to create task\n&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Start the scheduler</span></div>
-<div class="line">    vTaskStartScheduler();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// The program should never reach here</span></div>
-<div class="line">    <span class="keywordflow">for</span> (;;);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00080_html"><div class="ttname"><a href="../../da/dec/a00080.html">Task.hpp</a></div><div class="ttdoc">This file contains the definition of the Task class for FreeRTOS.</div></div>
-<div class="ttc" id="aa00159_html"><div class="ttname"><a href="../../de/db9/a00159.html">Lib::FreeRTOS::Task</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS tasks.</div><div class="ttdef"><b>Definition</b> Task.hpp:50</div></div>
-<div class="ttc" id="aa00159_html_a83c88479944e945ad67f45a6e5d07c4c"><div class="ttname"><a href="../../de/db9/a00159.html#a83c88479944e945ad67f45a6e5d07c4c">Lib::FreeRTOS::Task::run</a></div><div class="ttdeci">static Task * run(const std::string &amp;name, const std::function&lt; void()&gt; &amp;func, size_t stackDepth=configMINIMAL_STACK_SIZE, int32_t priority=DEFAULT_TASK_PRIORITY)</div><div class="ttdoc">Creates and runs a task with the specified parameters.</div><div class="ttdef"><b>Definition</b> Task.hpp:155</div></div>
-<div class="ttc" id="aa00163_html"><div class="ttname"><a href="../../dd/dae/a00163.html">Lib::FreeRTOS::Task::Config</a></div><div class="ttdoc">Configuration struct for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:88</div></div>
-<div class="ttc" id="aa00167_html_a691a163c86981b2ddab32d34734ff952"><div class="ttname"><a href="../../dc/de6/a00167.html#a691a163c86981b2ddab32d34734ff952">Lib::FreeRTOS::TaskHelper::delay</a></div><div class="ttdeci">static void delay(const uint32_t time)</div><div class="ttdoc">Delays the execution of the current task for a specified time.</div><div class="ttdef"><b>Definition</b> TaskHelper.hpp:237</div></div>
+<div class="ttc" id="aa00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">Karnel.hpp</a></div><div class="ttdoc">Header file for the Karnel class providing access to FreeRTOS kernel functions.</div></div>
+<div class="ttc" id="aa00141_html_a39b5fde4c9ecfb124940496473c9e43a"><div class="ttname"><a href="../../d5/d4e/a00141.html#a39b5fde4c9ecfb124940496473c9e43a">Lib::FreeRTOS::Karnel::getNumberOfTasks</a></div><div class="ttdeci">static UBaseType_t getNumberOfTasks()</div><div class="ttdoc">Gets the number of tasks in the FreeRTOS scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:81</div></div>
+<div class="ttc" id="aa00141_html_a61a7d0c43fff2534b37481b3efd7f518"><div class="ttname"><a href="../../d5/d4e/a00141.html#a61a7d0c43fff2534b37481b3efd7f518">Lib::FreeRTOS::Karnel::exitCritical</a></div><div class="ttdeci">static void exitCritical()</div><div class="ttdoc">Exits a critical section.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:176</div></div>
+<div class="ttc" id="aa00141_html_a793d9f14fcb50dd90d2d7e209661ea8b"><div class="ttname"><a href="../../d5/d4e/a00141.html#a793d9f14fcb50dd90d2d7e209661ea8b">Lib::FreeRTOS::Karnel::disableInterrupts</a></div><div class="ttdeci">static void disableInterrupts()</div><div class="ttdoc">Disables all interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:210</div></div>
+<div class="ttc" id="aa00141_html_a7fac97f778f8fe2bba7e766ff2705183"><div class="ttname"><a href="../../d5/d4e/a00141.html#a7fac97f778f8fe2bba7e766ff2705183">Lib::FreeRTOS::Karnel::enterCritical</a></div><div class="ttdeci">static void enterCritical()</div><div class="ttdoc">Enters a critical section by disabling interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:149</div></div>
+<div class="ttc" id="aa00141_html_a80413fef80c962f92b4d4a58942e431f"><div class="ttname"><a href="../../d5/d4e/a00141.html#a80413fef80c962f92b4d4a58942e431f">Lib::FreeRTOS::Karnel::getTickCount</a></div><div class="ttdeci">static TickType_t getTickCount()</div><div class="ttdoc">Gets the current tick count from the FreeRTOS scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:106</div></div>
+<div class="ttc" id="aa00141_html_abed6565a2bc0e0fd61334be341bd3847"><div class="ttname"><a href="../../d5/d4e/a00141.html#abed6565a2bc0e0fd61334be341bd3847">Lib::FreeRTOS::Karnel::enableInterrupts</a></div><div class="ttdeci">static void enableInterrupts()</div><div class="ttdoc">Enables interrupts in the system.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:199</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -1,4 +1,4 @@
 var a00092 =
 [
-    [ "Lib::FreeRTOS::Timeout", "d9/d90/a00178.html", "d9/d90/a00178" ]
+    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "de/d53/a00169.html", "de/d53/a00169" ]
 ];

@@ -1,6 +1,7 @@
 var a00172 =
 [
-    [ "autoReload", "d6/dfb/a00172.html#ac5c33d97089332a4d25af41a2c8041b9", null ],
-    [ "name", "d6/dfb/a00172.html#abbaf6e685702546abd307b8f61e0097e", null ],
-    [ "period", "d6/dfb/a00172.html#a2efaeed1879a053a585ed05adef8eba9", null ]
+    [ "func", "d6/dfb/a00172.html#aa1cbd9d531a85e7596228475c693fbee", null ],
+    [ "name", "d6/dfb/a00172.html#a00c0ef217bb312f0820749a21f9cce6f", null ],
+    [ "priority", "d6/dfb/a00172.html#a84c02b93bc259708fd276b6455cd4e4f", null ],
+    [ "stackDepth", "d6/dfb/a00172.html#a14104e3c00b859ce6e2268a8bbceac73", null ]
 ];

@@ -1,6 +1,4 @@
 var a00098 =
 [
-    [ "Binary Semaphore", "da/d74/a00099.html", null ],
-    [ "Counting Semaphore", "d0/d61/a00100.html", null ],
-    [ "Mutex", "d4/d3a/a00101.html", null ]
+    [ "Lib::FreeRTOS::Semaphore", "d7/d3f/a00173.html", "d7/d3f/a00173" ]
 ];

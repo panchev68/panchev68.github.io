@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Timer</title>
+<title>Lib::FreeRTOS: CoRoutine</title>
 <link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,34 +99,36 @@ $(function(){initNavTree('d3/dd5/a00215.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Timer</div></div>
+  <div class="headertitle"><div class="title">CoRoutine</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the Timer class to create and manage FreeRTOS timers.</p>
-<p>Example usage of the Timer class to create and manage FreeRTOS timers.This example demonstrates how to create, start, and stop a FreeRTOS timer using the Timer class. It shows how to set up a timer with a callback function and manage its lifecycle.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d1/dc1/a00092.html">Timer.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timerCallback() {</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Timer expired!&quot;</span> &lt;&lt; std::endl;</div>
+<p>This example demonstrates how to use the CoRoutine class to create and manage FreeRTOS co-routines. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Example function demonstrating the usage of a FreeRTOS co-routine.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function creates a co-routine using a lambda function. The lambda function</span></div>
+<div class="line"><span class="comment"> * contains an infinite loop with a delay of 100 ticks.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The lambda function is defined as follows:</span></div>
+<div class="line"><span class="comment"> * - @param hnd: The handle to the co-routine.</span></div>
+<div class="line"><span class="comment"> * - @param index: The index of the co-routine.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The co-routine is created with the following parameters:</span></div>
+<div class="line"><span class="comment"> * - func: The lambda function defined above.</span></div>
+<div class="line"><span class="comment"> * - 0: The priority of the co-routine.</span></div>
+<div class="line"><span class="comment"> * - 0: The index of the co-routine.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> example () {</div>
+<div class="line">    <span class="keyword">auto</span> func = [] (CoRoutineHandle_t hnd, UBaseType_t index) {</div>
+<div class="line">        crSTART (hnd);</div>
+<div class="line">        <span class="keywordflow">for</span> (;;) {</div>
+<div class="line">            crDELAY (hnd, 100);</div>
+<div class="line">        }</div>
+<div class="line">        crEND ();</div>
+<div class="line">    };</div>
+<div class="line">    Lib::FreeRTOS::CoRoutine coRoutine (func, 0, 0);</div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Create a timer with a period of 1000 ticks (1 second) and auto-reload enabled</span></div>
-<div class="line">    Lib::FreeRTOS::Timer timer(<span class="stringliteral">&quot;ExampleTimer&quot;</span>, timerCallback, 1000, <span class="keyword">true</span>, <span class="keyword">true</span>);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for some time to let the timer expire a few times</span></div>
-<div class="line">    vTaskDelay(pdMS_TO_TICKS(5000));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Stop the timer</span></div>
-<div class="line">    timer.stop();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the timer</span></div>
-<div class="line">    timer.release();</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00092_html"><div class="ttname"><a href="../../d1/dc1/a00092.html">Timer.hpp</a></div><div class="ttdoc">A class providing a C++ interface for FreeRTOS timers.</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

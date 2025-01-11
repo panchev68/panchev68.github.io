@@ -1,4 +1,4 @@
 var a00062 =
 [
-    [ "Lib::FreeRTOS::Mutex", "d4/ddd/a00138.html", "d4/ddd/a00138" ]
+    [ "Lib::FreeRTOS::EventGroup", "de/d76/a00134.html", "de/d76/a00134" ]
 ];
