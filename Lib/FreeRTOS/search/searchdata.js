@@ -8,8 +8,9 @@ var indexSectionsWithContent =
   5: "afhnps",
   6: "hmn",
   7: "n",
-  8: "bcegkmqrst",
-  9: "cfw"
+  8: "ins",
+  9: "bcegkmqrst",
+  10: "cfw"
 };
 
 var indexSectionNames =
@@ -22,8 +23,9 @@ var indexSectionNames =
   5: "variables",
   6: "typedefs",
   7: "enums",
-  8: "groups",
-  9: "pages"
+  8: "enumvalues",
+  9: "groups",
+  10: "pages"
 };
 
 var indexSectionLabels =
@@ -36,7 +38,8 @@ var indexSectionLabels =
   5: "Variables",
   6: "Typedefs",
   7: "Enumerations",
-  8: "Modules",
-  9: "Pages"
+  8: "Enumerator",
+  9: "Modules",
+  10: "Pages"
 };
 
