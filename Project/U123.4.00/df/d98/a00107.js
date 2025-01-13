@@ -1,4 +1,5 @@
 var a00107 =
 [
-    [ "HAL::EXTI7", "d0/d48/a00351.html", "d0/d48/a00351" ]
+    [ "DAL::DigitalPeripheralData", "d2/daf/a00346.html", "d2/daf/a00346" ],
+    [ "DAL::digitalPeripheralData", "d3/dd1/a00214.html#a52ab1dda8f27723de759e768ecc25ceb", null ]
 ];

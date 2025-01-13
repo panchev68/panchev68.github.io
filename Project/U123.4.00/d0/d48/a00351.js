@@ -1,5 +1,5 @@
 var a00351 =
 [
-    [ "bind", "d0/d48/a00351.html#a55f7577d36892aa742ee175fbd1a8a95", null ],
-    [ "read", "d0/d48/a00351.html#a92e95750bc48c247af2c3622e1be5b94", null ]
+    [ "writeHalfByte", "d0/d48/a00351.html#adfd05bf2bb55c558bcb512c6aca5d6f7", null ],
+    [ "writeGPIOData", "d0/d48/a00351.html#a11163862be01ab5180d610444b92b36a", null ]
 ];

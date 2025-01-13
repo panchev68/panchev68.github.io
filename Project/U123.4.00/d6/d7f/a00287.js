@@ -1,8 +1,15 @@
 var a00287 =
 [
-    [ "numberOfPins", "d6/d7f/a00287.html#a106affd182052cba0f62265136279344", null ],
-    [ "spi", "d6/d7f/a00287.html#a24f9204c0a9473f2e9de106852130c7c", null ],
-    [ "nss", "d6/d7f/a00287.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
-    [ "oe", "d6/d7f/a00287.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
-    [ "mapFields", "d6/d7f/a00287.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ]
+    [ "Inputs", "d6/d7f/a00287.html#a6d35d70d315b33f0bf83b20668b05d7e", null ],
+    [ "~Inputs", "d6/d7f/a00287.html#a5a691d3d6a57181bbb123bd638a15ba8", null ],
+    [ "Inputs", "d6/d7f/a00287.html#a72ae32a187aec4a1341c29fa34cecf0f", null ],
+    [ "Inputs", "d6/d7f/a00287.html#a3ee90f3553870fea0a5a7a486fff1e1f", null ],
+    [ "operator=", "d6/d7f/a00287.html#af2db68213cb35f3fa4d598557581b231", null ],
+    [ "operator=", "d6/d7f/a00287.html#a5ae141daf127f10f0bcbad2853dba535", null ],
+    [ "setup", "d6/d7f/a00287.html#add7e0f0e1fc95685facd7853a5338a56", null ],
+    [ "getValue", "d6/d7f/a00287.html#a1ee5007f7a0c6ba0e9e214efae69b3c2", null ],
+    [ "preUpdateCallback", "d6/d7f/a00287.html#a0fa2ee9d60a8d9443b87cb26da6a4354", null ],
+    [ "update", "d6/d7f/a00287.html#a7ea7740190d6717eac78470a2ce5d0c1", null ],
+    [ "getSpiHandle", "d6/d7f/a00287.html#afc97d0941c2071cb123a657e9bf765e5", null ],
+    [ "onValueChanged", "d6/d7f/a00287.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
 ];

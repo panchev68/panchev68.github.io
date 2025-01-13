@@ -1,4 +1,4 @@
 var a00173 =
 [
-    [ "UI::Screen::MenuSystemSetup", "de/d84/a00447.html", null ]
+    [ "UI::Screen::MenuSelectApplication", "db/d34/a00442.html", null ]
 ];

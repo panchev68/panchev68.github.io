@@ -1,4 +1,4 @@
 var a00143 =
 [
-    [ "UI::ScreenBase", "d1/d98/a00407.html", "d1/d98/a00407" ]
+    [ "UI::MenuItem", "d4/d6d/a00402.html", "d4/d6d/a00402" ]
 ];

@@ -1,4 +1,4 @@
 var a00050 =
 [
-    [ "App::ApplicationManager", "df/d17/a00231.html", "df/d17/a00231" ]
+    [ "App::ApplicationBase", "dc/d55/a00226.html", "dc/d55/a00226" ]
 ];

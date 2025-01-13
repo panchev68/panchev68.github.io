@@ -1,4 +1,4 @@
 var a00182 =
 [
-    [ "UI::Screen::PeripheralOutputs", "d2/d91/a00459.html", null ]
+    [ "UI::Screen::PeripheralInputs", "d7/d9f/a00454.html", null ]
 ];

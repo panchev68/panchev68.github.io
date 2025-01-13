@@ -1,5 +1,5 @@
 var a00419 =
 [
-    [ "Keycode", "d3/d29/a00419.html#a78df8c3cb5845e974700a6b6e28ea177", null ],
-    [ "onGotoPrevoidScreen", "d3/d29/a00419.html#afb699e4c82e464fc0fbdc1d51b371e87", null ]
+    [ "Keycode", "d3/d29/a00419.html#a40724eb50ca03cd8e4cdc5f429346dcc", null ],
+    [ "onGotoPrevoidScreen", "d3/d29/a00419.html#a3c70593b2ad2162d55ba64eba7c8952f", null ]
 ];

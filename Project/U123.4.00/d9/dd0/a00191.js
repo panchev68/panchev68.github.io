@@ -1,4 +1,4 @@
 var a00191 =
 [
-    [ "UI::Screen::SaleDateVeiw", "d4/d4b/a00471.html", null ]
+    [ "UI::Screen::ResetState", "db/d2c/a00466.html", null ]
 ];
