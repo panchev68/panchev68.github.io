@@ -26,7 +26,6 @@ var NAVTREE =
 [
   [ "U123", "index.html", [
     [ "U123 STM32 version", "index.html", null ],
-    [ "Namespaces", "namespaces.html", null ],
     [ "Classes", "annotated.html", null ],
     [ "Files", "files.html", null ]
   ] ]
