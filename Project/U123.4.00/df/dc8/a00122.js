@@ -1,4 +1,4 @@
 var a00122 =
 [
-    [ "HAL::UART2", "d2/d3e/a00366.html", null ]
+    [ "HAL::UART2", "dd/db5/a00365.html", null ]
 ];

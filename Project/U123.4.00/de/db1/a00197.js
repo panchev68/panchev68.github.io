@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "UI::Screen::SerialNumber", "d5/d26/a00474.html", "d5/d26/a00474" ]
+    [ "UI::Screen::SerialNumber", "dc/d8e/a00473.html", "dc/d8e/a00473" ]
 ];

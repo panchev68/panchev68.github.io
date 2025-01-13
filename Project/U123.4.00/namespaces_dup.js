@@ -6,6 +6,5 @@ var namespaces_dup =
     [ "HAL", "df/d24/a00217.html", "df/d24/a00217" ],
     [ "SCREEN", "d1/de1/a00213.html", null ],
     [ "System", "d6/d43/a00216.html", "d6/d43/a00216" ],
-    [ "UI", "dc/d9a/a00218.html", "dc/d9a/a00218" ],
-    [ "UTIL", "dd/df3/a00219.html", null ]
+    [ "UI", "dc/d9a/a00218.html", "dc/d9a/a00218" ]
 ];

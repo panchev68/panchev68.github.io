@@ -1,4 +1,4 @@
 var a00116 =
 [
-    [ "HAL::SPI2Port", "df/d73/a00358.html", null ]
+    [ "HAL::SPI2Port", "df/df1/a00357.html", null ]
 ];
