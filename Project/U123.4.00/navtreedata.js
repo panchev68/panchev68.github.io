@@ -26,42 +26,15 @@ var NAVTREE =
 [
   [ "U123", "index.html", [
     [ "U123 STM32 version", "index.html", null ],
-    [ "Topics", "topics.html", "topics" ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
-    ] ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
-    ] ]
+    [ "Namespaces", "namespaces.html", null ],
+    [ "Classes", "annotated.html", null ],
+    [ "Files", "files.html", null ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"db/d95/a00391.html#a1316e077d54da77625d431511be30199"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
