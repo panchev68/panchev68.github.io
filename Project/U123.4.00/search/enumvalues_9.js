@@ -1,8 +1,4 @@
 var searchData=
 [
-  ['remote_5fio_5f57600_0',['REMOTE_IO_57600',['../d6/d43/a00216.html#ab45a400755a4ef080ecbf687e6d41743a1d66df8dcc093a95375a27e772d3e7e1',1,'App']]],
-  ['remote_5fio_5f9600_1',['REMOTE_IO_9600',['../d6/d43/a00216.html#ab45a400755a4ef080ecbf687e6d41743a11f0e87fb1258a4b0dac267ff6bd9046',1,'App']]],
-  ['right_2',['RIGHT',['../de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403',1,'BSP::Keyboard::RIGHT'],['../da/dee/a00383.html#a7e3681efc90892e4940212ec16f23117a21507b40c80068eda19865706fdc2403',1,'Align::RIGHT']]],
-  ['rotate_5ftable_5fparallel_3',['ROTATE_TABLE_PARALLEL',['../d6/d43/a00216.html#ab45a400755a4ef080ecbf687e6d41743a7269b7a76d4ef615ea7c10ac36b5eb09',1,'App']]],
-  ['rotate_5ftable_5fserial_4',['ROTATE_TABLE_SERIAL',['../d6/d43/a00216.html#ab45a400755a4ef080ecbf687e6d41743a3f00fe4b9d64e735bebd68c97af72b4f',1,'App']]]
+  ['parallel_0',['PARALLEL',['../dd/d86/a00271.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb',1,'Lib::BSP::DigitalPeripheralBase']]]
 ];

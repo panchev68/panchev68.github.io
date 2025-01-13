@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enter_0',['ENTER',['../de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13',1,'BSP::Keyboard']]]
+  ['days_0',['DAYS',['../db/db9/a00387.html#a7e3f82656d537a899766434fbf220947a163cf6920c55bd103de27f0941f1dc3a',1,'UI::EditDateBase']]]
 ];
