@@ -1,6 +1,5 @@
 var a00218 =
 [
-    [ "Screen", "d0/d24/a00222.html", "d0/d24/a00222" ],
     [ "EditDateBase", "dd/df5/a00386.html", "dd/df5/a00386" ],
     [ "EditValueBase", "d9/d0a/a00390.html", "d9/d0a/a00390" ],
     [ "MenuBase", "d9/dd1/a00398.html", "d9/dd1/a00398" ],

@@ -7,6 +7,5 @@ var a00402 =
     [ "isActive", "d4/d6d/a00402.html#afd38b3989456c30faac5611a6913e192", null ],
     [ "run", "d4/d6d/a00402.html#a559af2003edea9d5589f3c34187521f0", null ],
     [ "getString", "d4/d6d/a00402.html#a2a3343a4c9464966c615b032e9130840", null ],
-    [ "setString", "d4/d6d/a00402.html#a58621547b9a2520433307db78b6ea408", null ],
-    [ "MenuBase", "d4/d6d/a00402.html#a5580295c2ac8c457ab9dc53ae71fed32", null ]
+    [ "setString", "d4/d6d/a00402.html#a58621547b9a2520433307db78b6ea408", null ]
 ];

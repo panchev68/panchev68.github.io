@@ -11,6 +11,5 @@ var a00322 =
       [ "HOLD_LEFT", "de/de9/a00322.html#a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff", null ],
       [ "HOLD_RIGHT", "de/de9/a00322.html#a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b", null ]
     ] ],
-    [ "sample", "de/de9/a00322.html#a22ebf10145aaf6bca2ea697ab2716fa1", null ],
-    [ "Display", "de/de9/a00322.html#a97af53b9a9ff09603a3dbcbe7074ad11", null ]
+    [ "sample", "de/de9/a00322.html#a22ebf10145aaf6bca2ea697ab2716fa1", null ]
 ];

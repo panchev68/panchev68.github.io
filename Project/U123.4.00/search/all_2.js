@@ -10,6 +10,5 @@ var searchData=
   ['comport_7',['ComPort',['../d7/d2f/a00258.html',1,'BSP']]],
   ['comport_2ehpp_8',['ComPort.hpp',['../da/dec/a00080.html',1,'']]],
   ['config_9',['Config',['../dd/dbb/a00330.html',1,'BSP::Lcd::Config'],['../dc/d5d/a00278.html',1,'Lib::BSP::DigitalPeripheralBase::Config']]],
-  ['control_10',['control',['../d1/de3/a00306.html#a673a74355aa4903c637670bd743b0e5a',1,'Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort']]],
-  ['controller_5fname_11',['CONTROLLER_NAME',['../db/d8e/a00482.html#adc369a0e3ab54e4e633d86227173b984',1,'UI::Texts']]]
+  ['control_10',['control',['../d1/de3/a00306.html#a673a74355aa4903c637670bd743b0e5a',1,'Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort']]]
 ];

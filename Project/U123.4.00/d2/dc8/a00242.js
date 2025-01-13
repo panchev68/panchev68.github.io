@@ -1,4 +1,5 @@
 var a00242 =
 [
-    [ "RemoteIO9600", "d2/dc8/a00242.html#ab5a98976c21213a28e706fc9de81f126", null ]
+    [ "RemoteIO9600", "d2/dc8/a00242.html#ab5a98976c21213a28e706fc9de81f126", null ],
+    [ "getName", "d2/dc8/a00242.html#ae93a509fa3f70467e50bc7cdcd33a99e", null ]
 ];
