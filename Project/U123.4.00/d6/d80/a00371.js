@@ -1,6 +1,5 @@
 var a00371 =
 [
-    [ "Parameters", "dd/dcb/a00375.html", "dd/dcb/a00375" ],
-    [ "setup", "d6/d80/a00371.html#a5a287f7d97688ebfc6e0932e6c77681b", null ],
-    [ "parameters", "d6/d80/a00371.html#a72096f7685087d4c23ebdc39b3dc0820", null ]
+    [ "ApplicationMode", "d6/d80/a00371.html#a18f40b56169339ee98a769d74500a187", null ],
+    [ "applicationMode", "d6/d80/a00371.html#abbe026677d2620b97791aaac08245490", null ]
 ];

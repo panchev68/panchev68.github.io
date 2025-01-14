@@ -1,4 +1,5 @@
 var a00140 =
 [
-    [ "UI::MenuBase", "d7/d93/a00397.html", "d7/d93/a00397" ]
+    [ "UI::EditValueBase", "db/d95/a00391.html", "db/d95/a00391" ],
+    [ "UI::EditValueBase::Separators", "db/dbc/a00395.html", "db/dbc/a00395" ]
 ];

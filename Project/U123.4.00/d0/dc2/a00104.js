@@ -1,4 +1,4 @@
 var a00104 =
 [
-    [ "DAL::CommunicationStatus", "d3/d93/a00341.html", "d3/d93/a00341" ]
+    [ "BSP::M24C64W", "d0/d01/a00339.html", null ]
 ];

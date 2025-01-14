@@ -1,16 +1,11 @@
 var a00319 =
 [
-    [ "Keycode", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7", [
-      [ "NONE", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "ENTER", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13", null ],
-      [ "CLEAR", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a813461e0c58e7ad59a2fd83ca2237fec", null ],
-      [ "LEFT", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a684d325a7303f52e64011467ff5c5758", null ],
-      [ "RIGHT", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403", null ],
-      [ "HOLD_ENTER", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a96954c675b4ff765a0fe0d007989c2e0", null ],
-      [ "HOLD_CLEAR", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a1a0e892af7673f9d357e5a4b1b42e8ca", null ],
-      [ "HOLD_LEFT", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff", null ],
-      [ "HOLD_RIGHT", "de/dab/a00319.html#a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b", null ]
-    ] ],
-    [ "sample", "de/dab/a00319.html#a22ebf10145aaf6bca2ea697ab2716fa1", null ],
-    [ "Display", "de/dab/a00319.html#a97af53b9a9ff09603a3dbcbe7074ad11", null ]
+    [ "LedMode", "de/dab/a00319.html#a2378d93d6893b2c8a4c6726a633a7a83", null ],
+    [ "setup", "de/dab/a00319.html#ab7856d6432dfad3ae2539ab7033c0744", null ],
+    [ "cls", "de/dab/a00319.html#ae7612f4eafe79b2541f41a32737f73ce", null ],
+    [ "print", "de/dab/a00319.html#ad044dc8767a40a1bcf30a5954773cdaa", null ],
+    [ "printf", "de/dab/a00319.html#a3adc723ea76c8db70fe966f98621f8bc", null ],
+    [ "printRow", "de/dab/a00319.html#a92a99099376f4b14647a77fad7c7651e", null ],
+    [ "key", "de/dab/a00319.html#a17998749ff835fe0bdf5c7905a2e35ba", null ],
+    [ "led", "de/dab/a00319.html#a5cfb7db4a98ba4a16b5a55b6a4e31898", null ]
 ];

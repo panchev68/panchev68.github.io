@@ -1,4 +1,4 @@
 var a00119 =
 [
-    [ "HAL::SPI3Port", "d7/ddb/a00361.html", null ]
+    [ "HAL::SPI2Port", "d4/def/a00359.html", null ]
 ];

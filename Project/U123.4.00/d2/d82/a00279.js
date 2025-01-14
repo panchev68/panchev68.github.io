@@ -1,7 +1,7 @@
 var a00279 =
 [
-    [ "numberOfPins", "d2/d82/a00279.html#ae921988b64cb6909ec8f99335b1df639", null ],
-    [ "spi", "d2/d82/a00279.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
-    [ "nss", "d2/d82/a00279.html#a552c483d980c1271fec712c347656bab", null ],
-    [ "mapFields", "d2/d82/a00279.html#a6ba986b69224c6da02e9101784aa392c", null ]
+    [ "Inputs", "dd/dfe/a00283.html", "dd/dfe/a00283" ],
+    [ "Outputs", "d6/d7f/a00287.html", "d6/d7f/a00287" ],
+    [ "inputs", "d2/d82/a00279.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d2/d82/a00279.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

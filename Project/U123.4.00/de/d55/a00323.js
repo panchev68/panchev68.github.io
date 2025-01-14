@@ -1,11 +1,15 @@
 var a00323 =
 [
-    [ "Config", "d8/dfc/a00327.html", "d8/dfc/a00327" ],
-    [ "Lcd", "de/d55/a00323.html#a622600281d987f56346ba530395ea085", null ],
-    [ "~Lcd", "de/d55/a00323.html#a64e66b4febb27e4f4321ba2c703d7a44", null ],
-    [ "setup", "de/d55/a00323.html#a487237b0aa8973eaa78966d24da6be64", null ],
-    [ "update", "de/d55/a00323.html#a5f5db436261ac8d695de428b42c9f6a7", null ],
-    [ "getBuffer", "de/d55/a00323.html#af7362d820a808c7061feb43d076703cf", null ],
-    [ "getBufferSize", "de/d55/a00323.html#ab230e5f67720376c7d92026f77066ece", null ],
-    [ "cls", "de/d55/a00323.html#a8fd56c1cef8a6d6327c36b0604f6797a", null ]
+    [ "Keycode", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7", [
+      [ "NONE", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "ENTER", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13", null ],
+      [ "CLEAR", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a813461e0c58e7ad59a2fd83ca2237fec", null ],
+      [ "LEFT", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a684d325a7303f52e64011467ff5c5758", null ],
+      [ "RIGHT", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403", null ],
+      [ "HOLD_ENTER", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a96954c675b4ff765a0fe0d007989c2e0", null ],
+      [ "HOLD_CLEAR", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a1a0e892af7673f9d357e5a4b1b42e8ca", null ],
+      [ "HOLD_LEFT", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff", null ],
+      [ "HOLD_RIGHT", "de/d55/a00323.html#a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b", null ]
+    ] ],
+    [ "sample", "de/d55/a00323.html#a22ebf10145aaf6bca2ea697ab2716fa1", null ]
 ];
