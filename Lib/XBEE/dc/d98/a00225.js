@@ -1,0 +1,37 @@
+var a00225 =
+[
+    [ "Frame", "dc/d55/a00226.html", "dc/d55/a00226" ],
+    [ "AtCommandString", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
+    [ "Checksum", "d3/d30/a00370.html", "d3/d30/a00370" ],
+    [ "ComDriver", "d5/db5/a00374.html", "d5/db5/a00374" ],
+    [ "Diagnostic", "d3/d45/a00382.html", "d3/d45/a00382" ],
+    [ "DigiApiFrameBuffer", "dd/df5/a00386.html", "dd/df5/a00386" ],
+    [ "EscapedCode", "d9/d0a/a00390.html", "d9/d0a/a00390" ],
+    [ "Frame0x00", "dd/dfd/a00438.html", "dd/dfd/a00438" ],
+    [ "Frame0x01", "db/d34/a00442.html", "db/d34/a00442" ],
+    [ "Frame0x08", "d3/def/a00446.html", "d3/def/a00446" ],
+    [ "Frame0x09", "de/df4/a00450.html", "de/df4/a00450" ],
+    [ "Frame0x17", "d7/d9f/a00454.html", "d7/d9f/a00454" ],
+    [ "Frame0x80", "db/d8e/a00482.html", "db/d8e/a00482" ],
+    [ "Frame0x81", "db/df1/a00486.html", "db/df1/a00486" ],
+    [ "Frame0x88", "d7/daa/a00490.html", "d7/daa/a00490" ],
+    [ "Frame0x89", "d5/d0f/a00494.html", "d5/d0f/a00494" ],
+    [ "Frame0x8a", "d8/d57/a00498.html", "d8/d57/a00498" ],
+    [ "Frame0x8b", "d0/da2/a00502.html", "d0/da2/a00502" ],
+    [ "Frame0x90", "d4/d1f/a00506.html", "d4/d1f/a00506" ],
+    [ "Frame0x97", "d6/d52/a00510.html", "d6/d52/a00510" ],
+    [ "LocalAtCommand", "de/df7/a00418.html", "de/df7/a00418" ],
+    [ "Message", "db/d43/a00422.html", "db/d43/a00422" ],
+    [ "ModemStatus", "d7/db9/a00426.html", "d7/db9/a00426" ],
+    [ "Module", "dc/d0c/a00430.html", "dc/d0c/a00430" ],
+    [ "Protocol", "d1/d7e/a00434.html", "d1/d7e/a00434" ],
+    [ "QueryBase", "db/d2c/a00466.html", "db/d2c/a00466" ],
+    [ "QueueMessage", "d0/d29/a00470.html", "d0/d29/a00470" ],
+    [ "RemoteAtCommand", "d5/d26/a00474.html", "d5/d26/a00474" ],
+    [ "ResponseEvents", "d9/dea/a00478.html", "d9/dea/a00478" ],
+    [ "ApiMode", "dc/d98/a00225.html#a8dd6310c4b71cb745d6d68d8dd9696f3", [
+      [ "TRANSPARENT", "dc/d98/a00225.html#a8dd6310c4b71cb745d6d68d8dd9696f3a6dbf1b8bc39b4ed513395a18b554979f", null ],
+      [ "API1", "dc/d98/a00225.html#a8dd6310c4b71cb745d6d68d8dd9696f3a7e8d092d9c015707dedc7a3b8173f6b5", null ],
+      [ "API2", "dc/d98/a00225.html#a8dd6310c4b71cb745d6d68d8dd9696f3a51dfa65dc2042cfa662ff3a4cd76c968", null ]
+    ] ]
+];
