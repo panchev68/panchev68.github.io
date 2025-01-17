@@ -3,7 +3,6 @@ var a00434 =
     [ "Keycode", "d1/d7e/a00434.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
     [ "HardwareVersion", "d1/d7e/a00434.html#af0ce0279ac991f7ac9a2a6430e83aa3c", null ],
     [ "~HardwareVersion", "d1/d7e/a00434.html#aefca81b10266d8f578fad8ea09bc9329", null ],
-    [ "active", "d1/d7e/a00434.html#aa97a83b2c66cba9c007cdf1d6c89febb", null ],
     [ "clearButtonsFunction", "d1/d7e/a00434.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d1/d7e/a00434.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d1/d7e/a00434.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],

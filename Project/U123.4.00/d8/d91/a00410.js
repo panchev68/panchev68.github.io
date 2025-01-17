@@ -1,6 +1,7 @@
 var a00410 =
 [
     [ "Keycode", "d8/d91/a00410.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "ScreenBase", "d8/d91/a00410.html#afac6757c8808576ecc29c498758bf15d", null ],
     [ "~ScreenBase", "d8/d91/a00410.html#a72677d5e2345d19d3d72334482c84b64", null ],
     [ "clearButtonsFunction", "d8/d91/a00410.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "active", "d8/d91/a00410.html#ad8db74badcca6bfa89075bba340827fe", null ],

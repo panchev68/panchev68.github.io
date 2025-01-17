@@ -1,6 +1,7 @@
 var a00394 =
 [
     [ "Separators", "d9/dd1/a00398.html", "d9/dd1/a00398" ],
+    [ "Keycode", "d9/dad/a00394.html#ab82390d2fa442f63d9ab20ef08795e13", null ],
     [ "Mode", "d9/dad/a00394.html#a923e51d170e6e6947f7fab1fbaa79c30", [
       [ "SELECT", "d9/dad/a00394.html#a923e51d170e6e6947f7fab1fbaa79c30ac47e20b2f634373e1783065d1de634c7", null ],
       [ "EDIT", "d9/dad/a00394.html#a923e51d170e6e6947f7fab1fbaa79c30aad51fcaa6a980543d2584d6a86bcbcfd", null ]
