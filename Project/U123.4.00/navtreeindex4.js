@@ -1,7 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"de/de9/a00322.html#ad044dc8767a40a1bcf30a5954773cdaa":[1,0,1,2,3],
-"de/de9/a00322.html#ad044dc8767a40a1bcf30a5954773cdaa":[2,0,1,2,3],
 "de/de9/a00322.html#ae7612f4eafe79b2541f41a32737f73ce":[1,0,1,2,2],
 "de/de9/a00322.html#ae7612f4eafe79b2541f41a32737f73ce":[2,0,1,2,2],
 "de/df3/a00185.html":[3,0,0,5,1,10],

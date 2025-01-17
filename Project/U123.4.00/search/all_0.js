@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['active_0',['active',['../d4/d6d/a00402.html#ae6ea486d51be9d9ecc7872647310c9d7',1,'UI::MenuBase::active()'],['../d8/d91/a00410.html#ad8db74badcca6bfa89075bba340827fe',1,'UI::ScreenBase::active()'],['../db/df1/a00486.html#acf88839068cb0c01fc72b6773c45b501',1,'UI::Screen::WorkScreen::active()']]],
+  ['active_0',['active',['../d4/d6d/a00402.html#ae6ea486d51be9d9ecc7872647310c9d7',1,'UI::MenuBase::active()'],['../d8/d91/a00410.html#ad8db74badcca6bfa89075bba340827fe',1,'UI::ScreenBase::active()']]],
   ['align_1',['Align',['../dd/df5/a00386.html',1,'Align'],['../dd/df5/a00386.html#a249275339264b1c10f6601f8cda6d54a',1,'Align::Align()']]],
   ['align_2ehpp_2',['Align.hpp',['../de/d76/a00134.html',1,'']]],
   ['app_3',['App',['../dc/d9a/a00218.html',1,'']]],

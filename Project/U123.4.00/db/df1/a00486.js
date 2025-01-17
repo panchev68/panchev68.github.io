@@ -1,7 +1,6 @@
 var a00486 =
 [
     [ "Keycode", "db/df1/a00486.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "active", "db/df1/a00486.html#acf88839068cb0c01fc72b6773c45b501", null ],
     [ "clearButtonsFunction", "db/df1/a00486.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "db/df1/a00486.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "db/df1/a00486.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
