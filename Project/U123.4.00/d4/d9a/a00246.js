@@ -1,6 +1,6 @@
 var a00246 =
 [
-    [ "RemoteIOBase", "d4/d9a/a00246.html#a202cfaf414f2de4805f8e91120c7f36d", null ],
-    [ "~RemoteIOBase", "d4/d9a/a00246.html#aa0af14f0101fee8b98ecbf19d7236aba", null ],
-    [ "getName", "d4/d9a/a00246.html#ae93a509fa3f70467e50bc7cdcd33a99e", null ]
+    [ "RemoteIO9600", "d4/d9a/a00246.html#ab5a98976c21213a28e706fc9de81f126", null ],
+    [ "getName", "d4/d9a/a00246.html#ae93a509fa3f70467e50bc7cdcd33a99e", null ],
+    [ "getWorkScreen", "d4/d9a/a00246.html#a323514b14abb1835a7bacf98c3e44f1e", null ]
 ];

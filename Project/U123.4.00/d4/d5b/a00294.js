@@ -1,14 +1,15 @@
 var a00294 =
 [
-    [ "Outputs", "d4/d5b/a00294.html#ae538a06e0b79ecd381024c1a01415deb", null ],
-    [ "~Outputs", "d4/d5b/a00294.html#aedda01b36ccb93ca338b30a0e75e4913", null ],
-    [ "setup", "d4/d5b/a00294.html#a083fd7b9edca7c66ba53269351b62ef4", null ],
-    [ "setValue", "d4/d5b/a00294.html#ade2766fb6b60950349d8b36d16500c51", null ],
-    [ "getStatus", "d4/d5b/a00294.html#aefe7ebbeecc26a27354438d16e26dd71", null ],
-    [ "getSpiHandle", "d4/d5b/a00294.html#ad7d377c43329bc32f1936c66bd85d924", null ],
-    [ "preUpdateCallback", "d4/d5b/a00294.html#a5564961accd83adb55f8488e5411240a", null ],
-    [ "update", "d4/d5b/a00294.html#abe1d63143784b90a498c935966b7df5f", null ],
-    [ "onValueChanged", "d4/d5b/a00294.html#a49199bf482163a66ea5831e85060cecf", null ],
-    [ "onStatusChanged", "d4/d5b/a00294.html#a5e12d4653fc13761bdee086c6055ea7b", null ],
-    [ "onSpiError", "d4/d5b/a00294.html#a5f32588bd17e8771f96a4c0f533efc9c", null ]
+    [ "Inputs", "d4/d5b/a00294.html#a6d35d70d315b33f0bf83b20668b05d7e", null ],
+    [ "~Inputs", "d4/d5b/a00294.html#a5a691d3d6a57181bbb123bd638a15ba8", null ],
+    [ "Inputs", "d4/d5b/a00294.html#a72ae32a187aec4a1341c29fa34cecf0f", null ],
+    [ "Inputs", "d4/d5b/a00294.html#a3ee90f3553870fea0a5a7a486fff1e1f", null ],
+    [ "operator=", "d4/d5b/a00294.html#af2db68213cb35f3fa4d598557581b231", null ],
+    [ "operator=", "d4/d5b/a00294.html#a5ae141daf127f10f0bcbad2853dba535", null ],
+    [ "setup", "d4/d5b/a00294.html#add7e0f0e1fc95685facd7853a5338a56", null ],
+    [ "getValue", "d4/d5b/a00294.html#a1ee5007f7a0c6ba0e9e214efae69b3c2", null ],
+    [ "preUpdateCallback", "d4/d5b/a00294.html#a0fa2ee9d60a8d9443b87cb26da6a4354", null ],
+    [ "update", "d4/d5b/a00294.html#a7ea7740190d6717eac78470a2ce5d0c1", null ],
+    [ "getSpiHandle", "d4/d5b/a00294.html#afc97d0941c2071cb123a657e9bf765e5", null ],
+    [ "onValueChanged", "d4/d5b/a00294.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
 ];

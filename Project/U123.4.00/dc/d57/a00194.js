@@ -1,4 +1,4 @@
 var a00194 =
 [
-    [ "UI::Screen::ResetState", "d7/d5e/a00467.html", "d7/d5e/a00467" ]
+    [ "UI::Screen::ResetState", "d0/d29/a00470.html", "d0/d29/a00470" ]
 ];

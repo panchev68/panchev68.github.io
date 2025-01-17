@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['inputs_0',['Inputs',['../dd/dfe/a00283.html',1,'Lib::BSP::DigitalPeripheralBase::Config::Inputs'],['../da/dd4/a00291.html',1,'Lib::BSP::DigitalPeripheralBase::Inputs']]]
+  ['inputs_0',['Inputs',['../d5/d7b/a00286.html',1,'Lib::BSP::DigitalPeripheralBase::Config::Inputs'],['../d4/d5b/a00294.html',1,'Lib::BSP::DigitalPeripheralBase::Inputs']]]
 ];

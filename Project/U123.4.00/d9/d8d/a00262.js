@@ -1,7 +1,10 @@
 var a00262 =
 [
-    [ "~ParserBase", "d9/d8d/a00262.html#ac0500896c3bb7364b3537cafb2d1a24f", null ],
-    [ "ParserBase", "d9/d8d/a00262.html#a8d032a889295d8e64f8e3ca2c78af8a9", null ],
-    [ "reset", "d9/d8d/a00262.html#a8999b79d4f085ee95b85359a917c69ff", null ],
-    [ "handleReceivedCharacterEvent", "d9/d8d/a00262.html#a5f884fc268be5a2004178dfac2a2a5e2", null ]
+    [ "ParserBase", "d5/d35/a00266.html", "d5/d35/a00266" ],
+    [ "open", "d9/d8d/a00262.html#ac8d5c876abcc9f791d7f5961a34cbdb7", null ],
+    [ "close", "d9/d8d/a00262.html#a790726d4ec2a3e06e872501452be5494", null ],
+    [ "setParser", "d9/d8d/a00262.html#ac0935e4b4554d7b4251d8e703f847346", null ],
+    [ "setBaudrate", "d9/d8d/a00262.html#a888b40b4a65eb19d5abe0ed9c336693c", null ],
+    [ "getBaudrate", "d9/d8d/a00262.html#a4d4482f87880bb9c84cac488551cbdfe", null ],
+    [ "send", "d9/d8d/a00262.html#ad6ff77ee00a994dce7b20146a2e077c1", null ]
 ];

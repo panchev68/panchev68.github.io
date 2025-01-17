@@ -1,6 +1,7 @@
 var a00470 =
 [
     [ "Keycode", "d0/d29/a00470.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "clearButtonsFunction", "d0/d29/a00470.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d0/d29/a00470.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d0/d29/a00470.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "handleButtonEvent", "d0/d29/a00470.html#adb507e21aac6f1a8b5509f2334f7d291", null ],

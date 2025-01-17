@@ -1,11 +1,7 @@
 var a00382 =
 [
-    [ "Mode", "d3/d45/a00382.html#a7e3681efc90892e4940212ec16f23117", [
-      [ "LEFT", "d3/d45/a00382.html#a7e3681efc90892e4940212ec16f23117a684d325a7303f52e64011467ff5c5758", null ],
-      [ "CENTER", "d3/d45/a00382.html#a7e3681efc90892e4940212ec16f23117ac397289ee45877be0cd49811fe245b4e", null ],
-      [ "RIGHT", "d3/d45/a00382.html#a7e3681efc90892e4940212ec16f23117a21507b40c80068eda19865706fdc2403", null ]
-    ] ],
-    [ "Align", "d3/d45/a00382.html#a249275339264b1c10f6601f8cda6d54a", null ],
-    [ "~Align", "d3/d45/a00382.html#ae3d7a3689d093890ea00b27c2cd78d45", null ],
-    [ "operator uint32_t", "d3/d45/a00382.html#a0f1b8eab2b2ff60ec6169baa8b3705c0", null ]
+    [ "Parameters", "d3/d45/a00382.html#ab23616d0b11ac653d4ed9990b941e556", null ],
+    [ "~Parameters", "d3/d45/a00382.html#a6c55439b3598aeccac9d8a12de0c83c1", null ],
+    [ "restoreByDefault", "d3/d45/a00382.html#ade373eb01ff28d5a2ee5e001400dabda", null ],
+    [ "getData", "d3/d45/a00382.html#a2a9a338e60f6b29e8f04f29df95e85a6", null ]
 ];

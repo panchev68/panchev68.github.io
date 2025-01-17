@@ -1,4 +1,4 @@
 var a00095 =
 [
-    [ "BSP::Keyboard", "de/d55/a00323.html", "de/d55/a00323" ]
+    [ "BSP::Keyboard", "d8/d23/a00326.html", "d8/d23/a00326" ]
 ];

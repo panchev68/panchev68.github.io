@@ -1,6 +1,7 @@
 var a00254 =
 [
-    [ "RotationTableSerial", "d7/d03/a00254.html#a9eb545055aab26294ddbc08991685357", null ],
-    [ "~RotationTableSerial", "d7/d03/a00254.html#afbca5804c1566c239a8a700784a458ce", null ],
-    [ "getName", "d7/d03/a00254.html#a57873374c38dc14c2bd3eb1dec8d46a3", null ]
+    [ "RotationTableParallel", "d7/d03/a00254.html#a8e274d47f1e12b86c613c1512899ece9", null ],
+    [ "~RotationTableParallel", "d7/d03/a00254.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
+    [ "getName", "d7/d03/a00254.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
+    [ "getWorkScreen", "d7/d03/a00254.html#a471b400c4e20340701b8aa2f753f8d52", null ]
 ];

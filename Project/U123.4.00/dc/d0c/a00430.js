@@ -1,9 +1,10 @@
 var a00430 =
 [
     [ "Keycode", "dc/d0c/a00430.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "HardwareVersion", "dc/d0c/a00430.html#af0ce0279ac991f7ac9a2a6430e83aa3c", null ],
-    [ "~HardwareVersion", "dc/d0c/a00430.html#aefca81b10266d8f578fad8ea09bc9329", null ],
-    [ "active", "dc/d0c/a00430.html#aa97a83b2c66cba9c007cdf1d6c89febb", null ],
+    [ "FirmwareVersion", "dc/d0c/a00430.html#abcb4bcafa21c7d6ec383f2585b776482", null ],
+    [ "~FirmwareVersion", "dc/d0c/a00430.html#af01e916e665e94b6fde0872b1046eeec", null ],
+    [ "active", "dc/d0c/a00430.html#a8530c74f1234409bb59193fe0add81fb", null ],
+    [ "clearButtonsFunction", "dc/d0c/a00430.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "dc/d0c/a00430.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "dc/d0c/a00430.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "handleButtonEvent", "dc/d0c/a00430.html#adb507e21aac6f1a8b5509f2334f7d291", null ],

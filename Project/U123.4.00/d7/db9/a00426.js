@@ -1,12 +1,10 @@
 var a00426 =
 [
-    [ "Keycode", "d7/db9/a00426.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "FirmwareVersion", "d7/db9/a00426.html#abcb4bcafa21c7d6ec383f2585b776482", null ],
-    [ "~FirmwareVersion", "d7/db9/a00426.html#af01e916e665e94b6fde0872b1046eeec", null ],
-    [ "active", "d7/db9/a00426.html#a8530c74f1234409bb59193fe0add81fb", null ],
+    [ "Keycode", "d7/db9/a00426.html#a40724eb50ca03cd8e4cdc5f429346dcc", null ],
+    [ "clearButtonsFunction", "d7/db9/a00426.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d7/db9/a00426.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d7/db9/a00426.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
-    [ "handleButtonEvent", "d7/db9/a00426.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
+    [ "onGotoPrevoidScreen", "d7/db9/a00426.html#a3c70593b2ad2162d55ba64eba7c8952f", null ],
     [ "onClickLeftButton", "d7/db9/a00426.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d7/db9/a00426.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "d7/db9/a00426.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

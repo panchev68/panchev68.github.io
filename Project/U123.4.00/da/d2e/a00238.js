@@ -1,5 +1,5 @@
 var a00238 =
 [
-    [ "RemoteIO57600", "da/d2e/a00238.html#a0fd0129163132e37106e022a3c885367", null ],
-    [ "getName", "da/d2e/a00238.html#ae93a509fa3f70467e50bc7cdcd33a99e", null ]
+    [ "getName", "da/d2e/a00238.html#a6645442a27dec3833a07e9c9ce644460", null ],
+    [ "getWorkScreen", "da/d2e/a00238.html#a316b5d0fca02e0eaffe9efb28ac1b336", null ]
 ];

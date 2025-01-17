@@ -1,5 +1,6 @@
 var a00350 =
 [
-    [ "bind", "db/d10/a00350.html#a55f7577d36892aa742ee175fbd1a8a95", null ],
-    [ "read", "db/d10/a00350.html#a92e95750bc48c247af2c3622e1be5b94", null ]
+    [ "inputs", "db/d10/a00350.html#aa894b5466257660d9554604495fa0697", null ],
+    [ "outputs", "db/d10/a00350.html#a72abf36a0062299be377f4adad65dae9", null ],
+    [ "outputsSta", "db/d10/a00350.html#af71830d6a69800be53455013098bc821", null ]
 ];

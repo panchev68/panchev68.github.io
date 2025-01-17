@@ -1,6 +1,6 @@
 var dir_61e0c6c068d494aa3e9fc2b166624a1f =
 [
-    [ "Beep.hpp", "da/dec/a00080.html", "da/dec/a00080" ],
+    [ "Beeper.hpp", "da/dec/a00080.html", "da/dec/a00080" ],
     [ "ComPort.hpp", "d2/d1f/a00083.html", "d2/d1f/a00083" ],
     [ "DigitalPeripheral.hpp", "da/d2a/a00086.html", "da/d2a/a00086" ],
     [ "DigitalPeripheralBase.hpp", "db/dab/a00089.html", "db/dab/a00089" ],

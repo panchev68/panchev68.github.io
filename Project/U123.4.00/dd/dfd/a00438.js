@@ -4,6 +4,7 @@ var a00438 =
     [ "items", "dd/dfd/a00438.html#aaaa3d82a71cdd5e58c8f58b58f9c4dab", null ],
     [ "deactive", "dd/dfd/a00438.html#a6ad4a834ec0fa07887d12579b4b269a4", null ],
     [ "setPosition", "dd/dfd/a00438.html#ad77f148b524973ffd61a83b9f892ede8", null ],
+    [ "clearButtonsFunction", "dd/dfd/a00438.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "handleTickEvent", "dd/dfd/a00438.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "onClickLeftButton", "dd/dfd/a00438.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "dd/dfd/a00438.html#a42e0c133357afffb8a7b6d4633469366", null ],

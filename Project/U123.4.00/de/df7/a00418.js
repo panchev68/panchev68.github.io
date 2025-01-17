@@ -1,9 +1,10 @@
 var a00418 =
 [
-    [ "Keycode", "de/df7/a00418.html#a78df8c3cb5845e974700a6b6e28ea177", null ],
+    [ "Keycode", "de/df7/a00418.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "clearButtonsFunction", "de/df7/a00418.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "de/df7/a00418.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "de/df7/a00418.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
-    [ "onGotoPrevoidScreen", "de/df7/a00418.html#afb699e4c82e464fc0fbdc1d51b371e87", null ],
+    [ "handleButtonEvent", "de/df7/a00418.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "de/df7/a00418.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "de/df7/a00418.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "de/df7/a00418.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

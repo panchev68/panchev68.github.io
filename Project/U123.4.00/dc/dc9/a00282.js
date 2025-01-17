@@ -1,6 +1,7 @@
 var a00282 =
 [
-    [ "numberOfPins", "dc/dc9/a00282.html#ae921988b64cb6909ec8f99335b1df639", null ],
-    [ "spi", "dc/dc9/a00282.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
-    [ "nss", "dc/dc9/a00282.html#a552c483d980c1271fec712c347656bab", null ]
+    [ "Inputs", "d5/d7b/a00286.html", "d5/d7b/a00286" ],
+    [ "Outputs", "de/d25/a00290.html", "de/d25/a00290" ],
+    [ "inputs", "dc/dc9/a00282.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "dc/dc9/a00282.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];
