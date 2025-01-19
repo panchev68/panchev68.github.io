@@ -1,4 +1,4 @@
 var a00128 =
 [
-    [ "HAL::SPI2Port", "d8/d95/a00379.html", null ]
+    [ "HAL::LcdDataPort", "d7/d08/a00378.html", "d7/d08/a00378" ]
 ];

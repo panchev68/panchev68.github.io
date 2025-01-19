@@ -1,11 +1,10 @@
 var a00232 =
 [
-    [ "Screen", "d6/de1/a00233.html", "d6/de1/a00233" ],
-    [ "EditDateBase", "d1/d98/a00407.html", "d1/d98/a00407" ],
-    [ "EditValueBase", "d2/db6/a00411.html", "d2/db6/a00411" ],
-    [ "MenuBase", "d3/d29/a00419.html", "d3/d29/a00419" ],
-    [ "MenuItem", "d1/d05/a00423.html", "d1/d05/a00423" ],
-    [ "ScreenBase", "da/db6/a00427.html", "da/db6/a00427" ],
-    [ "ScreenManager", "df/d70/a00431.html", "df/d70/a00431" ],
-    [ "setActiveScreen", "d0/d53/a00232.html#a3bbbd36b3b23ac3ba01a6e8c36df73d7", null ]
+    [ "ComPort", "dc/dc9/a00282.html", "dc/dc9/a00282" ],
+    [ "DigitalPeripheral", "de/d25/a00290.html", "de/d25/a00290" ],
+    [ "Display", "d2/d45/a00342.html", "d2/d45/a00342" ],
+    [ "Keyboard", "d2/daf/a00346.html", "d2/daf/a00346" ],
+    [ "Lcd", "db/d10/a00350.html", "db/d10/a00350" ],
+    [ "Led", "df/d73/a00358.html", "df/d73/a00358" ],
+    [ "M24C64W", "de/dd7/a00362.html", null ]
 ];

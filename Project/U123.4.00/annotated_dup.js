@@ -1,74 +1,74 @@
 var annotated_dup =
 [
-    [ "App", "d9/d01/a00227.html", [
-      [ "ApplicationBase", "d0/d27/a00239.html", "d0/d27/a00239" ],
-      [ "ApplicationManager", "d6/d82/a00243.html", "d6/d82/a00243" ],
-      [ "ApplicationNone", "d0/d1f/a00247.html", "d0/d1f/a00247" ],
-      [ "RemoteIO", "d3/d1a/a00251.html", "d3/d1a/a00251" ],
-      [ "RemoteIO57600", "d4/d04/a00255.html", "d4/d04/a00255" ],
-      [ "RemoteIO9600", "d0/d2f/a00259.html", "d0/d2f/a00259" ],
-      [ "RotationTableParallel", "df/da9/a00263.html", "df/da9/a00263" ],
-      [ "RotationTableParallel6Pins", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
-      [ "RotationTableParallel7Pins", "dd/d86/a00271.html", "dd/d86/a00271" ],
-      [ "RotationTableSerial", "d3/d5e/a00275.html", "d3/d5e/a00275" ]
+    [ "App", "d1/da8/a00230.html", [
+      [ "ApplicationBase", "d2/dc8/a00242.html", "d2/dc8/a00242" ],
+      [ "ApplicationManager", "d4/d9a/a00246.html", "d4/d9a/a00246" ],
+      [ "ApplicationNone", "d0/da7/a00250.html", "d0/da7/a00250" ],
+      [ "RemoteIO", "d7/d03/a00254.html", "d7/d03/a00254" ],
+      [ "RemoteIO57600", "d7/d2f/a00258.html", "d7/d2f/a00258" ],
+      [ "RemoteIO9600", "d9/d8d/a00262.html", "d9/d8d/a00262" ],
+      [ "RotationTableParallel", "d5/d35/a00266.html", "d5/d35/a00266" ],
+      [ "RotationTableParallel6Pins", "d9/d2a/a00270.html", "d9/d2a/a00270" ],
+      [ "RotationTableParallel7Pins", "dd/d56/a00274.html", "dd/d56/a00274" ],
+      [ "RotationTableSerial", "dc/d5d/a00278.html", "dc/d5d/a00278" ]
     ] ],
-    [ "BSP", "dd/d2d/a00229.html", [
-      [ "ComPort", "d2/d82/a00279.html", "d2/d82/a00279" ],
-      [ "DigitalPeripheral", "d6/d7f/a00287.html", "d6/d7f/a00287" ],
-      [ "Display", "d0/d01/a00339.html", "d0/d01/a00339" ],
-      [ "Keyboard", "d0/dc5/a00343.html", "d0/dc5/a00343" ],
-      [ "Lcd", "d1/dc6/a00347.html", "d1/dc6/a00347" ],
-      [ "Led", "d3/dc9/a00355.html", "d3/dc9/a00355" ],
-      [ "M24C64W", "d4/def/a00359.html", null ]
+    [ "BSP", "d0/d53/a00232.html", [
+      [ "ComPort", "dc/dc9/a00282.html", "dc/dc9/a00282" ],
+      [ "DigitalPeripheral", "de/d25/a00290.html", "de/d25/a00290" ],
+      [ "Display", "d2/d45/a00342.html", "d2/d45/a00342" ],
+      [ "Keyboard", "d2/daf/a00346.html", "d2/daf/a00346" ],
+      [ "Lcd", "db/d10/a00350.html", "db/d10/a00350" ],
+      [ "Led", "df/d73/a00358.html", "df/d73/a00358" ],
+      [ "M24C64W", "de/dd7/a00362.html", null ]
     ] ],
-    [ "DAL", "de/dc2/a00228.html", [
-      [ "CommunicationStatus", "d9/d9b/a00363.html", "d9/d9b/a00363" ],
-      [ "DigitalPeripheralData", "df/dc2/a00367.html", "df/dc2/a00367" ]
+    [ "DAL", "df/d17/a00231.html", [
+      [ "CommunicationStatus", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
+      [ "DigitalPeripheralData", "d3/d30/a00370.html", "d3/d30/a00370" ]
     ] ],
-    [ "HAL", "df/d17/a00231.html", [
-      [ "EXTI7", "d6/d80/a00371.html", "d6/d80/a00371" ],
-      [ "LcdDataPort", "dd/dcb/a00375.html", "dd/dcb/a00375" ],
-      [ "SPI2Port", "d8/d95/a00379.html", null ],
-      [ "SPI3Port", "da/dee/a00383.html", null ],
-      [ "UART2", "db/db9/a00387.html", null ]
+    [ "HAL", "da/d31/a00234.html", [
+      [ "EXTI7", "d5/db5/a00374.html", "d5/db5/a00374" ],
+      [ "LcdDataPort", "d7/d08/a00378.html", "d7/d08/a00378" ],
+      [ "SPI2Port", "d3/d45/a00382.html", null ],
+      [ "SPI3Port", "dd/df5/a00386.html", null ],
+      [ "UART2", "d9/d0a/a00390.html", null ]
     ] ],
     [ "Lib", null, [
       [ "BSP", null, [
-        [ "DigitalPeripheralBase", "da/dd4/a00291.html", "da/dd4/a00291" ]
+        [ "DigitalPeripheralBase", "d4/d5b/a00294.html", "d4/d5b/a00294" ]
       ] ]
     ] ],
-    [ "System", "d1/da8/a00230.html", [
-      [ "Parameters", "d1/d53/a00399.html", "d1/d53/a00399" ]
+    [ "System", "d6/de1/a00233.html", [
+      [ "Parameters", "d4/d6d/a00402.html", "d4/d6d/a00402" ]
     ] ],
-    [ "UI", "d0/d53/a00232.html", [
-      [ "Screen", "d6/de1/a00233.html", [
-        [ "ApplicationView", "d0/dc5/a00435.html", "d0/dc5/a00435" ],
-        [ "EditProduceDate", "d9/d3a/a00439.html", "d9/d3a/a00439" ],
-        [ "EditSaleDate", "d0/dc4/a00443.html", "d0/dc4/a00443" ],
-        [ "FirmwareVersion", "de/d84/a00447.html", "de/d84/a00447" ],
-        [ "HardwareVersion", "d9/d69/a00451.html", "d9/d69/a00451" ],
-        [ "MenuMain", "dd/d63/a00455.html", "dd/d63/a00455" ],
-        [ "MenuSelectApplication", "d2/d91/a00459.html", "d2/d91/a00459" ],
-        [ "MenuSystemSetup", "d3/d5d/a00463.html", "d3/d5d/a00463" ],
-        [ "MenuSystemView", "d7/d5e/a00467.html", "d7/d5e/a00467" ],
-        [ "PeripheralInputs", "d4/d4b/a00471.html", "d4/d4b/a00471" ],
-        [ "PeripheralOutputs", "d1/d92/a00475.html", "d1/d92/a00475" ],
-        [ "ProduceDateVeiw", "d9/d4a/a00479.html", "d9/d4a/a00479" ],
-        [ "RemoteIOWork", "dc/da0/a00483.html", "dc/da0/a00483" ],
-        [ "ResetState", "dd/d9c/a00487.html", "dd/d9c/a00487" ],
-        [ "SaleDateVeiw", "d6/d60/a00491.html", "d6/d60/a00491" ],
-        [ "SerialNumber", "db/dc4/a00495.html", "db/dc4/a00495" ],
-        [ "Welcome", "d8/d67/a00499.html", "d8/d67/a00499" ],
-        [ "WorkScreen", "d4/de5/a00503.html", "d4/de5/a00503" ]
+    [ "UI", "d3/d42/a00235.html", [
+      [ "Screen", "d7/d40/a00236.html", [
+        [ "ApplicationView", "dd/dfd/a00438.html", "dd/dfd/a00438" ],
+        [ "EditProduceDate", "db/d34/a00442.html", "db/d34/a00442" ],
+        [ "EditSaleDate", "d3/def/a00446.html", "d3/def/a00446" ],
+        [ "FirmwareVersion", "de/df4/a00450.html", "de/df4/a00450" ],
+        [ "HardwareVersion", "d7/d9f/a00454.html", "d7/d9f/a00454" ],
+        [ "MenuMain", "da/d65/a00458.html", "da/d65/a00458" ],
+        [ "MenuSelectApplication", "de/dcb/a00462.html", "de/dcb/a00462" ],
+        [ "MenuSystemSetup", "db/d2c/a00466.html", "db/d2c/a00466" ],
+        [ "MenuSystemView", "d0/d29/a00470.html", "d0/d29/a00470" ],
+        [ "PeripheralInputs", "d5/d26/a00474.html", "d5/d26/a00474" ],
+        [ "PeripheralOutputs", "d9/dea/a00478.html", "d9/dea/a00478" ],
+        [ "ProduceDateVeiw", "db/d8e/a00482.html", "db/d8e/a00482" ],
+        [ "RemoteIOWork", "db/df1/a00486.html", "db/df1/a00486" ],
+        [ "ResetState", "d7/daa/a00490.html", "d7/daa/a00490" ],
+        [ "SaleDateVeiw", "d5/d0f/a00494.html", "d5/d0f/a00494" ],
+        [ "SerialNumber", "d8/d57/a00498.html", "d8/d57/a00498" ],
+        [ "Welcome", "d0/da2/a00502.html", "d0/da2/a00502" ],
+        [ "WorkScreen", "d4/d1f/a00506.html", "d4/d1f/a00506" ]
       ] ],
-      [ "EditDateBase", "d1/d98/a00407.html", "d1/d98/a00407" ],
-      [ "EditValueBase", "d2/db6/a00411.html", "d2/db6/a00411" ],
-      [ "MenuBase", "d3/d29/a00419.html", "d3/d29/a00419" ],
-      [ "MenuItem", "d1/d05/a00423.html", "d1/d05/a00423" ],
-      [ "ScreenBase", "da/db6/a00427.html", "da/db6/a00427" ],
-      [ "ScreenManager", "df/d70/a00431.html", "df/d70/a00431" ]
+      [ "EditDateBase", "d8/d91/a00410.html", "d8/d91/a00410" ],
+      [ "EditValueBase", "d4/dbc/a00414.html", "d4/dbc/a00414" ],
+      [ "MenuBase", "db/d43/a00422.html", "db/d43/a00422" ],
+      [ "MenuItem", "d7/db9/a00426.html", "d7/db9/a00426" ],
+      [ "ScreenBase", "dc/d0c/a00430.html", "dc/d0c/a00430" ],
+      [ "ScreenManager", "d1/d7e/a00434.html", "d1/d7e/a00434" ]
     ] ],
-    [ "Align", "d0/da0/a00403.html", "d0/da0/a00403" ],
-    [ "ParametersData", "db/d95/a00391.html", "db/d95/a00391" ],
-    [ "System", "db/dbc/a00395.html", "db/dbc/a00395" ]
+    [ "Align", "d1/d8b/a00406.html", "d1/d8b/a00406" ],
+    [ "ParametersData", "d9/dad/a00394.html", "d9/dad/a00394" ],
+    [ "System", "d9/dd1/a00398.html", "d9/dd1/a00398" ]
 ];

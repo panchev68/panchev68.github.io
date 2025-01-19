@@ -1,4 +1,4 @@
 var a00071 =
 [
-    [ "App::RemoteIO57600", "d4/d04/a00255.html", "d4/d04/a00255" ]
+    [ "App::RemoteIO", "d7/d03/a00254.html", "d7/d03/a00254" ]
 ];

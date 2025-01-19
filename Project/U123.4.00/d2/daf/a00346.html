@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>U123: DAL::CommunicationStatus Class Reference</title>
+<title>U123: BSP::Keyboard Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -29,7 +29,7 @@
   <td id="projectalign">
    <div id="projectname">U123<span id="projectnumber">&#160;v4.01</span>
    </div>
-   <div id="projectbrief">Controller firmware U123</div>
+   <div id="projectbrief">STM32F4 release</div>
   </td>
  </tr>
  </tbody>
@@ -98,41 +98,65 @@ $(function(){initNavTree('d2/daf/a00346.html','../../'); initResizable(true); })
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="../../d0/dc5/a00343.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">DAL::CommunicationStatus Class Reference</div></div>
+  <div class="headertitle"><div class="title">BSP::Keyboard Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class for tracking the number of valid and invalid messages received. </p>
-<p>The CommunicationStatus class is a singleton that tracks the number of valid and invalid messages received by the system. It includes counters for the number of valid and invalid messages. </p>
+<div class="textblock"><p>The Keyboard class provides methods to interact with the keyboard hardware. </p>
+<p>The Keyboard class is responsible for handling keyboard input, detecting button presses, and managing hold button events. It utilizes FreeRTOS for task management and queues for event handling.</p>
+<p>The class provides methods for setting up the keyboard, sampling keycodes, retrieving the button detection queue, and updating the keyboard state. The update method handles the main logic for detecting button presses, managing debouncing, and handling button hold events. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for DAL::CommunicationStatus:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for BSP::Keyboard:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d8e/a00344.svg" width="184" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/d8e/a00344.svg" width="112" height="80"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6a2a9d0db5b4d8f7d57c87317976fa6a" id="r_a6a2a9d0db5b4d8f7d57c87317976fa6a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d2/daf/a00346.html">CommunicationStatus</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a2a9d0db5b4d8f7d57c87317976fa6a">getInstance</a> ()</td></tr>
-<tr class="memdesc:a6a2a9d0db5b4d8f7d57c87317976fa6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of the CommunicationStatus class.  <br /></td></tr>
-<tr class="separator:a6a2a9d0db5b4d8f7d57c87317976fa6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a79a416ce6bb213f7a411462a2885f1b7" id="r_a79a416ce6bb213f7a411462a2885f1b7"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7">Keycode</a> { <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7ab50339a10e1de285ac99d4c3990b8693">NONE</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13">ENTER</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a813461e0c58e7ad59a2fd83ca2237fec">CLEAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a684d325a7303f52e64011467ff5c5758">LEFT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403">RIGHT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a96954c675b4ff765a0fe0d007989c2e0">HOLD_ENTER</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a1a0e892af7673f9d357e5a4b1b42e8ca">HOLD_CLEAR</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff">HOLD_LEFT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b">HOLD_RIGHT</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a79a416ce6bb213f7a411462a2885f1b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration of keycodes.  <a href="#a79a416ce6bb213f7a411462a2885f1b7">More...</a><br /></td></tr>
+<tr class="separator:a79a416ce6bb213f7a411462a2885f1b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:aa792d1bf86985f35116997fdd73e9254" id="r_aa792d1bf86985f35116997fdd73e9254"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa792d1bf86985f35116997fdd73e9254">messageCounter</a> = 0</td></tr>
-<tr class="memdesc:aa792d1bf86985f35116997fdd73e9254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of valid messages received.  <br /></td></tr>
-<tr class="separator:aa792d1bf86985f35116997fdd73e9254"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07a83255e07f880b806532a6f72f6c9c" id="r_a07a83255e07f880b806532a6f72f6c9c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07a83255e07f880b806532a6f72f6c9c">errorCounter</a> = 0</td></tr>
-<tr class="memdesc:a07a83255e07f880b806532a6f72f6c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of invalid messages received.  <br /></td></tr>
-<tr class="separator:a07a83255e07f880b806532a6f72f6c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a22ebf10145aaf6bca2ea697ab2716fa1" id="r_a22ebf10145aaf6bca2ea697ab2716fa1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a22ebf10145aaf6bca2ea697ab2716fa1">sample</a> (<a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7">Keycode</a> &amp;key)</td></tr>
+<tr class="memdesc:a22ebf10145aaf6bca2ea697ab2716fa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples the current state of the keyboard and updates the provided keycode.  <br /></td></tr>
+<tr class="separator:a22ebf10145aaf6bca2ea697ab2716fa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a97af53b9a9ff09603a3dbcbe7074ad11" id="r_a97af53b9a9ff09603a3dbcbe7074ad11"><td class="memItemLeft" align="right" valign="top"><a id="a97af53b9a9ff09603a3dbcbe7074ad11" name="a97af53b9a9ff09603a3dbcbe7074ad11"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>Display</b></td></tr>
+<tr class="separator:a97af53b9a9ff09603a3dbcbe7074ad11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6a2a9d0db5b4d8f7d57c87317976fa6a" name="a6a2a9d0db5b4d8f7d57c87317976fa6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a2a9d0db5b4d8f7d57c87317976fa6a">&#9670;&#160;</a></span>getInstance()</h2>
+<h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a79a416ce6bb213f7a411462a2885f1b7" name="a79a416ce6bb213f7a411462a2885f1b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a416ce6bb213f7a411462a2885f1b7">&#9670;&#160;</a></span>Keycode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -141,65 +165,77 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="../../d2/daf/a00346.html">CommunicationStatus</a> &amp; DAL::CommunicationStatus::getInstance </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">enum class <a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7">BSP::Keyboard::Keycode</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the singleton instance of the CommunicationStatus class. </p>
-<p>This function returns the singleton instance of the CommunicationStatus class.</p>
-<dl class="section return"><dt>Returns</dt><dd>A reference to the CommunicationStatus singleton instance. </dd></dl>
+<p>Enumeration of keycodes. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7ab50339a10e1de285ac99d4c3990b8693" name="a79a416ce6bb213f7a411462a2885f1b7ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No key pressed. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13" name="a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13"></a>ENTER&#160;</td><td class="fielddoc"><p>Enter key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a813461e0c58e7ad59a2fd83ca2237fec" name="a79a416ce6bb213f7a411462a2885f1b7a813461e0c58e7ad59a2fd83ca2237fec"></a>CLEAR&#160;</td><td class="fielddoc"><p>Clear key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a684d325a7303f52e64011467ff5c5758" name="a79a416ce6bb213f7a411462a2885f1b7a684d325a7303f52e64011467ff5c5758"></a>LEFT&#160;</td><td class="fielddoc"><p>Left key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403" name="a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403"></a>RIGHT&#160;</td><td class="fielddoc"><p>Right key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a96954c675b4ff765a0fe0d007989c2e0" name="a79a416ce6bb213f7a411462a2885f1b7a96954c675b4ff765a0fe0d007989c2e0"></a>HOLD_ENTER&#160;</td><td class="fielddoc"><p>Hold Enter key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a1a0e892af7673f9d357e5a4b1b42e8ca" name="a79a416ce6bb213f7a411462a2885f1b7a1a0e892af7673f9d357e5a4b1b42e8ca"></a>HOLD_CLEAR&#160;</td><td class="fielddoc"><p>Hold Clear key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff" name="a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff"></a>HOLD_LEFT&#160;</td><td class="fielddoc"><p>Hold Left key. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b" name="a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b"></a>HOLD_RIGHT&#160;</td><td class="fielddoc"><p>Hold Right key. </p>
+</td></tr>
+</table>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa792d1bf86985f35116997fdd73e9254" name="aa792d1bf86985f35116997fdd73e9254"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa792d1bf86985f35116997fdd73e9254">&#9670;&#160;</a></span>messageCounter</h2>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a22ebf10145aaf6bca2ea697ab2716fa1" name="a22ebf10145aaf6bca2ea697ab2716fa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22ebf10145aaf6bca2ea697ab2716fa1">&#9670;&#160;</a></span>sample()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t DAL::CommunicationStatus::messageCounter = 0</td>
+          <td class="memname">bool BSP::Keyboard::sample </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a79a416ce6bb213f7a411462a2885f1b7">Keycode</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>key</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Number of valid messages received. </p>
+<p>Samples the current state of the keyboard and updates the provided keycode. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">key</td><td>A reference to a Keycode object that will be updated with the current key state. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if a key press was detected, false otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a07a83255e07f880b806532a6f72f6c9c" name="a07a83255e07f880b806532a6f72f6c9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07a83255e07f880b806532a6f72f6c9c">&#9670;&#160;</a></span>errorCounter</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t DAL::CommunicationStatus::errorCounter = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Number of invalid messages received. </p>
-
-</div>
-</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../df/d98/a00107.html">Keyboard.hpp</a></li>
+</ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dd/df3/a00219.html">DAL</a></li><li class="navelem"><a class="el" href="../../d2/daf/a00346.html">CommunicationStatus</a></li>
-    <li class="footer">Generated on Sat Jan 18 2025 08:36:03 for U123 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="../../d0/d53/a00232.html">BSP</a></li><li class="navelem"><a class="el" href="../../d2/daf/a00346.html">Keyboard</a></li>
+    <li class="footer">Generated on Sun Jan 19 2025 13:42:31 for U123 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var a00354 =
 [
-    [ "bind", "d0/dc3/a00354.html#a55f7577d36892aa742ee175fbd1a8a95", null ],
-    [ "read", "d0/dc3/a00354.html#a92e95750bc48c247af2c3622e1be5b94", null ]
+    [ "charPerLine", "d0/dc3/a00354.html#a1efe1e22eb04420ff7028bbcd16c7197", null ],
+    [ "lineNumber", "d0/dc3/a00354.html#a15c5622e555a262fc6398a352a6d06d0", null ]
 ];

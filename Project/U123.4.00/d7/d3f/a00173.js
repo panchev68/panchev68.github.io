@@ -1,4 +1,4 @@
 var a00173 =
 [
-    [ "UI::Screen::FirmwareVersion", "de/d84/a00447.html", "de/d84/a00447" ]
+    [ "UI::Screen::EditSaleDate", "d3/def/a00446.html", "d3/def/a00446" ]
 ];

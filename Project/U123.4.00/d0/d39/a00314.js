@@ -1,11 +1,15 @@
 var a00314 =
 [
-    [ "Test", "d0/d39/a00314.html#a681f6df372676259cb74654d972786aa", null ],
-    [ "~Test", "d0/d39/a00314.html#a52eb9ca50a8d4465ecc3c5984eb34355", null ],
-    [ "start", "d0/d39/a00314.html#a2a923d6ffbe2dbfee1b7a35927448de0", null ],
-    [ "stop", "d0/d39/a00314.html#ac53955a5232dc863fca3b04555a22fe5", null ],
-    [ "getMode", "d0/d39/a00314.html#a81144a7efcb0dd6bb80da8774eb458b6", null ],
-    [ "setMode", "d0/d39/a00314.html#a9e00d993e46df91b56f69babbba0e7f2", null ],
-    [ "getChangePeriod", "d0/d39/a00314.html#a525781a2d1887a1b019abf6147249343", null ],
-    [ "setChangePeriod", "d0/d39/a00314.html#a93178191ba7bea9ac61b270170f49c7b", null ]
+    [ "Inputs", "d0/d39/a00314.html#a6d35d70d315b33f0bf83b20668b05d7e", null ],
+    [ "~Inputs", "d0/d39/a00314.html#a5a691d3d6a57181bbb123bd638a15ba8", null ],
+    [ "Inputs", "d0/d39/a00314.html#a72ae32a187aec4a1341c29fa34cecf0f", null ],
+    [ "Inputs", "d0/d39/a00314.html#a3ee90f3553870fea0a5a7a486fff1e1f", null ],
+    [ "operator=", "d0/d39/a00314.html#af2db68213cb35f3fa4d598557581b231", null ],
+    [ "operator=", "d0/d39/a00314.html#a5ae141daf127f10f0bcbad2853dba535", null ],
+    [ "setup", "d0/d39/a00314.html#add7e0f0e1fc95685facd7853a5338a56", null ],
+    [ "getValue", "d0/d39/a00314.html#a1ee5007f7a0c6ba0e9e214efae69b3c2", null ],
+    [ "preUpdateCallback", "d0/d39/a00314.html#a0fa2ee9d60a8d9443b87cb26da6a4354", null ],
+    [ "update", "d0/d39/a00314.html#a7ea7740190d6717eac78470a2ce5d0c1", null ],
+    [ "getSpiHandle", "d0/d39/a00314.html#afc97d0941c2071cb123a657e9bf765e5", null ],
+    [ "onValueChanged", "d0/d39/a00314.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
 ];

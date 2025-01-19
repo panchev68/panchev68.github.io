@@ -1,8 +1,6 @@
 var a00231 =
 [
-    [ "EXTI7", "d6/d80/a00371.html", "d6/d80/a00371" ],
-    [ "LcdDataPort", "dd/dcb/a00375.html", "dd/dcb/a00375" ],
-    [ "SPI2Port", "d8/d95/a00379.html", null ],
-    [ "SPI3Port", "da/dee/a00383.html", null ],
-    [ "UART2", "db/db9/a00387.html", null ]
+    [ "CommunicationStatus", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
+    [ "DigitalPeripheralData", "d3/d30/a00370.html", "d3/d30/a00370" ],
+    [ "digitalPeripheralData", "df/d17/a00231.html#a52ab1dda8f27723de759e768ecc25ceb", null ]
 ];

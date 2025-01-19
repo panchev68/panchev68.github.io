@@ -1,8 +1,12 @@
 var a00290 =
 [
-    [ "numberOfPins", "de/d25/a00290.html#a106affd182052cba0f62265136279344", null ],
-    [ "spi", "de/d25/a00290.html#a24f9204c0a9473f2e9de106852130c7c", null ],
-    [ "nss", "de/d25/a00290.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
-    [ "oe", "de/d25/a00290.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
-    [ "mapFields", "de/d25/a00290.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ]
+    [ "UpdateMode", "de/d25/a00290.html#a978444aac3217a942110d700b46f8fac", [
+      [ "SEQUENTAL", "de/d25/a00290.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510", null ],
+      [ "PARALLEL", "de/d25/a00290.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "setup", "de/d25/a00290.html#a5f39c6e37bb24fa7211f302b6a3b16ba", null ],
+    [ "handleTestOutputsUpdate", "de/d25/a00290.html#a1f5f1f866ebd52551d7e41bb3500a620", null ],
+    [ "inputs", "de/d25/a00290.html#aa94f1ffc0e81ad06ebd87c3368921a05", null ],
+    [ "outputs", "de/d25/a00290.html#a0a0c5f070d0aa37f2b01519865e562ea", null ],
+    [ "test", "de/d25/a00290.html#a94500aa2617d5f5fb0ddc3207b5e40ab", null ]
 ];

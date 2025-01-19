@@ -1,16 +1,11 @@
 var a00426 =
 [
-    [ "Keycode", "d7/db9/a00426.html#a40724eb50ca03cd8e4cdc5f429346dcc", null ],
-    [ "clearButtonsFunction", "d7/db9/a00426.html#ac682e527499d3ee673a0461f92ea9255", null ],
-    [ "deactive", "d7/db9/a00426.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
-    [ "handleTickEvent", "d7/db9/a00426.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
-    [ "onGotoPrevoidScreen", "d7/db9/a00426.html#a3c70593b2ad2162d55ba64eba7c8952f", null ],
-    [ "onClickLeftButton", "d7/db9/a00426.html#acf574efaaeee3b48351f35610fd34529", null ],
-    [ "onClickRightButton", "d7/db9/a00426.html#a42e0c133357afffb8a7b6d4633469366", null ],
-    [ "onClickEnterButton", "d7/db9/a00426.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],
-    [ "onClickClearButton", "d7/db9/a00426.html#aa7b23342c03b024fd02e64b4ba96b3b5", null ],
-    [ "onHoldLeftButton", "d7/db9/a00426.html#a52118928f521ac44d14748cd1af94a4b", null ],
-    [ "onHoldRightButton", "d7/db9/a00426.html#ac7fde1ace0bf22f79af28bc5d9688f35", null ],
-    [ "onHoldEnterButton", "d7/db9/a00426.html#a705686f6459b7cf0c2e727cdc8725f6c", null ],
-    [ "onHoldClearButton", "d7/db9/a00426.html#a63f4588a332b4e6556c5e1cc8eb3ecb5", null ]
+    [ "MenuItem", "d7/db9/a00426.html#a037578b5c97ba13fee24a84dc8620c5d", null ],
+    [ "MenuItem", "d7/db9/a00426.html#a4a9fb5c2e2ba4d9224eb5018491eb596", null ],
+    [ "~MenuItem", "d7/db9/a00426.html#a0d7ec767549f358452689c24e33028e4", null ],
+    [ "bind", "d7/db9/a00426.html#acd37d86a882b05bc09e02f5db9452193", null ],
+    [ "isActive", "d7/db9/a00426.html#afd38b3989456c30faac5611a6913e192", null ],
+    [ "run", "d7/db9/a00426.html#a559af2003edea9d5589f3c34187521f0", null ],
+    [ "getString", "d7/db9/a00426.html#a2a3343a4c9464966c615b032e9130840", null ],
+    [ "setString", "d7/db9/a00426.html#a58621547b9a2520433307db78b6ea408", null ]
 ];

@@ -1,6 +1,8 @@
 var a00234 =
 [
-    [ "run", "da/d31/a00234.html#a1ed16365a2a64ea8ae5e613abce4604a", null ],
-    [ "getApplicationName", "da/d31/a00234.html#a8c9ae065c19300da77b4f76db064f1ff", null ],
-    [ "getWorkScreen", "da/d31/a00234.html#a145b41f6c993b7efd0cf5ce68ccfd29f", null ]
+    [ "EXTI7", "d5/db5/a00374.html", "d5/db5/a00374" ],
+    [ "LcdDataPort", "d7/d08/a00378.html", "d7/d08/a00378" ],
+    [ "SPI2Port", "d3/d45/a00382.html", null ],
+    [ "SPI3Port", "dd/df5/a00386.html", null ],
+    [ "UART2", "d9/d0a/a00390.html", null ]
 ];

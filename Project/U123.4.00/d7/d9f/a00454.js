@@ -1,8 +1,11 @@
 var a00454 =
 [
     [ "Keycode", "d7/d9f/a00454.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "HardwareVersion", "d7/d9f/a00454.html#af0ce0279ac991f7ac9a2a6430e83aa3c", null ],
+    [ "~HardwareVersion", "d7/d9f/a00454.html#aefca81b10266d8f578fad8ea09bc9329", null ],
     [ "clearButtonsFunction", "d7/d9f/a00454.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d7/d9f/a00454.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
+    [ "handleTickEvent", "d7/d9f/a00454.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "handleButtonEvent", "d7/d9f/a00454.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "d7/d9f/a00454.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d7/d9f/a00454.html#a42e0c133357afffb8a7b6d4633469366", null ],

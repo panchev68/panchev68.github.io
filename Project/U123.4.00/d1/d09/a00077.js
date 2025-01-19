@@ -1,4 +1,4 @@
 var a00077 =
 [
-    [ "App::RotationTableParallel", "df/da9/a00263.html", "df/da9/a00263" ]
+    [ "App::RemoteIO9600", "d9/d8d/a00262.html", "d9/d8d/a00262" ]
 ];

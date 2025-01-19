@@ -1,4 +1,4 @@
 var a00215 =
 [
-    [ "UI::Screen::WorkScreen", "d4/de5/a00503.html", "d4/de5/a00503" ]
+    [ "UI::Screen::Welcome", "d0/da2/a00502.html", "d0/da2/a00502" ]
 ];
