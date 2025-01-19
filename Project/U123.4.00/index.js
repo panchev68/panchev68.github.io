@@ -1,5 +1,5 @@
 var index =
 [
-    [ "Firmware Project", "index.html#firmware-project", null ],
-    [ "Diagram", "index.html#diagram", null ]
+    [ "Class diagram", "index.html#class-diagram", null ],
+    [ "STM32F407VET pinout", "index.html#stm32f407vet-pinout", null ]
 ];

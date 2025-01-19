@@ -6,7 +6,7 @@ var searchData=
   ['deactive_3',['deactive',['../db/d43/a00422.html#a6ad4a834ec0fa07887d12579b4b269a4',1,'UI::MenuBase::deactive()'],['../dc/d0c/a00430.html#ab9031d716cc0466e3ccc4197d5b2011c',1,'UI::ScreenBase::deactive()']]],
   ['decrementposition_4',['decrementPosition',['../d4/dbc/a00414.html#a728622a9ca39f0cbe1fd704098e16c35',1,'UI::EditValueBase']]],
   ['decrementvalue_5',['decrementValue',['../d4/dbc/a00414.html#a8441a094c4803a58a28e52e52065d0d2',1,'UI::EditValueBase']]],
-  ['diagram_6',['Diagram',['../index.html#diagram',1,'']]],
+  ['diagram_6',['Class diagram',['../index.html#class-diagram',1,'']]],
   ['digitalperipheral_7',['DigitalPeripheral',['../de/d25/a00290.html',1,'BSP']]],
   ['digitalperipheral_2ehpp_8',['DigitalPeripheral.hpp',['../d1/d44/a00098.html',1,'']]],
   ['digitalperipheralbase_9',['DigitalPeripheralBase',['../d4/d5b/a00294.html',1,'Lib::BSP::DigitalPeripheralBase'],['../d4/d5b/a00294.html#a5570fdb4f790bed8aee60eb4ec112c16',1,'Lib::BSP::DigitalPeripheralBase::DigitalPeripheralBase()']]],

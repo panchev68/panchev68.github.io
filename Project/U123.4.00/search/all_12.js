@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['u123_20stm32_20version_0',['U123 STM32 version',['../index.html',1,'']]],
+  ['u123_20stm32_20version_20firmware_0',['U123 STM32 version firmware',['../index.html',1,'']]],
   ['uart2_1',['UART2',['../d9/d0a/a00390.html',1,'HAL']]],
   ['uart2_2ehpp_2',['UART2.hpp',['../d2/df5/a00137.html',1,'']]],
   ['ui_3',['UI',['../d3/d42/a00235.html',1,'']]],

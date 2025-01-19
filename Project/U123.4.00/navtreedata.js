@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "U123", "index.html", [
-    [ "U123 STM32 version", "index.html", "index" ],
+    [ "U123 STM32 version firmware", "index.html", "index" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
