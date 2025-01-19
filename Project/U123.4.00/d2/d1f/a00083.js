@@ -1,5 +1,4 @@
 var a00083 =
 [
-    [ "BSP::ComPort", "d9/d8d/a00262.html", "d9/d8d/a00262" ],
-    [ "BSP::ComPort::ParserBase", "d5/d35/a00266.html", "d5/d35/a00266" ]
+    [ "App::RotationTableParallel7Pins", "dd/d86/a00271.html", "dd/d86/a00271" ]
 ];

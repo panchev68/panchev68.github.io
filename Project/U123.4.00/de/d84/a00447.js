@@ -1,10 +1,12 @@
 var a00447 =
 [
     [ "Keycode", "de/d84/a00447.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "items", "de/d84/a00447.html#aaaa3d82a71cdd5e58c8f58b58f9c4dab", null ],
-    [ "deactive", "de/d84/a00447.html#a6ad4a834ec0fa07887d12579b4b269a4", null ],
-    [ "setPosition", "de/d84/a00447.html#ad77f148b524973ffd61a83b9f892ede8", null ],
+    [ "FirmwareVersion", "de/d84/a00447.html#abcb4bcafa21c7d6ec383f2585b776482", null ],
+    [ "~FirmwareVersion", "de/d84/a00447.html#af01e916e665e94b6fde0872b1046eeec", null ],
+    [ "clearButtonsFunction", "de/d84/a00447.html#ac682e527499d3ee673a0461f92ea9255", null ],
+    [ "deactive", "de/d84/a00447.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "de/d84/a00447.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
+    [ "handleButtonEvent", "de/d84/a00447.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "de/d84/a00447.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "de/d84/a00447.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "de/d84/a00447.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

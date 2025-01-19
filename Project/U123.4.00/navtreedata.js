@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "U123", "index.html", [
-    [ "U123 STM32 version", "index.html", null ],
+    [ "U123 STM32 version", "index.html", "index" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -61,10 +61,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/dbc/a00414.html#a2efe8604727895f97cb78b02ff01b18b",
-"d9/d2a/a00270.html#a0a0c5f070d0aa37f2b01519865e562ea",
-"db/d8e/a00482.html#a42e0c133357afffb8a7b6d4633469366",
-"de/de9/a00322.html#ae7612f4eafe79b2541f41a32737f73ce"
+"d1/d98/a00407.html#ace477cf3d84f9377db4af5555503aee8",
+"d4/d4b/a00471.html#ac7fde1ace0bf22f79af28bc5d9688f35",
+"d9/d4a/a00479.html#ac7fde1ace0bf22f79af28bc5d9688f35",
+"dd/d9c/a00487.html#af2cff139d4d3cac9cad67bf4ce9c03d3"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -1,10 +1,12 @@
 var a00451 =
 [
     [ "Keycode", "d9/d69/a00451.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "items", "d9/d69/a00451.html#aaaa3d82a71cdd5e58c8f58b58f9c4dab", null ],
-    [ "deactive", "d9/d69/a00451.html#a6ad4a834ec0fa07887d12579b4b269a4", null ],
-    [ "setPosition", "d9/d69/a00451.html#ad77f148b524973ffd61a83b9f892ede8", null ],
+    [ "HardwareVersion", "d9/d69/a00451.html#af0ce0279ac991f7ac9a2a6430e83aa3c", null ],
+    [ "~HardwareVersion", "d9/d69/a00451.html#aefca81b10266d8f578fad8ea09bc9329", null ],
+    [ "clearButtonsFunction", "d9/d69/a00451.html#ac682e527499d3ee673a0461f92ea9255", null ],
+    [ "deactive", "d9/d69/a00451.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d9/d69/a00451.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
+    [ "handleButtonEvent", "d9/d69/a00451.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "d9/d69/a00451.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d9/d69/a00451.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "d9/d69/a00451.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

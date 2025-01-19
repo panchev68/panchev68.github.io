@@ -1,7 +1,7 @@
 var a00251 =
 [
-    [ "RotationTableParallel", "d3/d1a/a00251.html#a8e274d47f1e12b86c613c1512899ece9", null ],
-    [ "~RotationTableParallel", "d3/d1a/a00251.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
-    [ "getName", "d3/d1a/a00251.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "d3/d1a/a00251.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "RemoteIO", "d3/d1a/a00251.html#a91417910a63110f34badc691e0f82c6b", null ],
+    [ "~RemoteIO", "d3/d1a/a00251.html#ae936ddf99f726627e0b57a56b7544a7e", null ],
+    [ "getName", "d3/d1a/a00251.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
+    [ "getWorkScreen", "d3/d1a/a00251.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
 ];

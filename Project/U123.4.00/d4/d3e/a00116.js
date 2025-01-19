@@ -1,4 +1,4 @@
 var a00116 =
 [
-    [ "HAL::LcdDataPort", "df/d73/a00358.html", "df/d73/a00358" ]
+    [ "DAL::CommunicationStatus", "d9/d9b/a00363.html", "d9/d9b/a00363" ]
 ];

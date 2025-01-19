@@ -1,4 +1,4 @@
 var a00101 =
 [
-    [ "BSP::Led", "dc/d84/a00338.html", "dc/d84/a00338" ]
+    [ "BSP::Display", "d0/d01/a00339.html", "d0/d01/a00339" ]
 ];

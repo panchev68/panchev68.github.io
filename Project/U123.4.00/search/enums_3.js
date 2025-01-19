@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['position_0',['Position',['../d9/d0a/a00390.html#a7e3f82656d537a899766434fbf220947',1,'UI::EditDateBase']]]
+  ['parallelmode_0',['ParallelMode',['../d9/d01/a00227.html#aa1dc663990fe4db5702cd3639023ac47',1,'App']]],
+  ['position_1',['Position',['../d1/d98/a00407.html#a7e3f82656d537a899766434fbf220947',1,'UI::EditDateBase']]]
 ];

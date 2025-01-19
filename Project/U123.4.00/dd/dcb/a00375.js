@@ -1,4 +1,5 @@
 var a00375 =
 [
-    [ "setup", "dd/dcb/a00375.html#a5a287f7d97688ebfc6e0932e6c77681b", null ]
+    [ "writeHalfByte", "dd/dcb/a00375.html#adfd05bf2bb55c558bcb512c6aca5d6f7", null ],
+    [ "writeGPIOData", "dd/dcb/a00375.html#a11163862be01ab5180d610444b92b36a", null ]
 ];

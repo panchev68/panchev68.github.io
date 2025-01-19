@@ -1,5 +1,9 @@
 var a00355 =
 [
-    [ "writeHalfByte", "d3/dc9/a00355.html#adfd05bf2bb55c558bcb512c6aca5d6f7", null ],
-    [ "writeGPIOData", "d3/dc9/a00355.html#a11163862be01ab5180d610444b92b36a", null ]
+    [ "Mode", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5", [
+      [ "OFF", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a90651ebea9a35ec4e018c8157492e17c", null ],
+      [ "BLINK", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5ad810ed8e97088a3c987f179dfb88cefc", null ]
+    ] ],
+    [ "set", "d3/dc9/a00355.html#a2d5d0db68b341d685e80c59a1372caf8", null ]
 ];

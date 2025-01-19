@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "UI::Screen::SaleDateVeiw", "d5/d26/a00474.html", "d5/d26/a00474" ]
+    [ "UI::Screen::ProduceDateVeiw", "d9/d4a/a00479.html", "d9/d4a/a00479" ]
 ];

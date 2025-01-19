@@ -1,9 +1,11 @@
 var a00467 =
 [
     [ "Keycode", "d7/d5e/a00467.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "deactive", "d7/d5e/a00467.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
+    [ "items", "d7/d5e/a00467.html#aaaa3d82a71cdd5e58c8f58b58f9c4dab", null ],
+    [ "deactive", "d7/d5e/a00467.html#a6ad4a834ec0fa07887d12579b4b269a4", null ],
+    [ "setPosition", "d7/d5e/a00467.html#ad77f148b524973ffd61a83b9f892ede8", null ],
+    [ "clearButtonsFunction", "d7/d5e/a00467.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "handleTickEvent", "d7/d5e/a00467.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
-    [ "handleButtonEvent", "d7/d5e/a00467.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "d7/d5e/a00467.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d7/d5e/a00467.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "d7/d5e/a00467.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

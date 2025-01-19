@@ -1,5 +1,8 @@
 var a00307 =
 [
-    [ "control", "d0/da2/a00307.html#a673a74355aa4903c637670bd743b0e5a", null ],
-    [ "value", "d0/da2/a00307.html#a79831d316d1a08199efad7ec4d2b28ec", null ]
+    [ "numberOfPins", "d0/da2/a00307.html#a106affd182052cba0f62265136279344", null ],
+    [ "spi", "d0/da2/a00307.html#a24f9204c0a9473f2e9de106852130c7c", null ],
+    [ "nss", "d0/da2/a00307.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
+    [ "oe", "d0/da2/a00307.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
+    [ "mapFields", "d0/da2/a00307.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ]
 ];

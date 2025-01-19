@@ -1,7 +1,7 @@
 var a00263 =
 [
-    [ "~ParserBase", "df/da9/a00263.html#ac0500896c3bb7364b3537cafb2d1a24f", null ],
-    [ "ParserBase", "df/da9/a00263.html#a8d032a889295d8e64f8e3ca2c78af8a9", null ],
-    [ "reset", "df/da9/a00263.html#a8999b79d4f085ee95b85359a917c69ff", null ],
-    [ "handleReceivedCharacterEvent", "df/da9/a00263.html#a5f884fc268be5a2004178dfac2a2a5e2", null ]
+    [ "RotationTableParallel", "df/da9/a00263.html#af80855e57ad29271eaf89ed6f5c92e9e", null ],
+    [ "~RotationTableParallel", "df/da9/a00263.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
+    [ "getName", "df/da9/a00263.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
+    [ "getWorkScreen", "df/da9/a00263.html#a471b400c4e20340701b8aa2f753f8d52", null ]
 ];

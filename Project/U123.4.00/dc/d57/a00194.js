@@ -1,4 +1,4 @@
 var a00194 =
 [
-    [ "UI::Screen::ResetState", "d0/d29/a00470.html", "d0/d29/a00470" ]
+    [ "UI::Screen::PeripheralOutputs", "d1/d92/a00475.html", "d1/d92/a00475" ]
 ];

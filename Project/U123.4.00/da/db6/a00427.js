@@ -1,9 +1,10 @@
 var a00427 =
 [
     [ "Keycode", "da/db6/a00427.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "FirmwareVersion", "da/db6/a00427.html#abcb4bcafa21c7d6ec383f2585b776482", null ],
-    [ "~FirmwareVersion", "da/db6/a00427.html#af01e916e665e94b6fde0872b1046eeec", null ],
-    [ "active", "da/db6/a00427.html#a8530c74f1234409bb59193fe0add81fb", null ],
+    [ "ScreenBase", "da/db6/a00427.html#afac6757c8808576ecc29c498758bf15d", null ],
+    [ "~ScreenBase", "da/db6/a00427.html#a72677d5e2345d19d3d72334482c84b64", null ],
+    [ "clearButtonsFunction", "da/db6/a00427.html#ac682e527499d3ee673a0461f92ea9255", null ],
+    [ "active", "da/db6/a00427.html#ad8db74badcca6bfa89075bba340827fe", null ],
     [ "deactive", "da/db6/a00427.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "da/db6/a00427.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "handleButtonEvent", "da/db6/a00427.html#adb507e21aac6f1a8b5509f2334f7d291", null ],

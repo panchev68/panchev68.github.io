@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['writegpiodata_0',['writeGPIOData',['../df/d73/a00358.html#a11163862be01ab5180d610444b92b36a',1,'HAL::LcdDataPort']]],
-  ['writehalfbyte_1',['writeHalfByte',['../df/d73/a00358.html#adfd05bf2bb55c558bcb512c6aca5d6f7',1,'HAL::LcdDataPort']]]
+  ['writegpiodata_0',['writeGPIOData',['../dd/dcb/a00375.html#a11163862be01ab5180d610444b92b36a',1,'HAL::LcdDataPort']]],
+  ['writehalfbyte_1',['writeHalfByte',['../dd/dcb/a00375.html#adfd05bf2bb55c558bcb512c6aca5d6f7',1,'HAL::LcdDataPort']]]
 ];

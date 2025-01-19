@@ -1,5 +1,6 @@
 var a00303 =
 [
-    [ "dummy", "dc/d0f/a00303.html#acfa85de833cbcfe7b6342bfc37978cb4", null ],
-    [ "status", "dc/d0f/a00303.html#a6b827b1606e3331461ccc4ebe4f1366c", null ]
+    [ "numberOfPins", "dc/d0f/a00303.html#ae921988b64cb6909ec8f99335b1df639", null ],
+    [ "spi", "dc/d0f/a00303.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
+    [ "nss", "dc/d0f/a00303.html#a552c483d980c1271fec712c347656bab", null ]
 ];
