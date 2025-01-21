@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['channel_0',['Channel',['../d0/d39/a00314.html',1,'Lib::Xbee::API::Service::ChannelScanner']]],
-  ['channelscanner_1',['ChannelScanner',['../d1/d67/a00310.html',1,'Lib::Xbee::API::Service']]],
-  ['checksum_2',['Checksum',['../d3/d30/a00370.html',1,'Lib::Xbee::Core']]],
-  ['clientbase_3',['ClientBase',['../da/d31/a00234.html',1,'Lib::Xbee::API']]],
-  ['comdriver_4',['ComDriver',['../d5/db5/a00374.html',1,'Lib::Xbee::Core']]],
-  ['config_5',['Config',['../d7/d08/a00378.html',1,'Lib::Xbee::Core::ComDriver']]],
-  ['connection_6',['Connection',['../d2/dc8/a00242.html',1,'Lib::Xbee::API']]],
-  ['convert_7',['Convert',['../d1/d8b/a00406.html',1,'Lib::Xbee::Core::Frame::Helper']]],
-  ['counter_8',['Counter',['../d7/d2f/a00258.html',1,'Lib::Xbee::API::Connection::Info']]]
+  ['channel_0',['Channel',['../da/de0/a00317.html',1,'Lib::Xbee::API::Service::ChannelScanner']]],
+  ['channelscanner_1',['ChannelScanner',['../dd/db3/a00313.html',1,'Lib::Xbee::API::Service']]],
+  ['checksum_2',['Checksum',['../dc/de3/a00373.html',1,'Lib::Xbee::Core']]],
+  ['clientbase_3',['ClientBase',['../d4/d08/a00237.html',1,'Lib::Xbee::API']]],
+  ['comdriver_4',['ComDriver',['../d4/d13/a00377.html',1,'Lib::Xbee::Core']]],
+  ['comportbase_5',['ComPortBase',['../d5/d05/a00385.html',1,'Lib::Xbee::Core']]],
+  ['config_6',['Config',['../de/d08/a00381.html',1,'Lib::Xbee::Core::ComDriver']]],
+  ['connection_7',['Connection',['../d6/d22/a00245.html',1,'Lib::Xbee::API']]],
+  ['convert_8',['Convert',['../da/d9c/a00413.html',1,'Lib::Xbee::Core::Frame::Helper']]],
+  ['counter_9',['Counter',['../dc/d6a/a00261.html',1,'Lib::Xbee::API::Connection::Info']]]
 ];

@@ -1,62 +1,63 @@
 var annotated_dup =
 [
-    [ "Lib", "dd/d52/a00221.html", [
-      [ "Xbee", "d0/d24/a00222.html", [
-        [ "API", "dc/d28/a00223.html", [
-          [ "Service", "d5/ddf/a00224.html", [
-            [ "ChannelScanner", "d1/d67/a00310.html", "d1/d67/a00310" ],
-            [ "Manager", "d2/d41/a00318.html", "d2/d41/a00318" ],
-            [ "NetworkDiscovery", "de/de9/a00322.html", "de/de9/a00322" ],
-            [ "Parameters", "da/d75/a00334.html", "da/d75/a00334" ],
-            [ "ServiceBase", "d0/dc3/a00354.html", "d0/dc3/a00354" ],
-            [ "SpectrumAnalyzer", "df/d73/a00358.html", "df/d73/a00358" ]
+    [ "Lib", "d5/ddf/a00224.html", [
+      [ "Xbee", "dc/d98/a00225.html", [
+        [ "API", "dc/d55/a00226.html", [
+          [ "Service", "d9/d01/a00227.html", [
+            [ "ChannelScanner", "dd/db3/a00313.html", "dd/db3/a00313" ],
+            [ "Manager", "db/d53/a00321.html", "db/d53/a00321" ],
+            [ "NetworkDiscovery", "de/dc8/a00325.html", "de/dc8/a00325" ],
+            [ "Parameters", "d4/dce/a00337.html", "d4/dce/a00337" ],
+            [ "ServiceBase", "df/df1/a00357.html", "df/df1/a00357" ],
+            [ "SpectrumAnalyzer", "d7/ddb/a00361.html", "d7/ddb/a00361" ]
           ] ],
-          [ "ApplicationBase", "d1/da8/a00230.html", "d1/da8/a00230" ],
-          [ "ClientBase", "da/d31/a00234.html", "da/d31/a00234" ],
-          [ "Connection", "d2/dc8/a00242.html", "d2/dc8/a00242" ],
-          [ "NodeInfo", "d9/d2a/a00270.html", "d9/d2a/a00270" ],
-          [ "Pause", "d9/d0d/a00298.html", "d9/d0d/a00298" ],
-          [ "ServerBase", "d0/d61/a00302.html", "d0/d61/a00302" ],
-          [ "UserProtocol", "de/dd7/a00362.html", "de/dd7/a00362" ]
+          [ "ApplicationBase", "d6/de1/a00233.html", "d6/de1/a00233" ],
+          [ "ClientBase", "d4/d08/a00237.html", "d4/d08/a00237" ],
+          [ "Connection", "d6/d22/a00245.html", "d6/d22/a00245" ],
+          [ "NodeInfo", "d0/d19/a00273.html", "d0/d19/a00273" ],
+          [ "Pause", "da/d50/a00301.html", "da/d50/a00301" ],
+          [ "ServerBase", "d3/d07/a00305.html", "d3/d07/a00305" ],
+          [ "UserProtocol", "dd/db5/a00365.html", "dd/db5/a00365" ]
         ] ],
-        [ "Core", "dc/d98/a00225.html", [
-          [ "Frame", "dc/d55/a00226.html", [
-            [ "Data", "d9/dad/a00394.html", "d9/dad/a00394" ],
-            [ "Header", "d9/dd1/a00398.html", "d9/dd1/a00398" ],
-            [ "Helper", "d4/d6d/a00402.html", "d4/d6d/a00402" ],
-            [ "Type", "d4/dbc/a00414.html", null ]
+        [ "Core", "de/dc2/a00228.html", [
+          [ "Frame", "dd/d2d/a00229.html", [
+            [ "Data", "d7/d00/a00401.html", "d7/d00/a00401" ],
+            [ "Header", "de/de8/a00405.html", "de/de8/a00405" ],
+            [ "Helper", "de/d3d/a00409.html", "de/d3d/a00409" ],
+            [ "Type", "d2/de1/a00421.html", null ]
           ] ],
-          [ "AtCommandString", "d2/d3e/a00366.html", "d2/d3e/a00366" ],
-          [ "Checksum", "d3/d30/a00370.html", "d3/d30/a00370" ],
-          [ "ComDriver", "d5/db5/a00374.html", "d5/db5/a00374" ],
-          [ "Diagnostic", "d3/d45/a00382.html", "d3/d45/a00382" ],
-          [ "DigiApiFrameBuffer", "dd/df5/a00386.html", "dd/df5/a00386" ],
-          [ "EscapedCode", "d9/d0a/a00390.html", "d9/d0a/a00390" ],
-          [ "Frame0x00", "dd/dfd/a00438.html", "dd/dfd/a00438" ],
-          [ "Frame0x01", "db/d34/a00442.html", "db/d34/a00442" ],
-          [ "Frame0x08", "d3/def/a00446.html", "d3/def/a00446" ],
-          [ "Frame0x09", "de/df4/a00450.html", "de/df4/a00450" ],
-          [ "Frame0x17", "d7/d9f/a00454.html", "d7/d9f/a00454" ],
-          [ "Frame0x80", "db/d8e/a00482.html", "db/d8e/a00482" ],
-          [ "Frame0x81", "db/df1/a00486.html", "db/df1/a00486" ],
-          [ "Frame0x88", "d7/daa/a00490.html", "d7/daa/a00490" ],
-          [ "Frame0x89", "d5/d0f/a00494.html", "d5/d0f/a00494" ],
-          [ "Frame0x8a", "d8/d57/a00498.html", "d8/d57/a00498" ],
-          [ "Frame0x8b", "d0/da2/a00502.html", "d0/da2/a00502" ],
-          [ "Frame0x90", "d4/d1f/a00506.html", "d4/d1f/a00506" ],
-          [ "Frame0x97", "d6/d52/a00510.html", "d6/d52/a00510" ],
-          [ "LocalAtCommand", "de/df7/a00418.html", "de/df7/a00418" ],
-          [ "Message", "db/d43/a00422.html", "db/d43/a00422" ],
-          [ "ModemStatus", "d7/db9/a00426.html", "d7/db9/a00426" ],
-          [ "Module", "dc/d0c/a00430.html", "dc/d0c/a00430" ],
-          [ "Protocol", "d1/d7e/a00434.html", "d1/d7e/a00434" ],
-          [ "QueryBase", "db/d2c/a00466.html", "db/d2c/a00466" ],
-          [ "QueueMessage", "d0/d29/a00470.html", "d0/d29/a00470" ],
-          [ "RemoteAtCommand", "d5/d26/a00474.html", "d5/d26/a00474" ],
-          [ "ResponseEvents", "d9/dea/a00478.html", "d9/dea/a00478" ]
+          [ "AtCommandString", "df/dee/a00369.html", "df/dee/a00369" ],
+          [ "Checksum", "dc/de3/a00373.html", "dc/de3/a00373" ],
+          [ "ComDriver", "d4/d13/a00377.html", "d4/d13/a00377" ],
+          [ "ComPortBase", "d5/d05/a00385.html", "d5/d05/a00385" ],
+          [ "Diagnostic", "dc/dc9/a00389.html", "dc/dc9/a00389" ],
+          [ "DigiApiFrameBuffer", "da/dbf/a00393.html", "da/dbf/a00393" ],
+          [ "EscapedCode", "d7/d93/a00397.html", "d7/d93/a00397" ],
+          [ "Frame0x00", "dd/d47/a00445.html", "dd/d47/a00445" ],
+          [ "Frame0x01", "d9/d10/a00449.html", "d9/d10/a00449" ],
+          [ "Frame0x08", "da/dc3/a00453.html", "da/dc3/a00453" ],
+          [ "Frame0x09", "d1/dbd/a00457.html", "d1/dbd/a00457" ],
+          [ "Frame0x17", "d5/d5f/a00461.html", "d5/d5f/a00461" ],
+          [ "Frame0x80", "da/d05/a00489.html", "da/d05/a00489" ],
+          [ "Frame0x81", "d9/da5/a00493.html", "d9/da5/a00493" ],
+          [ "Frame0x88", "d4/d1e/a00497.html", "d4/d1e/a00497" ],
+          [ "Frame0x89", "d8/db6/a00501.html", "d8/db6/a00501" ],
+          [ "Frame0x8a", "d7/d37/a00505.html", "d7/d37/a00505" ],
+          [ "Frame0x8b", "df/db6/a00509.html", "df/db6/a00509" ],
+          [ "Frame0x90", "da/def/a00513.html", "da/def/a00513" ],
+          [ "Frame0x97", "d8/dc7/a00517.html", "d8/dc7/a00517" ],
+          [ "LocalAtCommand", "dc/d2f/a00425.html", "dc/d2f/a00425" ],
+          [ "Message", "d4/d53/a00429.html", "d4/d53/a00429" ],
+          [ "ModemStatus", "dd/d07/a00433.html", "dd/d07/a00433" ],
+          [ "Module", "d4/da8/a00437.html", "d4/da8/a00437" ],
+          [ "Protocol", "d6/d66/a00441.html", "d6/d66/a00441" ],
+          [ "QueryBase", "dc/d8e/a00473.html", "dc/d8e/a00473" ],
+          [ "QueueMessage", "d9/dca/a00477.html", "d9/dca/a00477" ],
+          [ "RemoteAtCommand", "d3/d58/a00481.html", "d3/d58/a00481" ],
+          [ "ResponseEvents", "d6/d1a/a00485.html", "d6/d1a/a00485" ]
         ] ]
       ] ]
     ] ],
-    [ "Protocol", "d5/dee/a00518.html", null ],
-    [ "SpectrumAnalyzer", "d6/d90/a00514.html", null ]
+    [ "Protocol", "d7/db7/a00525.html", null ],
+    [ "SpectrumAnalyzer", "d7/def/a00521.html", null ]
 ];
