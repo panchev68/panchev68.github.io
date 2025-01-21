@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['info_0',['Info',['../d9/d39/a00257.html#a94ab4d2357495b289850cd75b4ad93b5',1,'Lib::Xbee::API::Connection::Info']]],
-  ['init_1',['init',['../d4/d13/a00377.html#a47c053561e99a4ca5781970085085eb8',1,'Lib::Xbee::Core::ComDriver::init()'],['../d4/da8/a00437.html#af1760d2127584bea04822f2d893a033b',1,'Lib::Xbee::Core::Module::init()']]],
-  ['initcallback_2',['initCallback',['../de/dc8/a00325.html#a30ad52b003d1c411a13b248eecff4796',1,'Lib::Xbee::API::Service::NetworkDiscovery::initCallback()'],['../d4/dce/a00337.html#ab8c4375241ad7cce57c1d8e1839bdc6d',1,'Lib::Xbee::API::Service::Parameters::initCallback()'],['../df/df1/a00357.html#a2397b1ed64b4baabc0d6cae6a252e0eb',1,'Lib::Xbee::API::Service::ServiceBase::initCallback()'],['../d7/ddb/a00361.html#a4d74be0554326868d60e4cb4fbcdbc06',1,'Lib::Xbee::API::Service::SpectrumAnalyzer::initCallback()']]],
-  ['isconnected_3',['isConnected',['../de/dbc/a00249.html#a8ffa54d577e67c12a5c62c1d1a669b61',1,'Lib::Xbee::API::Connection::State']]],
-  ['isnewdata_4',['isNewData',['../d7/ddb/a00361.html#af406181599ad281e1dd5c998ef8033f2',1,'Lib::Xbee::API::Service::SpectrumAnalyzer']]],
-  ['isopen_5',['isOpen',['../df/df1/a00357.html#a3eb56fd6698f86e4a4d9df1ac199a03e',1,'Lib::Xbee::API::Service::ServiceBase::isOpen()'],['../dc/d2f/a00425.html#a83a5f7674dfdf29a4fcc44b2d0eb0dd5',1,'Lib::Xbee::Core::LocalAtCommand::isOpen()']]],
-  ['isvalid_6',['isValid',['../d6/d66/a00441.html#a4b619cc34a94dcdca9a1c97e75c83045',1,'Lib::Xbee::Core::Protocol::isValid(const DigiApiFrameBuffer &amp;apiFrame)'],['../d6/d66/a00441.html#a0e8d2b550a253cb2fd53f8b0cb874ad7',1,'Lib::Xbee::Core::Protocol::isValid(const uint8_t *data)']]]
+  ['info_0',['Info',['../dd/dd7/a00260.html#a94ab4d2357495b289850cd75b4ad93b5',1,'Lib::Xbee::API::Connection::Info']]],
+  ['init_1',['init',['../d8/ddd/a00380.html#a47c053561e99a4ca5781970085085eb8',1,'Lib::Xbee::Core::ComDriver::init()'],['../de/df8/a00440.html#af1760d2127584bea04822f2d893a033b',1,'Lib::Xbee::Core::Module::init()']]],
+  ['initcallback_2',['initCallback',['../d4/db5/a00328.html#a30ad52b003d1c411a13b248eecff4796',1,'Lib::Xbee::API::Service::NetworkDiscovery::initCallback()'],['../df/df1/a00340.html#ab8c4375241ad7cce57c1d8e1839bdc6d',1,'Lib::Xbee::API::Service::Parameters::initCallback()'],['../d0/d65/a00360.html#a2397b1ed64b4baabc0d6cae6a252e0eb',1,'Lib::Xbee::API::Service::ServiceBase::initCallback()'],['../dc/d59/a00364.html#a4d74be0554326868d60e4cb4fbcdbc06',1,'Lib::Xbee::API::Service::SpectrumAnalyzer::initCallback()']]],
+  ['isconnected_3',['isConnected',['../dc/ded/a00252.html#a8ffa54d577e67c12a5c62c1d1a669b61',1,'Lib::Xbee::API::Connection::State']]],
+  ['isnewdata_4',['isNewData',['../dc/d59/a00364.html#af406181599ad281e1dd5c998ef8033f2',1,'Lib::Xbee::API::Service::SpectrumAnalyzer']]],
+  ['isopen_5',['isOpen',['../d0/d65/a00360.html#a3eb56fd6698f86e4a4d9df1ac199a03e',1,'Lib::Xbee::API::Service::ServiceBase::isOpen()'],['../d4/dd3/a00428.html#a83a5f7674dfdf29a4fcc44b2d0eb0dd5',1,'Lib::Xbee::Core::LocalAtCommand::isOpen()']]],
+  ['isvalid_6',['isValid',['../d3/dea/a00444.html#a4b619cc34a94dcdca9a1c97e75c83045',1,'Lib::Xbee::Core::Protocol::isValid(const DigiApiFrameBuffer &amp;apiFrame)'],['../d3/dea/a00444.html#a0e8d2b550a253cb2fd53f8b0cb874ad7',1,'Lib::Xbee::Core::Protocol::isValid(const uint8_t *data)']]]
 ];

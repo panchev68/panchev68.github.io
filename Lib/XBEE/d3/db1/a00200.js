@@ -1,4 +1,4 @@
 var a00200 =
 [
-    [ "Lib::Xbee::Core::Frame0x80", "da/d05/a00489.html", "da/d05/a00489" ]
+    [ "Lib::Xbee::Core::ResponseEvents", "d4/ddf/a00488.html", "d4/ddf/a00488" ]
 ];

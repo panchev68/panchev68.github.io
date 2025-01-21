@@ -1,4 +1,4 @@
 var a00137 =
 [
-    [ "Lib::Xbee::Core::Diagnostic", "dc/dc9/a00389.html", "dc/dc9/a00389" ]
+    [ "Lib::Xbee::Core::ComPortBase", "d9/dc1/a00388.html", "d9/dc1/a00388" ]
 ];

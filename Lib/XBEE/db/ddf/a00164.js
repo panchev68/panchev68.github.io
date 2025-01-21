@@ -1,4 +1,4 @@
 var a00164 =
 [
-    [ "Lib::Xbee::Core::ModemStatus", "dd/d07/a00433.html", "dd/d07/a00433" ]
+    [ "Lib::Xbee::Core::Message", "d9/dd5/a00432.html", "d9/dd5/a00432" ]
 ];

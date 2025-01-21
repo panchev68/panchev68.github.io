@@ -1,5 +1,4 @@
 var a00131 =
 [
-    [ "Lib::Xbee::Core::ComDriver", "d4/d13/a00377.html", "d4/d13/a00377" ],
-    [ "Lib::Xbee::Core::ComDriver::Config", "de/d08/a00381.html", "de/d08/a00381" ]
+    [ "Lib::Xbee::Core::Checksum", "d6/db8/a00376.html", "d6/db8/a00376" ]
 ];

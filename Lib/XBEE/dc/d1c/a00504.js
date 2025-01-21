@@ -1,0 +1,38 @@
+var a00504 =
+[
+    [ "DeliveryStatus", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98", [
+      [ "Success", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a505a83f220c02df2f85c3810cd9ceb38", null ],
+      [ "NoACKReceived", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ac6805a11d2a6baf74dcad0bbe2ccc7a8", null ],
+      [ "CCAFailure", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ab1b85493a235bde64fba13c8170dc49f", null ],
+      [ "IndirectMessageUnrequested", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a6762adffe79ab91e48330e0a30bcb70d", null ],
+      [ "TransceiverWasUnableToComplete", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ab5f37a4dd48e0ecdb1e03591f02edfb7", null ],
+      [ "NetworkACKFailure", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a70c2f72966ae973181298e05b1d23be9", null ],
+      [ "NotJoinedToNetwork", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a1126b31e0b063274c851f7b315072d65", null ],
+      [ "InvalidFrameValues", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a7acce05d0a21f26770b51fd0d243f01f", null ],
+      [ "InternalError", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a8462b58246e70e5c83e5b939a9332cb5", null ],
+      [ "ResourceError", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ab8147e913fa73c2e3c78452347f6f99c", null ],
+      [ "NoSecureSessionConnection", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a92041fe865fc2bfa64d28451dad682a9", null ],
+      [ "EncryptionFailure", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a160328a6182930341415ae2f455c83bd", null ],
+      [ "MessageTooLong", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ab30ecd5bba6ffaa86b62dc7e514738f1", null ],
+      [ "SocketClosedUnexpectedly", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a3c78be50200fdda40ef38e179036c323", null ],
+      [ "InvalidUDPport", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98af42b8c10f2bb18238befd2ba52693251", null ],
+      [ "InvalidTCPport", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98aa837da3694160c5640001f4394f16525", null ],
+      [ "InvalidHostAddress", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a49c6ef19b45d770d684d4dcd843ad2e2", null ],
+      [ "InvalidDataMode", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ad54800826ba8d1f88f21986691925f24", null ],
+      [ "InvalidInterface", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a7707ab6dd81e47464abaeda9ae9ed8b8", null ],
+      [ "InterfaceNotAcceptingFrames", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a172add14739b7e6d2945e95e0f6fe6cf", null ],
+      [ "ModemUpdateIsInProgress", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a534df3fb385ca8a5e887024d361d385e", null ],
+      [ "ConnectionRefused", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98aa41e9791d8a1b6a003deb6c6a7bfb4c0", null ],
+      [ "SocketConnectionLost", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ad881c6d330e2110228dd00ffd3cb11cc", null ],
+      [ "NoServer", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98af8497cca8d95b54276b72d88bc7a7169", null ],
+      [ "SocketClosed", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a91077c9e54e9b3590d82c2b1d900f3c1", null ],
+      [ "UnknownServer", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a0368dd4aa341c24bd77fab3c804bc4af", null ],
+      [ "UnknownError", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98abfaef30f1c8011c5cefa38ae470fb7aa", null ],
+      [ "InvalidTLSConfig", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98ad4d1bdf6c589bbd8759e2ebe7093ac3f", null ],
+      [ "SocketNotConnected", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a0f6a7554426fd6660ea207cb0af2bf84", null ],
+      [ "SocketNotBound", "dc/d1c/a00504.html#a326643dde690ad31e9359e2dcb11dd98a6926e9a06d4a58ffc65a1534956e5efd", null ]
+    ] ],
+    [ "Frame0x89", "dc/d1c/a00504.html#a21b71f4d37fb1fe4e2e90f42033efb68", null ],
+    [ "deliveryStatus", "dc/d1c/a00504.html#a11b431b642e06e520be84f2038ee0a57", null ],
+    [ "frameId", "dc/d1c/a00504.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ]
+];

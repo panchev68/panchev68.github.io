@@ -1,0 +1,38 @@
+var a00231 =
+[
+    [ "Frame", "d0/d53/a00232.html", "d0/d53/a00232" ],
+    [ "AtCommandString", "db/d7e/a00372.html", "db/d7e/a00372" ],
+    [ "Checksum", "d6/db8/a00376.html", "d6/db8/a00376" ],
+    [ "ComDriver", "d8/ddd/a00380.html", "d8/ddd/a00380" ],
+    [ "ComPortBase", "d9/dc1/a00388.html", "d9/dc1/a00388" ],
+    [ "Diagnostic", "d4/d27/a00392.html", "d4/d27/a00392" ],
+    [ "DigiApiFrameBuffer", "d9/da1/a00396.html", "d9/da1/a00396" ],
+    [ "EscapedCode", "d9/d95/a00400.html", "d9/d95/a00400" ],
+    [ "Frame0x00", "de/dfe/a00448.html", "de/dfe/a00448" ],
+    [ "Frame0x01", "d1/d0b/a00452.html", "d1/d0b/a00452" ],
+    [ "Frame0x08", "de/d87/a00456.html", "de/d87/a00456" ],
+    [ "Frame0x09", "db/db1/a00460.html", "db/db1/a00460" ],
+    [ "Frame0x17", "d2/d9d/a00464.html", "d2/d9d/a00464" ],
+    [ "Frame0x80", "da/d7e/a00492.html", "da/d7e/a00492" ],
+    [ "Frame0x81", "d3/dad/a00496.html", "d3/dad/a00496" ],
+    [ "Frame0x88", "de/d4e/a00500.html", "de/d4e/a00500" ],
+    [ "Frame0x89", "dc/d1c/a00504.html", "dc/d1c/a00504" ],
+    [ "Frame0x8a", "dc/d30/a00508.html", "dc/d30/a00508" ],
+    [ "Frame0x8b", "d4/dfb/a00512.html", "d4/dfb/a00512" ],
+    [ "Frame0x90", "d4/d40/a00516.html", "d4/d40/a00516" ],
+    [ "Frame0x97", "d2/da3/a00520.html", "d2/da3/a00520" ],
+    [ "LocalAtCommand", "d4/dd3/a00428.html", "d4/dd3/a00428" ],
+    [ "Message", "d9/dd5/a00432.html", "d9/dd5/a00432" ],
+    [ "ModemStatus", "d4/d82/a00436.html", "d4/d82/a00436" ],
+    [ "Module", "de/df8/a00440.html", "de/df8/a00440" ],
+    [ "Protocol", "d3/dea/a00444.html", "d3/dea/a00444" ],
+    [ "QueryBase", "d9/d34/a00476.html", "d9/d34/a00476" ],
+    [ "QueueMessage", "d9/dc5/a00480.html", "d9/dc5/a00480" ],
+    [ "RemoteAtCommand", "d8/d89/a00484.html", "d8/d89/a00484" ],
+    [ "ResponseEvents", "d4/ddf/a00488.html", "d4/ddf/a00488" ],
+    [ "ApiMode", "df/d17/a00231.html#a8dd6310c4b71cb745d6d68d8dd9696f3", [
+      [ "TRANSPARENT", "df/d17/a00231.html#a8dd6310c4b71cb745d6d68d8dd9696f3a6dbf1b8bc39b4ed513395a18b554979f", null ],
+      [ "API1", "df/d17/a00231.html#a8dd6310c4b71cb745d6d68d8dd9696f3a7e8d092d9c015707dedc7a3b8173f6b5", null ],
+      [ "API2", "df/d17/a00231.html#a8dd6310c4b71cb745d6d68d8dd9696f3a51dfa65dc2042cfa662ff3a4cd76c968", null ]
+    ] ]
+];
