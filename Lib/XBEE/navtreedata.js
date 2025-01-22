@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "XBEE", "index.html", [
-    [ "XBEE Library 6.00", "index.html", null ],
+    [ "802.15.4 Library 6.01", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -55,11 +55,11 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d2/d41/a00318.html#ad8c7cf0998a76741296ea0c416eb881b",
-"d6/d52/a00510.html#ac7cff957a9045999ef7bf3531cfa4780",
-"d9/d0d/a00298.html#a81c28dad80826c7f44f4a684b4546bb5",
-"dc/d5d/a00278.html",
-"functions_t.html"
+"d1/d53/a00399.html#a9479e2d1ccfd1ead7bb3e62c80151dd9",
+"d4/d04/a00255.html#afac99c7d94d26e16765a0f913fb63ad0",
+"d9/d3a/a00439.html#a01824761bc0de514c8c45716f7d10f4f",
+"dd/d4d/a00519.html#a1b2fe3e85a5bb32799aa845009603700",
+"functions_func_u.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -1,5 +1,5 @@
 var a00107 =
 [
-    [ "Lib::Xbee::API::Service::NetworkDiscovery", "de/de9/a00322.html", "de/de9/a00322" ],
-    [ "Lib::Xbee::API::Service::NetworkDiscovery::Node", "d8/d23/a00326.html", "d8/d23/a00326" ]
+    [ "Lib::Xbee::API::Service::ChannelScanner", "de/dab/a00319.html", "de/dab/a00319" ],
+    [ "Lib::Xbee::API::Service::ChannelScanner::Channel", "de/d55/a00323.html", "de/d55/a00323" ]
 ];

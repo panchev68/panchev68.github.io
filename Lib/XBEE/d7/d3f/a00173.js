@@ -1,4 +1,4 @@
 var a00173 =
 [
-    [ "Lib::Xbee::Core::Frame0x01", "db/d34/a00442.html", "db/d34/a00442" ]
+    [ "Lib::Xbee::Core::Module", "d0/dc4/a00443.html", "d0/dc4/a00443" ]
 ];

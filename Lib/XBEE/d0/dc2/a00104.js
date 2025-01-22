@@ -1,4 +1,4 @@
 var a00104 =
 [
-    [ "Lib::Xbee::API::Service::Manager", "d2/d41/a00318.html", "d2/d41/a00318" ]
+    [ "Lib::Xbee::API::ServerBase", "d1/d5d/a00311.html", "d1/d5d/a00311" ]
 ];

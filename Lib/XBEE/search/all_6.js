@@ -1,17 +1,10 @@
 var searchData=
 [
-  ['emitbeginmessagereceive_0',['emitBeginMessageReceive',['../d5/db5/a00374.html#a1897203464fa36d79d8e4e0a6d8af2a9',1,'Lib::Xbee::Core::ComDriver']]],
-  ['emitbeginmessagesend_1',['emitBeginMessageSend',['../d5/db5/a00374.html#ac3ab681f2004882dd8385b510e394265',1,'Lib::Xbee::Core::ComDriver']]],
-  ['emitendmessagereceived_2',['emitEndMessageReceived',['../d5/db5/a00374.html#a16a2c29e3df09ba949a2e702a80f5973',1,'Lib::Xbee::Core::ComDriver']]],
-  ['emitendmessagesend_3',['emitEndMessageSend',['../d5/db5/a00374.html#a75b474984adde6988bdc417527f05f01',1,'Lib::Xbee::Core::ComDriver']]],
-  ['encryptionfailure_4',['EncryptionFailure',['../d5/d0f/a00494.html#a326643dde690ad31e9359e2dcb11dd98a160328a6182930341415ae2f455c83bd',1,'Lib::Xbee::Core::Frame0x89']]],
-  ['endmeasurement_5',['endMeasurement',['../d9/d8d/a00262.html#ae896e69612be75d176a6709b0716257d',1,'Lib::Xbee::API::Connection::Info::Period']]],
-  ['error_6',['ERROR',['../d1/da8/a00230.html#a32e78f8c67b58381b392f68642bbd07fabb1ca97ec761fc37101737ba0aa2e7c5',1,'Lib::Xbee::API::ApplicationBase']]],
-  ['error_7',['Error',['../d1/da8/a00230.html#a650aeb40fd70ed60f645544c19b4d13a',1,'Lib::Xbee::API::ApplicationBase::Error'],['../d1/d67/a00310.html#ad32134c59a8a2da7db5c286886d3938e',1,'Lib::Xbee::API::Service::ChannelScanner::Error']]],
-  ['escapedcode_8',['EscapedCode',['../d9/d0a/a00390.html',1,'Lib::Xbee::Core::EscapedCode'],['../d9/d0a/a00390.html#a0f9be870aed82d903eb18ffa6b978475',1,'Lib::Xbee::Core::EscapedCode::EscapedCode()']]],
-  ['escapedcode_2ehpp_9',['EscapedCode.hpp',['../d5/db1/a00140.html',1,'']]],
-  ['explicitaddressingcommandrequest_10',['ExplicitAddressingCommandRequest',['../d4/dbc/a00414.html#acef664fab2a325932d0db5dcbc15b0bca012b09a9367c998299d0af7e6653ee6c',1,'Lib::Xbee::Core::Frame::Type']]],
-  ['explicitreceiveindicator_11',['ExplicitReceiveIndicator',['../d4/dbc/a00414.html#acef664fab2a325932d0db5dcbc15b0bca516bdafafad883ca78af000d18245bd7',1,'Lib::Xbee::Core::Frame::Type']]],
-  ['extendedmodemstatus_12',['ExtendedModemStatus',['../d4/dbc/a00414.html#acef664fab2a325932d0db5dcbc15b0bca709fd72efb19ba905ea50b6b960a73a7',1,'Lib::Xbee::Core::Frame::Type']]],
-  ['extendedtransmitstatus_13',['ExtendedTransmitStatus',['../d4/dbc/a00414.html#acef664fab2a325932d0db5dcbc15b0bca283f36ecc90f35714a27388d951a671c',1,'Lib::Xbee::Core::Frame::Type']]]
+  ['bandmask_5fconfiguration_5ffailed_0',['BANDMASK_CONFIGURATION_FAILED',['../d6/d10/a00511.html#a8b0b60d15e486c3065f084917abf755fa22d48f412577f387714ef93f7da484db',1,'Lib::Xbee::Core::Frame0x8a']]],
+  ['beginmeasurement_1',['beginMeasurement',['../dd/d86/a00271.html#aea94baa9aaa625d44e2d9d1e721789c1',1,'Lib::Xbee::API::Connection::Info::Period']]],
+  ['ble_5fconnect_2',['BLE_CONNECT',['../d6/d10/a00511.html#a8b0b60d15e486c3065f084917abf755fac0772455e76024e94186291c6f4ba453',1,'Lib::Xbee::Core::Frame0x8a']]],
+  ['ble_5fdisconnect_3',['BLE_DISCONNECT',['../d6/d10/a00511.html#a8b0b60d15e486c3065f084917abf755fa8ea39dff8822b2319506f783bcaec692',1,'Lib::Xbee::Core::Frame0x8a']]],
+  ['bleunlockrequest_4',['BLEUnlockRequest',['../da/db6/a00427.html#acef664fab2a325932d0db5dcbc15b0bca56ae0adedbf01f206a974d734e6eb425',1,'Lib::Xbee::Core::Frame::Type']]],
+  ['bleunlockresponse_5',['BLEUnlockResponse',['../da/db6/a00427.html#acef664fab2a325932d0db5dcbc15b0bca562e532c2675b87f80ee5a8d6d287448',1,'Lib::Xbee::Core::Frame::Type']]],
+  ['build_6',['build',['../d6/d80/a00371.html#af3f1deabf04a2ea0ae22a980119c5ab3',1,'Lib::Xbee::API::UserProtocol::build()'],['../de/d84/a00447.html#a4cf01c2c63471e8d59a5238c5e30326a',1,'Lib::Xbee::Core::Protocol::build()']]]
 ];

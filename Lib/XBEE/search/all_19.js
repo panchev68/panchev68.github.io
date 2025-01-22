@@ -1,22 +1,10 @@
 var searchData=
 [
-  ['_7eapplicationbase_0',['~ApplicationBase',['../d1/da8/a00230.html#a6882e511714722612b0b25a57bf31549',1,'Lib::Xbee::API::ApplicationBase']]],
-  ['_7echannel_1',['~Channel',['../d0/d39/a00314.html#a00a658a38530acdd92bd451a68b50a93',1,'Lib::Xbee::API::Service::ChannelScanner::Channel']]],
-  ['_7echannelscanner_2',['~ChannelScanner',['../d1/d67/a00310.html#af961f246ce39dcd76245503c08aa78d2',1,'Lib::Xbee::API::Service::ChannelScanner']]],
-  ['_7eclientbase_3',['~ClientBase',['../da/d31/a00234.html#a4291ccad5bf31f10c628fc016ce09baf',1,'Lib::Xbee::API::ClientBase']]],
-  ['_7ecomdriver_4',['~ComDriver',['../d5/db5/a00374.html#ad214d27c8aae648179858b2064dfcf65',1,'Lib::Xbee::Core::ComDriver']]],
-  ['_7edigiapiframebuffer_5',['~DigiApiFrameBuffer',['../dd/df5/a00386.html#ab70db52885f6689eac4136a6fd022833',1,'Lib::Xbee::Core::DigiApiFrameBuffer']]],
-  ['_7einfo_6',['~Info',['../d7/d03/a00254.html#aa8f682d9bbc7f2efd37b3ecdb02333d8',1,'Lib::Xbee::API::Connection::Info']]],
-  ['_7elocalatcommand_7',['~LocalAtCommand',['../de/df7/a00418.html#a6913bf0f1bc23fcbc6c48453f482774e',1,'Lib::Xbee::Core::LocalAtCommand']]],
-  ['_7emessage_8',['~Message',['../db/d43/a00422.html#ae19029639af09687bd15654fd69c4b85',1,'Lib::Xbee::Core::Message']]],
-  ['_7emodemstatus_9',['~ModemStatus',['../d7/db9/a00426.html#a10d8bba2e4f370b82c928bd363932160',1,'Lib::Xbee::Core::ModemStatus']]],
-  ['_7emodule_10',['~Module',['../dc/d0c/a00430.html#a50be57fbaa0e3e4cfe868693f80cef65',1,'Lib::Xbee::Core::Module']]],
-  ['_7enetworkdiscovery_11',['~NetworkDiscovery',['../de/de9/a00322.html#a5cf68bb065fb460888887333eaf841a3',1,'Lib::Xbee::API::Service::NetworkDiscovery']]],
-  ['_7epause_12',['~Pause',['../d9/d0d/a00298.html#a9bf5748eee1fcbfc29ddbfacdd6a7c7f',1,'Lib::Xbee::API::Pause']]],
-  ['_7equality_13',['~Quality',['../d0/da7/a00250.html#ae1d2cf665037874e75651b5360def4b1',1,'Lib::Xbee::API::Connection::Quality']]],
-  ['_7equerybase_14',['~QueryBase',['../db/d2c/a00466.html#a6dfa7d7edd411d2c5ee3bf1aa326a866',1,'Lib::Xbee::Core::QueryBase']]],
-  ['_7eremoteatcommand_15',['~RemoteAtCommand',['../d5/d26/a00474.html#a00d526164d879ebb5a1662b267f5330a',1,'Lib::Xbee::Core::RemoteAtCommand']]],
-  ['_7eserverbase_16',['~ServerBase',['../d0/d61/a00302.html#a2c0a5a3aa6c556df39037c72bffd03a1',1,'Lib::Xbee::API::ServerBase']]],
-  ['_7eservicebase_17',['~ServiceBase',['../d0/dc3/a00354.html#aa1b6296f0710c448eef4036ddd2616a1',1,'Lib::Xbee::API::Service::ServiceBase']]],
-  ['_7euserprotocol_18',['~UserProtocol',['../de/dd7/a00362.html#a04cd110654235ccbb299b9d6754791a1',1,'Lib::Xbee::API::UserProtocol']]]
+  ['vector_0',['Vector',['../d1/d05/a00423.html',1,'Lib::Xbee::Core::Frame::Helper']]],
+  ['vector_1',['vector',['../d1/d98/a00407.html#a4001b9438daa27b62d6eb0d958ef58c0',1,'Lib::Xbee::Core::Frame::Data']]],
+  ['versions_2',['Versions',['../d9/d5e/a00295.html',1,'Lib::Xbee::API::NodeInfo']]],
+  ['versions_3',['versions',['../d2/d82/a00279.html#a7520cf0790092367b8d2993391ddd56f',1,'Lib::Xbee::API::NodeInfo']]],
+  ['very_5fgood_4',['VERY_GOOD',['../d0/d2f/a00259.html#a177acb95c6332ad601f7e96efce3c1baa48729031683e739385a71c3ae4418c7f',1,'Lib::Xbee::API::Connection::Quality']]],
+  ['voltage_5',['voltage',['../df/d95/a00299.html#a9cbf20387f28e764e2ffb18c5ec4fd48',1,'Lib::Xbee::API::NodeInfo::Monitor::voltage'],['../d1/dc6/a00347.html#a95be1338840aaa58da0d02377cd7812d',1,'Lib::Xbee::API::Service::Parameters::Data::voltage']]],
+  ['voltage_5fsupply_5flimit_5fexceeded_6',['VOLTAGE_SUPPLY_LIMIT_EXCEEDED',['../d6/d10/a00511.html#a8b0b60d15e486c3065f084917abf755fa3ad384b9b7a770aaa0359028247f96fd',1,'Lib::Xbee::Core::Frame0x8a']]]
 ];

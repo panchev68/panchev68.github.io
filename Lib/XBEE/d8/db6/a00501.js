@@ -1,0 +1,38 @@
+var a00501 =
+[
+    [ "DeliveryStatus", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98", [
+      [ "Success", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a505a83f220c02df2f85c3810cd9ceb38", null ],
+      [ "NoACKReceived", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ac6805a11d2a6baf74dcad0bbe2ccc7a8", null ],
+      [ "CCAFailure", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ab1b85493a235bde64fba13c8170dc49f", null ],
+      [ "IndirectMessageUnrequested", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a6762adffe79ab91e48330e0a30bcb70d", null ],
+      [ "TransceiverWasUnableToComplete", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ab5f37a4dd48e0ecdb1e03591f02edfb7", null ],
+      [ "NetworkACKFailure", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a70c2f72966ae973181298e05b1d23be9", null ],
+      [ "NotJoinedToNetwork", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a1126b31e0b063274c851f7b315072d65", null ],
+      [ "InvalidFrameValues", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a7acce05d0a21f26770b51fd0d243f01f", null ],
+      [ "InternalError", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a8462b58246e70e5c83e5b939a9332cb5", null ],
+      [ "ResourceError", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ab8147e913fa73c2e3c78452347f6f99c", null ],
+      [ "NoSecureSessionConnection", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a92041fe865fc2bfa64d28451dad682a9", null ],
+      [ "EncryptionFailure", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a160328a6182930341415ae2f455c83bd", null ],
+      [ "MessageTooLong", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ab30ecd5bba6ffaa86b62dc7e514738f1", null ],
+      [ "SocketClosedUnexpectedly", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a3c78be50200fdda40ef38e179036c323", null ],
+      [ "InvalidUDPport", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98af42b8c10f2bb18238befd2ba52693251", null ],
+      [ "InvalidTCPport", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98aa837da3694160c5640001f4394f16525", null ],
+      [ "InvalidHostAddress", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a49c6ef19b45d770d684d4dcd843ad2e2", null ],
+      [ "InvalidDataMode", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ad54800826ba8d1f88f21986691925f24", null ],
+      [ "InvalidInterface", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a7707ab6dd81e47464abaeda9ae9ed8b8", null ],
+      [ "InterfaceNotAcceptingFrames", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a172add14739b7e6d2945e95e0f6fe6cf", null ],
+      [ "ModemUpdateIsInProgress", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a534df3fb385ca8a5e887024d361d385e", null ],
+      [ "ConnectionRefused", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98aa41e9791d8a1b6a003deb6c6a7bfb4c0", null ],
+      [ "SocketConnectionLost", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ad881c6d330e2110228dd00ffd3cb11cc", null ],
+      [ "NoServer", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98af8497cca8d95b54276b72d88bc7a7169", null ],
+      [ "SocketClosed", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a91077c9e54e9b3590d82c2b1d900f3c1", null ],
+      [ "UnknownServer", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a0368dd4aa341c24bd77fab3c804bc4af", null ],
+      [ "UnknownError", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98abfaef30f1c8011c5cefa38ae470fb7aa", null ],
+      [ "InvalidTLSConfig", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98ad4d1bdf6c589bbd8759e2ebe7093ac3f", null ],
+      [ "SocketNotConnected", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a0f6a7554426fd6660ea207cb0af2bf84", null ],
+      [ "SocketNotBound", "d8/db6/a00501.html#a326643dde690ad31e9359e2dcb11dd98a6926e9a06d4a58ffc65a1534956e5efd", null ]
+    ] ],
+    [ "Frame0x89", "d8/db6/a00501.html#a21b71f4d37fb1fe4e2e90f42033efb68", null ],
+    [ "deliveryStatus", "d8/db6/a00501.html#a11b431b642e06e520be84f2038ee0a57", null ],
+    [ "frameId", "d8/db6/a00501.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ]
+];

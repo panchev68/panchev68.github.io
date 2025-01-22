@@ -1,4 +1,5 @@
 var a00137 =
 [
-    [ "Lib::Xbee::Core::DigiApiFrameBuffer", "dd/df5/a00386.html", "dd/df5/a00386" ]
+    [ "Lib::Xbee::Core::ComDriver", "da/dee/a00383.html", "da/dee/a00383" ],
+    [ "Lib::Xbee::Core::ComDriver::Config", "db/db9/a00387.html", "db/db9/a00387" ]
 ];
