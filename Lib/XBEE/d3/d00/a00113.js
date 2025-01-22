@@ -1,6 +1,5 @@
 var a00113 =
 [
-    [ "Lib::Xbee::API::Service::Parameters", "df/df1/a00340.html", "df/df1/a00340" ],
-    [ "Lib::Xbee::API::Service::Parameters::Data", "d8/d8e/a00344.html", "d8/d8e/a00344" ],
-    [ "Lib::Xbee::API::Service::Parameters::Data::SerialNumber", "df/d03/a00348.html", "df/d03/a00348" ]
+    [ "Lib::Xbee::API::Service::NetworkDiscovery", "d8/df7/a00331.html", "d8/df7/a00331" ],
+    [ "Lib::Xbee::API::Service::NetworkDiscovery::Node", "df/d91/a00335.html", "df/d91/a00335" ]
 ];

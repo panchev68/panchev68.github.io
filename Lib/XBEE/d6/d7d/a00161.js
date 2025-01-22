@@ -1,4 +1,4 @@
 var a00161 =
 [
-    [ "Lib::Xbee::Core::LocalAtCommand", "d4/dd3/a00428.html", "d4/dd3/a00428" ]
+    [ "Lib::Xbee::Core::Frame::Type", "da/db6/a00427.html", null ]
 ];

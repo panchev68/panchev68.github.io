@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "Lib::Xbee::Core::RemoteAtCommand", "d8/d89/a00484.html", "d8/d89/a00484" ]
+    [ "Lib::Xbee::Core::QueueMessage", "dc/da0/a00483.html", "dc/da0/a00483" ]
 ];

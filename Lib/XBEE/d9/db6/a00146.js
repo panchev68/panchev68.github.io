@@ -1,4 +1,4 @@
 var a00146 =
 [
-    [ "Lib::Xbee::Core::EscapedCode", "d9/d95/a00400.html", "d9/d95/a00400" ]
+    [ "Lib::Xbee::Core::DigiApiFrameBuffer", "d1/d53/a00399.html", "d1/d53/a00399" ]
 ];

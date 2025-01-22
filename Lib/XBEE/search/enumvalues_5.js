@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['fatal_5ferror_0',['FATAL_ERROR',['../dc/d30/a00508.html#a8b0b60d15e486c3065f084917abf755fac6179cb17067a08588ff65efb6d02cdd',1,'Lib::Xbee::Core::Frame0x8a']]]
+  ['fatal_5ferror_0',['FATAL_ERROR',['../d6/d10/a00511.html#a8b0b60d15e486c3065f084917abf755fac6179cb17067a08588ff65efb6d02cdd',1,'Lib::Xbee::Core::Frame0x8a']]]
 ];
