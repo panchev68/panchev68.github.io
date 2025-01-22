@@ -1,11 +1,15 @@
 var a00317 =
 [
-    [ "LedMode", "da/de0/a00317.html#a2378d93d6893b2c8a4c6726a633a7a83", null ],
-    [ "setup", "da/de0/a00317.html#ab7856d6432dfad3ae2539ab7033c0744", null ],
-    [ "cls", "da/de0/a00317.html#ae7612f4eafe79b2541f41a32737f73ce", null ],
-    [ "print", "da/de0/a00317.html#ad044dc8767a40a1bcf30a5954773cdaa", null ],
-    [ "printf", "da/de0/a00317.html#a3adc723ea76c8db70fe966f98621f8bc", null ],
-    [ "printRow", "da/de0/a00317.html#a92a99099376f4b14647a77fad7c7651e", null ],
-    [ "key", "da/de0/a00317.html#a17998749ff835fe0bdf5c7905a2e35ba", null ],
-    [ "led", "da/de0/a00317.html#a5cfb7db4a98ba4a16b5a55b6a4e31898", null ]
+    [ "Inputs", "da/de0/a00317.html#a6d35d70d315b33f0bf83b20668b05d7e", null ],
+    [ "~Inputs", "da/de0/a00317.html#a5a691d3d6a57181bbb123bd638a15ba8", null ],
+    [ "Inputs", "da/de0/a00317.html#a72ae32a187aec4a1341c29fa34cecf0f", null ],
+    [ "Inputs", "da/de0/a00317.html#a3ee90f3553870fea0a5a7a486fff1e1f", null ],
+    [ "operator=", "da/de0/a00317.html#af2db68213cb35f3fa4d598557581b231", null ],
+    [ "operator=", "da/de0/a00317.html#a5ae141daf127f10f0bcbad2853dba535", null ],
+    [ "setup", "da/de0/a00317.html#add7e0f0e1fc95685facd7853a5338a56", null ],
+    [ "getValue", "da/de0/a00317.html#a1ee5007f7a0c6ba0e9e214efae69b3c2", null ],
+    [ "preUpdateCallback", "da/de0/a00317.html#a0fa2ee9d60a8d9443b87cb26da6a4354", null ],
+    [ "update", "da/de0/a00317.html#a7ea7740190d6717eac78470a2ce5d0c1", null ],
+    [ "getSpiHandle", "da/de0/a00317.html#afc97d0941c2071cb123a657e9bf765e5", null ],
+    [ "onValueChanged", "da/de0/a00317.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
 ];

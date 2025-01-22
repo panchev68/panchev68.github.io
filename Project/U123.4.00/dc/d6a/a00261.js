@@ -1,7 +1,6 @@
 var a00261 =
 [
-    [ "~ParserBase", "dc/d6a/a00261.html#ac0500896c3bb7364b3537cafb2d1a24f", null ],
-    [ "ParserBase", "dc/d6a/a00261.html#a8d032a889295d8e64f8e3ca2c78af8a9", null ],
-    [ "reset", "dc/d6a/a00261.html#a8999b79d4f085ee95b85359a917c69ff", null ],
-    [ "handleReceivedCharacterEvent", "dc/d6a/a00261.html#a5f884fc268be5a2004178dfac2a2a5e2", null ]
+    [ "RemoteIO57600", "dc/d6a/a00261.html#a0fd0129163132e37106e022a3c885367", null ],
+    [ "getName", "dc/d6a/a00261.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
+    [ "getWorkScreen", "dc/d6a/a00261.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
 ];

@@ -1,5 +1,7 @@
 var a00305 =
 [
-    [ "control", "d3/d07/a00305.html#a673a74355aa4903c637670bd743b0e5a", null ],
-    [ "value", "d3/d07/a00305.html#a79831d316d1a08199efad7ec4d2b28ec", null ]
+    [ "Inputs", "d2/d71/a00309.html", "d2/d71/a00309" ],
+    [ "Outputs", "dd/db3/a00313.html", "dd/db3/a00313" ],
+    [ "inputs", "d3/d07/a00305.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d3/d07/a00305.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

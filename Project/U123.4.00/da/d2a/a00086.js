@@ -1,4 +1,4 @@
 var a00086 =
 [
-    [ "App::RotationTableParallel7Pins", "dd/d56/a00274.html", "dd/d56/a00274" ]
+    [ "App::RotationTableParallel6Pins", "d0/d19/a00273.html", "d0/d19/a00273" ]
 ];

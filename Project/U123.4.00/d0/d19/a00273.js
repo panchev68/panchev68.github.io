@@ -1,5 +1,5 @@
 var a00273 =
 [
-    [ "port", "d0/d19/a00273.html#aeba565c07ca364748f572902aba40f3a", null ],
-    [ "mask", "d0/d19/a00273.html#ac5e756620af38daca7da6aaff5c5de5f", null ]
+    [ "getName", "d0/d19/a00273.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
+    [ "getWorkScreen", "d0/d19/a00273.html#a471b400c4e20340701b8aa2f753f8d52", null ]
 ];

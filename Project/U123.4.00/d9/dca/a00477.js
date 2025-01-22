@@ -1,6 +1,7 @@
 var a00477 =
 [
     [ "Keycode", "d9/dca/a00477.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "clearButtonsFunction", "d9/dca/a00477.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d9/dca/a00477.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleButtonEvent", "d9/dca/a00477.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "d9/dca/a00477.html#acf574efaaeee3b48351f35610fd34529", null ],

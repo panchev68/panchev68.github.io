@@ -1,6 +1,6 @@
 var a00249 =
 [
-    [ "RotationTableParallel", "de/dbc/a00249.html#a8e274d47f1e12b86c613c1512899ece9", null ],
-    [ "~RotationTableParallel", "de/dbc/a00249.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
-    [ "getName", "de/dbc/a00249.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ]
+    [ "run", "de/dbc/a00249.html#a1ed16365a2a64ea8ae5e613abce4604a", null ],
+    [ "getApplicationName", "de/dbc/a00249.html#a8c9ae065c19300da77b4f76db064f1ff", null ],
+    [ "getWorkScreen", "de/dbc/a00249.html#a145b41f6c993b7efd0cf5ce68ccfd29f", null ]
 ];

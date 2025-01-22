@@ -1,12 +1,6 @@
 var a00265 =
 [
-    [ "UpdateMode", "da/d53/a00265.html#a978444aac3217a942110d700b46f8fac", [
-      [ "SEQUENTAL", "da/d53/a00265.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510", null ],
-      [ "PARALLEL", "da/d53/a00265.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb", null ]
-    ] ],
-    [ "setup", "da/d53/a00265.html#a5f39c6e37bb24fa7211f302b6a3b16ba", null ],
-    [ "handleTestOutputsUpdate", "da/d53/a00265.html#a1f5f1f866ebd52551d7e41bb3500a620", null ],
-    [ "inputs", "da/d53/a00265.html#aa94f1ffc0e81ad06ebd87c3368921a05", null ],
-    [ "outputs", "da/d53/a00265.html#a0a0c5f070d0aa37f2b01519865e562ea", null ],
-    [ "test", "da/d53/a00265.html#a94500aa2617d5f5fb0ddc3207b5e40ab", null ]
+    [ "RemoteIO9600", "da/d53/a00265.html#ab5a98976c21213a28e706fc9de81f126", null ],
+    [ "getName", "da/d53/a00265.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
+    [ "getWorkScreen", "da/d53/a00265.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
 ];

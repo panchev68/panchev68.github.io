@@ -1,7 +1,7 @@
 var a00266 =
 [
-    [ "RotationTableParallel", "d5/d35/a00266.html#af80855e57ad29271eaf89ed6f5c92e9e", null ],
-    [ "~RotationTableParallel", "d5/d35/a00266.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
-    [ "getName", "d5/d35/a00266.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "d5/d35/a00266.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "FIRMWARE_VERSION", "d5/d35/a00266.html#aa14dc39d52ab121ceb570f1a265385e0", null ],
+    [ "FIRMWARE_SUBVERSION", "d5/d35/a00266.html#aff8c87a39aba7b5e76a660f9ae56a3cb", null ],
+    [ "HARDWARE_VERSION", "d5/d35/a00266.html#a7c770e481dd85c7ffb40e3b3edb0beb5", null ],
+    [ "HARDWARE_SUBVERSION", "d5/d35/a00266.html#ae4f49b7e04f09801e81ba0f3d7c2c96a", null ]
 ];

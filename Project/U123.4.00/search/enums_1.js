@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['keycode_0',['Keycode',['../d2/daf/a00346.html#a79a416ce6bb213f7a411462a2885f1b7',1,'BSP::Keyboard']]]
+  ['keycode_0',['Keycode',['../d7/dfc/a00349.html#a79a416ce6bb213f7a411462a2885f1b7',1,'BSP::Keyboard']]]
 ];

@@ -1,5 +1,4 @@
 var a00095 =
 [
-    [ "BSP::ComPort", "dc/dc9/a00282.html", "dc/dc9/a00282" ],
-    [ "BSP::ComPort::ParserBase", "d5/d7b/a00286.html", "d5/d7b/a00286" ]
+    [ "beep", "d9/d77/a00095.html#a8d95a2e2bea344a17ce06ac7980184ab", null ]
 ];

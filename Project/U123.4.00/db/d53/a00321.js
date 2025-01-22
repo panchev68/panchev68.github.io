@@ -1,15 +1,14 @@
 var a00321 =
 [
-    [ "Keycode", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7", [
-      [ "NONE", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "ENTER", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a331b3100a485d8cacff1d3df8e9b0c13", null ],
-      [ "CLEAR", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a813461e0c58e7ad59a2fd83ca2237fec", null ],
-      [ "LEFT", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a684d325a7303f52e64011467ff5c5758", null ],
-      [ "RIGHT", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a21507b40c80068eda19865706fdc2403", null ],
-      [ "HOLD_ENTER", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a96954c675b4ff765a0fe0d007989c2e0", null ],
-      [ "HOLD_CLEAR", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a1a0e892af7673f9d357e5a4b1b42e8ca", null ],
-      [ "HOLD_LEFT", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7af4bfd129cae618d0b4ec57d95ef564ff", null ],
-      [ "HOLD_RIGHT", "db/d53/a00321.html#a79a416ce6bb213f7a411462a2885f1b7a5a77a80e846cba35d92572a4257bcd8b", null ]
-    ] ],
-    [ "sample", "db/d53/a00321.html#a22ebf10145aaf6bca2ea697ab2716fa1", null ]
+    [ "Outputs", "db/d53/a00321.html#ae538a06e0b79ecd381024c1a01415deb", null ],
+    [ "~Outputs", "db/d53/a00321.html#aedda01b36ccb93ca338b30a0e75e4913", null ],
+    [ "setup", "db/d53/a00321.html#a083fd7b9edca7c66ba53269351b62ef4", null ],
+    [ "setValue", "db/d53/a00321.html#ade2766fb6b60950349d8b36d16500c51", null ],
+    [ "getStatus", "db/d53/a00321.html#aefe7ebbeecc26a27354438d16e26dd71", null ],
+    [ "getSpiHandle", "db/d53/a00321.html#ad7d377c43329bc32f1936c66bd85d924", null ],
+    [ "preUpdateCallback", "db/d53/a00321.html#a5564961accd83adb55f8488e5411240a", null ],
+    [ "update", "db/d53/a00321.html#abe1d63143784b90a498c935966b7df5f", null ],
+    [ "onValueChanged", "db/d53/a00321.html#a49199bf482163a66ea5831e85060cecf", null ],
+    [ "onStatusChanged", "db/d53/a00321.html#a5e12d4653fc13761bdee086c6055ea7b", null ],
+    [ "onSpiError", "db/d53/a00321.html#a5f32588bd17e8771f96a4c0f533efc9c", null ]
 ];

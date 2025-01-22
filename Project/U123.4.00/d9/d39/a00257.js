@@ -1,10 +1,7 @@
 var a00257 =
 [
-    [ "ParserBase", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
-    [ "open", "d9/d39/a00257.html#ac8d5c876abcc9f791d7f5961a34cbdb7", null ],
-    [ "close", "d9/d39/a00257.html#a790726d4ec2a3e06e872501452be5494", null ],
-    [ "setParser", "d9/d39/a00257.html#ac0935e4b4554d7b4251d8e703f847346", null ],
-    [ "setBaudrate", "d9/d39/a00257.html#a888b40b4a65eb19d5abe0ed9c336693c", null ],
-    [ "getBaudrate", "d9/d39/a00257.html#a4d4482f87880bb9c84cac488551cbdfe", null ],
-    [ "send", "d9/d39/a00257.html#ad6ff77ee00a994dce7b20146a2e077c1", null ]
+    [ "RemoteIO", "d9/d39/a00257.html#a91417910a63110f34badc691e0f82c6b", null ],
+    [ "~RemoteIO", "d9/d39/a00257.html#ae936ddf99f726627e0b57a56b7544a7e", null ],
+    [ "getName", "d9/d39/a00257.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
+    [ "getWorkScreen", "d9/d39/a00257.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
 ];

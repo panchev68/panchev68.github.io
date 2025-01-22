@@ -1,7 +1,4 @@
 var a00068 =
 [
-    [ "App::ParallelMode", "d1/da8/a00230.html#aa1dc663990fe4db5702cd3639023ac47", [
-      [ "App::ParallelMode::PINS_6", "d1/da8/a00230.html#aa1dc663990fe4db5702cd3639023ac47aa70848d08d7f71a7b48061653e25134c", null ],
-      [ "App::ParallelMode::PINS_7", "d1/da8/a00230.html#aa1dc663990fe4db5702cd3639023ac47a3e9615f5c3d8c0377f6e7337cf636997", null ]
-    ] ]
+    [ "App::ApplicationNone", "d0/d3e/a00253.html", "d0/d3e/a00253" ]
 ];

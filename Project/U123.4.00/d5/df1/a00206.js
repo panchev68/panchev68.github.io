@@ -1,4 +1,4 @@
 var a00206 =
 [
-    [ "UI::Screen::ResetState", "d7/daa/a00490.html", "d7/daa/a00490" ]
+    [ "UI::Screen::RemoteIOWork", "da/d05/a00489.html", "da/d05/a00489" ]
 ];

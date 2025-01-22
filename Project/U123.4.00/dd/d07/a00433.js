@@ -1,7 +1,12 @@
 var a00433 =
 [
     [ "Keycode", "dd/d07/a00433.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "ScreenBase", "dd/d07/a00433.html#afac6757c8808576ecc29c498758bf15d", null ],
+    [ "~ScreenBase", "dd/d07/a00433.html#a72677d5e2345d19d3d72334482c84b64", null ],
+    [ "clearButtonsFunction", "dd/d07/a00433.html#ac682e527499d3ee673a0461f92ea9255", null ],
+    [ "active", "dd/d07/a00433.html#ad8db74badcca6bfa89075bba340827fe", null ],
     [ "deactive", "dd/d07/a00433.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
+    [ "handleTickEvent", "dd/d07/a00433.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "handleButtonEvent", "dd/d07/a00433.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "dd/d07/a00433.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "dd/d07/a00433.html#a42e0c133357afffb8a7b6d4633469366", null ],

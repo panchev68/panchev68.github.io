@@ -1,6 +1,7 @@
 var a00281 =
 [
-    [ "numberOfPins", "d2/d04/a00281.html#ae921988b64cb6909ec8f99335b1df639", null ],
-    [ "spi", "d2/d04/a00281.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
-    [ "nss", "d2/d04/a00281.html#a552c483d980c1271fec712c347656bab", null ]
+    [ "RotationTableSerial", "d2/d04/a00281.html#a9eb545055aab26294ddbc08991685357", null ],
+    [ "~RotationTableSerial", "d2/d04/a00281.html#afbca5804c1566c239a8a700784a458ce", null ],
+    [ "getName", "d2/d04/a00281.html#a57873374c38dc14c2bd3eb1dec8d46a3", null ],
+    [ "getWorkScreen", "d2/d04/a00281.html#aaa51bfa319dd730891818fd88dd658dd", null ]
 ];

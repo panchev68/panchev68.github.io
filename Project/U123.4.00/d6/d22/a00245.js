@@ -1,6 +1,7 @@
 var a00245 =
 [
-    [ "RemoteIOBase", "d6/d22/a00245.html#a202cfaf414f2de4805f8e91120c7f36d", null ],
-    [ "~RemoteIOBase", "d6/d22/a00245.html#aa0af14f0101fee8b98ecbf19d7236aba", null ],
-    [ "getName", "d6/d22/a00245.html#ae93a509fa3f70467e50bc7cdcd33a99e", null ]
+    [ "ApplicationBase", "d6/d22/a00245.html#a2f2a91f348ccc9b87a22132de79cfcd0", null ],
+    [ "~ApplicationBase", "d6/d22/a00245.html#abfe2fc62ce8879ffd6aa98d5b7be0578", null ],
+    [ "getName", "d6/d22/a00245.html#a91d2891dae8e6f3937dc49cbcde40adc", null ],
+    [ "getWorkScreen", "d6/d22/a00245.html#a4780bc095d0fcafd901cd9ad469c14de", null ]
 ];

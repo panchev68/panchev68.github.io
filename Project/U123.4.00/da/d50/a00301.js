@@ -1,5 +1,5 @@
 var a00301 =
 [
-    [ "dummy", "da/d50/a00301.html#acfa85de833cbcfe7b6342bfc37978cb4", null ],
-    [ "status", "da/d50/a00301.html#a6b827b1606e3331461ccc4ebe4f1366c", null ]
+    [ "port", "da/d50/a00301.html#aeba565c07ca364748f572902aba40f3a", null ],
+    [ "mask", "da/d50/a00301.html#ac5e756620af38daca7da6aaff5c5de5f", null ]
 ];

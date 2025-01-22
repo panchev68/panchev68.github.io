@@ -1,9 +1,5 @@
 var a00333 =
 [
-    [ "Mode", "d2/d0a/a00333.html#ad5b1599bc386ba80ed7543fe2d4cd5b5", [
-      [ "OFF", "d2/d0a/a00333.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d2/d0a/a00333.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a90651ebea9a35ec4e018c8157492e17c", null ],
-      [ "BLINK", "d2/d0a/a00333.html#ad5b1599bc386ba80ed7543fe2d4cd5b5ad810ed8e97088a3c987f179dfb88cefc", null ]
-    ] ],
-    [ "set", "d2/d0a/a00333.html#a2d5d0db68b341d685e80c59a1372caf8", null ]
+    [ "control", "d2/d0a/a00333.html#a673a74355aa4903c637670bd743b0e5a", null ],
+    [ "value", "d2/d0a/a00333.html#a79831d316d1a08199efad7ec4d2b28ec", null ]
 ];

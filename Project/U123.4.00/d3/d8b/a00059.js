@@ -1,4 +1,4 @@
 var a00059 =
 [
-    [ "App::ApplicationManager", "d4/d9a/a00246.html", "d4/d9a/a00246" ]
+    [ "App::ApplicationBase", "d6/d22/a00245.html", "d6/d22/a00245" ]
 ];
