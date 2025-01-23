@@ -1,7 +1,7 @@
 var examples =
 [
-    [ "DeviceManager", "d0/d2a/a00531.html", null ],
-    [ "Example Digital peripheral driver", "db/d44/a00533.html", null ],
-    [ "Example M24C64W - 64-Kbit serial I²C bus EEPROM", "d7/d84/a00535.html", null ],
-    [ "Voltmeter", "d8/d6e/a00537.html", null ]
+    [ "DeviceManager", "dd/de9/a00552.html", null ],
+    [ "Example Digital peripheral driver", "dc/df9/a00554.html", null ],
+    [ "Example M24C64W - 64-Kbit serial I²C bus EEPROM", "d6/d95/a00556.html", null ],
+    [ "Voltmeter", "dc/dea/a00558.html", null ]
 ];

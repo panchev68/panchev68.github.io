@@ -1,7 +1,7 @@
 var a00308 =
 [
-    [ "RotationTableParallel", "d5/d0f/a00308.html#af80855e57ad29271eaf89ed6f5c92e9e", null ],
-    [ "~RotationTableParallel", "d5/d0f/a00308.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
-    [ "getName", "d5/d0f/a00308.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "d5/d0f/a00308.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "Inputs", "d7/df2/a00312.html", "d7/df2/a00312" ],
+    [ "Outputs", "d3/db8/a00316.html", "d3/db8/a00316" ],
+    [ "inputs", "d5/d0f/a00308.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d5/d0f/a00308.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

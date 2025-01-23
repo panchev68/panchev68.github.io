@@ -1,7 +1,12 @@
 var a00296 =
 [
-    [ "RemoteIO", "db/d7b/a00296.html#a91417910a63110f34badc691e0f82c6b", null ],
-    [ "~RemoteIO", "db/d7b/a00296.html#ae936ddf99f726627e0b57a56b7544a7e", null ],
-    [ "getName", "db/d7b/a00296.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
-    [ "getWorkScreen", "db/d7b/a00296.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
+    [ "UpdateMode", "db/d7b/a00296.html#a978444aac3217a942110d700b46f8fac", [
+      [ "SEQUENTAL", "db/d7b/a00296.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510", null ],
+      [ "PARALLEL", "db/d7b/a00296.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "setup", "db/d7b/a00296.html#a5f39c6e37bb24fa7211f302b6a3b16ba", null ],
+    [ "handleTestOutputsUpdate", "db/d7b/a00296.html#a1f5f1f866ebd52551d7e41bb3500a620", null ],
+    [ "inputs", "db/d7b/a00296.html#aa94f1ffc0e81ad06ebd87c3368921a05", null ],
+    [ "outputs", "db/d7b/a00296.html#a0a0c5f070d0aa37f2b01519865e562ea", null ],
+    [ "test", "db/d7b/a00296.html#a94500aa2617d5f5fb0ddc3207b5e40ab", null ]
 ];

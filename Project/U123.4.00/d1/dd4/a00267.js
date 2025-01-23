@@ -1,5 +1,6 @@
 var a00267 =
 [
-    [ "getName", "d1/dd4/a00267.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "d1/dd4/a00267.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "run", "d1/dd4/a00267.html#a1ed16365a2a64ea8ae5e613abce4604a", null ],
+    [ "getApplicationName", "d1/dd4/a00267.html#a8c9ae065c19300da77b4f76db064f1ff", null ],
+    [ "getWorkScreen", "d1/dd4/a00267.html#a145b41f6c993b7efd0cf5ce68ccfd29f", null ]
 ];

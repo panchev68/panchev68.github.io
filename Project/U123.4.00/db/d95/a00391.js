@@ -1,5 +1,6 @@
 var a00391 =
 [
-    [ "ApplicationMode", "db/d95/a00391.html#a18f40b56169339ee98a769d74500a187", null ],
-    [ "applicationMode", "db/d95/a00391.html#abbe026677d2620b97791aaac08245490", null ]
+    [ "inputs", "db/d95/a00391.html#aa894b5466257660d9554604495fa0697", null ],
+    [ "outputs", "db/d95/a00391.html#a72abf36a0062299be377f4adad65dae9", null ],
+    [ "outputsSta", "db/d95/a00391.html#af71830d6a69800be53455013098bc821", null ]
 ];

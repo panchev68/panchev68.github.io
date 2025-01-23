@@ -1,5 +1,4 @@
 var a00113 =
 [
-    [ "BSP::Lcd", "db/ddc/a00353.html", "db/ddc/a00353" ],
-    [ "BSP::Lcd::Config", "df/df1/a00357.html", "df/df1/a00357" ]
+    [ "beep", "d3/d00/a00113.html#a8d95a2e2bea344a17ce06ac7980184ab", null ]
 ];

@@ -1,5 +1,12 @@
 var a00530 =
 [
-    [ "X", "da/d7e/a00530.html#aefd67569100b80fdcf933a4d78189f96", null ],
-    [ "Y", "da/d7e/a00530.html#a36e8b89bc53847bf0632a15d1052092f", null ]
+    [ "debounceDuration", "da/d7e/a00530.html#a2a2460143aa31b4c1ef6ad9d0aa31dee", null ],
+    [ "dispHeight", "da/d7e/a00530.html#a4fca05139dab8d28ab5a9e742e45b272", null ],
+    [ "dispWidth", "da/d7e/a00530.html#a5572323b788ad93edfcf64cba84af9fc", null ],
+    [ "rotationFlip", "da/d7e/a00530.html#aa20c2a94033067f271a5eea361a18385", null ],
+    [ "rotationNormal", "da/d7e/a00530.html#a97f5a0001f16abcf833258717904d2ee", null ],
+    [ "xMax", "da/d7e/a00530.html#a6c7c0c28f843b89815025a75aa96fe46", null ],
+    [ "xMin", "da/d7e/a00530.html#adad3e10ac51ad89058a628db12309997", null ],
+    [ "yMax", "da/d7e/a00530.html#ad1d383b45608ae9fc33e56e56033de1d", null ],
+    [ "yMin", "da/d7e/a00530.html#aa3e99cb525c7a0d78c89b6ffba216bd4", null ]
 ];

@@ -1,10 +1,6 @@
 var a00279 =
 [
-    [ "ParserBase", "dd/dfe/a00283.html", "dd/dfe/a00283" ],
-    [ "open", "d2/d82/a00279.html#ac8d5c876abcc9f791d7f5961a34cbdb7", null ],
-    [ "close", "d2/d82/a00279.html#a790726d4ec2a3e06e872501452be5494", null ],
-    [ "setParser", "d2/d82/a00279.html#ac0935e4b4554d7b4251d8e703f847346", null ],
-    [ "setBaudrate", "d2/d82/a00279.html#a888b40b4a65eb19d5abe0ed9c336693c", null ],
-    [ "getBaudrate", "d2/d82/a00279.html#a4d4482f87880bb9c84cac488551cbdfe", null ],
-    [ "send", "d2/d82/a00279.html#ad6ff77ee00a994dce7b20146a2e077c1", null ]
+    [ "RemoteIO57600", "d2/d82/a00279.html#a0fd0129163132e37106e022a3c885367", null ],
+    [ "getName", "d2/d82/a00279.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
+    [ "getWorkScreen", "d2/d82/a00279.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
 ];

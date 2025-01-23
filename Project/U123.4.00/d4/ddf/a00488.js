@@ -1,10 +1,10 @@
 var a00488 =
 [
-    [ "Keycode", "d4/ddf/a00488.html#a40724eb50ca03cd8e4cdc5f429346dcc", null ],
+    [ "Keycode", "d4/ddf/a00488.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
     [ "clearButtonsFunction", "d4/ddf/a00488.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d4/ddf/a00488.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d4/ddf/a00488.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
-    [ "onGotoPrevoidScreen", "d4/ddf/a00488.html#a3c70593b2ad2162d55ba64eba7c8952f", null ],
+    [ "handleButtonEvent", "d4/ddf/a00488.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "d4/ddf/a00488.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d4/ddf/a00488.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "d4/ddf/a00488.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

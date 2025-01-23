@@ -1,6 +1,11 @@
 var a00348 =
 [
-    [ "numberOfPins", "df/d03/a00348.html#ae921988b64cb6909ec8f99335b1df639", null ],
-    [ "spi", "df/d03/a00348.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
-    [ "nss", "df/d03/a00348.html#a552c483d980c1271fec712c347656bab", null ]
+    [ "LedMode", "df/d03/a00348.html#a2378d93d6893b2c8a4c6726a633a7a83", null ],
+    [ "setup", "df/d03/a00348.html#ab7856d6432dfad3ae2539ab7033c0744", null ],
+    [ "cls", "df/d03/a00348.html#ae7612f4eafe79b2541f41a32737f73ce", null ],
+    [ "print", "df/d03/a00348.html#ad044dc8767a40a1bcf30a5954773cdaa", null ],
+    [ "printf", "df/d03/a00348.html#a3adc723ea76c8db70fe966f98621f8bc", null ],
+    [ "printRow", "df/d03/a00348.html#a92a99099376f4b14647a77fad7c7651e", null ],
+    [ "key", "df/d03/a00348.html#a17998749ff835fe0bdf5c7905a2e35ba", null ],
+    [ "led", "df/d03/a00348.html#a5cfb7db4a98ba4a16b5a55b6a4e31898", null ]
 ];

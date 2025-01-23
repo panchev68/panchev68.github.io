@@ -1,7 +1,7 @@
 var a00263 =
 [
-    [ "RotationTableParallel", "df/da9/a00263.html#af80855e57ad29271eaf89ed6f5c92e9e", null ],
-    [ "~RotationTableParallel", "df/da9/a00263.html#a95c9abc22c45f0563f6a9d6264a424f4", null ],
-    [ "getName", "df/da9/a00263.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "df/da9/a00263.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "ApplicationBase", "df/da9/a00263.html#a2f2a91f348ccc9b87a22132de79cfcd0", null ],
+    [ "~ApplicationBase", "df/da9/a00263.html#abfe2fc62ce8879ffd6aa98d5b7be0578", null ],
+    [ "getName", "df/da9/a00263.html#a91d2891dae8e6f3937dc49cbcde40adc", null ],
+    [ "getWorkScreen", "df/da9/a00263.html#a4780bc095d0fcafd901cd9ad469c14de", null ]
 ];

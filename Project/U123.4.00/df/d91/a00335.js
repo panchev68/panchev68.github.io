@@ -1,9 +1,15 @@
 var a00335 =
 [
-    [ "Mode", "df/d91/a00335.html#ad5b1599bc386ba80ed7543fe2d4cd5b5", [
-      [ "OFF", "df/d91/a00335.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "df/d91/a00335.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a90651ebea9a35ec4e018c8157492e17c", null ],
-      [ "BLINK", "df/d91/a00335.html#ad5b1599bc386ba80ed7543fe2d4cd5b5ad810ed8e97088a3c987f179dfb88cefc", null ]
-    ] ],
-    [ "set", "df/d91/a00335.html#a2d5d0db68b341d685e80c59a1372caf8", null ]
+    [ "Inputs", "df/d91/a00335.html#a6d35d70d315b33f0bf83b20668b05d7e", null ],
+    [ "~Inputs", "df/d91/a00335.html#a5a691d3d6a57181bbb123bd638a15ba8", null ],
+    [ "Inputs", "df/d91/a00335.html#a72ae32a187aec4a1341c29fa34cecf0f", null ],
+    [ "Inputs", "df/d91/a00335.html#a3ee90f3553870fea0a5a7a486fff1e1f", null ],
+    [ "operator=", "df/d91/a00335.html#af2db68213cb35f3fa4d598557581b231", null ],
+    [ "operator=", "df/d91/a00335.html#a5ae141daf127f10f0bcbad2853dba535", null ],
+    [ "setup", "df/d91/a00335.html#add7e0f0e1fc95685facd7853a5338a56", null ],
+    [ "getValue", "df/d91/a00335.html#a1ee5007f7a0c6ba0e9e214efae69b3c2", null ],
+    [ "preUpdateCallback", "df/d91/a00335.html#a0fa2ee9d60a8d9443b87cb26da6a4354", null ],
+    [ "update", "df/d91/a00335.html#a7ea7740190d6717eac78470a2ce5d0c1", null ],
+    [ "getSpiHandle", "df/d91/a00335.html#afc97d0941c2071cb123a657e9bf765e5", null ],
+    [ "onValueChanged", "df/d91/a00335.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
 ];

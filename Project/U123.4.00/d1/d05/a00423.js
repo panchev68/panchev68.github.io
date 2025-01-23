@@ -1,11 +1,7 @@
 var a00423 =
 [
-    [ "MenuItem", "d1/d05/a00423.html#a037578b5c97ba13fee24a84dc8620c5d", null ],
-    [ "MenuItem", "d1/d05/a00423.html#a4a9fb5c2e2ba4d9224eb5018491eb596", null ],
-    [ "~MenuItem", "d1/d05/a00423.html#a0d7ec767549f358452689c24e33028e4", null ],
-    [ "bind", "d1/d05/a00423.html#acd37d86a882b05bc09e02f5db9452193", null ],
-    [ "isActive", "d1/d05/a00423.html#afd38b3989456c30faac5611a6913e192", null ],
-    [ "run", "d1/d05/a00423.html#a559af2003edea9d5589f3c34187521f0", null ],
-    [ "getString", "d1/d05/a00423.html#a2a3343a4c9464966c615b032e9130840", null ],
-    [ "setString", "d1/d05/a00423.html#a58621547b9a2520433307db78b6ea408", null ]
+    [ "Parameters", "d1/d05/a00423.html#ab23616d0b11ac653d4ed9990b941e556", null ],
+    [ "~Parameters", "d1/d05/a00423.html#a6c55439b3598aeccac9d8a12de0c83c1", null ],
+    [ "restoreByDefault", "d1/d05/a00423.html#ade373eb01ff28d5a2ee5e001400dabda", null ],
+    [ "getData", "d1/d05/a00423.html#a2a9a338e60f6b29e8f04f29df95e85a6", null ]
 ];

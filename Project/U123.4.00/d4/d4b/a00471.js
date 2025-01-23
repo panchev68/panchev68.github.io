@@ -1,8 +1,11 @@
 var a00471 =
 [
     [ "Keycode", "d4/d4b/a00471.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "FirmwareVersion", "d4/d4b/a00471.html#abcb4bcafa21c7d6ec383f2585b776482", null ],
+    [ "~FirmwareVersion", "d4/d4b/a00471.html#af01e916e665e94b6fde0872b1046eeec", null ],
     [ "clearButtonsFunction", "d4/d4b/a00471.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d4/d4b/a00471.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
+    [ "handleTickEvent", "d4/d4b/a00471.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
     [ "handleButtonEvent", "d4/d4b/a00471.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "d4/d4b/a00471.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d4/d4b/a00471.html#a42e0c133357afffb8a7b6d4633469366", null ],

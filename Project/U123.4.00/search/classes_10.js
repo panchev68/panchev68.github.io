@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['welcome_0',['Welcome',['../d7/d37/a00505.html',1,'UI::Screen']]],
-  ['workscreen_1',['WorkScreen',['../df/db6/a00509.html',1,'UI::Screen']]]
+  ['welcome_0',['Welcome',['../d0/de7/a00523.html',1,'UI::Screen']]],
+  ['workscreen_1',['WorkScreen',['../d9/d44/a00527.html',1,'UI::Screen']]]
 ];

@@ -1,5 +1,6 @@
 var a00327 =
 [
-    [ "control", "d8/dfc/a00327.html#a673a74355aa4903c637670bd743b0e5a", null ],
-    [ "value", "d8/dfc/a00327.html#a79831d316d1a08199efad7ec4d2b28ec", null ]
+    [ "numberOfPins", "d8/dfc/a00327.html#ae921988b64cb6909ec8f99335b1df639", null ],
+    [ "spi", "d8/dfc/a00327.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
+    [ "nss", "d8/dfc/a00327.html#a552c483d980c1271fec712c347656bab", null ]
 ];

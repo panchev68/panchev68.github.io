@@ -1,21 +1,5 @@
 var a00336 =
 [
-    [ "Config", "d8/d8e/a00344.html", "d8/d8e/a00344" ],
-    [ "Inputs", "d6/de1/a00356.html", "d6/de1/a00356" ],
-    [ "MapField", "df/df1/a00340.html", "df/df1/a00340" ],
-    [ "Outputs", "d0/d65/a00360.html", "d0/d65/a00360" ],
-    [ "Test", "d6/db8/a00376.html", "d6/db8/a00376" ],
-    [ "UpdateMode", "dd/d1d/a00336.html#a978444aac3217a942110d700b46f8fac", [
-      [ "SEQUENTAL", "dd/d1d/a00336.html#a978444aac3217a942110d700b46f8facad39aedd4bdeb0686fee157fedd5d1510", null ],
-      [ "PARALLEL", "dd/d1d/a00336.html#a978444aac3217a942110d700b46f8facadf13a99b035d6f0bce4f44ab18eec8eb", null ]
-    ] ],
-    [ "DigitalPeripheralBase", "dd/d1d/a00336.html#a5570fdb4f790bed8aee60eb4ec112c16", null ],
-    [ "~DigitalPeripheralBase", "dd/d1d/a00336.html#aff6273c780bd7914713921b113bcc476", null ],
-    [ "setup", "dd/d1d/a00336.html#a5f39c6e37bb24fa7211f302b6a3b16ba", null ],
-    [ "handlePreUpdateEvent", "dd/d1d/a00336.html#a9df6bf64afd75c520554f8a7347d69cc", null ],
-    [ "handlePostUpdateEvent", "dd/d1d/a00336.html#a294663c97d720c464895fafc012a4320", null ],
-    [ "handleTestOutputsUpdate", "dd/d1d/a00336.html#a1f5f1f866ebd52551d7e41bb3500a620", null ],
-    [ "inputs", "dd/d1d/a00336.html#aa94f1ffc0e81ad06ebd87c3368921a05", null ],
-    [ "outputs", "dd/d1d/a00336.html#a0a0c5f070d0aa37f2b01519865e562ea", null ],
-    [ "test", "dd/d1d/a00336.html#a94500aa2617d5f5fb0ddc3207b5e40ab", null ]
+    [ "control", "dd/d1d/a00336.html#a673a74355aa4903c637670bd743b0e5a", null ],
+    [ "value", "dd/d1d/a00336.html#a79831d316d1a08199efad7ec4d2b28ec", null ]
 ];

@@ -1,11 +1,9 @@
 var a00508 =
 [
     [ "Keycode", "dc/d30/a00508.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "items", "dc/d30/a00508.html#aaaa3d82a71cdd5e58c8f58b58f9c4dab", null ],
-    [ "deactive", "dc/d30/a00508.html#a6ad4a834ec0fa07887d12579b4b269a4", null ],
-    [ "setPosition", "dc/d30/a00508.html#ad77f148b524973ffd61a83b9f892ede8", null ],
     [ "clearButtonsFunction", "dc/d30/a00508.html#ac682e527499d3ee673a0461f92ea9255", null ],
-    [ "handleTickEvent", "dc/d30/a00508.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
+    [ "deactive", "dc/d30/a00508.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
+    [ "handleButtonEvent", "dc/d30/a00508.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
     [ "onClickLeftButton", "dc/d30/a00508.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "dc/d30/a00508.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "dc/d30/a00508.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

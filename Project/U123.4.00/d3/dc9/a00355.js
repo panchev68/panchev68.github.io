@@ -1,9 +1,11 @@
 var a00355 =
 [
-    [ "Mode", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5", [
-      [ "OFF", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5a90651ebea9a35ec4e018c8157492e17c", null ],
-      [ "BLINK", "d3/dc9/a00355.html#ad5b1599bc386ba80ed7543fe2d4cd5b5ad810ed8e97088a3c987f179dfb88cefc", null ]
-    ] ],
-    [ "set", "d3/dc9/a00355.html#a2d5d0db68b341d685e80c59a1372caf8", null ]
+    [ "Test", "d3/dc9/a00355.html#a681f6df372676259cb74654d972786aa", null ],
+    [ "~Test", "d3/dc9/a00355.html#a52eb9ca50a8d4465ecc3c5984eb34355", null ],
+    [ "start", "d3/dc9/a00355.html#a2a923d6ffbe2dbfee1b7a35927448de0", null ],
+    [ "stop", "d3/dc9/a00355.html#ac53955a5232dc863fca3b04555a22fe5", null ],
+    [ "getMode", "d3/dc9/a00355.html#a81144a7efcb0dd6bb80da8774eb458b6", null ],
+    [ "setMode", "d3/dc9/a00355.html#a9e00d993e46df91b56f69babbba0e7f2", null ],
+    [ "getChangePeriod", "d3/dc9/a00355.html#a525781a2d1887a1b019abf6147249343", null ],
+    [ "setChangePeriod", "d3/dc9/a00355.html#a93178191ba7bea9ac61b270170f49c7b", null ]
 ];

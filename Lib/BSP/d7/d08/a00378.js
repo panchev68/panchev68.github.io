@@ -1,15 +1,30 @@
 var a00378 =
 [
     [ "Config", "d3/d45/a00382.html", "d3/d45/a00382" ],
-    [ "Driver", "d7/d08/a00378.html#aa297a4eb9cb6f85132d416ba012b0baa", null ],
-    [ "~Driver", "d7/d08/a00378.html#aee5bc4c7d5ac7ad78bc7320eb3e78935", null ],
-    [ "getTransferActive", "d7/d08/a00378.html#a4c6d4fd3f37a54121208f462b76ed79d", null ],
-    [ "init", "d7/d08/a00378.html#a73272e5dc75179573dc0e1116d0bdafd", null ],
-    [ "postInitCallback", "d7/d08/a00378.html#a5848e189d34c1797278359b6baca2453", null ],
-    [ "setBacklight", "d7/d08/a00378.html#af7de5a6b1d3c4d2cfc9fb4015c09396a", null ],
-    [ "setRotation", "d7/d08/a00378.html#a5f0da430b5306f52d21febcfc1644700", null ],
-    [ "setTransmitActive", "d7/d08/a00378.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
-    [ "shouldTransferBlock", "d7/d08/a00378.html#a77aefcf37afba46fc380bc49be704ee1", null ],
-    [ "transferCpltCallback", "d7/d08/a00378.html#a6382af7ea243103ca8616c6050667a84", null ],
-    [ "transmitBlock", "d7/d08/a00378.html#ae85f4059383696c97f769a5be9cfb6be", null ]
+    [ "State", "d7/d08/a00378.html#afd037810d0cac882509f9811be8895be", [
+      [ "NO_INIT", "d7/d08/a00378.html#afd037810d0cac882509f9811be8895bea72144f138e8a9f73854d58b59deca26d", null ],
+      [ "READY", "d7/d08/a00378.html#afd037810d0cac882509f9811be8895bea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "DISABLE", "d7/d08/a00378.html#afd037810d0cac882509f9811be8895beafc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "ERROR", "d7/d08/a00378.html#afd037810d0cac882509f9811be8895beabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Base", "d7/d08/a00378.html#a3f0f6e72092b7bd58e186df4f79e0801", null ],
+    [ "~Base", "d7/d08/a00378.html#aa9f11ccc2dd39f23cc2812b7787d7175", null ],
+    [ "bootstrapInit", "d7/d08/a00378.html#a59f941728cd1e54a046f214c396d7bd8", null ],
+    [ "init", "d7/d08/a00378.html#a6793d0ac82442ee5dfc4e77a16776c0d", null ],
+    [ "readAlEventReg", "d7/d08/a00378.html#a42597a0a26e0b841c990fac2f0725181", null ],
+    [ "readBurstMode", "d7/d08/a00378.html#af5210952b59bbcb05e58064fba813e02", null ],
+    [ "readCSR", "d7/d08/a00378.html#ae630b6c3bb07296b8d105d7614d128fa", null ],
+    [ "readDLStatus", "d7/d08/a00378.html#adb246fd70cb455421cfff3e711f97172", null ],
+    [ "readPDIRegister", "d7/d08/a00378.html#a4b303ce0d5005126ec216ed546013453", null ],
+    [ "readPRAM", "d7/d08/a00378.html#a1e5a056410514f920d10002ef5c9c0b0", null ],
+    [ "readReg", "d7/d08/a00378.html#ab98effb1625c8e866fb2abd9811f7d73", null ],
+    [ "readU32", "d7/d08/a00378.html#aaab5b863c1ddcc7bc00947cf057c95ef", null ],
+    [ "resetChip", "d7/d08/a00378.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
+    [ "resetPin", "d7/d08/a00378.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
+    [ "verifyChipID", "d7/d08/a00378.html#a74e8741e1fb7827a6537a1ab1623c4ac", null ],
+    [ "writeCSR", "d7/d08/a00378.html#acb046413a3f1785e05a2eb75f6e2d2be", null ],
+    [ "writePRAM", "d7/d08/a00378.html#a1cd40242d08bcfea90d01e67e33abce9", null ],
+    [ "writeReg", "d7/d08/a00378.html#a3f628ad2f3f7bfa9aed0eb2201dfbe83", null ],
+    [ "writeU32", "d7/d08/a00378.html#ad040cf1ec4eff98a2e4d598b65a0fd7f", null ],
+    [ "state", "d7/d08/a00378.html#a8ff7491a3890d3bcc5bad052d1abece1", null ]
 ];

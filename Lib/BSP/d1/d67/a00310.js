@@ -7,5 +7,5 @@ var a00310 =
     [ "setTransmitActive", "d1/d67/a00310.html#af198ebe031fe9bf9f542593ad4a85ec3", null ],
     [ "shouldTransferBlock", "d1/d67/a00310.html#a77aefcf37afba46fc380bc49be704ee1", null ],
     [ "transferCpltCallback", "d1/d67/a00310.html#aca116b23efef7c87ba2faf35d927e58c", null ],
-    [ "transmitBlock", "d1/d67/a00310.html#ab4bbce27d3e377e3413432b820cf2340", null ]
+    [ "transmitBlock", "d1/d67/a00310.html#a660de89aaebc367c458b242375dcb469", null ]
 ];

@@ -1,4 +1,4 @@
 var a00110 =
 [
-    [ "BSP::Keyboard", "d7/dfc/a00349.html", "d7/dfc/a00349" ]
+    [ "App::RotationTableSerial", "df/d95/a00299.html", "df/d95/a00299" ]
 ];

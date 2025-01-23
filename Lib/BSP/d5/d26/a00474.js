@@ -1,13 +1,12 @@
 var a00474 =
 [
-    [ "Config", "d9/dea/a00478.html", "d9/dea/a00478" ],
-    [ "Base", "d5/d26/a00474.html#a3f1c1b044fab6cc5daac56245a64d8f3", null ],
-    [ "~Base", "d5/d26/a00474.html#a66a1c5756532c42453db806d6de0aad8", null ],
-    [ "beginReceiveData", "d5/d26/a00474.html#a7b3a4f2a90dd2499007ba9e1a48f61ac", null ],
-    [ "endReceivedData", "d5/d26/a00474.html#aa0a5210748d8446a16327f1b0d5540f9", null ],
-    [ "start", "d5/d26/a00474.html#ac9889a53ceb7278cdf8088ff7320703e", null ],
-    [ "startupImpulse", "d5/d26/a00474.html#a6122d05d481d14cf386ea703c6b6e828", null ],
-    [ "taskFn", "d5/d26/a00474.html#a5a12d0a5dca6f97ef85baf61e2bc3342", null ],
-    [ "waitForComplete", "d5/d26/a00474.html#ac9e3e3cf8f3b64fc513241e7b2450ffe", null ],
-    [ "config", "d5/d26/a00474.html#abde5ec47cb947111b39ed393a33cee6c", null ]
+    [ "~SPIPort", "d5/d26/a00474.html#ac1fb088b19e9bee3b5fe9ba4d11cbae4", null ],
+    [ "deinit", "d5/d26/a00474.html#afe09c1727988c71bcd973d72b8c41b03", null ],
+    [ "deselect", "d5/d26/a00474.html#aa6c3fde9662fb603a90bf89f4de2887c", null ],
+    [ "getHandle", "d5/d26/a00474.html#a699a2655bdfe2e5629d657933f2b8771", null ],
+    [ "init", "d5/d26/a00474.html#a9f8e5b5eef4388b570c4a5fd3106ffcc", null ],
+    [ "receive", "d5/d26/a00474.html#a46aef746ab1528990609ed6c313348a7", null ],
+    [ "select", "d5/d26/a00474.html#a50d117d1cbd979e6167cd51ccb7fdb7b", null ],
+    [ "send", "d5/d26/a00474.html#a0dc04382e89965a56e5bbdccc73bf6b9", null ],
+    [ "sendReceive", "d5/d26/a00474.html#aa8c4c28b5937b18815d7da4cc2391336", null ]
 ];

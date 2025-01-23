@@ -1,12 +1,12 @@
 var a00522 =
 [
-    [ "debounceDuration", "d8/d14/a00522.html#a2a2460143aa31b4c1ef6ad9d0aa31dee", null ],
-    [ "dispHeight", "d8/d14/a00522.html#a4fca05139dab8d28ab5a9e742e45b272", null ],
-    [ "dispWidth", "d8/d14/a00522.html#a5572323b788ad93edfcf64cba84af9fc", null ],
-    [ "rotationFlip", "d8/d14/a00522.html#aa20c2a94033067f271a5eea361a18385", null ],
-    [ "rotationNormal", "d8/d14/a00522.html#a97f5a0001f16abcf833258717904d2ee", null ],
-    [ "xMax", "d8/d14/a00522.html#a6c7c0c28f843b89815025a75aa96fe46", null ],
-    [ "xMin", "d8/d14/a00522.html#adad3e10ac51ad89058a628db12309997", null ],
-    [ "yMax", "d8/d14/a00522.html#ad1d383b45608ae9fc33e56e56033de1d", null ],
-    [ "yMin", "d8/d14/a00522.html#aa3e99cb525c7a0d78c89b6ffba216bd4", null ]
+    [ "Config", "d0/d35/a00526.html", "d0/d35/a00526" ],
+    [ "Impl", "dc/d20/a00534.html", "dc/d20/a00534" ],
+    [ "Parameters", "da/d7e/a00530.html", "da/d7e/a00530" ],
+    [ "Driver", "d8/d14/a00522.html#a5bf8f688d7db82f03ea06ed9377a04b2", null ],
+    [ "Driver", "d8/d14/a00522.html#a32900c7d63cd1947aed3a78a4644538b", null ],
+    [ "~Driver", "d8/d14/a00522.html#ae388b2ccdc820835f29602779a797318", null ],
+    [ "init", "d8/d14/a00522.html#a018dde99aba37b36e027ccd592b0fa39", null ],
+    [ "sampleTouch", "d8/d14/a00522.html#ad0a9cea61d991d27f83ce1cfc1ab4b0e", null ],
+    [ "setRotation", "d8/d14/a00522.html#a1ebf6916843ffe06a25e07df394cee89", null ]
 ];

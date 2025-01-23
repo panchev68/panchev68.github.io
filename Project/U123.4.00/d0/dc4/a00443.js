@@ -1,10 +1,14 @@
 var a00443 =
 [
-    [ "Keycode", "d0/dc4/a00443.html#a40724eb50ca03cd8e4cdc5f429346dcc", null ],
+    [ "Keycode", "d0/dc4/a00443.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "MenuBase", "d0/dc4/a00443.html#af9b94cd073258450a984330aebee8a4f", null ],
+    [ "~MenuBase", "d0/dc4/a00443.html#a09f5b4406fd245a8a43bf80e6d368fd6", null ],
+    [ "items", "d0/dc4/a00443.html#aaaa3d82a71cdd5e58c8f58b58f9c4dab", null ],
+    [ "active", "d0/dc4/a00443.html#ae6ea486d51be9d9ecc7872647310c9d7", null ],
+    [ "deactive", "d0/dc4/a00443.html#a6ad4a834ec0fa07887d12579b4b269a4", null ],
+    [ "setPosition", "d0/dc4/a00443.html#ad77f148b524973ffd61a83b9f892ede8", null ],
     [ "clearButtonsFunction", "d0/dc4/a00443.html#ac682e527499d3ee673a0461f92ea9255", null ],
-    [ "deactive", "d0/dc4/a00443.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d0/dc4/a00443.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
-    [ "onGotoPrevoidScreen", "d0/dc4/a00443.html#a3c70593b2ad2162d55ba64eba7c8952f", null ],
     [ "onClickLeftButton", "d0/dc4/a00443.html#acf574efaaeee3b48351f35610fd34529", null ],
     [ "onClickRightButton", "d0/dc4/a00443.html#a42e0c133357afffb8a7b6d4633469366", null ],
     [ "onClickEnterButton", "d0/dc4/a00443.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],

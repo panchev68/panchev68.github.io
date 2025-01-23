@@ -1,7 +1,7 @@
 var a00245 =
 [
-    [ "ApplicationBase", "d6/d22/a00245.html#a2f2a91f348ccc9b87a22132de79cfcd0", null ],
-    [ "~ApplicationBase", "d6/d22/a00245.html#abfe2fc62ce8879ffd6aa98d5b7be0578", null ],
-    [ "getName", "d6/d22/a00245.html#a91d2891dae8e6f3937dc49cbcde40adc", null ],
-    [ "getWorkScreen", "d6/d22/a00245.html#a4780bc095d0fcafd901cd9ad469c14de", null ]
+    [ "FIRMWARE_VERSION", "d6/d22/a00245.html#aa14dc39d52ab121ceb570f1a265385e0", null ],
+    [ "FIRMWARE_SUBVERSION", "d6/d22/a00245.html#aff8c87a39aba7b5e76a660f9ae56a3cb", null ],
+    [ "HARDWARE_VERSION", "d6/d22/a00245.html#a7c770e481dd85c7ffb40e3b3edb0beb5", null ],
+    [ "HARDWARE_SUBVERSION", "d6/d22/a00245.html#ae4f49b7e04f09801e81ba0f3d7c2c96a", null ]
 ];

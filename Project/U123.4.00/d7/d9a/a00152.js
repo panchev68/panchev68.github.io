@@ -1,4 +1,4 @@
 var a00152 =
 [
-    [ "UI::EditDateBase", "da/d9c/a00413.html", "da/d9c/a00413" ]
+    [ "HAL::SPI2Port", "d0/da0/a00403.html", null ]
 ];

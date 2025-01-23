@@ -1,5 +1,5 @@
 var a00415 =
 [
-    [ "left", "d0/dd6/a00415.html#a39408d29b2f853bd570743bbd23adeca", null ],
-    [ "right", "d0/dd6/a00415.html#ac513267d660eb937cbde7b59975c2217", null ]
+    [ "ApplicationMode", "d0/dd6/a00415.html#a18f40b56169339ee98a769d74500a187", null ],
+    [ "applicationMode", "d0/dd6/a00415.html#abbe026677d2620b97791aaac08245490", null ]
 ];

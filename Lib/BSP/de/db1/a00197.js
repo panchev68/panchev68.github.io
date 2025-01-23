@@ -1,12 +1,14 @@
 var a00197 =
 [
-    [ "Lib::BSP::Beep", "d6/de1/a00233.html", [
-      [ "Config", "d4/d08/a00237.html", [
-        [ "timerChannel", "d4/d08/a00237.html#acf47a2c6d6854305f3aa60f818d44f03", null ],
-        [ "timerHande", "d4/d08/a00237.html#ac82281acdb58c781bc45adb9656df22a", null ]
-      ] ],
-      [ "Beep", "d6/de1/a00233.html#ac38413dbd29b4f4932c2b8887af98113", null ],
-      [ "~Beep", "d6/de1/a00233.html#ad01190acb2e318d5ab781c1c2111e327", null ],
-      [ "operator()", "d6/de1/a00233.html#a66f691a4dabd178590f3294a21b12a95", null ]
-    ] ]
+    [ "Incremental Encoder drivers", "d7/da0/a00198.html", "d7/da0/a00198" ],
+    [ "Digital I/O Periferial", "d8/d72/a00199.html", "d8/d72/a00199" ],
+    [ "TFT display drivers", "d3/db1/a00200.html", null ],
+    [ "TFT backlight driver", "dd/de3/a00201.html", null ],
+    [ "Flash Memory drivers", "db/d53/a00202.html", null ],
+    [ "I2C EEPROM Memory drivers", "de/d79/a00203.html", null ],
+    [ "Termometer drivers", "d1/d72/a00204.html", "d1/d72/a00204" ],
+    [ "Voltmeter drivers", "d5/d13/a00205.html", null ],
+    [ "Beeper drivers", "d5/df1/a00206.html", null ],
+    [ "Touch screen driver", "de/dd2/a00207.html", "de/dd2/a00207" ],
+    [ "Device manager", "dc/d31/a00208.html", null ]
 ];

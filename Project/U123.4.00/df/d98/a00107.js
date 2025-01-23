@@ -1,4 +1,4 @@
 var a00107 =
 [
-    [ "BSP::Display", "d9/d48/a00345.html", "d9/d48/a00345" ]
+    [ "App::RotationTableParallel7Pins", "d9/d5e/a00295.html", "d9/d5e/a00295" ]
 ];

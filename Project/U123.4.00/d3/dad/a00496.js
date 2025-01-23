@@ -1,8 +1,6 @@
 var a00496 =
 [
     [ "Keycode", "d3/dad/a00496.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
-    [ "HardwareVersion", "d3/dad/a00496.html#af0ce0279ac991f7ac9a2a6430e83aa3c", null ],
-    [ "~HardwareVersion", "d3/dad/a00496.html#aefca81b10266d8f578fad8ea09bc9329", null ],
     [ "clearButtonsFunction", "d3/dad/a00496.html#ac682e527499d3ee673a0461f92ea9255", null ],
     [ "deactive", "d3/dad/a00496.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
     [ "handleTickEvent", "d3/dad/a00496.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],

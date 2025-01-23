@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "UI::Screen::PeripheralInputs", "d9/dca/a00477.html", "d9/dca/a00477" ]
+    [ "UI::Screen::FirmwareVersion", "d4/d4b/a00471.html", "d4/d4b/a00471" ]
 ];

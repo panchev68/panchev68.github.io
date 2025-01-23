@@ -1,11 +1,14 @@
 var a00339 =
 [
-    [ "LedMode", "d0/d01/a00339.html#a2378d93d6893b2c8a4c6726a633a7a83", null ],
-    [ "setup", "d0/d01/a00339.html#ab7856d6432dfad3ae2539ab7033c0744", null ],
-    [ "cls", "d0/d01/a00339.html#ae7612f4eafe79b2541f41a32737f73ce", null ],
-    [ "print", "d0/d01/a00339.html#ad044dc8767a40a1bcf30a5954773cdaa", null ],
-    [ "printf", "d0/d01/a00339.html#a3adc723ea76c8db70fe966f98621f8bc", null ],
-    [ "printRow", "d0/d01/a00339.html#a92a99099376f4b14647a77fad7c7651e", null ],
-    [ "key", "d0/d01/a00339.html#a17998749ff835fe0bdf5c7905a2e35ba", null ],
-    [ "led", "d0/d01/a00339.html#a5cfb7db4a98ba4a16b5a55b6a4e31898", null ]
+    [ "Outputs", "d0/d01/a00339.html#ae538a06e0b79ecd381024c1a01415deb", null ],
+    [ "~Outputs", "d0/d01/a00339.html#aedda01b36ccb93ca338b30a0e75e4913", null ],
+    [ "setup", "d0/d01/a00339.html#a083fd7b9edca7c66ba53269351b62ef4", null ],
+    [ "setValue", "d0/d01/a00339.html#ade2766fb6b60950349d8b36d16500c51", null ],
+    [ "getStatus", "d0/d01/a00339.html#aefe7ebbeecc26a27354438d16e26dd71", null ],
+    [ "getSpiHandle", "d0/d01/a00339.html#ad7d377c43329bc32f1936c66bd85d924", null ],
+    [ "preUpdateCallback", "d0/d01/a00339.html#a5564961accd83adb55f8488e5411240a", null ],
+    [ "update", "d0/d01/a00339.html#abe1d63143784b90a498c935966b7df5f", null ],
+    [ "onValueChanged", "d0/d01/a00339.html#a49199bf482163a66ea5831e85060cecf", null ],
+    [ "onStatusChanged", "d0/d01/a00339.html#a5e12d4653fc13761bdee086c6055ea7b", null ],
+    [ "onSpiError", "d0/d01/a00339.html#a5f32588bd17e8771f96a4c0f533efc9c", null ]
 ];

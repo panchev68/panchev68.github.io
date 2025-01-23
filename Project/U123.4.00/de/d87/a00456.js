@@ -1,21 +1,18 @@
 var a00456 =
 [
-    [ "Separators", "db/db1/a00460.html", "db/db1/a00460" ],
-    [ "Keycode", "de/d87/a00456.html#ab82390d2fa442f63d9ab20ef08795e13", null ],
-    [ "Mode", "de/d87/a00456.html#a923e51d170e6e6947f7fab1fbaa79c30", [
-      [ "SELECT", "de/d87/a00456.html#a923e51d170e6e6947f7fab1fbaa79c30ac47e20b2f634373e1783065d1de634c7", null ],
-      [ "EDIT", "de/d87/a00456.html#a923e51d170e6e6947f7fab1fbaa79c30aad51fcaa6a980543d2584d6a86bcbcfd", null ]
-    ] ],
-    [ "EditValueBase", "de/d87/a00456.html#a02fd2ad229fc335fc489457a7c0860de", null ],
-    [ "~EditValueBase", "de/d87/a00456.html#a2cdcfd7a33f74c1f670370fd5ef1d593", null ],
-    [ "getSeparators", "de/d87/a00456.html#a1316e077d54da77625d431511be30199", null ],
-    [ "getMode", "de/d87/a00456.html#a81d504c997955159c4aad1754bf44911", null ],
-    [ "setMode", "de/d87/a00456.html#aa7b32cf68e922a6f60de766c45b21e7e", null ],
-    [ "incrementPosition", "de/d87/a00456.html#a52c76b1a645725966d015a55c8fef97a", null ],
-    [ "decrementPosition", "de/d87/a00456.html#a728622a9ca39f0cbe1fd704098e16c35", null ],
-    [ "incrementValue", "de/d87/a00456.html#a078ce57b09bde1e0239e3a197b71653c", null ],
-    [ "decrementValue", "de/d87/a00456.html#a8441a094c4803a58a28e52e52065d0d2", null ],
-    [ "getString", "de/d87/a00456.html#a9dc682095f7738e026d84b8077832704", null ],
-    [ "handleButtonEvent", "de/d87/a00456.html#adb3a7c5cc504a54c131d6bd99a6a25d4", null ],
-    [ "updateString", "de/d87/a00456.html#a1253b6d8283cd62470969879ed56b5c4", null ]
+    [ "Keycode", "de/d87/a00456.html#a3c67e14b221dead3e9d4562a572c80d3", null ],
+    [ "FirmwareVersion", "de/d87/a00456.html#abcb4bcafa21c7d6ec383f2585b776482", null ],
+    [ "~FirmwareVersion", "de/d87/a00456.html#af01e916e665e94b6fde0872b1046eeec", null ],
+    [ "clearButtonsFunction", "de/d87/a00456.html#ac682e527499d3ee673a0461f92ea9255", null ],
+    [ "deactive", "de/d87/a00456.html#ab9031d716cc0466e3ccc4197d5b2011c", null ],
+    [ "handleTickEvent", "de/d87/a00456.html#af2cff139d4d3cac9cad67bf4ce9c03d3", null ],
+    [ "handleButtonEvent", "de/d87/a00456.html#adb507e21aac6f1a8b5509f2334f7d291", null ],
+    [ "onClickLeftButton", "de/d87/a00456.html#acf574efaaeee3b48351f35610fd34529", null ],
+    [ "onClickRightButton", "de/d87/a00456.html#a42e0c133357afffb8a7b6d4633469366", null ],
+    [ "onClickEnterButton", "de/d87/a00456.html#aee1e4d5cb7f5d1c4caa8529460b2e863", null ],
+    [ "onClickClearButton", "de/d87/a00456.html#aa7b23342c03b024fd02e64b4ba96b3b5", null ],
+    [ "onHoldLeftButton", "de/d87/a00456.html#a52118928f521ac44d14748cd1af94a4b", null ],
+    [ "onHoldRightButton", "de/d87/a00456.html#ac7fde1ace0bf22f79af28bc5d9688f35", null ],
+    [ "onHoldEnterButton", "de/d87/a00456.html#a705686f6459b7cf0c2e727cdc8725f6c", null ],
+    [ "onHoldClearButton", "de/d87/a00456.html#a63f4588a332b4e6556c5e1cc8eb3ecb5", null ]
 ];

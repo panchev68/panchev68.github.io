@@ -1,7 +1,6 @@
 var a00283 =
 [
-    [ "~ParserBase", "dd/dfe/a00283.html#ac0500896c3bb7364b3537cafb2d1a24f", null ],
-    [ "ParserBase", "dd/dfe/a00283.html#a8d032a889295d8e64f8e3ca2c78af8a9", null ],
-    [ "reset", "dd/dfe/a00283.html#a8999b79d4f085ee95b85359a917c69ff", null ],
-    [ "handleReceivedCharacterEvent", "dd/dfe/a00283.html#a5f884fc268be5a2004178dfac2a2a5e2", null ]
+    [ "RemoteIO9600", "dd/dfe/a00283.html#ab5a98976c21213a28e706fc9de81f126", null ],
+    [ "getName", "dd/dfe/a00283.html#a9c1e573f3a378d6370e4062a0ee4fec9", null ],
+    [ "getWorkScreen", "dd/dfe/a00283.html#ae1643ab47f3856d779d2fd7b8d51ec21", null ]
 ];

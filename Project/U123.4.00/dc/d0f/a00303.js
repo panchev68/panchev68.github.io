@@ -1,6 +1,10 @@
 var a00303 =
 [
-    [ "numberOfPins", "dc/d0f/a00303.html#ae921988b64cb6909ec8f99335b1df639", null ],
-    [ "spi", "dc/d0f/a00303.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
-    [ "nss", "dc/d0f/a00303.html#a552c483d980c1271fec712c347656bab", null ]
+    [ "ParserBase", "d0/da2/a00307.html", "d0/da2/a00307" ],
+    [ "open", "dc/d0f/a00303.html#ac8d5c876abcc9f791d7f5961a34cbdb7", null ],
+    [ "close", "dc/d0f/a00303.html#a790726d4ec2a3e06e872501452be5494", null ],
+    [ "setParser", "dc/d0f/a00303.html#ac0935e4b4554d7b4251d8e703f847346", null ],
+    [ "setBaudrate", "dc/d0f/a00303.html#a888b40b4a65eb19d5abe0ed9c336693c", null ],
+    [ "getBaudrate", "dc/d0f/a00303.html#a4d4482f87880bb9c84cac488551cbdfe", null ],
+    [ "send", "dc/d0f/a00303.html#ad6ff77ee00a994dce7b20146a2e077c1", null ]
 ];

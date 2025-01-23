@@ -1,13 +1,13 @@
 var a00482 =
 [
-    [ "Diagnostic", "db/df1/a00486.html", "db/df1/a00486" ],
-    [ "Driver", "db/d8e/a00482.html#a494b132eb2516cd8361a2812f93dfeaf", null ],
-    [ "~Driver", "db/d8e/a00482.html#af1cf24fdeb56661898c3aee37e94bffc", null ],
-    [ "getHumidity", "db/d8e/a00482.html#a09b3175343f41199742a8c374d1fb72a", null ],
-    [ "getRawHumidity", "db/d8e/a00482.html#a9e008b36bb2a4e9fffd9c6ef34d83be9", null ],
-    [ "getRawTemperature", "db/d8e/a00482.html#a13f94917526f41817a367260352b4495", null ],
-    [ "getTemperature", "db/d8e/a00482.html#a8ae02b3f89e4456053b20adcea8d4e4b", null ],
-    [ "isChanged", "db/d8e/a00482.html#a92691682a6c04798d1beef608643021a", null ],
-    [ "start", "db/d8e/a00482.html#a11df3bdf95bc4ca3a1b88d18e58557ff", null ],
-    [ "diagnostic", "db/d8e/a00482.html#af5b30dbc5cd2e90fb979fc1e992ed178", null ]
+    [ "Config", "db/df1/a00486.html", "db/df1/a00486" ],
+    [ "Base", "db/d8e/a00482.html#a3f1c1b044fab6cc5daac56245a64d8f3", null ],
+    [ "~Base", "db/d8e/a00482.html#a66a1c5756532c42453db806d6de0aad8", null ],
+    [ "beginReceiveData", "db/d8e/a00482.html#a7b3a4f2a90dd2499007ba9e1a48f61ac", null ],
+    [ "endReceivedData", "db/d8e/a00482.html#aa0a5210748d8446a16327f1b0d5540f9", null ],
+    [ "start", "db/d8e/a00482.html#ac9889a53ceb7278cdf8088ff7320703e", null ],
+    [ "startupImpulse", "db/d8e/a00482.html#a6122d05d481d14cf386ea703c6b6e828", null ],
+    [ "taskFn", "db/d8e/a00482.html#a5a12d0a5dca6f97ef85baf61e2bc3342", null ],
+    [ "waitForComplete", "db/d8e/a00482.html#ac9e3e3cf8f3b64fc513241e7b2450ffe", null ],
+    [ "config", "db/d8e/a00482.html#abde5ec47cb947111b39ed393a33cee6c", null ]
 ];

@@ -1,9 +1,25 @@
 var a00534 =
 [
-    [ "Config", "dd/d5a/a00538.html", "dd/d5a/a00538" ],
-    [ "Base", "dc/d20/a00534.html#a5c77cd47e554ce314048fbb66ee577e6", null ],
-    [ "~Base", "dc/d20/a00534.html#a60ff2ab400fae19db3e4edf57d7f6909", null ],
-    [ "getVoltage", "dc/d20/a00534.html#a681250b664699ecd7261e138987060b3", null ],
-    [ "handleValueChanged", "dc/d20/a00534.html#a481c4ec27b49a8e51a16fec28ec9d21e", null ],
-    [ "setup", "dc/d20/a00534.html#aef87be715665c934c25168e596a9e847", null ]
+    [ "Position", "dd/d5a/a00538.html", "dd/d5a/a00538" ],
+    [ "Impl", "dc/d20/a00534.html#a5c3ee5cce12c8c8f6af9353119b709e0", null ],
+    [ "~Impl", "dc/d20/a00534.html#a00cb8e95705d27e6cb6110bb07a95902", null ],
+    [ "start", "dc/d20/a00534.html#a7b2f38ac28ca6639d7e48788db53deb5", null ],
+    [ "taskFn", "dc/d20/a00534.html#a7ce9ec66139618bc45f9e211fd2f08c6", null ],
+    [ "intergratorX", "dc/d20/a00534.html#a5007612a82163d4767fd05a4afa16cb1", null ],
+    [ "intergratorY", "dc/d20/a00534.html#a65e805eb30c8cc3f8c1df1dd570b7237", null ],
+    [ "isPressed", "dc/d20/a00534.html#a368df95e11e3dfad4ff97973e3cf7bc9", null ],
+    [ "nirq", "dc/d20/a00534.html#afa913495d28d8c1dc416bb19c974dfc2", null ],
+    [ "nss", "dc/d20/a00534.html#ad6b31057b484c7ca85c2d96f27ac39f8", null ],
+    [ "parameters", "dc/d20/a00534.html#aca16b8b3ea32cbc64637d4f121f346a3", null ],
+    [ "position", "dc/d20/a00534.html#a00a8108a869b44118b3d198b8a76fc85", null ],
+    [ "queueButtonPressed", "dc/d20/a00534.html#ae40bb9903bf09349fb1f5ce570b211e4", null ],
+    [ "rawPosition", "dc/d20/a00534.html#aed96d210ecc485599b2d54eb41d77fe0", null ],
+    [ "rotation", "dc/d20/a00534.html#abb8755de53acf42725026dc54b1f20d9", null ],
+    [ "scaleFaconstructorX", "dc/d20/a00534.html#a3ecf4117f9cfd855b732fb907a30a25e", null ],
+    [ "scaleFaconstructorY", "dc/d20/a00534.html#a29f6f4a6be93494543ac5491e361c069", null ],
+    [ "sck", "dc/d20/a00534.html#a9eba16cf6be493373fdee419f8230ce8", null ],
+    [ "si", "dc/d20/a00534.html#a409e92ea8b2961f929e737ae5359309a", null ],
+    [ "so", "dc/d20/a00534.html#ab3163a33a68c369c45188d019929eec4", null ],
+    [ "timeoutDebounce", "dc/d20/a00534.html#a0fbf0b10b4daa42745a05aa657894aa6", null ],
+    [ "timeoutPinDebounce", "dc/d20/a00534.html#a764b5e79419441f0862e31e0509bf0c3", null ]
 ];

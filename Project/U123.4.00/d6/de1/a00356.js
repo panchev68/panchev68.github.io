@@ -1,15 +1,11 @@
 var a00356 =
 [
-    [ "Inputs", "d6/de1/a00356.html#a6d35d70d315b33f0bf83b20668b05d7e", null ],
-    [ "~Inputs", "d6/de1/a00356.html#a5a691d3d6a57181bbb123bd638a15ba8", null ],
-    [ "Inputs", "d6/de1/a00356.html#a72ae32a187aec4a1341c29fa34cecf0f", null ],
-    [ "Inputs", "d6/de1/a00356.html#a3ee90f3553870fea0a5a7a486fff1e1f", null ],
-    [ "operator=", "d6/de1/a00356.html#af2db68213cb35f3fa4d598557581b231", null ],
-    [ "operator=", "d6/de1/a00356.html#a5ae141daf127f10f0bcbad2853dba535", null ],
-    [ "setup", "d6/de1/a00356.html#add7e0f0e1fc95685facd7853a5338a56", null ],
-    [ "getValue", "d6/de1/a00356.html#a1ee5007f7a0c6ba0e9e214efae69b3c2", null ],
-    [ "preUpdateCallback", "d6/de1/a00356.html#a0fa2ee9d60a8d9443b87cb26da6a4354", null ],
-    [ "update", "d6/de1/a00356.html#a7ea7740190d6717eac78470a2ce5d0c1", null ],
-    [ "getSpiHandle", "d6/de1/a00356.html#afc97d0941c2071cb123a657e9bf765e5", null ],
-    [ "onValueChanged", "d6/de1/a00356.html#aaac06ce6d5d12f24e8a4e602605bfe69", null ]
+    [ "Config", "d0/d65/a00360.html", "d0/d65/a00360" ],
+    [ "Lcd", "d6/de1/a00356.html#a622600281d987f56346ba530395ea085", null ],
+    [ "~Lcd", "d6/de1/a00356.html#a64e66b4febb27e4f4321ba2c703d7a44", null ],
+    [ "setup", "d6/de1/a00356.html#a487237b0aa8973eaa78966d24da6be64", null ],
+    [ "update", "d6/de1/a00356.html#a5f5db436261ac8d695de428b42c9f6a7", null ],
+    [ "getBuffer", "d6/de1/a00356.html#af7362d820a808c7061feb43d076703cf", null ],
+    [ "getBufferSize", "d6/de1/a00356.html#ab230e5f67720376c7d92026f77066ece", null ],
+    [ "cls", "d6/de1/a00356.html#a8fd56c1cef8a6d6327c36b0604f6797a", null ]
 ];

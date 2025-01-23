@@ -1,5 +1,6 @@
 var a00312 =
 [
-    [ "getName", "d7/df2/a00312.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "d7/df2/a00312.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "numberOfPins", "d7/df2/a00312.html#ae921988b64cb6909ec8f99335b1df639", null ],
+    [ "spi", "d7/df2/a00312.html#a2d6c6f17a17d52f9dd11cb4d9e223311", null ],
+    [ "nss", "d7/df2/a00312.html#a552c483d980c1271fec712c347656bab", null ]
 ];

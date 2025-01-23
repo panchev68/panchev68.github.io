@@ -1,4 +1,5 @@
 var a00440 =
 [
-    [ "setup", "de/df8/a00440.html#a5a287f7d97688ebfc6e0932e6c77681b", null ]
+    [ "setActiveScreen", "de/df8/a00440.html#a9a3aac6af80186dca0b8af2f8129c2ae", null ],
+    [ "setup", "de/df8/a00440.html#a2efe8604727895f97cb78b02ff01b18b", null ]
 ];

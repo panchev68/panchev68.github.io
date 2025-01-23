@@ -1,7 +1,7 @@
 var a00284 =
 [
-    [ "ApplicationBase", "db/dc3/a00284.html#a2f2a91f348ccc9b87a22132de79cfcd0", null ],
-    [ "~ApplicationBase", "db/dc3/a00284.html#abfe2fc62ce8879ffd6aa98d5b7be0578", null ],
-    [ "getName", "db/dc3/a00284.html#a91d2891dae8e6f3937dc49cbcde40adc", null ],
-    [ "getWorkScreen", "db/dc3/a00284.html#a4780bc095d0fcafd901cd9ad469c14de", null ]
+    [ "RotationTableSerial", "db/dc3/a00284.html#a9eb545055aab26294ddbc08991685357", null ],
+    [ "~RotationTableSerial", "db/dc3/a00284.html#afbca5804c1566c239a8a700784a458ce", null ],
+    [ "getName", "db/dc3/a00284.html#a57873374c38dc14c2bd3eb1dec8d46a3", null ],
+    [ "getWorkScreen", "db/dc3/a00284.html#aaa51bfa319dd730891818fd88dd658dd", null ]
 ];

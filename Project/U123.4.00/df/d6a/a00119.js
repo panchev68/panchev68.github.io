@@ -1,4 +1,4 @@
 var a00119 =
 [
-    [ "BSP::M24C64W", "dd/db5/a00365.html", null ]
+    [ "BSP::DigitalPeripheral", "d1/d5d/a00311.html", "d1/d5d/a00311" ]
 ];

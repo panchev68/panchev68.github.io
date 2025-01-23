@@ -1,5 +1,8 @@
 var a00316 =
 [
-    [ "getName", "d3/db8/a00316.html#a05f3b53bf3c2a4c6325b76caff2b455e", null ],
-    [ "getWorkScreen", "d3/db8/a00316.html#a471b400c4e20340701b8aa2f753f8d52", null ]
+    [ "numberOfPins", "d3/db8/a00316.html#a106affd182052cba0f62265136279344", null ],
+    [ "spi", "d3/db8/a00316.html#a24f9204c0a9473f2e9de106852130c7c", null ],
+    [ "nss", "d3/db8/a00316.html#a6cfb04b468b493f39ea83c6baa9627fd", null ],
+    [ "oe", "d3/db8/a00316.html#a03c17f0616b81950a076fe8ee8d2109e", null ],
+    [ "mapFields", "d3/db8/a00316.html#aeb8aff153397e82ce9a8c9c30a0f7dd4", null ]
 ];

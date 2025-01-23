@@ -1,25 +1,8 @@
 var a00526 =
 [
-    [ "Position", "da/d7e/a00530.html", "da/d7e/a00530" ],
-    [ "Impl", "d0/d35/a00526.html#a5c3ee5cce12c8c8f6af9353119b709e0", null ],
-    [ "~Impl", "d0/d35/a00526.html#a00cb8e95705d27e6cb6110bb07a95902", null ],
-    [ "start", "d0/d35/a00526.html#a7b2f38ac28ca6639d7e48788db53deb5", null ],
-    [ "taskFn", "d0/d35/a00526.html#a7ce9ec66139618bc45f9e211fd2f08c6", null ],
-    [ "intergratorX", "d0/d35/a00526.html#a5007612a82163d4767fd05a4afa16cb1", null ],
-    [ "intergratorY", "d0/d35/a00526.html#a65e805eb30c8cc3f8c1df1dd570b7237", null ],
-    [ "isPressed", "d0/d35/a00526.html#a368df95e11e3dfad4ff97973e3cf7bc9", null ],
-    [ "nirq", "d0/d35/a00526.html#afa913495d28d8c1dc416bb19c974dfc2", null ],
-    [ "nss", "d0/d35/a00526.html#ad6b31057b484c7ca85c2d96f27ac39f8", null ],
-    [ "parameters", "d0/d35/a00526.html#aca16b8b3ea32cbc64637d4f121f346a3", null ],
-    [ "position", "d0/d35/a00526.html#a00a8108a869b44118b3d198b8a76fc85", null ],
-    [ "queueButtonPressed", "d0/d35/a00526.html#ae40bb9903bf09349fb1f5ce570b211e4", null ],
-    [ "rawPosition", "d0/d35/a00526.html#aed96d210ecc485599b2d54eb41d77fe0", null ],
-    [ "rotation", "d0/d35/a00526.html#abb8755de53acf42725026dc54b1f20d9", null ],
-    [ "scaleFaconstructorX", "d0/d35/a00526.html#a3ecf4117f9cfd855b732fb907a30a25e", null ],
-    [ "scaleFaconstructorY", "d0/d35/a00526.html#a29f6f4a6be93494543ac5491e361c069", null ],
-    [ "sck", "d0/d35/a00526.html#a9eba16cf6be493373fdee419f8230ce8", null ],
-    [ "si", "d0/d35/a00526.html#a409e92ea8b2961f929e737ae5359309a", null ],
-    [ "so", "d0/d35/a00526.html#ab3163a33a68c369c45188d019929eec4", null ],
-    [ "timeoutDebounce", "d0/d35/a00526.html#a0fbf0b10b4daa42745a05aa657894aa6", null ],
-    [ "timeoutPinDebounce", "d0/d35/a00526.html#a764b5e79419441f0862e31e0509bf0c3", null ]
+    [ "nirq", "d0/d35/a00526.html#ad246ba296d343c3c877d312924dac9c8", null ],
+    [ "nss", "d0/d35/a00526.html#a65edee1937b1e5e9546818e881e572c4", null ],
+    [ "sck", "d0/d35/a00526.html#a1e4534285fc4594ca2ae2606ea574e4b", null ],
+    [ "si", "d0/d35/a00526.html#addba5f53437144cd1dbee5da0acb2e16", null ],
+    [ "so", "d0/d35/a00526.html#a23dd9ad18f05db6b6f55201d8b18d4e5", null ]
 ];

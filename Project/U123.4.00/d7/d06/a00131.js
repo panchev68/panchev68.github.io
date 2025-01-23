@@ -1,4 +1,5 @@
 var a00131 =
 [
-    [ "HAL::LcdDataPort", "de/d08/a00381.html", "de/d08/a00381" ]
+    [ "BSP::Lcd", "d6/d80/a00371.html", "d6/d80/a00371" ],
+    [ "BSP::Lcd::Config", "dd/dcb/a00375.html", "dd/dcb/a00375" ]
 ];
