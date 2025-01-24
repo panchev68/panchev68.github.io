@@ -5,6 +5,7 @@ var searchData=
   ['endscheduler_2',['endScheduler',['../da/d01/a00153.html#a7d8dbd23216c7f5ba1f65f5abfab8766',1,'Lib::FreeRTOS::Karnel']]],
   ['entercritical_3',['enterCritical',['../da/d01/a00153.html#a7fac97f778f8fe2bba7e766ff2705183',1,'Lib::FreeRTOS::Karnel']]],
   ['entercriticalfromisr_4',['enterCriticalFromISR',['../da/d01/a00153.html#a59e8799ae9b518180ee97c408da1d6bd',1,'Lib::FreeRTOS::Karnel']]],
-  ['exitcritical_5',['exitCritical',['../da/d01/a00153.html#a61a7d0c43fff2534b37481b3efd7f518',1,'Lib::FreeRTOS::Karnel']]],
-  ['exitcriticalfromisr_6',['exitCriticalFromISR',['../da/d01/a00153.html#afb4c3ed34af39cd6c0b019a9919b7176',1,'Lib::FreeRTOS::Karnel']]]
+  ['eventgroup_5',['EventGroup',['../da/d1e/a00149.html#a094f14cbb2e1186515e3a1eac5b9fddd',1,'Lib::FreeRTOS::EventGroup']]],
+  ['exitcritical_6',['exitCritical',['../da/d01/a00153.html#a61a7d0c43fff2534b37481b3efd7f518',1,'Lib::FreeRTOS::Karnel']]],
+  ['exitcriticalfromisr_7',['exitCriticalFromISR',['../da/d01/a00153.html#afb4c3ed34af39cd6c0b019a9919b7176',1,'Lib::FreeRTOS::Karnel']]]
 ];

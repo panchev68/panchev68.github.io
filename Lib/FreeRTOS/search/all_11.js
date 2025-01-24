@@ -4,7 +4,7 @@ var searchData=
   ['selectfromisr_1',['selectFromISR',['../d7/d3f/a00173.html#a9bef0c0685cfe5a2abddea96db0d1f34',1,'Lib::FreeRTOS::QueueSet']]],
   ['semaphore_2',['Semaphore',['../d4/ddd/a00138.html',1,'Binary Semaphore'],['../de/d14/a00139.html',1,'Counting Semaphore'],['../dd/d4c/a00177.html',1,'Lib::FreeRTOS::Semaphore'],['../dd/d4c/a00177.html#a63aeaf529966e505291afed03a11fda5',1,'Lib::FreeRTOS::Semaphore::Semaphore()']]],
   ['semaphore_2ehpp_3',['Semaphore.hpp',['../d1/d44/a00098.html',1,'']]],
-  ['semaphorebase_4',['SemaphoreBase',['../d8/d64/a00181.html',1,'Lib::FreeRTOS::SemaphoreBase'],['../dc/d98/a00225.html',1,'SemaphoreBase']]],
+  ['semaphorebase_4',['SemaphoreBase',['../d8/d64/a00181.html',1,'Lib::FreeRTOS::SemaphoreBase'],['../dd/d52/a00221.html',1,'SemaphoreBase']]],
   ['semaphorebase_2ehpp_5',['SemaphoreBase.hpp',['../d4/d3a/a00101.html',1,'']]],
   ['semaphorecounting_6',['SemaphoreCounting',['../de/df3/a00185.html',1,'Lib::FreeRTOS::SemaphoreCounting'],['../de/df3/a00185.html#a57f5373ab498f7d43909cf1c15197cfd',1,'Lib::FreeRTOS::SemaphoreCounting::SemaphoreCounting()']]],
   ['semaphorecounting_2ehpp_7',['SemaphoreCounting.hpp',['../d0/dc2/a00104.html',1,'']]],

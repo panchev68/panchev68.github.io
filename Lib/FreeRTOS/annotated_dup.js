@@ -20,6 +20,5 @@ var annotated_dup =
         [ "Timer", "d1/de1/a00213.html", "d1/de1/a00213" ]
       ] ]
     ] ],
-    [ "EventGroup", "dd/d52/a00221.html", null ],
-    [ "SemaphoreBase", "dc/d98/a00225.html", null ]
+    [ "SemaphoreBase", "dd/d52/a00221.html", null ]
 ];

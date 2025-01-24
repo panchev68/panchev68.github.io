@@ -6,7 +6,7 @@ var searchData=
   ['entercritical_3',['enterCritical',['../da/d01/a00153.html#a7fac97f778f8fe2bba7e766ff2705183',1,'Lib::FreeRTOS::Karnel']]],
   ['entercriticalfromisr_4',['enterCriticalFromISR',['../da/d01/a00153.html#a59e8799ae9b518180ee97c408da1d6bd',1,'Lib::FreeRTOS::Karnel']]],
   ['event_20group_5',['Event Group',['../d1/d88/a00128.html',1,'']]],
-  ['eventgroup_6',['EventGroup',['../dd/d52/a00221.html',1,'EventGroup'],['../da/d1e/a00149.html',1,'Lib::FreeRTOS::EventGroup']]],
+  ['eventgroup_6',['EventGroup',['../da/d1e/a00149.html',1,'Lib::FreeRTOS::EventGroup'],['../da/d1e/a00149.html#a094f14cbb2e1186515e3a1eac5b9fddd',1,'Lib::FreeRTOS::EventGroup::EventGroup()']]],
   ['eventgroup_2ehpp_7',['EventGroup.hpp',['../d1/d09/a00077.html',1,'']]],
   ['exitcritical_8',['exitCritical',['../da/d01/a00153.html#a61a7d0c43fff2534b37481b3efd7f518',1,'Lib::FreeRTOS::Karnel']]],
   ['exitcriticalfromisr_9',['exitCriticalFromISR',['../da/d01/a00153.html#afb4c3ed34af39cd6c0b019a9919b7176',1,'Lib::FreeRTOS::Karnel']]]

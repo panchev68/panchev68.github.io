@@ -2,7 +2,6 @@ var hierarchy =
 [
     [ "Lib::FreeRTOS::Task::Config", "de/db1/a00197.html", null ],
     [ "Lib::FreeRTOS::Timer::Config", "df/d24/a00217.html", null ],
-    [ "EventGroup", "dd/d52/a00221.html", null ],
     [ "Lib::FreeRTOS::EventGroup", "da/d1e/a00149.html", null ],
     [ "Lib::FreeRTOS::Karnel", "da/d01/a00153.html", null ],
     [ "Lib::FreeRTOS::MemoryManager", "d1/db7/a00157.html", null ],
@@ -14,7 +13,7 @@ var hierarchy =
       [ "Lib::FreeRTOS::Semaphore", "dd/d4c/a00177.html", null ],
       [ "Lib::FreeRTOS::SemaphoreCounting", "de/df3/a00185.html", null ]
     ] ],
-    [ "SemaphoreBase", "dc/d98/a00225.html", null ],
+    [ "SemaphoreBase", "dd/d52/a00221.html", null ],
     [ "Lib::FreeRTOS::StreamBuffer", "da/deb/a00189.html", null ],
     [ "Lib::FreeRTOS::TaskHelper", "dd/de3/a00201.html", [
       [ "Lib::FreeRTOS::Task", "dd/df4/a00193.html", null ]
