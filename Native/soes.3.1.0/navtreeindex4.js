@@ -1,16 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"functions_vars_o.html":[1,1,1,12],
-"functions_vars_p.html":[1,1,1,13],
-"functions_vars_r.html":[1,1,1,14],
-"functions_vars_s.html":[1,1,1,15],
-"functions_vars_t.html":[1,1,1,16],
-"functions_vars_u.html":[1,1,1,17],
-"functions_vars_v.html":[1,1,1,18],
-"functions_vars_w.html":[1,1,1,19],
-"functions_vars_x.html":[1,1,1,20],
-"functions_w.html":[1,1,0,19],
-"functions_x.html":[1,1,0,20],
 "globals.html":[2,1,0],
 "globals.html":[2,1,0,0],
 "globals_a.html":[2,1,0,1],

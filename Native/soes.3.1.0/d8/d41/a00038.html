@@ -160,10 +160,13 @@ Variables</h2></td></tr>
 <tr class="memdesc:a1f2c07c0dfd2d9a88c27b47abf1651af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Variable holding current filename read at FOE Open.  <br /></td></tr>
 <tr class="separator:a1f2c07c0dfd2d9a88c27b47abf1651af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7cc484767f3b463b2a72365d9c761a1f" id="r_a7cc484767f3b463b2a72365d9c761a1f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dd/d32/a00041.html#a7685793837c0c8b6c72dd3111024c4a1">foe_cfg_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7cc484767f3b463b2a72365d9c761a1f">foe_cfg</a></td></tr>
+<tr class="memdesc:a7cc484767f3b463b2a72365d9c761a1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main FoE configuration pointer data array. Structure is allocated and filled by the application defining what preferences it requires. This structure is used to configure the FoE service.  <br /></td></tr>
 <tr class="separator:a7cc484767f3b463b2a72365d9c761a1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9cf71eb8bad5e552b2b8eccef7050e98" id="r_a9cf71eb8bad5e552b2b8eccef7050e98"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dd/d32/a00041.html#aa2b23175c3134e03271153b3894b6059">foe_file_cfg_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cf71eb8bad5e552b2b8eccef7050e98">foe_file</a></td></tr>
+<tr class="memdesc:a9cf71eb8bad5e552b2b8eccef7050e98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to current file configuration item used by FoE.  <br /></td></tr>
 <tr class="separator:a9cf71eb8bad5e552b2b8eccef7050e98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcd7d70e05228c39934e5605bc705839" id="r_adcd7d70e05228c39934e5605bc705839"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dd/d32/a00041.html#aacf681139f484fc5fd6bfcc1a3e67e62">_FOEvar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adcd7d70e05228c39934e5605bc705839">FOEvar</a></td></tr>
+<tr class="memdesc:adcd7d70e05228c39934e5605bc705839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main FoE status data array. Structure gets filled with current status variables during FoE usage.  <br /></td></tr>
 <tr class="separator:adcd7d70e05228c39934e5605bc705839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -225,6 +228,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function for sending an FOE abort frame. </p>
+<p>This function sends an FOE abort frame with the specified error code. If the error code is non-zero, it attempts to claim a mailbox buffer and sends an error packet with the provided error code. If it fails to claim a mailbox buffer, it does nothing.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">code</td><td>Abort code </td></tr>
@@ -485,6 +489,15 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of copied bytes.</dd></dl>
+<p>Function reading mailbox buffer to local buffer to be handled by application write hook. Ex. flash routine used by software update. It will consume the buffer and call the write hook every time the configured flush buffer limit is reached.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">data</td><td>Pointer to buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">length</td><td>Length of data to read </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>Number of copied bytes. </dd></dl>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
@@ -547,7 +560,11 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sends an FoE ack data frame. </p>
-<dl class="section return"><dt>Returns</dt><dd>0 or error number. </dd></dl>
+<p>This function sends an FoE ack data frame, returning 0 or an error number.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 or error number.</dd></dl>
+<p>Sends an FoE acknowledgment (ACK) frame.</p>
+<p>This function sends an FoE acknowledgment (ACK) frame, returning 0 on success or an error number if it fails to claim a mailbox buffer.</p>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, or an error number on failure. </dd></dl>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -589,6 +606,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>FoE write request handler. Starts with Initialize, Open and Ack that we can/will receive data. On error we will send FOE Abort. </p>
+<p>Handles the FOE (File Over EtherCAT) write operation.</p>
+<p>This function initiates the FOE write process by checking the current FOE state, initializing the FOE variables, and attempting to open the file for writing. If the file is successfully opened, it sends an acknowledgment and updates the FOE state. If any error occurs during the process, it aborts the FOE operation with the appropriate error code.</p>
+<dl class="section note"><dt>Note</dt><dd>This function assumes that the FOE state is initially set to FOE_READY. If the state is not FOE_READY, the function will abort the operation. </dd></dl>
 <div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
@@ -626,7 +646,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Main FoE configuration pointer data array. Structure is allocated and filled by the application defining what preferences it requires. </p>
+
+<p>Main FoE configuration pointer data array. Structure is allocated and filled by the application defining what preferences it requires. This structure is used to configure the FoE service. </p>
 
 </div>
 </div>
@@ -649,6 +670,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Pointer to current file configuration item used by FoE. </p>
 
 </div>
@@ -696,6 +718,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Main FoE status data array. Structure gets filled with current status variables during FoE usage. </p>
 
 </div>

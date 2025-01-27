@@ -99,16 +99,16 @@ $(function(){initNavTree('dc/d87/a00032.html','../../'); initResizable(true); })
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#define-members">Macros</a>  </div>
   <div class="headertitle"><div class="title">esc_eoe.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This file contains the implementation of the Ethernet over EtherCAT (EoE) protocol. </p>
-<p>The EoE protocol allows Ethernet frames to be tunneled over EtherCAT, enabling standard Ethernet communication between EtherCAT devices. This file includes functions for initializing the EoE protocol, handling incoming and outgoing Ethernet frames, and managing EoE-specific data structures. </p>
+<div class="textblock"><p>EtherCAT over EtherCAT (EoE) implementation. </p>
+<p>This file contains the implementation of the EtherCAT over EtherCAT (EoE) protocol. It provides functions for handling EoE frames, managing IP and MAC addresses, and processing EoE requests and responses.</p>
+<dl class="section version"><dt>Version</dt><dd>3.1.0</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This implementation is designed to work with the SOES (Simple Open EtherCAT Slave) stack.</dd></dl>
+<dl class="section user"><dt>License</dt><dd>This software is provided "as is" without any express or implied warranties, including but not limited to the implied warranties of merchantability and fitness for a particular purpose. In no event shall the authors or copyright holders be liable for any claim, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software. </dd></dl>
 </div><div class="textblock"><code>#include &quot;<a class="el" href="../../d4/d8c/a00035.html">esc_eoe.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/d51/a00017.html">esc.h</a>&quot;</code><br />
 <code>#include &lt;cc.h&gt;</code><br />
@@ -128,8 +128,10 @@ Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d72/a00124.html">eoe_ethaddr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html">_EOEvar</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure to hold EOE (Ethernet over EtherCAT) variables.  <a href="../../d1/d88/a00128.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d5/deb/a00132.html">eoe_param</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">EoE IP request structure.  <a href="../../d5/deb/a00132.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -145,6 +147,7 @@ Macros</h2></td></tr>
 <tr class="memitem:af884c4ad70ea70ca9ca1b03546ae4e0f" id="r_af884c4ad70ea70ca9ca1b03546ae4e0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af884c4ad70ea70ca9ca1b03546ae4e0f">EOE_MAKEU32</a>(a,  b,  c,  d)</td></tr>
 <tr class="separator:af884c4ad70ea70ca9ca1b03546ae4e0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa30319f28eb917a22a893dee70eb5305" id="r_aa30319f28eb917a22a893dee70eb5305"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa30319f28eb917a22a893dee70eb5305">eoe_ip4_addr1</a>(ipaddr)</td></tr>
+<tr class="memdesc:aa30319f28eb917a22a893dee70eb5305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get one byte from the 4-byte address.  <br /></td></tr>
 <tr class="separator:aa30319f28eb917a22a893dee70eb5305"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4dcdc233c9bd9636b94ebbb814011b67" id="r_a4dcdc233c9bd9636b94ebbb814011b67"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4dcdc233c9bd9636b94ebbb814011b67">eoe_ip4_addr2</a>(ipaddr)</td></tr>
 <tr class="separator:a4dcdc233c9bd9636b94ebbb814011b67"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -153,7 +156,9 @@ Macros</h2></td></tr>
 <tr class="memitem:a2f5fd03ffdbb1529949ffac2ed825d17" id="r_a2f5fd03ffdbb1529949ffac2ed825d17"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f5fd03ffdbb1529949ffac2ed825d17">eoe_ip4_addr4</a>(ipaddr)</td></tr>
 <tr class="separator:a2f5fd03ffdbb1529949ffac2ed825d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa172c076efb82771f111f63213537655" id="r_aa172c076efb82771f111f63213537655"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa172c076efb82771f111f63213537655">EOE_IP4_ADDR_TO_U32</a>(ipaddr,  a,  b,  c,  d)</td></tr>
+<tr class="memdesc:aa172c076efb82771f111f63213537655"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro to convert an IPv4 address to a 32-bit unsigned integer.  <br /></td></tr>
 <tr class="separator:aa172c076efb82771f111f63213537655"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Header frame info 1</div></td></tr>
 <tr class="memitem:a5f72b7a381224e10c4c8f9a675b73a38" id="r_a5f72b7a381224e10c4c8f9a675b73a38"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f72b7a381224e10c4c8f9a675b73a38">EOE_HDR_FRAME_TYPE_OFFSET</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a5f72b7a381224e10c4c8f9a675b73a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a214df0fa6497527f18b985a021381b06" id="r_a214df0fa6497527f18b985a021381b06"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a214df0fa6497527f18b985a021381b06">EOE_HDR_FRAME_TYPE</a>&#160;&#160;&#160;(0xF &lt;&lt; 0)</td></tr>
@@ -194,6 +199,7 @@ Macros</h2></td></tr>
 <tr class="separator:a6fb913c47da6ebb32987ef901c3d30a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a851bf95bd6e70d5181d12b54d3f44c94" id="r_a851bf95bd6e70d5181d12b54d3f44c94"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a851bf95bd6e70d5181d12b54d3f44c94">EOE_HDR_TIME_REQUEST_GET</a>(x)</td></tr>
 <tr class="separator:a851bf95bd6e70d5181d12b54d3f44c94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Header frame info 2</div></td></tr>
 <tr class="memitem:a6aca278e4c3f94d6858aacbd0dc62493" id="r_a6aca278e4c3f94d6858aacbd0dc62493"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6aca278e4c3f94d6858aacbd0dc62493">EOE_HDR_FRAG_NO_OFFSET</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a6aca278e4c3f94d6858aacbd0dc62493"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bda45c7f5b8ac8ad30a640b7160be1a" id="r_a6bda45c7f5b8ac8ad30a640b7160be1a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bda45c7f5b8ac8ad30a640b7160be1a">EOE_HDR_FRAG_NO</a>&#160;&#160;&#160;(0x3F &lt;&lt; 0)</td></tr>
@@ -218,6 +224,7 @@ Macros</h2></td></tr>
 <tr class="separator:aa9d115c28fc97cab9ab9f654e1dffd69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a222d121f72a85a1609875c8eca023f97" id="r_a222d121f72a85a1609875c8eca023f97"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a222d121f72a85a1609875c8eca023f97">EOE_HDR_FRAME_NO_GET</a>(x)</td></tr>
 <tr class="separator:a222d121f72a85a1609875c8eca023f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">EOE param</div></td></tr>
 <tr class="memitem:a625c1cffefec8fdd381ff59097955330" id="r_a625c1cffefec8fdd381ff59097955330"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a625c1cffefec8fdd381ff59097955330">EOE_PARAM_OFFSET</a>&#160;&#160;&#160;4</td></tr>
 <tr class="separator:a625c1cffefec8fdd381ff59097955330"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a617df0f4f15dd8971cbdcaeda9b29ad4" id="r_a617df0f4f15dd8971cbdcaeda9b29ad4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a617df0f4f15dd8971cbdcaeda9b29ad4">EOE_PARAM_MAC_INCLUDE</a>&#160;&#160;&#160;(0x1 &lt;&lt; 0)</td></tr>
@@ -232,6 +239,7 @@ Macros</h2></td></tr>
 <tr class="separator:a0c7efd2819f154f006fb643eea8cb943"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad85fd23a3aed338b99a0503338fe8114" id="r_ad85fd23a3aed338b99a0503338fe8114"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad85fd23a3aed338b99a0503338fe8114">EOE_PARAM_DNS_NAME_INCLUDE</a>&#160;&#160;&#160;(0x1 &lt;&lt; 5)</td></tr>
 <tr class="separator:ad85fd23a3aed338b99a0503338fe8114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">EoE frame types</div></td></tr>
 <tr class="memitem:a4758d7912ed346aa4839cc9115dde99e" id="r_a4758d7912ed346aa4839cc9115dde99e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4758d7912ed346aa4839cc9115dde99e">EOE_FRAG_DATA</a>&#160;&#160;&#160;0</td></tr>
 <tr class="separator:a4758d7912ed346aa4839cc9115dde99e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f86c82a9167feaf6b8e34495dafc8e8" id="r_a9f86c82a9167feaf6b8e34495dafc8e8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f86c82a9167feaf6b8e34495dafc8e8">EOE_INIT_RESP_TIMESTAMP</a>&#160;&#160;&#160;1</td></tr>
@@ -252,6 +260,8 @@ Macros</h2></td></tr>
 <tr class="separator:aa18c966a57940b6270727b1d7bf65033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae113091cecdfa98b6b4ef7eff024d725" id="r_ae113091cecdfa98b6b4ef7eff024d725"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae113091cecdfa98b6b4ef7eff024d725">EOE_GET_ADDR_FILTER_RESP</a>&#160;&#160;&#160;9</td></tr>
 <tr class="separator:ae113091cecdfa98b6b4ef7eff024d725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader">EoE result codes</h2></td></tr>
 <tr class="memitem:a07be2fdba5e18be88b036ae412f3c555" id="r_a07be2fdba5e18be88b036ae412f3c555"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07be2fdba5e18be88b036ae412f3c555">EOE_NUMBER_OF_PORTS</a>&#160;&#160;&#160;1</td></tr>
 <tr class="separator:a07be2fdba5e18be88b036ae412f3c555"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58b87dfd1c3f8a9b786053be4a2e98cd" id="r_a58b87dfd1c3f8a9b786053be4a2e98cd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58b87dfd1c3f8a9b786053be4a2e98cd">EOE_PORT_INDEX</a>(x)</td></tr>
@@ -262,71 +272,51 @@ Macros</h2></td></tr>
 <tr class="separator:aa3a1007b173e8ae5e1e066fbe0404b22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1e4f44538194435cd9f71750b0795f2" id="r_af1e4f44538194435cd9f71750b0795f2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e4f44538194435cd9f71750b0795f2">EOE_IP4_LENGTH</a>&#160;&#160;&#160;4U /* sizeof(uint32_t) */</td></tr>
 <tr class="separator:af1e4f44538194435cd9f71750b0795f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
 <tr class="memitem:a78b369d5d6e99c9cf125adc67f9a2e12" id="r_a78b369d5d6e99c9cf125adc67f9a2e12"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d4/d98/a00120.html">eoe_ip4_addr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78b369d5d6e99c9cf125adc67f9a2e12">eoe_ip4_addr_t</a></td></tr>
 <tr class="separator:a78b369d5d6e99c9cf125adc67f9a2e12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e395a6a5284a77080121b3f8374f5e" id="r_a44e395a6a5284a77080121b3f8374f5e"><td class="memItemLeft" align="right" valign="top">typedef CC_PACKED_BEGIN struct <a class="el" href="../../da/d24/a00068.html">CC_PACKED</a> <a class="el" href="../../da/d72/a00124.html">eoe_ethaddr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44e395a6a5284a77080121b3f8374f5e">eoe_ethaddr_t</a></td></tr>
 <tr class="separator:a44e395a6a5284a77080121b3f8374f5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20eb2145b022a5ab0a4e809e29c650e9" id="r_a20eb2145b022a5ab0a4e809e29c650e9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="../../d5/deb/a00132.html">eoe_param</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20eb2145b022a5ab0a4e809e29c650e9">eoe_param_t</a></td></tr>
+<tr class="memdesc:a20eb2145b022a5ab0a4e809e29c650e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">EoE IP request structure.  <br /></td></tr>
 <tr class="separator:a20eb2145b022a5ab0a4e809e29c650e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
+<tr class="memitem:ae8685f6974f2712274d60be16b9cc917" id="r_ae8685f6974f2712274d60be16b9cc917"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/d88/a00128.html">_EOEvar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8685f6974f2712274d60be16b9cc917">EOEvar</a></td></tr>
+<tr class="memdesc:ae8685f6974f2712274d60be16b9cc917"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main EoE status data array. Structure gets filled with current information variables during EoE receive and send operations.  <br /></td></tr>
+<tr class="separator:ae8685f6974f2712274d60be16b9cc917"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32eb4e3872b784e0193fd4b854f2bfc6" id="r_a32eb4e3872b784e0193fd4b854f2bfc6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/d8c/a00035.html#a3a198e65516950563fe961255ae7c18b">eoe_cfg_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32eb4e3872b784e0193fd4b854f2bfc6">eoe_cfg</a></td></tr>
+<tr class="memdesc:a32eb4e3872b784e0193fd4b854f2bfc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main FoE configuration pointer data array. Structure is allocated and filled by the application defining what preferences it requires.  <br /></td></tr>
+<tr class="separator:a32eb4e3872b784e0193fd4b854f2bfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af39ce02447e353762acb896e3bbde4ff" id="r_af39ce02447e353762acb896e3bbde4ff"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a20eb2145b022a5ab0a4e809e29c650e9">eoe_param_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af39ce02447e353762acb896e3bbde4ff">nic_ports</a> [<a class="el" href="#a07be2fdba5e18be88b036ae412f3c555">EOE_NUMBER_OF_PORTS</a>]</td></tr>
+<tr class="memdesc:af39ce02447e353762acb896e3bbde4ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local EoE variable holding cached IP information values. To be set or read from the user application, eg. TCP/IP stack.  <br /></td></tr>
+<tr class="separator:af39ce02447e353762acb896e3bbde4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acf800f276c24e70c6281e4d3fe8a2bf5" id="r_acf800f276c24e70c6281e4d3fe8a2bf5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acf800f276c24e70c6281e4d3fe8a2bf5">EOE_init_rx</a> ()</td></tr>
+<tr class="memdesc:acf800f276c24e70c6281e4d3fe8a2bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the EOE (Ethernet over EtherCAT) receive functionality.  <br /></td></tr>
 <tr class="separator:acf800f276c24e70c6281e4d3fe8a2bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87fd0f1b956ef0fcb873771f8912aad0" id="r_a87fd0f1b956ef0fcb873771f8912aad0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87fd0f1b956ef0fcb873771f8912aad0">EOE_init_tx</a> ()</td></tr>
+<tr class="memdesc:a87fd0f1b956ef0fcb873771f8912aad0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the EOE (Ethernet over EtherCAT) transmission.  <br /></td></tr>
 <tr class="separator:a87fd0f1b956ef0fcb873771f8912aad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92494e57c6dbfa15739038b5a11f2a81" id="r_a92494e57c6dbfa15739038b5a11f2a81"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92494e57c6dbfa15739038b5a11f2a81">EOE_ip_uint32_to_byte</a> (<a class="el" href="#a78b369d5d6e99c9cf125adc67f9a2e12">eoe_ip4_addr_t</a> *ip, uint8_t *byte_ip)</td></tr>
+<tr class="memdesc:a92494e57c6dbfa15739038b5a11f2a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a 32-bit IP address to a byte array.  <br /></td></tr>
 <tr class="separator:a92494e57c6dbfa15739038b5a11f2a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a809699574dac80f5d851aa06d0a96f79" id="r_a809699574dac80f5d851aa06d0a96f79"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a809699574dac80f5d851aa06d0a96f79">EOE_ip_byte_to_uint32</a> (uint8_t *byte_ip, <a class="el" href="#a78b369d5d6e99c9cf125adc67f9a2e12">eoe_ip4_addr_t</a> *ip)</td></tr>
+<tr class="memdesc:a809699574dac80f5d851aa06d0a96f79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts an IP address from byte array format to uint32_t format.  <br /></td></tr>
 <tr class="separator:a809699574dac80f5d851aa06d0a96f79"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62a5f3aeda21de43538cd1d757518a4f" id="r_a62a5f3aeda21de43538cd1d757518a4f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62a5f3aeda21de43538cd1d757518a4f">EOE_ecat_get_mac</a> (uint8_t port, uint8_t mac[])</td></tr>
-<tr class="memdesc:a62a5f3aeda21de43538cd1d757518a4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the MAC address for a specified Ethernet port.  <br /></td></tr>
-<tr class="separator:a62a5f3aeda21de43538cd1d757518a4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f3dc4dbf08222f585f54b66b8138fbe" id="r_a4f3dc4dbf08222f585f54b66b8138fbe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4f3dc4dbf08222f585f54b66b8138fbe">EOE_ecat_set_mac</a> (uint8_t port, uint8_t mac[])</td></tr>
-<tr class="memdesc:a4f3dc4dbf08222f585f54b66b8138fbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the MAC address for a specified port.  <br /></td></tr>
-<tr class="separator:a4f3dc4dbf08222f585f54b66b8138fbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6df8370c39244b77f9a4f24c8ccba90a" id="r_a6df8370c39244b77f9a4f24c8ccba90a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6df8370c39244b77f9a4f24c8ccba90a">EOE_ecat_get_ip</a> (uint8_t port, uint32_t *ip)</td></tr>
-<tr class="memdesc:a6df8370c39244b77f9a4f24c8ccba90a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the IP address for a specified port.  <br /></td></tr>
-<tr class="separator:a6df8370c39244b77f9a4f24c8ccba90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d9b2688d70fa7ca0fa4a91d343f51ac" id="r_a2d9b2688d70fa7ca0fa4a91d343f51ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d9b2688d70fa7ca0fa4a91d343f51ac">EOE_ecat_set_ip</a> (uint8_t port, uint32_t ip)</td></tr>
-<tr class="memdesc:a2d9b2688d70fa7ca0fa4a91d343f51ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the IP address for a specific Ethernet over EtherCAT (EoE) port.  <br /></td></tr>
-<tr class="separator:a2d9b2688d70fa7ca0fa4a91d343f51ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5449c4727ab3b766b1c5aa72511e1db9" id="r_a5449c4727ab3b766b1c5aa72511e1db9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5449c4727ab3b766b1c5aa72511e1db9">EOE_ecat_get_subnet</a> (uint8_t port, uint32_t *subnet)</td></tr>
-<tr class="memdesc:a5449c4727ab3b766b1c5aa72511e1db9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the subnet for a specified Ethernet over EtherCAT (EoE) port.  <br /></td></tr>
-<tr class="separator:a5449c4727ab3b766b1c5aa72511e1db9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8fc1bf2d8689388ce7c320d068c62b2" id="r_af8fc1bf2d8689388ce7c320d068c62b2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8fc1bf2d8689388ce7c320d068c62b2">EOE_ecat_set_subnet</a> (uint8_t port, uint32_t subnet)</td></tr>
-<tr class="memdesc:af8fc1bf2d8689388ce7c320d068c62b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the subnet for a specified Ethernet over EtherCAT (EoE) port.  <br /></td></tr>
-<tr class="separator:af8fc1bf2d8689388ce7c320d068c62b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ec7b9b33e5ac7fe3ba661aa77791229" id="r_a3ec7b9b33e5ac7fe3ba661aa77791229"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ec7b9b33e5ac7fe3ba661aa77791229">EOE_ecat_get_gateway</a> (uint8_t port, uint32_t *default_gateway)</td></tr>
-<tr class="memdesc:a3ec7b9b33e5ac7fe3ba661aa77791229"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the default gateway for a specified port.  <br /></td></tr>
-<tr class="separator:a3ec7b9b33e5ac7fe3ba661aa77791229"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79128a29f1f8bf20d72e350eff33d361" id="r_a79128a29f1f8bf20d72e350eff33d361"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79128a29f1f8bf20d72e350eff33d361">EOE_ecat_set_gateway</a> (uint8_t port, uint32_t default_gateway)</td></tr>
-<tr class="memdesc:a79128a29f1f8bf20d72e350eff33d361"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the default gateway for a specified port.  <br /></td></tr>
-<tr class="separator:a79128a29f1f8bf20d72e350eff33d361"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8e9c669b336917f2f64a9c41988c8ca" id="r_aa8e9c669b336917f2f64a9c41988c8ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8e9c669b336917f2f64a9c41988c8ca">EOE_ecat_get_dns_ip</a> (uint8_t port, uint32_t *dns_ip)</td></tr>
-<tr class="memdesc:aa8e9c669b336917f2f64a9c41988c8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the DNS IP address for a specified port.  <br /></td></tr>
-<tr class="separator:aa8e9c669b336917f2f64a9c41988c8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64f8b359e1b183b600362e8ff911de11" id="r_a64f8b359e1b183b600362e8ff911de11"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64f8b359e1b183b600362e8ff911de11">EOE_ecat_set_dns_ip</a> (uint8_t port, uint32_t dns_ip)</td></tr>
-<tr class="memdesc:a64f8b359e1b183b600362e8ff911de11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DNS IP address for a specified port.  <br /></td></tr>
-<tr class="separator:a64f8b359e1b183b600362e8ff911de11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47c19a54e5077404ae2e0dd5b51a96b6" id="r_a47c19a54e5077404ae2e0dd5b51a96b6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47c19a54e5077404ae2e0dd5b51a96b6">EOE_ecat_get_dns_name</a> (uint8_t port, char *dns_name)</td></tr>
-<tr class="memdesc:a47c19a54e5077404ae2e0dd5b51a96b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the DNS name for a specified port.  <br /></td></tr>
-<tr class="separator:a47c19a54e5077404ae2e0dd5b51a96b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4719368140ef30c671176a0721a1c162" id="r_a4719368140ef30c671176a0721a1c162"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4719368140ef30c671176a0721a1c162">EOE_ecat_set_dns_name</a> (uint8_t port, char *dns_name)</td></tr>
-<tr class="memdesc:a4719368140ef30c671176a0721a1c162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the DNS name for the specified Ethernet over EtherCAT (EoE) port.  <br /></td></tr>
+<tr class="memdesc:a4719368140ef30c671176a0721a1c162"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the MAC address for a specified port.  <br /></td></tr>
 <tr class="separator:a4719368140ef30c671176a0721a1c162"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09185e9a340f379047827ee435b93ec6" id="r_a09185e9a340f379047827ee435b93ec6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09185e9a340f379047827ee435b93ec6">EOE_no_data_response</a> (uint16_t frameinfo1, uint16_t result)</td></tr>
+<tr class="memdesc:a09185e9a340f379047827ee435b93ec6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a response indicating no data available.  <br /></td></tr>
 <tr class="separator:a09185e9a340f379047827ee435b93ec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae042b119044f662411a1c88a1fce498e" id="r_ae042b119044f662411a1c88a1fce498e"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae042b119044f662411a1c88a1fce498e">EOE_get_ip</a> (void)</td></tr>
+<tr class="memdesc:ae042b119044f662411a1c88a1fce498e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the IP address for the EOE (Ethernet over EtherCAT) protocol.  <br /></td></tr>
 <tr class="separator:ae042b119044f662411a1c88a1fce498e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ef9b7bb1fd0f9762c84dafcb64b9a9d" id="r_a4ef9b7bb1fd0f9762c84dafcb64b9a9d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ef9b7bb1fd0f9762c84dafcb64b9a9d">EOE_set_ip</a> (void)</td></tr>
+<tr class="memdesc:a4ef9b7bb1fd0f9762c84dafcb64b9a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the IP address for the Ethernet over EtherCAT (EoE) protocol.  <br /></td></tr>
 <tr class="separator:a4ef9b7bb1fd0f9762c84dafcb64b9a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58e730d3704d508e191e3f1f399ad8b8" id="r_a58e730d3704d508e191e3f1f399ad8b8"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58e730d3704d508e191e3f1f399ad8b8">EOE_receive_fragment</a> (void)</td></tr>
+<tr class="memdesc:a58e730d3704d508e191e3f1f399ad8b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives an EOE (Ethernet over EtherCAT) fragment.  <br /></td></tr>
 <tr class="separator:a58e730d3704d508e191e3f1f399ad8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f7ec97c0d684c1e4da7e366fe1feea5" id="r_a3f7ec97c0d684c1e4da7e366fe1feea5"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f7ec97c0d684c1e4da7e366fe1feea5">EOE_send_fragment</a> ()</td></tr>
+<tr class="memdesc:a3f7ec97c0d684c1e4da7e366fe1feea5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an EoE (Ethernet over EtherCAT) fragment.  <br /></td></tr>
 <tr class="separator:a3f7ec97c0d684c1e4da7e366fe1feea5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af746d73f40c8cb1e0af5c7bcd8ff7fe1" id="r_af746d73f40c8cb1e0af5c7bcd8ff7fe1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af746d73f40c8cb1e0af5c7bcd8ff7fe1">EOE_init</a> ()</td></tr>
 <tr class="memdesc:af746d73f40c8cb1e0af5c7bcd8ff7fe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the Ethernet over EtherCAT (EoE) module.  <br /></td></tr>
@@ -335,20 +325,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad56149b7cfaff86ebaf8aa38889ccf63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures the Ethernet over EtherCAT (EoE) settings.  <br /></td></tr>
 <tr class="separator:ad56149b7cfaff86ebaf8aa38889ccf63"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6453c21256a457cc8de8387a213f658f" id="r_a6453c21256a457cc8de8387a213f658f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6453c21256a457cc8de8387a213f658f">ESC_eoeprocess</a> (void)</td></tr>
-<tr class="memdesc:a6453c21256a457cc8de8387a213f658f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the EtherCAT over EtherType (EoE) protocol.  <br /></td></tr>
+<tr class="memdesc:a6453c21256a457cc8de8387a213f658f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the EtherCAT over EtherCAT (EoE) protocol.  <br /></td></tr>
 <tr class="separator:a6453c21256a457cc8de8387a213f658f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a155e38db4802927e3c45fba9bc7f05e6" id="r_a155e38db4802927e3c45fba9bc7f05e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a155e38db4802927e3c45fba9bc7f05e6">ESC_eoeprocess_tx</a> (void)</td></tr>
 <tr class="memdesc:a155e38db4802927e3c45fba9bc7f05e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processes the transmission of Ethernet over EtherCAT (EoE) data.  <br /></td></tr>
 <tr class="separator:a155e38db4802927e3c45fba9bc7f05e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:ae8685f6974f2712274d60be16b9cc917" id="r_ae8685f6974f2712274d60be16b9cc917"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d1/d88/a00128.html">_EOEvar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8685f6974f2712274d60be16b9cc917">EOEvar</a></td></tr>
-<tr class="separator:ae8685f6974f2712274d60be16b9cc917"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32eb4e3872b784e0193fd4b854f2bfc6" id="r_a32eb4e3872b784e0193fd4b854f2bfc6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../d4/d8c/a00035.html#a3a198e65516950563fe961255ae7c18b">eoe_cfg_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32eb4e3872b784e0193fd4b854f2bfc6">eoe_cfg</a></td></tr>
-<tr class="separator:a32eb4e3872b784e0193fd4b854f2bfc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af39ce02447e353762acb896e3bbde4ff" id="r_af39ce02447e353762acb896e3bbde4ff"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a20eb2145b022a5ab0a4e809e29c650e9">eoe_param_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af39ce02447e353762acb896e3bbde4ff">nic_ports</a> [<a class="el" href="#a07be2fdba5e18be88b036ae412f3c555">EOE_NUMBER_OF_PORTS</a>]</td></tr>
-<tr class="separator:af39ce02447e353762acb896e3bbde4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a5c6fce660c217de2ab7a56083c6010ac" name="a5c6fce660c217de2ab7a56083c6010ac"></a>
@@ -392,7 +373,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>EoE frame types </p>
 
 </div>
 </div>
@@ -495,7 +475,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Header frame info 2 </p>
 
 </div>
 </div>
@@ -752,7 +731,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Header frame info 1 </p>
 
 </div>
 </div>
@@ -1062,7 +1040,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">(((<span class="keyword">const</span> uint8_t *) (&amp;(ipaddr)-&gt;addr)) [0])</div>
-</div><!-- fragment --><p>Get one byte from the 4-byte address </p>
+</div><!-- fragment -->
+<p>Get one byte from the 4-byte address. </p>
 
 </div>
 </div>
@@ -1154,9 +1133,20 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    (ipaddr)-&gt;addr = <a class="code hl_define" href="#adff06e4bdb87fdaff8ba778f41671aec">EOE_HTONL</a> (<a class="code hl_define" href="#af884c4ad70ea70ca9ca1b03546ae4e0f">EOE_MAKEU32</a> (a, b, c, d))</div>
-<div class="ttc" id="aa00032_html_adff06e4bdb87fdaff8ba778f41671aec"><div class="ttname"><a href="#adff06e4bdb87fdaff8ba778f41671aec">EOE_HTONL</a></div><div class="ttdeci">#define EOE_HTONL(x)</div><div class="ttdef"><b>Definition</b> esc_eoe.c:26</div></div>
-<div class="ttc" id="aa00032_html_af884c4ad70ea70ca9ca1b03546ae4e0f"><div class="ttname"><a href="#af884c4ad70ea70ca9ca1b03546ae4e0f">EOE_MAKEU32</a></div><div class="ttdeci">#define EOE_MAKEU32(a, b, c, d)</div><div class="ttdef"><b>Definition</b> esc_eoe.c:33</div></div>
-</div><!-- fragment --><p>Set an IP address given by the four byte-parts </p>
+<div class="ttc" id="aa00032_html_adff06e4bdb87fdaff8ba778f41671aec"><div class="ttname"><a href="#adff06e4bdb87fdaff8ba778f41671aec">EOE_HTONL</a></div><div class="ttdeci">#define EOE_HTONL(x)</div><div class="ttdef"><b>Definition</b> esc_eoe.c:36</div></div>
+<div class="ttc" id="aa00032_html_af884c4ad70ea70ca9ca1b03546ae4e0f"><div class="ttname"><a href="#af884c4ad70ea70ca9ca1b03546ae4e0f">EOE_MAKEU32</a></div><div class="ttdeci">#define EOE_MAKEU32(a, b, c, d)</div><div class="ttdef"><b>Definition</b> esc_eoe.c:43</div></div>
+</div><!-- fragment -->
+<p>Macro to convert an IPv4 address to a 32-bit unsigned integer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ipaddr</td><td>The variable to store the converted 32-bit unsigned integer. </td></tr>
+    <tr><td class="paramname">a</td><td>The first octet of the IPv4 address. </td></tr>
+    <tr><td class="paramname">b</td><td>The second octet of the IPv4 address. </td></tr>
+    <tr><td class="paramname">c</td><td>The third octet of the IPv4 address. </td></tr>
+    <tr><td class="paramname">d</td><td>The fourth octet of the IPv4 address. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1243,7 +1233,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line"><a class="code hl_define" href="#a85de9f846bd4a1e81e456c16e972c8cb">EOE_HTONS</a> (x)</div>
-<div class="ttc" id="aa00032_html_a85de9f846bd4a1e81e456c16e972c8cb"><div class="ttname"><a href="#a85de9f846bd4a1e81e456c16e972c8cb">EOE_HTONS</a></div><div class="ttdeci">#define EOE_HTONS(x)</div><div class="ttdef"><b>Definition</b> esc_eoe.c:24</div></div>
+<div class="ttc" id="aa00032_html_a85de9f846bd4a1e81e456c16e972c8cb"><div class="ttname"><a href="#a85de9f846bd4a1e81e456c16e972c8cb">EOE_HTONS</a></div><div class="ttdeci">#define EOE_HTONS(x)</div><div class="ttdef"><b>Definition</b> esc_eoe.c:34</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1343,7 +1333,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>EOE param </p>
 
 </div>
 </div>
@@ -1376,7 +1365,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">((x &gt; 0) ? (x - 1) : 0)</div>
-</div><!-- fragment -->
+</div><!-- fragment --><p>Define number of ports available.(Only one is supported currently </p>
+
 </div>
 </div>
 <a id="acd9a1b7804f4a4592a59af2269c7cd11" name="acd9a1b7804f4a4592a59af2269c7cd11"></a>
@@ -1434,6 +1424,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Define number of ports available.(Only one is supported currently </p>
 
 </div>
 </div>
@@ -1448,7 +1439,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>EoE IP request structure </p>
+
+<p>EoE IP request structure. </p>
 
 </div>
 </div>
@@ -1469,237 +1461,13 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Configures the Ethernet over EtherCAT (EoE) settings. </p>
-<p>Function copying the application configuration variable to the EoE module local pointer variable.</p>
+<p>Function copying the application configuration variable to the EoE module local pointer variable. The configuration variable is used to store application specific settings and preferences. The configuration variable is defined by the application and passed to the EoE module by calling this function.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">cfg</td><td>= Pointer to by the Application static declared configuration variable holding application specific details. </td></tr>
+    <tr><td class="paramname">cfg</td><td>Pointer to the <a class="el" href="../../d4/d8c/a00035.html#a3a198e65516950563fe961255ae7c18b">eoe_cfg_t</a> structure containing the configuration parameters. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="aa8e9c669b336917f2f64a9c41988c8ca" name="aa8e9c669b336917f2f64a9c41988c8ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8e9c669b336917f2f64a9c41988c8ca">&#9670;&#160;</a></span>EOE_ecat_get_dns_ip()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_get_dns_ip </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>dns_ip</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the DNS IP address for a specified port. </p>
-<p>Get EoE cached dns ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip address for port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dns_ip</td><td>= variable to store ip in </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, -1 if not set </dd></dl>
-
-</div>
-</div>
-<a id="a47c19a54e5077404ae2e0dd5b51a96b6" name="a47c19a54e5077404ae2e0dd5b51a96b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47c19a54e5077404ae2e0dd5b51a96b6">&#9670;&#160;</a></span>EOE_ecat_get_dns_name()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_get_dns_name </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>dns_name</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the DNS name for a specified port. </p>
-<p>Get EoE cached dns name</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get dns name for port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">dns_name</td><td>= variable to store dns name in </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, -1 if not set </dd></dl>
-
-</div>
-</div>
-<a id="a3ec7b9b33e5ac7fe3ba661aa77791229" name="a3ec7b9b33e5ac7fe3ba661aa77791229"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ec7b9b33e5ac7fe3ba661aa77791229">&#9670;&#160;</a></span>EOE_ecat_get_gateway()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_get_gateway </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>default_gateway</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the default gateway for a specified port. </p>
-<p>Get EoE cached default gateway ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip address for port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">default_gateway</td><td>= variable to store ip in </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, -1 if not set </dd></dl>
-
-</div>
-</div>
-<a id="a6df8370c39244b77f9a4f24c8ccba90a" name="a6df8370c39244b77f9a4f24c8ccba90a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6df8370c39244b77f9a4f24c8ccba90a">&#9670;&#160;</a></span>EOE_ecat_get_ip()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_get_ip </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the IP address for a specified port. </p>
-<p>Get EoE cached ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip address for port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ip</td><td>= variable to store ip in </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, -1 if not set </dd></dl>
-
-</div>
-</div>
-<a id="a62a5f3aeda21de43538cd1d757518a4f" name="a62a5f3aeda21de43538cd1d757518a4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62a5f3aeda21de43538cd1d757518a4f">&#9670;&#160;</a></span>EOE_ecat_get_mac()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_get_mac </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>mac</em></span>[]&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the MAC address for a specified Ethernet port. </p>
-<p>Get EoE cached MAC address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get MAC for port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">mac</td><td>= variable to store mac in, should fit EOE_ETHADDR_LENGTH </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, -1 if not set </dd></dl>
-
-</div>
-</div>
-<a id="a5449c4727ab3b766b1c5aa72511e1db9" name="a5449c4727ab3b766b1c5aa72511e1db9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5449c4727ab3b766b1c5aa72511e1db9">&#9670;&#160;</a></span>EOE_ecat_get_subnet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_get_subnet </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t *</td>          <td class="paramname"><span class="paramname"><em>subnet</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieves the subnet for a specified Ethernet over EtherCAT (EoE) port. </p>
-<p>Get EoE cached subnet ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip address for port </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">subnet</td><td>= variable to store ip in </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, -1 if not set </dd></dl>
-
-</div>
-</div>
-<a id="a64f8b359e1b183b600362e8ff911de11" name="a64f8b359e1b183b600362e8ff911de11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64f8b359e1b183b600362e8ff911de11">&#9670;&#160;</a></span>EOE_ecat_set_dns_ip()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_set_dns_ip </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>dns_ip</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the DNS IP address for a specified port. </p>
-<p>Set EoE cached dns ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip for port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dns_ip</td><td>= ip address to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, else -1. </dd></dl>
 
 </div>
 </div>
@@ -1722,144 +1490,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the DNS name for the specified Ethernet over EtherCAT (EoE) port. </p>
-<p>Set EoE cached dns name</p>
+<p>Retrieves the MAC address for a specified port. </p>
+<p>Sets the DNS name for the specified Ethernet over EtherCAT (EoE) port.</p>
+<p>This function fetches the MAC address associated with the given port and stores it in the provided mac array.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get dns name for port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">dns_name</td><td>= dns name to store </td></tr>
+    <tr><td class="paramname">port</td><td>The port number for which the MAC address is to be retrieved. </td></tr>
+    <tr><td class="paramname">mac</td><td>An array where the retrieved MAC address will be stored. The array should be large enough to hold a MAC address (6 bytes). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, else -1. </dd></dl>
-
-</div>
-</div>
-<a id="a79128a29f1f8bf20d72e350eff33d361" name="a79128a29f1f8bf20d72e350eff33d361"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79128a29f1f8bf20d72e350eff33d361">&#9670;&#160;</a></span>EOE_ecat_set_gateway()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_set_gateway </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>default_gateway</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the default gateway for a specified port. </p>
-<p>Set EoE cached default gateway ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip for port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">default_gateway</td><td>= ip address to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, else -1. </dd></dl>
-
-</div>
-</div>
-<a id="a2d9b2688d70fa7ca0fa4a91d343f51ac" name="a2d9b2688d70fa7ca0fa4a91d343f51ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d9b2688d70fa7ca0fa4a91d343f51ac">&#9670;&#160;</a></span>EOE_ecat_set_ip()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_set_ip </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ip</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Set the IP address for a specific Ethernet over EtherCAT (EoE) port. </p>
-<p>Set EoE cached ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip for port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>= ip address to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, else -1. </dd></dl>
-
-</div>
-</div>
-<a id="a4f3dc4dbf08222f585f54b66b8138fbe" name="a4f3dc4dbf08222f585f54b66b8138fbe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f3dc4dbf08222f585f54b66b8138fbe">&#9670;&#160;</a></span>EOE_ecat_set_mac()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_set_mac </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>mac</em></span>[]&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the MAC address for a specified port. </p>
-<p>Set EoE cached MAC address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get MAC for port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">mac</td><td>= mac address to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, else -1. </dd></dl>
-
-</div>
-</div>
-<a id="af8fc1bf2d8689388ce7c320d068c62b2" name="af8fc1bf2d8689388ce7c320d068c62b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8fc1bf2d8689388ce7c320d068c62b2">&#9670;&#160;</a></span>EOE_ecat_set_subnet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int EOE_ecat_set_subnet </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subnet</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Sets the subnet for a specified Ethernet over EtherCAT (EoE) port. </p>
-<p>Set EoE cached subnet ip address</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">port</td><td>= get ip for port </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">subnet</td><td>= ip address to store </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>0= if we succeed, else -1. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>An integer indicating the success or failure of the operation. </dd></dl>
 
 </div>
 </div>
@@ -1885,7 +1526,10 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>EoE get IP param request handler. Will send a get IP param response. </p>
+
+<p>Retrieves the IP address for the EOE (Ethernet over EtherCAT) protocol. </p>
+<p>EoE get IP param request handler. Will send a get IP param response.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is static and intended for internal use within the <a class="el" href="../../dc/d87/a00032.html" title="EtherCAT over EtherCAT (EoE) implementation.">esc_eoe.c</a> file. </dd></dl>
 <div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -1919,7 +1563,7 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the Ethernet over EtherCAT (EoE) module. </p>
-<p>Initialize by clearing all current status variables. </p>
+<p>This function sets up the necessary configurations and resources for the EoE module to operate. It should be called during the initialization phase of the application. </p>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -1959,6 +1603,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Initializes the EOE (Ethernet over EtherCAT) receive functionality. </p>
 <p>Local init/reset functions on frame receive init</p>
 <p>Initialize by clearing all current status variables and fetch new buffer. </p>
 <div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -1993,8 +1639,9 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Local init/reset functions on frame send completion</p>
-<p>Initialize by clearing all current status variables and release old buffer. </p>
+
+<p>Initializes the EOE (Ethernet over EtherCAT) transmission. </p>
+<p>Initialize by clearing all current status variables and release old buffer. This function should be called before starting a new EoE transmission. </p>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -2031,10 +1678,13 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>EoE utility function to convert eoe ip bytes to uint32. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Converts an IP address from byte array format to uint32_t format. </p>
+<p>This function takes an IP address represented as a byte array and converts it to a 32-bit unsigned integer format.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">byte_ip</td><td>= eoe ip 4th octet, 3ed octet, 2nd octet, 1st octet </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">ip</td><td>= ip in uint32 </td></tr>
+    <tr><td class="paramname">byte_ip</td><td>Pointer to the byte array containing the IP address. </td></tr>
+    <tr><td class="paramname">ip</td><td>Pointer to the <a class="el" href="#a78b369d5d6e99c9cf125adc67f9a2e12">eoe_ip4_addr_t</a> structure where the converted IP address will be stored. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2074,10 +1724,13 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>EoE utility function to convert uint32 to eoe ip bytes. </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p>Converts a 32-bit IP address to a byte array. </p>
+<p>This function takes a 32-bit IP address (<a class="el" href="#a78b369d5d6e99c9cf125adc67f9a2e12">eoe_ip4_addr_t</a>) and converts it into a 4-byte array representation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">ip</td><td>= ip in uint32 </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">byte_ip</td><td>= eoe ip 4th octet, 3ed octet, 2nd octet, 1st octet </td></tr>
+    <tr><td class="paramname">ip</td><td>Pointer to the 32-bit IP address to be converted. </td></tr>
+    <tr><td class="paramname">byte_ip</td><td>Pointer to the byte array where the converted IP address will be stored. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2117,11 +1770,13 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Function for sending an simple EOE response frame.</p>
+
+<p>Sends a response indicating no data available. </p>
+<p>Function for sending an simple EOE response frame. This function is used when no data is available to send in the response.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">frametype1</td><td>= frame type of response </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">result</td><td>= result code </td></tr>
+    <tr><td class="paramname">frameinfo1</td><td>Information about the frame. </td></tr>
+    <tr><td class="paramname">result</td><td>The result code to be sent in the response. </td></tr>
   </table>
   </dd>
 </dl>
@@ -2164,7 +1819,10 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>EoE receive fragment handler. </p>
+
+<p>Receives an EOE (Ethernet over EtherCAT) fragment. </p>
+<p>This function is responsible for handling the reception of an EOE fragment. It processes the incoming data and performs necessary actions to handle the fragment appropriately.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is static and intended for internal use only. </dd></dl>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary" style="display:block;">
@@ -2204,7 +1862,10 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>EoE send fragment handler. </p>
+
+<p>Sends an EoE (Ethernet over EtherCAT) fragment. </p>
+<p>EoE send fragment handler. Will send a fragment of the current EoE frame. If the frame is larger than the mailbox size, the frame will be split into multiple fragments.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is static and intended for internal use within the module. </dd></dl>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -2244,7 +1905,10 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>EoE set IP param request handler. Will send a set IP param response. </p>
+
+<p>Sets the IP address for the Ethernet over EtherCAT (EoE) protocol. </p>
+<p>EoE set IP param request handler. Will send a set IP param response. This function configures the IP address for the specified EoE port.</p>
+<dl class="section note"><dt>Note</dt><dd>This function is static and intended for internal use only. </dd></dl>
 <div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
@@ -2277,7 +1941,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Processes the EtherCAT over EtherType (EoE) protocol. </p>
+<p>Processes the EtherCAT over EtherCAT (EoE) protocol. </p>
+<p>Processes the EtherCAT over EtherType (EoE) protocol.</p>
 <p>Main EoE receive function checking the status on current mailbox buffers carrying data, distributing the mailboxes to appropriate EOE functions depending on requested frametype. </p>
 <div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
@@ -2312,7 +1977,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Processes the transmission of Ethernet over EtherCAT (EoE) data. </p>
-<p>EoE function to send a fragment. NOTE: Not thread safe, should be called from the SOES task sequential with other mailbox functions. Add support for threading by adding a thread safe application fetch function, example a mailbox with buffers to send, posted by TCP/IP stack and fetched by SOES task. </p>
+<p>This function handles the transmission of EoE data within the EtherCAT Slave Controller (ESC). It ensures that the data is properly formatted and sent over the network.</p>
+<p>NOTE: Not thread safe, should be called from the SOES task sequential with other mailbox functions. Add support for threading by adding a thread safe application fetch function, example a mailbox with buffers to send, posted by TCP/IP stack and fetched by SOES task. </p>
 <div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-19-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-19-summary" class="dynsummary" style="display:block;">
@@ -2350,6 +2016,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Main FoE configuration pointer data array. Structure is allocated and filled by the application defining what preferences it requires. </p>
 
 </div>
@@ -2373,6 +2040,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Main EoE status data array. Structure gets filled with current information variables during EoE receive and send operations. </p>
 
 </div>
@@ -2396,6 +2064,7 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Local EoE variable holding cached IP information values. To be set or read from the user application, eg. TCP/IP stack. </p>
 
 </div>
