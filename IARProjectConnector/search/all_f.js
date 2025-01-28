@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['група_0',['\ifile &quot;X:/Lib/FW/IAR/IAR Project connectors/docs/md/CreateGroup.md&quot; \iline 1 \ilinebr                         Създаване на група',['../d2/de7/a00014.html#CreateGroup',1,'']]]
+  ['на_20ethercatslave_20в_20iar_20embedded_20workbench_0',['Имплементация на EthercatSlave в IAR Embedded Workbench',['../d3/de7/a00039.html#EthercatImplement',1,'']]]
 ];

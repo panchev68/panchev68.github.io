@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['new_20group_0',['Creating a new group',['../d7/dec/a00010.html',1,'Introduction']]]
+  ['touchgfx_20iar_20project_20connector_0',['TouchGFX IAR Project Connector',['../db/d3a/a00040.html',1,'index']]]
 ];

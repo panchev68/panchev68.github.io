@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['ethercat_20slave_0',['Ethercat Slave',['../d5/d79/a00030.html',1,'index']]],
-  ['ethercat_20slave_20connector_1',['Използване на Ethercat Slave connector',['../d5/d79/a00030.html#Ethercat',1,'']]],
-  ['examples_2',['Examples',['../d5/d16/a00029.html#Examples',1,'']]]
+  ['embedded_20workbench_0',['Имплементация на EthercatSlave в IAR Embedded Workbench',['../d3/de7/a00039.html#EthercatImplement',1,'']]],
+  ['ethercat_20slave_20iar_20project_20connector_1',['Ethercat Slave IAR Project Connector',['../d3/de7/a00039.html',1,'index']]],
+  ['ethercatslave_20в_20iar_20embedded_20workbench_2',['Имплементация на EthercatSlave в IAR Embedded Workbench',['../d3/de7/a00039.html#EthercatImplement',1,'']]],
+  ['examples_3',['Examples',['../d8/d41/a00038.html#Examples',1,'']]]
 ];

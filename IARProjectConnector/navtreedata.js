@@ -25,32 +25,35 @@
 var NAVTREE =
 [
   [ "IAR Project connectors", "index.html", [
-    [ "Introduction", "d5/d16/a00029.html", [
-      [ "Commands", "d5/d16/a00029.html#Commands", [
-        [ "Create Group", "d5/d16/a00029.html#CreateGroup", [
-          [ "Connection", "d5/d16/a00029.html#Project", null ]
+    [ "Introduction", "d8/d41/a00038.html", [
+      [ "Commands", "d8/d41/a00038.html#Commands", [
+        [ "Create Group", "d8/d41/a00038.html#CreateGroup", [
+          [ "Connection", "d8/d41/a00038.html#Project", null ]
         ] ],
-        [ "Set IAR Compiler options", "d5/d16/a00029.html#SetIarCompilerOptions", [
-          [ "Description of IAR options", "d5/d16/a00029.html#DescriptionOfIarOptions", null ]
+        [ "Set IAR Compiler options", "d8/d41/a00038.html#SetIarCompilerOptions", [
+          [ "Description of IAR options", "d8/d41/a00038.html#DescriptionOfIarOptions", null ]
         ] ],
-        [ "Include Path", "d5/d16/a00029.html#IncludePath", null ],
-        [ "Add, CopyTo or Reference a file in the project", "d5/d16/a00029.html#AddCopyReference", [
-          [ "Add", "d5/d16/a00029.html#Add", null ],
-          [ "CopyTo", "d5/d16/a00029.html#CopyTo", null ],
-          [ "Reference", "d5/d16/a00029.html#Reference", null ]
+        [ "Include Path", "d8/d41/a00038.html#IncludePath", null ],
+        [ "Add, CopyTo or Reference a file in the project", "d8/d41/a00038.html#AddCopyReference", [
+          [ "Add", "d8/d41/a00038.html#Add", null ],
+          [ "CopyTo", "d8/d41/a00038.html#CopyTo", null ],
+          [ "Reference", "d8/d41/a00038.html#Reference", null ]
         ] ]
       ] ],
-      [ "Examples", "d5/d16/a00029.html#Examples", null ]
+      [ "Examples", "d8/d41/a00038.html#Examples", null ]
     ] ],
-    [ "Ethercat Slave", "d5/d79/a00030.html", [
-      [ "Introduction", "d5/d79/a00030.html#Introduction", null ]
+    [ "Ethercat Slave IAR Project Connector", "d3/de7/a00039.html", [
+      [ "Introduction", "d3/de7/a00039.html#Introduction", null ]
+    ] ],
+    [ "TouchGFX IAR Project Connector", "db/d3a/a00040.html", [
+      [ "Имплементация", "db/d3a/a00040.html#Implementation", null ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"d5/d16/a00029.html"
+"d3/de7/a00039.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
