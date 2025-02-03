@@ -1,11 +1,11 @@
 var a00487 =
 [
-    [ "Command", "dd/d9c/a00487.html#aef634740746620477b93924a6f9821d7", null ],
-    [ "RemoteAtCommand", "dd/d9c/a00487.html#ab40150fd9cd0b1a80580efde4448fc09", null ],
-    [ "~RemoteAtCommand", "dd/d9c/a00487.html#a00d526164d879ebb5a1662b267f5330a", null ],
-    [ "close", "dd/d9c/a00487.html#a4118c157ab83c07a2d55a18ecc6b634a", null ],
-    [ "open", "dd/d9c/a00487.html#a5ab5d7fe26af53e7b41b725de27ffae6", null ],
-    [ "receive", "dd/d9c/a00487.html#a6630190eb640758c1126229ebab806e2", null ],
-    [ "send", "dd/d9c/a00487.html#ab3043ebf47980bb23f1705070478372a", null ],
-    [ "send", "dd/d9c/a00487.html#ae63a91f73d3a6b1ee501ac812c5d51bd", null ]
+    [ "onExtendedTransmitStatusChanged", "dd/d9c/a00487.html#a61b9f5e1981d1743e38a1bb7d0fea423", null ],
+    [ "onLocalAtCommand", "dd/d9c/a00487.html#a38aaf5bb966fb25495b407d4a09273aa", null ],
+    [ "onModemStatusChanged", "dd/d9c/a00487.html#a3cfdc2b68ed6815cf21940e47c495160", null ],
+    [ "onPacketReceived", "dd/d9c/a00487.html#a082f029d0f46573f59e34256c76e9472", null ],
+    [ "onReceivePacket16bit", "dd/d9c/a00487.html#a3e90aa120034f9a69b88c484ed8556c2", null ],
+    [ "onReceivePacket64bit", "dd/d9c/a00487.html#a064346178555af6f496e843b975e7cf2", null ],
+    [ "onRemoteATCommand", "dd/d9c/a00487.html#ae64d416b3b3cce7482d431a3dfb12f36", null ],
+    [ "onTransmitStatus", "dd/d9c/a00487.html#aae178e7c1df35d9d1cd8f85e04551ac7", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>XBEE: Lib::Xbee::Core::Frame0x90</title>
+<title>XBEE: Lib::Xbee::Core::Frame0x97</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -102,48 +102,71 @@ $(function(){initNavTree('dd/d4d/a00519.html','../../'); initResizable(true); })
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="../../d4/d40/a00516.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Lib::Xbee::Core::Frame0x90</div></div>
+  <div class="headertitle"><div class="title">Lib::Xbee::Core::Frame0x97</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a Frame-0x90 response. </p>
-<h2>Receive Packet - 0x90 </h2>
-<p>This frame type is emitted when a device configured with standard API output—AO (API Output Options) = 0—receives an RF data packet. Typically this frame is emitted as a result of a device on the network sending serial data using the Transmit Request - 0x10 or Explicit Addressing Command Request - 0x11 addressed either as a broadcast or unicast transmission.</p>
-<p>This class is used to parse and store the data from a Frame-0x90 response.</p>
-<p>The Frame0x90 class extracts and stores the sender's 64-bit address, 16-bit network address, receive options, and RF payload data from the provided frame data.</p>
-<dl class="section see"><dt>See also</dt><dd><a href="https://www.digi.com/resources/documentation/digidocs/PDFs/90002273.pdf#page=257">Details</a> </dd></dl>
+<div class="textblock"><p>Represents a response frame with ID 0x97 from an XBee device. </p>
+<h2>Remote AT Command Response- 0x97 </h2>
+<p>This frame type is emitted in response to a Remote AT Command Request - 0x17. Some commands send back multiple response frames; for example, the ND command. Refer to individual AT command descriptions for details on API response behavior. This frame is only emitted if the Frame ID in the request is non-zero.</p>
+<p>This file contains the definition of the Frame0x97 class, which is used to parse and store the data received in a response frame with ID 0x97 (Remote AT Command Response) from an XBee device. The class provides functionality to extract and manage various fields such as frame ID, source address, AT command response, status, and additional parameters.</p>
+<dl class="section note"><dt>Note</dt><dd>The 16-bit destination address field is typically set to <code>0xFFFE</code> and is unused in this context.</dd></dl>
+<dl class="section user"><dt>Example Usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../d0/da0/a00403.html">Frame::Data</a> frameData = ...;                                 <span class="comment">// Obtain frame data from the device</span></div>
+<div class="line"><a class="code hl_function" href="#afb497595414a513ac91a4f709085ab30">Frame0x97</a> responseFrame(frameData);                          <span class="comment">// Parse the frame data</span></div>
+<div class="line">uint8_t <a class="code hl_variable" href="#abba4dc7dc560616b5e7b084d6528f3d2">frameId</a> = responseFrame.frameId;                     <span class="comment">// Get the frame ID</span></div>
+<div class="line">uint64_t <a class="code hl_variable" href="#a3d15b2522c4aceadc05f343b4c0a5f1f">dstAddr64</a> = responseFrame.dstAddr64;                <span class="comment">// Get the 64-bit destination address</span></div>
+<div class="line">uint16_t <a class="code hl_variable" href="#a2c5b40ed3353372a7e9f9c1afc5c8b37">dstAddr16</a> = responseFrame.dstAddr16;                <span class="comment">// Get the 16-bit destination address</span></div>
+<div class="line">uint16_t <a class="code hl_variable" href="#a48934858660e9defdf413c4146c1cfd6">atCmd</a> = responseFrame.atCmd;                        <span class="comment">// Get the AT command response</span></div>
+<div class="line">uint8_t <a class="code hl_variable" href="#aafd4e786adc2abbe44e4c84cec0a1aed">status</a> = responseFrame.status;                       <span class="comment">// Get the status</span></div>
+<div class="line">std::vector&lt;uint8_t&gt; <a class="code hl_variable" href="#ac7cff957a9045999ef7bf3531cfa4780">parameters</a> = responseFrame.parameters;  <span class="comment">// Get the parameters</span></div>
+<div class="ttc" id="aa00403_html"><div class="ttname"><a href="../../d0/da0/a00403.html">Lib::Xbee::Core::Frame::Data</a></div><div class="ttdoc">Manages a vector of uint8_t elements.</div><div class="ttdef"><b>Definition</b> Data.hpp:23</div></div>
+<div class="ttc" id="aa00519_html_a2c5b40ed3353372a7e9f9c1afc5c8b37"><div class="ttname"><a href="#a2c5b40ed3353372a7e9f9c1afc5c8b37">Lib::Xbee::Core::Frame0x97::dstAddr16</a></div><div class="ttdeci">uint16_t dstAddr16</div><div class="ttdoc">16-bit destination address.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:117</div></div>
+<div class="ttc" id="aa00519_html_a3d15b2522c4aceadc05f343b4c0a5f1f"><div class="ttname"><a href="#a3d15b2522c4aceadc05f343b4c0a5f1f">Lib::Xbee::Core::Frame0x97::dstAddr64</a></div><div class="ttdeci">uint64_t dstAddr64</div><div class="ttdoc">64-bit destination address.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:108</div></div>
+<div class="ttc" id="aa00519_html_a48934858660e9defdf413c4146c1cfd6"><div class="ttname"><a href="#a48934858660e9defdf413c4146c1cfd6">Lib::Xbee::Core::Frame0x97::atCmd</a></div><div class="ttdeci">uint16_t atCmd</div><div class="ttdoc">Stores the AT command response.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:124</div></div>
+<div class="ttc" id="aa00519_html_aafd4e786adc2abbe44e4c84cec0a1aed"><div class="ttname"><a href="#aafd4e786adc2abbe44e4c84cec0a1aed">Lib::Xbee::Core::Frame0x97::status</a></div><div class="ttdeci">uint8_t status</div><div class="ttdoc">Status of the response frame.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:140</div></div>
+<div class="ttc" id="aa00519_html_abba4dc7dc560616b5e7b084d6528f3d2"><div class="ttname"><a href="#abba4dc7dc560616b5e7b084d6528f3d2">Lib::Xbee::Core::Frame0x97::frameId</a></div><div class="ttdeci">uint8_t frameId</div><div class="ttdoc">Frame ID.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:101</div></div>
+<div class="ttc" id="aa00519_html_ac7cff957a9045999ef7bf3531cfa4780"><div class="ttname"><a href="#ac7cff957a9045999ef7bf3531cfa4780">Lib::Xbee::Core::Frame0x97::parameters</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; parameters</div><div class="ttdoc">A vector to store parameters as a sequence of bytes.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:152</div></div>
+<div class="ttc" id="aa00519_html_afb497595414a513ac91a4f709085ab30"><div class="ttname"><a href="#afb497595414a513ac91a4f709085ab30">Lib::Xbee::Core::Frame0x97::Frame0x97</a></div><div class="ttdeci">Frame0x97(const Frame::Data &amp;frame)</div><div class="ttdoc">Frame0x97 constructor.</div><div class="ttdef"><b>Definition</b> Frame0x97.hpp:61</div></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd><a href="https://www.digi.com/resources/documentation/digidocs/PDFs/90002273.pdf#page=264">XBee Documentation</a> </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::Xbee::Core::Frame0x90:</div>
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::Xbee::Core::Frame0x97:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dc7/a00517.svg" width="184" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../d8/dc7/a00517.svg" width="186" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a13088f3468fddd601647b5a6472d6b60" id="r_a13088f3468fddd601647b5a6472d6b60"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13088f3468fddd601647b5a6472d6b60">Frame0x90</a> (const <a class="el" href="../../d1/d98/a00407.html">Frame::Data</a> &amp;frame)</td></tr>
-<tr class="memdesc:a13088f3468fddd601647b5a6472d6b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Frame0x90 object from the given frame data.  <br /></td></tr>
-<tr class="separator:a13088f3468fddd601647b5a6472d6b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb497595414a513ac91a4f709085ab30" id="r_afb497595414a513ac91a4f709085ab30"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb497595414a513ac91a4f709085ab30">Frame0x97</a> (const <a class="el" href="../../d0/da0/a00403.html">Frame::Data</a> &amp;frame)</td></tr>
+<tr class="memdesc:afb497595414a513ac91a4f709085ab30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame0x97 constructor.  <br /></td></tr>
+<tr class="separator:afb497595414a513ac91a4f709085ab30"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a841975875eda94c1faf0c6b3bc467533" id="r_a841975875eda94c1faf0c6b3bc467533"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a841975875eda94c1faf0c6b3bc467533">srcAddr64</a></td></tr>
-<tr class="memdesc:a841975875eda94c1faf0c6b3bc467533"><td class="mdescLeft">&#160;</td><td class="mdescRight">64-bit source address.  <br /></td></tr>
-<tr class="separator:a841975875eda94c1faf0c6b3bc467533"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d7339f6d4e781da5595d964ab491e63" id="r_a9d7339f6d4e781da5595d964ab491e63"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9d7339f6d4e781da5595d964ab491e63">srcAddr16</a></td></tr>
-<tr class="memdesc:a9d7339f6d4e781da5595d964ab491e63"><td class="mdescLeft">&#160;</td><td class="mdescRight">16-bit source address.  <br /></td></tr>
-<tr class="separator:a9d7339f6d4e781da5595d964ab491e63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1216b92bcea141454483ca5e28db839" id="r_af1216b92bcea141454483ca5e28db839"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1216b92bcea141454483ca5e28db839">options</a></td></tr>
-<tr class="memdesc:af1216b92bcea141454483ca5e28db839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options byte that contains various flags and settings.  <br /></td></tr>
-<tr class="separator:af1216b92bcea141454483ca5e28db839"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b2fe3e85a5bb32799aa845009603700" id="r_a1b2fe3e85a5bb32799aa845009603700"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b2fe3e85a5bb32799aa845009603700">rfData</a></td></tr>
-<tr class="memdesc:a1b2fe3e85a5bb32799aa845009603700"><td class="mdescLeft">&#160;</td><td class="mdescRight">RF data.  <br /></td></tr>
-<tr class="separator:a1b2fe3e85a5bb32799aa845009603700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba4dc7dc560616b5e7b084d6528f3d2" id="r_abba4dc7dc560616b5e7b084d6528f3d2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abba4dc7dc560616b5e7b084d6528f3d2">frameId</a></td></tr>
+<tr class="memdesc:abba4dc7dc560616b5e7b084d6528f3d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame ID.  <br /></td></tr>
+<tr class="separator:abba4dc7dc560616b5e7b084d6528f3d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d15b2522c4aceadc05f343b4c0a5f1f" id="r_a3d15b2522c4aceadc05f343b4c0a5f1f"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d15b2522c4aceadc05f343b4c0a5f1f">dstAddr64</a></td></tr>
+<tr class="memdesc:a3d15b2522c4aceadc05f343b4c0a5f1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">64-bit destination address.  <br /></td></tr>
+<tr class="separator:a3d15b2522c4aceadc05f343b4c0a5f1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c5b40ed3353372a7e9f9c1afc5c8b37" id="r_a2c5b40ed3353372a7e9f9c1afc5c8b37"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c5b40ed3353372a7e9f9c1afc5c8b37">dstAddr16</a></td></tr>
+<tr class="memdesc:a2c5b40ed3353372a7e9f9c1afc5c8b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">16-bit destination address.  <br /></td></tr>
+<tr class="separator:a2c5b40ed3353372a7e9f9c1afc5c8b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48934858660e9defdf413c4146c1cfd6" id="r_a48934858660e9defdf413c4146c1cfd6"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a48934858660e9defdf413c4146c1cfd6">atCmd</a></td></tr>
+<tr class="memdesc:a48934858660e9defdf413c4146c1cfd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the AT command response.  <br /></td></tr>
+<tr class="separator:a48934858660e9defdf413c4146c1cfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafd4e786adc2abbe44e4c84cec0a1aed" id="r_aafd4e786adc2abbe44e4c84cec0a1aed"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafd4e786adc2abbe44e4c84cec0a1aed">status</a></td></tr>
+<tr class="memdesc:aafd4e786adc2abbe44e4c84cec0a1aed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the response frame.  <br /></td></tr>
+<tr class="separator:aafd4e786adc2abbe44e4c84cec0a1aed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7cff957a9045999ef7bf3531cfa4780" id="r_ac7cff957a9045999ef7bf3531cfa4780"><td class="memItemLeft" align="right" valign="top">std::vector&lt; uint8_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7cff957a9045999ef7bf3531cfa4780">parameters</a></td></tr>
+<tr class="memdesc:ac7cff957a9045999ef7bf3531cfa4780"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector to store parameters as a sequence of bytes.  <br /></td></tr>
+<tr class="separator:ac7cff957a9045999ef7bf3531cfa4780"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a13088f3468fddd601647b5a6472d6b60" name="a13088f3468fddd601647b5a6472d6b60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13088f3468fddd601647b5a6472d6b60">&#9670;&#160;</a></span>Frame0x90()</h2>
+<a id="afb497595414a513ac91a4f709085ab30" name="afb497595414a513ac91a4f709085ab30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb497595414a513ac91a4f709085ab30">&#9670;&#160;</a></span>Frame0x97()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -152,9 +175,9 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Xbee::Core::Frame0x90::Frame0x90 </td>
+          <td class="memname">Lib::Xbee::Core::Frame0x97::Frame0x97 </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d1/d98/a00407.html">Frame::Data</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d0/da0/a00403.html">Frame::Data</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -165,11 +188,10 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a Frame0x90 object from the given frame data. </p>
-<p>This constructor initializes the Frame0x90 object by extracting and converting the sender's 64-bit address, 16-bit network address, receive options, and RF payload data from the provided frame data.</p>
+<p>Frame0x97 constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">frame</td><td>The frame data to be parsed and used for initialization. </td></tr>
+    <tr><td class="paramname">frame</td><td>The frame data received from the device. </td></tr>
   </table>
   </dd>
 </dl>
@@ -177,100 +199,130 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af1216b92bcea141454483ca5e28db839" name="af1216b92bcea141454483ca5e28db839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1216b92bcea141454483ca5e28db839">&#9670;&#160;</a></span>options</h2>
+<a id="a48934858660e9defdf413c4146c1cfd6" name="a48934858660e9defdf413c4146c1cfd6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48934858660e9defdf413c4146c1cfd6">&#9670;&#160;</a></span>atCmd</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t Lib::Xbee::Core::Frame0x90::options</td>
+          <td class="memname">uint16_t Lib::Xbee::Core::Frame0x97::atCmd</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Options byte that contains various flags and settings. </p>
-<p>This byte is used to store different options and configuration flags for the frame. Each bit in this byte can represent a different setting or flag, allowing for compact storage of multiple boolean options.</p>
-<p>Bit field of options that apply to the received message: Bit field of options that apply to the received message:</p><ul>
-<li>Bit 0: Packet was Acknowledged [0x01]</li>
-<li>Bit 1: Packet was sent as a broadcast [0x02]</li>
-<li>Bit 2: 802.15.4 only - Packet was broadcast across all PANs [0x04]</li>
-<li>Bit 3: Reserved</li>
-<li>Bit 4: Packet was sent across a secure session [0x10]</li>
-<li>Bit 5: Packet encrypted with Zigbee APS security [0x20]</li>
-<li>Bit 6: Zigbee only - packet was sent from an End Device [0x40]</li>
-<li>Bit 6, 7: DigiMesh delivery method<ul>
-<li>b’00 = <em>invalid option</em></li>
-<li>b’01 = Point-multipoint [0x40]</li>
-<li>b’10 = Directed Broadcast [0x80]</li>
-<li>b’11 = DigiMesh [0xC0] </li>
+<p>Stores the AT command response. </p>
+<p>This variable holds the 16-bit AT command response received from the XBee module. </p>
+
+</div>
+</div>
+<a id="a2c5b40ed3353372a7e9f9c1afc5c8b37" name="a2c5b40ed3353372a7e9f9c1afc5c8b37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c5b40ed3353372a7e9f9c1afc5c8b37">&#9670;&#160;</a></span>dstAddr16</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Lib::Xbee::Core::Frame0x97::dstAddr16</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>16-bit destination address. </p>
+<p>This variable holds the 16-bit address of the destination node in the network.</p>
+<dl class="section note"><dt>Note</dt><dd>Unused, but this field is typically set to <code>0xFFFE</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a3d15b2522c4aceadc05f343b4c0a5f1f" name="a3d15b2522c4aceadc05f343b4c0a5f1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d15b2522c4aceadc05f343b4c0a5f1f">&#9670;&#160;</a></span>dstAddr64</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t Lib::Xbee::Core::Frame0x97::dstAddr64</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>64-bit destination address. </p>
+<p>This variable holds the 64-bit address of the destination node in the network. </p>
+
+</div>
+</div>
+<a id="abba4dc7dc560616b5e7b084d6528f3d2" name="abba4dc7dc560616b5e7b084d6528f3d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba4dc7dc560616b5e7b084d6528f3d2">&#9670;&#160;</a></span>frameId</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Xbee::Core::Frame0x97::frameId</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Frame ID. </p>
+<p>This variable holds the frame ID of the response frame. The frame ID is used to identify the frame and correlate it with the host's request.</p>
+<p>Identifies the data frame for the host to correlate with a prior request. </p>
+
+</div>
+</div>
+<a id="ac7cff957a9045999ef7bf3531cfa4780" name="ac7cff957a9045999ef7bf3531cfa4780"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7cff957a9045999ef7bf3531cfa4780">&#9670;&#160;</a></span>parameters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;uint8_t&gt; Lib::Xbee::Core::Frame0x97::parameters</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A vector to store parameters as a sequence of bytes. </p>
+<p>This vector holds the parameters in the form of 8-bit unsigned integers (uint8_t). It is used to manage and manipulate a collection of byte-sized data. If the host requested a command parameter change, this field will be omitted. If the host queried a command by omitting the parameter value in the request, this field will return the value currently set on the device.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.digi.com/resources/documentation/digidocs/PDFs/90002273.pdf#page=264">Parameters</a> </dd></dl>
+
+</div>
+</div>
+<a id="aafd4e786adc2abbe44e4c84cec0a1aed" name="aafd4e786adc2abbe44e4c84cec0a1aed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafd4e786adc2abbe44e4c84cec0a1aed">&#9670;&#160;</a></span>status</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Xbee::Core::Frame0x97::status</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Status of the response frame. </p>
+<p>This variable holds the status information of the response frame. The status can indicate various states or results of the frame processing.</p>
+<dl class="section user"><dt>Status code for the host's request:</dt><dd><ul>
+<li>0x00 = OK</li>
+<li>0x01 = ERROR</li>
+<li>0x02 = Invalid command</li>
+<li>0x03 = Invalid parameter</li>
+<li>0x04 = Transmission failure</li>
+<li>0x0C = Encryption error </li>
 </ul>
-</li>
-</ul>
-
-</div>
-</div>
-<a id="a1b2fe3e85a5bb32799aa845009603700" name="a1b2fe3e85a5bb32799aa845009603700"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b2fe3e85a5bb32799aa845009603700">&#9670;&#160;</a></span>rfData</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;uint8_t&gt; Lib::Xbee::Core::Frame0x90::rfData</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>RF data. </p>
-<p>This variable holds the RF payload data that was received by the device. </p>
-
-</div>
-</div>
-<a id="a9d7339f6d4e781da5595d964ab491e63" name="a9d7339f6d4e781da5595d964ab491e63"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d7339f6d4e781da5595d964ab491e63">&#9670;&#160;</a></span>srcAddr16</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint16_t Lib::Xbee::Core::Frame0x90::srcAddr16</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>16-bit source address. </p>
-<p>This variable holds the 16-bit address of the source device in the network. </p>
-
-</div>
-</div>
-<a id="a841975875eda94c1faf0c6b3bc467533" name="a841975875eda94c1faf0c6b3bc467533"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a841975875eda94c1faf0c6b3bc467533">&#9670;&#160;</a></span>srcAddr64</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t Lib::Xbee::Core::Frame0x90::srcAddr64</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>64-bit source address. </p>
-<p>This variable holds the 64-bit address of the source device. </p>
+</dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/ddf/a00224.html">Frame0x90.hpp</a></li>
+<li><a class="el" href="../../d9/d01/a00227.html">Frame0x97.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d1/da8/a00230.html">Lib</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">Xbee</a></li><li class="navelem"><a class="el" href="../../da/d31/a00234.html">Core</a></li><li class="navelem"><a class="el" href="../../dd/d4d/a00519.html">Frame0x90</a></li>
-    <li class="footer">Generated on Wed Jan 22 2025 for XBEE by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><a class="el" href="../../d1/da8/a00230.html">Lib</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">Xbee</a></li><li class="navelem"><a class="el" href="../../da/d31/a00234.html">Core</a></li><li class="navelem"><a class="el" href="../../dd/d4d/a00519.html">Frame0x97</a></li>
+    <li class="footer">Generated on Mon Feb 3 2025 for XBEE by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

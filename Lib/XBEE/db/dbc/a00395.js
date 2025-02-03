@@ -1,11 +1,14 @@
 var a00395 =
 [
-    [ "ignoredMessagesByTimeout", "db/dbc/a00395.html#a841c8dfcf22cc73aee422a3091ba7886", null ],
-    [ "invalidMessages", "db/dbc/a00395.html#ae28d2b99286c26c38529db44902fbe65", null ],
-    [ "maxMsgLenghtErrors", "db/dbc/a00395.html#a787b0c3e42b80bc98604debc06f54ab1", null ],
-    [ "receivedATCommandMessages", "db/dbc/a00395.html#ab52898eca9ef84bc2d66da40d68c2f85", null ],
-    [ "receivedDataMessages", "db/dbc/a00395.html#abc068041ba12d84c3ad14dcb574b44a4", null ],
-    [ "sendedATCommandMessages", "db/dbc/a00395.html#ab594c9a1e58c7a12431aed3814501f17", null ],
-    [ "sendedDataMessages", "db/dbc/a00395.html#a9ce0e01130becdc7536fe9499136e875", null ],
-    [ "sendedDataMessagesTimeout", "db/dbc/a00395.html#a2a622e39215da74e19a1518140d535d3", null ]
+    [ "DigiApiFrameBuffer", "db/dbc/a00395.html#a681173c20f53af6d2cebb7975ed136f5", null ],
+    [ "~DigiApiFrameBuffer", "db/dbc/a00395.html#ab70db52885f6689eac4136a6fd022833", null ],
+    [ "append", "db/dbc/a00395.html#ae57b39d3d615eaeeec3d50783b62c1cc", null ],
+    [ "append", "db/dbc/a00395.html#a43a605cf411a1e30fe8222d9112035a3", null ],
+    [ "append", "db/dbc/a00395.html#a7d24c690f57ebc17cede527094ecbc30", null ],
+    [ "assign", "db/dbc/a00395.html#a1e97e76c0bee2df6d199c701031003b9", null ],
+    [ "assign", "db/dbc/a00395.html#a9479e2d1ccfd1ead7bb3e62c80151dd9", null ],
+    [ "clear", "db/dbc/a00395.html#ae085ab967608b3898964e2ed1b5be2a1", null ],
+    [ "getData", "db/dbc/a00395.html#a216af07f71c2c1f5a718f814885eefee", null ],
+    [ "getData", "db/dbc/a00395.html#a557302388361a2f389d2d5816037e19d", null ],
+    [ "getSize", "db/dbc/a00395.html#a9211d70f8b7f885df1472c90a91a2caf", null ]
 ];

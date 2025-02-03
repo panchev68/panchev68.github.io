@@ -1,4 +1,8 @@
 var a00447 =
 [
-    [ "Protocol", "de/d84/a00447.html#acebbec4e78ef3a0ab0c2b26717c670c0", null ]
+    [ "operator Frame::Data", "de/d84/a00447.html#ad89717f6738c10191c8074c4d758ef59", null ],
+    [ "dstAddress", "de/d84/a00447.html#a2e366937405eddf8986078da1f8f8e8c", null ],
+    [ "frameId", "de/d84/a00447.html#a189a5b0c88cd7a5cc5312d7a8405516d", null ],
+    [ "options", "de/d84/a00447.html#ab92cb253974bc603727df07a497fa0e7", null ],
+    [ "rfData", "de/d84/a00447.html#a73c0c7e2e9d0278cb2f1b1e4e392a41f", null ]
 ];

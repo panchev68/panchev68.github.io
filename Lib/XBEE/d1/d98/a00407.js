@@ -1,12 +1,6 @@
 var a00407 =
 [
-    [ "append", "d1/d98/a00407.html#a16dd9eb895a18fa50a28c7daec86e125", null ],
-    [ "append", "d1/d98/a00407.html#a450e7392dcf21a83dd67fd837af7a832", null ],
-    [ "append", "d1/d98/a00407.html#a9f1c9c36e0190d0b739c344841972c36", null ],
-    [ "append", "d1/d98/a00407.html#a4148ccf20c34dd555fd84ede8e481493", null ],
-    [ "append", "d1/d98/a00407.html#aa078a83dc90a9a0e34d092594ab74f1d", null ],
-    [ "append", "d1/d98/a00407.html#a0029449b5b4186e85f808f7202dd9064", null ],
-    [ "assign", "d1/d98/a00407.html#a007ae84aa46fcf164bcbe302512ab173", null ],
-    [ "type", "d1/d98/a00407.html#ac3cd8c4e2b10b764a5d0c0b89a3fd375", null ],
-    [ "vector", "d1/d98/a00407.html#a4001b9438daa27b62d6eb0d958ef58c0", null ]
+    [ "lenghtLSB", "d1/d98/a00407.html#a94e38bce05a46cafea258fde5e74d43f", null ],
+    [ "lenghtMSB", "d1/d98/a00407.html#a4705bbe22191cb3b23128c1a920d8078", null ],
+    [ "startDelimiter", "d1/d98/a00407.html#ad95afb1cf48ecb9e82a134b59ab762ed", null ]
 ];

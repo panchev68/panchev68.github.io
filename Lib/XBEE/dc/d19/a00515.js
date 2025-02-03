@@ -1,9 +1,8 @@
 var a00515 =
 [
-    [ "Frame0x8b", "dc/d19/a00515.html#a2978fd7e6f8cff5bfea2c18e375264fc", null ],
-    [ "deliveryStatus", "dc/d19/a00515.html#a6099cb2b730ba3f05f95cac5b2ceb8ef", null ],
-    [ "discoveryStatus", "dc/d19/a00515.html#a11137f9981011a2f118fb42858d308c6", null ],
-    [ "frameId", "dc/d19/a00515.html#a9331bbf285fd3399fb0fb638a7cd6a91", null ],
-    [ "srcAddr16", "dc/d19/a00515.html#aaefd4d1b4526e1b5b3c6606fcaf0fa24", null ],
-    [ "transmitRetryCount", "dc/d19/a00515.html#aefba1cbb0227c87f2e8b83c4690c1442", null ]
+    [ "Frame0x90", "dc/d19/a00515.html#a13088f3468fddd601647b5a6472d6b60", null ],
+    [ "options", "dc/d19/a00515.html#af1216b92bcea141454483ca5e28db839", null ],
+    [ "rfData", "dc/d19/a00515.html#a1b2fe3e85a5bb32799aa845009603700", null ],
+    [ "srcAddr16", "dc/d19/a00515.html#a9d7339f6d4e781da5595d964ab491e63", null ],
+    [ "srcAddr64", "dc/d19/a00515.html#a841975875eda94c1faf0c6b3bc467533", null ]
 ];

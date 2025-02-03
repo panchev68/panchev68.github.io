@@ -1,5 +1,5 @@
 var a00299 =
 [
-    [ "temperature", "df/d95/a00299.html#a9c8cfaf355d3006c109a9b07e87623b8", null ],
-    [ "voltage", "df/d95/a00299.html#a9cbf20387f28e764e2ffb18c5ec4fd48", null ]
+    [ "ascFailures", "df/d95/a00299.html#a1e476602ecd6cff72d6356c44d1089d1", null ],
+    [ "ccaFailures", "df/d95/a00299.html#aae7be70362a9f7f2b80c80bfa3b16c47", null ]
 ];

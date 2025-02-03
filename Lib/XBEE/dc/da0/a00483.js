@@ -1,7 +1,11 @@
 var a00483 =
 [
-    [ "QueueMessage", "dc/da0/a00483.html#a574990f8107d9a18f82896b9ba5647a4", null ],
-    [ "operator std::vector< uint8_t >", "dc/da0/a00483.html#a03e465a34d7e70b7d5b69fc14e8acd5d", null ],
-    [ "data", "dc/da0/a00483.html#ac3a7d2735ca7e4e2d268c9159fe77d04", null ],
-    [ "size", "dc/da0/a00483.html#acc175efdd6199a0ad2b06c64ee0d957e", null ]
+    [ "Command", "dc/da0/a00483.html#aef634740746620477b93924a6f9821d7", null ],
+    [ "RemoteAtCommand", "dc/da0/a00483.html#ab40150fd9cd0b1a80580efde4448fc09", null ],
+    [ "~RemoteAtCommand", "dc/da0/a00483.html#a00d526164d879ebb5a1662b267f5330a", null ],
+    [ "close", "dc/da0/a00483.html#a4118c157ab83c07a2d55a18ecc6b634a", null ],
+    [ "open", "dc/da0/a00483.html#a5ab5d7fe26af53e7b41b725de27ffae6", null ],
+    [ "receive", "dc/da0/a00483.html#a6630190eb640758c1126229ebab806e2", null ],
+    [ "send", "dc/da0/a00483.html#ab3043ebf47980bb23f1705070478372a", null ],
+    [ "send", "dc/da0/a00483.html#ae63a91f73d3a6b1ee501ac812c5d51bd", null ]
 ];

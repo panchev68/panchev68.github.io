@@ -1,5 +1,7 @@
 var a00303 =
 [
-    [ "ascFailures", "dc/d0f/a00303.html#a1e476602ecd6cff72d6356c44d1089d1", null ],
-    [ "ccaFailures", "dc/d0f/a00303.html#aae7be70362a9f7f2b80c80bfa3b16c47", null ]
+    [ "Pause", "dc/d0f/a00303.html#a81c28dad80826c7f44f4a684b4546bb5", null ],
+    [ "~Pause", "dc/d0f/a00303.html#a9bf5748eee1fcbfc29ddbfacdd6a7c7f", null ],
+    [ "pause", "dc/d0f/a00303.html#a8ba9ee90021fb74994821b180621512b", null ],
+    [ "resume", "dc/d0f/a00303.html#a0170f09bc29ee41ca0f12849c3be7900", null ]
 ];

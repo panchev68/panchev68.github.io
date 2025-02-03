@@ -1,12 +1,13 @@
 var a00363 =
 [
-    [ "ServiceBase", "d9/d9b/a00363.html#a4f8590c3b7a368d2eb22befa1e8916f1", null ],
-    [ "~ServiceBase", "d9/d9b/a00363.html#aa1b6296f0710c448eef4036ddd2616a1", null ],
-    [ "close", "d9/d9b/a00363.html#aed0cea99139ebf63abda20141e9f6809", null ],
-    [ "closeCallback", "d9/d9b/a00363.html#ac5fe1bc30381e14d347264774a30f6f4", null ],
-    [ "initCallback", "d9/d9b/a00363.html#a2397b1ed64b4baabc0d6cae6a252e0eb", null ],
-    [ "isOpen", "d9/d9b/a00363.html#a3eb56fd6698f86e4a4d9df1ac199a03e", null ],
-    [ "open", "d9/d9b/a00363.html#a65aca1cfb5fb04ac4069fb90af77f406", null ],
-    [ "updateCallback", "d9/d9b/a00363.html#a3b92af6f70ea4dec82d809f6a9a1c1fb", null ],
-    [ "Manager", "d9/d9b/a00363.html#adddd5c43ff870a047aa66db4edf82a7e", null ]
+    [ "SpectrumAnalyzer", "d9/d9b/a00363.html#a27ebee47a28eb30258ceb1d174a55be9", null ],
+    [ "close", "d9/d9b/a00363.html#a0e9f9da436a79e52c0840328005471b9", null ],
+    [ "closeCallback", "d9/d9b/a00363.html#adf916ef698872fe5b5d86bc2f6052219", null ],
+    [ "getAverageArray", "d9/d9b/a00363.html#a0e8c60025820d1bf051afa2121546e5f", null ],
+    [ "getCurrentArray", "d9/d9b/a00363.html#a3a97a47ccfade3760eb1f4fc74cc2046", null ],
+    [ "getMaxArray", "d9/d9b/a00363.html#a2460fc8ac1399af5b9f24c3f9ee8be01", null ],
+    [ "initCallback", "d9/d9b/a00363.html#a4d74be0554326868d60e4cb4fbcdbc06", null ],
+    [ "isNewData", "d9/d9b/a00363.html#af406181599ad281e1dd5c998ef8033f2", null ],
+    [ "open", "d9/d9b/a00363.html#a2859385ba27aca503bcfd2bd7dffde8b", null ],
+    [ "updateCallback", "d9/d9b/a00363.html#af8fa940e41f00977fdd63a2ccdeac62c", null ]
 ];

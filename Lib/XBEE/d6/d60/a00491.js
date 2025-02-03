@@ -1,11 +1,8 @@
 var a00491 =
 [
-    [ "onExtendedTransmitStatusChanged", "d6/d60/a00491.html#a61b9f5e1981d1743e38a1bb7d0fea423", null ],
-    [ "onLocalAtCommand", "d6/d60/a00491.html#a38aaf5bb966fb25495b407d4a09273aa", null ],
-    [ "onModemStatusChanged", "d6/d60/a00491.html#a3cfdc2b68ed6815cf21940e47c495160", null ],
-    [ "onPacketReceived", "d6/d60/a00491.html#a082f029d0f46573f59e34256c76e9472", null ],
-    [ "onReceivePacket16bit", "d6/d60/a00491.html#a3e90aa120034f9a69b88c484ed8556c2", null ],
-    [ "onReceivePacket64bit", "d6/d60/a00491.html#a064346178555af6f496e843b975e7cf2", null ],
-    [ "onRemoteATCommand", "d6/d60/a00491.html#ae64d416b3b3cce7482d431a3dfb12f36", null ],
-    [ "onTransmitStatus", "d6/d60/a00491.html#aae178e7c1df35d9d1cd8f85e04551ac7", null ]
+    [ "Frame0x80", "d6/d60/a00491.html#a8973805603c1359d41b9fb3b677481ac", null ],
+    [ "option", "d6/d60/a00491.html#a561ef3cd5cd3c0e4dcfdf0265fa4b0c8", null ],
+    [ "rfData", "d6/d60/a00491.html#adaee75b805ccd60d5106e096d7bfa25f", null ],
+    [ "rssi", "d6/d60/a00491.html#afafaa48fa1c8e99b35972f8a5cf568ba", null ],
+    [ "srcAddr64", "d6/d60/a00491.html#a381dd001587d2cad3e2bf61e201ba909", null ]
 ];

@@ -1,13 +1,17 @@
 var a00367 =
 [
-    [ "SpectrumAnalyzer", "df/dc2/a00367.html#a27ebee47a28eb30258ceb1d174a55be9", null ],
-    [ "close", "df/dc2/a00367.html#a0e9f9da436a79e52c0840328005471b9", null ],
-    [ "closeCallback", "df/dc2/a00367.html#adf916ef698872fe5b5d86bc2f6052219", null ],
-    [ "getAverageArray", "df/dc2/a00367.html#a0e8c60025820d1bf051afa2121546e5f", null ],
-    [ "getCurrentArray", "df/dc2/a00367.html#a3a97a47ccfade3760eb1f4fc74cc2046", null ],
-    [ "getMaxArray", "df/dc2/a00367.html#a2460fc8ac1399af5b9f24c3f9ee8be01", null ],
-    [ "initCallback", "df/dc2/a00367.html#a4d74be0554326868d60e4cb4fbcdbc06", null ],
-    [ "isNewData", "df/dc2/a00367.html#af406181599ad281e1dd5c998ef8033f2", null ],
-    [ "open", "df/dc2/a00367.html#a2859385ba27aca503bcfd2bd7dffde8b", null ],
-    [ "updateCallback", "df/dc2/a00367.html#af8fa940e41f00977fdd63a2ccdeac62c", null ]
+    [ "Command", "df/dc2/a00367.html#a5dd569da3b5fc2d5b26765e0482215f7", [
+      [ "INPUTS", "df/dc2/a00367.html#a5dd569da3b5fc2d5b26765e0482215f7a6e5f0c2d3a6ac74a157069f9eea5273c", null ],
+      [ "GET_PARAMETERS", "df/dc2/a00367.html#a5dd569da3b5fc2d5b26765e0482215f7a4dc1f3b15aafec3172eab0c63581417f", null ],
+      [ "OUTPUTS", "df/dc2/a00367.html#a5dd569da3b5fc2d5b26765e0482215f7a4bfce0bb26cb61859c51e9e03708fb33", null ],
+      [ "SET_PARAMETERS", "df/dc2/a00367.html#a5dd569da3b5fc2d5b26765e0482215f7a7a195a8a42bc1f4979d7f289065d4c2c", null ]
+    ] ],
+    [ "UserProtocol", "df/dc2/a00367.html#a99732c52b4b4c0346956131eed156cf0", null ],
+    [ "~UserProtocol", "df/dc2/a00367.html#a04cd110654235ccbb299b9d6754791a1", null ],
+    [ "build", "df/dc2/a00367.html#af3f1deabf04a2ea0ae22a980119c5ab3", null ],
+    [ "handleGetParameters", "df/dc2/a00367.html#a9952e93339070069b62b47531ebd41ef", null ],
+    [ "handleInputsUpdate", "df/dc2/a00367.html#a617a3ea0f118d5f0ab9d57d7f40ceb0e", null ],
+    [ "handleOutputsUpdate", "df/dc2/a00367.html#a970c910077d6eea21aa1a2fce8c766cf", null ],
+    [ "handleSetParameters", "df/dc2/a00367.html#abe36c42e20c371cc62789119ccc6ebe0", null ],
+    [ "parse", "df/dc2/a00367.html#a4d74fda8ddb3eefb99a7fad76641dd04", null ]
 ];

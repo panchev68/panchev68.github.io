@@ -1,10 +1,10 @@
 var a00467 =
 [
-    [ "DstAddr", "d4/d4b/a00471.html", "d4/d4b/a00471" ],
-    [ "operator Frame::Data", "d7/d5e/a00467.html#a11da4ad8132751b53eb68f726c7bb784", null ],
-    [ "atCmd", "d7/d5e/a00467.html#ae12f9dabb5431f020d49f32bfaae4220", null ],
-    [ "dstAddr", "d7/d5e/a00467.html#ad81f3ae85bbbc393413f56425f147a58", null ],
-    [ "frameId", "d7/d5e/a00467.html#a3bd15223ed5432408e87cc7aa6ed6252", null ],
-    [ "parameters", "d7/d5e/a00467.html#a8537d949d759c2b92b1b5c73abfb3768", null ],
-    [ "remoteCommandOption", "d7/d5e/a00467.html#a947700bc31103242238139cdb1a2474b", null ]
+    [ "DstAddr", "d7/d5e/a00467.html#adedaec4cddc0c68fe390b0422f75a92a", null ],
+    [ "operator uint64_t", "d7/d5e/a00467.html#a7320422a72c55648177a9cb05301cece", null ],
+    [ "operator=", "d7/d5e/a00467.html#a6db09f5afdce61d2edf34cd0842ef0b2", null ],
+    [ "lsb", "d7/d5e/a00467.html#a65ad01c3544fafe558f08ada542a0473", null ],
+    [ "msb", "d7/d5e/a00467.html#a9ec2f537fe0eac13c31434a159d97145", null ],
+    [ "u32", "d7/d5e/a00467.html#abb0bd2e45ff15da2b0047af97398d3dd", null ],
+    [ "u64", "d7/d5e/a00467.html#a007e44fe3d4445d12bd5813a574225ec", null ]
 ];

@@ -1,6 +1,10 @@
 var a00387 =
 [
-    [ "rx", "db/db9/a00387.html#abdeb61ecad010f1cab8f2c73c53d5b3f", null ],
-    [ "tx", "db/db9/a00387.html#a323a5e9d04c0ffbc237e2fb614eca4c2", null ],
-    [ "xrst", "db/db9/a00387.html#ac303a14dbe038b9efd6862b6f84b2548", null ]
+    [ "ComPortBase", "db/db9/a00387.html#ab65f84608e15819eb62fab021f8dc7cf", null ],
+    [ "~ComPortBase", "db/db9/a00387.html#a10a6416ff227e2d9e0da875c7b4a2f54", null ],
+    [ "close", "db/db9/a00387.html#af1836c06e65218771b4876a891fb7754", null ],
+    [ "open", "db/db9/a00387.html#aaf3c39f248dbc833f14cd92572baa089", null ],
+    [ "receive", "db/db9/a00387.html#aaf2ebc55802ab1e9a112b3aa1bde7926", null ],
+    [ "send", "db/db9/a00387.html#a2723c49dd4caf2500adf232ba0297e0b", null ],
+    [ "setBaudRate", "db/db9/a00387.html#a0933d0bc9316321e0da790ca2b57a646", null ]
 ];

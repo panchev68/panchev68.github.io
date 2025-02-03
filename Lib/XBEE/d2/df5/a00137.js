@@ -1,5 +1,5 @@
 var a00137 =
 [
-    [ "Lib::Xbee::Core::ComDriver", "da/dee/a00383.html", "da/dee/a00383" ],
-    [ "Lib::Xbee::Core::ComDriver::Config", "db/db9/a00387.html", "db/db9/a00387" ]
+    [ "Lib::Xbee::Core::ComDriver", "d8/d95/a00379.html", "d8/d95/a00379" ],
+    [ "Lib::Xbee::Core::ComDriver::Config", "da/dee/a00383.html", "da/dee/a00383" ]
 ];
