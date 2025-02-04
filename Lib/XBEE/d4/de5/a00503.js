@@ -33,6 +33,6 @@ var a00503 =
       [ "SocketNotBound", "d4/de5/a00503.html#a326643dde690ad31e9359e2dcb11dd98a6926e9a06d4a58ffc65a1534956e5efd", null ]
     ] ],
     [ "Frame0x89", "d4/de5/a00503.html#a21b71f4d37fb1fe4e2e90f42033efb68", null ],
-    [ "deliveryStatus", "d4/de5/a00503.html#a11b431b642e06e520be84f2038ee0a57", null ],
-    [ "frameId", "d4/de5/a00503.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ]
+    [ "frameId", "d4/de5/a00503.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ],
+    [ "deliveryStatus", "d4/de5/a00503.html#a11b431b642e06e520be84f2038ee0a57", null ]
 ];

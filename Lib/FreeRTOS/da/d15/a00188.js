@@ -1,20 +1,13 @@
 var a00188 =
 [
-    [ "Handle", "da/d15/a00188.html#a9ce35559d183f678dc3af4bebd0ed7d4", null ],
-    [ "StreamBuffer", "da/d15/a00188.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
-    [ "~StreamBuffer", "da/d15/a00188.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
-    [ "create", "da/d15/a00188.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],
-    [ "getBytesAvailable", "da/d15/a00188.html#af6ba5acfc1558a7838dec80b8ee34ef0", null ],
-    [ "getSpacesAvailable", "da/d15/a00188.html#aa274f35053d848a7a045a75a39d13742", null ],
-    [ "isCreated", "da/d15/a00188.html#a4e790af37fe33a98b7aa6b3cb1a542b6", null ],
-    [ "isEmpty", "da/d15/a00188.html#a4d938a1272b841d6f97916a0bb2cfd4a", null ],
-    [ "isFull", "da/d15/a00188.html#ad1854f3342eb9bf8c09a2f0ddc26be69", null ],
-    [ "operator Handle &", "da/d15/a00188.html#a2a5de86bc7d1fbed191a5f852a4e2b46", null ],
-    [ "receive", "da/d15/a00188.html#aeee0b648073b6bd01373c750c324653b", null ],
-    [ "receiveFromISR", "da/d15/a00188.html#a2318a48f2341571ed46c4ecb2671537b", null ],
-    [ "release", "da/d15/a00188.html#abe04a543930a1417c5d0371cbdfebff8", null ],
-    [ "reset", "da/d15/a00188.html#a86e319a0315fc87966c9c43f1e74b246", null ],
-    [ "send", "da/d15/a00188.html#a1964ea313a49c3231e60ea15469ef5ab", null ],
-    [ "sendFromISR", "da/d15/a00188.html#ac79ca9feb2e05f02b324219a571e79a5", null ],
-    [ "setTriggerLevel", "da/d15/a00188.html#a3d2741e023f31a9d2c9294ce0b6842c8", null ]
+    [ "SemaphoreCounting", "da/d15/a00188.html#a57f5373ab498f7d43909cf1c15197cfd", null ],
+    [ "~SemaphoreCounting", "da/d15/a00188.html#a8a23fc3a063478d6f682bffba2ef78e3", null ],
+    [ "create", "da/d15/a00188.html#ad41efc69f8508537f2ed3232d913c2f0", null ],
+    [ "getCount", "da/d15/a00188.html#aad5edccfa2773aaa3aecf77bcea1a8c9", null ],
+    [ "give", "da/d15/a00188.html#a6bfe5fea68fa0b84e0914a8a445152e7", null ],
+    [ "giveFromISR", "da/d15/a00188.html#a3f8e436a15eac45c2242938b31d730f7", null ],
+    [ "isCreated", "da/d15/a00188.html#a19fd76a71af534b9735eb44f6b6b63e3", null ],
+    [ "release", "da/d15/a00188.html#a832b62ec703a78807cad724e9fc959a1", null ],
+    [ "take", "da/d15/a00188.html#a3b42128f16832e00da0b3013af344d46", null ],
+    [ "takeFromISR", "da/d15/a00188.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf", null ]
 ];

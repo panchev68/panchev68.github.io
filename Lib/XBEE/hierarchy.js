@@ -49,7 +49,6 @@ var hierarchy =
     ] ],
     [ "Lib::Xbee::API::Connection::Info::Period", "d1/dd4/a00267.html", null ],
     [ "Lib::Xbee::Core::Protocol", "d0/dc4/a00443.html", null ],
-    [ "Protocol", "d9/d44/a00527.html", null ],
     [ "Lib::Xbee::API::Connection::Quality", "d4/d04/a00255.html", null ],
     [ "Lib::Xbee::Core::QueryBase", "d1/d92/a00475.html", [
       [ "Lib::Xbee::Core::Frame0x00", "de/d84/a00447.html", null ],
@@ -69,7 +68,6 @@ var hierarchy =
       [ "Lib::Xbee::API::Service::SpectrumAnalyzer", "d9/d9b/a00363.html", null ]
     ] ],
     [ "Lib::Xbee::API::Connection::Info::SignalStrength", "dd/d86/a00271.html", null ],
-    [ "SpectrumAnalyzer", "d0/de7/a00523.html", null ],
     [ "Lib::Xbee::API::Connection::State", "d3/d1a/a00251.html", null ],
     [ "Lib::Xbee::Core::Frame::Type", "d1/d05/a00423.html", null ],
     [ "Lib::Xbee::API::UserProtocol", "df/dc2/a00367.html", null ],

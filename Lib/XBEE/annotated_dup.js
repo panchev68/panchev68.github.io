@@ -57,7 +57,5 @@ var annotated_dup =
           [ "ResponseEvents", "dd/d9c/a00487.html", "dd/d9c/a00487" ]
         ] ]
       ] ]
-    ] ],
-    [ "Protocol", "d9/d44/a00527.html", null ],
-    [ "SpectrumAnalyzer", "d0/de7/a00523.html", null ]
+    ] ]
 ];

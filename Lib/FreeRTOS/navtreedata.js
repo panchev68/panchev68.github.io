@@ -28,7 +28,11 @@ var NAVTREE =
     [ "FreeRTOS C++ Wrapper", "index.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Functions", "namespacemembers_func.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -52,8 +56,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"da/deb/a00189.html",
-"functions_func_i.html"
+"d7/d2f/a00258.html",
+"functions_func_c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

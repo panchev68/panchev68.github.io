@@ -1,6 +1,5 @@
 var a00125 =
 [
-    [ "Binary Semaphore", "d7/d12/a00126.html", null ],
-    [ "Counting Semaphore", "df/dcd/a00127.html", null ],
-    [ "Mutex", "d1/d88/a00128.html", null ]
+    [ "Lib::FreeRTOS::Timer", "d5/d0b/a00220.html", "d5/d0b/a00220" ],
+    [ "Lib::FreeRTOS::Timer::Config", "d5/ddf/a00224.html", "d5/ddf/a00224" ]
 ];

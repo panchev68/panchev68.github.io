@@ -9,7 +9,7 @@ var searchData=
   ['getmaxarray_6',['getMaxArray',['../d9/d9b/a00363.html#a2460fc8ac1399af5b9f24c3f9ee8be01',1,'Lib::Xbee::API::Service::SpectrumAnalyzer']]],
   ['getmaximum_7',['getMaximum',['../d1/dd4/a00267.html#a271b3e4f82eba0fd1f08711f43a098b6',1,'Lib::Xbee::API::Connection::Info::Period']]],
   ['getminimum_8',['getMinimum',['../d1/dd4/a00267.html#ae641a0fdbb64828fcabc4fd011335eaa',1,'Lib::Xbee::API::Connection::Info::Period']]],
-  ['getmodulepresent_9',['getModulePresent',['../d0/d27/a00239.html#aa9d023e2638e9a66f2600a0158810d19',1,'Lib::Xbee::API::ApplicationBase::getModulePresent()'],['../d6/d82/a00243.html#a9e3df5c4700fc8de0159f9b6e1e80e2c',1,'Lib::Xbee::API::ClientBase::getModulePresent()'],['../d0/da2/a00307.html#a366e1953c6644386ec9e4b294a73b76a',1,'Lib::Xbee::API::ServerBase::getModulePresent()']]],
+  ['getmodulepresent_9',['getModulePresent',['../d0/d27/a00239.html#aa9d023e2638e9a66f2600a0158810d19',1,'Lib::Xbee::API::ApplicationBase::getModulePresent()'],['../d6/d82/a00243.html#ad134fb7a46e43a489b546a083a689936',1,'Lib::Xbee::API::ClientBase::getModulePresent()'],['../d0/da2/a00307.html#a366e1953c6644386ec9e4b294a73b76a',1,'Lib::Xbee::API::ServerBase::getModulePresent()']]],
   ['getpanid_10',['getPanId',['../d0/d01/a00339.html#a9063c3463c741fe4cee3f0846154efb8',1,'Lib::Xbee::API::Service::Parameters']]],
   ['getpercent_11',['getPercent',['../d4/d04/a00255.html#afc367efdbe030e874c34edfce9d25bbc',1,'Lib::Xbee::API::Connection::Quality']]],
   ['getrawvalue_12',['getRawValue',['../d1/dd4/a00267.html#a5ad9e804dce05302ce3e8aef2f1b71b1',1,'Lib::Xbee::API::Connection::Info::Period']]],

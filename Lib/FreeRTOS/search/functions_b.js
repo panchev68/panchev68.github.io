@@ -1,12 +1,11 @@
 var searchData=
 [
-  ['operator_20handle_0',['operator Handle',['../d6/d7d/a00161.html#ad69b8323300cef1a13aa955ba4537f10',1,'Lib::FreeRTOS::MessageBuffer::operator Handle()'],['../de/d53/a00169.html#a88bed073e231ecb9da5411ed061d594d',1,'Lib::FreeRTOS::Queue::operator Handle() const']]],
-  ['operator_20handle_20_26_1',['operator Handle &amp;',['../de/d53/a00169.html#a29301d1bff80bd5e0ce0ffe15aa68333',1,'Lib::FreeRTOS::Queue::operator Handle &amp;()'],['../dd/d4c/a00177.html#a395ab7d345178800c281e43bac6a645f',1,'Lib::FreeRTOS::Semaphore::operator Handle &amp;()'],['../d8/d64/a00181.html#a3180f95a05d722aee73dda27ae4020b5',1,'Lib::FreeRTOS::SemaphoreBase::operator Handle &amp;()'],['../da/deb/a00189.html#a2a5de86bc7d1fbed191a5f852a4e2b46',1,'Lib::FreeRTOS::StreamBuffer::operator Handle &amp;()']]],
-  ['operator_20uint32_5ft_2',['operator uint32_t',['../d5/d13/a00205.html#a34e7ea42078c63e23337f85d9a458ad6',1,'Lib::FreeRTOS::TickCounter::operator uint32_t()'],['../d3/de5/a00209.html#a9822fb66e6f856de108727f9916fcd00',1,'Lib::FreeRTOS::Timeout::operator uint32_t() const']]],
-  ['operator_2b_3d_3',['operator+=',['../d3/de5/a00209.html#a2ed5bd685dddcae99312a5893457162a',1,'Lib::FreeRTOS::Timeout']]],
-  ['operator_2d_3d_4',['operator-=',['../d3/de5/a00209.html#a18796545c784b2e175cb6c893734d708',1,'Lib::FreeRTOS::Timeout']]],
-  ['operator_3d_5',['operator=',['../d3/de5/a00209.html#a27a548cf01dc334119cb8cd0d0317ba6',1,'Lib::FreeRTOS::Timeout']]],
-  ['operator_3d_3d_6',['operator==',['../d3/de5/a00209.html#ab484ff778a0d1e45ef84fbb96d970a52',1,'Lib::FreeRTOS::Timeout']]],
-  ['overwrite_7',['overwrite',['../de/d53/a00169.html#a3a861ad8c38ab3ea2086d1209daad180',1,'Lib::FreeRTOS::Queue::overwrite()'],['../dd/d4c/a00177.html#a4dbc436dcf20112be10ca8684818be9e',1,'Lib::FreeRTOS::Semaphore::overwrite()'],['../d8/d64/a00181.html#adcee056645a87bc1f08c23e6ff0923a3',1,'Lib::FreeRTOS::SemaphoreBase::overwrite()']]],
-  ['overwritefromisr_8',['overwriteFromISR',['../de/d53/a00169.html#a14bcb8fb7e17f30a58df8debaa846ab1',1,'Lib::FreeRTOS::Queue::overwriteFromISR()'],['../dd/d4c/a00177.html#a5bd1892f09dcb386b073fa4f925e9309',1,'Lib::FreeRTOS::Semaphore::overwriteFromISR()'],['../d8/d64/a00181.html#a5765bdc831d4c447f76cd2362ab52e24',1,'Lib::FreeRTOS::SemaphoreBase::overwriteFromISR()']]]
+  ['notify_0',['notify',['../d7/ded/a00196.html#ad7b57636b4af3f226afafeb1fb44ef7d',1,'Lib::FreeRTOS::Task']]],
+  ['notifyandquery_1',['notifyAndQuery',['../d7/ded/a00196.html#a6fae5e9901f87803aa540d8624863c4f',1,'Lib::FreeRTOS::Task']]],
+  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../d7/ded/a00196.html#a21f32eee3c9bc6571c41644688eddab1',1,'Lib::FreeRTOS::Task']]],
+  ['notifyfromisr_3',['notifyFromISR',['../d7/ded/a00196.html#a1fd4751512e6cded198d4846f4799aeb',1,'Lib::FreeRTOS::Task']]],
+  ['notifygive_4',['notifyGive',['../d7/ded/a00196.html#a7ca5f301cfcdafa5f106994f9ec5e43a',1,'Lib::FreeRTOS::Task']]],
+  ['notifygivefromisr_5',['notifyGiveFromISR',['../d7/ded/a00196.html#a89ee126f85580f8c8a7b8b4188d2e500',1,'Lib::FreeRTOS::Task']]],
+  ['notifytake_6',['notifyTake',['../d1/d72/a00204.html#a2f214ff544c0ad58ccbfd40128515e26',1,'Lib::FreeRTOS::TaskHelper']]],
+  ['notifywait_7',['notifyWait',['../d1/d72/a00204.html#adfa63a4bd63b3aab01a3ad9c212b7746',1,'Lib::FreeRTOS::TaskHelper']]]
 ];

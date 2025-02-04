@@ -1,6 +1,6 @@
 var a00383 =
 [
-    [ "rx", "da/dee/a00383.html#abdeb61ecad010f1cab8f2c73c53d5b3f", null ],
-    [ "tx", "da/dee/a00383.html#a323a5e9d04c0ffbc237e2fb614eca4c2", null ],
-    [ "xrst", "da/dee/a00383.html#ac303a14dbe038b9efd6862b6f84b2548", null ]
+    [ "rxPort", "da/dee/a00383.html#a9441dba8b69e0446e285ee50eca38d48", null ],
+    [ "txPort", "da/dee/a00383.html#a19df065c9aadc46726249c5cf9bba795", null ],
+    [ "resetPin", "da/dee/a00383.html#a920b018436bb7830ae26a570af3a5810", null ]
 ];

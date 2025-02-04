@@ -33,7 +33,7 @@ var searchData=
   ['socketconnectionlost_30',['SocketConnectionLost',['../d4/de5/a00503.html#a326643dde690ad31e9359e2dcb11dd98ad881c6d330e2110228dd00ffd3cb11cc',1,'Lib::Xbee::Core::Frame0x89']]],
   ['socketnotbound_31',['SocketNotBound',['../d4/de5/a00503.html#a326643dde690ad31e9359e2dcb11dd98a6926e9a06d4a58ffc65a1534956e5efd',1,'Lib::Xbee::Core::Frame0x89']]],
   ['socketnotconnected_32',['SocketNotConnected',['../d4/de5/a00503.html#a326643dde690ad31e9359e2dcb11dd98a0f6a7554426fd6660ea207cb0af2bf84',1,'Lib::Xbee::Core::Frame0x89']]],
-  ['spectrumanalyzer_33',['SpectrumAnalyzer',['../d9/d9b/a00363.html',1,'Lib::Xbee::API::Service::SpectrumAnalyzer'],['../d0/de7/a00523.html',1,'SpectrumAnalyzer'],['../d9/d9b/a00363.html#a27ebee47a28eb30258ceb1d174a55be9',1,'Lib::Xbee::API::Service::SpectrumAnalyzer::SpectrumAnalyzer()']]],
+  ['spectrumanalyzer_33',['SpectrumAnalyzer',['../d9/d9b/a00363.html',1,'Lib::Xbee::API::Service::SpectrumAnalyzer'],['../d9/d9b/a00363.html#a27ebee47a28eb30258ceb1d174a55be9',1,'Lib::Xbee::API::Service::SpectrumAnalyzer::SpectrumAnalyzer()']]],
   ['spectrumanalyzer_34',['spectrumAnalyzer',['../d0/d27/a00239.html#afcfa925e473edf0d64228fa513402a53',1,'Lib::Xbee::API::ApplicationBase']]],
   ['spectrumanalyzer_2ehpp_35',['SpectrumAnalyzer.hpp',['../df/dc8/a00122.html',1,'']]],
   ['srcaddr16_36',['srcAddr16',['../db/dc4/a00495.html#a3a190136bc3e922f3977dd61b83ca3bd',1,'Lib::Xbee::Core::Frame0x81::srcAddr16'],['../d6/d10/a00511.html#aaefd4d1b4526e1b5b3c6606fcaf0fa24',1,'Lib::Xbee::Core::Frame0x8b::srcAddr16'],['../dc/d19/a00515.html#a9d7339f6d4e781da5595d964ab491e63',1,'Lib::Xbee::Core::Frame0x90::srcAddr16']]],

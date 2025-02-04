@@ -15,7 +15,7 @@ var searchData=
   ['period_12',['Period',['../d1/dd4/a00267.html',1,'Lib::Xbee::API::Connection::Info::Period'],['../d1/dd4/a00267.html#a367552e26954ea07ffc89cb992ec6fd4',1,'Lib::Xbee::API::Connection::Info::Period::Period()']]],
   ['precode_13',['precode',['../d1/d53/a00399.html#a092a1fab2dba2e3f5468efd5c6069865',1,'Lib::Xbee::Core::EscapedCode']]],
   ['processmessage_14',['processMessage',['../d0/dc4/a00443.html#ae67022a7d24ff87412c540118507ddef',1,'Lib::Xbee::Core::Protocol']]],
-  ['protocol_15',['Protocol',['../d0/dc4/a00443.html',1,'Lib::Xbee::Core::Protocol'],['../d9/d44/a00527.html',1,'Protocol'],['../d0/dc4/a00443.html#acebbec4e78ef3a0ab0c2b26717c670c0',1,'Lib::Xbee::Core::Protocol::Protocol()']]],
+  ['protocol_15',['Protocol',['../d0/dc4/a00443.html',1,'Lib::Xbee::Core::Protocol'],['../d0/dc4/a00443.html#acebbec4e78ef3a0ab0c2b26717c670c0',1,'Lib::Xbee::Core::Protocol::Protocol()']]],
   ['protocol_2ehpp_16',['Protocol.hpp',['../d5/de9/a00176.html',1,'']]],
   ['provides_20the_20following_20information_3a_17',['Frame0x88 class provides the following information:',['../d8/d67/a00499.html#The',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: QueueSet</title>
+<title>Lib::FreeRTOS: EventGroup</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,114 +99,83 @@ $(function(){initNavTree('d0/d53/a00232.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">QueueSet</div></div>
+  <div class="headertitle"><div class="title">EventGroup</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the QueueSet class. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file Queueset.cpp</span></div>
-<div class="line"><span class="comment"> * @brief Example demonstrating the use of FreeRTOS QueueSet with multiple queues.</span></div>
+<p>This is an example of how to use the EventGroup class to create and manage a FreeRTOS event group. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file EventGroup.cpp</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This example creates a queue set with a length of 2 and adds two queues to it.</span></div>
-<div class="line"><span class="comment"> * It then sends a message to one of the queues, selects a member from the queue set,</span></div>
-<div class="line"><span class="comment"> * and reads the message from the appropriate queue. Finally, it releases the queues</span></div>
-<div class="line"><span class="comment"> * and the queue set.</span></div>
+<div class="line"><span class="comment"> * @brief EventGroup class example</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @author Bobby</span></div>
+<div class="line"><span class="comment"> * @version 1.0</span></div>
 <div class="line"><span class="comment"> * @date 11.01.2025</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d44/a00098.html">QueueSet.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d77/a00095.html">Queue.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#pragma once</span></div>
 <div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of FreeRTOS queue sets.</span></div>
+<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the EventGroup class.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function performs the following steps:</span></div>
-<div class="line"><span class="comment"> * 1. Creates a queue set with a length of 2.</span></div>
-<div class="line"><span class="comment"> * 2. Creates two queues and adds them to the queue set.</span></div>
-<div class="line"><span class="comment"> * 3. Sends a message to one of the queues.</span></div>
-<div class="line"><span class="comment"> * 4. Selects a member from the queue set.</span></div>
-<div class="line"><span class="comment"> * 5. Checks which queue received the message and reads it.</span></div>
-<div class="line"><span class="comment"> * 6. Prints the received message to the standard output.</span></div>
-<div class="line"><span class="comment"> * 7. Releases the queues and the queue set.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
+<div class="line"><span class="comment"> * This function demonstrates how to create, set, get, wait for, and clear bits in an event group.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create a queue set with a length of 2</span></div>
-<div class="line">    Lib::FreeRTOS::QueueSet queueSet;</div>
-<div class="line">    <span class="keywordflow">if</span> (!queueSet.create (2, {})) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create queue set&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Create an EventGroup object</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d9a/a00152.html">Lib::FreeRTOS::EventGroup</a> eventGroup;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create the event group</span></div>
+<div class="line">    <span class="keywordflow">if</span> (eventGroup.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/d9a/a00152.html#a89eb1195dee2cb2b9ca34001dee08b96">create</a> ()) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Event group created successfully.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create event group.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keywordflow">return</span> -1;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create two queues to add to the queue set</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/dfb/a00172.html">Lib::FreeRTOS::Queue&lt;int, 5&gt;</a> queue1;</div>
-<div class="line">    <a class="code hl_class" href="../../d6/dfb/a00172.html">Lib::FreeRTOS::Queue&lt;int, 5&gt;</a> queue2;</div>
-<div class="line">    <span class="keywordflow">if</span> (!queue1.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/dfb/a00172.html#ab1f118805f404fcc5fc7373a93594009">create</a> () || !queue2.<a class="code hl_function" href="../../d6/dfb/a00172.html#ab1f118805f404fcc5fc7373a93594009">create</a> ()) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create queues&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Set some bits in the event group</span></div>
+<div class="line">    Lib::FreeRTOS::EventBits bitsToSet;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Add the queues to the queue set</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!queueSet.add (queue1.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/dfb/a00172.html#a2c41ab96f85c46fcbfada25e38ae9195">getHandle</a> ()) || !queueSet.add (queue2.<a class="code hl_function" href="../../d6/dfb/a00172.html#a2c41ab96f85c46fcbfada25e38ae9195">getHandle</a> ())) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to add queues to queue set&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    bitsToSet.set (0);  <span class="comment">// Set bit 0</span></div>
+<div class="line">    bitsToSet.set (1);  <span class="comment">// Set bit 1</span></div>
+<div class="line">    eventGroup.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/d9a/a00152.html#abd5e7a9d70c53c7e7c66afc5d12de43d">setBits</a> (bitsToSet);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits set in event group.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Send a message to one of the queues</span></div>
-<div class="line">    <span class="keywordtype">int</span> message = 42;</div>
-<div class="line">    <span class="keywordflow">if</span> (!queue1.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/dfb/a00172.html#a12072c8a458156c078eef3381f3e68b8">send</a> (message, 100)) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to send message to queue&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Get the current bits in the event group</span></div>
+<div class="line">    Lib::FreeRTOS::EventBits currentBits = eventGroup.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/d9a/a00152.html#a039ad5d0cfdd0268f0d5b3d16e64f47e">getBits</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current bits in event group: &quot;</span> &lt;&lt; currentBits &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Select a member from the queue set</span></div>
-<div class="line">    <span class="keyword">auto</span> selectedMember = queueSet.select (100);</div>
-<div class="line">    <span class="keywordflow">if</span> (selectedMember == <span class="keyword">nullptr</span>) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to select a member from the queue set&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Wait for specific bits to be set</span></div>
+<div class="line">    Lib::FreeRTOS::EventBits bitsToWaitFor;</div>
+<div class="line">    bitsToWaitFor.set (0);  <span class="comment">// Wait for bit 0</span></div>
+<div class="line">    Lib::FreeRTOS::EventBits resultBits = eventGroup.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/d9a/a00152.html#a72dd46a1c97d37b0e35c2b2857153d66">waitForBits</a> (bitsToWaitFor, <span class="keyword">true</span>, <span class="keyword">true</span>, 1000);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits after waiting: &quot;</span> &lt;&lt; resultBits &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Check which queue received the message and read it</span></div>
-<div class="line">    <span class="keywordtype">int</span> receivedMessage;</div>
-<div class="line">    <span class="keywordflow">if</span> (selectedMember == queue1.<a class="code hl_function" href="../../d6/dfb/a00172.html#a2c41ab96f85c46fcbfada25e38ae9195">getHandle</a> ()) {</div>
-<div class="line">        <span class="keywordflow">if</span> (!queue1.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d6/dfb/a00172.html#a758441a1968feda77ebb998dfdc4619a">receive</a> (receivedMessage, 100)) {</div>
-<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message from queue1&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">            <span class="keywordflow">return</span> -1;</div>
-<div class="line">        }</div>
-<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (selectedMember == queue2.<a class="code hl_function" href="../../d6/dfb/a00172.html#a2c41ab96f85c46fcbfada25e38ae9195">getHandle</a> ()) {</div>
-<div class="line">        <span class="keywordflow">if</span> (!queue2.<a class="code hl_function" href="../../d6/dfb/a00172.html#a758441a1968feda77ebb998dfdc4619a">receive</a> (receivedMessage, 100)) {</div>
-<div class="line">            std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message from queue2&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">            <span class="keywordflow">return</span> -1;</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Clear some bits in the event group</span></div>
+<div class="line">    Lib::FreeRTOS::EventBits bitsToClear;</div>
+<div class="line">    bitsToClear.set (1);  <span class="comment">// Clear bit 1</span></div>
+<div class="line">    eventGroup.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/d9a/a00152.html#a2dc0fc601a6be926470359dd0a22b9e3">clearBits</a> (bitsToClear);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits cleared in event group.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; receivedMessage &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the queues and queue set</span></div>
-<div class="line">    queue1.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d6/dfb/a00172.html#a1e1db42d6e77a1c611e5a303083e934c">release</a> ();</div>
-<div class="line">    queue2.<a class="code hl_function" href="../../d6/dfb/a00172.html#a1e1db42d6e77a1c611e5a303083e934c">release</a> ();</div>
-<div class="line">    queueSet.release ();</div>
+<div class="line">    <span class="comment">// Release the event group</span></div>
+<div class="line">    eventGroup.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/d9a/a00152.html#ac507c3531e056a4591fc14cb051ef3cb">release</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Event group released.&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00095_html"><div class="ttname"><a href="../../d9/d77/a00095.html">Queue.hpp</a></div><div class="ttdoc">This file contains the definition of the Queue class template for FreeRTOS.</div></div>
-<div class="ttc" id="aa00098_html"><div class="ttname"><a href="../../d1/d44/a00098.html">QueueSet.hpp</a></div><div class="ttdoc">This file contains the declaration of the QueueSet class for FreeRTOS.</div></div>
-<div class="ttc" id="aa00172_html"><div class="ttname"><a href="../../d6/dfb/a00172.html">Lib::FreeRTOS::Queue</a></div><div class="ttdoc">A wrapper class for FreeRTOS queue operations.</div><div class="ttdef"><b>Definition</b> Queue.hpp:29</div></div>
-<div class="ttc" id="aa00172_html_a12072c8a458156c078eef3381f3e68b8"><div class="ttname"><a href="../../d6/dfb/a00172.html#a12072c8a458156c078eef3381f3e68b8">Lib::FreeRTOS::Queue::send</a></div><div class="ttdeci">virtual bool send(const T &amp;src, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:202</div></div>
-<div class="ttc" id="aa00172_html_a1e1db42d6e77a1c611e5a303083e934c"><div class="ttname"><a href="../../d6/dfb/a00172.html#a1e1db42d6e77a1c611e5a303083e934c">Lib::FreeRTOS::Queue::release</a></div><div class="ttdeci">virtual void release()</div><div class="ttdoc">Releases the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:98</div></div>
-<div class="ttc" id="aa00172_html_a2c41ab96f85c46fcbfada25e38ae9195"><div class="ttname"><a href="../../d6/dfb/a00172.html#a2c41ab96f85c46fcbfada25e38ae9195">Lib::FreeRTOS::Queue::getHandle</a></div><div class="ttdeci">virtual const Handle &amp; getHandle() const</div><div class="ttdoc">Handle to the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:413</div></div>
-<div class="ttc" id="aa00172_html_a758441a1968feda77ebb998dfdc4619a"><div class="ttname"><a href="../../d6/dfb/a00172.html#a758441a1968feda77ebb998dfdc4619a">Lib::FreeRTOS::Queue::receive</a></div><div class="ttdeci">virtual bool receive(T &amp;dst, uint32_t ticksToWait) const</div><div class="ttdoc">Receives a message from the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:130</div></div>
-<div class="ttc" id="aa00172_html_ab1f118805f404fcc5fc7373a93594009"><div class="ttname"><a href="../../d6/dfb/a00172.html#ab1f118805f404fcc5fc7373a93594009">Lib::FreeRTOS::Queue::create</a></div><div class="ttdeci">virtual bool create()</div><div class="ttdoc">Creates a new queue using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> Queue.hpp:66</div></div>
+<div class="ttc" id="aa00152_html"><div class="ttname"><a href="../../d7/d9a/a00152.html">Lib::FreeRTOS::EventGroup</a></div><div class="ttdoc">A class representing an event group in FreeRTOS.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:37</div></div>
+<div class="ttc" id="aa00152_html_a039ad5d0cfdd0268f0d5b3d16e64f47e"><div class="ttname"><a href="../../d7/d9a/a00152.html#a039ad5d0cfdd0268f0d5b3d16e64f47e">Lib::FreeRTOS::EventGroup::getBits</a></div><div class="ttdeci">EventBits getBits() const</div><div class="ttdoc">Retrieves the current value of the event bits in the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:148</div></div>
+<div class="ttc" id="aa00152_html_a2dc0fc601a6be926470359dd0a22b9e3"><div class="ttname"><a href="../../d7/d9a/a00152.html#a2dc0fc601a6be926470359dd0a22b9e3">Lib::FreeRTOS::EventGroup::clearBits</a></div><div class="ttdeci">EventBits clearBits(const EventBits &amp;bitsToClear)</div><div class="ttdoc">Clears the specified bits in the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:177</div></div>
+<div class="ttc" id="aa00152_html_a72dd46a1c97d37b0e35c2b2857153d66"><div class="ttname"><a href="../../d7/d9a/a00152.html#a72dd46a1c97d37b0e35c2b2857153d66">Lib::FreeRTOS::EventGroup::waitForBits</a></div><div class="ttdeci">EventBits waitForBits(const EventBits &amp;bitsToWaitFor=0, bool clearOnExit=false, bool waitForAllBits=false, TickType ticksToWait=portMAX_DELAY) const</div><div class="ttdoc">Waits for one or more bits to be set within an event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:212</div></div>
+<div class="ttc" id="aa00152_html_a89eb1195dee2cb2b9ca34001dee08b96"><div class="ttname"><a href="../../d7/d9a/a00152.html#a89eb1195dee2cb2b9ca34001dee08b96">Lib::FreeRTOS::EventGroup::create</a></div><div class="ttdeci">bool create()</div><div class="ttdoc">Creates an event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:73</div></div>
+<div class="ttc" id="aa00152_html_abd5e7a9d70c53c7e7c66afc5d12de43d"><div class="ttname"><a href="../../d7/d9a/a00152.html#abd5e7a9d70c53c7e7c66afc5d12de43d">Lib::FreeRTOS::EventGroup::setBits</a></div><div class="ttdeci">EventBits setBits(const EventBits &amp;bitsToSet)</div><div class="ttdoc">Sets the specified bits in the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:111</div></div>
+<div class="ttc" id="aa00152_html_ac507c3531e056a4591fc14cb051ef3cb"><div class="ttname"><a href="../../d7/d9a/a00152.html#ac507c3531e056a4591fc14cb051ef3cb">Lib::FreeRTOS::EventGroup::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Releases the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:95</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jan 11 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Tue Feb 4 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

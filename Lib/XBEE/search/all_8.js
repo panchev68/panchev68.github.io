@@ -12,7 +12,7 @@ var searchData=
   ['diagnostic_9',['Diagnostic',['../db/d95/a00391.html',1,'Lib::Xbee::Core']]],
   ['diagnostic_10',['diagnostic',['../d0/d27/a00239.html#a926a428a59918caaab80d6c1daa232a8',1,'Lib::Xbee::API::ApplicationBase::diagnostic'],['../d8/d95/a00379.html#ad54acea238d91711f98815c1a3266054',1,'Lib::Xbee::Core::ComDriver::diagnostic']]],
   ['diagnostic_2ehpp_11',['Diagnostic.hpp',['../d7/dce/a00143.html',1,'']]],
-  ['digiapiframebuffer_12',['DigiApiFrameBuffer',['../db/dbc/a00395.html',1,'Lib::Xbee::Core::DigiApiFrameBuffer'],['../db/dbc/a00395.html#a681173c20f53af6d2cebb7975ed136f5',1,'Lib::Xbee::Core::DigiApiFrameBuffer::DigiApiFrameBuffer()']]],
+  ['digiapiframebuffer_12',['DigiApiFrameBuffer',['../db/dbc/a00395.html',1,'Lib::Xbee::Core::DigiApiFrameBuffer'],['../db/dbc/a00395.html#a11a60cc231f98dbfbc99780ab33f6c30',1,'Lib::Xbee::Core::DigiApiFrameBuffer::DigiApiFrameBuffer()']]],
   ['digiapiframebuffer_2ehpp_13',['DigiApiFrameBuffer.hpp',['../d9/db6/a00146.html',1,'']]],
   ['disconnected_14',['DISCONNECTED',['../d3/d1a/a00251.html#abce70c65cddd38747189e5fae7126064a7a75445d643276587ecbfab2732c2c38',1,'Lib::Xbee::API::Connection::State::DISCONNECTED'],['../d4/d04/a00255.html#a177acb95c6332ad601f7e96efce3c1baafaa33ec6a06f0cbbee1ee384b44e3b85',1,'Lib::Xbee::API::Connection::Quality::DISCONNECTED']]],
   ['discovery_15',['Discovery',['../d6/d7f/a00287.html',1,'Lib::Xbee::API::NodeInfo']]],

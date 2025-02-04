@@ -1,5 +1,6 @@
 var a00152 =
 [
+    [ "EventGroup", "d7/d9a/a00152.html#a094f14cbb2e1186515e3a1eac5b9fddd", null ],
     [ "~EventGroup", "d7/d9a/a00152.html#acb0fbb840bf181958f3e7edc81f2a644", null ],
     [ "clearBits", "d7/d9a/a00152.html#a2dc0fc601a6be926470359dd0a22b9e3", null ],
     [ "clearBitsFromISR", "d7/d9a/a00152.html#a97ea8c5b232ca4b7abcb7b15f7c224b3", null ],

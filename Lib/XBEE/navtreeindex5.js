@@ -1,7 +1,5 @@
 var NAVTREEINDEX5 =
 {
-"functions_func_s.html":[2,2,1,16],
-"functions_func_t.html":[2,2,1,17],
 "functions_func_u.html":[2,2,1,18],
 "functions_func_w.html":[2,2,1,19],
 "functions_func_~.html":[2,2,1,20],
@@ -23,8 +21,7 @@ var NAVTREEINDEX5 =
 "functions_v.html":[2,2,0,19],
 "functions_vars.html":[2,2,2],
 "functions_w.html":[2,2,0,20],
-"functions_x.html":[2,2,0,21],
-"functions_~.html":[2,2,0,22],
+"functions_~.html":[2,2,0,21],
 "hierarchy.html":[2,1],
 "index.html":[],
 "index.html":[0],

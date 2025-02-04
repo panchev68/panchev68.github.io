@@ -9,8 +9,8 @@ var a00315 =
     ] ],
     [ "ChannelScanner", "d4/d6f/a00315.html#a97c650163900b10024458f395f2fc366", null ],
     [ "~ChannelScanner", "d4/d6f/a00315.html#af961f246ce39dcd76245503c08aa78d2", null ],
-    [ "close", "d4/d6f/a00315.html#ac1479201a5123bb67ba2ddb14f23600f", null ],
     [ "open", "d4/d6f/a00315.html#a2fd98550c8591d11637033f1c93d94f8", null ],
+    [ "close", "d4/d6f/a00315.html#ac1479201a5123bb67ba2ddb14f23600f", null ],
     [ "updateCallback", "d4/d6f/a00315.html#a6e5d121fba009b8105489b6563c4d06d", null ],
     [ "onError", "d4/d6f/a00315.html#a500d65995bd6a2259512197fbf8d2884", null ]
 ];
