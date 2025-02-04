@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "Lib::Xbee::Core::QueueMessage", "d9/d4a/a00479.html", "d9/d4a/a00479" ]
+    [ "Lib::Xbee::Core::QueueMessage", "d4/d64/a01296.html", "d4/d64/a01296" ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fparameters_0',['GET_PARAMETERS',['../df/dc2/a00367.html#a5dd569da3b5fc2d5b26765e0482215f7a4dc1f3b15aafec3172eab0c63581417f',1,'Lib::Xbee::API::UserProtocol']]]
+  ['get_5fparameters_0',['GET_PARAMETERS',['../d1/d35/a01184.html#a5dd569da3b5fc2d5b26765e0482215f7a4dc1f3b15aafec3172eab0c63581417f',1,'Lib::Xbee::API::UserProtocol']]]
 ];

@@ -1,4 +1,4 @@
 var a00143 =
 [
-    [ "Lib::Xbee::Core::Diagnostic", "db/d95/a00391.html", "db/d95/a00391" ]
+    [ "Lib::Xbee::Core::Diagnostic", "d9/d31/a01208.html", "d9/d31/a01208" ]
 ];

@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['serialnumber_0',['SerialNumber',['../d1/dc6/a00347.html',1,'Lib::Xbee::API::Service::Parameters::Data']]],
-  ['serverbase_1',['ServerBase',['../d0/da2/a00307.html',1,'Lib::Xbee::API']]],
-  ['servicebase_2',['ServiceBase',['../d4/def/a00359.html',1,'Lib::Xbee::API::Service']]],
-  ['signalstrength_3',['SignalStrength',['../dd/d86/a00271.html',1,'Lib::Xbee::API::Connection::Info']]],
-  ['spectrumanalyzer_4',['SpectrumAnalyzer',['../d9/d9b/a00363.html',1,'Lib::Xbee::API::Service']]],
-  ['state_5',['State',['../d3/d1a/a00251.html',1,'Lib::Xbee::API::Connection']]]
+  ['serialnumber_0',['SerialNumber',['../d2/dd2/a01164.html',1,'Lib::Xbee::API::Service::Parameters::Data']]],
+  ['serverbase_1',['ServerBase',['../d0/dc8/a01124.html',1,'Lib::Xbee::API']]],
+  ['servicebase_2',['ServiceBase',['../d3/d32/a01176.html',1,'Lib::Xbee::API::Service']]],
+  ['signalstrength_3',['SignalStrength',['../da/db7/a01088.html',1,'Lib::Xbee::API::Connection::Info']]],
+  ['spectrumanalyzer_4',['SpectrumAnalyzer',['../dd/d75/a01180.html',1,'Lib::Xbee::API::Service']]],
+  ['state_5',['State',['../d1/de6/a01068.html',1,'Lib::Xbee::API::Connection']]]
 ];

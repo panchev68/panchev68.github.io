@@ -1,6 +1,6 @@
 var a00116 =
 [
-    [ "Lib::Xbee::API::Service::Parameters", "d0/d01/a00339.html", "d0/d01/a00339" ],
-    [ "Lib::Xbee::API::Service::Parameters::Data", "d0/dc5/a00343.html", "d0/dc5/a00343" ],
-    [ "Lib::Xbee::API::Service::Parameters::Data::SerialNumber", "d1/dc6/a00347.html", "d1/dc6/a00347" ]
+    [ "Lib::Xbee::API::Service::Parameters", "d9/d42/a01156.html", "d9/d42/a01156" ],
+    [ "Lib::Xbee::API::Service::Parameters::Data", "da/d20/a01160.html", "da/d20/a01160" ],
+    [ "Lib::Xbee::API::Service::Parameters::Data::SerialNumber", "d2/dd2/a01164.html", "d2/dd2/a01164" ]
 ];

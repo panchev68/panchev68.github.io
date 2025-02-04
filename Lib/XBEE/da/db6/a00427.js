@@ -1,7 +1,6 @@
 var a00427 =
 [
     [ "Command", "da/db6/a00427.html#a65850dd8467fa6e4e39a242178a3ff40", null ],
-    [ "LocalAtCommand", "da/db6/a00427.html#addda60d3a9df9ad69fca73fe9c4c411d", null ],
     [ "~LocalAtCommand", "da/db6/a00427.html#a6913bf0f1bc23fcbc6c48453f482774e", null ],
     [ "open", "da/db6/a00427.html#ade085fab503854c155aef54f5a2657f5", null ],
     [ "close", "da/db6/a00427.html#acbb81c7b2432668009bd71e2d5013552", null ],

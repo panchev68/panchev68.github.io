@@ -1,10 +1,10 @@
 var a00095 =
 [
-    [ "Lib::Xbee::API::Connection", "d0/d1f/a00247.html", "d0/d1f/a00247" ],
-    [ "Lib::Xbee::API::Connection::State", "d3/d1a/a00251.html", "d3/d1a/a00251" ],
-    [ "Lib::Xbee::API::Connection::Quality", "d4/d04/a00255.html", "d4/d04/a00255" ],
-    [ "Lib::Xbee::API::Connection::Info", "d0/d2f/a00259.html", "d0/d2f/a00259" ],
-    [ "Lib::Xbee::API::Connection::Info::Counter", "df/da9/a00263.html", "df/da9/a00263" ],
-    [ "Lib::Xbee::API::Connection::Info::Period", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
-    [ "Lib::Xbee::API::Connection::Info::SignalStrength", "dd/d86/a00271.html", "dd/d86/a00271" ]
+    [ "Lib::Xbee::API::Connection", "d9/db3/a01064.html", "d9/db3/a01064" ],
+    [ "Lib::Xbee::API::Connection::State", "d1/de6/a01068.html", "d1/de6/a01068" ],
+    [ "Lib::Xbee::API::Connection::Quality", "d6/d6a/a01072.html", "d6/d6a/a01072" ],
+    [ "Lib::Xbee::API::Connection::Info", "d6/d80/a01076.html", "d6/d80/a01076" ],
+    [ "Lib::Xbee::API::Connection::Info::Counter", "d9/d67/a01080.html", "d9/d67/a01080" ],
+    [ "Lib::Xbee::API::Connection::Info::Period", "da/d93/a01084.html", "da/d93/a01084" ],
+    [ "Lib::Xbee::API::Connection::Info::SignalStrength", "da/db7/a01088.html", "da/db7/a01088" ]
 ];
