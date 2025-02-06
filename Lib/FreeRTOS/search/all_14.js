@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['yield_0',['yield',['../d2/d34/a00156.html#a123c155f71838182957a8c5d6946af84',1,'Lib::FreeRTOS::Karnel::yield()'],['../d1/d72/a00204.html#a6e67c9fb0dccf82edf754d1c0db926fd',1,'Lib::FreeRTOS::TaskHelper::yield()']]]
+  ['waitforbits_0',['waitForBits',['../de/db9/a00159.html#a72dd46a1c97d37b0e35c2b2857153d66',1,'Lib::FreeRTOS::EventGroup']]],
+  ['wrapper_1',['FreeRTOS C++ Wrapper',['../index.html',1,'']]]
 ];

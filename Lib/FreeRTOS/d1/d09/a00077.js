@@ -1,4 +1,4 @@
 var a00077 =
 [
-    [ "Lib::FreeRTOS::EventGroup", "da/d1e/a00149.html", "da/d1e/a00149" ]
+    [ "Lib::FreeRTOS::CoRoutine", "d3/df8/a00155.html", "d3/df8/a00155" ]
 ];

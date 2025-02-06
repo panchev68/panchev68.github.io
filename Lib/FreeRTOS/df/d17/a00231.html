@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: MessageBuffer</title>
+<title>Lib::FreeRTOS: Lib::FreeRTOS::Timer Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,89 +99,1028 @@ $(function(){initNavTree('df/d17/a00231.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MessageBuffer</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="../../de/dc2/a00228.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::FreeRTOS::Timer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the MessageBuffer class to create and manage a FreeRTOS message buffer. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * MessageBuffer.cpp</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * Example demonstrating the use of FreeRTOS message buffers.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file contains the implementation of a sender task and a receiver task</span></div>
-<div class="line"><span class="comment"> * that communicate using a FreeRTOS message buffer.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * Date: 11.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d2a/a00086.html">MessageBuffer.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;task.h&quot;</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Task function to send a message to a message buffer periodically.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This task sends a predefined message to the provided message buffer every second.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @param pvParameters Pointer to the message buffer object (Lib::FreeRTOS::MessageBuffer).</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> senderTask (<span class="keywordtype">void</span> * pvParameters) {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d7d/a00161.html">Lib::FreeRTOS::MessageBuffer</a> * messageBuffer = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d6/d7d/a00161.html">Lib::FreeRTOS::MessageBuffer</a> *<span class="keyword">&gt;</span> (pvParameters);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * message                         = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        messageBuffer-&gt;<a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d7d/a00161.html#a17561e31205ea64d3f3d8c17ca55ff69">send</a> (message, strlen (message) + 1, portMAX_DELAY);</div>
-<div class="line">        vTaskDelay (pdMS_TO_TICKS (1000));  <span class="comment">// Delay for 1 second</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Task function to receive messages from a message buffer.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function runs indefinitely, receiving messages from the provided</span></div>
-<div class="line"><span class="comment"> * message buffer and processing them. The received messages are stored</span></div>
-<div class="line"><span class="comment"> * in a local buffer and processed if any bytes are received.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @param pvParameters Pointer to the message buffer object (Lib::FreeRTOS::MessageBuffer).</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> receiverTask (<span class="keywordtype">void</span> * pvParameters) {</div>
-<div class="line">    <a class="code hl_class" href="../../d6/d7d/a00161.html">Lib::FreeRTOS::MessageBuffer</a> * messageBuffer = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d6/d7d/a00161.html">Lib::FreeRTOS::MessageBuffer</a> *<span class="keyword">&gt;</span> (pvParameters);</div>
-<div class="line">    <span class="keywordtype">char</span> buffer [50];</div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keywordtype">size_t</span> receivedBytes = messageBuffer-&gt;<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d7d/a00161.html#a8f160675bb113e76d3a32a9f78d3b7a1">receive</a> (buffer, <span class="keyword">sizeof</span> (buffer), portMAX_DELAY);</div>
-<div class="line">        <span class="keywordflow">if</span> (receivedBytes &gt; 0) {</div>
-<div class="line">            <span class="comment">// Process the received message</span></div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Entry point of the application.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function initializes a message buffer and creates two tasks: a sender task and a receiver task.</span></div>
-<div class="line"><span class="comment"> * If the message buffer is successfully created, the tasks are created with the specified stack size and priority.</span></div>
-<div class="line"><span class="comment"> * Finally, the FreeRTOS scheduler is started.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int Returns 0 upon completion.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <a class="code hl_class" href="../../d6/d7d/a00161.html">Lib::FreeRTOS::MessageBuffer</a> messageBuffer;</div>
-<div class="line">    <span class="keywordflow">if</span> (messageBuffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/d7d/a00161.html#a16516aeccd9c706e8eee91172163f7b8">create</a> (100)) {</div>
-<div class="line">        xTaskCreate (senderTask, <span class="stringliteral">&quot;Sender&quot;</span>, configMINIMAL_STACK_SIZE, &amp;messageBuffer, tskIDLE_PRIORITY + 1, <span class="keyword">nullptr</span>);</div>
-<div class="line">        xTaskCreate (receiverTask, <span class="stringliteral">&quot;Receiver&quot;</span>, configMINIMAL_STACK_SIZE, &amp;messageBuffer, tskIDLE_PRIORITY + 1, <span class="keyword">nullptr</span>);</div>
-<div class="line">        vTaskStartScheduler ();</div>
-<div class="line">    }</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00086_html"><div class="ttname"><a href="../../da/d2a/a00086.html">MessageBuffer.hpp</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS message buffers.</div></div>
-<div class="ttc" id="aa00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">Lib::FreeRTOS::MessageBuffer</a></div><div class="ttdoc">A class providing a C++ wrapper for FreeRTOS message buffers.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:26</div></div>
-<div class="ttc" id="aa00161_html_a16516aeccd9c706e8eee91172163f7b8"><div class="ttname"><a href="../../d6/d7d/a00161.html#a16516aeccd9c706e8eee91172163f7b8">Lib::FreeRTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t nsize)</div><div class="ttdoc">Creates a new message buffer using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:62</div></div>
-<div class="ttc" id="aa00161_html_a17561e31205ea64d3f3d8c17ca55ff69"><div class="ttname"><a href="../../d6/d7d/a00161.html#a17561e31205ea64d3f3d8c17ca55ff69">Lib::FreeRTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *src, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:107</div></div>
-<div class="ttc" id="aa00161_html_a8f160675bb113e76d3a32a9f78d3b7a1"><div class="ttname"><a href="../../d6/d7d/a00161.html#a8f160675bb113e76d3a32a9f78d3b7a1">Lib::FreeRTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dst, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Receives a message from the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:158</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A class that encapsulates a FreeRTOS timer. </p>
+<p>The Timer class provides an interface for creating, starting, stopping, and managing FreeRTOS timers. It supports both one-shot and auto-reload timers, and can be used in both task and ISR contexts.</p>
+<dl class="section note"><dt>Note</dt><dd>This class uses assertions to ensure that operations are performed on valid timer handles.</dd></dl>
+<p>The Timer class provides the following functionalities:</p><ul>
+<li>Creating a timer with a specified name, callback function, period, and auto-reload flag.</li>
+<li>Starting and stopping the timer, both from tasks and ISRs.</li>
+<li>Setting the period of the timer, both from tasks and ISRs.</li>
+<li>Resetting the timer.</li>
+<li>Checking if the timer is active.</li>
+<li>Retrieving the name, period, and expiry time of the timer.</li>
+<li>Releasing the timer and deleting the object. </li>
+</ul>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dc/d28/a00276.html#_a0">Timer</a>.</dd>
+</dl>
+</div>
+<p><code>#include &lt;Timer.hpp&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::FreeRTOS::Timer:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../dd/d2d/a00229.png" border="0" usemap="#a_lib_1_1_free_r_t_o_s_1_1_timer_coll__map" alt="Collaboration graph"/></div>
+<map name="a_lib_1_1_free_r_t_o_s_1_1_timer_coll__map" id="a_lib_1_1_free_r_t_o_s_1_1_timer_coll__map">
+<area shape="rect" title="A class that encapsulates a FreeRTOS timer." alt="" coords="5,5,203,352"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/d42/a00235.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration structure for a timer.  <a href="../../d3/d42/a00235.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:afe787b1f6b5d8e2f703f529b04e14363" id="r_afe787b1f6b5d8e2f703f529b04e14363"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe787b1f6b5d8e2f703f529b04e14363">Timer</a> ()=default</td></tr>
+<tr class="memdesc:afe787b1f6b5d8e2f703f529b04e14363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the Timer class.  <br /></td></tr>
+<tr class="separator:afe787b1f6b5d8e2f703f529b04e14363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04a0ab44813262f22e6ddc38d8f5f1ea" id="r_a04a0ab44813262f22e6ddc38d8f5f1ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04a0ab44813262f22e6ddc38d8f5f1ea">Timer</a> (const std::string &amp;name, const std::function&lt; void()&gt; &amp;func, uint32_t period, bool autoReload=true, bool autostart=false)</td></tr>
+<tr class="memdesc:a04a0ab44813262f22e6ddc38d8f5f1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the Timer class.  <br /></td></tr>
+<tr class="separator:a04a0ab44813262f22e6ddc38d8f5f1ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf96ca324425c788bf168e95245b71a6" id="r_abf96ca324425c788bf168e95245b71a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf96ca324425c788bf168e95245b71a6">Timer</a> (const <a class="el" href="../../d3/d42/a00235.html">Config</a> &amp;conf)</td></tr>
+<tr class="memdesc:abf96ca324425c788bf168e95245b71a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the Timer class.  <br /></td></tr>
+<tr class="separator:abf96ca324425c788bf168e95245b71a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b2165eef64c713ec21e63efcee986d3" id="r_a2b2165eef64c713ec21e63efcee986d3"><td class="memItemLeft" align="right" valign="top"><a id="a2b2165eef64c713ec21e63efcee986d3" name="a2b2165eef64c713ec21e63efcee986d3"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Timer</b> ()</td></tr>
+<tr class="memdesc:a2b2165eef64c713ec21e63efcee986d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the Timer class. <br /></td></tr>
+<tr class="separator:a2b2165eef64c713ec21e63efcee986d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa443f8fb7e187643f5837f5e732dfe2b" id="r_aa443f8fb7e187643f5837f5e732dfe2b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa443f8fb7e187643f5837f5e732dfe2b">create</a> (const std::string &amp;name, const std::function&lt; void()&gt; &amp;func, uint32_t period=1, bool autoReload=true)</td></tr>
+<tr class="memdesc:aa443f8fb7e187643f5837f5e732dfe2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new timer with the specified parameters.  <br /></td></tr>
+<tr class="separator:aa443f8fb7e187643f5837f5e732dfe2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c8bf529754e53ecfab8d584a93637a7" id="r_a9c8bf529754e53ecfab8d584a93637a7"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c8bf529754e53ecfab8d584a93637a7">create</a> (const <a class="el" href="../../d3/d42/a00235.html">Config</a> &amp;conf)</td></tr>
+<tr class="memdesc:a9c8bf529754e53ecfab8d584a93637a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new timer with the specified configuration.  <br /></td></tr>
+<tr class="separator:a9c8bf529754e53ecfab8d584a93637a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cf5e598fcc261db2e62b52d82085f67" id="r_a6cf5e598fcc261db2e62b52d82085f67"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6cf5e598fcc261db2e62b52d82085f67">destroy</a> ()</td></tr>
+<tr class="memdesc:a6cf5e598fcc261db2e62b52d82085f67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the timer object.  <br /></td></tr>
+<tr class="separator:a6cf5e598fcc261db2e62b52d82085f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a657e5d46b1b82f31333b628d75155ff9" id="r_a657e5d46b1b82f31333b628d75155ff9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a657e5d46b1b82f31333b628d75155ff9">start</a> (uint32_t blockTime=DEFAULT_BLOCK_TIME)</td></tr>
+<tr class="memdesc:a657e5d46b1b82f31333b628d75155ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <br /></td></tr>
+<tr class="separator:a657e5d46b1b82f31333b628d75155ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c419b3692df60f0c579276b6a7737c5" id="r_a4c419b3692df60f0c579276b6a7737c5"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c419b3692df60f0c579276b6a7737c5">startFromISR</a> ()</td></tr>
+<tr class="memdesc:a4c419b3692df60f0c579276b6a7737c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer from an ISR.  <br /></td></tr>
+<tr class="separator:a4c419b3692df60f0c579276b6a7737c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c2744bbcd815754c6c7e5e63f68016" id="r_af3c2744bbcd815754c6c7e5e63f68016"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3c2744bbcd815754c6c7e5e63f68016">stop</a> (uint32_t blockTime=DEFAULT_BLOCK_TIME)</td></tr>
+<tr class="memdesc:af3c2744bbcd815754c6c7e5e63f68016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer.  <br /></td></tr>
+<tr class="separator:af3c2744bbcd815754c6c7e5e63f68016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4570ba33aca8c20b1191e62f91aab092" id="r_a4570ba33aca8c20b1191e62f91aab092"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4570ba33aca8c20b1191e62f91aab092">stopFromISR</a> ()</td></tr>
+<tr class="memdesc:a4570ba33aca8c20b1191e62f91aab092"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer from an ISR.  <br /></td></tr>
+<tr class="separator:a4570ba33aca8c20b1191e62f91aab092"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c72bda6aa33539429d7fa44123cb905" id="r_a7c72bda6aa33539429d7fa44123cb905"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c72bda6aa33539429d7fa44123cb905">setPeriod</a> (uint32_t period)</td></tr>
+<tr class="memdesc:a7c72bda6aa33539429d7fa44123cb905"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the period of the timer.  <br /></td></tr>
+<tr class="separator:a7c72bda6aa33539429d7fa44123cb905"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97dd6b80c460b6f39cc157f52614ce9" id="r_aa97dd6b80c460b6f39cc157f52614ce9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa97dd6b80c460b6f39cc157f52614ce9">setPeriodFromISR</a> (uint32_t period)</td></tr>
+<tr class="memdesc:aa97dd6b80c460b6f39cc157f52614ce9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the period of the timer from an ISR.  <br /></td></tr>
+<tr class="separator:aa97dd6b80c460b6f39cc157f52614ce9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b9fad3086c07e6a9204ef19d9bc1b21" id="r_a4b9fad3086c07e6a9204ef19d9bc1b21"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b9fad3086c07e6a9204ef19d9bc1b21">reset</a> ()</td></tr>
+<tr class="memdesc:a4b9fad3086c07e6a9204ef19d9bc1b21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer.  <br /></td></tr>
+<tr class="separator:a4b9fad3086c07e6a9204ef19d9bc1b21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3daf1a7bfc60db804fa7ffd40641ca3" id="r_af3daf1a7bfc60db804fa7ffd40641ca3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3daf1a7bfc60db804fa7ffd40641ca3">setReloadMode</a> (bool autoReload)</td></tr>
+<tr class="memdesc:af3daf1a7bfc60db804fa7ffd40641ca3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer from an ISR.  <br /></td></tr>
+<tr class="separator:af3daf1a7bfc60db804fa7ffd40641ca3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac8c4d6f823ffe5bd524fea85e90eb06a" id="r_ac8c4d6f823ffe5bd524fea85e90eb06a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8c4d6f823ffe5bd524fea85e90eb06a">isActive</a> () const</td></tr>
+<tr class="memdesc:ac8c4d6f823ffe5bd524fea85e90eb06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timer is running.  <br /></td></tr>
+<tr class="separator:ac8c4d6f823ffe5bd524fea85e90eb06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba600b4be9898d874282b6972e19cdb" id="r_a4ba600b4be9898d874282b6972e19cdb"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ba600b4be9898d874282b6972e19cdb">getName</a> () const</td></tr>
+<tr class="memdesc:a4ba600b4be9898d874282b6972e19cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the name of the timer.  <br /></td></tr>
+<tr class="separator:a4ba600b4be9898d874282b6972e19cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac9a9a78256b050ea6e906ef3b9fa138" id="r_aac9a9a78256b050ea6e906ef3b9fa138"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac9a9a78256b050ea6e906ef3b9fa138">getPeriod</a> () const</td></tr>
+<tr class="memdesc:aac9a9a78256b050ea6e906ef3b9fa138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the period of the timer.  <br /></td></tr>
+<tr class="separator:aac9a9a78256b050ea6e906ef3b9fa138"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5e122fe357713f1537deeea7ada89ce" id="r_af5e122fe357713f1537deeea7ada89ce"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5e122fe357713f1537deeea7ada89ce">getExpiryTime</a> () const</td></tr>
+<tr class="memdesc:af5e122fe357713f1537deeea7ada89ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the expiry time of the timer.  <br /></td></tr>
+<tr class="separator:af5e122fe357713f1537deeea7ada89ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0ac746bc2978d6ff72c9d54da3f4d5d9" id="r_a0ac746bc2978d6ff72c9d54da3f4d5d9"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d17/a00231.html">Timer</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ac746bc2978d6ff72c9d54da3f4d5d9">run</a> (const std::string &amp;name, const std::function&lt; void()&gt; &amp;func, uint32_t period=1, bool autoReload=true)</td></tr>
+<tr class="memdesc:a0ac746bc2978d6ff72c9d54da3f4d5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and starts a new Timer instance.  <br /></td></tr>
+<tr class="separator:a0ac746bc2978d6ff72c9d54da3f4d5d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab84c04a94d893087bf26d27a3eb4a480" id="r_ab84c04a94d893087bf26d27a3eb4a480"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab84c04a94d893087bf26d27a3eb4a480">destroy</a> (<a class="el" href="../../df/d17/a00231.html">Timer</a> *timer)</td></tr>
+<tr class="memdesc:ab84c04a94d893087bf26d27a3eb4a480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the given Timer object.  <br /></td></tr>
+<tr class="separator:ab84c04a94d893087bf26d27a3eb4a480"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85b8a76c1e4d5d7ffe540b31a16a4544" id="r_a85b8a76c1e4d5d7ffe540b31a16a4544"><td class="memItemLeft" align="right" valign="top">static TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a85b8a76c1e4d5d7ffe540b31a16a4544">getTimerDaemonTaskHandle</a> ()</td></tr>
+<tr class="memdesc:a85b8a76c1e4d5d7ffe540b31a16a4544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timer is running.  <br /></td></tr>
+<tr class="separator:a85b8a76c1e4d5d7ffe540b31a16a4544"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="afe787b1f6b5d8e2f703f529b04e14363" name="afe787b1f6b5d8e2f703f529b04e14363"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe787b1f6b5d8e2f703f529b04e14363">&#9670;&#160;</a></span>Timer() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::FreeRTOS::Timer::Timer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor for the Timer class. </p>
+<p>This constructor initializes the timer handle to nullptr. The timer must be created before it can be used. </p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_afe787b1f6b5d8e2f703f529b04e14363_icgraph.png" border="0" usemap="#adf/d17/a00231_afe787b1f6b5d8e2f703f529b04e14363_icgraph" alt=""/></div>
+<map name="adf/d17/a00231_afe787b1f6b5d8e2f703f529b04e14363_icgraph" id="adf/d17/a00231_afe787b1f6b5d8e2f703f529b04e14363_icgraph">
+<area shape="rect" title="Default constructor for the Timer class." alt="" coords="651,197,799,240"/>
+<area shape="rect" href="../../df/d17/a00231.html#aa443f8fb7e187643f5837f5e732dfe2b" title="Creates a new timer with the specified parameters." alt="" coords="456,139,603,181"/>
+<area shape="poly" title=" " alt="" coords="637,195,602,184,604,179,638,190"/>
+<area shape="rect" href="../../df/d17/a00231.html#a0ac746bc2978d6ff72c9d54da3f4d5d9" title="Creates and starts a new Timer instance." alt="" coords="235,205,408,232"/>
+<area shape="poly" title=" " alt="" coords="636,221,408,221,408,216,636,216"/>
+<area shape="rect" href="../../df/d17/a00231.html#ab84c04a94d893087bf26d27a3eb4a480" title="Destroys the given Timer object." alt="" coords="456,256,603,299"/>
+<area shape="poly" title=" " alt="" coords="638,247,604,258,602,253,637,242"/>
+<area shape="rect" href="../../df/d17/a00231.html#abf96ca324425c788bf168e95245b71a6" title="Constructor for the Timer class." alt="" coords="248,5,395,48"/>
+<area shape="poly" title=" " alt="" coords="494,130,453,95,407,62,385,51,387,46,409,58,457,91,497,126"/>
+<area shape="rect" href="../../df/d17/a00231.html#a04a0ab44813262f22e6ddc38d8f5f1ea" title="Constructor for the Timer class." alt="" coords="248,72,395,115"/>
+<area shape="poly" title=" " alt="" coords="446,136,390,118,391,113,448,131"/>
+<area shape="rect" href="../../df/d17/a00231.html#a9c8bf529754e53ecfab8d584a93637a7" title="Creates a new timer with the specified configuration." alt="" coords="248,139,395,181"/>
+<area shape="poly" title=" " alt="" coords="441,163,396,163,396,157,441,157"/>
+<area shape="poly" title=" " alt="" coords="442,187,372,207,371,202,440,182"/>
+<area shape="rect" href="../../dd/df3/a00219.html#a97faebc461c45618e582a0bb63363010" title="Starts the TickService timer." alt="" coords="5,197,187,240"/>
+<area shape="poly" title=" " alt="" coords="219,221,187,221,187,216,219,216"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a04a0ab44813262f22e6ddc38d8f5f1ea" name="a04a0ab44813262f22e6ddc38d8f5f1ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a0ab44813262f22e6ddc38d8f5f1ea">&#9670;&#160;</a></span>Timer() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::FreeRTOS::Timer::Timer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>period</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoReload</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autostart</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for the Timer class. </p>
+<p>This constructor initializes the timer with the specified parameters.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the timer. </td></tr>
+    <tr><td class="paramname">func</td><td>The callback function to be executed when the timer expires. </td></tr>
+    <tr><td class="paramname">period</td><td>The period of the timer in ticks. Default is 1. </td></tr>
+    <tr><td class="paramname">autoReload</td><td>If true, the timer will automatically reload and restart when it expires. Default is true. </td></tr>
+    <tr><td class="paramname">autostart</td><td>If true, the timer will automatically start after creation. Default is false. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_a04a0ab44813262f22e6ddc38d8f5f1ea_cgraph.png" border="0" usemap="#adf/d17/a00231_a04a0ab44813262f22e6ddc38d8f5f1ea_cgraph" alt=""/></div>
+<map name="adf/d17/a00231_a04a0ab44813262f22e6ddc38d8f5f1ea_cgraph" id="adf/d17/a00231_a04a0ab44813262f22e6ddc38d8f5f1ea_cgraph">
+<area shape="rect" title="Constructor for the Timer class." alt="" coords="5,39,153,81"/>
+<area shape="rect" href="../../df/d17/a00231.html#aa443f8fb7e187643f5837f5e732dfe2b" title="Creates a new timer with the specified parameters." alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,45,185,39,186,45,154,50"/>
+<area shape="rect" href="../../df/d17/a00231.html#a657e5d46b1b82f31333b628d75155ff9" title="Starts the timer." alt="" coords="201,72,348,115"/>
+<area shape="poly" title=" " alt="" coords="154,70,186,75,185,81,153,75"/>
+<area shape="rect" href="../../df/d17/a00231.html#afe787b1f6b5d8e2f703f529b04e14363" title="Default constructor for the Timer class." alt="" coords="396,5,543,48"/>
+<area shape="poly" title=" " alt="" coords="349,24,380,24,380,29,349,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="abf96ca324425c788bf168e95245b71a6" name="abf96ca324425c788bf168e95245b71a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf96ca324425c788bf168e95245b71a6">&#9670;&#160;</a></span>Timer() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::FreeRTOS::Timer::Timer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d42/a00235.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>conf</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor for the Timer class. </p>
+<p>This constructor initializes the timer with the specified configuration.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conf</td><td>The configuration for creating the timer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_abf96ca324425c788bf168e95245b71a6_cgraph.png" border="0" usemap="#adf/d17/a00231_abf96ca324425c788bf168e95245b71a6_cgraph" alt=""/></div>
+<map name="adf/d17/a00231_abf96ca324425c788bf168e95245b71a6_cgraph" id="adf/d17/a00231_abf96ca324425c788bf168e95245b71a6_cgraph">
+<area shape="rect" title="Constructor for the Timer class." alt="" coords="5,5,153,48"/>
+<area shape="rect" href="../../df/d17/a00231.html#aa443f8fb7e187643f5837f5e732dfe2b" title="Creates a new timer with the specified parameters." alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" href="../../df/d17/a00231.html#afe787b1f6b5d8e2f703f529b04e14363" title="Default constructor for the Timer class." alt="" coords="396,5,543,48"/>
+<area shape="poly" title=" " alt="" coords="349,24,380,24,380,29,349,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a9c8bf529754e53ecfab8d584a93637a7" name="a9c8bf529754e53ecfab8d584a93637a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c8bf529754e53ecfab8d584a93637a7">&#9670;&#160;</a></span>create() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::create </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d42/a00235.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>conf</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new timer with the specified configuration. </p>
+<p>This function creates a new timer with the specified configuration. It asserts if the timer creation fails.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">conf</td><td>The configuration for creating the timer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully created, false otherwise. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_a9c8bf529754e53ecfab8d584a93637a7_cgraph.png" border="0" usemap="#adf/d17/a00231_a9c8bf529754e53ecfab8d584a93637a7_cgraph" alt=""/></div>
+<map name="adf/d17/a00231_a9c8bf529754e53ecfab8d584a93637a7_cgraph" id="adf/d17/a00231_a9c8bf529754e53ecfab8d584a93637a7_cgraph">
+<area shape="rect" title="Creates a new timer with the specified configuration." alt="" coords="5,5,153,48"/>
+<area shape="rect" href="../../df/d17/a00231.html#aa443f8fb7e187643f5837f5e732dfe2b" title="Creates a new timer with the specified parameters." alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+<area shape="rect" href="../../df/d17/a00231.html#afe787b1f6b5d8e2f703f529b04e14363" title="Default constructor for the Timer class." alt="" coords="396,5,543,48"/>
+<area shape="poly" title=" " alt="" coords="349,24,380,24,380,29,349,29"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa443f8fb7e187643f5837f5e732dfe2b" name="aa443f8fb7e187643f5837f5e732dfe2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa443f8fb7e187643f5837f5e732dfe2b">&#9670;&#160;</a></span>create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::create </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>period</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoReload</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new timer with the specified parameters. </p>
+<p>This function creates a new timer with the specified name, function, period, and auto-reload flag. It asserts if the timer creation fails.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the timer. </td></tr>
+    <tr><td class="paramname">func</td><td>The function to be executed by the timer. </td></tr>
+    <tr><td class="paramname">period</td><td>The period of the timer in ticks. </td></tr>
+    <tr><td class="paramname">autoReload</td><td>Flag indicating if the timer should auto-reload. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully created, false otherwise. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_cgraph.png" border="0" usemap="#adf/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_cgraph" alt=""/></div>
+<map name="adf/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_cgraph" id="adf/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_cgraph">
+<area shape="rect" title="Creates a new timer with the specified parameters." alt="" coords="5,5,153,48"/>
+<area shape="rect" href="../../df/d17/a00231.html#afe787b1f6b5d8e2f703f529b04e14363" title="Default constructor for the Timer class." alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,24,185,24,185,29,153,29"/>
+</map>
+</div>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_icgraph.png" border="0" usemap="#adf/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_icgraph" alt=""/></div>
+<map name="adf/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_icgraph" id="adf/d17/a00231_aa443f8fb7e187643f5837f5e732dfe2b_icgraph">
+<area shape="rect" title="Creates a new timer with the specified parameters." alt="" coords="456,105,603,148"/>
+<area shape="rect" href="../../df/d17/a00231.html#abf96ca324425c788bf168e95245b71a6" title="Constructor for the Timer class." alt="" coords="248,5,395,48"/>
+<area shape="poly" title=" " alt="" coords="478,100,407,62,381,51,383,46,409,58,481,95"/>
+<area shape="rect" href="../../df/d17/a00231.html#a04a0ab44813262f22e6ddc38d8f5f1ea" title="Constructor for the Timer class." alt="" coords="248,72,395,115"/>
+<area shape="poly" title=" " alt="" coords="440,115,395,108,396,103,441,110"/>
+<area shape="rect" href="../../df/d17/a00231.html#a9c8bf529754e53ecfab8d584a93637a7" title="Creates a new timer with the specified configuration." alt="" coords="248,139,395,181"/>
+<area shape="poly" title=" " alt="" coords="441,143,396,151,395,146,440,138"/>
+<area shape="rect" href="../../df/d17/a00231.html#a0ac746bc2978d6ff72c9d54da3f4d5d9" title="Creates and starts a new Timer instance." alt="" coords="235,205,408,232"/>
+<area shape="poly" title=" " alt="" coords="482,159,409,196,377,207,375,202,407,191,480,154"/>
+<area shape="rect" href="../../dd/df3/a00219.html#a97faebc461c45618e582a0bb63363010" title="Starts the TickService timer." alt="" coords="5,197,187,240"/>
+<area shape="poly" title=" " alt="" coords="219,221,187,221,187,216,219,216"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6cf5e598fcc261db2e62b52d82085f67" name="a6cf5e598fcc261db2e62b52d82085f67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cf5e598fcc261db2e62b52d82085f67">&#9670;&#160;</a></span>destroy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::FreeRTOS::Timer::destroy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the timer object. </p>
+<p>This function deletes the timer associated with the object if it exists. It asserts that the timer handle is valid before attempting to delete it. After deletion, the timer handle is set to nullptr.</p>
+<dl class="section note"><dt>Note</dt><dd>This function uses FreeRTOS's xTimerDelete function to delete the timer. </dd></dl>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_a6cf5e598fcc261db2e62b52d82085f67_icgraph.png" border="0" usemap="#adf/d17/a00231_a6cf5e598fcc261db2e62b52d82085f67_icgraph" alt=""/></div>
+<map name="adf/d17/a00231_a6cf5e598fcc261db2e62b52d82085f67_icgraph" id="adf/d17/a00231_a6cf5e598fcc261db2e62b52d82085f67_icgraph">
+<area shape="rect" title="Destroys the timer object." alt="" coords="201,5,348,48"/>
+<area shape="rect" href="../../df/d17/a00231.html#ab84c04a94d893087bf26d27a3eb4a480" title="Destroys the given Timer object." alt="" coords="5,5,153,48"/>
+<area shape="poly" title=" " alt="" coords="185,29,153,29,153,24,185,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab84c04a94d893087bf26d27a3eb4a480" name="ab84c04a94d893087bf26d27a3eb4a480"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab84c04a94d893087bf26d27a3eb4a480">&#9670;&#160;</a></span>destroy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void Lib::FreeRTOS::Timer::destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../df/d17/a00231.html">Timer</a> *</td>          <td class="paramname"><span class="paramname"><em>timer</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the given Timer object. </p>
+<p>This function asserts that the provided Timer pointer is not null, calls the destroy method on the Timer object, and then deletes the Timer object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timer</td><td>Pointer to the Timer object to be destroyed. Must not be nullptr. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_ab84c04a94d893087bf26d27a3eb4a480_cgraph.png" border="0" usemap="#adf/d17/a00231_ab84c04a94d893087bf26d27a3eb4a480_cgraph" alt=""/></div>
+<map name="adf/d17/a00231_ab84c04a94d893087bf26d27a3eb4a480_cgraph" id="adf/d17/a00231_ab84c04a94d893087bf26d27a3eb4a480_cgraph">
+<area shape="rect" title="Destroys the given Timer object." alt="" coords="5,39,153,81"/>
+<area shape="rect" href="../../df/d17/a00231.html#afe787b1f6b5d8e2f703f529b04e14363" title="Default constructor for the Timer class." alt="" coords="201,5,348,48"/>
+<area shape="poly" title=" " alt="" coords="153,45,185,39,186,45,154,50"/>
+<area shape="rect" href="../../df/d17/a00231.html#a6cf5e598fcc261db2e62b52d82085f67" title="Destroys the timer object." alt="" coords="201,72,348,115"/>
+<area shape="poly" title=" " alt="" coords="154,70,186,75,185,81,153,75"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af5e122fe357713f1537deeea7ada89ce" name="af5e122fe357713f1537deeea7ada89ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5e122fe357713f1537deeea7ada89ce">&#9670;&#160;</a></span>getExpiryTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::FreeRTOS::Timer::getExpiryTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the expiry time of the timer. </p>
+<p>This function returns the expiry time of the timer associated with the current instance. It asserts that the timer handle is valid before attempting to retrieve the expiry time.</p>
+<dl class="section return"><dt>Returns</dt><dd>The expiry time of the timer as a uint32_t value. </dd></dl>
+
+</div>
+</div>
+<a id="a4ba600b4be9898d874282b6972e19cdb" name="a4ba600b4be9898d874282b6972e19cdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba600b4be9898d874282b6972e19cdb">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Lib::FreeRTOS::Timer::getName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the name of the timer. </p>
+<p>This function returns the name of the timer associated with the current object. It asserts that the timer handle (_handle) is valid before attempting to retrieve the name.</p>
+<dl class="section return"><dt>Returns</dt><dd>A std::string containing the name of the timer. </dd></dl>
+
+</div>
+</div>
+<a id="aac9a9a78256b050ea6e906ef3b9fa138" name="aac9a9a78256b050ea6e906ef3b9fa138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9a9a78256b050ea6e906ef3b9fa138">&#9670;&#160;</a></span>getPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::FreeRTOS::Timer::getPeriod </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the period of the timer. </p>
+<p>This function returns the period of the timer in ticks. The period is the time between timer expirations.</p>
+<dl class="section return"><dt>Returns</dt><dd>The period of the timer in ticks.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the timer handle is valid. </dd></dl>
+
+</div>
+</div>
+<a id="a85b8a76c1e4d5d7ffe540b31a16a4544" name="a85b8a76c1e4d5d7ffe540b31a16a4544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85b8a76c1e4d5d7ffe540b31a16a4544">&#9670;&#160;</a></span>getTimerDaemonTaskHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static TaskHandle_t Lib::FreeRTOS::Timer::getTimerDaemonTaskHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the timer is running. </p>
+<p>This function checks if the timer is running.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer is running, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="ac8c4d6f823ffe5bd524fea85e90eb06a" name="ac8c4d6f823ffe5bd524fea85e90eb06a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8c4d6f823ffe5bd524fea85e90eb06a">&#9670;&#160;</a></span>isActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::isActive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the timer is running. </p>
+<p>This function checks if the timer is running.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer is running, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4b9fad3086c07e6a9204ef19d9bc1b21" name="a4b9fad3086c07e6a9204ef19d9bc1b21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b9fad3086c07e6a9204ef19d9bc1b21">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the timer. </p>
+<p>This function resets the timer. If the timer is running, it will be restarted.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully reset, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a0ac746bc2978d6ff72c9d54da3f4d5d9" name="a0ac746bc2978d6ff72c9d54da3f4d5d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ac746bc2978d6ff72c9d54da3f4d5d9">&#9670;&#160;</a></span>run()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="../../df/d17/a00231.html">Timer</a> * Lib::FreeRTOS::Timer::run </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::function&lt; void()&gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>period</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoReload</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates and starts a new Timer instance. </p>
+<p>This static method creates a new Timer instance, initializes it with the provided parameters, and starts the timer. If any step fails, an assertion is triggered.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>The name of the timer. </td></tr>
+    <tr><td class="paramname">func</td><td>The callback function to be executed when the timer expires. </td></tr>
+    <tr><td class="paramname">period</td><td>The period of the timer in ticks. Default is 1. </td></tr>
+    <tr><td class="paramname">autoReload</td><td>If true, the timer will automatically reload and restart when it expires. Default is true. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the newly created and started Timer instance. </dd></dl>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_cgraph.png" border="0" usemap="#adf/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_cgraph" alt=""/></div>
+<map name="adf/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_cgraph" id="adf/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_cgraph">
+<area shape="rect" title="Creates and starts a new Timer instance." alt="" coords="5,43,179,69"/>
+<area shape="rect" href="../../df/d17/a00231.html#afe787b1f6b5d8e2f703f529b04e14363" title="Default constructor for the Timer class." alt="" coords="422,5,569,48"/>
+<area shape="poly" title=" " alt="" coords="137,40,180,28,226,20,300,17,374,20,407,21,406,26,374,25,300,22,227,25,181,34,138,45"/>
+<area shape="rect" href="../../df/d17/a00231.html#aa443f8fb7e187643f5837f5e732dfe2b" title="Creates a new timer with the specified parameters." alt="" coords="227,35,374,77"/>
+<area shape="poly" title=" " alt="" coords="179,53,211,53,211,59,179,59"/>
+<area shape="rect" href="../../df/d17/a00231.html#a657e5d46b1b82f31333b628d75155ff9" title="Starts the timer." alt="" coords="227,101,374,144"/>
+<area shape="poly" title=" " alt="" coords="137,67,218,93,216,99,136,73"/>
+<area shape="poly" title=" " alt="" coords="374,42,406,37,407,43,375,48"/>
+</map>
+</div>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_icgraph.png" border="0" usemap="#adf/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_icgraph" alt=""/></div>
+<map name="adf/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_icgraph" id="adf/d17/a00231_a0ac746bc2978d6ff72c9d54da3f4d5d9_icgraph">
+<area shape="rect" title="Creates and starts a new Timer instance." alt="" coords="235,13,408,40"/>
+<area shape="rect" href="../../dd/df3/a00219.html#a97faebc461c45618e582a0bb63363010" title="Starts the TickService timer." alt="" coords="5,5,187,48"/>
+<area shape="poly" title=" " alt="" coords="219,29,187,29,187,24,219,24"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a7c72bda6aa33539429d7fa44123cb905" name="a7c72bda6aa33539429d7fa44123cb905"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c72bda6aa33539429d7fa44123cb905">&#9670;&#160;</a></span>setPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::setPeriod </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>period</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the period of the timer. </p>
+<p>This function sets the period of the timer. If the timer is running, it will be reset.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>The period of the timer in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the period was successfully set, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="aa97dd6b80c460b6f39cc157f52614ce9" name="aa97dd6b80c460b6f39cc157f52614ce9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa97dd6b80c460b6f39cc157f52614ce9">&#9670;&#160;</a></span>setPeriodFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::setPeriodFromISR </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>period</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the period of the timer from an ISR. </p>
+<p>This function sets the period of the timer from an Interrupt Service Routine (ISR).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>The period of the timer in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the period was successfully set, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="af3daf1a7bfc60db804fa7ffd40641ca3" name="af3daf1a7bfc60db804fa7ffd40641ca3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3daf1a7bfc60db804fa7ffd40641ca3">&#9670;&#160;</a></span>setReloadMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::FreeRTOS::Timer::setReloadMode </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoReload</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the timer from an ISR. </p>
+<p>This function resets the timer from an Interrupt Service Routine (ISR).</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully reset, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a657e5d46b1b82f31333b628d75155ff9" name="a657e5d46b1b82f31333b628d75155ff9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a657e5d46b1b82f31333b628d75155ff9">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::start </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DEFAULT_BLOCK_TIME</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer. </p>
+<p>This function starts the timer. If the timer is already running, it will be reset.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockTime</td><td>The maximum time to wait for the timer to start. Default is DEFAULT_BLOCK_TIME. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully started, false otherwise. </dd></dl>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-11-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../df/d17/a00231_a657e5d46b1b82f31333b628d75155ff9_icgraph.png" border="0" usemap="#adf/d17/a00231_a657e5d46b1b82f31333b628d75155ff9_icgraph" alt=""/></div>
+<map name="adf/d17/a00231_a657e5d46b1b82f31333b628d75155ff9_icgraph" id="adf/d17/a00231_a657e5d46b1b82f31333b628d75155ff9_icgraph">
+<area shape="rect" title="Starts the timer." alt="" coords="456,35,603,77"/>
+<area shape="rect" href="../../df/d17/a00231.html#a04a0ab44813262f22e6ddc38d8f5f1ea" title="Constructor for the Timer class." alt="" coords="248,5,395,48"/>
+<area shape="poly" title=" " alt="" coords="441,46,395,40,396,34,441,41"/>
+<area shape="rect" href="../../df/d17/a00231.html#a0ac746bc2978d6ff72c9d54da3f4d5d9" title="Creates and starts a new Timer instance." alt="" coords="235,72,408,99"/>
+<area shape="poly" title=" " alt="" coords="441,71,409,76,408,70,441,66"/>
+<area shape="rect" href="../../dd/df3/a00219.html#a97faebc461c45618e582a0bb63363010" title="Starts the TickService timer." alt="" coords="5,64,187,107"/>
+<area shape="poly" title=" " alt="" coords="219,88,187,88,187,83,219,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4c419b3692df60f0c579276b6a7737c5" name="a4c419b3692df60f0c579276b6a7737c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c419b3692df60f0c579276b6a7737c5">&#9670;&#160;</a></span>startFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::startFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer from an ISR. </p>
+<p>This function starts the timer from an Interrupt Service Routine (ISR).</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully started, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="af3c2744bbcd815754c6c7e5e63f68016" name="af3c2744bbcd815754c6c7e5e63f68016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c2744bbcd815754c6c7e5e63f68016">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::stop </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval">DEFAULT_BLOCK_TIME</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer. </p>
+<p>This function stops the timer. If the timer is not running, it has no effect.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockTime</td><td>The maximum time to wait for the timer to stop. Default is DEFAULT_BLOCK_TIME. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully stopped, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4570ba33aca8c20b1191e62f91aab092" name="a4570ba33aca8c20b1191e62f91aab092"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4570ba33aca8c20b1191e62f91aab092">&#9670;&#160;</a></span>stopFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::FreeRTOS::Timer::stopFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer from an ISR. </p>
+<p>This function stops the timer from an Interrupt Service Routine (ISR).</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the timer was successfully stopped, false otherwise. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d1/d88/a00128.html">Timer.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 24 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><b>Lib</b></li><li class="navelem"><a class="el" href="../../dd/db2/a00151.html">FreeRTOS</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">Timer</a></li>
+    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

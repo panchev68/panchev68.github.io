@@ -5,8 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: EventGroup</title>
-<link rel="icon" href="../../image-20230824174931809.png" type="image/x-icon" />
+<title>Lib::FreeRTOS: Lib::FreeRTOS::StreamBuffer Class Reference</title>
+<link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -27,11 +27,11 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../image-20230824174931809.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Lib::FreeRTOS<span id="projectnumber">&#160;6.00</span>
+   <div id="projectname">Lib::FreeRTOS<span id="projectnumber">&#160;ver: 6.01</span>
    </div>
-   <div id="projectbrief">Free RTOS C++ Wrapper</div>
+   <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
  </tr>
  </tbody>
@@ -99,83 +99,667 @@ $(function(){initNavTree('d8/d72/a00199.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">EventGroup</div></div>
+  <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="../../d7/ded/a00196.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::FreeRTOS::StreamBuffer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the EventGroup class to create and manage a FreeRTOS event group. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file EventGroup.cpp</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @brief EventGroup class example</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @version 1.0</span></div>
-<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the EventGroup class.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function demonstrates how to create, set, get, wait for, and clear bits in an event group.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create an EventGroup object</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d06/a00131.html">Lib::FreeRTOS::EventGroup</a> eventGroup;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create the event group</span></div>
-<div class="line">    <span class="keywordflow">if</span> (eventGroup.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a89eb1195dee2cb2b9ca34001dee08b96">create</a> ()) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Event group created successfully.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Set some bits in the event group</span></div>
-<div class="line">    Lib::FreeRTOS::EventBits bitsToSet;</div>
-<div class="line"> </div>
-<div class="line">    bitsToSet.set (0);  <span class="comment">// Set bit 0</span></div>
-<div class="line">    bitsToSet.set (1);  <span class="comment">// Set bit 1</span></div>
-<div class="line">    eventGroup.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/d06/a00131.html#abd5e7a9d70c53c7e7c66afc5d12de43d">setBits</a> (bitsToSet);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits set in event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Get the current bits in the event group</span></div>
-<div class="line">    Lib::FreeRTOS::EventBits currentBits = eventGroup.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a039ad5d0cfdd0268f0d5b3d16e64f47e">getBits</a> ();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current bits in event group: &quot;</span> &lt;&lt; currentBits &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for specific bits to be set</span></div>
-<div class="line">    Lib::FreeRTOS::EventBits bitsToWaitFor;</div>
-<div class="line">    bitsToWaitFor.set (0);  <span class="comment">// Wait for bit 0</span></div>
-<div class="line">    Lib::FreeRTOS::EventBits resultBits = eventGroup.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a72dd46a1c97d37b0e35c2b2857153d66">waitForBits</a> (bitsToWaitFor, <span class="keyword">true</span>, <span class="keyword">true</span>, 1000);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits after waiting: &quot;</span> &lt;&lt; resultBits &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Clear some bits in the event group</span></div>
-<div class="line">    Lib::FreeRTOS::EventBits bitsToClear;</div>
-<div class="line">    bitsToClear.set (1);  <span class="comment">// Clear bit 1</span></div>
-<div class="line">    eventGroup.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d7/d06/a00131.html#a2dc0fc601a6be926470359dd0a22b9e3">clearBits</a> (bitsToClear);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits cleared in event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the event group</span></div>
-<div class="line">    eventGroup.<a id="a6" name="a6"></a><a class="code hl_function" href="../../d7/d06/a00131.html#ac507c3531e056a4591fc14cb051ef3cb">release</a> ();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Event group released.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00131_html"><div class="ttname"><a href="../../d7/d06/a00131.html">Lib::FreeRTOS::EventGroup</a></div><div class="ttdoc">A class representing an event group in FreeRTOS.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:36</div></div>
-<div class="ttc" id="aa00131_html_a039ad5d0cfdd0268f0d5b3d16e64f47e"><div class="ttname"><a href="../../d7/d06/a00131.html#a039ad5d0cfdd0268f0d5b3d16e64f47e">Lib::FreeRTOS::EventGroup::getBits</a></div><div class="ttdeci">EventBits getBits() const</div><div class="ttdoc">Retrieves the current value of the event bits in the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:151</div></div>
-<div class="ttc" id="aa00131_html_a2dc0fc601a6be926470359dd0a22b9e3"><div class="ttname"><a href="../../d7/d06/a00131.html#a2dc0fc601a6be926470359dd0a22b9e3">Lib::FreeRTOS::EventGroup::clearBits</a></div><div class="ttdeci">EventBits clearBits(const EventBits &amp;bitsToClear)</div><div class="ttdoc">Clears the specified bits in the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:180</div></div>
-<div class="ttc" id="aa00131_html_a72dd46a1c97d37b0e35c2b2857153d66"><div class="ttname"><a href="../../d7/d06/a00131.html#a72dd46a1c97d37b0e35c2b2857153d66">Lib::FreeRTOS::EventGroup::waitForBits</a></div><div class="ttdeci">EventBits waitForBits(const EventBits &amp;bitsToWaitFor=0, bool clearOnExit=false, bool waitForAllBits=false, TickType ticksToWait=portMAX_DELAY) const</div><div class="ttdoc">Waits for one or more bits to be set within an event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:215</div></div>
-<div class="ttc" id="aa00131_html_a89eb1195dee2cb2b9ca34001dee08b96"><div class="ttname"><a href="../../d7/d06/a00131.html#a89eb1195dee2cb2b9ca34001dee08b96">Lib::FreeRTOS::EventGroup::create</a></div><div class="ttdeci">bool create()</div><div class="ttdoc">Creates an event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:75</div></div>
-<div class="ttc" id="aa00131_html_abd5e7a9d70c53c7e7c66afc5d12de43d"><div class="ttname"><a href="../../d7/d06/a00131.html#abd5e7a9d70c53c7e7c66afc5d12de43d">Lib::FreeRTOS::EventGroup::setBits</a></div><div class="ttdeci">EventBits setBits(const EventBits &amp;bitsToSet)</div><div class="ttdoc">Sets the specified bits in the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:113</div></div>
-<div class="ttc" id="aa00131_html_ac507c3531e056a4591fc14cb051ef3cb"><div class="ttname"><a href="../../d7/d06/a00131.html#ac507c3531e056a4591fc14cb051ef3cb">Lib::FreeRTOS::EventGroup::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Releases the event group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:97</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A C++ wrapper for FreeRTOS Stream Buffer. </p>
+<p>This class provides a RAII-style interface for managing FreeRTOS stream buffers. It ensures proper creation, usage, and deletion of stream buffers. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d35/a00266.html#_a0">StreamBuffer</a>.</dd>
+</dl>
+</div>
+<p><code>#include &lt;StreamBuffer.hpp&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::FreeRTOS::StreamBuffer:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../de/db1/a00197.png" border="0" usemap="#a_lib_1_1_free_r_t_o_s_1_1_stream_buffer_coll__map" alt="Collaboration graph"/></div>
+<map name="a_lib_1_1_free_r_t_o_s_1_1_stream_buffer_coll__map" id="a_lib_1_1_free_r_t_o_s_1_1_stream_buffer_coll__map">
+<area shape="rect" title="A C++ wrapper for FreeRTOS Stream Buffer." alt="" coords="5,5,187,288"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a9ce35559d183f678dc3af4bebd0ed7d4" id="r_a9ce35559d183f678dc3af4bebd0ed7d4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ce35559d183f678dc3af4bebd0ed7d4">Handle</a> = StreamBufferHandle_t</td></tr>
+<tr class="memdesc:a9ce35559d183f678dc3af4bebd0ed7d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for StreamBufferHandle_t.  <br /></td></tr>
+<tr class="separator:a9ce35559d183f678dc3af4bebd0ed7d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a986de1d1df5239f3282b4d0b4f24a51b" id="r_a986de1d1df5239f3282b4d0b4f24a51b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a986de1d1df5239f3282b4d0b4f24a51b">StreamBuffer</a> ()=default</td></tr>
+<tr class="memdesc:a986de1d1df5239f3282b4d0b4f24a51b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for the StreamBuffer class.  <br /></td></tr>
+<tr class="separator:a986de1d1df5239f3282b4d0b4f24a51b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e24ee0bf5ba9ab27b53a885de253791" id="r_a0e24ee0bf5ba9ab27b53a885de253791"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e24ee0bf5ba9ab27b53a885de253791">~StreamBuffer</a> ()</td></tr>
+<tr class="memdesc:a0e24ee0bf5ba9ab27b53a885de253791"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the StreamBuffer class.  <br /></td></tr>
+<tr class="separator:a0e24ee0bf5ba9ab27b53a885de253791"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46cd7db63b4b2312d1f8769a5b18da93" id="r_a46cd7db63b4b2312d1f8769a5b18da93"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46cd7db63b4b2312d1f8769a5b18da93">create</a> (size_t bufferSize, size_t triggerLevel)</td></tr>
+<tr class="memdesc:a46cd7db63b4b2312d1f8769a5b18da93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new stream buffer using dynamically allocated memory.  <br /></td></tr>
+<tr class="separator:a46cd7db63b4b2312d1f8769a5b18da93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ee41b161b53572582929c527cdd1968" id="r_a7ee41b161b53572582929c527cdd1968"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ee41b161b53572582929c527cdd1968">destroy</a> ()</td></tr>
+<tr class="memdesc:a7ee41b161b53572582929c527cdd1968"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the stream buffer.  <br /></td></tr>
+<tr class="separator:a7ee41b161b53572582929c527cdd1968"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1964ea313a49c3231e60ea15469ef5ab" id="r_a1964ea313a49c3231e60ea15469ef5ab"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1964ea313a49c3231e60ea15469ef5ab">send</a> (const void *src, size_t len, uint32_t ticksToWait)</td></tr>
+<tr class="memdesc:a1964ea313a49c3231e60ea15469ef5ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to the stream buffer.  <br /></td></tr>
+<tr class="separator:a1964ea313a49c3231e60ea15469ef5ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac79ca9feb2e05f02b324219a571e79a5" id="r_ac79ca9feb2e05f02b324219a571e79a5"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac79ca9feb2e05f02b324219a571e79a5">sendFromISR</a> (const void *src, size_t len)</td></tr>
+<tr class="memdesc:ac79ca9feb2e05f02b324219a571e79a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to the stream buffer from an ISR.  <br /></td></tr>
+<tr class="separator:ac79ca9feb2e05f02b324219a571e79a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeee0b648073b6bd01373c750c324653b" id="r_aeee0b648073b6bd01373c750c324653b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeee0b648073b6bd01373c750c324653b">receive</a> (void *dst, size_t len, uint32_t ticksToWait)</td></tr>
+<tr class="memdesc:aeee0b648073b6bd01373c750c324653b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the stream buffer.  <br /></td></tr>
+<tr class="separator:aeee0b648073b6bd01373c750c324653b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2318a48f2341571ed46c4ecb2671537b" id="r_a2318a48f2341571ed46c4ecb2671537b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2318a48f2341571ed46c4ecb2671537b">receiveFromISR</a> (void *dst, size_t len)</td></tr>
+<tr class="memdesc:a2318a48f2341571ed46c4ecb2671537b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives a message from the stream buffer in an ISR context.  <br /></td></tr>
+<tr class="separator:a2318a48f2341571ed46c4ecb2671537b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6ba5acfc1558a7838dec80b8ee34ef0" id="r_af6ba5acfc1558a7838dec80b8ee34ef0"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6ba5acfc1558a7838dec80b8ee34ef0">getBytesAvailable</a> () const</td></tr>
+<tr class="memdesc:af6ba5acfc1558a7838dec80b8ee34ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes available in the stream buffer.  <br /></td></tr>
+<tr class="separator:af6ba5acfc1558a7838dec80b8ee34ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa274f35053d848a7a045a75a39d13742" id="r_aa274f35053d848a7a045a75a39d13742"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa274f35053d848a7a045a75a39d13742">getSpacesAvailable</a> () const</td></tr>
+<tr class="memdesc:aa274f35053d848a7a045a75a39d13742"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of spaces available in the stream buffer.  <br /></td></tr>
+<tr class="separator:aa274f35053d848a7a045a75a39d13742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d2741e023f31a9d2c9294ce0b6842c8" id="r_a3d2741e023f31a9d2c9294ce0b6842c8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d2741e023f31a9d2c9294ce0b6842c8">setTriggerLevel</a> (size_t triger_level)</td></tr>
+<tr class="memdesc:a3d2741e023f31a9d2c9294ce0b6842c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the trigger level for the stream buffer.  <br /></td></tr>
+<tr class="separator:a3d2741e023f31a9d2c9294ce0b6842c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86e319a0315fc87966c9c43f1e74b246" id="r_a86e319a0315fc87966c9c43f1e74b246"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a86e319a0315fc87966c9c43f1e74b246">reset</a> ()</td></tr>
+<tr class="memdesc:a86e319a0315fc87966c9c43f1e74b246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the stream buffer.  <br /></td></tr>
+<tr class="separator:a86e319a0315fc87966c9c43f1e74b246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d938a1272b841d6f97916a0bb2cfd4a" id="r_a4d938a1272b841d6f97916a0bb2cfd4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d938a1272b841d6f97916a0bb2cfd4a">isEmpty</a> () const</td></tr>
+<tr class="memdesc:a4d938a1272b841d6f97916a0bb2cfd4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the stream buffer is empty.  <br /></td></tr>
+<tr class="separator:a4d938a1272b841d6f97916a0bb2cfd4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1854f3342eb9bf8c09a2f0ddc26be69" id="r_ad1854f3342eb9bf8c09a2f0ddc26be69"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1854f3342eb9bf8c09a2f0ddc26be69">isFull</a> () const</td></tr>
+<tr class="memdesc:ad1854f3342eb9bf8c09a2f0ddc26be69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the stream buffer is full.  <br /></td></tr>
+<tr class="separator:ad1854f3342eb9bf8c09a2f0ddc26be69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a5de86bc7d1fbed191a5f852a4e2b46" id="r_a2a5de86bc7d1fbed191a5f852a4e2b46"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a5de86bc7d1fbed191a5f852a4e2b46">operator Handle &amp;</a> ()</td></tr>
+<tr class="memdesc:a2a5de86bc7d1fbed191a5f852a4e2b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to return a reference to the internal handle.  <br /></td></tr>
+<tr class="separator:a2a5de86bc7d1fbed191a5f852a4e2b46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e790af37fe33a98b7aa6b3cb1a542b6" id="r_a4e790af37fe33a98b7aa6b3cb1a542b6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e790af37fe33a98b7aa6b3cb1a542b6">isCreated</a> () const</td></tr>
+<tr class="memdesc:a4e790af37fe33a98b7aa6b3cb1a542b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the stream buffer has been successfully created.  <br /></td></tr>
+<tr class="separator:a4e790af37fe33a98b7aa6b3cb1a542b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a9ce35559d183f678dc3af4bebd0ed7d4" name="a9ce35559d183f678dc3af4bebd0ed7d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ce35559d183f678dc3af4bebd0ed7d4">&#9670;&#160;</a></span>Handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a9ce35559d183f678dc3af4bebd0ed7d4">Lib::FreeRTOS::StreamBuffer::Handle</a> = StreamBufferHandle_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Alias for StreamBufferHandle_t. </p>
+<p>This type alias is used to simplify the usage of StreamBufferHandle_t within the code. It represents a handle to a stream buffer in FreeRTOS. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a986de1d1df5239f3282b4d0b4f24a51b" name="a986de1d1df5239f3282b4d0b4f24a51b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a986de1d1df5239f3282b4d0b4f24a51b">&#9670;&#160;</a></span>StreamBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::FreeRTOS::StreamBuffer::StreamBuffer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default constructor for the StreamBuffer class. </p>
+<p>This constructor initializes the stream buffer handle to nullptr. </p>
+
+</div>
+</div>
+<a id="a0e24ee0bf5ba9ab27b53a885de253791" name="a0e24ee0bf5ba9ab27b53a885de253791"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e24ee0bf5ba9ab27b53a885de253791">&#9670;&#160;</a></span>~StreamBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::FreeRTOS::StreamBuffer::~StreamBuffer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor for the StreamBuffer class. </p>
+<p>This destructor ensures that the stream buffer is properly destroyed before the object is destroyed. It uses an assertion to check that the stream buffer is not created at the time of destruction. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a46cd7db63b4b2312d1f8769a5b18da93" name="a46cd7db63b4b2312d1f8769a5b18da93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46cd7db63b4b2312d1f8769a5b18da93">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::StreamBuffer::create </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bufferSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>triggerLevel</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new stream buffer using dynamically allocated memory. </p>
+<p>This function creates a new stream buffer using dynamically allocated memory. The stream buffer will be able to hold messages of the specified size.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bufferSize</td><td>The size of the stream buffer in bytes. </td></tr>
+    <tr><td class="paramname">triggerLevel</td><td>The trigger level for the stream buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the stream buffer was created successfully, false otherwise. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d35/a00266.html#a1">StreamBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a7ee41b161b53572582929c527cdd1968" name="a7ee41b161b53572582929c527cdd1968"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee41b161b53572582929c527cdd1968">&#9670;&#160;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::FreeRTOS::StreamBuffer::destroy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the stream buffer. </p>
+<p>This function deletes the stream buffer if it has been created and sets the handle to nullptr. It ensures that the resources associated with the stream buffer are properly released. </p>
+
+</div>
+</div>
+<a id="af6ba5acfc1558a7838dec80b8ee34ef0" name="af6ba5acfc1558a7838dec80b8ee34ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6ba5acfc1558a7838dec80b8ee34ef0">&#9670;&#160;</a></span>getBytesAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::FreeRTOS::StreamBuffer::getBytesAvailable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of bytes available in the stream buffer. </p>
+<p>This function returns the number of bytes available in the stream buffer.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes available in the stream buffer.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null. </dd></dl>
+
+</div>
+</div>
+<a id="aa274f35053d848a7a045a75a39d13742" name="aa274f35053d848a7a045a75a39d13742"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa274f35053d848a7a045a75a39d13742">&#9670;&#160;</a></span>getSpacesAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::FreeRTOS::StreamBuffer::getSpacesAvailable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of spaces available in the stream buffer. </p>
+<p>This function returns the number of spaces available in the stream buffer.</p>
+<dl class="section return"><dt>Returns</dt><dd>The number of spaces available in the stream buffer.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null. </dd></dl>
+
+</div>
+</div>
+<a id="a4e790af37fe33a98b7aa6b3cb1a542b6" name="a4e790af37fe33a98b7aa6b3cb1a542b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e790af37fe33a98b7aa6b3cb1a542b6">&#9670;&#160;</a></span>isCreated()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::StreamBuffer::isCreated </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the stream buffer has been successfully created. </p>
+<p>This function returns a boolean value indicating whether the stream buffer has been created. It checks if the internal handle is not a null pointer.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the stream buffer is created, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4d938a1272b841d6f97916a0bb2cfd4a" name="a4d938a1272b841d6f97916a0bb2cfd4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d938a1272b841d6f97916a0bb2cfd4a">&#9670;&#160;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::StreamBuffer::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the stream buffer is empty. </p>
+<p>This function checks if the stream buffer is empty.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the stream buffer is empty, false otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null. </dd></dl>
+
+</div>
+</div>
+<a id="ad1854f3342eb9bf8c09a2f0ddc26be69" name="ad1854f3342eb9bf8c09a2f0ddc26be69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1854f3342eb9bf8c09a2f0ddc26be69">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::StreamBuffer::isFull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the stream buffer is full. </p>
+<p>This function checks if the stream buffer is full.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the stream buffer is full, false otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null. </dd></dl>
+
+</div>
+</div>
+<a id="a2a5de86bc7d1fbed191a5f852a4e2b46" name="a2a5de86bc7d1fbed191a5f852a4e2b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5de86bc7d1fbed191a5f852a4e2b46">&#9670;&#160;</a></span>operator Handle &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::FreeRTOS::StreamBuffer::operator <a class="el" href="#a9ce35559d183f678dc3af4bebd0ed7d4">Handle</a> &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion operator to return a reference to the internal handle. </p>
+<p>This operator allows the StreamBuffer object to be implicitly converted to a reference to its internal Handle object. This can be useful when you need to pass the handle to functions that require a Handle reference.</p>
+<dl class="section return"><dt>Returns</dt><dd>Handle&amp; Reference to the internal handle. </dd></dl>
+
+</div>
+</div>
+<a id="aeee0b648073b6bd01373c750c324653b" name="aeee0b648073b6bd01373c750c324653b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeee0b648073b6bd01373c750c324653b">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::FreeRTOS::StreamBuffer::receive </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ticksToWait</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receives a message from the stream buffer. </p>
+<p>This function attempts to receive a message from the stream buffer. It will block for the specified number of ticks if no message is immediately available.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>Pointer to the buffer where the received message will be stored. </td></tr>
+    <tr><td class="paramname">len</td><td>The length of the buffer pointed to by dst. </td></tr>
+    <tr><td class="paramname">ticksToWait</td><td>The maximum amount of time (in ticks) to wait for a message to become available.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes received, or 0 if no message was received within the specified time.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null, the destination buffer is not null, and the length is non-zero. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d35/a00266.html#a3">StreamBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a2318a48f2341571ed46c4ecb2671537b" name="a2318a48f2341571ed46c4ecb2671537b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2318a48f2341571ed46c4ecb2671537b">&#9670;&#160;</a></span>receiveFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::FreeRTOS::StreamBuffer::receiveFromISR </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dst</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receives a message from the stream buffer in an ISR context. </p>
+<p>This function attempts to receive a message from the stream buffer in an interrupt service routine (ISR) context. It will not block and will return immediately if no message is available.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dst</td><td>Pointer to the buffer where the received message will be stored. </td></tr>
+    <tr><td class="paramname">len</td><td>The length of the buffer pointed to by dst.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes received, or 0 if no message was received.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null, the destination buffer is not null, and the length is non-zero. </dd></dl>
+
+</div>
+</div>
+<a id="a86e319a0315fc87966c9c43f1e74b246" name="a86e319a0315fc87966c9c43f1e74b246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86e319a0315fc87966c9c43f1e74b246">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::StreamBuffer::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the stream buffer. </p>
+<p>This function resets the stream buffer to its initial empty state. It asserts that the stream buffer handle is not null before attempting to reset the buffer.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the stream buffer was successfully reset, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a1964ea313a49c3231e60ea15469ef5ab" name="a1964ea313a49c3231e60ea15469ef5ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1964ea313a49c3231e60ea15469ef5ab">&#9670;&#160;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::FreeRTOS::StreamBuffer::send </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ticksToWait</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a message to the stream buffer. </p>
+<p>This function sends a message to the stream buffer. The message is copied from the memory pointed to by <code>src</code> and has a length of <code>len</code> bytes. The function will block for up to <code>ticksToWait</code> ticks if there is not enough space in the buffer to hold the message.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>Pointer to the message to be sent. </td></tr>
+    <tr><td class="paramname">len</td><td>Length of the message in bytes. </td></tr>
+    <tr><td class="paramname">ticksToWait</td><td>Maximum number of ticks to wait for space to become available in the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes actually sent to the buffer, which will be equal to <code>len</code> if the message was sent successfully, or 0 if the message could not be sent within the specified wait time.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null, that the source pointer is valid, and that the message length is greater than 0. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d5/d35/a00266.html#a2">StreamBuffer</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="ac79ca9feb2e05f02b324219a571e79a5" name="ac79ca9feb2e05f02b324219a571e79a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac79ca9feb2e05f02b324219a571e79a5">&#9670;&#160;</a></span>sendFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::FreeRTOS::StreamBuffer::sendFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a message to the stream buffer from an ISR. </p>
+<p>This function sends a message to the stream buffer from an interrupt service routine (ISR). The message is copied from the memory pointed to by <code>src</code> and has a length of <code>len</code> bytes. The function will not block and will return immediately if there is not enough space in the buffer to hold the message.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>Pointer to the message to be sent. </td></tr>
+    <tr><td class="paramname">len</td><td>Length of the message in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The number of bytes actually sent to the buffer, which will be equal to <code>len</code> if the message was sent successfully, or 0 if the message could not be sent.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null, that the source pointer is valid, and that the message length is greater than 0. </dd></dl>
+
+</div>
+</div>
+<a id="a3d2741e023f31a9d2c9294ce0b6842c8" name="a3d2741e023f31a9d2c9294ce0b6842c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d2741e023f31a9d2c9294ce0b6842c8">&#9670;&#160;</a></span>setTriggerLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::StreamBuffer::setTriggerLevel </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>triger_level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the trigger level for the stream buffer. </p>
+<p>This function sets the trigger level for the stream buffer. The trigger level is the number of bytes that must be available in the buffer before a task that is blocked on the buffer is unblocked.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">triger_level</td><td>The trigger level for the stream buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the trigger level was successfully set, false otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This function asserts that the stream buffer handle is not null. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d4/d81/a00110.html">StreamBuffer.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jan 11 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><b>Lib</b></li><li class="navelem"><a class="el" href="../../dd/db2/a00151.html">FreeRTOS</a></li><li class="navelem"><a class="el" href="../../d8/d72/a00199.html">StreamBuffer</a></li>
+    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

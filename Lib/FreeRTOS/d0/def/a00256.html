@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Tick</title>
+<title>Lib::FreeRTOS: Mutex</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,46 +99,58 @@ $(function(){initNavTree('d0/def/a00256.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Tick</div></div>
+  <div class="headertitle"><div class="title">Mutex</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This example demonstrates how to use the Tick class to manage tick events in the FreeRTOS environment. It shows how to create a client that handles tick events and register it with the Tick class. The example also demonstrates how to start the tick event handling and receive tick events. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<p>This example demonstrates the usage of a mutex in FreeRTOS. It creates a mutex, takes it, enters a critical section, and then gives and releases the mutex. It prints messages to the standard output to indicate the status of each operation.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Mutex.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function to demonstrate the Tick class.</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in FreeRTOS.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function demonstrates how to use the Tick class to manage tick events in the FreeRTOS environment.</span></div>
-<div class="line"><span class="comment"> * It creates an instance of the Tick class, registers a client to handle tick events, and starts the tick event handling.</span></div>
+<div class="line"><span class="comment"> * This function creates a mutex, takes it, enters a critical section,</span></div>
+<div class="line"><span class="comment"> * and then gives and releases the mutex. It prints messages to the</span></div>
+<div class="line"><span class="comment"> * standard output to indicate the status of each operation.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int The exit status of the application.</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="keyword">auto</span> &amp; tick = <a id="a0" name="a0"></a><a class="code hl_function" href="../../dc/d31/a00208.html#a9ead19a95d18cb52dcae35483e572126">Lib::FreeRTOS::Tick::getInstance</a> ();</div>
+<div class="line">    <span class="comment">// Create a mutex</span></div>
+<div class="line">    FreeRTOS::Mutex mutex;</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.create ()) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create mutex&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// Lock the mutex</span></div>
+<div class="line">    mutex.lock ();</div>
 <div class="line"> </div>
-<div class="line">    tick.start ();</div>
-<div class="line">    MyTickClient client;</div>
-<div class="line">    <span class="comment">// Register the client to receive tick events</span></div>
-<div class="line">    <span class="keywordflow">if</span> (tick.registerClient (&amp;client)) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Client registered successfully.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Failed to register client.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    }</div>
-<div class="line">    <span class="comment">// Unregister the client to stop receiving tick events</span></div>
-<div class="line">    <span class="keywordflow">if</span> (tick.unregisterClient (&amp;client)) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Client unregistered successfully.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Failed to unregister client.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex taken, entering critical section&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Unlock the mutex</span></div>
+<div class="line">    mutex.unlock ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Exit critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex given, exiting critical section&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Destroy the mutex</span></div>
+<div class="line">    mutex.destroy ();</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00208_html_a9ead19a95d18cb52dcae35483e572126"><div class="ttname"><a href="../../dc/d31/a00208.html#a9ead19a95d18cb52dcae35483e572126">Lib::FreeRTOS::Tick::getInstance</a></div><div class="ttdeci">static Tick &amp; getInstance()</div><div class="ttdoc">Singleton accessor for the Tick class.</div><div class="ttdef"><b>Definition</b> Tick.hpp:107</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Feb 4 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

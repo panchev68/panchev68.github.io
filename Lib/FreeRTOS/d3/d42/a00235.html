@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Queue</title>
+<title>Lib::FreeRTOS: Lib::FreeRTOS::Timer::Config Struct Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,73 +99,110 @@ $(function(){initNavTree('d3/d42/a00235.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Queue</div></div>
+  <div class="summary">
+<a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="../../d0/d53/a00232.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">Lib::FreeRTOS::Timer::Config Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This example demonstrates how to use the Queue class to create, send, and receive messages using FreeRTOS. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file Queue.cpp</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @brief Queue class definition</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @version 1.0</span></div>
-<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d1/dc1/a00092.html">Queue.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a FreeRTOS queue.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function creates a queue for integers with a length of 5, sends a message to the queue,</span></div>
-<div class="line"><span class="comment"> * receives a message from the queue, and prints the received message to the standard output.</span></div>
-<div class="line"><span class="comment"> * If any operation fails, an error message is printed to the standard error output and the</span></div>
-<div class="line"><span class="comment"> * program returns -1.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create a queue for integers with a length of 5</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../de/d53/a00169.html">Lib::FreeRTOS::Queue&lt;int, 5&gt;</a> queue;</div>
-<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a1" name="a1"></a><a class="code hl_function" href="../../de/d53/a00169.html#ab1f118805f404fcc5fc7373a93594009">create</a> ()) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create queue&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Send a message to the queue</span></div>
-<div class="line">    <span class="keywordtype">int</span> message = 42;</div>
-<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a2" name="a2"></a><a class="code hl_function" href="../../de/d53/a00169.html#a12072c8a458156c078eef3381f3e68b8">send</a> (message, 100)) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to send message to queue&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Receive a message from the queue</span></div>
-<div class="line">    <span class="keywordtype">int</span> receivedMessage;</div>
-<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a3" name="a3"></a><a class="code hl_function" href="../../de/d53/a00169.html#a758441a1968feda77ebb998dfdc4619a">receive</a> (receivedMessage, 100)) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message from queue&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; receivedMessage &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the queue</span></div>
-<div class="line">    queue.<a id="a4" name="a4"></a><a class="code hl_function" href="../../de/d53/a00169.html#a1e1db42d6e77a1c611e5a303083e934c">release</a> ();</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00092_html"><div class="ttname"><a href="../../d1/dc1/a00092.html">Queue.hpp</a></div><div class="ttdoc">This file contains the definition of the Queue class template for FreeRTOS.</div></div>
-<div class="ttc" id="aa00169_html"><div class="ttname"><a href="../../de/d53/a00169.html">Lib::FreeRTOS::Queue</a></div><div class="ttdoc">A wrapper class for FreeRTOS queue operations.</div><div class="ttdef"><b>Definition</b> Queue.hpp:29</div></div>
-<div class="ttc" id="aa00169_html_a12072c8a458156c078eef3381f3e68b8"><div class="ttname"><a href="../../de/d53/a00169.html#a12072c8a458156c078eef3381f3e68b8">Lib::FreeRTOS::Queue::send</a></div><div class="ttdeci">virtual bool send(const T &amp;src, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:201</div></div>
-<div class="ttc" id="aa00169_html_a1e1db42d6e77a1c611e5a303083e934c"><div class="ttname"><a href="../../de/d53/a00169.html#a1e1db42d6e77a1c611e5a303083e934c">Lib::FreeRTOS::Queue::release</a></div><div class="ttdeci">virtual void release()</div><div class="ttdoc">Releases the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:98</div></div>
-<div class="ttc" id="aa00169_html_a758441a1968feda77ebb998dfdc4619a"><div class="ttname"><a href="../../de/d53/a00169.html#a758441a1968feda77ebb998dfdc4619a">Lib::FreeRTOS::Queue::receive</a></div><div class="ttdeci">virtual bool receive(T &amp;dst, uint32_t ticksToWait) const</div><div class="ttdoc">Receives a message from the queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:129</div></div>
-<div class="ttc" id="aa00169_html_ab1f118805f404fcc5fc7373a93594009"><div class="ttname"><a href="../../de/d53/a00169.html#ab1f118805f404fcc5fc7373a93594009">Lib::FreeRTOS::Queue::create</a></div><div class="ttdeci">virtual bool create()</div><div class="ttdoc">Creates a new queue using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> Queue.hpp:66</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Configuration structure for a timer. </p>
+<p>This structure holds the configuration parameters for a timer. </p>
+</div>
+<p><code>#include &lt;Timer.hpp&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for Lib::FreeRTOS::Timer::Config:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d6/de1/a00233.png" border="0" usemap="#a_lib_1_1_free_r_t_o_s_1_1_timer_1_1_config_coll__map" alt="Collaboration graph"/></div>
+<map name="a_lib_1_1_free_r_t_o_s_1_1_timer_1_1_config_coll__map" id="a_lib_1_1_free_r_t_o_s_1_1_timer_1_1_config_coll__map">
+<area shape="rect" title="Configuration structure for a timer." alt="" coords="5,5,144,155"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:abbaf6e685702546abd307b8f61e0097e" id="r_abbaf6e685702546abd307b8f61e0097e"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbaf6e685702546abd307b8f61e0097e">name</a></td></tr>
+<tr class="separator:abbaf6e685702546abd307b8f61e0097e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dfb5c358613b4bc7a8e71067734b92a" id="r_a8dfb5c358613b4bc7a8e71067734b92a"><td class="memItemLeft" align="right" valign="top">const std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8dfb5c358613b4bc7a8e71067734b92a">func</a></td></tr>
+<tr class="separator:a8dfb5c358613b4bc7a8e71067734b92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2efaeed1879a053a585ed05adef8eba9" id="r_a2efaeed1879a053a585ed05adef8eba9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2efaeed1879a053a585ed05adef8eba9">period</a></td></tr>
+<tr class="separator:a2efaeed1879a053a585ed05adef8eba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5c33d97089332a4d25af41a2c8041b9" id="r_ac5c33d97089332a4d25af41a2c8041b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5c33d97089332a4d25af41a2c8041b9">autoReload</a> = true</td></tr>
+<tr class="separator:ac5c33d97089332a4d25af41a2c8041b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac5c33d97089332a4d25af41a2c8041b9" name="ac5c33d97089332a4d25af41a2c8041b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c33d97089332a4d25af41a2c8041b9">&#9670;&#160;</a></span>autoReload</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::FreeRTOS::Timer::Config::autoReload = true</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Flag indicating if the timer should auto-reload. </p>
+
+</div>
+</div>
+<a id="a8dfb5c358613b4bc7a8e71067734b92a" name="a8dfb5c358613b4bc7a8e71067734b92a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dfb5c358613b4bc7a8e71067734b92a">&#9670;&#160;</a></span>func</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::function&lt;void ()&gt; Lib::FreeRTOS::Timer::Config::func</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The function to be executed by the timer. </p>
+
+</div>
+</div>
+<a id="abbaf6e685702546abd307b8f61e0097e" name="abbaf6e685702546abd307b8f61e0097e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbaf6e685702546abd307b8f61e0097e">&#9670;&#160;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Lib::FreeRTOS::Timer::Config::name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The name of the timer. </p>
+
+</div>
+</div>
+<a id="a2efaeed1879a053a585ed05adef8eba9" name="a2efaeed1879a053a585ed05adef8eba9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2efaeed1879a053a585ed05adef8eba9">&#9670;&#160;</a></span>period</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::FreeRTOS::Timer::Config::period</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>The period of the timer in ticks. </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d1/d88/a00128.html">Timer.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 24 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="navelem"><b>Lib</b></li><li class="navelem"><a class="el" href="../../dd/db2/a00151.html">FreeRTOS</a></li><li class="navelem"><a class="el" href="../../df/d17/a00231.html">Timer</a></li><li class="navelem"><a class="el" href="../../d3/d42/a00235.html">Config</a></li>
+    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

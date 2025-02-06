@@ -1,6 +1,6 @@
 var dir_bfccd401955b95cf8c75461437045ac0 =
 [
-    [ "CoRoutine.hpp", "d1/d09/a00077.html", null ],
+    [ "CoRoutine.hpp", "d1/d09/a00077.html", "d1/d09/a00077" ],
     [ "EventGroup.hpp", "da/dec/a00080.html", "da/dec/a00080" ],
     [ "Karnel.hpp", "d2/d1f/a00083.html", "d2/d1f/a00083" ],
     [ "MemoryManager.hpp", "da/d2a/a00086.html", "da/d2a/a00086" ],
@@ -14,7 +14,8 @@ var dir_bfccd401955b95cf8c75461437045ac0 =
     [ "StreamBuffer.hpp", "d4/d81/a00110.html", "d4/d81/a00110" ],
     [ "Task.hpp", "d3/d00/a00113.html", "d3/d00/a00113" ],
     [ "TaskHelper.hpp", "d4/d3e/a00116.html", "d4/d3e/a00116" ],
-    [ "Tick.hpp", "df/d6a/a00119.html", "df/d6a/a00119" ],
-    [ "Timeout.hpp", "df/dc8/a00122.html", "df/dc8/a00122" ],
-    [ "Timer.hpp", "dc/dfe/a00125.html", "dc/dfe/a00125" ]
+    [ "TickCounter.hpp", "df/d6a/a00119.html", "df/d6a/a00119" ],
+    [ "TickService.hpp", "df/dc8/a00122.html", "df/dc8/a00122" ],
+    [ "Timeout.hpp", "dc/dfe/a00125.html", "dc/dfe/a00125" ],
+    [ "Timer.hpp", "d1/d88/a00128.html", "d1/d88/a00128" ]
 ];

@@ -1,25 +1,27 @@
 var hierarchy =
 [
-    [ "Lib::FreeRTOS::Tick::ClientBase", "dd/dc1/a00212.html", null ],
-    [ "Lib::FreeRTOS::Task::Config", "d3/db1/a00200.html", null ],
-    [ "Lib::FreeRTOS::Timer::Config", "d5/ddf/a00224.html", null ],
-    [ "Lib::FreeRTOS::EventGroup", "d7/d9a/a00152.html", null ],
-    [ "Lib::FreeRTOS::Karnel", "d2/d34/a00156.html", null ],
-    [ "Lib::FreeRTOS::MemoryManager", "de/d38/a00160.html", null ],
-    [ "Lib::FreeRTOS::MessageBuffer", "db/ddf/a00164.html", null ],
-    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "d6/dfb/a00172.html", null ],
-    [ "Lib::FreeRTOS::QueueSet", "d5/de9/a00176.html", null ],
-    [ "Lib::FreeRTOS::SemaphoreBase", "d2/d94/a00184.html", [
-      [ "Lib::FreeRTOS::Mutex", "dd/da7/a00168.html", null ],
-      [ "Lib::FreeRTOS::Semaphore", "d0/d81/a00180.html", null ],
-      [ "Lib::FreeRTOS::SemaphoreCounting", "da/d15/a00188.html", null ]
+    [ "Lib::FreeRTOS::TickService::ClientBase", "dc/d28/a00223.html", null ],
+    [ "Lib::FreeRTOS::Task::Config", "de/dd2/a00207.html", null ],
+    [ "Lib::FreeRTOS::Timer::Config", "d3/d42/a00235.html", null ],
+    [ "Lib::FreeRTOS::CoRoutine", "d3/df8/a00155.html", null ],
+    [ "Lib::FreeRTOS::EventGroup", "de/db9/a00159.html", null ],
+    [ "Lib::FreeRTOS::Karnel", "dd/dae/a00163.html", null ],
+    [ "Lib::FreeRTOS::MemoryManager", "dc/de6/a00167.html", null ],
+    [ "Lib::FreeRTOS::MessageBuffer", "d1/d0d/a00171.html", null ],
+    [ "Lib::FreeRTOS::Queue< T, T_QUEUE_LEN >", "db/dd9/a00179.html", null ],
+    [ "Lib::FreeRTOS::QueueSet", "dc/d52/a00183.html", null ],
+    [ "Lib::FreeRTOS::SemaphoreBase", "d9/dd0/a00191.html", [
+      [ "Lib::FreeRTOS::Mutex", "de/d45/a00175.html", null ],
+      [ "Lib::FreeRTOS::Semaphore", "d6/daa/a00187.html", null ],
+      [ "Lib::FreeRTOS::SemaphoreCounting", "d3/d2a/a00195.html", null ]
     ] ],
-    [ "SemaphoreBase", "de/dc2/a00228.html", null ],
-    [ "Lib::FreeRTOS::StreamBuffer", "dd/da2/a00192.html", null ],
-    [ "Lib::FreeRTOS::TaskHelper", "d1/d72/a00204.html", [
-      [ "Lib::FreeRTOS::Task", "d7/ded/a00196.html", null ]
+    [ "SemaphoreBase", "d0/d27/a00239.html", null ],
+    [ "Lib::FreeRTOS::StreamBuffer", "d8/d72/a00199.html", null ],
+    [ "Lib::FreeRTOS::TaskHelper", "dd/ded/a00211.html", [
+      [ "Lib::FreeRTOS::Task", "de/d79/a00203.html", null ]
     ] ],
-    [ "Lib::FreeRTOS::Tick", "dc/d31/a00208.html", null ],
-    [ "Lib::FreeRTOS::Timeout", "d6/d43/a00216.html", null ],
-    [ "Lib::FreeRTOS::Timer", "d5/d0b/a00220.html", null ]
+    [ "Lib::FreeRTOS::TickCounter", "d3/dd5/a00215.html", null ],
+    [ "Lib::FreeRTOS::TickService", "dd/df3/a00219.html", null ],
+    [ "Lib::FreeRTOS::Timeout", "d9/d01/a00227.html", null ],
+    [ "Lib::FreeRTOS::Timer", "df/d17/a00231.html", null ]
 ];

@@ -1,15 +1,16 @@
 var a00187 =
 [
-    [ "Timeout", "d6/daa/a00187.html#a8c7119d3f819b0b73a98eec114c0d30b", null ],
-    [ "Timeout", "d6/daa/a00187.html#a19ae87d13f16e5a7baabe2b161413651", null ],
-    [ "~Timeout", "d6/daa/a00187.html#a4f2dfba861c373b6540e469c308f08b7", null ],
-    [ "check", "d6/daa/a00187.html#a90af82736388b26add41da3886a12390", null ],
-    [ "disable", "d6/daa/a00187.html#ae6a7d021b68b53dfcd6a3f9c6566ddde", null ],
-    [ "isDisable", "d6/daa/a00187.html#a4b231b1cb4d749accbd86790c9d064c6", null ],
-    [ "operator uint32_t", "d6/daa/a00187.html#a9822fb66e6f856de108727f9916fcd00", null ],
-    [ "operator+=", "d6/daa/a00187.html#a2ed5bd685dddcae99312a5893457162a", null ],
-    [ "operator-=", "d6/daa/a00187.html#a18796545c784b2e175cb6c893734d708", null ],
-    [ "operator=", "d6/daa/a00187.html#a27a548cf01dc334119cb8cd0d0317ba6", null ],
-    [ "operator==", "d6/daa/a00187.html#ab484ff778a0d1e45ef84fbb96d970a52", null ],
-    [ "set", "d6/daa/a00187.html#a3dbcd64ec31d965a0222cd69a7bae477", null ]
+    [ "Handle", "d6/daa/a00187.html#ac80d3786cef88222f14f12823eec8d2c", null ],
+    [ "Semaphore", "d6/daa/a00187.html#a63aeaf529966e505291afed03a11fda5", null ],
+    [ "~Semaphore", "d6/daa/a00187.html#a962b0e87eeae50b7a2b245050628d911", null ],
+    [ "create", "d6/daa/a00187.html#aa094fa83e5e9c385fa79de95cb2094d9", null ],
+    [ "destroy", "d6/daa/a00187.html#a8b62c5a1c6b7b7a3597746fdee680dc4", null ],
+    [ "give", "d6/daa/a00187.html#a2121df27f97694ff8972147e3e4c99f6", null ],
+    [ "giveFromISR", "d6/daa/a00187.html#ac35d77d9f4dad22c8ae60017d1d5aabf", null ],
+    [ "isCreated", "d6/daa/a00187.html#a92a05d95d899d18603b26731834c9281", null ],
+    [ "operator Handle &", "d6/daa/a00187.html#a395ab7d345178800c281e43bac6a645f", null ],
+    [ "overwrite", "d6/daa/a00187.html#a4dbc436dcf20112be10ca8684818be9e", null ],
+    [ "overwriteFromISR", "d6/daa/a00187.html#a5bd1892f09dcb386b073fa4f925e9309", null ],
+    [ "take", "d6/daa/a00187.html#a82838d2e2a7955808dd4c232112dc674", null ],
+    [ "takeFromISR", "d6/daa/a00187.html#afb0e809a4af00a2bf75aaf8aa127f938", null ]
 ];

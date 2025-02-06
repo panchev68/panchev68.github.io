@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Task</title>
+<title>Lib::FreeRTOS: MemoryManager</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,87 +99,74 @@ $(function(){initNavTree('dc/ded/a00252.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Task</div></div>
+  <div class="headertitle"><div class="title">MemoryManager</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This example demonstrates how to use the Task class to create and manage FreeRTOS tasks.</p>
-<div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file Task.cpp</span></div>
-<div class="line"><span class="comment"> * @brief Example demonstrating the usage of the Task class in FreeRTOS.</span></div>
+<p>This is an example of how to use the MemoryManager class to allocate and free memory using FreeRTOS. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file MemoryManager.cpp</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file contains an example task function and a main function to demonstrate</span></div>
-<div class="line"><span class="comment"> * how to create and run a task using the Task class in FreeRTOS. The example task</span></div>
-<div class="line"><span class="comment"> * function prints messages indicating its running state, delays for 1000 milliseconds,</span></div>
-<div class="line"><span class="comment"> * and then prints a message indicating its completion.</span></div>
+<div class="line"><span class="comment"> * @brief MemoryManager class example</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * The main function creates a task configuration, runs the task, and starts the</span></div>
-<div class="line"><span class="comment"> * FreeRTOS scheduler.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note This example assumes the presence of the FreeRTOS library and the Task class</span></div>
-<div class="line"><span class="comment"> *       with the appropriate methods and configurations.</span></div>
+<div class="line"><span class="comment"> * @version 1.0</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d3/d00/a00113.html">Task.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/dab/a00089.html">MessageBuffer.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Example task function to demonstrate the usage of the Task class.</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a message buffer in FreeRTOS.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function prints a message indicating the task is running, delays for 1000 milliseconds,</span></div>
-<div class="line"><span class="comment"> * and then prints a message indicating the task is completing.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> exampleTaskFunction () {</div>
-<div class="line">    <span class="comment">// Print a message indicating the task is running</span></div>
-<div class="line">    printf (<span class="stringliteral">&quot;Example task is running\n&quot;</span>);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Simulate some work by delaying for 1000 milliseconds</span></div>
-<div class="line">    <a id="a0" name="a0"></a><a class="code hl_function" href="../../d1/d72/a00204.html#a691a163c86981b2ddab32d34734ff952">Lib::FreeRTOS::TaskHelper::delay</a> (1000);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Print a message indicating the task is completing</span></div>
-<div class="line">    printf (<span class="stringliteral">&quot;Example task is completing\n&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the Task class.</span></div>
+<div class="line"><span class="comment"> * This function performs the following steps:</span></div>
+<div class="line"><span class="comment"> * 1. Creates a message buffer with a size of 100 bytes.</span></div>
+<div class="line"><span class="comment"> * 2. Sends a message &quot;Hello, FreeRTOS!&quot; to the message buffer.</span></div>
+<div class="line"><span class="comment"> * 3. Receives the message from the message buffer and prints it.</span></div>
+<div class="line"><span class="comment"> * 4. Releases the message buffer.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function creates a new task using the Task class and runs it.</span></div>
-<div class="line"><span class="comment"> * The task prints a message indicating it is running, delays for 1000 milliseconds,</span></div>
-<div class="line"><span class="comment"> * and then prints a message indicating it is completing.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int Returns 0 upon successful completion.</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create a task configuration</span></div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_struct" href="../../d3/db1/a00200.html">Lib::FreeRTOS::Task::Config</a> config{</div>
-<div class="line">        <span class="stringliteral">&quot;ExampleTask&quot;</span>,</div>
-<div class="line">        exampleTaskFunction,</div>
-<div class="line">        configMINIMAL_STACK_SIZE,</div>
-<div class="line">        DEFAULT_TASK_PRIORITY};</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create and run the task</span></div>
-<div class="line">    <a id="_a2" name="_a2"></a><a class="code hl_class" href="../../d7/ded/a00196.html">Lib::FreeRTOS::Task</a> * task = <a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/ded/a00196.html#aa33e66eef3d3ab93e361adaec09b1274">Lib::FreeRTOS::Task::run</a> (config);</div>
-<div class="line">    <span class="keywordflow">if</span> (task == <span class="keyword">nullptr</span>) {</div>
-<div class="line">        printf (<span class="stringliteral">&quot;Failed to create task\n&quot;</span>);</div>
+<div class="line">    <span class="comment">// Create a message buffer with a size of 100 bytes</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d0d/a00171.html">Lib::FreeRTOS::MessageBuffer</a> messageBuffer;</div>
+<div class="line">    <span class="keywordflow">if</span> (!messageBuffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a16516aeccd9c706e8eee91172163f7b8">create</a> (100)) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create message buffer&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keywordflow">return</span> -1;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Start the scheduler</span></div>
-<div class="line">    vTaskStartScheduler ();</div>
+<div class="line">    <span class="comment">// Send a message to the message buffer</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * message = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
+<div class="line">    <span class="keywordtype">size_t</span> messageLength = strlen (message) + 1;  <span class="comment">// Include null terminator</span></div>
+<div class="line">    <span class="keywordflow">if</span> (messageBuffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a17561e31205ea64d3f3d8c17ca55ff69">send</a> (message, messageLength, 100) != messageLength) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to send message&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// The program should never reach here</span></div>
-<div class="line">    <span class="keywordflow">for</span> (;;);</div>
+<div class="line">    <span class="comment">// Receive a message from the message buffer</span></div>
+<div class="line">    <span class="keywordtype">char</span> receivedMessage [100];</div>
+<div class="line">    <span class="keywordtype">size_t</span> receivedLength = messageBuffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a8f160675bb113e76d3a32a9f78d3b7a1">receive</a> (receivedMessage, <span class="keyword">sizeof</span> (receivedMessage), 100);</div>
+<div class="line">    <span class="keywordflow">if</span> (receivedLength &gt; 0) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; receivedMessage &lt;&lt; std::endl;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Release the message buffer</span></div>
+<div class="line">    messageBuffer.release ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00113_html"><div class="ttname"><a href="../../d3/d00/a00113.html">Task.hpp</a></div><div class="ttdoc">This file contains the definition of the Task class for FreeRTOS.</div></div>
-<div class="ttc" id="aa00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">Lib::FreeRTOS::Task</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS tasks.</div><div class="ttdef"><b>Definition</b> Task.hpp:50</div></div>
-<div class="ttc" id="aa00196_html_aa33e66eef3d3ab93e361adaec09b1274"><div class="ttname"><a href="../../d7/ded/a00196.html#aa33e66eef3d3ab93e361adaec09b1274">Lib::FreeRTOS::Task::run</a></div><div class="ttdeci">static Task * run(const Config &amp;conf)</div><div class="ttdoc">Creates and runs a task with the specified configuration.</div><div class="ttdef"><b>Definition</b> Task.hpp:123</div></div>
-<div class="ttc" id="aa00200_html"><div class="ttname"><a href="../../d3/db1/a00200.html">Lib::FreeRTOS::Task::Config</a></div><div class="ttdoc">Configuration struct for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:77</div></div>
-<div class="ttc" id="aa00204_html_a691a163c86981b2ddab32d34734ff952"><div class="ttname"><a href="../../d1/d72/a00204.html#a691a163c86981b2ddab32d34734ff952">Lib::FreeRTOS::TaskHelper::delay</a></div><div class="ttdeci">static void delay(const uint32_t time)</div><div class="ttdoc">Delays the execution of the current task for a specified time.</div><div class="ttdef"><b>Definition</b> TaskHelper.hpp:219</div></div>
+<div class="ttc" id="aa00089_html"><div class="ttname"><a href="../../db/dab/a00089.html">MessageBuffer.hpp</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS message buffers.</div></div>
+<div class="ttc" id="aa00171_html"><div class="ttname"><a href="../../d1/d0d/a00171.html">Lib::FreeRTOS::MessageBuffer</a></div><div class="ttdoc">A class that encapsulates FreeRTOS message buffer functionality.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:30</div></div>
+<div class="ttc" id="aa00171_html_a16516aeccd9c706e8eee91172163f7b8"><div class="ttname"><a href="../../d1/d0d/a00171.html#a16516aeccd9c706e8eee91172163f7b8">Lib::FreeRTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t nsize)</div><div class="ttdoc">Creates a new message buffer using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:71</div></div>
+<div class="ttc" id="aa00171_html_a17561e31205ea64d3f3d8c17ca55ff69"><div class="ttname"><a href="../../d1/d0d/a00171.html#a17561e31205ea64d3f3d8c17ca55ff69">Lib::FreeRTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *src, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:116</div></div>
+<div class="ttc" id="aa00171_html_a8f160675bb113e76d3a32a9f78d3b7a1"><div class="ttname"><a href="../../d1/d0d/a00171.html#a8f160675bb113e76d3a32a9f78d3b7a1">Lib::FreeRTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dst, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Receives a message from the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:167</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Feb 4 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['notify_0',['notify',['../d7/ded/a00196.html#ad7b57636b4af3f226afafeb1fb44ef7d',1,'Lib::FreeRTOS::Task']]],
-  ['notifyandquery_1',['notifyAndQuery',['../d7/ded/a00196.html#a6fae5e9901f87803aa540d8624863c4f',1,'Lib::FreeRTOS::Task']]],
-  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../d7/ded/a00196.html#a21f32eee3c9bc6571c41644688eddab1',1,'Lib::FreeRTOS::Task']]],
-  ['notifyfromisr_3',['notifyFromISR',['../d7/ded/a00196.html#a1fd4751512e6cded198d4846f4799aeb',1,'Lib::FreeRTOS::Task']]],
-  ['notifygive_4',['notifyGive',['../d7/ded/a00196.html#a7ca5f301cfcdafa5f106994f9ec5e43a',1,'Lib::FreeRTOS::Task']]],
-  ['notifygivefromisr_5',['notifyGiveFromISR',['../d7/ded/a00196.html#a89ee126f85580f8c8a7b8b4188d2e500',1,'Lib::FreeRTOS::Task']]],
-  ['notifytake_6',['notifyTake',['../d1/d72/a00204.html#a2f214ff544c0ad58ccbfd40128515e26',1,'Lib::FreeRTOS::TaskHelper']]],
-  ['notifywait_7',['notifyWait',['../d1/d72/a00204.html#adfa63a4bd63b3aab01a3ad9c212b7746',1,'Lib::FreeRTOS::TaskHelper']]]
+  ['malloc_0',['malloc',['../dc/de6/a00167.html#ae53ced2d2f6bf1e67f94b617ddf050db',1,'Lib::FreeRTOS::MemoryManager']]],
+  ['messagebuffer_1',['MessageBuffer',['../d1/d0d/a00171.html#ad1aacd686aa8803995282391fe5dcd88',1,'Lib::FreeRTOS::MessageBuffer']]],
+  ['messageswaiting_2',['messagesWaiting',['../db/dd9/a00179.html#a4c8c176d001bf8671553f8f379a371c8',1,'Lib::FreeRTOS::Queue']]],
+  ['messageswaitingfromisr_3',['messagesWaitingFromISR',['../db/dd9/a00179.html#aafb3e379354706406f980c30e86e9e74',1,'Lib::FreeRTOS::Queue']]],
+  ['mutex_4',['Mutex',['../de/d45/a00175.html#ab40a1fec6fa8904a155fcb2791f9768d',1,'Lib::FreeRTOS::Mutex']]]
 ];

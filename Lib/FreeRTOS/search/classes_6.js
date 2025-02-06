@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['task_0',['Task',['../d7/ded/a00196.html',1,'Lib::FreeRTOS']]],
-  ['taskhelper_1',['TaskHelper',['../d1/d72/a00204.html',1,'Lib::FreeRTOS']]],
-  ['tick_2',['Tick',['../dc/d31/a00208.html',1,'Lib::FreeRTOS']]],
-  ['timeout_3',['Timeout',['../d6/d43/a00216.html',1,'Lib::FreeRTOS']]],
-  ['timer_4',['Timer',['../d5/d0b/a00220.html',1,'Lib::FreeRTOS']]]
+  ['task_0',['Task',['../de/d79/a00203.html',1,'Lib::FreeRTOS']]],
+  ['taskhelper_1',['TaskHelper',['../dd/ded/a00211.html',1,'Lib::FreeRTOS']]],
+  ['tickcounter_2',['TickCounter',['../d3/dd5/a00215.html',1,'Lib::FreeRTOS']]],
+  ['tickservice_3',['TickService',['../dd/df3/a00219.html',1,'Lib::FreeRTOS']]],
+  ['timeout_4',['Timeout',['../d9/d01/a00227.html',1,'Lib::FreeRTOS']]],
+  ['timer_5',['Timer',['../df/d17/a00231.html',1,'Lib::FreeRTOS']]]
 ];

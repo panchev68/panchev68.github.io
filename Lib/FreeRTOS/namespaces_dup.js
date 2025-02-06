@@ -1,6 +1,6 @@
 var namespaces_dup =
 [
     [ "Lib", null, [
-      [ "FreeRTOS", "db/d48/a00148.html", "db/d48/a00148" ]
+      [ "FreeRTOS", "dd/db2/a00151.html", "dd/db2/a00151" ]
     ] ]
 ];

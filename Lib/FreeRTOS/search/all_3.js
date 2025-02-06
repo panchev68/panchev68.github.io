@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['delay_0',['delay',['../d1/d72/a00204.html#a691a163c86981b2ddab32d34734ff952',1,'Lib::FreeRTOS::TaskHelper::delay()'],['../db/d48/a00148.html#a1959a531d8d38d10e38463dea0c7246b',1,'Lib::FreeRTOS::delay()']]],
-  ['disable_1',['disable',['../d6/d43/a00216.html#ae6a7d021b68b53dfcd6a3f9c6566ddde',1,'Lib::FreeRTOS::Timeout']]],
-  ['disableinterrupts_2',['disableInterrupts',['../d2/d34/a00156.html#a793d9f14fcb50dd90d2d7e209661ea8b',1,'Lib::FreeRTOS::Karnel']]]
+  ['delay_0',['delay',['../dd/ded/a00211.html#a691a163c86981b2ddab32d34734ff952',1,'Lib::FreeRTOS::TaskHelper::delay()'],['../dd/db2/a00151.html#a1959a531d8d38d10e38463dea0c7246b',1,'Lib::FreeRTOS::delay()']]],
+  ['destroy_1',['destroy',['../de/db9/a00159.html#a87b84ac7ee4530067642a5cebbaf46d8',1,'Lib::FreeRTOS::EventGroup::destroy()'],['../d1/d0d/a00171.html#afe0dee7d2601397a889cc8b95f5fa86e',1,'Lib::FreeRTOS::MessageBuffer::destroy()'],['../de/d45/a00175.html#a24517636f7a4f4647af901313e612fdb',1,'Lib::FreeRTOS::Mutex::destroy()'],['../d6/daa/a00187.html#a8b62c5a1c6b7b7a3597746fdee680dc4',1,'Lib::FreeRTOS::Semaphore::destroy()'],['../d9/dd0/a00191.html#a47c5aef243aa78d1c89d36bdfd8cb524',1,'Lib::FreeRTOS::SemaphoreBase::destroy()'],['../d3/d2a/a00195.html#a832ed75dca8dae579e2a008161d3d774',1,'Lib::FreeRTOS::SemaphoreCounting::destroy()'],['../d8/d72/a00199.html#a7ee41b161b53572582929c527cdd1968',1,'Lib::FreeRTOS::StreamBuffer::destroy()'],['../de/d79/a00203.html#a358f8814be989faf1c51ed7147b805dd',1,'Lib::FreeRTOS::Task::destroy()'],['../de/d79/a00203.html#a7780dc374df131233f877440a50dab83',1,'Lib::FreeRTOS::Task::destroy(Handle handle)'],['../df/d17/a00231.html#a6cf5e598fcc261db2e62b52d82085f67',1,'Lib::FreeRTOS::Timer::destroy()'],['../df/d17/a00231.html#ab84c04a94d893087bf26d27a3eb4a480',1,'Lib::FreeRTOS::Timer::destroy(Timer *timer)']]],
+  ['disable_2',['disable',['../d9/d01/a00227.html#ae6a7d021b68b53dfcd6a3f9c6566ddde',1,'Lib::FreeRTOS::Timeout']]],
+  ['disableinterrupts_3',['disableInterrupts',['../dd/dae/a00163.html#a793d9f14fcb50dd90d2d7e209661ea8b',1,'Lib::FreeRTOS::Karnel']]]
 ];
