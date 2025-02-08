@@ -1,6 +1,7 @@
 var a01336 =
 [
     [ "Frame0x97", "df/d93/a01336.html#afb497595414a513ac91a4f709085ab30", null ],
+    [ "~Frame0x97", "df/d93/a01336.html#a59b1d5bc49128d6beb490ffeba31a0be", null ],
     [ "frameId", "df/d93/a01336.html#abba4dc7dc560616b5e7b084d6528f3d2", null ],
     [ "dstAddr64", "df/d93/a01336.html#a3d15b2522c4aceadc05f343b4c0a5f1f", null ],
     [ "dstAddr16", "df/d93/a01336.html#a2c5b40ed3353372a7e9f9c1afc5c8b37", null ],

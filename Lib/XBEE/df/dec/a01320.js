@@ -33,6 +33,6 @@ var a01320 =
       [ "SocketNotBound", "df/dec/a01320.html#a326643dde690ad31e9359e2dcb11dd98a6926e9a06d4a58ffc65a1534956e5efd", null ]
     ] ],
     [ "Frame0x89", "df/dec/a01320.html#a21b71f4d37fb1fe4e2e90f42033efb68", null ],
-    [ "frameId", "df/dec/a01320.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ],
-    [ "deliveryStatus", "df/dec/a01320.html#a11b431b642e06e520be84f2038ee0a57", null ]
+    [ "~Frame0x89", "df/dec/a01320.html#ae86f8abeaa9eefecf2b85762aec80a57", null ],
+    [ "frameId", "df/dec/a01320.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ]
 ];

@@ -5,7 +5,7 @@ var searchData=
   ['getconnetionquality_2',['getConnetionQuality',['../d1/dae/a01136.html#ac13a521aba11f76f0f456d9e2219409c',1,'Lib::Xbee::API::Service::ChannelScanner::Channel']]],
   ['getcurrentarray_3',['getCurrentArray',['../dd/d75/a01180.html#a3a97a47ccfade3760eb1f4fc74cc2046',1,'Lib::Xbee::API::Service::SpectrumAnalyzer']]],
   ['getdata_4',['getData',['../dc/db6/a01212.html#a216af07f71c2c1f5a718f814885eefee',1,'Lib::Xbee::Core::DigiApiFrameBuffer::getData()'],['../dc/db6/a01212.html#a557302388361a2f389d2d5816037e19d',1,'Lib::Xbee::Core::DigiApiFrameBuffer::getData() const']]],
-  ['getinstance_5',['getInstance',['../dc/d64/a01140.html#a4c0ebe89ba647909aaa2d5f217d0dc56',1,'Lib::Xbee::API::Service::Manager::getInstance()'],['../d6/dae/a01304.html#a9d5b840ed435d39434f8a6fb1c183442',1,'Lib::Xbee::Core::ResponseEvents::getInstance()']]],
+  ['getinstance_5',['getInstance',['../dc/d64/a01140.html#a4c0ebe89ba647909aaa2d5f217d0dc56',1,'Lib::Xbee::API::Service::Manager::getInstance()'],['../d9/d31/a01208.html#a1758fa3046a4793bb2d137845e2b42c0',1,'Lib::Xbee::Core::Diagnostic::getInstance()'],['../d6/dae/a01304.html#a9d5b840ed435d39434f8a6fb1c183442',1,'Lib::Xbee::Core::ResponseEvents::getInstance()']]],
   ['getmaxarray_6',['getMaxArray',['../dd/d75/a01180.html#a2460fc8ac1399af5b9f24c3f9ee8be01',1,'Lib::Xbee::API::Service::SpectrumAnalyzer']]],
   ['getmaximum_7',['getMaximum',['../da/d93/a01084.html#a271b3e4f82eba0fd1f08711f43a098b6',1,'Lib::Xbee::API::Connection::Info::Period']]],
   ['getminimum_8',['getMinimum',['../da/d93/a01084.html#ae641a0fdbb64828fcabc4fd011335eaa',1,'Lib::Xbee::API::Connection::Info::Period']]],

@@ -34,5 +34,6 @@ var a01324 =
       [ "STACK_ERROR", "d5/d53/a01324.html#a8b0b60d15e486c3065f084917abf755fad2884fa6c360974bc033ce3ab23c63f6", null ]
     ] ],
     [ "Frame0x8a", "d5/d53/a01324.html#a100b5e118d90f3e591278cb033837c3c", null ],
+    [ "~Frame0x8a", "d5/d53/a01324.html#ac9906a7f5340ae614f3b41d7da740a02", null ],
     [ "modemStatus", "d5/d53/a01324.html#abec20622e7ca76e6627fdc24d6c2a030", null ]
 ];

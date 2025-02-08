@@ -1,7 +1,7 @@
 var a01220 =
 [
-    [ "assign", "db/d42/a01220.html#a007ae84aa46fcf164bcbe302512ab173", null ],
-    [ "append", "db/d42/a01220.html#a16dd9eb895a18fa50a28c7daec86e125", null ],
+    [ "assign", "db/d42/a01220.html#a29fcb90129b0538ed97a653dea9c4c61", null ],
+    [ "append", "db/d42/a01220.html#a7767fe6e23a33b0377d6a1e6dbf149d4", null ],
     [ "append", "db/d42/a01220.html#a450e7392dcf21a83dd67fd837af7a832", null ],
     [ "append", "db/d42/a01220.html#a9f1c9c36e0190d0b739c344841972c36", null ],
     [ "append", "db/d42/a01220.html#a4148ccf20c34dd555fd84ede8e481493", null ],
