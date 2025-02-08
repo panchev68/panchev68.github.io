@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "XBEE", "index.html", [
+  [ "Digi Library", "index.html", [
     [ "802.15.4 Library 6.01", "index.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -48,8 +48,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d6/d0f/a01256.html#adb297b6e70ad21e3aea94ffb8bff7e26",
-"dc/d19/a01056.html#ac51b396558d36f050c18dc08efb0adc4"
+"d6/d0f/a01256.html#abe1383180d26fba3c85aba2b1fe96eba",
+"dc/d19/a01056.html#aeef129f6673307b01cf2cba5a92bf845"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

@@ -1,14 +1,14 @@
 var a01212 =
 [
-    [ "DigiApiFrameBuffer", "dc/db6/a01212.html#a11a60cc231f98dbfbc99780ab33f6c30", null ],
-    [ "~DigiApiFrameBuffer", "dc/db6/a01212.html#ab70db52885f6689eac4136a6fd022833", null ],
-    [ "getData", "dc/db6/a01212.html#a216af07f71c2c1f5a718f814885eefee", null ],
-    [ "getData", "dc/db6/a01212.html#a557302388361a2f389d2d5816037e19d", null ],
-    [ "assign", "dc/db6/a01212.html#a1e97e76c0bee2df6d199c701031003b9", null ],
-    [ "assign", "dc/db6/a01212.html#abbcc432dff32abdbade01593b6d00ea1", null ],
-    [ "append", "dc/db6/a01212.html#ae57b39d3d615eaeeec3d50783b62c1cc", null ],
-    [ "append", "dc/db6/a01212.html#a7d24c690f57ebc17cede527094ecbc30", null ],
-    [ "append", "dc/db6/a01212.html#a3d47715f65de60717a0ffb46ca4a1b98", null ],
-    [ "getSize", "dc/db6/a01212.html#a9211d70f8b7f885df1472c90a91a2caf", null ],
-    [ "clear", "dc/db6/a01212.html#ae085ab967608b3898964e2ed1b5be2a1", null ]
+    [ "DigiApiFrameBuffer", "dc/db6/a01212.html#a864b2489a2772393ca380551c3551e72", null ],
+    [ "~DigiApiFrameBuffer", "dc/db6/a01212.html#a43e5bb792359c40971a75fbf096ca159", null ],
+    [ "getData", "dc/db6/a01212.html#a82c26c27605ed946e6a98d61c19e588a", null ],
+    [ "getData", "dc/db6/a01212.html#ae121ed79ad9d208654fa9479d8d0f188", null ],
+    [ "assign", "dc/db6/a01212.html#a22f8af24c9c58f73ea00eb394613df85", null ],
+    [ "assign", "dc/db6/a01212.html#a8ae70044d0339b5695ee584c5c6d4d8e", null ],
+    [ "append", "dc/db6/a01212.html#a351c65a43c7c238be702f175a631d6b5", null ],
+    [ "append", "dc/db6/a01212.html#a343e6e82c350e7e1809b2eeb8f60b4d9", null ],
+    [ "append", "dc/db6/a01212.html#a990a97625e3f944758052e6afd4206c8", null ],
+    [ "getSize", "dc/db6/a01212.html#a7679f3e2699058270d8be091400f16ac", null ],
+    [ "clear", "dc/db6/a01212.html#aedec84aa3dabb03790a2dd65f5a3fbe8", null ]
 ];

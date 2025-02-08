@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['disconnected_0',['DISCONNECTED',['../d1/de6/a01068.html#abce70c65cddd38747189e5fae7126064a7a75445d643276587ecbfab2732c2c38',1,'Lib::Xbee::API::Connection::State::DISCONNECTED'],['../d6/d6a/a01072.html#a177acb95c6332ad601f7e96efce3c1baafaa33ec6a06f0cbbee1ee384b44e3b85',1,'Lib::Xbee::API::Connection::Quality::DISCONNECTED']]]
+  ['disconnected_0',['DISCONNECTED',['../d1/de6/a01068.html#a65a14ce9f33c183a958a599c56b51262ae46b7f4649cda77c1145dc0f77259acf',1,'Lib::Digi::API::Connection::State::DISCONNECTED'],['../d6/d6a/a01072.html#a2894ee50dc5996ed2f18b07b95eac6e8a299dd0f7baeaa35d95631545e6c0a785',1,'Lib::Digi::API::Connection::Quality::DISCONNECTED']]]
 ];

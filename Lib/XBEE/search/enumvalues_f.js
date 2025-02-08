@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['queuelocalatcommandrequest_0',['QueueLocalATCommandRequest',['../d5/d6e/a01240.html#acef664fab2a325932d0db5dcbc15b0bca9234f60cefbc89e525a7c5dd65896ad3',1,'Lib::Xbee::Core::Frame::Type']]]
+  ['queuelocalatcommandrequest_0',['QueueLocalATCommandRequest',['../d5/d6e/a01240.html#aa0ef8717e4595baa9ee37d93d7526b89a67c9e8049641a2b25cfec6835684daa3',1,'Lib::Digi::Core::Frame::Type']]]
 ];

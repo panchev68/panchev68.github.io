@@ -1,12 +1,9 @@
 var a01144 =
 [
     [ "Node", "db/d17/a01148.html", "db/d17/a01148" ],
-    [ "NetworkDiscovery", "db/d51/a01144.html#ab1bf352e3a4d8290768a10b727f21511", null ],
-    [ "~NetworkDiscovery", "db/d51/a01144.html#a5cf68bb065fb460888887333eaf841a3", null ],
-    [ "open", "db/d51/a01144.html#a1be69d251a2225d7ecb04b3210232618", null ],
-    [ "close", "db/d51/a01144.html#a4e6a050f391792bb1daa596ed659aba4", null ],
-    [ "initCallback", "db/d51/a01144.html#a30ad52b003d1c411a13b248eecff4796", null ],
-    [ "updateCallback", "db/d51/a01144.html#ac57be003648e5065461c71889dd3f023", null ],
-    [ "closeCallback", "db/d51/a01144.html#a7b91d133036e369e9efea5621a81ba79", null ],
-    [ "start", "db/d51/a01144.html#a4783e27649b02724ff4d7f98010eb155", null ]
+    [ "NetworkDiscovery", "db/d51/a01144.html#a8d3e8f22b1607f08ec7c3fe435bd6faa", null ],
+    [ "~NetworkDiscovery", "db/d51/a01144.html#a68b91897c0e210890678ced2653f18c8", null ],
+    [ "open", "db/d51/a01144.html#adc0158a501c9ba158fc2637068b8ba9c", null ],
+    [ "close", "db/d51/a01144.html#a22a976a5466278b39ea3188adc32351a", null ],
+    [ "start", "db/d51/a01144.html#a3e2f6230def8391938f495421342acc9", null ]
 ];

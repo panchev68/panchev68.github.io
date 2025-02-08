@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "Lib", null, [
-      [ "Xbee", null, [
+      [ "Digi", null, [
         [ "API", null, [
           [ "Service", null, [
             [ "ChannelScanner", "d6/de6/a01132.html", "d6/de6/a01132" ],

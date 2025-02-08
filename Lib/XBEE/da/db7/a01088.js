@@ -1,8 +1,8 @@
 var a01088 =
 [
-    [ "SignalStrength", "da/db7/a01088.html#acb1e096cca0dabf625fdeeed99dea81e", null ],
-    [ "SignalStrength", "da/db7/a01088.html#a009abd76b7dc04973b8b169045dc0387", null ],
-    [ "operator=", "da/db7/a01088.html#a9c3e114fa03c127fa87bd485169eb746", null ],
-    [ "operator uint8_t", "da/db7/a01088.html#a3178e46aafee03c497e85cc876d77714", null ],
-    [ "toPercent", "da/db7/a01088.html#a402158bba858bcd7f7041a2cfa22719d", null ]
+    [ "SignalStrength", "da/db7/a01088.html#aa2e8b7ed671e481495c9364788741bf2", null ],
+    [ "SignalStrength", "da/db7/a01088.html#a4a7b35a43d58ef6eec34c258535f9624", null ],
+    [ "operator=", "da/db7/a01088.html#a8bbf79048c36433e2a0c74f6466de1d2", null ],
+    [ "operator uint8_t", "da/db7/a01088.html#a2a29f3413f5ae8de889836d4d0485ee8", null ],
+    [ "toPercent", "da/db7/a01088.html#adf1ac05c6fff85895550a2f2fb0a5421", null ]
 ];

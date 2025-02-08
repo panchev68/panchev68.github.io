@@ -1,14 +1,15 @@
 var a01084 =
 [
-    [ "Period", "da/d93/a01084.html#a367552e26954ea07ffc89cb992ec6fd4", null ],
-    [ "getValue", "da/d93/a01084.html#acd8c7b6213a8292c7928a55db3effad8", null ],
-    [ "getRawValue", "da/d93/a01084.html#a5ad9e804dce05302ce3e8aef2f1b71b1", null ],
-    [ "getMinimum", "da/d93/a01084.html#ae641a0fdbb64828fcabc4fd011335eaa", null ],
-    [ "getMaximum", "da/d93/a01084.html#a271b3e4f82eba0fd1f08711f43a098b6", null ],
-    [ "clearMinMax", "da/d93/a01084.html#a65be30bfc9ca767fade44cfc57f29aaf", null ],
-    [ "beginMeasurement", "da/d93/a01084.html#aea94baa9aaa625d44e2d9d1e721789c1", null ],
-    [ "endMeasurement", "da/d93/a01084.html#ae896e69612be75d176a6709b0716257d", null ],
-    [ "stopMeasurement", "da/d93/a01084.html#a9ed0089376e60287c3fdbeb23c93d9da", null ],
-    [ "reset", "da/d93/a01084.html#a0672403a31deda500f5fa3d1abe492d6", null ],
-    [ "operator uint32_t", "da/d93/a01084.html#a736d633147bc950fd451a4d092d455d2", null ]
+    [ "Period", "da/d93/a01084.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
+    [ "~Period", "da/d93/a01084.html#ae4bd6aabe3707704ec08e3561d20ac39", null ],
+    [ "getValue", "da/d93/a01084.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
+    [ "getRawValue", "da/d93/a01084.html#a3b7d20ddbe2ac20f3fde05ffc28b4772", null ],
+    [ "getMinimum", "da/d93/a01084.html#a74fe067b228e91e888527cde922af4ab", null ],
+    [ "getMaximum", "da/d93/a01084.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
+    [ "clearMinMax", "da/d93/a01084.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
+    [ "beginMeasurement", "da/d93/a01084.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
+    [ "endMeasurement", "da/d93/a01084.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
+    [ "stopMeasurement", "da/d93/a01084.html#a5219f980e88593710270956d6fcb2d95", null ],
+    [ "reset", "da/d93/a01084.html#a6d75c29880edb434a8c6cba3f2c3718f", null ],
+    [ "operator uint32_t", "da/d93/a01084.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ]
 ];

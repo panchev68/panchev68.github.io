@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['left_5fnetwork_0',['LEFT_NETWORK',['../d5/d53/a01324.html#a8b0b60d15e486c3065f084917abf755fac52b410f59ce89a9459336d6c54ccc18',1,'Lib::Xbee::Core::Frame0x8a']]],
-  ['localatcommandrequest_1',['LocalATCommandRequest',['../d5/d6e/a01240.html#acef664fab2a325932d0db5dcbc15b0bca7d76d4aade12c5a0296708f59d16ad6d',1,'Lib::Xbee::Core::Frame::Type']]],
-  ['localatcommandresponse_2',['LocalATCommandResponse',['../d5/d6e/a01240.html#acef664fab2a325932d0db5dcbc15b0bca434d362e32c5d880a3117b65043afd9e',1,'Lib::Xbee::Core::Frame::Type']]]
+  ['left_5fnetwork_0',['LEFT_NETWORK',['../d5/d53/a01324.html#ac7683db9a4a9195c30412a5a7d6b3175ac52b410f59ce89a9459336d6c54ccc18',1,'Lib::Digi::Core::Frame0x8a']]],
+  ['localatcommandrequest_1',['LocalATCommandRequest',['../d5/d6e/a01240.html#aa0ef8717e4595baa9ee37d93d7526b89a49c293248bb4531aa7927ede3254ba0d',1,'Lib::Digi::Core::Frame::Type']]],
+  ['localatcommandresponse_2',['LocalATCommandResponse',['../d5/d6e/a01240.html#aa0ef8717e4595baa9ee37d93d7526b89aa7ed8e0f883013f33c2525a302154703',1,'Lib::Digi::Core::Frame::Type']]]
 ];

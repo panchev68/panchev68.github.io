@@ -1,6 +1,6 @@
 var a01200 =
 [
-    [ "rxPort", "dc/dcc/a01200.html#a9441dba8b69e0446e285ee50eca38d48", null ],
-    [ "txPort", "dc/dcc/a01200.html#a19df065c9aadc46726249c5cf9bba795", null ],
-    [ "resetPin", "dc/dcc/a01200.html#a920b018436bb7830ae26a570af3a5810", null ]
+    [ "rxPort", "dc/dcc/a01200.html#acc08334809726bdc1584c071e6d9901a", null ],
+    [ "txPort", "dc/dcc/a01200.html#a42c72afffab8e75833a52e8c411b73bf", null ],
+    [ "resetPin", "dc/dcc/a01200.html#a5d243b0b992aae8caaa4eb77f1383b64", null ]
 ];
