@@ -11,7 +11,7 @@ var searchData=
   ['_7esemaphorebase_8',['~SemaphoreBase',['../d7/da0/a00198.html#a253934193ee0de5b0fce552c75256ee3',1,'Lib::FreeRTOS::SemaphoreBase']]],
   ['_7esemaphorecounting_9',['~SemaphoreCounting',['../db/d53/a00202.html#a8a23fc3a063478d6f682bffba2ef78e3',1,'Lib::FreeRTOS::SemaphoreCounting']]],
   ['_7estreambuffer_10',['~StreamBuffer',['../d5/df1/a00206.html#a0e24ee0bf5ba9ab27b53a885de253791',1,'Lib::FreeRTOS::StreamBuffer']]],
-  ['_7etask_11',['~Task',['../da/de7/a00210.html#a18543b5a888cdb9d33ad20614d2f1688',1,'Lib::FreeRTOS::Task::~Task()=default'],['../da/de7/a00210.html#a04b676e34cb8cb80f0dbe5c66e19ec8e',1,'Lib::FreeRTOS::Task::~Task()']]],
+  ['_7etask_11',['~Task',['../da/de7/a00210.html#a04b676e34cb8cb80f0dbe5c66e19ec8e',1,'Lib::FreeRTOS::Task::~Task()'],['../da/de7/a00210.html#a04b676e34cb8cb80f0dbe5c66e19ec8e',1,'Lib::FreeRTOS::Task::~Task()']]],
   ['_7etimeout_12',['~Timeout',['../d1/da8/a00230.html#a4f2dfba861c373b6540e469c308f08b7',1,'Lib::FreeRTOS::Timeout']]],
   ['_7etimer_13',['~Timer',['../da/d31/a00234.html#a2b2165eef64c713ec21e63efcee986d3',1,'Lib::FreeRTOS::Timer']]]
 ];

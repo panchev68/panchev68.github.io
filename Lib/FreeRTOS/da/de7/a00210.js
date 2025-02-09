@@ -29,14 +29,12 @@ var a00210 =
       [ "SetValueWithoutOverwrite", "da/de7/a00210.html#a849acb56b7fe43229168c9129244fe48a31e258677ea56c980d361e1252e0c7ba", null ]
     ] ],
     [ "Task", "da/de7/a00210.html#a3ff506f249813eab5535ac663de6c404", null ],
-    [ "~Task", "da/de7/a00210.html#a18543b5a888cdb9d33ad20614d2f1688", null ],
+    [ "~Task", "da/de7/a00210.html#a04b676e34cb8cb80f0dbe5c66e19ec8e", null ],
     [ "Task", "da/de7/a00210.html#a01e701bd1f4c65b2f81ae70424f724dc", null ],
     [ "Task", "da/de7/a00210.html#ae99a1a93001de8f00908b94b2e6cbbeb", null ],
     [ "~Task", "da/de7/a00210.html#a04b676e34cb8cb80f0dbe5c66e19ec8e", null ],
-    [ "create", "da/de7/a00210.html#a2aa3159b611e6cb627c86859ca46b7c2", null ],
     [ "create", "da/de7/a00210.html#a433a5b89b9d0e73dd096c4da5c088f25", null ],
     [ "create", "da/de7/a00210.html#ad2bfedef0be4c42ac247a0542fbc065e", null ],
-    [ "destroy", "da/de7/a00210.html#a57787a982e321de7b7f91cc501649859", null ],
     [ "destroy", "da/de7/a00210.html#a57787a982e321de7b7f91cc501649859", null ],
     [ "getHandle", "da/de7/a00210.html#a14aeeb659a430805dc8c5d26e7466a79", null ],
     [ "getHandle", "da/de7/a00210.html#a14aeeb659a430805dc8c5d26e7466a79", null ],
@@ -62,8 +60,9 @@ var a00210 =
     [ "resumeFromISR", "da/de7/a00210.html#af3fffa5b707cd5177d1870445043e6a5", null ],
     [ "setPriority", "da/de7/a00210.html#a12c7bcb1967d47d883f38ae0f830f9f2", null ],
     [ "setPriority", "da/de7/a00210.html#a12c7bcb1967d47d883f38ae0f830f9f2", null ],
+    [ "start", "da/de7/a00210.html#a963eea70c63e70b2df1355ec8bff6fd1", null ],
+    [ "stop", "da/de7/a00210.html#ae5ba1c7e7742742dc16fef049f932422", null ],
     [ "suspend", "da/de7/a00210.html#a1934d638f5529797b72395d7b9177e8a", null ],
     [ "suspend", "da/de7/a00210.html#a1934d638f5529797b72395d7b9177e8a", null ],
-    [ "yeald", "da/de7/a00210.html#a1f9bc22ae59fb4b136e7e11062283ba6", null ],
     [ "handle", "da/de7/a00210.html#a65524943dbaf9000e2ec64732901c9fa", null ]
 ];
