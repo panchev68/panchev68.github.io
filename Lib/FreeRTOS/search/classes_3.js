@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['memorymanager_0',['MemoryManager',['../dc/de6/a00167.html',1,'Lib::FreeRTOS']]],
-  ['messagebuffer_1',['MessageBuffer',['../d1/d0d/a00171.html',1,'Lib::FreeRTOS']]],
-  ['mutex_2',['Mutex',['../de/d45/a00175.html',1,'Lib::FreeRTOS']]]
+  ['lock_5fguard_0',['lock_guard',['../d7/d25/a00182.html',1,'Lib::FreeRTOS']]],
+  ['lock_5fguard_3c_20mutex_20_3e_1',['lock_guard&lt; Mutex &gt;',['../d7/d25/a00182.html',1,'Lib::FreeRTOS']]]
 ];

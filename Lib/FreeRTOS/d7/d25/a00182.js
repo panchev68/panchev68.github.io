@@ -1,4 +1,5 @@
 var a00182 =
 [
-    [ "Handle", "d7/d25/a00182.html#a3ae655c06dbf63326fd1b5640375f356", null ]
+    [ "lock_guard", "d7/d25/a00182.html#a804722b27e1977c9c04504f9313bb311", null ],
+    [ "~lock_guard", "d7/d25/a00182.html#aa501d35cf4ffbab0bf704fe93713ed26", null ]
 ];

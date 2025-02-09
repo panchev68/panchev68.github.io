@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['notify_0',['notify',['../de/d79/a00203.html#ad7b57636b4af3f226afafeb1fb44ef7d',1,'Lib::FreeRTOS::Task']]],
-  ['notifyandquery_1',['notifyAndQuery',['../de/d79/a00203.html#a6fae5e9901f87803aa540d8624863c4f',1,'Lib::FreeRTOS::Task']]],
-  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../de/d79/a00203.html#a21f32eee3c9bc6571c41644688eddab1',1,'Lib::FreeRTOS::Task']]],
-  ['notifyfromisr_3',['notifyFromISR',['../de/d79/a00203.html#a1fd4751512e6cded198d4846f4799aeb',1,'Lib::FreeRTOS::Task']]],
-  ['notifygive_4',['notifyGive',['../de/d79/a00203.html#a7ca5f301cfcdafa5f106994f9ec5e43a',1,'Lib::FreeRTOS::Task']]],
-  ['notifygivefromisr_5',['notifyGiveFromISR',['../de/d79/a00203.html#a89ee126f85580f8c8a7b8b4188d2e500',1,'Lib::FreeRTOS::Task']]],
-  ['notifytake_6',['notifyTake',['../dd/ded/a00211.html#a2f214ff544c0ad58ccbfd40128515e26',1,'Lib::FreeRTOS::TaskHelper']]],
-  ['notifywait_7',['notifyWait',['../dd/ded/a00211.html#adfa63a4bd63b3aab01a3ad9c212b7746',1,'Lib::FreeRTOS::TaskHelper']]]
+  ['notify_0',['notify',['../da/de7/a00210.html#a0537e6299e08051cdb7bf123a46bc478',1,'Lib::FreeRTOS::Task::notify(const NotifyAction action, const NotificationBits value=0) const'],['../da/de7/a00210.html#a0537e6299e08051cdb7bf123a46bc478',1,'Lib::FreeRTOS::Task::notify(const NotifyAction action, const NotificationBits value=0) const']]],
+  ['notifyandquery_1',['notifyAndQuery',['../da/de7/a00210.html#ae1b5363f7cb4c4130317afbb661fd336',1,'Lib::FreeRTOS::Task::notifyAndQuery(const NotifyAction action, const NotificationBits value=0) const'],['../da/de7/a00210.html#ae1b5363f7cb4c4130317afbb661fd336',1,'Lib::FreeRTOS::Task::notifyAndQuery(const NotifyAction action, const NotificationBits value=0) const']]],
+  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../da/de7/a00210.html#a65c93b8d3e03276c4e02ac5ae921a641',1,'Lib::FreeRTOS::Task::notifyAndQueryFromISR(bool &amp;higherPriorityTaskWoken, const NotifyAction action, const NotificationBits value=0) const'],['../da/de7/a00210.html#a65c93b8d3e03276c4e02ac5ae921a641',1,'Lib::FreeRTOS::Task::notifyAndQueryFromISR(bool &amp;higherPriorityTaskWoken, const NotifyAction action, const NotificationBits value=0) const']]],
+  ['notifyfromisr_3',['notifyFromISR',['../da/de7/a00210.html#ae1d16cee0cd3222900e74e24c384c917',1,'Lib::FreeRTOS::Task::notifyFromISR(bool &amp;higherPrioritywoken, const NotifyAction action, const NotificationBits value=0) const'],['../da/de7/a00210.html#ae1d16cee0cd3222900e74e24c384c917',1,'Lib::FreeRTOS::Task::notifyFromISR(bool &amp;higherPrioritywoken, const NotifyAction action, const NotificationBits value=0) const']]],
+  ['notifygive_4',['notifyGive',['../da/de7/a00210.html#aa6044b58ddd4bb9f8755b7fb13c8843a',1,'Lib::FreeRTOS::Task::notifyGive() const'],['../da/de7/a00210.html#aa6044b58ddd4bb9f8755b7fb13c8843a',1,'Lib::FreeRTOS::Task::notifyGive() const']]],
+  ['notifygivefromisr_5',['notifyGiveFromISR',['../da/de7/a00210.html#ac23a558c7d05587535b81bdb46c3f8c2',1,'Lib::FreeRTOS::Task::notifyGiveFromISR(bool &amp;higherPrioritywoken) const'],['../da/de7/a00210.html#ac23a558c7d05587535b81bdb46c3f8c2',1,'Lib::FreeRTOS::Task::notifyGiveFromISR(bool &amp;higherPrioritywoken) const']]],
+  ['notifytake_6',['notifyTake',['../d3/dd1/a00214.html#a2f214ff544c0ad58ccbfd40128515e26',1,'Lib::FreeRTOS::TaskHelper']]],
+  ['notifywait_7',['notifyWait',['../d3/dd1/a00214.html#adfa63a4bd63b3aab01a3ad9c212b7746',1,'Lib::FreeRTOS::TaskHelper']]]
 ];

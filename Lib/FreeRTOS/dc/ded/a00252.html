@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: MemoryManager</title>
+<title>Lib::FreeRTOS: CoRoutine</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,74 +99,43 @@ $(function(){initNavTree('dc/ded/a00252.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MemoryManager</div></div>
+  <div class="headertitle"><div class="title">CoRoutine</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the MemoryManager class to allocate and free memory using FreeRTOS. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file MemoryManager.cpp</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @brief MemoryManager class example</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @version 1.0</span></div>
-<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/dab/a00089.html">MessageBuffer.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<p>This example demonstrates how to use the CoRoutine class to create and manage FreeRTOS co-routines. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a message buffer in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> * @brief Example function demonstrating the usage of a FreeRTOS co-routine.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function performs the following steps:</span></div>
-<div class="line"><span class="comment"> * 1. Creates a message buffer with a size of 100 bytes.</span></div>
-<div class="line"><span class="comment"> * 2. Sends a message &quot;Hello, FreeRTOS!&quot; to the message buffer.</span></div>
-<div class="line"><span class="comment"> * 3. Receives the message from the message buffer and prints it.</span></div>
-<div class="line"><span class="comment"> * 4. Releases the message buffer.</span></div>
+<div class="line"><span class="comment"> * This function creates a co-routine using a lambda function. The lambda function</span></div>
+<div class="line"><span class="comment"> * contains an infinite loop with a delay of 100 ticks.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
+<div class="line"><span class="comment"> * The lambda function is defined as follows:</span></div>
+<div class="line"><span class="comment"> * - @param hnd: The handle to the co-routine.</span></div>
+<div class="line"><span class="comment"> * - @param index: The index of the co-routine.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * The co-routine is created with the following parameters:</span></div>
+<div class="line"><span class="comment"> * - func: The lambda function defined above.</span></div>
+<div class="line"><span class="comment"> * - 0: The priority of the co-routine.</span></div>
+<div class="line"><span class="comment"> * - 0: The index of the co-routine.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create a message buffer with a size of 100 bytes</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d0d/a00171.html">Lib::FreeRTOS::MessageBuffer</a> messageBuffer;</div>
-<div class="line">    <span class="keywordflow">if</span> (!messageBuffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a16516aeccd9c706e8eee91172163f7b8">create</a> (100)) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create message buffer&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Send a message to the message buffer</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * message = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
-<div class="line">    <span class="keywordtype">size_t</span> messageLength = strlen (message) + 1;  <span class="comment">// Include null terminator</span></div>
-<div class="line">    <span class="keywordflow">if</span> (messageBuffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a17561e31205ea64d3f3d8c17ca55ff69">send</a> (message, messageLength, 100) != messageLength) {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to send message&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Receive a message from the message buffer</span></div>
-<div class="line">    <span class="keywordtype">char</span> receivedMessage [100];</div>
-<div class="line">    <span class="keywordtype">size_t</span> receivedLength = messageBuffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a8f160675bb113e76d3a32a9f78d3b7a1">receive</a> (receivedMessage, <span class="keyword">sizeof</span> (receivedMessage), 100);</div>
-<div class="line">    <span class="keywordflow">if</span> (receivedLength &gt; 0) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Received message: &quot;</span> &lt;&lt; receivedMessage &lt;&lt; std::endl;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to receive message&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the message buffer</span></div>
-<div class="line">    messageBuffer.release ();</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="keywordtype">void</span> example () {</div>
+<div class="line">    <span class="keyword">auto</span> func = [] (CoRoutineHandle_t hnd, UBaseType_t index) {</div>
+<div class="line">        crSTART (hnd);</div>
+<div class="line">        <span class="keywordflow">for</span> (;;) {</div>
+<div class="line">            crDELAY (hnd, 100);</div>
+<div class="line">        }</div>
+<div class="line">        crEND ();</div>
+<div class="line">    };</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/db8/a00158.html">Lib::FreeRTOS::CoRoutine</a> coRoutine (func, 0, 0);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00089_html"><div class="ttname"><a href="../../db/dab/a00089.html">MessageBuffer.hpp</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS message buffers.</div></div>
-<div class="ttc" id="aa00171_html"><div class="ttname"><a href="../../d1/d0d/a00171.html">Lib::FreeRTOS::MessageBuffer</a></div><div class="ttdoc">A class that encapsulates FreeRTOS message buffer functionality.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:30</div></div>
-<div class="ttc" id="aa00171_html_a16516aeccd9c706e8eee91172163f7b8"><div class="ttname"><a href="../../d1/d0d/a00171.html#a16516aeccd9c706e8eee91172163f7b8">Lib::FreeRTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t nsize)</div><div class="ttdoc">Creates a new message buffer using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:71</div></div>
-<div class="ttc" id="aa00171_html_a17561e31205ea64d3f3d8c17ca55ff69"><div class="ttname"><a href="../../d1/d0d/a00171.html#a17561e31205ea64d3f3d8c17ca55ff69">Lib::FreeRTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *src, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:116</div></div>
-<div class="ttc" id="aa00171_html_a8f160675bb113e76d3a32a9f78d3b7a1"><div class="ttname"><a href="../../d1/d0d/a00171.html#a8f160675bb113e76d3a32a9f78d3b7a1">Lib::FreeRTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dst, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Receives a message from the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:167</div></div>
+<div class="ttc" id="aa00158_html"><div class="ttname"><a href="../../d6/db8/a00158.html">Lib::FreeRTOS::CoRoutine</a></div><div class="ttdoc">A class to encapsulate FreeRTOS co-routine functionality.</div><div class="ttdef"><b>Definition</b> CoRoutine.hpp:24</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Sun Feb 9 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

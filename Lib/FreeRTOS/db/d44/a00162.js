@@ -1,16 +1,16 @@
 var a00162 =
 [
-    [ "Handle", "db/d44/a00162.html#ac31e3b88075f241424a80adbb7b0641d", null ],
-    [ "~SemaphoreBase", "db/d44/a00162.html#a253934193ee0de5b0fce552c75256ee3", null ],
-    [ "create", "db/d44/a00162.html#a7984ce7686710bacb1b2e7239e79151e", null ],
-    [ "give", "db/d44/a00162.html#a494f63a7a96566f17e1ac85cfb5b55a4", null ],
-    [ "giveFromISR", "db/d44/a00162.html#ad44726c956c5a3a3316a3a4fa0f0f952", null ],
-    [ "isCreated", "db/d44/a00162.html#a58e8cc9baf2e1387aa62194834bcdee3", null ],
-    [ "operator Handle &", "db/d44/a00162.html#a3180f95a05d722aee73dda27ae4020b5", null ],
-    [ "overwrite", "db/d44/a00162.html#adcee056645a87bc1f08c23e6ff0923a3", null ],
-    [ "overwriteFromISR", "db/d44/a00162.html#a5765bdc831d4c447f76cd2362ab52e24", null ],
-    [ "release", "db/d44/a00162.html#a8a54584609b12a9c0dafac152ac50617", null ],
-    [ "take", "db/d44/a00162.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06", null ],
-    [ "takeFromISR", "db/d44/a00162.html#ac0253cf90b5a647286873e2febb2da24", null ],
-    [ "handle", "db/d44/a00162.html#aeba9aef9fbf175aa1ecbb778553874ea", null ]
+    [ "EventGroup", "db/d44/a00162.html#a094f14cbb2e1186515e3a1eac5b9fddd", null ],
+    [ "~EventGroup", "db/d44/a00162.html#acb0fbb840bf181958f3e7edc81f2a644", null ],
+    [ "clearBits", "db/d44/a00162.html#a2dc0fc601a6be926470359dd0a22b9e3", null ],
+    [ "clearBitsFromISR", "db/d44/a00162.html#a97ea8c5b232ca4b7abcb7b15f7c224b3", null ],
+    [ "create", "db/d44/a00162.html#a89eb1195dee2cb2b9ca34001dee08b96", null ],
+    [ "destroy", "db/d44/a00162.html#a87b84ac7ee4530067642a5cebbaf46d8", null ],
+    [ "getBits", "db/d44/a00162.html#a039ad5d0cfdd0268f0d5b3d16e64f47e", null ],
+    [ "getBitsFromISR", "db/d44/a00162.html#aa0d5697fc4ffd665d0a7bc52a9799dff", null ],
+    [ "isCreated", "db/d44/a00162.html#a6ad2b1b07641d6e84ffa57a7b37bae92", null ],
+    [ "setBits", "db/d44/a00162.html#abd5e7a9d70c53c7e7c66afc5d12de43d", null ],
+    [ "setBitsFromISR", "db/d44/a00162.html#abf8680bfb496317427a9f2779b5ccf01", null ],
+    [ "syncBits", "db/d44/a00162.html#a0c0cf0a87fcd0a27ff127e2e7d438c73", null ],
+    [ "waitForBits", "db/d44/a00162.html#a72dd46a1c97d37b0e35c2b2857153d66", null ]
 ];
