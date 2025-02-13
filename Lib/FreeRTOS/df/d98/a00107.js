@@ -1,4 +1,4 @@
 var a00107 =
 [
-    [ "Lib::FreeRTOS::SemaphoreCounting", "db/d53/a00202.html", "db/d53/a00202" ]
+    [ "Lib::FreeRTOS::StreamBuffer", "d3/d2a/a00195.html", "d3/d2a/a00195" ]
 ];

@@ -1,16 +1,7 @@
 var a00227 =
 [
-    [ "Timeout", "d9/d01/a00227.html#a8c7119d3f819b0b73a98eec114c0d30b", null ],
-    [ "Timeout", "d9/d01/a00227.html#a19ae87d13f16e5a7baabe2b161413651", null ],
-    [ "~Timeout", "d9/d01/a00227.html#a4f2dfba861c373b6540e469c308f08b7", null ],
-    [ "check", "d9/d01/a00227.html#a90af82736388b26add41da3886a12390", null ],
-    [ "disable", "d9/d01/a00227.html#ae6a7d021b68b53dfcd6a3f9c6566ddde", null ],
-    [ "expired", "d9/d01/a00227.html#aed96be0de23f7b71dc527366feaf30a9", null ],
-    [ "isDisable", "d9/d01/a00227.html#a4b231b1cb4d749accbd86790c9d064c6", null ],
-    [ "operator uint32_t", "d9/d01/a00227.html#a9822fb66e6f856de108727f9916fcd00", null ],
-    [ "operator+=", "d9/d01/a00227.html#a2ed5bd685dddcae99312a5893457162a", null ],
-    [ "operator-=", "d9/d01/a00227.html#a18796545c784b2e175cb6c893734d708", null ],
-    [ "operator=", "d9/d01/a00227.html#a27a548cf01dc334119cb8cd0d0317ba6", null ],
-    [ "operator==", "d9/d01/a00227.html#ab484ff778a0d1e45ef84fbb96d970a52", null ],
-    [ "set", "d9/d01/a00227.html#a3dbcd64ec31d965a0222cd69a7bae477", null ]
+    [ "autoReload", "d9/d01/a00227.html#ac5c33d97089332a4d25af41a2c8041b9", null ],
+    [ "func", "d9/d01/a00227.html#a0cbe3cafae6b6f0ab9f2b63881d12fd3", null ],
+    [ "name", "d9/d01/a00227.html#ae0cce1f3589bffdae40a02948b0c0446", null ],
+    [ "period", "d9/d01/a00227.html#a2efaeed1879a053a585ed05adef8eba9", null ]
 ];

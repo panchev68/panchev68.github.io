@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: EventGroup</title>
+<title>Lib::FreeRTOS: SemaphoreCounting</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,76 +99,90 @@ $(function(){initNavTree('d7/d03/a00254.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">EventGroup</div></div>
+  <div class="headertitle"><div class="title">SemaphoreCounting</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the EventGroup class to create and manage a FreeRTOS event group. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file EventGroup.cpp</span></div>
+<p>This is an example of how to use the SemaphoreCounting class. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file SemaphoreCounting.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Example demonstrating the usage of a counting semaphore.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @brief EventGroup class example</span></div>
+<div class="line"><span class="comment"> * This file contains a main function that demonstrates the following operations:</span></div>
+<div class="line"><span class="comment"> * - Creates a counting semaphore with a maximum count of 10 and an initial count of 5.</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the current count of the semaphore.</span></div>
+<div class="line"><span class="comment"> * - Attempts to take the semaphore with a timeout of 100 ticks and prints the result.</span></div>
+<div class="line"><span class="comment"> * - Gives the semaphore and prints the result.</span></div>
+<div class="line"><span class="comment"> * - Releases the semaphore.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @version 1.0</span></div>
+<div class="line"><span class="comment"> * If any of the operations fail, an appropriate message is printed.</span></div>
+<div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * @date 11.01.2025</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dc2/a00104.html">SemaphoreCounting.hpp</a>&quot;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the EventGroup class.</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a counting semaphore.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function demonstrates how to create, set, get, wait for, and clear bits in an event group.</span></div>
+<div class="line"><span class="comment"> * This function creates a counting semaphore with a maximum count of 10 and an initial count of 5.</span></div>
+<div class="line"><span class="comment"> * It then performs the following operations:</span></div>
+<div class="line"><span class="comment"> * - Creates the semaphore.</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the current count of the semaphore.</span></div>
+<div class="line"><span class="comment"> * - Attempts to take the semaphore with a timeout of 100 ticks and prints the result.</span></div>
+<div class="line"><span class="comment"> * - Gives the semaphore and prints the result.</span></div>
+<div class="line"><span class="comment"> * - Releases the semaphore.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * If any of the operations fail, an appropriate message is printed.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @return int Exit status of the program.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create an EventGroup object</span></div>
-<div class="line">    FreeRTOS::EventGroup eventGroup;</div>
+<div class="line">    <span class="comment">// Create a counting semaphore with a maximum count of 10 and an initial count of 5</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/dd0/a00191.html">Lib::FreeRTOS::SemaphoreCounting</a> semaphore (10, 5);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create the event group</span></div>
-<div class="line">    <span class="keywordflow">if</span> (eventGroup.create ()) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Event group created successfully.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Create the semaphore</span></div>
+<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/dd0/a00191.html#ad41efc69f8508537f2ed3232d913c2f0">create</a> ()) {</div>
+<div class="line">        <span class="comment">// Successfully created the semaphore</span></div>
+<div class="line">        <span class="comment">// Get the current count of the semaphore</span></div>
+<div class="line">        uint32_t count = semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d9/dd0/a00191.html#a2ba9c425252137f3e434915d93906409">getCount</a> ();</div>
+<div class="line">        printf (<span class="stringliteral">&quot;Semaphore count: %u\n&quot;</span>, count);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Take the semaphore</span></div>
+<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d9/dd0/a00191.html#a3b42128f16832e00da0b3013af344d46">take</a> (100)) {</div>
+<div class="line">            <span class="comment">// Successfully took the semaphore</span></div>
+<div class="line">            printf (<span class="stringliteral">&quot;Semaphore taken\n&quot;</span>);</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="comment">// Failed to take the semaphore</span></div>
+<div class="line">            printf (<span class="stringliteral">&quot;Failed to take semaphore\n&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Give the semaphore</span></div>
+<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d9/dd0/a00191.html#a6bfe5fea68fa0b84e0914a8a445152e7">give</a> ()) {</div>
+<div class="line">            <span class="comment">// Successfully gave the semaphore</span></div>
+<div class="line">            printf (<span class="stringliteral">&quot;Semaphore given\n&quot;</span>);</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="comment">// Failed to give the semaphore</span></div>
+<div class="line">            printf (<span class="stringliteral">&quot;Failed to give semaphore\n&quot;</span>);</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Release the semaphore</span></div>
+<div class="line">        semaphore.release ();</div>
 <div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">        <span class="comment">// Failed to create the semaphore</span></div>
+<div class="line">        printf (<span class="stringliteral">&quot;Failed to create semaphore\n&quot;</span>);</div>
 <div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Set some bits in the event group</span></div>
-<div class="line">    FreeRTOS::EventBits bitsToSet;</div>
-<div class="line"> </div>
-<div class="line">    bitsToSet.set (0);  <span class="comment">// Set bit 0</span></div>
-<div class="line">    bitsToSet.set (1);  <span class="comment">// Set bit 1</span></div>
-<div class="line">    eventGroup.setBits (bitsToSet);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits set in event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Get the current bits in the event group</span></div>
-<div class="line">    FreeRTOS::EventBits currentBits = eventGroup.getBits ();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current bits in event group: &quot;</span> &lt;&lt; currentBits &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for specific bits to be set</span></div>
-<div class="line">    FreeRTOS::EventBits bitsToWaitFor;</div>
-<div class="line">    bitsToWaitFor.set (0);  <span class="comment">// Wait for bit 0</span></div>
-<div class="line">    FreeRTOS::EventBits resultBits = eventGroup.waitForBits (bitsToWaitFor, <span class="keyword">true</span>, <span class="keyword">true</span>, 1000);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits after waiting: &quot;</span> &lt;&lt; resultBits &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Clear some bits in the event group</span></div>
-<div class="line">    FreeRTOS::EventBits bitsToClear;</div>
-<div class="line">    bitsToClear.set (1);  <span class="comment">// Clear bit 1</span></div>
-<div class="line">    eventGroup.clearBits (bitsToClear);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits cleared in event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the event group</span></div>
-<div class="line">    eventGroup.destroy ();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Event group released.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00104_html"><div class="ttname"><a href="../../d0/dc2/a00104.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">Counting semaphore class for FreeRTOS.</div></div>
+<div class="ttc" id="aa00191_html"><div class="ttname"><a href="../../d9/dd0/a00191.html">Lib::FreeRTOS::SemaphoreCounting</a></div><div class="ttdoc">A class representing a counting semaphore in FreeRTOS.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:21</div></div>
+<div class="ttc" id="aa00191_html_a2ba9c425252137f3e434915d93906409"><div class="ttname"><a href="../../d9/dd0/a00191.html#a2ba9c425252137f3e434915d93906409">Lib::FreeRTOS::SemaphoreCounting::getCount</a></div><div class="ttdeci">uint32_t getCount() const</div><div class="ttdoc">Gets the current count of the counting semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:60</div></div>
+<div class="ttc" id="aa00191_html_a3b42128f16832e00da0b3013af344d46"><div class="ttname"><a href="../../d9/dd0/a00191.html#a3b42128f16832e00da0b3013af344d46">Lib::FreeRTOS::SemaphoreCounting::take</a></div><div class="ttdeci">bool take(uint32_t ticksToWait=0) override</div><div class="ttdoc">Attempts to take the semaphore, blocking for a specified amount of time.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:83</div></div>
+<div class="ttc" id="aa00191_html_a6bfe5fea68fa0b84e0914a8a445152e7"><div class="ttname"><a href="../../d9/dd0/a00191.html#a6bfe5fea68fa0b84e0914a8a445152e7">Lib::FreeRTOS::SemaphoreCounting::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:92</div></div>
+<div class="ttc" id="aa00191_html_ad41efc69f8508537f2ed3232d913c2f0"><div class="ttname"><a href="../../d9/dd0/a00191.html#ad41efc69f8508537f2ed3232d913c2f0">Lib::FreeRTOS::SemaphoreCounting::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a new counting semaphore using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:47</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Feb 9 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,20 +1,15 @@
 var a00167 =
 [
-    [ "Handle", "dc/de6/a00167.html#a9ce35559d183f678dc3af4bebd0ed7d4", null ],
-    [ "StreamBuffer", "dc/de6/a00167.html#a986de1d1df5239f3282b4d0b4f24a51b", null ],
-    [ "~StreamBuffer", "dc/de6/a00167.html#a0e24ee0bf5ba9ab27b53a885de253791", null ],
-    [ "create", "dc/de6/a00167.html#a46cd7db63b4b2312d1f8769a5b18da93", null ],
-    [ "getBytesAvailable", "dc/de6/a00167.html#af6ba5acfc1558a7838dec80b8ee34ef0", null ],
-    [ "getSpacesAvailable", "dc/de6/a00167.html#aa274f35053d848a7a045a75a39d13742", null ],
-    [ "isCreated", "dc/de6/a00167.html#a4e790af37fe33a98b7aa6b3cb1a542b6", null ],
-    [ "isEmpty", "dc/de6/a00167.html#a4d938a1272b841d6f97916a0bb2cfd4a", null ],
-    [ "isFull", "dc/de6/a00167.html#ad1854f3342eb9bf8c09a2f0ddc26be69", null ],
-    [ "operator Handle &", "dc/de6/a00167.html#a2a5de86bc7d1fbed191a5f852a4e2b46", null ],
-    [ "receive", "dc/de6/a00167.html#aeee0b648073b6bd01373c750c324653b", null ],
-    [ "receiveFromISR", "dc/de6/a00167.html#a2318a48f2341571ed46c4ecb2671537b", null ],
-    [ "release", "dc/de6/a00167.html#abe04a543930a1417c5d0371cbdfebff8", null ],
-    [ "reset", "dc/de6/a00167.html#a86e319a0315fc87966c9c43f1e74b246", null ],
-    [ "send", "dc/de6/a00167.html#a1964ea313a49c3231e60ea15469ef5ab", null ],
-    [ "sendFromISR", "dc/de6/a00167.html#ac79ca9feb2e05f02b324219a571e79a5", null ],
-    [ "setTriggerLevel", "dc/de6/a00167.html#a3d2741e023f31a9d2c9294ce0b6842c8", null ]
+    [ "Guard", "d1/d0d/a00171.html", "d1/d0d/a00171" ],
+    [ "Mutex", "dc/de6/a00167.html#ab40a1fec6fa8904a155fcb2791f9768d", null ],
+    [ "~Mutex", "dc/de6/a00167.html#a89d122298f5ce39c2fa0907db300d728", null ],
+    [ "create", "dc/de6/a00167.html#ad28d65c38cf942b9b7c774daab51fec0", null ],
+    [ "destroy", "dc/de6/a00167.html#aee0b377faa20b9b3035ffc7dac6944ca", null ],
+    [ "give", "dc/de6/a00167.html#a7f01871a4f9bfdea2a68ba821ce01f15", null ],
+    [ "giveFromISR", "dc/de6/a00167.html#a36fb52badeff1acbb7637a51e2ed0460", null ],
+    [ "isCreated", "dc/de6/a00167.html#a4d1eced6c7315b0772b6bd0b93fce8d5", null ],
+    [ "lock", "dc/de6/a00167.html#ac067a07152c1bfc33c335e2aa9dcb7f0", null ],
+    [ "take", "dc/de6/a00167.html#ad700ddbe08a86005ef12aa9abd44b7e8", null ],
+    [ "takeFromISR", "dc/de6/a00167.html#ad6af157c6bb1ae8c72e131b7e80b1a65", null ],
+    [ "unlock", "dc/de6/a00167.html#a5c6cee53e6b08f45d1330e1234978bb2", null ]
 ];

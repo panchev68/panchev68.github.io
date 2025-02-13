@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: EventGroup</title>
+<title>Lib::FreeRTOS: Mutex</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,67 +99,49 @@ $(function(){initNavTree('d0/d1f/a00247.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">EventGroup</div></div>
+  <div class="headertitle"><div class="title">Mutex</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the EventGroup class to create and manage a FreeRTOS event group. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file EventGroup.cpp</span></div>
+<p>This example demonstrates the usage of a mutex in FreeRTOS. It creates a mutex, takes it, enters a critical section, and then gives and releases the mutex. It prints messages to the standard output to indicate the status of each operation.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Mutex.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in FreeRTOS.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @brief EventGroup class example</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @version 1.0</span></div>
 <div class="line"><span class="comment"> * @date 11.01.2025</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#pragma once</span></div>
-<div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the EventGroup class.</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in FreeRTOS.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function demonstrates how to create, set, get, wait for, and clear bits in an event group.</span></div>
+<div class="line"><span class="comment"> * This function creates a mutex, takes it, enters a critical section,</span></div>
+<div class="line"><span class="comment"> * and then gives and releases the mutex. It prints messages to the</span></div>
+<div class="line"><span class="comment"> * standard output to indicate the status of each operation.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create an EventGroup object</span></div>
-<div class="line">    FreeRTOS::EventGroup eventGroup;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create the event group</span></div>
-<div class="line">    <span class="keywordflow">if</span> (eventGroup.create ()) {</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Event group created successfully.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create event group.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Create a mutex</span></div>
+<div class="line">    FreeRTOS::Mutex mutex;</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.create ()) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create mutex&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line">        <span class="keywordflow">return</span> -1;</div>
 <div class="line">    }</div>
+<div class="line">    <span class="comment">// Lock the mutex</span></div>
+<div class="line">    mutex.lock ();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Set some bits in the event group</span></div>
-<div class="line">    FreeRTOS::EventBits bitsToSet;</div>
+<div class="line">    <span class="comment">// Critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex taken, entering critical section&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    bitsToSet.set (0);  <span class="comment">// Set bit 0</span></div>
-<div class="line">    bitsToSet.set (1);  <span class="comment">// Set bit 1</span></div>
-<div class="line">    eventGroup.setBits (bitsToSet);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits set in event group.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Unlock the mutex</span></div>
+<div class="line">    mutex.unlock ();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Get the current bits in the event group</span></div>
-<div class="line">    FreeRTOS::EventBits currentBits = eventGroup.getBits ();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current bits in event group: &quot;</span> &lt;&lt; currentBits &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Exit critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex given, exiting critical section&quot;</span> &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Wait for specific bits to be set</span></div>
-<div class="line">    FreeRTOS::EventBits bitsToWaitFor;</div>
-<div class="line">    bitsToWaitFor.set (0);  <span class="comment">// Wait for bit 0</span></div>
-<div class="line">    FreeRTOS::EventBits resultBits = eventGroup.waitForBits (bitsToWaitFor, <span class="keyword">true</span>, <span class="keyword">true</span>, 1000);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits after waiting: &quot;</span> &lt;&lt; resultBits &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Clear some bits in the event group</span></div>
-<div class="line">    FreeRTOS::EventBits bitsToClear;</div>
-<div class="line">    bitsToClear.set (1);  <span class="comment">// Clear bit 1</span></div>
-<div class="line">    eventGroup.clearBits (bitsToClear);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits cleared in event group.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Release the event group</span></div>
-<div class="line">    eventGroup.destroy ();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Event group released.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Destroy the mutex</span></div>
+<div class="line">    mutex.destroy ();</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
@@ -168,7 +150,7 @@ $(function(){initNavTree('d0/d1f/a00247.html','../../'); initResizable(true); })
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

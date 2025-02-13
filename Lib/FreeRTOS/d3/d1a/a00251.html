@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Timeout</title>
+<title>Lib::FreeRTOS: QueueSet</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,73 +99,76 @@ $(function(){initNavTree('d3/d1a/a00251.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Timeout</div></div>
+  <div class="headertitle"><div class="title">QueueSet</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This function demonstrates how to use the Timeout class to create and manage timeouts. </p><div class="fragment"><div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file Timeout.cpp</span></div>
-<div class="line"><span class="comment"> * @brief Demonstrates the usage of the Timeout class in FreeRTOS.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file contains an example of how to create, set, check, and disable a timeout using the Timeout class.</span></div>
-<div class="line"><span class="comment"> * It also shows how to manipulate the timeout duration and compare the timeout status.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @author Bobby</span></div>
-<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../df/d6a/a00119.html">Timeout.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<p>This is an example of how to use the QueueSet class. </p><div class="fragment"><div class="line"> </div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the Timeout class.</span></div>
+<div class="line"><span class="comment"> * @file Queueset.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Example usage of FreeRTOS QueueSet in C++.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function demonstrates how to create, set, check, and disable a timeout using the Timeout class.</span></div>
+<div class="line"><span class="comment"> * This file demonstrates how to create and use a QueueSet with two queues</span></div>
+<div class="line"><span class="comment"> * in FreeRTOS using C++. The example includes creating the queues, adding</span></div>
+<div class="line"><span class="comment"> * them to a QueueSet, selecting a queue from the QueueSet, and handling</span></div>
+<div class="line"><span class="comment"> * the selected queue.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @note This example assumes the existence of a FreeRTOS C++ wrapper library.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> main () {</div>
-<div class="line">    <span class="comment">// Create a Timeout object with a duration of 1000 ticks</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/de5/a00209.html">Lib::FreeRTOS::Timeout</a> timeout (1000);</div>
-<div class="line">    <span class="comment">// Set the timeout duration to 2000 ticks</span></div>
-<div class="line">    timeout.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/de5/a00209.html#a3dbcd64ec31d965a0222cd69a7bae477">set</a> (2000);</div>
-<div class="line">    <span class="comment">// Check if the timeout has elapsed</span></div>
-<div class="line">    <span class="keywordflow">if</span> (timeout.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d3/de5/a00209.html#a90af82736388b26add41da3886a12390">check</a> ()) {</div>
-<div class="line">        <span class="comment">// Timeout has elapsed</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timeout has not yet elapsed</span></div>
+<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.hpp&quot;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Demonstrates the usage of a QueueSet in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function creates two queues and adds them to a QueueSet. It then waits</span></div>
+<div class="line"><span class="comment"> * indefinitely for one of the queues to have data and processes the queue that</span></div>
+<div class="line"><span class="comment"> * has data available. Finally, it cleans up the created queues.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @note This example assumes that the FreeRTOS namespace and relevant classes</span></div>
+<div class="line"><span class="comment"> * (Queue, QueueSet) are available and properly implemented.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @details</span></div>
+<div class="line"><span class="comment"> * - Two queues (queue1 and queue2) are created.</span></div>
+<div class="line"><span class="comment"> * - A QueueSet is created to hold the two queues.</span></div>
+<div class="line"><span class="comment"> * - The function waits indefinitely for one of the queues to have data.</span></div>
+<div class="line"><span class="comment"> * - Depending on which queue has data, the function processes the respective queue.</span></div>
+<div class="line"><span class="comment"> * - The queues are destroyed at the end of the function.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @warning If the QueueSet creation fails, the function asserts and returns immediately.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">void</span> exampleQueueSetUsage () {</div>
+<div class="line">    <span class="keyword">using namespace </span>FreeRTOS;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create two queues</span></div>
+<div class="line">    Queue&lt;uint32_t&gt; queue1;</div>
+<div class="line">    Queue&lt;uint32_t&gt; queue2;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create a queue set that can hold 2 queues</span></div>
+<div class="line">    QueueSet queueSet;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (!queueSet.create (2, {queue1, queue2})) {</div>
+<div class="line">        assert (0 &amp;&amp; <span class="stringliteral">&quot;Error creating QueueSet&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
-<div class="line">    <span class="comment">// Disable the timeout</span></div>
-<div class="line">    timeout.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d3/de5/a00209.html#ae6a7d021b68b53dfcd6a3f9c6566ddde">disable</a> ();</div>
-<div class="line">    <span class="comment">// Check if the timeout is disabled</span></div>
-<div class="line">    <span class="keywordflow">if</span> (timeout.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d3/de5/a00209.html#a4b231b1cb4d749accbd86790c9d064c6">isDisable</a> ()) {</div>
-<div class="line">        <span class="comment">// Timeout is disabled</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">auto</span> selectedMember = queueSet.select (portMAX_DELAY);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (selectedMember == queue1) {</div>
+<div class="line">        <span class="comment">// Handle queue1</span></div>
+<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (selectedMember == queue2) {</div>
+<div class="line">        <span class="comment">// Handle queue2</span></div>
 <div class="line">    }</div>
-<div class="line">    <span class="comment">// Add 500 ticks to the current timeout duration</span></div>
-<div class="line">    timeout += 500;</div>
-<div class="line">    <span class="comment">// Subtract 300 ticks from the current timeout duration</span></div>
-<div class="line">    timeout -= 300;</div>
-<div class="line">    <span class="comment">// Assign a new duration to the timeout</span></div>
-<div class="line">    timeout = 1500;</div>
-<div class="line">    <span class="comment">// Compare the result of the check() function with a boolean value</span></div>
-<div class="line">    <span class="keywordflow">if</span> (timeout == <span class="keyword">true</span>) {</div>
-<div class="line">        <span class="comment">// Timeout has elapsed</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// Timeout has not yet elapsed</span></div>
-<div class="line">    }</div>
-<div class="line">    <span class="comment">// Convert the Timeout object to a uint32_t</span></div>
-<div class="line">    uint32_t duration = timeout;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Clean up</span></div>
+<div class="line">    queue1.destroy ();</div>
+<div class="line">    queue2.destroy ();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00119_html"><div class="ttname"><a href="../../df/d6a/a00119.html">Timeout.hpp</a></div><div class="ttdoc">A class providing a C++ interface for FreeRTOS timeouts.</div></div>
-<div class="ttc" id="aa00209_html"><div class="ttname"><a href="../../d3/de5/a00209.html">Lib::FreeRTOS::Timeout</a></div><div class="ttdoc">A class providing a C++ interface for FreeRTOS timeouts.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:21</div></div>
-<div class="ttc" id="aa00209_html_a3dbcd64ec31d965a0222cd69a7bae477"><div class="ttname"><a href="../../d3/de5/a00209.html#a3dbcd64ec31d965a0222cd69a7bae477">Lib::FreeRTOS::Timeout::set</a></div><div class="ttdeci">void set(uint32_t duration)</div><div class="ttdoc">Sets the duration of the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:50</div></div>
-<div class="ttc" id="aa00209_html_a4b231b1cb4d749accbd86790c9d064c6"><div class="ttname"><a href="../../d3/de5/a00209.html#a4b231b1cb4d749accbd86790c9d064c6">Lib::FreeRTOS::Timeout::isDisable</a></div><div class="ttdeci">bool isDisable() const</div><div class="ttdoc">Checks if the timeout is disabled.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:141</div></div>
-<div class="ttc" id="aa00209_html_a90af82736388b26add41da3886a12390"><div class="ttname"><a href="../../d3/de5/a00209.html#a90af82736388b26add41da3886a12390">Lib::FreeRTOS::Timeout::check</a></div><div class="ttdeci">bool check() const</div><div class="ttdoc">Checks if the timeout has elapsed.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:64</div></div>
-<div class="ttc" id="aa00209_html_ae6a7d021b68b53dfcd6a3f9c6566ddde"><div class="ttname"><a href="../../d3/de5/a00209.html#ae6a7d021b68b53dfcd6a3f9c6566ddde">Lib::FreeRTOS::Timeout::disable</a></div><div class="ttdeci">void disable()</div><div class="ttdoc">Disables the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:132</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Jan 24 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

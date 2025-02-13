@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Member List</title>
+<title>Lib::FreeRTOS: EventGroup.cpp</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -73,7 +73,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('d2/dc8/a00242.html','../../'); initResizable(true); });
+$(function(){initNavTree('d0/d27/a00239.html','../../'); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -99,22 +99,77 @@ $(function(){initNavTree('d2/dc8/a00242.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;::Config Member List</div></div>
+  <div class="headertitle"><div class="title">EventGroup.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="../../d2/dc8/a00242.html">Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;::Config</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/dc8/a00242.html#a3e88bd86f3b7044f7f0f73e4c7225ae4">func</a></td><td class="entry"><a class="el" href="../../d2/dc8/a00242.html">Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;::Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d2/dc8/a00242.html#aa44af8d173d39283eef6f0bc3d4d053e">name</a></td><td class="entry"><a class="el" href="../../d2/dc8/a00242.html">Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;::Config</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d2/dc8/a00242.html#a10ceb0049e0a0ed1084621479d70a459">priority</a></td><td class="entry"><a class="el" href="../../d2/dc8/a00242.html">Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;::Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d2/dc8/a00242.html#a9337b874e9ded8720e36f2301912c8c7">stackDepth</a></td><td class="entry"><a class="el" href="../../d2/dc8/a00242.html">Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;::Config</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>This is an example of how to use the EventGroup class to create and manage a FreeRTOS event group.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file EventGroup.cpp</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @brief EventGroup class example</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @version 1.0</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma once</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the EventGroup class.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function demonstrates how to create, set, get, wait for, and clear bits in an event group.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="comment">// Create an EventGroup object</span></div>
+<div class="line">    FreeRTOS::EventGroup eventGroup;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create the event group</span></div>
+<div class="line">    <span class="keywordflow">if</span> (eventGroup.create ()) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Event group created successfully.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create event group.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Set some bits in the event group</span></div>
+<div class="line">    FreeRTOS::EventBits bitsToSet;</div>
+<div class="line"> </div>
+<div class="line">    bitsToSet.set (0);  <span class="comment">// Set bit 0</span></div>
+<div class="line">    bitsToSet.set (1);  <span class="comment">// Set bit 1</span></div>
+<div class="line">    eventGroup.setBits (bitsToSet);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits set in event group.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Get the current bits in the event group</span></div>
+<div class="line">    FreeRTOS::EventBits currentBits = eventGroup.getBits ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current bits in event group: &quot;</span> &lt;&lt; currentBits &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wait for specific bits to be set</span></div>
+<div class="line">    FreeRTOS::EventBits bitsToWaitFor;</div>
+<div class="line">    bitsToWaitFor.set (0);  <span class="comment">// Wait for bit 0</span></div>
+<div class="line">    FreeRTOS::EventBits resultBits = eventGroup.waitForBits (bitsToWaitFor, <span class="keyword">true</span>, <span class="keyword">true</span>, 1000);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits after waiting: &quot;</span> &lt;&lt; resultBits &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Clear some bits in the event group</span></div>
+<div class="line">    FreeRTOS::EventBits bitsToClear;</div>
+<div class="line">    bitsToClear.set (1);  <span class="comment">// Clear bit 1</span></div>
+<div class="line">    eventGroup.clearBits (bitsToClear);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Bits cleared in event group.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Release the event group</span></div>
+<div class="line">    eventGroup.destroy ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Event group released.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Feb 9 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

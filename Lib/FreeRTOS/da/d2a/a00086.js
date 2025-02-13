@@ -1,4 +1,4 @@
 var a00086 =
 [
-    [ "Lib::FreeRTOS::MemoryManager", "d5/dcb/a00170.html", null ]
+    [ "Lib::FreeRTOS::MessageBuffer", "dd/dae/a00163.html", "dd/dae/a00163" ]
 ];

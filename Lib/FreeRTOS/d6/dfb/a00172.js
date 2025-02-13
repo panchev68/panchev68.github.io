@@ -1,27 +1,5 @@
 var a00172 =
 [
-    [ "Handle", "d6/dfb/a00172.html#a3a9a66b61c5188474be1fa00a19ecb49", null ],
-    [ "Queue", "d6/dfb/a00172.html#a4bae3167242a61a1128a3feaac26e8d8", null ],
-    [ "~Queue", "d6/dfb/a00172.html#ad2151344786c05df7051532ac93d1228", null ],
-    [ "addToRegistry", "d6/dfb/a00172.html#af936f907fa857ee852f9952904eb1f28", null ],
-    [ "create", "d6/dfb/a00172.html#ab1f118805f404fcc5fc7373a93594009", null ],
-    [ "getHandle", "d6/dfb/a00172.html#a2c41ab96f85c46fcbfada25e38ae9195", null ],
-    [ "isCreated", "d6/dfb/a00172.html#a368491dc78d2becc33c627a8402ab1e5", null ],
-    [ "messagesWaiting", "d6/dfb/a00172.html#a4c8c176d001bf8671553f8f379a371c8", null ],
-    [ "messagesWaitingFromISR", "d6/dfb/a00172.html#aafb3e379354706406f980c30e86e9e74", null ],
-    [ "operator Handle", "d6/dfb/a00172.html#a88bed073e231ecb9da5411ed061d594d", null ],
-    [ "operator Handle &", "d6/dfb/a00172.html#a29301d1bff80bd5e0ce0ffe15aa68333", null ],
-    [ "overwrite", "d6/dfb/a00172.html#a3a861ad8c38ab3ea2086d1209daad180", null ],
-    [ "overwriteFromISR", "d6/dfb/a00172.html#a14bcb8fb7e17f30a58df8debaa846ab1", null ],
-    [ "peek", "d6/dfb/a00172.html#ae033ff52cdf237cdb88febef59d1877d", null ],
-    [ "peekFromISR", "d6/dfb/a00172.html#a1c0d95eb7fa17bd9c6857bf868ab6426", null ],
-    [ "receive", "d6/dfb/a00172.html#a758441a1968feda77ebb998dfdc4619a", null ],
-    [ "receiveFromISR", "d6/dfb/a00172.html#a0eb815a468ecede046a7fc0ed9879887", null ],
-    [ "release", "d6/dfb/a00172.html#a1e1db42d6e77a1c611e5a303083e934c", null ],
-    [ "removeFromRegistry", "d6/dfb/a00172.html#a92c18e4f1175149a0629084f56633fe0", null ],
-    [ "reset", "d6/dfb/a00172.html#a7dac0d66d07b97c5b89947a00ae73464", null ],
-    [ "send", "d6/dfb/a00172.html#a12072c8a458156c078eef3381f3e68b8", null ],
-    [ "sendToBackFromISR", "d6/dfb/a00172.html#ac2effb97aca4442a6a48c1c29e1f614d", null ],
-    [ "sendToFrontFromISR", "d6/dfb/a00172.html#a148d7aefd27a967ce90ea804ce26f07a", null ],
-    [ "spacesAvailable", "d6/dfb/a00172.html#adeb3149cccb765ada38a1d2ef55a1575", null ]
+    [ "Guard", "d6/dfb/a00172.html#a4f1be6b3ac427010a3c81b42838ab6d3", null ],
+    [ "~Guard", "d6/dfb/a00172.html#a3207e04aaec7e96351bddeca4d63d216", null ]
 ];

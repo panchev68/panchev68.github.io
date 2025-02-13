@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: QueueSet</title>
+<title>Lib::FreeRTOS: TickService</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,76 +99,57 @@ $(function(){initNavTree('dd/dd7/a00260.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">QueueSet</div></div>
+  <div class="headertitle"><div class="title">TickService</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the QueueSet class. </p><div class="fragment"><div class="line"> </div>
+<p>This example demonstrates how to use the TickService class to manage TickService events in the FreeRTOS environment. It shows how to create a client that handles TickService events and register it with the TickService class. The example also demonstrates how to start the TickService event handling and receive TickService events. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file TickService.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Demonstrates the usage of the TickService class in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains an example implementation of a tick service client using the FreeRTOS TickService class.</span></div>
+<div class="line"><span class="comment"> * The example increments a counter every tick (1 ms) using the handleTickEvent method.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @author Bobby</span></div>
+<div class="line"><span class="comment"> * @date 05.02.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"> </div>
+<div class="line">uint32_t counter = 0;</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file Queueset.cpp</span></div>
-<div class="line"><span class="comment"> * @brief Example usage of FreeRTOS QueueSet in C++.</span></div>
+<div class="line"><span class="comment"> * @brief Client class to handle tick events.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file demonstrates how to create and use a QueueSet with two queues</span></div>
-<div class="line"><span class="comment"> * in FreeRTOS using C++. The example includes creating the queues, adding</span></div>
-<div class="line"><span class="comment"> * them to a QueueSet, selecting a queue from the QueueSet, and handling</span></div>
-<div class="line"><span class="comment"> * the selected queue.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note This example assumes the existence of a FreeRTOS C++ wrapper library.</span></div>
+<div class="line"><span class="comment"> * This class inherits from the FreeRTOS::TickService::ClientBase class and implements the handleTickEvent method.</span></div>
+<div class="line"><span class="comment"> * The handleTickEvent method increments a counter every tick (1 ms).</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.hpp&quot;</span></div>
+<div class="line"><span class="keyword">class </span>Client : <span class="keyword">public</span> FreeRTOS::TickService::ClientBase {</div>
+<div class="line">    <span class="keywordtype">void</span> handleTickEvent ()<span class="keyword"> override </span>{</div>
+<div class="line">        <span class="comment">// Calling every 1 ms (1 tick) from the TickService</span></div>
+<div class="line">        counter++;</div>
+<div class="line">    }</div>
+<div class="line">};</div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Demonstrates the usage of a QueueSet in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> * @brief Main function to demonstrate the Tick class.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function creates two queues and adds them to a QueueSet. It then waits</span></div>
-<div class="line"><span class="comment"> * indefinitely for one of the queues to have data and processes the queue that</span></div>
-<div class="line"><span class="comment"> * has data available. Finally, it cleans up the created queues.</span></div>
+<div class="line"><span class="comment"> * This function demonstrates how to use the Tick class to manage tick events in the FreeRTOS environment.</span></div>
+<div class="line"><span class="comment"> * It creates an instance of the Tick class, registers a client to handle tick events, and starts the tick event handling.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note This example assumes that the FreeRTOS namespace and relevant classes</span></div>
-<div class="line"><span class="comment"> * (Queue, QueueSet) are available and properly implemented.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @details</span></div>
-<div class="line"><span class="comment"> * - Two queues (queue1 and queue2) are created.</span></div>
-<div class="line"><span class="comment"> * - A QueueSet is created to hold the two queues.</span></div>
-<div class="line"><span class="comment"> * - The function waits indefinitely for one of the queues to have data.</span></div>
-<div class="line"><span class="comment"> * - Depending on which queue has data, the function processes the respective queue.</span></div>
-<div class="line"><span class="comment"> * - The queues are destroyed at the end of the function.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @warning If the QueueSet creation fails, the function asserts and returns immediately.</span></div>
+<div class="line"><span class="comment"> * @return int The exit status of the application.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> exampleQueueSetUsage () {</div>
-<div class="line">    <span class="keyword">using namespace </span>FreeRTOS;</div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="keyword">auto</span> &amp; tickService = FreeRTOS::TickService::getInstance ();</div>
+<div class="line">    tickService.start ();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create two queues</span></div>
-<div class="line">    Queue&lt;uint32_t&gt; queue1;</div>
-<div class="line">    Queue&lt;uint32_t&gt; queue2;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a queue set that can hold 2 queues</span></div>
-<div class="line">    QueueSet queueSet;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!queueSet.create (2, {queue1, queue2})) {</div>
-<div class="line">        assert (0 &amp;&amp; <span class="stringliteral">&quot;Error creating QueueSet&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span> selectedMember = queueSet.select (portMAX_DELAY);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (selectedMember == queue1) {</div>
-<div class="line">        <span class="comment">// Handle queue1</span></div>
-<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (selectedMember == queue2) {</div>
-<div class="line">        <span class="comment">// Handle queue2</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Clean up</span></div>
-<div class="line">    queue1.destroy ();</div>
-<div class="line">    queue2.destroy ();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 6 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

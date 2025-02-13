@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: SemaphoreBase Class Reference</title>
+<title>Lib::FreeRTOS: Mutex</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,35 +99,58 @@ $(function(){initNavTree('d4/d9a/a00246.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SemaphoreBase Class Reference</div></div>
+  <div class="headertitle"><div class="title">Mutex</div></div>
 </div><!--header-->
 <div class="contents">
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A base class for semaphore implementations. </p>
-<p>This class provides the basic interface and functionality for semaphore objects used in the FreeRTOS environment.</p>
-<p>The default constructor initializes the semaphore object. </p>
-</div>
-<p><code>#include &lt;SemaphoreBase.hpp&gt;</code></p>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Collaboration diagram for SemaphoreBase:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="../../d6/d08/a00244.png" border="0" usemap="#a_semaphore_base_coll__map" alt="Collaboration graph"/></div>
-<map name="a_semaphore_base_coll__map" id="a_semaphore_base_coll__map">
-<area shape="rect" title="A base class for semaphore implementations." alt="" coords="5,5,112,75"/>
-</map>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d0/dc2/a00104.html">SemaphoreBase.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>This example demonstrates the usage of a mutex in FreeRTOS. It creates a mutex, takes it, enters a critical section, and then gives and releases the mutex. It prints messages to the standard output to indicate the status of each operation.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Mutex.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function creates a mutex, takes it, enters a critical section,</span></div>
+<div class="line"><span class="comment"> * and then gives and releases the mutex. It prints messages to the</span></div>
+<div class="line"><span class="comment"> * standard output to indicate the status of each operation.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="comment">// Create a mutex</span></div>
+<div class="line">    FreeRTOS::Mutex mutex;</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.create ()) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create mutex&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="comment">// Lock the mutex</span></div>
+<div class="line">    mutex.lock ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex taken, entering critical section&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Unlock the mutex</span></div>
+<div class="line">    mutex.unlock ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Exit critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex given, exiting critical section&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Destroy the mutex</span></div>
+<div class="line">    mutex.destroy ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../d4/d9a/a00246.html">SemaphoreBase</a></li>
-    <li class="footer">Generated on Sun Feb 9 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>
