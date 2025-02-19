@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['delay_0',['delay',['../d8/d72/a00199.html#ae89a0fff1ce55ac213648cf18b17e77a',1,'Lib::FreeRTOS::Task::delay()'],['../de/d79/a00203.html#a691a163c86981b2ddab32d34734ff952',1,'Lib::FreeRTOS::TaskHelper::delay()']]],
-  ['destroy_1',['destroy',['../dd/db2/a00151.html#a87b84ac7ee4530067642a5cebbaf46d8',1,'Lib::FreeRTOS::EventGroup::destroy()'],['../dd/dae/a00163.html#afe0dee7d2601397a889cc8b95f5fa86e',1,'Lib::FreeRTOS::MessageBuffer::destroy()'],['../dc/de6/a00167.html#aee0b377faa20b9b3035ffc7dac6944ca',1,'Lib::FreeRTOS::Mutex::destroy()'],['../dc/d52/a00183.html#a8b62c5a1c6b7b7a3597746fdee680dc4',1,'Lib::FreeRTOS::Semaphore::destroy()'],['../d6/daa/a00187.html#a47c5aef243aa78d1c89d36bdfd8cb524',1,'Lib::FreeRTOS::SemaphoreBase::destroy()'],['../d9/dd0/a00191.html#a832ed75dca8dae579e2a008161d3d774',1,'Lib::FreeRTOS::SemaphoreCounting::destroy()'],['../d3/d2a/a00195.html#a7ee41b161b53572582929c527cdd1968',1,'Lib::FreeRTOS::StreamBuffer::destroy()'],['../dc/d28/a00223.html#a6cf5e598fcc261db2e62b52d82085f67',1,'Lib::FreeRTOS::Timer::destroy()'],['../dc/d28/a00223.html#ab84c04a94d893087bf26d27a3eb4a480',1,'Lib::FreeRTOS::Timer::destroy(Timer *timer)']]],
-  ['disable_2',['disable',['../dd/df3/a00219.html#a0775668c8aa6772213a71cc5d3c8092d',1,'Lib::FreeRTOS::Timeout']]],
-  ['disableinterrupts_3',['disableInterrupts',['../d3/df8/a00155.html#a793d9f14fcb50dd90d2d7e209661ea8b',1,'Lib::FreeRTOS::Karnel']]]
+  ['enableinterrupts_0',['enableInterrupts',['../db/d44/a00162.html#ab3d68b336b77df64e627b3efa9d2ba3e',1,'RTOS::Karnel']]],
+  ['endscheduler_1',['endScheduler',['../db/d44/a00162.html#a5df1849142ff648ea291e0d0b83b185b',1,'RTOS::Karnel']]],
+  ['entercritical_2',['enterCritical',['../db/d44/a00162.html#aaa65e586ea55f17a551d4bbabc7e7fb1',1,'RTOS::Karnel']]],
+  ['entercriticalfromisr_3',['enterCriticalFromISR',['../db/d44/a00162.html#ab4b3ee280b60d443521e329c6d79fed5',1,'RTOS::Karnel']]],
+  ['eventgroup_4',['EventGroup',['../d6/db8/a00158.html#a5cd4a6dcc7805dcdf420bdc550b1c719',1,'RTOS::EventGroup']]],
+  ['exitcritical_5',['exitCritical',['../db/d44/a00162.html#a920dad13210df0bc6d330c8acfb916d5',1,'RTOS::Karnel']]],
+  ['exitcriticalfromisr_6',['exitCriticalFromISR',['../db/d44/a00162.html#acd1e7870830b20dedce929df549a408b',1,'RTOS::Karnel']]],
+  ['expired_7',['expired',['../d1/da8/a00230.html#a746d4ccfa47d1d6fca6cdf6047c51dcd',1,'RTOS::Timeout']]]
 ];

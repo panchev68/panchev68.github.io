@@ -1,5 +1,5 @@
 var a00125 =
 [
-    [ "Lib::FreeRTOS::Timer", "dc/d28/a00223.html", "dc/d28/a00223" ],
-    [ "Lib::FreeRTOS::Timer::Config", "d9/d01/a00227.html", "d9/d01/a00227" ]
+    [ "RTOS::TickService", "d0/d24/a00222.html", "d0/d24/a00222" ],
+    [ "RTOS::TickService::ClientBase", "dc/d55/a00226.html", "dc/d55/a00226" ]
 ];

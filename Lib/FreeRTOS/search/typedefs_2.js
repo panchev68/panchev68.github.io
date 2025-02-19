@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['notificationbits_0',['NotificationBits',['../d8/d72/a00199.html#a3602b6b7475859abdea450daea2d40e9',1,'Lib::FreeRTOS::Task']]]
+  ['notificationbits_0',['NotificationBits',['../d5/df1/a00206.html#a46b832087eb0a767ed881203db958980',1,'RTOS::Task']]]
 ];

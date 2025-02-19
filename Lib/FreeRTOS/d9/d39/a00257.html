@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: StreamBuffer</title>
+<title>Lib::FreeRTOS: Mutex</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,71 +99,63 @@ $(function(){initNavTree('d9/d39/a00257.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">StreamBuffer</div></div>
+  <div class="headertitle"><div class="title">Mutex</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the StreamBuffer class. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file StreamBuffer.cpp</span></div>
-<div class="line"><span class="comment"> * @brief Example demonstrating the usage of a stream buffer in FreeRTOS.</span></div>
+<p>This example demonstrates the usage of a mutex in FreeRTOS. It creates a mutex, takes it, enters a critical section, and then gives and releases the mutex. It prints messages to the standard output to indicate the status of each operation.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Mutex.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in RTOS.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file contains an example of how to create, send, receive, and release</span></div>
-<div class="line"><span class="comment"> * a stream buffer using the FreeRTOS library.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @author Bobby</span></div>
 <div class="line"><span class="comment"> * @date 11.01.2025</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d98/a00107.html">StreamBuffer.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a stream buffer in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating the usage of a mutex in RTOS.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function performs the following steps:</span></div>
-<div class="line"><span class="comment"> * 1. Creates a stream buffer with a buffer size of 1024 bytes and a trigger level of 1 byte.</span></div>
-<div class="line"><span class="comment"> * 2. Sends a message &quot;Hello, StreamBuffer!&quot; to the stream buffer.</span></div>
-<div class="line"><span class="comment"> * 3. Receives the message from the stream buffer and prints it.</span></div>
-<div class="line"><span class="comment"> * 4. Releases the stream buffer.</span></div>
+<div class="line"><span class="comment"> * This function creates a mutex, takes it, enters a critical section,</span></div>
+<div class="line"><span class="comment"> * and then gives and releases the mutex. It prints messages to the</span></div>
+<div class="line"><span class="comment"> * standard output to indicate the status of each operation.</span></div>
 <div class="line"><span class="comment"> *</span></div>
 <div class="line"><span class="comment"> * @return int Returns 0 on success, -1 on failure.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">int</span> main () {</div>
-<div class="line">    <span class="comment">// Create a StreamBuffer object</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/ded/a00196.html">Lib::FreeRTOS::StreamBuffer</a> streamBuffer;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create a stream buffer with a buffer size of 1024 bytes and a trigger level of 1 byte</span></div>
-<div class="line">    <span class="keywordflow">if</span> (streamBuffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/ded/a00196.html#a46cd7db63b4b2312d1f8769a5b18da93">create</a> (1024, 1)) {</div>
-<div class="line">        <span class="comment">// Send a message to the stream buffer</span></div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">char</span> * message = <span class="stringliteral">&quot;Hello, StreamBuffer!&quot;</span>;</div>
-<div class="line">        streamBuffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/ded/a00196.html#a1964ea313a49c3231e60ea15469ef5ab">send</a> (message, strlen (message), portMAX_DELAY);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Receive a message from the stream buffer</span></div>
-<div class="line">        <span class="keywordtype">char</span> buffer [1024];</div>
-<div class="line">        <span class="keywordtype">size_t</span> bytesReceived = streamBuffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d7/ded/a00196.html#aeee0b648073b6bd01373c750c324653b">receive</a> (buffer, <span class="keyword">sizeof</span> (buffer), portMAX_DELAY);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Null-terminate the received message</span></div>
-<div class="line">        buffer [bytesReceived] = <span class="charliteral">&#39;\0&#39;</span>;</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Print the received message</span></div>
-<div class="line">        printf (<span class="stringliteral">&quot;Received message: %s\n&quot;</span>, buffer);</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Release the stream buffer</span></div>
-<div class="line">        streamBuffer.release ();</div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        printf (<span class="stringliteral">&quot;Failed to create stream buffer\n&quot;</span>);</div>
+<div class="line">    <span class="comment">// Create a mutex</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/df1/a00174.html">RTOS::Mutex</a> mutex;</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/df1/a00174.html#a35d8c658a69715583eaaf40666596f73">create</a> ()) {</div>
+<div class="line">        std::cerr &lt;&lt; <span class="stringliteral">&quot;Failed to create mutex&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> -1;</div>
 <div class="line">    }</div>
+<div class="line">    <span class="comment">// Lock the mutex</span></div>
+<div class="line">    mutex.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/df1/a00174.html#abf31c277fcc2f8b7ab8b56d3c54f830d">lock</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex taken, entering critical section&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Unlock the mutex</span></div>
+<div class="line">    mutex.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/df1/a00174.html#a55031b1cdaf584950893279ceac8ff93">unlock</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Exit critical section</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Mutex given, exiting critical section&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Destroy the mutex</span></div>
+<div class="line">    mutex.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/df1/a00174.html#a717609f16f85df691388f49bd22b1cf3">destroy</a> ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00107_html"><div class="ttname"><a href="../../df/d98/a00107.html">StreamBuffer.hpp</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS Stream Buffer.</div></div>
-<div class="ttc" id="aa00196_html"><div class="ttname"><a href="../../d7/ded/a00196.html">Lib::FreeRTOS::StreamBuffer</a></div><div class="ttdoc">A C++ wrapper for FreeRTOS Stream Buffer.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:22</div></div>
-<div class="ttc" id="aa00196_html_a1964ea313a49c3231e60ea15469ef5ab"><div class="ttname"><a href="../../d7/ded/a00196.html#a1964ea313a49c3231e60ea15469ef5ab">Lib::FreeRTOS::StreamBuffer::send</a></div><div class="ttdeci">size_t send(const void *src, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Sends a message to the stream buffer.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:101</div></div>
-<div class="ttc" id="aa00196_html_a46cd7db63b4b2312d1f8769a5b18da93"><div class="ttname"><a href="../../d7/ded/a00196.html#a46cd7db63b4b2312d1f8769a5b18da93">Lib::FreeRTOS::StreamBuffer::create</a></div><div class="ttdeci">bool create(size_t bufferSize, size_t triggerLevel)</div><div class="ttdoc">Creates a new stream buffer using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:61</div></div>
-<div class="ttc" id="aa00196_html_aeee0b648073b6bd01373c750c324653b"><div class="ttname"><a href="../../d7/ded/a00196.html#aeee0b648073b6bd01373c750c324653b">Lib::FreeRTOS::StreamBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dst, size_t len, uint32_t ticksToWait)</div><div class="ttdoc">Receives a message from the stream buffer.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:154</div></div>
+<div class="ttc" id="aa00174_html"><div class="ttname"><a href="../../d8/df1/a00174.html">RTOS::Mutex</a></div><div class="ttdoc">A class that represents a mutex, inheriting from SemaphoreBase.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:27</div></div>
+<div class="ttc" id="aa00174_html_a35d8c658a69715583eaaf40666596f73"><div class="ttname"><a href="../../d8/df1/a00174.html#a35d8c658a69715583eaaf40666596f73">RTOS::Mutex::create</a></div><div class="ttdeci">bool create() noexcept override</div><div class="ttdoc">Creates a mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:96</div></div>
+<div class="ttc" id="aa00174_html_a55031b1cdaf584950893279ceac8ff93"><div class="ttname"><a href="../../d8/df1/a00174.html#a55031b1cdaf584950893279ceac8ff93">RTOS::Mutex::unlock</a></div><div class="ttdeci">void unlock() noexcept</div><div class="ttdoc">Unlocks the mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:131</div></div>
+<div class="ttc" id="aa00174_html_a717609f16f85df691388f49bd22b1cf3"><div class="ttname"><a href="../../d8/df1/a00174.html#a717609f16f85df691388f49bd22b1cf3">RTOS::Mutex::destroy</a></div><div class="ttdeci">void destroy() noexcept override</div><div class="ttdoc">Destroys the mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:113</div></div>
+<div class="ttc" id="aa00174_html_abf31c277fcc2f8b7ab8b56d3c54f830d"><div class="ttname"><a href="../../d8/df1/a00174.html#abf31c277fcc2f8b7ab8b56d3c54f830d">RTOS::Mutex::lock</a></div><div class="ttdeci">void lock() noexcept</div><div class="ttdoc">Locks the mutex, blocking indefinitely until the mutex is available.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:123</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Wed Feb 19 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

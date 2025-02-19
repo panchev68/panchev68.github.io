@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: QueueSet</title>
+<title>Lib::FreeRTOS: Karnel</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,76 +99,78 @@ $(function(){initNavTree('d3/d1a/a00251.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">QueueSet</div></div>
+  <div class="headertitle"><div class="title">Karnel</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This is an example of how to use the QueueSet class. </p><div class="fragment"><div class="line"> </div>
+<p>This example demonstrates how to use the Karnel class to interact with the FreeRTOS kernel. </p><div class="fragment"><div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file Karnel.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Demonstrates various RTOS kernel operations.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains a main function that demonstrates the following RTOS kernel operations:</span></div>
+<div class="line"><span class="comment"> * - Retrieving and printing the current tick count.</span></div>
+<div class="line"><span class="comment"> * - Retrieving and printing the number of tasks in the scheduler.</span></div>
+<div class="line"><span class="comment"> * - If the macro INCLUDE_xTaskGetSchedulerState is set to 1, retrieving and printing the current state of the scheduler.</span></div>
+<div class="line"><span class="comment"> * - Entering and exiting a critical section.</span></div>
+<div class="line"><span class="comment"> * - Disabling and enabling interrupts.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @file Queueset.cpp</span></div>
-<div class="line"><span class="comment"> * @brief Example usage of FreeRTOS QueueSet in C++.</span></div>
+<div class="line"><span class="comment"> * @brief Main function demonstrating various RTOS kernel operations.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This file demonstrates how to create and use a QueueSet with two queues</span></div>
-<div class="line"><span class="comment"> * in FreeRTOS using C++. The example includes creating the queues, adding</span></div>
-<div class="line"><span class="comment"> * them to a QueueSet, selecting a queue from the QueueSet, and handling</span></div>
-<div class="line"><span class="comment"> * the selected queue.</span></div>
+<div class="line"><span class="comment"> * This function performs the following operations:</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the current tick count.</span></div>
+<div class="line"><span class="comment"> * - Retrieves and prints the number of tasks in the scheduler.</span></div>
+<div class="line"><span class="comment"> * - If the macro INCLUDE_xTaskGetSchedulerState is set to 1, retrieves and prints the current state of the scheduler.</span></div>
+<div class="line"><span class="comment"> * - Enters and exits a critical section.</span></div>
+<div class="line"><span class="comment"> * - Disables and enables interrupts.</span></div>
 <div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note This example assumes the existence of a FreeRTOS C++ wrapper library.</span></div>
+<div class="line"><span class="comment"> * @return int Returns 0 upon successful completion.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.hpp&quot;</span></div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * @brief Demonstrates the usage of a QueueSet in FreeRTOS.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * This function creates two queues and adds them to a QueueSet. It then waits</span></div>
-<div class="line"><span class="comment"> * indefinitely for one of the queues to have data and processes the queue that</span></div>
-<div class="line"><span class="comment"> * has data available. Finally, it cleans up the created queues.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @note This example assumes that the FreeRTOS namespace and relevant classes</span></div>
-<div class="line"><span class="comment"> * (Queue, QueueSet) are available and properly implemented.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @details</span></div>
-<div class="line"><span class="comment"> * - Two queues (queue1 and queue2) are created.</span></div>
-<div class="line"><span class="comment"> * - A QueueSet is created to hold the two queues.</span></div>
-<div class="line"><span class="comment"> * - The function waits indefinitely for one of the queues to have data.</span></div>
-<div class="line"><span class="comment"> * - Depending on which queue has data, the function processes the respective queue.</span></div>
-<div class="line"><span class="comment"> * - The queues are destroyed at the end of the function.</span></div>
-<div class="line"><span class="comment"> *</span></div>
-<div class="line"><span class="comment"> * @warning If the QueueSet creation fails, the function asserts and returns immediately.</span></div>
-<div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> exampleQueueSetUsage () {</div>
-<div class="line">    <span class="keyword">using namespace </span>FreeRTOS;</div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="comment">// Get the current tick count</span></div>
+<div class="line">    TickType_t tickCount = <a id="a0" name="a0"></a><a class="code hl_function" href="../../db/d44/a00162.html#a1245205e5b3fae1f3bb18643fa940c0b">RTOS::Karnel::getTickCount</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Current tick count: &quot;</span> &lt;&lt; tickCount &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create two queues</span></div>
-<div class="line">    Queue&lt;uint32_t&gt; queue1;</div>
-<div class="line">    Queue&lt;uint32_t&gt; queue2;</div>
+<div class="line">    <span class="comment">// Get the number of tasks in the scheduler</span></div>
+<div class="line">    UBaseType_t numberOfTasks = <a id="a1" name="a1"></a><a class="code hl_function" href="../../db/d44/a00162.html#a930d7bee92550e6e7c73af7bd9af25cf">RTOS::Karnel::getNumberOfTasks</a> ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Number of tasks: &quot;</span> &lt;&lt; numberOfTasks &lt;&lt; std::endl;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create a queue set that can hold 2 queues</span></div>
-<div class="line">    QueueSet queueSet;</div>
+<div class="line"><span class="preprocessor">#if (INCLUDE_xTaskGetSchedulerState == 1)</span></div>
+<div class="line">    <span class="comment">// Get the current state of the scheduler</span></div>
+<div class="line">    RTOS::Karnel::SchedulerState schedulerState = RTOS::Karnel::getSchedulerState ();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Scheduler state: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span>BaseType_t<span class="keyword">&gt;</span> (schedulerState) &lt;&lt; std::endl;</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!queueSet.create (2, {queue1, queue2})) {</div>
-<div class="line">        assert (0 &amp;&amp; <span class="stringliteral">&quot;Error creating QueueSet&quot;</span>);</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Enter and exit a critical section</span></div>
+<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d44/a00162.html#aaa65e586ea55f17a551d4bbabc7e7fb1">RTOS::Karnel::enterCritical</a> ();</div>
+<div class="line">    <span class="comment">// Critical section code here</span></div>
+<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d44/a00162.html#a920dad13210df0bc6d330c8acfb916d5">RTOS::Karnel::exitCritical</a> ();</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">auto</span> selectedMember = queueSet.select (portMAX_DELAY);</div>
+<div class="line">    <span class="comment">// Enable and disable interrupts</span></div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d44/a00162.html#a0119313d83963b44c99e663edaa2de1a">RTOS::Karnel::disableInterrupts</a> ();</div>
+<div class="line">    <span class="comment">// Code that should not be interrupted</span></div>
+<div class="line">    <a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d44/a00162.html#ab3d68b336b77df64e627b3efa9d2ba3e">RTOS::Karnel::enableInterrupts</a> ();</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (selectedMember == queue1) {</div>
-<div class="line">        <span class="comment">// Handle queue1</span></div>
-<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (selectedMember == queue2) {</div>
-<div class="line">        <span class="comment">// Handle queue2</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Clean up</span></div>
-<div class="line">    queue1.destroy ();</div>
-<div class="line">    queue2.destroy ();</div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00162_html_a0119313d83963b44c99e663edaa2de1a"><div class="ttname"><a href="../../db/d44/a00162.html#a0119313d83963b44c99e663edaa2de1a">RTOS::Karnel::disableInterrupts</a></div><div class="ttdeci">static void disableInterrupts()</div><div class="ttdoc">Disables all interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:198</div></div>
+<div class="ttc" id="aa00162_html_a1245205e5b3fae1f3bb18643fa940c0b"><div class="ttname"><a href="../../db/d44/a00162.html#a1245205e5b3fae1f3bb18643fa940c0b">RTOS::Karnel::getTickCount</a></div><div class="ttdeci">static TickType_t getTickCount()</div><div class="ttdoc">Gets the current tick count from the FreeRTOS scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:106</div></div>
+<div class="ttc" id="aa00162_html_a920dad13210df0bc6d330c8acfb916d5"><div class="ttname"><a href="../../db/d44/a00162.html#a920dad13210df0bc6d330c8acfb916d5">RTOS::Karnel::exitCritical</a></div><div class="ttdeci">static void exitCritical()</div><div class="ttdoc">Exits a critical section.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:170</div></div>
+<div class="ttc" id="aa00162_html_a930d7bee92550e6e7c73af7bd9af25cf"><div class="ttname"><a href="../../db/d44/a00162.html#a930d7bee92550e6e7c73af7bd9af25cf">RTOS::Karnel::getNumberOfTasks</a></div><div class="ttdeci">static UBaseType_t getNumberOfTasks()</div><div class="ttdoc">Gets the number of tasks in the FreeRTOS scheduler.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:81</div></div>
+<div class="ttc" id="aa00162_html_aaa65e586ea55f17a551d4bbabc7e7fb1"><div class="ttname"><a href="../../db/d44/a00162.html#aaa65e586ea55f17a551d4bbabc7e7fb1">RTOS::Karnel::enterCritical</a></div><div class="ttdeci">static void enterCritical()</div><div class="ttdoc">Enters a critical section by disabling interrupts.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:147</div></div>
+<div class="ttc" id="aa00162_html_ab3d68b336b77df64e627b3efa9d2ba3e"><div class="ttname"><a href="../../db/d44/a00162.html#ab3d68b336b77df64e627b3efa9d2ba3e">RTOS::Karnel::enableInterrupts</a></div><div class="ttdeci">static void enableInterrupts()</div><div class="ttdoc">Enables interrupts in the system.</div><div class="ttdef"><b>Definition</b> Karnel.hpp:189</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Feb 13 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Wed Feb 19 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

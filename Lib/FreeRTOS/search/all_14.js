@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['waitforbits_0',['waitForBits',['../dd/db2/a00151.html#a72dd46a1c97d37b0e35c2b2857153d66',1,'Lib::FreeRTOS::EventGroup']]],
+  ['waitforbits_0',['waitForBits',['../d6/db8/a00158.html#ade940f1a3cedb27d8cb6629bce2531db',1,'RTOS::EventGroup']]],
   ['wrapper_1',['FreeRTOS C++ Wrapper',['../index.html',1,'']]]
 ];

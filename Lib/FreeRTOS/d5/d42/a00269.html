@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.13.2"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lib::FreeRTOS: Semaphore</title>
+<title>Lib::FreeRTOS: TaskHelper</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -99,42 +99,74 @@ $(function(){initNavTree('d5/d42/a00269.html','../../'); initResizable(true); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Semaphore</div></div>
+  <div class="headertitle"><div class="title">TaskHelper</div></div>
 </div><!--header-->
 <div class="contents">
-<p>This example demonstrates the usage of a binary semaphore in FreeRTOS. It creates a binary semaphore, takes it, performs a critical section, and then gives it back. </p><div class="fragment"><div class="line"> </div>
+<p>This example demonstrates how to use the TaskHelper class to interact with FreeRTOS tasks. </p><div class="fragment"><div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file TaskHelper.cpp</span></div>
+<div class="line"><span class="comment"> * @brief Example demonstrating the usage of the TaskHelper class in FreeRTOS.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This file contains an example of how to use the TaskHelper class to manage</span></div>
+<div class="line"><span class="comment"> * FreeRTOS tasks. The example includes creating a task, printing the task name,</span></div>
+<div class="line"><span class="comment"> * setting task priority, getting the current tick count, delaying the task, and</span></div>
+<div class="line"><span class="comment"> * suspending the task.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * @author Bobby</span></div>
+<div class="line"><span class="comment"> * @date 11.01.2025</span></div>
+<div class="line"><span class="comment"> */</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> semaphoreExampleTask () {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d57/a00194.html">Lib::FreeRTOS::Semaphore</a> semaphore;</div>
+<div class="line"><span class="keywordtype">void</span> taskFn () {</div>
+<div class="line">    <span class="comment">// Get the handle of the current task</span></div>
+<div class="line">    <span class="keyword">auto</span> currentTaskHandle = RTOS::TaskHelper::getCurrentTaskHandler ();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create the semaphore</span></div>
-<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dc/d57/a00194.html#aa094fa83e5e9c385fa79de95cb2094d9">create</a> ()) {</div>
-<div class="line">        <span class="comment">// Take the semaphore</span></div>
-<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dc/d57/a00194.html#a82838d2e2a7955808dd4c232112dc674">take</a> (portMAX_DELAY)) {</div>
-<div class="line">            <span class="comment">// Perform critical section</span></div>
-<div class="line">            <span class="comment">// ...</span></div>
+<div class="line">    <span class="comment">// Print the name of the current task</span></div>
+<div class="line">    std::string taskName = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d3/dd1/a00214.html#a7345195505797dd64358bec25ffcfa06">RTOS::TaskHelper::getName</a> (currentTaskHandle);</div>
+<div class="line">    printf (<span class="stringliteral">&quot;Task name: %s\n&quot;</span>, taskName.c_str ());</div>
 <div class="line"> </div>
-<div class="line">            <span class="comment">// Give the semaphore back</span></div>
-<div class="line">            semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dc/d57/a00194.html#a2121df27f97694ff8972147e3e4c99f6">give</a> ();</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Set the priority of the current task</span></div>
+<div class="line">    <a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/dd1/a00214.html#a2407d7822e62bfad6583189a427dc401">RTOS::TaskHelper::setPriority</a> (currentTaskHandle, 2);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Delete the task when done</span></div>
-<div class="line">    semaphore.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dc/d57/a00194.html#a8b62c5a1c6b7b7a3597746fdee680dc4">destroy</a> ();</div>
+<div class="line">    <span class="comment">// Get the current tick count</span></div>
+<div class="line">    uint32_t tickCount = RTOS::TaskHelper::getTickCount ();</div>
+<div class="line">    printf (<span class="stringliteral">&quot;Current tick count: %u\n&quot;</span>, tickCount);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Delay the task for 1000 milliseconds</span></div>
+<div class="line">    TaskHelper::delay (1000);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Suspend the current task</span></div>
+<div class="line">    TaskHelper::suspend (currentTaskHandle);</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="../../dc/d57/a00194.html">Lib::FreeRTOS::Semaphore</a></div><div class="ttdoc">A class representing a binary semaphore in FreeRTOS.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:24</div></div>
-<div class="ttc" id="aa00194_html_a2121df27f97694ff8972147e3e4c99f6"><div class="ttname"><a href="../../dc/d57/a00194.html#a2121df27f97694ff8972147e3e4c99f6">Lib::FreeRTOS::Semaphore::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:91</div></div>
-<div class="ttc" id="aa00194_html_a82838d2e2a7955808dd4c232112dc674"><div class="ttname"><a href="../../dc/d57/a00194.html#a82838d2e2a7955808dd4c232112dc674">Lib::FreeRTOS::Semaphore::take</a></div><div class="ttdeci">bool take(uint32_t ticksToWait=0) override</div><div class="ttdoc">Takes the semaphore.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:82</div></div>
-<div class="ttc" id="aa00194_html_a8b62c5a1c6b7b7a3597746fdee680dc4"><div class="ttname"><a href="../../dc/d57/a00194.html#a8b62c5a1c6b7b7a3597746fdee680dc4">Lib::FreeRTOS::Semaphore::destroy</a></div><div class="ttdeci">void destroy() override</div><div class="ttdoc">Destroys the semaphore.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:71</div></div>
-<div class="ttc" id="aa00194_html_aa094fa83e5e9c385fa79de95cb2094d9"><div class="ttname"><a href="../../dc/d57/a00194.html#aa094fa83e5e9c385fa79de95cb2094d9">Lib::FreeRTOS::Semaphore::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a new binary semaphore using dynamically allocated memory.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:56</div></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @brief Main function to demonstrate the usage of the TaskHelper class.</span></div>
+<div class="line"><span class="comment"> *</span></div>
+<div class="line"><span class="comment"> * This function creates a new task using the Task class and runs it. The task</span></div>
+<div class="line"><span class="comment"> * prints the name of the current task, sets its priority, gets the current tick</span></div>
+<div class="line"><span class="comment"> * count, delays for 1000 milliseconds, and suspends itself.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> main () {</div>
+<div class="line">    <span class="comment">// Create a task using FreeRTOS API</span></div>
+<div class="line">    Task::run (<span class="stringliteral">&quot;ExampleTask&quot;</span>, taskFn);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Start the scheduler</span></div>
+<div class="line">    vTaskStartScheduler ();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// The program should never reach here</span></div>
+<div class="line">    <span class="keywordflow">for</span> (;;);</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00214_html_a2407d7822e62bfad6583189a427dc401"><div class="ttname"><a href="../../d3/dd1/a00214.html#a2407d7822e62bfad6583189a427dc401">RTOS::TaskHelper::setPriority</a></div><div class="ttdeci">static void setPriority(Handle handle, uint32_t priority)</div><div class="ttdoc">Sets the priority of a task.</div><div class="ttdef"><b>Definition</b> TaskHelper.hpp:95</div></div>
+<div class="ttc" id="aa00214_html_a7345195505797dd64358bec25ffcfa06"><div class="ttname"><a href="../../d3/dd1/a00214.html#a7345195505797dd64358bec25ffcfa06">RTOS::TaskHelper::getName</a></div><div class="ttdeci">static const std::string getName(Handle handle)</div><div class="ttdoc">Gets the name of a task.</div><div class="ttdef"><b>Definition</b> TaskHelper.hpp:194</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Feb 9 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Wed Feb 19 2025 for Lib::FreeRTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['addtoregistry_0',['addToRegistry',['../de/d45/a00175.html#af936f907fa857ee852f9952904eb1f28',1,'Lib::FreeRTOS::Queue']]],
-  ['autoreload_1',['autoReload',['../d9/d01/a00227.html#ac5c33d97089332a4d25af41a2c8041b9',1,'Lib::FreeRTOS::Timer::Config']]]
+  ['addtoregistry_0',['addToRegistry',['../d7/d25/a00182.html#a544d15997d364f0b203afdb7f39166af',1,'RTOS::Queue']]],
+  ['autoreload_1',['autoReload',['../da/d2e/a00238.html#a26b27b80119e7802346a2ef65bf5cca5',1,'RTOS::Timer::Config']]]
 ];

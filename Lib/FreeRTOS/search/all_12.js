@@ -1,17 +1,17 @@
 var searchData=
 [
-  ['take_0',['take',['../dc/de6/a00167.html#ad700ddbe08a86005ef12aa9abd44b7e8',1,'Lib::FreeRTOS::Mutex::take()'],['../dc/d52/a00183.html#ae8942f321d471d22f1a59777989b661a',1,'Lib::FreeRTOS::Semaphore::take()'],['../d6/daa/a00187.html#a1b7b02b8f1c37fb4f36dfd83dac2bb06',1,'Lib::FreeRTOS::SemaphoreBase::take()'],['../d9/dd0/a00191.html#a3b42128f16832e00da0b3013af344d46',1,'Lib::FreeRTOS::SemaphoreCounting::take()']]],
-  ['takefromisr_1',['takeFromISR',['../dc/de6/a00167.html#ad6af157c6bb1ae8c72e131b7e80b1a65',1,'Lib::FreeRTOS::Mutex::takeFromISR()'],['../dc/d52/a00183.html#afb0e809a4af00a2bf75aaf8aa127f938',1,'Lib::FreeRTOS::Semaphore::takeFromISR()'],['../d6/daa/a00187.html#ac0253cf90b5a647286873e2febb2da24',1,'Lib::FreeRTOS::SemaphoreBase::takeFromISR()'],['../d9/dd0/a00191.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf',1,'Lib::FreeRTOS::SemaphoreCounting::takeFromISR()']]],
-  ['task_2',['Task',['../d8/d72/a00199.html',1,'Lib::FreeRTOS::Task&lt; StackSize, Priority &gt;'],['../d8/d72/a00199.html#a3ff506f249813eab5535ac663de6c404',1,'Lib::FreeRTOS::Task::Task()=default'],['../d8/d72/a00199.html#a2b12acf7bffb1fe2c41697bd792172a4',1,'Lib::FreeRTOS::Task::Task(Handle handle) noexcept'],['../d8/d72/a00199.html#afea4fa0fa1bed9a9658c77df65738885',1,'Lib::FreeRTOS::Task::Task(const Task &amp;task) noexcept'],['../d8/d72/a00199.html#a800e33ea88903f74023ffb2f24eea52b',1,'Lib::FreeRTOS::Task::Task(Task &amp;&amp;task) noexcept'],['../d5/deb/a00132.html',1,'Task']]],
-  ['taskhelper_3',['TaskHelper',['../de/d79/a00203.html',1,'Lib::FreeRTOS']]],
-  ['taskhelper_2ehpp_4',['TaskHelper.hpp',['../d3/d00/a00113.html',1,'']]],
-  ['tick_20counter_5',['Tick Counter',['../de/d76/a00134.html',1,'']]],
-  ['tickcounter_6',['TickCounter',['../de/dd2/a00207.html',1,'Lib::FreeRTOS']]],
-  ['tickcounter_2ehpp_7',['TickCounter.hpp',['../d4/d3e/a00116.html',1,'']]],
-  ['tickservice_8',['TickService',['../dd/ded/a00211.html',1,'Lib::FreeRTOS']]],
-  ['tickservice_2ehpp_9',['TickService.hpp',['../df/d6a/a00119.html',1,'']]],
-  ['timeout_10',['Timeout',['../dd/df3/a00219.html',1,'Lib::FreeRTOS::Timeout'],['../dd/df3/a00219.html#a8910d6a113a328bba906a9b616c8f41f',1,'Lib::FreeRTOS::Timeout::Timeout() noexcept'],['../dd/df3/a00219.html#a4a7e03b722fbe1f3a82d743201c06cb5',1,'Lib::FreeRTOS::Timeout::Timeout(uint32_t value) noexcept'],['../d5/d5b/a00135.html',1,'Timeout']]],
-  ['timeout_2ehpp_11',['Timeout.hpp',['../df/dc8/a00122.html',1,'']]],
-  ['timer_12',['Timer',['../dc/d28/a00223.html',1,'Lib::FreeRTOS::Timer'],['../dc/d28/a00223.html#a4e1dc619d2d689a36692c79839462be4',1,'Lib::FreeRTOS::Timer::Timer() noexcept=default'],['../dc/d28/a00223.html#a9968c13fda0d5d622b40f720606f6f66',1,'Lib::FreeRTOS::Timer::Timer(std::string name, std::function&lt; void()&gt; func, uint32_t period, bool autoReload=true, bool autostart=false)'],['../dc/d28/a00223.html#abf96ca324425c788bf168e95245b71a6',1,'Lib::FreeRTOS::Timer::Timer(const Config &amp;conf)'],['../d0/d5e/a00136.html',1,'Timer']]],
-  ['timer_2ehpp_13',['Timer.hpp',['../dc/dfe/a00125.html',1,'']]]
+  ['take_0',['take',['../d8/df1/a00174.html#a5f2cfece3c0a33e99ced692ef91e72c6',1,'RTOS::Mutex::take()'],['../d7/d6e/a00190.html#a1702f0bb291ea9dc2703cf9635120ee9',1,'RTOS::Semaphore::take()'],['../dc/d57/a00194.html#ab9b613dc3ba0aab6cba2b46824447a2c',1,'RTOS::SemaphoreBase::take()'],['../d7/da0/a00198.html#a352f4bd187130a5e6b8bc21261e5d9fa',1,'RTOS::SemaphoreCounting::take()']]],
+  ['takefromisr_1',['takeFromISR',['../d8/df1/a00174.html#aa788920b56a7c9cb27129cae1ee33069',1,'RTOS::Mutex::takeFromISR()'],['../d7/d6e/a00190.html#afcf122ec069b8b33fd1e1ff8efbedc7f',1,'RTOS::Semaphore::takeFromISR()'],['../dc/d57/a00194.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f',1,'RTOS::SemaphoreBase::takeFromISR()'],['../d7/da0/a00198.html#a5a70f9f956c6bc47de65c1b6c8fd36e7',1,'RTOS::SemaphoreCounting::takeFromISR()']]],
+  ['task_2',['Task',['../d5/df1/a00206.html',1,'RTOS::Task'],['../d5/df1/a00206.html#ab48bf613646639129b189aa9713d35bb',1,'RTOS::Task::Task(uint32_t stackSize=configMINIMAL_STACK_SIZE, UBaseType_t priority=DEFAULT_TASK_PRIORITY) noexcept'],['../d5/df1/a00206.html#adf792e058cbd4fd8c3a972c60b73e53f',1,'RTOS::Task::Task(const std::string &amp;name, uint32_t stackSize=configMINIMAL_STACK_SIZE, UBaseType_t priority=DEFAULT_TASK_PRIORITY) noexcept'],['../d5/df1/a00206.html#a5c8bcd2b104fe54a8869b6cc7c59d8dc',1,'RTOS::Task::Task(Handle handle) noexcept'],['../d5/df1/a00206.html#a77168444077fe1b82c72b58ea0e2baaa',1,'RTOS::Task::Task(const Task &amp;task) noexcept'],['../d5/df1/a00206.html#a0d8d8533490d4d2ad619900f769b370f',1,'RTOS::Task::Task(Task &amp;&amp;task) noexcept'],['../d4/ddd/a00138.html',1,'Task']]],
+  ['taskhelper_3',['TaskHelper',['../d3/dd1/a00214.html',1,'RTOS']]],
+  ['taskhelper_2ehpp_4',['TaskHelper.hpp',['../d4/d3e/a00116.html',1,'']]],
+  ['tick_20counter_5',['Tick Counter',['../d5/db1/a00140.html',1,'']]],
+  ['tickcounter_6',['TickCounter',['../dc/d9a/a00218.html',1,'RTOS']]],
+  ['tickcounter_2ehpp_7',['TickCounter.hpp',['../df/dc8/a00122.html',1,'']]],
+  ['tickservice_8',['TickService',['../d0/d24/a00222.html',1,'RTOS']]],
+  ['tickservice_2ehpp_9',['TickService.hpp',['../dc/dfe/a00125.html',1,'']]],
+  ['timeout_10',['Timeout',['../d1/da8/a00230.html',1,'RTOS::Timeout'],['../d1/da8/a00230.html#a09825135fa6c5620a2fad7cd31d0364b',1,'RTOS::Timeout::Timeout() noexcept'],['../d1/da8/a00230.html#aaa8d64cffe3a3c4fe9c38a1af88948c6',1,'RTOS::Timeout::Timeout(uint32_t value) noexcept'],['../d5/d4e/a00141.html',1,'Timeout']]],
+  ['timeout_2ehpp_11',['Timeout.hpp',['../d1/d88/a00128.html',1,'']]],
+  ['timer_12',['Timer',['../da/d31/a00234.html',1,'RTOS::Timer'],['../da/d31/a00234.html#a55358edefda7becaacb1472b7b4ecf3c',1,'RTOS::Timer::Timer() noexcept=default'],['../da/d31/a00234.html#a5777da25b9d33bf0a88b5ba0ea36e027',1,'RTOS::Timer::Timer(std::string name, std::function&lt; void()&gt; func, uint32_t period, bool autoReload=true, bool autostart=false)'],['../da/d31/a00234.html#a8e763cc752143716c12015892d4b9480',1,'RTOS::Timer::Timer(const Config &amp;conf)'],['../d2/d82/a00142.html',1,'Timer']]],
+  ['timer_2ehpp_13',['Timer.hpp',['../d7/d06/a00131.html',1,'']]]
 ];

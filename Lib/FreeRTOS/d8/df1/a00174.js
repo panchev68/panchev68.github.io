@@ -1,18 +1,15 @@
 var a00174 =
 [
-    [ "Handle", "d8/df1/a00174.html#ab915903b175e6a665f3f068887e13064", null ],
-    [ "MessageBuffer", "d8/df1/a00174.html#ad1aacd686aa8803995282391fe5dcd88", null ],
-    [ "~MessageBuffer", "d8/df1/a00174.html#a2d7e901cf7a0dbc87830efa936d02b7e", null ],
-    [ "create", "d8/df1/a00174.html#a16516aeccd9c706e8eee91172163f7b8", null ],
-    [ "destroy", "d8/df1/a00174.html#afe0dee7d2601397a889cc8b95f5fa86e", null ],
-    [ "getSpacesAvailable", "d8/df1/a00174.html#a34b67bca936765725907e6d33d232ab1", null ],
-    [ "isCreated", "d8/df1/a00174.html#a428f709f716eaa601850ae56bd23a48d", null ],
-    [ "isEmpty", "d8/df1/a00174.html#a2051f879f6137c89fe7885acce8c5595", null ],
-    [ "isFull", "d8/df1/a00174.html#ad74e5ea770d15cd27cadd8e7121a5c04", null ],
-    [ "operator Handle", "d8/df1/a00174.html#ad69b8323300cef1a13aa955ba4537f10", null ],
-    [ "receive", "d8/df1/a00174.html#a8f160675bb113e76d3a32a9f78d3b7a1", null ],
-    [ "receiveFromISR", "d8/df1/a00174.html#ad073e08a2e82cc5a5c96b210631cadc2", null ],
-    [ "reset", "d8/df1/a00174.html#a21e78533ccd1e6994d8150895ccb4346", null ],
-    [ "send", "d8/df1/a00174.html#a17561e31205ea64d3f3d8c17ca55ff69", null ],
-    [ "sendFromISR", "d8/df1/a00174.html#af67d105243e7810fcf6e38544fda1383", null ]
+    [ "Guard", "d9/d90/a00178.html", "d9/d90/a00178" ],
+    [ "Mutex", "d8/df1/a00174.html#aa112cb1a46170df1c5f1d38a53d332ea", null ],
+    [ "~Mutex", "d8/df1/a00174.html#a766309378d3f1b9ad25492973f7d5c99", null ],
+    [ "create", "d8/df1/a00174.html#a35d8c658a69715583eaaf40666596f73", null ],
+    [ "destroy", "d8/df1/a00174.html#a717609f16f85df691388f49bd22b1cf3", null ],
+    [ "give", "d8/df1/a00174.html#a7085cc3216df5b89a3a8810dd3143628", null ],
+    [ "giveFromISR", "d8/df1/a00174.html#aa933a5468515fadbbf76bb5107336350", null ],
+    [ "isCreated", "d8/df1/a00174.html#a3b8f829847cd858951bfb260e09241cd", null ],
+    [ "lock", "d8/df1/a00174.html#abf31c277fcc2f8b7ab8b56d3c54f830d", null ],
+    [ "take", "d8/df1/a00174.html#a5f2cfece3c0a33e99ced692ef91e72c6", null ],
+    [ "takeFromISR", "d8/df1/a00174.html#aa788920b56a7c9cb27129cae1ee33069", null ],
+    [ "unlock", "d8/df1/a00174.html#a55031b1cdaf584950893279ceac8ff93", null ]
 ];

@@ -1,25 +1,23 @@
 var annotated_dup =
 [
-    [ "Lib", null, [
-      [ "FreeRTOS", "d0/d4a/a00147.html", [
-        [ "EventGroup", "dd/db2/a00151.html", "dd/db2/a00151" ],
-        [ "Karnel", "d3/df8/a00155.html", "d3/df8/a00155" ],
-        [ "MemoryManager", "de/db9/a00159.html", null ],
-        [ "MessageBuffer", "dd/dae/a00163.html", "dd/dae/a00163" ],
-        [ "Mutex", "dc/de6/a00167.html", "dc/de6/a00167" ],
-        [ "Queue", "de/d45/a00175.html", "de/d45/a00175" ],
-        [ "QueueSet", "db/dd9/a00179.html", "db/dd9/a00179" ],
-        [ "Semaphore", "dc/d52/a00183.html", "dc/d52/a00183" ],
-        [ "SemaphoreBase", "d6/daa/a00187.html", "d6/daa/a00187" ],
-        [ "SemaphoreCounting", "d9/dd0/a00191.html", "d9/dd0/a00191" ],
-        [ "StreamBuffer", "d3/d2a/a00195.html", "d3/d2a/a00195" ],
-        [ "Task", "d8/d72/a00199.html", "d8/d72/a00199" ],
-        [ "TaskHelper", "de/d79/a00203.html", "de/d79/a00203" ],
-        [ "TickCounter", "de/dd2/a00207.html", null ],
-        [ "TickService", "dd/ded/a00211.html", "dd/ded/a00211" ],
-        [ "Timeout", "dd/df3/a00219.html", "dd/df3/a00219" ],
-        [ "Timer", "dc/d28/a00223.html", "dc/d28/a00223" ]
-      ] ]
+    [ "RTOS", null, [
+      [ "EventGroup", "d6/db8/a00158.html", "d6/db8/a00158" ],
+      [ "Karnel", "db/d44/a00162.html", "db/d44/a00162" ],
+      [ "MemoryManager", "d9/d38/a00166.html", null ],
+      [ "MessageBuffer", "d5/dcb/a00170.html", "d5/dcb/a00170" ],
+      [ "Mutex", "d8/df1/a00174.html", "d8/df1/a00174" ],
+      [ "Queue", "d7/d25/a00182.html", "d7/d25/a00182" ],
+      [ "QueueSet", "d8/d00/a00186.html", "d8/d00/a00186" ],
+      [ "Semaphore", "d7/d6e/a00190.html", "d7/d6e/a00190" ],
+      [ "SemaphoreBase", "dc/d57/a00194.html", "dc/d57/a00194" ],
+      [ "SemaphoreCounting", "d7/da0/a00198.html", "d7/da0/a00198" ],
+      [ "StreamBuffer", "db/d53/a00202.html", "db/d53/a00202" ],
+      [ "Task", "d5/df1/a00206.html", "d5/df1/a00206" ],
+      [ "TaskHelper", "d3/dd1/a00214.html", "d3/dd1/a00214" ],
+      [ "TickCounter", "dc/d9a/a00218.html", null ],
+      [ "TickService", "d0/d24/a00222.html", "d0/d24/a00222" ],
+      [ "Timeout", "d1/da8/a00230.html", "d1/da8/a00230" ],
+      [ "Timer", "da/d31/a00234.html", "da/d31/a00234" ]
     ] ],
-    [ "SemaphoreBase", "df/d17/a00231.html", null ]
+    [ "SemaphoreBase", "d2/dc8/a00242.html", null ]
 ];

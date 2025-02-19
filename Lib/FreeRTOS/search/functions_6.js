@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['get_0',['get',['../de/dd2/a00207.html#adf5058865dfb549db97fec8ef14752a0',1,'Lib::FreeRTOS::TickCounter']]],
-  ['getbits_1',['getBits',['../dd/db2/a00151.html#a039ad5d0cfdd0268f0d5b3d16e64f47e',1,'Lib::FreeRTOS::EventGroup']]],
-  ['getbitsfromisr_2',['getBitsFromISR',['../dd/db2/a00151.html#aa0d5697fc4ffd665d0a7bc52a9799dff',1,'Lib::FreeRTOS::EventGroup']]],
-  ['getbytesavailable_3',['getBytesAvailable',['../d3/d2a/a00195.html#af6ba5acfc1558a7838dec80b8ee34ef0',1,'Lib::FreeRTOS::StreamBuffer']]],
-  ['getcount_4',['getCount',['../d9/dd0/a00191.html#a2ba9c425252137f3e434915d93906409',1,'Lib::FreeRTOS::SemaphoreCounting']]],
-  ['getexpirytime_5',['getExpiryTime',['../dc/d28/a00223.html#a785094039fe756485f74622d37911928',1,'Lib::FreeRTOS::Timer']]],
-  ['getfreeheapsize_6',['getFreeHeapSize',['../de/db9/a00159.html#aab90777357326de00dfdfea928abaaab',1,'Lib::FreeRTOS::MemoryManager']]],
-  ['getfromisr_7',['getFromISR',['../de/dd2/a00207.html#a78ad0c298cc7c89a8abd56f2a349f8b0',1,'Lib::FreeRTOS::TickCounter']]],
-  ['gethandle_8',['getHandle',['../de/d45/a00175.html#a2c41ab96f85c46fcbfada25e38ae9195',1,'Lib::FreeRTOS::Queue::getHandle()'],['../d8/d72/a00199.html#a705b770f15cedc4c5b14568d913f53e9',1,'Lib::FreeRTOS::Task::getHandle()']]],
-  ['getinstance_9',['getInstance',['../dd/ded/a00211.html#a51b174ecea7bd0392e315682610493a9',1,'Lib::FreeRTOS::TickService']]],
-  ['getname_10',['getName',['../de/d79/a00203.html#a40d27753dfd4973b85c9312d07ccd7df',1,'Lib::FreeRTOS::TaskHelper::getName()'],['../dc/d28/a00223.html#a4ba600b4be9898d874282b6972e19cdb',1,'Lib::FreeRTOS::Timer::getName()']]],
-  ['getnumberoftasks_11',['getNumberOfTasks',['../d3/df8/a00155.html#a39b5fde4c9ecfb124940496473c9e43a',1,'Lib::FreeRTOS::Karnel']]],
-  ['getperiod_12',['getPeriod',['../dc/d28/a00223.html#a02b5438e7f5d02c4952cd41beb6f3699',1,'Lib::FreeRTOS::Timer']]],
-  ['getpriority_13',['getPriority',['../d8/d72/a00199.html#a00c5a7df0fc769c2347027b561001b6a',1,'Lib::FreeRTOS::Task::getPriority()'],['../de/d79/a00203.html#a0f550ec26d24f109b1eae5f2d29485cf',1,'Lib::FreeRTOS::TaskHelper::getPriority()']]],
-  ['getspacesavailable_14',['getSpacesAvailable',['../dd/dae/a00163.html#a34b67bca936765725907e6d33d232ab1',1,'Lib::FreeRTOS::MessageBuffer::getSpacesAvailable()'],['../d3/d2a/a00195.html#aa274f35053d848a7a045a75a39d13742',1,'Lib::FreeRTOS::StreamBuffer::getSpacesAvailable()']]],
-  ['gettickcount_15',['getTickCount',['../d3/df8/a00155.html#a80413fef80c962f92b4d4a58942e431f',1,'Lib::FreeRTOS::Karnel::getTickCount()'],['../de/d79/a00203.html#ab2d630cf0ca401f32d2707cbd4da930b',1,'Lib::FreeRTOS::TaskHelper::getTickCount()']]],
-  ['gettickcountfromisr_16',['getTickCountFromISR',['../d3/df8/a00155.html#a9228e4fa685f97d7a7e5a53b876a2822',1,'Lib::FreeRTOS::Karnel::getTickCountFromISR()'],['../de/d79/a00203.html#a1c6987cb5beb7bda534dfa319e7b7fa5',1,'Lib::FreeRTOS::TaskHelper::getTickCountFromISR()']]],
-  ['gettimerdaemontaskhandle_17',['getTimerDaemonTaskHandle',['../dc/d28/a00223.html#a12f9c10aa73f4271ad3f6f51d93f3ebb',1,'Lib::FreeRTOS::Timer']]],
-  ['give_18',['give',['../dc/de6/a00167.html#a7f01871a4f9bfdea2a68ba821ce01f15',1,'Lib::FreeRTOS::Mutex::give()'],['../dc/d52/a00183.html#a2121df27f97694ff8972147e3e4c99f6',1,'Lib::FreeRTOS::Semaphore::give()'],['../d6/daa/a00187.html#a494f63a7a96566f17e1ac85cfb5b55a4',1,'Lib::FreeRTOS::SemaphoreBase::give()'],['../d9/dd0/a00191.html#a6bfe5fea68fa0b84e0914a8a445152e7',1,'Lib::FreeRTOS::SemaphoreCounting::give()']]],
-  ['givefromisr_19',['giveFromISR',['../dc/de6/a00167.html#a36fb52badeff1acbb7637a51e2ed0460',1,'Lib::FreeRTOS::Mutex::giveFromISR()'],['../dc/d52/a00183.html#ac35d77d9f4dad22c8ae60017d1d5aabf',1,'Lib::FreeRTOS::Semaphore::giveFromISR()'],['../d6/daa/a00187.html#ad44726c956c5a3a3316a3a4fa0f0f952',1,'Lib::FreeRTOS::SemaphoreBase::giveFromISR()'],['../d9/dd0/a00191.html#a3f8e436a15eac45c2242938b31d730f7',1,'Lib::FreeRTOS::SemaphoreCounting::giveFromISR()']]],
-  ['guard_20',['Guard',['../d1/d0d/a00171.html#a4f1be6b3ac427010a3c81b42838ab6d3',1,'Lib::FreeRTOS::Mutex::Guard']]]
+  ['handletickevent_0',['handleTickEvent',['../dc/d55/a00226.html#a813aed3eccda809913d539e2eeaacabd',1,'RTOS::TickService::ClientBase']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handle_0',['Handle',['../dd/dae/a00163.html#ab915903b175e6a665f3f068887e13064',1,'Lib::FreeRTOS::MessageBuffer::Handle'],['../de/d45/a00175.html#a3a9a66b61c5188474be1fa00a19ecb49',1,'Lib::FreeRTOS::Queue::Handle'],['../db/dd9/a00179.html#a25c4dd56e8d8062de85afb6484bda6ac',1,'Lib::FreeRTOS::QueueSet::Handle'],['../dc/d52/a00183.html#ac80d3786cef88222f14f12823eec8d2c',1,'Lib::FreeRTOS::Semaphore::Handle'],['../d6/daa/a00187.html#ac31e3b88075f241424a80adbb7b0641d',1,'Lib::FreeRTOS::SemaphoreBase::Handle'],['../d3/d2a/a00195.html#a9ce35559d183f678dc3af4bebd0ed7d4',1,'Lib::FreeRTOS::StreamBuffer::Handle'],['../de/d79/a00203.html#a3ae655c06dbf63326fd1b5640375f356',1,'Lib::FreeRTOS::TaskHelper::Handle']]],
-  ['handle_1',['handle',['../d6/daa/a00187.html#aeba9aef9fbf175aa1ecbb778553874ea',1,'Lib::FreeRTOS::SemaphoreBase']]],
-  ['handletickevent_2',['handleTickEvent',['../d3/dd5/a00215.html#aa76de04360609face8f7780d5717f8e6',1,'Lib::FreeRTOS::TickService::ClientBase']]]
+  ['handle_0',['Handle',['../d5/dcb/a00170.html#ac7c17b15a9ccb6e449bd39651983763a',1,'RTOS::MessageBuffer::Handle'],['../d7/d25/a00182.html#ad6649fab271496bbdcda114520fd6d8d',1,'RTOS::Queue::Handle'],['../d8/d00/a00186.html#a2c3910a686600b8161fe9dfa5d45cfef',1,'RTOS::QueueSet::Handle'],['../d7/d6e/a00190.html#ab6421331ba2f810ca117af37f7da747a',1,'RTOS::Semaphore::Handle'],['../dc/d57/a00194.html#a22b0e6acc842fa59ab21e42babbb11e2',1,'RTOS::SemaphoreBase::Handle'],['../db/d53/a00202.html#ac43f2585fb807014368f17cd4dd8bc9e',1,'RTOS::StreamBuffer::Handle'],['../d3/dd1/a00214.html#ae6ee447ac0945ca94adc8e503845d989',1,'RTOS::TaskHelper::Handle']]],
+  ['handle_1',['handle',['../dc/d57/a00194.html#af98089a48fabe8207cc736331543af75',1,'RTOS::SemaphoreBase']]],
+  ['handletickevent_2',['handleTickEvent',['../dc/d55/a00226.html#a813aed3eccda809913d539e2eeaacabd',1,'RTOS::TickService::ClientBase']]]
 ];

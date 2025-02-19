@@ -1,5 +1,26 @@
 var a00182 =
 [
-    [ "lock_guard", "d7/d25/a00182.html#a804722b27e1977c9c04504f9313bb311", null ],
-    [ "~lock_guard", "d7/d25/a00182.html#aa501d35cf4ffbab0bf704fe93713ed26", null ]
+    [ "Handle", "d7/d25/a00182.html#ad6649fab271496bbdcda114520fd6d8d", null ],
+    [ "Queue", "d7/d25/a00182.html#a401ae70269a5380f7ef22608318a18d3", null ],
+    [ "~Queue", "d7/d25/a00182.html#aa7560e8d19200fbccfddf17925c0991a", null ],
+    [ "addToRegistry", "d7/d25/a00182.html#a544d15997d364f0b203afdb7f39166af", null ],
+    [ "create", "d7/d25/a00182.html#af9110b7f6fbf3189d26f12e02a296a64", null ],
+    [ "getHandle", "d7/d25/a00182.html#aa0defd9ce7dbece3b032db765401070d", null ],
+    [ "isCreated", "d7/d25/a00182.html#ac592c8293f05a492d791ebbff77246b5", null ],
+    [ "messagesWaiting", "d7/d25/a00182.html#a8ca1215b6c7a157339f7347e9f59b798", null ],
+    [ "messagesWaitingFromISR", "d7/d25/a00182.html#a4af3b572e572b31569650282d27aed20", null ],
+    [ "operator Handle", "d7/d25/a00182.html#a9ee544be96d9b46343413d1203fdafac", null ],
+    [ "operator Handle &", "d7/d25/a00182.html#aa95af159fdd06570669027fb7f7e91e1", null ],
+    [ "overwrite", "d7/d25/a00182.html#a48a12e19fb56ab01f1646c38a699ff25", null ],
+    [ "overwriteFromISR", "d7/d25/a00182.html#ac62d76e70d644d92069a57b88e423e45", null ],
+    [ "peek", "d7/d25/a00182.html#ab37ae4ba94591b42be5092eefebc09a3", null ],
+    [ "peekFromISR", "d7/d25/a00182.html#aa4963d6f5fdc42a248a0915d9ff1e614", null ],
+    [ "receive", "d7/d25/a00182.html#a6eb9efa6e70d63de2a0843f2407d2eb7", null ],
+    [ "receiveFromISR", "d7/d25/a00182.html#a94601408d114d72ac513d498a2a7f14a", null ],
+    [ "removeFromRegistry", "d7/d25/a00182.html#acdf9506b5a913995e33804d0d72fe219", null ],
+    [ "reset", "d7/d25/a00182.html#a7ebc766c34f54e35bced2c08d99129f0", null ],
+    [ "send", "d7/d25/a00182.html#ad98194e53249c6bec204729bbf560d42", null ],
+    [ "sendToBackFromISR", "d7/d25/a00182.html#a34e2f017095377181d108fbe1cc93af4", null ],
+    [ "sendToFrontFromISR", "d7/d25/a00182.html#a17ffd8cf450eddd931871fe1cda1f1e4", null ],
+    [ "spacesAvailable", "d7/d25/a00182.html#a959246f741cf5c29ef5daa699e64d9b0", null ]
 ];
