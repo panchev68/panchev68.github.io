@@ -1,11 +1,8 @@
 var searchData=
 [
-  ['notify_0',['notify',['../d5/df1/a00206.html#ac41b6c1790ddc6d53f16119da3ea67e1',1,'RTOS::Task']]],
-  ['notifyandquery_1',['notifyAndQuery',['../d5/df1/a00206.html#a2e240bcba40152de3ec070d0de85376e',1,'RTOS::Task']]],
-  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../d5/df1/a00206.html#ac739b4940af7f80d057bccd555347a09',1,'RTOS::Task']]],
-  ['notifyfromisr_3',['notifyFromISR',['../d5/df1/a00206.html#af30d928d138400a8c92a7f83dd468b9c',1,'RTOS::Task']]],
-  ['notifygive_4',['notifyGive',['../d5/df1/a00206.html#a0087379ea3107059fd3bf557b76b2ad0',1,'RTOS::Task']]],
-  ['notifygivefromisr_5',['notifyGiveFromISR',['../d5/df1/a00206.html#a42acaf1d60c7e2353bad3c80ba8e8a4a',1,'RTOS::Task']]],
-  ['notifytake_6',['notifyTake',['../d3/dd1/a00214.html#a3d67cc44f4a8706274aff364ae50cdda',1,'RTOS::TaskHelper']]],
-  ['notifywait_7',['notifyWait',['../d3/dd1/a00214.html#a4a4f7416f62a998d785773f00a9b3e24',1,'RTOS::TaskHelper']]]
+  ['malloc_0',['malloc',['../dc/de6/a00167.html#a2e6569489c50d241ee03ec5059395b0a',1,'RTOS::MemoryManager']]],
+  ['messagebuffer_1',['MessageBuffer',['../d1/d0d/a00171.html#abf3e6bf7fa7803357d0b62be1785e088',1,'RTOS::MessageBuffer']]],
+  ['messageswaiting_2',['messagesWaiting',['../dc/d52/a00183.html#a8ca1215b6c7a157339f7347e9f59b798',1,'RTOS::Queue']]],
+  ['messageswaitingfromisr_3',['messagesWaitingFromISR',['../dc/d52/a00183.html#a4af3b572e572b31569650282d27aed20',1,'RTOS::Queue']]],
+  ['mutex_4',['Mutex',['../de/d45/a00175.html#aa112cb1a46170df1c5f1d38a53d332ea',1,'RTOS::Mutex']]]
 ];

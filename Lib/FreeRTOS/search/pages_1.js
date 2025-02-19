@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['freertos_20c_20wrapper_0',['FreeRTOS C++ Wrapper',['../index.html',1,'']]]
+  ['rtos_0',['Free RTOS',['../index.html',1,'']]]
 ];

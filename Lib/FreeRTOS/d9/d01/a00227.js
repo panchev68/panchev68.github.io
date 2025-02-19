@@ -1,7 +1,6 @@
 var a00227 =
 [
-    [ "autoReload", "d9/d01/a00227.html#ac5c33d97089332a4d25af41a2c8041b9", null ],
-    [ "func", "d9/d01/a00227.html#a0cbe3cafae6b6f0ab9f2b63881d12fd3", null ],
-    [ "name", "d9/d01/a00227.html#ae0cce1f3589bffdae40a02948b0c0446", null ],
-    [ "period", "d9/d01/a00227.html#a2efaeed1879a053a585ed05adef8eba9", null ]
+    [ "ClientBase", "d9/d01/a00227.html#ac84ffd97d3420aa324292d0692085ed7", null ],
+    [ "~ClientBase", "d9/d01/a00227.html#aa69c0c553a59c8ff0b3a359ef3f7d807", null ],
+    [ "handleTickEvent", "d9/d01/a00227.html#a813aed3eccda809913d539e2eeaacabd", null ]
 ];

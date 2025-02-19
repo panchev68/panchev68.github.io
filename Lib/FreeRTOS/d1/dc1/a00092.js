@@ -1,4 +1,5 @@
 var a00092 =
 [
-    [ "RTOS::Queue< T, T_QUEUE_LEN >", "d7/d25/a00182.html", "d7/d25/a00182" ]
+    [ "RTOS::Mutex", "de/d45/a00175.html", "de/d45/a00175" ],
+    [ "RTOS::Mutex::Guard", "db/dd9/a00179.html", "db/dd9/a00179" ]
 ];

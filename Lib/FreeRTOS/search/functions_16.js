@@ -1,17 +1,18 @@
 var searchData=
 [
-  ['_7eclientbase_0',['~ClientBase',['../d3/dd5/a00215.html#aa922bb787cb9cce2c806ba2f21ffad0c',1,'Lib::FreeRTOS::TickService::ClientBase']]],
-  ['_7eeventgroup_1',['~EventGroup',['../dd/db2/a00151.html#acb0fbb840bf181958f3e7edc81f2a644',1,'Lib::FreeRTOS::EventGroup']]],
-  ['_7eguard_2',['~Guard',['../d1/d0d/a00171.html#a3207e04aaec7e96351bddeca4d63d216',1,'Lib::FreeRTOS::Mutex::Guard']]],
-  ['_7emessagebuffer_3',['~MessageBuffer',['../dd/dae/a00163.html#a2d7e901cf7a0dbc87830efa936d02b7e',1,'Lib::FreeRTOS::MessageBuffer']]],
-  ['_7emutex_4',['~Mutex',['../dc/de6/a00167.html#a89d122298f5ce39c2fa0907db300d728',1,'Lib::FreeRTOS::Mutex']]],
-  ['_7equeue_5',['~Queue',['../de/d45/a00175.html#ad2151344786c05df7051532ac93d1228',1,'Lib::FreeRTOS::Queue']]],
-  ['_7equeueset_6',['~QueueSet',['../db/dd9/a00179.html#ad8c95c6a9e35e8e25a1e498546941c3b',1,'Lib::FreeRTOS::QueueSet']]],
-  ['_7esemaphore_7',['~Semaphore',['../dc/d52/a00183.html#a962b0e87eeae50b7a2b245050628d911',1,'Lib::FreeRTOS::Semaphore']]],
-  ['_7esemaphorebase_8',['~SemaphoreBase',['../d6/daa/a00187.html#a253934193ee0de5b0fce552c75256ee3',1,'Lib::FreeRTOS::SemaphoreBase']]],
-  ['_7esemaphorecounting_9',['~SemaphoreCounting',['../d9/dd0/a00191.html#a8a23fc3a063478d6f682bffba2ef78e3',1,'Lib::FreeRTOS::SemaphoreCounting']]],
-  ['_7estreambuffer_10',['~StreamBuffer',['../d3/d2a/a00195.html#a0e24ee0bf5ba9ab27b53a885de253791',1,'Lib::FreeRTOS::StreamBuffer']]],
-  ['_7etask_11',['~Task',['../d8/d72/a00199.html#a18543b5a888cdb9d33ad20614d2f1688',1,'Lib::FreeRTOS::Task']]],
-  ['_7etimeout_12',['~Timeout',['../dd/df3/a00219.html#a4f2dfba861c373b6540e469c308f08b7',1,'Lib::FreeRTOS::Timeout']]],
-  ['_7etimer_13',['~Timer',['../dc/d28/a00223.html#a2b2165eef64c713ec21e63efcee986d3',1,'Lib::FreeRTOS::Timer']]]
+  ['_7eclientbase_0',['~ClientBase',['../d9/d01/a00227.html#aa69c0c553a59c8ff0b3a359ef3f7d807',1,'RTOS::TickService::ClientBase']]],
+  ['_7eeventgroup_1',['~EventGroup',['../de/db9/a00159.html#ab2273906f7c7de0565e852fbceeefaab',1,'RTOS::EventGroup']]],
+  ['_7eguard_2',['~Guard',['../db/dd9/a00179.html#a659b7dcc72507a1e17e3a4d9dc104082',1,'RTOS::Mutex::Guard']]],
+  ['_7emessagebuffer_3',['~MessageBuffer',['../d1/d0d/a00171.html#a9a62bafeca63426a70575b7228f9c698',1,'RTOS::MessageBuffer']]],
+  ['_7emutex_4',['~Mutex',['../de/d45/a00175.html#a766309378d3f1b9ad25492973f7d5c99',1,'RTOS::Mutex']]],
+  ['_7eparameters_5',['~Parameters',['../dd/ded/a00211.html#a06f6397feec568c1896fda282e46d0b6',1,'RTOS::Task::Parameters']]],
+  ['_7equeue_6',['~Queue',['../dc/d52/a00183.html#aa7560e8d19200fbccfddf17925c0991a',1,'RTOS::Queue']]],
+  ['_7equeueset_7',['~QueueSet',['../d6/daa/a00187.html#ad68cb3477a415b45d1868d84870f1ff6',1,'RTOS::QueueSet']]],
+  ['_7esemaphore_8',['~Semaphore',['../d9/dd0/a00191.html#aa5e35a44d5786139f77a3a57a483c021',1,'RTOS::Semaphore']]],
+  ['_7esemaphorebase_9',['~SemaphoreBase',['../d3/d2a/a00195.html#ab98752a3e231b56ba654c2c7cfad9f35',1,'RTOS::SemaphoreBase']]],
+  ['_7esemaphorecounting_10',['~SemaphoreCounting',['../d8/d72/a00199.html#afb5341458c94ba15df05e20a9b1892e4',1,'RTOS::SemaphoreCounting']]],
+  ['_7estreambuffer_11',['~StreamBuffer',['../de/d79/a00203.html#a4279301601dc12497575fbe9b250f62a',1,'RTOS::StreamBuffer']]],
+  ['_7etask_12',['~Task',['../de/dd2/a00207.html#a2d73a90fab600a7b74b5fecd19f4ad85',1,'RTOS::Task']]],
+  ['_7etimeout_13',['~Timeout',['../df/d17/a00231.html#a538a84208036a20c775b781321720687',1,'RTOS::Timeout']]],
+  ['_7etimer_14',['~Timer',['../d3/d42/a00235.html#abb3a7fc787b471c38a5f418dca84ca9f',1,'RTOS::Timer']]]
 ];

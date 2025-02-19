@@ -1,4 +1,4 @@
 var a00080 =
 [
-    [ "RTOS::Karnel", "db/d44/a00162.html", "db/d44/a00162" ]
+    [ "RTOS::EventGroup", "de/db9/a00159.html", "de/db9/a00159" ]
 ];
