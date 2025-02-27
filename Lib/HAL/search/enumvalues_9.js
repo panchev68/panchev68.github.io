@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['medium_0',['MEDIUM',['../d0/def/a00256.html#a0c90279501ad6b710061a0dbab455862ac87f3be66ffc3c0d4249f1c2cc5f3cce',1,'Lib::HAL::GPIO::PinMode']]],
-  ['modf_1',['MODF',['../db/d7b/a00296.html#a112b3cb6379c5ec4853273cff8ee4ccea91878509fb81342b00185ddabe606b87',1,'Lib::HAL::SPIx']]]
+  ['noise_5ferror_0',['NOISE_ERROR',['../dd/dfe/a00283.html#ab895d375e3d4a50f29c3904659de8326ae49a752ccd857ad9b6e962aa31551f73',1,'Lib::HAL::UARTBase']]],
+  ['none_1',['NONE',['../d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afbab50339a10e1de285ac99d4c3990b8693',1,'Lib::HAL::SPIBase::NONE'],['../dd/dfe/a00283.html#ab895d375e3d4a50f29c3904659de8326ab50339a10e1de285ac99d4c3990b8693',1,'Lib::HAL::UARTBase::NONE']]]
 ];

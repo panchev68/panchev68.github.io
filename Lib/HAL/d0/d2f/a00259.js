@@ -1,20 +1,58 @@
 var a00259 =
 [
-    [ "GPIOMode", "d0/d2f/a00259.html#af12aeb7414170c02136d3d25c575ff81", [
-      [ "INPUT", "d0/d2f/a00259.html#af12aeb7414170c02136d3d25c575ff81aa84cc046d48610b05c21fd3670d0c829", null ],
-      [ "OUT_PP", "d0/d2f/a00259.html#af12aeb7414170c02136d3d25c575ff81a05d0658f04c6c6a3f596e042bddd78cc", null ],
-      [ "OUT_OD", "d0/d2f/a00259.html#af12aeb7414170c02136d3d25c575ff81a48dc0d96bf9f37e03974e063c27d39c9", null ]
+    [ "CallbackID", "d0/d2f/a00259.html#abac16d140eba734a046977efd063157c", null ],
+    [ "DeviceManager", "d0/d2f/a00259.html#a81373bff84d14028c8751cdcaa1a4244", null ],
+    [ "Handle", "d0/d2f/a00259.html#a25650ecf82fbc69f7c4be0decb0b25c4", null ],
+    [ "State", "d0/d2f/a00259.html#a755cd67474a63b3e8531de8032a58e8a", null ],
+    [ "ErrorCode", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afb", [
+      [ "NONE", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afbab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODF", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba91878509fb81342b00185ddabe606b87", null ],
+      [ "CRCE", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba5866605df857a8b511aec873d0fa6440", null ],
+      [ "OVR", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba5454e7edaaa12e3d5761aaa2cdbc75df", null ],
+      [ "FRE", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba7b8419f19a58b307ad1cd9b9aa05e278", null ],
+      [ "DMA", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba33fd5f6391f2f0cb4c91179d7f521949", null ],
+      [ "FLAG", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba0f4d0db3668dd58cabb9eb409657eaa8", null ],
+      [ "ABORT", "d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba8d12a2ca7e5a64036d7251a3eda51a38", null ]
     ] ],
-    [ "GPIOPull", "d0/d2f/a00259.html#ae924772446ea7c67b58fa85260c95b4c", [
-      [ "NOPULL", "d0/d2f/a00259.html#ae924772446ea7c67b58fa85260c95b4caf43b0f41977e72ada334d920faf460d5", null ],
-      [ "PULLUP", "d0/d2f/a00259.html#ae924772446ea7c67b58fa85260c95b4ca2989a4b0b16772a6f65da71eda483c9f", null ],
-      [ "PULLDOWN", "d0/d2f/a00259.html#ae924772446ea7c67b58fa85260c95b4cad08b3001fc1b2f26c5ba712336e16a17", null ]
+    [ "EventBit", "d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892de", [
+      [ "TX_COMPLETED", "d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892dea844151f916a0661b67674075414c4bad", null ],
+      [ "RX_COMPLETED", "d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892dea9d1b5e06456589dcaa34abe9b210a368", null ],
+      [ "TX_RX_COMPLETED", "d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892dea3d649b966220840038b373aeafc896bc", null ],
+      [ "ABORT_COMPLETED", "d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892dea803257020caeaa175ec2282e330ce8f7", null ],
+      [ "ERROR", "d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892dea8ec70adf18db40810025caa9d0c207ac", null ]
     ] ],
-    [ "GPIOSpeed", "d0/d2f/a00259.html#a0c90279501ad6b710061a0dbab455862", [
-      [ "LOW", "d0/d2f/a00259.html#a0c90279501ad6b710061a0dbab455862a41bc94cbd8eebea13ce0491b2ac11b88", null ],
-      [ "MEDIUM", "d0/d2f/a00259.html#a0c90279501ad6b710061a0dbab455862ac87f3be66ffc3c0d4249f1c2cc5f3cce", null ],
-      [ "HIGH", "d0/d2f/a00259.html#a0c90279501ad6b710061a0dbab455862ab89de3b4b81c4facfac906edf29aec8c", null ],
-      [ "VERY_HIGH", "d0/d2f/a00259.html#a0c90279501ad6b710061a0dbab455862a2eae31361b8d1a454cadc17a8d4b70ac", null ]
-    ] ],
-    [ "setMode", "d0/d2f/a00259.html#aae1c84e46a06a0099ea172710ba2fe4e", null ]
+    [ "SPIBase", "d0/d2f/a00259.html#ae1e8182cc6888b91bf186ab27109d556", null ],
+    [ "~SPIBase", "d0/d2f/a00259.html#af8c32c65fcc821b66024fdbecc14e169", null ],
+    [ "abort", "d0/d2f/a00259.html#a2b86c38d4eb17d8555421dbfa5ce9aa0", null ],
+    [ "abortFunc", "d0/d2f/a00259.html#a67122e3332d920e1d3acb8ec5cb557ed", null ],
+    [ "deinit", "d0/d2f/a00259.html#a9a2fc87e4d9e12164a458a38deafc604", null ],
+    [ "event", "d0/d2f/a00259.html#a81fb2e24575357be10c2c5f2813b5e6d", null ],
+    [ "event", "d0/d2f/a00259.html#a4aaf00d542cf93f1532aaa8677e6e2a7", null ],
+    [ "event", "d0/d2f/a00259.html#a4aaf00d542cf93f1532aaa8677e6e2a7", null ],
+    [ "event", "d0/d2f/a00259.html#a4aaf00d542cf93f1532aaa8677e6e2a7", null ],
+    [ "event", "d0/d2f/a00259.html#a4aaf00d542cf93f1532aaa8677e6e2a7", null ],
+    [ "event", "d0/d2f/a00259.html#a4aaf00d542cf93f1532aaa8677e6e2a7", null ],
+    [ "getHandle", "d0/d2f/a00259.html#a6c38799c97eff6dca36ca2d2b67c172d", null ],
+    [ "getState", "d0/d2f/a00259.html#aa7a04f138955a40466bc763a71f214b7", null ],
+    [ "handleAbortCompleteEvent", "d0/d2f/a00259.html#ab0ae6803f9bbbdae2295e38a59297ffd", null ],
+    [ "handleErrorEvent", "d0/d2f/a00259.html#a412644d25dd0dfd9b9c0e19f3794e3f0", null ],
+    [ "handleEvent", "d0/d2f/a00259.html#a22ca432661bc3d5e6519794b26952ed4", null ],
+    [ "handleRxCompleteEvent", "d0/d2f/a00259.html#a5c642cedf640aeafad284f953db872fe", null ],
+    [ "handleTxCompleteEvent", "d0/d2f/a00259.html#a361fd89ed1b1b1294d687175ce795b9b", null ],
+    [ "handleTxRxCompleteEvent", "d0/d2f/a00259.html#a1780ab75628eccfbc540875792645396", null ],
+    [ "init", "d0/d2f/a00259.html#ad767fdb65b276e2c86d5f18c22c88517", null ],
+    [ "receive", "d0/d2f/a00259.html#a1477dc6eb2fdf050ad51857978b7b4cc", null ],
+    [ "receiveFunc", "d0/d2f/a00259.html#a0302b5af24ba25ce3b638e723e884c40", null ],
+    [ "send", "d0/d2f/a00259.html#a4335bda1057d56879ee86af0a0d41dca", null ],
+    [ "sendFunc", "d0/d2f/a00259.html#a53f45a916b14db3d3184078b69b335d0", null ],
+    [ "sendReceive", "d0/d2f/a00259.html#ae31b2d168653683e47efe8847c147cba", null ],
+    [ "sendReceiveFunc", "d0/d2f/a00259.html#acf177528ba668c37b4f195c3b4250c53", null ],
+    [ "waitForAbortCompleted", "d0/d2f/a00259.html#a7a676601675899760c21ad98f6866f24", null ],
+    [ "waitForComplete", "d0/d2f/a00259.html#ab13cb769aad881004bad0518ffe46e2e", null ],
+    [ "waitForRxCompleted", "d0/d2f/a00259.html#a605fc38605a689dbf3d592d599300f18", null ],
+    [ "waitForTxCompleted", "d0/d2f/a00259.html#a0a3341536bd86c1035fd65919e9b344d", null ],
+    [ "waitForTxRxCompleted", "d0/d2f/a00259.html#a25b9fa5a10875dea805faa9ffa74a756", null ],
+    [ "Lib::HAL::DeviceManagerBase< SPIBase, SPI_HandleTypeDef >", "d0/d2f/a00259.html#ab2c257c06b0108907dbf3065ed7f10f6", null ],
+    [ "_eventGroup", "d0/d2f/a00259.html#a7b67ce42a77ce14f50acfe1f3aba8257", null ],
+    [ "_handle", "d0/d2f/a00259.html#aece86d774e16c940d995e943fc8322f6", null ]
 ];

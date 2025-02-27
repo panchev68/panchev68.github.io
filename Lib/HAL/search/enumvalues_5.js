@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['flag_0',['FLAG',['../db/d7b/a00296.html#a112b3cb6379c5ec4853273cff8ee4ccea0f4d0db3668dd58cabb9eb409657eaa8',1,'Lib::HAL::SPIx']]],
-  ['flag_5fabort_5fcomplete_1',['FLAG_ABORT_COMPLETE',['../dd/de2/a00320.html#ac12f66ca0b1d083d08631179bd2b96c5acb28247f59d3e4ba87a98854d83e44f9',1,'Lib::HAL::UARTx']]],
-  ['flag_5ftx_5fcomplete_2',['FLAG_TX_COMPLETE',['../dd/de2/a00320.html#ac12f66ca0b1d083d08631179bd2b96c5ac19c54d8a7fe985d1964a7316adbec1d',1,'Lib::HAL::UARTx']]],
-  ['frame_5ferror_3',['FRAME_ERROR',['../dd/de2/a00320.html#a2c29c4d985dcbd85d1dbf60038067b0fa6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UARTx']]],
-  ['fre_4',['FRE',['../db/d7b/a00296.html#a112b3cb6379c5ec4853273cff8ee4ccea7b8419f19a58b307ad1cd9b9aa05e278',1,'Lib::HAL::SPIx']]]
+  ['flag_0',['FLAG',['../d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba0f4d0db3668dd58cabb9eb409657eaa8',1,'Lib::HAL::SPIBase']]],
+  ['flag_5fabort_5fcomplete_1',['FLAG_ABORT_COMPLETE',['../dd/dfe/a00283.html#a7a4fb8714a5555ae3be1a1c59767e56fa5bbee50956e26b84241a247cdf291f77',1,'Lib::HAL::UARTBase']]],
+  ['flag_5frx_5fcomplete_2',['FLAG_RX_COMPLETE',['../dd/dfe/a00283.html#a7a4fb8714a5555ae3be1a1c59767e56face08314e83e6cd6c1846927b7a80c78a',1,'Lib::HAL::UARTBase']]],
+  ['flag_5ftx_5fcomplete_3',['FLAG_TX_COMPLETE',['../dd/dfe/a00283.html#a7a4fb8714a5555ae3be1a1c59767e56fa029602bdaffb036d2513bcf37fefad81',1,'Lib::HAL::UARTBase']]],
+  ['frame_5ferror_4',['FRAME_ERROR',['../dd/dfe/a00283.html#ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UARTBase']]],
+  ['fre_5',['FRE',['../d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba7b8419f19a58b307ad1cd9b9aa05e278',1,'Lib::HAL::SPIBase']]]
 ];

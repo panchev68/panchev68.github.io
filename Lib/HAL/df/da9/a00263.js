@@ -1,10 +1,11 @@
 var a00263 =
 [
-    [ "Config", "df/da9/a00263.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "df/da9/a00263.html#a3b44fabfe796316ff21231ab84e9aae5", null ],
-    [ "~Port", "df/da9/a00263.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "getInputs", "df/da9/a00263.html#a6eb674f7b775026359e91c7f09a39396", null ],
-    [ "setOutputs", "df/da9/a00263.html#ab6cce21713f6c84b730577d403ca90a9", null ],
-    [ "setPullupPulldown", "df/da9/a00263.html#ab56d05994bd491c6412034e04261fc67", null ],
-    [ "setup", "df/da9/a00263.html#ab580571a964639ef45ed11819acebd57", null ]
+    [ "DeviceManager", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
+    [ "Base", "df/da9/a00263.html#a563f6e2bf6b978f526c5fa87583bc588", null ],
+    [ "~Base", "df/da9/a00263.html#a820ebb6e57ddcfceec7b9c5df70e4cf4", null ],
+    [ "close", "df/da9/a00263.html#a722cf0939b693295625e6e6407105bf0", null ],
+    [ "getHandle", "df/da9/a00263.html#a9c1d70b49613a972382dcbf845474280", null ],
+    [ "handleEvent", "df/da9/a00263.html#ab35824b087e7d7c17c11fc266814a4e7", null ],
+    [ "open", "df/da9/a00263.html#ac65559737120cd6ab6d522a27a70e8af", null ],
+    [ "_handle", "df/da9/a00263.html#a665a68bd26d1300129c157c99e9e702e", null ]
 ];

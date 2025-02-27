@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['deinit_0',['deinit',['../d0/dcd/a00280.html#a2701309c93fe47a80ecaa2dc552af773',1,'Lib::HAL::I2Cx::deinit()'],['../db/d7b/a00296.html#ad9cff2ee807fdc40cbd85b68f7283a91',1,'Lib::HAL::SPIx::deinit()'],['../dd/de2/a00320.html#aac4839270151f122d47911769d5965e2',1,'Lib::HAL::UARTx::deinit()']]],
-  ['devicemanagerbase_1',['DeviceManagerBase',['../d9/d21/a00240.html#abdfac94f393ea76ce81101fa3ec4e0c1',1,'Lib::HAL::DeviceManagerBase']]]
+  ['deinit_0',['deinit',['../d0/d2f/a00259.html#a9a2fc87e4d9e12164a458a38deafc604',1,'Lib::HAL::SPIBase::deinit()'],['../dd/dfe/a00283.html#abfbee8d9ce9d66bc5f0257b56c56c1c9',1,'Lib::HAL::UARTBase::deinit()']]],
+  ['devicemanager_1',['DeviceManager',['../d1/dd4/a00267.html#ac7e0c87f43e89b9453862dc76412222e',1,'Lib::HAL::TIM::Base::DeviceManager']]],
+  ['devicemanagerbase_2',['DeviceManagerBase',['../d6/d82/a00243.html#a6ae1ab0b108d622171250e9cd9008611',1,'Lib::HAL::DeviceManagerBase']]]
 ];

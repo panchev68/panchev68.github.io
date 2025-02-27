@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unknown_0',['UNKNOWN',['../da/ddc/a00288.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e',1,'Lib::HAL::LastResetState']]]
+  ['window_5fwatchdog_5freset_0',['WINDOW_WATCHDOG_RESET',['../d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6',1,'Lib::HAL::LastResetState']]]
 ];

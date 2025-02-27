@@ -1,4 +1,4 @@
 var a00071 =
 [
-    [ "Lib::HAL::UARTx", "dd/de2/a00320.html", "dd/de2/a00320" ]
+    [ "Lib::HAL::UARTBase", "dd/dfe/a00283.html", "dd/dfe/a00283" ]
 ];

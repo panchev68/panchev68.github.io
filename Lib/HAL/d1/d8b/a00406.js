@@ -1,4 +1,4 @@
 var a00406 =
 [
-    [ "Lib::HAL::Timer::Handle", "d0/da2/a00307.html", "d0/da2/a00307" ]
+    [ "Lib::HAL::Handle< T_HANDLE >", "d0/d1f/a00247.html", "d0/d1f/a00247" ]
 ];

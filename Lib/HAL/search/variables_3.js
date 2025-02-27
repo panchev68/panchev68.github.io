@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['result_0',['result',['../d6/d43/a00216.html#ad827d3173678dbaa7dd3be40784dc02a',1,'Lib::HAL::Adc::Port&lt; IT &gt;']]]
+  ['onvaluechanged_0',['onValueChanged',['../d2/d82/a00279.html#a145dfe43deb7592d70805a54b5074b2d',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;']]]
 ];

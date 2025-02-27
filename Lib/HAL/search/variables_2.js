@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['onvaluechanged_0',['onValueChanged',['../d3/db8/a00316.html#a145dfe43deb7592d70805a54b5074b2d',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;']]]
+  ['handle_0',['handle',['../dd/d86/a00271.html#a05b187c3737b76be770380f3d05879bf',1,'Lib::HAL::Timer::Handle']]]
 ];

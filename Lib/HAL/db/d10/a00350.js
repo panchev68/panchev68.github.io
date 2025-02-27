@@ -1,8 +1,7 @@
 var a00350 =
 [
-    [ "Timer", "db/d10/a00350.html#a81d3914d81cd5098207a541106829154", null ],
-    [ "~Timer", "db/d10/a00350.html#a43aee021e54610f1179901bf7fcbaecf", null ],
-    [ "close", "db/d10/a00350.html#a30e3fabb9057f35427bb6a23666cc6e5", null ],
-    [ "open", "db/d10/a00350.html#a2e360de332a83d537ba388388e58122a", null ],
-    [ "onValueChanged", "db/d10/a00350.html#a145dfe43deb7592d70805a54b5074b2d", null ]
+    [ "Lib::HAL::SPI_BLOCK", "d9/dd0/a00191.html#a9f22ed45da4b995eb6cb3b8461ad6ed4", null ],
+    [ "Lib::HAL::SPI_DMA", "d9/dd0/a00191.html#afefd339296cc97707945b608971a00cd", null ],
+    [ "Lib::HAL::SPI_IT", "d9/dd0/a00191.html#a2c0b733f1a7d50da78a1bfe2e925e9d2", null ],
+    [ "Lib::HAL::SPIHandle", "d9/dd0/a00191.html#adf4babf0e5b540d1ae9b7c96c148fa9d", null ]
 ];

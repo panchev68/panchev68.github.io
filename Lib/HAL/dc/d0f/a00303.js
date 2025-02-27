@@ -6,5 +6,6 @@ var a00303 =
     [ "close", "dc/d0f/a00303.html#a722cf0939b693295625e6e6407105bf0", null ],
     [ "getHandle", "dc/d0f/a00303.html#a9c1d70b49613a972382dcbf845474280", null ],
     [ "handleEvent", "dc/d0f/a00303.html#ab35824b087e7d7c17c11fc266814a4e7", null ],
-    [ "open", "dc/d0f/a00303.html#ac65559737120cd6ab6d522a27a70e8af", null ]
+    [ "open", "dc/d0f/a00303.html#ac65559737120cd6ab6d522a27a70e8af", null ],
+    [ "_handle", "dc/d0f/a00303.html#a665a68bd26d1300129c157c99e9e702e", null ]
 ];
