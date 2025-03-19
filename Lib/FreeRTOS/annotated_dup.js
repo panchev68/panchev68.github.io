@@ -13,11 +13,10 @@ var annotated_dup =
       [ "SemaphoreCounting", "d8/d72/a00199.html", "d8/d72/a00199" ],
       [ "StreamBuffer", "de/d79/a00203.html", "de/d79/a00203" ],
       [ "Task", "de/dd2/a00207.html", "de/dd2/a00207" ],
-      [ "TaskHelper", "d3/dd5/a00215.html", "d3/dd5/a00215" ],
+      [ "TaskHelper", "d3/dd5/a00215.html", null ],
       [ "TickCounter", "dd/df3/a00219.html", null ],
       [ "TickService", "dc/d28/a00223.html", "dc/d28/a00223" ],
       [ "Timeout", "df/d17/a00231.html", "df/d17/a00231" ],
       [ "Timer", "d3/d42/a00235.html", "d3/d42/a00235" ]
-    ] ],
-    [ "SemaphoreBase", "d6/d82/a00243.html", null ]
+    ] ]
 ];

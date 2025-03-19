@@ -15,7 +15,6 @@ var hierarchy =
       [ "RTOS::Semaphore", "d9/dd0/a00191.html", null ],
       [ "RTOS::SemaphoreCounting", "d8/d72/a00199.html", null ]
     ] ],
-    [ "SemaphoreBase", "d6/d82/a00243.html", null ],
     [ "RTOS::StreamBuffer", "de/d79/a00203.html", null ],
     [ "RTOS::Task", "de/dd2/a00207.html", null ],
     [ "RTOS::TaskHelper", "d3/dd5/a00215.html", null ],

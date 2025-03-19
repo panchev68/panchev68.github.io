@@ -1,7 +1,6 @@
 var a00207 =
 [
     [ "Parameters", "dd/ded/a00211.html", "dd/ded/a00211" ],
-    [ "NotificationBits", "de/dd2/a00207.html#a46b832087eb0a767ed881203db958980", null ],
     [ "NotifyAction", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eb", [
       [ "NO_ACTION", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba24ce802dad4f363a652f77ce888c9b91", null ],
       [ "SET_BITS", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba584142dc5514c9123172a12e9f7f150f", null ],
@@ -22,9 +21,9 @@ var a00207 =
     [ "notify", "de/dd2/a00207.html#ac41b6c1790ddc6d53f16119da3ea67e1", null ],
     [ "notifyAndQuery", "de/dd2/a00207.html#a2e240bcba40152de3ec070d0de85376e", null ],
     [ "notifyAndQueryFromISR", "de/dd2/a00207.html#ac739b4940af7f80d057bccd555347a09", null ],
-    [ "notifyFromISR", "de/dd2/a00207.html#af30d928d138400a8c92a7f83dd468b9c", null ],
+    [ "notifyFromISR", "de/dd2/a00207.html#a109d7c98bcc6077508521b85eccce672", null ],
     [ "notifyGive", "de/dd2/a00207.html#a0087379ea3107059fd3bf557b76b2ad0", null ],
-    [ "notifyGiveFromISR", "de/dd2/a00207.html#a42acaf1d60c7e2353bad3c80ba8e8a4a", null ],
+    [ "notifyGiveFromISR", "de/dd2/a00207.html#a79eb259ddf62835f087b041acacdaaa3", null ],
     [ "operator Handle", "de/dd2/a00207.html#aafa4cdeeb7f56f3ecca9194c4704e43f", null ],
     [ "operator!=", "de/dd2/a00207.html#a295ef2c2441f250e97f14415d5d94a82", null ],
     [ "operator=", "de/dd2/a00207.html#a453a9bde262b0311c5e7638b960aad5b", null ],
@@ -33,7 +32,7 @@ var a00207 =
     [ "resume", "de/dd2/a00207.html#a6409c2b90d6be59624dff71cea7aa2d1", null ],
     [ "resumeFromISR", "de/dd2/a00207.html#a929269621023fc7d3db70b4886fdbc8a", null ],
     [ "setPriority", "de/dd2/a00207.html#aa7f5bebd7c2b06395c0d1e5b1216e621", null ],
-    [ "start", "de/dd2/a00207.html#ad6bb2a88d16d0e01ce5e1d1716f02933", null ],
+    [ "start", "de/dd2/a00207.html#af75d2a3b7478fbd3ad6188d0bf970928", null ],
     [ "stop", "de/dd2/a00207.html#a38147c081cb0a989f91500f0c3241107", null ],
     [ "suspend", "de/dd2/a00207.html#ada0036afdfd226c7835c1da2fac0c0f6", null ]
 ];

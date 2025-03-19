@@ -1,11 +1,11 @@
 var a00263 =
 [
-    [ "DeviceManager", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
-    [ "Base", "df/da9/a00263.html#a563f6e2bf6b978f526c5fa87583bc588", null ],
-    [ "~Base", "df/da9/a00263.html#a820ebb6e57ddcfceec7b9c5df70e4cf4", null ],
-    [ "close", "df/da9/a00263.html#a722cf0939b693295625e6e6407105bf0", null ],
-    [ "getHandle", "df/da9/a00263.html#a9c1d70b49613a972382dcbf845474280", null ],
-    [ "handleEvent", "df/da9/a00263.html#ab35824b087e7d7c17c11fc266814a4e7", null ],
-    [ "open", "df/da9/a00263.html#ac65559737120cd6ab6d522a27a70e8af", null ],
-    [ "_handle", "df/da9/a00263.html#a665a68bd26d1300129c157c99e9e702e", null ]
+    [ "Config", "df/da9/a00263.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Port", "df/da9/a00263.html#a3b44fabfe796316ff21231ab84e9aae5", null ],
+    [ "~Port", "df/da9/a00263.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "getInputs", "df/da9/a00263.html#aa89193ed088867f8900649896628a1ad", null ],
+    [ "setOutputs", "df/da9/a00263.html#aaccf1f4f3b70e2f7db609df3e8269bd8", null ],
+    [ "setPullupPulldown", "df/da9/a00263.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "df/da9/a00263.html#ab580571a964639ef45ed11819acebd57", null ],
+    [ "_port", "df/da9/a00263.html#a0f8e881f80379a050af8b680a4882d69", null ]
 ];

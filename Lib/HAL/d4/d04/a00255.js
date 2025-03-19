@@ -1,18 +1,14 @@
 var a00255 =
 [
-    [ "State", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
-      [ "UNKNOWN", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
-      [ "LOW_POWER_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
-      [ "WINDOW_WATCHDOG_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
-      [ "INDEPENDENT_WATCHDOG_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
-      [ "SOFTWARE_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
-      [ "POWER_ON_POWER_DOWN_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
-      [ "EXTERNAL_RESET_PIN_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
-      [ "BROWNOUT_RESET", "d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
-    ] ],
-    [ "LastResetState", "d4/d04/a00255.html#abbd01627966d996019ebe16bb0d685d0", null ],
-    [ "~LastResetState", "d4/d04/a00255.html#a9764e97ea414a4a782184c9e0e81789c", null ],
-    [ "get", "d4/d04/a00255.html#aceb01a835768bfb0b1af57d2be901501", null ],
-    [ "operator State", "d4/d04/a00255.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ],
-    [ "_state", "d4/d04/a00255.html#af28565b5f9f5efece0e7ced30ec621e7", null ]
+    [ "PinHandle", "d4/d04/a00255.html#a4169b074e06afd7ae1d018da7f44d11e", null ],
+    [ "PinHandle", "d4/d04/a00255.html#a86f91cd47c13e9fd410f6b4da4478b61", null ],
+    [ "PinHandle", "d4/d04/a00255.html#adc33166c45c4596c358d6db914f4788b", null ],
+    [ "~PinHandle", "d4/d04/a00255.html#a3edce66ec4b0d807728701d24d5f1f86", null ],
+    [ "getPinNumber", "d4/d04/a00255.html#a473c7fe7b14f3149340e3bc1248b173a", null ],
+    [ "getPointerToPinNumber", "d4/d04/a00255.html#a0e89898785cd0307d7a10c1b2c23a7b9", null ],
+    [ "getPort", "d4/d04/a00255.html#a9c2c8beb46f148b2aca17d2554da38d0", null ],
+    [ "getPort", "d4/d04/a00255.html#ae1907be94c6c2d15032baff3e06286f8", null ],
+    [ "operator==", "d4/d04/a00255.html#af2774469d2e9236b4c994502d26b3940", null ],
+    [ "_pinNumber", "d4/d04/a00255.html#aa7869121b6b6a711a3c5d818972e0366", null ],
+    [ "_port", "d4/d04/a00255.html#a7136a9913ee89b3618f3999e71ab60ea", null ]
 ];

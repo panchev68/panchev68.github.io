@@ -113,8 +113,7 @@ $(function(){initNavTree('de/d55/a00323.html','../../'); initResizable(true); })
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A class representing UART communication using the HAL library. </p>
-<p>The UARTBase class provides an interface for initializing, deinitializing, sending, and receiving data over UART. It also handles various UART events and errors using FreeRTOS stream buffers and event groups. </p>
+<div class="textblock"><p>Base class for UART handling. </p>
 </div>
 <p><code>#include &lt;UART.hpp&gt;</code></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -142,7 +141,6 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="#a7a4fb8714a5555ae3be1a1c59767e56fa5bbee50956e26b84241a247cdf291f77">FLAG_ABORT_COMPLETE</a> = 4
 <br />
  }</td></tr>
-<tr class="memdesc:a7a4fb8714a5555ae3be1a1c59767e56f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration for UART event flags.  <a href="#a7a4fb8714a5555ae3be1a1c59767e56f">More...</a><br /></td></tr>
 <tr class="separator:a7a4fb8714a5555ae3be1a1c59767e56f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab895d375e3d4a50f29c3904659de8326" id="r_ab895d375e3d4a50f29c3904659de8326"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab895d375e3d4a50f29c3904659de8326">ErrorCode</a> { <br />
 &#160;&#160;<a class="el" href="#ab895d375e3d4a50f29c3904659de8326ab50339a10e1de285ac99d4c3990b8693">NONE</a> = HAL_UART_ERROR_NONE
@@ -158,96 +156,88 @@ Public Types</h2></td></tr>
 &#160;&#160;<a class="el" href="#ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d">DMA_TRANSFER_ERROR</a> = HAL_UART_ERROR_DMA
 <br />
  }</td></tr>
-<tr class="memdesc:ab895d375e3d4a50f29c3904659de8326"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enumeration for UART error codes.  <a href="#ab895d375e3d4a50f29c3904659de8326">More...</a><br /></td></tr>
 <tr class="separator:ab895d375e3d4a50f29c3904659de8326"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a034fd06d0007326930f7be1139a8b783" id="r_a034fd06d0007326930f7be1139a8b783"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</a> = HAL_UART_CallbackIDTypeDef</td></tr>
-<tr class="memdesc:a034fd06d0007326930f7be1139a8b783"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for HAL_UART_CallbackIDTypeDef.  <br /></td></tr>
 <tr class="separator:a034fd06d0007326930f7be1139a8b783"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a130fa274446b90c406386a5055bca6db" id="r_a130fa274446b90c406386a5055bca6db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a130fa274446b90c406386a5055bca6db">UARTBase</a> (UART_HandleTypeDef *handle)</td></tr>
-<tr class="memdesc:a130fa274446b90c406386a5055bca6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the UARTBase class.  <br /></td></tr>
+<tr class="memdesc:a130fa274446b90c406386a5055bca6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for UARTBase.  <br /></td></tr>
 <tr class="separator:a130fa274446b90c406386a5055bca6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64775d0a276a87482d1cad7242c6e955" id="r_a64775d0a276a87482d1cad7242c6e955"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64775d0a276a87482d1cad7242c6e955">~UARTBase</a> () noexcept</td></tr>
-<tr class="memdesc:a64775d0a276a87482d1cad7242c6e955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the UARTBase class.  <br /></td></tr>
+<tr class="memdesc:a64775d0a276a87482d1cad7242c6e955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for UARTBase.  <br /></td></tr>
 <tr class="separator:a64775d0a276a87482d1cad7242c6e955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76e085bd92d76c65ab99b1c4400416db" id="r_a76e085bd92d76c65ab99b1c4400416db"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76e085bd92d76c65ab99b1c4400416db">init</a> () noexcept</td></tr>
-<tr class="memdesc:a76e085bd92d76c65ab99b1c4400416db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART interface.  <br /></td></tr>
+<tr class="memdesc:a76e085bd92d76c65ab99b1c4400416db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the UART.  <br /></td></tr>
 <tr class="separator:a76e085bd92d76c65ab99b1c4400416db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfbee8d9ce9d66bc5f0257b56c56c1c9" id="r_abfbee8d9ce9d66bc5f0257b56c56c1c9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfbee8d9ce9d66bc5f0257b56c56c1c9">deinit</a> () noexcept</td></tr>
-<tr class="memdesc:abfbee8d9ce9d66bc5f0257b56c56c1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the UART peripheral.  <br /></td></tr>
+<tr class="memdesc:abfbee8d9ce9d66bc5f0257b56c56c1c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the UART.  <br /></td></tr>
 <tr class="separator:abfbee8d9ce9d66bc5f0257b56c56c1c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa93a176db18d055531ec5cf6d5937288" id="r_aa93a176db18d055531ec5cf6d5937288"><td class="memItemLeft" align="right" valign="top">virtual uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa93a176db18d055531ec5cf6d5937288">getBaudRate</a> () const noexcept</td></tr>
-<tr class="memdesc:aa93a176db18d055531ec5cf6d5937288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current baud rate of the UART.  <br /></td></tr>
+<tr class="memdesc:aa93a176db18d055531ec5cf6d5937288"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the baud rate of the UART.  <br /></td></tr>
 <tr class="separator:aa93a176db18d055531ec5cf6d5937288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa3c3e4693f2a614fd1967b2d4edd043" id="r_afa3c3e4693f2a614fd1967b2d4edd043"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3c3e4693f2a614fd1967b2d4edd043">setBaudRate</a> (uint32_t value) noexcept</td></tr>
-<tr class="memdesc:afa3c3e4693f2a614fd1967b2d4edd043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the baud rate of the UART port.  <br /></td></tr>
+<tr class="memdesc:afa3c3e4693f2a614fd1967b2d4edd043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the baud rate of the UART.  <br /></td></tr>
 <tr class="separator:afa3c3e4693f2a614fd1967b2d4edd043"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5456c360b7ab0fcf9e3cee396a53db03" id="r_a5456c360b7ab0fcf9e3cee396a53db03"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5456c360b7ab0fcf9e3cee396a53db03">receive</a> (void *dest, size_t length, uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:a5456c360b7ab0fcf9e3cee396a53db03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data into the specified destination buffer.  <br /></td></tr>
+<tr class="memdesc:a5456c360b7ab0fcf9e3cee396a53db03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data from the UART.  <br /></td></tr>
 <tr class="separator:a5456c360b7ab0fcf9e3cee396a53db03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5ed3f78ba82bbcd23347e93752b3e49" id="r_ad5ed3f78ba82bbcd23347e93752b3e49"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5ed3f78ba82bbcd23347e93752b3e49">send</a> (const void *source, size_t length, uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:ad5ed3f78ba82bbcd23347e93752b3e49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over the UART port.  <br /></td></tr>
-<tr class="separator:ad5ed3f78ba82bbcd23347e93752b3e49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa74848a31f86ad5ce5b8529028105626" id="r_aa74848a31f86ad5ce5b8529028105626"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa74848a31f86ad5ce5b8529028105626">send</a> (const void *src, size_t length, uint32_t timeout) noexcept</td></tr>
+<tr class="memdesc:aa74848a31f86ad5ce5b8529028105626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over the UART.  <br /></td></tr>
+<tr class="separator:aa74848a31f86ad5ce5b8529028105626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac545ce84c8c21c436dcea1a15cc15851" id="r_ac545ce84c8c21c436dcea1a15cc15851"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac545ce84c8c21c436dcea1a15cc15851">abort</a> (uint32_t timeout=0) noexcept</td></tr>
-<tr class="memdesc:ac545ce84c8c21c436dcea1a15cc15851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the current operation.  <br /></td></tr>
+<tr class="memdesc:ac545ce84c8c21c436dcea1a15cc15851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the current UART operation.  <br /></td></tr>
 <tr class="separator:ac545ce84c8c21c436dcea1a15cc15851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4fb67c3c41f48cbb342ec804acdd2ca8" id="r_a4fb67c3c41f48cbb342ec804acdd2ca8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4fb67c3c41f48cbb342ec804acdd2ca8">waitForReceiveCompleted</a> (uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:a4fb67c3c41f48cbb342ec804acdd2ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the receive operation to complete within a specified timeout.  <br /></td></tr>
+<tr class="memdesc:a4fb67c3c41f48cbb342ec804acdd2ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the receive operation to complete.  <br /></td></tr>
 <tr class="separator:a4fb67c3c41f48cbb342ec804acdd2ca8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7d3ff46385a38fd58da5035ecc73868" id="r_af7d3ff46385a38fd58da5035ecc73868"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7d3ff46385a38fd58da5035ecc73868">waitForSendCompleted</a> (uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:af7d3ff46385a38fd58da5035ecc73868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the receive operation to complete within a specified timeout.  <br /></td></tr>
+<tr class="memdesc:af7d3ff46385a38fd58da5035ecc73868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the send operation to complete.  <br /></td></tr>
 <tr class="separator:af7d3ff46385a38fd58da5035ecc73868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a253ea85e3779e5fba44d7282477e05e8" id="r_a253ea85e3779e5fba44d7282477e05e8"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a253ea85e3779e5fba44d7282477e05e8">waitForAbortCompleted</a> (uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:a253ea85e3779e5fba44d7282477e05e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the abort operation to complete within a specified timeout.  <br /></td></tr>
+<tr class="memdesc:a253ea85e3779e5fba44d7282477e05e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the abort operation to complete.  <br /></td></tr>
 <tr class="separator:a253ea85e3779e5fba44d7282477e05e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a7966e1580d664617d73d0aa7b222f6b3" id="r_a7966e1580d664617d73d0aa7b222f6b3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7966e1580d664617d73d0aa7b222f6b3">handleErrorEvent</a> (<a class="el" href="#ab895d375e3d4a50f29c3904659de8326">ErrorCode</a> errorCode) noexcept</td></tr>
-<tr class="memdesc:a7966e1580d664617d73d0aa7b222f6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the error event.  <br /></td></tr>
+<tr class="memdesc:a7966e1580d664617d73d0aa7b222f6b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles UART error events.  <br /></td></tr>
 <tr class="separator:a7966e1580d664617d73d0aa7b222f6b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad608aca2a901c18171ad8f78691ac987" id="r_ad608aca2a901c18171ad8f78691ac987"><td class="memItemLeft" align="right" valign="top">virtual UART_HandleTypeDef *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad608aca2a901c18171ad8f78691ac987">getHandle</a> () const noexcept override</td></tr>
 <tr class="memdesc:ad608aca2a901c18171ad8f78691ac987"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the UART handle.  <br /></td></tr>
 <tr class="separator:ad608aca2a901c18171ad8f78691ac987"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a222488a3721d7e90472b88cbd4069406" id="r_a222488a3721d7e90472b88cbd4069406"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a222488a3721d7e90472b88cbd4069406">receiveFunc</a> (void *dest, size_t length) noexcept</td></tr>
-<tr class="memdesc:a222488a3721d7e90472b88cbd4069406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data via UART in interrupt mode.  <br /></td></tr>
+<tr class="memdesc:a222488a3721d7e90472b88cbd4069406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data using interrupt mode.  <br /></td></tr>
 <tr class="separator:a222488a3721d7e90472b88cbd4069406"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceef47cd8830db8bf10d022986cffb3d" id="r_aceef47cd8830db8bf10d022986cffb3d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aceef47cd8830db8bf10d022986cffb3d">sendFunc</a> (const void *source, size_t length) noexcept</td></tr>
-<tr class="memdesc:aceef47cd8830db8bf10d022986cffb3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data asynchronously using UART.  <br /></td></tr>
-<tr class="separator:aceef47cd8830db8bf10d022986cffb3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fb60fe1c55cee82682ad11624a295b9" id="r_a7fb60fe1c55cee82682ad11624a295b9"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7fb60fe1c55cee82682ad11624a295b9">sendFunc</a> (const void *src, size_t length) noexcept</td></tr>
+<tr class="memdesc:a7fb60fe1c55cee82682ad11624a295b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data using interrupt mode.  <br /></td></tr>
+<tr class="separator:a7fb60fe1c55cee82682ad11624a295b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5de868e8c4e951b2c1dd2bccf12e6df4" id="r_a5de868e8c4e951b2c1dd2bccf12e6df4"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5de868e8c4e951b2c1dd2bccf12e6df4">abortFunc</a> () noexcept</td></tr>
-<tr class="memdesc:a5de868e8c4e951b2c1dd2bccf12e6df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the ongoing UART operation.  <br /></td></tr>
+<tr class="memdesc:a5de868e8c4e951b2c1dd2bccf12e6df4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts the current UART operation using interrupt mode.  <br /></td></tr>
 <tr class="separator:a5de868e8c4e951b2c1dd2bccf12e6df4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
 Private Types</h2></td></tr>
 <tr class="memitem:a3eeb1536bf79faf461bca4d1de36955d" id="r_a3eeb1536bf79faf461bca4d1de36955d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3eeb1536bf79faf461bca4d1de36955d">DeviceManager</a> = <a class="el" href="../../d6/d82/a00243.html">Lib::HAL::DeviceManagerBase</a>&lt;<a class="el" href="../../de/d55/a00323.html">UARTBase</a>, UART_HandleTypeDef&gt;</td></tr>
-<tr class="memdesc:a3eeb1536bf79faf461bca4d1de36955d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for the DeviceManagerBase template class specialized for UARTBase and UART_HandleTypeDef.  <br /></td></tr>
 <tr class="separator:a3eeb1536bf79faf461bca4d1de36955d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:aaf0d237c81431da31a80d6abd9e613a4" id="r_aaf0d237c81431da31a80d6abd9e613a4"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</a>&gt; </td></tr>
 <tr class="memitem:aaf0d237c81431da31a80d6abd9e613a4"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aaf0d237c81431da31a80d6abd9e613a4">event</a> () noexcept</td></tr>
-<tr class="memdesc:aaf0d237c81431da31a80d6abd9e613a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the UART event.  <br /></td></tr>
 <tr class="separator:aaf0d237c81431da31a80d6abd9e613a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb" id="r_a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7ef96f8746be3a62731f75c6f03a8cdb">event</a> () noexcept</td></tr>
-<tr class="memdesc:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the ISR callback event for the UART.  <br /></td></tr>
 <tr class="separator:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb" id="r_a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7ef96f8746be3a62731f75c6f03a8cdb">event</a> () noexcept</td></tr>
-<tr class="memdesc:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the ISR callback event for the UART.  <br /></td></tr>
 <tr class="separator:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb" id="r_a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7ef96f8746be3a62731f75c6f03a8cdb">event</a> () noexcept</td></tr>
-<tr class="memdesc:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the ISR callback event for the UART.  <br /></td></tr>
 <tr class="separator:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb" id="r_a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
 <tr class="memitem:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a7ef96f8746be3a62731f75c6f03a8cdb">event</a> () noexcept</td></tr>
-<tr class="memdesc:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles the error event.  <br /></td></tr>
 <tr class="separator:a7ef96f8746be3a62731f75c6f03a8cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_a00247"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_a00247')"><img src="../../closed.png" alt="-"/>&#160;Private Member Functions inherited from <a class="el" href="../../d0/d1f/a00247.html">Lib::HAL::Handle&lt; UART_HandleTypeDef &gt;</a></td></tr>
 <tr class="memitem:a149e4a305d72749363e08bf37760d8db inherit pub_methods_a00247" id="r_a149e4a305d72749363e08bf37760d8db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d1f/a00247.html#a149e4a305d72749363e08bf37760d8db">Handle</a> ()=default</td></tr>
@@ -264,7 +254,6 @@ Private Member Functions</h2></td></tr>
 Static Private Member Functions</h2></td></tr>
 <tr class="memitem:a79822c08e0ea29e8cc1ceabdcae8956d" id="r_a79822c08e0ea29e8cc1ceabdcae8956d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</a> T_CALLBACK_ID&gt; </td></tr>
 <tr class="memitem:a79822c08e0ea29e8cc1ceabdcae8956d"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a79822c08e0ea29e8cc1ceabdcae8956d">interruptHandler</a> (UART_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a79822c08e0ea29e8cc1ceabdcae8956d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interrupt handler for UART events.  <br /></td></tr>
 <tr class="separator:a79822c08e0ea29e8cc1ceabdcae8956d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
@@ -279,7 +268,6 @@ Private Attributes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
 <tr class="memitem:ae695dda5721bf1f4d674d8183f788b32" id="r_ae695dda5721bf1f4d674d8183f788b32"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#a3eeb1536bf79faf461bca4d1de36955d">DeviceManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae695dda5721bf1f4d674d8183f788b32">_deviceManager</a></td></tr>
-<tr class="memdesc:ae695dda5721bf1f4d674d8183f788b32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static instance of the DeviceManager class.  <br /></td></tr>
 <tr class="separator:ae695dda5721bf1f4d674d8183f788b32"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Typedef Documentation</h2>
@@ -294,9 +282,6 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Alias for HAL_UART_CallbackIDTypeDef. </p>
-<p>This type is used to represent the callback identifier for UART operations. </p>
 
 </div>
 </div>
@@ -320,10 +305,6 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Alias for the DeviceManagerBase template class specialized for UARTBase and UART_HandleTypeDef. </p>
-<p>This typedef provides a convenient alias for the DeviceManagerBase template class, which is specialized for managing UART devices. It simplifies the usage of the DeviceManagerBase class by reducing the need to specify the template parameters explicitly.</p>
-<dl class="section see"><dt>See also</dt><dd>Lib::HAL::DeviceManagerBase </dd></dl>
-
 </div>
 </div>
 <h2 class="groupheader">Member Enumeration Documentation</h2>
@@ -346,22 +327,13 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Enumeration for UART error codes. </p>
-<p>This enumeration defines various error codes that can be encountered during UART communication. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326ab50339a10e1de285ac99d4c3990b8693" name="ab895d375e3d4a50f29c3904659de8326ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No error occurred. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326ac660efeaf70229ba5fd5e53da70c9a7c" name="ab895d375e3d4a50f29c3904659de8326ac660efeaf70229ba5fd5e53da70c9a7c"></a>PARITY_ERROR&#160;</td><td class="fielddoc"><p>Parity error occurred. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326ae49a752ccd857ad9b6e962aa31551f73" name="ab895d375e3d4a50f29c3904659de8326ae49a752ccd857ad9b6e962aa31551f73"></a>NOISE_ERROR&#160;</td><td class="fielddoc"><p>Noise error occurred. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f" name="ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f"></a>FRAME_ERROR&#160;</td><td class="fielddoc"><p>Frame error occurred. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326aa607a4a202294658bd387cd8e3636566" name="ab895d375e3d4a50f29c3904659de8326aa607a4a202294658bd387cd8e3636566"></a>OVERRUN_ERROR&#160;</td><td class="fielddoc"><p>Overrun error occurred. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d" name="ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d"></a>DMA_TRANSFER_ERROR&#160;</td><td class="fielddoc"><p>DMA transfer error occurred. </p>
-</td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326ab50339a10e1de285ac99d4c3990b8693" name="ab895d375e3d4a50f29c3904659de8326ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326ac660efeaf70229ba5fd5e53da70c9a7c" name="ab895d375e3d4a50f29c3904659de8326ac660efeaf70229ba5fd5e53da70c9a7c"></a>PARITY_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326ae49a752ccd857ad9b6e962aa31551f73" name="ab895d375e3d4a50f29c3904659de8326ae49a752ccd857ad9b6e962aa31551f73"></a>NOISE_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f" name="ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f"></a>FRAME_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326aa607a4a202294658bd387cd8e3636566" name="ab895d375e3d4a50f29c3904659de8326aa607a4a202294658bd387cd8e3636566"></a>OVERRUN_ERROR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d" name="ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d"></a>DMA_TRANSFER_ERROR&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -377,9 +349,6 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Enumeration for UART event flags. </p>
-<p>This enumeration defines the flags used to indicate various UART events. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7a4fb8714a5555ae3be1a1c59767e56face08314e83e6cd6c1846927b7a80c78a" name="a7a4fb8714a5555ae3be1a1c59767e56face08314e83e6cd6c1846927b7a80c78a"></a>FLAG_RX_COMPLETE&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a7a4fb8714a5555ae3be1a1c59767e56fa029602bdaffb036d2513bcf37fefad81" name="a7a4fb8714a5555ae3be1a1c59767e56fa029602bdaffb036d2513bcf37fefad81"></a>FLAG_TX_COMPLETE&#160;</td><td class="fielddoc"></td></tr>
@@ -412,12 +381,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for the UARTBase class. </p>
-<p>This constructor initializes a UARTBase object with the given UART handle and maximum message size. It also registers the UARTBase object with the device manager.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor for UARTBase. </p>
+<p>Initializes the UARTBase object with the given handle and adds the device to the device manager. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Pointer to a UART_HandleTypeDef structure that contains the configuration information for the specified UART module. </td></tr>
-    <tr><td class="paramname">maxMessageSize</td><td>The maximum size of the message that can be handled by the UART. </td></tr>
+    <tr><td class="paramname">handle</td><td>Pointer to the UART handle. </td></tr>
   </table>
   </dd>
 </dl>
@@ -454,8 +421,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destructor for the UARTBase class. </p>
-<p>This destructor is responsible for removing the UARTBase instance from the device manager. It ensures that the instance is properly cleaned up and any associated resources are released. </p>
+<p>Destructor for UARTBase. </p>
+<p>Removes the device from the device manager. </p>
 
 </div>
 </div>
@@ -483,9 +450,14 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Aborts the current operation. </p>
-<p>This function calls the abortFunc() to terminate the ongoing process.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if the operation was successfully aborted, false otherwise. </dd></dl>
+<p>Aborts the current UART operation. </p>
+<p>Initiates an abort operation and waits for it to complete. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Timeout for the abort operation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the abort operation is successful, false otherwise. </dd></dl>
 <div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary" style="display:block;">
@@ -519,9 +491,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Aborts the ongoing UART operation. </p>
-<p>This function attempts to abort the current UART operation by calling the HAL_UART_Abort_IT function with the UART handle. It returns a boolean indicating whether the abort operation was successful.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if the abort operation was successful, false otherwise. </dd></dl>
+<p>Aborts the current UART operation using interrupt mode. </p>
+<p>Initiates an abort operation using interrupt mode. </p><dl class="section return"><dt>Returns</dt><dd>True if the abort operation is successful, false otherwise. </dd></dl>
 <div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary" style="display:block;">
@@ -562,9 +533,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the UART peripheral. </p>
-<p>This function unregisters all the UART callbacks and deinitializes the UART handle. It asserts if any of the callback unregistrations or the deinitialization fails.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if the deinitialization is successful, false otherwise. </dd></dl>
+<p>Deinitializes the UART. </p>
+<p>Deinitializes the UART and destroys the event group. </p><dl class="section return"><dt>Returns</dt><dd>True if deinitialization is successful, false otherwise. </dd></dl>
 <div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary" style="display:block;">
@@ -606,15 +576,6 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Handles the UART event. </p>
-<p>This method handles the UART event by calling the event method with the specified callback ID.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_CALLBACK_ID</td><td>The callback ID. </td></tr>
-  </table>
-  </dd>
-</dl>
 <div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-8-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary" style="display:block;">
@@ -649,21 +610,12 @@ template&lt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Handles the ISR callback event for the UART. </p>
-<p>This function is called when an interrupt service routine (ISR) event occurs for the UART. The specific event is identified by the provided callback ID.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The identifier of the callback event. </td></tr>
-  </table>
-  </dd>
-</dl>
 <div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-9-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-9-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_a7ef96f8746be3a62731f75c6f03a8cdb_cgraph.svg" width="352" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_a7ef96f8746be3a62731f75c6f03a8cdb_cgraph.svg" width="352" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -693,15 +645,6 @@ template&lt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Handles the ISR callback event for the UART. </p>
-<p>This function is called when an interrupt service routine (ISR) event occurs for the UART. The specific event is identified by the provided callback ID.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The identifier of the callback event. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
 <a id="a7ef96f8746be3a62731f75c6f03a8cdb" name="a7ef96f8746be3a62731f75c6f03a8cdb"></a>
@@ -729,15 +672,6 @@ template&lt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Handles the ISR callback event for the UART. </p>
-<p>This function is called when an interrupt service routine (ISR) event occurs for the UART. The specific event is identified by the provided callback ID.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">id</td><td>The identifier of the callback event. </td></tr>
-  </table>
-  </dd>
-</dl>
-
 </div>
 </div>
 <a id="a7ef96f8746be3a62731f75c6f03a8cdb" name="a7ef96f8746be3a62731f75c6f03a8cdb"></a>
@@ -764,9 +698,6 @@ template&lt;&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Handles the error event. </p>
-<p>This function is called when the ERROR event is set, indicating that an error has occurred. </p>
 <div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-10-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary" style="display:block;">
@@ -800,9 +731,8 @@ template&lt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the current baud rate of the UART. </p>
-<p>This function returns the baud rate that is currently configured for the UART.</p>
-<dl class="section return"><dt>Returns</dt><dd>uint32_t The current baud rate. </dd></dl>
+<p>Gets the baud rate of the UART. </p>
+<p>Returns the current baud rate of the UART. </p><dl class="section return"><dt>Returns</dt><dd>The baud rate. </dd></dl>
 
 </div>
 </div>
@@ -830,8 +760,7 @@ template&lt;&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the UART handle. </p>
-<p>This method returns the UART handle.</p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the UART_HandleTypeDef structure. </dd></dl>
+<p>Returns the UART handle. </p><dl class="section return"><dt>Returns</dt><dd>Pointer to the UART handle. </dd></dl>
 
 <p>Implements <a class="el" href="../../d0/d1f/a00247.html#ab9f912660d5843d0cb1d0bdc54d3b538">Lib::HAL::Handle&lt; UART_HandleTypeDef &gt;</a>.</p>
 <div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -867,9 +796,8 @@ template&lt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Handles the error event. </p>
-<p>This method handles the error event by flushing the data register, clearing the error flag, and calling the handleErrorEvent method with the error code.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Handles UART error events. </p>
+<p>This method is called when an error event occurs. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">errorCode</td><td>The error code. </td></tr>
   </table>
@@ -908,9 +836,8 @@ template&lt;&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the UART interface. </p>
-<p>This function initializes the UART interface by creating necessary stream buffers and event groups, and registering callback handlers for various UART events. It ensures that the UART handle is properly initialized and that the required callbacks are registered for error, RX complete, TX complete, and abort complete events.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if initialization is successful, false otherwise. </dd></dl>
+<p>Initializes the UART. </p>
+<p>Creates the event group and registers the necessary callbacks. </p><dl class="section return"><dt>Returns</dt><dd>True if initialization is successful, false otherwise. </dd></dl>
 <div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-13-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary" style="display:block;">
@@ -952,15 +879,6 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Interrupt handler for UART events. </p>
-<p>This function is called when a UART event occurs.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td>The UART handle. </td></tr>
-  </table>
-  </dd>
-</dl>
 <div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-15-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary" style="display:block;">
@@ -1010,17 +928,16 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Receives data into the specified destination buffer. </p>
-<p>This function attempts to receive data of the specified length into the provided destination buffer within the given timeout period.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Receives data from the UART. </p>
+<p>Initiates a receive operation and waits for it to complete. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dest</td><td>Pointer to the destination buffer where the received data will be stored. </td></tr>
-    <tr><td class="paramname">length</td><td>The number of bytes to receive. </td></tr>
-    <tr><td class="paramname">timeout</td><td>The maximum time to wait for the data reception to complete, in milliseconds. </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to the destination buffer. </td></tr>
+    <tr><td class="paramname">length</td><td>Length of the data to receive. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the receive operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the data was successfully received within the timeout period, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the receive operation is successful, false otherwise. </dd></dl>
 <div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-17-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary" style="display:block;">
@@ -1058,16 +975,15 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Receives data via UART in interrupt mode. </p>
-<p>This function initiates the reception of data over UART using the HAL_UART_Receive_IT function. It asserts that the reception was successful and returns the result.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Receives data using interrupt mode. </p>
+<p>Initiates a receive operation using interrupt mode. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dest</td><td>Pointer to the buffer where the received data will be stored. </td></tr>
-    <tr><td class="paramname">length</td><td>Size of the data to be received. </td></tr>
+    <tr><td class="paramname">dest</td><td>Pointer to the destination buffer. </td></tr>
+    <tr><td class="paramname">length</td><td>Length of the data to receive. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the reception was successful, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the receive operation is successful, false otherwise. </dd></dl>
 <div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-18-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary" style="display:block;">
@@ -1085,8 +1001,8 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 
 </div>
 </div>
-<a id="ad5ed3f78ba82bbcd23347e93752b3e49" name="ad5ed3f78ba82bbcd23347e93752b3e49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5ed3f78ba82bbcd23347e93752b3e49">&#9670;&#160;</a></span>send()</h2>
+<a id="aa74848a31f86ad5ce5b8529028105626" name="aa74848a31f86ad5ce5b8529028105626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa74848a31f86ad5ce5b8529028105626">&#9670;&#160;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1097,7 +1013,7 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
         <tr>
           <td class="memname">virtual bool Lib::HAL::UARTBase::send </td>
           <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1117,29 +1033,28 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Sends data over the UART port. </p>
-<p>This method sends data over the UART port with the specified length and timeout.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sends data over the UART. </p>
+<p>Initiates a send operation and waits for it to complete. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Pointer to the source buffer. </td></tr>
-    <tr><td class="paramname">length</td><td>The length of the data to send. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Timeout value in milliseconds. </td></tr>
+    <tr><td class="paramname">src</td><td>Pointer to the source buffer. </td></tr>
+    <tr><td class="paramname">length</td><td>Length of the data to send. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the send operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the data is sent successfully, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the send operation is successful, false otherwise. </dd></dl>
 <div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-20-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-20-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-20-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_ad5ed3f78ba82bbcd23347e93752b3e49_cgraph.svg" width="566" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_aa74848a31f86ad5ce5b8529028105626_cgraph.svg" width="566" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="aceef47cd8830db8bf10d022986cffb3d" name="aceef47cd8830db8bf10d022986cffb3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceef47cd8830db8bf10d022986cffb3d">&#9670;&#160;</a></span>sendFunc()</h2>
+<a id="a7fb60fe1c55cee82682ad11624a295b9" name="a7fb60fe1c55cee82682ad11624a295b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fb60fe1c55cee82682ad11624a295b9">&#9670;&#160;</a></span>sendFunc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1150,7 +1065,7 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
         <tr>
           <td class="memname">virtual bool Lib::HAL::UARTBase::sendFunc </td>
           <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>src</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1165,29 +1080,28 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Sends data asynchronously using UART. </p>
-<p>This function sends data from the specified source buffer through UART using an interrupt-based transmission method.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sends data using interrupt mode. </p>
+<p>Initiates a send operation using interrupt mode. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Pointer to the buffer containing the data to be sent. </td></tr>
-    <tr><td class="paramname">length</td><td>The number of bytes to be sent from the source buffer. </td></tr>
+    <tr><td class="paramname">src</td><td>Pointer to the source buffer. </td></tr>
+    <tr><td class="paramname">length</td><td>Length of the data to send. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the transmission was successfully started, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the send operation is successful, false otherwise. </dd></dl>
 <div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-21-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-21-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-21-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_aceef47cd8830db8bf10d022986cffb3d_cgraph.svg" width="352" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_a7fb60fe1c55cee82682ad11624a295b9_cgraph.svg" width="352" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-22-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-22-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-22-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_aceef47cd8830db8bf10d022986cffb3d_icgraph.svg" width="352" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="../../de/d55/a00323_a7fb60fe1c55cee82682ad11624a295b9_icgraph.svg" width="352" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -1215,11 +1129,10 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Sets the baud rate of the UART port. </p>
-<p>This method sets the baud rate of the UART port to the specified value.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Sets the baud rate of the UART. </p>
+<p>Deinitializes and reinitializes the UART with the new baud rate. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>The baud rate value to set. </td></tr>
+    <tr><td class="paramname">value</td><td>The new baud rate. </td></tr>
   </table>
   </dd>
 </dl>
@@ -1256,15 +1169,14 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Waits for the abort operation to complete within a specified timeout. </p>
-<p>This function waits for the abort operation to complete by checking the event flags. If the timeout is zero, it immediately returns true. Otherwise, it waits for the specified timeout duration for the abort complete event flag to be set.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Waits for the abort operation to complete. </p>
+<p>Waits for the abort complete event to be set. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>The maximum time to wait for the abort operation to complete, in milliseconds. If set to 0, the function returns immediately. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the wait operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the abort operation completed within the specified timeout, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the abort operation is complete, false otherwise. </dd></dl>
 <div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-24-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-24-summary" class="dynsummary" style="display:block;">
@@ -1298,15 +1210,14 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Waits for the receive operation to complete within a specified timeout. </p>
-<p>This method waits for the receive operation to complete within the specified timeout.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Waits for the receive operation to complete. </p>
+<p>Waits for the receive complete event to be set. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Timeout value in milliseconds. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the wait operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the receive operation is completed, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the receive operation is complete, false otherwise. </dd></dl>
 <div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-25-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary" style="display:block;">
@@ -1340,15 +1251,14 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Waits for the receive operation to complete within a specified timeout. </p>
-<p>This method waits for the receive operation to complete within the specified timeout.</p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Waits for the send operation to complete. </p>
+<p>Waits for the send complete event to be set. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Timeout value in milliseconds. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout for the wait operation. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the receive operation is completed, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the send operation is complete, false otherwise. </dd></dl>
 <div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-26-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
 <div id="dynsection-26-summary" class="dynsummary" style="display:block;">
@@ -1380,8 +1290,6 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 </table>
 </div><div class="memdoc">
 
-<p>Static instance of the DeviceManager class. </p>
-
 </div>
 </div>
 <a id="a627c1f4fd79923f31ecac26fd6d9fa1e" name="a627c1f4fd79923f31ecac26fd6d9fa1e"></a>
@@ -1403,7 +1311,6 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The event group for the UART port. </p>
 
 </div>
 </div>
@@ -1426,7 +1333,6 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Pointer to the UART handle. </p>
 
 </div>
 </div>
@@ -1449,7 +1355,6 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The received data. </p>
 
 </div>
 </div>
@@ -1462,7 +1367,7 @@ template&lt;<a class="el" href="#a034fd06d0007326930f7be1139a8b783">CallbackID</
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d7/d6e/a00190.html">Lib</a></li><li class="navelem"><a class="el" href="../../d9/dd0/a00191.html">HAL</a></li><li class="navelem"><a class="el" href="../../de/d55/a00323.html">UARTBase</a></li>
-    <li class="footer">Generated on Mon Feb 24 2025 for HAL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Mon Mar 17 2025 for HAL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

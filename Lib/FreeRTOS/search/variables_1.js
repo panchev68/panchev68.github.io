@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['func_0',['func',['../d0/d27/a00239.html#ac6020ba7d46276524553e373284a13e3',1,'RTOS::Timer::Config']]]
+  ['callback_0',['callback',['../d0/d27/a00239.html#a2dd26b4def151e4f2c743172aa2ded60',1,'RTOS::Timer::Config']]]
 ];

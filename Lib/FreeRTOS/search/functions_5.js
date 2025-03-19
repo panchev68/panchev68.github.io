@@ -1,4 +1,24 @@
 var searchData=
 [
-  ['free_0',['free',['../dc/de6/a00167.html#a83bd1f64aeccb2806a3a2787d9a6346c',1,'RTOS::MemoryManager']]]
+  ['getbits_0',['getBits',['../de/db9/a00159.html#ab940e7baf67c42162d8700c967c6903f',1,'RTOS::EventGroup']]],
+  ['getbitsfromisr_1',['getBitsFromISR',['../de/db9/a00159.html#aa84d7ab47becac379a95e46708b425b5',1,'RTOS::EventGroup']]],
+  ['getbytesavailable_2',['getBytesAvailable',['../de/d79/a00203.html#a106b6b1961b742c76bd83f3d032aad3a',1,'RTOS::StreamBuffer']]],
+  ['getcount_3',['getCount',['../d8/d72/a00199.html#a54165b34c7ae628a38cdd34017cffdc4',1,'RTOS::SemaphoreCounting']]],
+  ['getcurrenttickcount_4',['getCurrentTickCount',['../dd/df3/a00219.html#a2e28d5bcfaf80187f4f84906c403e909',1,'RTOS::TickCounter']]],
+  ['getcurrenttickcountfromisr_5',['getCurrentTickCountFromISR',['../dd/df3/a00219.html#a7d57b7884b22813c0589698df26a58f9',1,'RTOS::TickCounter']]],
+  ['getexpirytime_6',['getExpiryTime',['../d3/d42/a00235.html#af82af858476bc5a6d7b427aa599bd818',1,'RTOS::Timer']]],
+  ['getfreeheapsize_7',['getFreeHeapSize',['../dc/de6/a00167.html#a3b59bf15c11c34b4fc4fa6352806e2e9',1,'RTOS::MemoryManager']]],
+  ['gethandle_8',['getHandle',['../dc/d52/a00183.html#aa0defd9ce7dbece3b032db765401070d',1,'RTOS::Queue::getHandle()'],['../de/dd2/a00207.html#af41b956050518edca127e579485f654c',1,'RTOS::Task::getHandle()']]],
+  ['getinstance_9',['getInstance',['../dc/d28/a00223.html#af15b470d546ee8a5e3880efb4814bc54',1,'RTOS::TickService']]],
+  ['getname_10',['getName',['../d3/dd5/a00215.html#a4aefdbf0a9db029359005e6474287a33',1,'RTOS::TaskHelper::getName()'],['../d3/d42/a00235.html#a95d114e04aef00b540d5f5c31d55ee9f',1,'RTOS::Timer::getName()']]],
+  ['getnumberoftasks_11',['getNumberOfTasks',['../dd/dae/a00163.html#a930d7bee92550e6e7c73af7bd9af25cf',1,'RTOS::Karnel']]],
+  ['getperiod_12',['getPeriod',['../d3/d42/a00235.html#ac9b20f817b1b28eae2653515578de889',1,'RTOS::Timer']]],
+  ['getpriority_13',['getPriority',['../de/dd2/a00207.html#a0bd434f9eeac68fb3f01116a7dc812e0',1,'RTOS::Task::getPriority()'],['../d3/dd5/a00215.html#a7c6deb3959131c485ad60dbe57488489',1,'RTOS::TaskHelper::getPriority()']]],
+  ['getspacesavailable_14',['getSpacesAvailable',['../d1/d0d/a00171.html#ab50693c6ab833e3abc4ea33aa6cb678e',1,'RTOS::MessageBuffer::getSpacesAvailable()'],['../de/d79/a00203.html#a9fa51825dff8d1fb8914b5700becd22a',1,'RTOS::StreamBuffer::getSpacesAvailable()']]],
+  ['gettickcount_15',['getTickCount',['../dd/dae/a00163.html#a1245205e5b3fae1f3bb18643fa940c0b',1,'RTOS::Karnel::getTickCount()'],['../d3/df8/a00155.html#a5085ea94129ac1de164758cb1eac8b75',1,'RTOS::getTickCount()']]],
+  ['gettickcountfromisr_16',['getTickCountFromISR',['../dd/dae/a00163.html#abf1076c5901abd177a9308b5520b684e',1,'RTOS::Karnel::getTickCountFromISR()'],['../d3/df8/a00155.html#a54c8f0224cc69c80f5384a81b0d4af80',1,'RTOS::getTickCountFromISR()']]],
+  ['gettimerdaemontaskhandle_17',['getTimerDaemonTaskHandle',['../d3/d42/a00235.html#ae245179b6613c4f40e467dc52ccbb8a3',1,'RTOS::Timer']]],
+  ['give_18',['give',['../de/d45/a00175.html#a7085cc3216df5b89a3a8810dd3143628',1,'RTOS::Mutex::give()'],['../d9/dd0/a00191.html#aad3313acf8b7b8d3282fa087e94699a3',1,'RTOS::Semaphore::give()'],['../d3/d2a/a00195.html#a97ac23e2c0fb9235e1e13a56dcc27c23',1,'RTOS::SemaphoreBase::give()'],['../d8/d72/a00199.html#af215c754c4d99724da5d5e212960f4ce',1,'RTOS::SemaphoreCounting::give()']]],
+  ['givefromisr_19',['giveFromISR',['../de/d45/a00175.html#aa933a5468515fadbbf76bb5107336350',1,'RTOS::Mutex::giveFromISR()'],['../d9/dd0/a00191.html#af808649cc6157fb1fce8c815039cb27c',1,'RTOS::Semaphore::giveFromISR()'],['../d3/d2a/a00195.html#af2bf09cd3cb15cab16883862889e96c7',1,'RTOS::SemaphoreBase::giveFromISR()'],['../d8/d72/a00199.html#a4ae84249321e279cf12aee9ddc35c138',1,'RTOS::SemaphoreCounting::giveFromISR()']]],
+  ['guard_20',['Guard',['../db/dd9/a00179.html#ad68d25f6f88d84205f2e5d2fdb28a5b8',1,'RTOS::Mutex::Guard']]]
 ];

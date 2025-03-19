@@ -1,6 +1,5 @@
 var a00203 =
 [
-    [ "Handle", "de/d79/a00203.html#ac43f2585fb807014368f17cd4dd8bc9e", null ],
     [ "StreamBuffer", "de/d79/a00203.html#a6d894360f80c822b178de66210a2bc6a", null ],
     [ "~StreamBuffer", "de/d79/a00203.html#a4279301601dc12497575fbe9b250f62a", null ],
     [ "create", "de/d79/a00203.html#aa2c511443cf2207c917749583857480a", null ],
@@ -11,10 +10,10 @@ var a00203 =
     [ "isEmpty", "de/d79/a00203.html#ac63276981f0f2652f909f8caf99eded6", null ],
     [ "isFull", "de/d79/a00203.html#ab28a179ad13782df9ebce66f220d9084", null ],
     [ "operator Handle &", "de/d79/a00203.html#a8f44e79071890fe52737b0a611f8204b", null ],
-    [ "receive", "de/d79/a00203.html#a3f3a5525eb79326f77b9ca87d6cb1c9d", null ],
-    [ "receiveFromISR", "de/d79/a00203.html#a63e38b8314da1a881b4dd216e8768eca", null ],
+    [ "receive", "de/d79/a00203.html#adedbd01b1bef79ede4812bd53b1e7347", null ],
+    [ "receiveFromISR", "de/d79/a00203.html#a8fda8c9cedd61659ad971bc27fb6a04e", null ],
     [ "reset", "de/d79/a00203.html#a945ae0f4f0d0051decd64f9e208f59fc", null ],
-    [ "send", "de/d79/a00203.html#a5fda4beeb6f0e9c96c01940d07010c28", null ],
-    [ "sendFromISR", "de/d79/a00203.html#a955d70196c59bd638cff19681e63084b", null ],
-    [ "setTriggerLevel", "de/d79/a00203.html#a37c2af499abb7cb673d5d4dba7ecb433", null ]
+    [ "send", "de/d79/a00203.html#a2f95c21ea10b46a1b618a3404ca40a78", null ],
+    [ "sendFromISR", "de/d79/a00203.html#af0d7b2f1971bd4ed46bfa94122fc0b4b", null ],
+    [ "setTriggerLevel", "de/d79/a00203.html#a861b60a2bb7532cbbff910e8b1fc0a33", null ]
 ];

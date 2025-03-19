@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['encoder_0',['ENCODER',['../dc/d57/a00194.html#a2c308e1b88d91e3dab6478a68fee595da9e1de45ee3c680d9a2ff400816f05e0f',1,'Lib::HAL::TIM']]],
-  ['error_1',['ERROR',['../d0/d2f/a00259.html#ab853e24ff716cf1814dd73a7b68892dea8ec70adf18db40810025caa9d0c207ac',1,'Lib::HAL::SPIBase']]],
-  ['external_5freset_5fpin_5freset_2',['EXTERNAL_RESET_PIN_RESET',['../d4/d04/a00255.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665',1,'Lib::HAL::LastResetState']]]
+  ['flag_5fabort_5fcomplete_0',['FLAG_ABORT_COMPLETE',['../de/d55/a00323.html#a7a4fb8714a5555ae3be1a1c59767e56fa5bbee50956e26b84241a247cdf291f77',1,'Lib::HAL::UARTBase']]],
+  ['flag_5frx_5fcomplete_1',['FLAG_RX_COMPLETE',['../de/d55/a00323.html#a7a4fb8714a5555ae3be1a1c59767e56face08314e83e6cd6c1846927b7a80c78a',1,'Lib::HAL::UARTBase']]],
+  ['flag_5ftx_5fcomplete_2',['FLAG_TX_COMPLETE',['../de/d55/a00323.html#a7a4fb8714a5555ae3be1a1c59767e56fa029602bdaffb036d2513bcf37fefad81',1,'Lib::HAL::UARTBase']]],
+  ['frame_5ferror_3',['FRAME_ERROR',['../de/d55/a00323.html#ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UARTBase']]]
 ];

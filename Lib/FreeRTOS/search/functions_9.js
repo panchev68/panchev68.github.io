@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['karnel_0',['Karnel',['../dd/dae/a00163.html#a3f7426a4e6a48d755bea880c2abe9186',1,'RTOS::Karnel']]]
+  ['lock_0',['lock',['../de/d45/a00175.html#abf31c277fcc2f8b7ab8b56d3c54f830d',1,'RTOS::Mutex']]]
 ];

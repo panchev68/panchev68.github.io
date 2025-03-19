@@ -9,7 +9,7 @@ var a00175 =
     [ "giveFromISR", "de/d45/a00175.html#aa933a5468515fadbbf76bb5107336350", null ],
     [ "isCreated", "de/d45/a00175.html#a3b8f829847cd858951bfb260e09241cd", null ],
     [ "lock", "de/d45/a00175.html#abf31c277fcc2f8b7ab8b56d3c54f830d", null ],
-    [ "take", "de/d45/a00175.html#a5f2cfece3c0a33e99ced692ef91e72c6", null ],
+    [ "take", "de/d45/a00175.html#a725f25bdf4fc1ea8e09ea1630238a1e8", null ],
     [ "takeFromISR", "de/d45/a00175.html#aa788920b56a7c9cb27129cae1ee33069", null ],
     [ "unlock", "de/d45/a00175.html#a55031b1cdaf584950893279ceac8ff93", null ]
 ];

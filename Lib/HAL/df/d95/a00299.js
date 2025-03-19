@@ -6,7 +6,6 @@ var a00299 =
     [ "~RTCBase", "df/d95/a00299.html#a58f9b23a0d4c03192bd597a78e70b6f3", null ],
     [ "getHandle", "df/d95/a00299.html#a02658f68ce0d8c88b32abbded67cf6f9", null ],
     [ "handleTimeChanged", "df/d95/a00299.html#a8381456a598d16314ecb85658c84c509", null ],
-    [ "handleTimeChanged", "df/d95/a00299.html#a8381456a598d16314ecb85658c84c509", null ],
     [ "read", "df/d95/a00299.html#a94a5d5e04476593464ed3f2aa3681da4", null ],
     [ "readRegister", "df/d95/a00299.html#a4943a40ed3df578b2339c0e7a2b5fc89", null ],
     [ "release", "df/d95/a00299.html#ac6d5caa751cdab5b336019bbe9010a0a", null ],

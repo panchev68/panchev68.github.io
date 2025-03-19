@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['dma_0',['DMA',['../d0/d2f/a00259.html#a36257fade4917a18fe999a53e1797afba33fd5f6391f2f0cb4c91179d7f521949',1,'Lib::HAL::SPIBase::DMA'],['../d9/dd0/a00191.html#a9de00459d7bcd95866936fd723022743a04487a0fa5ed0ed8d8e197288957053b',1,'Lib::HAL::DMA']]],
-  ['dma_5ftransfer_5ferror_1',['DMA_TRANSFER_ERROR',['../dd/dfe/a00283.html#ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d',1,'Lib::HAL::UARTBase']]]
+  ['encoder_0',['ENCODER',['../dc/d57/a00194.html#a2c308e1b88d91e3dab6478a68fee595da9e1de45ee3c680d9a2ff400816f05e0f',1,'Lib::HAL::TIM']]],
+  ['error_1',['ERROR',['../d6/d7f/a00287.html#afccf5b11172c0a52b78cff4a4e720337a007d5408cbe3b833c9f6c57b24426391',1,'Lib::HAL::I2CBase']]],
+  ['external_5freset_5fpin_5freset_2',['EXTERNAL_RESET_PIN_RESET',['../d9/d5e/a00295.html#acbb27a2ae09130bb349c6105ac88e354afc5e50d6793983bf73cfd7d662e3bb70',1,'Lib::HAL::LastResetState']]]
 ];

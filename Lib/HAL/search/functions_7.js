@@ -1,11 +1,15 @@
 var searchData=
 [
-  ['handle_0',['Handle',['../d0/d1f/a00247.html#a149e4a305d72749363e08bf37760d8db',1,'Lib::HAL::Handle::Handle()'],['../dd/d86/a00271.html#abbd04182f93a2391f6707767af071b16',1,'Lib::HAL::Timer::Handle::Handle()']]],
-  ['handleabortcompleteevent_1',['handleAbortCompleteEvent',['../d0/d2f/a00259.html#ab0ae6803f9bbbdae2295e38a59297ffd',1,'Lib::HAL::SPIBase']]],
-  ['handleerrorevent_2',['handleErrorEvent',['../d0/d2f/a00259.html#a412644d25dd0dfd9b9c0e19f3794e3f0',1,'Lib::HAL::SPIBase::handleErrorEvent()'],['../dd/dfe/a00283.html#a7966e1580d664617d73d0aa7b222f6b3',1,'Lib::HAL::UARTBase::handleErrorEvent()']]],
-  ['handleevent_3',['handleEvent',['../d0/d2f/a00259.html#a22ca432661bc3d5e6519794b26952ed4',1,'Lib::HAL::SPIBase::handleEvent()'],['../df/da9/a00263.html#ab35824b087e7d7c17c11fc266814a4e7',1,'Lib::HAL::TIM::Base::handleEvent()'],['../d2/d82/a00279.html#aff010ee12752a7de4dc6bdff3d71148f',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;::handleEvent()']]],
-  ['handleisrcallbackevent_4',['handleIsrCallbackEvent',['../d3/dd5/a00215.html#a6c9e19b684d2ba9c7c26d0310cdfa929',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::handleIsrCallbackEvent()'],['../dd/df3/a00219.html#a63ae32e0dca13f673dad2b6b7adf2b64',1,'Lib::HAL::Adc::Port&lt; IT &gt;::handleIsrCallbackEvent()']]],
-  ['handlerxcompleteevent_5',['handleRxCompleteEvent',['../d0/d2f/a00259.html#a5c642cedf640aeafad284f953db872fe',1,'Lib::HAL::SPIBase']]],
-  ['handletxcompleteevent_6',['handleTxCompleteEvent',['../d0/d2f/a00259.html#a361fd89ed1b1b1294d687175ce795b9b',1,'Lib::HAL::SPIBase']]],
-  ['handletxrxcompleteevent_7',['handleTxRxCompleteEvent',['../d0/d2f/a00259.html#a1780ab75628eccfbc540875792645396',1,'Lib::HAL::SPIBase']]]
+  ['hal_5fgpio_5fexti_5fcallback_0',['HAL_GPIO_EXTI_Callback',['../d2/df5/a00137.html#a13bf50d1a30cc4e9c6cf32af3490ee4d',1,'GPIO.hpp']]],
+  ['hal_5fiwdg_5frefresh_1',['HAL_IWDG_Refresh',['../d9/db6/a00146.html#aa78088c338f75620ff56f4ef3bf99891',1,'IWDG.hpp']]],
+  ['handle_2',['Handle',['../d0/d1f/a00247.html#a149e4a305d72749363e08bf37760d8db',1,'Lib::HAL::Handle::Handle()'],['../d1/d5d/a00311.html#abbd04182f93a2391f6707767af071b16',1,'Lib::HAL::Timer::Handle::Handle()']]],
+  ['handleabortcompleteevent_3',['handleAbortCompleteEvent',['../d6/d7f/a00287.html#ac6d86ca7f4204dd30503c73a6e7df551',1,'Lib::HAL::I2CBase']]],
+  ['handleerrorevent_4',['handleErrorEvent',['../d6/d7f/a00287.html#a87f6bfb6b9c3646f2134450ac0d5d44c',1,'Lib::HAL::I2CBase::handleErrorEvent()'],['../de/d55/a00323.html#a7966e1580d664617d73d0aa7b222f6b3',1,'Lib::HAL::UARTBase::handleErrorEvent()']]],
+  ['handleevent_5',['handleEvent',['../d3/d5e/a00275.html#abf08166fd5ea40fe095809b2c27e921a',1,'Lib::HAL::GPIO::EXTIBase::handleEvent()'],['../dc/d0f/a00303.html#ab35824b087e7d7c17c11fc266814a4e7',1,'Lib::HAL::TIM::Base::handleEvent()'],['../de/dab/a00319.html#aff010ee12752a7de4dc6bdff3d71148f',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;::handleEvent()']]],
+  ['handleisrcallbackevent_6',['handleIsrCallbackEvent',['../d3/dd5/a00215.html#a6c9e19b684d2ba9c7c26d0310cdfa929',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::handleIsrCallbackEvent()'],['../dd/df3/a00219.html#a63ae32e0dca13f673dad2b6b7adf2b64',1,'Lib::HAL::Adc::Port&lt; IT &gt;::handleIsrCallbackEvent()']]],
+  ['handlememrxcompleteevent_7',['handleMemRxCompleteEvent',['../d6/d7f/a00287.html#a8cbf978a6a3d18b56ef04f30142d544e',1,'Lib::HAL::I2CBase']]],
+  ['handlememtxcompleteevent_8',['handleMemTxCompleteEvent',['../d6/d7f/a00287.html#a80fcefa9208dabb0686dc6893eff5bf7',1,'Lib::HAL::I2CBase']]],
+  ['handlerxcompleteevent_9',['handleRxCompleteEvent',['../d6/d7f/a00287.html#ac0e325705461a5a94e06d9e95d01375b',1,'Lib::HAL::I2CBase']]],
+  ['handletimechanged_10',['handleTimeChanged',['../df/d95/a00299.html#a8381456a598d16314ecb85658c84c509',1,'Lib::HAL::RTCBase']]],
+  ['handletxcompleteevent_11',['handleTxCompleteEvent',['../d6/d7f/a00287.html#a75ced1c977ff3351eb5502b49c2587ac',1,'Lib::HAL::I2CBase']]]
 ];

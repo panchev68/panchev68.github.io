@@ -1,4 +1,4 @@
 var a00149 =
 [
-    [ "Lib::HAL::LastResetState", "d4/d04/a00255.html", "d4/d04/a00255" ]
+    [ "Lib::HAL::LastResetState", "d9/d5e/a00295.html", "d9/d5e/a00295" ]
 ];
