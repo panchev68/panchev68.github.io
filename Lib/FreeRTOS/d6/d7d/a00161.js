@@ -1,16 +1,18 @@
 var a00161 =
 [
-    [ "EventGroup", "d6/d7d/a00161.html#a5cd4a6dcc7805dcdf420bdc550b1c719", null ],
-    [ "~EventGroup", "d6/d7d/a00161.html#ab2273906f7c7de0565e852fbceeefaab", null ],
-    [ "clearBits", "d6/d7d/a00161.html#a4773ee81fad923938dbe1f205d474ccb", null ],
-    [ "clearBitsFromISR", "d6/d7d/a00161.html#a4c6df3a6ecd4131ad61728873e1151a0", null ],
-    [ "create", "d6/d7d/a00161.html#ae123b21b37e587e5e424af4651768471", null ],
-    [ "destroy", "d6/d7d/a00161.html#ab62fda92e8b329bb70ffde8da9490580", null ],
-    [ "getBits", "d6/d7d/a00161.html#ab940e7baf67c42162d8700c967c6903f", null ],
-    [ "getBitsFromISR", "d6/d7d/a00161.html#aa84d7ab47becac379a95e46708b425b5", null ],
-    [ "isCreated", "d6/d7d/a00161.html#ae08389e11d83cf7dfc460d5f2fa0dc27", null ],
-    [ "setBits", "d6/d7d/a00161.html#a4955cda73e408841e14bc20d948f8277", null ],
-    [ "setBitsFromISR", "d6/d7d/a00161.html#ad6525ab150ab62b55b795c44ded628f8", null ],
-    [ "syncBits", "d6/d7d/a00161.html#a336e88ab3daa74be74c92afc981c9b85", null ],
-    [ "waitForBits", "d6/d7d/a00161.html#ade940f1a3cedb27d8cb6629bce2531db", null ]
+    [ "Handle", "d6/d7d/a00161.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
+    [ "TickType", "d6/d7d/a00161.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
+    [ "EventGroup", "d6/d7d/a00161.html#a4420314799334910893af9f0a2e7854b", null ],
+    [ "~EventGroup", "d6/d7d/a00161.html#a28986dc28cf1e996b6c98f1020f26294", null ],
+    [ "clearBits", "d6/d7d/a00161.html#a35648f30d28df1a038b0cde9fe83a2c0", null ],
+    [ "clearBitsFromISR", "d6/d7d/a00161.html#a005424530bec695161ec8a15e2549dec", null ],
+    [ "create", "d6/d7d/a00161.html#afe8fcf825297d2edafc2fe76f78dbc00", null ],
+    [ "destroy", "d6/d7d/a00161.html#a8be2a10d7b67f7c8df72530399afe420", null ],
+    [ "getBits", "d6/d7d/a00161.html#abcef4fc1bc24f121bf48c200c5a34f1b", null ],
+    [ "getBitsFromISR", "d6/d7d/a00161.html#ad7e9ac5f50e8d6d0b28c5ac4c29f3059", null ],
+    [ "isCreated", "d6/d7d/a00161.html#ad1947c26174affe7a9a154f6004f49c7", null ],
+    [ "setBits", "d6/d7d/a00161.html#a09ffca85b079a2f449dbb3ab82c4c2e6", null ],
+    [ "setBitsFromISR", "d6/d7d/a00161.html#a6c53bb037f2593e015dc6a0e63880110", null ],
+    [ "syncBits", "d6/d7d/a00161.html#a11596d9e85db0d98e459f2ad06b1dcb9", null ],
+    [ "waitForBits", "d6/d7d/a00161.html#a0445c0c2cc64a261d91cb2c142b90f61", null ]
 ];

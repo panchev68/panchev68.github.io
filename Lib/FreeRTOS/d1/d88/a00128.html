@@ -106,17 +106,14 @@ $(function(){initNavTree('d1/d88/a00128.html','../../'); initResizable(true); })
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Header file for the TickService class in the FreeRTOS library. </p>
-<p>This file contains the declaration of the TickService class, which is responsible for managing TickService events in the FreeRTOS environment. It includes the definition of the ClientBase abstract class, which serves as an interface for handling TickService events. The TickService class is implemented as a singleton to ensure that only one instance exists. It provides methods for starting the TickService event handling, registering clients, and unregistering clients.</p>
-<p>The TickService class uses a mutex to ensure thread-safe access to the list of registered clients. The clients are notified of TickService events through the handleTickServiceEvent method defined in the ClientBase class.</p>
-<p>Dependencies:</p><ul>
-<li>Mutex.hpp: Provides the Mutex class for thread synchronization.</li>
-<li>Timer.hpp: Provides the Timer class for scheduling TickService events.</li>
-<li>&lt;vector&gt;: Used for storing the list of registered clients.</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>This file is part of the FreeRTOS library and is intended to be used with the IAR Embedded Workbench for ARM (EWARM) toolchain. </dd></dl>
+<div class="textblock"><p>Manages periodic tick events in an RTOS environment. </p>
+<p>This file provides a C++ class for managing periodic tick events and client registration.</p>
+<dl class="section version"><dt>Version</dt><dd>3.01 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>April 03, 2025 </dd></dl>
 </div><div class="textblock"><code>#include &quot;<a class="el" href="../../d1/dc1/a00092.html">Mutex.hpp</a>&quot;</code><br />
-<code>#include &quot;Task.hpp&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d00/a00113.html">Task.hpp</a>&quot;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for TickService.hpp:</div>
@@ -125,27 +122,53 @@ $(function(){initNavTree('d1/d88/a00128.html','../../'); initResizable(true); })
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d9/d47/a00129.png" border="0" usemap="#a_tick_service_8hpp" alt=""/></div>
 <map name="a_tick_service_8hpp" id="a_tick_service_8hpp">
-<area shape="rect" title="Header file for the TickService class in the FreeRTOS library." alt="" coords="79,5,194,32"/>
-<area shape="rect" href="../../d1/dc1/a00092.html" title="Header file for the Mutex class in FreeRTOS." alt="" coords="48,80,131,107"/>
-<area shape="poly" title=" " alt="" coords="130,34,108,68,104,66,126,31"/>
-<area shape="rect" title=" " alt="" coords="154,80,212,107"/>
-<area shape="poly" title=" " alt="" coords="147,31,169,66,165,68,142,34"/>
-<area shape="rect" href="../../d0/dc2/a00104.html" title="Base class for FreeRTOS semaphore handling." alt="" coords="18,155,161,181"/>
-<area shape="poly" title=" " alt="" coords="92,107,92,139,87,139,87,107"/>
-<area shape="rect" title=" " alt="" coords="5,229,81,256"/>
-<area shape="poly" title=" " alt="" coords="84,183,61,218,57,215,79,180"/>
-<area shape="rect" title=" " alt="" coords="104,229,168,256"/>
-<area shape="poly" title=" " alt="" coords="100,180,122,215,118,218,96,183"/>
+<area shape="rect" title="Manages periodic tick events in an RTOS environment." alt="" coords="348,5,464,32"/>
+<area shape="rect" href="../../d1/dc1/a00092.html" title="Provides a Mutex class for thread synchronization in FreeRTOS." alt="" coords="50,80,132,107"/>
+<area shape="poly" title=" " alt="" coords="351,35,148,82,147,77,350,30"/>
+<area shape="rect" title=" " alt="" coords="152,229,217,256"/>
+<area shape="poly" title=" " alt="" coords="377,35,339,54,294,81,250,115,212,156,198,185,190,215,185,214,193,183,208,153,246,111,291,76,336,49,375,30"/>
+<area shape="rect" href="../../d3/d00/a00113.html" title="Encapsulates FreeRTOS task management functionality." alt="" coords="369,80,443,107"/>
+<area shape="poly" title=" " alt="" coords="408,33,408,64,403,64,403,33"/>
+<area shape="rect" title=" " alt="" coords="467,80,542,107"/>
+<area shape="poly" title=" " alt="" coords="425,30,477,69,474,73,421,35"/>
+<area shape="rect" title=" " alt="" coords="565,80,622,107"/>
+<area shape="poly" title=" " alt="" coords="440,30,551,73,549,78,438,35"/>
+<area shape="rect" href="../../d0/dc2/a00104.html" title="Base class for FreeRTOS semaphore management." alt="" coords="5,155,148,181"/>
+<area shape="poly" title=" " alt="" coords="91,108,85,140,79,139,86,107"/>
+<area shape="rect" title=" " alt="" coords="39,229,114,256"/>
+<area shape="poly" title=" " alt="" coords="79,182,79,214,74,214,74,182"/>
+<area shape="poly" title=" " alt="" coords="97,180,154,218,151,222,94,184"/>
+<area shape="rect" title=" " alt="" coords="308,304,402,331"/>
+<area shape="poly" title=" " alt="" coords="387,109,361,129,340,156,329,182,324,204,326,227,331,255,343,289,338,291,326,257,320,227,319,204,324,180,336,153,358,125,383,105"/>
+<area shape="rect" title=" " alt="" coords="428,304,485,331"/>
+<area shape="poly" title=" " alt="" coords="434,105,468,124,505,151,539,186,553,206,563,228,567,243,563,257,551,273,535,287,501,305,499,300,532,282,547,270,558,255,562,243,558,230,548,209,535,189,501,155,465,128,432,110"/>
+<area shape="rect" href="../../df/d6a/a00119.html" title="Provides helper functions for FreeRTOS task management." alt="" coords="350,155,462,181"/>
+<area shape="poly" title=" " alt="" coords="408,107,408,139,403,139,403,107"/>
+<area shape="rect" title=" " alt="" coords="495,229,548,256"/>
+<area shape="poly" title=" " alt="" coords="425,105,450,126,476,153,497,184,513,214,508,217,492,187,472,156,446,130,421,109"/>
+<area shape="rect" title=" " alt="" coords="623,155,676,181"/>
+<area shape="poly" title=" " alt="" coords="444,103,609,152,607,157,443,108"/>
+<area shape="rect" title=" " alt="" coords="700,155,778,181"/>
+<area shape="poly" title=" " alt="" coords="444,101,456,104,686,151,684,157,455,109,443,107"/>
+<area shape="rect" title=" " alt="" coords="222,155,275,181"/>
+<area shape="poly" title=" " alt="" coords="380,110,290,151,288,146,377,105"/>
+<area shape="poly" title=" " alt="" coords="368,184,233,228,231,223,366,179"/>
+<area shape="rect" href="../../d4/d3e/a00116.html" title="Provides task&#45;related functions for FreeRTOS." alt="" coords="340,229,472,256"/>
+<area shape="poly" title=" " alt="" coords="401,182,400,214,394,214,396,182"/>
+<area shape="poly" title=" " alt="" coords="427,180,490,218,487,223,425,184"/>
+<area shape="poly" title=" " alt="" coords="399,258,375,293,370,290,395,255"/>
+<area shape="poly" title=" " alt="" coords="417,255,441,290,437,293,412,258"/>
+<area shape="poly" title=" " alt="" coords="410,229,412,197,417,197,415,229"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d28/a00223.html">RTOS::TickService</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class that manages TickService events in the FreeRTOS environment.  <a href="../../dc/d28/a00223.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d98/a00225.html">RTOS::TickService</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manages periodic tick events and client registration.  <a href="../../dc/d98/a00225.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/a00227.html">RTOS::TickService::ClientBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for handling TickService events.  <a href="../../d9/d01/a00227.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d2d/a00229.html">RTOS::TickService::ClientBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for clients to handle tick events.  <a href="../../dd/d2d/a00229.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -160,7 +183,7 @@ Namespaces</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="../../d1/d88/a00128.html">TickService.hpp</a></li>
-    <li class="footer">Generated on Wed Feb 19 2025 for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    <li class="footer">Generated on Thu Apr 3 2025 for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
   </ul>
 </div>
 </body>

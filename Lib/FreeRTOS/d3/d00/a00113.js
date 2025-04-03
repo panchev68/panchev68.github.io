@@ -1,4 +1,5 @@
 var a00113 =
 [
-    [ "Lib::FreeRTOS::TaskHelper", "de/d79/a00203.html", "de/d79/a00203" ]
+    [ "RTOS::Task", "d3/de5/a00209.html", "d3/de5/a00209" ],
+    [ "RTOS::Task::Parameters", "d1/de1/a00213.html", "d1/de1/a00213" ]
 ];

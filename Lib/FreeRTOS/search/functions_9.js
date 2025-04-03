@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['lock_0',['lock',['../de/d45/a00175.html#abf31c277fcc2f8b7ab8b56d3c54f830d',1,'RTOS::Mutex']]]
+  ['messagebuffer_0',['MessageBuffer',['../d7/d3f/a00173.html#a6c08a92a8cd5c1ad6e46dbeef0d11a50',1,'RTOS::MessageBuffer']]],
+  ['mutex_1',['Mutex',['../dd/d4c/a00177.html#aa112cb1a46170df1c5f1d38a53d332ea',1,'RTOS::Mutex']]]
 ];

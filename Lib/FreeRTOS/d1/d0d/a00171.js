@@ -1,6 +1,7 @@
 var a00171 =
 [
-    [ "MessageBuffer", "d1/d0d/a00171.html#abf3e6bf7fa7803357d0b62be1785e088", null ],
+    [ "Handle", "d1/d0d/a00171.html#ac7c17b15a9ccb6e449bd39651983763a", null ],
+    [ "MessageBuffer", "d1/d0d/a00171.html#a80795f182b03acef4829149aa8b5868b", null ],
     [ "~MessageBuffer", "d1/d0d/a00171.html#a9a62bafeca63426a70575b7228f9c698", null ],
     [ "create", "d1/d0d/a00171.html#adf8a8075ffc1f03938788678aabc84a9", null ],
     [ "destroy", "d1/d0d/a00171.html#a1e249f31ec313628be3b536d4d7c7f3c", null ],

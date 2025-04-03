@@ -1,5 +1,6 @@
 var a00195 =
 [
+    [ "Handle", "d3/d2a/a00195.html#a22b0e6acc842fa59ab21e42babbb11e2", null ],
     [ "SemaphoreBase", "d3/d2a/a00195.html#ac5ba2da9868b29115ace32136dde4b97", null ],
     [ "~SemaphoreBase", "d3/d2a/a00195.html#ab98752a3e231b56ba654c2c7cfad9f35", null ],
     [ "create", "d3/d2a/a00195.html#abe7be11ded0f450a8e456e0ead643d03", null ],
@@ -11,5 +12,6 @@ var a00195 =
     [ "overwrite", "d3/d2a/a00195.html#a26617c96f4523fe5d58b0489248d0e6e", null ],
     [ "overwriteFromISR", "d3/d2a/a00195.html#aa87af60fe2421cf538d1040cfe46be1c", null ],
     [ "take", "d3/d2a/a00195.html#a6aadc494b3f8f11040545d73e51ca4e4", null ],
-    [ "takeFromISR", "d3/d2a/a00195.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f", null ]
+    [ "takeFromISR", "d3/d2a/a00195.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f", null ],
+    [ "handle", "d3/d2a/a00195.html#af98089a48fabe8207cc736331543af75", null ]
 ];

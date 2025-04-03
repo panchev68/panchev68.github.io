@@ -1,18 +1,17 @@
 var a00173 =
 [
-    [ "Handle", "d7/d3f/a00173.html#ac7c17b15a9ccb6e449bd39651983763a", null ],
-    [ "MessageBuffer", "d7/d3f/a00173.html#abf3e6bf7fa7803357d0b62be1785e088", null ],
-    [ "~MessageBuffer", "d7/d3f/a00173.html#a9a62bafeca63426a70575b7228f9c698", null ],
-    [ "create", "d7/d3f/a00173.html#afdf1ee314a974e2537ed19292e505634", null ],
-    [ "destroy", "d7/d3f/a00173.html#a1e249f31ec313628be3b536d4d7c7f3c", null ],
-    [ "getSpacesAvailable", "d7/d3f/a00173.html#ab50693c6ab833e3abc4ea33aa6cb678e", null ],
-    [ "isCreated", "d7/d3f/a00173.html#a867904bfdf65f45614229c296de57fb4", null ],
-    [ "isEmpty", "d7/d3f/a00173.html#a862d738812609aa239c25587d87abb79", null ],
-    [ "isFull", "d7/d3f/a00173.html#a76baf03500804f9cfcbc4671374c359b", null ],
-    [ "operator Handle", "d7/d3f/a00173.html#a980fc81f99fa563c534cc3d68a420dd9", null ],
-    [ "receive", "d7/d3f/a00173.html#ae77f9a0073a8ba6a1dc65ab9f7d355a6", null ],
-    [ "receiveFromISR", "d7/d3f/a00173.html#a99743e87cb6008065e781ad387dd919f", null ],
-    [ "reset", "d7/d3f/a00173.html#aa2130de68e4116751ab5061ff753f4de", null ],
-    [ "send", "d7/d3f/a00173.html#a8b71d02996a137baeef586e1560309b7", null ],
-    [ "sendFromISR", "d7/d3f/a00173.html#a32fe14fca05bd9fa0a1e2e0c9eaad584", null ]
+    [ "MessageBuffer", "d7/d3f/a00173.html#a6c08a92a8cd5c1ad6e46dbeef0d11a50", null ],
+    [ "~MessageBuffer", "d7/d3f/a00173.html#ae36b10fc8abbb5198f64ecf91ba2054e", null ],
+    [ "create", "d7/d3f/a00173.html#ad1bebbd6173cdb2fa8e267367be2d7fd", null ],
+    [ "destroy", "d7/d3f/a00173.html#a2de45fae9e6bc9084b1b268ecb88ab07", null ],
+    [ "getSpacesAvailable", "d7/d3f/a00173.html#ae43c6ce5b75b7a41bece0b975947263f", null ],
+    [ "isCreated", "d7/d3f/a00173.html#ac507406f616bcb09fc08dad37dc7e5bb", null ],
+    [ "isEmpty", "d7/d3f/a00173.html#ae2fe3ace374b7fec7e86b8183eaa1ff8", null ],
+    [ "isFull", "d7/d3f/a00173.html#a08505a61e4786be6ceb339cc92a90ef0", null ],
+    [ "operator Handle", "d7/d3f/a00173.html#a6539beba7eae2b4c146eb8ef0da0159b", null ],
+    [ "receive", "d7/d3f/a00173.html#ae3c01787c18e7f17c2780645d05da4d1", null ],
+    [ "receiveFromISR", "d7/d3f/a00173.html#a4202298645558c747076653fe78eed19", null ],
+    [ "reset", "d7/d3f/a00173.html#aa3b10347853e829732465409e3735500", null ],
+    [ "send", "d7/d3f/a00173.html#a212208d47cbd5457dcfdd9db6a0d0bf9", null ],
+    [ "sendFromISR", "d7/d3f/a00173.html#a895f6a523a73fe0a86afc445c60cad95", null ]
 ];

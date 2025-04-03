@@ -1,5 +1,6 @@
 var a00203 =
 [
+    [ "Handle", "de/d79/a00203.html#ac43f2585fb807014368f17cd4dd8bc9e", null ],
     [ "StreamBuffer", "de/d79/a00203.html#a6d894360f80c822b178de66210a2bc6a", null ],
     [ "~StreamBuffer", "de/d79/a00203.html#a4279301601dc12497575fbe9b250f62a", null ],
     [ "create", "de/d79/a00203.html#aa2c511443cf2207c917749583857480a", null ],

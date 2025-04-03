@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['karnel_0',['Karnel',['../dd/dae/a00163.html',1,'RTOS']]]
+  ['kernel_0',['Kernel',['../d0/d48/a00165.html',1,'RTOS']]]
 ];

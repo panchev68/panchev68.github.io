@@ -1,16 +1,11 @@
 var a00194 =
 [
-    [ "Handle", "dc/d57/a00194.html#a22b0e6acc842fa59ab21e42babbb11e2", null ],
-    [ "~SemaphoreBase", "dc/d57/a00194.html#ab98752a3e231b56ba654c2c7cfad9f35", null ],
-    [ "create", "dc/d57/a00194.html#abe7be11ded0f450a8e456e0ead643d03", null ],
-    [ "destroy", "dc/d57/a00194.html#a0e02fdce947578b5cf0b93548c82fe28", null ],
-    [ "give", "dc/d57/a00194.html#a97ac23e2c0fb9235e1e13a56dcc27c23", null ],
-    [ "giveFromISR", "dc/d57/a00194.html#af2bf09cd3cb15cab16883862889e96c7", null ],
-    [ "isCreated", "dc/d57/a00194.html#a01db2bc6a677e5c062f9b9d3c14d8599", null ],
-    [ "operator Handle &", "dc/d57/a00194.html#ad36952e1b8ad684b78520466b975c8fa", null ],
-    [ "overwrite", "dc/d57/a00194.html#a26617c96f4523fe5d58b0489248d0e6e", null ],
-    [ "overwriteFromISR", "dc/d57/a00194.html#aa87af60fe2421cf538d1040cfe46be1c", null ],
-    [ "take", "dc/d57/a00194.html#ab9b613dc3ba0aab6cba2b46824447a2c", null ],
-    [ "takeFromISR", "dc/d57/a00194.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f", null ],
-    [ "handle", "dc/d57/a00194.html#af98089a48fabe8207cc736331543af75", null ]
+    [ "Handle", "dc/d57/a00194.html#a2c3910a686600b8161fe9dfa5d45cfef", null ],
+    [ "Member", "dc/d57/a00194.html#a15523e4b8826d137b1351df14e1f7070", null ],
+    [ "QueueSet", "dc/d57/a00194.html#ae1d6c3bb6ac93548ab67cfddb23722c8", null ],
+    [ "~QueueSet", "dc/d57/a00194.html#ad68cb3477a415b45d1868d84870f1ff6", null ],
+    [ "create", "dc/d57/a00194.html#a4c527d9c30a90383c14b39a151149fa0", null ],
+    [ "remove", "dc/d57/a00194.html#a22f8a8b12a240d63a220468d2921beee", null ],
+    [ "select", "dc/d57/a00194.html#ab8600e8b8759f7c0dbbb4536f71c165b", null ],
+    [ "selectFromISR", "dc/d57/a00194.html#ab552d1bc4573fe082c47fce52b31a218", null ]
 ];

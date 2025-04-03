@@ -1,13 +1,12 @@
 var searchData=
 [
-  ['callback_0',['callback',['../d0/d27/a00239.html#a2dd26b4def151e4f2c743172aa2ded60',1,'RTOS::Timer::Config']]],
-  ['catchupticks_1',['catchUpTicks',['../dd/dae/a00163.html#ac43a95ee896d3b1ac6f587d60af8d550',1,'RTOS::Karnel']]],
-  ['check_2',['check',['../df/d17/a00231.html#af1392335827fec5be3fe53d1ec010f43',1,'RTOS::Timeout']]],
-  ['clearbits_3',['clearBits',['../de/db9/a00159.html#a4773ee81fad923938dbe1f205d474ccb',1,'RTOS::EventGroup']]],
-  ['clearbitsfromisr_4',['clearBitsFromISR',['../de/db9/a00159.html#a4c6df3a6ecd4131ad61728873e1151a0',1,'RTOS::EventGroup']]],
-  ['clientbase_5',['ClientBase',['../d9/d01/a00227.html',1,'RTOS::TickService::ClientBase'],['../d9/d01/a00227.html#ac84ffd97d3420aa324292d0692085ed7',1,'RTOS::TickService::ClientBase::ClientBase()']]],
-  ['config_6',['Config',['../d0/d27/a00239.html',1,'RTOS::Timer']]],
-  ['counter_7',['Tick Counter',['../d7/dce/a00143.html',1,'']]],
-  ['counting_20semaphore_8',['Counting Semaphore',['../d9/d7d/a00150.html',1,'']]],
-  ['create_9',['create',['../de/db9/a00159.html#ae123b21b37e587e5e424af4651768471',1,'RTOS::EventGroup::create()'],['../d1/d0d/a00171.html#adf8a8075ffc1f03938788678aabc84a9',1,'RTOS::MessageBuffer::create()'],['../de/d45/a00175.html#a35d8c658a69715583eaaf40666596f73',1,'RTOS::Mutex::create()'],['../dc/d52/a00183.html#af9110b7f6fbf3189d26f12e02a296a64',1,'RTOS::Queue::create()'],['../d6/daa/a00187.html#a33b4fe994c0d90bda0d9521aa41a47c7',1,'RTOS::QueueSet::create()'],['../d9/dd0/a00191.html#a89c77ce82882d1c04a9adbb0a4816a79',1,'RTOS::Semaphore::create()'],['../d3/d2a/a00195.html#abe7be11ded0f450a8e456e0ead643d03',1,'RTOS::SemaphoreBase::create()'],['../d8/d72/a00199.html#a79abb88c91a63fdd98ae9c4877adcf23',1,'RTOS::SemaphoreCounting::create()'],['../de/d79/a00203.html#aa2c511443cf2207c917749583857480a',1,'RTOS::StreamBuffer::create()'],['../d3/d42/a00235.html#a7e36a946361b105cc83b9330c46bb2cc',1,'RTOS::Timer::create(std::string name, std::function&lt; void()&gt; callback, uint32_t period=1, bool isAutoReload=true)'],['../d3/d42/a00235.html#a42f39ec342e8be3e4ee55e7cae0cf1da',1,'RTOS::Timer::create(const Config &amp;config)']]]
+  ['callback_0',['callback',['../d6/db6/a00241.html#abe35c71ade8d73402a42a3582900347e',1,'RTOS::Timer::Config']]],
+  ['catchupticks_1',['catchUpTicks',['../d0/d48/a00165.html#a68777e56831c4f544e99ef70933385c4',1,'RTOS::Kernel']]],
+  ['clearbits_2',['clearBits',['../d6/d7d/a00161.html#a35648f30d28df1a038b0cde9fe83a2c0',1,'RTOS::EventGroup']]],
+  ['clearbitsfromisr_3',['clearBitsFromISR',['../d6/d7d/a00161.html#a005424530bec695161ec8a15e2549dec',1,'RTOS::EventGroup']]],
+  ['clientbase_4',['ClientBase',['../dd/d2d/a00229.html',1,'RTOS::TickService::ClientBase'],['../dd/d2d/a00229.html#a562cccf86c7c987c9372619e88888165',1,'RTOS::TickService::ClientBase::ClientBase()']]],
+  ['config_5',['Config',['../d6/db6/a00241.html',1,'RTOS::Timer']]],
+  ['counter_6',['Tick Counter',['../d7/dce/a00143.html',1,'']]],
+  ['counting_20semaphore_7',['Counting Semaphore',['../d9/d7d/a00150.html',1,'']]],
+  ['create_8',['create',['../d6/d7d/a00161.html#afe8fcf825297d2edafc2fe76f78dbc00',1,'RTOS::EventGroup::create()'],['../d7/d3f/a00173.html#ad1bebbd6173cdb2fa8e267367be2d7fd',1,'RTOS::MessageBuffer::create()'],['../dd/d4c/a00177.html#a35d8c658a69715583eaaf40666596f73',1,'RTOS::Mutex::create()'],['../da/deb/a00189.html#afeb55a64e31f93a8776ea1ba33e26949',1,'RTOS::QueueSet::create()'],['../dd/df4/a00193.html#a19628d4e5aa15daa32791e6db6931628',1,'RTOS::Semaphore::create()'],['../de/db1/a00197.html#a68bea5a7d97b69996a24271218e299c7',1,'RTOS::SemaphoreBase::create()'],['../dd/de3/a00201.html#a72d591b9e77f371868695a19be3c99e8',1,'RTOS::SemaphoreCounting::create()'],['../d5/d13/a00205.html#a977f2eceabdd3c98da2cb1fd36a4ac9f',1,'RTOS::StreamBuffer::create()'],['../d4/d08/a00237.html#a0f56ed7c511291ed43dbeaad71e143e3',1,'RTOS::Timer::create(std::string name, std::function&lt; void()&gt; callback, uint32_t period=1, bool isAutoReload=true) noexcept'],['../d4/d08/a00237.html#a3be453dda6ddfd3cf944fdc7d36335bf',1,'RTOS::Timer::create(const Config &amp;config) noexcept']]]
 ];

@@ -1,20 +1,16 @@
 var a00202 =
 [
-    [ "Handle", "db/d53/a00202.html#ac43f2585fb807014368f17cd4dd8bc9e", null ],
-    [ "StreamBuffer", "db/d53/a00202.html#a6d894360f80c822b178de66210a2bc6a", null ],
-    [ "~StreamBuffer", "db/d53/a00202.html#a4279301601dc12497575fbe9b250f62a", null ],
-    [ "create", "db/d53/a00202.html#aa2c511443cf2207c917749583857480a", null ],
-    [ "destroy", "db/d53/a00202.html#a61e72fe0b7e6d6115d71d9d7e789cdb5", null ],
-    [ "getBytesAvailable", "db/d53/a00202.html#a106b6b1961b742c76bd83f3d032aad3a", null ],
-    [ "getSpacesAvailable", "db/d53/a00202.html#a9fa51825dff8d1fb8914b5700becd22a", null ],
-    [ "isCreated", "db/d53/a00202.html#a19a0f30afe68cccb4fbb7ba9d3fb3f24", null ],
-    [ "isEmpty", "db/d53/a00202.html#ac63276981f0f2652f909f8caf99eded6", null ],
-    [ "isFull", "db/d53/a00202.html#ab28a179ad13782df9ebce66f220d9084", null ],
-    [ "operator Handle &", "db/d53/a00202.html#a8f44e79071890fe52737b0a611f8204b", null ],
-    [ "receive", "db/d53/a00202.html#a3f3a5525eb79326f77b9ca87d6cb1c9d", null ],
-    [ "receiveFromISR", "db/d53/a00202.html#a63e38b8314da1a881b4dd216e8768eca", null ],
-    [ "reset", "db/d53/a00202.html#a945ae0f4f0d0051decd64f9e208f59fc", null ],
-    [ "send", "db/d53/a00202.html#a5fda4beeb6f0e9c96c01940d07010c28", null ],
-    [ "sendFromISR", "db/d53/a00202.html#a955d70196c59bd638cff19681e63084b", null ],
-    [ "setTriggerLevel", "db/d53/a00202.html#a37c2af499abb7cb673d5d4dba7ecb433", null ]
+    [ "Handle", "db/d53/a00202.html#a22b0e6acc842fa59ab21e42babbb11e2", null ],
+    [ "~SemaphoreBase", "db/d53/a00202.html#ae3f8682b1cbc48e14ecf1e91da45d741", null ],
+    [ "create", "db/d53/a00202.html#abe7be11ded0f450a8e456e0ead643d03", null ],
+    [ "destroy", "db/d53/a00202.html#ae6550ba30e4026b93d84681ac44fa23e", null ],
+    [ "give", "db/d53/a00202.html#aa8571029a952b7891ffe4062f76dec15", null ],
+    [ "giveFromISR", "db/d53/a00202.html#abade45f45a8ff88ff69332b51a678c8d", null ],
+    [ "isCreated", "db/d53/a00202.html#a5e8edf38a91099c3ee5f866f6028a43b", null ],
+    [ "operator Handle &", "db/d53/a00202.html#ac0e260e7f3d879dab705676c76529022", null ],
+    [ "overwrite", "db/d53/a00202.html#abbb5edd1e859c7e2115894852f38e42a", null ],
+    [ "overwriteFromISR", "db/d53/a00202.html#af679c6f1b9101bc254d34651a5ab329f", null ],
+    [ "take", "db/d53/a00202.html#a9b20aa8d6b882875fe2e6eb3b31d6ad4", null ],
+    [ "takeFromISR", "db/d53/a00202.html#aea104cb80840faf3ee45fa74b2783aa0", null ],
+    [ "handle", "db/d53/a00202.html#af98089a48fabe8207cc736331543af75", null ]
 ];

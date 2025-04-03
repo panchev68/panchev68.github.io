@@ -1,22 +1,22 @@
 var annotated_dup =
 [
     [ "RTOS", "d3/df8/a00155.html", [
-      [ "EventGroup", "de/db9/a00159.html", "de/db9/a00159" ],
-      [ "Karnel", "dd/dae/a00163.html", "dd/dae/a00163" ],
-      [ "MemoryManager", "dc/de6/a00167.html", null ],
-      [ "MessageBuffer", "d1/d0d/a00171.html", "d1/d0d/a00171" ],
-      [ "Mutex", "de/d45/a00175.html", "de/d45/a00175" ],
-      [ "Queue", "dc/d52/a00183.html", "dc/d52/a00183" ],
-      [ "QueueSet", "d6/daa/a00187.html", "d6/daa/a00187" ],
-      [ "Semaphore", "d9/dd0/a00191.html", "d9/dd0/a00191" ],
-      [ "SemaphoreBase", "d3/d2a/a00195.html", "d3/d2a/a00195" ],
-      [ "SemaphoreCounting", "d8/d72/a00199.html", "d8/d72/a00199" ],
-      [ "StreamBuffer", "de/d79/a00203.html", "de/d79/a00203" ],
-      [ "Task", "de/dd2/a00207.html", "de/dd2/a00207" ],
-      [ "TaskHelper", "d3/dd5/a00215.html", null ],
-      [ "TickCounter", "dd/df3/a00219.html", null ],
-      [ "TickService", "dc/d28/a00223.html", "dc/d28/a00223" ],
-      [ "Timeout", "df/d17/a00231.html", "df/d17/a00231" ],
-      [ "Timer", "d3/d42/a00235.html", "d3/d42/a00235" ]
+      [ "EventGroup", "d6/d7d/a00161.html", "d6/d7d/a00161" ],
+      [ "Kernel", "d0/d48/a00165.html", null ],
+      [ "MemoryManager", "de/d53/a00169.html", null ],
+      [ "MessageBuffer", "d7/d3f/a00173.html", "d7/d3f/a00173" ],
+      [ "Mutex", "dd/d4c/a00177.html", "dd/d4c/a00177" ],
+      [ "Queue", "de/df3/a00185.html", null ],
+      [ "QueueSet", "da/deb/a00189.html", "da/deb/a00189" ],
+      [ "Semaphore", "dd/df4/a00193.html", "dd/df4/a00193" ],
+      [ "SemaphoreBase", "de/db1/a00197.html", "de/db1/a00197" ],
+      [ "SemaphoreCounting", "dd/de3/a00201.html", "dd/de3/a00201" ],
+      [ "StreamBuffer", "d5/d13/a00205.html", "d5/d13/a00205" ],
+      [ "Task", "d3/de5/a00209.html", "d3/de5/a00209" ],
+      [ "TaskHelper", "df/d24/a00217.html", null ],
+      [ "TickCounter", "dd/d52/a00221.html", null ],
+      [ "TickService", "dc/d98/a00225.html", "dc/d98/a00225" ],
+      [ "Timeout", "d6/de1/a00233.html", "d6/de1/a00233" ],
+      [ "Timer", "d4/d08/a00237.html", "d4/d08/a00237" ]
     ] ]
 ];

@@ -1,5 +1,7 @@
 var a00187 =
 [
+    [ "Handle", "d6/daa/a00187.html#a2c3910a686600b8161fe9dfa5d45cfef", null ],
+    [ "Member", "d6/daa/a00187.html#a15523e4b8826d137b1351df14e1f7070", null ],
     [ "QueueSet", "d6/daa/a00187.html#ae1d6c3bb6ac93548ab67cfddb23722c8", null ],
     [ "~QueueSet", "d6/daa/a00187.html#ad68cb3477a415b45d1868d84870f1ff6", null ],
     [ "create", "d6/daa/a00187.html#a33b4fe994c0d90bda0d9521aa41a47c7", null ],

@@ -1,6 +1,7 @@
 var a00191 =
 [
-    [ "Semaphore", "d9/dd0/a00191.html#ac18bbf45d7ea4f13cf097651078f372d", null ],
+    [ "Handle", "d9/dd0/a00191.html#ab6421331ba2f810ca117af37f7da747a", null ],
+    [ "Semaphore", "d9/dd0/a00191.html#ad5397fb88e92d526bd091f4d468a426e", null ],
     [ "~Semaphore", "d9/dd0/a00191.html#aa5e35a44d5786139f77a3a57a483c021", null ],
     [ "create", "d9/dd0/a00191.html#a89c77ce82882d1c04a9adbb0a4816a79", null ],
     [ "destroy", "d9/dd0/a00191.html#a20dab5ad75e48b973309d994006e99b5", null ],

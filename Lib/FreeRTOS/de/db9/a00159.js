@@ -1,5 +1,7 @@
 var a00159 =
 [
+    [ "Handle", "de/db9/a00159.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
+    [ "TickType", "de/db9/a00159.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
     [ "EventGroup", "de/db9/a00159.html#a5cd4a6dcc7805dcdf420bdc550b1c719", null ],
     [ "~EventGroup", "de/db9/a00159.html#ab2273906f7c7de0565e852fbceeefaab", null ],
     [ "clearBits", "de/db9/a00159.html#a4773ee81fad923938dbe1f205d474ccb", null ],
