@@ -1,17 +1,19 @@
 var searchData=
 [
-  ['waitforabortcompleted_0',['waitForAbortCompleted',['../d6/d7f/a00287.html#a944d75d7cc98c9c477f6e5a9cf0c66a9',1,'Lib::HAL::I2CBase::waitForAbortCompleted()'],['../de/d55/a00323.html#a253ea85e3779e5fba44d7282477e05e8',1,'Lib::HAL::UARTBase::waitForAbortCompleted()']]],
-  ['waitforcomplete_1',['waitForComplete',['../d6/d7f/a00287.html#a62368175c4fb19d4286743c64791b6ad',1,'Lib::HAL::I2CBase']]],
-  ['waitfordevrxcompleted_2',['waitForDevRxCompleted',['../d6/d7f/a00287.html#abc8f83af0cb69c68bdfc8f3fbd861c7e',1,'Lib::HAL::I2CBase']]],
-  ['waitfordevtxcompleted_3',['waitForDevTxCompleted',['../d6/d7f/a00287.html#aacb20933f5cc61d6142d4a7cdb3e02b1',1,'Lib::HAL::I2CBase']]],
-  ['waitforreceivecompleted_4',['waitForReceiveCompleted',['../de/d55/a00323.html#a4fb67c3c41f48cbb342ec804acdd2ca8',1,'Lib::HAL::UARTBase']]],
-  ['waitforrxcompleted_5',['waitForRxCompleted',['../d6/d7f/a00287.html#a4d1b845c40505ebc92937c5a82e8a4fd',1,'Lib::HAL::I2CBase']]],
-  ['waitforsendcompleted_6',['waitForSendCompleted',['../de/d55/a00323.html#af7d3ff46385a38fd58da5035ecc73868',1,'Lib::HAL::UARTBase']]],
-  ['waitfortxcompleted_7',['waitForTxCompleted',['../d6/d7f/a00287.html#a60032e61146113f4f5c245737c3637ae',1,'Lib::HAL::I2CBase']]],
-  ['watchdog_8',['Watchdog',['../da/dd4/a00291.html#ae53c9e58dd6c763346665a725a9550ca',1,'Lib::HAL::Watchdog']]],
-  ['write_9',['write',['../dd/d86/a00271.html#aaa573d6107f923ee733515c7ae920504',1,'Lib::HAL::GPIO::PinOutput']]],
-  ['writedate_10',['writeDate',['../df/d95/a00299.html#aafba84d7fc847c99ec5c309e96991ac2',1,'Lib::HAL::RTCBase']]],
-  ['writedatetime_11',['writeDateTime',['../df/d95/a00299.html#a399814ecc17cc1835d2a06e1041cdd86',1,'Lib::HAL::RTCBase']]],
-  ['writeregister_12',['writeRegister',['../df/d95/a00299.html#a74846d3feacf83e53dbdadf8b0cb58a2',1,'Lib::HAL::RTCBase']]],
-  ['writetime_13',['writeTime',['../df/d95/a00299.html#a2c037bceed143dd13437bb6a2b602160',1,'Lib::HAL::RTCBase']]]
+  ['_7ebase_0',['~Base',['../dd/db3/a00313.html#a820ebb6e57ddcfceec7b9c5df70e4cf4',1,'Lib::HAL::TIM::Base']]],
+  ['_7edevice_1',['~Device',['../d2/d71/a00309.html#afc486a4313d3a22b5e7d785d8e694b39',1,'Lib::HAL::RTClock::Device']]],
+  ['_7edevicemanagerbase_2',['~DeviceManagerBase',['../dc/d6a/a00261.html#abd445e9c3e0cdf7cf1ae2b7b67887a03',1,'Lib::HAL::DeviceManagerBase']]],
+  ['_7eextibase_3',['~EXTIBase',['../da/d53/a00265.html#a12f416a24b1f2b887fa352c906c945fc',1,'Lib::HAL::GPIO::EXTIBase']]],
+  ['_7efilter_4',['~Filter',['../d6/d22/a00245.html#ab0c47f33da87e87d55276ab2b20ad1a9',1,'Lib::HAL::CAN::Filter']]],
+  ['_7ehandle_5',['~Handle',['../d0/d19/a00273.html#af5367d50b92a46c289825d4a0e55112b',1,'Lib::HAL::GPIO::Handle::~Handle()'],['../d6/d82/a00293.html#ad49584b1103bdcb6798a678d2f2318cf',1,'Lib::HAL::Handle::~Handle()']]],
+  ['_7einput_6',['~Input',['../d6/d4b/a00277.html#a0d340d65c67f8e376727c57d4bca8ff2',1,'Lib::HAL::GPIO::Input']]],
+  ['_7einterface_7',['~Interface',['../dc/d98/a00225.html#ad43d738bc16f1956c74fca1344df9312',1,'Lib::HAL::ADCPort::Interface']]],
+  ['_7eoutput_8',['~Output',['../d2/d04/a00281.html#a115f054c9c65935a5159ff636c35dd14',1,'Lib::HAL::GPIO::Output']]],
+  ['_7eport_9',['~Port',['../d4/d08/a00237.html#a14d9fab31c5da4f9380de728ba53e762',1,'Lib::HAL::ADCPort::Port&lt; DMA &gt;::~Port()'],['../d6/db6/a00241.html#a37d34d65b2af013b99278bd6085235ac',1,'Lib::HAL::ADCPort::Port&lt; IT &gt;::~Port()'],['../d4/d66/a00289.html#ae773a0aa1b575a77ffccb2bc215289c1',1,'Lib::HAL::GPIO::Port::~Port()'],['../d3/d4a/a00297.html#ab6ca58f02c4f986aedc95d4a65a6fde8',1,'Lib::HAL::I2C::Port::~Port()']]],
+  ['_7eportbase_10',['~PortBase',['../dd/d2d/a00229.html#a7d85891b586078d9a99740a98bcf1838',1,'Lib::HAL::ADCPort::PortBase']]],
+  ['_7ereset_11',['~Reset',['../d3/d07/a00305.html#a725db1438a27592115212ab410c317bf',1,'Lib::HAL::Reset']]],
+  ['_7etimer_12',['~Timer',['../dd/d4e/a00329.html#a43aee021e54610f1179901bf7fcbaecf',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;']]],
+  ['_7etxheader_13',['~TxHeader',['../d0/d3e/a00253.html#ae609ca800afeb2ca4bcc32d601091fa5',1,'Lib::HAL::CAN::TxHeader']]],
+  ['_7euartbase_14',['~UARTBase',['../d2/d0a/a00333.html#a64775d0a276a87482d1cad7242c6e955',1,'Lib::HAL::UARTBase']]],
+  ['_7ewatchdog_15',['~Watchdog',['../da/d50/a00301.html#ab97bf949e412e5b8e68c82c34adda405',1,'Lib::HAL::Watchdog']]]
 ];

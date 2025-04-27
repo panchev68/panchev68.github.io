@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['state_0',['State',['../d9/d5e/a00295.html#acbb27a2ae09130bb349c6105ac88e354',1,'Lib::HAL::LastResetState']]]
+  ['state_0',['State',['../d3/d07/a00305.html#ae9f0fa1c20664b577fc615da59211d91',1,'Lib::HAL::Reset']]]
 ];

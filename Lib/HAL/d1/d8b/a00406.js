@@ -1,4 +1,4 @@
 var a00406 =
 [
-    [ "Lib::HAL::Handle< T_HANDLE >", "d0/d1f/a00247.html", "d0/d1f/a00247" ]
+    [ "Lib::HAL::GPIO::Port", "d4/d66/a00289.html", "d4/d66/a00289" ]
 ];

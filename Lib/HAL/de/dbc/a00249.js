@@ -1,9 +1,8 @@
 var a00249 =
 [
-    [ "Container", "de/dbc/a00249.html#a9cf9955986be4ceeae44ac360cbb87e8", null ],
-    [ "DeviceManagerBase", "de/dbc/a00249.html#abdfac94f393ea76ce81101fa3ec4e0c1", null ],
-    [ "~DeviceManagerBase", "de/dbc/a00249.html#ac224e47704f9cf11a1d242f49fc01ab6", null ],
-    [ "add", "de/dbc/a00249.html#a02525534e0f3709fe5dd2164cd1543b4", null ],
-    [ "getDevice", "de/dbc/a00249.html#aabfe1fe6de74384902fb187bf365e674", null ],
-    [ "remove", "de/dbc/a00249.html#a92a61cd08aed0e18c54eaaadc9b6d45c", null ]
+    [ "getData", "de/dbc/a00249.html#a71d96b8435f2bf88a1c4c00cf0ff6336", null ],
+    [ "getData", "de/dbc/a00249.html#ac039c876232e9e05865b8f93f4f099e2", null ],
+    [ "getId", "de/dbc/a00249.html#abf6e2b3a33202d3a30d59f89ecd89abd", null ],
+    [ "getLength", "de/dbc/a00249.html#a42ca6ef6028560e9c0362222f38c334d", null ],
+    [ "data", "de/dbc/a00249.html#a0042cb94caca03f2965824fb5077555a", null ]
 ];

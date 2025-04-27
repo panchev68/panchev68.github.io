@@ -1,15 +1,15 @@
 var searchData=
 [
-  ['hal_5fgpio_5fexti_5fcallback_0',['HAL_GPIO_EXTI_Callback',['../d2/df5/a00137.html#a13bf50d1a30cc4e9c6cf32af3490ee4d',1,'GPIO.hpp']]],
-  ['hal_5fiwdg_5frefresh_1',['HAL_IWDG_Refresh',['../d9/db6/a00146.html#aa78088c338f75620ff56f4ef3bf99891',1,'IWDG.hpp']]],
-  ['handle_2',['Handle',['../d0/d1f/a00247.html#a149e4a305d72749363e08bf37760d8db',1,'Lib::HAL::Handle::Handle()'],['../d1/d5d/a00311.html#abbd04182f93a2391f6707767af071b16',1,'Lib::HAL::Timer::Handle::Handle()']]],
-  ['handleabortcompleteevent_3',['handleAbortCompleteEvent',['../d6/d7f/a00287.html#ac6d86ca7f4204dd30503c73a6e7df551',1,'Lib::HAL::I2CBase']]],
-  ['handleerrorevent_4',['handleErrorEvent',['../d6/d7f/a00287.html#a87f6bfb6b9c3646f2134450ac0d5d44c',1,'Lib::HAL::I2CBase::handleErrorEvent()'],['../de/d55/a00323.html#a7966e1580d664617d73d0aa7b222f6b3',1,'Lib::HAL::UARTBase::handleErrorEvent()']]],
-  ['handleevent_5',['handleEvent',['../d3/d5e/a00275.html#abf08166fd5ea40fe095809b2c27e921a',1,'Lib::HAL::GPIO::EXTIBase::handleEvent()'],['../dc/d0f/a00303.html#ab35824b087e7d7c17c11fc266814a4e7',1,'Lib::HAL::TIM::Base::handleEvent()'],['../de/dab/a00319.html#aff010ee12752a7de4dc6bdff3d71148f',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;::handleEvent()']]],
-  ['handleisrcallbackevent_6',['handleIsrCallbackEvent',['../d3/dd5/a00215.html#a6c9e19b684d2ba9c7c26d0310cdfa929',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::handleIsrCallbackEvent()'],['../dd/df3/a00219.html#a63ae32e0dca13f673dad2b6b7adf2b64',1,'Lib::HAL::Adc::Port&lt; IT &gt;::handleIsrCallbackEvent()']]],
-  ['handlememrxcompleteevent_7',['handleMemRxCompleteEvent',['../d6/d7f/a00287.html#a8cbf978a6a3d18b56ef04f30142d544e',1,'Lib::HAL::I2CBase']]],
-  ['handlememtxcompleteevent_8',['handleMemTxCompleteEvent',['../d6/d7f/a00287.html#a80fcefa9208dabb0686dc6893eff5bf7',1,'Lib::HAL::I2CBase']]],
-  ['handlerxcompleteevent_9',['handleRxCompleteEvent',['../d6/d7f/a00287.html#ac0e325705461a5a94e06d9e95d01375b',1,'Lib::HAL::I2CBase']]],
-  ['handletimechanged_10',['handleTimeChanged',['../df/d95/a00299.html#a8381456a598d16314ecb85658c84c509',1,'Lib::HAL::RTCBase']]],
-  ['handletxcompleteevent_11',['handleTxCompleteEvent',['../d6/d7f/a00287.html#a75ced1c977ff3351eb5502b49c2587ac',1,'Lib::HAL::I2CBase']]]
+  ['hal_5fgpio_5fexti_5fcallback_0',['HAL_GPIO_EXTI_Callback',['../de/d76/a00134.html#a13bf50d1a30cc4e9c6cf32af3490ee4d',1,'EXTIBase.hpp']]],
+  ['hal_5fiwdg_5frefresh_1',['HAL_IWDG_Refresh',['../d0/dd6/a00415.html#a57f9474c5f5a13a7762d40d72dc9156d',1,'Watchdog.hpp']]],
+  ['handle_2',['Handle',['../d0/d19/a00273.html#a4009ba467a2aa712efafd2d6b8552efe',1,'Lib::HAL::GPIO::Handle::Handle()'],['../d0/d19/a00273.html#a705110f950ba2d2b3c0a25053f8bc17c',1,'Lib::HAL::GPIO::Handle::Handle(GPIO_TypeDef *port, uint16_t pinNumber)'],['../d0/d19/a00273.html#a88a4d56a00ce5e47507ac4c93f03573c',1,'Lib::HAL::GPIO::Handle::Handle(std::pair&lt; GPIO_TypeDef *, uint16_t &gt; pair)'],['../d6/d82/a00293.html#a61d105fbe173f96de8909502bd479b5a',1,'Lib::HAL::Handle::Handle()=delete'],['../d6/d82/a00293.html#aff43d8f955691110437006cc7b708492',1,'Lib::HAL::Handle::Handle(T_HANDLE *handle)'],['../db/d53/a00321.html#abbd04182f93a2391f6707767af071b16',1,'Lib::HAL::Timer::Handle::Handle()']]],
+  ['handleabortcompleteevent_3',['handleAbortCompleteEvent',['../d3/d4a/a00297.html#a606ea787baa0e9a780a212ce32eec803',1,'Lib::HAL::I2C::Port']]],
+  ['handleerrorevent_4',['handleErrorEvent',['../d3/d4a/a00297.html#a40a24ea7dead0f3072d32b1f40dc44f9',1,'Lib::HAL::I2C::Port::handleErrorEvent()'],['../d2/d0a/a00333.html#a7966e1580d664617d73d0aa7b222f6b3',1,'Lib::HAL::UARTBase::handleErrorEvent()']]],
+  ['handleevent_5',['handleEvent',['../d5/d42/a00269.html#abe6daf403a264fc3b4f9de1cab97908c',1,'Lib::HAL::GPIO::EXTIBase::DeviceManager::handleEvent()'],['../da/d53/a00265.html#abf08166fd5ea40fe095809b2c27e921a',1,'Lib::HAL::GPIO::EXTIBase::handleEvent()'],['../d3/d4a/a00297.html#aaba325be08f8bd9b783dd02e01eab8e2',1,'Lib::HAL::I2C::Port::handleEvent()'],['../dd/db3/a00313.html#ab35824b087e7d7c17c11fc266814a4e7',1,'Lib::HAL::TIM::Base::handleEvent()'],['../dd/d4e/a00329.html#a04a8dfb04bb9aa6e0a07916b2d5b51a0',1,'Lib::HAL::TIM::Timer&lt; Mode::ENCODER &gt;::handleEvent()']]],
+  ['handleinterrupt_6',['handleInterrupt',['../d3/d4a/a00297.html#a3eb582f3986f37b98741d61b9ed94767',1,'Lib::HAL::I2C::Port::handleInterrupt()'],['../d2/d0a/a00333.html#a230d87f15cb7e9fab0d228e3e91a9d58',1,'Lib::HAL::UARTBase::handleInterrupt()']]],
+  ['handleisrevent_7',['handleISREvent',['../d4/d08/a00237.html#a0b2d285dabeee8264fbca621f3e5fed9',1,'Lib::HAL::ADCPort::Port&lt; DMA &gt;::handleISREvent()'],['../d6/db6/a00241.html#aae55f4856085cbe39e33c3c1ef104c28',1,'Lib::HAL::ADCPort::Port&lt; IT &gt;::handleISREvent()']]],
+  ['handlememrxcompleteevent_8',['handleMemRxCompleteEvent',['../d3/d4a/a00297.html#aeeff07463cb0ac6152575a49ae32fa4b',1,'Lib::HAL::I2C::Port']]],
+  ['handlememtxcompleteevent_9',['handleMemTxCompleteEvent',['../d3/d4a/a00297.html#a1c4f8095ff6e424f3a2ca4f3fde96a6d',1,'Lib::HAL::I2C::Port']]],
+  ['handlerxcompleteevent_10',['handleRxCompleteEvent',['../d3/d4a/a00297.html#a2224ab0430c1a765864af3243e881fc5',1,'Lib::HAL::I2C::Port']]],
+  ['handletxcompleteevent_11',['handleTxCompleteEvent',['../d3/d4a/a00297.html#ae32ecbda80378d80825a8ca217a1e8e5',1,'Lib::HAL::I2C::Port']]]
 ];

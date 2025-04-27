@@ -1,8 +1,11 @@
 var a00229 =
 [
-    [ "Domain", "d6/de1/a00233.html", "d6/de1/a00233" ],
-    [ "BKPSRAM", "dd/d2d/a00229.html#adbad0ffe98be42450163098fa8a5b6a0", null ],
-    [ "~BKPSRAM", "dd/d2d/a00229.html#a512335c0af3304397e78336d3fe16042", null ],
-    [ "clear", "dd/d2d/a00229.html#ac7c2e7bab87a00703c1626a23f4b6e8a", null ],
-    [ "setup", "dd/d2d/a00229.html#a098e4304f2d6380980f1986772bf7141", null ]
+    [ "ConfigType", "dd/d2d/a00229.html#a05aead7d78fd8294e79a356d88ff8616", null ],
+    [ "PortBase", "dd/d2d/a00229.html#a2e9f939a8f4ee572cee8499447d9de37", null ],
+    [ "~PortBase", "dd/d2d/a00229.html#a7d85891b586078d9a99740a98bcf1838", null ],
+    [ "close", "dd/d2d/a00229.html#a961037d845d6baa9858d8a5ccf644624", null ],
+    [ "open", "dd/d2d/a00229.html#a0fcec6f1375190cfa52fc816bddc5a1b", null ],
+    [ "readValue", "dd/d2d/a00229.html#aa0b0fe8b3da398efacaa9aa808e6e8bb", null ],
+    [ "start", "dd/d2d/a00229.html#ae5891fee86af3683230d9d31c0bd6718", null ],
+    [ "stop", "dd/d2d/a00229.html#a43168d7e0bdbc912e8ca0a3119af0845", null ]
 ];

@@ -1,15 +1,20 @@
 var searchData=
 [
-  ['read_0',['read',['../d3/dd5/a00215.html#a7fcbd05b79a400becb96e3fff8fcbbad',1,'Lib::HAL::Adc::Port&lt; DMA &gt;::read()'],['../dd/df3/a00219.html#adbac6054a638522f270f458d87d324f7',1,'Lib::HAL::Adc::Port&lt; IT &gt;::read()'],['../d1/dd4/a00267.html#a8498743c7ba24f2ec02f1bf6fcabfa37',1,'Lib::HAL::GPIO::PinInput::read()'],['../d3/d5e/a00275.html#a8802f95e86bd0eaa65981875534badfd',1,'Lib::HAL::GPIO::EXTIBase::read()'],['../df/d95/a00299.html#a94a5d5e04476593464ed3f2aa3681da4',1,'Lib::HAL::RTCBase::read()']]],
-  ['readregister_1',['readRegister',['../df/d95/a00299.html#a4943a40ed3df578b2339c0e7a2b5fc89',1,'Lib::HAL::RTCBase']]],
-  ['readstate_2',['readState',['../d9/d5e/a00295.html#a92af3755b6bcbeb1b42514677a284a5a',1,'Lib::HAL::LastResetState']]],
-  ['receive_3',['receive',['../d6/d7f/a00287.html#ab69e716a8abf322d6efba3998cc0d134',1,'Lib::HAL::I2CBase::receive(uint32_t addr, void *dst, size_t len, uint32_t timeout=0) noexcept'],['../d6/d7f/a00287.html#afb6f0b859e3e071ca133a230b141f8a6',1,'Lib::HAL::I2CBase::receive(uint32_t addr, MemAddrSize addrSize, uint32_t memAddr, void *dst, size_t len, uint32_t timeout=0) noexcept'],['../de/d55/a00323.html#a5456c360b7ab0fcf9e3cee396a53db03',1,'Lib::HAL::UARTBase::receive()']]],
-  ['receivedevfunc_4',['receiveDevFunc',['../d6/d7f/a00287.html#ad2f924573b72dc0d24f6f9faf5f32b7c',1,'Lib::HAL::I2CBase']]],
-  ['receivefunc_5',['receiveFunc',['../d6/d7f/a00287.html#a4f17eb23e2131aa1063ecdcac27c59e8',1,'Lib::HAL::I2CBase::receiveFunc()'],['../de/d55/a00323.html#a222488a3721d7e90472b88cbd4069406',1,'Lib::HAL::UARTBase::receiveFunc()']]],
-  ['refresh_6',['refresh',['../da/dd4/a00291.html#a94c38c28d43731f2b4936d4d9619834b',1,'Lib::HAL::Watchdog']]],
-  ['release_7',['release',['../df/d95/a00299.html#ac6d5caa751cdab5b336019bbe9010a0a',1,'Lib::HAL::RTCBase']]],
-  ['remove_8',['remove',['../d0/da2/a00307.html#a67c0a77eddcebf540d07f6e7bbb9fe20',1,'Lib::HAL::TIM::Base::DeviceManager']]],
-  ['removedevice_9',['removeDevice',['../d6/d82/a00243.html#a0d43f49e3ffe637bfc1f1647584af926',1,'Lib::HAL::DeviceManagerBase::removeDevice()'],['../d2/d82/a00279.html#aba577e49adee2539e3951373f1a04dfd',1,'Lib::HAL::GPIO::EXTIBase::DeviceManager::removeDevice()']]],
-  ['removeitem_10',['removeItem',['../dd/dfe/a00283.html#a10fdf35b9ec847b37974ece15823e324',1,'Container']]],
-  ['rtcbase_11',['RTCBase',['../df/d95/a00299.html#a519b0ac8ac4b2b34c4ea946a6bda0ea7',1,'Lib::HAL::RTCBase']]]
+  ['send_0',['send',['../d3/d4a/a00297.html#aca66c40efc311a3e14edaf1c96ce2ef0',1,'Lib::HAL::I2C::Port::send(uint32_t deviceAddr, const void *source, size_t length, uint32_t timeout=0) noexcept'],['../d3/d4a/a00297.html#a7d76d94baea20dc843369cbcb5d1e9a5',1,'Lib::HAL::I2C::Port::send(uint32_t deviceAddr, MemAddrSize addressSize, uint32_t memoryAddr, const void *source, size_t length, uint32_t timeout=0) noexcept'],['../d2/d0a/a00333.html#aa74848a31f86ad5ce5b8529028105626',1,'Lib::HAL::UARTBase::send()']]],
+  ['senddevfunc_1',['sendDevFunc',['../d3/d4a/a00297.html#ac54711a2b35dbdd972e51af123a28e2a',1,'Lib::HAL::I2C::Port']]],
+  ['sendfunc_2',['sendFunc',['../d3/d4a/a00297.html#ad4868951f82b299b4dc7e9eeca918db5',1,'Lib::HAL::I2C::Port::sendFunc()'],['../d2/d0a/a00333.html#a7fb60fe1c55cee82682ad11624a295b9',1,'Lib::HAL::UARTBase::sendFunc()']]],
+  ['setbank_3',['setBank',['../d6/d22/a00245.html#ad5fcfaf82a192f0681d45f71672a6b6d',1,'Lib::HAL::CAN::Filter']]],
+  ['setbaudrate_4',['setBaudRate',['../d2/d0a/a00333.html#afa3c3e4693f2a614fd1967b2d4edd043',1,'Lib::HAL::UARTBase']]],
+  ['setdatalength_5',['setDataLength',['../d0/d3e/a00253.html#aee86a63704ee48bf6f44d0a87267526f',1,'Lib::HAL::CAN::TxHeader']]],
+  ['setfilteractivation_6',['setFilterActivation',['../d6/d22/a00245.html#aad3919d3924d85858e0cbc91d8e71627',1,'Lib::HAL::CAN::Filter']]],
+  ['setfilterfifoassignment_7',['setFilterFIFOAssignment',['../d6/d22/a00245.html#a0ec88bc2f5e1d5f35040a8c9b3d469df',1,'Lib::HAL::CAN::Filter']]],
+  ['setfilterscale_8',['setFilterScale',['../d6/d22/a00245.html#ad9881d78a9e44698b78fd0195d28b7e0',1,'Lib::HAL::CAN::Filter']]],
+  ['setid_9',['setId',['../d6/d22/a00245.html#ab2a7fe01c6726d4966e107580e54668f',1,'Lib::HAL::CAN::Filter']]],
+  ['setmask_10',['setMask',['../d6/d22/a00245.html#a392603d6d74b865b4d64db38cc2d3f78',1,'Lib::HAL::CAN::Filter']]],
+  ['setmode_11',['setMode',['../d6/d22/a00245.html#a50240b842a2598cd34347f80f3ad1ff6',1,'Lib::HAL::CAN::Filter::setMode()'],['../d6/d4b/a00277.html#a14a2412f6c572b1de2af047103125580',1,'Lib::HAL::GPIO::Input::setMode()'],['../d3/d58/a00285.html#aae1c84e46a06a0099ea172710ba2fe4e',1,'Lib::HAL::GPIO::PinMode::setMode()']]],
+  ['setpulluppulldown_12',['setPullupPulldown',['../d4/d66/a00289.html#a4c2fb2f88af88b46380f3e042c6a0849',1,'Lib::HAL::GPIO::Port']]],
+  ['setslavestartfilterbank_13',['setSlaveStartFilterBank',['../d6/d22/a00245.html#a207bd8df89b405a9a35dd053bd058791',1,'Lib::HAL::CAN::Filter']]],
+  ['setup_14',['setup',['../df/d24/a00217.html#ae3bfef27d84723e2fb84e5c870a640f7',1,'Lib::HAL::ADCPort::Channel::setup()'],['../d4/d66/a00289.html#ab580571a964639ef45ed11819acebd57',1,'Lib::HAL::GPIO::Port::setup()'],['../da/d50/a00301.html#a3b4148336a590eaf82a448545e8f4ad1',1,'Lib::HAL::Watchdog::setup()'],['../d2/d71/a00309.html#af53adc21a3675e4d66752dd9ed2e8366',1,'Lib::HAL::RTClock::Device::setup()']]],
+  ['start_15',['start',['../dd/d2d/a00229.html#ae5891fee86af3683230d9d31c0bd6718',1,'Lib::HAL::ADCPort::PortBase::start()'],['../d4/d08/a00237.html#ac5337fd1c7e58f482570579479ba9bf4',1,'Lib::HAL::ADCPort::Port&lt; DMA &gt;::start()'],['../d6/db6/a00241.html#a0a7d9c8ba4d1d56078563d69c673354d',1,'Lib::HAL::ADCPort::Port&lt; IT &gt;::start()']]],
+  ['stop_16',['stop',['../dd/d2d/a00229.html#a43168d7e0bdbc912e8ca0a3119af0845',1,'Lib::HAL::ADCPort::PortBase::stop()'],['../d4/d08/a00237.html#af0f7f3ceb9bf33607dbe6dd96360f26b',1,'Lib::HAL::ADCPort::Port&lt; DMA &gt;::stop()'],['../d6/db6/a00241.html#a7a2e55d4fdf8115ac65f61fd2b96e80c',1,'Lib::HAL::ADCPort::Port&lt; IT &gt;::stop()']]]
 ];

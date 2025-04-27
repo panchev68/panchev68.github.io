@@ -1,4 +1,4 @@
 var a00116 =
 [
-    [ "Lib::HAL::CAN::TxMessage", "d0/d27/a00239.html", "d0/d27/a00239" ]
+    [ "Lib::HAL::CAN::TxHeader", "d0/d3e/a00253.html", "d0/d3e/a00253" ]
 ];

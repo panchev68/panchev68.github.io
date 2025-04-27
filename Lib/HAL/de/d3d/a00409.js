@@ -1,4 +1,4 @@
 var a00409 =
 [
-    [ "Lib::HAL::Timer::Handle", "d1/d5d/a00311.html", "d1/d5d/a00311" ]
+    [ "Lib::HAL::I2C::Port", "d3/d4a/a00297.html", "d3/d4a/a00297" ]
 ];

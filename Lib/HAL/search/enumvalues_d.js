@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['size_0',['SIZE',['../d6/d7f/a00287.html#af0479db858fc106105be07c3d049515ea62e5cef85d46f1a5a2144d9fd463b79e',1,'Lib::HAL::I2CBase']]],
-  ['software_5freset_1',['SOFTWARE_RESET',['../d9/d5e/a00295.html#acbb27a2ae09130bb349c6105ac88e354a7cf0dce90671f62c8d1c4b4d9104f959',1,'Lib::HAL::LastResetState']]]
+  ['size_5ferror_0',['SIZE_ERROR',['../d3/d4a/a00297.html#a1b2f6d8dfe1af24731ea8b1e9d98863da109fc4ba7389f24ad92ffd8673e50620',1,'Lib::HAL::I2C::Port']]],
+  ['software_5freset_1',['SOFTWARE_RESET',['../d3/d07/a00305.html#ae9f0fa1c20664b577fc615da59211d91a7cf0dce90671f62c8d1c4b4d9104f959',1,'Lib::HAL::Reset']]]
 ];

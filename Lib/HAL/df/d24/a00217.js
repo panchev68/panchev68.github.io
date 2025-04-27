@@ -1,8 +1,6 @@
 var a00217 =
 [
-    [ "Port", "df/d24/a00217.html#a1f626790f5f0dbe436eb3b3e58073d70", null ],
-    [ "Port", "df/d24/a00217.html#a5c1562642fba3e62e59bb68b69841889", null ],
-    [ "~Port", "df/d24/a00217.html#a649b398ab5dfbfb980fd157f9ffd900b", null ],
-    [ "close", "df/d24/a00217.html#a749a364858bd4ef19d5604a9ed1a8c9e", null ],
-    [ "open", "df/d24/a00217.html#a154c7a8d2ea6d75539b7c3fc3c4bb270", null ]
+    [ "Config", "df/d24/a00217.html#a2a6dba21682f1183cc16caec98cd7430", null ],
+    [ "Channel", "df/d24/a00217.html#afa316269adab43b2d6d16eb140e38d8b", null ],
+    [ "setup", "df/d24/a00217.html#ae3bfef27d84723e2fb84e5c870a640f7", null ]
 ];

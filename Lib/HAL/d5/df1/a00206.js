@@ -1,15 +1,28 @@
 var a00206 =
 [
-    [ "PortTransparentBase", "d5/df1/a00206.html#ab97e26678230907cf59e1396f1328eb4", null ],
-    [ "~PortTransparentBase", "d5/df1/a00206.html#ab4cfa51e40f7293563592f65a70d4e8c", null ],
-    [ "close", "d5/df1/a00206.html#a8e5ff249ebc1417ae94939eda7781959", null ],
-    [ "getRawValue", "d5/df1/a00206.html#aa341fde0ff03ffb534865dae326ffd87", null ],
-    [ "handleIsrCallbackEvent", "d5/df1/a00206.html#a044c96cda089aff29b1c3247d415999f", null ],
-    [ "open", "d5/df1/a00206.html#a6c9f15aa183ec060217b78aa213ec7fd", null ],
-    [ "read", "d5/df1/a00206.html#adfb92fc608789ffb60e00e5d5d17c671", null ],
-    [ "start", "d5/df1/a00206.html#af09fc3afb64c7d76bb35768452c75e91", null ],
-    [ "stop", "d5/df1/a00206.html#a987d84ac68e42428d9f2158af97b3b05", null ],
-    [ "updateResultFromISR", "d5/df1/a00206.html#a929c5d09cbb9554fcf409f0890a3791d", null ],
-    [ "DeviceManagerBase< PortTransparentBase, ADC_HandleTypeDef >", "d5/df1/a00206.html#add345bb338977e1ed3c7e6820aeb0d03", null ],
-    [ "result", "d5/df1/a00206.html#afe4416d6741122e6d8137e009192281e", null ]
+    [ "ADCPort", "de/dd2/a00207.html", "de/dd2/a00207" ],
+    [ "CAN", "dc/d31/a00208.html", "dc/d31/a00208" ],
+    [ "GPIO", "d3/de5/a00209.html", "d3/de5/a00209" ],
+    [ "I2C", "da/de7/a00210.html", "da/de7/a00210" ],
+    [ "RTClock", "dd/ded/a00211.html", "dd/ded/a00211" ],
+    [ "TIM", "dd/dc1/a00212.html", "dd/dc1/a00212" ],
+    [ "Timer", "d1/de1/a00213.html", "d1/de1/a00213" ],
+    [ "DeviceManagerBase", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
+    [ "Handle", "d6/d82/a00293.html", "d6/d82/a00293" ],
+    [ "Reset", "d3/d07/a00305.html", "d3/d07/a00305" ],
+    [ "UARTBase", "d2/d0a/a00333.html", "d2/d0a/a00333" ],
+    [ "Watchdog", "da/d50/a00301.html", "da/d50/a00301" ],
+    [ "AdcPort", "dc/d57/a00194.html#gae3195fec8311492dda00897f76739f3a", null ],
+    [ "DriverDataDirection", "d5/df1/a00206.html#ac2feb35492efeb810666c536b5debe28", [
+      [ "RX", "d5/df1/a00206.html#ac2feb35492efeb810666c536b5debe28aba61e080110d6ed61b17a8ac10fc538c", null ],
+      [ "TX", "d5/df1/a00206.html#ac2feb35492efeb810666c536b5debe28a2c67cc781633beee7355a4345f89d162", null ],
+      [ "RX_TX", "d5/df1/a00206.html#ac2feb35492efeb810666c536b5debe28a4406c7d74a50c1d8e5476238f4b55812", null ]
+    ] ],
+    [ "DriverMode", "d5/df1/a00206.html#a9de00459d7bcd95866936fd723022743", [
+      [ "BLOCK", "d5/df1/a00206.html#a9de00459d7bcd95866936fd723022743ac319d275b176e5cfa9aeb35b1f1b37c4", null ],
+      [ "IT", "d5/df1/a00206.html#a9de00459d7bcd95866936fd723022743ab1bb871e144ff9fd10db6f53ee2495d1", null ],
+      [ "DMA", "d5/df1/a00206.html#a9de00459d7bcd95866936fd723022743a04487a0fa5ed0ed8d8e197288957053b", null ]
+    ] ],
+    [ "getResetState", "d5/df1/a00206.html#a5a140562a2e1e1fb01e5ab0b35ec357e", null ],
+    [ "resetSystem", "d5/df1/a00206.html#a7bac1c8d3d3c3879e44f3064c8b797c9", null ]
 ];
