@@ -1,4 +1,4 @@
-# U146 Digi Xbee firmware update
+# U146/U135 Digi Xbee firmware update 
 
 1. Download the Digi Module firmware update software
 
@@ -27,32 +27,36 @@
 
 ![image-20250625094933719](./assets/image-20250625094933719.png)  
 
-- A new Com Port will appear in the Windows `Control Panel`/`Device Manager` with the name: `STMicroelectronics Virtual COM Port` 
-
-  ![image-20250625095502588](./assets/image-20250625095502588.png) 
 
 
+> [!TIP]
+>
+> A new Com Port will appear in the Windows `Control Panel`/`Device Manager` with the name: `STMicroelectronics Virtual COM Port` 
 
-3. Start the XCTU software
+![image-20250625095502588](./assets/image-20250625095502588.png) 
 
-4. Click the button to add a radio module
 
-   ![image-20250625101218898](./assets/image-20250625101218898.png)   
 
-5. Select the COM Port that has `STMicroelectronics Virtual COM Port` in its name.
+4. Start the XCTU software
+5. Click the button to add a radio module
 
-6. Select `Baud rate:` to `230400` and click button `Finish`
+![image-20250625101218898](./assets/image-20250625101218898.png)   
+
+6. Select the COM Port that has `STMicroelectronics Virtual COM Port` in its name.
+
+7. Select `Baud rate:` to `230400` and click button `Finish`
    ![image-20250625101756166](./assets/image-20250625101756166.png) 
 
-7.  Upon successful connection, the module should appear in the Radio modules panel.
+8. Upon successful connection, the module should appear in the Radio modules panel.
 
-   ![image-20250625102453076](./assets/image-20250625102453076.png)  
+![image-20250625102453076](./assets/image-20250625102453076.png) 
 
-8. Select the module
-9. Select the `Update` button.
-   ![](./assets/image-20250625102856994.png)  
+9. Select the module
 
-10. An `Update firmware` window will appear.
+10. Select the `Update` button.
+    ![](./assets/image-20250625102856994.png)  
+
+11. An `Update firmware` window will appear.
 
 ![image-20250625103137767](./assets/image-20250625103137767.png) 
 
@@ -73,4 +77,8 @@
 Update is complete, you can restart the controller.
 
 
+
+## U135
+
+- After connecting the USB cable, the controller goes into virtual COM port mode and the steps are the same from point 4 onwards.
 
