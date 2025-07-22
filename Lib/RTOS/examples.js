@@ -1,10 +1,10 @@
 var examples =
 [
-    [ "MessageBuffer", "dc/d98/a00225.html", null ],
-    [ "Queue", "d9/d01/a00227.html", null ],
-    [ "Semaphore", "dd/d2d/a00229.html", null ],
-    [ "SemaphoreCounting", "df/d17/a00231.html", null ],
-    [ "StreamBuffer", "d6/de1/a00233.html", null ],
-    [ "Task", "d3/d42/a00235.html", null ],
-    [ "Timer", "d4/d08/a00237.html", null ]
+    [ "MessageBuffer", "de/dd2/a00207.html", null ],
+    [ "Queue", "d3/de5/a00209.html", null ],
+    [ "Semaphore", "dd/ded/a00211.html", null ],
+    [ "SemaphoreCounting", "d1/de1/a00213.html", null ],
+    [ "StreamBuffer", "d3/dd5/a00215.html", null ],
+    [ "Task", "df/d24/a00217.html", null ],
+    [ "Timer", "dd/df3/a00219.html", null ]
 ];

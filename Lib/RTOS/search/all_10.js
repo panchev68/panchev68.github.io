@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['receive_0',['receive',['../de/db9/a00159.html#ae4b5ed9d9d2425556c2f5bfb8fa88bbd',1,'RTOS::MessageBuffer::receive()'],['../d1/d0d/a00171.html#a8a40f6acacdedb83c399c123317d0cfd',1,'RTOS::Queue::receive()'],['../d9/dd0/a00191.html#adedbd01b1bef79ede4812bd53b1e7347',1,'RTOS::StreamBuffer::receive()']]],
-  ['receivefromisr_1',['receiveFromISR',['../de/db9/a00159.html#a94cd9904ee3e7f59d98350801ec347a3',1,'RTOS::MessageBuffer::receiveFromISR()'],['../d1/d0d/a00171.html#a0e944f93b14485d94c36b36bed7a2e70',1,'RTOS::Queue::receiveFromISR()'],['../d9/dd0/a00191.html#a8fda8c9cedd61659ad971bc27fb6a04e',1,'RTOS::StreamBuffer::receiveFromISR()']]],
-  ['remove_2',['remove',['../de/d45/a00175.html#a22f8a8b12a240d63a220468d2921beee',1,'RTOS::QueueSet']]],
-  ['removefromregistry_3',['removeFromRegistry',['../d1/d0d/a00171.html#a04c7c4e8e7c979c670320128e03f08b7',1,'RTOS::Queue']]],
-  ['reset_4',['reset',['../de/db9/a00159.html#aa2130de68e4116751ab5061ff753f4de',1,'RTOS::MessageBuffer::reset()'],['../d1/d0d/a00171.html#a3f4e7c8e99ed90873150237c9336b6ed',1,'RTOS::Queue::reset()'],['../d9/dd0/a00191.html#a945ae0f4f0d0051decd64f9e208f59fc',1,'RTOS::StreamBuffer::reset()'],['../dd/df3/a00219.html#a42705e27b3a09924b49550cbbee7634c',1,'RTOS::Timer::reset()']]],
-  ['resettimeout_5',['resetTimeout',['../d3/dd5/a00215.html#a40f4c0f53a384bdc0c6c26f156ae0ff7',1,'RTOS::Timeout']]],
-  ['resume_6',['resume',['../d3/d2a/a00195.html#a2eeb82ee21502e313c8580cff4013ee4',1,'RTOS::Task']]],
-  ['resumeall_7',['resumeAll',['../dd/db2/a00151.html#a463878d883d67186e058e03aa433296f',1,'RTOS::Kernel']]],
-  ['resumefromisr_8',['resumeFromISR',['../d3/d2a/a00195.html#aed88653dbbc4ce3a134044c0d7b2b99e',1,'RTOS::Task']]],
-  ['rtos_9',['RTOS',['../d7/dce/a00143.html',1,'']]],
-  ['run_10',['run',['../dd/df3/a00219.html#afaca07dd0c8e8c4e6e246fa34a928571',1,'RTOS::Timer']]]
+  ['take_0',['take',['../da/ddb/a00145.html#a9279e9d965ba116d2ce3da7568aeeae6',1,'RTOS::Mutex::take()'],['../d6/d7d/a00161.html#aaff88f643c79c75553f7f678ee9a4c64',1,'RTOS::Semaphore::take()'],['../d0/d48/a00165.html#aab5deb1c3e21a206e7e4b6a2365d3562',1,'RTOS::SemaphoreBase::take()'],['../de/d53/a00169.html#ab7c2787534dcdaa60f40f4a0e75f008f',1,'RTOS::SemaphoreCounting::take()']]],
+  ['takefromisr_1',['takeFromISR',['../da/ddb/a00145.html#af5901479a1c92d58fb198bcb35e288c2',1,'RTOS::Mutex::takeFromISR()'],['../d6/d7d/a00161.html#afcf122ec069b8b33fd1e1ff8efbedc7f',1,'RTOS::Semaphore::takeFromISR()'],['../d0/d48/a00165.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f',1,'RTOS::SemaphoreBase::takeFromISR()'],['../de/d53/a00169.html#a5a70f9f956c6bc47de65c1b6c8fd36e7',1,'RTOS::SemaphoreCounting::takeFromISR()']]],
+  ['task_2',['Task',['../dd/d4c/a00177.html',1,'RTOS::Task'],['../dd/d4c/a00177.html#ab5480501418c29e9338d9216f19a81ec',1,'RTOS::Task::Task(uint32_t stackSize=configMINIMAL_STACK_SIZE, UBaseType_t priority=DEFAULT_TASK_PRIORITY)'],['../dd/d4c/a00177.html#adc1082525a8e0470204fba8430d95ae4',1,'RTOS::Task::Task(const std::string &amp;name, uint32_t stackSize=configMINIMAL_STACK_SIZE, UBaseType_t priority=DEFAULT_TASK_PRIORITY)'],['../dd/d4c/a00177.html#af8a4dec2eae733177c3aac4e4a05704d',1,'RTOS::Task::Task(Handle handle)'],['../dd/d4c/a00177.html#a90ff5228584ec6c42f14cd0b84bca7d3',1,'RTOS::Task::Task(const Task &amp;other)'],['../dd/d4c/a00177.html#a2a9558b96296bc56d857fd1db6a26b21',1,'RTOS::Task::Task(Task &amp;&amp;other)']]],
+  ['tickcounter_3',['TickCounter',['../de/df3/a00185.html',1,'RTOS']]],
+  ['tickservice_4',['TickService',['../da/deb/a00189.html',1,'RTOS']]],
+  ['ticktype_5',['TickType',['../d9/d47/a00129.html#ad148e5ad55c065d22eaa6d5c10ce0768',1,'RTOS::EventGroup']]],
+  ['timeout_6',['Timeout',['../de/db1/a00197.html',1,'RTOS::Timeout'],['../de/db1/a00197.html#ae60ae06c254b95430523fd499fc417ea',1,'RTOS::Timeout::Timeout()=default'],['../de/db1/a00197.html#ab8dd41dd5f673dde57a4bd570ac64bc1',1,'RTOS::Timeout::Timeout(uint32_t duration)']]],
+  ['timer_7',['Timer',['../dd/de3/a00201.html',1,'RTOS::Timer'],['../dd/de3/a00201.html#ade4ecfe2f7cffb3dd4e56d86f032a032',1,'RTOS::Timer::Timer()']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['member_0',['Member',['../de/d45/a00175.html#a15523e4b8826d137b1351df14e1f7070',1,'RTOS::QueueSet']]]
+  ['notificationbits_0',['NotificationBits',['../dd/d4c/a00177.html#a46b832087eb0a767ed881203db958980',1,'RTOS::Task']]]
 ];

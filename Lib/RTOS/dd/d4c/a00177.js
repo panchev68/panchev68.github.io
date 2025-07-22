@@ -1,0 +1,38 @@
+var a00177 =
+[
+    [ "Data", "d8/d64/a00181.html", "d8/d64/a00181" ],
+    [ "Handle", "dd/d4c/a00177.html#a357f3c6aaef67bcff1043d89bd785281", null ],
+    [ "NotificationBits", "dd/d4c/a00177.html#a46b832087eb0a767ed881203db958980", null ],
+    [ "NotifyAction", "dd/d4c/a00177.html#a722db3d72abab3738ebb735b6abc39eb", [
+      [ "NO_ACTION", "dd/d4c/a00177.html#a722db3d72abab3738ebb735b6abc39eba24ce802dad4f363a652f77ce888c9b91", null ],
+      [ "SET_BITS", "dd/d4c/a00177.html#a722db3d72abab3738ebb735b6abc39eba584142dc5514c9123172a12e9f7f150f", null ],
+      [ "INCREMENT", "dd/d4c/a00177.html#a722db3d72abab3738ebb735b6abc39eba90cf1f5206b348a822cc1a453a587534", null ],
+      [ "SET_VALUE_WITH_OVERWRITE", "dd/d4c/a00177.html#a722db3d72abab3738ebb735b6abc39eba9cfe01dd4b87702dc2867fc27635501f", null ],
+      [ "SET_VALUE_WITHOUT_OVERWRITE", "dd/d4c/a00177.html#a722db3d72abab3738ebb735b6abc39eba07e53fb05649b7d8f7020183075a9afb", null ]
+    ] ],
+    [ "Task", "dd/d4c/a00177.html#ab5480501418c29e9338d9216f19a81ec", null ],
+    [ "Task", "dd/d4c/a00177.html#adc1082525a8e0470204fba8430d95ae4", null ],
+    [ "Task", "dd/d4c/a00177.html#af8a4dec2eae733177c3aac4e4a05704d", null ],
+    [ "Task", "dd/d4c/a00177.html#a90ff5228584ec6c42f14cd0b84bca7d3", null ],
+    [ "Task", "dd/d4c/a00177.html#a2a9558b96296bc56d857fd1db6a26b21", null ],
+    [ "getHandle", "dd/d4c/a00177.html#a2b44b116a5594b0ffdfbb86c77981020", null ],
+    [ "getPriority", "dd/d4c/a00177.html#a485d14b047ebbb6abf21cf932c749430", null ],
+    [ "isRunning", "dd/d4c/a00177.html#a7220b6c68c8bfd3a7bf2dde8bc908a85", null ],
+    [ "isValid", "dd/d4c/a00177.html#a62de4af32150099f70bb657f02d4d04e", null ],
+    [ "notify", "dd/d4c/a00177.html#aa954b394b609285d43a83124cef2b8a7", null ],
+    [ "notifyAndQuery", "dd/d4c/a00177.html#a3b2222ddadf3a95c2afe6d949578f22f", null ],
+    [ "notifyAndQueryFromISR", "dd/d4c/a00177.html#a30dacbd5e804c7e7039ef636e09b3fdb", null ],
+    [ "notifyFromISR", "dd/d4c/a00177.html#a2be1a9dd0766b96e49d654f49385701a", null ],
+    [ "notifyGiveFromISR", "dd/d4c/a00177.html#aafce5c3c3c361f28a4d4c2ded72e1ed3", null ],
+    [ "operator Handle", "dd/d4c/a00177.html#a9df6cd1299039d3b039d4335e3c82a5d", null ],
+    [ "operator!=", "dd/d4c/a00177.html#aea20eb6ee2244a2d417e7118ac3c4af7", null ],
+    [ "operator=", "dd/d4c/a00177.html#a5ea094bea3f353bf438bc1643e092006", null ],
+    [ "operator=", "dd/d4c/a00177.html#a6c14ef66d8027334ac91641f7127ab4b", null ],
+    [ "operator==", "dd/d4c/a00177.html#a0599d075062867fe806062c718a649f5", null ],
+    [ "resume", "dd/d4c/a00177.html#a2eeb82ee21502e313c8580cff4013ee4", null ],
+    [ "resumeFromISR", "dd/d4c/a00177.html#aed88653dbbc4ce3a134044c0d7b2b99e", null ],
+    [ "setPriority", "dd/d4c/a00177.html#a175f239d6d9b9ef18e2e59c5566ec29f", null ],
+    [ "start", "dd/d4c/a00177.html#ab2d06ac82e8a4f87fa646e4f991c39a0", null ],
+    [ "stop", "dd/d4c/a00177.html#a59896af0d55197fe3e42c1b579fe8d72", null ],
+    [ "suspend", "dd/d4c/a00177.html#ae9215f33bbd3088eda8df473e1cb5ff9", null ]
+];
