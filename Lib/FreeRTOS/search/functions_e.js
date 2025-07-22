@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['receive_0',['receive',['../d7/d3f/a00173.html#ae3c01787c18e7f17c2780645d05da4d1',1,'RTOS::MessageBuffer::receive()'],['../d5/d13/a00205.html#ad0405b8ed615465c1acaf241e62127dd',1,'RTOS::StreamBuffer::receive()']]],
-  ['receivefromisr_1',['receiveFromISR',['../d7/d3f/a00173.html#a4202298645558c747076653fe78eed19',1,'RTOS::MessageBuffer::receiveFromISR()'],['../d5/d13/a00205.html#a148ef848e3aab720474cc6d1523043c2',1,'RTOS::StreamBuffer::receiveFromISR()']]],
-  ['remove_2',['remove',['../da/deb/a00189.html#a22f8a8b12a240d63a220468d2921beee',1,'RTOS::QueueSet']]],
-  ['reset_3',['reset',['../d7/d3f/a00173.html#aa3b10347853e829732465409e3735500',1,'RTOS::MessageBuffer::reset()'],['../d5/d13/a00205.html#a7f884411ea5c6b895b81aa33e6c7f1da',1,'RTOS::StreamBuffer::reset()'],['../d4/d08/a00237.html#a4b11faa5785739d4b5c64fcbe54c5c89',1,'RTOS::Timer::reset()']]],
-  ['resettimeout_4',['resetTimeout',['../d6/de1/a00233.html#ad4c9db541b1f16a5d81885a38ea3360f',1,'RTOS::Timeout']]],
-  ['resume_5',['resume',['../d3/de5/a00209.html#a6409c2b90d6be59624dff71cea7aa2d1',1,'RTOS::Task::resume()'],['../df/d24/a00217.html#ac77340ec3698c719f105d48482d5e4ce',1,'RTOS::TaskHelper::resume()']]],
-  ['resumeall_6',['resumeAll',['../d0/d48/a00165.html#ab64f3c3bab30255a00368d52f7f86f69',1,'RTOS::Kernel']]],
-  ['resumefromisr_7',['resumeFromISR',['../d3/de5/a00209.html#a929269621023fc7d3db70b4886fdbc8a',1,'RTOS::Task::resumeFromISR()'],['../df/d24/a00217.html#aae9550c24e9dd587a70200ebb7bb492e',1,'RTOS::TaskHelper::resumeFromISR()']]],
-  ['resumescheduler_8',['resumeScheduler',['../d3/df8/a00155.html#a2baee8687415ef10142300fb11e3a568',1,'RTOS']]],
-  ['run_9',['run',['../d4/d08/a00237.html#af31af53665021d2961294cef77f46235',1,'RTOS::Timer']]]
+  ['receive_0',['receive',['../de/db9/a00159.html#ae4b5ed9d9d2425556c2f5bfb8fa88bbd',1,'RTOS::MessageBuffer::receive()'],['../d1/d0d/a00171.html#a8a40f6acacdedb83c399c123317d0cfd',1,'RTOS::Queue::receive()'],['../d9/dd0/a00191.html#adedbd01b1bef79ede4812bd53b1e7347',1,'RTOS::StreamBuffer::receive()']]],
+  ['receivefromisr_1',['receiveFromISR',['../de/db9/a00159.html#a94cd9904ee3e7f59d98350801ec347a3',1,'RTOS::MessageBuffer::receiveFromISR()'],['../d1/d0d/a00171.html#a0e944f93b14485d94c36b36bed7a2e70',1,'RTOS::Queue::receiveFromISR()'],['../d9/dd0/a00191.html#a8fda8c9cedd61659ad971bc27fb6a04e',1,'RTOS::StreamBuffer::receiveFromISR()']]],
+  ['remove_2',['remove',['../de/d45/a00175.html#a22f8a8b12a240d63a220468d2921beee',1,'RTOS::QueueSet']]],
+  ['removefromregistry_3',['removeFromRegistry',['../d1/d0d/a00171.html#a04c7c4e8e7c979c670320128e03f08b7',1,'RTOS::Queue']]],
+  ['reset_4',['reset',['../de/db9/a00159.html#aa2130de68e4116751ab5061ff753f4de',1,'RTOS::MessageBuffer::reset()'],['../d1/d0d/a00171.html#a3f4e7c8e99ed90873150237c9336b6ed',1,'RTOS::Queue::reset()'],['../d9/dd0/a00191.html#a945ae0f4f0d0051decd64f9e208f59fc',1,'RTOS::StreamBuffer::reset()'],['../dd/df3/a00219.html#a42705e27b3a09924b49550cbbee7634c',1,'RTOS::Timer::reset()']]],
+  ['resettimeout_5',['resetTimeout',['../d3/dd5/a00215.html#a40f4c0f53a384bdc0c6c26f156ae0ff7',1,'RTOS::Timeout']]],
+  ['resume_6',['resume',['../d3/d2a/a00195.html#a2eeb82ee21502e313c8580cff4013ee4',1,'RTOS::Task']]],
+  ['resumeall_7',['resumeAll',['../dd/db2/a00151.html#a463878d883d67186e058e03aa433296f',1,'RTOS::Kernel']]],
+  ['resumefromisr_8',['resumeFromISR',['../d3/d2a/a00195.html#aed88653dbbc4ce3a134044c0d7b2b99e',1,'RTOS::Task']]],
+  ['run_9',['run',['../dd/df3/a00219.html#afaca07dd0c8e8c4e6e246fa34a928571',1,'RTOS::Timer']]]
 ];

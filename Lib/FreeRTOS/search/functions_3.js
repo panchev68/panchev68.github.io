@@ -1,9 +1,10 @@
 var searchData=
 [
-  ['deallocate_0',['deallocate',['../de/d53/a00169.html#abad68adaab8cc13a16f3ee0c3eb113f1',1,'RTOS::MemoryManager']]],
-  ['delay_1',['delay',['../d3/de5/a00209.html#a21545fbec6950f343234ebeb8988a865',1,'RTOS::Task::delay()'],['../d3/df8/a00155.html#ae680b173c351864812fe9a18c9091731',1,'RTOS::delay(uint32_t milliseconds) noexcept']]],
-  ['delayuntil_2',['delayUntil',['../d3/df8/a00155.html#a01851817a58c5b5d7729999a8cdc5126',1,'RTOS']]],
-  ['destroy_3',['destroy',['../d6/d7d/a00161.html#a8be2a10d7b67f7c8df72530399afe420',1,'RTOS::EventGroup::destroy()'],['../d7/d3f/a00173.html#a2de45fae9e6bc9084b1b268ecb88ab07',1,'RTOS::MessageBuffer::destroy()'],['../dd/d4c/a00177.html#a717609f16f85df691388f49bd22b1cf3',1,'RTOS::Mutex::destroy()'],['../dd/df4/a00193.html#a209f5321f2420c74cdeb441d00ddb5c5',1,'RTOS::Semaphore::destroy()'],['../de/db1/a00197.html#a25a2ad00ab35ad33d79892048ca2b10c',1,'RTOS::SemaphoreBase::destroy()'],['../dd/de3/a00201.html#ae8698050dde1ea4a1db6be10dab56f53',1,'RTOS::SemaphoreCounting::destroy()'],['../d5/d13/a00205.html#a622696c2966b2feb637434c234060888',1,'RTOS::StreamBuffer::destroy()'],['../d4/d08/a00237.html#a0a84a6872ff671b7c6e67a5ecaf67a35',1,'RTOS::Timer::destroy() noexcept'],['../d4/d08/a00237.html#a2a47e6de0da6943b69b922f61c875a2d',1,'RTOS::Timer::destroy(Timer *instance) noexcept']]],
-  ['disable_4',['disable',['../d6/de1/a00233.html#a9f4c1790b62b338de5ee47cad756a53e',1,'RTOS::Timeout']]],
-  ['disableinterrupts_5',['disableInterrupts',['../d0/d48/a00165.html#a738c48290380dbc031451b03a3124bf8',1,'RTOS::Kernel']]]
+  ['enableinterrupts_0',['enableInterrupts',['../dd/db2/a00151.html#a214eeb3029201b088a4b1b966d4f5dd5',1,'RTOS::Kernel']]],
+  ['endscheduler_1',['endScheduler',['../dd/db2/a00151.html#a2795289e5800d302aa4a8a03e89a2c17',1,'RTOS::Kernel']]],
+  ['entercritical_2',['enterCritical',['../dd/db2/a00151.html#afe94ea91ffd4a0d732d505b0546d16ed',1,'RTOS::Kernel']]],
+  ['entercriticalfromisr_3',['enterCriticalFromISR',['../dd/db2/a00151.html#a91b2689d68296368e2e64b8f94a5c1ea',1,'RTOS::Kernel']]],
+  ['eventgroup_4',['EventGroup',['../d0/d4a/a00147.html#a6690412802cf948348b7db9c47e9f25f',1,'RTOS::EventGroup::EventGroup()=default'],['../d0/d4a/a00147.html#a674ca6cf44432becf24267dda94e547d',1,'RTOS::EventGroup::EventGroup(const EventGroup &amp;)=delete']]],
+  ['exitcritical_5',['exitCritical',['../dd/db2/a00151.html#a9f5f648ce2a0965160372f4f94cc562d',1,'RTOS::Kernel']]],
+  ['exitcriticalfromisr_6',['exitCriticalFromISR',['../dd/db2/a00151.html#a5e606d3bb1630e1f1bf40955b0dae63b',1,'RTOS::Kernel']]]
 ];

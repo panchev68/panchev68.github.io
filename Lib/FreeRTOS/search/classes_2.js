@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['guard_0',['Guard',['../d8/d64/a00181.html',1,'RTOS::Mutex']]]
+  ['eventgroup_0',['EventGroup',['../d0/d4a/a00147.html',1,'RTOS']]]
 ];

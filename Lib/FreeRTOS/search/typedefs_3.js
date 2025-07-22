@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ticktype_0',['TickType',['../d6/d7d/a00161.html#ad148e5ad55c065d22eaa6d5c10ce0768',1,'RTOS::EventGroup']]]
+  ['notificationbits_0',['NotificationBits',['../d3/d2a/a00195.html#a46b832087eb0a767ed881203db958980',1,'RTOS::Task']]]
 ];

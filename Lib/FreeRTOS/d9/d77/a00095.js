@@ -1,4 +1,4 @@
 var a00095 =
 [
-    [ "RTOS::Queue< T, T_QUEUE_LEN >", "de/df3/a00185.html", null ]
+    [ "RTOS::QueueSet", "de/d45/a00175.html", "de/d45/a00175" ]
 ];

@@ -1,4 +1,4 @@
 var a00083 =
 [
-    [ "RTOS::Kernel", "d0/d48/a00165.html", null ]
+    [ "RTOS::MemoryManager", "d3/df8/a00155.html", null ]
 ];

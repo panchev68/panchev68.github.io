@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['callback_0',['callback',['../d6/db6/a00241.html#abe35c71ade8d73402a42a3582900347e',1,'RTOS::Timer::Config']]],
-  ['catchupticks_1',['catchUpTicks',['../d0/d48/a00165.html#a68777e56831c4f544e99ef70933385c4',1,'RTOS::Kernel']]],
-  ['clearbits_2',['clearBits',['../d6/d7d/a00161.html#a35648f30d28df1a038b0cde9fe83a2c0',1,'RTOS::EventGroup']]],
-  ['clearbitsfromisr_3',['clearBitsFromISR',['../d6/d7d/a00161.html#a005424530bec695161ec8a15e2549dec',1,'RTOS::EventGroup']]],
-  ['clientbase_4',['ClientBase',['../dd/d2d/a00229.html',1,'RTOS::TickService::ClientBase'],['../dd/d2d/a00229.html#a562cccf86c7c987c9372619e88888165',1,'RTOS::TickService::ClientBase::ClientBase()']]],
-  ['config_5',['Config',['../d6/db6/a00241.html',1,'RTOS::Timer']]],
-  ['counter_6',['Tick Counter',['../d7/dce/a00143.html',1,'']]],
-  ['counting_20semaphore_7',['Counting Semaphore',['../d9/d7d/a00150.html',1,'']]],
-  ['create_8',['create',['../d6/d7d/a00161.html#afe8fcf825297d2edafc2fe76f78dbc00',1,'RTOS::EventGroup::create()'],['../d7/d3f/a00173.html#ad1bebbd6173cdb2fa8e267367be2d7fd',1,'RTOS::MessageBuffer::create()'],['../dd/d4c/a00177.html#a35d8c658a69715583eaaf40666596f73',1,'RTOS::Mutex::create()'],['../da/deb/a00189.html#afeb55a64e31f93a8776ea1ba33e26949',1,'RTOS::QueueSet::create()'],['../dd/df4/a00193.html#a19628d4e5aa15daa32791e6db6931628',1,'RTOS::Semaphore::create()'],['../de/db1/a00197.html#a68bea5a7d97b69996a24271218e299c7',1,'RTOS::SemaphoreBase::create()'],['../dd/de3/a00201.html#a72d591b9e77f371868695a19be3c99e8',1,'RTOS::SemaphoreCounting::create()'],['../d5/d13/a00205.html#a977f2eceabdd3c98da2cb1fd36a4ac9f',1,'RTOS::StreamBuffer::create()'],['../d4/d08/a00237.html#a0f56ed7c511291ed43dbeaad71e143e3',1,'RTOS::Timer::create(std::string name, std::function&lt; void()&gt; callback, uint32_t period=1, bool isAutoReload=true) noexcept'],['../d4/d08/a00237.html#a3be453dda6ddfd3cf944fdc7d36335bf',1,'RTOS::Timer::create(const Config &amp;config) noexcept']]]
+  ['callback_0',['callback',['../dc/d28/a00223.html#abe35c71ade8d73402a42a3582900347e',1,'RTOS::Timer::Config']]],
+  ['catchupticks_1',['catchUpTicks',['../dd/db2/a00151.html#aedea81c50b5fe3f38d68acd96098c9c9',1,'RTOS::Kernel']]],
+  ['clearbits_2',['clearBits',['../d0/d4a/a00147.html#a44c825f79126d916f8d7e17d93b416b5',1,'RTOS::EventGroup']]],
+  ['clearbitsfromisr_3',['clearBitsFromISR',['../d0/d4a/a00147.html#ac3e4026472c8b09395f8e14b8a71fe3b',1,'RTOS::EventGroup']]],
+  ['clientbase_4',['ClientBase',['../dd/ded/a00211.html',1,'RTOS::TickService::ClientBase'],['../dd/ded/a00211.html#ac84ffd97d3420aa324292d0692085ed7',1,'RTOS::TickService::ClientBase::ClientBase()']]],
+  ['config_5',['Config',['../dc/d28/a00223.html',1,'RTOS::Timer']]],
+  ['counter_6',['Tick Counter',['../d7/d06/a00131.html',1,'']]],
+  ['counting_20semaphore_7',['Counting Semaphore',['../d4/ddd/a00138.html',1,'']]],
+  ['create_8',['create',['../d0/d4a/a00147.html#ae123b21b37e587e5e424af4651768471',1,'RTOS::EventGroup::create()'],['../de/db9/a00159.html#adf8a8075ffc1f03938788678aabc84a9',1,'RTOS::MessageBuffer::create()'],['../d1/d0d/a00171.html#a1de0680dcbee88e899d16e907744cf34',1,'RTOS::Queue::create()'],['../de/d45/a00175.html#afeb55a64e31f93a8776ea1ba33e26949',1,'RTOS::QueueSet::create()'],['../db/dd9/a00179.html#a89c77ce82882d1c04a9adbb0a4816a79',1,'RTOS::Semaphore::create()'],['../dc/d52/a00183.html#abe7be11ded0f450a8e456e0ead643d03',1,'RTOS::SemaphoreBase::create()'],['../d6/daa/a00187.html#a79abb88c91a63fdd98ae9c4877adcf23',1,'RTOS::SemaphoreCounting::create()'],['../d9/dd0/a00191.html#aa2c511443cf2207c917749583857480a',1,'RTOS::StreamBuffer::create()']]]
 ];

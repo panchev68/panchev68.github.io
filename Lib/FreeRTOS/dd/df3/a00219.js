@@ -1,16 +1,20 @@
 var a00219 =
 [
-    [ "Timeout", "dd/df3/a00219.html#a8910d6a113a328bba906a9b616c8f41f", null ],
-    [ "Timeout", "dd/df3/a00219.html#a4a7e03b722fbe1f3a82d743201c06cb5", null ],
-    [ "~Timeout", "dd/df3/a00219.html#a4f2dfba861c373b6540e469c308f08b7", null ],
-    [ "check", "dd/df3/a00219.html#a8c0ee07cdb07edb0f12adbb0fa289281", null ],
-    [ "disable", "dd/df3/a00219.html#a0775668c8aa6772213a71cc5d3c8092d", null ],
-    [ "expired", "dd/df3/a00219.html#a14df6653ba4d9d92bb8a59b66a208174", null ],
-    [ "isDisable", "dd/df3/a00219.html#a02e900ecaf3d876d2752eb93718ce918", null ],
-    [ "operator uint32_t", "dd/df3/a00219.html#a3509cd6f7bcc15b3e71001b5ff263c70", null ],
-    [ "operator+=", "dd/df3/a00219.html#a0e3f56d570129b4b74e8c2137b981ec2", null ],
-    [ "operator-=", "dd/df3/a00219.html#ac4aaafe0d47e3701fdf193692781a2eb", null ],
-    [ "operator=", "dd/df3/a00219.html#addc09014f9c63133ce9ee81e6f2a94ce", null ],
-    [ "operator==", "dd/df3/a00219.html#a906526d607c0dbea4512e2e7f44a9a48", null ],
-    [ "set", "dd/df3/a00219.html#ac3199c9f3b73f110cc7f6c3975599d32", null ]
+    [ "Config", "dc/d28/a00223.html", "dc/d28/a00223" ],
+    [ "Handle", "dd/df3/a00219.html#a88e12a9654bf75a052ba3eab8aefe933", null ],
+    [ "Timer", "dd/df3/a00219.html#ade4ecfe2f7cffb3dd4e56d86f032a032", null ],
+    [ "~Timer", "dd/df3/a00219.html#a3faa389394f61c47055bd8586a4358bc", null ],
+    [ "destroy", "dd/df3/a00219.html#ab5e73a8812b87696adea111ccabbae4f", null ],
+    [ "getExpiryTime", "dd/df3/a00219.html#a5ae2085a458d7f944e16a1f339c43caf", null ],
+    [ "getName", "dd/df3/a00219.html#a95d114e04aef00b540d5f5c31d55ee9f", null ],
+    [ "getPeriod", "dd/df3/a00219.html#ac144a6e63149663f29987a16d2c0ec78", null ],
+    [ "isValid", "dd/df3/a00219.html#ae24f6a430f437d9be3304f47e0680fe5", null ],
+    [ "reset", "dd/df3/a00219.html#a42705e27b3a09924b49550cbbee7634c", null ],
+    [ "setPeriod", "dd/df3/a00219.html#a526c95245d6e2e0b1704b54d0eff5802", null ],
+    [ "setPeriodFromISR", "dd/df3/a00219.html#a19a7f4adf92fe347786322a5a7a2d05b", null ],
+    [ "setReloadMode", "dd/df3/a00219.html#a5ef3fce34759f5e6418ebf0d10cec1f1", null ],
+    [ "start", "dd/df3/a00219.html#a3ea5844a5f34c0c218f89f0fa4557985", null ],
+    [ "startFromISR", "dd/df3/a00219.html#a7a590b3bbfb0b41760a734663234c2a7", null ],
+    [ "stop", "dd/df3/a00219.html#ad6f451c422e02369a44edc472a75c2c0", null ],
+    [ "stopFromISR", "dd/df3/a00219.html#a24523217c75cbef299341473ee017325", null ]
 ];

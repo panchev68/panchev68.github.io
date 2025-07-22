@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['get_0',['get',['../dd/d52/a00221.html#a352ec60aa81a842695970e568878d07f',1,'RTOS::TickCounter']]],
-  ['getbits_1',['getBits',['../d6/d7d/a00161.html#abcef4fc1bc24f121bf48c200c5a34f1b',1,'RTOS::EventGroup']]],
-  ['getbitsfromisr_2',['getBitsFromISR',['../d6/d7d/a00161.html#ad7e9ac5f50e8d6d0b28c5ac4c29f3059',1,'RTOS::EventGroup']]],
-  ['getbytesavailable_3',['getBytesAvailable',['../d5/d13/a00205.html#aca144ddaa56a23cc87168343d27cd515',1,'RTOS::StreamBuffer']]],
-  ['getcount_4',['getCount',['../dd/de3/a00201.html#a54165b34c7ae628a38cdd34017cffdc4',1,'RTOS::SemaphoreCounting']]],
-  ['getexpirytime_5',['getExpiryTime',['../d4/d08/a00237.html#af82af858476bc5a6d7b427aa599bd818',1,'RTOS::Timer']]],
-  ['getfreeheapsize_6',['getFreeHeapSize',['../de/d53/a00169.html#a1de95ba934bda50f129a1eef6fc61143',1,'RTOS::MemoryManager']]],
-  ['getfromisr_7',['getFromISR',['../dd/d52/a00221.html#a8daefce358719c1e9173a868a480209d',1,'RTOS::TickCounter']]],
-  ['gethandle_8',['getHandle',['../d3/de5/a00209.html#af41b956050518edca127e579485f654c',1,'RTOS::Task']]],
-  ['getinstance_9',['getInstance',['../dc/d98/a00225.html#ade97d81158805cd8cd8caf2edd73eb86',1,'RTOS::TickService']]],
-  ['getname_10',['getName',['../df/d24/a00217.html#a643b0f21547b5ce7d409f137a3bb7faa',1,'RTOS::TaskHelper::getName()'],['../d4/d08/a00237.html#a14291c105696867229bc748a77a35167',1,'RTOS::Timer::getName()']]],
-  ['getnumberoftasks_11',['getNumberOfTasks',['../d0/d48/a00165.html#ae08d3f6887016076cd88f27052853f8d',1,'RTOS::Kernel']]],
-  ['getperiod_12',['getPeriod',['../d4/d08/a00237.html#ac9b20f817b1b28eae2653515578de889',1,'RTOS::Timer']]],
-  ['getpriority_13',['getPriority',['../d3/de5/a00209.html#a0bd434f9eeac68fb3f01116a7dc812e0',1,'RTOS::Task::getPriority()'],['../df/d24/a00217.html#a8e9a817ab39abfa7a94095a74047e6a2',1,'RTOS::TaskHelper::getPriority()']]],
-  ['getspacesavailable_14',['getSpacesAvailable',['../d7/d3f/a00173.html#ae43c6ce5b75b7a41bece0b975947263f',1,'RTOS::MessageBuffer::getSpacesAvailable()'],['../d5/d13/a00205.html#a7b2b0bd7bcc2d727ccd57f3a84cf9383',1,'RTOS::StreamBuffer::getSpacesAvailable()']]],
-  ['gettickcount_15',['getTickCount',['../d0/d48/a00165.html#a8274cc867b5271218cb7a93566af09c2',1,'RTOS::Kernel::getTickCount()'],['../d3/df8/a00155.html#ae3342c6be5e8c847f394afe2b43e5cee',1,'RTOS::getTickCount()']]],
-  ['gettickcountfromisr_16',['getTickCountFromISR',['../d0/d48/a00165.html#a93b9aec624e11d4594c6a5c1e7e6eeff',1,'RTOS::Kernel::getTickCountFromISR()'],['../d3/df8/a00155.html#a1850933d8242b388b14a3ebb49ede9c6',1,'RTOS::getTickCountFromISR()']]],
-  ['gettimerdaemontaskhandle_17',['getTimerDaemonTaskHandle',['../d4/d08/a00237.html#ae245179b6613c4f40e467dc52ccbb8a3',1,'RTOS::Timer']]],
-  ['give_18',['give',['../dd/d4c/a00177.html#a7085cc3216df5b89a3a8810dd3143628',1,'RTOS::Mutex::give()'],['../dd/df4/a00193.html#ade2011231487c7b4319fcfdb0c9a3d9b',1,'RTOS::Semaphore::give()'],['../de/db1/a00197.html#aecd55b4ab49a736a5162bf88fc570c41',1,'RTOS::SemaphoreBase::give()'],['../dd/de3/a00201.html#af66756cb0a87a77429e560376a1f3f78',1,'RTOS::SemaphoreCounting::give()']]],
-  ['givefromisr_19',['giveFromISR',['../dd/d4c/a00177.html#aa933a5468515fadbbf76bb5107336350',1,'RTOS::Mutex::giveFromISR()'],['../dd/df4/a00193.html#a40655fa62809f5504baa981f0b0244e7',1,'RTOS::Semaphore::giveFromISR()'],['../de/db1/a00197.html#a49fbdf708f7bb49199b8bfa161dc3194',1,'RTOS::SemaphoreBase::giveFromISR()'],['../dd/de3/a00201.html#aa1b1f073f918cd76e1c6bf62281c8b55',1,'RTOS::SemaphoreCounting::giveFromISR()']]],
-  ['guard_20',['Guard',['../d8/d64/a00181.html#ad68d25f6f88d84205f2e5d2fdb28a5b8',1,'RTOS::Mutex::Guard::Guard(Mutex &amp;mutex) noexcept'],['../d8/d64/a00181.html#a199eb3458c7f747337b75c6af5e2d3a7',1,'RTOS::Mutex::Guard::Guard(Mutex &amp;mutex, uint32_t maxTicksToWait) noexcept']]]
+  ['handletickevent_0',['handleTickEvent',['../dd/ded/a00211.html#a813aed3eccda809913d539e2eeaacabd',1,'RTOS::TickService::ClientBase']]]
 ];

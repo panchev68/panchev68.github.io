@@ -1,6 +1,6 @@
 var a00211 =
 [
-    [ "Parameters", "dd/ded/a00211.html#ad387b0aa1f2c55dfa81e61a59b2f9410", null ],
-    [ "Parameters", "dd/ded/a00211.html#a3e4402eeece14bdc345caae1e8a2544d", null ],
-    [ "~Parameters", "dd/ded/a00211.html#a06f6397feec568c1896fda282e46d0b6", null ]
+    [ "ClientBase", "dd/ded/a00211.html#ac84ffd97d3420aa324292d0692085ed7", null ],
+    [ "~ClientBase", "dd/ded/a00211.html#aa69c0c553a59c8ff0b3a359ef3f7d807", null ],
+    [ "handleTickEvent", "dd/ded/a00211.html#a813aed3eccda809913d539e2eeaacabd", null ]
 ];

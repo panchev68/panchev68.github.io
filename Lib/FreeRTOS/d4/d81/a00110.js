@@ -1,4 +1,5 @@
 var a00110 =
 [
-    [ "RTOS::StreamBuffer", "d5/d13/a00205.html", "d5/d13/a00205" ]
+    [ "RTOS::Task", "d3/d2a/a00195.html", "d3/d2a/a00195" ],
+    [ "RTOS::Task::Data", "d8/d72/a00199.html", "d8/d72/a00199" ]
 ];

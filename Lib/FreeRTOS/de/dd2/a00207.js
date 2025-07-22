@@ -1,40 +1,5 @@
 var a00207 =
 [
-    [ "Parameters", "dd/ded/a00211.html", "dd/ded/a00211" ],
-    [ "Handle", "de/dd2/a00207.html#a357f3c6aaef67bcff1043d89bd785281", null ],
-    [ "NotificationBits", "de/dd2/a00207.html#a46b832087eb0a767ed881203db958980", null ],
-    [ "NotifyAction", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eb", [
-      [ "NO_ACTION", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba24ce802dad4f363a652f77ce888c9b91", null ],
-      [ "SET_BITS", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba584142dc5514c9123172a12e9f7f150f", null ],
-      [ "INCREMENT", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba90cf1f5206b348a822cc1a453a587534", null ],
-      [ "SET_VALUE_WITH_OVERWRITE", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba9cfe01dd4b87702dc2867fc27635501f", null ],
-      [ "SET_VALUE_WITHOUT_OVERWRITE", "de/dd2/a00207.html#a722db3d72abab3738ebb735b6abc39eba07e53fb05649b7d8f7020183075a9afb", null ]
-    ] ],
-    [ "Task", "de/dd2/a00207.html#ab5480501418c29e9338d9216f19a81ec", null ],
-    [ "Task", "de/dd2/a00207.html#adc1082525a8e0470204fba8430d95ae4", null ],
-    [ "Task", "de/dd2/a00207.html#af8a4dec2eae733177c3aac4e4a05704d", null ],
-    [ "Task", "de/dd2/a00207.html#a92feb088ef684b9a80b0f953a3eec4f6", null ],
-    [ "Task", "de/dd2/a00207.html#a1e0869b03d6f63a53b861fc579870777", null ],
-    [ "~Task", "de/dd2/a00207.html#a2d73a90fab600a7b74b5fecd19f4ad85", null ],
-    [ "getHandle", "de/dd2/a00207.html#a2b44b116a5594b0ffdfbb86c77981020", null ],
-    [ "getPriority", "de/dd2/a00207.html#a485d14b047ebbb6abf21cf932c749430", null ],
-    [ "isRunning", "de/dd2/a00207.html#a7220b6c68c8bfd3a7bf2dde8bc908a85", null ],
-    [ "isValid", "de/dd2/a00207.html#a62de4af32150099f70bb657f02d4d04e", null ],
-    [ "notify", "de/dd2/a00207.html#aa954b394b609285d43a83124cef2b8a7", null ],
-    [ "notifyAndQuery", "de/dd2/a00207.html#a3b2222ddadf3a95c2afe6d949578f22f", null ],
-    [ "notifyAndQueryFromISR", "de/dd2/a00207.html#aeedef6345fc336cfa7de13ac248d24a0", null ],
-    [ "notifyFromISR", "de/dd2/a00207.html#a8a129395d43113b8df2e270ed0ba1ebe", null ],
-    [ "notifyGive", "de/dd2/a00207.html#a0f29f5b6eaab1e098bdfc6fad99ab2d8", null ],
-    [ "notifyGiveFromISR", "de/dd2/a00207.html#a3979014318db1afab31b0057b82c36dc", null ],
-    [ "operator Handle", "de/dd2/a00207.html#a9df6cd1299039d3b039d4335e3c82a5d", null ],
-    [ "operator!=", "de/dd2/a00207.html#a090d49c085ccd7b5940a597a583f7d9c", null ],
-    [ "operator=", "de/dd2/a00207.html#abbecfb70087a7c669c561544c60e7b7c", null ],
-    [ "operator=", "de/dd2/a00207.html#a49c6ba78fff29b47a40fb16d5d149a27", null ],
-    [ "operator==", "de/dd2/a00207.html#a12237ff5b092e48714e02e071f34896f", null ],
-    [ "resume", "de/dd2/a00207.html#a2eeb82ee21502e313c8580cff4013ee4", null ],
-    [ "resumeFromISR", "de/dd2/a00207.html#aed88653dbbc4ce3a134044c0d7b2b99e", null ],
-    [ "setPriority", "de/dd2/a00207.html#a175f239d6d9b9ef18e2e59c5566ec29f", null ],
-    [ "start", "de/dd2/a00207.html#aa2d80b469a4c93a32a365c0a4fd27423", null ],
-    [ "stop", "de/dd2/a00207.html#a59896af0d55197fe3e42c1b579fe8d72", null ],
-    [ "suspend", "de/dd2/a00207.html#ae9215f33bbd3088eda8df473e1cb5ff9", null ]
+    [ "ClientBase", "dd/ded/a00211.html", "dd/ded/a00211" ],
+    [ "start", "de/dd2/a00207.html#a7498e9bf6b49e8fdc5ac9da955349a75", null ]
 ];

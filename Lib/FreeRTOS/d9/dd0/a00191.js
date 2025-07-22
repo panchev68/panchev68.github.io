@@ -1,16 +1,19 @@
 var a00191 =
 [
-    [ "Handle", "d9/dd0/a00191.html#ab6421331ba2f810ca117af37f7da747a", null ],
-    [ "Semaphore", "d9/dd0/a00191.html#ad5397fb88e92d526bd091f4d468a426e", null ],
-    [ "~Semaphore", "d9/dd0/a00191.html#aa5e35a44d5786139f77a3a57a483c021", null ],
-    [ "create", "d9/dd0/a00191.html#a89c77ce82882d1c04a9adbb0a4816a79", null ],
-    [ "destroy", "d9/dd0/a00191.html#a20dab5ad75e48b973309d994006e99b5", null ],
-    [ "give", "d9/dd0/a00191.html#aad3313acf8b7b8d3282fa087e94699a3", null ],
-    [ "giveFromISR", "d9/dd0/a00191.html#af808649cc6157fb1fce8c815039cb27c", null ],
-    [ "isCreated", "d9/dd0/a00191.html#a7bb707649b575ed1941950f740df148e", null ],
-    [ "operator Handle &", "d9/dd0/a00191.html#a8f256eeb71978589d9e8215070cc046a", null ],
-    [ "overwrite", "d9/dd0/a00191.html#a52cb4c76003b898b7b12736211785d06", null ],
-    [ "overwriteFromISR", "d9/dd0/a00191.html#a571a1c7023d93b55e0fe4418d4b9f3ff", null ],
-    [ "take", "d9/dd0/a00191.html#aaff88f643c79c75553f7f678ee9a4c64", null ],
-    [ "takeFromISR", "d9/dd0/a00191.html#afcf122ec069b8b33fd1e1ff8efbedc7f", null ]
+    [ "StreamBuffer", "d9/dd0/a00191.html#a6d894360f80c822b178de66210a2bc6a", null ],
+    [ "~StreamBuffer", "d9/dd0/a00191.html#a4279301601dc12497575fbe9b250f62a", null ],
+    [ "create", "d9/dd0/a00191.html#aa2c511443cf2207c917749583857480a", null ],
+    [ "destroy", "d9/dd0/a00191.html#a61e72fe0b7e6d6115d71d9d7e789cdb5", null ],
+    [ "getBytesAvailable", "d9/dd0/a00191.html#a106b6b1961b742c76bd83f3d032aad3a", null ],
+    [ "getSpacesAvailable", "d9/dd0/a00191.html#a9fa51825dff8d1fb8914b5700becd22a", null ],
+    [ "isCreated", "d9/dd0/a00191.html#a19a0f30afe68cccb4fbb7ba9d3fb3f24", null ],
+    [ "isEmpty", "d9/dd0/a00191.html#ac63276981f0f2652f909f8caf99eded6", null ],
+    [ "isFull", "d9/dd0/a00191.html#ab28a179ad13782df9ebce66f220d9084", null ],
+    [ "operator Handle &", "d9/dd0/a00191.html#a8f44e79071890fe52737b0a611f8204b", null ],
+    [ "receive", "d9/dd0/a00191.html#adedbd01b1bef79ede4812bd53b1e7347", null ],
+    [ "receiveFromISR", "d9/dd0/a00191.html#a8fda8c9cedd61659ad971bc27fb6a04e", null ],
+    [ "reset", "d9/dd0/a00191.html#a945ae0f4f0d0051decd64f9e208f59fc", null ],
+    [ "send", "d9/dd0/a00191.html#a2f95c21ea10b46a1b618a3404ca40a78", null ],
+    [ "sendFromISR", "d9/dd0/a00191.html#af0d7b2f1971bd4ed46bfa94122fc0b4b", null ],
+    [ "setTriggerLevel", "d9/dd0/a00191.html#a861b60a2bb7532cbbff910e8b1fc0a33", null ]
 ];

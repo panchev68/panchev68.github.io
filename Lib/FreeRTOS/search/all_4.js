@@ -1,13 +1,13 @@
 var searchData=
 [
-  ['enableinterrupts_0',['enableInterrupts',['../d0/d48/a00165.html#a7a4d0ef0133e3c0b6243479cede8046e',1,'RTOS::Kernel']]],
-  ['endcriticalsection_1',['endCriticalSection',['../d3/df8/a00155.html#acdcceb130fc687d0f170eb09d2064f7e',1,'RTOS']]],
-  ['endscheduler_2',['endScheduler',['../d0/d48/a00165.html#a4ae23dc81d50b9cb5fd06ec7d77d502a',1,'RTOS::Kernel']]],
-  ['entercritical_3',['enterCritical',['../d0/d48/a00165.html#aa6a73cf61c21a9ad724196885bf6740b',1,'RTOS::Kernel']]],
-  ['entercriticalfromisr_4',['enterCriticalFromISR',['../d0/d48/a00165.html#ad04d7e40dae2b7421261b9999164d705',1,'RTOS::Kernel']]],
-  ['event_20group_5',['Event Group',['../d5/db1/a00140.html',1,'']]],
-  ['eventgroup_6',['EventGroup',['../d6/d7d/a00161.html',1,'RTOS::EventGroup'],['../d6/d7d/a00161.html#a4420314799334910893af9f0a2e7854b',1,'RTOS::EventGroup::EventGroup()']]],
-  ['eventgroup_2ehpp_7',['EventGroup.hpp',['../da/dec/a00080.html',1,'']]],
-  ['exitcritical_8',['exitCritical',['../d0/d48/a00165.html#a11438bd699cd4894f88c1be46e8e2912',1,'RTOS::Kernel']]],
-  ['exitcriticalfromisr_9',['exitCriticalFromISR',['../d0/d48/a00165.html#ab2dad2041bb3e58c9ae6f90d8f8136af',1,'RTOS::Kernel']]]
+  ['enableinterrupts_0',['enableInterrupts',['../dd/db2/a00151.html#a214eeb3029201b088a4b1b966d4f5dd5',1,'RTOS::Kernel']]],
+  ['endscheduler_1',['endScheduler',['../dd/db2/a00151.html#a2795289e5800d302aa4a8a03e89a2c17',1,'RTOS::Kernel']]],
+  ['entercritical_2',['enterCritical',['../dd/db2/a00151.html#afe94ea91ffd4a0d732d505b0546d16ed',1,'RTOS::Kernel']]],
+  ['entercriticalfromisr_3',['enterCriticalFromISR',['../dd/db2/a00151.html#a91b2689d68296368e2e64b8f94a5c1ea',1,'RTOS::Kernel']]],
+  ['event_20group_4',['Event Group',['../d1/d88/a00128.html',1,'']]],
+  ['eventbits_5',['EventBits',['../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0',1,'RTOS']]],
+  ['eventgroup_6',['EventGroup',['../d0/d4a/a00147.html',1,'RTOS::EventGroup'],['../d0/d4a/a00147.html#a6690412802cf948348b7db9c47e9f25f',1,'RTOS::EventGroup::EventGroup()=default'],['../d0/d4a/a00147.html#a674ca6cf44432becf24267dda94e547d',1,'RTOS::EventGroup::EventGroup(const EventGroup &amp;)=delete']]],
+  ['eventgroup_2ehpp_7',['EventGroup.hpp',['../d1/d09/a00077.html',1,'']]],
+  ['exitcritical_8',['exitCritical',['../dd/db2/a00151.html#a9f5f648ce2a0965160372f4f94cc562d',1,'RTOS::Kernel']]],
+  ['exitcriticalfromisr_9',['exitCriticalFromISR',['../dd/db2/a00151.html#a5e606d3bb1630e1f1bf40955b0dae63b',1,'RTOS::Kernel']]]
 ];

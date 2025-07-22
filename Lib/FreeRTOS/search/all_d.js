@@ -1,19 +1,16 @@
 var searchData=
 [
-  ['operator_20bool_0',['operator bool',['../d8/d64/a00181.html#a277ed16d543367eaeb77ca9bb4c282c8',1,'RTOS::Mutex::Guard']]],
-  ['operator_20delete_1',['operator delete',['../da/d2a/a00086.html#a4d6ece0dc1e87d54a0e72469a3f1bf38',1,'MemoryManager.hpp']]],
-  ['operator_20delete_5b_5d_2',['operator delete[]',['../da/d2a/a00086.html#ab382f23943d6769816bd0b1caebc829a',1,'MemoryManager.hpp']]],
-  ['operator_20handle_3',['operator Handle',['../d7/d3f/a00173.html#a6539beba7eae2b4c146eb8ef0da0159b',1,'RTOS::MessageBuffer::operator Handle()'],['../d3/de5/a00209.html#aafa4cdeeb7f56f3ecca9194c4704e43f',1,'RTOS::Task::operator Handle()']]],
-  ['operator_20handle_20_26_4',['operator Handle &amp;',['../dd/df4/a00193.html#a3ead67a1dde7200158cd90ea4846440d',1,'RTOS::Semaphore::operator Handle &amp;()'],['../de/db1/a00197.html#a5d64af2757616d599134dbf8a1552d27',1,'RTOS::SemaphoreBase::operator Handle &amp;()'],['../d5/d13/a00205.html#ae202a5083134552d27fad3dd3253192e',1,'RTOS::StreamBuffer::operator Handle &amp;()']]],
-  ['operator_20mutex_20_26_5',['operator Mutex &amp;',['../d8/d64/a00181.html#a0891ec5907d447301899b3afe0a3722a',1,'RTOS::Mutex::Guard']]],
-  ['operator_20new_6',['operator new',['../da/d2a/a00086.html#a1a7f24760c8c7ad3bfcd54856d906fc2',1,'MemoryManager.hpp']]],
-  ['operator_20new_5b_5d_7',['operator new[]',['../da/d2a/a00086.html#aa75472ab4b765cf6f6b5b0ebcd4a28c8',1,'MemoryManager.hpp']]],
-  ['operator_20uint32_5ft_8',['operator uint32_t',['../d6/de1/a00233.html#adf5079f60a718b33a2f82e15846997d9',1,'RTOS::Timeout']]],
-  ['operator_21_3d_9',['operator!=',['../d3/de5/a00209.html#a295ef2c2441f250e97f14415d5d94a82',1,'RTOS::Task']]],
-  ['operator_2b_3d_10',['operator+=',['../d6/de1/a00233.html#a37c9992bcb4550208a8d3da6d4706259',1,'RTOS::Timeout']]],
-  ['operator_2d_3d_11',['operator-=',['../d6/de1/a00233.html#adf05672508cfbc1a83937285cc6f4f05',1,'RTOS::Timeout']]],
-  ['operator_3d_12',['operator=',['../d1/de1/a00213.html#a1c743918a0f9a087bc0d5ef0584169a8',1,'RTOS::Task::Parameters::operator=()'],['../d3/de5/a00209.html#a7007911f8c785be1d523f6b9712b57fd',1,'RTOS::Task::operator=(const Task &amp;otherTask) noexcept'],['../d3/de5/a00209.html#a69db6c3023101d1a7cfde744e631fb09',1,'RTOS::Task::operator=(Task &amp;&amp;otherTask) noexcept'],['../d6/de1/a00233.html#a58caa2e77b060918eddd8e6ab4d5a900',1,'RTOS::Timeout::operator=()']]],
-  ['operator_3d_3d_13',['operator==',['../d1/de1/a00213.html#ae219a3559cb7f34bd1df6b195a30369a',1,'RTOS::Task::Parameters::operator==()'],['../d3/de5/a00209.html#a187cec543878b0a91f233b7e8e4a7c12',1,'RTOS::Task::operator==()'],['../d6/de1/a00233.html#aec8080d5179fbcde96f0da7ed32cabe4',1,'RTOS::Timeout::operator==()']]],
-  ['overwrite_14',['overwrite',['../dd/df4/a00193.html#a5db49506397f7e2ccbb878a74361148b',1,'RTOS::Semaphore::overwrite()'],['../de/db1/a00197.html#a7c5c112cc6fa284881ed6ec7f0e42a9a',1,'RTOS::SemaphoreBase::overwrite()']]],
-  ['overwritefromisr_15',['overwriteFromISR',['../dd/df4/a00193.html#adfa4e2f0901dc302935fc842c8ad93a0',1,'RTOS::Semaphore::overwriteFromISR()'],['../de/db1/a00197.html#aa7c1963252786f79f75e567b7096ddc6',1,'RTOS::SemaphoreBase::overwriteFromISR()']]]
+  ['operator_20bool_0',['operator bool',['../dc/de6/a00167.html#ab00f98a356cc1d92ab8b52f27d21bfb6',1,'RTOS::Mutex::Guard']]],
+  ['operator_20handle_1',['operator Handle',['../de/db9/a00159.html#a980fc81f99fa563c534cc3d68a420dd9',1,'RTOS::MessageBuffer::operator Handle()'],['../d3/d2a/a00195.html#a9df6cd1299039d3b039d4335e3c82a5d',1,'RTOS::Task::operator Handle()']]],
+  ['operator_20handle_20_26_2',['operator Handle &amp;',['../db/dd9/a00179.html#a8f256eeb71978589d9e8215070cc046a',1,'RTOS::Semaphore::operator Handle &amp;()'],['../dc/d52/a00183.html#ac0e260e7f3d879dab705676c76529022',1,'RTOS::SemaphoreBase::operator Handle &amp;()'],['../d9/dd0/a00191.html#a8f44e79071890fe52737b0a611f8204b',1,'RTOS::StreamBuffer::operator Handle &amp;()']]],
+  ['operator_20mutex_20_26_3',['operator Mutex &amp;',['../dc/de6/a00167.html#a01f3738723d896537919ecaeb897f0cd',1,'RTOS::Mutex::Guard']]],
+  ['operator_20uint32_5ft_4',['operator uint32_t',['../d3/dd5/a00215.html#aaa6b18aa2aeffe400b00c5fa89903256',1,'RTOS::Timeout']]],
+  ['operator_21_3d_5',['operator!=',['../d3/d2a/a00195.html#aea20eb6ee2244a2d417e7118ac3c4af7',1,'RTOS::Task']]],
+  ['operator_28_29_6',['operator()',['../d1/d0d/a00171.html#aa67545a6607062ec26b15ec02f6903db',1,'RTOS::Queue::operator()()'],['../d1/d0d/a00171.html#a9b3fb1b1b25ce2357a863e3533a5de27',1,'RTOS::Queue::operator()() const']]],
+  ['operator_2b_3d_7',['operator+=',['../d3/dd5/a00215.html#aa82592ef53346250808d243d22c8d229',1,'RTOS::Timeout']]],
+  ['operator_2d_3d_8',['operator-=',['../d3/dd5/a00215.html#a73b80b1665f3727958cae39c26534a9c',1,'RTOS::Timeout']]],
+  ['operator_3d_9',['operator=',['../d0/d4a/a00147.html#a81801feadd715f46e582f2bd0c8d2c99',1,'RTOS::EventGroup::operator=()'],['../d8/d72/a00199.html#a707e78d0b4c12dd1e6e896a962da2c80',1,'RTOS::Task::Data::operator=()'],['../d3/d2a/a00195.html#a5ea094bea3f353bf438bc1643e092006',1,'RTOS::Task::operator=(const Task &amp;other)'],['../d3/d2a/a00195.html#a6c14ef66d8027334ac91641f7127ab4b',1,'RTOS::Task::operator=(Task &amp;&amp;other)'],['../d3/dd5/a00215.html#ab4c6fbdab53b1137cb02a23517968157',1,'RTOS::Timeout::operator=()']]],
+  ['operator_3d_3d_10',['operator==',['../d8/d72/a00199.html#a99f17ab1a2a81ea1213123aa79dcb911',1,'RTOS::Task::Data::operator==()'],['../d3/d2a/a00195.html#a0599d075062867fe806062c718a649f5',1,'RTOS::Task::operator==()'],['../d3/dd5/a00215.html#a2e21851db10482d0274ec8adb2a74d75',1,'RTOS::Timeout::operator==()']]],
+  ['overwrite_11',['overwrite',['../d1/d0d/a00171.html#af261e6fc06b54ddfd59e6dcc5c1f440e',1,'RTOS::Queue::overwrite()'],['../db/dd9/a00179.html#a52cb4c76003b898b7b12736211785d06',1,'RTOS::Semaphore::overwrite()'],['../dc/d52/a00183.html#a26617c96f4523fe5d58b0489248d0e6e',1,'RTOS::SemaphoreBase::overwrite()']]],
+  ['overwritefromisr_12',['overwriteFromISR',['../d1/d0d/a00171.html#a25e33ace6c5f3062c41861f4c9e034d0',1,'RTOS::Queue::overwriteFromISR()'],['../db/dd9/a00179.html#a571a1c7023d93b55e0fe4418d4b9f3ff',1,'RTOS::Semaphore::overwriteFromISR()'],['../dc/d52/a00183.html#aa87af60fe2421cf538d1040cfe46be1c',1,'RTOS::SemaphoreBase::overwriteFromISR()']]]
 ];

@@ -1,4 +1,4 @@
 var a00098 =
 [
-    [ "RTOS::QueueSet", "da/deb/a00189.html", "da/deb/a00189" ]
+    [ "RTOS::Semaphore", "db/dd9/a00179.html", "db/dd9/a00179" ]
 ];

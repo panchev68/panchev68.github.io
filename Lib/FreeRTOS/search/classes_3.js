@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kernel_0',['Kernel',['../d0/d48/a00165.html',1,'RTOS']]]
+  ['guard_0',['Guard',['../dc/de6/a00167.html',1,'RTOS::Mutex']]]
 ];
