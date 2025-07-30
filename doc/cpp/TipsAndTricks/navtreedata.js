@@ -25,14 +25,15 @@
 var NAVTREE =
 [
   [ "C++ Tips and Tricks", "index.html", [
-    [ "Tips and Tricks in C++", "index.html", "index" ]
+    [ "DESIGN_PATTERNS Design Patterns in C++", "index.html", "index" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"d1/d09/a00077.html"
+"d0/de8/a00133.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
 var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';

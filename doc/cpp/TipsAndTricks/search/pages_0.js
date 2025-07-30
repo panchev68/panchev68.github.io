@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['abstract_20factory_20design_20pattern_0',['Abstract Factory Design Pattern',['../d9/da5/a00075.html',1,'DESIGN_PATTERNS']]],
-  ['adapter_20pattern_1',['Adapter Pattern',['../db/df8/a00076.html',1,'DESIGN_PATTERNS']]],
-  ['and_20tricks_20in_20c_2',['Tips and Tricks in C++',['../index.html',1,'']]]
+  ['abstract_20factory_20design_20pattern_0',['Abstract Factory Design Pattern',['../d3/d00/a00113.html',1,'index']]],
+  ['abstract_5ffactory_5fintro_20въведение_1',['ABSTRACT_FACTORY_INTRO Въведение',['../d3/d00/a00113.html#abstract_factory_intro-въведение',1,'']]],
+  ['adapter_20pattern_2',['Adapter Pattern',['../d8/d17/a00114.html',1,'Adapter Pattern'],['../d8/d17/a00114.html#ADAPTER_HEADER',1,'Adapter Pattern']]]
 ];
