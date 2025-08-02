@@ -1,8 +1,8 @@
 var class_model_xbee_1_1_leds =
 [
-    [ "Leds", "d0/d36/class_model_xbee_1_1_leds.html#acf331be1c73e40a9c050f88e6305b606", null ],
-    [ "~Leds", "d0/d36/class_model_xbee_1_1_leds.html#ace613a1b3cd2799b2749c8a42d67a445", null ],
-    [ "getRxLed", "d0/d36/class_model_xbee_1_1_leds.html#a951d838b2f674e70d75a739eb5ef310e", null ],
-    [ "getTxLed", "d0/d36/class_model_xbee_1_1_leds.html#a5bbe8194d47285d97d26e81aed8df02a", null ],
-    [ "tick", "d0/d36/class_model_xbee_1_1_leds.html#abaf34ab6d237fe6b60712d813c2fb469", null ]
+    [ "Leds", "d0/d36/class_model_xbee_1_1_leds.html#ab66c3553086251371484b115c4b2272b", null ],
+    [ "~Leds", "d0/d36/class_model_xbee_1_1_leds.html#aa5537558cc7786b90e0485c296b4451a", null ],
+    [ "getRxLed", "d0/d36/class_model_xbee_1_1_leds.html#a0976699b6af98c796e442272a6b06ed2", null ],
+    [ "getTxLed", "d0/d36/class_model_xbee_1_1_leds.html#a3004c32128794450cabfc421fcd6c949", null ],
+    [ "tick", "d0/d36/class_model_xbee_1_1_leds.html#aacdd99d6b34bfb068319b524e7c6133f", null ]
 ];

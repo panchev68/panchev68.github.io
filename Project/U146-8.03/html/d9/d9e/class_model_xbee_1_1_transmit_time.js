@@ -1,9 +1,9 @@
 var class_model_xbee_1_1_transmit_time =
 [
-    [ "clearMinMax", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a278d2133893b2e683ed7adea3bf8dec9", null ],
-    [ "getData", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a93a828da4abe50163886d57d24286f52", null ],
-    [ "getMax", "d9/d9e/class_model_xbee_1_1_transmit_time.html#acd93410bc6bf0b77f10f4f65e48c2799", null ],
-    [ "getMin", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a80b1981ff74ca87683bc186a7d27d343", null ],
-    [ "getValue", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a24e624c4c453021679a8fea5199ff5de", null ],
-    [ "tick", "d9/d9e/class_model_xbee_1_1_transmit_time.html#abaf34ab6d237fe6b60712d813c2fb469", null ]
+    [ "clearMinMax", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a8ce63f15ac7298b3abeed8355ada6db5", null ],
+    [ "getData", "d9/d9e/class_model_xbee_1_1_transmit_time.html#afa43bef8d6a55bdc765898ac891a1b1d", null ],
+    [ "getMax", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a87f8d1fc6954e10558b3dc1b3635b3c0", null ],
+    [ "getMin", "d9/d9e/class_model_xbee_1_1_transmit_time.html#aaa8ed33e05085a928623373fe0e9d018", null ],
+    [ "getValue", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a59d982ec75044d2b1d18176c7e4a0c18", null ],
+    [ "tick", "d9/d9e/class_model_xbee_1_1_transmit_time.html#a0c6f447c94b5925f628c6183554a75e5", null ]
 ];

@@ -1,5 +1,5 @@
 var class_model_canbus_1_1_diagnostic =
 [
-    [ "Diagnostic", "d1/dc2/class_model_canbus_1_1_diagnostic.html#a4bf16f5a66f1dd3a616d4502e3d60921", null ],
-    [ "~Diagnostic", "d1/dc2/class_model_canbus_1_1_diagnostic.html#a98d958cc03bb18c04372798b92324ee7", null ]
+    [ "Diagnostic", "d1/dc2/class_model_canbus_1_1_diagnostic.html#a0a775b8561a61218740caf42329b4da3", null ],
+    [ "~Diagnostic", "d1/dc2/class_model_canbus_1_1_diagnostic.html#a64725952764b69d515c15ba18bc153b3", null ]
 ];
