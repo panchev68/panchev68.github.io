@@ -1,0 +1,28 @@
+var a01308 =
+[
+    [ "Data", "d1/d56/a01308.html#ad93cc81b398d67cf98c842b797c80cb6", null ],
+    [ "Data", "d1/d56/a01308.html#ad93cc81b398d67cf98c842b797c80cb6", null ],
+    [ "checkPressed", "d1/d56/a01308.html#a6704488ea4be2d262960609a39d24610", null ],
+    [ "readAdc", "d1/d56/a01308.html#a8eaf13e857bebfc06c8550f7516ed59d", null ],
+    [ "taskFn", "d1/d56/a01308.html#a383da95deea76d87d8c09a06e4701127", null ],
+    [ "writeByte", "d1/d56/a01308.html#ad4a3f69ae0d0d8178142661c5e000573", null ],
+    [ "debounceTime", "d1/d56/a01308.html#ab5c03bb530509ba464ef853fb62d0dee", null ],
+    [ "devX", "d1/d56/a01308.html#ac7edce03f3a1e33ab62034703ff1949b", null ],
+    [ "devY", "d1/d56/a01308.html#ac88beeb77e4af0fa9434a5832e7400bb", null ],
+    [ "integratorX", "d1/d56/a01308.html#a824bb61a45b73e1512ba0a76ea5978be", null ],
+    [ "integratorY", "d1/d56/a01308.html#acd016a9481613de17223b6cd0b95ce46", null ],
+    [ "isReady", "d1/d56/a01308.html#a9d06aab8b88650e1430e19047c7bbdf7", null ],
+    [ "lastPressState", "d1/d56/a01308.html#aa5ec72d99792534c63ceb2d6f7c76591", null ],
+    [ "nirq", "d1/d56/a01308.html#a6ddb192afd0b6aeddb322341e1cd0ce0", null ],
+    [ "nss", "d1/d56/a01308.html#af62d0423295baaa2b08fce4764f9c36e", null ],
+    [ "parameters", "d1/d56/a01308.html#ad27271ea5a04ff4de429d4f6fe13cc69", null ],
+    [ "position", "d1/d56/a01308.html#a0faeb424bd37a5a20ce861d0728e391b", null ],
+    [ "rawPosition", "d1/d56/a01308.html#aa3d65a020e2d3417fcdbe060eeb39635", null ],
+    [ "rotation", "d1/d56/a01308.html#a740d0482d7779b56b7446a2fba270fb8", null ],
+    [ "sck", "d1/d56/a01308.html#a2104317474f537f04108a69a52e76c74", null ],
+    [ "si", "d1/d56/a01308.html#a4c1806477ee88bc29ddd51416d79f017", null ],
+    [ "so", "d1/d56/a01308.html#a635ef59ac608fde06d925e6d1c1e82d4", null ],
+    [ "tempPosition", "d1/d56/a01308.html#a6e3f053b3803fb86341fc70b00a76af3", null ],
+    [ "tempRawPosition", "d1/d56/a01308.html#ad2847db0e00606be8a44095699badf2d", null ],
+    [ "timeoutDebounce", "d1/d56/a01308.html#a05eb5584eb22a322605f8ea500d4e611", null ]
+];
