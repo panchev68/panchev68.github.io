@@ -1,5 +1,5 @@
 var namespace_canbus =
 [
     [ "Server", "d1/d2d/class_canbus_1_1_server.html", "d1/d2d/class_canbus_1_1_server" ],
-    [ "server", "d9/dfb/namespace_canbus.html#abf1d40e8b981769a11525c826d76f63a", null ]
+    [ "server", "d9/dfb/namespace_canbus.html#afd1a82c786509e03b540bae82af2c137", null ]
 ];

@@ -7,13 +7,13 @@ var class_model_xbee =
     [ "SignalStrength", "d9/d85/class_model_xbee_1_1_signal_strength.html", "d9/d85/class_model_xbee_1_1_signal_strength" ],
     [ "SpectrumAnalyzer", "d1/db2/class_model_xbee_1_1_spectrum_analyzer.html", "d1/db2/class_model_xbee_1_1_spectrum_analyzer" ],
     [ "TransmitTime", "d9/d9e/class_model_xbee_1_1_transmit_time.html", "d9/d9e/class_model_xbee_1_1_transmit_time" ],
-    [ "ModelXbee", "d9/da2/class_model_xbee.html#a9fd49a080789956eade567d3a837753a", null ],
-    [ "~ModelXbee", "d9/da2/class_model_xbee.html#aa36bc0243785b4211158ed3e39a31f45", null ],
-    [ "handleTickEvent", "d9/da2/class_model_xbee.html#a3443d842f477cec5f7fd9584cc4160c6", null ],
-    [ "connection", "d9/da2/class_model_xbee.html#af32dbaa107c8db25a296982ef365c398", null ],
-    [ "leds", "d9/da2/class_model_xbee.html#ac7adafe2ad42b0a3c6175ba018cf2f0a", null ],
-    [ "parameters", "d9/da2/class_model_xbee.html#ab8cc36c33f0f2267ac80b3974ecb1dde", null ],
-    [ "signalStrength", "d9/da2/class_model_xbee.html#a0851d7c6bd04cab8723c0a541733f577", null ],
-    [ "spectrumAnalyzer", "d9/da2/class_model_xbee.html#a928d75c03d4808f35395310079e2f0fd", null ],
-    [ "transmitTime", "d9/da2/class_model_xbee.html#a7e4422ee860fc3ca2f0cf8ede3663b52", null ]
+    [ "ModelXbee", "d9/da2/class_model_xbee.html#af45fe36ddb075fa758a44fffb2b6a8f4", null ],
+    [ "~ModelXbee", "d9/da2/class_model_xbee.html#a43a8a19baab9ad792605205196bffd73", null ],
+    [ "handleTickEvent", "d9/da2/class_model_xbee.html#af591c3412c95b20b4e3773759a2549c2", null ],
+    [ "connection", "d9/da2/class_model_xbee.html#aebdf6fa38c09b0d7a7d64291a5db479d", null ],
+    [ "leds", "d9/da2/class_model_xbee.html#a54b20ccc38e03996a60e1d5ee87ef851", null ],
+    [ "parameters", "d9/da2/class_model_xbee.html#a5b0fd648bb45b8df45a642b7929a0197", null ],
+    [ "signalStrength", "d9/da2/class_model_xbee.html#a78fc08f5f5fb600deb820ba7ba6b6e9e", null ],
+    [ "spectrumAnalyzer", "d9/da2/class_model_xbee.html#a028f5b28b7c0595c6a4a6d1e222929d4", null ],
+    [ "transmitTime", "d9/da2/class_model_xbee.html#af7a6b440eee26e9143fdb3ae017c4bff", null ]
 ];

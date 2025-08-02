@@ -16,16 +16,16 @@ var namespace_b_s_p =
     [ "OutputsPrecodeItem", "d4/df1/struct_b_s_p_1_1_outputs_precode_item.html", "d4/df1/struct_b_s_p_1_1_outputs_precode_item" ],
     [ "TouchScreen", "d7/d14/class_b_s_p_1_1_touch_screen.html", "d7/d14/class_b_s_p_1_1_touch_screen" ],
     [ "W25Q128JVSIQ", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q" ],
-    [ "OutputVersion", "da/da7/namespace_b_s_p.html#a2c70392b35dbd7b9c395820e10498d04", [
-      [ "V1", "da/da7/namespace_b_s_p.html#a2c70392b35dbd7b9c395820e10498d04ab4daca084ad9eabfc8de231929477ed6", null ],
-      [ "V2", "da/da7/namespace_b_s_p.html#a2c70392b35dbd7b9c395820e10498d04aec765f1adc3b4253f2d3b131a4a8618f", null ],
-      [ "V3", "da/da7/namespace_b_s_p.html#a2c70392b35dbd7b9c395820e10498d04ad5b50b8cf96bcc8aba90f306f5e6189c", null ]
+    [ "OutputVersion", "da/da7/namespace_b_s_p.html#a524220c24c6d698efca860f5ece633d2", [
+      [ "V1", "da/da7/namespace_b_s_p.html#a524220c24c6d698efca860f5ece633d2ab4daca084ad9eabfc8de231929477ed6", null ],
+      [ "V2", "da/da7/namespace_b_s_p.html#a524220c24c6d698efca860f5ece633d2aec765f1adc3b4253f2d3b131a4a8618f", null ],
+      [ "V3", "da/da7/namespace_b_s_p.html#a524220c24c6d698efca860f5ece633d2ad5b50b8cf96bcc8aba90f306f5e6189c", null ]
     ] ],
-    [ "backlight", "da/da7/namespace_b_s_p.html#a806905925402b669868caa57d27a23ca", null ],
-    [ "beep", "da/da7/namespace_b_s_p.html#a662caca3279a6e6bf696cf4e108b79f1", null ],
-    [ "digitalPeripheral", "da/da7/namespace_b_s_p.html#a2eaf1df0efc28a919998c79e158efb99", null ],
-    [ "display", "da/da7/namespace_b_s_p.html#aef6ed78483ebc2aecb1c38f74a7bfcea", null ],
-    [ "extFlash", "da/da7/namespace_b_s_p.html#a70d39ce3b767b62129ccc4e829a2359f", null ],
-    [ "leds", "da/da7/namespace_b_s_p.html#a8dbef81796e187e9365c1444fa8450d1", null ],
-    [ "touchScreen", "da/da7/namespace_b_s_p.html#a86a46ec83e744c76c530b16b835d7026", null ]
+    [ "backlight", "da/da7/namespace_b_s_p.html#ac4c9ac6a0eb7174025d3fd9cbe1a69dc", null ],
+    [ "beep", "da/da7/namespace_b_s_p.html#a4b1ac5aee8dac88c6510ac0de587393d", null ],
+    [ "digitalPeripheral", "da/da7/namespace_b_s_p.html#a6d01713c18becef84a2e868674525d5b", null ],
+    [ "display", "da/da7/namespace_b_s_p.html#aa5083e8fab8ddaf62944949e251663bb", null ],
+    [ "extFlash", "da/da7/namespace_b_s_p.html#a29b162ffe9d2b3aa161e935ed612a62d", null ],
+    [ "leds", "da/da7/namespace_b_s_p.html#a3b22706ab915aada00c7736f05ed6770", null ],
+    [ "touchScreen", "da/da7/namespace_b_s_p.html#a51ac09347989ba898cc18db3b2ed05d2", null ]
 ];

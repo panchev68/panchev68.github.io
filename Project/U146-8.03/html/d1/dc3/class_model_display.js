@@ -1,11 +1,11 @@
 var class_model_display =
 [
-    [ "ModelDisplay", "d1/dc3/class_model_display.html#a58223329475bd6ee8131ab9bae0f8b98", null ],
-    [ "~ModelDisplay", "d1/dc3/class_model_display.html#a0aea6e6d10f65cee865c9b0dd3fabedf", null ],
-    [ "getBacklight", "d1/dc3/class_model_display.html#a26220ad31816ebd602de45f84a9924bc", null ],
-    [ "getRotation", "d1/dc3/class_model_display.html#af9872d3de81b8e825ddc3ab56593c3da", null ],
-    [ "saveParameters", "d1/dc3/class_model_display.html#aa3265c70aad48c54df411111545485d0", null ],
-    [ "setBacklight", "d1/dc3/class_model_display.html#a21f51676c92060b09d488e16814eaf90", null ],
-    [ "setRotation", "d1/dc3/class_model_display.html#a965e06a9aac36b2e646a4d0913f07d35", null ],
-    [ "storageOfParametersIsPresent", "d1/dc3/class_model_display.html#af229b88cc2c5e18f976f65d56c56c3da", null ]
+    [ "ModelDisplay", "d1/dc3/class_model_display.html#ad5ed3200e9780448815b353ff28f336e", null ],
+    [ "~ModelDisplay", "d1/dc3/class_model_display.html#a68d9d1c84aa2ed2c4b2f306a030bb234", null ],
+    [ "getBacklight", "d1/dc3/class_model_display.html#a8bd92be40831cc2ed24ac40e4783ae58", null ],
+    [ "getRotation", "d1/dc3/class_model_display.html#a55a2fbc1b6167a7a3d09e10b75dfc417", null ],
+    [ "saveParameters", "d1/dc3/class_model_display.html#a8891f76510f573d291a4492e82058277", null ],
+    [ "setBacklight", "d1/dc3/class_model_display.html#a44d2d703a450f1add92289b5d6981797", null ],
+    [ "setRotation", "d1/dc3/class_model_display.html#a9e7187220a3a403a04dae32f975b2438", null ],
+    [ "storageOfParametersIsPresent", "d1/dc3/class_model_display.html#a23450b1bc05f969edfa8c3071edb57e7", null ]
 ];
