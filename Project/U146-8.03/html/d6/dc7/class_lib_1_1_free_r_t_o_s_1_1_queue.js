@@ -5,6 +5,7 @@ var class_lib_1_1_free_r_t_o_s_1_1_queue =
     [ "~Queue", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a1c4d39c31bcc1e17c3df60f7319a9dc5", null ],
     [ "addToRegistry", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a2923b255b27e23dd43bac2cc4e968976", null ],
     [ "create", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a63e2c0d6b02bdd3699dbc6e7ba5f316f", null ],
+    [ "createStatic", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#abb88fdf92e37026deff3c79172cdb980", null ],
     [ "isCreated", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a7b659e1d089bc86516365f2118c83342", null ],
     [ "messagesWaiting", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a249eedb272d80131d83b5d3c8eee5fe4", null ],
     [ "messagesWaitingFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a8b12fd7b294a1cd80ba5e30f593e2473", null ],

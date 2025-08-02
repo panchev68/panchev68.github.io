@@ -1,10 +1,18 @@
 var searchData=
 [
-  ['enable_5freset_0',['ENABLE_RESET',['../df/d81/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a80fda47fa1b85c591c8a599a3e7a840ea307133468743d84278b97dfb95a4f301',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['encoder_5fccw_1',['ENCODER_CCW',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a4d2d8c2ad096e11ce5b644063a5916fdace67436040095a7cbfe0cd8645257a4b',1,'Lib::BSP::EncoderTimer']]],
-  ['encoder_5fcw_2',['ENCODER_CW',['../d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a4d2d8c2ad096e11ce5b644063a5916fda900afcef9f88f5d81725b2402b094404',1,'Lib::BSP::EncoderTimer']]],
-  ['encryption_5ffailure_3',['ENCRYPTION_FAILURE',['../dc/d0b/class_lib_1_1_xbee_1_1_core_1_1_frame0x89.html#af0e24ee3946bdeed1a63a7d66b31e6b4aa463b1b5b108ed4439a73d3d91ff916c',1,'Lib::Xbee::Core::Frame0x89']]],
-  ['erase_5fsecurity_5fregisters_4',['ERASE_SECURITY_REGISTERS',['../df/d81/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#a80fda47fa1b85c591c8a599a3e7a840ea9ec3af32e1db075b23cabafe1694f3e3',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['error_5',['ERROR',['../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#a32e78f8c67b58381b392f68642bbd07fabb1ca97ec761fc37101737ba0aa2e7c5',1,'Lib::Xbee::API::ApplicationBase']]],
-  ['external_5freset_5fpin_5freset_6',['EXTERNAL_RESET_PIN_RESET',['../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665',1,'Lib::HAL::LastResetState']]]
+  ['ocp_5fstat_5f1_0',['OCP_STAT_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ab517d80ab9d45c4bbdf834da428361f3',1,'BSP::DRV8908']]],
+  ['ocp_5fstat_5f2_1',['OCP_STAT_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a3ae5bcba5df9ea804f10d63cc940b1aa',1,'BSP::DRV8908']]],
+  ['ocp_5fstat_5f3_2',['OCP_STAT_3',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a76796da7518cf5ea8143ef3a862ecd20',1,'BSP::DRV8908']]],
+  ['old_5fctrl_5f1_3',['OLD_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a2107b9163b946299a795cde7069b9242',1,'BSP::DRV8908']]],
+  ['old_5fctrl_5f2_4',['OLD_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ab26d1e1893a78c4e9b49237b08e3783c',1,'BSP::DRV8908']]],
+  ['old_5fctrl_5f3_5',['OLD_CTRL_3',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a826ce7a0a88f883d605f79ab19def366',1,'BSP::DRV8908']]],
+  ['old_5fctrl_5f4_6',['OLD_CTRL_4',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a144b026784e48b7ab7c2d79333a64717',1,'BSP::DRV8908']]],
+  ['old_5fctrl_5f5_7',['OLD_CTRL_5',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a419359a90d7a1e606ded4690d378f7fd',1,'BSP::DRV8908']]],
+  ['old_5fctrl_5f6_8',['OLD_CTRL_6',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a9cdb551aebc54efaa8eee4b0e51caef1',1,'BSP::DRV8908']]],
+  ['old_5fstat_5f1_9',['OLD_STAT_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a6c38f369ec1325db1a32f9755f7045d4',1,'BSP::DRV8908']]],
+  ['old_5fstat_5f2_10',['OLD_STAT_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ad2074dc51ca3de7b7ddb60282952f5c1',1,'BSP::DRV8908']]],
+  ['old_5fstat_5f3_11',['OLD_STAT_3',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a81a8f5eaea6693adf0f80bab29db8926',1,'BSP::DRV8908']]],
+  ['op_5fctrl_5f1_12',['OP_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60adc29928444b6cdaf2119106d8ee03f7a',1,'BSP::DRV8908']]],
+  ['op_5fctrl_5f2_13',['OP_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a34a7fa40ad2becca6809447836d1a96c',1,'BSP::DRV8908']]],
+  ['op_5fctrl_5f3_14',['OP_CTRL_3',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a65eb3b2b83e41095544b90d969f21338',1,'BSP::DRV8908']]]
 ];

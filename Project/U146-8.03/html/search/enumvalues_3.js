@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['darkblue_0',['DARKBLUE',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a9058edf90567db3a8fda3c75063183cd',1,'Color']]],
-  ['darkcyan_1',['DARKCYAN',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79aea4a35bcbfaa4689d7160f297212a085',1,'Color']]],
-  ['darkgray_2',['DARKGRAY',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79aef5800bfe3e9c68ce6493dccfe0caeb7',1,'Color']]],
-  ['darkgreen_3',['DARKGREEN',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a59d34289a02612bb5016ffc174f64470',1,'Color']]],
-  ['darkkhaki_4',['DARKKHAKI',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79abba17e1e5f54e5093e1f7e4b6a9cdc7e',1,'Color']]],
-  ['darkmagenta_5',['DARKMAGENTA',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79aaad315598aecea23feb3aa0a080dd14b',1,'Color']]],
-  ['darkolivegreen_6',['DARKOLIVEGREEN',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a2cc53958c993543f88e59fa62812e160',1,'Color']]],
-  ['darkorange_7',['DARKORANGE',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79aaf1e3f4603f7ae54b1cc5c1f599618c1',1,'Color']]],
-  ['darkorchid_8',['DARKORCHID',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79ad7f5937794070f36fa10e39d86849724',1,'Color']]],
-  ['darkred_9',['DARKRED',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a3c3edf72b0f4eeea7447cfe87a04075f',1,'Color']]],
-  ['darksalmon_10',['DARKSALMON',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a5afcc594528295c14a6183d2839b4b68',1,'Color']]],
-  ['darkseagreen_11',['DARKSEAGREEN',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a43ddd94d38eda7fd7007017dfb6e1f07',1,'Color']]],
-  ['darkslateblue_12',['DARKSLATEBLUE',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79af8cfc09094769a1a990fea65c572cf71',1,'Color']]],
-  ['darkslategray_13',['DARKSLATEGRAY',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a608919fbdc2130870cf9f4e2bc97fc48',1,'Color']]],
-  ['darkturquoise_14',['DARKTURQUOISE',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a9ad19d85fde7cad99cf7e9116e15535d',1,'Color']]],
-  ['darkviolet_15',['DARKVIOLET',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79ae2993ef5f459328d55d1fce78174caf0',1,'Color']]],
-  ['deeppink_16',['DEEPPINK',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a7ccfd8bf45ef04e965b51139eab0bb6e',1,'Color']]],
-  ['deepskyblue_17',['DEEPSKYBLUE',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a87cefffe8f7e52fe2c2a7fa12858aa0b',1,'Color']]],
-  ['dimgray_18',['DIMGRAY',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a0b86e125dd753719fceb7ffefe2044c5',1,'Color']]],
-  ['disconnected_19',['DISCONNECTED',['../d2/d99/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_quality.html#a177acb95c6332ad601f7e96efce3c1baafaa33ec6a06f0cbbee1ee384b44e3b85',1,'Lib::Xbee::API::Connection::Quality']]],
-  ['dodgerblue_20',['DODGERBLUE',['../d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79ad24ad7f69a7a2f162cdee1856679a584',1,'Color']]]
+  ['normal_0',['NORMAL',['../d1/d49/class_system_1_1_startup_mode.html#ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051',1,'System::StartupMode']]]
 ];

@@ -14,6 +14,7 @@ var namespace_lib_1_1_helper =
     [ "Delay< DelayType::NANO_SEC >", "d7/da7/class_lib_1_1_helper_1_1_delay_3_01_delay_type_1_1_n_a_n_o___s_e_c_01_4.html", "d7/da7/class_lib_1_1_helper_1_1_delay_3_01_delay_type_1_1_n_a_n_o___s_e_c_01_4" ],
     [ "DelayBase", "d4/d14/class_lib_1_1_helper_1_1_delay_base.html", "d4/d14/class_lib_1_1_helper_1_1_delay_base" ],
     [ "Event", "d9/d49/class_lib_1_1_helper_1_1_event.html", "d9/d49/class_lib_1_1_helper_1_1_event" ],
+    [ "Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", "d0/d22/class_lib_1_1_helper_1_1_exception" ],
     [ "Integrator", "d8/dfa/class_lib_1_1_helper_1_1_integrator.html", "d8/dfa/class_lib_1_1_helper_1_1_integrator" ],
     [ "JaggedArray", "d8/d0c/class_lib_1_1_helper_1_1_jagged_array.html", "d8/d0c/class_lib_1_1_helper_1_1_jagged_array" ],
     [ "MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html", "dc/da3/class_lib_1_1_helper_1_1_moon_phase" ],

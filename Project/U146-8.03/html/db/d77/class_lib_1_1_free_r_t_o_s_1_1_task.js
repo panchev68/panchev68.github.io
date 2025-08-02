@@ -4,6 +4,7 @@ var class_lib_1_1_free_r_t_o_s_1_1_task =
     [ "Handle", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#a1226098e07f0f85c5f86c13598f9ce9a", null ],
     [ "Task", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#ad6c9a80ef18ae9b315eb6ef1d7dbbfaa", null ],
     [ "~Task", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#affcb2cbb9100384ebfb6e0ebf722ff20", null ],
+    [ "abortDelay", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#aca6a55ec3188d231ff74f719e145c3b4", null ],
     [ "create", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#a1ebfc9d28fec3731c77215b36339e9a1", null ],
     [ "create", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#a1425e8da526b3e6566e7dfd89ca0ff6e", null ],
     [ "getHandle", "db/d77/class_lib_1_1_free_r_t_o_s_1_1_task.html#a3b137a55d761b1f78152e28b52130983", null ],
