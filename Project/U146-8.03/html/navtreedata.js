@@ -71,9 +71,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d5c/class_d_a_l_1_1_peripheral.html#a0bf990cd1e5630319fb7a9384efbe6c1",
-"da/df6/class_model_xbee_1_1_listener.html#a8336b04da29dcf72992cdd4309bf8636",
-"df/d8d/class_model_canbus.html"
+"d5/d1a/class_system_1_1_parameters.html#a2d4bfe2c8104ac6c3be80d70787aff6c",
+"da/d9b/group___digital_peripheral.html",
+"de/d3e/struct_b_s_p_1_1_leds_1_1_config.html#a5c1ef0706fc4fc3fc130d3e72ae46e75"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

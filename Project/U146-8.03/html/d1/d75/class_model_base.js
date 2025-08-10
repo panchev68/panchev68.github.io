@@ -3,7 +3,7 @@ var class_model_base =
     [ "Listener", "df/d93/class_model_base_1_1_listener.html", null ],
     [ "ModelBase", "d1/d75/class_model_base.html#ad9651b1894b453232748306e624155db", null ],
     [ "~ModelBase", "d1/d75/class_model_base.html#a1b40ef183c11026067f562dacfb127a7", null ],
-    [ "beep", "d1/d75/class_model_base.html#aab985959f1e2a79684f69f23e543ee22", null ],
+    [ "beep", "d1/d75/class_model_base.html#a77c680dc77612d28fe5670b4e8d37b2d", null ],
     [ "tick", "d1/d75/class_model_base.html#af3f9e7c14f55220127f81923c0e0b99f", null ],
     [ "canbus", "d1/d75/class_model_base.html#a5f8c51de323f67f7bfe627fade3bec03", null ],
     [ "diagnostic", "d1/d75/class_model_base.html#a419fb649b36923ac7f929b8df5f302be", null ],

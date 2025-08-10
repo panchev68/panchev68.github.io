@@ -14,6 +14,7 @@ var annotated_dup =
       [ "Leds", "d2/d32/class_b_s_p_1_1_leds.html", "d2/d32/class_b_s_p_1_1_leds" ],
       [ "M24C64W", "d7/d44/class_b_s_p_1_1_m24_c64_w.html", "d7/d44/class_b_s_p_1_1_m24_c64_w" ],
       [ "Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
+      [ "Outputs< OutputVersion::V1 >", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4.html", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4" ],
       [ "Outputs< OutputVersion::V2 >", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4.html", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4" ],
       [ "OutputsBase", "dc/dc2/class_b_s_p_1_1_outputs_base.html", "dc/dc2/class_b_s_p_1_1_outputs_base" ],
       [ "OutputsListener", "d0/d11/class_b_s_p_1_1_outputs_listener.html", "d0/d11/class_b_s_p_1_1_outputs_listener" ],
@@ -27,6 +28,10 @@ var annotated_dup =
     [ "DAL", "df/d81/namespace_d_a_l.html", [
       [ "CanNode", "de/d18/struct_d_a_l_1_1_can_node.html", "de/d18/struct_d_a_l_1_1_can_node" ],
       [ "Peripheral", "d5/d5c/class_d_a_l_1_1_peripheral.html", "d5/d5c/class_d_a_l_1_1_peripheral" ]
+    ] ],
+    [ "HAL", null, [
+      [ "RTClock", "da/dd9/class_h_a_l_1_1_r_t_clock.html", null ],
+      [ "UartPort", "d2/da4/class_h_a_l_1_1_uart_port.html", "d2/da4/class_h_a_l_1_1_uart_port" ]
     ] ],
     [ "System", "d8/dd0/namespace_system.html", [
       [ "BuildVersion", "d4/dff/class_system_1_1_build_version.html", "d4/dff/class_system_1_1_build_version" ],

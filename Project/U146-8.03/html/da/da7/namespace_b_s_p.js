@@ -10,6 +10,7 @@ var namespace_b_s_p =
     [ "Leds", "d2/d32/class_b_s_p_1_1_leds.html", "d2/d32/class_b_s_p_1_1_leds" ],
     [ "M24C64W", "d7/d44/class_b_s_p_1_1_m24_c64_w.html", "d7/d44/class_b_s_p_1_1_m24_c64_w" ],
     [ "Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
+    [ "Outputs< OutputVersion::V1 >", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4.html", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4" ],
     [ "Outputs< OutputVersion::V2 >", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4.html", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4" ],
     [ "OutputsBase", "dc/dc2/class_b_s_p_1_1_outputs_base.html", "dc/dc2/class_b_s_p_1_1_outputs_base" ],
     [ "OutputsListener", "d0/d11/class_b_s_p_1_1_outputs_listener.html", "d0/d11/class_b_s_p_1_1_outputs_listener" ],

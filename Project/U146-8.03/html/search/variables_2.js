@@ -8,5 +8,5 @@ var searchData=
   ['client_5',['client',['../d8/d6d/namespace_xbee.html#a334c2d4e817f5d715af314a7436db2b5',1,'Xbee']]],
   ['command_6',['command',['../dc/d52/struct_b_s_p_1_1_outputs_listener_1_1_message.html#a7091c2f242195d40a6042d741ccff49f',1,'BSP::OutputsListener::Message']]],
   ['connection_7',['connection',['../d9/da2/class_model_xbee.html#af32dbaa107c8db25a296982ef365c398',1,'ModelXbee']]],
-  ['cspinhandle_8',['csPinHandle',['../d7/db0/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4_1_1_config.html#ae65f31a3c96f52527ff404faa0193212',1,'BSP::Outputs&lt; OutputVersion::V2 &gt;::Config']]]
+  ['cspinhandle_8',['csPinHandle',['../d1/de1/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4_1_1_config.html#af5b477f8a8964f894c72ae19dbf645d6',1,'BSP::Outputs&lt; OutputVersion::V1 &gt;::Config::csPinHandle'],['../d7/db0/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4_1_1_config.html#ae65f31a3c96f52527ff404faa0193212',1,'BSP::Outputs&lt; OutputVersion::V2 &gt;::Config::csPinHandle']]]
 ];

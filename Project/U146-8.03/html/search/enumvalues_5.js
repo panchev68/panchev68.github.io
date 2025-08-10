@@ -1,19 +1,6 @@
 var searchData=
 [
-  ['pwm_5fctrl_5f1_0',['PWM_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ab46d3f362ab523f5f948de8d87f66642',1,'BSP::DRV8908']]],
-  ['pwm_5fctrl_5f2_1',['PWM_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a627b55980e75a6c696d5125702fe877a',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f1_2',['PWM_DUTY_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60adc01f8f9ef206a3c5b855b2543c558ec',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f2_3',['PWM_DUTY_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a5d1b7fb47e4ca7f7e52cdf301f5bbb24',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f3_4',['PWM_DUTY_CTRL_3',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a526723ffbec716175062b63650fff190',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f4_5',['PWM_DUTY_CTRL_4',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60abb038625ce9901e57c09dd94f9fa0a7e',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f5_6',['PWM_DUTY_CTRL_5',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60aab0f6b575ee48c90f25421fa8f761160',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f6_7',['PWM_DUTY_CTRL_6',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a72dc366db46e5f84085431da84878d0b',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f7_8',['PWM_DUTY_CTRL_7',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a274664285c736e6742b04c4a9630678d',1,'BSP::DRV8908']]],
-  ['pwm_5fduty_5fctrl_5f8_9',['PWM_DUTY_CTRL_8',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ae6d8f885bf8d16c31e8439df85ae26dd',1,'BSP::DRV8908']]],
-  ['pwm_5ffreq_5fctrl_5f1_10',['PWM_FREQ_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a09d85ea858addbe188f86c3d59280eab',1,'BSP::DRV8908']]],
-  ['pwm_5ffreq_5fctrl_5f2_11',['PWM_FREQ_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ae05d1b5282b4fdae005c50d8c6d4a74a',1,'BSP::DRV8908']]],
-  ['pwm_5fmap_5fctrl_5f1_12',['PWM_MAP_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ab931c5c768e15cf940250e3a162dd97c',1,'BSP::DRV8908']]],
-  ['pwm_5fmap_5fctrl_5f2_13',['PWM_MAP_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ad6943f63af2a42f64cbc978a93742912',1,'BSP::DRV8908']]],
-  ['pwm_5fmap_5fctrl_5f3_14',['PWM_MAP_CTRL_3',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60aa4fa3f2f1af66dec3ba4cae077a7f37a',1,'BSP::DRV8908']]],
-  ['pwm_5fmap_5fctrl_5f4_15',['PWM_MAP_CTRL_4',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a269b07f71ad9b4e87b85c4577cb2d475',1,'BSP::DRV8908']]]
+  ['sr_5fctrl_5f1_0',['SR_CTRL_1',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60ac259ba8a6e85b4834a03608d1206daba',1,'BSP::DRV8908']]],
+  ['sr_5fctrl_5f2_1',['SR_CTRL_2',['../db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a3b4047d4cb5653e3537f21680ce9d337',1,'BSP::DRV8908']]],
+  ['system_5fis_5fready_2',['SYSTEM_IS_READY',['../d8/dd0/namespace_system.html#a54257c54f1b6b2667e2bf83662d6ce61a4ed8db969e1e9ac976d225780831182c',1,'System']]]
 ];
