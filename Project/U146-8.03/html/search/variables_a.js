@@ -1,25 +1,5 @@
 var searchData=
 [
-  ['macaddress_0',['macAddress',['../d1/d91/class_lib_1_1_xbee_1_1_a_p_i_1_1_node_info.html#a247c607b0781f80f66ca4fb260cd2249',1,'Lib::Xbee::API::NodeInfo::macAddress'],['../df/dc8/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery_1_1_node.html#a8d9cd80ec2b9a4e20c10594cc7c49282',1,'Lib::Xbee::API::Service::NetworkDiscovery::Node::macAddress']]],
-  ['macdiagnostic_1',['macDiagnostic',['../d1/d91/class_lib_1_1_xbee_1_1_a_p_i_1_1_node_info.html#a05dff956a890c66e5c33a424621a6bc7',1,'Lib::Xbee::API::NodeInfo']]],
-  ['maclsb_2',['macLsb',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#a5b69f6d260be9c36154d35d7366937f0',1,'ModelXbee::ModuleParameters::Data']]],
-  ['macmsb_3',['macMsb',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#ac54e3e633ae48e69de4a120738ceab16',1,'ModelXbee::ModuleParameters::Data']]],
-  ['madctl_4',['MADCTL',['../dd/d62/struct_lib_1_1_b_s_p_1_1_display_1_1_registers.html#a92987478a5343d195074748d1eb27736',1,'Lib::BSP::Display::Registers']]],
-  ['mapfields_5',['mapFields',['../d6/da2/class_lib_1_1_b_s_p_1_1_digital_peripheral_1_1_outputs_base.html#ae2e17aa30de44c94cd9b2988fc9df311',1,'Lib::BSP::DigitalPeripheral::OutputsBase::mapFields'],['../d2/d10/class_lib_1_1_b_s_p_1_1_digital_peripheral_1_1_port_config.html#abe79c7829e8c0195cbe515c0520c8e31',1,'Lib::BSP::DigitalPeripheral::PortConfig::mapFields']]],
-  ['mask_6',['mask',['../da/de2/struct_lib_1_1_b_s_p_1_1_digital_peripheral_1_1_map_field.html#aa0d4d39d260771cc7099d10c714fd11e',1,'Lib::BSP::DigitalPeripheral::MapField']]],
-  ['max_5fblocking_5ftime_7',['MAX_BLOCKING_TIME',['../d4/d56/class_lib_1_1_h_a_l_1_1_i2_c_1_1_master_1_1_transperent_base.html#af30cdcb41adede90f91d4b3bd9e41e11',1,'Lib::HAL::I2C::Master::TransperentBase']]],
-  ['max_5fresponse_5fsize_8',['MAX_RESPONSE_SIZE',['../d2/d15/class_lib_1_1_xbee_1_1_core_1_1_local_at_command.html#abbfe8867ca63a04bcfb0a90c86e0dbe1',1,'Lib::Xbee::Core::LocalAtCommand']]],
-  ['max_5fresponse_5ftime_9',['MAX_RESPONSE_TIME',['../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#a14042ee4f8e88047578e2e710ee7acb6',1,'Lib::Xbee::API::ApplicationBase']]],
-  ['maxmsglengtherrors_10',['maxMsgLengthErrors',['../d3/da6/class_lib_1_1_xbee_1_1_core_1_1_diagnostic.html#a0a6c8dea988b649047126bca80189107',1,'Lib::Xbee::Core::Diagnostic']]],
-  ['memorycapacity_11',['memoryCapacity',['../d5/d40/struct_lib_1_1_b_s_p_1_1_f_m_e_m_1_1_s_p_i_1_1_info.html#a34435386af8508c661eb0ffc4a2bac51',1,'Lib::BSP::FMEM::SPI::Info::memoryCapacity'],['../d2/d7d/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_info.html#a3f1fb5812d6de82b12ecbdf2a052eab2',1,'Lib::BSP::W25Q128JVSIQ::Info::memoryCapacity']]],
-  ['memoryinfo_12',['memoryInfo',['../de/d0c/class_lib_1_1_b_s_p_1_1_f_m_e_m_1_1_s_p_i_1_1_driver_base.html#a12a1b5763c428229e95e6c174218aa5e',1,'Lib::BSP::FMEM::SPI::DriverBase']]],
-  ['messageframeid_13',['messageFrameId',['../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#ab689f5db1f1301ef5c9590080e0f009c',1,'Lib::Xbee::API::ApplicationBase']]],
-  ['minutes_14',['minutes',['../d7/dee/class_lib_1_1_helper_1_1_date_time_1_1_time.html#a6aa28d5e8d236fe3c0ce731acf59c0e6',1,'Lib::Helper::DateTime::Time']]],
-  ['modemstatus_15',['modemStatus',['../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#a01637a4fec7f729376c6f13f70024172',1,'Lib::Xbee::API::ApplicationBase::modemStatus'],['../d6/dbc/class_lib_1_1_xbee_1_1_core_1_1_frame0x8a.html#abec20622e7ca76e6627fdc24d6c2a030',1,'Lib::Xbee::Core::Frame0x8a::modemStatus']]],
-  ['monitor_16',['monitor',['../d1/d91/class_lib_1_1_xbee_1_1_a_p_i_1_1_node_info.html#a4af77d284b4b5f6affbf54465f4c6128',1,'Lib::Xbee::API::NodeInfo']]],
-  ['month_17',['month',['../d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a7820218f153fd1a59f9133bbc70c7c98',1,'Lib::Helper::DateTime::Date::month'],['../df/da6/struct_lib_1_1_helper_1_1_time_zone_1_1_time_change_rule.html#a05f8a287b487483feb4c6c62d496efa3',1,'Lib::Helper::TimeZone::TimeChangeRule::month']]],
-  ['mostbyte_18',['mostByte',['../d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a020c4d2ff405978a76a96a4ca6fd425e',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::U32']]],
-  ['mostsignificant_19',['mostSignificant',['../dc/d76/class_lib_1_1_xbee_1_1_a_p_i_1_1_node_info_1_1_mac_address.html#affdfa55d3ba783ac13bad480bd1c7359',1,'Lib::Xbee::API::NodeInfo::MacAddress']]],
-  ['mostword_20',['mostWord',['../d7/da9/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u64.html#a1a5d6bd7b4241bd6f7fee913b1e9b9c5',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper::U64']]],
-  ['mutexsend_21',['mutexSend',['../d5/dcc/class_lib_1_1_xbee_1_1_core_1_1_com_driver.html#a65dfef3aa3d40baa5968ab9a7f2b3db9',1,'Lib::Xbee::Core::ComDriver']]]
+  ['name_0',['name',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#a3c4b929635819e4534a71b6d5337291d',1,'ModelXbee::ModuleParameters::Data']]],
+  ['nsspinhandle_1',['nssPinHandle',['../df/d7b/struct_b_s_p_1_1_inputs_1_1_config.html#a77e7a54f43f382f3b7878ec0184788d8',1,'BSP::Inputs::Config']]]
 ];
