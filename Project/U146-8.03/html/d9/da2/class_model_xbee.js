@@ -10,10 +10,10 @@ var class_model_xbee =
     [ "ModelXbee", "d9/da2/class_model_xbee.html#a9fd49a080789956eade567d3a837753a", null ],
     [ "~ModelXbee", "d9/da2/class_model_xbee.html#aa36bc0243785b4211158ed3e39a31f45", null ],
     [ "handleTickEvent", "d9/da2/class_model_xbee.html#a3443d842f477cec5f7fd9584cc4160c6", null ],
-    [ "connection", "d9/da2/class_model_xbee.html#af32dbaa107c8db25a296982ef365c398", null ],
-    [ "leds", "d9/da2/class_model_xbee.html#ac7adafe2ad42b0a3c6175ba018cf2f0a", null ],
-    [ "parameters", "d9/da2/class_model_xbee.html#ab8cc36c33f0f2267ac80b3974ecb1dde", null ],
-    [ "signalStrength", "d9/da2/class_model_xbee.html#a0851d7c6bd04cab8723c0a541733f577", null ],
-    [ "spectrumAnalyzer", "d9/da2/class_model_xbee.html#a928d75c03d4808f35395310079e2f0fd", null ],
-    [ "transmitTime", "d9/da2/class_model_xbee.html#a7e4422ee860fc3ca2f0cf8ede3663b52", null ]
+    [ "connection", "d9/da2/class_model_xbee.html#ac05d34c83c119a250bf6fe4b25e1a91b", null ],
+    [ "leds", "d9/da2/class_model_xbee.html#ab7021b5386ab23694e61ce92f0f38671", null ],
+    [ "parameters", "d9/da2/class_model_xbee.html#ad61fe378030539b685d98273cc61a703", null ],
+    [ "signalStrength", "d9/da2/class_model_xbee.html#ad5eeb06151cc464dd3597e4ecfdd3a86", null ],
+    [ "spectrumAnalyzer", "d9/da2/class_model_xbee.html#aaf55f83c65ca1b0ecbe493f951f1785c", null ],
+    [ "transmitTime", "d9/da2/class_model_xbee.html#a4b6926fdefb03410da3970df885db130", null ]
 ];

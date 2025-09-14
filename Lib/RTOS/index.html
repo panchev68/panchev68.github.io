@@ -1,16 +1,15 @@
+<!-- HTML header for doxygen 1.9.4-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: Main Page</title>
-<link rel="icon" href="Arch_FreeRTOS_64.png" type="image/x-icon" />
+<title>RTOS: RTOS</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
-<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="navtreedata.js"></script>
 <script type="text/javascript" src="navtree.js"></script>
@@ -19,8 +18,10 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Roboto:wght@400&family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -28,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;<code><a href="/doxygen-mermaid/index.html">ver: 7.00</a></code></span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -90,19 +91,256 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">RTOS Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">RTOS </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__x_1_2_lib_2_f_w_2_e_w_a_r_m_2_r_t_o_s_2_readme"></a>   </p>
+<h1 class="doxsection"><a class="anchor" id="rtos-c-wrapper-stm32f4--freertos"></a>
+RTOS C++ Wrapper (STM32F4 / FreeRTOS)</h1>
+<p>Modern C++17 (restricted subset) object-oriented wrapper layer around FreeRTOS primitives for STM32F4 (IAR EWARM project). It offers safer RAII style abstractions for tasks, synchronization objects (mutexes, semaphores, event groups), queues &amp; buffers, timers, and time utilities while respecting embedded constraints (no dynamic allocation in ISRs, deterministic patterns, bounded waits).</p>
+<blockquote class="doxtable">
+<p>NOTE: The spelling <span class="tt">Karnel</span> in sources mirrors the existing codebase and is preserved for compatibility. </p>
+</blockquote>
+<h2 class="doxsection"><a class="anchor" id="highlights"></a>
+Highlights</h2>
+<ul>
+<li>Header-only style inline implementations for low call overhead where practical</li>
+<li>RAII management of FreeRTOS handles (automatic cleanup, exception-safe in non-ISR paths)</li>
+<li>Strong typing: enum class, fixed width integer types</li>
+<li>Notification &amp; synchronization helpers (task notify, mutex guard strategies, semaphore variants)</li>
+<li>Time utilities: tick counter, timeout helper, timer service abstraction</li>
+<li>Doxygen-ready documentation (see <span class="tt">docs/</span> output)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="directory-structure"></a>
+Directory Structure</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Path  </th><th class="markdownTableHeadNone">Purpose  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">inc/</span>  </td><td class="markdownTableBodyNone">Public C++ wrapper headers (Task, Mutex, Semaphore*, Queue, Timer, etc.)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">Core/</span>  </td><td class="markdownTableBodyNone">STM32CubeMX auto-generated startup, HAL config, FreeRTOS config glue  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">Middlewares/Third_Party/FreeRTOS/</span>  </td><td class="markdownTableBodyNone">Upstream FreeRTOS kernel sources  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><span class="tt">docs/</span>  </td><td class="markdownTableBodyNone">Doxygen configuration &amp; generated documentation assets  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><span class="tt">EWARM/</span>  </td><td class="markdownTableBodyNone">IAR Embedded Workbench project files (workbench, linker scripts, startup)  </td></tr>
+</table>
+<h2 class="doxsection"><a class="anchor" id="class-architecture"></a>
+Class Architecture</h2>
+<h3 class="doxsection"><a class="anchor" id="core-relationships"></a>
+Core Relationships</h3>
+<div class="fragment"><div class="line">classDiagram</div>
+<div class="line">    direction TB</div>
+<div class="line">    class Karnel</div>
+<div class="line">    class Task</div>
+<div class="line">    class MemoryManager</div>
+<div class="line">    class EventGroup</div>
+<div class="line">    class SemaphoreBase { &lt;&lt;abstract&gt;&gt; }</div>
+<div class="line">    class Mutex</div>
+<div class="line">    class Semaphore</div>
+<div class="line">    class SemaphoreCounting</div>
+<div class="line">    class Queue</div>
+<div class="line">    class QueueSet</div>
+<div class="line">    class MessageBuffer</div>
+<div class="line">    class StreamBuffer</div>
+<div class="line">    class TickService</div>
+<div class="line">    class TickCounter</div>
+<div class="line">    class Timeout</div>
+<div class="line">    class Timer</div>
+<div class="line"> </div>
+<div class="line">    SemaphoreBase &lt;|-- Mutex</div>
+<div class="line">    SemaphoreBase &lt;|-- Semaphore</div>
+<div class="line">    SemaphoreBase &lt;|-- SemaphoreCounting</div>
+<div class="line"> </div>
+<div class="line">    Karnel ..&gt; Task : schedules</div>
+<div class="line">    Karnel ..&gt; MemoryManager : alloc</div>
+<div class="line">    Task ..&gt; Mutex : locks</div>
+<div class="line">    Task ..&gt; EventGroup : waits/sets</div>
+<div class="line">    Task ..&gt; Queue : send/recv</div>
+<div class="line">    Task ..&gt; MessageBuffer : send/recv</div>
+<div class="line">    Task ..&gt; StreamBuffer : stream</div>
+<div class="line">    Task ..&gt; Timer : start/stop</div>
+<div class="line">    Timer ..&gt; Timeout : uses</div>
+<div class="line">    Timeout ..&gt; TickCounter : queries</div>
+<div class="line">    TickService ..&gt; TickCounter : updates</div>
+<div class="line">    QueueSet o-- Queue : aggregation</div>
+<div class="line">    MessageBuffer &lt;|-- StreamBuffer</div>
+<div class="line"> </div>
+<div class="line">    note for SemaphoreBase &quot;Common take/give/ISR logic&quot;</div>
+<div class="line">    note for Task &quot;Wrapper over xTask* APIs&quot;</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="synchronization-primitive-hierarchy"></a>
+Synchronization Primitive Hierarchy</h3>
+<div class="fragment"><div class="line">classDiagram</div>
+<div class="line">    direction LR</div>
+<div class="line">    class SemaphoreBase { +create() bool\n+destroy()\n+take(timeout) bool\n+give() bool }</div>
+<div class="line">    class Mutex { +create() bool\n+lock()\nunlock() }</div>
+<div class="line">    class Semaphore { +create() bool }</div>
+<div class="line">    class SemaphoreCounting { +create(count) bool }</div>
+<div class="line">    SemaphoreBase &lt;|-- Mutex</div>
+<div class="line">    SemaphoreBase &lt;|-- Semaphore</div>
+<div class="line">    SemaphoreBase &lt;|-- SemaphoreCounting    </div>
+<div class="line">    N1 .. SemaphoreBase</div>
+</div><!-- fragment --><h3 class="doxsection"><a class="anchor" id="time--timer-components"></a>
+Time &amp; Timer Components</h3>
+<div class="fragment"><div class="line">classDiagram</div>
+<div class="line">    direction LR</div>
+<div class="line">    class TickCounter { +now() uint32_t }</div>
+<div class="line">    class Timeout { +expired() bool\n+reset() }</div>
+<div class="line">    class TickService { +tickISR() }</div>
+<div class="line">    class Timer { +start()\n+stop()\n+isRunning() bool }</div>
+<div class="line">    TickService ..&gt; TickCounter : increments</div>
+<div class="line">    Timeout ..&gt; TickCounter : reads</div>
+<div class="line">    Timer ..&gt; Timeout : schedules</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="sequence-example-task-lifecycle-with-raii-callable"></a>
+Sequence Example: Task Lifecycle With RAII Callable</h2>
+<div class="fragment"><div class="line">sequenceDiagram</div>
+<div class="line">    autonumber</div>
+<div class="line">    participant App as Application</div>
+<div class="line">    participant TaskObj as Task (C++)</div>
+<div class="line">    participant FreeRTOS as Kernel</div>
+<div class="line">    App-&gt;&gt;TaskObj: construct Task(&quot;MyTask&quot;, stack, prio)</div>
+<div class="line">    App-&gt;&gt;TaskObj: start(lambda)</div>
+<div class="line">    TaskObj-&gt;&gt;FreeRTOS: xTaskCreate(taskEntry,...)</div>
+<div class="line">    FreeRTOS--&gt;&gt;TaskObj: handle</div>
+<div class="line">    FreeRTOS--&gt;&gt;App: start success</div>
+<div class="line">    loop Runtime</div>
+<div class="line">        FreeRTOS--&gt;&gt;FreeRTOS: Schedule lambda</div>
+<div class="line">    end</div>
+<div class="line">    lambda--&gt;&gt;FreeRTOS: vTaskDelete(NULL)</div>
+<div class="line">    FreeRTOS--&gt;&gt;TaskObj: deletion callback</div>
+<div class="line">    App-&gt;&gt;TaskObj: (optional) stop()</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="state-diagram-simplified-task-state-transitions"></a>
+State Diagram: Simplified Task State Transitions</h2>
+<div class="fragment"><div class="line">stateDiagram-v2</div>
+<div class="line">    [*] --&gt; Created</div>
+<div class="line">    Created --&gt; Ready : start()</div>
+<div class="line">    Ready --&gt; Running : scheduler</div>
+<div class="line">    Running --&gt; Blocked : delay()/wait</div>
+<div class="line">    Blocked --&gt; Ready : unblocked</div>
+<div class="line">    Running --&gt; Suspended : suspend()</div>
+<div class="line">    Suspended --&gt; Ready : resume()</div>
+<div class="line">    Running --&gt; Deleted : vTaskDelete</div>
+<div class="line">    Ready --&gt; Deleted : stop()</div>
+<div class="line">    Blocked --&gt; Deleted : delete</div>
+<div class="line">    Deleted --&gt; [*]</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="usage-snippets"></a>
+Usage Snippets</h2>
+<p>Task creation:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="d4/d81/a00110.html">Task.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> worker() {</div>
+<div class="line">    <span class="keywordflow">for</span> (;;) {</div>
+<div class="line">        <span class="comment">// do periodic work</span></div>
+<div class="line">        RTOS::Task::sleep(100);</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <a class="code hl_class" href="d5/de9/a00176.html">RTOS::Task</a> t(<span class="stringliteral">&quot;Worker&quot;</span>, 512, 2);</div>
+<div class="line">    t.start(worker);</div>
+<div class="line">    vTaskStartScheduler();</div>
+<div class="line">    <span class="keywordflow">for</span>(;;) {}</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00110_html"><div class="ttname"><a href="d4/d81/a00110.html">Task.hpp</a></div></div>
+<div class="ttc" id="aa00176_html"><div class="ttname"><a href="d5/de9/a00176.html">RTOS::Task</a></div><div class="ttdef"><b>Definition</b> Task.hpp:29</div></div>
+</div><!-- fragment --><p>Mutex &amp; guard strategies:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="db/dab/a00089.html">Mutex.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="db/d48/a00148.html">RTOS::Mutex</a> m;</div>
+<div class="line"><span class="keywordtype">int</span> sharedCounter = 0;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> init() { m.create(); }</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> modify() {</div>
+<div class="line">    <span class="keyword">auto</span> guard = RTOS::makeLockGuard(m); <span class="comment">// RAII</span></div>
+<div class="line">    ++sharedCounter;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00089_html"><div class="ttname"><a href="db/dab/a00089.html">Mutex.hpp</a></div><div class="ttdoc">RTOS mutex abstraction for FreeRTOS.</div></div>
+<div class="ttc" id="aa00148_html"><div class="ttname"><a href="db/d48/a00148.html">RTOS::Mutex</a></div><div class="ttdef"><b>Definition</b> Mutex.hpp:17</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="build-iar-ewarm"></a>
+Build (IAR EWARM)</h2>
+<ol type="1">
+<li>Open <span class="tt">EWARM/Project.eww</span> (or <span class="tt">RTOS.eww</span>) in IAR Embedded Workbench.</li>
+<li>Ensure FreeRTOS source is included (already under <span class="tt">Middlewares/Third_Party/FreeRTOS/Source</span>).</li>
+<li>Adjust MCU / linker script (<span class="tt">stm32f407xx_flash.icf</span>) if you change memory layout.</li>
+<li>Build and flash using ST-Link.</li>
+</ol>
+<h3 class="doxsection"><a class="anchor" id="key-configuration-files"></a>
+Key Configuration Files</h3>
+<ul>
+<li><span class="tt">Core/Inc/FreeRTOSConfig.h</span> : Kernel feature toggles, stack sizes, priorities</li>
+<li><span class="tt">Core/Src/freertos.c</span> : CMSIS / MX generated hook points</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="design-principles"></a>
+Design Principles</h2>
+<ul>
+<li>No dynamic allocation inside ISRs; only use FromISR APIs.</li>
+<li>Bounded waits: prefer timeouts over indefinite blocking in critical sections.</li>
+<li>RAII wrappers ensure resources released on scope exit.</li>
+<li>Assertions guard invariants (removed in production builds if NDEBUG).</li>
+<li>Avoid exceptions in real-time layers (none are thrown inside ISR paths).</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="documentation"></a>
+Documentation</h2>
+<p>Run Doxygen (already configured in <span class="tt">docs/doxyfile.conf</span>) to regenerate HTML:</p>
+<div class="fragment"><div class="line">doxygen docs/doxyfile.conf</div>
+</div><!-- fragment --><p>Generated output: <span class="tt">docs/doxygen/</span> (or configured output path).</p>
+<h2 class="doxsection"><a class="anchor" id="extending"></a>
+Extending</h2>
+<ol type="1">
+<li>Add new wrapper header in <span class="tt">inc/</span> with <span class="tt">#pragma once</span> and Doxygen file header.</li>
+<li>Keep inline implementations to reduce call overhead (unless size explosion becomes an issue).</li>
+<li>Use existing style &amp; naming conventions (camelCase for methods, PascalCase for types, no <span class="tt">using namespace</span>).</li>
+</ol>
+<h2 class="doxsection"><a class="anchor" id="mermaid-rendering"></a>
+Mermaid Rendering</h2>
+<p>GitHub automatically renders the Mermaid blocks above. If viewing offline, integrate Mermaid.js with your static site generator or markdown viewer.</p>
+<h3 class="doxsection"><a class="anchor" id="exporting-diagrams-to-png"></a>
+Exporting Diagrams to PNG</h3>
+<p>You can convert the individual <span class="tt">.mmd</span> sources under <span class="tt">docs/diagrams/</span> to PNG (or SVG) using the Mermaid CLI (<span class="tt">@mermaid-js/mermaid-cli</span>). On Windows with Node.js installed:</p>
+<div class="fragment"><div class="line">npm install -g @mermaid-js/mermaid-cli</div>
+<div class="line"> </div>
+<div class="line"># Export all diagrams in folder to PNG</div>
+<div class="line">Get-ChildItem docs/diagrams/*.mmd | ForEach-Object {</div>
+<div class="line">    mmdc -i $_.FullName -o ($_.FullName -replace &#39;.mmd$&#39;,&#39;.png&#39;) -b transparent</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"># Example single export</div>
+<div class="line">mmdc -i docs/diagrams/core_relationships.mmd -o docs/diagrams/core_relationships.png -b transparent</div>
+</div><!-- fragment --><p>If installing globally is not desired, use <span class="tt">npx mmdc -i ... -o ...</span> instead of <span class="tt">mmdc</span>.</p>
+<h2 class="doxsection"><a class="anchor" id="license"></a>
+License</h2>
+<p>FreeRTOS kernel under its respective MIT style license (see <span class="tt">Middlewares/Third_Party/FreeRTOS/Source/LICENSE</span>). Wrapper code: (add your chosen license statement here, e.g., MIT or Apache-2.0).</p>
+<h2 class="doxsection"><a class="anchor" id="disclaimer"></a>
+Disclaimer</h2>
+<p>This layer is not an exhaustive replacement for all FreeRTOS APIs; you can still directly call lower-level kernel functions when required. Validate stack sizes &amp; priorities for your application scenarios.</p>
+<hr  />
+<p> Generated README with Mermaid diagrams for architectural clarity. </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.9.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base', 
+    themeVariables: {
+      primaryColor: '#f4f4ff',
+      secondaryColor: 'rgba(244,244,255,0.9)',
+      tertiaryColor: '#F9FAFC',
+    },
+  });
+</script>
 </body>
 </html>

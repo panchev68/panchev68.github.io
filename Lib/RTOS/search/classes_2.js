@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eventgroup_0',['EventGroup',['../d9/d47/a00129.html',1,'RTOS']]]
+  ['kernel_0',['Kernel',['../d0/d5e/a00136.html',1,'RTOS']]]
 ];

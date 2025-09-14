@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: Timer</title>
+<title>RTOS: RTOS::TickCounter Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dd/df3/a00219.html','../../',''); });
+$(function(){initNavTree('dd/df3/a00219.html','../../','d6/d43/a00216'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,39 +91,775 @@ $(function(){initNavTree('dd/df3/a00219.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Timer</div></div>
+  <div class="headertitle"><div class="title">RTOS::TickCounter Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the RTOS::Timer class.</p>
-<p>Example usage of the RTOS::Timer class.This example demonstrates how to create, start, and stop a FreeRTOS software timer using the RTOS::Timer C++ wrapper. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Timer.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onTimerExpiry() {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Timer expired!\n&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="../../d5/d13/a00205.html">RTOS::Timer::Config</a> config{</div>
-<div class="line">        <span class="stringliteral">&quot;MyTimer&quot;</span>,         <span class="comment">// Timer name</span></div>
-<div class="line">        onTimerExpiry,     <span class="comment">// Expiry callback</span></div>
-<div class="line">        1000,              <span class="comment">// Period in ticks</span></div>
-<div class="line">        <span class="keyword">true</span>               <span class="comment">// Auto-reload</span></div>
-<div class="line">    };</div>
-<div class="line">    <span class="keyword">auto</span> timer = <a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/de3/a00201.html#afaca07dd0c8e8c4e6e246fa34a928571">RTOS::Timer::run</a>(config);</div>
-<div class="line">    timer-&gt;start();</div>
-<div class="line">    <span class="comment">// ... application code ...</span></div>
-<div class="line">    timer-&gt;stop();</div>
-<div class="line">    timer-&gt;destroy();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00201_html_afaca07dd0c8e8c4e6e246fa34a928571"><div class="ttname"><a href="../../dd/de3/a00201.html#afaca07dd0c8e8c4e6e246fa34a928571">RTOS::Timer::run</a></div><div class="ttdeci">static std::unique_ptr&lt; Timer &gt; run(const Config &amp;config)</div><div class="ttdoc">Creates and starts a Timer instance.</div><div class="ttdef"><b>Definition</b> Timer.hpp:58</div></div>
-<div class="ttc" id="aa00205_html"><div class="ttname"><a href="../../d5/d13/a00205.html">RTOS::Timer::Config</a></div><div class="ttdoc">Timer creation parameters.</div><div class="ttdef"><b>Definition</b> Timer.hpp:35</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Static utility class for FreeRTOS tick count operations and timing calculations. </p>
+<p>Provides comprehensive timing utilities for embedded real-time systems using FreeRTOS tick counts. Offers type-safe tick operations, context-aware tick retrieval for both task and ISR contexts, and overflow-aware elapsed time calculations. Includes convenient conversion utilities between different time units (ticks, milliseconds, seconds) and timeout management functions. All methods are static for zero-overhead access without instantiation, making it highly efficient for embedded applications where timing precision and performance are critical. The class is non-instantiable by design. </p>
+</div>
+<p><code>#include &lt;TickCounter.hpp&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:af8b741f7cd6bd8cefd26aae83980fbfd" id="r_af8b741f7cd6bd8cefd26aae83980fbfd"><td class="memItemLeft" align="right" valign="top"><a id="af8b741f7cd6bd8cefd26aae83980fbfd" name="af8b741f7cd6bd8cefd26aae83980fbfd"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TickType</b> = TickType_t</td></tr>
+<tr class="memdesc:af8b741f7cd6bd8cefd26aae83980fbfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for FreeRTOS tick type ensuring compatibility. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a0fe8362c851a572e236d8c4978c0677a" id="r_a0fe8362c851a572e236d8c4978c0677a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fe8362c851a572e236d8c4978c0677a">get</a> ()</td></tr>
+<tr class="memdesc:a0fe8362c851a572e236d8c4978c0677a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current system tick count from task context.  <br /></td></tr>
+<tr class="memitem:a05e949b33cc2bf7f854bff4ca736f5f5" id="r_a05e949b33cc2bf7f854bff4ca736f5f5"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05e949b33cc2bf7f854bff4ca736f5f5">getFromISR</a> ()</td></tr>
+<tr class="memdesc:a05e949b33cc2bf7f854bff4ca736f5f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current system tick count from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:ac0cef5f74597d9fd2e71b9eed937365d" id="r_ac0cef5f74597d9fd2e71b9eed937365d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0cef5f74597d9fd2e71b9eed937365d">msToTicks</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:ac0cef5f74597d9fd2e71b9eed937365d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts milliseconds to equivalent FreeRTOS tick count.  <br /></td></tr>
+<tr class="memitem:a4279f1f55ee184a461e549bd9d8284a2" id="r_a4279f1f55ee184a461e549bd9d8284a2"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4279f1f55ee184a461e549bd9d8284a2">ticksToMs</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> ticks)</td></tr>
+<tr class="memdesc:a4279f1f55ee184a461e549bd9d8284a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts FreeRTOS tick count to equivalent milliseconds.  <br /></td></tr>
+<tr class="memitem:a5b408b93923afb8debb092cce9b038c0" id="r_a5b408b93923afb8debb092cce9b038c0"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b408b93923afb8debb092cce9b038c0">secondsToTicks</a> (uint32_t seconds)</td></tr>
+<tr class="memdesc:a5b408b93923afb8debb092cce9b038c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts seconds to equivalent FreeRTOS tick count.  <br /></td></tr>
+<tr class="memitem:ae52215b2dded4b11f75dc20063fcd9b6" id="r_ae52215b2dded4b11f75dc20063fcd9b6"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae52215b2dded4b11f75dc20063fcd9b6">ticksToSeconds</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> ticks)</td></tr>
+<tr class="memdesc:ae52215b2dded4b11f75dc20063fcd9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts FreeRTOS tick count to equivalent seconds.  <br /></td></tr>
+<tr class="memitem:aa4f09aa2584d95ea6f0d171179c54b24" id="r_aa4f09aa2584d95ea6f0d171179c54b24"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4f09aa2584d95ea6f0d171179c54b24">getTickPeriodMs</a> ()</td></tr>
+<tr class="memdesc:aa4f09aa2584d95ea6f0d171179c54b24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the FreeRTOS tick period in milliseconds as compile-time constant.  <br /></td></tr>
+<tr class="memitem:a51b02567c698324959867f2a33656e33" id="r_a51b02567c698324959867f2a33656e33"><td class="memItemLeft" align="right" valign="top">static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51b02567c698324959867f2a33656e33">getTickRateHz</a> ()</td></tr>
+<tr class="memdesc:a51b02567c698324959867f2a33656e33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the FreeRTOS tick frequency in Hz as compile-time constant.  <br /></td></tr>
+<tr class="memitem:a72761e115322ee0b411f66a222d6795f" id="r_a72761e115322ee0b411f66a222d6795f"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a72761e115322ee0b411f66a222d6795f">getMaxDelay</a> ()</td></tr>
+<tr class="memdesc:a72761e115322ee0b411f66a222d6795f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the maximum delay value in ticks as compile-time constant.  <br /></td></tr>
+<tr class="memitem:a0260ddc7279e91581fa509a6e945609e" id="r_a0260ddc7279e91581fa509a6e945609e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0260ddc7279e91581fa509a6e945609e">getElapsedTicks</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks, <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> endTicks)</td></tr>
+<tr class="memdesc:a0260ddc7279e91581fa509a6e945609e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates elapsed ticks between two tick counts with overflow handling.  <br /></td></tr>
+<tr class="memitem:a8c98115e0686dac9274db23731149684" id="r_a8c98115e0686dac9274db23731149684"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c98115e0686dac9274db23731149684">getElapsedMs</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks, <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> endTicks)</td></tr>
+<tr class="memdesc:a8c98115e0686dac9274db23731149684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates elapsed milliseconds between two tick counts with overflow handling.  <br /></td></tr>
+<tr class="memitem:a656362bb6a790f57d2802b677fa25a5b" id="r_a656362bb6a790f57d2802b677fa25a5b"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a656362bb6a790f57d2802b677fa25a5b">getElapsedMsSince</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks)</td></tr>
+<tr class="memdesc:a656362bb6a790f57d2802b677fa25a5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates elapsed milliseconds from a starting tick count to the current time.  <br /></td></tr>
+<tr class="memitem:ad6915fe87c8e6127f5357b1a5eeb12e2" id="r_ad6915fe87c8e6127f5357b1a5eeb12e2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6915fe87c8e6127f5357b1a5eeb12e2">getElapsedTicksSince</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks)</td></tr>
+<tr class="memdesc:ad6915fe87c8e6127f5357b1a5eeb12e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates elapsed ticks from a starting tick count to the current time.  <br /></td></tr>
+<tr class="memitem:ae65b19457bd9b4fe8ecca581ad42adf6" id="r_ae65b19457bd9b4fe8ecca581ad42adf6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae65b19457bd9b4fe8ecca581ad42adf6">hasTimedOut</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks, uint32_t timeoutMs)</td></tr>
+<tr class="memdesc:ae65b19457bd9b4fe8ecca581ad42adf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a timeout period has elapsed since a starting tick count.  <br /></td></tr>
+<tr class="memitem:a29654984a0cf81674d5a17fcc63d7df3" id="r_a29654984a0cf81674d5a17fcc63d7df3"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29654984a0cf81674d5a17fcc63d7df3">hasTimedOutTicks</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks, <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> timeoutTicks)</td></tr>
+<tr class="memdesc:a29654984a0cf81674d5a17fcc63d7df3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a timeout period has elapsed since a starting tick count using tick units.  <br /></td></tr>
+<tr class="memitem:a990a0d5e6a63f188b60a7d4d2850ff75" id="r_a990a0d5e6a63f188b60a7d4d2850ff75"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a990a0d5e6a63f188b60a7d4d2850ff75">getRemainingTimeMs</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks, uint32_t timeoutMs)</td></tr>
+<tr class="memdesc:a990a0d5e6a63f188b60a7d4d2850ff75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates remaining time until timeout expiration in milliseconds.  <br /></td></tr>
+<tr class="memitem:ac222ca3aa3f00628bd8a6ff62041ea70" id="r_ac222ca3aa3f00628bd8a6ff62041ea70"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac222ca3aa3f00628bd8a6ff62041ea70">getRemainingTicks</a> (<a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> startTicks, <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> timeoutTicks)</td></tr>
+<tr class="memdesc:ac222ca3aa3f00628bd8a6ff62041ea70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates remaining ticks until timeout expiration.  <br /></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0fe8362c851a572e236d8c4978c0677a" name="a0fe8362c851a572e236d8c4978c0677a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fe8362c851a572e236d8c4978c0677a">&#9670;&#160;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::get </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the current system tick count from task context. </p>
+<p>Returns the current FreeRTOS system tick count when called from task context. This is the primary method for obtaining timing references in non-interrupt code. The tick count represents the number of tick interrupts that have occurred since system startup and can overflow back to zero on long-running systems.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current system tick count value. </dd></dl>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a0fe8362c851a572e236d8c4978c0677a_icgraph.svg" width="1438" height="651"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8c98115e0686dac9274db23731149684" name="a8c98115e0686dac9274db23731149684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c98115e0686dac9274db23731149684">&#9670;&#160;</a></span>getElapsedMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::TickCounter::getElapsedMs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>endTicks</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates elapsed milliseconds between two tick counts with overflow handling. </p>
+<p>Computes the time duration in milliseconds that has elapsed between a starting and ending tick count, using overflow-aware tick calculation and automatic conversion to milliseconds. Combines the precision of tick-based timing with the convenience of millisecond units for human-readable timing measurements in embedded applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count value for the measurement period. </td></tr>
+    <tr><td class="paramname">endTicks</td><td>Final tick count value for the measurement period. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Time duration in milliseconds between start and end (overflow-aware calculation). </dd></dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a8c98115e0686dac9274db23731149684_cgraph.svg" width="348" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a8c98115e0686dac9274db23731149684_icgraph.svg" width="544" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a656362bb6a790f57d2802b677fa25a5b" name="a656362bb6a790f57d2802b677fa25a5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656362bb6a790f57d2802b677fa25a5b">&#9670;&#160;</a></span>getElapsedMsSince()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::TickCounter::getElapsedMsSince </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates elapsed milliseconds from a starting tick count to the current time. </p>
+<p>Convenience method that computes the time duration in milliseconds from a specified starting tick count to the current system tick count. Automatically handles tick counter overflow and provides a simple interface for measuring elapsed time since a recorded timestamp. Ideal for performance measurements and timeout tracking.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count value when timing measurement began. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Time duration in milliseconds from start time to current time. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a656362bb6a790f57d2802b677fa25a5b_cgraph.svg" width="558" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a656362bb6a790f57d2802b677fa25a5b_icgraph.svg" width="352" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0260ddc7279e91581fa509a6e945609e" name="a0260ddc7279e91581fa509a6e945609e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0260ddc7279e91581fa509a6e945609e">&#9670;&#160;</a></span>getElapsedTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getElapsedTicks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>endTicks</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates elapsed ticks between two tick counts with overflow handling. </p>
+<p>Computes the number of ticks that have elapsed between a starting and ending tick count, properly handling tick counter overflow scenarios that occur in long-running embedded systems. The calculation accounts for the wraparound behavior when the tick counter exceeds its maximum value, ensuring accurate elapsed time measurement regardless of system uptime.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count value for the measurement period. </td></tr>
+    <tr><td class="paramname">endTicks</td><td>Final tick count value for the measurement period. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of ticks elapsed between start and end (overflow-aware calculation). </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a0260ddc7279e91581fa509a6e945609e_icgraph.svg" width="1330" height="428"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad6915fe87c8e6127f5357b1a5eeb12e2" name="ad6915fe87c8e6127f5357b1a5eeb12e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6915fe87c8e6127f5357b1a5eeb12e2">&#9670;&#160;</a></span>getElapsedTicksSince()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getElapsedTicksSince </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates elapsed ticks from a starting tick count to the current time. </p>
+<p>Convenience method that computes the number of ticks elapsed from a specified starting tick count to the current system tick count. Automatically handles tick counter overflow and provides a simple interface for measuring elapsed time in tick units. Useful for high-precision timing measurements and low-level timing operations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count value when timing measurement began. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of ticks elapsed from start time to current time. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_ad6915fe87c8e6127f5357b1a5eeb12e2_cgraph.svg" width="372" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_ad6915fe87c8e6127f5357b1a5eeb12e2_icgraph.svg" width="1138" height="296"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a05e949b33cc2bf7f854bff4ca736f5f5" name="a05e949b33cc2bf7f854bff4ca736f5f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05e949b33cc2bf7f854bff4ca736f5f5">&#9670;&#160;</a></span>getFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the current system tick count from interrupt service routine context. </p>
+<p>Returns the current FreeRTOS system tick count when called from ISR context. This ISR-safe version should be used exclusively within interrupt handlers to avoid blocking or other issues associated with the task-context version. Provides the same tick count value but with ISR-appropriate implementation.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current system tick count value from ISR-safe context. </dd></dl>
+
+</div>
+</div>
+<a id="a72761e115322ee0b411f66a222d6795f" name="a72761e115322ee0b411f66a222d6795f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72761e115322ee0b411f66a222d6795f">&#9670;&#160;</a></span>getMaxDelay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getMaxDelay </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the maximum delay value in ticks as compile-time constant. </p>
+<p>Returns the maximum possible delay value that can be used with FreeRTOS timing functions. This compile-time constant represents the largest tick count value that can be safely used for timeouts and delays. Essential for bounds checking and preventing overflow in timing calculations.</p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum valid delay value in tick units. </dd></dl>
+
+</div>
+</div>
+<a id="ac222ca3aa3f00628bd8a6ff62041ea70" name="ac222ca3aa3f00628bd8a6ff62041ea70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac222ca3aa3f00628bd8a6ff62041ea70">&#9670;&#160;</a></span>getRemainingTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::getRemainingTicks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeoutTicks</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates remaining ticks until timeout expiration. </p>
+<p>Computes the remaining time in tick units until a timeout period expires, based on the elapsed time since a starting tick count. Returns zero if the timeout has already occurred. Provides tick-precision timeout tracking for applications requiring precise timing control at the tick level.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count when the timeout period began. </td></tr>
+    <tr><td class="paramname">timeoutTicks</td><td>Total timeout duration in tick units. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Remaining time in ticks until timeout (0 if already timed out). </dd></dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_ac222ca3aa3f00628bd8a6ff62041ea70_cgraph.svg" width="566" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_ac222ca3aa3f00628bd8a6ff62041ea70_icgraph.svg" width="895" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a990a0d5e6a63f188b60a7d4d2850ff75" name="a990a0d5e6a63f188b60a7d4d2850ff75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990a0d5e6a63f188b60a7d4d2850ff75">&#9670;&#160;</a></span>getRemainingTimeMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::TickCounter::getRemainingTimeMs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutMs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates remaining time until timeout expiration in milliseconds. </p>
+<p>Computes the remaining time in milliseconds until a timeout period expires, based on the elapsed time since a starting tick count. Returns zero if the timeout has already occurred. Useful for dynamic timeout adjustments and providing feedback about remaining time in timeout-dependent operations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count when the timeout period began. </td></tr>
+    <tr><td class="paramname">timeoutMs</td><td>Total timeout duration in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Remaining time in milliseconds until timeout (0 if already timed out). </dd></dl>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a990a0d5e6a63f188b60a7d4d2850ff75_cgraph.svg" width="755" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa4f09aa2584d95ea6f0d171179c54b24" name="aa4f09aa2584d95ea6f0d171179c54b24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4f09aa2584d95ea6f0d171179c54b24">&#9670;&#160;</a></span>getTickPeriodMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t RTOS::TickCounter::getTickPeriodMs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the FreeRTOS tick period in milliseconds as compile-time constant. </p>
+<p>Returns the duration of each FreeRTOS tick in milliseconds as determined by the system configuration. This compile-time constant provides efficient access to timing information for calculations and conversions. Essential for understanding the resolution and accuracy of FreeRTOS timing operations.</p>
+<dl class="section return"><dt>Returns</dt><dd>Tick period duration in milliseconds per tick. </dd></dl>
+
+</div>
+</div>
+<a id="a51b02567c698324959867f2a33656e33" name="a51b02567c698324959867f2a33656e33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b02567c698324959867f2a33656e33">&#9670;&#160;</a></span>getTickRateHz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint32_t RTOS::TickCounter::getTickRateHz </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the FreeRTOS tick frequency in Hz as compile-time constant. </p>
+<p>Returns the frequency of FreeRTOS tick interrupts in hertz as determined by the system configuration. This compile-time constant provides efficient access to the tick rate for timing calculations and system analysis. Higher frequencies provide better timing resolution but increase interrupt overhead.</p>
+<dl class="section return"><dt>Returns</dt><dd>Tick interrupt frequency in hertz (ticks per second). </dd></dl>
+
+</div>
+</div>
+<a id="ae65b19457bd9b4fe8ecca581ad42adf6" name="ae65b19457bd9b4fe8ecca581ad42adf6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae65b19457bd9b4fe8ecca581ad42adf6">&#9670;&#160;</a></span>hasTimedOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::TickCounter::hasTimedOut </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutMs</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a timeout period has elapsed since a starting tick count. </p>
+<p>Determines whether the specified timeout duration in milliseconds has been exceeded since the given starting tick count. Uses overflow-aware elapsed time calculation to ensure accurate timeout detection even in long-running systems. Essential for implementing timeout mechanisms in embedded applications where timing reliability is critical.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count when the timeout period began. </td></tr>
+    <tr><td class="paramname">timeoutMs</td><td>Timeout duration in milliseconds to check against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the timeout period has elapsed, <span class="tt">false</span> if still within timeout. </dd></dl>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_ae65b19457bd9b4fe8ecca581ad42adf6_cgraph.svg" width="751" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a29654984a0cf81674d5a17fcc63d7df3" name="a29654984a0cf81674d5a17fcc63d7df3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29654984a0cf81674d5a17fcc63d7df3">&#9670;&#160;</a></span>hasTimedOutTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::TickCounter::hasTimedOutTicks </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>startTicks</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeoutTicks</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a timeout period has elapsed since a starting tick count using tick units. </p>
+<p>Determines whether the specified timeout duration in ticks has been exceeded since the given starting tick count. Provides tick-based timeout checking for applications requiring precise tick-level timing control. Uses overflow-aware calculation for reliable timeout detection in long-running embedded systems.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startTicks</td><td>Initial tick count when the timeout period began. </td></tr>
+    <tr><td class="paramname">timeoutTicks</td><td>Timeout duration in tick units to check against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the timeout period has elapsed, <span class="tt">false</span> if still within timeout. </dd></dl>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a29654984a0cf81674d5a17fcc63d7df3_cgraph.svg" width="566" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a29654984a0cf81674d5a17fcc63d7df3_icgraph.svg" width="610" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac0cef5f74597d9fd2e71b9eed937365d" name="ac0cef5f74597d9fd2e71b9eed937365d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0cef5f74597d9fd2e71b9eed937365d">&#9670;&#160;</a></span>msToTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::msToTicks </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts milliseconds to equivalent FreeRTOS tick count. </p>
+<p>Transforms a time duration in milliseconds to the corresponding number of FreeRTOS ticks based on the configured tick rate. Includes bounds checking to prevent overflow and ensure the result fits within the maximum delay limits. Essential for timeout calculations and delay operations in embedded timing code.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Time duration in milliseconds to convert to tick units. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent number of FreeRTOS ticks for the specified duration. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d82/a00243.html#a13">RTOS::Kernel</a>.</dd>
+</dl>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_ac0cef5f74597d9fd2e71b9eed937365d_icgraph.svg" width="927" height="675"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5b408b93923afb8debb092cce9b038c0" name="a5b408b93923afb8debb092cce9b038c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b408b93923afb8debb092cce9b038c0">&#9670;&#160;</a></span>secondsToTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a> RTOS::TickCounter::secondsToTicks </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts seconds to equivalent FreeRTOS tick count. </p>
+<p>Transforms a time duration in seconds to the corresponding number of FreeRTOS ticks based on the configured tick rate. Includes bounds checking to prevent overflow and ensure the result is within valid tick count limits. Convenient for longer timeout periods and delay operations specified in seconds.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>Time duration in seconds to convert to tick units. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent number of FreeRTOS ticks for the specified duration. </dd></dl>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a5b408b93923afb8debb092cce9b038c0_icgraph.svg" width="400" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4279f1f55ee184a461e549bd9d8284a2" name="a4279f1f55ee184a461e549bd9d8284a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4279f1f55ee184a461e549bd9d8284a2">&#9670;&#160;</a></span>ticksToMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::TickCounter::ticksToMs </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts FreeRTOS tick count to equivalent milliseconds. </p>
+<p>Transforms a FreeRTOS tick count to the corresponding time duration in milliseconds based on the configured tick period. Includes bounds checking to prevent overflow during the conversion calculation. Useful for displaying timing information or interfacing with millisecond-based APIs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Number of FreeRTOS ticks to convert to millisecond units. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent time duration in milliseconds. </dd></dl>
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df3/a00219_a4279f1f55ee184a461e549bd9d8284a2_icgraph.svg" width="951" height="403"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae52215b2dded4b11f75dc20063fcd9b6" name="ae52215b2dded4b11f75dc20063fcd9b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae52215b2dded4b11f75dc20063fcd9b6">&#9670;&#160;</a></span>ticksToSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::TickCounter::ticksToSeconds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#af8b741f7cd6bd8cefd26aae83980fbfd">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts FreeRTOS tick count to equivalent seconds. </p>
+<p>Transforms a FreeRTOS tick count to the corresponding time duration in seconds based on the configured tick rate. Includes bounds checking to prevent overflow during conversion. Useful for displaying longer timing information or converting to human-readable time formats.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Number of FreeRTOS ticks to convert to second units. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Equivalent time duration in seconds. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><b>TickCounter.hpp</b></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../dd/df3/a00219.html">TickCounter</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

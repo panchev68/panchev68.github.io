@@ -1,7 +1,11 @@
 var a00223 =
 [
-    [ "autoReload", "dc/d28/a00223.html#a26b27b80119e7802346a2ef65bf5cca5", null ],
-    [ "callback", "dc/d28/a00223.html#abe35c71ade8d73402a42a3582900347e", null ],
-    [ "name", "dc/d28/a00223.html#ad8b73f11067fe43efd4b598113c68363", null ],
-    [ "period", "dc/d28/a00223.html#a0a9e94f1565de00e42a4b2a043d10165", null ]
+    [ "ClientBase", "d9/d01/a00227.html", "d9/d01/a00227" ],
+    [ "getClientCount", "dc/d28/a00223.html#a1fbddf884e90eda1cd1ebefe9de70d2c", null ],
+    [ "getPriority", "dc/d28/a00223.html#a656935fd3fa802584313019c26e131c0", null ],
+    [ "getTickInterval", "dc/d28/a00223.html#a457b84eda584831ecda6667a11059a3c", null ],
+    [ "isRunning", "dc/d28/a00223.html#a2b5b44562ccf4a0b03bd2eb38a071f81", null ],
+    [ "setPriority", "dc/d28/a00223.html#a94c21b89affd6fd075fe46ea91bb3eab", null ],
+    [ "start", "dc/d28/a00223.html#ac735c01182cf815361e5c13544300231", null ],
+    [ "stop", "dc/d28/a00223.html#a77ea96a62d32c4017b21356f7093eada", null ]
 ];

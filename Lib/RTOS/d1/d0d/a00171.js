@@ -1,27 +1,10 @@
 var a00171 =
 [
-    [ "Handle", "d1/d0d/a00171.html#a2d9e77e52a7a7be78472b1c0b54fc450", null ],
-    [ "Queue", "d1/d0d/a00171.html#aadf145259f76aede9ec23f1de49de320", null ],
-    [ "~Queue", "d1/d0d/a00171.html#a059dae2c0d5f168ebcdb34da6828e89a", null ],
-    [ "addToRegistry", "d1/d0d/a00171.html#a08217cf1492b1af87255395c17272f54", null ],
-    [ "create", "d1/d0d/a00171.html#a1de0680dcbee88e899d16e907744cf34", null ],
-    [ "destroy", "d1/d0d/a00171.html#ae2f69ba51110a4ba96fcffffd6791d84", null ],
-    [ "getHandle", "d1/d0d/a00171.html#a00ad421ab7d7d98fcbe09d2ce4f254bd", null ],
-    [ "isCreated", "d1/d0d/a00171.html#ac86b4dc3648b18aca50c6d7b44d11c55", null ],
-    [ "messagesWaiting", "d1/d0d/a00171.html#a1683b8e0078db09a1262dc818935081e", null ],
-    [ "messagesWaitingFromISR", "d1/d0d/a00171.html#af09530f9ae8f149af3f6e367384eaba5", null ],
-    [ "operator()", "d1/d0d/a00171.html#aa67545a6607062ec26b15ec02f6903db", null ],
-    [ "operator()", "d1/d0d/a00171.html#a9b3fb1b1b25ce2357a863e3533a5de27", null ],
-    [ "overwrite", "d1/d0d/a00171.html#af261e6fc06b54ddfd59e6dcc5c1f440e", null ],
-    [ "overwriteFromISR", "d1/d0d/a00171.html#a25e33ace6c5f3062c41861f4c9e034d0", null ],
-    [ "peek", "d1/d0d/a00171.html#adf67090888377a5b91f1ad9def309ae3", null ],
-    [ "peekFromISR", "d1/d0d/a00171.html#a26d68ef21ca68a36ad27758b88b1e15a", null ],
-    [ "receive", "d1/d0d/a00171.html#a8a40f6acacdedb83c399c123317d0cfd", null ],
-    [ "receiveFromISR", "d1/d0d/a00171.html#a0e944f93b14485d94c36b36bed7a2e70", null ],
-    [ "removeFromRegistry", "d1/d0d/a00171.html#a04c7c4e8e7c979c670320128e03f08b7", null ],
-    [ "reset", "d1/d0d/a00171.html#a3f4e7c8e99ed90873150237c9336b6ed", null ],
-    [ "send", "d1/d0d/a00171.html#afe9ceb3f0fe09bfa66abc1ae164c6f9d", null ],
-    [ "sendToBackFromISR", "d1/d0d/a00171.html#a6678eb7e8b5885470af9adcff41b4eb1", null ],
-    [ "sendToFrontFromISR", "d1/d0d/a00171.html#a7a186efce78125bebeb157c402aed3a1", null ],
-    [ "spacesAvailable", "d1/d0d/a00171.html#a071d8ada963352d37c4deacf6d762c8e", null ]
+    [ "Status", "d1/d0d/a00171.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "d1/d0d/a00171.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "d1/d0d/a00171.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "d1/d0d/a00171.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "NULL_POINTER", "d1/d0d/a00171.html#a12545d9824f6613ee89191861f120584ab0944ab2f24069b66f78e66edde810a0", null ],
+      [ "SIZE_TOO_LARGE", "d1/d0d/a00171.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
+    ] ]
 ];

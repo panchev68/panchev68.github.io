@@ -7,6 +7,6 @@ var searchData=
   ['chipsize_4',['chipSize',['../dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html#a7b73a4ac017e77aa9fd54a7e73f3abe5',1,'BSP::M24C64W::Config']]],
   ['client_5',['client',['../d8/d6d/namespace_xbee.html#a334c2d4e817f5d715af314a7436db2b5',1,'Xbee']]],
   ['command_6',['command',['../dc/d52/struct_b_s_p_1_1_outputs_listener_1_1_message.html#a7091c2f242195d40a6042d741ccff49f',1,'BSP::OutputsListener::Message']]],
-  ['connection_7',['connection',['../d9/da2/class_model_xbee.html#af32dbaa107c8db25a296982ef365c398',1,'ModelXbee']]],
+  ['connection_7',['connection',['../d9/da2/class_model_xbee.html#ac05d34c83c119a250bf6fe4b25e1a91b',1,'ModelXbee']]],
   ['cspinhandle_8',['csPinHandle',['../d1/de1/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4_1_1_config.html#af5b477f8a8964f894c72ae19dbf645d6',1,'BSP::Outputs&lt; OutputVersion::V1 &gt;::Config::csPinHandle'],['../d7/db0/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4_1_1_config.html#ae65f31a3c96f52527ff404faa0193212',1,'BSP::Outputs&lt; OutputVersion::V2 &gt;::Config::csPinHandle']]]
 ];

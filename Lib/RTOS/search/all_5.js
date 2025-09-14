@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['handle_0',['Handle',['../d9/d47/a00129.html#a8f85547a426b02f14d6e4ea12fe668d3',1,'RTOS::EventGroup::Handle'],['../da/d01/a00153.html#a2d9e77e52a7a7be78472b1c0b54fc450',1,'RTOS::Queue::Handle'],['../d1/db7/a00157.html#a2c3910a686600b8161fe9dfa5d45cfef',1,'RTOS::QueueSet::Handle'],['../dd/d4c/a00177.html#a357f3c6aaef67bcff1043d89bd785281',1,'RTOS::Task::Handle'],['../dd/de3/a00201.html#a88e12a9654bf75a052ba3eab8aefe933',1,'RTOS::Timer::Handle']]],
-  ['handle_1',['handle',['../d0/d48/a00165.html#af98089a48fabe8207cc736331543af75',1,'RTOS::SemaphoreBase']]],
-  ['handletickevent_2',['handleTickEvent',['../dd/df4/a00193.html#a813aed3eccda809913d539e2eeaacabd',1,'RTOS::TickService::ClientBase']]]
+  ['files_0',['Key Configuration Files',['../index.html#key-configuration-files',1,'']]],
+  ['freeheapsize_1',['freeHeapSize',['../d5/db1/a00140.html#a745a0b53478f42396155e6a6e34fd0b7',1,'RTOS::MemoryManager']]],
+  ['freertos_2',['RTOS C++ Wrapper (STM32F4 / FreeRTOS)',['../index.html#rtos-c-wrapper-stm32f4--freertos',1,'']]],
+  ['freertos_20task_3',['Create and start the FreeRTOS task.',['../d5/de9/a00176.html#create-and-start-the-freertos-task',1,'']]],
+  ['frommilliseconds_4',['fromMilliseconds',['../dd/da2/a00192.html#a659f3331f019dc970488edd367ab17ce',1,'RTOS::Timeout']]],
+  ['fromms_5',['fromMs',['../d3/db1/a00200.html#ad30799a489f18f04fda7d53cd09a68c3',1,'RTOS::Timer::Config']]],
+  ['fromseconds_6',['fromSeconds',['../dd/da2/a00192.html#a69618efb8c6b561d76634f909806f531',1,'RTOS::Timeout::fromSeconds()'],['../d3/db1/a00200.html#adc44b090d8a793c065f6455bf6341ee6',1,'RTOS::Timer::Config::fromSeconds()']]]
 ];

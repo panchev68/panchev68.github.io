@@ -1,16 +1,15 @@
+<!-- HTML header for doxygen 1.9.4-->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>RTOS: TickService.hpp File Reference</title>
-<link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
-<script type="text/javascript" src="../../clipboard.js"></script>
 <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../navtreedata.js"></script>
 <script type="text/javascript" src="../../navtree.js"></script>
@@ -19,8 +18,10 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Roboto:wght@400&family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
@@ -28,7 +29,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;<code><a href="/doxygen-mermaid/index.html">ver: 7.00</a></code></span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -95,31 +96,35 @@ $(function(){initNavTree('d4/d3e/a00116.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Provides a tick event service for RTOS clients. </p>
-<p>Manages periodic tick events and notifies registered clients. Ensures thread-safe registration, unregistration, and event dispatch using a mutex. </p>
+<div class="textblock"><p>Tick-driven event service for periodic client notification in FreeRTOS STM32 systems. </p>
+<p>Provides a singleton tick service that periodically invokes registered client callbacks at a configurable interval. Thread-safe registration/unregistration and tick event dispatching for real-time applications. </p>
 </div><div class="textblock"><code>#include &quot;<a class="el" href="../../db/dab/a00089.html">Mutex.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="../../d4/d81/a00110.html">Task.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d3/d00/a00113.html">TickCounter.hpp</a>&quot;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;cstddef&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for TickService.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d4b/a00117.svg" width="1030" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d4b/a00117.svg" width="960" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:RTOS_3A_3ATickService" id="r_RTOS_3A_3ATickService"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dd2/a00207.html">RTOS::TickService</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dispatches periodic tick events to registered clients.  <a href="../../de/dd2/a00207.html#details">More...</a><br /></td></tr>
-<tr class="memitem:RTOS_3A_3ATickService_3A_3AClientBase" id="r_RTOS_3A_3ATickService_3A_3AClientBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ded/a00211.html">RTOS::TickService::ClientBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for tick event clients.  <a href="../../dd/ded/a00211.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATickService" id="r_RTOS_3A_3ATickService"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d2/d94/a00184.html">RTOS::TickService</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic tick event service for registered clients.  <a href="../../d2/d94/a00184.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3ATickService_3A_3AClientBase" id="r_RTOS_3A_3ATickService_3A_3AClientBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/d15/a00188.html">RTOS::TickService::ClientBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base for tick event clients.  <a href="../../da/d15/a00188.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:RTOS" id="r_RTOS"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/dce/a00143.html">RTOS</a></td></tr>
-<tr class="memdesc:d7/dce/a00143"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS C++ Wrapper. <br /></td></tr>
+<tr class="memitem:RTOS" id="r_RTOS"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d88/a00128.html">RTOS</a></td></tr>
+<tr class="memdesc:d1/d88/a00128"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status codes for RTOS operations. <br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -131,6 +136,7 @@ Namespaces</h2></td></tr>
 </div><!-- page-nav-tree -->
 </div><!-- page-nav -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.9.4-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
@@ -138,5 +144,16 @@ Namespaces</h2></td></tr>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base', 
+    themeVariables: {
+      primaryColor: '#f4f4ff',
+      secondaryColor: 'rgba(244,244,255,0.9)',
+      tertiaryColor: '#F9FAFC',
+    },
+  });
+</script>
 </body>
 </html>

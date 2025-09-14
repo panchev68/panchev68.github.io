@@ -1,15 +1,26 @@
 var a00179 =
 [
-    [ "Semaphore", "db/dd9/a00179.html#ac18bbf45d7ea4f13cf097651078f372d", null ],
-    [ "~Semaphore", "db/dd9/a00179.html#a2d627bf941aee18be37ff40b383a0226", null ],
-    [ "create", "db/dd9/a00179.html#a89c77ce82882d1c04a9adbb0a4816a79", null ],
-    [ "destroy", "db/dd9/a00179.html#a20dab5ad75e48b973309d994006e99b5", null ],
-    [ "give", "db/dd9/a00179.html#aad3313acf8b7b8d3282fa087e94699a3", null ],
-    [ "giveFromISR", "db/dd9/a00179.html#af808649cc6157fb1fce8c815039cb27c", null ],
-    [ "isCreated", "db/dd9/a00179.html#a7bb707649b575ed1941950f740df148e", null ],
-    [ "operator Handle &", "db/dd9/a00179.html#a8f256eeb71978589d9e8215070cc046a", null ],
-    [ "overwrite", "db/dd9/a00179.html#a52cb4c76003b898b7b12736211785d06", null ],
-    [ "overwriteFromISR", "db/dd9/a00179.html#a571a1c7023d93b55e0fe4418d4b9f3ff", null ],
-    [ "take", "db/dd9/a00179.html#aaff88f643c79c75553f7f678ee9a4c64", null ],
-    [ "takeFromISR", "db/dd9/a00179.html#afcf122ec069b8b33fd1e1ff8efbedc7f", null ]
+    [ "LockableType", "db/dd9/a00179.html#abdd2798dc53cd8fe13705aa5bf89a569", null ],
+    [ "LockStrategy", "db/dd9/a00179.html#a7b954631f339a3ee16bb26218b579430", [
+      [ "IMMEDIATE", "db/dd9/a00179.html#a7b954631f339a3ee16bb26218b579430ae35884a2445bc4ae2df52f188763273c", null ],
+      [ "DEFERRED", "db/dd9/a00179.html#a7b954631f339a3ee16bb26218b579430ae3d9a2ed4146353ae729818f8bcc329d", null ],
+      [ "TRY_LOCK", "db/dd9/a00179.html#a7b954631f339a3ee16bb26218b579430a48f18069f109aff6ab0f293c5dc64518", null ]
+    ] ],
+    [ "Guard", "db/dd9/a00179.html#a5dab09b688d9cb1b1403972235d00de8", null ],
+    [ "Guard", "db/dd9/a00179.html#ae274ee849c590fc4d3e92c51f5304442", null ],
+    [ "Guard", "db/dd9/a00179.html#abeb1b23eea3f6a3a5dc361879cb9242f", null ],
+    [ "~Guard", "db/dd9/a00179.html#a53fb9f2380b9e39135a73ef78a3c6180", null ],
+    [ "Guard", "db/dd9/a00179.html#a390fd01c82112bf3490e6b17d653ad22", null ],
+    [ "Guard", "db/dd9/a00179.html#ab97edfe000b8186114496f3326b5aa1a", null ],
+    [ "getLockable", "db/dd9/a00179.html#a3ab4fb8358d4d38d92a6c128b83d970a", null ],
+    [ "lock", "db/dd9/a00179.html#a09e600ec1a15b2532559ad28638b8b8a", null ],
+    [ "lockWithTimeout", "db/dd9/a00179.html#ae9001abf67444d71ce9e0ee25632ab6f", null ],
+    [ "operator bool", "db/dd9/a00179.html#a81a95ae5f5214543a5ffa28f6e712ad7", null ],
+    [ "operator LockableType &", "db/dd9/a00179.html#a6a76921f0c13247b788ffeab1115e840", null ],
+    [ "operator=", "db/dd9/a00179.html#af612360a02fa5181b17970c2003144ff", null ],
+    [ "operator=", "db/dd9/a00179.html#a5eeec3e612e509e89b8501ddd4fb5876", null ],
+    [ "ownsLock", "db/dd9/a00179.html#a80bb83459f420e8060d5af329c739c9a", null ],
+    [ "release", "db/dd9/a00179.html#a7d083afef532d2f79fb95759ad643565", null ],
+    [ "tryLock", "db/dd9/a00179.html#aa8a2279f9af07dfd64f6256b25b18041", null ],
+    [ "unlock", "db/dd9/a00179.html#a3cd33cc74fe9de19c3ad440e9323f5cb", null ]
 ];

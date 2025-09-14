@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: RTOS::StreamBuffer Class Reference</title>
+<title>RTOS: RTOS::QueueSet Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -91,63 +91,210 @@ $(function(){initNavTree('d9/dd0/a00191.html','../../','da/d15/a00188'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::StreamBuffer Class Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::QueueSet Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>C++ wrapper for FreeRTOS stream buffers. </p>
-<p>Encapsulates FreeRTOS stream buffer operations, providing methods for creation, destruction, sending, receiving, and querying buffer state. Supports both task and ISR contexts for flexible data streaming. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/de1/a00233.html#_a0">StreamBuffer</a>.</dd>
-</dl>
+<div class="textblock"><p>C++ wrapper for FreeRTOS queue sets with RAII and event multiplexing capabilities. </p>
+<p>Encapsulates FreeRTOS queue set functionality in a type-safe C++ interface with automatic resource management. Queue sets enable efficient monitoring of multiple queues and semaphores simultaneously, allowing a single task to block on multiple synchronization objects without polling. This is essential for implementing event-driven architectures in embedded systems where responsiveness and efficiency are critical. Supports move-only semantics to prevent accidental resource duplication and includes comprehensive error checking for robust embedded applications. </p>
 </div>
-<p><code>#include &lt;StreamBuffer.hpp&gt;</code></p>
+<p><code>#include &lt;QueueSet.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ac43f2585fb807014368f17cd4dd8bc9e" id="r_ac43f2585fb807014368f17cd4dd8bc9e"><td class="memItemLeft" align="right" valign="top"><a id="ac43f2585fb807014368f17cd4dd8bc9e" name="ac43f2585fb807014368f17cd4dd8bc9e"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = StreamBufferHandle_t</td></tr>
+<tr class="memitem:a2c3910a686600b8161fe9dfa5d45cfef" id="r_a2c3910a686600b8161fe9dfa5d45cfef"><td class="memItemLeft" align="right" valign="top"><a id="a2c3910a686600b8161fe9dfa5d45cfef" name="a2c3910a686600b8161fe9dfa5d45cfef"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = QueueSetHandle_t</td></tr>
+<tr class="memdesc:a2c3910a686600b8161fe9dfa5d45cfef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for the underlying FreeRTOS queue set handle. <br /></td></tr>
+<tr class="memitem:a15523e4b8826d137b1351df14e1f7070" id="r_a15523e4b8826d137b1351df14e1f7070"><td class="memItemLeft" align="right" valign="top"><a id="a15523e4b8826d137b1351df14e1f7070" name="a15523e4b8826d137b1351df14e1f7070"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Member</b> = QueueSetMemberHandle_t</td></tr>
+<tr class="memdesc:a15523e4b8826d137b1351df14e1f7070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for queue set member handles (queues/semaphores). <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6d894360f80c822b178de66210a2bc6a" id="r_a6d894360f80c822b178de66210a2bc6a"><td class="memItemLeft" align="right" valign="top"><a id="a6d894360f80c822b178de66210a2bc6a" name="a6d894360f80c822b178de66210a2bc6a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>StreamBuffer</b> ()=default</td></tr>
-<tr class="memdesc:a6d894360f80c822b178de66210a2bc6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializing the stream buffer handle to nullptr. <br /></td></tr>
-<tr class="memitem:a4279301601dc12497575fbe9b250f62a" id="r_a4279301601dc12497575fbe9b250f62a"><td class="memItemLeft" align="right" valign="top"><a id="a4279301601dc12497575fbe9b250f62a" name="a4279301601dc12497575fbe9b250f62a"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~StreamBuffer</b> ()</td></tr>
-<tr class="memdesc:a4279301601dc12497575fbe9b250f62a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor that destroys the stream buffer if created. <br /></td></tr>
-<tr class="memitem:aa2c511443cf2207c917749583857480a" id="r_aa2c511443cf2207c917749583857480a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2c511443cf2207c917749583857480a">create</a> (size_t bufferSize, size_t triggerLevel)</td></tr>
-<tr class="memdesc:aa2c511443cf2207c917749583857480a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a stream buffer with the specified buffer size and trigger level.  <br /></td></tr>
-<tr class="memitem:a61e72fe0b7e6d6115d71d9d7e789cdb5" id="r_a61e72fe0b7e6d6115d71d9d7e789cdb5"><td class="memItemLeft" align="right" valign="top"><a id="a61e72fe0b7e6d6115d71d9d7e789cdb5" name="a61e72fe0b7e6d6115d71d9d7e789cdb5"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
-<tr class="memdesc:a61e72fe0b7e6d6115d71d9d7e789cdb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the stream buffer if it has been created. <br /></td></tr>
-<tr class="memitem:a2f95c21ea10b46a1b618a3404ca40a78" id="r_a2f95c21ea10b46a1b618a3404ca40a78"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2f95c21ea10b46a1b618a3404ca40a78">send</a> (const void *source, size_t length, uint32_t waitTicks)</td></tr>
-<tr class="memdesc:a2f95c21ea10b46a1b618a3404ca40a78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data to the stream buffer.  <br /></td></tr>
-<tr class="memitem:af0d7b2f1971bd4ed46bfa94122fc0b4b" id="r_af0d7b2f1971bd4ed46bfa94122fc0b4b"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0d7b2f1971bd4ed46bfa94122fc0b4b">sendFromISR</a> (const void *source, size_t length)</td></tr>
-<tr class="memdesc:af0d7b2f1971bd4ed46bfa94122fc0b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data to the stream buffer from an ISR context.  <br /></td></tr>
-<tr class="memitem:adedbd01b1bef79ede4812bd53b1e7347" id="r_adedbd01b1bef79ede4812bd53b1e7347"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adedbd01b1bef79ede4812bd53b1e7347">receive</a> (void *destination, size_t length, uint32_t waitTicks)</td></tr>
-<tr class="memdesc:adedbd01b1bef79ede4812bd53b1e7347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data from the stream buffer.  <br /></td></tr>
-<tr class="memitem:a8fda8c9cedd61659ad971bc27fb6a04e" id="r_a8fda8c9cedd61659ad971bc27fb6a04e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fda8c9cedd61659ad971bc27fb6a04e">receiveFromISR</a> (void *destination, size_t length)</td></tr>
-<tr class="memdesc:a8fda8c9cedd61659ad971bc27fb6a04e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives data from the stream buffer from an ISR context.  <br /></td></tr>
-<tr class="memitem:a106b6b1961b742c76bd83f3d032aad3a" id="r_a106b6b1961b742c76bd83f3d032aad3a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a106b6b1961b742c76bd83f3d032aad3a">getBytesAvailable</a> () const</td></tr>
-<tr class="memdesc:a106b6b1961b742c76bd83f3d032aad3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes available for reading in the buffer.  <br /></td></tr>
-<tr class="memitem:a9fa51825dff8d1fb8914b5700becd22a" id="r_a9fa51825dff8d1fb8914b5700becd22a"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fa51825dff8d1fb8914b5700becd22a">getSpacesAvailable</a> () const</td></tr>
-<tr class="memdesc:a9fa51825dff8d1fb8914b5700becd22a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes available for writing in the buffer.  <br /></td></tr>
-<tr class="memitem:a861b60a2bb7532cbbff910e8b1fc0a33" id="r_a861b60a2bb7532cbbff910e8b1fc0a33"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a861b60a2bb7532cbbff910e8b1fc0a33">setTriggerLevel</a> (size_t triggerLevel)</td></tr>
-<tr class="memdesc:a861b60a2bb7532cbbff910e8b1fc0a33"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the trigger level for the buffer.  <br /></td></tr>
-<tr class="memitem:a945ae0f4f0d0051decd64f9e208f59fc" id="r_a945ae0f4f0d0051decd64f9e208f59fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a945ae0f4f0d0051decd64f9e208f59fc">reset</a> ()</td></tr>
-<tr class="memdesc:a945ae0f4f0d0051decd64f9e208f59fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the stream buffer.  <br /></td></tr>
-<tr class="memitem:ac63276981f0f2652f909f8caf99eded6" id="r_ac63276981f0f2652f909f8caf99eded6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac63276981f0f2652f909f8caf99eded6">isEmpty</a> () const</td></tr>
-<tr class="memdesc:ac63276981f0f2652f909f8caf99eded6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the buffer is empty.  <br /></td></tr>
-<tr class="memitem:ab28a179ad13782df9ebce66f220d9084" id="r_ab28a179ad13782df9ebce66f220d9084"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab28a179ad13782df9ebce66f220d9084">isFull</a> () const</td></tr>
-<tr class="memdesc:ab28a179ad13782df9ebce66f220d9084"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the buffer is full.  <br /></td></tr>
-<tr class="memitem:a8f44e79071890fe52737b0a611f8204b" id="r_a8f44e79071890fe52737b0a611f8204b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f44e79071890fe52737b0a611f8204b">operator Handle &amp;</a> ()</td></tr>
-<tr class="memdesc:a8f44e79071890fe52737b0a611f8204b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit conversion operator to the handle type.  <br /></td></tr>
-<tr class="memitem:a19a0f30afe68cccb4fbb7ba9d3fb3f24" id="r_a19a0f30afe68cccb4fbb7ba9d3fb3f24"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19a0f30afe68cccb4fbb7ba9d3fb3f24">isCreated</a> () const</td></tr>
-<tr class="memdesc:a19a0f30afe68cccb4fbb7ba9d3fb3f24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the stream buffer has been created.  <br /></td></tr>
+<tr class="memitem:add47502e0f605710cc5701380410983a" id="r_add47502e0f605710cc5701380410983a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add47502e0f605710cc5701380410983a">QueueSet</a> ()</td></tr>
+<tr class="memdesc:add47502e0f605710cc5701380410983a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of QueueSet.  <br /></td></tr>
+<tr class="memitem:ad68cb3477a415b45d1868d84870f1ff6" id="r_ad68cb3477a415b45d1868d84870f1ff6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad68cb3477a415b45d1868d84870f1ff6">~QueueSet</a> ()</td></tr>
+<tr class="memdesc:ad68cb3477a415b45d1868d84870f1ff6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of QueueSet.  <br /></td></tr>
+<tr class="memitem:ae2edc6867b514d3095c48632b063dec2" id="r_ae2edc6867b514d3095c48632b063dec2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae2edc6867b514d3095c48632b063dec2">QueueSet</a> (const <a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ae2edc6867b514d3095c48632b063dec2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor to prevent resource duplication.  <br /></td></tr>
+<tr class="memitem:a6b0fbab1c52e628133d0e8c97dc09c0c" id="r_a6b0fbab1c52e628133d0e8c97dc09c0c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b0fbab1c52e628133d0e8c97dc09c0c">operator=</a> (const <a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a6b0fbab1c52e628133d0e8c97dc09c0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator to prevent resource duplication.  <br /></td></tr>
+<tr class="memitem:a06bb2cccf989842ebad0aad4f91e81f2" id="r_a06bb2cccf989842ebad0aad4f91e81f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06bb2cccf989842ebad0aad4f91e81f2">QueueSet</a> (<a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a06bb2cccf989842ebad0aad4f91e81f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor for efficient queue set ownership transfer.  <br /></td></tr>
+<tr class="memitem:a89a2ea9bdb51d0e1265697c2c38e238b" id="r_a89a2ea9bdb51d0e1265697c2c38e238b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89a2ea9bdb51d0e1265697c2c38e238b">operator=</a> (<a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a89a2ea9bdb51d0e1265697c2c38e238b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator for efficient queue set ownership transfer.  <br /></td></tr>
+<tr class="memitem:a2eeb5f323d9478e0856d1247d5dd9fe8" id="r_a2eeb5f323d9478e0856d1247d5dd9fe8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2eeb5f323d9478e0856d1247d5dd9fe8">create</a> (UBaseType_t length)</td></tr>
+<tr class="memdesc:a2eeb5f323d9478e0856d1247d5dd9fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new queue set with specified capacity for member handles.  <br /></td></tr>
+<tr class="memitem:a303ab08533a9fabc2ba9f3b28b402a45" id="r_a303ab08533a9fabc2ba9f3b28b402a45"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a303ab08533a9fabc2ba9f3b28b402a45">destroy</a> ()</td></tr>
+<tr class="memdesc:a303ab08533a9fabc2ba9f3b28b402a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the queue set and releases all associated resources.  <br /></td></tr>
+<tr class="memitem:a7a7fe7c319f46eece21290a48bef5397" id="r_a7a7fe7c319f46eece21290a48bef5397"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a7fe7c319f46eece21290a48bef5397">addToSet</a> (<a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a> queueOrSemaphore) const</td></tr>
+<tr class="memdesc:a7a7fe7c319f46eece21290a48bef5397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a queue or semaphore to the queue set for monitoring.  <br /></td></tr>
+<tr class="memitem:a1b9426e934a4025cc93ac3321af831e9" id="r_a1b9426e934a4025cc93ac3321af831e9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b9426e934a4025cc93ac3321af831e9">removeFromSet</a> (<a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a> queueOrSemaphore) const</td></tr>
+<tr class="memdesc:a1b9426e934a4025cc93ac3321af831e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a queue or semaphore from the queue set monitoring.  <br /></td></tr>
+<tr class="memitem:aae8b8ce582eef4316b16221cbdb55011" id="r_aae8b8ce582eef4316b16221cbdb55011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae8b8ce582eef4316b16221cbdb55011">selectFromSet</a> (TickType_t timeout) const</td></tr>
+<tr class="memdesc:aae8b8ce582eef4316b16221cbdb55011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects from the queue set with configurable timeout blocking behavior.  <br /></td></tr>
+<tr class="memitem:a5d61f4445e5d693a476036d6b3ca85eb" id="r_a5d61f4445e5d693a476036d6b3ca85eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d61f4445e5d693a476036d6b3ca85eb">selectFromSetNow</a> () const</td></tr>
+<tr class="memdesc:a5d61f4445e5d693a476036d6b3ca85eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects from the queue set without blocking for immediate event checking.  <br /></td></tr>
+<tr class="memitem:a77f146257e248379db6002a596a260e8" id="r_a77f146257e248379db6002a596a260e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77f146257e248379db6002a596a260e8">selectFromSetForever</a> () const</td></tr>
+<tr class="memdesc:a77f146257e248379db6002a596a260e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects from the queue set with indefinite blocking until an event occurs.  <br /></td></tr>
+<tr class="memitem:a2a5bbbfb80dd2b36e1d6064bdc836b29" id="r_a2a5bbbfb80dd2b36e1d6064bdc836b29"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a5bbbfb80dd2b36e1d6064bdc836b29">selectFromSetFromISR</a> () const</td></tr>
+<tr class="memdesc:a2a5bbbfb80dd2b36e1d6064bdc836b29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects from the queue set in interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:aea5369f157619397da4deb99256ad92b" id="r_aea5369f157619397da4deb99256ad92b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea5369f157619397da4deb99256ad92b">isCreated</a> () const</td></tr>
+<tr class="memdesc:aea5369f157619397da4deb99256ad92b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the queue set has been successfully created and is ready for operations.  <br /></td></tr>
+<tr class="memitem:a47cc167178550735e38acb281b99aa8a" id="r_a47cc167178550735e38acb281b99aa8a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a2c3910a686600b8161fe9dfa5d45cfef">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47cc167178550735e38acb281b99aa8a">getHandle</a> () const</td></tr>
+<tr class="memdesc:a47cc167178550735e38acb281b99aa8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the underlying FreeRTOS queue set handle for advanced operations.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ac621c3bfe7e338d965244d57c4bbb5a8" id="r_ac621c3bfe7e338d965244d57c4bbb5a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac621c3bfe7e338d965244d57c4bbb5a8">createQueueSet</a> (UBaseType_t length)</td></tr>
+<tr class="memdesc:ac621c3bfe7e338d965244d57c4bbb5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Factory function for creating and initializing a queue set in one operation.  <br /></td></tr>
 </table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="add47502e0f605710cc5701380410983a" name="add47502e0f605710cc5701380410983a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add47502e0f605710cc5701380410983a">&#9670;&#160;</a></span>QueueSet() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::QueueSet::QueueSet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of QueueSet. </p>
+<p>Initializes a QueueSet object in an uncreated state with a null handle. The queue set must be explicitly created using create() before it can be used for event multiplexing operations. This design allows for controlled resource allocation and proper error handling in embedded environments where resource management is critical. </p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_add47502e0f605710cc5701380410983a_icgraph.svg" width="474" height="264"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad68cb3477a415b45d1868d84870f1ff6" name="ad68cb3477a415b45d1868d84870f1ff6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad68cb3477a415b45d1868d84870f1ff6">&#9670;&#160;</a></span>~QueueSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::QueueSet::~QueueSet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor of QueueSet. </p>
+<p>Ensures proper cleanup of FreeRTOS queue set resources if the queue set was created. Automatically calls destroy() if the queue set is still active, preventing resource leaks. This RAII behavior ensures reliable resource management even in embedded systems with constrained memory and helps maintain system stability during object lifecycle management. </p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_ad68cb3477a415b45d1868d84870f1ff6_cgraph.svg" width="431" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae2edc6867b514d3095c48632b063dec2" name="ae2edc6867b514d3095c48632b063dec2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2edc6867b514d3095c48632b063dec2">&#9670;&#160;</a></span>QueueSet() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::QueueSet::QueueSet </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted copy constructor to prevent resource duplication. </p>
+<p>Queue sets represent exclusive ownership of FreeRTOS resources and cannot be safely copied. This deleted constructor prevents accidental copying that could lead to double-destruction errors or resource conflicts in multi-threaded embedded environments where resource integrity is critical for system stability. </p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_ae2edc6867b514d3095c48632b063dec2_cgraph.svg" width="438" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a06bb2cccf989842ebad0aad4f91e81f2" name="a06bb2cccf989842ebad0aad4f91e81f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06bb2cccf989842ebad0aad4f91e81f2">&#9670;&#160;</a></span>QueueSet() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::QueueSet::QueueSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor for efficient queue set ownership transfer. </p>
+<p>Enables efficient transfer of queue set ownership from one object to another without destroying and recreating the underlying FreeRTOS queue set. The source queue set is left in an uncreated state after the move operation completes, ensuring only one object owns the resource.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source queue set object to transfer ownership from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a06bb2cccf989842ebad0aad4f91e81f2_cgraph.svg" width="438" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aa2c511443cf2207c917749583857480a" name="aa2c511443cf2207c917749583857480a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2c511443cf2207c917749583857480a">&#9670;&#160;</a></span>create()</h2>
+<a id="a7a7fe7c319f46eece21290a48bef5397" name="a7a7fe7c319f46eece21290a48bef5397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a7fe7c319f46eece21290a48bef5397">&#9670;&#160;</a></span>addToSet()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,14 +303,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::StreamBuffer::create </td>
+          <td class="memname">bool RTOS::QueueSet::addToSet </td>
           <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bufferSize</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>triggerLevel</em></span>&#160;)</td>
+          <td class="paramtype"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a></td>          <td class="paramname"><span class="paramname"><em>queueOrSemaphore</em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -173,22 +316,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Creates a stream buffer with the specified buffer size and trigger level. </p>
+<p>Adds a queue or semaphore to the queue set for monitoring. </p>
+<p>Registers a queue or semaphore with the queue set so it can be monitored for available data or signals. The queue or semaphore must be empty when added to the set to ensure consistent behavior. Once added, the queue or semaphore can be selected when data becomes available, enabling efficient event-driven programming patterns in embedded systems.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bufferSize</td><td>Size of the buffer in bytes. </td></tr>
-    <tr><td class="paramname">triggerLevel</td><td>Trigger level for the buffer. </td></tr>
+    <tr><td class="paramname">queueOrSemaphore</td><td>Valid handle of queue or semaphore to add to the monitoring set. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if created successfully, false otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/de1/a00233.html#a1">StreamBuffer</a>.</dd>
-</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if addition was successful, <span class="tt">false</span> if operation failed or invalid parameters. </dd></dl>
 
 </div>
 </div>
-<a id="a106b6b1961b742c76bd83f3d032aad3a" name="a106b6b1961b742c76bd83f3d032aad3a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a106b6b1961b742c76bd83f3d032aad3a">&#9670;&#160;</a></span>getBytesAvailable()</h2>
+<a id="a2eeb5f323d9478e0856d1247d5dd9fe8" name="a2eeb5f323d9478e0856d1247d5dd9fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eeb5f323d9478e0856d1247d5dd9fe8">&#9670;&#160;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -197,7 +338,83 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::getBytesAvailable </td>
+          <td class="memname">bool RTOS::QueueSet::create </td>
+          <td>(</td>
+          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new queue set with specified capacity for member handles. </p>
+<p>Allocates and initializes a new FreeRTOS queue set capable of holding the specified number of queue and semaphore handles. The length parameter determines the maximum number of queues and semaphores that can be monitored simultaneously. Performs validation to ensure the queue set is not already created and that sufficient memory is available for the operation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>Maximum number of queue or semaphore handles that can be stored in the set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if creation was successful, <span class="tt">false</span> if creation failed or already exists. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a2eeb5f323d9478e0856d1247d5dd9fe8_icgraph.svg" width="452" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a303ab08533a9fabc2ba9f3b28b402a45" name="a303ab08533a9fabc2ba9f3b28b402a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a303ab08533a9fabc2ba9f3b28b402a45">&#9670;&#160;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::QueueSet::destroy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the queue set and releases all associated resources. </p>
+<p>Safely deallocates the FreeRTOS queue set and resets the handle to null. All member queues and semaphores are automatically removed from the set before destruction. Any tasks blocked on queue set selection operations will be unblocked with appropriate error codes. Should be called before object destruction or when the queue set is no longer needed.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if destruction was successful, <span class="tt">false</span> if queue set was not created. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a303ab08533a9fabc2ba9f3b28b402a45_icgraph.svg" width="431" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a47cc167178550735e38acb281b99aa8a" name="a47cc167178550735e38acb281b99aa8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47cc167178550735e38acb281b99aa8a">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a2c3910a686600b8161fe9dfa5d45cfef">Handle</a> RTOS::QueueSet::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -210,13 +427,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Gets the number of bytes available for reading in the buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes available for reading. </dd></dl>
+<p>Retrieves the underlying FreeRTOS queue set handle for advanced operations. </p>
+<p>Provides direct access to the native FreeRTOS queue set handle for compatibility with legacy code or advanced operations not covered by the C++ interface. Use with caution to avoid bypassing the safety guarantees provided by the wrapper class.</p>
+<dl class="section return"><dt>Returns</dt><dd>The underlying FreeRTOS queue set handle, or nullptr if not created. </dd></dl>
 
 </div>
 </div>
-<a id="a9fa51825dff8d1fb8914b5700becd22a" name="a9fa51825dff8d1fb8914b5700becd22a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9fa51825dff8d1fb8914b5700becd22a">&#9670;&#160;</a></span>getSpacesAvailable()</h2>
+<a id="aea5369f157619397da4deb99256ad92b" name="aea5369f157619397da4deb99256ad92b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea5369f157619397da4deb99256ad92b">&#9670;&#160;</a></span>isCreated()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,7 +443,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::getSpacesAvailable </td>
+          <td class="memname">bool RTOS::QueueSet::isCreated </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -238,13 +456,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Gets the number of bytes available for writing in the buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes available for writing. </dd></dl>
+<p>Checks if the queue set has been successfully created and is ready for operations. </p>
+<p>Determines whether the queue set has been properly initialized and is available for event multiplexing operations. Returns false if create() has not been called successfully or if the queue set has been destroyed. Useful for validating queue set state before attempting member management or selection operations.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if queue set is created and ready for use, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a19a0f30afe68cccb4fbb7ba9d3fb3f24" name="a19a0f30afe68cccb4fbb7ba9d3fb3f24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a19a0f30afe68cccb4fbb7ba9d3fb3f24">&#9670;&#160;</a></span>isCreated()</h2>
+<a id="a6b0fbab1c52e628133d0e8c97dc09c0c" name="a6b0fbab1c52e628133d0e8c97dc09c0c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b0fbab1c52e628133d0e8c97dc09c0c">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -253,7 +472,158 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::StreamBuffer::isCreated </td>
+          <td class="memname"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp; RTOS::QueueSet::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted copy assignment operator to prevent resource duplication. </p>
+<p>Prevents assignment operations that could compromise the exclusive ownership model of the queue set. Move semantics should be used instead for transferring ownership of queue set resources between objects, ensuring safe and efficient resource management. </p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a6b0fbab1c52e628133d0e8c97dc09c0c_cgraph.svg" width="435" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a89a2ea9bdb51d0e1265697c2c38e238b" name="a89a2ea9bdb51d0e1265697c2c38e238b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89a2ea9bdb51d0e1265697c2c38e238b">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp; RTOS::QueueSet::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator for efficient queue set ownership transfer. </p>
+<p>Enables assignment-based transfer of queue set ownership between objects. If the current queue set is active, it is properly destroyed before taking ownership of the queue set from the source object. The source queue set is left in an uncreated state after the operation, maintaining exclusive ownership semantics.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source queue set object to transfer ownership from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this queue set after ownership transfer. </dd></dl>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a89a2ea9bdb51d0e1265697c2c38e238b_cgraph.svg" width="435" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1b9426e934a4025cc93ac3321af831e9" name="a1b9426e934a4025cc93ac3321af831e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b9426e934a4025cc93ac3321af831e9">&#9670;&#160;</a></span>removeFromSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::QueueSet::removeFromSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a></td>          <td class="paramname"><span class="paramname"><em>queueOrSemaphore</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes a queue or semaphore from the queue set monitoring. </p>
+<p>Unregisters a queue or semaphore from the queue set, stopping its monitoring for available data or signals. The queue or semaphore must be empty when removed from the set to ensure consistent behavior. After removal, the queue or semaphore will no longer trigger selection events and must be managed independently.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">queueOrSemaphore</td><td>Valid handle of queue or semaphore to remove from the monitoring set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if removal was successful, <span class="tt">false</span> if operation failed or invalid parameters. </dd></dl>
+
+</div>
+</div>
+<a id="aae8b8ce582eef4316b16221cbdb55011" name="aae8b8ce582eef4316b16221cbdb55011"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae8b8ce582eef4316b16221cbdb55011">&#9670;&#160;</a></span>selectFromSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a> RTOS::QueueSet::selectFromSet </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Selects from the queue set with configurable timeout blocking behavior. </p>
+<p>Blocks the calling task until one of the monitored queues or semaphores has data available or the specified timeout expires. This is the core event multiplexing operation that enables efficient monitoring of multiple synchronization objects. When a queue or semaphore becomes ready, its handle is returned for further processing. Should only be called from task context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum FreeRTOS ticks to wait for a member to become ready. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Handle of the queue or semaphore that has data available, or nullptr on timeout. </dd></dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_aae8b8ce582eef4316b16221cbdb55011_icgraph.svg" width="472" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a77f146257e248379db6002a596a260e8" name="a77f146257e248379db6002a596a260e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77f146257e248379db6002a596a260e8">&#9670;&#160;</a></span>selectFromSetForever()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a> RTOS::QueueSet::selectFromSetForever </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -266,13 +636,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the stream buffer has been created. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if created, false otherwise. </dd></dl>
+<p>Selects from the queue set with indefinite blocking until an event occurs. </p>
+<p>Blocks the calling task indefinitely until one of the monitored queues or semaphores has data available. This provides guaranteed event delivery without timeout concerns, making it suitable for event-driven architectures where the task should always respond to events. Use with caution in systems where task responsiveness to other stimuli is required.</p>
+<dl class="section return"><dt>Returns</dt><dd>Handle of the queue or semaphore that has data available. </dd></dl>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a77f146257e248379db6002a596a260e8_cgraph.svg" width="472" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ac63276981f0f2652f909f8caf99eded6" name="ac63276981f0f2652f909f8caf99eded6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac63276981f0f2652f909f8caf99eded6">&#9670;&#160;</a></span>isEmpty()</h2>
+<a id="a2a5bbbfb80dd2b36e1d6064bdc836b29" name="a2a5bbbfb80dd2b36e1d6064bdc836b29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a5bbbfb80dd2b36e1d6064bdc836b29">&#9670;&#160;</a></span>selectFromSetFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +658,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::StreamBuffer::isEmpty </td>
+          <td class="memname"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a> RTOS::QueueSet::selectFromSetFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -294,13 +671,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the buffer is empty. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if empty, false otherwise. </dd></dl>
+<p>Selects from the queue set in interrupt service routine context. </p>
+<p>Non-blocking selection operation designed for use within interrupt service routines. Returns immediately with a handle if any monitored queue or semaphore has data available, or nullptr if none are ready. Should only be called from ISR context and provides a way to check for events without blocking interrupt processing.</p>
+<dl class="section return"><dt>Returns</dt><dd>Handle of ready queue or semaphore, or nullptr if none are immediately available. </dd></dl>
 
 </div>
 </div>
-<a id="ab28a179ad13782df9ebce66f220d9084" name="ab28a179ad13782df9ebce66f220d9084"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab28a179ad13782df9ebce66f220d9084">&#9670;&#160;</a></span>isFull()</h2>
+<a id="a5d61f4445e5d693a476036d6b3ca85eb" name="a5d61f4445e5d693a476036d6b3ca85eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d61f4445e5d693a476036d6b3ca85eb">&#9670;&#160;</a></span>selectFromSetNow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -309,7 +687,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::StreamBuffer::isFull </td>
+          <td class="memname"><a class="el" href="#a15523e4b8826d137b1351df14e1f7070">Member</a> RTOS::QueueSet::selectFromSetNow </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -322,13 +700,21 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the buffer is full. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if full, false otherwise. </dd></dl>
+<p>Selects from the queue set without blocking for immediate event checking. </p>
+<p>Non-blocking selection operation that immediately returns a handle if any monitored queue or semaphore has data available. If no members are ready, returns nullptr immediately without blocking. This is useful for polling-style event checking or when blocking is not desirable in the current context.</p>
+<dl class="section return"><dt>Returns</dt><dd>Handle of ready queue or semaphore, or nullptr if none are immediately available. </dd></dl>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dd0/a00191_a5d61f4445e5d693a476036d6b3ca85eb_cgraph.svg" width="472" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a8f44e79071890fe52737b0a611f8204b" name="a8f44e79071890fe52737b0a611f8204b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f44e79071890fe52737b0a611f8204b">&#9670;&#160;</a></span>operator Handle &amp;()</h2>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="ac621c3bfe7e338d965244d57c4bbb5a8" name="ac621c3bfe7e338d965244d57c4bbb5a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac621c3bfe7e338d965244d57c4bbb5a8">&#9670;&#160;</a></span>createQueueSet</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -337,260 +723,33 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::StreamBuffer::operator Handle &amp; </td>
+          <td class="memname"><a class="el" href="../../d9/dd0/a00191.html">QueueSet</a> createQueueSet </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implicit conversion operator to the handle type. </p>
-<dl class="section return"><dt>Returns</dt><dd>The underlying stream buffer handle. </dd></dl>
-
-</div>
-</div>
-<a id="adedbd01b1bef79ede4812bd53b1e7347" name="adedbd01b1bef79ede4812bd53b1e7347"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adedbd01b1bef79ede4812bd53b1e7347">&#9670;&#160;</a></span>receive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receive </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>destination</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>waitTicks</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Receives data from the stream buffer. </p>
+<p>Factory function for creating and initializing a queue set in one operation. </p>
+<p>Convenience function that creates a QueueSet instance and immediately attempts to initialize it with the specified capacity. Provides a functional interface for queue set creation that can be more readable than separate construction and initialization steps. The returned queue set should be checked with isCreated() to verify successful initialization.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">destination</td><td>Pointer to the buffer for received data. </td></tr>
-    <tr><td class="paramname">length</td><td>Maximum number of bytes to receive. </td></tr>
-    <tr><td class="paramname">waitTicks</td><td>Maximum time to wait for data. </td></tr>
+    <tr><td class="paramname">length</td><td>Maximum number of queue or semaphore handles that can be stored in the set. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes received. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/de1/a00233.html#a3">StreamBuffer</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a8fda8c9cedd61659ad971bc27fb6a04e" name="a8fda8c9cedd61659ad971bc27fb6a04e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fda8c9cedd61659ad971bc27fb6a04e">&#9670;&#160;</a></span>receiveFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>destination</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Receives data from the stream buffer from an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">destination</td><td>Pointer to the buffer for received data. </td></tr>
-    <tr><td class="paramname">length</td><td>Maximum number of bytes to receive. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes received. </dd></dl>
-
-</div>
-</div>
-<a id="a945ae0f4f0d0051decd64f9e208f59fc" name="a945ae0f4f0d0051decd64f9e208f59fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a945ae0f4f0d0051decd64f9e208f59fc">&#9670;&#160;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::reset </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Resets the stream buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if reset successfully, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a2f95c21ea10b46a1b618a3404ca40a78" name="a2f95c21ea10b46a1b618a3404ca40a78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2f95c21ea10b46a1b618a3404ca40a78">&#9670;&#160;</a></span>send()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>waitTicks</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends data to the stream buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Pointer to the data to send. </td></tr>
-    <tr><td class="paramname">length</td><td>Length of the data in bytes. </td></tr>
-    <tr><td class="paramname">waitTicks</td><td>Maximum time to wait for space. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes sent. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/de1/a00233.html#a2">StreamBuffer</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="af0d7b2f1971bd4ed46bfa94122fc0b4b" name="af0d7b2f1971bd4ed46bfa94122fc0b4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0d7b2f1971bd4ed46bfa94122fc0b4b">&#9670;&#160;</a></span>sendFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends data to the stream buffer from an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Pointer to the data to send. </td></tr>
-    <tr><td class="paramname">length</td><td>Length of the data in bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes sent. </dd></dl>
-
-</div>
-</div>
-<a id="a861b60a2bb7532cbbff910e8b1fc0a33" name="a861b60a2bb7532cbbff910e8b1fc0a33"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a861b60a2bb7532cbbff910e8b1fc0a33">&#9670;&#160;</a></span>setTriggerLevel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::setTriggerLevel </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>triggerLevel</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the trigger level for the buffer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">triggerLevel</td><td>New trigger level. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if set successfully, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>QueueSet instance (check isCreated() to verify successful creation). </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><b>StreamBuffer.hpp</b></li>
+<li><b>QueueSet.hpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -605,7 +764,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/dce/a00143.html">RTOS</a></li><li class="navelem"><a href="../../d9/dd0/a00191.html">StreamBuffer</a></li>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d9/dd0/a00191.html">QueueSet</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

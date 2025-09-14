@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['guard_0',['Guard',['../da/d1e/a00149.html',1,'RTOS::Mutex']]]
+  ['lockguard_0',['LockGuard',['../d7/d9a/a00152.html',1,'RTOS::Mutex']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['yield_0',['yield',['../d0/de8/a00133.html#acd62b0d549c5d504de94ac78edbc115e',1,'RTOS::Kernel::yield()'],['../dd/d4c/a00177.html#aae0ff7f767e461f4ad21258c55f5c8f1',1,'RTOS::Task::yield()']]]
+  ['unlock_0',['unlock',['../db/d48/a00148.html#a0ce4811d2ce208d44f895ffc97ac7790',1,'RTOS::Mutex']]],
+  ['unlockfromisr_1',['unlockFromISR',['../db/d48/a00148.html#a0d471ab7f8396479a2405eda150f6cec',1,'RTOS::Mutex']]],
+  ['usage_20snippets_2',['Usage Snippets',['../index.html#usage-snippets',1,'']]]
 ];

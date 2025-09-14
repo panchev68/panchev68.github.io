@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: RTOS::Queue&lt; T, QueueLength &gt; Class Template Reference</title>
+<title>RTOS: RTOS::MemoryManager Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -91,130 +91,248 @@ $(function(){initNavTree('d1/d0d/a00171.html','../../','dd/da7/a00168'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Queue&lt; T, QueueLength &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::MemoryManager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t QueueLength = 1&gt;<br />
-class RTOS::Queue&lt; T, QueueLength &gt;</div><p>Queue class template providing RTOS queue abstraction for typed message passing. </p>
-<p>This class template wraps FreeRTOS queue APIs for type-safe message passing, supporting dynamic and static allocation, ISR-safe operations, and registry management. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d01/a00227.html#_a0">Queue</a>.</dd>
-</dl>
+<div class="textblock"><p>Static memory management utility for FreeRTOS heap operations. </p>
+<p>Provides thread-safe memory allocation and deallocation methods with comprehensive error handling and optional diagnostic capabilities. Wraps FreeRTOS heap functions with C++ safety features including size validation, null pointer checks, and allocation failure handling. Supports compile-time diagnostic tracking for memory usage analysis and debugging in embedded applications. </p>
 </div>
-<p><code>#include &lt;Queue.hpp&gt;</code></p>
+<p><code>#include &lt;MemoryManager.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a2d9e77e52a7a7be78472b1c0b54fc450" id="r_a2d9e77e52a7a7be78472b1c0b54fc450"><td class="memItemLeft" align="right" valign="top"><a id="a2d9e77e52a7a7be78472b1c0b54fc450" name="a2d9e77e52a7a7be78472b1c0b54fc450"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = QueueHandle_t</td></tr>
-<tr class="memdesc:a2d9e77e52a7a7be78472b1c0b54fc450"><td class="mdescLeft">&#160;</td><td class="mdescRight">Underlying FreeRTOS queue handle type. <br /></td></tr>
+<tr class="memitem:a12545d9824f6613ee89191861f120584" id="r_a12545d9824f6613ee89191861f120584"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c">SUCCESS</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05">INVALID_SIZE</a> = 1
+, <br />
+&#160;&#160;<a class="el" href="#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6">OUT_OF_MEMORY</a> = 2
+, <br />
+&#160;&#160;<a class="el" href="#a12545d9824f6613ee89191861f120584ab0944ab2f24069b66f78e66edde810a0">NULL_POINTER</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae">SIZE_TOO_LARGE</a> = 4
+<br />
+ }</td></tr>
+<tr class="memdesc:a12545d9824f6613ee89191861f120584"><td class="mdescLeft">&#160;</td><td class="mdescRight">Memory allocation and deallocation operation status codes.  <a href="#a12545d9824f6613ee89191861f120584">More...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:aadf145259f76aede9ec23f1de49de320" id="r_aadf145259f76aede9ec23f1de49de320"><td class="memItemLeft" align="right" valign="top"><a id="aadf145259f76aede9ec23f1de49de320" name="aadf145259f76aede9ec23f1de49de320"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Queue</b> ()</td></tr>
-<tr class="memdesc:aadf145259f76aede9ec23f1de49de320"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Queue with an uninitialized handle. <br /></td></tr>
-<tr class="memitem:a059dae2c0d5f168ebcdb34da6828e89a" id="r_a059dae2c0d5f168ebcdb34da6828e89a"><td class="memItemLeft" align="right" valign="top"><a id="a059dae2c0d5f168ebcdb34da6828e89a" name="a059dae2c0d5f168ebcdb34da6828e89a"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~Queue</b> ()</td></tr>
-<tr class="memdesc:a059dae2c0d5f168ebcdb34da6828e89a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Queue and asserts the handle is null. <br /></td></tr>
-<tr class="memitem:a1de0680dcbee88e899d16e907744cf34" id="r_a1de0680dcbee88e899d16e907744cf34"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1de0680dcbee88e899d16e907744cf34">create</a> ()</td></tr>
-<tr class="memdesc:a1de0680dcbee88e899d16e907744cf34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the queue with the specified length and item size.  <br /></td></tr>
-<tr class="memitem:ae2f69ba51110a4ba96fcffffd6791d84" id="r_ae2f69ba51110a4ba96fcffffd6791d84"><td class="memItemLeft" align="right" valign="top"><a id="ae2f69ba51110a4ba96fcffffd6791d84" name="ae2f69ba51110a4ba96fcffffd6791d84"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
-<tr class="memdesc:ae2f69ba51110a4ba96fcffffd6791d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the queue and releases its resources. <br /></td></tr>
-<tr class="memitem:a3f4e7c8e99ed90873150237c9336b6ed" id="r_a3f4e7c8e99ed90873150237c9336b6ed"><td class="memItemLeft" align="right" valign="top"><a id="a3f4e7c8e99ed90873150237c9336b6ed" name="a3f4e7c8e99ed90873150237c9336b6ed"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> ()</td></tr>
-<tr class="memdesc:a3f4e7c8e99ed90873150237c9336b6ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the queue to its initial empty state. <br /></td></tr>
-<tr class="memitem:a8a40f6acacdedb83c399c123317d0cfd" id="r_a8a40f6acacdedb83c399c123317d0cfd"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a40f6acacdedb83c399c123317d0cfd">receive</a> (T &amp;item, uint32_t ticks) const</td></tr>
-<tr class="memdesc:a8a40f6acacdedb83c399c123317d0cfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives an item from the queue, waiting up to the specified number of ticks.  <br /></td></tr>
-<tr class="memitem:a0e944f93b14485d94c36b36bed7a2e70" id="r_a0e944f93b14485d94c36b36bed7a2e70"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e944f93b14485d94c36b36bed7a2e70">receiveFromISR</a> (T &amp;item) const</td></tr>
-<tr class="memdesc:a0e944f93b14485d94c36b36bed7a2e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives an item from the queue in an ISR context.  <br /></td></tr>
-<tr class="memitem:adf67090888377a5b91f1ad9def309ae3" id="r_adf67090888377a5b91f1ad9def309ae3"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf67090888377a5b91f1ad9def309ae3">peek</a> (T &amp;item, uint32_t ticks) const</td></tr>
-<tr class="memdesc:adf67090888377a5b91f1ad9def309ae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at the item at the front of the queue, waiting up to the specified number of ticks.  <br /></td></tr>
-<tr class="memitem:a26d68ef21ca68a36ad27758b88b1e15a" id="r_a26d68ef21ca68a36ad27758b88b1e15a"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26d68ef21ca68a36ad27758b88b1e15a">peekFromISR</a> (T &amp;item) const</td></tr>
-<tr class="memdesc:a26d68ef21ca68a36ad27758b88b1e15a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at the item at the front of the queue in an ISR context.  <br /></td></tr>
-<tr class="memitem:afe9ceb3f0fe09bfa66abc1ae164c6f9d" id="r_afe9ceb3f0fe09bfa66abc1ae164c6f9d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe9ceb3f0fe09bfa66abc1ae164c6f9d">send</a> (const T &amp;item, uint32_t ticks)</td></tr>
-<tr class="memdesc:afe9ceb3f0fe09bfa66abc1ae164c6f9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an item to the queue, waiting up to the specified number of ticks.  <br /></td></tr>
-<tr class="memitem:a6678eb7e8b5885470af9adcff41b4eb1" id="r_a6678eb7e8b5885470af9adcff41b4eb1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6678eb7e8b5885470af9adcff41b4eb1">sendToBackFromISR</a> (const T &amp;item)</td></tr>
-<tr class="memdesc:a6678eb7e8b5885470af9adcff41b4eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an item to the back of the queue from an ISR context.  <br /></td></tr>
-<tr class="memitem:a7a186efce78125bebeb157c402aed3a1" id="r_a7a186efce78125bebeb157c402aed3a1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a186efce78125bebeb157c402aed3a1">sendToFrontFromISR</a> (const T &amp;item)</td></tr>
-<tr class="memdesc:a7a186efce78125bebeb157c402aed3a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an item to the front of the queue from an ISR context.  <br /></td></tr>
-<tr class="memitem:af261e6fc06b54ddfd59e6dcc5c1f440e" id="r_af261e6fc06b54ddfd59e6dcc5c1f440e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af261e6fc06b54ddfd59e6dcc5c1f440e">overwrite</a> (const T &amp;item)</td></tr>
-<tr class="memdesc:af261e6fc06b54ddfd59e6dcc5c1f440e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the item at the front of the queue.  <br /></td></tr>
-<tr class="memitem:a25e33ace6c5f3062c41861f4c9e034d0" id="r_a25e33ace6c5f3062c41861f4c9e034d0"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25e33ace6c5f3062c41861f4c9e034d0">overwriteFromISR</a> (const T &amp;item)</td></tr>
-<tr class="memdesc:a25e33ace6c5f3062c41861f4c9e034d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the item at the front of the queue from an ISR context.  <br /></td></tr>
-<tr class="memitem:a1683b8e0078db09a1262dc818935081e" id="r_a1683b8e0078db09a1262dc818935081e"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1683b8e0078db09a1262dc818935081e">messagesWaiting</a> () const</td></tr>
-<tr class="memdesc:a1683b8e0078db09a1262dc818935081e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of messages currently in the queue.  <br /></td></tr>
-<tr class="memitem:af09530f9ae8f149af3f6e367384eaba5" id="r_af09530f9ae8f149af3f6e367384eaba5"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af09530f9ae8f149af3f6e367384eaba5">messagesWaitingFromISR</a> () const</td></tr>
-<tr class="memdesc:af09530f9ae8f149af3f6e367384eaba5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of messages currently in the queue from an ISR context.  <br /></td></tr>
-<tr class="memitem:a071d8ada963352d37c4deacf6d762c8e" id="r_a071d8ada963352d37c4deacf6d762c8e"><td class="memItemLeft" align="right" valign="top">virtual size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a071d8ada963352d37c4deacf6d762c8e">spacesAvailable</a> () const</td></tr>
-<tr class="memdesc:a071d8ada963352d37c4deacf6d762c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of spaces available in the queue.  <br /></td></tr>
-<tr class="memitem:a08217cf1492b1af87255395c17272f54" id="r_a08217cf1492b1af87255395c17272f54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08217cf1492b1af87255395c17272f54">addToRegistry</a> (const std::string &amp;name)</td></tr>
-<tr class="memdesc:a08217cf1492b1af87255395c17272f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds the queue to the registry with the specified name.  <br /></td></tr>
-<tr class="memitem:a04c7c4e8e7c979c670320128e03f08b7" id="r_a04c7c4e8e7c979c670320128e03f08b7"><td class="memItemLeft" align="right" valign="top"><a id="a04c7c4e8e7c979c670320128e03f08b7" name="a04c7c4e8e7c979c670320128e03f08b7"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeFromRegistry</b> ()</td></tr>
-<tr class="memdesc:a04c7c4e8e7c979c670320128e03f08b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the queue from the registry. <br /></td></tr>
-<tr class="memitem:aa67545a6607062ec26b15ec02f6903db" id="r_aa67545a6607062ec26b15ec02f6903db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a2d9e77e52a7a7be78472b1c0b54fc450">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa67545a6607062ec26b15ec02f6903db">operator()</a> ()</td></tr>
-<tr class="memdesc:aa67545a6607062ec26b15ec02f6903db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a reference to the underlying queue handle.  <br /></td></tr>
-<tr class="memitem:a9b3fb1b1b25ce2357a863e3533a5de27" id="r_a9b3fb1b1b25ce2357a863e3533a5de27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a2d9e77e52a7a7be78472b1c0b54fc450">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b3fb1b1b25ce2357a863e3533a5de27">operator()</a> () const</td></tr>
-<tr class="memdesc:a9b3fb1b1b25ce2357a863e3533a5de27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the underlying queue handle.  <br /></td></tr>
-<tr class="memitem:ac86b4dc3648b18aca50c6d7b44d11c55" id="r_ac86b4dc3648b18aca50c6d7b44d11c55"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac86b4dc3648b18aca50c6d7b44d11c55">isCreated</a> () const</td></tr>
-<tr class="memdesc:ac86b4dc3648b18aca50c6d7b44d11c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the queue has been successfully created.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a00ad421ab7d7d98fcbe09d2ce4f254bd" id="r_a00ad421ab7d7d98fcbe09d2ce4f254bd"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="#a2d9e77e52a7a7be78472b1c0b54fc450">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00ad421ab7d7d98fcbe09d2ce4f254bd">getHandle</a> () const</td></tr>
-<tr class="memdesc:a00ad421ab7d7d98fcbe09d2ce4f254bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a const reference to the underlying queue handle.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3659e97f259701294ad80b3cf6836d79" id="r_a3659e97f259701294ad80b3cf6836d79"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3659e97f259701294ad80b3cf6836d79">allocate</a> (size_t size)</td></tr>
+<tr class="memdesc:a3659e97f259701294ad80b3cf6836d79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a contiguous memory block from the FreeRTOS heap.  <br /></td></tr>
+<tr class="memitem:a8bf4b126bf476a590c07bf6bd836f102" id="r_a8bf4b126bf476a590c07bf6bd836f102"><td class="memItemLeft" align="right" valign="top">static void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bf4b126bf476a590c07bf6bd836f102">allocate</a> (size_t size, <a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> &amp;status)</td></tr>
+<tr class="memdesc:a8bf4b126bf476a590c07bf6bd836f102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates a contiguous memory block with detailed status reporting.  <br /></td></tr>
+<tr class="memitem:a75fc74264f6dc6509bb62fcf6e3f5d0b" id="r_a75fc74264f6dc6509bb62fcf6e3f5d0b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75fc74264f6dc6509bb62fcf6e3f5d0b">deallocate</a> (void *ptr)</td></tr>
+<tr class="memdesc:a75fc74264f6dc6509bb62fcf6e3f5d0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a previously allocated memory block.  <br /></td></tr>
+<tr class="memitem:af666158ae83a7f0b1db357a2b2145bb4" id="r_af666158ae83a7f0b1db357a2b2145bb4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af666158ae83a7f0b1db357a2b2145bb4">deallocate</a> (void *ptr, <a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> &amp;status)</td></tr>
+<tr class="memdesc:af666158ae83a7f0b1db357a2b2145bb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deallocates a memory block with detailed status reporting.  <br /></td></tr>
+<tr class="memitem:a3b59bf15c11c34b4fc4fa6352806e2e9" id="r_a3b59bf15c11c34b4fc4fa6352806e2e9"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b59bf15c11c34b4fc4fa6352806e2e9">getFreeHeapSize</a> ()</td></tr>
+<tr class="memdesc:a3b59bf15c11c34b4fc4fa6352806e2e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the current amount of free heap memory available.  <br /></td></tr>
+<tr class="memitem:ac2a716825b79061b27fd49c9ff40f6b6" id="r_ac2a716825b79061b27fd49c9ff40f6b6"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2a716825b79061b27fd49c9ff40f6b6">getMinimumEverFreeHeapSize</a> ()</td></tr>
+<tr class="memdesc:ac2a716825b79061b27fd49c9ff40f6b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the minimum free heap size ever recorded since system startup.  <br /></td></tr>
+<tr class="memitem:a9a51916714a8dea9f53ffc6fd14ecdaa" id="r_a9a51916714a8dea9f53ffc6fd14ecdaa"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9a51916714a8dea9f53ffc6fd14ecdaa">isValidSize</a> (size_t size)</td></tr>
+<tr class="memdesc:a9a51916714a8dea9f53ffc6fd14ecdaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates whether a requested allocation size is within acceptable limits.  <br /></td></tr>
+<tr class="memitem:a2acd183ea060898666c047632c34dc05" id="r_a2acd183ea060898666c047632c34dc05"><td class="memItemLeft" align="right" valign="top">static uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2acd183ea060898666c047632c34dc05">getHeapUsagePercent</a> ()</td></tr>
+<tr class="memdesc:a2acd183ea060898666c047632c34dc05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates current heap utilization as a percentage.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a08217cf1492b1af87255395c17272f54" name="a08217cf1492b1af87255395c17272f54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08217cf1492b1af87255395c17272f54">&#9670;&#160;</a></span>addToRegistry()</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a12545d9824f6613ee89191861f120584" name="a12545d9824f6613ee89191861f120584"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12545d9824f6613ee89191861f120584">&#9670;&#160;</a></span>Status</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::addToRegistry </td>
+          <td class="memname">enum class <a class="el" href="#a12545d9824f6613ee89191861f120584">RTOS::MemoryManager::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Memory allocation and deallocation operation status codes. </p>
+<p>Enumeration defining possible outcomes of memory management operations. Used to provide detailed error reporting for allocation and deallocation failures, enabling robust error handling in embedded applications where memory management failures must be handled gracefully. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c" name="a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>Memory operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05" name="a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05"></a>INVALID_SIZE&#160;</td><td class="fielddoc"><p>Requested size is zero or invalid. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6" name="a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6"></a>OUT_OF_MEMORY&#160;</td><td class="fielddoc"><p>Insufficient heap memory available. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ab0944ab2f24069b66f78e66edde810a0" name="a12545d9824f6613ee89191861f120584ab0944ab2f24069b66f78e66edde810a0"></a>NULL_POINTER&#160;</td><td class="fielddoc"><p>Null pointer passed to deallocation function. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae" name="a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae"></a>SIZE_TOO_LARGE&#160;</td><td class="fielddoc"><p>Requested size exceeds total heap capacity. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3659e97f259701294ad80b3cf6836d79" name="a3659e97f259701294ad80b3cf6836d79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3659e97f259701294ad80b3cf6836d79">&#9670;&#160;</a></span>allocate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * RTOS::MemoryManager::allocate </td>
           <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Adds the queue to the registry with the specified name. </p>
+<p>Allocates a contiguous memory block from the FreeRTOS heap. </p>
+<p>Performs safe memory allocation with comprehensive error checking and optional diagnostic tracking. Validates allocation size, checks heap capacity limits, and handles allocation failures gracefully. Updates diagnostic counters when enabled and triggers assertion failures for invalid parameters in debug builds.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">name</td><td>Name to register the queue with. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to allocate from heap memory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to allocated memory block, or nullptr if allocation fails. </dd></dl>
+
+</div>
+</div>
+<a id="a8bf4b126bf476a590c07bf6bd836f102" name="a8bf4b126bf476a590c07bf6bd836f102"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bf4b126bf476a590c07bf6bd836f102">&#9670;&#160;</a></span>allocate() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * RTOS::MemoryManager::allocate </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Allocates a contiguous memory block with detailed status reporting. </p>
+<p>Enhanced allocation method that provides comprehensive error reporting through a status parameter. Performs the same safety checks and diagnostic tracking as the basic allocate method, but returns detailed error information instead of relying on assertions. Preferred for production code where detailed error handling is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to allocate from heap memory. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Reference to status code indicating operation result. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to allocated memory block, or nullptr if allocation fails. </dd></dl>
+
+</div>
+</div>
+<a id="a75fc74264f6dc6509bb62fcf6e3f5d0b" name="a75fc74264f6dc6509bb62fcf6e3f5d0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75fc74264f6dc6509bb62fcf6e3f5d0b">&#9670;&#160;</a></span>deallocate() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::MemoryManager::deallocate </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deallocates a previously allocated memory block. </p>
+<p>Safely returns memory to the FreeRTOS heap with null pointer validation and diagnostic tracking. Validates the pointer parameter and triggers assertion failures for null pointers in debug builds. Updates deallocation counters when diagnostic tracking is enabled. Note that exact memory usage decrease cannot be tracked without additional bookkeeping overhead.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptr</td><td>Pointer to previously allocated memory block to free. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a1de0680dcbee88e899d16e907744cf34" name="a1de0680dcbee88e899d16e907744cf34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1de0680dcbee88e899d16e907744cf34">&#9670;&#160;</a></span>create()</h2>
+<a id="af666158ae83a7f0b1db357a2b2145bb4" name="af666158ae83a7f0b1db357a2b2145bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af666158ae83a7f0b1db357a2b2145bb4">&#9670;&#160;</a></span>deallocate() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::create </td>
+          <td class="memname">void RTOS::MemoryManager::deallocate </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ptr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a12545d9824f6613ee89191861f120584">Status</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>status</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deallocates a memory block with detailed status reporting. </p>
+<p>Enhanced deallocation method that provides comprehensive error reporting through a status parameter. Performs null pointer validation and updates diagnostic counters when enabled. Returns detailed status information instead of triggering assertions, making it suitable for production code where graceful error handling is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">ptr</td><td>Pointer to previously allocated memory block to free. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">status</td><td>Reference to status code indicating operation result. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3b59bf15c11c34b4fc4fa6352806e2e9" name="a3b59bf15c11c34b4fc4fa6352806e2e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b59bf15c11c34b4fc4fa6352806e2e9">&#9670;&#160;</a></span>getFreeHeapSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t RTOS::MemoryManager::getFreeHeapSize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -222,163 +340,69 @@ template&lt;typename T, size_t QueueLength = 1&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the queue with the specified length and item size. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the queue was successfully created, false otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d01/a00227.html#a1">Queue</a>.</dd>
-</dl>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<p>Retrieves the current amount of free heap memory available. </p>
+<p>Returns the number of bytes currently available for allocation in the FreeRTOS heap. This value represents the total unallocated heap space and can be used for memory usage monitoring and allocation planning in embedded applications.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current free heap size in bytes. </dd></dl>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d0d/a00171_a1de0680dcbee88e899d16e907744cf34_cgraph.svg" width="374" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d0d/a00171_a3b59bf15c11c34b4fc4fa6352806e2e9_icgraph.svg" width="384" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a00ad421ab7d7d98fcbe09d2ce4f254bd" name="a00ad421ab7d7d98fcbe09d2ce4f254bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a00ad421ab7d7d98fcbe09d2ce4f254bd">&#9670;&#160;</a></span>getHandle()</h2>
+<a id="a2acd183ea060898666c047632c34dc05" name="a2acd183ea060898666c047632c34dc05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2acd183ea060898666c047632c34dc05">&#9670;&#160;</a></span>getHeapUsagePercent()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual const <a class="el" href="#a2d9e77e52a7a7be78472b1c0b54fc450">Handle</a> &amp; <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::getHandle </td>
+          <td class="memname">uint8_t RTOS::MemoryManager::getHeapUsagePercent </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a const reference to the underlying queue handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the queue handle. </dd></dl>
-
-</div>
-</div>
-<a id="ac86b4dc3648b18aca50c6d7b44d11c55" name="ac86b4dc3648b18aca50c6d7b44d11c55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac86b4dc3648b18aca50c6d7b44d11c55">&#9670;&#160;</a></span>isCreated()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::isCreated </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if the queue has been successfully created. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the queue is created, false otherwise. </dd></dl>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p>Calculates current heap utilization as a percentage. </p>
+<p>Computes the percentage of total heap memory currently in use by comparing allocated memory against total heap capacity. Provides a convenient metric for monitoring memory pressure and optimization opportunities in embedded applications.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current heap usage as percentage value from 0 to 100. </dd></dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d0d/a00171_ac86b4dc3648b18aca50c6d7b44d11c55_icgraph.svg" width="380" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d0d/a00171_a2acd183ea060898666c047632c34dc05_cgraph.svg" width="384" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a1683b8e0078db09a1262dc818935081e" name="a1683b8e0078db09a1262dc818935081e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1683b8e0078db09a1262dc818935081e">&#9670;&#160;</a></span>messagesWaiting()</h2>
+<a id="ac2a716825b79061b27fd49c9ff40f6b6" name="ac2a716825b79061b27fd49c9ff40f6b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2a716825b79061b27fd49c9ff40f6b6">&#9670;&#160;</a></span>getMinimumEverFreeHeapSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual size_t <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::messagesWaiting </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of messages currently in the queue. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of messages waiting in the queue. </dd></dl>
-
-</div>
-</div>
-<a id="af09530f9ae8f149af3f6e367384eaba5" name="af09530f9ae8f149af3f6e367384eaba5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af09530f9ae8f149af3f6e367384eaba5">&#9670;&#160;</a></span>messagesWaitingFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual size_t <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::messagesWaitingFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of messages currently in the queue from an ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of messages waiting in the queue. </dd></dl>
-
-</div>
-</div>
-<a id="aa67545a6607062ec26b15ec02f6903db" name="aa67545a6607062ec26b15ec02f6903db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa67545a6607062ec26b15ec02f6903db">&#9670;&#160;</a></span>operator()() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a2d9e77e52a7a7be78472b1c0b54fc450">Handle</a> &amp; <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::operator() </td>
+          <td class="memname">size_t RTOS::MemoryManager::getMinimumEverFreeHeapSize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -386,421 +410,54 @@ template&lt;typename T, size_t QueueLength = 1&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a reference to the underlying queue handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the queue handle. </dd></dl>
+<p>Retrieves the minimum free heap size ever recorded since system startup. </p>
+<p>Returns the lowest amount of free heap memory that has been available since the system started. This metric is valuable for determining peak memory usage and ensuring adequate heap sizing for worst-case allocation scenarios in embedded applications.</p>
+<dl class="section return"><dt>Returns</dt><dd>Minimum ever recorded free heap size in bytes. </dd></dl>
 
 </div>
 </div>
-<a id="a9b3fb1b1b25ce2357a863e3533a5de27" name="a9b3fb1b1b25ce2357a863e3533a5de27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b3fb1b1b25ce2357a863e3533a5de27">&#9670;&#160;</a></span>operator()() <span class="overload">[2/2]</span></h2>
+<a id="a9a51916714a8dea9f53ffc6fd14ecdaa" name="a9a51916714a8dea9f53ffc6fd14ecdaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a51916714a8dea9f53ffc6fd14ecdaa">&#9670;&#160;</a></span>isValidSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a2d9e77e52a7a7be78472b1c0b54fc450">Handle</a> <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::operator() </td>
+          <td class="memname">bool RTOS::MemoryManager::isValidSize </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the underlying queue handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Queue handle. </dd></dl>
-
-</div>
-</div>
-<a id="af261e6fc06b54ddfd59e6dcc5c1f440e" name="af261e6fc06b54ddfd59e6dcc5c1f440e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af261e6fc06b54ddfd59e6dcc5c1f440e">&#9670;&#160;</a></span>overwrite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::overwrite </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Overwrites the item at the front of the queue. </p>
+<p>Validates whether a requested allocation size is within acceptable limits. </p>
+<p>Performs bounds checking on allocation size parameters to ensure they are greater than zero and do not exceed the total heap capacity. Used internally by allocation methods and can be called externally for pre-allocation validation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">item</td><td>Reference to the item to overwrite. </td></tr>
+    <tr><td class="paramname">size</td><td>Memory allocation size to validate in bytes. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the item was overwritten, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a25e33ace6c5f3062c41861f4c9e034d0" name="a25e33ace6c5f3062c41861f4c9e034d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25e33ace6c5f3062c41861f4c9e034d0">&#9670;&#160;</a></span>overwriteFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::overwriteFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Overwrites the item at the front of the queue from an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item</td><td>Reference to the item to overwrite. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the item was overwritten, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="adf67090888377a5b91f1ad9def309ae3" name="adf67090888377a5b91f1ad9def309ae3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf67090888377a5b91f1ad9def309ae3">&#9670;&#160;</a></span>peek()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::peek </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Peeks at the item at the front of the queue, waiting up to the specified number of ticks. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item[out]</td><td>Reference to the item to peek. </td></tr>
-    <tr><td class="paramname">ticks</td><td>Maximum number of ticks to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if an item was peeked, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a26d68ef21ca68a36ad27758b88b1e15a" name="a26d68ef21ca68a36ad27758b88b1e15a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26d68ef21ca68a36ad27758b88b1e15a">&#9670;&#160;</a></span>peekFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::peekFromISR </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Peeks at the item at the front of the queue in an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item[out]</td><td>Reference to the item to peek. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if an item was peeked, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a8a40f6acacdedb83c399c123317d0cfd" name="a8a40f6acacdedb83c399c123317d0cfd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a40f6acacdedb83c399c123317d0cfd">&#9670;&#160;</a></span>receive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::receive </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Receives an item from the queue, waiting up to the specified number of ticks. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item[out]</td><td>Reference to the item to receive. </td></tr>
-    <tr><td class="paramname">ticks</td><td>Maximum number of ticks to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if an item was received, false otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d01/a00227.html#a3">Queue</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a0e944f93b14485d94c36b36bed7a2e70" name="a0e944f93b14485d94c36b36bed7a2e70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e944f93b14485d94c36b36bed7a2e70">&#9670;&#160;</a></span>receiveFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Receives an item from the queue in an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item[out]</td><td>Reference to the item to receive. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if an item was received, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="afe9ceb3f0fe09bfa66abc1ae164c6f9d" name="afe9ceb3f0fe09bfa66abc1ae164c6f9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe9ceb3f0fe09bfa66abc1ae164c6f9d">&#9670;&#160;</a></span>send()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::send </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends an item to the queue, waiting up to the specified number of ticks. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item</td><td>Reference to the item to send. </td></tr>
-    <tr><td class="paramname">ticks</td><td>Maximum number of ticks to wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the item was sent, false otherwise. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d9/d01/a00227.html#a2">Queue</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a6678eb7e8b5885470af9adcff41b4eb1" name="a6678eb7e8b5885470af9adcff41b4eb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6678eb7e8b5885470af9adcff41b4eb1">&#9670;&#160;</a></span>sendToBackFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::sendToBackFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends an item to the back of the queue from an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item</td><td>Reference to the item to send. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the item was sent, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a7a186efce78125bebeb157c402aed3a1" name="a7a186efce78125bebeb157c402aed3a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a186efce78125bebeb157c402aed3a1">&#9670;&#160;</a></span>sendToFrontFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual bool <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::sendToFrontFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sends an item to the front of the queue from an ISR context. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">item</td><td>Reference to the item to send. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the item was sent, false otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a071d8ada963352d37c4deacf6d762c8e" name="a071d8ada963352d37c4deacf6d762c8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a071d8ada963352d37c4deacf6d762c8e">&#9670;&#160;</a></span>spacesAvailable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t QueueLength = 1&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual size_t <a class="el" href="../../d1/d0d/a00171.html">RTOS::Queue</a>&lt; T, QueueLength &gt;::spacesAvailable </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of spaces available in the queue. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of spaces available in the queue. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if size is valid and within heap limits, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><b>Queue.hpp</b></li>
+<li><b>MemoryManager.hpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -815,7 +472,7 @@ template&lt;typename T, size_t QueueLength = 1&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/dce/a00143.html">RTOS</a></li><li class="navelem"><a href="../../d1/d0d/a00171.html">Queue</a></li>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d1/d0d/a00171.html">MemoryManager</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

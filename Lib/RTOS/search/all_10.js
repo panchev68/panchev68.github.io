@@ -1,11 +1,24 @@
 var searchData=
 [
-  ['take_0',['take',['../da/ddb/a00145.html#a9279e9d965ba116d2ce3da7568aeeae6',1,'RTOS::Mutex::take()'],['../d6/d7d/a00161.html#aaff88f643c79c75553f7f678ee9a4c64',1,'RTOS::Semaphore::take()'],['../d0/d48/a00165.html#aab5deb1c3e21a206e7e4b6a2365d3562',1,'RTOS::SemaphoreBase::take()'],['../de/d53/a00169.html#ab7c2787534dcdaa60f40f4a0e75f008f',1,'RTOS::SemaphoreCounting::take()']]],
-  ['takefromisr_1',['takeFromISR',['../da/ddb/a00145.html#af5901479a1c92d58fb198bcb35e288c2',1,'RTOS::Mutex::takeFromISR()'],['../d6/d7d/a00161.html#afcf122ec069b8b33fd1e1ff8efbedc7f',1,'RTOS::Semaphore::takeFromISR()'],['../d0/d48/a00165.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f',1,'RTOS::SemaphoreBase::takeFromISR()'],['../de/d53/a00169.html#a5a70f9f956c6bc47de65c1b6c8fd36e7',1,'RTOS::SemaphoreCounting::takeFromISR()']]],
-  ['task_2',['Task',['../dd/d4c/a00177.html',1,'RTOS::Task'],['../dd/d4c/a00177.html#ab5480501418c29e9338d9216f19a81ec',1,'RTOS::Task::Task(uint32_t stackSize=configMINIMAL_STACK_SIZE, UBaseType_t priority=DEFAULT_TASK_PRIORITY)'],['../dd/d4c/a00177.html#adc1082525a8e0470204fba8430d95ae4',1,'RTOS::Task::Task(const std::string &amp;name, uint32_t stackSize=configMINIMAL_STACK_SIZE, UBaseType_t priority=DEFAULT_TASK_PRIORITY)'],['../dd/d4c/a00177.html#af8a4dec2eae733177c3aac4e4a05704d',1,'RTOS::Task::Task(Handle handle)'],['../dd/d4c/a00177.html#a90ff5228584ec6c42f14cd0b84bca7d3',1,'RTOS::Task::Task(const Task &amp;other)'],['../dd/d4c/a00177.html#a2a9558b96296bc56d857fd1db6a26b21',1,'RTOS::Task::Task(Task &amp;&amp;other)']]],
-  ['tickcounter_3',['TickCounter',['../de/df3/a00185.html',1,'RTOS']]],
-  ['tickservice_4',['TickService',['../da/deb/a00189.html',1,'RTOS']]],
-  ['ticktype_5',['TickType',['../d9/d47/a00129.html#ad148e5ad55c065d22eaa6d5c10ce0768',1,'RTOS::EventGroup']]],
-  ['timeout_6',['Timeout',['../de/db1/a00197.html',1,'RTOS::Timeout'],['../de/db1/a00197.html#ae60ae06c254b95430523fd499fc417ea',1,'RTOS::Timeout::Timeout()=default'],['../de/db1/a00197.html#ab8dd41dd5f673dde57a4bd570ac64bc1',1,'RTOS::Timeout::Timeout(uint32_t duration)']]],
-  ['timer_7',['Timer',['../dd/de3/a00201.html',1,'RTOS::Timer'],['../dd/de3/a00201.html#ade4ecfe2f7cffb3dd4e56d86f032a032',1,'RTOS::Timer::Timer()']]]
+  ['raii_20callable_0',['Sequence Example: Task Lifecycle With RAII Callable',['../index.html#sequence-example-task-lifecycle-with-raii-callable',1,'']]],
+  ['read_1',['read',['../d6/dfb/a00172.html#a1c159420f62812473d3c9845ed614271',1,'RTOS::StreamBuffer']]],
+  ['readfromisr_2',['readFromISR',['../d6/dfb/a00172.html#ad02a3b43092b7180761d918b58ccaa6e',1,'RTOS::StreamBuffer']]],
+  ['reallocate_3',['reallocate',['../d5/db1/a00140.html#adb907a486ea1b430cd7cfb165e38cd5c',1,'RTOS::MemoryManager']]],
+  ['receive_4',['receive',['../d5/da7/a00144.html#afd6ad85c515e524803ce6ea4f8f69ee6',1,'RTOS::MessageBuffer']]],
+  ['receivefromisr_5',['receiveFromISR',['../d5/da7/a00144.html#ad5fcb4519da95a0f9f0b34b65261de75',1,'RTOS::MessageBuffer']]],
+  ['relationships_6',['Core Relationships',['../index.html#core-relationships',1,'']]],
+  ['release_7',['release',['../db/ddf/a00164.html#af36d4306d003069fc60c02d12c64a58a',1,'RTOS::Semaphore::release()'],['../dd/da7/a00168.html#ae31c6f5c0ec745e57da6b25002e36a35',1,'RTOS::SemaphoreCounting::release()']]],
+  ['releasefromisr_8',['releaseFromISR',['../db/ddf/a00164.html#ac7597f3a661122b9c647c59bf658b3d4',1,'RTOS::Semaphore::releaseFromISR()'],['../dd/da7/a00168.html#a51afe4a6eb18bd9efd9f689adaf1beb1',1,'RTOS::SemaphoreCounting::releaseFromISR()']]],
+  ['removemember_9',['removeMember',['../de/d38/a00160.html#a4d70c3157db31f2fcd40e290b0a8ae51',1,'RTOS::QueueSet']]],
+  ['rendering_10',['Mermaid Rendering',['../index.html#mermaid-rendering',1,'']]],
+  ['reset_11',['reset',['../d5/da7/a00144.html#acd6dbdf96464a0e9e2e45981d473d0a3',1,'RTOS::MessageBuffer::reset()'],['../d2/d34/a00156.html#ab5c4ffd5508b1b811b3376a22fc2f025',1,'RTOS::Queue::reset()'],['../d6/dfb/a00172.html#a661577b066dc1c9063857c2e85b38832',1,'RTOS::StreamBuffer::reset()'],['../dd/da2/a00192.html#a09aec4ad865ca9b9275f8e0060f93314',1,'RTOS::Timeout::reset()'],['../d7/ded/a00196.html#a1c345b6c9c1ed1609e8eb6b7e0248ff4',1,'RTOS::Timer::reset(TickType_t blockTime=DEFAULT_BLOCK_TIME)']]],
+  ['resetfromisr_12',['resetFromISR',['../d7/ded/a00196.html#a6e2fbc4024847e9c1d5641d2ecb6df1f',1,'RTOS::Timer']]],
+  ['resume_13',['resume',['../d0/d5e/a00136.html#a0f08d16e52d32d2f708e5fd7fae25f88',1,'RTOS::Kernel::resume()'],['../d5/de9/a00176.html#abc58db5ebaa7e118bf59caa25273d68e',1,'RTOS::Task::resume()']]],
+  ['resumebyhandle_14',['resumeByHandle',['../d5/de9/a00176.html#a880f19e238564a4d4df0c7f22e248a23',1,'RTOS::Task']]],
+  ['rtos_15',['RTOS',['../d1/d88/a00128.html',1,'RTOS'],['../index.html',1,'RTOS']]],
+  ['rtos_20c_20wrapper_20stm32f4_20freertos_16',['RTOS C++ Wrapper (STM32F4 / FreeRTOS)',['../index.html#rtos-c-wrapper-stm32f4--freertos',1,'']]],
+  ['rtos_20task_20wrapper_20header_17',['Description of the RTOS Task wrapper header.',['../d4/d81/a00110.html#description-of-the-rtos-task-wrapper-header',1,'']]],
+  ['run_18',['run',['../d5/de9/a00176.html#a65568484c6c8c88eb263357e47358467',1,'RTOS::Task']]],
+  ['runentry_19',['runEntry',['../d5/de9/a00176.html#afde63ea19a16eaf5b53ee4ab20a39cd6',1,'RTOS::Task']]],
+  ['running_20',['running',['../d5/de9/a00176.html#a600f26840f0c0f4bbf0eb646f7654ddc',1,'RTOS::Task']]]
 ];

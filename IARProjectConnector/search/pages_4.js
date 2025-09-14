@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['slave_20iar_20project_20connector_0',['Ethercat Slave IAR Project Connector',['../d3/de7/a00039.html',1,'index']]]
+  ['file_20in_20the_20project_0',['Add, CopyTo or Reference a file in the project',['../d8/d41/a00038.html#AddCopyReference',1,'']]]
 ];

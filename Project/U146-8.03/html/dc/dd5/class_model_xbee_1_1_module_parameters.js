@@ -5,6 +5,7 @@ var class_model_xbee_1_1_module_parameters =
     [ "~ModuleParameters", "dc/dd5/class_model_xbee_1_1_module_parameters.html#af7e6718ffa4efda335bbe5dea477f2b9", null ],
     [ "close", "dc/dd5/class_model_xbee_1_1_module_parameters.html#a5d115f6b3913f94c8c6865578b2f9e61", null ],
     [ "getChannel", "dc/dd5/class_model_xbee_1_1_module_parameters.html#abb4baac774e8884609d29745bea3b469", null ],
+    [ "getChannelIndex", "dc/dd5/class_model_xbee_1_1_module_parameters.html#a3fc9819c284842aefbe8b5334686d8aa", null ],
     [ "getData", "dc/dd5/class_model_xbee_1_1_module_parameters.html#a7e9414bc9da9e8f78b297b8a62061f31", null ],
     [ "getPanId", "dc/dd5/class_model_xbee_1_1_module_parameters.html#a25e7e92c315a5dafd6fe9b8af31778d8", null ],
     [ "open", "dc/dd5/class_model_xbee_1_1_module_parameters.html#aec6aee20077b502ad148889047af00c7", null ],

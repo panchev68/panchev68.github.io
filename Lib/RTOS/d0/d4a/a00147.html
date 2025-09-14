@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -95,61 +95,158 @@ $(function(){initNavTree('d0/d4a/a00147.html','../../','d5/da7/a00144'); });
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Event group wrapper for FreeRTOS event groups. </p>
-<p>Provides a modern C++ interface for managing event groups in FreeRTOS, including creation, destruction, and bit manipulation. </p>
+<div class="textblock"><p>C++ interface for FreeRTOS event groups with enhanced functionality. </p>
+<p>Encapsulates FreeRTOS event group operations for bitwise signaling, waiting, and synchronization between tasks and ISRs with factory methods, RAII support, and advanced timeout management. </p>
 </div>
 <p><code>#include &lt;EventGroup.hpp&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ad148e5ad55c065d22eaa6d5c10ce0768" id="r_ad148e5ad55c065d22eaa6d5c10ce0768"><td class="memItemLeft" align="right" valign="top"><a id="ad148e5ad55c065d22eaa6d5c10ce0768" name="ad148e5ad55c065d22eaa6d5c10ce0768"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>TickType</b> = TickType_t</td></tr>
-<tr class="memdesc:ad148e5ad55c065d22eaa6d5c10ce0768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick type alias. <br /></td></tr>
+<tr class="memitem:ae93b1d87c779d4ac130983129d6b4ae5" id="r_ae93b1d87c779d4ac130983129d6b4ae5"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">Any</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5ab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = 1
+<br />
+ }</td></tr>
+<tr class="memdesc:ae93b1d87c779d4ac130983129d6b4ae5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait mode enumeration for bit waiting operations.  <a href="#ae93b1d87c779d4ac130983129d6b4ae5">More...</a><br /></td></tr>
+<tr class="memitem:a7842763cd7cbf505f418b7e9820de1e1" id="r_a7842763cd7cbf505f418b7e9820de1e1"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">NoClear</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1adc30bc0c7914db5918da4263fce93ad2">Clear</a> = 1
+<br />
+ }</td></tr>
+<tr class="memdesc:a7842763cd7cbf505f418b7e9820de1e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear mode enumeration for bit clearing behavior.  <a href="#a7842763cd7cbf505f418b7e9820de1e1">More...</a><br /></td></tr>
+<tr class="memitem:a548ac7c2c1698a2ba9273c46d34b30dc" id="r_a548ac7c2c1698a2ba9273c46d34b30dc"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a548ac7c2c1698a2ba9273c46d34b30dc">State</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a548ac7c2c1698a2ba9273c46d34b30dca4bbb8f967da6d1a610596d7257179c2b">Invalid</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a548ac7c2c1698a2ba9273c46d34b30dca4d3d769b812b6faa6b76e1a8abaece2d">Active</a> = 1
+<br />
+ }</td></tr>
+<tr class="memdesc:a548ac7c2c1698a2ba9273c46d34b30dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event group state enumeration.  <a href="#a548ac7c2c1698a2ba9273c46d34b30dc">More...</a><br /></td></tr>
+<tr class="memitem:a033b94b6ee235e14580246b0d5cd2394" id="r_a033b94b6ee235e14580246b0d5cd2394"><td class="memItemLeft" align="right" valign="top"><a id="a033b94b6ee235e14580246b0d5cd2394" name="a033b94b6ee235e14580246b0d5cd2394"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TickType</b> = <a class="el" href="../../dd/df3/a00219.html#af8b741f7cd6bd8cefd26aae83980fbfd">TickCounter::TickType</a></td></tr>
+<tr class="memdesc:a033b94b6ee235e14580246b0d5cd2394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick type from TickCounter. <br /></td></tr>
 <tr class="memitem:a8f85547a426b02f14d6e4ea12fe668d3" id="r_a8f85547a426b02f14d6e4ea12fe668d3"><td class="memItemLeft" align="right" valign="top"><a id="a8f85547a426b02f14d6e4ea12fe668d3" name="a8f85547a426b02f14d6e4ea12fe668d3"></a>
 using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = EventGroupHandle_t</td></tr>
-<tr class="memdesc:a8f85547a426b02f14d6e4ea12fe668d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle type alias. <br /></td></tr>
+<tr class="memdesc:a8f85547a426b02f14d6e4ea12fe668d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS event group handle alias. <br /></td></tr>
+<tr class="memitem:a012f775c662b6f78b957c0fbaaee59fd" id="r_a012f775c662b6f78b957c0fbaaee59fd"><td class="memItemLeft" align="right" valign="top"><a id="a012f775c662b6f78b957c0fbaaee59fd" name="a012f775c662b6f78b957c0fbaaee59fd"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>BitIndex</b> = uint8_t</td></tr>
+<tr class="memdesc:a012f775c662b6f78b957c0fbaaee59fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bit index type. <br /></td></tr>
+<tr class="memitem:ac74e666a12cf067093f8391125aea68b" id="r_ac74e666a12cf067093f8391125aea68b"><td class="memItemLeft" align="right" valign="top"><a id="ac74e666a12cf067093f8391125aea68b" name="ac74e666a12cf067093f8391125aea68b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>BitMask</b> = EventBits_t</td></tr>
+<tr class="memdesc:ac74e666a12cf067093f8391125aea68b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event bit mask type. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6690412802cf948348b7db9c47e9f25f" id="r_a6690412802cf948348b7db9c47e9f25f"><td class="memItemLeft" align="right" valign="top"><a id="a6690412802cf948348b7db9c47e9f25f" name="a6690412802cf948348b7db9c47e9f25f"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>EventGroup</b> ()=default</td></tr>
-<tr class="memdesc:a6690412802cf948348b7db9c47e9f25f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an EventGroup object without creating the underlying FreeRTOS event group. <br /></td></tr>
-<tr class="memitem:ab2273906f7c7de0565e852fbceeefaab" id="r_ab2273906f7c7de0565e852fbceeefaab"><td class="memItemLeft" align="right" valign="top"><a id="ab2273906f7c7de0565e852fbceeefaab" name="ab2273906f7c7de0565e852fbceeefaab"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~EventGroup</b> ()</td></tr>
-<tr class="memdesc:ab2273906f7c7de0565e852fbceeefaab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the EventGroup object and deletes the underlying FreeRTOS event group if created. <br /></td></tr>
-<tr class="memitem:ae123b21b37e587e5e424af4651768471" id="r_ae123b21b37e587e5e424af4651768471"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae123b21b37e587e5e424af4651768471">create</a> ()</td></tr>
-<tr class="memdesc:ae123b21b37e587e5e424af4651768471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying FreeRTOS event group if not already created.  <br /></td></tr>
-<tr class="memitem:ab62fda92e8b329bb70ffde8da9490580" id="r_ab62fda92e8b329bb70ffde8da9490580"><td class="memItemLeft" align="right" valign="top"><a id="ab62fda92e8b329bb70ffde8da9490580" name="ab62fda92e8b329bb70ffde8da9490580"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
-<tr class="memdesc:ab62fda92e8b329bb70ffde8da9490580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the underlying FreeRTOS event group if created. <br /></td></tr>
-<tr class="memitem:ad322ef154bfb1a2b05efe1fd53100ce1" id="r_ad322ef154bfb1a2b05efe1fd53100ce1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad322ef154bfb1a2b05efe1fd53100ce1">setBits</a> (const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;eventBits)</td></tr>
-<tr class="memdesc:ad322ef154bfb1a2b05efe1fd53100ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the specified event bits in the event group.  <br /></td></tr>
-<tr class="memitem:accf7c19f83d8714302940aaea5bd552e" id="r_accf7c19f83d8714302940aaea5bd552e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accf7c19f83d8714302940aaea5bd552e">setBitsFromISR</a> (const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;eventBits)</td></tr>
-<tr class="memdesc:accf7c19f83d8714302940aaea5bd552e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the specified event bits from an ISR context.  <br /></td></tr>
-<tr class="memitem:ab940e7baf67c42162d8700c967c6903f" id="r_ab940e7baf67c42162d8700c967c6903f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab940e7baf67c42162d8700c967c6903f">getBits</a> () const</td></tr>
-<tr class="memdesc:ab940e7baf67c42162d8700c967c6903f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current event bits from the event group.  <br /></td></tr>
-<tr class="memitem:aa84d7ab47becac379a95e46708b425b5" id="r_aa84d7ab47becac379a95e46708b425b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa84d7ab47becac379a95e46708b425b5">getBitsFromISR</a> () const</td></tr>
-<tr class="memdesc:aa84d7ab47becac379a95e46708b425b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current event bits from the event group in an ISR context.  <br /></td></tr>
-<tr class="memitem:a44c825f79126d916f8d7e17d93b416b5" id="r_a44c825f79126d916f8d7e17d93b416b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44c825f79126d916f8d7e17d93b416b5">clearBits</a> (const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;eventBits)</td></tr>
-<tr class="memdesc:a44c825f79126d916f8d7e17d93b416b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the specified event bits in the event group.  <br /></td></tr>
-<tr class="memitem:ac3e4026472c8b09395f8e14b8a71fe3b" id="r_ac3e4026472c8b09395f8e14b8a71fe3b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3e4026472c8b09395f8e14b8a71fe3b">clearBitsFromISR</a> (const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;eventBits)</td></tr>
-<tr class="memdesc:ac3e4026472c8b09395f8e14b8a71fe3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the specified event bits from an ISR context.  <br /></td></tr>
-<tr class="memitem:af3f76be0d4887d38d8ef537d5c91d4c6" id="r_af3f76be0d4887d38d8ef537d5c91d4c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3f76be0d4887d38d8ef537d5c91d4c6">waitForBits</a> (const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;eventBits=<a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>(0), bool clearOnExit=false, bool waitForAll=false, <a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a> ticks=portMAX_DELAY) const</td></tr>
-<tr class="memdesc:af3f76be0d4887d38d8ef537d5c91d4c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the specified event bits to be set, with options to clear on exit and wait for all bits.  <br /></td></tr>
-<tr class="memitem:ab2f807602c428224818547c7522238dd" id="r_ab2f807602c428224818547c7522238dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2f807602c428224818547c7522238dd">syncBits</a> (const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;bitsToSet, const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;bitsToWait, <a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a> ticks=portMAX_DELAY) const</td></tr>
-<tr class="memdesc:ab2f807602c428224818547c7522238dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Atomically sets and waits for event bits, synchronizing with other tasks.  <br /></td></tr>
-<tr class="memitem:ae08389e11d83cf7dfc460d5f2fa0dc27" id="r_ae08389e11d83cf7dfc460d5f2fa0dc27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae08389e11d83cf7dfc460d5f2fa0dc27">isCreated</a> () const</td></tr>
-<tr class="memdesc:ae08389e11d83cf7dfc460d5f2fa0dc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the event group has been created.  <br /></td></tr>
+<tr class="memitem:a5cd4a6dcc7805dcdf420bdc550b1c719" id="r_a5cd4a6dcc7805dcdf420bdc550b1c719"><td class="memItemLeft" align="right" valign="top"><a id="a5cd4a6dcc7805dcdf420bdc550b1c719" name="a5cd4a6dcc7805dcdf420bdc550b1c719"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>EventGroup</b> ()</td></tr>
+<tr class="memdesc:a5cd4a6dcc7805dcdf420bdc550b1c719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of EventGroup. <br /></td></tr>
+<tr class="memitem:a7abcf2e22f8961aefb22138a000cc65b" id="r_a7abcf2e22f8961aefb22138a000cc65b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7abcf2e22f8961aefb22138a000cc65b">EventGroup</a> (bool autoCreate)</td></tr>
+<tr class="memdesc:a7abcf2e22f8961aefb22138a000cc65b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor with automatic creation.  <br /></td></tr>
+<tr class="memitem:ae83c0e347985e554dbffd399d6749c28" id="r_ae83c0e347985e554dbffd399d6749c28"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae83c0e347985e554dbffd399d6749c28">EventGroup</a> (<a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ae83c0e347985e554dbffd399d6749c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor.  <br /></td></tr>
+<tr class="memitem:a2576c192353ebd4e1261f2a0908f1946" id="r_a2576c192353ebd4e1261f2a0908f1946"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2576c192353ebd4e1261f2a0908f1946">operator=</a> (<a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a2576c192353ebd4e1261f2a0908f1946"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
 <tr class="memitem:a674ca6cf44432becf24267dda94e547d" id="r_a674ca6cf44432becf24267dda94e547d"><td class="memItemLeft" align="right" valign="top"><a id="a674ca6cf44432becf24267dda94e547d" name="a674ca6cf44432becf24267dda94e547d"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>EventGroup</b> (const <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a674ca6cf44432becf24267dda94e547d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor. <br /></td></tr>
+<tr class="memdesc:a674ca6cf44432becf24267dda94e547d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor (deleted). <br /></td></tr>
 <tr class="memitem:a81801feadd715f46e582f2bd0c8d2c99" id="r_a81801feadd715f46e582f2bd0c8d2c99"><td class="memItemLeft" align="right" valign="top"><a id="a81801feadd715f46e582f2bd0c8d2c99" name="a81801feadd715f46e582f2bd0c8d2c99"></a>
 <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a81801feadd715f46e582f2bd0c8d2c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator. <br /></td></tr>
+<tr class="memdesc:a81801feadd715f46e582f2bd0c8d2c99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator (deleted). <br /></td></tr>
+<tr class="memitem:ab2273906f7c7de0565e852fbceeefaab" id="r_ab2273906f7c7de0565e852fbceeefaab"><td class="memItemLeft" align="right" valign="top"><a id="ab2273906f7c7de0565e852fbceeefaab" name="ab2273906f7c7de0565e852fbceeefaab"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>~EventGroup</b> ()</td></tr>
+<tr class="memdesc:ab2273906f7c7de0565e852fbceeefaab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of EventGroup. <br /></td></tr>
+<tr class="memitem:ae123b21b37e587e5e424af4651768471" id="r_ae123b21b37e587e5e424af4651768471"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae123b21b37e587e5e424af4651768471">create</a> ()</td></tr>
+<tr class="memdesc:ae123b21b37e587e5e424af4651768471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the event group.  <br /></td></tr>
+<tr class="memitem:ab62fda92e8b329bb70ffde8da9490580" id="r_ab62fda92e8b329bb70ffde8da9490580"><td class="memItemLeft" align="right" valign="top"><a id="ab62fda92e8b329bb70ffde8da9490580" name="ab62fda92e8b329bb70ffde8da9490580"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></tr>
+<tr class="memdesc:ab62fda92e8b329bb70ffde8da9490580"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the event group. <br /></td></tr>
+<tr class="memitem:ad322ef154bfb1a2b05efe1fd53100ce1" id="r_ad322ef154bfb1a2b05efe1fd53100ce1"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad322ef154bfb1a2b05efe1fd53100ce1">setBits</a> (const EventBits &amp;eventBits)</td></tr>
+<tr class="memdesc:ad322ef154bfb1a2b05efe1fd53100ce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits from task context.  <br /></td></tr>
+<tr class="memitem:a7334a4b6c75d487aadf4d05ef9ab661e" id="r_a7334a4b6c75d487aadf4d05ef9ab661e"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7334a4b6c75d487aadf4d05ef9ab661e">setBit</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitIndex)</td></tr>
+<tr class="memdesc:a7334a4b6c75d487aadf4d05ef9ab661e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a single event bit by index.  <br /></td></tr>
+<tr class="memitem:a07bd3df9f015449f27be3b45aff0eae3" id="r_a07bd3df9f015449f27be3b45aff0eae3"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
+<tr class="memitem:a07bd3df9f015449f27be3b45aff0eae3 template"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07bd3df9f015449f27be3b45aff0eae3">setBits</a> (const std::array&lt; <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a>, N &gt; &amp;bitIndices)</td></tr>
+<tr class="memdesc:a07bd3df9f015449f27be3b45aff0eae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets multiple event bits by indices.  <br /></td></tr>
+<tr class="memitem:accf7c19f83d8714302940aaea5bd552e" id="r_accf7c19f83d8714302940aaea5bd552e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#accf7c19f83d8714302940aaea5bd552e">setBitsFromISR</a> (const EventBits &amp;eventBits)</td></tr>
+<tr class="memdesc:accf7c19f83d8714302940aaea5bd552e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits from ISR context.  <br /></td></tr>
+<tr class="memitem:aa61a0593275c26e1942cbcb8fadda1ac" id="r_aa61a0593275c26e1942cbcb8fadda1ac"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa61a0593275c26e1942cbcb8fadda1ac">setBitFromISR</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitIndex)</td></tr>
+<tr class="memdesc:aa61a0593275c26e1942cbcb8fadda1ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets a single event bit from ISR context.  <br /></td></tr>
+<tr class="memitem:ab940e7baf67c42162d8700c967c6903f" id="r_ab940e7baf67c42162d8700c967c6903f"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab940e7baf67c42162d8700c967c6903f">getBits</a> () const</td></tr>
+<tr class="memdesc:ab940e7baf67c42162d8700c967c6903f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current event bits.  <br /></td></tr>
+<tr class="memitem:aa84d7ab47becac379a95e46708b425b5" id="r_aa84d7ab47becac379a95e46708b425b5"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa84d7ab47becac379a95e46708b425b5">getBitsFromISR</a> () const</td></tr>
+<tr class="memdesc:aa84d7ab47becac379a95e46708b425b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets current event bits from ISR.  <br /></td></tr>
+<tr class="memitem:a06ff768b84f44803bb09725dae31c4fc" id="r_a06ff768b84f44803bb09725dae31c4fc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06ff768b84f44803bb09725dae31c4fc">isBitSet</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitIndex) const</td></tr>
+<tr class="memdesc:a06ff768b84f44803bb09725dae31c4fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a specific bit is set.  <br /></td></tr>
+<tr class="memitem:a7bb9a7d3bc1399d6a1d760f4ad473fcb" id="r_a7bb9a7d3bc1399d6a1d760f4ad473fcb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bb9a7d3bc1399d6a1d760f4ad473fcb">anyBitsSet</a> (const EventBits &amp;eventBits) const</td></tr>
+<tr class="memdesc:a7bb9a7d3bc1399d6a1d760f4ad473fcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if any of the specified bits are set.  <br /></td></tr>
+<tr class="memitem:af21635b1bebfcbcb63d7fb8e41125026" id="r_af21635b1bebfcbcb63d7fb8e41125026"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af21635b1bebfcbcb63d7fb8e41125026">allBitsSet</a> (const EventBits &amp;eventBits) const</td></tr>
+<tr class="memdesc:af21635b1bebfcbcb63d7fb8e41125026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if all of the specified bits are set.  <br /></td></tr>
+<tr class="memitem:a44c825f79126d916f8d7e17d93b416b5" id="r_a44c825f79126d916f8d7e17d93b416b5"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44c825f79126d916f8d7e17d93b416b5">clearBits</a> (const EventBits &amp;eventBits)</td></tr>
+<tr class="memdesc:a44c825f79126d916f8d7e17d93b416b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears event bits from task context.  <br /></td></tr>
+<tr class="memitem:a32fea73e65f36e2c8706f7b1b781789a" id="r_a32fea73e65f36e2c8706f7b1b781789a"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32fea73e65f36e2c8706f7b1b781789a">clearBit</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitIndex)</td></tr>
+<tr class="memdesc:a32fea73e65f36e2c8706f7b1b781789a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a single event bit by index.  <br /></td></tr>
+<tr class="memitem:ae3f87c78f0997af15819097a6f4bcbe8" id="r_ae3f87c78f0997af15819097a6f4bcbe8"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3f87c78f0997af15819097a6f4bcbe8">clearAllBits</a> ()</td></tr>
+<tr class="memdesc:ae3f87c78f0997af15819097a6f4bcbe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears all event bits.  <br /></td></tr>
+<tr class="memitem:ac3e4026472c8b09395f8e14b8a71fe3b" id="r_ac3e4026472c8b09395f8e14b8a71fe3b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac3e4026472c8b09395f8e14b8a71fe3b">clearBitsFromISR</a> (const EventBits &amp;eventBits)</td></tr>
+<tr class="memdesc:ac3e4026472c8b09395f8e14b8a71fe3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears event bits from ISR context.  <br /></td></tr>
+<tr class="memitem:a0cfca4992ef6828cbbde5fb9a3734344" id="r_a0cfca4992ef6828cbbde5fb9a3734344"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0cfca4992ef6828cbbde5fb9a3734344">clearBitFromISR</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitIndex)</td></tr>
+<tr class="memdesc:a0cfca4992ef6828cbbde5fb9a3734344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears a single bit from ISR context.  <br /></td></tr>
+<tr class="memitem:abe719eb3f4de95c0900fbe0e06b7f118" id="r_abe719eb3f4de95c0900fbe0e06b7f118"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe719eb3f4de95c0900fbe0e06b7f118">waitForBits</a> (const EventBits &amp;eventBits, <a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a> clearMode=<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a>, <a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a> waitMode=<a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a>, <a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a> waitTime=<a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a>) const</td></tr>
+<tr class="memdesc:abe719eb3f4de95c0900fbe0e06b7f118"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for specified event bits with enhanced parameters.  <br /></td></tr>
+<tr class="memitem:afa265df16194e2a26d0f45d51d2373ad" id="r_afa265df16194e2a26d0f45d51d2373ad"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa265df16194e2a26d0f45d51d2373ad">waitForBitsMs</a> (const EventBits &amp;eventBits, uint32_t timeoutMs, <a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a> clearMode=<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a>, <a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a> waitMode=<a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a>) const</td></tr>
+<tr class="memdesc:afa265df16194e2a26d0f45d51d2373ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for specified event bits with millisecond timeout.  <br /></td></tr>
+<tr class="memitem:a53b4238989184b4b101a2d1ea4ab5135" id="r_a53b4238989184b4b101a2d1ea4ab5135"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b4238989184b4b101a2d1ea4ab5135">waitForBitsSeconds</a> (const EventBits &amp;eventBits, uint32_t timeoutSec, <a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a> clearMode=<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a>, <a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a> waitMode=<a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a>) const</td></tr>
+<tr class="memdesc:a53b4238989184b4b101a2d1ea4ab5135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for specified event bits with second timeout.  <br /></td></tr>
+<tr class="memitem:ae42513f1a5f8fea5c671f4cae1dd74ec" id="r_ae42513f1a5f8fea5c671f4cae1dd74ec"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae42513f1a5f8fea5c671f4cae1dd74ec">waitForBit</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitIndex, <a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a> waitTime=<a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a>, <a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a> clearMode=<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a>) const</td></tr>
+<tr class="memdesc:ae42513f1a5f8fea5c671f4cae1dd74ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a single bit by index.  <br /></td></tr>
+<tr class="memitem:afd5cfdfce8b4f93fa25c3c2ab3af330f" id="r_afd5cfdfce8b4f93fa25c3c2ab3af330f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd5cfdfce8b4f93fa25c3c2ab3af330f">tryWaitForBits</a> (const EventBits &amp;eventBits) const</td></tr>
+<tr class="memdesc:afd5cfdfce8b4f93fa25c3c2ab3af330f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for any of the specified bits to be set without timeout.  <br /></td></tr>
+<tr class="memitem:a78c6f9fcb21fc8cc3ee7eb768f89ea07" id="r_a78c6f9fcb21fc8cc3ee7eb768f89ea07"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a78c6f9fcb21fc8cc3ee7eb768f89ea07">waitForBits</a> (const EventBits &amp;eventBits, const <a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp;timeout, <a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a> clearMode=<a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a>, <a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a> waitMode=<a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a>) const</td></tr>
+<tr class="memdesc:a78c6f9fcb21fc8cc3ee7eb768f89ea07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for bits using Timeout object.  <br /></td></tr>
+<tr class="memitem:adfec7dfbd63b1807a0c6f85a5fa282dc" id="r_adfec7dfbd63b1807a0c6f85a5fa282dc"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfec7dfbd63b1807a0c6f85a5fa282dc">syncBits</a> (const EventBits &amp;bitsToSet, const EventBits &amp;bitsToWait, <a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a> waitTime=<a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a>) const</td></tr>
+<tr class="memdesc:adfec7dfbd63b1807a0c6f85a5fa282dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes event bits with enhanced parameters.  <br /></td></tr>
+<tr class="memitem:ad413c8bdb65daf4f54463989c9c9d22c" id="r_ad413c8bdb65daf4f54463989c9c9d22c"><td class="memItemLeft" align="right" valign="top">EventBits&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad413c8bdb65daf4f54463989c9c9d22c">syncBitsMs</a> (const EventBits &amp;bitsToSet, const EventBits &amp;bitsToWait, uint32_t timeoutMs) const</td></tr>
+<tr class="memdesc:ad413c8bdb65daf4f54463989c9c9d22c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes event bits with millisecond timeout.  <br /></td></tr>
+<tr class="memitem:ae94a3859c7084a1a914055f9a0e60f80" id="r_ae94a3859c7084a1a914055f9a0e60f80"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae94a3859c7084a1a914055f9a0e60f80">syncBit</a> (<a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitToSet, <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> bitToWait, <a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a> waitTime=<a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a>) const</td></tr>
+<tr class="memdesc:ae94a3859c7084a1a914055f9a0e60f80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Synchronizes single bits by index.  <br /></td></tr>
+<tr class="memitem:ae08389e11d83cf7dfc460d5f2fa0dc27" id="r_ae08389e11d83cf7dfc460d5f2fa0dc27"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae08389e11d83cf7dfc460d5f2fa0dc27">isCreated</a> () const</td></tr>
+<tr class="memdesc:ae08389e11d83cf7dfc460d5f2fa0dc27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if event group is created.  <br /></td></tr>
+<tr class="memitem:a427ae2886c5c4a296fa82a8d02f430f4" id="r_a427ae2886c5c4a296fa82a8d02f430f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a548ac7c2c1698a2ba9273c46d34b30dc">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a427ae2886c5c4a296fa82a8d02f430f4">getState</a> () const</td></tr>
+<tr class="memdesc:a427ae2886c5c4a296fa82a8d02f430f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current state of the event group.  <br /></td></tr>
+<tr class="memitem:a64add0f43154d7bcba6da15f5e6f5d2d" id="r_a64add0f43154d7bcba6da15f5e6f5d2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a64add0f43154d7bcba6da15f5e6f5d2d">isValid</a> () const</td></tr>
+<tr class="memdesc:a64add0f43154d7bcba6da15f5e6f5d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the event group is valid.  <br /></td></tr>
+<tr class="memitem:ab870843ca495f26ed413846b29bfef4e" id="r_ab870843ca495f26ed413846b29bfef4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a8f85547a426b02f14d6e4ea12fe668d3">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab870843ca495f26ed413846b29bfef4e">getHandle</a> () const</td></tr>
+<tr class="memdesc:ab870843ca495f26ed413846b29bfef4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the underlying FreeRTOS event group handle.  <br /></td></tr>
+<tr class="memitem:a55b9f397f0d8b532c659f9ab2fcd210b" id="r_a55b9f397f0d8b532c659f9ab2fcd210b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a55b9f397f0d8b532c659f9ab2fcd210b">operator bool</a> () const</td></tr>
+<tr class="memdesc:a55b9f397f0d8b532c659f9ab2fcd210b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit conversion to boolean.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a778cc637a9ce137fea1ae226eb39bcdd" id="r_a778cc637a9ce137fea1ae226eb39bcdd"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a778cc637a9ce137fea1ae226eb39bcdd">create</a> (bool autoCreate=true)</td></tr>
+<tr class="memdesc:a778cc637a9ce137fea1ae226eb39bcdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new EventGroup instance on the heap.  <br /></td></tr>
+<tr class="memitem:a61a8779292999712471f4678597d0ac0" id="r_a61a8779292999712471f4678597d0ac0"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61a8779292999712471f4678597d0ac0">createWithBits</a> (const EventBits &amp;initialBits)</td></tr>
+<tr class="memdesc:a61a8779292999712471f4678597d0ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an EventGroup with specific initial bit pattern.  <br /></td></tr>
+<tr class="memitem:a8919a18e104b0fcdd867f3ef98d6c534" id="r_a8919a18e104b0fcdd867f3ef98d6c534"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
+<tr class="memitem:a8919a18e104b0fcdd867f3ef98d6c534 template"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8919a18e104b0fcdd867f3ef98d6c534">createWithIndices</a> (const std::array&lt; <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a>, N &gt; &amp;bitIndices)</td></tr>
+<tr class="memdesc:a8919a18e104b0fcdd867f3ef98d6c534"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an EventGroup for specific bit indices.  <br /></td></tr>
+<tr class="memitem:a4590d8e9d0bf2e46434d57f9c907b2b7" id="r_a4590d8e9d0bf2e46434d57f9c907b2b7"><td class="memItemLeft" align="right" valign="top">static constexpr uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4590d8e9d0bf2e46434d57f9c907b2b7">getBitCount</a> ()</td></tr>
+<tr class="memdesc:a4590d8e9d0bf2e46434d57f9c907b2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of available event bits.  <br /></td></tr>
+<tr class="memitem:a8ca4fc2325aa8d6f1675a020b2108ffe" id="r_a8ca4fc2325aa8d6f1675a020b2108ffe"><td class="memItemLeft" align="right" valign="top">static constexpr <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ca4fc2325aa8d6f1675a020b2108ffe">getMaxBitIndex</a> ()</td></tr>
+<tr class="memdesc:a8ca4fc2325aa8d6f1675a020b2108ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum bit index.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:adadae684b022bf27fa361cbf1e1f5a3a" id="r_adadae684b022bf27fa361cbf1e1f5a3a"><td class="memItemLeft" align="right" valign="top"><a id="adadae684b022bf27fa361cbf1e1f5a3a" name="adadae684b022bf27fa361cbf1e1f5a3a"></a>
+static constexpr <a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_WAIT</b> = portMAX_DELAY</td></tr>
+<tr class="memdesc:adadae684b022bf27fa361cbf1e1f5a3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default wait timeout. <br /></td></tr>
+<tr class="memitem:a5790e9d4b99156271cdb0495045a7711" id="r_a5790e9d4b99156271cdb0495045a7711"><td class="memItemLeft" align="right" valign="top"><a id="a5790e9d4b99156271cdb0495045a7711" name="a5790e9d4b99156271cdb0495045a7711"></a>
+static constexpr <a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>NO_WAIT</b> = 0</td></tr>
+<tr class="memdesc:a5790e9d4b99156271cdb0495045a7711"><td class="mdescLeft">&#160;</td><td class="mdescRight">No wait timeout. <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a44c825f79126d916f8d7e17d93b416b5" name="a44c825f79126d916f8d7e17d93b416b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44c825f79126d916f8d7e17d93b416b5">&#9670;&#160;</a></span>clearBits()</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a7842763cd7cbf505f418b7e9820de1e1" name="a7842763cd7cbf505f418b7e9820de1e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7842763cd7cbf505f418b7e9820de1e1">&#9670;&#160;</a></span>ClearMode</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,9 +255,253 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> RTOS::EventGroup::clearBits </td>
+          <td class="memname">enum class <a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">RTOS::EventGroup::ClearMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clear mode enumeration for bit clearing behavior. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4" name="a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4"></a>NoClear&#160;</td><td class="fielddoc"><p>Do not clear bits on exit. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7842763cd7cbf505f418b7e9820de1e1adc30bc0c7914db5918da4263fce93ad2" name="a7842763cd7cbf505f418b7e9820de1e1adc30bc0c7914db5918da4263fce93ad2"></a>Clear&#160;</td><td class="fielddoc"><p>Clear bits on exit. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a548ac7c2c1698a2ba9273c46d34b30dc" name="a548ac7c2c1698a2ba9273c46d34b30dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a548ac7c2c1698a2ba9273c46d34b30dc">&#9670;&#160;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a548ac7c2c1698a2ba9273c46d34b30dc">RTOS::EventGroup::State</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Event group state enumeration. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a548ac7c2c1698a2ba9273c46d34b30dca4bbb8f967da6d1a610596d7257179c2b" name="a548ac7c2c1698a2ba9273c46d34b30dca4bbb8f967da6d1a610596d7257179c2b"></a>Invalid&#160;</td><td class="fielddoc"><p>Event group is not created. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a548ac7c2c1698a2ba9273c46d34b30dca4d3d769b812b6faa6b76e1a8abaece2d" name="a548ac7c2c1698a2ba9273c46d34b30dca4d3d769b812b6faa6b76e1a8abaece2d"></a>Active&#160;</td><td class="fielddoc"><p>Event group is created and active. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ae93b1d87c779d4ac130983129d6b4ae5" name="ae93b1d87c779d4ac130983129d6b4ae5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae93b1d87c779d4ac130983129d6b4ae5">&#9670;&#160;</a></span>WaitMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">RTOS::EventGroup::WaitMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wait mode enumeration for bit waiting operations. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad" name="ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad"></a>Any&#160;</td><td class="fielddoc"><p>Wait for any of the specified bits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae93b1d87c779d4ac130983129d6b4ae5ab1c94ca2fbc3e78fc30069c8d0f01680" name="ae93b1d87c779d4ac130983129d6b4ae5ab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"><p>Wait for all of the specified bits. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a7abcf2e22f8961aefb22138a000cc65b" name="a7abcf2e22f8961aefb22138a000cc65b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7abcf2e22f8961aefb22138a000cc65b">&#9670;&#160;</a></span>EventGroup() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::EventGroup::EventGroup </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoCreate</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor with automatic creation. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">autoCreate</td><td>If <span class="tt">true</span>, creates the event group immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae83c0e347985e554dbffd399d6749c28" name="ae83c0e347985e554dbffd399d6749c28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83c0e347985e554dbffd399d6749c28">&#9670;&#160;</a></span>EventGroup() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::EventGroup::EventGroup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>EventGroup to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae83c0e347985e554dbffd399d6749c28_cgraph.svg" width="482" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="af21635b1bebfcbcb63d7fb8e41125026" name="af21635b1bebfcbcb63d7fb8e41125026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af21635b1bebfcbcb63d7fb8e41125026">&#9670;&#160;</a></span>allBitsSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::allBitsSet </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if all of the specified bits are set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if all bits are set, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_af21635b1bebfcbcb63d7fb8e41125026_cgraph.svg" width="687" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7bb9a7d3bc1399d6a1d760f4ad473fcb" name="a7bb9a7d3bc1399d6a1d760f4ad473fcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bb9a7d3bc1399d6a1d760f4ad473fcb">&#9670;&#160;</a></span>anyBitsSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::anyBitsSet </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if any of the specified bits are set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if any bit is set, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a7bb9a7d3bc1399d6a1d760f4ad473fcb_cgraph.svg" width="695" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae3f87c78f0997af15819097a6f4bcbe8" name="ae3f87c78f0997af15819097a6f4bcbe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3f87c78f0997af15819097a6f4bcbe8">&#9670;&#160;</a></span>clearAllBits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::clearAllBits </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -171,14 +512,140 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Clears the specified event bits in the event group. </p>
+<p>Clears all event bits. </p>
+<dl class="section return"><dt>Returns</dt><dd>New event bits value (should be 0). </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae3f87c78f0997af15819097a6f4bcbe8_cgraph.svg" width="707" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a32fea73e65f36e2c8706f7b1b781789a" name="a32fea73e65f36e2c8706f7b1b781789a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32fea73e65f36e2c8706f7b1b781789a">&#9670;&#160;</a></span>clearBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::clearBit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears a single event bit by index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eventBits</td><td>Event bits to clear. </td></tr>
+    <tr><td class="paramname">bitIndex</td><td>Index of the bit to clear. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the event group bits after clearing. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>New event bits value after clearing. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a32fea73e65f36e2c8706f7b1b781789a_cgraph.svg" width="686" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0cfca4992ef6828cbbde5fb9a3734344" name="a0cfca4992ef6828cbbde5fb9a3734344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cfca4992ef6828cbbde5fb9a3734344">&#9670;&#160;</a></span>clearBitFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::clearBitFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears a single bit from ISR context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitIndex</td><td>Index of the bit to clear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if successful, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a0cfca4992ef6828cbbde5fb9a3734344_cgraph.svg" width="686" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a44c825f79126d916f8d7e17d93b416b5" name="a44c825f79126d916f8d7e17d93b416b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44c825f79126d916f8d7e17d93b416b5">&#9670;&#160;</a></span>clearBits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::clearBits </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears event bits from task context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to clear. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New event bits value after clearing. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a44c825f79126d916f8d7e17d93b416b5_cgraph.svg" width="451" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a44c825f79126d916f8d7e17d93b416b5_icgraph.svg" width="460" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -194,7 +661,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
         <tr>
           <td class="memname">bool RTOS::EventGroup::clearBitsFromISR </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -205,19 +672,31 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Clears the specified event bits from an ISR context. </p>
+<p>Clears event bits from ISR context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eventBits</td><td>Event bits to clear. </td></tr>
+    <tr><td class="paramname">eventBits</td><td>Bits to clear. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the bits were cleared successfully, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if successful, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ac3e4026472c8b09395f8e14b8a71fe3b_cgraph.svg" width="451" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ac3e4026472c8b09395f8e14b8a71fe3b_icgraph.svg" width="439" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a id="ae123b21b37e587e5e424af4651768471" name="ae123b21b37e587e5e424af4651768471"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae123b21b37e587e5e424af4651768471">&#9670;&#160;</a></span>create()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae123b21b37e587e5e424af4651768471">&#9670;&#160;</a></span>create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,14 +718,162 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Creates the underlying FreeRTOS event group if not already created. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the event group was created, false if already created. </dd></dl>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<p>Creates the event group. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if created, <span class="tt">false</span> if already created or failed. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/db6/a00241.html#a1">Example</a>.</dd>
+</dl>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae123b21b37e587e5e424af4651768471_cgraph.svg" width="436" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae123b21b37e587e5e424af4651768471_icgraph.svg" width="416" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="a778cc637a9ce137fea1ae226eb39bcdd" name="a778cc637a9ce137fea1ae226eb39bcdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778cc637a9ce137fea1ae226eb39bcdd">&#9670;&#160;</a></span>create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &gt; RTOS::EventGroup::create </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoCreate</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new EventGroup instance on the heap. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">autoCreate</td><td>If <span class="tt">true</span>, creates the event group immediately. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to EventGroup if successful, nullptr otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a61a8779292999712471f4678597d0ac0" name="a61a8779292999712471f4678597d0ac0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61a8779292999712471f4678597d0ac0">&#9670;&#160;</a></span>createWithBits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &gt; RTOS::EventGroup::createWithBits </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>initialBits</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an EventGroup with specific initial bit pattern. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">initialBits</td><td>Initial bit pattern to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to EventGroup if successful, nullptr otherwise. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/db6/a00241.html#a4">Example</a>.</dd>
+</dl>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a61a8779292999712471f4678597d0ac0_cgraph.svg" width="416" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8919a18e104b0fcdd867f3ef98d6c534" name="a8919a18e104b0fcdd867f3ef98d6c534"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8919a18e104b0fcdd867f3ef98d6c534">&#9670;&#160;</a></span>createWithIndices()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &gt; RTOS::EventGroup::createWithIndices </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a>, N &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>bitIndices</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an EventGroup for specific bit indices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitIndices</td><td>Array of bit indices to initially set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to EventGroup if successful, nullptr otherwise. </dd></dl>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a8919a18e104b0fcdd867f3ef98d6c534_cgraph.svg" width="416" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4590d8e9d0bf2e46434d57f9c907b2b7" name="a4590d8e9d0bf2e46434d57f9c907b2b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4590d8e9d0bf2e46434d57f9c907b2b7">&#9670;&#160;</a></span>getBitCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr uint8_t RTOS::EventGroup::getBitCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of available event bits. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of event bits. </dd></dl>
 
 </div>
 </div>
@@ -260,7 +887,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> RTOS::EventGroup::getBits </td>
+          <td class="memname">EventBits RTOS::EventGroup::getBits </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -273,8 +900,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Gets the current event bits from the event group. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current event bits. </dd></dl>
+<p>Gets current event bits. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current event bits. </dd></dl>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ab940e7baf67c42162d8700c967c6903f_cgraph.svg" width="440" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ab940e7baf67c42162d8700c967c6903f_icgraph.svg" width="448" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -288,7 +927,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> RTOS::EventGroup::getBitsFromISR </td>
+          <td class="memname">EventBits RTOS::EventGroup::getBitsFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -301,8 +940,144 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Gets the current event bits from the event group in an ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current event bits. </dd></dl>
+<p>Gets current event bits from ISR. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current event bits. </dd></dl>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_aa84d7ab47becac379a95e46708b425b5_cgraph.svg" width="440" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab870843ca495f26ed413846b29bfef4e" name="ab870843ca495f26ed413846b29bfef4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab870843ca495f26ed413846b29bfef4e">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8f85547a426b02f14d6e4ea12fe668d3">Handle</a> RTOS::EventGroup::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the underlying FreeRTOS event group handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Event group handle. </dd></dl>
+
+</div>
+</div>
+<a id="a8ca4fc2325aa8d6f1675a020b2108ffe" name="a8ca4fc2325aa8d6f1675a020b2108ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ca4fc2325aa8d6f1675a020b2108ffe">&#9670;&#160;</a></span>getMaxBitIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a> RTOS::EventGroup::getMaxBitIndex </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the maximum bit index. </p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum valid bit index. </dd></dl>
+
+</div>
+</div>
+<a id="a427ae2886c5c4a296fa82a8d02f430f4" name="a427ae2886c5c4a296fa82a8d02f430f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a427ae2886c5c4a296fa82a8d02f430f4">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a548ac7c2c1698a2ba9273c46d34b30dc">State</a> RTOS::EventGroup::getState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current state of the event group. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current state. </dd></dl>
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a427ae2886c5c4a296fa82a8d02f430f4_cgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a06ff768b84f44803bb09725dae31c4fc" name="a06ff768b84f44803bb09725dae31c4fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ff768b84f44803bb09725dae31c4fc">&#9670;&#160;</a></span>isBitSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::isBitSet </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitIndex</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a specific bit is set. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitIndex</td><td>Index of the bit to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if bit is set, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a06ff768b84f44803bb09725dae31c4fc_cgraph.svg" width="678" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -329,19 +1104,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the event group has been created. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the event group is created, false otherwise. </dd></dl>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<p>Checks if event group is created. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if created, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae08389e11d83cf7dfc460d5f2fa0dc27_icgraph.svg" width="634" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae08389e11d83cf7dfc460d5f2fa0dc27_icgraph.svg" width="967" height="940"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ad322ef154bfb1a2b05efe1fd53100ce1" name="ad322ef154bfb1a2b05efe1fd53100ce1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad322ef154bfb1a2b05efe1fd53100ce1">&#9670;&#160;</a></span>setBits()</h2>
+<a id="a64add0f43154d7bcba6da15f5e6f5d2d" name="a64add0f43154d7bcba6da15f5e6f5d2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a64add0f43154d7bcba6da15f5e6f5d2d">&#9670;&#160;</a></span>isValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -350,9 +1125,117 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> RTOS::EventGroup::setBits </td>
+          <td class="memname">bool RTOS::EventGroup::isValid </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the event group is valid. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if valid, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a64add0f43154d7bcba6da15f5e6f5d2d_cgraph.svg" width="438" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a55b9f397f0d8b532c659f9ab2fcd210b" name="a55b9f397f0d8b532c659f9ab2fcd210b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55b9f397f0d8b532c659f9ab2fcd210b">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::EventGroup::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Explicit conversion to boolean. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if event group is created, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a55b9f397f0d8b532c659f9ab2fcd210b_cgraph.svg" width="475" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2576c192353ebd4e1261f2a0908f1946" name="a2576c192353ebd4e1261f2a0908f1946"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2576c192353ebd4e1261f2a0908f1946">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp; RTOS::EventGroup::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d4a/a00147.html">EventGroup</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>EventGroup to move from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this event group. </dd></dl>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a2576c192353ebd4e1261f2a0908f1946_cgraph.svg" width="714" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7334a4b6c75d487aadf4d05ef9ab661e" name="a7334a4b6c75d487aadf4d05ef9ab661e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7334a4b6c75d487aadf4d05ef9ab661e">&#9670;&#160;</a></span>setBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::setBit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitIndex</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -363,14 +1246,148 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Sets the specified event bits in the event group. </p>
+<p>Sets a single event bit by index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eventBits</td><td>Event bits to set. </td></tr>
+    <tr><td class="paramname">bitIndex</td><td>Index of the bit to set (0-based). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the event group bits after setting. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>New event bits value after setting. </dd></dl>
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a7334a4b6c75d487aadf4d05ef9ab661e_cgraph.svg" width="666" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa61a0593275c26e1942cbcb8fadda1ac" name="aa61a0593275c26e1942cbcb8fadda1ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa61a0593275c26e1942cbcb8fadda1ac">&#9670;&#160;</a></span>setBitFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::setBitFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitIndex</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets a single event bit from ISR context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitIndex</td><td>Index of the bit to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if successful, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_aa61a0593275c26e1942cbcb8fadda1ac_cgraph.svg" width="666" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad322ef154bfb1a2b05efe1fd53100ce1" name="ad322ef154bfb1a2b05efe1fd53100ce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad322ef154bfb1a2b05efe1fd53100ce1">&#9670;&#160;</a></span>setBits() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::setBits </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets event bits from task context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New event bits value after setting. </dd></dl>
+<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ad322ef154bfb1a2b05efe1fd53100ce1_cgraph.svg" width="440" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ad322ef154bfb1a2b05efe1fd53100ce1_icgraph.svg" width="428" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a07bd3df9f015449f27be3b45aff0eae3" name="a07bd3df9f015449f27be3b45aff0eae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07bd3df9f015449f27be3b45aff0eae3">&#9670;&#160;</a></span>setBits() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;size_t N&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::setBits </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a>, N &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>bitIndices</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets multiple event bits by indices. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitIndices</td><td>Array of bit indices to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>New event bits value after setting. </dd></dl>
+<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a07bd3df9f015449f27be3b45aff0eae3_cgraph.svg" width="672" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -386,7 +1403,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
         <tr>
           <td class="memname">bool RTOS::EventGroup::setBitsFromISR </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -397,19 +1414,31 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Sets the specified event bits from an ISR context. </p>
+<p>Sets event bits from ISR context. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eventBits</td><td>Event bits to set. </td></tr>
+    <tr><td class="paramname">eventBits</td><td>Bits to set. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the bits were set successfully, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if successful, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-27" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_accf7c19f83d8714302940aaea5bd552e_cgraph.svg" width="440" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-28" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_accf7c19f83d8714302940aaea5bd552e_icgraph.svg" width="419" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ab2f807602c428224818547c7522238dd" name="ab2f807602c428224818547c7522238dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2f807602c428224818547c7522238dd">&#9670;&#160;</a></span>syncBits()</h2>
+<a id="ae94a3859c7084a1a914055f9a0e60f80" name="ae94a3859c7084a1a914055f9a0e60f80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae94a3859c7084a1a914055f9a0e60f80">&#9670;&#160;</a></span>syncBit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -418,19 +1447,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> RTOS::EventGroup::syncBits </td>
+          <td class="memname">bool RTOS::EventGroup::syncBit </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitToSet</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bitsToWait</em></span>, </td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitToWait</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;) const</td>
+          <td class="paramtype"><a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a></td>          <td class="paramname"><span class="paramname"><em>waitTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -440,21 +1469,27 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Atomically sets and waits for event bits, synchronizing with other tasks. </p>
+<p>Synchronizes single bits by index. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bitsToSet</td><td>Event bits to set. </td></tr>
-    <tr><td class="paramname">bitsToWait</td><td>Event bits to wait for. </td></tr>
-    <tr><td class="paramname">ticks</td><td>Maximum number of ticks to wait. </td></tr>
+    <tr><td class="paramname">bitToSet</td><td>Index of bit to set. </td></tr>
+    <tr><td class="paramname">bitToWait</td><td>Index of bit to wait for. </td></tr>
+    <tr><td class="paramname">waitTime</td><td>Timeout in ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the event group bits when the wait condition was met. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if synchronization completed, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-29" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae94a3859c7084a1a914055f9a0e60f80_cgraph.svg" width="686" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="af3f76be0d4887d38d8ef537d5c91d4c6" name="af3f76be0d4887d38d8ef537d5c91d4c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3f76be0d4887d38d8ef537d5c91d4c6">&#9670;&#160;</a></span>waitForBits()</h2>
+<a id="adfec7dfbd63b1807a0c6f85a5fa282dc" name="adfec7dfbd63b1807a0c6f85a5fa282dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfec7dfbd63b1807a0c6f85a5fa282dc">&#9670;&#160;</a></span>syncBits()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -463,24 +1498,19 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> RTOS::EventGroup::waitForBits </td>
+          <td class="memname">EventBits RTOS::EventGroup::syncBits </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d7/dce/a00143.html#a47f0e9d871cbc12819c5294e5c9849a0">EventBits</a>(0)</span>, </td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>bitsToWait</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>waitForAll</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ad148e5ad55c065d22eaa6d5c10ce0768">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;) const</td>
+          <td class="paramtype"><a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a></td>          <td class="paramname"><span class="paramname"><em>waitTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -490,17 +1520,410 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 </table>
 </div><div class="memdoc">
 
-<p>Waits for the specified event bits to be set, with options to clear on exit and wait for all bits. </p>
+<p>Synchronizes event bits with enhanced parameters. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">eventBits</td><td>Event bits to wait for. </td></tr>
-    <tr><td class="paramname">clearOnExit</td><td>Whether to clear the bits on exit. </td></tr>
-    <tr><td class="paramname">waitForAll</td><td>Whether to wait for all bits or any bit. </td></tr>
-    <tr><td class="paramname">ticks</td><td>Maximum number of ticks to wait. </td></tr>
+    <tr><td class="paramname">bitsToSet</td><td>Bits to set. </td></tr>
+    <tr><td class="paramname">bitsToWait</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">waitTime</td><td>Timeout in ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The value of the event group bits when the wait condition was met. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits after sync. </dd></dl>
+<div id="dynsection-30" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_adfec7dfbd63b1807a0c6f85a5fa282dc_cgraph.svg" width="451" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-31" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_adfec7dfbd63b1807a0c6f85a5fa282dc_icgraph.svg" width="464" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad413c8bdb65daf4f54463989c9c9d22c" name="ad413c8bdb65daf4f54463989c9c9d22c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad413c8bdb65daf4f54463989c9c9d22c">&#9670;&#160;</a></span>syncBitsMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::syncBitsMs </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>bitsToSet</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>bitsToWait</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutMs</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Synchronizes event bits with millisecond timeout. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToSet</td><td>Bits to set. </td></tr>
+    <tr><td class="paramname">bitsToWait</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">timeoutMs</td><td>Timeout in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits after sync. </dd></dl>
+<div id="dynsection-32" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ad413c8bdb65daf4f54463989c9c9d22c_cgraph.svg" width="710" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afd5cfdfce8b4f93fa25c3c2ab3af330f" name="afd5cfdfce8b4f93fa25c3c2ab3af330f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd5cfdfce8b4f93fa25c3c2ab3af330f">&#9670;&#160;</a></span>tryWaitForBits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::tryWaitForBits </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for any of the specified bits to be set without timeout. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to wait for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if any bit is set, <span class="tt">false</span> if would block. </dd></dl>
+<div id="dynsection-33" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_afd5cfdfce8b4f93fa25c3c2ab3af330f_cgraph.svg" width="698" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae42513f1a5f8fea5c671f4cae1dd74ec" name="ae42513f1a5f8fea5c671f4cae1dd74ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae42513f1a5f8fea5c671f4cae1dd74ec">&#9670;&#160;</a></span>waitForBit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::EventGroup::waitForBit </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a012f775c662b6f78b957c0fbaaee59fd">BitIndex</a></td>          <td class="paramname"><span class="paramname"><em>bitIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a></td>          <td class="paramname"><span class="paramname"><em>waitTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a></td>          <td class="paramname"><span class="paramname"><em>clearMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for a single bit by index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitIndex</td><td>Index of the bit to wait for. </td></tr>
+    <tr><td class="paramname">waitTime</td><td>Timeout in ticks. </td></tr>
+    <tr><td class="paramname">clearMode</td><td>Clear bits on exit behavior. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if bit was set within timeout, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-34" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_ae42513f1a5f8fea5c671f4cae1dd74ec_cgraph.svg" width="715" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abe719eb3f4de95c0900fbe0e06b7f118" name="abe719eb3f4de95c0900fbe0e06b7f118"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe719eb3f4de95c0900fbe0e06b7f118">&#9670;&#160;</a></span>waitForBits() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::waitForBits </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a></td>          <td class="paramname"><span class="paramname"><em>clearMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a></td>          <td class="paramname"><span class="paramname"><em>waitMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a033b94b6ee235e14580246b0d5cd2394">TickType</a></td>          <td class="paramname"><span class="paramname"><em>waitTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#adadae684b022bf27fa361cbf1e1f5a3a">DEFAULT_WAIT</a></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for specified event bits with enhanced parameters. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">clearMode</td><td>Clear bits on exit behavior. </td></tr>
+    <tr><td class="paramname">waitMode</td><td>Wait for all or any bits. </td></tr>
+    <tr><td class="paramname">waitTime</td><td>Timeout in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits after wait. </dd></dl>
+<div id="dynsection-35" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-35-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_abe719eb3f4de95c0900fbe0e06b7f118_cgraph.svg" width="466" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-36" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-36-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_abe719eb3f4de95c0900fbe0e06b7f118_icgraph.svg" width="710" height="222"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a78c6f9fcb21fc8cc3ee7eb768f89ea07" name="a78c6f9fcb21fc8cc3ee7eb768f89ea07"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78c6f9fcb21fc8cc3ee7eb768f89ea07">&#9670;&#160;</a></span>waitForBits() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::waitForBits </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a></td>          <td class="paramname"><span class="paramname"><em>clearMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a></td>          <td class="paramname"><span class="paramname"><em>waitMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for bits using Timeout object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout object. </td></tr>
+    <tr><td class="paramname">clearMode</td><td>Clear bits on exit behavior. </td></tr>
+    <tr><td class="paramname">waitMode</td><td>Wait for all or any bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits after wait. </dd></dl>
+<div id="dynsection-37" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-37-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a78c6f9fcb21fc8cc3ee7eb768f89ea07_cgraph.svg" width="722" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afa265df16194e2a26d0f45d51d2373ad" name="afa265df16194e2a26d0f45d51d2373ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa265df16194e2a26d0f45d51d2373ad">&#9670;&#160;</a></span>waitForBitsMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::waitForBitsMs </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutMs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a></td>          <td class="paramname"><span class="paramname"><em>clearMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a></td>          <td class="paramname"><span class="paramname"><em>waitMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for specified event bits with millisecond timeout. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">timeoutMs</td><td>Timeout in milliseconds. </td></tr>
+    <tr><td class="paramname">clearMode</td><td>Clear bits on exit behavior. </td></tr>
+    <tr><td class="paramname">waitMode</td><td>Wait for all or any bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits after wait. </dd></dl>
+<div id="dynsection-38" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-38-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-38-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_afa265df16194e2a26d0f45d51d2373ad_cgraph.svg" width="699" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-39" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-39-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-39-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_afa265df16194e2a26d0f45d51d2373ad_icgraph.svg" width="430" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a53b4238989184b4b101a2d1ea4ab5135" name="a53b4238989184b4b101a2d1ea4ab5135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b4238989184b4b101a2d1ea4ab5135">&#9670;&#160;</a></span>waitForBitsSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EventBits RTOS::EventGroup::waitForBitsSeconds </td>
+          <td>(</td>
+          <td class="paramtype">const EventBits &amp;</td>          <td class="paramname"><span class="paramname"><em>eventBits</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutSec</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1">ClearMode</a></td>          <td class="paramname"><span class="paramname"><em>clearMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a7842763cd7cbf505f418b7e9820de1e1a878fd126d48c11c3ea699b54956958e4">ClearMode::NoClear</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5">WaitMode</a></td>          <td class="paramname"><span class="paramname"><em>waitMode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ae93b1d87c779d4ac130983129d6b4ae5aed36a1ef76a59ee3f15180e0441188ad">WaitMode::Any</a></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for specified event bits with second timeout. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eventBits</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">timeoutSec</td><td>Timeout in seconds. </td></tr>
+    <tr><td class="paramname">clearMode</td><td>Clear bits on exit behavior. </td></tr>
+    <tr><td class="paramname">waitMode</td><td>Wait for all or any bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Event bits after wait. </dd></dl>
+<div id="dynsection-40" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-40-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-40-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a00147_a53b4238989184b4b101a2d1ea4ab5135_cgraph.svg" width="932" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -520,7 +1943,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>destroy</b> ()</td></
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/dce/a00143.html">RTOS</a></li><li class="navelem"><a href="../../d0/d4a/a00147.html">EventGroup</a></li>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d0/d4a/a00147.html">EventGroup</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

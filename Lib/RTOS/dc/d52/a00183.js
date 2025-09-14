@@ -1,16 +1,15 @@
 var a00183 =
 [
-    [ "SemaphoreBase", "dc/d52/a00183.html#ac5ba2da9868b29115ace32136dde4b97", null ],
-    [ "~SemaphoreBase", "dc/d52/a00183.html#ab98752a3e231b56ba654c2c7cfad9f35", null ],
-    [ "create", "dc/d52/a00183.html#abe7be11ded0f450a8e456e0ead643d03", null ],
-    [ "destroy", "dc/d52/a00183.html#a0e02fdce947578b5cf0b93548c82fe28", null ],
-    [ "give", "dc/d52/a00183.html#a97ac23e2c0fb9235e1e13a56dcc27c23", null ],
-    [ "giveFromISR", "dc/d52/a00183.html#af2bf09cd3cb15cab16883862889e96c7", null ],
-    [ "isCreated", "dc/d52/a00183.html#a01db2bc6a677e5c062f9b9d3c14d8599", null ],
-    [ "operator Handle &", "dc/d52/a00183.html#ac0e260e7f3d879dab705676c76529022", null ],
-    [ "overwrite", "dc/d52/a00183.html#a26617c96f4523fe5d58b0489248d0e6e", null ],
-    [ "overwriteFromISR", "dc/d52/a00183.html#aa87af60fe2421cf538d1040cfe46be1c", null ],
-    [ "take", "dc/d52/a00183.html#aab5deb1c3e21a206e7e4b6a2365d3562", null ],
-    [ "takeFromISR", "dc/d52/a00183.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f", null ],
-    [ "handle", "dc/d52/a00183.html#af98089a48fabe8207cc736331543af75", null ]
+    [ "Guard", "dc/d52/a00183.html#a59a8144c26ba2ab2e37f47efbef7de34", null ],
+    [ "Mutex", "dc/d52/a00183.html#aa112cb1a46170df1c5f1d38a53d332ea", null ],
+    [ "~Mutex", "dc/d52/a00183.html#a766309378d3f1b9ad25492973f7d5c99", null ],
+    [ "create", "dc/d52/a00183.html#a54ef3e739bba7d33a2a8a941b40612a6", null ],
+    [ "destroy", "dc/d52/a00183.html#a809773af6ed2e531ec2e26bc5ccb181f", null ],
+    [ "give", "dc/d52/a00183.html#afd31afde78f47fa803851f172457fffd", null ],
+    [ "giveFromISR", "dc/d52/a00183.html#aa2ca8e5c0a31ae25cc4c9eaa27890093", null ],
+    [ "isCreated", "dc/d52/a00183.html#a19a5b5cf5bd248dfefe4eb88a645b2ce", null ],
+    [ "lock", "dc/d52/a00183.html#a3a962d5120e04c9de31c5ab52cb58af7", null ],
+    [ "take", "dc/d52/a00183.html#a4b71eae523afd6231d1950e34e3ff7f4", null ],
+    [ "takeFromISR", "dc/d52/a00183.html#af5901479a1c92d58fb198bcb35e288c2", null ],
+    [ "unlock", "dc/d52/a00183.html#a345c1a4de6315a11205eddce12e0f573", null ]
 ];

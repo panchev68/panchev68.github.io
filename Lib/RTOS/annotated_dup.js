@@ -1,21 +1,20 @@
 var annotated_dup =
 [
-    [ "RTOS", null, [
-      [ "EventGroup", "d9/d47/a00129.html", "d9/d47/a00129" ],
-      [ "Kernel", "d0/de8/a00133.html", "d0/de8/a00133" ],
-      [ "MemoryManager", "d2/df5/a00137.html", null ],
-      [ "MessageBuffer", "d5/d4e/a00141.html", "d5/d4e/a00141" ],
-      [ "Mutex", "da/ddb/a00145.html", "da/ddb/a00145" ],
-      [ "Queue", "da/d01/a00153.html", "da/d01/a00153" ],
-      [ "QueueSet", "d1/db7/a00157.html", "d1/db7/a00157" ],
-      [ "Semaphore", "d6/d7d/a00161.html", "d6/d7d/a00161" ],
-      [ "SemaphoreBase", "d0/d48/a00165.html", "d0/d48/a00165" ],
-      [ "SemaphoreCounting", "de/d53/a00169.html", "de/d53/a00169" ],
-      [ "StreamBuffer", "d7/d3f/a00173.html", "d7/d3f/a00173" ],
-      [ "Task", "dd/d4c/a00177.html", "dd/d4c/a00177" ],
-      [ "TickCounter", "de/df3/a00185.html", null ],
-      [ "TickService", "da/deb/a00189.html", "da/deb/a00189" ],
-      [ "Timeout", "de/db1/a00197.html", "de/db1/a00197" ],
-      [ "Timer", "dd/de3/a00201.html", "dd/de3/a00201" ]
+    [ "RTOS", "d1/d88/a00128.html", [
+      [ "EventGroup", "d5/deb/a00132.html", "d5/deb/a00132" ],
+      [ "Kernel", "d0/d5e/a00136.html", "d0/d5e/a00136" ],
+      [ "MemoryManager", "d5/db1/a00140.html", "d5/db1/a00140" ],
+      [ "MessageBuffer", "d5/da7/a00144.html", "d5/da7/a00144" ],
+      [ "Mutex", "db/d48/a00148.html", "db/d48/a00148" ],
+      [ "Queue", "d2/d34/a00156.html", "d2/d34/a00156" ],
+      [ "QueueSet", "de/d38/a00160.html", "de/d38/a00160" ],
+      [ "Semaphore", "db/ddf/a00164.html", "db/ddf/a00164" ],
+      [ "SemaphoreCounting", "dd/da7/a00168.html", "dd/da7/a00168" ],
+      [ "StreamBuffer", "d6/dfb/a00172.html", "d6/dfb/a00172" ],
+      [ "Task", "d5/de9/a00176.html", "d5/de9/a00176" ],
+      [ "TickCounter", "d0/d81/a00180.html", "d0/d81/a00180" ],
+      [ "TickService", "d2/d94/a00184.html", "d2/d94/a00184" ],
+      [ "Timeout", "dd/da2/a00192.html", "dd/da2/a00192" ],
+      [ "Timer", "d7/ded/a00196.html", "d7/ded/a00196" ]
     ] ]
 ];

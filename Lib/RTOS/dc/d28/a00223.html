@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: RTOS::Timer::Config Struct Reference</title>
+<title>RTOS: RTOS::TickService Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -91,34 +91,313 @@ $(function(){initNavTree('dc/d28/a00223.html','../../','d5/d0b/a00220'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Timer::Config Struct Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::TickService Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Timer creation parameters. </p>
-<p>Holds timer name, callback, period, and auto-reload mode. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d4/d08/a00237.html#_a0">Timer</a>.</dd>
-</dl>
+<div class="textblock"><p>Singleton service for periodic tick event management and client notification. </p>
+<p>Allows clients to register for tick notifications in a thread-safe manner with configurable tick intervals. Provides automatic client lifecycle management and precise timing control. </p>
 </div>
-<p><code>#include &lt;Timer.hpp&gt;</code></p>
+<p><code>#include &lt;TickService.hpp&gt;</code></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:ad8b73f11067fe43efd4b598113c68363" id="r_ad8b73f11067fe43efd4b598113c68363"><td class="memItemLeft" align="right" valign="top"><a id="ad8b73f11067fe43efd4b598113c68363" name="ad8b73f11067fe43efd4b598113c68363"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
-<tr class="memdesc:ad8b73f11067fe43efd4b598113c68363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer name. <br /></td></tr>
-<tr class="memitem:abe35c71ade8d73402a42a3582900347e" id="r_abe35c71ade8d73402a42a3582900347e"><td class="memItemLeft" align="right" valign="top"><a id="abe35c71ade8d73402a42a3582900347e" name="abe35c71ade8d73402a42a3582900347e"></a>
-std::function&lt; void()&gt;&#160;</td><td class="memItemRight" valign="bottom"><b>callback</b></td></tr>
-<tr class="memdesc:abe35c71ade8d73402a42a3582900347e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Expiry callback. <br /></td></tr>
-<tr class="memitem:a0a9e94f1565de00e42a4b2a043d10165" id="r_a0a9e94f1565de00e42a4b2a043d10165"><td class="memItemLeft" align="right" valign="top"><a id="a0a9e94f1565de00e42a4b2a043d10165" name="a0a9e94f1565de00e42a4b2a043d10165"></a>
-uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>period</b> = 1</td></tr>
-<tr class="memdesc:a0a9e94f1565de00e42a4b2a043d10165"><td class="mdescLeft">&#160;</td><td class="mdescRight">Period in ticks. <br /></td></tr>
-<tr class="memitem:a26b27b80119e7802346a2ef65bf5cca5" id="r_a26b27b80119e7802346a2ef65bf5cca5"><td class="memItemLeft" align="right" valign="top"><a id="a26b27b80119e7802346a2ef65bf5cca5" name="a26b27b80119e7802346a2ef65bf5cca5"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>autoReload</b> = true</td></tr>
-<tr class="memdesc:a26b27b80119e7802346a2ef65bf5cca5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto-reload mode. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:ClientBase" id="r_ClientBase"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d01/a00227.html">ClientBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for tick event clients requiring periodic notifications.  <a href="../../d9/d01/a00227.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac735c01182cf815361e5c13544300231" id="r_ac735c01182cf815361e5c13544300231"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac735c01182cf815361e5c13544300231">start</a> (uint32_t intervalMs=1)</td></tr>
+<tr class="memdesc:ac735c01182cf815361e5c13544300231"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the periodic tick event dispatch loop.  <br /></td></tr>
+<tr class="memitem:a77ea96a62d32c4017b21356f7093eada" id="r_a77ea96a62d32c4017b21356f7093eada"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a77ea96a62d32c4017b21356f7093eada">stop</a> ()</td></tr>
+<tr class="memdesc:a77ea96a62d32c4017b21356f7093eada"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the periodic tick event dispatch loop.  <br /></td></tr>
+<tr class="memitem:a2b5b44562ccf4a0b03bd2eb38a071f81" id="r_a2b5b44562ccf4a0b03bd2eb38a071f81"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b5b44562ccf4a0b03bd2eb38a071f81">isRunning</a> () const</td></tr>
+<tr class="memdesc:a2b5b44562ccf4a0b03bd2eb38a071f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the tick service is currently running.  <br /></td></tr>
+<tr class="memitem:a457b84eda584831ecda6667a11059a3c" id="r_a457b84eda584831ecda6667a11059a3c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a457b84eda584831ecda6667a11059a3c">getTickInterval</a> () const</td></tr>
+<tr class="memdesc:a457b84eda584831ecda6667a11059a3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current tick dispatch interval.  <br /></td></tr>
+<tr class="memitem:a1fbddf884e90eda1cd1ebefe9de70d2c" id="r_a1fbddf884e90eda1cd1ebefe9de70d2c"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fbddf884e90eda1cd1ebefe9de70d2c">getClientCount</a> () const</td></tr>
+<tr class="memdesc:a1fbddf884e90eda1cd1ebefe9de70d2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the number of currently registered clients.  <br /></td></tr>
+<tr class="memitem:a94c21b89affd6fd075fe46ea91bb3eab" id="r_a94c21b89affd6fd075fe46ea91bb3eab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94c21b89affd6fd075fe46ea91bb3eab">setPriority</a> (UBaseType_t priority)</td></tr>
+<tr class="memdesc:a94c21b89affd6fd075fe46ea91bb3eab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the tick service task priority.  <br /></td></tr>
+<tr class="memitem:a656935fd3fa802584313019c26e131c0" id="r_a656935fd3fa802584313019c26e131c0"><td class="memItemLeft" align="right" valign="top">UBaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a656935fd3fa802584313019c26e131c0">getPriority</a> () const</td></tr>
+<tr class="memdesc:a656935fd3fa802584313019c26e131c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the tick service task priority.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af15b470d546ee8a5e3880efb4814bc54" id="r_af15b470d546ee8a5e3880efb4814bc54"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../dc/d28/a00223.html">TickService</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af15b470d546ee8a5e3880efb4814bc54">getInstance</a> ()</td></tr>
+<tr class="memdesc:af15b470d546ee8a5e3880efb4814bc54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton TickService instance.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a01ff8e2c567461efe526865a3b9b7f5e" id="r_a01ff8e2c567461efe526865a3b9b7f5e"><td class="memItemLeft" align="right" valign="top"><a id="a01ff8e2c567461efe526865a3b9b7f5e" name="a01ff8e2c567461efe526865a3b9b7f5e"></a>
+class&#160;</td><td class="memItemRight" valign="bottom"><b>ClientBase</b></td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li><b>Timer.hpp</b></li>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a1fbddf884e90eda1cd1ebefe9de70d2c" name="a1fbddf884e90eda1cd1ebefe9de70d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fbddf884e90eda1cd1ebefe9de70d2c">&#9670;&#160;</a></span>getClientCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t RTOS::TickService::getClientCount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the number of currently registered clients. </p>
+<p>Returns the count of clients currently registered for tick event notifications. </p><dl class="section return"><dt>Returns</dt><dd>Number of registered clients. </dd></dl>
+
+</div>
+</div>
+<a id="af15b470d546ee8a5e3880efb4814bc54" name="af15b470d546ee8a5e3880efb4814bc54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af15b470d546ee8a5e3880efb4814bc54">&#9670;&#160;</a></span>getInstance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d28/a00223.html">TickService</a> &amp; RTOS::TickService::getInstance </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the singleton TickService instance. </p>
+<p>Provides access to the global TickService instance using lazy initialization. </p><dl class="section return"><dt>Returns</dt><dd>Reference to the singleton TickService instance. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d22/a00245.html#a2">usage</a>.</dd>
+</dl>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d28/a00223_af15b470d546ee8a5e3880efb4814bc54_icgraph.svg" width="572" height="154"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a656935fd3fa802584313019c26e131c0" name="a656935fd3fa802584313019c26e131c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a656935fd3fa802584313019c26e131c0">&#9670;&#160;</a></span>getPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UBaseType_t RTOS::TickService::getPriority </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the tick service task priority. </p>
+<p>Returns the current priority level of the background task that dispatches tick events. </p><dl class="section return"><dt>Returns</dt><dd>Current task priority level. </dd></dl>
+
+</div>
+</div>
+<a id="a457b84eda584831ecda6667a11059a3c" name="a457b84eda584831ecda6667a11059a3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a457b84eda584831ecda6667a11059a3c">&#9670;&#160;</a></span>getTickInterval()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::TickService::getTickInterval </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the current tick dispatch interval. </p>
+<p>Returns the currently configured interval between tick event dispatches. </p><dl class="section return"><dt>Returns</dt><dd>Tick interval in milliseconds. </dd></dl>
+
+</div>
+</div>
+<a id="a2b5b44562ccf4a0b03bd2eb38a071f81" name="a2b5b44562ccf4a0b03bd2eb38a071f81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b5b44562ccf4a0b03bd2eb38a071f81">&#9670;&#160;</a></span>isRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::TickService::isRunning </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if the tick service is currently running. </p>
+<p>Determines whether the background task is active and dispatching tick events. </p><dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the service is running and dispatching events, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d28/a00223_a2b5b44562ccf4a0b03bd2eb38a071f81_icgraph.svg" width="368" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a94c21b89affd6fd075fe46ea91bb3eab" name="a94c21b89affd6fd075fe46ea91bb3eab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c21b89affd6fd075fe46ea91bb3eab">&#9670;&#160;</a></span>setPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::TickService::setPriority </td>
+          <td>(</td>
+          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the tick service task priority. </p>
+<p>Changes the priority of the background task that dispatches tick events. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>New task priority level. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac735c01182cf815361e5c13544300231" name="ac735c01182cf815361e5c13544300231"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac735c01182cf815361e5c13544300231">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::TickService::start </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>intervalMs</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Start the periodic tick event dispatch loop. </p>
+<p>Starts the background task that dispatches tick events to all registered clients at the specified interval. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">intervalMs</td><td>Tick interval in milliseconds (default: 1ms, valid range: 1-1000ms). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if started successfully or already running, <span class="tt">false</span> on failure. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d22/a00245.html#a3">usage</a>.</dd>
+</dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d28/a00223_ac735c01182cf815361e5c13544300231_cgraph.svg" width="576" height="288"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a77ea96a62d32c4017b21356f7093eada" name="a77ea96a62d32c4017b21356f7093eada"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77ea96a62d32c4017b21356f7093eada">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::TickService::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stop the periodic tick event dispatch loop. </p>
+<p>Stops the background task and ceases all tick event dispatching to clients. </p><dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if stopped successfully or already stopped, <span class="tt">false</span> on failure. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d28/a00223_a77ea96a62d32c4017b21356f7093eada_cgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><b>TickService.hpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -133,7 +412,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>autoReload</b> = true
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/dce/a00143.html">RTOS</a></li><li class="navelem"><a href="../../dd/df3/a00219.html">Timer</a></li><li class="navelem"><a href="../../dc/d28/a00223.html">Config</a></li>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../dc/d28/a00223.html">TickService</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

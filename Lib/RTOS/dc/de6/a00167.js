@@ -1,8 +1,9 @@
 var a00167 =
 [
-    [ "Guard", "dc/de6/a00167.html#a271c7670345800115f73014d4681652d", null ],
-    [ "Guard", "dc/de6/a00167.html#a744d482871f8b3a8dfe424375eeba7a0", null ],
-    [ "~Guard", "dc/de6/a00167.html#a11371d4eaa8e895c86200e292cdb94f6", null ],
-    [ "operator bool", "dc/de6/a00167.html#ab00f98a356cc1d92ab8b52f27d21bfb6", null ],
-    [ "operator Mutex &", "dc/de6/a00167.html#a01f3738723d896537919ecaeb897f0cd", null ]
+    [ "SchedulerSuspension", "dc/de6/a00167.html#afaf07ef14994d083e07e8720a5187096", null ],
+    [ "~SchedulerSuspension", "dc/de6/a00167.html#afdacf3f4782bdeee65b400e290b687d3", null ],
+    [ "SchedulerSuspension", "dc/de6/a00167.html#a274eea64212dd36ed17f9dcafc1f5abc", null ],
+    [ "SchedulerSuspension", "dc/de6/a00167.html#aee3081c3b5a7eb161bfea93b68b7572d", null ],
+    [ "operator=", "dc/de6/a00167.html#ab91f6db3417bb68da69ca73cfd1855d0", null ],
+    [ "operator=", "dc/de6/a00167.html#a2fc23ba18ec8793a1e87b965dabebd0d", null ]
 ];

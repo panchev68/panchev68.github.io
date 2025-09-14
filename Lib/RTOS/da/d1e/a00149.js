@@ -1,8 +1,8 @@
 var a00149 =
 [
-    [ "Guard", "da/d1e/a00149.html#a271c7670345800115f73014d4681652d", null ],
-    [ "Guard", "da/d1e/a00149.html#a744d482871f8b3a8dfe424375eeba7a0", null ],
-    [ "~Guard", "da/d1e/a00149.html#a11371d4eaa8e895c86200e292cdb94f6", null ],
-    [ "operator bool", "da/d1e/a00149.html#ab00f98a356cc1d92ab8b52f27d21bfb6", null ],
-    [ "operator Mutex &", "da/d1e/a00149.html#a01f3738723d896537919ecaeb897f0cd", null ]
+    [ "allocations", "da/d1e/a00149.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "da/d1e/a00149.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "da/d1e/a00149.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "da/d1e/a00149.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "da/d1e/a00149.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

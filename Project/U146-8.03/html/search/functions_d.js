@@ -8,7 +8,7 @@ var searchData=
   ['serialnumber_5',['SerialNumber',['../de/d56/class_system_1_1_serial_number.html#a17b93510e6c83933a723e57d4a4675c6',1,'System::SerialNumber']]],
   ['serialportrepeater_6',['SerialPortRepeater',['../d1/dea/class_serial_port_repeater.html#a1f3690081f2c23ec0b36a1f1ed53e252',1,'SerialPortRepeater']]],
   ['server_7',['Server',['../d1/d2d/class_canbus_1_1_server.html#ac9b4ec70d7eb20c91387e6156e4f01e0',1,'Canbus::Server']]],
-  ['set_8',['set',['../d2/ddb/class_b_s_p_1_1_backlight.html#a838083f5beb49c193e63b0b218fc2e97',1,'BSP::Backlight::set()'],['../d0/d1f/class_system_1_1_display_rotation.html#a56565b83a26ce596052f87726c613047',1,'System::DisplayRotation::set()']]],
+  ['set_8',['set',['../d2/ddb/class_b_s_p_1_1_backlight.html#a838083f5beb49c193e63b0b218fc2e97',1,'BSP::Backlight::set()'],['../d0/d1f/class_system_1_1_display_rotation.html#a169410c437f4b1cc12af21eafb1f3406',1,'System::DisplayRotation::set()']]],
   ['setbacklight_9',['setBacklight',['../d1/d6d/class_b_s_p_1_1_display.html#ad81f5fef8811c67078742ddc03a7156e',1,'BSP::Display::setBacklight()'],['../d1/dc3/class_model_display.html#a21f51676c92060b09d488e16814eaf90',1,'ModelDisplay::setBacklight()']]],
   ['setbaudrate_10',['setBaudrate',['../d2/da4/class_h_a_l_1_1_uart_port.html#a151b7c6867883e4031b423490441e886',1,'HAL::UartPort']]],
   ['setchannel_11',['setChannel',['../dc/dd5/class_model_xbee_1_1_module_parameters.html#a0f2bec7a2db954c07d49543d8677e2ae',1,'ModelXbee::ModuleParameters']]],

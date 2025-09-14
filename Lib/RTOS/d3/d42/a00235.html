@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: Task</title>
+<title>RTOS: RTOS::Timer Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d3/d42/a00235.html','../../',''); });
+$(function(){initNavTree('d3/d42/a00235.html','../../','d0/d53/a00232'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,34 +91,1821 @@ $(function(){initNavTree('d3/d42/a00235.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Task</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timer Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the Task class for creating and managing FreeRTOS tasks in C++.</p>
-<p>Example usage of the Task class for creating and managing FreeRTOS tasks in C++.</p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;RTOS.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d3/d2a/a00195.html">RTOS::Task</a> myTask(<span class="stringliteral">&quot;ExampleTask&quot;</span>, 256, 2);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> taskFunction() {</div>
-<div class="line">    <span class="comment">// Task code here</span></div>
-<div class="line">    <span class="keywordflow">for</span> (;;) {</div>
-<div class="line">        <span class="comment">// Perform periodic work</span></div>
-<div class="line">        <a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/d2a/a00195.html#a7813241811da8c0e505398098f3a11c3">RTOS::Task::sleep</a>(100);</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> startTasks() {</div>
-<div class="line">    myTask.start(taskFunction);</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00195_html"><div class="ttname"><a href="../../d3/d2a/a00195.html">RTOS::Task</a></div><div class="ttdoc">C++ wrapper for FreeRTOS task management.</div><div class="ttdef"><b>Definition</b> Task.hpp:26</div></div>
-<div class="ttc" id="aa00195_html_a7813241811da8c0e505398098f3a11c3"><div class="ttname"><a href="../../d3/d2a/a00195.html#a7813241811da8c0e505398098f3a11c3">RTOS::Task::sleep</a></div><div class="ttdeci">static void sleep(uint32_t timeout)</div><div class="ttdoc">Delays the task for a specified timeout in milliseconds.</div><div class="ttdef"><b>Definition</b> Task.hpp:223</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Comprehensive FreeRTOS software timer C++ wrapper with RAII management. </p>
+<p>Encapsulates FreeRTOS timer creation, control, and callback handling using modern C++ design patterns. Provides factory methods for various time units, automatic resource management through RAII, type-safe configuration, and comprehensive timer state management. Supports both one-shot and auto-reload modes with ISR-safe operations for real-time embedded applications. </p>
+</div>
+<p><code>#include &lt;Timer.hpp&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d27/a00239.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer configuration parameter structure with validation and factory methods.  <a href="../../d0/d27/a00239.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a944342cd0e4d5216ab51763e898f19c8" id="r_a944342cd0e4d5216ab51763e898f19c8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8ac7fc2ee61fad0e2bba6754efdee31481">OneShot</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038">AutoReload</a> = 1
+<br />
+ }</td></tr>
+<tr class="memdesc:a944342cd0e4d5216ab51763e898f19c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer mode enumeration.  <a href="#a944342cd0e4d5216ab51763e898f19c8">More...</a><br /></td></tr>
+<tr class="memitem:a7e33043ae58a9ed5dbe25b9c755d5e6e" id="r_a7e33043ae58a9ed5dbe25b9c755d5e6e"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">State</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6ea3cab03c00dbd11bc3569afa0748013f0">Inactive</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6ea4d3d769b812b6faa6b76e1a8abaece2d">Active</a> = 1
+, <br />
+&#160;&#160;<a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6ea4bbb8f967da6d1a610596d7257179c2b">Invalid</a> = 2
+<br />
+ }</td></tr>
+<tr class="memdesc:a7e33043ae58a9ed5dbe25b9c755d5e6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer state enumeration.  <a href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">More...</a><br /></td></tr>
+<tr class="memitem:a88e12a9654bf75a052ba3eab8aefe933" id="r_a88e12a9654bf75a052ba3eab8aefe933"><td class="memItemLeft" align="right" valign="top"><a id="a88e12a9654bf75a052ba3eab8aefe933" name="a88e12a9654bf75a052ba3eab8aefe933"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = TimerHandle_t</td></tr>
+<tr class="memdesc:a88e12a9654bf75a052ba3eab8aefe933"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS timer handle alias. <br /></td></tr>
+<tr class="memitem:a9a49b98ef327ae53ec6b0b2eed3a4964" id="r_a9a49b98ef327ae53ec6b0b2eed3a4964"><td class="memItemLeft" align="right" valign="top"><a id="a9a49b98ef327ae53ec6b0b2eed3a4964" name="a9a49b98ef327ae53ec6b0b2eed3a4964"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TickType</b> = <a class="el" href="../../dd/df3/a00219.html#af8b741f7cd6bd8cefd26aae83980fbfd">TickCounter::TickType</a></td></tr>
+<tr class="memdesc:a9a49b98ef327ae53ec6b0b2eed3a4964"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick type from TickCounter. <br /></td></tr>
+<tr class="memitem:a3d5a9d76a2ec1acea7bb8bba10e5d674" id="r_a3d5a9d76a2ec1acea7bb8bba10e5d674"><td class="memItemLeft" align="right" valign="top"><a id="a3d5a9d76a2ec1acea7bb8bba10e5d674" name="a3d5a9d76a2ec1acea7bb8bba10e5d674"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Callback</b> = std::function&lt;void()&gt;</td></tr>
+<tr class="memdesc:a3d5a9d76a2ec1acea7bb8bba10e5d674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer callback type. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a8d40b0de0ded52b84bb304283bbd6c8f" id="r_a8d40b0de0ded52b84bb304283bbd6c8f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d40b0de0ded52b84bb304283bbd6c8f">Timer</a> (<a class="el" href="../../d0/d27/a00239.html">Config</a> config)</td></tr>
+<tr class="memdesc:a8d40b0de0ded52b84bb304283bbd6c8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Primary constructor of Timer with configuration validation and initialization.  <br /></td></tr>
+<tr class="memitem:a37f1426d51e8bed58745f0ecb08e6c9d" id="r_a37f1426d51e8bed58745f0ecb08e6c9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f1426d51e8bed58745f0ecb08e6c9d">Timer</a> (<a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a37f1426d51e8bed58745f0ecb08e6c9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor with resource transfer and invalidation of source.  <br /></td></tr>
+<tr class="memitem:a293ceb35e948951c983679cce10ad20f" id="r_a293ceb35e948951c983679cce10ad20f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a293ceb35e948951c983679cce10ad20f">operator=</a> (<a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a293ceb35e948951c983679cce10ad20f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator with resource cleanup and transfer.  <br /></td></tr>
+<tr class="memitem:add83ddfb8dee39e413e830680c7f8571" id="r_add83ddfb8dee39e413e830680c7f8571"><td class="memItemLeft" align="right" valign="top"><a id="add83ddfb8dee39e413e830680c7f8571" name="add83ddfb8dee39e413e830680c7f8571"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Timer</b> (const <a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;)=delete</td></tr>
+<tr class="memdesc:add83ddfb8dee39e413e830680c7f8571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor (deleted). <br /></td></tr>
+<tr class="memitem:a40a88f12a9bf54ea36b7f76f7d1cc853" id="r_a40a88f12a9bf54ea36b7f76f7d1cc853"><td class="memItemLeft" align="right" valign="top"><a id="a40a88f12a9bf54ea36b7f76f7d1cc853" name="a40a88f12a9bf54ea36b7f76f7d1cc853"></a>
+<a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a40a88f12a9bf54ea36b7f76f7d1cc853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator (deleted). <br /></td></tr>
+<tr class="memitem:a65fb2ec66cf6c465254288236b209093" id="r_a65fb2ec66cf6c465254288236b209093"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65fb2ec66cf6c465254288236b209093">~Timer</a> ()</td></tr>
+<tr class="memdesc:a65fb2ec66cf6c465254288236b209093"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of Timer with automatic resource cleanup.  <br /></td></tr>
+<tr class="memitem:ae24f6a430f437d9be3304f47e0680fe5" id="r_ae24f6a430f437d9be3304f47e0680fe5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae24f6a430f437d9be3304f47e0680fe5">isValid</a> () const</td></tr>
+<tr class="memdesc:ae24f6a430f437d9be3304f47e0680fe5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timer handle is valid and properly initialized.  <br /></td></tr>
+<tr class="memitem:a0490f967f1902a42db9e86be57fbdced" id="r_a0490f967f1902a42db9e86be57fbdced"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0490f967f1902a42db9e86be57fbdced">destroy</a> ()</td></tr>
+<tr class="memdesc:a0490f967f1902a42db9e86be57fbdced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the timer and releases all associated resources immediately.  <br /></td></tr>
+<tr class="memitem:ac31f8ecf08349ca334192d3c1a4da6fd" id="r_ac31f8ecf08349ca334192d3c1a4da6fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac31f8ecf08349ca334192d3c1a4da6fd">start</a> (TickType_t blockTime=<a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a>)</td></tr>
+<tr class="memdesc:ac31f8ecf08349ca334192d3c1a4da6fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer with optional blocking timeout for command queue insertion.  <br /></td></tr>
+<tr class="memitem:aaab68c9eb5c2cd3e8b560a59de4d4cb2" id="r_aaab68c9eb5c2cd3e8b560a59de4d4cb2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaab68c9eb5c2cd3e8b560a59de4d4cb2">startFromISR</a> ()</td></tr>
+<tr class="memdesc:aaab68c9eb5c2cd3e8b560a59de4d4cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer from interrupt service routine context safely.  <br /></td></tr>
+<tr class="memitem:acb06521a764119f57f6a4a3c1a8ef879" id="r_acb06521a764119f57f6a4a3c1a8ef879"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb06521a764119f57f6a4a3c1a8ef879">stop</a> (TickType_t blockTime=<a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a>)</td></tr>
+<tr class="memdesc:acb06521a764119f57f6a4a3c1a8ef879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer with optional blocking timeout for command queue insertion.  <br /></td></tr>
+<tr class="memitem:a6e22d759ee22e0d3e14cf2548a161517" id="r_a6e22d759ee22e0d3e14cf2548a161517"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e22d759ee22e0d3e14cf2548a161517">stopFromISR</a> ()</td></tr>
+<tr class="memdesc:a6e22d759ee22e0d3e14cf2548a161517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer from interrupt service routine context safely.  <br /></td></tr>
+<tr class="memitem:a1bc8873fe9d9450ca126e858a9cd987c" id="r_a1bc8873fe9d9450ca126e858a9cd987c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1bc8873fe9d9450ca126e858a9cd987c">setPeriod</a> (<a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> period, <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> blockTime=<a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a>)</td></tr>
+<tr class="memdesc:a1bc8873fe9d9450ca126e858a9cd987c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period with validation and blocking timeout support.  <br /></td></tr>
+<tr class="memitem:a7b6469263f71e1dbf592c6079e6f84ce" id="r_a7b6469263f71e1dbf592c6079e6f84ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b6469263f71e1dbf592c6079e6f84ce">setPeriodMs</a> (uint32_t periodMs, <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> blockTime=<a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a>)</td></tr>
+<tr class="memdesc:a7b6469263f71e1dbf592c6079e6f84ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period using millisecond units for convenient specification.  <br /></td></tr>
+<tr class="memitem:ab26f47d2b27eae623624d6771ad8e0fd" id="r_ab26f47d2b27eae623624d6771ad8e0fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab26f47d2b27eae623624d6771ad8e0fd">setPeriodSeconds</a> (uint32_t periodSec, <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> blockTime=<a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a>)</td></tr>
+<tr class="memdesc:ab26f47d2b27eae623624d6771ad8e0fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period using second units for longer duration timing.  <br /></td></tr>
+<tr class="memitem:a0df474de61f0c9215685c491c09d1d3f" id="r_a0df474de61f0c9215685c491c09d1d3f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0df474de61f0c9215685c491c09d1d3f">setPeriodFromISR</a> (<a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> period)</td></tr>
+<tr class="memdesc:a0df474de61f0c9215685c491c09d1d3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period from interrupt service routine context safely.  <br /></td></tr>
+<tr class="memitem:a2c66a79491801ae575be26d0c61a9966" id="r_a2c66a79491801ae575be26d0c61a9966"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c66a79491801ae575be26d0c61a9966">setPeriodMsFromISR</a> (uint32_t periodMs)</td></tr>
+<tr class="memdesc:a2c66a79491801ae575be26d0c61a9966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer period in milliseconds from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:a1c345b6c9c1ed1609e8eb6b7e0248ff4" id="r_a1c345b6c9c1ed1609e8eb6b7e0248ff4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c345b6c9c1ed1609e8eb6b7e0248ff4">reset</a> (TickType_t blockTime=<a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a>)</td></tr>
+<tr class="memdesc:a1c345b6c9c1ed1609e8eb6b7e0248ff4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer to restart its timing period from the current moment.  <br /></td></tr>
+<tr class="memitem:a6e2fbc4024847e9c1d5641d2ecb6df1f" id="r_a6e2fbc4024847e9c1d5641d2ecb6df1f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e2fbc4024847e9c1d5641d2ecb6df1f">resetFromISR</a> ()</td></tr>
+<tr class="memdesc:a6e2fbc4024847e9c1d5641d2ecb6df1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the timer from interrupt service routine context safely.  <br /></td></tr>
+<tr class="memitem:aa19887f9f3a35e2778da99718f5b8ee8" id="r_aa19887f9f3a35e2778da99718f5b8ee8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa19887f9f3a35e2778da99718f5b8ee8">setMode</a> (<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a> newMode)</td></tr>
+<tr class="memdesc:aa19887f9f3a35e2778da99718f5b8ee8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timer reload mode for controlling post-expiration behavior.  <br /></td></tr>
+<tr class="memitem:a6fcce5a8a541aed3031b4c69648ebafe" id="r_a6fcce5a8a541aed3031b4c69648ebafe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6fcce5a8a541aed3031b4c69648ebafe">getMode</a> () const</td></tr>
+<tr class="memdesc:a6fcce5a8a541aed3031b4c69648ebafe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current timer operating mode for behavior verification.  <br /></td></tr>
+<tr class="memitem:a5b92cf2a8eab19ba72948cd3b6f2f931" id="r_a5b92cf2a8eab19ba72948cd3b6f2f931"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b92cf2a8eab19ba72948cd3b6f2f931">isAutoReload</a> () const</td></tr>
+<tr class="memdesc:a5b92cf2a8eab19ba72948cd3b6f2f931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if timer is configured for auto-reload operation mode.  <br /></td></tr>
+<tr class="memitem:aadf61feaa5166d702ebf055ead106d0a" id="r_aadf61feaa5166d702ebf055ead106d0a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadf61feaa5166d702ebf055ead106d0a">isOneShot</a> () const</td></tr>
+<tr class="memdesc:aadf61feaa5166d702ebf055ead106d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if timer is configured for one-shot operation mode.  <br /></td></tr>
+<tr class="memitem:a405b4afac454cc58eede747d70775115" id="r_a405b4afac454cc58eede747d70775115"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a405b4afac454cc58eede747d70775115">isActive</a> () const</td></tr>
+<tr class="memdesc:a405b4afac454cc58eede747d70775115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this timer instance is currently active and running.  <br /></td></tr>
+<tr class="memitem:a95d114e04aef00b540d5f5c31d55ee9f" id="r_a95d114e04aef00b540d5f5c31d55ee9f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95d114e04aef00b540d5f5c31d55ee9f">getName</a> () const</td></tr>
+<tr class="memdesc:a95d114e04aef00b540d5f5c31d55ee9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timer name for identification and debugging purposes.  <br /></td></tr>
+<tr class="memitem:a2c3535269fab04acdc7a7fd2a8eef4c5" id="r_a2c3535269fab04acdc7a7fd2a8eef4c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c3535269fab04acdc7a7fd2a8eef4c5">getPeriod</a> () const</td></tr>
+<tr class="memdesc:a2c3535269fab04acdc7a7fd2a8eef4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current timer period in tick units for precise timing control.  <br /></td></tr>
+<tr class="memitem:a2556ee4dd7344753dca16bf94fcbf659" id="r_a2556ee4dd7344753dca16bf94fcbf659"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2556ee4dd7344753dca16bf94fcbf659">getPeriodMs</a> () const</td></tr>
+<tr class="memdesc:a2556ee4dd7344753dca16bf94fcbf659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current timer period in milliseconds for convenient display.  <br /></td></tr>
+<tr class="memitem:adf90d74db28919c0c94edee060a43cdd" id="r_adf90d74db28919c0c94edee060a43cdd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf90d74db28919c0c94edee060a43cdd">getPeriodSeconds</a> () const</td></tr>
+<tr class="memdesc:adf90d74db28919c0c94edee060a43cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current timer period in seconds for longer duration display.  <br /></td></tr>
+<tr class="memitem:a4601ec343409f1acb275e1f8d5163cf9" id="r_a4601ec343409f1acb275e1f8d5163cf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4601ec343409f1acb275e1f8d5163cf9">getExpiryTime</a> () const</td></tr>
+<tr class="memdesc:a4601ec343409f1acb275e1f8d5163cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timer expiry time in system tick units for precise timing calculations.  <br /></td></tr>
+<tr class="memitem:a7ff6807dfc50d1ff661022d2f8be8605" id="r_a7ff6807dfc50d1ff661022d2f8be8605"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ff6807dfc50d1ff661022d2f8be8605">getRemainingTime</a> () const</td></tr>
+<tr class="memdesc:a7ff6807dfc50d1ff661022d2f8be8605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the remaining time until timer expiry in tick units.  <br /></td></tr>
+<tr class="memitem:a82bd8f97437148c646ec4ab7a8931505" id="r_a82bd8f97437148c646ec4ab7a8931505"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82bd8f97437148c646ec4ab7a8931505">getRemainingTimeMs</a> () const</td></tr>
+<tr class="memdesc:a82bd8f97437148c646ec4ab7a8931505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the remaining time until timer expiry in milliseconds for display.  <br /></td></tr>
+<tr class="memitem:a41034701d4e3d71b695ea078d3f8605e" id="r_a41034701d4e3d71b695ea078d3f8605e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41034701d4e3d71b695ea078d3f8605e">getState</a> () const</td></tr>
+<tr class="memdesc:a41034701d4e3d71b695ea078d3f8605e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the comprehensive timer state for status monitoring and debugging.  <br /></td></tr>
+<tr class="memitem:a1723eca31bfead298d3755078e28d077" id="r_a1723eca31bfead298d3755078e28d077"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1723eca31bfead298d3755078e28d077">getTimerID</a> () const</td></tr>
+<tr class="memdesc:a1723eca31bfead298d3755078e28d077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timer ID user data pointer for application-specific data storage.  <br /></td></tr>
+<tr class="memitem:a480e2c609eaa57b344beb82364f5ee44" id="r_a480e2c609eaa57b344beb82364f5ee44"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933">Handle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a480e2c609eaa57b344beb82364f5ee44">getHandle</a> () const</td></tr>
+<tr class="memdesc:a480e2c609eaa57b344beb82364f5ee44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the underlying FreeRTOS timer handle for advanced operations.  <br /></td></tr>
+<tr class="memitem:a38a2c9467d2796d8d15d174a104ee699" id="r_a38a2c9467d2796d8d15d174a104ee699"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a38a2c9467d2796d8d15d174a104ee699">operator const Handle &amp;</a> () const</td></tr>
+<tr class="memdesc:a38a2c9467d2796d8d15d174a104ee699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit conversion to timer handle for FreeRTOS API compatibility.  <br /></td></tr>
+<tr class="memitem:a1cf4cef3351706992ce354ac964935e2" id="r_a1cf4cef3351706992ce354ac964935e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1cf4cef3351706992ce354ac964935e2">operator bool</a> () const</td></tr>
+<tr class="memdesc:a1cf4cef3351706992ce354ac964935e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit conversion to boolean for validity checking in conditional contexts.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ae18fdf28864f1ce14edafee0d377d44e" id="r_ae18fdf28864f1ce14edafee0d377d44e"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae18fdf28864f1ce14edafee0d377d44e">create</a> (<a class="el" href="../../d0/d27/a00239.html">Config</a> config)</td></tr>
+<tr class="memdesc:ae18fdf28864f1ce14edafee0d377d44e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Timer instance on the heap with validation and error handling.  <br /></td></tr>
+<tr class="memitem:ab2d2eb2994e92732a74bccff7a5aa7c9" id="r_ab2d2eb2994e92732a74bccff7a5aa7c9"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2d2eb2994e92732a74bccff7a5aa7c9">createMs</a> (std::string name, <a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a> callback, uint32_t periodMs, <a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a> mode=<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038">Mode::AutoReload</a>)</td></tr>
+<tr class="memdesc:ab2d2eb2994e92732a74bccff7a5aa7c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Timer instance with millisecond-based period specification.  <br /></td></tr>
+<tr class="memitem:ae1687d3ec1fbd311a80a87220f0c3c7c" id="r_ae1687d3ec1fbd311a80a87220f0c3c7c"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1687d3ec1fbd311a80a87220f0c3c7c">createSeconds</a> (std::string name, <a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a> callback, uint32_t periodSec, <a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a> mode=<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038">Mode::AutoReload</a>)</td></tr>
+<tr class="memdesc:ae1687d3ec1fbd311a80a87220f0c3c7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a Timer instance with second-based period specification.  <br /></td></tr>
+<tr class="memitem:a1e9ceb157f00bd51ea701636e84133cd" id="r_a1e9ceb157f00bd51ea701636e84133cd"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e9ceb157f00bd51ea701636e84133cd">createOneShot</a> (std::string name, <a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a> callback, <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> period)</td></tr>
+<tr class="memdesc:a1e9ceb157f00bd51ea701636e84133cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a one-shot timer with tick-based period specification.  <br /></td></tr>
+<tr class="memitem:ae18c904f82bada42a31cc83885217a65" id="r_ae18c904f82bada42a31cc83885217a65"><td class="memItemLeft" align="right" valign="top">static std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae18c904f82bada42a31cc83885217a65">createAutoReload</a> (std::string name, <a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a> callback, <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> period)</td></tr>
+<tr class="memdesc:ae18c904f82bada42a31cc83885217a65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an auto-reload timer with tick-based period specification.  <br /></td></tr>
+<tr class="memitem:a806fe6ced67c3531fec8ac8e76f651bf" id="r_a806fe6ced67c3531fec8ac8e76f651bf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a806fe6ced67c3531fec8ac8e76f651bf">destroy</a> (std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt; instance)</td></tr>
+<tr class="memdesc:a806fe6ced67c3531fec8ac8e76f651bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys a Timer instance and releases its resources safely.  <br /></td></tr>
+<tr class="memitem:a5fec2d9852cbbb4dcad19906b95d3d4b" id="r_a5fec2d9852cbbb4dcad19906b95d3d4b"><td class="memItemLeft" align="right" valign="top">static TaskHandle_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fec2d9852cbbb4dcad19906b95d3d4b">getTimerDaemonTaskHandle</a> ()</td></tr>
+<tr class="memdesc:a5fec2d9852cbbb4dcad19906b95d3d4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the timer daemon task handle for advanced timer system management.  <br /></td></tr>
+<tr class="memitem:a6e651a55ac66b9e07c9493d3a0d6d113" id="r_a6e651a55ac66b9e07c9493d3a0d6d113"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e651a55ac66b9e07c9493d3a0d6d113">isActive</a> (<a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933">Handle</a> timerHandle)</td></tr>
+<tr class="memdesc:a6e651a55ac66b9e07c9493d3a0d6d113"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a timer handle represents an active running timer.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a290b9369253cc3a21185de672e7d5af0" id="r_a290b9369253cc3a21185de672e7d5af0"><td class="memItemLeft" align="right" valign="top"><a id="a290b9369253cc3a21185de672e7d5af0" name="a290b9369253cc3a21185de672e7d5af0"></a>
+static constexpr <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_BLOCK_TIME</b> = pdMS_TO_TICKS(100)</td></tr>
+<tr class="memdesc:a290b9369253cc3a21185de672e7d5af0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default block time in ticks. <br /></td></tr>
+<tr class="memitem:ad9e4cacc42bc0d4b48f398b45a88c80e" id="r_ad9e4cacc42bc0d4b48f398b45a88c80e"><td class="memItemLeft" align="right" valign="top"><a id="ad9e4cacc42bc0d4b48f398b45a88c80e" name="ad9e4cacc42bc0d4b48f398b45a88c80e"></a>
+static constexpr <a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_PERIOD</b> = 1</td></tr>
+<tr class="memdesc:ad9e4cacc42bc0d4b48f398b45a88c80e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum timer period in ticks. <br /></td></tr>
+<tr class="memitem:a510f6913e6941a3ec20a648ad536934c" id="r_a510f6913e6941a3ec20a648ad536934c"><td class="memItemLeft" align="right" valign="top"><a id="a510f6913e6941a3ec20a648ad536934c" name="a510f6913e6941a3ec20a648ad536934c"></a>
+static constexpr uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>MAX_PERIOD_MS</b> = 49710</td></tr>
+<tr class="memdesc:a510f6913e6941a3ec20a648ad536934c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum period in milliseconds. <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a944342cd0e4d5216ab51763e898f19c8" name="a944342cd0e4d5216ab51763e898f19c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a944342cd0e4d5216ab51763e898f19c8">&#9670;&#160;</a></span>Mode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">RTOS::Timer::Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timer mode enumeration. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a944342cd0e4d5216ab51763e898f19c8ac7fc2ee61fad0e2bba6754efdee31481" name="a944342cd0e4d5216ab51763e898f19c8ac7fc2ee61fad0e2bba6754efdee31481"></a>OneShot&#160;</td><td class="fielddoc"><p>Timer runs once and stops. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038" name="a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038"></a>AutoReload&#160;</td><td class="fielddoc"><p>Timer automatically reloads after expiry. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="a7e33043ae58a9ed5dbe25b9c755d5e6e" name="a7e33043ae58a9ed5dbe25b9c755d5e6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">&#9670;&#160;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">RTOS::Timer::State</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timer state enumeration. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7e33043ae58a9ed5dbe25b9c755d5e6ea3cab03c00dbd11bc3569afa0748013f0" name="a7e33043ae58a9ed5dbe25b9c755d5e6ea3cab03c00dbd11bc3569afa0748013f0"></a>Inactive&#160;</td><td class="fielddoc"><p>Timer is not running. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7e33043ae58a9ed5dbe25b9c755d5e6ea4d3d769b812b6faa6b76e1a8abaece2d" name="a7e33043ae58a9ed5dbe25b9c755d5e6ea4d3d769b812b6faa6b76e1a8abaece2d"></a>Active&#160;</td><td class="fielddoc"><p>Timer is currently running. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7e33043ae58a9ed5dbe25b9c755d5e6ea4bbb8f967da6d1a610596d7257179c2b" name="a7e33043ae58a9ed5dbe25b9c755d5e6ea4bbb8f967da6d1a610596d7257179c2b"></a>Invalid&#160;</td><td class="fielddoc"><p>Timer handle is invalid. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8d40b0de0ded52b84bb304283bbd6c8f" name="a8d40b0de0ded52b84bb304283bbd6c8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d40b0de0ded52b84bb304283bbd6c8f">&#9670;&#160;</a></span>Timer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timer::Timer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d27/a00239.html">Config</a></td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Primary constructor of Timer with configuration validation and initialization. </p>
+<p>Creates a new Timer instance using the provided configuration parameters, performing validation and initializing the underlying FreeRTOS timer handle. Ensures callback validity, enforces minimum period requirements, and establishes proper timer state for reliable operation in embedded real-time environments.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Timer configuration parameters with callback, period, and mode settings. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a8d40b0de0ded52b84bb304283bbd6c8f_icgraph.svg" width="360" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a37f1426d51e8bed58745f0ecb08e6c9d" name="a37f1426d51e8bed58745f0ecb08e6c9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f1426d51e8bed58745f0ecb08e6c9d">&#9670;&#160;</a></span>Timer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timer::Timer </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor with resource transfer and invalidation of source. </p>
+<p>Transfers ownership of the timer handle and associated resources from another Timer instance, leaving the source in a valid but empty state. Ensures proper resource management and prevents double-deletion of FreeRTOS timer handles in move operations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Timer instance to move resources from (invalidated after move). </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a37f1426d51e8bed58745f0ecb08e6c9d_cgraph.svg" width="338" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a65fb2ec66cf6c465254288236b209093" name="a65fb2ec66cf6c465254288236b209093"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65fb2ec66cf6c465254288236b209093">&#9670;&#160;</a></span>~Timer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timer::~Timer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor of Timer with automatic resource cleanup. </p>
+<p>Automatically destroys the underlying FreeRTOS timer handle and releases all associated resources when the Timer instance goes out of scope. Implements RAII pattern for reliable resource management in embedded applications, ensuring no timer handle leaks or resource conflicts. </p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a65fb2ec66cf6c465254288236b209093_cgraph.svg" width="356" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ae18fdf28864f1ce14edafee0d377d44e" name="ae18fdf28864f1ce14edafee0d377d44e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae18fdf28864f1ce14edafee0d377d44e">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt; RTOS::Timer::create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d0/d27/a00239.html">Config</a></td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a Timer instance on the heap with validation and error handling. </p>
+<p>Factory method that creates a new Timer instance using dynamic allocation, performing complete validation of the configuration and timer creation process. Returns a valid Timer instance only if all initialization steps succeed, providing safe timer creation with clear success/failure indication for embedded applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Timer configuration parameters with callback, period, and mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to Timer instance if successful, nullptr on any failure. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_ae18fdf28864f1ce14edafee0d377d44e_icgraph.svg" width="412" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae18c904f82bada42a31cc83885217a65" name="ae18c904f82bada42a31cc83885217a65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae18c904f82bada42a31cc83885217a65">&#9670;&#160;</a></span>createAutoReload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt; RTOS::Timer::createAutoReload </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates an auto-reload timer with tick-based period specification. </p>
+<p>Specialized factory method for creating timers that automatically restart after each expiration, providing continuous periodic execution. Ideal for regular monitoring, periodic tasks, and cyclic operations where precise tick-level timing control is required in embedded real-time applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Timer name for identification and debugging purposes. </td></tr>
+    <tr><td class="paramname">callback</td><td>Expiry callback function to execute repeatedly on each expiration. </td></tr>
+    <tr><td class="paramname">period</td><td>Timer period in ticks between each expiration cycle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to Timer instance if successful, nullptr on any failure. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_ae18c904f82bada42a31cc83885217a65_cgraph.svg" width="606" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab2d2eb2994e92732a74bccff7a5aa7c9" name="ab2d2eb2994e92732a74bccff7a5aa7c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2d2eb2994e92732a74bccff7a5aa7c9">&#9670;&#160;</a></span>createMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt; RTOS::Timer::createMs </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodMs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038">Mode::AutoReload</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a Timer instance with millisecond-based period specification. </p>
+<p>Convenient factory method for creating timers with human-readable millisecond periods, automatically handling the conversion to FreeRTOS ticks. Simplifies timer creation for common timing scenarios in embedded applications where millisecond precision is sufficient and more intuitive than tick-based specifications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Timer name for identification and debugging purposes. </td></tr>
+    <tr><td class="paramname">callback</td><td>Expiry callback function to execute on timer expiration. </td></tr>
+    <tr><td class="paramname">periodMs</td><td>Timer period in milliseconds (converted to ticks internally). </td></tr>
+    <tr><td class="paramname">mode</td><td>Timer operating mode (one-shot or auto-reload). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to Timer instance if successful, nullptr on any failure. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_ab2d2eb2994e92732a74bccff7a5aa7c9_cgraph.svg" width="556" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1e9ceb157f00bd51ea701636e84133cd" name="a1e9ceb157f00bd51ea701636e84133cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9ceb157f00bd51ea701636e84133cd">&#9670;&#160;</a></span>createOneShot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt; RTOS::Timer::createOneShot </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a one-shot timer with tick-based period specification. </p>
+<p>Specialized factory method for creating timers that execute once and stop automatically. Ideal for timeout operations, delayed actions, and single-event scheduling where precise tick-level timing control is required in embedded real-time applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Timer name for identification and debugging purposes. </td></tr>
+    <tr><td class="paramname">callback</td><td>Expiry callback function to execute once on timer expiration. </td></tr>
+    <tr><td class="paramname">period</td><td>Timer period in ticks before single expiration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to Timer instance if successful, nullptr on any failure. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a1e9ceb157f00bd51ea701636e84133cd_cgraph.svg" width="590" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae1687d3ec1fbd311a80a87220f0c3c7c" name="ae1687d3ec1fbd311a80a87220f0c3c7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1687d3ec1fbd311a80a87220f0c3c7c">&#9670;&#160;</a></span>createSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt; RTOS::Timer::createSeconds </td>
+          <td>(</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a3d5a9d76a2ec1acea7bb8bba10e5d674">Callback</a></td>          <td class="paramname"><span class="paramname"><em>callback</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodSec</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8ada1509b2972a88cd0c9a6f4b985de038">Mode::AutoReload</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a Timer instance with second-based period specification. </p>
+<p>Convenient factory method for creating timers with second-based periods for longer duration timing requirements. Automatically converts seconds to milliseconds and then to FreeRTOS ticks, providing intuitive timer creation for applications requiring longer timing intervals and less precise timing resolution.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Timer name for identification and debugging purposes. </td></tr>
+    <tr><td class="paramname">callback</td><td>Expiry callback function to execute on timer expiration. </td></tr>
+    <tr><td class="paramname">periodSec</td><td>Timer period in seconds (converted to ticks internally). </td></tr>
+    <tr><td class="paramname">mode</td><td>Timer operating mode (one-shot or auto-reload). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Unique pointer to Timer instance if successful, nullptr on any failure. </dd></dl>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_ae1687d3ec1fbd311a80a87220f0c3c7c_cgraph.svg" width="782" height="142"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0490f967f1902a42db9e86be57fbdced" name="a0490f967f1902a42db9e86be57fbdced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0490f967f1902a42db9e86be57fbdced">&#9670;&#160;</a></span>destroy() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timer::destroy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the timer and releases all associated resources immediately. </p>
+<p>Explicitly destroys the underlying FreeRTOS timer handle and releases all associated resources, invalidating the timer instance. Provides explicit resource control beyond automatic RAII cleanup, useful for early resource release in resource-constrained embedded environments or when timer is no longer needed before scope end. </p>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a0490f967f1902a42db9e86be57fbdced_icgraph.svg" width="370" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a806fe6ced67c3531fec8ac8e76f651bf" name="a806fe6ced67c3531fec8ac8e76f651bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a806fe6ced67c3531fec8ac8e76f651bf">&#9670;&#160;</a></span>destroy() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timer::destroy </td>
+          <td>(</td>
+          <td class="paramtype">std::unique_ptr&lt; <a class="el" href="../../d3/d42/a00235.html">Timer</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>instance</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys a Timer instance and releases its resources safely. </p>
+<p>Static utility method for safely destroying Timer instances managed by unique_ptr, ensuring proper resource cleanup even when the instance might be invalid or null. Provides safe destruction semantics for Timer instances in embedded applications where explicit resource management is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">instance</td><td>Unique pointer to Timer instance (may be null or invalid). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4601ec343409f1acb275e1f8d5163cf9" name="a4601ec343409f1acb275e1f8d5163cf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4601ec343409f1acb275e1f8d5163cf9">&#9670;&#160;</a></span>getExpiryTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> RTOS::Timer::getExpiryTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the timer expiry time in system tick units for precise timing calculations. </p>
+<p>Returns the absolute system tick time when the timer will expire, providing precise timing information for advanced timing calculations and synchronization. Returns zero for invalid timers, enabling safe expiry time retrieval in embedded applications where precise timing coordination is required.</p>
+<dl class="section return"><dt>Returns</dt><dd>Absolute expiry time in system ticks (0 if timer invalid). </dd></dl>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a4601ec343409f1acb275e1f8d5163cf9_icgraph.svg" width="699" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a480e2c609eaa57b344beb82364f5ee44" name="a480e2c609eaa57b344beb82364f5ee44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a480e2c609eaa57b344beb82364f5ee44">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933">Handle</a> &amp; RTOS::Timer::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the underlying FreeRTOS timer handle for advanced operations. </p>
+<p>Returns a const reference to the underlying FreeRTOS timer handle, allowing access to low-level timer operations while maintaining const-correctness. Enables advanced timer manipulation and integration with FreeRTOS APIs in embedded applications requiring direct handle access.</p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the underlying FreeRTOS timer handle. </dd></dl>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a480e2c609eaa57b344beb82364f5ee44_icgraph.svg" width="378" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6fcce5a8a541aed3031b4c69648ebafe" name="a6fcce5a8a541aed3031b4c69648ebafe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fcce5a8a541aed3031b4c69648ebafe">&#9670;&#160;</a></span>getMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a> RTOS::Timer::getMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current timer operating mode for behavior verification. </p>
+<p>Returns the current operating mode of the timer, indicating whether it operates in one-shot or auto-reload mode. Useful for runtime verification of timer behavior and conditional logic based on timer configuration in embedded applications.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current timer operating mode (one-shot or auto-reload). </dd></dl>
+
+</div>
+</div>
+<a id="a95d114e04aef00b540d5f5c31d55ee9f" name="a95d114e04aef00b540d5f5c31d55ee9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d114e04aef00b540d5f5c31d55ee9f">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string RTOS::Timer::getName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the timer name for identification and debugging purposes. </p>
+<p>Returns the human-readable name assigned to the timer during creation, providing identification and debugging support. Returns empty string for invalid timers, enabling safe name retrieval and supporting diagnostic output in embedded applications where timer identification is important.</p>
+<dl class="section return"><dt>Returns</dt><dd>Timer name as string (empty if timer invalid). </dd></dl>
+
+</div>
+</div>
+<a id="a2c3535269fab04acdc7a7fd2a8eef4c5" name="a2c3535269fab04acdc7a7fd2a8eef4c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c3535269fab04acdc7a7fd2a8eef4c5">&#9670;&#160;</a></span>getPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> RTOS::Timer::getPeriod </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current timer period in tick units for precise timing control. </p>
+<p>Returns the current timer period in FreeRTOS tick units, providing precise timing information at the tick level. Returns zero for invalid timers, enabling safe period retrieval and supporting timing calculations in embedded applications where tick-level precision is required.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current timer period in ticks (0 if timer invalid). </dd></dl>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a2c3535269fab04acdc7a7fd2a8eef4c5_icgraph.svg" width="660" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2556ee4dd7344753dca16bf94fcbf659" name="a2556ee4dd7344753dca16bf94fcbf659"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2556ee4dd7344753dca16bf94fcbf659">&#9670;&#160;</a></span>getPeriodMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timer::getPeriodMs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current timer period in milliseconds for convenient display. </p>
+<p>Returns the current timer period converted to milliseconds for human-readable timing information. Automatically converts from FreeRTOS ticks based on the configured tick rate, providing convenient period access for embedded applications where millisecond-level timing display is preferred.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current timer period in milliseconds. </dd></dl>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a2556ee4dd7344753dca16bf94fcbf659_cgraph.svg" width="400" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a2556ee4dd7344753dca16bf94fcbf659_icgraph.svg" width="451" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adf90d74db28919c0c94edee060a43cdd" name="adf90d74db28919c0c94edee060a43cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf90d74db28919c0c94edee060a43cdd">&#9670;&#160;</a></span>getPeriodSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timer::getPeriodSeconds </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current timer period in seconds for longer duration display. </p>
+<p>Returns the current timer period converted to seconds for human-readable timing information in longer duration scenarios. Automatically converts from milliseconds, providing convenient period access for embedded applications where second-level timing display is appropriate for longer timer periods.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current timer period in seconds. </dd></dl>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_adf90d74db28919c0c94edee060a43cdd_cgraph.svg" width="660" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7ff6807dfc50d1ff661022d2f8be8605" name="a7ff6807dfc50d1ff661022d2f8be8605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ff6807dfc50d1ff661022d2f8be8605">&#9670;&#160;</a></span>getRemainingTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a> RTOS::Timer::getRemainingTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the remaining time until timer expiry in tick units. </p>
+<p>Calculates and returns the remaining time in ticks until the timer expires, considering current system time and timer expiry time. Returns zero for inactive or invalid timers, providing real-time countdown information for embedded applications where remaining time tracking is important.</p>
+<dl class="section return"><dt>Returns</dt><dd>Remaining time in ticks until expiry (0 if inactive or invalid). </dd></dl>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a7ff6807dfc50d1ff661022d2f8be8605_cgraph.svg" width="464" height="163"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a7ff6807dfc50d1ff661022d2f8be8605_icgraph.svg" width="460" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a82bd8f97437148c646ec4ab7a8931505" name="a82bd8f97437148c646ec4ab7a8931505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82bd8f97437148c646ec4ab7a8931505">&#9670;&#160;</a></span>getRemainingTimeMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timer::getRemainingTimeMs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the remaining time until timer expiry in milliseconds for display. </p>
+<p>Calculates and returns the remaining time in milliseconds until the timer expires, automatically converting from tick units based on the configured tick rate. Provides human-readable countdown information for embedded applications where millisecond precision remaining time display is needed.</p>
+<dl class="section return"><dt>Returns</dt><dd>Remaining time in milliseconds until expiry. </dd></dl>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a82bd8f97437148c646ec4ab7a8931505_cgraph.svg" width="699" height="163"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a41034701d4e3d71b695ea078d3f8605e" name="a41034701d4e3d71b695ea078d3f8605e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41034701d4e3d71b695ea078d3f8605e">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a7e33043ae58a9ed5dbe25b9c755d5e6e">State</a> RTOS::Timer::getState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the comprehensive timer state for status monitoring and debugging. </p>
+<p>Returns a comprehensive state enumeration indicating whether the timer is currently active, inactive, or invalid. Provides complete timer status information for monitoring, debugging, and conditional logic in embedded applications where detailed timer state tracking is required.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current comprehensive timer state (Active, Inactive, or Invalid). </dd></dl>
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a41034701d4e3d71b695ea078d3f8605e_cgraph.svg" width="368" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5fec2d9852cbbb4dcad19906b95d3d4b" name="a5fec2d9852cbbb4dcad19906b95d3d4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fec2d9852cbbb4dcad19906b95d3d4b">&#9670;&#160;</a></span>getTimerDaemonTaskHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TaskHandle_t RTOS::Timer::getTimerDaemonTaskHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the timer daemon task handle for advanced timer system management. </p>
+<p>Returns the task handle of the FreeRTOS timer daemon task that manages all software timers in the system. Useful for advanced timer system monitoring, task priority management, and system-level debugging in embedded real-time applications where timer daemon behavior needs to be analyzed or controlled.</p>
+<dl class="section return"><dt>Returns</dt><dd>Task handle of the FreeRTOS timer daemon task. </dd></dl>
+
+</div>
+</div>
+<a id="a1723eca31bfead298d3755078e28d077" name="a1723eca31bfead298d3755078e28d077"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1723eca31bfead298d3755078e28d077">&#9670;&#160;</a></span>getTimerID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void * RTOS::Timer::getTimerID </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the timer ID user data pointer for application-specific data storage. </p>
+<p>Returns the user data pointer associated with the timer, allowing applications to store and retrieve custom data associated with timer instances. Returns nullptr for invalid timers, enabling safe user data access in embedded applications where timer-specific context data needs to be maintained.</p>
+<dl class="section return"><dt>Returns</dt><dd>User data pointer associated with timer (nullptr if invalid). </dd></dl>
+
+</div>
+</div>
+<a id="a405b4afac454cc58eede747d70775115" name="a405b4afac454cc58eede747d70775115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a405b4afac454cc58eede747d70775115">&#9670;&#160;</a></span>isActive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::isActive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if this timer instance is currently active and running. </p>
+<p>Convenience method for checking whether this timer instance is currently active and will expire at some future time. Provides easy timer state verification for conditional logic and runtime behavior control in embedded applications where timer activity status affects program flow.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if this timer is currently active and running, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a405b4afac454cc58eede747d70775115_cgraph.svg" width="164" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a405b4afac454cc58eede747d70775115_icgraph.svg" width="662" height="96"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6e651a55ac66b9e07c9493d3a0d6d113" name="a6e651a55ac66b9e07c9493d3a0d6d113"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e651a55ac66b9e07c9493d3a0d6d113">&#9670;&#160;</a></span>isActive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::isActive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933">Handle</a></td>          <td class="paramname"><span class="paramname"><em>timerHandle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a timer handle represents an active running timer. </p>
+<p>Static utility method for checking whether a specific timer handle represents an active timer that is currently running and will expire at some future time. Provides safe timer state checking with null handle validation for embedded applications where timer state verification is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timerHandle</td><td>Timer handle to check for active state (may be null). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer handle is valid and active, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a5b92cf2a8eab19ba72948cd3b6f2f931" name="a5b92cf2a8eab19ba72948cd3b6f2f931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b92cf2a8eab19ba72948cd3b6f2f931">&#9670;&#160;</a></span>isAutoReload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::isAutoReload </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if timer is configured for auto-reload operation mode. </p>
+<p>Convenience method for verifying that the timer will automatically restart after each expiration, providing continuous periodic execution. Useful for conditional logic and runtime verification of timer behavior in embedded applications requiring periodic operations.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer operates in auto-reload mode, <span class="tt">false</span> if one-shot. </dd></dl>
+
+</div>
+</div>
+<a id="aadf61feaa5166d702ebf055ead106d0a" name="aadf61feaa5166d702ebf055ead106d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadf61feaa5166d702ebf055ead106d0a">&#9670;&#160;</a></span>isOneShot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::isOneShot </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if timer is configured for one-shot operation mode. </p>
+<p>Convenience method for verifying that the timer will stop automatically after expiration, executing its callback only once. Useful for conditional logic and runtime verification of timer behavior in embedded applications requiring single-event scheduling or timeout operations.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer operates in one-shot mode, <span class="tt">false</span> if auto-reload. </dd></dl>
+
+</div>
+</div>
+<a id="ae24f6a430f437d9be3304f47e0680fe5" name="ae24f6a430f437d9be3304f47e0680fe5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae24f6a430f437d9be3304f47e0680fe5">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the timer handle is valid and properly initialized. </p>
+<p>Verifies that the timer has been successfully created and the underlying FreeRTOS timer handle is valid. Essential for ensuring timer operations can be performed safely and reliably in embedded applications before attempting timer control.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer handle is valid and operations can proceed, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_ae24f6a430f437d9be3304f47e0680fe5_icgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1cf4cef3351706992ce354ac964935e2" name="a1cf4cef3351706992ce354ac964935e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cf4cef3351706992ce354ac964935e2">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timer::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Explicit conversion to boolean for validity checking in conditional contexts. </p>
+<p>Provides explicit boolean conversion to check timer validity in conditional statements and logical expressions. Enables safe and intuitive timer validation in control flow structures while preventing accidental implicit conversions in embedded applications where timer validity checks are common.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer is valid and operational, <span class="tt">false</span> if invalid. </dd></dl>
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a1cf4cef3351706992ce354ac964935e2_cgraph.svg" width="384" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a38a2c9467d2796d8d15d174a104ee699" name="a38a2c9467d2796d8d15d174a104ee699"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a2c9467d2796d8d15d174a104ee699">&#9670;&#160;</a></span>operator const Handle &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timer::operator const <a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933">Handle</a> &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implicit conversion to timer handle for FreeRTOS API compatibility. </p>
+<p>Provides implicit conversion to the underlying FreeRTOS timer handle, enabling seamless integration with existing FreeRTOS timer APIs while maintaining type safety. Supports backward compatibility and direct use with FreeRTOS functions in embedded applications requiring mixed C and C++ timer usage.</p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the underlying FreeRTOS timer handle. </dd></dl>
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a38a2c9467d2796d8d15d174a104ee699_cgraph.svg" width="378" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a293ceb35e948951c983679cce10ad20f" name="a293ceb35e948951c983679cce10ad20f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a293ceb35e948951c983679cce10ad20f">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp; RTOS::Timer::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d42/a00235.html">Timer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator with resource cleanup and transfer. </p>
+<p>Transfers ownership of timer handle and resources from another Timer instance, properly cleaning up existing resources before assignment. Ensures safe resource transfer and prevents resource leaks during move assignment operations in RAII design.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Timer instance to move resources from (invalidated after move). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this Timer instance after resource transfer. </dd></dl>
+<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a293ceb35e948951c983679cce10ad20f_cgraph.svg" width="370" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1c345b6c9c1ed1609e8eb6b7e0248ff4" name="a1c345b6c9c1ed1609e8eb6b7e0248ff4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c345b6c9c1ed1609e8eb6b7e0248ff4">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::reset </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the timer to restart its timing period from the current moment. </p>
+<p>Restarts the timer period from the current time, effectively resetting the countdown to the full period duration. The operation may block for the specified time if the timer command queue is full, providing reliable timer reset functionality for embedded real-time systems where precise timing synchronization is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockTime</td><td>Maximum time to wait for command queue insertion (ticks). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer reset successfully, <span class="tt">false</span> on failure or timeout. </dd></dl>
+
+</div>
+</div>
+<a id="a6e2fbc4024847e9c1d5641d2ecb6df1f" name="a6e2fbc4024847e9c1d5641d2ecb6df1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2fbc4024847e9c1d5641d2ecb6df1f">&#9670;&#160;</a></span>resetFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::resetFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the timer from interrupt service routine context safely. </p>
+<p>ISR-safe method for resetting timer timing period from interrupt context, using FreeRTOS ISR-specific APIs to avoid blocking operations. Automatically handles context switching requirements and ensures proper timer reset from high-priority interrupt contexts in embedded real-time systems.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer reset successfully from ISR, <span class="tt">false</span> on any failure. </dd></dl>
+
+</div>
+</div>
+<a id="aa19887f9f3a35e2778da99718f5b8ee8" name="aa19887f9f3a35e2778da99718f5b8ee8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa19887f9f3a35e2778da99718f5b8ee8">&#9670;&#160;</a></span>setMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timer::setMode </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8">Mode</a></td>          <td class="paramname"><span class="paramname"><em>newMode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timer reload mode for controlling post-expiration behavior. </p>
+<p>Changes the timer operating mode between one-shot and auto-reload behavior, controlling whether the timer stops after expiration or automatically restarts. Updates both the FreeRTOS timer configuration and internal mode tracking for consistent timer behavior in embedded real-time applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newMode</td><td>New timer operating mode (one-shot or auto-reload). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1bc8873fe9d9450ca126e858a9cd987c" name="a1bc8873fe9d9450ca126e858a9cd987c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bc8873fe9d9450ca126e858a9cd987c">&#9670;&#160;</a></span>setPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::setPeriod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timer period with validation and blocking timeout support. </p>
+<p>Changes the timer period to a new value with automatic validation to ensure minimum period requirements are met. The operation may block for the specified time if the timer command queue is full, providing reliable period modification in embedded real-time systems where timing accuracy is critical.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>New timer period in ticks (minimum value enforced automatically). </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum time to wait for command queue insertion (ticks). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if period changed successfully, <span class="tt">false</span> on failure or timeout. </dd></dl>
+<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a1bc8873fe9d9450ca126e858a9cd987c_icgraph.svg" width="660" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0df474de61f0c9215685c491c09d1d3f" name="a0df474de61f0c9215685c491c09d1d3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0df474de61f0c9215685c491c09d1d3f">&#9670;&#160;</a></span>setPeriodFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::setPeriodFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timer period from interrupt service routine context safely. </p>
+<p>ISR-safe method for changing timer period from interrupt context, using FreeRTOS ISR-specific APIs to avoid blocking operations. Automatically validates minimum period requirements and handles context switching for reliable period modification from high-priority interrupt contexts in embedded real-time systems.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>New timer period in ticks (minimum value enforced automatically). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if period changed successfully from ISR, <span class="tt">false</span> on any failure. </dd></dl>
+<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a0df474de61f0c9215685c491c09d1d3f_icgraph.svg" width="452" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7b6469263f71e1dbf592c6079e6f84ce" name="a7b6469263f71e1dbf592c6079e6f84ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b6469263f71e1dbf592c6079e6f84ce">&#9670;&#160;</a></span>setPeriodMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::setPeriodMs </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodMs</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timer period using millisecond units for convenient specification. </p>
+<p>Changes the timer period using human-readable millisecond values, automatically converting to FreeRTOS ticks based on the configured tick rate. Provides intuitive period modification for embedded applications where millisecond precision is sufficient and more convenient than tick-based specifications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">periodMs</td><td>New timer period in milliseconds (converted to ticks internally). </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum time to wait for command queue insertion (ticks). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if period changed successfully, <span class="tt">false</span> on failure or timeout. </dd></dl>
+<div id="dynsection-27" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a7b6469263f71e1dbf592c6079e6f84ce_cgraph.svg" width="400" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-28" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a7b6469263f71e1dbf592c6079e6f84ce_icgraph.svg" width="451" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2c66a79491801ae575be26d0c61a9966" name="a2c66a79491801ae575be26d0c61a9966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c66a79491801ae575be26d0c61a9966">&#9670;&#160;</a></span>setPeriodMsFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::setPeriodMsFromISR </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodMs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timer period in milliseconds from interrupt service routine context. </p>
+<p>ISR-safe convenience method for changing timer period using millisecond units from interrupt context. Automatically converts milliseconds to ticks and uses ISR-specific FreeRTOS APIs to ensure safe operation from high-priority interrupt contexts in embedded real-time systems.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">periodMs</td><td>New timer period in milliseconds (converted to ticks internally). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if period changed successfully from ISR, <span class="tt">false</span> on any failure. </dd></dl>
+<div id="dynsection-29" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_a2c66a79491801ae575be26d0c61a9966_cgraph.svg" width="452" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab26f47d2b27eae623624d6771ad8e0fd" name="ab26f47d2b27eae623624d6771ad8e0fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab26f47d2b27eae623624d6771ad8e0fd">&#9670;&#160;</a></span>setPeriodSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::setPeriodSeconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodSec</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a9a49b98ef327ae53ec6b0b2eed3a4964">TickType</a></td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timer period using second units for longer duration timing. </p>
+<p>Changes the timer period using second values for longer-duration timing requirements, automatically converting to milliseconds and then to FreeRTOS ticks. Provides convenient period modification for applications requiring longer timing intervals where second-level precision is appropriate.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">periodSec</td><td>New timer period in seconds (converted to ticks internally). </td></tr>
+    <tr><td class="paramname">blockTime</td><td>Maximum time to wait for command queue insertion (ticks). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if period changed successfully, <span class="tt">false</span> on failure or timeout. </dd></dl>
+<div id="dynsection-30" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d42/a00235_ab26f47d2b27eae623624d6771ad8e0fd_cgraph.svg" width="660" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac31f8ecf08349ca334192d3c1a4da6fd" name="ac31f8ecf08349ca334192d3c1a4da6fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac31f8ecf08349ca334192d3c1a4da6fd">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::start </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer with optional blocking timeout for command queue insertion. </p>
+<p>Initiates timer operation by sending a start command to the FreeRTOS timer daemon task. The operation may block for the specified time if the timer command queue is full, ensuring reliable timer activation in embedded real-time systems where timing precision and deterministic behavior are critical.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockTime</td><td>Maximum time to wait for command queue insertion (ticks). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer started successfully, <span class="tt">false</span> on failure or timeout. </dd></dl>
+
+</div>
+</div>
+<a id="aaab68c9eb5c2cd3e8b560a59de4d4cb2" name="aaab68c9eb5c2cd3e8b560a59de4d4cb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaab68c9eb5c2cd3e8b560a59de4d4cb2">&#9670;&#160;</a></span>startFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::startFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer from interrupt service routine context safely. </p>
+<p>ISR-safe method for starting timers from interrupt context, using FreeRTOS ISR-specific APIs to avoid blocking operations. Automatically handles context switching requirements and ensures proper timer activation from high-priority interrupt contexts in embedded real-time systems.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer started successfully from ISR, <span class="tt">false</span> on any failure. </dd></dl>
+
+</div>
+</div>
+<a id="acb06521a764119f57f6a4a3c1a8ef879" name="acb06521a764119f57f6a4a3c1a8ef879"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb06521a764119f57f6a4a3c1a8ef879">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::stop </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>blockTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a290b9369253cc3a21185de672e7d5af0">DEFAULT_BLOCK_TIME</a></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer with optional blocking timeout for command queue insertion. </p>
+<p>Halts timer operation by sending a stop command to the FreeRTOS timer daemon task. The operation may block for the specified time if the timer command queue is full, ensuring reliable timer deactivation in embedded real-time systems where precise timing control and resource management are essential.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">blockTime</td><td>Maximum time to wait for command queue insertion (ticks). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer stopped successfully, <span class="tt">false</span> on failure or timeout. </dd></dl>
+
+</div>
+</div>
+<a id="a6e22d759ee22e0d3e14cf2548a161517" name="a6e22d759ee22e0d3e14cf2548a161517"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e22d759ee22e0d3e14cf2548a161517">&#9670;&#160;</a></span>stopFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timer::stopFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer from interrupt service routine context safely. </p>
+<p>ISR-safe method for stopping timers from interrupt context, using FreeRTOS ISR-specific APIs to avoid blocking operations. Automatically handles context switching requirements and ensures proper timer deactivation from high-priority interrupt contexts in embedded real-time systems.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timer stopped successfully from ISR, <span class="tt">false</span> on any failure. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><b>Timer.hpp</b></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d3/d42/a00235.html">Timer</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

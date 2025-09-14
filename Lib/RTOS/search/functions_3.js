@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['enableinterrupts_0',['enableInterrupts',['../d0/de8/a00133.html#a214eeb3029201b088a4b1b966d4f5dd5',1,'RTOS::Kernel']]],
-  ['endscheduler_1',['endScheduler',['../d0/de8/a00133.html#a2795289e5800d302aa4a8a03e89a2c17',1,'RTOS::Kernel']]],
-  ['entercritical_2',['enterCritical',['../d0/de8/a00133.html#afe94ea91ffd4a0d732d505b0546d16ed',1,'RTOS::Kernel']]],
-  ['entercriticalfromisr_3',['enterCriticalFromISR',['../d0/de8/a00133.html#a91b2689d68296368e2e64b8f94a5c1ea',1,'RTOS::Kernel']]],
-  ['eventgroup_4',['EventGroup',['../d9/d47/a00129.html#a6690412802cf948348b7db9c47e9f25f',1,'RTOS::EventGroup::EventGroup()=default'],['../d9/d47/a00129.html#a674ca6cf44432becf24267dda94e547d',1,'RTOS::EventGroup::EventGroup(const EventGroup &amp;)=delete']]],
-  ['exitcritical_5',['exitCritical',['../d0/de8/a00133.html#a9f5f648ce2a0965160372f4f94cc562d',1,'RTOS::Kernel']]],
-  ['exitcriticalfromisr_6',['exitCriticalFromISR',['../d0/de8/a00133.html#a5e606d3bb1630e1f1bf40955b0dae63b',1,'RTOS::Kernel']]]
+  ['deallocate_0',['deallocate',['../d5/db1/a00140.html#a79cc2b859136465299ab71e08f604450',1,'RTOS::MemoryManager']]],
+  ['delay_1',['delay',['../d0/d5e/a00136.html#a52aed6af014cb6b1823b6dcbe014605c',1,'RTOS::Kernel']]],
+  ['delayms_2',['delayMs',['../d5/de9/a00176.html#a5bc4722bb87e59ecfd3d0d16ecdb678b',1,'RTOS::Task']]],
+  ['delayticks_3',['delayTicks',['../d5/de9/a00176.html#a8f65c9e3449059dc62c7aad8784587c1',1,'RTOS::Task']]],
+  ['delayuntil_4',['delayUntil',['../d0/d5e/a00136.html#a427e750bb7a6b8699eaea1814911e34a',1,'RTOS::Kernel']]],
+  ['dequeue_5',['dequeue',['../d2/d34/a00156.html#a70a4f526336178a8090fca10324af92e',1,'RTOS::Queue']]],
+  ['dequeuefromisr_6',['dequeueFromISR',['../d2/d34/a00156.html#a93d63500df1650f0c2ec13f6c150f2ca',1,'RTOS::Queue']]],
+  ['destroy_7',['destroy',['../d7/ded/a00196.html#a806fe6ced67c3531fec8ac8e76f651bf',1,'RTOS::Timer::destroy(std::unique_ptr&lt; Timer &gt; instance)'],['../d7/ded/a00196.html#a0490f967f1902a42db9e86be57fbdced',1,'RTOS::Timer::destroy()']]],
+  ['disable_8',['disable',['../dd/da2/a00192.html#ad588a6703c9736cf1cf1238fd9874e1f',1,'RTOS::Timeout']]],
+  ['disabled_9',['disabled',['../dd/da2/a00192.html#af25b8dba462c2321453a0988e136a8b2',1,'RTOS::Timeout']]]
 ];

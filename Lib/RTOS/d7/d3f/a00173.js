@@ -1,19 +1,26 @@
 var a00173 =
 [
-    [ "StreamBuffer", "d7/d3f/a00173.html#a6d894360f80c822b178de66210a2bc6a", null ],
-    [ "~StreamBuffer", "d7/d3f/a00173.html#a4279301601dc12497575fbe9b250f62a", null ],
-    [ "create", "d7/d3f/a00173.html#aa2c511443cf2207c917749583857480a", null ],
-    [ "destroy", "d7/d3f/a00173.html#a61e72fe0b7e6d6115d71d9d7e789cdb5", null ],
-    [ "getBytesAvailable", "d7/d3f/a00173.html#a106b6b1961b742c76bd83f3d032aad3a", null ],
-    [ "getSpacesAvailable", "d7/d3f/a00173.html#a9fa51825dff8d1fb8914b5700becd22a", null ],
-    [ "isCreated", "d7/d3f/a00173.html#a19a0f30afe68cccb4fbb7ba9d3fb3f24", null ],
-    [ "isEmpty", "d7/d3f/a00173.html#ac63276981f0f2652f909f8caf99eded6", null ],
-    [ "isFull", "d7/d3f/a00173.html#ab28a179ad13782df9ebce66f220d9084", null ],
-    [ "operator Handle &", "d7/d3f/a00173.html#a8f44e79071890fe52737b0a611f8204b", null ],
-    [ "receive", "d7/d3f/a00173.html#adedbd01b1bef79ede4812bd53b1e7347", null ],
-    [ "receiveFromISR", "d7/d3f/a00173.html#a8fda8c9cedd61659ad971bc27fb6a04e", null ],
-    [ "reset", "d7/d3f/a00173.html#a945ae0f4f0d0051decd64f9e208f59fc", null ],
-    [ "send", "d7/d3f/a00173.html#a2f95c21ea10b46a1b618a3404ca40a78", null ],
-    [ "sendFromISR", "d7/d3f/a00173.html#af0d7b2f1971bd4ed46bfa94122fc0b4b", null ],
-    [ "setTriggerLevel", "d7/d3f/a00173.html#a861b60a2bb7532cbbff910e8b1fc0a33", null ]
+    [ "LockGuard", "dd/d4c/a00177.html", "dd/d4c/a00177" ],
+    [ "MutexType", "d7/d3f/a00173.html#a26d98a7cc72991078b6451ce810e841e", [
+      [ "NORMAL", "d7/d3f/a00173.html#a26d98a7cc72991078b6451ce810e841ea1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "RECURSIVE", "d7/d3f/a00173.html#a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638", null ]
+    ] ],
+    [ "Type", "d7/d3f/a00173.html#a32944cdf5acfc817c79a3b60e03bbc38", [
+      [ "NORMAL", "d7/d3f/a00173.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "RECURSIVE", "d7/d3f/a00173.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638", null ]
+    ] ],
+    [ "Mutex", "d7/d3f/a00173.html#af8835e310bfc17c2cfb2891a38b563d5", null ],
+    [ "~Mutex", "d7/d3f/a00173.html#a766309378d3f1b9ad25492973f7d5c99", null ],
+    [ "Mutex", "d7/d3f/a00173.html#af150b65c06f633acf3d94507f4c1a385", null ],
+    [ "Mutex", "d7/d3f/a00173.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
+    [ "create", "d7/d3f/a00173.html#adafcd69724aefab8d317c4473760d965", null ],
+    [ "destroy", "d7/d3f/a00173.html#aa7637dfbf9b123b7cab36074ff62bac3", null ],
+    [ "getNativeHandle", "d7/d3f/a00173.html#a7966beceb47e71042a7f14057e68f631", null ],
+    [ "getType", "d7/d3f/a00173.html#af2b8d8b9c64c47a9d766499a6e6381a7", null ],
+    [ "isValid", "d7/d3f/a00173.html#ac97127333e26b2866d4f27933bf2c99c", null ],
+    [ "lock", "d7/d3f/a00173.html#a582af6c4d15cc06c7f28e3da3d739c3f", null ],
+    [ "operator=", "d7/d3f/a00173.html#a8b583c1d08ed2c054661738022d3d27e", null ],
+    [ "operator=", "d7/d3f/a00173.html#aa0480ec896a8ce6959a8fe0069fc4a0f", null ],
+    [ "tryLock", "d7/d3f/a00173.html#a5615699729d934fe9b1f146d1ae5f9bb", null ],
+    [ "unlock", "d7/d3f/a00173.html#a345c1a4de6315a11205eddce12e0f573", null ]
 ];

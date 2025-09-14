@@ -1,5 +1,5 @@
 var a00089 =
 [
-    [ "RTOS::Mutex", "dd/dae/a00163.html", "dd/dae/a00163" ],
-    [ "RTOS::Mutex::Guard", "dc/de6/a00167.html", "dc/de6/a00167" ]
+    [ "RTOS::Mutex", "db/d48/a00148.html", "db/d48/a00148" ],
+    [ "RTOS::Mutex::LockGuard", "d7/d9a/a00152.html", "d7/d9a/a00152" ]
 ];

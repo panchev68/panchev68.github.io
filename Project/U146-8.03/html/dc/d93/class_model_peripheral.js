@@ -10,5 +10,5 @@ var class_model_peripheral =
     [ "getSelectedNode", "dc/d93/class_model_peripheral.html#a0cec472c281317f55f70f7b2c7fe58bb", null ],
     [ "handleTickEvent", "dc/d93/class_model_peripheral.html#a63036dc9a05e12a019d98f8d3386200f", null ],
     [ "setSelectedNode", "dc/d93/class_model_peripheral.html#a780eeaa13f975203eca40dc37ebaed34", null ],
-    [ "testOutputsClient", "dc/d93/class_model_peripheral.html#a9b335d1e47828e514ecfaaaf2132d8cb", null ]
+    [ "testOutputsClient", "dc/d93/class_model_peripheral.html#a71b208a64132c4ed74c806c231d4a54c", null ]
 ];

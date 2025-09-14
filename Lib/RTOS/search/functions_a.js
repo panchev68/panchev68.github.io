@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['notify_0',['notify',['../dd/d4c/a00177.html#aa954b394b609285d43a83124cef2b8a7',1,'RTOS::Task']]],
-  ['notifyandquery_1',['notifyAndQuery',['../dd/d4c/a00177.html#a3b2222ddadf3a95c2afe6d949578f22f',1,'RTOS::Task']]],
-  ['notifyandqueryfromisr_2',['notifyAndQueryFromISR',['../dd/d4c/a00177.html#a30dacbd5e804c7e7039ef636e09b3fdb',1,'RTOS::Task']]],
-  ['notifyfromisr_3',['notifyFromISR',['../dd/d4c/a00177.html#a2be1a9dd0766b96e49d654f49385701a',1,'RTOS::Task']]],
-  ['notifygivefromisr_4',['notifyGiveFromISR',['../dd/d4c/a00177.html#aafce5c3c3c361f28a4d4c2ded72e1ed3',1,'RTOS::Task']]]
+  ['lock_0',['lock',['../db/d48/a00148.html#a83fcfe1461e328deccd2f3a1c52aed89',1,'RTOS::Mutex']]],
+  ['lockfromisr_1',['lockFromISR',['../db/d48/a00148.html#a280bfaeb5425e12255cdc162d302e440',1,'RTOS::Mutex']]],
+  ['lockguard_2',['LockGuard',['../d7/d9a/a00152.html#afdca68afe45d699f5dc3e25f027f389f',1,'RTOS::Mutex::LockGuard']]]
 ];

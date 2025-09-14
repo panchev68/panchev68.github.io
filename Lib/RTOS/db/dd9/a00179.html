@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: RTOS::Semaphore Class Reference</title>
+<title>RTOS: RTOS::Guard&lt; LOCKABLE_TYPE &gt; Class Template Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -91,229 +91,345 @@ $(function(){initNavTree('db/dd9/a00179.html','../../','d5/de9/a00176'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::Semaphore Class Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::Guard&lt; LOCKABLE_TYPE &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Binary semaphore for FreeRTOS. </p>
-<p>Implements a binary semaphore for task synchronization in FreeRTOS, providing methods for creation, destruction, take/give operations, ISR support, and state queries. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2d/a00229.html#_a0">Semaphore</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename LOCKABLE_TYPE&gt;<br />
+class RTOS::Guard&lt; LOCKABLE_TYPE &gt;</div><p>Template-based RAII guard for automatic resource management of lockable objects. </p>
+<p>Provides comprehensive automatic resource management for any type that implements lock/unlock semantics. Uses RAII principles to ensure automatic unlocking when the guard goes out of scope, preventing deadlocks and resource leaks. Supports multiple locking strategies including immediate locking, deferred locking, try-lock operations, and timeout-based locking. Thread-safe and exception-safe for robust embedded applications. Move-only semantics prevent accidental copying while allowing efficient transfer of ownership.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">LOCKABLE_TYPE</td><td>Type that provides lock/unlock interface compatible with Mutex semantics. </td></tr>
+  </table>
+  </dd>
 </dl>
 </div>
-<p><code>#include &lt;Semaphore.hpp&gt;</code></p>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for RTOS::Semaphore:</div>
+<p><code>#include &lt;Mutex.hpp&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for RTOS::Guard&lt; LOCKABLE_TYPE &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d90/a00178.svg" width="162" height="667"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d90/a00178.svg" width="304" height="664"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:ab6421331ba2f810ca117af37f7da747a" id="r_ab6421331ba2f810ca117af37f7da747a"><td class="memItemLeft" align="right" valign="top"><a id="ab6421331ba2f810ca117af37f7da747a" name="ab6421331ba2f810ca117af37f7da747a"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = SemaphoreHandle_t</td></tr>
-<tr class="inherit_header pub_types_a00183"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_a00183')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Types inherited from <a class="el" href="../../dc/d52/a00183.html">RTOS::SemaphoreBase</a></td></tr>
-<tr class="memitem:a22b0e6acc842fa59ab21e42babbb11e2 inherit pub_types_a00183" id="r_a22b0e6acc842fa59ab21e42babbb11e2"><td class="memItemLeft" align="right" valign="top">
-using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = SemaphoreHandle_t</td></tr>
+<tr class="memitem:a7b954631f339a3ee16bb26218b579430" id="r_a7b954631f339a3ee16bb26218b579430"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b954631f339a3ee16bb26218b579430">LockStrategy</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a7b954631f339a3ee16bb26218b579430ae35884a2445bc4ae2df52f188763273c">IMMEDIATE</a> = 0
+, <br />
+&#160;&#160;<a class="el" href="#a7b954631f339a3ee16bb26218b579430ae3d9a2ed4146353ae729818f8bcc329d">DEFERRED</a> = 1
+, <br />
+&#160;&#160;<a class="el" href="#a7b954631f339a3ee16bb26218b579430a48f18069f109aff6ab0f293c5dc64518">TRY_LOCK</a> = 2
+<br />
+ }</td></tr>
+<tr class="memdesc:a7b954631f339a3ee16bb26218b579430"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locking strategy enumeration for controlling guard construction behavior.  <a href="#a7b954631f339a3ee16bb26218b579430">More...</a><br /></td></tr>
+<tr class="memitem:abdd2798dc53cd8fe13705aa5bf89a569" id="r_abdd2798dc53cd8fe13705aa5bf89a569"><td class="memItemLeft" align="right" valign="top"><a id="abdd2798dc53cd8fe13705aa5bf89a569" name="abdd2798dc53cd8fe13705aa5bf89a569"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>LockableType</b> = LOCKABLE_TYPE</td></tr>
+<tr class="memdesc:abdd2798dc53cd8fe13705aa5bf89a569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for the managed lockable resource type. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac18bbf45d7ea4f13cf097651078f372d" id="r_ac18bbf45d7ea4f13cf097651078f372d"><td class="memItemLeft" align="right" valign="top"><a id="ac18bbf45d7ea4f13cf097651078f372d" name="ac18bbf45d7ea4f13cf097651078f372d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Semaphore</b> ()=default</td></tr>
-<tr class="memdesc:ac18bbf45d7ea4f13cf097651078f372d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Semaphore object with default initialization. <br /></td></tr>
-<tr class="memitem:a2d627bf941aee18be37ff40b383a0226" id="r_a2d627bf941aee18be37ff40b383a0226"><td class="memItemLeft" align="right" valign="top"><a id="a2d627bf941aee18be37ff40b383a0226" name="a2d627bf941aee18be37ff40b383a0226"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~Semaphore</b> () override=default</td></tr>
-<tr class="memdesc:a2d627bf941aee18be37ff40b383a0226"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Semaphore object and releases its resources. <br /></td></tr>
-<tr class="memitem:a89c77ce82882d1c04a9adbb0a4816a79" id="r_a89c77ce82882d1c04a9adbb0a4816a79"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89c77ce82882d1c04a9adbb0a4816a79">create</a> () override</td></tr>
-<tr class="memdesc:a89c77ce82882d1c04a9adbb0a4816a79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a binary semaphore if not already created and asserts on failure.  <br /></td></tr>
-<tr class="memitem:a20dab5ad75e48b973309d994006e99b5" id="r_a20dab5ad75e48b973309d994006e99b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a20dab5ad75e48b973309d994006e99b5">destroy</a> () override</td></tr>
-<tr class="memdesc:a20dab5ad75e48b973309d994006e99b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the semaphore and releases its resources.  <br /></td></tr>
-<tr class="memitem:aaff88f643c79c75553f7f678ee9a4c64" id="r_aaff88f643c79c75553f7f678ee9a4c64"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaff88f643c79c75553f7f678ee9a4c64">take</a> (uint32_t waitTime=portMAX_DELAY) override</td></tr>
-<tr class="memdesc:aaff88f643c79c75553f7f678ee9a4c64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore, waiting up to the specified time.  <br /></td></tr>
-<tr class="memitem:aad3313acf8b7b8d3282fa087e94699a3" id="r_aad3313acf8b7b8d3282fa087e94699a3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad3313acf8b7b8d3282fa087e94699a3">give</a> () override</td></tr>
-<tr class="memdesc:aad3313acf8b7b8d3282fa087e94699a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the semaphore, making it available to other tasks.  <br /></td></tr>
-<tr class="memitem:a52cb4c76003b898b7b12736211785d06" id="r_a52cb4c76003b898b7b12736211785d06"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52cb4c76003b898b7b12736211785d06">overwrite</a> () override</td></tr>
-<tr class="memdesc:a52cb4c76003b898b7b12736211785d06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the semaphore state.  <br /></td></tr>
-<tr class="memitem:afcf122ec069b8b33fd1e1ff8efbedc7f" id="r_afcf122ec069b8b33fd1e1ff8efbedc7f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcf122ec069b8b33fd1e1ff8efbedc7f">takeFromISR</a> () override</td></tr>
-<tr class="memdesc:afcf122ec069b8b33fd1e1ff8efbedc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore from ISR context.  <br /></td></tr>
-<tr class="memitem:af808649cc6157fb1fce8c815039cb27c" id="r_af808649cc6157fb1fce8c815039cb27c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af808649cc6157fb1fce8c815039cb27c">giveFromISR</a> () override</td></tr>
-<tr class="memdesc:af808649cc6157fb1fce8c815039cb27c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the semaphore from ISR context.  <br /></td></tr>
-<tr class="memitem:a571a1c7023d93b55e0fe4418d4b9f3ff" id="r_a571a1c7023d93b55e0fe4418d4b9f3ff"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a571a1c7023d93b55e0fe4418d4b9f3ff">overwriteFromISR</a> () override</td></tr>
-<tr class="memdesc:a571a1c7023d93b55e0fe4418d4b9f3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the semaphore from ISR context.  <br /></td></tr>
-<tr class="memitem:a7bb707649b575ed1941950f740df148e" id="r_a7bb707649b575ed1941950f740df148e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7bb707649b575ed1941950f740df148e">isCreated</a> () const override</td></tr>
-<tr class="memdesc:a7bb707649b575ed1941950f740df148e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the semaphore has been successfully created.  <br /></td></tr>
-<tr class="memitem:a8f256eeb71978589d9e8215070cc046a" id="r_a8f256eeb71978589d9e8215070cc046a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f256eeb71978589d9e8215070cc046a">operator Handle &amp;</a> () override</td></tr>
-<tr class="memdesc:a8f256eeb71978589d9e8215070cc046a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the Semaphore object to a reference to its handle.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_a00183"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_a00183')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../dc/d52/a00183.html">RTOS::SemaphoreBase</a></td></tr>
-<tr class="memitem:ac5ba2da9868b29115ace32136dde4b97 inherit pro_methods_a00183" id="r_ac5ba2da9868b29115ace32136dde4b97"><td class="memItemLeft" align="right" valign="top">
-&#160;</td><td class="memItemRight" valign="bottom"><b>SemaphoreBase</b> ()=default</td></tr>
-<tr class="memdesc:ac5ba2da9868b29115ace32136dde4b97 inherit pro_methods_a00183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor initializing the semaphore handle to nullptr. <br /></td></tr>
-<tr class="memitem:ab98752a3e231b56ba654c2c7cfad9f35 inherit pro_methods_a00183" id="r_ab98752a3e231b56ba654c2c7cfad9f35"><td class="memItemLeft" align="right" valign="top">
-virtual&#160;</td><td class="memItemRight" valign="bottom"><b>~SemaphoreBase</b> ()</td></tr>
-<tr class="memdesc:ab98752a3e231b56ba654c2c7cfad9f35 inherit pro_methods_a00183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Virtual destructor asserting that the semaphore is destroyed before object destruction. <br /></td></tr>
-<tr class="memitem:ac0e260e7f3d879dab705676c76529022 inherit pro_methods_a00183" id="r_ac0e260e7f3d879dab705676c76529022"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dc/d52/a00183.html#ac0e260e7f3d879dab705676c76529022">operator Handle &amp;</a> ()</td></tr>
-<tr class="memdesc:ac0e260e7f3d879dab705676c76529022 inherit pro_methods_a00183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit conversion to semaphore handle reference.  <br /></td></tr>
-<tr class="inherit_header pro_attribs_a00183"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_a00183')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="../../dc/d52/a00183.html">RTOS::SemaphoreBase</a></td></tr>
-<tr class="memitem:af98089a48fabe8207cc736331543af75 inherit pro_attribs_a00183" id="r_af98089a48fabe8207cc736331543af75"><td class="memItemLeft" align="right" valign="top">
-Handle&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> = nullptr</td></tr>
-<tr class="memdesc:af98089a48fabe8207cc736331543af75 inherit pro_attribs_a00183"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS semaphore handle. <br /></td></tr>
+<tr class="memitem:a5dab09b688d9cb1b1403972235d00de8" id="r_a5dab09b688d9cb1b1403972235d00de8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5dab09b688d9cb1b1403972235d00de8">Guard</a> (<a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;lockable)</td></tr>
+<tr class="memdesc:a5dab09b688d9cb1b1403972235d00de8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Guard with immediate lock acquisition.  <br /></td></tr>
+<tr class="memitem:ae274ee849c590fc4d3e92c51f5304442" id="r_ae274ee849c590fc4d3e92c51f5304442"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae274ee849c590fc4d3e92c51f5304442">Guard</a> (<a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;lockable, <a class="el" href="#a7b954631f339a3ee16bb26218b579430">LockStrategy</a> strategy)</td></tr>
+<tr class="memdesc:ae274ee849c590fc4d3e92c51f5304442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Guard with specified locking strategy.  <br /></td></tr>
+<tr class="memitem:abeb1b23eea3f6a3a5dc361879cb9242f" id="r_abeb1b23eea3f6a3a5dc361879cb9242f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeb1b23eea3f6a3a5dc361879cb9242f">Guard</a> (<a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;lockable, TickType_t maxTicksToWait)</td></tr>
+<tr class="memdesc:abeb1b23eea3f6a3a5dc361879cb9242f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Guard with timeout-based lock acquisition.  <br /></td></tr>
+<tr class="memitem:a53fb9f2380b9e39135a73ef78a3c6180" id="r_a53fb9f2380b9e39135a73ef78a3c6180"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53fb9f2380b9e39135a73ef78a3c6180">~Guard</a> ()</td></tr>
+<tr class="memdesc:a53fb9f2380b9e39135a73ef78a3c6180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of Guard.  <br /></td></tr>
+<tr class="memitem:a390fd01c82112bf3490e6b17d653ad22" id="r_a390fd01c82112bf3490e6b17d653ad22"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a390fd01c82112bf3490e6b17d653ad22">Guard</a> (const <a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a390fd01c82112bf3490e6b17d653ad22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor to prevent accidental resource duplication.  <br /></td></tr>
+<tr class="memitem:af612360a02fa5181b17970c2003144ff" id="r_af612360a02fa5181b17970c2003144ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af612360a02fa5181b17970c2003144ff">operator=</a> (const <a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp;)=delete</td></tr>
+<tr class="memdesc:af612360a02fa5181b17970c2003144ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator to prevent accidental resource duplication.  <br /></td></tr>
+<tr class="memitem:ab97edfe000b8186114496f3326b5aa1a" id="r_ab97edfe000b8186114496f3326b5aa1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab97edfe000b8186114496f3326b5aa1a">Guard</a> (<a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:ab97edfe000b8186114496f3326b5aa1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor for transferring guard ownership.  <br /></td></tr>
+<tr class="memitem:a5eeec3e612e509e89b8501ddd4fb5876" id="r_a5eeec3e612e509e89b8501ddd4fb5876"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5eeec3e612e509e89b8501ddd4fb5876">operator=</a> (<a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a5eeec3e612e509e89b8501ddd4fb5876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator for transferring guard ownership.  <br /></td></tr>
+<tr class="memitem:a09e600ec1a15b2532559ad28638b8b8a" id="r_a09e600ec1a15b2532559ad28638b8b8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09e600ec1a15b2532559ad28638b8b8a">lock</a> ()</td></tr>
+<tr class="memdesc:a09e600ec1a15b2532559ad28638b8b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manually acquires the lock if not already held.  <br /></td></tr>
+<tr class="memitem:a3cd33cc74fe9de19c3ad440e9323f5cb" id="r_a3cd33cc74fe9de19c3ad440e9323f5cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cd33cc74fe9de19c3ad440e9323f5cb">unlock</a> ()</td></tr>
+<tr class="memdesc:a3cd33cc74fe9de19c3ad440e9323f5cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Manually releases the lock if currently held.  <br /></td></tr>
+<tr class="memitem:aa8a2279f9af07dfd64f6256b25b18041" id="r_aa8a2279f9af07dfd64f6256b25b18041"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa8a2279f9af07dfd64f6256b25b18041">tryLock</a> ()</td></tr>
+<tr class="memdesc:aa8a2279f9af07dfd64f6256b25b18041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to acquire the lock without blocking.  <br /></td></tr>
+<tr class="memitem:ae9001abf67444d71ce9e0ee25632ab6f" id="r_ae9001abf67444d71ce9e0ee25632ab6f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9001abf67444d71ce9e0ee25632ab6f">lockWithTimeout</a> (TickType_t maxTicksToWait)</td></tr>
+<tr class="memdesc:ae9001abf67444d71ce9e0ee25632ab6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attempts to acquire the lock with a specified timeout.  <br /></td></tr>
+<tr class="memitem:a80bb83459f420e8060d5af329c739c9a" id="r_a80bb83459f420e8060d5af329c739c9a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80bb83459f420e8060d5af329c739c9a">ownsLock</a> () const</td></tr>
+<tr class="memdesc:a80bb83459f420e8060d5af329c739c9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if this guard currently owns the lock.  <br /></td></tr>
+<tr class="memitem:a81a95ae5f5214543a5ffa28f6e712ad7" id="r_a81a95ae5f5214543a5ffa28f6e712ad7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81a95ae5f5214543a5ffa28f6e712ad7">operator bool</a> () const</td></tr>
+<tr class="memdesc:a81a95ae5f5214543a5ffa28f6e712ad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean conversion operator for convenient lock status checking.  <br /></td></tr>
+<tr class="memitem:a3ab4fb8358d4d38d92a6c128b83d970a" id="r_a3ab4fb8358d4d38d92a6c128b83d970a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ab4fb8358d4d38d92a6c128b83d970a">getLockable</a> () const</td></tr>
+<tr class="memdesc:a3ab4fb8358d4d38d92a6c128b83d970a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides access to the underlying lockable resource.  <br /></td></tr>
+<tr class="memitem:a6a76921f0c13247b788ffeab1115e840" id="r_a6a76921f0c13247b788ffeab1115e840"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a76921f0c13247b788ffeab1115e840">operator LockableType &amp;</a> () const</td></tr>
+<tr class="memdesc:a6a76921f0c13247b788ffeab1115e840"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit conversion operator to access the underlying lockable resource.  <br /></td></tr>
+<tr class="memitem:a7d083afef532d2f79fb95759ad643565" id="r_a7d083afef532d2f79fb95759ad643565"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d083afef532d2f79fb95759ad643565">release</a> ()</td></tr>
+<tr class="memdesc:a7d083afef532d2f79fb95759ad643565"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases ownership of the lock without unlocking the resource.  <br /></td></tr>
 </table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a7b954631f339a3ee16bb26218b579430" name="a7b954631f339a3ee16bb26218b579430"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b954631f339a3ee16bb26218b579430">&#9670;&#160;</a></span>LockStrategy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a7b954631f339a3ee16bb26218b579430">RTOS::Guard::LockStrategy</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Locking strategy enumeration for controlling guard construction behavior. </p>
+<p>Defines different approaches for acquiring locks during guard construction, enabling flexible synchronization patterns based on application requirements. Each strategy provides different blocking and timing characteristics suitable for various embedded scenarios. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7b954631f339a3ee16bb26218b579430ae35884a2445bc4ae2df52f188763273c" name="a7b954631f339a3ee16bb26218b579430ae35884a2445bc4ae2df52f188763273c"></a>IMMEDIATE&#160;</td><td class="fielddoc"><p>Acquire lock immediately during construction, blocking if necessary. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7b954631f339a3ee16bb26218b579430ae3d9a2ed4146353ae729818f8bcc329d" name="a7b954631f339a3ee16bb26218b579430ae3d9a2ed4146353ae729818f8bcc329d"></a>DEFERRED&#160;</td><td class="fielddoc"><p>Defer lock acquisition until manual lock() call is made. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7b954631f339a3ee16bb26218b579430a48f18069f109aff6ab0f293c5dc64518" name="a7b954631f339a3ee16bb26218b579430a48f18069f109aff6ab0f293c5dc64518"></a>TRY_LOCK&#160;</td><td class="fielddoc"><p>Attempt non-blocking lock acquisition during construction. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5dab09b688d9cb1b1403972235d00de8" name="a5dab09b688d9cb1b1403972235d00de8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dab09b688d9cb1b1403972235d00de8">&#9670;&#160;</a></span>Guard() <span class="overload">[1/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::Guard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>lockable</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a Guard with immediate lock acquisition. </p>
+<p>Creates a guard that immediately attempts to acquire the lock on the provided resource. This constructor will block until the lock is successfully acquired, making it suitable for critical sections where exclusive access is required. Uses RAII principles to ensure automatic unlocking when the guard is destroyed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lockable</td><td>Reference to the lockable resource to be managed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae274ee849c590fc4d3e92c51f5304442" name="ae274ee849c590fc4d3e92c51f5304442"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae274ee849c590fc4d3e92c51f5304442">&#9670;&#160;</a></span>Guard() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::Guard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>lockable</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a7b954631f339a3ee16bb26218b579430">LockStrategy</a></td>          <td class="paramname"><span class="paramname"><em>strategy</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a Guard with specified locking strategy. </p>
+<p>Creates a guard using one of the predefined locking strategies to control when and how the lock is acquired. Supports immediate locking, deferred locking, and try-lock patterns to accommodate different synchronization requirements in embedded applications.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lockable</td><td>Reference to the lockable resource to be managed. </td></tr>
+    <tr><td class="paramname">strategy</td><td>Locking strategy to determine acquisition behavior. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abeb1b23eea3f6a3a5dc361879cb9242f" name="abeb1b23eea3f6a3a5dc361879cb9242f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb1b23eea3f6a3a5dc361879cb9242f">&#9670;&#160;</a></span>Guard() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::Guard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>lockable</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs a Guard with timeout-based lock acquisition. </p>
+<p>Creates a guard that attempts to acquire the lock within the specified timeout period. If the lock cannot be acquired within the timeout, the guard remains unlocked and can be checked using ownsLock(). Useful for implementing timeout-based critical sections in embedded systems where bounded waiting is required.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lockable</td><td>Reference to the lockable resource to be managed. </td></tr>
+    <tr><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for lock acquisition. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a53fb9f2380b9e39135a73ef78a3c6180" name="a53fb9f2380b9e39135a73ef78a3c6180"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53fb9f2380b9e39135a73ef78a3c6180">&#9670;&#160;</a></span>~Guard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::~<a class="el" href="../../db/dd9/a00179.html">Guard</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor of Guard. </p>
+<p>Automatically releases the lock if currently held when the guard goes out of scope. This RAII behavior ensures that resources are always properly released, preventing deadlocks and resource leaks even in the presence of exceptions or early returns. Critical for maintaining system stability in embedded applications. </p>
+
+</div>
+</div>
+<a id="a390fd01c82112bf3490e6b17d653ad22" name="a390fd01c82112bf3490e6b17d653ad22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a390fd01c82112bf3490e6b17d653ad22">&#9670;&#160;</a></span>Guard() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::Guard </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dd9/a00179.html">Guard</a>&lt; LOCKABLE_TYPE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted copy constructor to prevent accidental resource duplication. </p>
+<p>Guards represent exclusive ownership of a lock and cannot be safely copied. This deleted constructor prevents accidental copying that could lead to double-unlock errors or undefined behavior in multi-threaded environments. </p>
+
+</div>
+</div>
+<a id="ab97edfe000b8186114496f3326b5aa1a" name="ab97edfe000b8186114496f3326b5aa1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab97edfe000b8186114496f3326b5aa1a">&#9670;&#160;</a></span>Guard() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::Guard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/dd9/a00179.html">Guard</a>&lt; LOCKABLE_TYPE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor for transferring guard ownership. </p>
+<p>Enables efficient transfer of lock ownership from one guard to another without releasing and reacquiring the lock. The source guard is left in an unlocked state after the move operation completes, ensuring only one guard owns the lock.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source guard to transfer ownership from. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a89c77ce82882d1c04a9adbb0a4816a79" name="a89c77ce82882d1c04a9adbb0a4816a79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89c77ce82882d1c04a9adbb0a4816a79">&#9670;&#160;</a></span>create()</h2>
+<a id="a3ab4fb8358d4d38d92a6c128b83d970a" name="a3ab4fb8358d4d38d92a6c128b83d970a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ab4fb8358d4d38d92a6c128b83d970a">&#9670;&#160;</a></span>getLockable()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Semaphore::create </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates a binary semaphore if not already created and asserts on failure. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if creation succeeds, false otherwise. </dd></dl>
-
-<p>Implements <a class="el" href="../../dc/d52/a00183.html#abe7be11ded0f450a8e456e0ead643d03">RTOS::SemaphoreBase</a>.</p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2d/a00229.html#a1">Semaphore</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="a20dab5ad75e48b973309d994006e99b5" name="a20dab5ad75e48b973309d994006e99b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20dab5ad75e48b973309d994006e99b5">&#9670;&#160;</a></span>destroy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::Semaphore::destroy </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroys the semaphore and releases its resources. </p>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a0e02fdce947578b5cf0b93548c82fe28">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a20dab5ad75e48b973309d994006e99b5_cgraph.svg" width="612" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aad3313acf8b7b8d3282fa087e94699a3" name="aad3313acf8b7b8d3282fa087e94699a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad3313acf8b7b8d3282fa087e94699a3">&#9670;&#160;</a></span>give()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Semaphore::give </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gives the semaphore, making it available to other tasks. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was given, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a97ac23e2c0fb9235e1e13a56dcc27c23">RTOS::SemaphoreBase</a>.</p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2d/a00229.html#a2">Semaphore</a>.</dd>
-</dl>
-<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_aad3313acf8b7b8d3282fa087e94699a3_cgraph.svg" width="594" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af808649cc6157fb1fce8c815039cb27c" name="af808649cc6157fb1fce8c815039cb27c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af808649cc6157fb1fce8c815039cb27c">&#9670;&#160;</a></span>giveFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Semaphore::giveFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gives the semaphore from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was given, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#af2bf09cd3cb15cab16883862889e96c7">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_af808649cc6157fb1fce8c815039cb27c_cgraph.svg" width="646" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a7bb707649b575ed1941950f740df148e" name="a7bb707649b575ed1941950f740df148e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bb707649b575ed1941950f740df148e">&#9670;&#160;</a></span>isCreated()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Semaphore::isCreated </td>
+          <td class="memname"><a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp; <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::getLockable </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -321,35 +437,36 @@ Handle&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> = nullpt
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the semaphore has been successfully created. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore is created, false otherwise. </dd></dl>
+<p>Provides access to the underlying lockable resource. </p>
+<p>Returns a reference to the managed lockable resource, allowing direct access to resource-specific methods while maintaining the guard's ownership semantics. Use with caution to avoid bypassing the guard's synchronization guarantees.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the underlying lockable resource. </dd></dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a3ab4fb8358d4d38d92a6c128b83d970a_icgraph.svg" width="423" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a01db2bc6a677e5c062f9b9d3c14d8599">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a7bb707649b575ed1941950f740df148e_cgraph.svg" width="416" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
 </div>
 </div>
-<a id="a8f256eeb71978589d9e8215070cc046a" name="a8f256eeb71978589d9e8215070cc046a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f256eeb71978589d9e8215070cc046a">&#9670;&#160;</a></span>operator Handle &amp;()</h2>
+<a id="a09e600ec1a15b2532559ad28638b8b8a" name="a09e600ec1a15b2532559ad28638b8b8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e600ec1a15b2532559ad28638b8b8a">&#9670;&#160;</a></span>lock()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Semaphore::operator Handle &amp; </td>
+          <td class="memname">bool <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::lock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -357,143 +474,245 @@ Handle&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> = nullpt
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Converts the Semaphore object to a reference to its handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the semaphore handle. </dd></dl>
+<p>Manually acquires the lock if not already held. </p>
+<p>Attempts to acquire the lock on the managed resource if not currently locked by this guard. This method blocks until the lock is successfully acquired. Useful for deferred locking scenarios where the guard was constructed with DEFERRED strategy.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if lock was successfully acquired or already held, <span class="tt">false</span> on failure. </dd></dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a09e600ec1a15b2532559ad28638b8b8a_icgraph.svg" width="536" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a52cb4c76003b898b7b12736211785d06" name="a52cb4c76003b898b7b12736211785d06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52cb4c76003b898b7b12736211785d06">&#9670;&#160;</a></span>overwrite()</h2>
+<a id="ae9001abf67444d71ce9e0ee25632ab6f" name="ae9001abf67444d71ce9e0ee25632ab6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9001abf67444d71ce9e0ee25632ab6f">&#9670;&#160;</a></span>lockWithTimeout()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Semaphore::overwrite </td>
+          <td class="memname">bool <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::lockWithTimeout </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Overwrites the semaphore state. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was overwritten, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a26617c96f4523fe5d58b0489248d0e6e">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a52cb4c76003b898b7b12736211785d06_cgraph.svg" width="622" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a571a1c7023d93b55e0fe4418d4b9f3ff" name="a571a1c7023d93b55e0fe4418d4b9f3ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a571a1c7023d93b55e0fe4418d4b9f3ff">&#9670;&#160;</a></span>overwriteFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Semaphore::overwriteFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Overwrites the semaphore from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was overwritten, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#aa87af60fe2421cf538d1040cfe46be1c">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a571a1c7023d93b55e0fe4418d4b9f3ff_cgraph.svg" width="622" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aaff88f643c79c75553f7f678ee9a4c64" name="aaff88f643c79c75553f7f678ee9a4c64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaff88f643c79c75553f7f678ee9a4c64">&#9670;&#160;</a></span>take()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::Semaphore::take </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>waitTime</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Takes the semaphore, waiting up to the specified time. </p>
+<p>Attempts to acquire the lock with a specified timeout. </p>
+<p>Attempts to acquire the lock within the specified timeout period. If the lock cannot be acquired within the timeout, the method returns false. Provides bounded waiting behavior suitable for real-time embedded systems where deterministic timing is required.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">waitTime</td><td>Maximum wait time in ticks (default: portMAX_DELAY). </td></tr>
+    <tr><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for lock acquisition. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was taken, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#aab5deb1c3e21a206e7e4b6a2365d3562">RTOS::SemaphoreBase</a>.</p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../dd/d2d/a00229.html#a3">Semaphore</a>.</dd>
-</dl>
-<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if lock was successfully acquired within timeout, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-7-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_aaff88f643c79c75553f7f678ee9a4c64_cgraph.svg" width="594" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_ae9001abf67444d71ce9e0ee25632ab6f_icgraph.svg" width="414" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="afcf122ec069b8b33fd1e1ff8efbedc7f" name="afcf122ec069b8b33fd1e1ff8efbedc7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afcf122ec069b8b33fd1e1ff8efbedc7f">&#9670;&#160;</a></span>takeFromISR()</h2>
+<a id="a81a95ae5f5214543a5ffa28f6e712ad7" name="a81a95ae5f5214543a5ffa28f6e712ad7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81a95ae5f5214543a5ffa28f6e712ad7">&#9670;&#160;</a></span>operator bool()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::Semaphore::takeFromISR </td>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean conversion operator for convenient lock status checking. </p>
+<p>Provides implicit conversion to boolean for convenient use in conditional statements. Equivalent to calling ownsLock() but allows for more natural syntax in control flow expressions. Returns true if the guard currently owns the lock.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the guard currently owns the lock, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a6a76921f0c13247b788ffeab1115e840" name="a6a76921f0c13247b788ffeab1115e840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a76921f0c13247b788ffeab1115e840">&#9670;&#160;</a></span>operator LockableType &amp;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::operator <a class="el" href="#abdd2798dc53cd8fe13705aa5bf89a569">LockableType</a> &amp; </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implicit conversion operator to access the underlying lockable resource. </p>
+<p>Provides automatic conversion to the underlying lockable type for compatibility with code that expects direct access to the resource. Maintains reference semantics while allowing transparent use of the guard in place of the resource.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the underlying lockable resource. </dd></dl>
+
+</div>
+</div>
+<a id="af612360a02fa5181b17970c2003144ff" name="af612360a02fa5181b17970c2003144ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af612360a02fa5181b17970c2003144ff">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp; <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../db/dd9/a00179.html">Guard</a>&lt; LOCKABLE_TYPE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted copy assignment operator to prevent accidental resource duplication. </p>
+<p>Prevents assignment operations that could compromise the exclusive ownership model of the guard. Move semantics should be used instead for transferring ownership of the managed lock resource. </p>
+
+</div>
+</div>
+<a id="a5eeec3e612e509e89b8501ddd4fb5876" name="a5eeec3e612e509e89b8501ddd4fb5876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5eeec3e612e509e89b8501ddd4fb5876">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/dd9/a00179.html">Guard</a> &amp; <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/dd9/a00179.html">Guard</a>&lt; LOCKABLE_TYPE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator for transferring guard ownership. </p>
+<p>Enables assignment-based transfer of lock ownership between guards. If the current guard holds a lock, it is released before taking ownership of the lock from the source guard. The source guard is left in an unlocked state after the operation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source guard to transfer ownership from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this guard after ownership transfer. </dd></dl>
+
+</div>
+</div>
+<a id="a80bb83459f420e8060d5af329c739c9a" name="a80bb83459f420e8060d5af329c739c9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80bb83459f420e8060d5af329c739c9a">&#9670;&#160;</a></span>ownsLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::ownsLock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if this guard currently owns the lock. </p>
+<p>Determines whether this guard currently holds the lock on the managed resource. This method provides a way to verify lock ownership before performing operations that require exclusive access. Thread-safe and can be called at any time.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if this guard currently owns the lock, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a80bb83459f420e8060d5af329c739c9a_icgraph.svg" width="375" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7d083afef532d2f79fb95759ad643565" name="a7d083afef532d2f79fb95759ad643565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d083afef532d2f79fb95759ad643565">&#9670;&#160;</a></span>release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::release </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -501,26 +720,93 @@ Handle&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> = nullpt
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Takes the semaphore from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was taken, false otherwise. </dd></dl>
+<p>Releases ownership of the lock without unlocking the resource. </p>
+<p>Transfers ownership of the lock away from this guard without actually unlocking the resource. The resource remains locked but is no longer managed by this guard. Use with extreme caution as this can lead to permanently locked resources if not properly managed externally.</p>
+<dl class="section return"><dt>Returns</dt><dd>Previous lock ownership state before release. </dd></dl>
 
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-8-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_afcf122ec069b8b33fd1e1ff8efbedc7f_cgraph.svg" width="647" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<a id="aa8a2279f9af07dfd64f6256b25b18041" name="aa8a2279f9af07dfd64f6256b25b18041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8a2279f9af07dfd64f6256b25b18041">&#9670;&#160;</a></span>tryLock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::tryLock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Attempts to acquire the lock without blocking. </p>
+<p>Performs a non-blocking attempt to acquire the lock on the managed resource. If the lock is not immediately available, the method returns false without waiting. Useful for implementing polling-based synchronization or avoiding blocking in time-critical sections of embedded applications.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if lock was successfully acquired, <span class="tt">false</span> if not available. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_aa8a2279f9af07dfd64f6256b25b18041_icgraph.svg" width="359" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3cd33cc74fe9de19c3ad440e9323f5cb" name="a3cd33cc74fe9de19c3ad440e9323f5cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cd33cc74fe9de19c3ad440e9323f5cb">&#9670;&#160;</a></span>unlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename LOCKABLE_TYPE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../db/dd9/a00179.html">RTOS::Guard</a>&lt; LOCKABLE_TYPE &gt;::unlock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Manually releases the lock if currently held. </p>
+<p>Releases the lock on the managed resource if currently held by this guard. After calling this method, the guard no longer owns the lock and the resource becomes available to other threads. The guard can reacquire the lock using lock() method.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if lock was successfully released, <span class="tt">false</span> if not previously held. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/dd9/a00179_a3cd33cc74fe9de19c3ad440e9323f5cb_icgraph.svg" width="354" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><b>Semaphore.hpp</b></li>
+<li><b>Mutex.hpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -535,7 +821,7 @@ Handle&#160;</td><td class="memItemRight" valign="bottom"><b>handle</b> = nullpt
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/dce/a00143.html">RTOS</a></li><li class="navelem"><a href="../../db/dd9/a00179.html">Semaphore</a></li>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../db/dd9/a00179.html">Guard</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

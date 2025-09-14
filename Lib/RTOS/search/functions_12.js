@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['waitforbits_0',['waitForBits',['../d9/d47/a00129.html#af3f76be0d4887d38d8ef537d5c91d4c6',1,'RTOS::EventGroup']]]
+  ['unlock_0',['unlock',['../db/d48/a00148.html#a0ce4811d2ce208d44f895ffc97ac7790',1,'RTOS::Mutex']]],
+  ['unlockfromisr_1',['unlockFromISR',['../db/d48/a00148.html#a0d471ab7f8396479a2405eda150f6cec',1,'RTOS::Mutex']]]
 ];

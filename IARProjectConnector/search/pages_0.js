@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['connector_0',['Connector',['../d3/de7/a00039.html',1,'Ethercat Slave IAR Project Connector'],['../db/d3a/a00040.html',1,'TouchGFX IAR Project Connector']]],
-  ['connectors_1',['IAR Project Connectors',['../index.html',1,'']]]
+  ['a_20file_20in_20the_20project_0',['Add, CopyTo or Reference a file in the project',['../d8/d41/a00038.html#AddCopyReference',1,'']]],
+  ['add_20copyto_20or_20reference_20a_20file_20in_20the_20project_1',['Add, CopyTo or Reference a file in the project',['../d8/d41/a00038.html#AddCopyReference',1,'']]]
 ];

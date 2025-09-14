@@ -1,11 +1,9 @@
 var a00163 =
 [
-    [ "Guard", "dc/de6/a00167.html", "dc/de6/a00167" ],
-    [ "give", "dd/dae/a00163.html#afd31afde78f47fa803851f172457fffd", null ],
-    [ "giveFromISR", "dd/dae/a00163.html#aa2ca8e5c0a31ae25cc4c9eaa27890093", null ],
-    [ "isCreated", "dd/dae/a00163.html#a19a5b5cf5bd248dfefe4eb88a645b2ce", null ],
-    [ "lock", "dd/dae/a00163.html#a3a962d5120e04c9de31c5ab52cb58af7", null ],
-    [ "take", "dd/dae/a00163.html#a9279e9d965ba116d2ce3da7568aeeae6", null ],
-    [ "takeFromISR", "dd/dae/a00163.html#af5901479a1c92d58fb198bcb35e288c2", null ],
-    [ "unlock", "dd/dae/a00163.html#a345c1a4de6315a11205eddce12e0f573", null ]
+    [ "CriticalSectionISR", "dd/dae/a00163.html#a8751b4b9a8ab012af37c4bef751708b3", null ],
+    [ "~CriticalSectionISR", "dd/dae/a00163.html#a7a0a2f7bf6a841ba487c9eedb1090e0f", null ],
+    [ "CriticalSectionISR", "dd/dae/a00163.html#ae373e2f5da0265c0c0f61c02224a51aa", null ],
+    [ "CriticalSectionISR", "dd/dae/a00163.html#aa4a42efcda39c9ff776b2d92b084db2e", null ],
+    [ "operator=", "dd/dae/a00163.html#adb14774da3fb9294664425a109aae310", null ],
+    [ "operator=", "dd/dae/a00163.html#a5fd62b11a8efc0e080a7cea7643779c1", null ]
 ];

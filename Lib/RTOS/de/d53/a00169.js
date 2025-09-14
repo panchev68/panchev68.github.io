@@ -1,13 +1,18 @@
 var a00169 =
 [
-    [ "SemaphoreCounting", "de/d53/a00169.html#a4c6a05194ff69d7e4f53a704c86ecf06", null ],
-    [ "~SemaphoreCounting", "de/d53/a00169.html#af8d0c30e44b1208a42f524a67f95ac3e", null ],
-    [ "create", "de/d53/a00169.html#a79abb88c91a63fdd98ae9c4877adcf23", null ],
-    [ "destroy", "de/d53/a00169.html#ae454658af0fecb7d59cdd7ebae348f81", null ],
-    [ "getCount", "de/d53/a00169.html#a54165b34c7ae628a38cdd34017cffdc4", null ],
-    [ "give", "de/d53/a00169.html#af215c754c4d99724da5d5e212960f4ce", null ],
-    [ "giveFromISR", "de/d53/a00169.html#a4ae84249321e279cf12aee9ddc35c138", null ],
-    [ "isCreated", "de/d53/a00169.html#a5b5b1727e5e3070178e377402ffff3dc", null ],
-    [ "take", "de/d53/a00169.html#ab7c2787534dcdaa60f40f4a0e75f008f", null ],
-    [ "takeFromISR", "de/d53/a00169.html#a5a70f9f956c6bc47de65c1b6c8fd36e7", null ]
+    [ "Handle", "de/d53/a00169.html#ac7c17b15a9ccb6e449bd39651983763a", null ],
+    [ "MessageBuffer", "de/d53/a00169.html#abf3e6bf7fa7803357d0b62be1785e088", null ],
+    [ "~MessageBuffer", "de/d53/a00169.html#a9a62bafeca63426a70575b7228f9c698", null ],
+    [ "create", "de/d53/a00169.html#adf8a8075ffc1f03938788678aabc84a9", null ],
+    [ "destroy", "de/d53/a00169.html#a1e249f31ec313628be3b536d4d7c7f3c", null ],
+    [ "getSpacesAvailable", "de/d53/a00169.html#ab50693c6ab833e3abc4ea33aa6cb678e", null ],
+    [ "isCreated", "de/d53/a00169.html#a867904bfdf65f45614229c296de57fb4", null ],
+    [ "isEmpty", "de/d53/a00169.html#a862d738812609aa239c25587d87abb79", null ],
+    [ "isFull", "de/d53/a00169.html#a76baf03500804f9cfcbc4671374c359b", null ],
+    [ "operator Handle", "de/d53/a00169.html#a980fc81f99fa563c534cc3d68a420dd9", null ],
+    [ "receive", "de/d53/a00169.html#ae4b5ed9d9d2425556c2f5bfb8fa88bbd", null ],
+    [ "receiveFromISR", "de/d53/a00169.html#a94cd9904ee3e7f59d98350801ec347a3", null ],
+    [ "reset", "de/d53/a00169.html#aa2130de68e4116751ab5061ff753f4de", null ],
+    [ "send", "de/d53/a00169.html#ad1164d0967b1c77d21cd469e3f2be8c0", null ],
+    [ "sendFromISR", "de/d53/a00169.html#a82d2cb7fb104af1b273369f627aa53b0", null ]
 ];

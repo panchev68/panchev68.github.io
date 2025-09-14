@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: RTOS::SemaphoreCounting Class Reference</title>
+<title>RTOS: RTOS::Queue&lt; T, QUEUE_LENGTH &gt; Class Template Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -91,80 +91,237 @@ $(function(){initNavTree('d6/daa/a00187.html','../../','d2/d94/a00184'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting Class Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::Queue&lt; T, QUEUE_LENGTH &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Counting semaphore for FreeRTOS. </p>
-<p>Provides a counting semaphore with configurable maximum and initial count. Supports take/give operations, ISR-safe methods, and count queries for resource management. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d17/a00231.html#_a0">SemaphoreCounting</a>.</dd>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t QUEUE_LENGTH = 1&gt;<br />
+class RTOS::Queue&lt; T, QUEUE_LENGTH &gt;</div><p>Template class for type-safe FreeRTOS queue management with RAII and move semantics. </p>
+<p>Provides a comprehensive C++ interface for FreeRTOS queues with compile-time type safety and automatic resource management. Supports both dynamic and static memory allocation, ISR-safe operations for real-time requirements, and FreeRTOS registry integration for debugging. The template design ensures type safety while maintaining zero-overhead abstractions suitable for embedded systems. Includes comprehensive error checking, move-only semantics to prevent accidental copying, and RAII principles for reliable resource management in embedded applications.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Element type stored in the queue (must be trivially copyable for safe ISR operations). </td></tr>
+    <tr><td class="paramname">QUEUE_LENGTH</td><td>Maximum number of elements the queue can hold (compile-time constant). </td></tr>
+  </table>
+  </dd>
 </dl>
 </div>
-<p><code>#include &lt;SemaphoreCounting.hpp&gt;</code></p>
-<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for RTOS::SemaphoreCounting:</div>
+<p><code>#include &lt;Queue.hpp&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for RTOS::Queue&lt; T, QUEUE_LENGTH &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d00/a00186.svg" width="184" height="624"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d00/a00186.svg" width="810" height="707"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a4327685804e85d5e1bd456d138bf074b" id="r_a4327685804e85d5e1bd456d138bf074b"><td class="memItemLeft" align="right" valign="top"><a id="a4327685804e85d5e1bd456d138bf074b" name="a4327685804e85d5e1bd456d138bf074b"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>ElementType</b> = T</td></tr>
+<tr class="memdesc:a4327685804e85d5e1bd456d138bf074b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for elements stored in the queue. <br /></td></tr>
+<tr class="memitem:a60ed55c0a4dfb8e4185c43667b049f8e" id="r_a60ed55c0a4dfb8e4185c43667b049f8e"><td class="memItemLeft" align="right" valign="top"><a id="a60ed55c0a4dfb8e4185c43667b049f8e" name="a60ed55c0a4dfb8e4185c43667b049f8e"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = QueueHandle_t</td></tr>
+<tr class="memdesc:a60ed55c0a4dfb8e4185c43667b049f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for the underlying FreeRTOS queue handle. <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a4c6a05194ff69d7e4f53a704c86ecf06" id="r_a4c6a05194ff69d7e4f53a704c86ecf06"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c6a05194ff69d7e4f53a704c86ecf06">SemaphoreCounting</a> (uint32_t maxCount, uint32_t initialCount)</td></tr>
-<tr class="memdesc:a4c6a05194ff69d7e4f53a704c86ecf06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a counting semaphore with the specified maximum and initial count.  <br /></td></tr>
-<tr class="memitem:af8d0c30e44b1208a42f524a67f95ac3e" id="r_af8d0c30e44b1208a42f524a67f95ac3e"><td class="memItemLeft" align="right" valign="top"><a id="af8d0c30e44b1208a42f524a67f95ac3e" name="af8d0c30e44b1208a42f524a67f95ac3e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>~SemaphoreCounting</b> () override=default</td></tr>
-<tr class="memdesc:af8d0c30e44b1208a42f524a67f95ac3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the SemaphoreCounting object and releases its resources. <br /></td></tr>
-<tr class="memitem:a79abb88c91a63fdd98ae9c4877adcf23" id="r_a79abb88c91a63fdd98ae9c4877adcf23"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79abb88c91a63fdd98ae9c4877adcf23">create</a> () override</td></tr>
-<tr class="memdesc:a79abb88c91a63fdd98ae9c4877adcf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the counting semaphore with the configured maximum and initial count.  <br /></td></tr>
-<tr class="memitem:ae454658af0fecb7d59cdd7ebae348f81" id="r_ae454658af0fecb7d59cdd7ebae348f81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae454658af0fecb7d59cdd7ebae348f81">destroy</a> () override</td></tr>
-<tr class="memdesc:ae454658af0fecb7d59cdd7ebae348f81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the semaphore and releases its resources.  <br /></td></tr>
-<tr class="memitem:ab7c2787534dcdaa60f40f4a0e75f008f" id="r_ab7c2787534dcdaa60f40f4a0e75f008f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7c2787534dcdaa60f40f4a0e75f008f">take</a> (uint32_t ticksWait=0) override</td></tr>
-<tr class="memdesc:ab7c2787534dcdaa60f40f4a0e75f008f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a token from the semaphore, waiting up to the specified number of ticks.  <br /></td></tr>
-<tr class="memitem:af215c754c4d99724da5d5e212960f4ce" id="r_af215c754c4d99724da5d5e212960f4ce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af215c754c4d99724da5d5e212960f4ce">give</a> () override</td></tr>
-<tr class="memdesc:af215c754c4d99724da5d5e212960f4ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a token to the semaphore.  <br /></td></tr>
-<tr class="memitem:a5a70f9f956c6bc47de65c1b6c8fd36e7" id="r_a5a70f9f956c6bc47de65c1b6c8fd36e7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a70f9f956c6bc47de65c1b6c8fd36e7">takeFromISR</a> () override</td></tr>
-<tr class="memdesc:a5a70f9f956c6bc47de65c1b6c8fd36e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes a token from the semaphore from ISR context.  <br /></td></tr>
-<tr class="memitem:a4ae84249321e279cf12aee9ddc35c138" id="r_a4ae84249321e279cf12aee9ddc35c138"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ae84249321e279cf12aee9ddc35c138">giveFromISR</a> () override</td></tr>
-<tr class="memdesc:a4ae84249321e279cf12aee9ddc35c138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a token to the semaphore from ISR context.  <br /></td></tr>
-<tr class="memitem:a54165b34c7ae628a38cdd34017cffdc4" id="r_a54165b34c7ae628a38cdd34017cffdc4"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54165b34c7ae628a38cdd34017cffdc4">getCount</a> () const</td></tr>
-<tr class="memdesc:a54165b34c7ae628a38cdd34017cffdc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current count of the semaphore.  <br /></td></tr>
-<tr class="memitem:a5b5b1727e5e3070178e377402ffff3dc" id="r_a5b5b1727e5e3070178e377402ffff3dc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b5b1727e5e3070178e377402ffff3dc">isCreated</a> () const override</td></tr>
-<tr class="memdesc:a5b5b1727e5e3070178e377402ffff3dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the semaphore has been created.  <br /></td></tr>
+<tr class="memitem:a0861946efedd3c0d905f121452ca2b54" id="r_a0861946efedd3c0d905f121452ca2b54"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0861946efedd3c0d905f121452ca2b54">Queue</a> ()</td></tr>
+<tr class="memdesc:a0861946efedd3c0d905f121452ca2b54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of Queue.  <br /></td></tr>
+<tr class="memitem:aa23a55c97fc61183408f770cae461d84" id="r_aa23a55c97fc61183408f770cae461d84"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa23a55c97fc61183408f770cae461d84">~Queue</a> ()</td></tr>
+<tr class="memdesc:aa23a55c97fc61183408f770cae461d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of Queue.  <br /></td></tr>
+<tr class="memitem:a81790817ad16ab4d921e798e96f61667" id="r_a81790817ad16ab4d921e798e96f61667"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81790817ad16ab4d921e798e96f61667">Queue</a> (const <a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a81790817ad16ab4d921e798e96f61667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor to prevent resource duplication.  <br /></td></tr>
+<tr class="memitem:afcdd1a7e60b4a2a4b795d18541192919" id="r_afcdd1a7e60b4a2a4b795d18541192919"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcdd1a7e60b4a2a4b795d18541192919">operator=</a> (const <a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp;)=delete</td></tr>
+<tr class="memdesc:afcdd1a7e60b4a2a4b795d18541192919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator to prevent resource duplication.  <br /></td></tr>
+<tr class="memitem:afc130ac9facd367a34f6c7c0e36d92a2" id="r_afc130ac9facd367a34f6c7c0e36d92a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc130ac9facd367a34f6c7c0e36d92a2">Queue</a> (<a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:afc130ac9facd367a34f6c7c0e36d92a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor for efficient queue ownership transfer.  <br /></td></tr>
+<tr class="memitem:a3509e79003014402d3b78ba46c2ecac9" id="r_a3509e79003014402d3b78ba46c2ecac9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3509e79003014402d3b78ba46c2ecac9">operator=</a> (<a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp;&amp;other)</td></tr>
+<tr class="memdesc:a3509e79003014402d3b78ba46c2ecac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator for efficient queue ownership transfer.  <br /></td></tr>
+<tr class="memitem:ab06c5dd4ac888c7bf44ed6b550d9ddf0" id="r_ab06c5dd4ac888c7bf44ed6b550d9ddf0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab06c5dd4ac888c7bf44ed6b550d9ddf0">create</a> ()</td></tr>
+<tr class="memdesc:ab06c5dd4ac888c7bf44ed6b550d9ddf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the queue using dynamic memory allocation.  <br /></td></tr>
+<tr class="memitem:a5fce435d59010a0a84aebdb09bac800a" id="r_a5fce435d59010a0a84aebdb09bac800a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fce435d59010a0a84aebdb09bac800a">destroy</a> ()</td></tr>
+<tr class="memdesc:a5fce435d59010a0a84aebdb09bac800a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the queue and releases all associated resources.  <br /></td></tr>
+<tr class="memitem:aa7c218336b7d4ad7b7581cbf691193ee" id="r_aa7c218336b7d4ad7b7581cbf691193ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7c218336b7d4ad7b7581cbf691193ee">reset</a> ()</td></tr>
+<tr class="memdesc:aa7c218336b7d4ad7b7581cbf691193ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets the queue to its initial empty state without destroying it.  <br /></td></tr>
+<tr class="memitem:a9292c666c3aeb8790a21a944baa3409c" id="r_a9292c666c3aeb8790a21a944baa3409c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9292c666c3aeb8790a21a944baa3409c">receive</a> (T &amp;item, TickType_t maxTicksToWait=portMAX_DELAY) const</td></tr>
+<tr class="memdesc:a9292c666c3aeb8790a21a944baa3409c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives an element from the front of the queue with optional blocking.  <br /></td></tr>
+<tr class="memitem:afeef803e4418fa090b0e3e677f157383" id="r_afeef803e4418fa090b0e3e677f157383"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afeef803e4418fa090b0e3e677f157383">receiveFromISR</a> (T &amp;item) const</td></tr>
+<tr class="memdesc:afeef803e4418fa090b0e3e677f157383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives an element from the queue in interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:ab170b313c75dec7ad15c1dd9eea13576" id="r_ab170b313c75dec7ad15c1dd9eea13576"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab170b313c75dec7ad15c1dd9eea13576">peek</a> (T &amp;item, TickType_t maxTicksToWait=0) const</td></tr>
+<tr class="memdesc:ab170b313c75dec7ad15c1dd9eea13576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at the next element in the queue without removing it.  <br /></td></tr>
+<tr class="memitem:aea8b3ad94873e21ce0d101d244e11202" id="r_aea8b3ad94873e21ce0d101d244e11202"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea8b3ad94873e21ce0d101d244e11202">peekFromISR</a> (T &amp;item) const</td></tr>
+<tr class="memdesc:aea8b3ad94873e21ce0d101d244e11202"><td class="mdescLeft">&#160;</td><td class="mdescRight">Peeks at the next element in the queue from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:ac5c60975c0a8cd968260fcd3a05e3e96" id="r_ac5c60975c0a8cd968260fcd3a05e3e96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5c60975c0a8cd968260fcd3a05e3e96">send</a> (const T &amp;item, TickType_t maxTicksToWait=portMAX_DELAY)</td></tr>
+<tr class="memdesc:ac5c60975c0a8cd968260fcd3a05e3e96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an element to the back of the queue with optional blocking.  <br /></td></tr>
+<tr class="memitem:ac48aad8ad9966d83d8c7ce05cc981bbd" id="r_ac48aad8ad9966d83d8c7ce05cc981bbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac48aad8ad9966d83d8c7ce05cc981bbd">sendToFront</a> (const T &amp;item, TickType_t maxTicksToWait=portMAX_DELAY)</td></tr>
+<tr class="memdesc:ac48aad8ad9966d83d8c7ce05cc981bbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an element to the front of the queue with optional blocking.  <br /></td></tr>
+<tr class="memitem:ad5fb66060e0536ddd3396c190b5ffdfb" id="r_ad5fb66060e0536ddd3396c190b5ffdfb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5fb66060e0536ddd3396c190b5ffdfb">sendToBack</a> (const T &amp;item, TickType_t maxTicksToWait=portMAX_DELAY)</td></tr>
+<tr class="memdesc:ad5fb66060e0536ddd3396c190b5ffdfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an element to the back of the queue with optional blocking.  <br /></td></tr>
+<tr class="memitem:a132f748b68eb9de688d1fc8b24b51998" id="r_a132f748b68eb9de688d1fc8b24b51998"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a132f748b68eb9de688d1fc8b24b51998">sendToBackFromISR</a> (const T &amp;item)</td></tr>
+<tr class="memdesc:a132f748b68eb9de688d1fc8b24b51998"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an element to the back of the queue from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:aef7846943a286360b8b44da5ee4bddd9" id="r_aef7846943a286360b8b44da5ee4bddd9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef7846943a286360b8b44da5ee4bddd9">sendToFrontFromISR</a> (const T &amp;item)</td></tr>
+<tr class="memdesc:aef7846943a286360b8b44da5ee4bddd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an element to the front of the queue from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:abf25a784d1d638998b6c01351366916d" id="r_abf25a784d1d638998b6c01351366916d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf25a784d1d638998b6c01351366916d">overwrite</a> (const T &amp;item)</td></tr>
+<tr class="memdesc:abf25a784d1d638998b6c01351366916d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the element at the back of the queue for single-element queues.  <br /></td></tr>
+<tr class="memitem:af693422aa6784e061d745f06a7847d77" id="r_af693422aa6784e061d745f06a7847d77"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af693422aa6784e061d745f06a7847d77">overwriteFromISR</a> (const T &amp;item)</td></tr>
+<tr class="memdesc:af693422aa6784e061d745f06a7847d77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overwrites the element at the back of the queue from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:a1e223cbafa900fd6969885012b6ca712" id="r_a1e223cbafa900fd6969885012b6ca712"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e223cbafa900fd6969885012b6ca712">messagesWaiting</a> () const</td></tr>
+<tr class="memdesc:a1e223cbafa900fd6969885012b6ca712"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of elements currently waiting in the queue.  <br /></td></tr>
+<tr class="memitem:a5674ef18b4ffe44f7f0825f6b08028a6" id="r_a5674ef18b4ffe44f7f0825f6b08028a6"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5674ef18b4ffe44f7f0825f6b08028a6">messagesWaitingFromISR</a> () const</td></tr>
+<tr class="memdesc:a5674ef18b4ffe44f7f0825f6b08028a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of elements waiting in the queue from interrupt service routine context.  <br /></td></tr>
+<tr class="memitem:aa608a884271c8894f23d666d9d15fae3" id="r_aa608a884271c8894f23d666d9d15fae3"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa608a884271c8894f23d666d9d15fae3">spacesAvailable</a> () const</td></tr>
+<tr class="memdesc:aa608a884271c8894f23d666d9d15fae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the number of free spaces available in the queue.  <br /></td></tr>
+<tr class="memitem:ac2f6f8d52b4350b0e39e8c95a599aa6b" id="r_ac2f6f8d52b4350b0e39e8c95a599aa6b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2f6f8d52b4350b0e39e8c95a599aa6b">isFull</a> () const</td></tr>
+<tr class="memdesc:ac2f6f8d52b4350b0e39e8c95a599aa6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the queue has reached its maximum capacity.  <br /></td></tr>
+<tr class="memitem:a1a2d22ca72d85b6773a07fd04254c9c3" id="r_a1a2d22ca72d85b6773a07fd04254c9c3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1a2d22ca72d85b6773a07fd04254c9c3">isEmpty</a> () const</td></tr>
+<tr class="memdesc:a1a2d22ca72d85b6773a07fd04254c9c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the queue contains no elements.  <br /></td></tr>
+<tr class="memitem:a4b012be951c8d119674c5ee2929850b3" id="r_a4b012be951c8d119674c5ee2929850b3"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4b012be951c8d119674c5ee2929850b3">capacity</a> () const</td></tr>
+<tr class="memdesc:a4b012be951c8d119674c5ee2929850b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the compile-time maximum capacity of the queue.  <br /></td></tr>
+<tr class="memitem:ad566d746b9183156724179424a6d2dc8" id="r_ad566d746b9183156724179424a6d2dc8"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad566d746b9183156724179424a6d2dc8">elementSize</a> () const</td></tr>
+<tr class="memdesc:ad566d746b9183156724179424a6d2dc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the compile-time size of each queue element in bytes.  <br /></td></tr>
+<tr class="memitem:afe162294790f9aa321687bf2cb602411" id="r_afe162294790f9aa321687bf2cb602411"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe162294790f9aa321687bf2cb602411">addToRegistry</a> (const std::string &amp;name)</td></tr>
+<tr class="memdesc:afe162294790f9aa321687bf2cb602411"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registers the queue with the FreeRTOS registry for debugging support.  <br /></td></tr>
+<tr class="memitem:a639b7ccc44cf1fd2bff4df0682e9084b" id="r_a639b7ccc44cf1fd2bff4df0682e9084b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a639b7ccc44cf1fd2bff4df0682e9084b">removeFromRegistry</a> ()</td></tr>
+<tr class="memdesc:a639b7ccc44cf1fd2bff4df0682e9084b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the queue from the FreeRTOS registry.  <br /></td></tr>
+<tr class="memitem:a176e298fbc789c62de6a01c589a2697b" id="r_a176e298fbc789c62de6a01c589a2697b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a60ed55c0a4dfb8e4185c43667b049f8e">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a176e298fbc789c62de6a01c589a2697b">getHandle</a> () const</td></tr>
+<tr class="memdesc:a176e298fbc789c62de6a01c589a2697b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the underlying FreeRTOS queue handle.  <br /></td></tr>
+<tr class="memitem:a4e52ad6c96931a2a2cb5ac9df53f4e19" id="r_a4e52ad6c96931a2a2cb5ac9df53f4e19"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e52ad6c96931a2a2cb5ac9df53f4e19">operator Handle</a> () const</td></tr>
+<tr class="memdesc:a4e52ad6c96931a2a2cb5ac9df53f4e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit conversion operator to FreeRTOS queue handle.  <br /></td></tr>
+<tr class="memitem:a0f3d74f48ace228436f8cf74c98cdb61" id="r_a0f3d74f48ace228436f8cf74c98cdb61"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f3d74f48ace228436f8cf74c98cdb61">isCreated</a> () const</td></tr>
+<tr class="memdesc:a0f3d74f48ace228436f8cf74c98cdb61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the queue has been successfully created and is ready for operations.  <br /></td></tr>
+<tr class="memitem:a1b1e58bed5afed73037ee94563cd96b9" id="r_a1b1e58bed5afed73037ee94563cd96b9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b1e58bed5afed73037ee94563cd96b9">operator bool</a> () const</td></tr>
+<tr class="memdesc:a1b1e58bed5afed73037ee94563cd96b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boolean conversion operator for convenient validity checking.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aba67c872f8bf5e28e961dee42de313c2" id="r_aba67c872f8bf5e28e961dee42de313c2"><td class="memItemLeft" align="right" valign="top"><a id="aba67c872f8bf5e28e961dee42de313c2" name="aba67c872f8bf5e28e961dee42de313c2"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>LENGTH</b> = QUEUE_LENGTH</td></tr>
+<tr class="memdesc:aba67c872f8bf5e28e961dee42de313c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile-time constant for maximum queue capacity. <br /></td></tr>
+<tr class="memitem:a58219190b965d1e6e322714815719b83" id="r_a58219190b965d1e6e322714815719b83"><td class="memItemLeft" align="right" valign="top"><a id="a58219190b965d1e6e322714815719b83" name="a58219190b965d1e6e322714815719b83"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>ELEMENT_SIZE</b> = sizeof(T)</td></tr>
+<tr class="memdesc:a58219190b965d1e6e322714815719b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compile-time constant for element size in bytes. <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a4c6a05194ff69d7e4f53a704c86ecf06" name="a4c6a05194ff69d7e4f53a704c86ecf06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c6a05194ff69d7e4f53a704c86ecf06">&#9670;&#160;</a></span>SemaphoreCounting()</h2>
+<a id="a0861946efedd3c0d905f121452ca2b54" name="a0861946efedd3c0d905f121452ca2b54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0861946efedd3c0d905f121452ca2b54">&#9670;&#160;</a></span>Queue() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::SemaphoreCounting::SemaphoreCounting </td>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::Queue </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>maxCount</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>initialCount</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a counting semaphore with the specified maximum and initial count. </p>
+<p>Constructor of Queue. </p>
+<p>Initializes a Queue object in an uncreated state with a null handle. The queue must be explicitly created using create() or createStatic() before it can be used for message operations. This design allows for controlled resource allocation and proper error handling in embedded environments. </p>
+
+</div>
+</div>
+<a id="aa23a55c97fc61183408f770cae461d84" name="aa23a55c97fc61183408f770cae461d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa23a55c97fc61183408f770cae461d84">&#9670;&#160;</a></span>~Queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::~<a class="el" href="../../d6/daa/a00187.html">Queue</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor of Queue. </p>
+<p>Ensures proper cleanup of FreeRTOS queue resources if the queue was created. Automatically calls destroy() if the queue is still active, preventing resource leaks. This RAII behavior ensures reliable resource management even in embedded systems with constrained memory. </p>
+
+</div>
+</div>
+<a id="a81790817ad16ab4d921e798e96f61667" name="a81790817ad16ab4d921e798e96f61667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81790817ad16ab4d921e798e96f61667">&#9670;&#160;</a></span>Queue() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::Queue </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/daa/a00187.html">Queue</a>&lt; T, QUEUE_LENGTH &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deleted copy constructor to prevent resource duplication. </p>
+<p>Queues represent exclusive ownership of FreeRTOS resources and cannot be safely copied. This deleted constructor prevents accidental copying that could lead to double-destruction errors or resource conflicts in multi-threaded embedded environments. </p>
+
+</div>
+</div>
+<a id="afc130ac9facd367a34f6c7c0e36d92a2" name="afc130ac9facd367a34f6c7c0e36d92a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc130ac9facd367a34f6c7c0e36d92a2">&#9670;&#160;</a></span>Queue() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::Queue </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/daa/a00187.html">Queue</a>&lt; T, QUEUE_LENGTH &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move constructor for efficient queue ownership transfer. </p>
+<p>Enables efficient transfer of queue ownership from one object to another without destroying and recreating the underlying FreeRTOS queue. The source queue is left in an uncreated state after the move operation completes.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">maxCount</td><td>Maximum count value for the semaphore. </td></tr>
-    <tr><td class="paramname">initialCount</td><td>Initial count value for the semaphore. </td></tr>
+    <tr><td class="paramname">other</td><td>Source queue object to transfer ownership from. </td></tr>
   </table>
   </dd>
 </dl>
@@ -172,17 +329,86 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a79abb88c91a63fdd98ae9c4877adcf23" name="a79abb88c91a63fdd98ae9c4877adcf23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79abb88c91a63fdd98ae9c4877adcf23">&#9670;&#160;</a></span>create()</h2>
+<a id="afe162294790f9aa321687bf2cb602411" name="afe162294790f9aa321687bf2cb602411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe162294790f9aa321687bf2cb602411">&#9670;&#160;</a></span>addToRegistry()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::create </td>
+          <td class="memname">void <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::addToRegistry </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Registers the queue with the FreeRTOS registry for debugging support. </p>
+<p>Adds the queue to the FreeRTOS registry with a human-readable name for debugging and monitoring purposes. The registry allows debugging tools and kernel-aware debuggers to identify and inspect queues during development. The name should be descriptive and unique within the application.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Descriptive name to register the queue with for debugging purposes. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4b012be951c8d119674c5ee2929850b3" name="a4b012be951c8d119674c5ee2929850b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b012be951c8d119674c5ee2929850b3">&#9670;&#160;</a></span>capacity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::capacity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the compile-time maximum capacity of the queue. </p>
+<p>Returns the maximum number of elements this queue can hold as specified in the template parameter. This value is constant and determined at compile time, providing efficient access to capacity information without runtime overhead.</p>
+<dl class="section return"><dt>Returns</dt><dd>Maximum number of elements the queue can hold. </dd></dl>
+
+</div>
+</div>
+<a id="ab06c5dd4ac888c7bf44ed6b550d9ddf0" name="ab06c5dd4ac888c7bf44ed6b550d9ddf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab06c5dd4ac888c7bf44ed6b550d9ddf0">&#9670;&#160;</a></span>create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::create </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -190,29 +416,30 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the counting semaphore with the configured maximum and initial count. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore was created successfully, false otherwise. </dd></dl>
-
-<p>Implements <a class="el" href="../../dc/d52/a00183.html#abe7be11ded0f450a8e456e0ead643d03">RTOS::SemaphoreBase</a>.</p>
+<p>Creates the queue using dynamic memory allocation. </p>
+<p>Allocates and initializes a new FreeRTOS queue with the specified capacity and element size using dynamic memory from the FreeRTOS heap. Performs validation to ensure the queue is not already created and that sufficient memory is available. Must be called before any queue operations can be performed.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the queue was successfully created, <span class="tt">false</span> if creation failed or already exists. </dd></dl>
 
 </div>
 </div>
-<a id="ae454658af0fecb7d59cdd7ebae348f81" name="ae454658af0fecb7d59cdd7ebae348f81"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae454658af0fecb7d59cdd7ebae348f81">&#9670;&#160;</a></span>destroy()</h2>
+<a id="a5fce435d59010a0a84aebdb09bac800a" name="a5fce435d59010a0a84aebdb09bac800a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fce435d59010a0a84aebdb09bac800a">&#9670;&#160;</a></span>destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::SemaphoreCounting::destroy </td>
+          <td class="memname">void <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::destroy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -220,34 +447,66 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the semaphore and releases its resources. </p>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a0e02fdce947578b5cf0b93548c82fe28">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<p>Destroys the queue and releases all associated resources. </p>
+<p>Safely deallocates the FreeRTOS queue and resets the handle to null. Any tasks blocked on queue operations will be unblocked and receive appropriate error codes. Should be called before object destruction or when the queue is no longer needed. Safe to call multiple times or on an already destroyed queue. </p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_ae454658af0fecb7d59cdd7ebae348f81_cgraph.svg" width="614" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_a5fce435d59010a0a84aebdb09bac800a_icgraph.svg" width="362" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a54165b34c7ae628a38cdd34017cffdc4" name="a54165b34c7ae628a38cdd34017cffdc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54165b34c7ae628a38cdd34017cffdc4">&#9670;&#160;</a></span>getCount()</h2>
+<a id="ad566d746b9183156724179424a6d2dc8" name="ad566d746b9183156724179424a6d2dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad566d746b9183156724179424a6d2dc8">&#9670;&#160;</a></span>elementSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t RTOS::SemaphoreCounting::getCount </td>
+          <td class="memname">size_t <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::elementSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the compile-time size of each queue element in bytes. </p>
+<p>Returns the size in bytes of each element stored in the queue. This value is determined at compile time based on the template parameter type and provides efficient access to element size information for memory calculations and debugging.</p>
+<dl class="section return"><dt>Returns</dt><dd>Size of each element in bytes. </dd></dl>
+
+</div>
+</div>
+<a id="a176e298fbc789c62de6a01c589a2697b" name="a176e298fbc789c62de6a01c589a2697b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a176e298fbc789c62de6a01c589a2697b">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a60ed55c0a4dfb8e4185c43667b049f8e">Handle</a> <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -260,94 +519,25 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the current count of the semaphore. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current count value of the semaphore. </dd></dl>
+<p>Retrieves the underlying FreeRTOS queue handle. </p>
+<p>Provides direct access to the native FreeRTOS queue handle for compatibility with legacy code or advanced operations not covered by the C++ interface. Use with caution to avoid bypassing the safety guarantees provided by the wrapper class.</p>
+<dl class="section return"><dt>Returns</dt><dd>The underlying FreeRTOS queue handle, or nullptr if not created. </dd></dl>
 
 </div>
 </div>
-<a id="af215c754c4d99724da5d5e212960f4ce" name="af215c754c4d99724da5d5e212960f4ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af215c754c4d99724da5d5e212960f4ce">&#9670;&#160;</a></span>give()</h2>
+<a id="a0f3d74f48ace228436f8cf74c98cdb61" name="a0f3d74f48ace228436f8cf74c98cdb61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f3d74f48ace228436f8cf74c98cdb61">&#9670;&#160;</a></span>isCreated()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::give </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gives a token to the semaphore. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if a token was given, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a97ac23e2c0fb9235e1e13a56dcc27c23">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_af215c754c4d99724da5d5e212960f4ce_cgraph.svg" width="614" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4ae84249321e279cf12aee9ddc35c138" name="a4ae84249321e279cf12aee9ddc35c138"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ae84249321e279cf12aee9ddc35c138">&#9670;&#160;</a></span>giveFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::giveFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gives a token to the semaphore from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if a token was given, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#af2bf09cd3cb15cab16883862889e96c7">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_a4ae84249321e279cf12aee9ddc35c138_cgraph.svg" width="614" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a5b5b1727e5e3070178e377402ffff3dc" name="a5b5b1727e5e3070178e377402ffff3dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b5b1727e5e3070178e377402ffff3dc">&#9670;&#160;</a></span>isCreated()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::isCreated </td>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::isCreated </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -355,77 +545,527 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the semaphore has been created. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if the semaphore is created, false otherwise. </dd></dl>
+<p>Checks if the queue has been successfully created and is ready for operations. </p>
+<p>Determines whether the queue has been properly initialized and is available for message operations. Returns false if create() or createStatic() has not been called successfully. Useful for validating queue state before attempting operations.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if queue is created and ready for use, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_a0f3d74f48ace228436f8cf74c98cdb61_icgraph.svg" width="375" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#a01db2bc6a677e5c062f9b9d3c14d8599">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_a5b5b1727e5e3070178e377402ffff3dc_cgraph.svg" width="404" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
 </div>
 </div>
-<a id="ab7c2787534dcdaa60f40f4a0e75f008f" name="ab7c2787534dcdaa60f40f4a0e75f008f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7c2787534dcdaa60f40f4a0e75f008f">&#9670;&#160;</a></span>take()</h2>
+<a id="a1a2d22ca72d85b6773a07fd04254c9c3" name="a1a2d22ca72d85b6773a07fd04254c9c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a2d22ca72d85b6773a07fd04254c9c3">&#9670;&#160;</a></span>isEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::take </td>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::isEmpty </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ticksWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the queue contains no elements. </p>
+<p>Determines whether the queue is completely empty with no stored elements. This is a convenience method that checks if the message count is zero. Thread-safe and useful for implementing non-blocking receive logic or determining if queue processing is needed.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if queue contains no elements, <span class="tt">false</span> if elements are present or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="ac2f6f8d52b4350b0e39e8c95a599aa6b" name="ac2f6f8d52b4350b0e39e8c95a599aa6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2f6f8d52b4350b0e39e8c95a599aa6b">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::isFull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the queue has reached its maximum capacity. </p>
+<p>Determines whether the queue is completely full and cannot accept additional elements without blocking or failing. This is a convenience method that compares the current message count against the maximum capacity. Thread-safe and useful for implementing non-blocking send logic or flow control mechanisms.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if queue is at maximum capacity, <span class="tt">false</span> if space is available or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="a1e223cbafa900fd6969885012b6ca712" name="a1e223cbafa900fd6969885012b6ca712"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e223cbafa900fd6969885012b6ca712">&#9670;&#160;</a></span>messagesWaiting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::messagesWaiting </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the number of elements currently waiting in the queue. </p>
+<p>Returns the current number of elements stored in the queue. This value can change between calls due to concurrent operations from other tasks or ISRs. Thread-safe and can be called from both task and ISR contexts. Useful for monitoring queue utilization and implementing flow control logic.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current number of elements in the queue, or 0 if queue is invalid. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_a1e223cbafa900fd6969885012b6ca712_icgraph.svg" width="422" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5674ef18b4ffe44f7f0825f6b08028a6" name="a5674ef18b4ffe44f7f0825f6b08028a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5674ef18b4ffe44f7f0825f6b08028a6">&#9670;&#160;</a></span>messagesWaitingFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::messagesWaitingFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the number of elements waiting in the queue from interrupt service routine context. </p>
+<p>ISR-safe version for checking queue occupancy from interrupt context. Returns the current number of elements without blocking or disabling interrupts. The value may change immediately after the call due to concurrent operations. Should only be called from ISR context for optimal performance.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current number of elements in the queue, or 0 if queue is invalid. </dd></dl>
+
+</div>
+</div>
+<a id="a1b1e58bed5afed73037ee94563cd96b9" name="a1b1e58bed5afed73037ee94563cd96b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b1e58bed5afed73037ee94563cd96b9">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Boolean conversion operator for convenient validity checking. </p>
+<p>Provides implicit conversion to boolean for convenient use in conditional statements. Equivalent to calling isCreated() but allows for more natural syntax in control flow expressions. Returns true if the queue has been successfully created.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the queue is valid and created, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a4e52ad6c96931a2a2cb5ac9df53f4e19" name="a4e52ad6c96931a2a2cb5ac9df53f4e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e52ad6c96931a2a2cb5ac9df53f4e19">&#9670;&#160;</a></span>operator Handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::operator <a class="el" href="#a60ed55c0a4dfb8e4185c43667b049f8e">Handle</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implicit conversion operator to FreeRTOS queue handle. </p>
+<p>Provides automatic conversion to the underlying FreeRTOS handle type for compatibility with native FreeRTOS APIs. Allows the Queue object to be used directly with FreeRTOS functions that require a QueueHandle_t parameter.</p>
+<dl class="section return"><dt>Returns</dt><dd>The underlying FreeRTOS queue handle. </dd></dl>
+
+</div>
+</div>
+<a id="afcdd1a7e60b4a2a4b795d18541192919" name="afcdd1a7e60b4a2a4b795d18541192919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcdd1a7e60b4a2a4b795d18541192919">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp; <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d6/daa/a00187.html">Queue</a>&lt; T, QUEUE_LENGTH &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Takes a token from the semaphore, waiting up to the specified number of ticks. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ticksWait</td><td>Maximum number of ticks to wait for a token. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>True if a token was taken, false otherwise. </dd></dl>
-
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#aab5deb1c3e21a206e7e4b6a2365d3562">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_ab7c2787534dcdaa60f40f4a0e75f008f_cgraph.svg" width="614" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Deleted copy assignment operator to prevent resource duplication. </p>
+<p>Prevents assignment operations that could compromise the exclusive ownership model of the queue. Move semantics should be used instead for transferring ownership of queue resources between objects. </p>
 
 </div>
 </div>
-<a id="a5a70f9f956c6bc47de65c1b6c8fd36e7" name="a5a70f9f956c6bc47de65c1b6c8fd36e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a70f9f956c6bc47de65c1b6c8fd36e7">&#9670;&#160;</a></span>takeFromISR()</h2>
+<a id="a3509e79003014402d3b78ba46c2ecac9" name="a3509e79003014402d3b78ba46c2ecac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3509e79003014402d3b78ba46c2ecac9">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::takeFromISR </td>
+          <td class="memname"><a class="el" href="../../d6/daa/a00187.html">Queue</a> &amp; <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d6/daa/a00187.html">Queue</a>&lt; T, QUEUE_LENGTH &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator for efficient queue ownership transfer. </p>
+<p>Enables assignment-based transfer of queue ownership between objects. If the current queue is active, it is properly destroyed before taking ownership of the queue from the source object. The source queue is left in an uncreated state after the operation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source queue object to transfer ownership from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this queue after ownership transfer. </dd></dl>
+
+</div>
+</div>
+<a id="abf25a784d1d638998b6c01351366916d" name="abf25a784d1d638998b6c01351366916d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf25a784d1d638998b6c01351366916d">&#9670;&#160;</a></span>overwrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::overwrite </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overwrites the element at the back of the queue for single-element queues. </p>
+<p>Unconditionally writes an element to a single-element queue, overwriting any existing element without blocking. This operation is only valid for queues with length 1 and provides a mechanism for always maintaining the most recent value. Useful for status updates or sensor readings where only the latest value matters. Should only be called from task context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element that will overwrite the queue contents. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully overwritten, <span class="tt">false</span> if queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="af693422aa6784e061d745f06a7847d77" name="af693422aa6784e061d745f06a7847d77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af693422aa6784e061d745f06a7847d77">&#9670;&#160;</a></span>overwriteFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::overwriteFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overwrites the element at the back of the queue from interrupt service routine context. </p>
+<p>Non-blocking overwrite operation designed for ISR use with single-element queues. Unconditionally replaces the queue contents with the new element without regard to previous contents. Automatically handles context switching if a task is unblocked by the operation. Should only be called from ISR context and only with length-1 queues.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element that will overwrite the queue contents. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully overwritten, <span class="tt">false</span> if queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="ab170b313c75dec7ad15c1dd9eea13576" name="ab170b313c75dec7ad15c1dd9eea13576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab170b313c75dec7ad15c1dd9eea13576">&#9670;&#160;</a></span>peek()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::peek </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Peeks at the next element in the queue without removing it. </p>
+<p>Examines the element at the front of the queue without removing it, allowing inspection of the next available element. The element remains in the queue for subsequent receive operations. Supports optional blocking if no element is immediately available. Should only be called from task context, not from ISRs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">item</td><td>Reference to variable where the peeked element will be copied. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for an element (0 for non-blocking). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an element was successfully peeked, <span class="tt">false</span> if timeout occurred or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="aea8b3ad94873e21ce0d101d244e11202" name="aea8b3ad94873e21ce0d101d244e11202"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea8b3ad94873e21ce0d101d244e11202">&#9670;&#160;</a></span>peekFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::peekFromISR </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Peeks at the next element in the queue from interrupt service routine context. </p>
+<p>Non-blocking peek operation designed for use within interrupt service routines. Examines the element at the front of the queue without removing it. If no element is available, the operation fails immediately. Should only be called from ISR context and provides a safe way to inspect queue contents without blocking.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">item</td><td>Reference to variable where the peeked element will be copied. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an element was successfully peeked, <span class="tt">false</span> if queue empty or invalid. </dd></dl>
+
+</div>
+</div>
+<a id="a9292c666c3aeb8790a21a944baa3409c" name="a9292c666c3aeb8790a21a944baa3409c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9292c666c3aeb8790a21a944baa3409c">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::receive </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receives an element from the front of the queue with optional blocking. </p>
+<p>Attempts to receive an element from the front of the queue with configurable blocking behavior. If no element is available and a timeout is specified, the calling task will block until an element becomes available or the timeout expires. The received element is copied into the provided variable. Should only be called from task context, not from ISRs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">item</td><td>Reference to variable where the received element will be stored. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for an element (portMAX_DELAY for indefinite). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an element was successfully received, <span class="tt">false</span> if timeout occurred or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="afeef803e4418fa090b0e3e677f157383" name="afeef803e4418fa090b0e3e677f157383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afeef803e4418fa090b0e3e677f157383">&#9670;&#160;</a></span>receiveFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::receiveFromISR </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receives an element from the queue in interrupt service routine context. </p>
+<p>Non-blocking receive operation designed for use within interrupt service routines. If no element is available, the operation fails immediately without blocking. Automatically handles context switching if a higher priority task is unblocked by the receive operation. Should only be called from ISR context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">item</td><td>Reference to variable where the received element will be stored. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an element was successfully received, <span class="tt">false</span> if queue empty or invalid. </dd></dl>
+
+</div>
+</div>
+<a id="a639b7ccc44cf1fd2bff4df0682e9084b" name="a639b7ccc44cf1fd2bff4df0682e9084b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a639b7ccc44cf1fd2bff4df0682e9084b">&#9670;&#160;</a></span>removeFromRegistry()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::removeFromRegistry </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -433,26 +1073,279 @@ Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Takes a token from the semaphore from ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if a token was taken, false otherwise. </dd></dl>
+<p>Removes the queue from the FreeRTOS registry. </p>
+<p>Unregisters the queue from the FreeRTOS debugging registry. This should be called before destroying the queue or when registry tracking is no longer needed. Safe to call multiple times or on unregistered queues. Helps maintain clean registry state during queue lifecycle management. </p>
 
-<p>Reimplemented from <a class="el" href="../../dc/d52/a00183.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f">RTOS::SemaphoreBase</a>.</p>
-<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/daa/a00187_a5a70f9f956c6bc47de65c1b6c8fd36e7_cgraph.svg" width="614" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="aa7c218336b7d4ad7b7581cbf691193ee" name="aa7c218336b7d4ad7b7581cbf691193ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7c218336b7d4ad7b7581cbf691193ee">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resets the queue to its initial empty state without destroying it. </p>
+<p>Clears all messages from the queue and returns it to the empty state as if it had just been created. Any tasks blocked on queue operations will be unblocked. This operation is useful for error recovery or system reset scenarios where the queue structure should be preserved but all pending messages discarded. </p>
+
+</div>
+</div>
+<a id="ac5c60975c0a8cd968260fcd3a05e3e96" name="ac5c60975c0a8cd968260fcd3a05e3e96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5c60975c0a8cd968260fcd3a05e3e96">&#9670;&#160;</a></span>send()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an element to the back of the queue with optional blocking. </p>
+<p>Attempts to add an element to the back (tail) of the queue with configurable blocking behavior. If the queue is full and a timeout is specified, the calling task will block until space becomes available or the timeout expires. This is the standard FIFO queue operation. Should only be called from task context, not from ISRs.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element to be sent to the queue. </td></tr>
+    <tr><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for space (portMAX_DELAY for indefinite). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully sent, <span class="tt">false</span> if timeout occurred or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="ad5fb66060e0536ddd3396c190b5ffdfb" name="ad5fb66060e0536ddd3396c190b5ffdfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5fb66060e0536ddd3396c190b5ffdfb">&#9670;&#160;</a></span>sendToBack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::sendToBack </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an element to the back of the queue with optional blocking. </p>
+<p>Identical to send() method - adds an element to the back (tail) of the queue implementing standard FIFO behavior. Provided for explicit clarity when queue position matters. If the queue is full, the calling task will block until space becomes available or timeout expires. Should only be called from task context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element to be sent to the back of the queue. </td></tr>
+    <tr><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for space (portMAX_DELAY for indefinite). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully sent, <span class="tt">false</span> if timeout occurred or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="a132f748b68eb9de688d1fc8b24b51998" name="a132f748b68eb9de688d1fc8b24b51998"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132f748b68eb9de688d1fc8b24b51998">&#9670;&#160;</a></span>sendToBackFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::sendToBackFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an element to the back of the queue from interrupt service routine context. </p>
+<p>Non-blocking send operation designed for use within interrupt service routines. Attempts to add an element to the back of the queue without blocking. If the queue is full, the operation fails immediately. Automatically handles context switching if a higher priority task is unblocked by the send operation. Should only be called from ISR context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element to be sent to the queue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully sent, <span class="tt">false</span> if queue full or invalid. </dd></dl>
+
+</div>
+</div>
+<a id="ac48aad8ad9966d83d8c7ce05cc981bbd" name="ac48aad8ad9966d83d8c7ce05cc981bbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac48aad8ad9966d83d8c7ce05cc981bbd">&#9670;&#160;</a></span>sendToFront()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::sendToFront </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxTicksToWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an element to the front of the queue with optional blocking. </p>
+<p>Attempts to add an element to the front (head) of the queue, effectively implementing LIFO (stack-like) behavior. If the queue is full and a timeout is specified, the calling task will block until space becomes available. Useful for priority or urgent message handling. Should only be called from task context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element to be sent to the front of the queue. </td></tr>
+    <tr><td class="paramname">maxTicksToWait</td><td>Maximum FreeRTOS ticks to wait for space (portMAX_DELAY for indefinite). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully sent, <span class="tt">false</span> if timeout occurred or queue invalid. </dd></dl>
+
+</div>
+</div>
+<a id="aef7846943a286360b8b44da5ee4bddd9" name="aef7846943a286360b8b44da5ee4bddd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7846943a286360b8b44da5ee4bddd9">&#9670;&#160;</a></span>sendToFrontFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::sendToFrontFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an element to the front of the queue from interrupt service routine context. </p>
+<p>Non-blocking send operation for ISR use that adds an element to the front of the queue. If the queue is full, the operation fails immediately without blocking. Implements LIFO behavior useful for urgent or priority messages from interrupt context. Automatically handles context switching if needed. Should only be called from ISR context.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Constant reference to the element to be sent to the front of the queue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the element was successfully sent, <span class="tt">false</span> if queue full or invalid. </dd></dl>
+
+</div>
+</div>
+<a id="aa608a884271c8894f23d666d9d15fae3" name="aa608a884271c8894f23d666d9d15fae3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa608a884271c8894f23d666d9d15fae3">&#9670;&#160;</a></span>spacesAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t QUEUE_LENGTH = 1&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d6/daa/a00187.html">RTOS::Queue</a>&lt; T, QUEUE_LENGTH &gt;::spacesAvailable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the number of free spaces available in the queue. </p>
+<p>Returns the current number of free slots available for new elements. This value represents how many additional elements can be added before the queue becomes full. Thread-safe and can be called from both task and ISR contexts. Useful for flow control and preventing blocking on send operations.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current number of available spaces, or 0 if queue is invalid or full. </dd></dl>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><b>SemaphoreCounting.hpp</b></li>
+<li><b>Queue.hpp</b></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -467,7 +1360,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/dce/a00143.html">RTOS</a></li><li class="navelem"><a href="../../d6/daa/a00187.html">SemaphoreCounting</a></li>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d6/daa/a00187.html">Queue</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

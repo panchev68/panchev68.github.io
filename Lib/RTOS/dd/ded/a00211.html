@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: Semaphore</title>
+<title>RTOS: RTOS::Task Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('dd/ded/a00211.html','../../',''); });
+$(function(){initNavTree('dd/ded/a00211.html','../../','dc/d31/a00208'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,38 +91,1360 @@ $(function(){initNavTree('dd/ded/a00211.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Semaphore</div></div>
+  <div class="headertitle"><div class="title">RTOS::Task Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the Semaphore class for synchronizing tasks in FreeRTOS.</p>
-<p>Example usage of the Semaphore class for synchronizing tasks in FreeRTOS.</p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;RTOS.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d7d/a00161.html">RTOS::Semaphore</a> semaphore;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> senderTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d7d/a00161.html#a89c77ce82882d1c04a9adbb0a4816a79">create</a>();</div>
-<div class="line">    <span class="comment">// Signal the semaphore to unblock waiting tasks</span></div>
-<div class="line">    semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d7d/a00161.html#aad3313acf8b7b8d3282fa087e94699a3">give</a>();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> receiverTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    semaphore.<a class="code hl_function" href="../../d6/d7d/a00161.html#a89c77ce82882d1c04a9adbb0a4816a79">create</a>();</div>
-<div class="line">    <span class="comment">// Wait for the semaphore to be given</span></div>
-<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/d7d/a00161.html#aaff88f643c79c75553f7f678ee9a4c64">take</a>(100)) {</div>
-<div class="line">        <span class="comment">// Semaphore was taken, proceed with critical section</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00161_html"><div class="ttname"><a href="../../d6/d7d/a00161.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore for FreeRTOS.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:20</div></div>
-<div class="ttc" id="aa00161_html_a89c77ce82882d1c04a9adbb0a4816a79"><div class="ttname"><a href="../../d6/d7d/a00161.html#a89c77ce82882d1c04a9adbb0a4816a79">RTOS::Semaphore::create</a></div><div class="ttdeci">bool create() override</div><div class="ttdoc">Creates a binary semaphore if not already created and asserts on failure.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:38</div></div>
-<div class="ttc" id="aa00161_html_aad3313acf8b7b8d3282fa087e94699a3"><div class="ttname"><a href="../../d6/d7d/a00161.html#aad3313acf8b7b8d3282fa087e94699a3">RTOS::Semaphore::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore, making it available to other tasks.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:63</div></div>
-<div class="ttc" id="aa00161_html_aaff88f643c79c75553f7f678ee9a4c64"><div class="ttname"><a href="../../d6/d7d/a00161.html#aaff88f643c79c75553f7f678ee9a4c64">RTOS::Semaphore::take</a></div><div class="ttdeci">bool take(uint32_t waitTime=portMAX_DELAY) override</div><div class="ttdoc">Takes the semaphore, waiting up to the specified time.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:57</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>C++ wrapper for FreeRTOS task management. </p>
+<p>Encapsulates task creation, control, and notification APIs with RAII resource management. Provides type-safe operations and modern C++ interface for embedded task management. </p>
+</div>
+<p><code>#include &lt;Task.hpp&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Data" id="r_Data"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd5/a00215.html">Data</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Metadata for a FreeRTOS task.  <a href="../../d3/dd5/a00215.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:add02795e71b66883a93beaf1ff57fa7f" id="r_add02795e71b66883a93beaf1ff57fa7f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a> : uint32_t { <br />
+&#160;&#160;<a class="el" href="#add02795e71b66883a93beaf1ff57fa7fa24ce802dad4f363a652f77ce888c9b91">NO_ACTION</a> = eNoAction
+, <br />
+&#160;&#160;<a class="el" href="#add02795e71b66883a93beaf1ff57fa7fa584142dc5514c9123172a12e9f7f150f">SET_BITS</a> = eSetBits
+, <br />
+&#160;&#160;<a class="el" href="#add02795e71b66883a93beaf1ff57fa7fa90cf1f5206b348a822cc1a453a587534">INCREMENT</a> = eIncrement
+, <br />
+&#160;&#160;<a class="el" href="#add02795e71b66883a93beaf1ff57fa7fa9cfe01dd4b87702dc2867fc27635501f">SET_VALUE_WITH_OVERWRITE</a> = eSetValueWithOverwrite
+, <br />
+&#160;&#160;<a class="el" href="#add02795e71b66883a93beaf1ff57fa7fa07e53fb05649b7d8f7020183075a9afb">SET_VALUE_WITHOUT_OVERWRITE</a> = eSetValueWithoutOverwrite
+<br />
+ }</td></tr>
+<tr class="memdesc:add02795e71b66883a93beaf1ff57fa7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notification action types for task notifications.  <a href="#add02795e71b66883a93beaf1ff57fa7f">More...</a><br /></td></tr>
+<tr class="memitem:a357f3c6aaef67bcff1043d89bd785281" id="r_a357f3c6aaef67bcff1043d89bd785281"><td class="memItemLeft" align="right" valign="top"><a id="a357f3c6aaef67bcff1043d89bd785281" name="a357f3c6aaef67bcff1043d89bd785281"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>Handle</b> = TaskHandle_t</td></tr>
+<tr class="memdesc:a357f3c6aaef67bcff1043d89bd785281"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS task handle type. <br /></td></tr>
+<tr class="memitem:a46b832087eb0a767ed881203db958980" id="r_a46b832087eb0a767ed881203db958980"><td class="memItemLeft" align="right" valign="top"><a id="a46b832087eb0a767ed881203db958980" name="a46b832087eb0a767ed881203db958980"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>NotificationBits</b> = std::bitset&lt;32&gt;</td></tr>
+<tr class="memdesc:a46b832087eb0a767ed881203db958980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type for notification bits manipulation. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a8079bed5750c40f336e23799d0883834" id="r_a8079bed5750c40f336e23799d0883834"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8079bed5750c40f336e23799d0883834">Task</a> (size_t stackSize=<a class="el" href="#a0fbc17e854d7364a8ef7e94423efade9">DEFAULT_STACK_SIZE</a>, UBaseType_t priority=<a class="el" href="#a5bc3caa3e9a7fb9d2ca053e0562357b5">DEFAULT_TASK_PRIORITY</a>)</td></tr>
+<tr class="memdesc:a8079bed5750c40f336e23799d0883834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of Task.  <br /></td></tr>
+<tr class="memitem:a7346905f52861bde0f626ba053f7ec6e" id="r_a7346905f52861bde0f626ba053f7ec6e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7346905f52861bde0f626ba053f7ec6e">Task</a> (const std::string &amp;name, size_t stackSize=<a class="el" href="#a0fbc17e854d7364a8ef7e94423efade9">DEFAULT_STACK_SIZE</a>, UBaseType_t priority=<a class="el" href="#a5bc3caa3e9a7fb9d2ca053e0562357b5">DEFAULT_TASK_PRIORITY</a>)</td></tr>
+<tr class="memdesc:a7346905f52861bde0f626ba053f7ec6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of Task.  <br /></td></tr>
+<tr class="memitem:af8a4dec2eae733177c3aac4e4a05704d" id="r_af8a4dec2eae733177c3aac4e4a05704d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8a4dec2eae733177c3aac4e4a05704d">Task</a> (<a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a> handle)</td></tr>
+<tr class="memdesc:af8a4dec2eae733177c3aac4e4a05704d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of Task.  <br /></td></tr>
+<tr class="memitem:a77372b04c52dd05ad2b282f11b9443a5" id="r_a77372b04c52dd05ad2b282f11b9443a5"><td class="memItemLeft" align="right" valign="top"><a id="a77372b04c52dd05ad2b282f11b9443a5" name="a77372b04c52dd05ad2b282f11b9443a5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Task</b> (const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;other)=default</td></tr>
+<tr class="memdesc:a77372b04c52dd05ad2b282f11b9443a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor of Task. <br /></td></tr>
+<tr class="memitem:a35151c84fc2cd41b1af5b4ad1f7cd4ac" id="r_a35151c84fc2cd41b1af5b4ad1f7cd4ac"><td class="memItemLeft" align="right" valign="top"><a id="a35151c84fc2cd41b1af5b4ad1f7cd4ac" name="a35151c84fc2cd41b1af5b4ad1f7cd4ac"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Task</b> (<a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;&amp;other)=default</td></tr>
+<tr class="memdesc:a35151c84fc2cd41b1af5b4ad1f7cd4ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor of Task. <br /></td></tr>
+<tr class="memitem:a26e26644aafa456d7031e22dbb085c4a" id="r_a26e26644aafa456d7031e22dbb085c4a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26e26644aafa456d7031e22dbb085c4a">operator=</a> (const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;other)=default</td></tr>
+<tr class="memdesc:a26e26644aafa456d7031e22dbb085c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment operator.  <br /></td></tr>
+<tr class="memitem:adfab89d0cb0473c346a51dd7f7ba2345" id="r_adfab89d0cb0473c346a51dd7f7ba2345"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adfab89d0cb0473c346a51dd7f7ba2345">operator=</a> (<a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;&amp;other)=default</td></tr>
+<tr class="memdesc:adfab89d0cb0473c346a51dd7f7ba2345"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment operator.  <br /></td></tr>
+<tr class="memitem:a0599d075062867fe806062c718a649f5" id="r_a0599d075062867fe806062c718a649f5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0599d075062867fe806062c718a649f5">operator==</a> (const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;other) const</td></tr>
+<tr class="memdesc:a0599d075062867fe806062c718a649f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks equality with another Task.  <br /></td></tr>
+<tr class="memitem:aea20eb6ee2244a2d417e7118ac3c4af7" id="r_aea20eb6ee2244a2d417e7118ac3c4af7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea20eb6ee2244a2d417e7118ac3c4af7">operator!=</a> (const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;other) const</td></tr>
+<tr class="memdesc:aea20eb6ee2244a2d417e7118ac3c4af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks inequality with another Task.  <br /></td></tr>
+<tr class="memitem:a18b3219309c63f3e8002e726902aa1e9" id="r_a18b3219309c63f3e8002e726902aa1e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18b3219309c63f3e8002e726902aa1e9">start</a> (std::function&lt; void()&gt; func)</td></tr>
+<tr class="memdesc:a18b3219309c63f3e8002e726902aa1e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the task with a callable.  <br /></td></tr>
+<tr class="memitem:a59896af0d55197fe3e42c1b579fe8d72" id="r_a59896af0d55197fe3e42c1b579fe8d72"><td class="memItemLeft" align="right" valign="top"><a id="a59896af0d55197fe3e42c1b579fe8d72" name="a59896af0d55197fe3e42c1b579fe8d72"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>stop</b> ()</td></tr>
+<tr class="memdesc:a59896af0d55197fe3e42c1b579fe8d72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops (deletes) the task. <br /></td></tr>
+<tr class="memitem:a2b44b116a5594b0ffdfbb86c77981020" id="r_a2b44b116a5594b0ffdfbb86c77981020"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2b44b116a5594b0ffdfbb86c77981020">getHandle</a> () const</td></tr>
+<tr class="memdesc:a2b44b116a5594b0ffdfbb86c77981020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task handle.  <br /></td></tr>
+<tr class="memitem:a9df6cd1299039d3b039d4335e3c82a5d" id="r_a9df6cd1299039d3b039d4335e3c82a5d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9df6cd1299039d3b039d4335e3c82a5d">operator Handle</a> () const</td></tr>
+<tr class="memdesc:a9df6cd1299039d3b039d4335e3c82a5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to Handle.  <br /></td></tr>
+<tr class="memitem:ae9215f33bbd3088eda8df473e1cb5ff9" id="r_ae9215f33bbd3088eda8df473e1cb5ff9"><td class="memItemLeft" align="right" valign="top"><a id="ae9215f33bbd3088eda8df473e1cb5ff9" name="ae9215f33bbd3088eda8df473e1cb5ff9"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>suspend</b> ()</td></tr>
+<tr class="memdesc:ae9215f33bbd3088eda8df473e1cb5ff9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Suspends the task. <br /></td></tr>
+<tr class="memitem:a2eeb82ee21502e313c8580cff4013ee4" id="r_a2eeb82ee21502e313c8580cff4013ee4"><td class="memItemLeft" align="right" valign="top"><a id="a2eeb82ee21502e313c8580cff4013ee4" name="a2eeb82ee21502e313c8580cff4013ee4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>resume</b> ()</td></tr>
+<tr class="memdesc:a2eeb82ee21502e313c8580cff4013ee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the task. <br /></td></tr>
+<tr class="memitem:a89083e60c321f7a7cbf2d6608d1c2026" id="r_a89083e60c321f7a7cbf2d6608d1c2026"><td class="memItemLeft" align="right" valign="top">UBaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89083e60c321f7a7cbf2d6608d1c2026">getPriority</a> () const</td></tr>
+<tr class="memdesc:a89083e60c321f7a7cbf2d6608d1c2026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task priority.  <br /></td></tr>
+<tr class="memitem:ad5dd75d070217769875683fed7707108" id="r_ad5dd75d070217769875683fed7707108"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5dd75d070217769875683fed7707108">setPriority</a> (UBaseType_t priority)</td></tr>
+<tr class="memdesc:ad5dd75d070217769875683fed7707108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the task priority.  <br /></td></tr>
+<tr class="memitem:ae0f25036807cee0c457782b83f0f1263" id="r_ae0f25036807cee0c457782b83f0f1263"><td class="memItemLeft" align="right" valign="top">BaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0f25036807cee0c457782b83f0f1263">resumeFromISR</a> ()</td></tr>
+<tr class="memdesc:ae0f25036807cee0c457782b83f0f1263"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resumes the task from ISR.  <br /></td></tr>
+<tr class="memitem:a3bb4b552f5222629a5c4d2ff3c735425" id="r_a3bb4b552f5222629a5c4d2ff3c735425"><td class="memItemLeft" align="right" valign="top">eTaskState&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bb4b552f5222629a5c4d2ff3c735425">getState</a> () const</td></tr>
+<tr class="memdesc:a3bb4b552f5222629a5c4d2ff3c735425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current task state.  <br /></td></tr>
+<tr class="memitem:a7220b6c68c8bfd3a7bf2dde8bc908a85" id="r_a7220b6c68c8bfd3a7bf2dde8bc908a85"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7220b6c68c8bfd3a7bf2dde8bc908a85">isRunning</a> () const</td></tr>
+<tr class="memdesc:a7220b6c68c8bfd3a7bf2dde8bc908a85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the task is running.  <br /></td></tr>
+<tr class="memitem:a3bfd4cbc4e53665dfb62b7ce34f4e876" id="r_a3bfd4cbc4e53665dfb62b7ce34f4e876"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bfd4cbc4e53665dfb62b7ce34f4e876">isSuspended</a> () const</td></tr>
+<tr class="memdesc:a3bfd4cbc4e53665dfb62b7ce34f4e876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the task is suspended.  <br /></td></tr>
+<tr class="memitem:a95403d11102fb23599ee7e9e268d2ca8" id="r_a95403d11102fb23599ee7e9e268d2ca8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95403d11102fb23599ee7e9e268d2ca8">isReady</a> () const</td></tr>
+<tr class="memdesc:a95403d11102fb23599ee7e9e268d2ca8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the task is ready.  <br /></td></tr>
+<tr class="memitem:a0025e8aba3d67884219bdf5e5b478be7" id="r_a0025e8aba3d67884219bdf5e5b478be7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0025e8aba3d67884219bdf5e5b478be7">isBlocked</a> () const</td></tr>
+<tr class="memdesc:a0025e8aba3d67884219bdf5e5b478be7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the task is blocked.  <br /></td></tr>
+<tr class="memitem:a62de4af32150099f70bb657f02d4d04e" id="r_a62de4af32150099f70bb657f02d4d04e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a62de4af32150099f70bb657f02d4d04e">isValid</a> () const</td></tr>
+<tr class="memdesc:a62de4af32150099f70bb657f02d4d04e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the task handle is valid.  <br /></td></tr>
+<tr class="memitem:ad882b4ab2fa7c41338851be2d3b2742e" id="r_ad882b4ab2fa7c41338851be2d3b2742e"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad882b4ab2fa7c41338851be2d3b2742e">getName</a> () const</td></tr>
+<tr class="memdesc:ad882b4ab2fa7c41338851be2d3b2742e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task name.  <br /></td></tr>
+<tr class="memitem:a9dff1c10062f515cbb5f2fe80b17cdcb" id="r_a9dff1c10062f515cbb5f2fe80b17cdcb"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9dff1c10062f515cbb5f2fe80b17cdcb">getStackSize</a> () const</td></tr>
+<tr class="memdesc:a9dff1c10062f515cbb5f2fe80b17cdcb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the task stack size.  <br /></td></tr>
+<tr class="memitem:a918c4a394f67e09471d0ed3e38cacc13" id="r_a918c4a394f67e09471d0ed3e38cacc13"><td class="memItemLeft" align="right" valign="top">UBaseType_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a918c4a394f67e09471d0ed3e38cacc13">getStackHighWaterMark</a> () const</td></tr>
+<tr class="memdesc:a918c4a394f67e09471d0ed3e38cacc13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the high water mark (minimum free stack space).  <br /></td></tr>
+<tr class="memitem:a0f29f5b6eaab1e098bdfc6fad99ab2d8" id="r_a0f29f5b6eaab1e098bdfc6fad99ab2d8"><td class="memItemLeft" align="right" valign="top"><a id="a0f29f5b6eaab1e098bdfc6fad99ab2d8" name="a0f29f5b6eaab1e098bdfc6fad99ab2d8"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyGive</b> () const</td></tr>
+<tr class="memdesc:a0f29f5b6eaab1e098bdfc6fad99ab2d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a notification to the task. <br /></td></tr>
+<tr class="memitem:aafce5c3c3c361f28a4d4c2ded72e1ed3" id="r_aafce5c3c3c361f28a4d4c2ded72e1ed3"><td class="memItemLeft" align="right" valign="top"><a id="aafce5c3c3c361f28a4d4c2ded72e1ed3" name="aafce5c3c3c361f28a4d4c2ded72e1ed3"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>notifyGiveFromISR</b> () const</td></tr>
+<tr class="memdesc:aafce5c3c3c361f28a4d4c2ded72e1ed3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives a notification to the task from ISR. <br /></td></tr>
+<tr class="memitem:a1e7c2d456e086dff934ed36494516b13" id="r_a1e7c2d456e086dff934ed36494516b13"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e7c2d456e086dff934ed36494516b13">notify</a> (<a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a> action, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> bits=0) const</td></tr>
+<tr class="memdesc:a1e7c2d456e086dff934ed36494516b13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a notification to the task.  <br /></td></tr>
+<tr class="memitem:abeb31933428f4869a1dab5eb18450f2d" id="r_abeb31933428f4869a1dab5eb18450f2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abeb31933428f4869a1dab5eb18450f2d">notifyFromISR</a> (<a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a> action, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> bits=0) const</td></tr>
+<tr class="memdesc:abeb31933428f4869a1dab5eb18450f2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a notification to the task from ISR.  <br /></td></tr>
+<tr class="memitem:af91f90cfb2685cfe847493d26fbd87d2" id="r_af91f90cfb2685cfe847493d26fbd87d2"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af91f90cfb2685cfe847493d26fbd87d2">notifyAndQuery</a> (<a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a> action, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> bits=0) const</td></tr>
+<tr class="memdesc:af91f90cfb2685cfe847493d26fbd87d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a notification and queries previous bits.  <br /></td></tr>
+<tr class="memitem:a0da5f9f3a04b96d0cd85f5cf3284be83" id="r_a0da5f9f3a04b96d0cd85f5cf3284be83"><td class="memItemLeft" align="right" valign="top">std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0da5f9f3a04b96d0cd85f5cf3284be83">notifyAndQueryFromISR</a> (<a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a> action, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> bits=0) const</td></tr>
+<tr class="memdesc:a0da5f9f3a04b96d0cd85f5cf3284be83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a notification and queries previous bits from ISR.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aae0ff7f767e461f4ad21258c55f5c8f1" id="r_aae0ff7f767e461f4ad21258c55f5c8f1"><td class="memItemLeft" align="right" valign="top"><a id="aae0ff7f767e461f4ad21258c55f5c8f1" name="aae0ff7f767e461f4ad21258c55f5c8f1"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>yield</b> ()</td></tr>
+<tr class="memdesc:aae0ff7f767e461f4ad21258c55f5c8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Yields the processor to another task. <br /></td></tr>
+<tr class="memitem:afa008e316d89e11019ea68538384ffc0" id="r_afa008e316d89e11019ea68538384ffc0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa008e316d89e11019ea68538384ffc0">sleep</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:afa008e316d89e11019ea68538384ffc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sleeps the current task for a given number of milliseconds.  <br /></td></tr>
+<tr class="memitem:abf1521866e5f0d8668f75b6a0dbc05a4" id="r_abf1521866e5f0d8668f75b6a0dbc05a4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf1521866e5f0d8668f75b6a0dbc05a4">delay</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:abf1521866e5f0d8668f75b6a0dbc05a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays the current task for a given number of milliseconds.  <br /></td></tr>
+<tr class="memitem:a9cde35c56ca506098def0231a988e60b" id="r_a9cde35c56ca506098def0231a988e60b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9cde35c56ca506098def0231a988e60b">delayTicks</a> (TickType_t ticks)</td></tr>
+<tr class="memdesc:a9cde35c56ca506098def0231a988e60b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays the current task for a given number of ticks.  <br /></td></tr>
+<tr class="memitem:a89dfd0a859ab737212f21babafa5becf" id="r_a89dfd0a859ab737212f21babafa5becf"><td class="memItemLeft" align="right" valign="top">static uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a89dfd0a859ab737212f21babafa5becf">waitForNotification</a> (bool clearOnExit=true, TickType_t timeout=portMAX_DELAY)</td></tr>
+<tr class="memdesc:a89dfd0a859ab737212f21babafa5becf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for a notification.  <br /></td></tr>
+<tr class="memitem:a3a23a27894579bc8f462e7df2612ed4c" id="r_a3a23a27894579bc8f462e7df2612ed4c"><td class="memItemLeft" align="right" valign="top">static std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a23a27894579bc8f462e7df2612ed4c">waitForNotificationValue</a> (bool clearOnExit=true, TickType_t timeout=portMAX_DELAY)</td></tr>
+<tr class="memdesc:a3a23a27894579bc8f462e7df2612ed4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for any notification value.  <br /></td></tr>
+<tr class="memitem:a0a579fda37e8900726af654d04094467" id="r_a0a579fda37e8900726af654d04094467"><td class="memItemLeft" align="right" valign="top">static std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a579fda37e8900726af654d04094467">waitForNotificationBits</a> (<a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> bitsToWaitFor, bool clearOnExit=true, bool waitForAllBits=false, TickType_t timeout=portMAX_DELAY)</td></tr>
+<tr class="memdesc:a0a579fda37e8900726af654d04094467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for specific notification bits.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a5bc3caa3e9a7fb9d2ca053e0562357b5" id="r_a5bc3caa3e9a7fb9d2ca053e0562357b5"><td class="memItemLeft" align="right" valign="top"><a id="a5bc3caa3e9a7fb9d2ca053e0562357b5" name="a5bc3caa3e9a7fb9d2ca053e0562357b5"></a>
+static constexpr UBaseType_t&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_TASK_PRIORITY</b> = tskIDLE_PRIORITY</td></tr>
+<tr class="memdesc:a5bc3caa3e9a7fb9d2ca053e0562357b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default task priority. <br /></td></tr>
+<tr class="memitem:a3a38f4d57eb721c76f5c8f7d2ac07d6e" id="r_a3a38f4d57eb721c76f5c8f7d2ac07d6e"><td class="memItemLeft" align="right" valign="top"><a id="a3a38f4d57eb721c76f5c8f7d2ac07d6e" name="a3a38f4d57eb721c76f5c8f7d2ac07d6e"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>MIN_STACK_SIZE</b> = configMINIMAL_STACK_SIZE</td></tr>
+<tr class="memdesc:a3a38f4d57eb721c76f5c8f7d2ac07d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minimum stack size. <br /></td></tr>
+<tr class="memitem:a0fbc17e854d7364a8ef7e94423efade9" id="r_a0fbc17e854d7364a8ef7e94423efade9"><td class="memItemLeft" align="right" valign="top"><a id="a0fbc17e854d7364a8ef7e94423efade9" name="a0fbc17e854d7364a8ef7e94423efade9"></a>
+static constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><b>DEFAULT_STACK_SIZE</b> = configMINIMAL_STACK_SIZE * 4</td></tr>
+<tr class="memdesc:a0fbc17e854d7364a8ef7e94423efade9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default stack size. <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="add02795e71b66883a93beaf1ff57fa7f" name="add02795e71b66883a93beaf1ff57fa7f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add02795e71b66883a93beaf1ff57fa7f">&#9670;&#160;</a></span>NotifyAction</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">RTOS::Task::NotifyAction</a> : uint32_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Notification action types for task notifications. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="add02795e71b66883a93beaf1ff57fa7fa24ce802dad4f363a652f77ce888c9b91" name="add02795e71b66883a93beaf1ff57fa7fa24ce802dad4f363a652f77ce888c9b91"></a>NO_ACTION&#160;</td><td class="fielddoc"><p>No action. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add02795e71b66883a93beaf1ff57fa7fa584142dc5514c9123172a12e9f7f150f" name="add02795e71b66883a93beaf1ff57fa7fa584142dc5514c9123172a12e9f7f150f"></a>SET_BITS&#160;</td><td class="fielddoc"><p>Set bits. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add02795e71b66883a93beaf1ff57fa7fa90cf1f5206b348a822cc1a453a587534" name="add02795e71b66883a93beaf1ff57fa7fa90cf1f5206b348a822cc1a453a587534"></a>INCREMENT&#160;</td><td class="fielddoc"><p>Increment. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add02795e71b66883a93beaf1ff57fa7fa9cfe01dd4b87702dc2867fc27635501f" name="add02795e71b66883a93beaf1ff57fa7fa9cfe01dd4b87702dc2867fc27635501f"></a>SET_VALUE_WITH_OVERWRITE&#160;</td><td class="fielddoc"><p>Set value with overwrite. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="add02795e71b66883a93beaf1ff57fa7fa07e53fb05649b7d8f7020183075a9afb" name="add02795e71b66883a93beaf1ff57fa7fa07e53fb05649b7d8f7020183075a9afb"></a>SET_VALUE_WITHOUT_OVERWRITE&#160;</td><td class="fielddoc"><p>Set value without overwrite. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8079bed5750c40f336e23799d0883834" name="a8079bed5750c40f336e23799d0883834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8079bed5750c40f336e23799d0883834">&#9670;&#160;</a></span>Task() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>stackSize</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a0fbc17e854d7364a8ef7e94423efade9">DEFAULT_STACK_SIZE</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a5bc3caa3e9a7fb9d2ca053e0562357b5">DEFAULT_TASK_PRIORITY</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of Task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stackSize</td><td>Stack size in bytes. </td></tr>
+    <tr><td class="paramname">priority</td><td>Task priority. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a8079bed5750c40f336e23799d0883834_icgraph.svg" width="352" height="291"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7346905f52861bde0f626ba053f7ec6e" name="a7346905f52861bde0f626ba053f7ec6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7346905f52861bde0f626ba053f7ec6e">&#9670;&#160;</a></span>Task() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Task::Task </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>stackSize</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a0fbc17e854d7364a8ef7e94423efade9">DEFAULT_STACK_SIZE</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a5bc3caa3e9a7fb9d2ca053e0562357b5">DEFAULT_TASK_PRIORITY</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of Task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Task name. </td></tr>
+    <tr><td class="paramname">stackSize</td><td>Stack size in bytes. </td></tr>
+    <tr><td class="paramname">priority</td><td>Task priority. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af8a4dec2eae733177c3aac4e4a05704d" name="af8a4dec2eae733177c3aac4e4a05704d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8a4dec2eae733177c3aac4e4a05704d">&#9670;&#160;</a></span>Task() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Task::Task </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a></td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of Task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Task handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="abf1521866e5f0d8668f75b6a0dbc05a4" name="abf1521866e5f0d8668f75b6a0dbc05a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf1521866e5f0d8668f75b6a0dbc05a4">&#9670;&#160;</a></span>delay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Task::delay </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays the current task for a given number of milliseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Milliseconds to delay. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_abf1521866e5f0d8668f75b6a0dbc05a4_cgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9cde35c56ca506098def0231a988e60b" name="a9cde35c56ca506098def0231a988e60b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cde35c56ca506098def0231a988e60b">&#9670;&#160;</a></span>delayTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Task::delayTicks </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Delays the current task for a given number of ticks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Ticks to delay. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a9cde35c56ca506098def0231a988e60b_icgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2b44b116a5594b0ffdfbb86c77981020" name="a2b44b116a5594b0ffdfbb86c77981020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b44b116a5594b0ffdfbb86c77981020">&#9670;&#160;</a></span>getHandle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a> RTOS::Task::getHandle </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the task handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Task handle. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a2b44b116a5594b0ffdfbb86c77981020_icgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad882b4ab2fa7c41338851be2d3b2742e" name="ad882b4ab2fa7c41338851be2d3b2742e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad882b4ab2fa7c41338851be2d3b2742e">&#9670;&#160;</a></span>getName()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string &amp; RTOS::Task::getName </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the task name. </p>
+<dl class="section return"><dt>Returns</dt><dd>Task name. </dd></dl>
+
+</div>
+</div>
+<a id="a89083e60c321f7a7cbf2d6608d1c2026" name="a89083e60c321f7a7cbf2d6608d1c2026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89083e60c321f7a7cbf2d6608d1c2026">&#9670;&#160;</a></span>getPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UBaseType_t RTOS::Task::getPriority </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the task priority. </p>
+<dl class="section return"><dt>Returns</dt><dd>Task priority. </dd></dl>
+
+</div>
+</div>
+<a id="a918c4a394f67e09471d0ed3e38cacc13" name="a918c4a394f67e09471d0ed3e38cacc13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a918c4a394f67e09471d0ed3e38cacc13">&#9670;&#160;</a></span>getStackHighWaterMark()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">UBaseType_t RTOS::Task::getStackHighWaterMark </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the high water mark (minimum free stack space). </p>
+<dl class="section return"><dt>Returns</dt><dd>Minimum free stack space in words. </dd></dl>
+
+</div>
+</div>
+<a id="a9dff1c10062f515cbb5f2fe80b17cdcb" name="a9dff1c10062f515cbb5f2fe80b17cdcb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dff1c10062f515cbb5f2fe80b17cdcb">&#9670;&#160;</a></span>getStackSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t RTOS::Task::getStackSize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the task stack size. </p>
+<dl class="section return"><dt>Returns</dt><dd>Stack size in bytes. </dd></dl>
+
+</div>
+</div>
+<a id="a3bb4b552f5222629a5c4d2ff3c735425" name="a3bb4b552f5222629a5c4d2ff3c735425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bb4b552f5222629a5c4d2ff3c735425">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">eTaskState RTOS::Task::getState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current task state. </p>
+<dl class="section return"><dt>Returns</dt><dd>Task state. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a3bb4b552f5222629a5c4d2ff3c735425_icgraph.svg" width="386" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0025e8aba3d67884219bdf5e5b478be7" name="a0025e8aba3d67884219bdf5e5b478be7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0025e8aba3d67884219bdf5e5b478be7">&#9670;&#160;</a></span>isBlocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::isBlocked </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the task is blocked. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if blocked, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a0025e8aba3d67884219bdf5e5b478be7_cgraph.svg" width="368" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a95403d11102fb23599ee7e9e268d2ca8" name="a95403d11102fb23599ee7e9e268d2ca8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95403d11102fb23599ee7e9e268d2ca8">&#9670;&#160;</a></span>isReady()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::isReady </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the task is ready. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if ready, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a95403d11102fb23599ee7e9e268d2ca8_cgraph.svg" width="359" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7220b6c68c8bfd3a7bf2dde8bc908a85" name="a7220b6c68c8bfd3a7bf2dde8bc908a85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7220b6c68c8bfd3a7bf2dde8bc908a85">&#9670;&#160;</a></span>isRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::isRunning </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the task is running. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if running, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a7220b6c68c8bfd3a7bf2dde8bc908a85_cgraph.svg" width="368" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3bfd4cbc4e53665dfb62b7ce34f4e876" name="a3bfd4cbc4e53665dfb62b7ce34f4e876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfd4cbc4e53665dfb62b7ce34f4e876">&#9670;&#160;</a></span>isSuspended()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::isSuspended </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the task is suspended. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if suspended, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a3bfd4cbc4e53665dfb62b7ce34f4e876_cgraph.svg" width="386" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a62de4af32150099f70bb657f02d4d04e" name="a62de4af32150099f70bb657f02d4d04e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62de4af32150099f70bb657f02d4d04e">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the task handle is valid. </p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if valid, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a1e7c2d456e086dff934ed36494516b13" name="a1e7c2d456e086dff934ed36494516b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e7c2d456e086dff934ed36494516b13">&#9670;&#160;</a></span>notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::notify </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a></td>          <td class="paramname"><span class="paramname"><em>bits</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a notification to the task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>Notification action. </td></tr>
+    <tr><td class="paramname">bits</td><td>Notification bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if successful, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="af91f90cfb2685cfe847493d26fbd87d2" name="af91f90cfb2685cfe847493d26fbd87d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af91f90cfb2685cfe847493d26fbd87d2">&#9670;&#160;</a></span>notifyAndQuery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt; RTOS::Task::notifyAndQuery </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a></td>          <td class="paramname"><span class="paramname"><em>bits</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a notification and queries previous bits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>Notification action. </td></tr>
+    <tr><td class="paramname">bits</td><td>Notification bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of result and previous notification bits. </dd></dl>
+
+</div>
+</div>
+<a id="a0da5f9f3a04b96d0cd85f5cf3284be83" name="a0da5f9f3a04b96d0cd85f5cf3284be83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0da5f9f3a04b96d0cd85f5cf3284be83">&#9670;&#160;</a></span>notifyAndQueryFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt; RTOS::Task::notifyAndQueryFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a></td>          <td class="paramname"><span class="paramname"><em>bits</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a notification and queries previous bits from ISR. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>Notification action. </td></tr>
+    <tr><td class="paramname">bits</td><td>Notification bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of result and previous notification bits. </dd></dl>
+
+</div>
+</div>
+<a id="abeb31933428f4869a1dab5eb18450f2d" name="abeb31933428f4869a1dab5eb18450f2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abeb31933428f4869a1dab5eb18450f2d">&#9670;&#160;</a></span>notifyFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::notifyFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#add02795e71b66883a93beaf1ff57fa7f">NotifyAction</a></td>          <td class="paramname"><span class="paramname"><em>action</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a></td>          <td class="paramname"><span class="paramname"><em>bits</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a notification to the task from ISR. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">action</td><td>Notification action. </td></tr>
+    <tr><td class="paramname">bits</td><td>Notification bits. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if successful, <span class="tt">false</span> otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a9df6cd1299039d3b039d4335e3c82a5d" name="a9df6cd1299039d3b039d4335e3c82a5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9df6cd1299039d3b039d4335e3c82a5d">&#9670;&#160;</a></span>operator Handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Task::operator <a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conversion operator to Handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Task handle. </dd></dl>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a9df6cd1299039d3b039d4335e3c82a5d_cgraph.svg" width="368" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aea20eb6ee2244a2d417e7118ac3c4af7" name="aea20eb6ee2244a2d417e7118ac3c4af7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea20eb6ee2244a2d417e7118ac3c4af7">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks inequality with another Task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other Task instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if not equal, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_aea20eb6ee2244a2d417e7118ac3c4af7_cgraph.svg" width="348" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a26e26644aafa456d7031e22dbb085c4a" name="a26e26644aafa456d7031e22dbb085c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26e26644aafa456d7031e22dbb085c4a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/ded/a00211.html">Task</a> &amp; RTOS::Task::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other Task instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this. </dd></dl>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a26e26644aafa456d7031e22dbb085c4a_cgraph.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="adfab89d0cb0473c346a51dd7f7ba2345" name="adfab89d0cb0473c346a51dd7f7ba2345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfab89d0cb0473c346a51dd7f7ba2345">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/ded/a00211.html">Task</a> &amp; RTOS::Task::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment operator. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other Task instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this. </dd></dl>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_adfab89d0cb0473c346a51dd7f7ba2345_cgraph.svg" width="344" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0599d075062867fe806062c718a649f5" name="a0599d075062867fe806062c718a649f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0599d075062867fe806062c718a649f5">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Task::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../dd/ded/a00211.html">Task</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks equality with another Task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Other Task instance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if equal, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_a0599d075062867fe806062c718a649f5_cgraph.svg" width="352" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae0f25036807cee0c457782b83f0f1263" name="ae0f25036807cee0c457782b83f0f1263"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f25036807cee0c457782b83f0f1263">&#9670;&#160;</a></span>resumeFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BaseType_t RTOS::Task::resumeFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Resumes the task from ISR. </p>
+<dl class="section return"><dt>Returns</dt><dd>Nonzero if a context switch should occur. </dd></dl>
+
+</div>
+</div>
+<a id="ad5dd75d070217769875683fed7707108" name="ad5dd75d070217769875683fed7707108"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5dd75d070217769875683fed7707108">&#9670;&#160;</a></span>setPriority()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Task::setPriority </td>
+          <td>(</td>
+          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the task priority. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">priority</td><td>New task priority. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afa008e316d89e11019ea68538384ffc0" name="afa008e316d89e11019ea68538384ffc0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa008e316d89e11019ea68538384ffc0">&#9670;&#160;</a></span>sleep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Task::sleep </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sleeps the current task for a given number of milliseconds. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Milliseconds to sleep. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/ded/a00211_afa008e316d89e11019ea68538384ffc0_icgraph.svg" width="324" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a18b3219309c63f3e8002e726902aa1e9" name="a18b3219309c63f3e8002e726902aa1e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18b3219309c63f3e8002e726902aa1e9">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a357f3c6aaef67bcff1043d89bd785281">Handle</a> RTOS::Task::start </td>
+          <td>(</td>
+          <td class="paramtype">std::function&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>func</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the task with a callable. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">func</td><td>Callable to run as task. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Task handle or nullptr on failure. </dd></dl>
+
+</div>
+</div>
+<a id="a89dfd0a859ab737212f21babafa5becf" name="a89dfd0a859ab737212f21babafa5becf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89dfd0a859ab737212f21babafa5becf">&#9670;&#160;</a></span>waitForNotification()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Task::waitForNotification </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for a notification. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clearOnExit</td><td>Clear notification on exit. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Notification value before clearing. </dd></dl>
+
+</div>
+</div>
+<a id="a0a579fda37e8900726af654d04094467" name="a0a579fda37e8900726af654d04094467"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a579fda37e8900726af654d04094467">&#9670;&#160;</a></span>waitForNotificationBits()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt; RTOS::Task::waitForNotificationBits </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a></td>          <td class="paramname"><span class="paramname"><em>bitsToWaitFor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>waitForAllBits</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for specific notification bits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bitsToWaitFor</td><td>Bits to wait for. </td></tr>
+    <tr><td class="paramname">clearOnExit</td><td>Clear notification on exit. </td></tr>
+    <tr><td class="paramname">waitForAllBits</td><td>Wait for all bits (true) or any bits (false). </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of result and notification value. </dd></dl>
+
+</div>
+</div>
+<a id="a3a23a27894579bc8f462e7df2612ed4c" name="a3a23a27894579bc8f462e7df2612ed4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a23a27894579bc8f462e7df2612ed4c">&#9670;&#160;</a></span>waitForNotificationValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; bool, <a class="el" href="#a46b832087eb0a767ed881203db958980">NotificationBits</a> &gt; RTOS::Task::waitForNotificationValue </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>clearOnExit</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Waits for any notification value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clearOnExit</td><td>Clear notification on exit. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Pair of result and notification value. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><b>Task.hpp</b></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../dd/ded/a00211.html">Task</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

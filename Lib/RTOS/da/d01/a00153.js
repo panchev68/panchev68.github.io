@@ -1,27 +1,5 @@
 var a00153 =
 [
-    [ "Handle", "da/d01/a00153.html#a2d9e77e52a7a7be78472b1c0b54fc450", null ],
-    [ "Queue", "da/d01/a00153.html#aadf145259f76aede9ec23f1de49de320", null ],
-    [ "~Queue", "da/d01/a00153.html#a059dae2c0d5f168ebcdb34da6828e89a", null ],
-    [ "addToRegistry", "da/d01/a00153.html#a08217cf1492b1af87255395c17272f54", null ],
-    [ "create", "da/d01/a00153.html#a1de0680dcbee88e899d16e907744cf34", null ],
-    [ "destroy", "da/d01/a00153.html#ae2f69ba51110a4ba96fcffffd6791d84", null ],
-    [ "getHandle", "da/d01/a00153.html#a00ad421ab7d7d98fcbe09d2ce4f254bd", null ],
-    [ "isCreated", "da/d01/a00153.html#ac86b4dc3648b18aca50c6d7b44d11c55", null ],
-    [ "messagesWaiting", "da/d01/a00153.html#a1683b8e0078db09a1262dc818935081e", null ],
-    [ "messagesWaitingFromISR", "da/d01/a00153.html#af09530f9ae8f149af3f6e367384eaba5", null ],
-    [ "operator()", "da/d01/a00153.html#aa67545a6607062ec26b15ec02f6903db", null ],
-    [ "operator()", "da/d01/a00153.html#a9b3fb1b1b25ce2357a863e3533a5de27", null ],
-    [ "overwrite", "da/d01/a00153.html#af261e6fc06b54ddfd59e6dcc5c1f440e", null ],
-    [ "overwriteFromISR", "da/d01/a00153.html#a25e33ace6c5f3062c41861f4c9e034d0", null ],
-    [ "peek", "da/d01/a00153.html#adf67090888377a5b91f1ad9def309ae3", null ],
-    [ "peekFromISR", "da/d01/a00153.html#a26d68ef21ca68a36ad27758b88b1e15a", null ],
-    [ "receive", "da/d01/a00153.html#a8a40f6acacdedb83c399c123317d0cfd", null ],
-    [ "receiveFromISR", "da/d01/a00153.html#a0e944f93b14485d94c36b36bed7a2e70", null ],
-    [ "removeFromRegistry", "da/d01/a00153.html#a04c7c4e8e7c979c670320128e03f08b7", null ],
-    [ "reset", "da/d01/a00153.html#a3f4e7c8e99ed90873150237c9336b6ed", null ],
-    [ "send", "da/d01/a00153.html#afe9ceb3f0fe09bfa66abc1ae164c6f9d", null ],
-    [ "sendToBackFromISR", "da/d01/a00153.html#a6678eb7e8b5885470af9adcff41b4eb1", null ],
-    [ "sendToFrontFromISR", "da/d01/a00153.html#a7a186efce78125bebeb157c402aed3a1", null ],
-    [ "spacesAvailable", "da/d01/a00153.html#a071d8ada963352d37c4deacf6d762c8e", null ]
+    [ "CriticalSection", "da/d01/a00153.html#aea7b0e17213b6fa43f251010d041fbca", null ],
+    [ "~CriticalSection", "da/d01/a00153.html#a39a5e850227fd37f6b98e69b04c1b07c", null ]
 ];

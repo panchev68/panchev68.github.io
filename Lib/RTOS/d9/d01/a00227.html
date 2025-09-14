@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: Queue</title>
+<title>RTOS: RTOS::TickService::ClientBase Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d9/d01/a00227.html','../../',''); });
+$(function(){initNavTree('d9/d01/a00227.html','../../','d5/ddf/a00224'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,38 +91,155 @@ $(function(){initNavTree('d9/d01/a00227.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Queue</div></div>
+  <div class="headertitle"><div class="title">RTOS::TickService::ClientBase Class Reference<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the Queue class template for passing integer messages between tasks.</p>
-<p>Example usage of the Queue class template for passing integer messages between tasks.</p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;RTOS.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> senderTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d0d/a00171.html">RTOS::Queue&lt;int32_t, 10&gt;</a> queue;</div>
-<div class="line">    queue.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a1de0680dcbee88e899d16e907744cf34">create</a>();</div>
-<div class="line">    int32_t value = 42;</div>
-<div class="line">    queue.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#afe9ceb3f0fe09bfa66abc1ae164c6f9d">send</a>(value, 10);</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> receiverTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    <a class="code hl_class" href="../../d1/d0d/a00171.html">RTOS::Queue&lt;int32_t, 10&gt;</a> queue;</div>
-<div class="line">    queue.<a class="code hl_function" href="../../d1/d0d/a00171.html#a1de0680dcbee88e899d16e907744cf34">create</a>();</div>
-<div class="line">    int32_t received = 0;</div>
-<div class="line">    <span class="keywordflow">if</span> (queue.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d0d/a00171.html#a8a40f6acacdedb83c399c123317d0cfd">receive</a>(received, 10)) {</div>
-<div class="line">        <span class="comment">// Process received value</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00171_html"><div class="ttname"><a href="../../d1/d0d/a00171.html">RTOS::Queue</a></div><div class="ttdoc">Queue class template providing RTOS queue abstraction for typed message passing.</div><div class="ttdef"><b>Definition</b> Queue.hpp:21</div></div>
-<div class="ttc" id="aa00171_html_a1de0680dcbee88e899d16e907744cf34"><div class="ttname"><a href="../../d1/d0d/a00171.html#a1de0680dcbee88e899d16e907744cf34">RTOS::Queue::create</a></div><div class="ttdeci">virtual bool create()</div><div class="ttdoc">Creates the queue with the specified length and item size.</div><div class="ttdef"><b>Definition</b> Queue.hpp:39</div></div>
-<div class="ttc" id="aa00171_html_a8a40f6acacdedb83c399c123317d0cfd"><div class="ttname"><a href="../../d1/d0d/a00171.html#a8a40f6acacdedb83c399c123317d0cfd">RTOS::Queue::receive</a></div><div class="ttdeci">virtual bool receive(T &amp;item, uint32_t ticks) const</div><div class="ttdoc">Receives an item from the queue, waiting up to the specified number of ticks.</div><div class="ttdef"><b>Definition</b> Queue.hpp:82</div></div>
-<div class="ttc" id="aa00171_html_afe9ceb3f0fe09bfa66abc1ae164c6f9d"><div class="ttname"><a href="../../d1/d0d/a00171.html#afe9ceb3f0fe09bfa66abc1ae164c6f9d">RTOS::Queue::send</a></div><div class="ttdeci">virtual bool send(const T &amp;item, uint32_t ticks)</div><div class="ttdoc">Sends an item to the queue, waiting up to the specified number of ticks.</div><div class="ttdef"><b>Definition</b> Queue.hpp:119</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Base class for tick event clients requiring periodic notifications. </p>
+<p>Inherit from this class and implement handleTickEvent() to receive periodic notifications. Registration and unregistration are handled automatically in constructor and destructor. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d22/a00245.html#_a0">usage</a>.</dd>
+</dl>
+</div>
+<p><code>#include &lt;TickService.hpp&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac84ffd97d3420aa324292d0692085ed7" id="r_ac84ffd97d3420aa324292d0692085ed7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac84ffd97d3420aa324292d0692085ed7">ClientBase</a> ()</td></tr>
+<tr class="memdesc:ac84ffd97d3420aa324292d0692085ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of ClientBase.  <br /></td></tr>
+<tr class="memitem:aa69c0c553a59c8ff0b3a359ef3f7d807" id="r_aa69c0c553a59c8ff0b3a359ef3f7d807"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa69c0c553a59c8ff0b3a359ef3f7d807">~ClientBase</a> ()</td></tr>
+<tr class="memdesc:aa69c0c553a59c8ff0b3a359ef3f7d807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of ClientBase.  <br /></td></tr>
+<tr class="memitem:a2718f361ea01e2907c8c81d15ae2a15b" id="r_a2718f361ea01e2907c8c81d15ae2a15b"><td class="memItemLeft" align="right" valign="top"><a id="a2718f361ea01e2907c8c81d15ae2a15b" name="a2718f361ea01e2907c8c81d15ae2a15b"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ClientBase</b> (const <a class="el" href="../../d9/d01/a00227.html">ClientBase</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a2718f361ea01e2907c8c81d15ae2a15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy constructor to prevent copying. <br /></td></tr>
+<tr class="memitem:a87a64da49aa35164d674036048b349b2" id="r_a87a64da49aa35164d674036048b349b2"><td class="memItemLeft" align="right" valign="top"><a id="a87a64da49aa35164d674036048b349b2" name="a87a64da49aa35164d674036048b349b2"></a>
+<a class="el" href="../../d9/d01/a00227.html">ClientBase</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="../../d9/d01/a00227.html">ClientBase</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a87a64da49aa35164d674036048b349b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted copy assignment operator to prevent copying. <br /></td></tr>
+<tr class="memitem:a813aed3eccda809913d539e2eeaacabd" id="r_a813aed3eccda809913d539e2eeaacabd"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a813aed3eccda809913d539e2eeaacabd">handleTickEvent</a> ()=0</td></tr>
+<tr class="memdesc:a813aed3eccda809913d539e2eeaacabd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle periodic tick event notification.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac84ffd97d3420aa324292d0692085ed7" name="ac84ffd97d3420aa324292d0692085ed7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84ffd97d3420aa324292d0692085ed7">&#9670;&#160;</a></span>ClientBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::TickService::ClientBase::ClientBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of ClientBase. </p>
+<p>Automatically registers this client with the TickService for periodic notifications. </p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d01/a00227_ac84ffd97d3420aa324292d0692085ed7_cgraph.svg" width="359" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d01/a00227_ac84ffd97d3420aa324292d0692085ed7_icgraph.svg" width="374" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa69c0c553a59c8ff0b3a359ef3f7d807" name="aa69c0c553a59c8ff0b3a359ef3f7d807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa69c0c553a59c8ff0b3a359ef3f7d807">&#9670;&#160;</a></span>~ClientBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual RTOS::TickService::ClientBase::~ClientBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor of ClientBase. </p>
+<p>Automatically unregisters this client from the TickService to prevent invalid callbacks. </p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d01/a00227_aa69c0c553a59c8ff0b3a359ef3f7d807_cgraph.svg" width="367" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a813aed3eccda809913d539e2eeaacabd" name="a813aed3eccda809913d539e2eeaacabd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a813aed3eccda809913d539e2eeaacabd">&#9670;&#160;</a></span>handleTickEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void RTOS::TickService::ClientBase::handleTickEvent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle periodic tick event notification. </p>
+<p>Called periodically by the TickService when this client is registered and the service is running. Implement this method to define the client's response to tick events. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d6/d22/a00245.html#a1">usage</a>.</dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><b>TickService.hpp</b></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../dc/d28/a00223.html">TickService</a></li><li class="navelem"><a href="../../d9/d01/a00227.html">ClientBase</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

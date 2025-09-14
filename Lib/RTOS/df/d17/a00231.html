@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RTOS: SemaphoreCounting</title>
+<title>RTOS: RTOS::Timeout Class Reference</title>
 <link rel="icon" href="../../Arch_FreeRTOS_64.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../Arch_FreeRTOS_64.png"/></td>
   <td id="projectalign">
-   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 6.02</span>
+   <div id="projectname">RTOS<span id="projectnumber">&#160;ver: 7.00</span>
    </div>
    <div id="projectbrief">Free RTOS C++ Wrapper Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('df/d17/a00231.html','../../',''); });
+$(function(){initNavTree('df/d17/a00231.html','../../','de/dc2/a00228'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,35 +91,1357 @@ $(function(){initNavTree('df/d17/a00231.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timeout Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example usage of the SemaphoreCounting class for managing multiple resources in FreeRTOS.</p>
-<p>Example usage of the SemaphoreCounting class for managing multiple resources in FreeRTOS.</p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;RTOS.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/daa/a00187.html">RTOS::SemaphoreCounting</a> sem(5, 2);</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> producerTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    sem.create();</div>
-<div class="line">    <span class="comment">// Give a token to the semaphore when a resource is produced</span></div>
-<div class="line">    sem.give();</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> consumerTask(<span class="keywordtype">void</span> *) {</div>
-<div class="line">    sem.create();</div>
-<div class="line">    <span class="comment">// Take a token from the semaphore before consuming a resource</span></div>
-<div class="line">    <span class="keywordflow">if</span> (sem.take(100)) {</div>
-<div class="line">        <span class="comment">// Resource acquired, proceed with consumption</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00187_html"><div class="ttname"><a href="../../d6/daa/a00187.html">RTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore for FreeRTOS.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:22</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Timeout management utility for precise timing control in RTOS operations. </p>
+<p>The Timeout class provides comprehensive timeout functionality including setting durations, checking expiration status, tracking progress, and managing timeout extensions. It supports both tick-based and millisecond-based operations with overflow protection and state management. </p>
+</div>
+<p><code>#include &lt;Timeout.hpp&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a0285ec57b08218404301d71335490923" id="r_a0285ec57b08218404301d71335490923"><td class="memItemLeft" align="right" valign="top"><a id="a0285ec57b08218404301d71335490923" name="a0285ec57b08218404301d71335490923"></a>
+using&#160;</td><td class="memItemRight" valign="bottom"><b>TickType</b> = <a class="el" href="../../dd/df3/a00219.html#af8b741f7cd6bd8cefd26aae83980fbfd">TickCounter::TickType</a></td></tr>
+<tr class="memdesc:a0285ec57b08218404301d71335490923"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for tick count values. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3f92605e733513d2d484f1e56732616f" id="r_a3f92605e733513d2d484f1e56732616f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f92605e733513d2d484f1e56732616f">Timeout</a> ()</td></tr>
+<tr class="memdesc:a3f92605e733513d2d484f1e56732616f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of Timeout.  <br /></td></tr>
+<tr class="memitem:af39b238e64a049a8ed8c93e62b9e37e3" id="r_af39b238e64a049a8ed8c93e62b9e37e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af39b238e64a049a8ed8c93e62b9e37e3">Timeout</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> duration)</td></tr>
+<tr class="memdesc:af39b238e64a049a8ed8c93e62b9e37e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of Timeout with initial duration.  <br /></td></tr>
+<tr class="memitem:ad284d793baaa181e0241a2a5b1f8ea3a" id="r_ad284d793baaa181e0241a2a5b1f8ea3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad284d793baaa181e0241a2a5b1f8ea3a">set</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> duration)</td></tr>
+<tr class="memdesc:ad284d793baaa181e0241a2a5b1f8ea3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set timeout duration in ticks.  <br /></td></tr>
+<tr class="memitem:a52c0f44c1a6b6f4009f6ed93153fd18f" id="r_a52c0f44c1a6b6f4009f6ed93153fd18f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52c0f44c1a6b6f4009f6ed93153fd18f">setMilliseconds</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:a52c0f44c1a6b6f4009f6ed93153fd18f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set timeout duration in milliseconds.  <br /></td></tr>
+<tr class="memitem:a382ed892633de8ff732ae268c4e85c58" id="r_a382ed892633de8ff732ae268c4e85c58"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a382ed892633de8ff732ae268c4e85c58">setSeconds</a> (uint32_t seconds)</td></tr>
+<tr class="memdesc:a382ed892633de8ff732ae268c4e85c58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set timeout duration in seconds.  <br /></td></tr>
+<tr class="memitem:a0323d632712ac0fe685a1109c9b60c1a" id="r_a0323d632712ac0fe685a1109c9b60c1a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0323d632712ac0fe685a1109c9b60c1a">isExpired</a> () const</td></tr>
+<tr class="memdesc:a0323d632712ac0fe685a1109c9b60c1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if timeout has expired.  <br /></td></tr>
+<tr class="memitem:a09aec4ad865ca9b9275f8e0060f93314" id="r_a09aec4ad865ca9b9275f8e0060f93314"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09aec4ad865ca9b9275f8e0060f93314">reset</a> ()</td></tr>
+<tr class="memdesc:a09aec4ad865ca9b9275f8e0060f93314"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset timeout to start timing from current moment.  <br /></td></tr>
+<tr class="memitem:a7c9970080cf34f6199d970b3bd64447f" id="r_a7c9970080cf34f6199d970b3bd64447f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c9970080cf34f6199d970b3bd64447f">getRemaining</a> () const</td></tr>
+<tr class="memdesc:a7c9970080cf34f6199d970b3bd64447f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining timeout duration in ticks.  <br /></td></tr>
+<tr class="memitem:aa0d343779f312d14ba3af6c2c8c11a59" id="r_aa0d343779f312d14ba3af6c2c8c11a59"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0d343779f312d14ba3af6c2c8c11a59">getRemainingMs</a> () const</td></tr>
+<tr class="memdesc:aa0d343779f312d14ba3af6c2c8c11a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get remaining timeout duration in milliseconds.  <br /></td></tr>
+<tr class="memitem:a7d284ed1a91d568f176eb93a816e2b13" id="r_a7d284ed1a91d568f176eb93a816e2b13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d284ed1a91d568f176eb93a816e2b13">getElapsed</a> () const</td></tr>
+<tr class="memdesc:a7d284ed1a91d568f176eb93a816e2b13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get elapsed time since timeout was started.  <br /></td></tr>
+<tr class="memitem:aad0f7b2562a1db21d6b9889adaad0407" id="r_aad0f7b2562a1db21d6b9889adaad0407"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad0f7b2562a1db21d6b9889adaad0407">getElapsedMs</a> () const</td></tr>
+<tr class="memdesc:aad0f7b2562a1db21d6b9889adaad0407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get elapsed time in milliseconds.  <br /></td></tr>
+<tr class="memitem:ad0cc9f6cd4a3ebd568027e5dc23433d9" id="r_ad0cc9f6cd4a3ebd568027e5dc23433d9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0cc9f6cd4a3ebd568027e5dc23433d9">getProgressPercent</a> () const</td></tr>
+<tr class="memdesc:ad0cc9f6cd4a3ebd568027e5dc23433d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get timeout progress as percentage.  <br /></td></tr>
+<tr class="memitem:aa2354674b639ed23fc78b0480b6630eb" id="r_aa2354674b639ed23fc78b0480b6630eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2354674b639ed23fc78b0480b6630eb">operator=</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> duration)</td></tr>
+<tr class="memdesc:aa2354674b639ed23fc78b0480b6630eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator for tick duration.  <br /></td></tr>
+<tr class="memitem:a2e21851db10482d0274ec8adb2a74d75" id="r_a2e21851db10482d0274ec8adb2a74d75"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e21851db10482d0274ec8adb2a74d75">operator==</a> (bool expired) const</td></tr>
+<tr class="memdesc:a2e21851db10482d0274ec8adb2a74d75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality comparison with boolean expiration state.  <br /></td></tr>
+<tr class="memitem:a11a9f02a546f98502dce9d30a4d8562f" id="r_a11a9f02a546f98502dce9d30a4d8562f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a11a9f02a546f98502dce9d30a4d8562f">operator!=</a> (bool expired) const</td></tr>
+<tr class="memdesc:a11a9f02a546f98502dce9d30a4d8562f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inequality comparison with boolean expiration state.  <br /></td></tr>
+<tr class="memitem:abf78c4c7fcebc3eeaff9d92d4849155c" id="r_abf78c4c7fcebc3eeaff9d92d4849155c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf78c4c7fcebc3eeaff9d92d4849155c">operator+=</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> addTicks)</td></tr>
+<tr class="memdesc:abf78c4c7fcebc3eeaff9d92d4849155c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add ticks to timeout duration.  <br /></td></tr>
+<tr class="memitem:a45089833ae08c0df4d4dd7321323908e" id="r_a45089833ae08c0df4d4dd7321323908e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45089833ae08c0df4d4dd7321323908e">operator-=</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> subTicks)</td></tr>
+<tr class="memdesc:a45089833ae08c0df4d4dd7321323908e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Subtract ticks from timeout duration.  <br /></td></tr>
+<tr class="memitem:aef6290c600bc3d6a209df352aeb3c4c4" id="r_aef6290c600bc3d6a209df352aeb3c4c4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef6290c600bc3d6a209df352aeb3c4c4">operator TickType</a> () const</td></tr>
+<tr class="memdesc:aef6290c600bc3d6a209df352aeb3c4c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit conversion to tick duration.  <br /></td></tr>
+<tr class="memitem:a91278feb2a2991bfdf95d6a849f46919" id="r_a91278feb2a2991bfdf95d6a849f46919"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91278feb2a2991bfdf95d6a849f46919">operator bool</a> () const</td></tr>
+<tr class="memdesc:a91278feb2a2991bfdf95d6a849f46919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit conversion to boolean active state.  <br /></td></tr>
+<tr class="memitem:ad588a6703c9736cf1cf1238fd9874e1f" id="r_ad588a6703c9736cf1cf1238fd9874e1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad588a6703c9736cf1cf1238fd9874e1f">disable</a> ()</td></tr>
+<tr class="memdesc:ad588a6703c9736cf1cf1238fd9874e1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable the timeout.  <br /></td></tr>
+<tr class="memitem:a1c0d42cfc8bef1eddfab7ea49848e88b" id="r_a1c0d42cfc8bef1eddfab7ea49848e88b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1c0d42cfc8bef1eddfab7ea49848e88b">isDisabled</a> () const</td></tr>
+<tr class="memdesc:a1c0d42cfc8bef1eddfab7ea49848e88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if timeout is disabled.  <br /></td></tr>
+<tr class="memitem:aa0ebf694a210769282fe7a40c0578dce" id="r_aa0ebf694a210769282fe7a40c0578dce"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0ebf694a210769282fe7a40c0578dce">isActive</a> () const</td></tr>
+<tr class="memdesc:aa0ebf694a210769282fe7a40c0578dce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if timeout is active.  <br /></td></tr>
+<tr class="memitem:a0181a397dcbe24f883b16403edb0dc80" id="r_a0181a397dcbe24f883b16403edb0dc80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0181a397dcbe24f883b16403edb0dc80">getDuration</a> () const</td></tr>
+<tr class="memdesc:a0181a397dcbe24f883b16403edb0dc80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get configured timeout duration.  <br /></td></tr>
+<tr class="memitem:ab0e24523379064ca4af722150366c353" id="r_ab0e24523379064ca4af722150366c353"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0e24523379064ca4af722150366c353">getDurationMs</a> () const</td></tr>
+<tr class="memdesc:ab0e24523379064ca4af722150366c353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get configured timeout duration in milliseconds.  <br /></td></tr>
+<tr class="memitem:a0386d6396a849d351c1d80d3a487a4fa" id="r_a0386d6396a849d351c1d80d3a487a4fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0386d6396a849d351c1d80d3a487a4fa">getStartTicks</a> () const</td></tr>
+<tr class="memdesc:a0386d6396a849d351c1d80d3a487a4fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get timeout start tick count.  <br /></td></tr>
+<tr class="memitem:a628fdfee259eba4b9966e99cc4da26fc" id="r_a628fdfee259eba4b9966e99cc4da26fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a628fdfee259eba4b9966e99cc4da26fc">extend</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> extensionTicks)</td></tr>
+<tr class="memdesc:a628fdfee259eba4b9966e99cc4da26fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend timeout duration by specified ticks.  <br /></td></tr>
+<tr class="memitem:af5a4e02f8cd773102cbf3a9cd0d24dbe" id="r_af5a4e02f8cd773102cbf3a9cd0d24dbe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5a4e02f8cd773102cbf3a9cd0d24dbe">extendMs</a> (uint32_t extensionMs)</td></tr>
+<tr class="memdesc:af5a4e02f8cd773102cbf3a9cd0d24dbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extend timeout duration by specified milliseconds.  <br /></td></tr>
+<tr class="memitem:afa5201886dcc6c0974c3752324d0d51c" id="r_afa5201886dcc6c0974c3752324d0d51c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa5201886dcc6c0974c3752324d0d51c">willExpireWithin</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> withinTicks) const</td></tr>
+<tr class="memdesc:afa5201886dcc6c0974c3752324d0d51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if timeout will expire within specified ticks.  <br /></td></tr>
+<tr class="memitem:a415352c21da62d71455c1125aba9f066" id="r_a415352c21da62d71455c1125aba9f066"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a415352c21da62d71455c1125aba9f066">willExpireWithinMs</a> (uint32_t withinMs) const</td></tr>
+<tr class="memdesc:a415352c21da62d71455c1125aba9f066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if timeout will expire within specified milliseconds.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a659f3331f019dc970488edd367ab17ce" id="r_a659f3331f019dc970488edd367ab17ce"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d17/a00231.html">Timeout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a659f3331f019dc970488edd367ab17ce">fromMilliseconds</a> (uint32_t ms)</td></tr>
+<tr class="memdesc:a659f3331f019dc970488edd367ab17ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create timeout from milliseconds.  <br /></td></tr>
+<tr class="memitem:a69618efb8c6b561d76634f909806f531" id="r_a69618efb8c6b561d76634f909806f531"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d17/a00231.html">Timeout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69618efb8c6b561d76634f909806f531">fromSeconds</a> (uint32_t seconds)</td></tr>
+<tr class="memdesc:a69618efb8c6b561d76634f909806f531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create timeout from seconds.  <br /></td></tr>
+<tr class="memitem:aa4276cd592bbbf6230baf285b51acaeb" id="r_aa4276cd592bbbf6230baf285b51acaeb"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d17/a00231.html">Timeout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4276cd592bbbf6230baf285b51acaeb">immediate</a> ()</td></tr>
+<tr class="memdesc:aa4276cd592bbbf6230baf285b51acaeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create immediately expired timeout.  <br /></td></tr>
+<tr class="memitem:af25b8dba462c2321453a0988e136a8b2" id="r_af25b8dba462c2321453a0988e136a8b2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="../../df/d17/a00231.html">Timeout</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af25b8dba462c2321453a0988e136a8b2">disabled</a> ()</td></tr>
+<tr class="memdesc:af25b8dba462c2321453a0988e136a8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create disabled timeout.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a9760a7a2fa2d100c40eb08968022a942" id="r_a9760a7a2fa2d100c40eb08968022a942"><td class="memItemLeft" align="right" valign="top"><a id="a9760a7a2fa2d100c40eb08968022a942" name="a9760a7a2fa2d100c40eb08968022a942"></a>
+static constexpr <a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>DISABLED</b> = portMAX_DELAY</td></tr>
+<tr class="memdesc:a9760a7a2fa2d100c40eb08968022a942"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant indicating disabled timeout (infinite wait). <br /></td></tr>
+<tr class="memitem:a227b5fbd17ecaa19ffd8d15a36bec245" id="r_a227b5fbd17ecaa19ffd8d15a36bec245"><td class="memItemLeft" align="right" valign="top"><a id="a227b5fbd17ecaa19ffd8d15a36bec245" name="a227b5fbd17ecaa19ffd8d15a36bec245"></a>
+static constexpr <a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight" valign="bottom"><b>IMMEDIATE</b> = 0</td></tr>
+<tr class="memdesc:a227b5fbd17ecaa19ffd8d15a36bec245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constant indicating immediate timeout (no wait). <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3f92605e733513d2d484f1e56732616f" name="a3f92605e733513d2d484f1e56732616f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f92605e733513d2d484f1e56732616f">&#9670;&#160;</a></span>Timeout() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::Timeout </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of Timeout. </p>
+<p>Creates a disabled timeout that requires explicit activation via set() or assignment. </p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a3f92605e733513d2d484f1e56732616f_icgraph.svg" width="444" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af39b238e64a049a8ed8c93e62b9e37e3" name="af39b238e64a049a8ed8c93e62b9e37e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af39b238e64a049a8ed8c93e62b9e37e3">&#9670;&#160;</a></span>Timeout() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::Timeout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructor of Timeout with initial duration. </p>
+<p>Creates a timeout with the specified duration and immediately activates it. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Initial timeout duration in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_af39b238e64a049a8ed8c93e62b9e37e3_cgraph.svg" width="575" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ad588a6703c9736cf1cf1238fd9874e1f" name="ad588a6703c9736cf1cf1238fd9874e1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad588a6703c9736cf1cf1238fd9874e1f">&#9670;&#160;</a></span>disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::disable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disable the timeout. </p>
+<p>Sets the timeout to disabled state, making it never expire. </p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_ad588a6703c9736cf1cf1238fd9874e1f_icgraph.svg" width="618" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af25b8dba462c2321453a0988e136a8b2" name="af25b8dba462c2321453a0988e136a8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af25b8dba462c2321453a0988e136a8b2">&#9670;&#160;</a></span>disabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> RTOS::Timeout::disabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create disabled timeout. </p>
+<p>Factory method to create a disabled timeout that never expires. </p><dl class="section return"><dt>Returns</dt><dd>Disabled timeout object. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_af25b8dba462c2321453a0988e136a8b2_cgraph.svg" width="395" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a628fdfee259eba4b9966e99cc4da26fc" name="a628fdfee259eba4b9966e99cc4da26fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628fdfee259eba4b9966e99cc4da26fc">&#9670;&#160;</a></span>extend()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::extend </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>extensionTicks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Extend timeout duration by specified ticks. </p>
+<p>Adds the specified number of ticks to the current timeout duration. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">extensionTicks</td><td>Number of ticks to add to the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a628fdfee259eba4b9966e99cc4da26fc_cgraph.svg" width="400" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a628fdfee259eba4b9966e99cc4da26fc_icgraph.svg" width="396" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af5a4e02f8cd773102cbf3a9cd0d24dbe" name="af5a4e02f8cd773102cbf3a9cd0d24dbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a4e02f8cd773102cbf3a9cd0d24dbe">&#9670;&#160;</a></span>extendMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::extendMs </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>extensionMs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Extend timeout duration by specified milliseconds. </p>
+<p>Adds the specified number of milliseconds to the current timeout duration. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">extensionMs</td><td>Number of milliseconds to add to the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_af5a4e02f8cd773102cbf3a9cd0d24dbe_cgraph.svg" width="626" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a659f3331f019dc970488edd367ab17ce" name="a659f3331f019dc970488edd367ab17ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a659f3331f019dc970488edd367ab17ce">&#9670;&#160;</a></span>fromMilliseconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> RTOS::Timeout::fromMilliseconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create timeout from milliseconds. </p>
+<p>Factory method to create a timeout with duration specified in milliseconds. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Timeout duration in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Timeout object configured with the specified millisecond duration. </dd></dl>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a659f3331f019dc970488edd367ab17ce_cgraph.svg" width="444" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a69618efb8c6b561d76634f909806f531" name="a69618efb8c6b561d76634f909806f531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69618efb8c6b561d76634f909806f531">&#9670;&#160;</a></span>fromSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> RTOS::Timeout::fromSeconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create timeout from seconds. </p>
+<p>Factory method to create a timeout with duration specified in seconds. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>Timeout duration in seconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Timeout object configured with the specified second duration. </dd></dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a69618efb8c6b561d76634f909806f531_cgraph.svg" width="424" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0181a397dcbe24f883b16403edb0dc80" name="a0181a397dcbe24f883b16403edb0dc80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0181a397dcbe24f883b16403edb0dc80">&#9670;&#160;</a></span>getDuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getDuration </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get configured timeout duration. </p>
+<p>Returns the currently configured timeout duration. </p><dl class="section return"><dt>Returns</dt><dd>Timeout duration in ticks, or DISABLED for disabled timeouts. </dd></dl>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a0181a397dcbe24f883b16403edb0dc80_icgraph.svg" width="455" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab0e24523379064ca4af722150366c353" name="ab0e24523379064ca4af722150366c353"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0e24523379064ca4af722150366c353">&#9670;&#160;</a></span>getDurationMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timeout::getDurationMs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get configured timeout duration in milliseconds. </p>
+<p>Returns the currently configured timeout duration converted to milliseconds. </p><dl class="section return"><dt>Returns</dt><dd>Timeout duration in milliseconds, or UINT32_MAX for disabled timeouts. </dd></dl>
+<div id="dynsection-10" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-10-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_ab0e24523379064ca4af722150366c353_cgraph.svg" width="408" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7d284ed1a91d568f176eb93a816e2b13" name="a7d284ed1a91d568f176eb93a816e2b13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d284ed1a91d568f176eb93a816e2b13">&#9670;&#160;</a></span>getElapsed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getElapsed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get elapsed time since timeout was started. </p>
+<p>Calculates how many ticks have elapsed since the timeout was set or last reset. </p><dl class="section return"><dt>Returns</dt><dd>Elapsed ticks, or 0 for disabled/unset timeouts. </dd></dl>
+<div id="dynsection-11" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-11-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a7d284ed1a91d568f176eb93a816e2b13_cgraph.svg" width="636" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-12" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-12-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a7d284ed1a91d568f176eb93a816e2b13_icgraph.svg" width="448" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aad0f7b2562a1db21d6b9889adaad0407" name="aad0f7b2562a1db21d6b9889adaad0407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad0f7b2562a1db21d6b9889adaad0407">&#9670;&#160;</a></span>getElapsedMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timeout::getElapsedMs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get elapsed time in milliseconds. </p>
+<p>Calculates how many milliseconds have elapsed since the timeout was set or last reset. </p><dl class="section return"><dt>Returns</dt><dd>Elapsed milliseconds. </dd></dl>
+<div id="dynsection-13" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-13-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_aad0f7b2562a1db21d6b9889adaad0407_cgraph.svg" width="887" height="163"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad0cc9f6cd4a3ebd568027e5dc23433d9" name="ad0cc9f6cd4a3ebd568027e5dc23433d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0cc9f6cd4a3ebd568027e5dc23433d9">&#9670;&#160;</a></span>getProgressPercent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timeout::getProgressPercent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get timeout progress as percentage. </p>
+<p>Calculates what percentage of the timeout duration has elapsed. </p><dl class="section return"><dt>Returns</dt><dd>Progress percentage (0-100), or 0 for disabled/unset/zero-duration timeouts. </dd></dl>
+<div id="dynsection-14" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-14-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_ad0cc9f6cd4a3ebd568027e5dc23433d9_cgraph.svg" width="875" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7c9970080cf34f6199d970b3bd64447f" name="a7c9970080cf34f6199d970b3bd64447f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c9970080cf34f6199d970b3bd64447f">&#9670;&#160;</a></span>getRemaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getRemaining </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get remaining timeout duration in ticks. </p>
+<p>Calculates how many ticks remain before the timeout expires. </p><dl class="section return"><dt>Returns</dt><dd>Remaining ticks, or DISABLED for disabled/unset timeouts. </dd></dl>
+<div id="dynsection-15" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-15-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a7c9970080cf34f6199d970b3bd64447f_cgraph.svg" width="851" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-16" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-16-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a7c9970080cf34f6199d970b3bd64447f_icgraph.svg" width="702" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa0d343779f312d14ba3af6c2c8c11a59" name="aa0d343779f312d14ba3af6c2c8c11a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0d343779f312d14ba3af6c2c8c11a59">&#9670;&#160;</a></span>getRemainingMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t RTOS::Timeout::getRemainingMs </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get remaining timeout duration in milliseconds. </p>
+<p>Calculates how many milliseconds remain before the timeout expires. </p><dl class="section return"><dt>Returns</dt><dd>Remaining milliseconds, or UINT32_MAX for disabled timeouts. </dd></dl>
+<div id="dynsection-17" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-17-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_aa0d343779f312d14ba3af6c2c8c11a59_cgraph.svg" width="1116" height="163"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0386d6396a849d351c1d80d3a487a4fa" name="a0386d6396a849d351c1d80d3a487a4fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0386d6396a849d351c1d80d3a487a4fa">&#9670;&#160;</a></span>getStartTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getStartTicks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get timeout start tick count. </p>
+<p>Returns the tick count when the timeout was last started or reset. </p><dl class="section return"><dt>Returns</dt><dd>Start tick count value. </dd></dl>
+
+</div>
+</div>
+<a id="aa4276cd592bbbf6230baf285b51acaeb" name="aa4276cd592bbbf6230baf285b51acaeb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4276cd592bbbf6230baf285b51acaeb">&#9670;&#160;</a></span>immediate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> RTOS::Timeout::immediate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Create immediately expired timeout. </p>
+<p>Factory method to create a timeout that is already expired. </p><dl class="section return"><dt>Returns</dt><dd>Timeout object that is immediately expired. </dd></dl>
+<div id="dynsection-18" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-18-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_aa4276cd592bbbf6230baf285b51acaeb_cgraph.svg" width="407" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa0ebf694a210769282fe7a40c0578dce" name="aa0ebf694a210769282fe7a40c0578dce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ebf694a210769282fe7a40c0578dce">&#9670;&#160;</a></span>isActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::isActive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if timeout is active. </p>
+<p>Determines whether the timeout is set and not disabled. </p><dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timeout is active, <span class="tt">false</span> if disabled or unset. </dd></dl>
+<div id="dynsection-19" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-19-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_aa0ebf694a210769282fe7a40c0578dce_cgraph.svg" width="408" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-20" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-20-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_aa0ebf694a210769282fe7a40c0578dce_icgraph.svg" width="422" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1c0d42cfc8bef1eddfab7ea49848e88b" name="a1c0d42cfc8bef1eddfab7ea49848e88b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c0d42cfc8bef1eddfab7ea49848e88b">&#9670;&#160;</a></span>isDisabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::isDisabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if timeout is disabled. </p>
+<p>Determines whether the timeout is in disabled state (infinite wait). </p><dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timeout is disabled, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-21" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-21-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a1c0d42cfc8bef1eddfab7ea49848e88b_icgraph.svg" width="939" height="623"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0323d632712ac0fe685a1109c9b60c1a" name="a0323d632712ac0fe685a1109c9b60c1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0323d632712ac0fe685a1109c9b60c1a">&#9670;&#160;</a></span>isExpired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::isExpired </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if timeout has expired. </p>
+<p>Determines whether the timeout duration has elapsed since it was started. Disabled or unset timeouts never expire. </p><dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timeout has expired, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-22" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-22-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a0323d632712ac0fe685a1109c9b60c1a_cgraph.svg" width="824" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-23" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-23-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a0323d632712ac0fe685a1109c9b60c1a_icgraph.svg" width="416" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a91278feb2a2991bfdf95d6a849f46919" name="a91278feb2a2991bfdf95d6a849f46919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91278feb2a2991bfdf95d6a849f46919">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Explicit conversion to boolean active state. </p>
+<p>Converts the timeout to a boolean indicating whether it is active. </p><dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timeout is active, <span class="tt">false</span> if disabled or unset. </dd></dl>
+<div id="dynsection-24" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-24-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a91278feb2a2991bfdf95d6a849f46919_cgraph.svg" width="651" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aef6290c600bc3d6a209df352aeb3c4c4" name="aef6290c600bc3d6a209df352aeb3c4c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6290c600bc3d6a209df352aeb3c4c4">&#9670;&#160;</a></span>operator TickType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::operator <a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implicit conversion to tick duration. </p>
+<p>Allows the timeout object to be used directly as a tick count value. </p><dl class="section return"><dt>Returns</dt><dd>Current timeout duration in ticks. </dd></dl>
+
+</div>
+</div>
+<a id="a11a9f02a546f98502dce9d30a4d8562f" name="a11a9f02a546f98502dce9d30a4d8562f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11a9f02a546f98502dce9d30a4d8562f">&#9670;&#160;</a></span>operator!=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>expired</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Inequality comparison with boolean expiration state. </p>
+<p>Compares the timeout's expiration state with a boolean value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expired</td><td>Expected expiration state to compare against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if expiration state differs, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-25" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-25-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a11a9f02a546f98502dce9d30a4d8562f_cgraph.svg" width="1052" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abf78c4c7fcebc3eeaff9d92d4849155c" name="abf78c4c7fcebc3eeaff9d92d4849155c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf78c4c7fcebc3eeaff9d92d4849155c">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp; RTOS::Timeout::operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>addTicks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Add ticks to timeout duration. </p>
+<p>Extends the timeout duration by the specified number of ticks with overflow protection. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addTicks</td><td>Number of ticks to add to the current duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this timeout object. </dd></dl>
+<div id="dynsection-26" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-26-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_abf78c4c7fcebc3eeaff9d92d4849155c_cgraph.svg" width="424" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a45089833ae08c0df4d4dd7321323908e" name="a45089833ae08c0df4d4dd7321323908e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45089833ae08c0df4d4dd7321323908e">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp; RTOS::Timeout::operator-= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>subTicks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Subtract ticks from timeout duration. </p>
+<p>Reduces the timeout duration by the specified number of ticks with underflow protection. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subTicks</td><td>Number of ticks to subtract from the current duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this timeout object. </dd></dl>
+<div id="dynsection-27" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-27-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a45089833ae08c0df4d4dd7321323908e_cgraph.svg" width="420" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa2354674b639ed23fc78b0480b6630eb" name="aa2354674b639ed23fc78b0480b6630eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2354674b639ed23fc78b0480b6630eb">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d17/a00231.html">Timeout</a> &amp; RTOS::Timeout::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Assignment operator for tick duration. </p>
+<p>Sets the timeout to the specified duration and activates it. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>New timeout duration in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this timeout object. </dd></dl>
+<div id="dynsection-28" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-28-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_aa2354674b639ed23fc78b0480b6630eb_cgraph.svg" width="612" height="114"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2e21851db10482d0274ec8adb2a74d75" name="a2e21851db10482d0274ec8adb2a74d75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e21851db10482d0274ec8adb2a74d75">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::operator== </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>expired</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Equality comparison with boolean expiration state. </p>
+<p>Compares the timeout's expiration state with a boolean value. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expired</td><td>Expected expiration state to compare against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if expiration state matches, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-29" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-29-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a2e21851db10482d0274ec8adb2a74d75_cgraph.svg" width="1056" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a09aec4ad865ca9b9275f8e0060f93314" name="a09aec4ad865ca9b9275f8e0060f93314"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09aec4ad865ca9b9275f8e0060f93314">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reset timeout to start timing from current moment. </p>
+<p>Restarts the timeout using the same duration but with a new start time. Has no effect on disabled timeouts. </p>
+<div id="dynsection-30" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-30-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a09aec4ad865ca9b9275f8e0060f93314_cgraph.svg" width="390" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad284d793baaa181e0241a2a5b1f8ea3a" name="ad284d793baaa181e0241a2a5b1f8ea3a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad284d793baaa181e0241a2a5b1f8ea3a">&#9670;&#160;</a></span>set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set timeout duration in ticks. </p>
+<p>Sets the timeout duration and starts the timer. If duration is DISABLED, the timeout is disabled instead of being activated. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Timeout duration in ticks, or DISABLED for infinite timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-31" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-31-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_ad284d793baaa181e0241a2a5b1f8ea3a_cgraph.svg" width="360" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-32" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-32-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_ad284d793baaa181e0241a2a5b1f8ea3a_icgraph.svg" width="408" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a52c0f44c1a6b6f4009f6ed93153fd18f" name="a52c0f44c1a6b6f4009f6ed93153fd18f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52c0f44c1a6b6f4009f6ed93153fd18f">&#9670;&#160;</a></span>setMilliseconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::setMilliseconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set timeout duration in milliseconds. </p>
+<p>Convenience method to set timeout duration using milliseconds instead of ticks. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Timeout duration in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-33" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-33-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a52c0f44c1a6b6f4009f6ed93153fd18f_cgraph.svg" width="624" height="130"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a382ed892633de8ff732ae268c4e85c58" name="a382ed892633de8ff732ae268c4e85c58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382ed892633de8ff732ae268c4e85c58">&#9670;&#160;</a></span>setSeconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::setSeconds </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>seconds</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set timeout duration in seconds. </p>
+<p>Convenience method to set timeout duration using seconds instead of ticks. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>Timeout duration in seconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-34" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-34-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-34-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a382ed892633de8ff732ae268c4e85c58_cgraph.svg" width="603" height="130"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afa5201886dcc6c0974c3752324d0d51c" name="afa5201886dcc6c0974c3752324d0d51c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa5201886dcc6c0974c3752324d0d51c">&#9670;&#160;</a></span>willExpireWithin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::willExpireWithin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>withinTicks</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if timeout will expire within specified ticks. </p>
+<p>Determines whether the timeout will expire within the given time window. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">withinTicks</td><td>Time window in ticks to check against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timeout will expire within the specified time, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-35" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-35-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-35-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_afa5201886dcc6c0974c3752324d0d51c_cgraph.svg" width="1075" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-36" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-36-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-36-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_afa5201886dcc6c0974c3752324d0d51c_icgraph.svg" width="412" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a415352c21da62d71455c1125aba9f066" name="a415352c21da62d71455c1125aba9f066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a415352c21da62d71455c1125aba9f066">&#9670;&#160;</a></span>willExpireWithinMs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::willExpireWithinMs </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>withinMs</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Check if timeout will expire within specified milliseconds. </p>
+<p>Determines whether the timeout will expire within the given time window in milliseconds. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">withinMs</td><td>Time window in milliseconds to check against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if timeout will expire within the specified time, <span class="tt">false</span> otherwise. </dd></dl>
+<div id="dynsection-37" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-37-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-37-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d17/a00231_a415352c21da62d71455c1125aba9f066_cgraph.svg" width="1299" height="138"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><b>Timeout.hpp</b></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../df/d17/a00231.html">Timeout</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for RTOS by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
   </ul>
 </div>

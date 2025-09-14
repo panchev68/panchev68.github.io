@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['callback_0',['callback',['../d5/d13/a00205.html#abe35c71ade8d73402a42a3582900347e',1,'RTOS::Timer::Config']]],
-  ['catchupticks_1',['catchUpTicks',['../d0/de8/a00133.html#aedea81c50b5fe3f38d68acd96098c9c9',1,'RTOS::Kernel']]],
-  ['clearbits_2',['clearBits',['../d9/d47/a00129.html#a44c825f79126d916f8d7e17d93b416b5',1,'RTOS::EventGroup']]],
-  ['clearbitsfromisr_3',['clearBitsFromISR',['../d9/d47/a00129.html#ac3e4026472c8b09395f8e14b8a71fe3b',1,'RTOS::EventGroup']]],
-  ['clientbase_4',['ClientBase',['../dd/df4/a00193.html',1,'RTOS::TickService::ClientBase'],['../dd/df4/a00193.html#ac84ffd97d3420aa324292d0692085ed7',1,'RTOS::TickService::ClientBase::ClientBase()']]],
-  ['config_5',['Config',['../d5/d13/a00205.html',1,'RTOS::Timer']]],
-  ['create_6',['create',['../d9/d47/a00129.html#ae123b21b37e587e5e424af4651768471',1,'RTOS::EventGroup::create()'],['../d5/d4e/a00141.html#adf8a8075ffc1f03938788678aabc84a9',1,'RTOS::MessageBuffer::create()'],['../da/d01/a00153.html#a1de0680dcbee88e899d16e907744cf34',1,'RTOS::Queue::create()'],['../d1/db7/a00157.html#afeb55a64e31f93a8776ea1ba33e26949',1,'RTOS::QueueSet::create()'],['../d6/d7d/a00161.html#a89c77ce82882d1c04a9adbb0a4816a79',1,'RTOS::Semaphore::create()'],['../d0/d48/a00165.html#abe7be11ded0f450a8e456e0ead643d03',1,'RTOS::SemaphoreBase::create()'],['../de/d53/a00169.html#a79abb88c91a63fdd98ae9c4877adcf23',1,'RTOS::SemaphoreCounting::create()'],['../d7/d3f/a00173.html#aa2c511443cf2207c917749583857480a',1,'RTOS::StreamBuffer::create()']]]
+  ['bufferhandle_0',['bufferHandle',['../d5/da7/a00144.html#a29f68b912afac04cb2b84477c5664283',1,'RTOS::MessageBuffer']]],
+  ['buffersize_1',['bufferSize',['../d5/da7/a00144.html#a7d026b3f6814a205af88a9f95b1fb194',1,'RTOS::MessageBuffer::bufferSize'],['../d6/dfb/a00172.html#ad43073c8d7692ee948cfa1e2fc3c2881',1,'RTOS::StreamBuffer::bufferSize']]],
+  ['buffersizebytes_2',['bufferSizeBytes',['../d5/da7/a00144.html#a6b566516c8076e41d7bb550d7eeb30a3',1,'RTOS::MessageBuffer']]],
+  ['build_20iar_20ewarm_3',['Build (IAR EWARM)',['../index.html#build-iar-ewarm',1,'']]],
+  ['bytesavailable_4',['bytesAvailable',['../d5/da7/a00144.html#a4b11c42a90316f25b26ab9c0b7aaf576',1,'RTOS::MessageBuffer::bytesAvailable()'],['../d6/dfb/a00172.html#a18e126787d0cef4f46445ebb056f7d2a',1,'RTOS::StreamBuffer::bytesAvailable()']]],
+  ['bytesused_5',['bytesUsed',['../d5/da7/a00144.html#ae83a3d6efe3eb648cc22bafeb58e897a',1,'RTOS::MessageBuffer']]]
 ];

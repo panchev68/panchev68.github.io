@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['counter_0',['Tick Counter',['../d7/d06/a00131.html',1,'']]],
-  ['counting_20semaphore_1',['Counting Semaphore',['../d4/ddd/a00138.html',1,'']]]
+  ['helper_20templates_0',['Performance optimization helper templates',['../d0/de8/a00133.html',1,'']]],
+  ['helpers_1',['Memory usage optimization helpers',['../de/d76/a00134.html',1,'']]]
 ];

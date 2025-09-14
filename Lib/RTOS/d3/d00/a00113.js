@@ -1,4 +1,4 @@
 var a00113 =
 [
-    [ "RTOS::TickCounter", "de/d79/a00203.html", null ]
+    [ "RTOS::TickCounter", "d0/d81/a00180.html", "d0/d81/a00180" ]
 ];

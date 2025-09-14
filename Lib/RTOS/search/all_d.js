@@ -1,5 +1,16 @@
 var searchData=
 [
-  ['queue_0',['Queue',['../da/d01/a00153.html',1,'RTOS::Queue&lt; T, QueueLength &gt;'],['../da/d01/a00153.html#aadf145259f76aede9ec23f1de49de320',1,'RTOS::Queue::Queue()']]],
-  ['queueset_1',['QueueSet',['../d1/db7/a00157.html',1,'RTOS::QueueSet'],['../d1/db7/a00157.html#ae1d6c3bb6ac93548ab67cfddb23722c8',1,'RTOS::QueueSet::QueueSet()']]]
+  ['of_20task_0',['of Task',['../d5/de9/a00176.html#constructor-of-task',1,'Constructor of Task.'],['../d5/de9/a00176.html#destructor-of-task',1,'Destructor of Task.']]],
+  ['of_20task_20type_1',['Description of Task type.',['../d5/de9/a00176.html#description-of-task-type',1,'']]],
+  ['of_20the_20rtos_20task_20wrapper_20header_2',['Description of the RTOS Task wrapper header.',['../d4/d81/a00110.html#description-of-the-rtos-task-wrapper-header',1,'']]],
+  ['oneshot_3',['OneShot',['../d7/ded/a00196.html#a944342cd0e4d5216ab51763e898f19c8ac7fc2ee61fad0e2bba6754efdee31481',1,'RTOS::Timer']]],
+  ['oneshot_4',['oneShot',['../d3/db1/a00200.html#a5463d64a52ea232b42913406ead3fce8',1,'RTOS::Timer::Config']]],
+  ['operator_20bool_5',['operator bool',['../dd/da2/a00192.html#a91278feb2a2991bfdf95d6a849f46919',1,'RTOS::Timeout::operator bool()'],['../d7/ded/a00196.html#a1cf4cef3351706992ce354ac964935e2',1,'RTOS::Timer::operator bool() const']]],
+  ['operator_20const_20handle_20_26_6',['operator const Handle &amp;',['../d7/ded/a00196.html#a38a2c9467d2796d8d15d174a104ee699',1,'RTOS::Timer']]],
+  ['operator_20ticktype_7',['operator TickType',['../dd/da2/a00192.html#aef6290c600bc3d6a209df352aeb3c4c4',1,'RTOS::Timeout']]],
+  ['operator_21_3d_8',['operator!=',['../dd/da2/a00192.html#a11a9f02a546f98502dce9d30a4d8562f',1,'RTOS::Timeout']]],
+  ['operator_2b_3d_9',['operator+=',['../dd/da2/a00192.html#abf78c4c7fcebc3eeaff9d92d4849155c',1,'RTOS::Timeout']]],
+  ['operator_2d_3d_10',['operator-=',['../dd/da2/a00192.html#a45089833ae08c0df4d4dd7321323908e',1,'RTOS::Timeout']]],
+  ['operator_3d_11',['operator=',['../d5/deb/a00132.html#a23c88409a78b03ce6163eb53c06287f0',1,'RTOS::EventGroup::operator=(const EventGroup &amp;other)=delete'],['../d5/deb/a00132.html#a2f5d8b1f998af41b14d87c71a31f2be6',1,'RTOS::EventGroup::operator=(EventGroup &amp;&amp;other)'],['../dd/da2/a00192.html#aa2354674b639ed23fc78b0480b6630eb',1,'RTOS::Timeout::operator=()'],['../d7/ded/a00196.html#a293ceb35e948951c983679cce10ad20f',1,'RTOS::Timer::operator=(Timer &amp;&amp;other) noexcept'],['../d7/ded/a00196.html#a40a88f12a9bf54ea36b7f76f7d1cc853',1,'RTOS::Timer::operator=(const Timer &amp;)=delete']]],
+  ['operator_3d_3d_12',['operator==',['../dd/da2/a00192.html#a2e21851db10482d0274ec8adb2a74d75',1,'RTOS::Timeout']]]
 ];

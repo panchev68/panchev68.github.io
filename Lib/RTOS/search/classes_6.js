@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['queue_0',['Queue',['../da/d01/a00153.html',1,'RTOS']]],
-  ['queueset_1',['QueueSet',['../d1/db7/a00157.html',1,'RTOS']]]
+  ['semaphore_0',['Semaphore',['../db/ddf/a00164.html',1,'RTOS']]],
+  ['semaphorecounting_1',['SemaphoreCounting',['../dd/da7/a00168.html',1,'RTOS']]],
+  ['streambuffer_2',['StreamBuffer',['../d6/dfb/a00172.html',1,'RTOS']]]
 ];

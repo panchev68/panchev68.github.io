@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['semaphore_0',['Semaphore',['../d6/d7d/a00161.html',1,'RTOS']]],
-  ['semaphorebase_1',['SemaphoreBase',['../d0/d48/a00165.html',1,'RTOS']]],
-  ['semaphorecounting_2',['SemaphoreCounting',['../de/d53/a00169.html',1,'RTOS']]],
-  ['streambuffer_3',['StreamBuffer',['../d7/d3f/a00173.html',1,'RTOS']]]
+  ['task_0',['Task',['../d5/de9/a00176.html',1,'RTOS']]],
+  ['tickcounter_1',['TickCounter',['../d0/d81/a00180.html',1,'RTOS']]],
+  ['tickservice_2',['TickService',['../d2/d94/a00184.html',1,'RTOS']]],
+  ['timeout_3',['Timeout',['../dd/da2/a00192.html',1,'RTOS']]],
+  ['timer_4',['Timer',['../d7/ded/a00196.html',1,'RTOS']]]
 ];

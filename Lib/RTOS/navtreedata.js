@@ -25,10 +25,39 @@
 var NAVTREE =
 [
   [ "RTOS", "index.html", [
+    [ "RTOS C++ Wrapper (STM32F4 / FreeRTOS)", "index.html#rtos-c-wrapper-stm32f4--freertos", [
+      [ "Highlights", "index.html#highlights", null ],
+      [ "Directory Structure", "index.html#directory-structure", null ],
+      [ "Class Architecture", "index.html#class-architecture", [
+        [ "Core Relationships", "index.html#core-relationships", null ],
+        [ "Synchronization Primitive Hierarchy", "index.html#synchronization-primitive-hierarchy", null ],
+        [ "Time &amp; Timer Components", "index.html#time--timer-components", null ]
+      ] ],
+      [ "Sequence Example: Task Lifecycle With RAII Callable", "index.html#sequence-example-task-lifecycle-with-raii-callable", null ],
+      [ "State Diagram: Simplified Task State Transitions", "index.html#state-diagram-simplified-task-state-transitions", null ],
+      [ "Usage Snippets", "index.html#usage-snippets", null ],
+      [ "Build (IAR EWARM)", "index.html#build-iar-ewarm", [
+        [ "Key Configuration Files", "index.html#key-configuration-files", null ]
+      ] ],
+      [ "Design Principles", "index.html#design-principles", null ],
+      [ "Documentation", "index.html#documentation", null ],
+      [ "Extending", "index.html#extending", null ],
+      [ "Mermaid Rendering", "index.html#mermaid-rendering", [
+        [ "Exporting Diagrams to PNG", "index.html#exporting-diagrams-to-png", null ]
+      ] ],
+      [ "License", "index.html#license", null ],
+      [ "Disclaimer", "index.html#disclaimer", null ]
+    ] ],
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
+    ] ],
     [ "Classes", "annotated.html", [
       [ "List", "annotated.html", "annotated_dup" ],
       [ "Index", "classes.html", null ],
-      [ "Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
@@ -37,14 +66,17 @@ var NAVTREE =
         [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
-    [ "Examples", "examples.html", "examples" ]
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "annotated.html",
-"functions_func_q.html"
+"d5/deb/a00132.html#a5cd4a6dcc7805dcdf420bdc550b1c719",
+"dd/da2/a00192.html#ab0e24523379064ca4af722150366c353"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
