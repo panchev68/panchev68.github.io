@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['eventcode_0',['EventCode',['../d2/d3e/a00366.html#a4d2d8c2ad096e11ce5b644063a5916fd',1,'Lib::BSP::EncoderTimer']]],
-  ['eventstate_1',['EventState',['../df/d73/a00358.html#aee34f1acaa5652c24213469ad6b5f133',1,'Lib::BSP::EncoderPins']]]
+  ['boundarytype_0',['BoundaryType',['../da/dc6/class_cubic_interpolation.html#a9f84e9fb569995d19e28707b5f98d25f',1,'CubicInterpolation']]]
 ];

@@ -1,0 +1,25 @@
+var class_r_t_o_s_1_1_semaphore_counting =
+[
+    [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a2c8ccf35fa3515037c65abc2176499f8", null ],
+    [ "~SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#afb5341458c94ba15df05e20a9b1892e4", null ],
+    [ "create", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a79abb88c91a63fdd98ae9c4877adcf23", null ],
+    [ "destroy", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a0e02fdce947578b5cf0b93548c82fe28", null ],
+    [ "getAvailableCount", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#af76925bd534347395493df1d1c6d300d", null ],
+    [ "getCount", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a237242c0475bb10af4c57e2b96b6a0a5", null ],
+    [ "getHandle", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#abefc7cd00d7bf5f818a36b8084851c91", null ],
+    [ "getInitialCount", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a4f244c6a4558949eecbebfca88554adb", null ],
+    [ "getMaxCount", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a9b9f288a0fce90fdc863d9ceef275efe", null ],
+    [ "getRemainingCapacity", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#afa492a2b3ec19a7e6cfdeba9b15732a1", null ],
+    [ "give", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a97ac23e2c0fb9235e1e13a56dcc27c23", null ],
+    [ "giveFromISR", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#af2bf09cd3cb15cab16883862889e96c7", null ],
+    [ "isAtMaxCount", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a64efd45b60a70a27d10a6270bd6e5666", null ],
+    [ "isCreated", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a01db2bc6a677e5c062f9b9d3c14d8599", null ],
+    [ "isEmpty", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#ae61cc7313762299f50e9496a3cfaba00", null ],
+    [ "operator Handle &", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#ad36952e1b8ad684b78520466b975c8fa", null ],
+    [ "overwrite", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a26617c96f4523fe5d58b0489248d0e6e", null ],
+    [ "overwriteFromISR", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#aa87af60fe2421cf538d1040cfe46be1c", null ],
+    [ "take", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#ab3693f3272d0bdf8e9e9499c188ac419", null ],
+    [ "takeForever", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a6a762ec1386b301aff487b5995fbadc6", null ],
+    [ "takeFromISR", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f", null ],
+    [ "takeNow", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a18ac5cf63b6637ae35076b4b124c5a11", null ]
+];

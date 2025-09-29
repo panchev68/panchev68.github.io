@@ -26,21 +26,21 @@ var NAVTREE =
 [
   [ "U146", "index.html", [
     [ "U146 Firmware Project", "index.html", null ],
-    [ "Changelog", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html", [
-      [ "[8.03] - 2025-07-23", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md803---2025-07-23", [
-        [ "Added", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#added", null ],
-        [ "Changed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#changed", null ],
-        [ "Fixed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#fixed", null ],
-        [ "Removed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#removed", null ]
+    [ "Changelog", "df/d5f/a00762.html", [
+      [ "[8.03] - 2025-07-23", "df/d5f/a00762.html#autotoc_md803---2025-07-23", [
+        [ "Added", "df/d5f/a00762.html#added", null ],
+        [ "Changed", "df/d5f/a00762.html#changed", null ],
+        [ "Fixed", "df/d5f/a00762.html#fixed", null ],
+        [ "Removed", "df/d5f/a00762.html#removed", null ]
       ] ],
-      [ "[8.03] - 2025-07-20", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md803---2025-07-20", [
-        [ "Added", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#added-1", null ],
-        [ "Changed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#changed-1", null ],
-        [ "Fixed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#fixed-1", null ],
-        [ "Removed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#removed-1", null ]
+      [ "[8.03] - 2025-07-20", "df/d5f/a00762.html#autotoc_md803---2025-07-20", [
+        [ "Added", "df/d5f/a00762.html#added-1", null ],
+        [ "Changed", "df/d5f/a00762.html#changed-1", null ],
+        [ "Fixed", "df/d5f/a00762.html#fixed-1", null ],
+        [ "Removed", "df/d5f/a00762.html#removed-1", null ]
       ] ],
-      [ "[8.02] - June 29, 2025", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md802---june-29-2025", null ],
-      [ "[8.02] - June 28, 2025", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md802---june-28-2025", null ]
+      [ "[8.02] - June 29, 2025", "df/d5f/a00762.html#autotoc_md802---june-29-2025", null ],
+      [ "[8.02] - June 28, 2025", "df/d5f/a00762.html#autotoc_md802---june-28-2025", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
@@ -67,16 +67,17 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/d0d/class_model_diagnostic.html#a711ddf69597a72c368dbdfabffc18159",
-"d8/dda/struct_system_1_1_parameters_1_1_data_1_1_display.html#af9a94242dd06fa992401d60108f22efd",
-"db/df3/class_model_peripheral_1_1_test_outputs_client.html#ab2cf2a987f36e372636dee95efbe415e"
+"d1/d69/a00507.html#a4bb146e17dc2e4f914f7e4d695510dde",
+"d9/d39/a00257.html#a08b391e168f02e6145ea1fe39bae7962",
+"de/dab/a00319.html#a7091c2f242195d40a6042d741ccff49f"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

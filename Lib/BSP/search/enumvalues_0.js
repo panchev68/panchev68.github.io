@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['block_5ferase_5f32k_0',['BLOCK_ERASE_32K',['../d7/d9f/a00454.html#a60affb628639188caa59cd9f70b1409fa715a0e14636a6778195f5eaaf31ae560',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['block_5ferase_5f64k_1',['BLOCK_ERASE_64K',['../d7/d9f/a00454.html#a60affb628639188caa59cd9f70b1409faeccd8582924e06d24d30ebfbac536baf',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['but_5fpull_2',['BUT_PULL',['../df/d73/a00358.html#aee34f1acaa5652c24213469ad6b5f133a33a5524041986baf515293cd1d0c67e4',1,'Lib::BSP::EncoderPins']]],
-  ['but_5fpush_3',['BUT_PUSH',['../df/d73/a00358.html#aee34f1acaa5652c24213469ad6b5f133aec99b17e69f307181424c4145f5f6490',1,'Lib::BSP::EncoderPins']]],
-  ['button_5fhold_4',['BUTTON_HOLD',['../d2/d3e/a00366.html#a4d2d8c2ad096e11ce5b644063a5916fdaa9ac7af6781d04fe7e05a387f285044e',1,'Lib::BSP::EncoderTimer']]],
-  ['button_5fpull_5',['BUTTON_PULL',['../d2/d3e/a00366.html#a4d2d8c2ad096e11ce5b644063a5916fda87cc2515777cc275be23e4735ad2b972',1,'Lib::BSP::EncoderTimer']]],
-  ['button_5fpush_6',['BUTTON_PUSH',['../d2/d3e/a00366.html#a4d2d8c2ad096e11ce5b644063a5916fdac36aee6215a48ebf1e92e42dd6a0cf4c',1,'Lib::BSP::EncoderTimer']]]
+  ['access_5ffault_0',['ACCESS_FAULT',['../db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a1ca3b1d6d0209c50bd947bfccb88bb66a91100801e159856fece68d18dd57f4a2',1,'Lib::Digi::Core::Frame0x8a']]],
+  ['active_1',['ACTIVE',['../d9/dcd/class_lib_1_1_errors_1_1_error.html#ac97d949e755c3b10315681da95176f7ba18ff74f43da410c5529f7d6fca84f115',1,'Lib::Errors::Error']]],
+  ['all_5ferrors_5fcleared_2',['ALL_ERRORS_CLEARED',['../d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db',1,'Lib::Errors::Dispatcher']]],
+  ['api1_3',['API1',['../dd/de5/namespace_lib_1_1_digi_1_1_core.html#ac00e3258c1e2d55846ad6f50ddfebbdca7e8d092d9c015707dedc7a3b8173f6b5',1,'Lib::Digi::Core']]],
+  ['api2_4',['API2',['../dd/de5/namespace_lib_1_1_digi_1_1_core.html#ac00e3258c1e2d55846ad6f50ddfebbdca51dfa65dc2042cfa662ff3a4cd76c968',1,'Lib::Digi::Core']]],
+  ['available_5',['AVAILABLE',['../d3/de9/class_r_t_o_s_1_1_semaphore.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7',1,'RTOS::Semaphore']]]
 ];

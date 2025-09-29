@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bg">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IAR Library: RTOS::MemoryManager</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
+   </div>
+   <div id="projectbrief">IAR  Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Генериран от Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','Търсене',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d4/d30/_r_t_o_s_1_1_memory_manager-example.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Зареждане...</div>
+<div class="SRStatus" id="Searching">Търсене...</div>
+<div class="SRStatus" id="NoMatches">Не намерено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">RTOS::MemoryManager</div></div>
+</div><!--header-->
+<div class="contents">
+<h1 class="doxsection"><a class="anchor" id="example-usage-of-rtosmemorymanager"></a>
+Example usage of RTOS::MemoryManager</h1>
+<p>Demonstrates allocation, deallocation, and diagnostics using the MemoryManager class.</p>
+<hr  />
+<dl class="section user"><dt>Example usage:</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d75/_memory_manager_8hpp.html">Lib/RTOS/MemoryManager.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d7d/class_r_t_o_s_1_1_memory_manager.html">RTOS::MemoryManager</a>;</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> ALLOC_SIZE = 128;</div>
+<div class="line">    <span class="keywordtype">void</span> *ptr = MemoryManager::allocate(ALLOC_SIZE);</div>
+<div class="line">    <span class="keywordflow">if</span> (ptr) {</div>
+<div class="line">        <span class="comment">// Use the allocated memory...</span></div>
+<div class="line">        MemoryManager::deallocate(ptr);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    MemoryManager::Status status;</div>
+<div class="line">    <span class="keywordtype">void</span> *ptr2 = MemoryManager::allocate(ALLOC_SIZE, status);</div>
+<div class="line">    <span class="keywordflow">if</span> (status == MemoryManager::Status::SUCCESS) {</div>
+<div class="line">        <span class="comment">// Use the allocated memory...</span></div>
+<div class="line">        MemoryManager::deallocate(ptr2, status);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined(MEMORY_MANAGER_DIAG)</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;diag = MemoryManager::getDiagnostics();</div>
+<div class="line">    <span class="comment">// diag.allocated, diag.deallocated, diag.active, etc.</span></div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+<div class="ttc" id="a_memory_manager_8hpp_html"><div class="ttname"><a href="../../d7/d75/_memory_manager_8hpp.html">MemoryManager.hpp</a></div><div class="ttdoc">Memory manager for FreeRTOS heap allocation and diagnostics.</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_memory_manager_html"><div class="ttname"><a href="../../db/d7d/class_r_t_o_s_1_1_memory_manager.html">RTOS::MemoryManager</a></div><div class="ttdoc">MemoryManager class for FreeRTOS heap allocation and diagnostics.</div><div class="ttdef"><b>Definition</b> MemoryManager.hpp:22</div></div>
+</div><!-- fragment --></dd></dl>
+<p>This example shows how to allocate and deallocate memory using the MemoryManager class, check status codes, and access diagnostic information if enabled.</p>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="footer">Генериран от <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bg">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IAR Library: UserProtocol.hpp Изходен файл</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
+   </div>
+   <div id="projectbrief">IAR  Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Генериран от Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','Търсене',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d5/d39/_ethernet_2base_2_user_protocol_8hpp_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Зареждане...</div>
+<div class="SRStatus" id="Searching">Търсене...</div>
+<div class="SRStatus" id="NoMatches">Не намерено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Ethernet/base/UserProtocol.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d5/d39/_ethernet_2base_2_user_protocol_8hpp.html">Вижте документацията за този файл.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** Ethernet user protocol class.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Provides a class for representing and parsing Ethernet user protocol messages. Supports message construction,</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * parsing, and callback handling for commands and payloads. Ensures type safety, bounds checking, and input</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * validation for embedded networking applications. Includes support for custom callbacks and error handling.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @file UserProtocol.hpp</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d1/d6f/namespace_lib_1_1_ethernet.html">Lib::Ethernet</a> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"></span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">    /** Ethernet UserProtocol class.</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">     * Provides methods for building and parsing Ethernet user protocol messages, handling commands, options,</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">     * and payloads. Supports callback mechanisms for message processing and activity updates.</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a26bd091672abe4590d5e98f68b185f5b">UserProtocol</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">        /** UserProtocol constructor of UserProtocol class. */</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a26bd091672abe4590d5e98f68b185f5b">   22</a></span>        <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a26bd091672abe4590d5e98f68b185f5b">UserProtocol</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">        /** UserProtocol destructor of UserProtocol class. */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a24d727deb7ea5446e8549a576e6d5b3f">   25</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a24d727deb7ea5446e8549a576e6d5b3f">~UserProtocol</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">        /** User protocol Message Header.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">         * Represents the header of a user protocol message, including delimiter, ID, timestamp, command, option,</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">         * and payload length.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">   31</a></span>        __packed <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#afe55e623eebacaace36b8d1e9844d39d">   32</a></span>            uint8_t <a class="code hl_variable" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#afe55e623eebacaace36b8d1e9844d39d">delimiter</a>;  <span class="comment">/*!&lt; Start delimiter of frame, must be `0x7e`. */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a8347df958bae7c76cebdbb5c432b0050">   33</a></span>            uint16_t <a class="code hl_variable" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a8347df958bae7c76cebdbb5c432b0050">id</a>;        <span class="comment">/*!&lt; Frame ID, incremented for each message. */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a0997b1a261a5779f789463642f1b0e65">   34</a></span>            uint32_t <a class="code hl_variable" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a0997b1a261a5779f789463642f1b0e65">timestamp</a>; <span class="comment">/*!&lt; Timestamp, typically systick value. */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#ac39c4790de9b586883fe6f756ddacedb">   35</a></span>            uint8_t <a class="code hl_variable" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#ac39c4790de9b586883fe6f756ddacedb">command</a>;    <span class="comment">/*!&lt; Command identifier. */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a5ef8d332a47ac6474f29bd47994ec554">   36</a></span>            uint8_t <a class="code hl_variable" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a5ef8d332a47ac6474f29bd47994ec554">option</a>;     <span class="comment">/*!&lt; Message option. */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#afe72ea272518d059f1bf808d9f29af53">   37</a></span>            uint8_t <a class="code hl_variable" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#afe72ea272518d059f1bf808d9f29af53">length</a>;     <span class="comment">/*!&lt; Payload length in bytes. */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        };</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">        /** User Protocol commands.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">         * Enumerates supported user protocol commands.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4">   43</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4">Command</a> : uint8_t {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409">   44</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409">ECHO</a>,   <span class="comment">/*!&lt; Echo command (client/server function). */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692">   45</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692">INPUTS</a>, <span class="comment">/*!&lt; Inputs update (server function). */</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70">   46</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70">OUTPUTS</a> <span class="comment">/*!&lt; Outputs update (server function). */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        };</div>
+</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"></span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">        /** User Protocol Errors.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">         * Enumerates possible errors during message parsing and processing.</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="};">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6">   52</a></span>        <span class="keyword">enum class</span> <a class="code hl_enumeration" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6">Error</a> : uint8_t {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564">   53</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564">OK</a>,                     <span class="comment">/*!&lt; No error. */</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7">   54</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7">COMMAND_NOT_SUPPORT</a>,    <span class="comment">/*!&lt; Command not supported. */</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0">   55</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0">EMPTY_MESSAGE</a>,          <span class="comment">/*!&lt; Message is empty or parameters are invalid. */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e">   56</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e">INVALID_PAYLOAD_LENGTH</a>, <span class="comment">/*!&lt; Payload length is invalid. */</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c">   57</a></span>            <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c">INVALID_START_DELIMITER</a> <span class="comment">/*!&lt; Start delimiter is invalid. */</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        };</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"></span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">        /** Parses the incoming message.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">         * @param data Pointer to incoming message.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">         * @param len Size of incoming message.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">         * @param[out] command Reference to store the parsed command.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">         * @param[out] option Reference to store the parsed option.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">         * @return Error code indicating the result of parsing.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">         * @pre data must not be nullptr; len must be greater than 0.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">         * @pre Message must start with the correct delimiter.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">         * @pre Payload length must be valid for the command.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">         * @post command and option are set if parsing is successful.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">         * @see [Message Format](https://github.com/panchev68-Library/EWARM/blob/2.02/EWARM/Ethernet/doc/EthernetCommunication.md#message-format)</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a49f94a704aeeebdf8599f9a7df43faf4">   72</a></span>        <a class="code hl_enumeration" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6">Error</a> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a49f94a704aeeebdf8599f9a7df43faf4">parse</a>(<span class="keyword">const</span> uint8_t * data, <span class="keywordtype">size_t</span> len, <a class="code hl_enumeration" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4">Command</a> &amp; command, uint8_t &amp; option) {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">if</span> (!data || len == 0) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0">Error::EMPTY_MESSAGE</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            <span class="keywordflow">do</span> {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                <span class="keywordflow">if</span> (len &lt; <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a>)) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0">Error::EMPTY_MESSAGE</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                <span class="keyword">const</span> <span class="keyword">auto</span> &amp; header = *<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a> *<span class="keyword">&gt;</span>(data);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <span class="keywordflow">if</span> (header.delimiter != START_DELIMITER) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c">Error::INVALID_START_DELIMITER</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a248b2f8c32d4a9615be4a5317689d93b">handleIncomingMessageHeader</a>(header);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                command = <span class="keyword">static_cast&lt;</span><a class="code hl_enumeration" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4">Command</a><span class="keyword">&gt;</span>(header.command);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                option = header.option;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>                <span class="keywordtype">size_t</span> payloadLen = header.length;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <span class="keywordflow">if</span> (len &lt; <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a>) + payloadLen) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e">Error::INVALID_PAYLOAD_LENGTH</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                <span class="keyword">const</span> uint8_t * payloadData = data + <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a>);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                <span class="keywordtype">size_t</span> nodesNum = 0;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>                <span class="keywordflow">switch</span> (command) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409">Command::ECHO</a>:</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                    <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab1bac861412dff00ff1a803a81d86f86">echoCallback</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692">Command::INPUTS</a>:</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                    <span class="keywordflow">if</span> (payloadLen % <span class="keyword">sizeof</span>(uint64_t) != 0) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e">Error::INVALID_PAYLOAD_LENGTH</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                    nodesNum = payloadLen / <span class="keyword">sizeof</span>(uint64_t);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                    <span class="keyword">auto</span> payload = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>uint64_t *<span class="keyword">&gt;</span>(payloadData);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                    <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af21943f4772a46224b5d13acc2e3ce77">updateNodeActivityCallback</a>(nodesNum);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nodesNum; ++i) inputsUpdateCallback(static_cast&lt;uint8_t&gt;(i), payload[i]);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70">Command::OUTPUTS</a>:</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>                    <span class="keywordflow">if</span> (payloadLen % <span class="keyword">sizeof</span>(uint64_t) != 0) <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e">Error::INVALID_PAYLOAD_LENGTH</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>                    nodesNum = payloadLen / <span class="keyword">sizeof</span>(uint64_t);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                    <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af21943f4772a46224b5d13acc2e3ce77">updateNodeActivityCallback</a>(nodesNum);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; nodesNum; ++i) {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                        uint64_t value;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                        std::memcpy(&amp;value, payloadData + i * <span class="keyword">sizeof</span>(uint64_t), <span class="keyword">sizeof</span>(uint64_t));</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                        <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a8a61a95f27ba3571808c7d85b7cf6d64">outputsUpdateCallback</a>(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(i), value);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>                    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7">Error::COMMAND_NOT_SUPPORT</a>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>                }</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                data += <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a>) + payloadLen;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                len -= <span class="keyword">sizeof</span>(<a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a>) + payloadLen;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            } <span class="keywordflow">while</span> (len &gt; 0);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564">Error::OK</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        }</div>
+</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"></span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">        /** Builds the outgoing message.</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">         * @param cmd Command to send.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">         * @param option Message option.</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">         * @param id Frame ID.</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">         * @param payload Pointer to payload data (optional).</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">         * @return Vector containing the constructed message bytes.</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">         * @pre cmd must be a valid Command.</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">         * @pre option must be a valid option value.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">         * @pre id must be a valid frame ID.</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">         * @post Returns a vector containing the message header and payload.</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab5769db088c289d3c47bdbc3e19b05fc">  133</a></span>        std::vector&lt;uint8_t&gt; <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab5769db088c289d3c47bdbc3e19b05fc">build</a>(<a class="code hl_enumeration" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4">Command</a> cmd, uint8_t option, uint16_t <span class="keywordtype">id</span>, <span class="keyword">const</span> std::vector&lt;uint8_t&gt; * payload = <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            <span class="keyword">auto</span> payloadSize = payload ? payload-&gt;size() : 0;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>            <a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a> header = {START_DELIMITER, id, (lastSentTimeStamp = HAL_GetTick()), <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(cmd), option, <span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(payloadSize)};</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>            std::vector&lt;uint8_t&gt; vector(<span class="keyword">reinterpret_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(&amp;header), <span class="keyword">reinterpret_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(&amp;header) + <span class="keyword">sizeof</span>(header));</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            <span class="keywordflow">if</span> (payloadSize &gt; 0) vector.insert(vector.end(), payload-&gt;begin(), payload-&gt;end());</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <span class="keywordflow">return</span> vector;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        }</div>
+</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"></span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">        /** Gets the last sent time stamp.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">         * @return Last sent time stamp value.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a214eade10a664fdb01ade38674777f2e">  144</a></span>        uint32_t <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a214eade10a664fdb01ade38674777f2e">getLastSentTimeStamp</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> lastSentTimeStamp; }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"></span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">        /** Handles incoming message header.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">         * @param src Reference to MessageHeader.</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a248b2f8c32d4a9615be4a5317689d93b">  149</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a248b2f8c32d4a9615be4a5317689d93b">handleIncomingMessageHeader</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">MessageHeader</a> &amp; src) {}</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment"></span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">        /** Echo callback. */</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab1bac861412dff00ff1a803a81d86f86">  152</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab1bac861412dff00ff1a803a81d86f86">echoCallback</a>() {}</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment"></span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">        /** Update node activity callback.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">         * @param nodesNum Number of nodes.</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af21943f4772a46224b5d13acc2e3ce77">  157</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af21943f4772a46224b5d13acc2e3ce77">updateNodeActivityCallback</a>(<span class="keywordtype">size_t</span> nodesNum) {}</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment"></span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">        /** Inputs update callback.</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">         * @param boardIndex Board index.</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">         * @param value Reference to value.</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab7c782101422a33d37d8a3083ac28ad0">  163</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab7c782101422a33d37d8a3083ac28ad0">inputsUpdateCallback</a>(uint8_t boardIndex, <span class="keyword">const</span> uint64_t &amp; value) {}</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment"></span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">        /** Outputs update callback.</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">         * @param boardIndex Board index.</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">         * @param value Value.</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a8a61a95f27ba3571808c7d85b7cf6d64">  169</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a8a61a95f27ba3571808c7d85b7cf6d64">outputsUpdateCallback</a>(uint8_t boardIndex, <span class="keyword">const</span> uint64_t &amp; value) {}</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t START_DELIMITER = 0x7e; <span class="comment">/*!&lt; Start delimiter constant. */</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        uint32_t lastSentTimeStamp = 0;                  <span class="comment">/*!&lt; Systick value of the last packet sent. */</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    };</div>
+</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>} <span class="comment">// namespace Lib::Ethernet</span></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_a214eade10a664fdb01ade38674777f2e"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a214eade10a664fdb01ade38674777f2e">Lib::Ethernet::UserProtocol::getLastSentTimeStamp</a></div><div class="ttdeci">uint32_t getLastSentTimeStamp() const</div><div class="ttdoc">Gets the last sent time stamp.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:144</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_a248b2f8c32d4a9615be4a5317689d93b"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a248b2f8c32d4a9615be4a5317689d93b">Lib::Ethernet::UserProtocol::handleIncomingMessageHeader</a></div><div class="ttdeci">virtual void handleIncomingMessageHeader(const MessageHeader &amp;src)</div><div class="ttdoc">Handles incoming message header.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:149</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_a24d727deb7ea5446e8549a576e6d5b3f"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a24d727deb7ea5446e8549a576e6d5b3f">Lib::Ethernet::UserProtocol::~UserProtocol</a></div><div class="ttdeci">virtual ~UserProtocol()=default</div><div class="ttdoc">UserProtocol destructor of UserProtocol class.</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_a26bd091672abe4590d5e98f68b185f5b"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a26bd091672abe4590d5e98f68b185f5b">Lib::Ethernet::UserProtocol::UserProtocol</a></div><div class="ttdeci">UserProtocol()=default</div><div class="ttdoc">UserProtocol constructor of UserProtocol class.</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_a49f94a704aeeebdf8599f9a7df43faf4"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a49f94a704aeeebdf8599f9a7df43faf4">Lib::Ethernet::UserProtocol::parse</a></div><div class="ttdeci">Error parse(const uint8_t *data, size_t len, Command &amp;command, uint8_t &amp;option)</div><div class="ttdoc">Parses the incoming message.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:72</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_a8a61a95f27ba3571808c7d85b7cf6d64"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a8a61a95f27ba3571808c7d85b7cf6d64">Lib::Ethernet::UserProtocol::outputsUpdateCallback</a></div><div class="ttdeci">virtual void outputsUpdateCallback(uint8_t boardIndex, const uint64_t &amp;value)</div><div class="ttdoc">Outputs update callback.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:169</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_ab1bac861412dff00ff1a803a81d86f86"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab1bac861412dff00ff1a803a81d86f86">Lib::Ethernet::UserProtocol::echoCallback</a></div><div class="ttdeci">virtual void echoCallback()</div><div class="ttdoc">Echo callback.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:152</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_ab5769db088c289d3c47bdbc3e19b05fc"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab5769db088c289d3c47bdbc3e19b05fc">Lib::Ethernet::UserProtocol::build</a></div><div class="ttdeci">std::vector&lt; uint8_t &gt; build(Command cmd, uint8_t option, uint16_t id, const std::vector&lt; uint8_t &gt; *payload=nullptr)</div><div class="ttdoc">Builds the outgoing message.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:133</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_ab7c782101422a33d37d8a3083ac28ad0"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab7c782101422a33d37d8a3083ac28ad0">Lib::Ethernet::UserProtocol::inputsUpdateCallback</a></div><div class="ttdeci">virtual void inputsUpdateCallback(uint8_t boardIndex, const uint64_t &amp;value)</div><div class="ttdoc">Inputs update callback.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:163</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af1bf58d46a2365d039aa946466c931e4"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4">Lib::Ethernet::UserProtocol::Command</a></div><div class="ttdeci">Command</div><div class="ttdoc">User Protocol commands.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:43</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70">Lib::Ethernet::UserProtocol::Command::OUTPUTS</a></div><div class="ttdeci">@ OUTPUTS</div><div class="ttdoc">Outputs update (server function).</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:46</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692">Lib::Ethernet::UserProtocol::Command::INPUTS</a></div><div class="ttdeci">@ INPUTS</div><div class="ttdoc">Inputs update (server function).</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:45</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409">Lib::Ethernet::UserProtocol::Command::ECHO</a></div><div class="ttdeci">@ ECHO</div><div class="ttdoc">Echo command (client/server function).</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:44</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af21943f4772a46224b5d13acc2e3ce77"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af21943f4772a46224b5d13acc2e3ce77">Lib::Ethernet::UserProtocol::updateNodeActivityCallback</a></div><div class="ttdeci">virtual void updateNodeActivityCallback(size_t nodesNum)</div><div class="ttdoc">Update node activity callback.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:157</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af7acfca02d188807a9c220d5c0bfeda6"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6">Lib::Ethernet::UserProtocol::Error</a></div><div class="ttdeci">Error</div><div class="ttdoc">User Protocol Errors.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:52</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e">Lib::Ethernet::UserProtocol::Error::INVALID_PAYLOAD_LENGTH</a></div><div class="ttdeci">@ INVALID_PAYLOAD_LENGTH</div><div class="ttdoc">Payload length is invalid.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:56</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c">Lib::Ethernet::UserProtocol::Error::INVALID_START_DELIMITER</a></div><div class="ttdeci">@ INVALID_START_DELIMITER</div><div class="ttdoc">Start delimiter is invalid.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:57</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0">Lib::Ethernet::UserProtocol::Error::EMPTY_MESSAGE</a></div><div class="ttdeci">@ EMPTY_MESSAGE</div><div class="ttdoc">Message is empty or parameters are invalid.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:55</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7">Lib::Ethernet::UserProtocol::Error::COMMAND_NOT_SUPPORT</a></div><div class="ttdeci">@ COMMAND_NOT_SUPPORT</div><div class="ttdoc">Command not supported.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:54</div></div>
+<div class="ttc" id="aclass_lib_1_1_ethernet_1_1_user_protocol_html_af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564"><div class="ttname"><a href="../../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564">Lib::Ethernet::UserProtocol::Error::OK</a></div><div class="ttdeci">@ OK</div><div class="ttdoc">No error.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:53</div></div>
+<div class="ttc" id="anamespace_lib_1_1_ethernet_html"><div class="ttname"><a href="../../d1/d6f/namespace_lib_1_1_ethernet.html">Lib::Ethernet</a></div><div class="ttdoc">Namespace for Ethernet device classes and functions.</div><div class="ttdef"><b>Definition</b> IPAddress.hpp:16</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html">Lib::Ethernet::UserProtocol::MessageHeader</a></div><div class="ttdoc">User protocol Message Header.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:31</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html_a0997b1a261a5779f789463642f1b0e65"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a0997b1a261a5779f789463642f1b0e65">Lib::Ethernet::UserProtocol::MessageHeader::timestamp</a></div><div class="ttdeci">uint32_t timestamp</div><div class="ttdoc">Timestamp, typically systick value.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:34</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html_a5ef8d332a47ac6474f29bd47994ec554"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a5ef8d332a47ac6474f29bd47994ec554">Lib::Ethernet::UserProtocol::MessageHeader::option</a></div><div class="ttdeci">uint8_t option</div><div class="ttdoc">Message option.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:36</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html_a8347df958bae7c76cebdbb5c432b0050"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#a8347df958bae7c76cebdbb5c432b0050">Lib::Ethernet::UserProtocol::MessageHeader::id</a></div><div class="ttdeci">uint16_t id</div><div class="ttdoc">Frame ID, incremented for each message.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:33</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html_ac39c4790de9b586883fe6f756ddacedb"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#ac39c4790de9b586883fe6f756ddacedb">Lib::Ethernet::UserProtocol::MessageHeader::command</a></div><div class="ttdeci">uint8_t command</div><div class="ttdoc">Command identifier.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:35</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html_afe55e623eebacaace36b8d1e9844d39d"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#afe55e623eebacaace36b8d1e9844d39d">Lib::Ethernet::UserProtocol::MessageHeader::delimiter</a></div><div class="ttdeci">uint8_t delimiter</div><div class="ttdoc">Start delimiter of frame, must be 0x7e.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:32</div></div>
+<div class="ttc" id="astruct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header_html_afe72ea272518d059f1bf808d9f29af53"><div class="ttname"><a href="../../d0/dc9/struct_lib_1_1_ethernet_1_1_user_protocol_1_1_message_header.html#afe72ea272518d059f1bf808d9f29af53">Lib::Ethernet::UserProtocol::MessageHeader::length</a></div><div class="ttdeci">uint8_t length</div><div class="ttdoc">Payload length in bytes.</div><div class="ttdef"><b>Definition</b> Ethernet/base/UserProtocol.hpp:37</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_c7240d7295280eb9592be0a257cd939d.html">Ethernet</a></li><li class="navelem"><a href="../../dir_dd581b7014d308663732db4f4fef0b37.html">base</a></li><li class="navelem"><a href="../../d5/d39/_ethernet_2base_2_user_protocol_8hpp.html">UserProtocol.hpp</a></li>
+    <li class="footer">Генериран от <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,8 +1,8 @@
 var topics =
 [
-    [ "Board Supported Peripheral", "d5/d53/group___b_s_p.html", "d5/d53/group___b_s_p" ],
-    [ "Data Application Layer", "d3/d4c/group___d_a_l.html", null ],
-    [ "System Layer", "d3/de2/group___system.html", null ],
-    [ "Communication Layer", "d2/d99/group___communication.html", "d2/d99/group___communication" ],
-    [ "TouchGFX Layer", "d1/d23/group___touch_g_f_x.html", "d1/d23/group___touch_g_f_x" ]
+    [ "Board Supported Peripheral", "d6/de1/a00233.html", "d6/de1/a00233" ],
+    [ "Data Application Layer", "d2/dc8/a00242.html", null ],
+    [ "System Layer", "d6/d82/a00243.html", null ],
+    [ "Communication Layer", "d6/d08/a00244.html", "d6/d08/a00244" ],
+    [ "TouchGFX Layer", "de/dbc/a00249.html", "de/dbc/a00249" ]
 ];

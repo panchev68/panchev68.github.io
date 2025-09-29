@@ -1,61 +1,61 @@
 var annotated_dup =
 [
     [ "App", null, [
-      [ "TestPeripheralOutputs", "df/d4a/class_app_1_1_test_peripheral_outputs.html", "df/d4a/class_app_1_1_test_peripheral_outputs" ]
+      [ "TestPeripheralOutputs", "df/da9/a00263.html", "df/da9/a00263" ]
     ] ],
-    [ "BSP", "da/da7/namespace_b_s_p.html", [
-      [ "Backlight", "d2/ddb/class_b_s_p_1_1_backlight.html", "d2/ddb/class_b_s_p_1_1_backlight" ],
-      [ "Beep", "dc/d36/class_b_s_p_1_1_beep.html", "dc/d36/class_b_s_p_1_1_beep" ],
-      [ "DigitalPeripheral", "d2/d97/class_b_s_p_1_1_digital_peripheral.html", "d2/d97/class_b_s_p_1_1_digital_peripheral" ],
-      [ "Display", "d1/d6d/class_b_s_p_1_1_display.html", "d1/d6d/class_b_s_p_1_1_display" ],
-      [ "DRV8908", "db/d20/class_b_s_p_1_1_d_r_v8908.html", "db/d20/class_b_s_p_1_1_d_r_v8908" ],
-      [ "InputPort", "d3/d52/class_b_s_p_1_1_input_port.html", "d3/d52/class_b_s_p_1_1_input_port" ],
-      [ "Inputs", "df/df2/class_b_s_p_1_1_inputs.html", "df/df2/class_b_s_p_1_1_inputs" ],
-      [ "Leds", "d2/d32/class_b_s_p_1_1_leds.html", "d2/d32/class_b_s_p_1_1_leds" ],
-      [ "M24C64W", "d7/d44/class_b_s_p_1_1_m24_c64_w.html", "d7/d44/class_b_s_p_1_1_m24_c64_w" ],
-      [ "Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
-      [ "Outputs< OutputVersion::V1 >", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4.html", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4" ],
-      [ "Outputs< OutputVersion::V2 >", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4.html", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4" ],
-      [ "OutputsBase", "dc/dc2/class_b_s_p_1_1_outputs_base.html", "dc/dc2/class_b_s_p_1_1_outputs_base" ],
-      [ "OutputsListener", "d0/d11/class_b_s_p_1_1_outputs_listener.html", "d0/d11/class_b_s_p_1_1_outputs_listener" ],
-      [ "OutputsPrecodeItem", "d4/df1/struct_b_s_p_1_1_outputs_precode_item.html", "d4/df1/struct_b_s_p_1_1_outputs_precode_item" ],
-      [ "TouchScreen", "d7/d14/class_b_s_p_1_1_touch_screen.html", "d7/d14/class_b_s_p_1_1_touch_screen" ],
-      [ "W25Q128JVSIQ", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q" ]
+    [ "BSP", "d0/d3e/a00253.html", [
+      [ "Backlight", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
+      [ "Beep", "dd/d86/a00271.html", "dd/d86/a00271" ],
+      [ "DigitalPeripheral", "d3/d5e/a00275.html", "d3/d5e/a00275" ],
+      [ "Display", "d8/df7/a00331.html", "d8/df7/a00331" ],
+      [ "DRV8908", "d0/da2/a00307.html", "d0/da2/a00307" ],
+      [ "InputPort", "d2/d82/a00279.html", "d2/d82/a00279" ],
+      [ "Inputs", "dd/dfe/a00283.html", "dd/dfe/a00283" ],
+      [ "Leds", "df/d91/a00335.html", "df/d91/a00335" ],
+      [ "M24C64W", "d1/dc6/a00347.html", "d1/dc6/a00347" ],
+      [ "Outputs", "d8/dfc/a00327.html", null ],
+      [ "Outputs< OutputVersion::V1 >", "da/dd4/a00291.html", "da/dd4/a00291" ],
+      [ "Outputs< OutputVersion::V2 >", "df/d95/a00299.html", "df/d95/a00299" ],
+      [ "OutputsBase", "d1/d5d/a00311.html", "d1/d5d/a00311" ],
+      [ "OutputsListener", "d4/d6f/a00315.html", "d4/d6f/a00315" ],
+      [ "OutputsPrecodeItem", "de/d55/a00323.html", "de/d55/a00323" ],
+      [ "TouchScreen", "d3/dc9/a00355.html", "d3/dc9/a00355" ],
+      [ "W25Q128JVSIQ", "d4/def/a00359.html", "d4/def/a00359" ]
     ] ],
-    [ "Canbus", "d9/dfb/namespace_canbus.html", [
-      [ "Server", "d1/d2d/class_canbus_1_1_server.html", "d1/d2d/class_canbus_1_1_server" ]
+    [ "Canbus", "d7/d03/a00254.html", [
+      [ "Server", "d9/d9b/a00363.html", "d9/d9b/a00363" ]
     ] ],
-    [ "DAL", "df/d81/namespace_d_a_l.html", [
-      [ "CanNode", "de/d18/struct_d_a_l_1_1_can_node.html", "de/d18/struct_d_a_l_1_1_can_node" ],
-      [ "Peripheral", "d5/d5c/class_d_a_l_1_1_peripheral.html", "d5/d5c/class_d_a_l_1_1_peripheral" ]
+    [ "DAL", null, [
+      [ "CanNode", "d6/d80/a00371.html", "d6/d80/a00371" ],
+      [ "Peripheral", "dd/dcb/a00375.html", "dd/dcb/a00375" ]
     ] ],
     [ "HAL", null, [
-      [ "RTClock", "da/dd9/class_h_a_l_1_1_r_t_clock.html", null ],
-      [ "UartPort", "d2/da4/class_h_a_l_1_1_uart_port.html", "d2/da4/class_h_a_l_1_1_uart_port" ]
+      [ "RTClock", "d8/d95/a00379.html", null ],
+      [ "UartPort", "da/dee/a00383.html", "da/dee/a00383" ]
     ] ],
-    [ "System", "d8/dd0/namespace_system.html", [
-      [ "BuildVersion", "d4/dff/class_system_1_1_build_version.html", "d4/dff/class_system_1_1_build_version" ],
-      [ "DisplayRotation", "d0/d1f/class_system_1_1_display_rotation.html", "d0/d1f/class_system_1_1_display_rotation" ],
-      [ "HardwareVersion", "d7/d3e/class_system_1_1_hardware_version.html", "d7/d3e/class_system_1_1_hardware_version" ],
-      [ "LastResetState", "d8/d62/class_system_1_1_last_reset_state.html", "d8/d62/class_system_1_1_last_reset_state" ],
-      [ "Parameters", "d5/d1a/class_system_1_1_parameters.html", "d5/d1a/class_system_1_1_parameters" ],
-      [ "ProduceDate", "d2/d52/class_system_1_1_produce_date.html", "d2/d52/class_system_1_1_produce_date" ],
-      [ "SaleDate", "d1/de4/class_system_1_1_sale_date.html", "d1/de4/class_system_1_1_sale_date" ],
-      [ "SerialNumber", "de/d56/class_system_1_1_serial_number.html", "de/d56/class_system_1_1_serial_number" ],
-      [ "StartupMode", "d1/d49/class_system_1_1_startup_mode.html", "d1/d49/class_system_1_1_startup_mode" ],
-      [ "Watchdog", "df/d8f/class_system_1_1_watchdog.html", "df/d8f/class_system_1_1_watchdog" ]
+    [ "System", "d9/d39/a00257.html", [
+      [ "BuildVersion", "db/db9/a00387.html", "db/db9/a00387" ],
+      [ "DisplayRotation", "db/d95/a00391.html", "db/d95/a00391" ],
+      [ "HardwareVersion", "db/dbc/a00395.html", "db/dbc/a00395" ],
+      [ "LastResetState", "d1/d53/a00399.html", "d1/d53/a00399" ],
+      [ "Parameters", "d0/da0/a00403.html", "d0/da0/a00403" ],
+      [ "ProduceDate", "d3/d29/a00419.html", "d3/d29/a00419" ],
+      [ "SaleDate", "d1/d05/a00423.html", "d1/d05/a00423" ],
+      [ "SerialNumber", "da/db6/a00427.html", "da/db6/a00427" ],
+      [ "StartupMode", "df/d70/a00431.html", "df/d70/a00431" ],
+      [ "Watchdog", "d0/dc5/a00435.html", "d0/dc5/a00435" ]
     ] ],
-    [ "Xbee", "d8/d6d/namespace_xbee.html", [
-      [ "Client", "d3/daf/class_xbee_1_1_client.html", "d3/daf/class_xbee_1_1_client" ]
+    [ "Xbee", "d0/d2f/a00259.html", [
+      [ "Client", "d4/d9c/a00543.html", "d4/d9c/a00543" ]
     ] ],
-    [ "ModelBase", "d1/d75/class_model_base.html", "d1/d75/class_model_base" ],
-    [ "ModelCanbus", "df/d8d/class_model_canbus.html", "df/d8d/class_model_canbus" ],
-    [ "ModelDiagnostic", "d4/d0d/class_model_diagnostic.html", "d4/d0d/class_model_diagnostic" ],
-    [ "ModelDisplay", "d1/dc3/class_model_display.html", "d1/dc3/class_model_display" ],
-    [ "ModelPeripheral", "dc/d93/class_model_peripheral.html", "dc/d93/class_model_peripheral" ],
-    [ "ModelSystem", "d8/de9/class_model_system.html", "d8/de9/class_model_system" ],
-    [ "ModelUsb", "d7/db8/class_model_usb.html", "d7/db8/class_model_usb" ],
-    [ "ModelXbee", "d9/da2/class_model_xbee.html", "d9/da2/class_model_xbee" ],
-    [ "ProduceDateBase", "d3/d89/class_produce_date_base.html", null ],
-    [ "SerialPortRepeater", "d1/dea/class_serial_port_repeater.html", "d1/dea/class_serial_port_repeater" ]
+    [ "ModelBase", "d9/d3a/a00439.html", "d9/d3a/a00439" ],
+    [ "ModelCanbus", "de/d84/a00447.html", "de/d84/a00447" ],
+    [ "ModelDiagnostic", "d3/d5d/a00463.html", "d3/d5d/a00463" ],
+    [ "ModelDisplay", "d4/d4b/a00471.html", "d4/d4b/a00471" ],
+    [ "ModelPeripheral", "d1/d92/a00475.html", "d1/d92/a00475" ],
+    [ "ModelSystem", "dd/d9c/a00487.html", "dd/d9c/a00487" ],
+    [ "ModelUsb", "d8/d67/a00499.html", "d8/d67/a00499" ],
+    [ "ModelXbee", "d4/de5/a00503.html", "d4/de5/a00503" ],
+    [ "ProduceDateBase", "d0/d0a/a00743.html", null ],
+    [ "SerialPortRepeater", "d3/d87/a00539.html", "d3/d87/a00539" ]
 ];

@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['data_20application_20layer_0',['Data Application Layer',['../d3/d4c/group___d_a_l.html',1,'']]],
-  ['digital_20inputs_20outputs_20peripheral_1',['Digital Inputs/ Outputs Peripheral',['../da/d9b/group___digital_peripheral.html',1,'']]],
-  ['display_20backlight_20driver_2',['Display Backlight Driver',['../d3/dc4/group___backlight.html',1,'']]],
-  ['display_20driver_3',['Display Driver',['../d9/d23/group___display.html',1,'']]],
-  ['driver_4',['Driver',['../da/d1b/group___beeper.html',1,'Beeper Driver'],['../d3/dc4/group___backlight.html',1,'Display Backlight Driver'],['../d9/d23/group___display.html',1,'Display Driver'],['../d7/d81/group___spi_flash.html',1,'W25Q128JVSIQ SPI Flash Driver']]],
-  ['driver_5',['driver',['../d7/d08/group___touch_screen.html',1,'Touch Screen driver'],['../d5/d6a/group___voltmeter.html',1,'Voltmeter driver']]],
-  ['drivers_6',['Drivers',['../d7/d32/group___touch_g_f_x_drivers.html',1,'']]]
+  ['data_20application_20layer_0',['Data Application Layer',['../d2/dc8/a00242.html',1,'']]],
+  ['digital_20inputs_20outputs_20peripheral_1',['Digital Inputs/ Outputs Peripheral',['../da/d2e/a00238.html',1,'']]],
+  ['display_20backlight_20driver_2',['Display Backlight Driver',['../d3/d42/a00235.html',1,'']]],
+  ['display_20driver_3',['Display Driver',['../da/d31/a00234.html',1,'']]],
+  ['driver_4',['Driver',['../d4/d08/a00237.html',1,'Beeper Driver'],['../d3/d42/a00235.html',1,'Display Backlight Driver'],['../da/d31/a00234.html',1,'Display Driver'],['../d0/d27/a00239.html',1,'W25Q128JVSIQ SPI Flash Driver']]],
+  ['driver_5',['driver',['../d7/d40/a00236.html',1,'Touch Screen driver'],['../d6/db6/a00241.html',1,'Voltmeter driver']]],
+  ['drivers_6',['Drivers',['../d3/d1a/a00251.html',1,'']]]
 ];

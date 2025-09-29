@@ -1,17 +1,17 @@
 var indexSectionsWithContent =
 {
-  0: "abcdefghiklmnopqrstuvwxy~",
-  1: "bcdehimoprstuw",
+  0: "abcdefghijklmnopqrstuvwxy~",
+  1: "abcdefghijklmnopqrstuvwx",
   2: "l",
-  3: "de",
-  4: "bcdeghikmoprstuvw~",
-  5: "abcdefhilmnopqrstuvwxy",
-  6: "acdis",
-  7: "cerstu",
-  8: "bcdefgilmnprstvw",
-  9: "bd",
-  10: "bdefimopstv",
-  11: "bdilps"
+  3: "abcdefghijklmnopqrstuvwx",
+  4: "abcdefghijklmnopqrstuvwxy~",
+  5: "abcdefhiklmnopqrstuvwxy",
+  6: "abcdehijlmnpqstx",
+  7: "abcdelmnrstuw",
+  8: "abcdefghijlmnoprstuvwx",
+  9: "c",
+  10: "r",
+  11: "abcdelmortu"
 };
 
 var indexSectionNames =
@@ -26,23 +26,23 @@ var indexSectionNames =
   7: "enums",
   8: "enumvalues",
   9: "related",
-  10: "groups",
+  10: "defines",
   11: "pages"
 };
 
 var indexSectionLabels =
 {
-  0: "All",
-  1: "Classes",
-  2: "Namespaces",
-  3: "Files",
-  4: "Functions",
-  5: "Variables",
-  6: "Typedefs",
-  7: "Enumerations",
-  8: "Enumerator",
-  9: "Friends",
-  10: "Modules",
-  11: "Pages"
+  0: "Указател към не филтриран списък на всички членове",
+  1: "Класове",
+  2: "Именни пространства",
+  3: "Файлове",
+  4: "Функции",
+  5: "Променливи",
+  6: "Дефиниции на типове",
+  7: "Изброявания",
+  8: "Елементи на изброяване",
+  9: "Приятели",
+  10: "Макроси",
+  11: "Страници"
 };
 

@@ -1,11 +1,10 @@
 var namespaces_dup =
 [
-    [ "BSP", "da/da7/namespace_b_s_p.html", "da/da7/namespace_b_s_p" ],
-    [ "Canbus", "d9/dfb/namespace_canbus.html", "d9/dfb/namespace_canbus" ],
-    [ "DAL", "df/d81/namespace_d_a_l.html", "df/d81/namespace_d_a_l" ],
-    [ "System", "d8/dd0/namespace_system.html", "d8/dd0/namespace_system" ],
-    [ "USB", "d4/d04/namespace_u_s_b.html", [
-      [ "serialPortRepeater", "d4/d04/namespace_u_s_b.html#a43500cd8386dc56588bc054cbd145113", null ]
+    [ "BSP", "d0/d3e/a00253.html", "d0/d3e/a00253" ],
+    [ "Canbus", "d7/d03/a00254.html", "d7/d03/a00254" ],
+    [ "System", "d9/d39/a00257.html", "d9/d39/a00257" ],
+    [ "USB", "d7/d2f/a00258.html", [
+      [ "serialPortRepeater", "d7/d2f/a00258.html#a43500cd8386dc56588bc054cbd145113", null ]
     ] ],
-    [ "Xbee", "d8/d6d/namespace_xbee.html", "d8/d6d/namespace_xbee" ]
+    [ "Xbee", "d0/d2f/a00259.html", "d0/d2f/a00259" ]
 ];

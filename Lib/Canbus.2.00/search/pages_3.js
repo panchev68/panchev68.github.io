@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_0',['CAN bus Library',['../index.html',1,'']]]
+  ['diagram_0',['Class diagram',['../index.html#class-diagram',1,'']]]
 ];

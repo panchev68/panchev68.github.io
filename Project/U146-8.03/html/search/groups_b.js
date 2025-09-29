@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['peripheral_0',['Peripheral',['../d5/d53/group___b_s_p.html',1,'Board Supported Peripheral'],['../da/d9b/group___digital_peripheral.html',1,'Digital Inputs/ Outputs Peripheral']]]
+  ['peripheral_0',['Peripheral',['../d6/de1/a00233.html',1,'Board Supported Peripheral'],['../da/d2e/a00238.html',1,'Digital Inputs/ Outputs Peripheral']]]
 ];

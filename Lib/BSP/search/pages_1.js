@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['digital_20peripheral_20driver_0',['Implement Digital Peripheral Driver',['../dc/dac/a00585.html',1,'']]],
-  ['driver_1',['Implement Digital Peripheral Driver',['../dc/dac/a00585.html',1,'']]]
+  ['beep_20class_0',['Example usage of the Beep class.',['../X:/Lib/IAR/inc/Lib/BSP/Beep/Beep.hpp#example-usage-of-the-beep-class',1,'']]]
 ];

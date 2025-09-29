@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['board_20supported_20peripherals_20library_0',['Board Supported Peripherals Library',['../index.html',1,'']]]
+  ['and_20mutexguard_0',['Example usage of RTOS::Mutex and MutexGuard.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard',1,'']]]
 ];

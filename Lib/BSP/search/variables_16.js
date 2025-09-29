@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['x_0',['X',['../d7/db7/a00525.html#aeb5ab9334ea32dd7827e9c297f987280',1,'Lib::BSP::XPT2046::Version1::Driver::Position::X'],['../d8/deb/a00545.html#aefd67569100b80fdcf933a4d78189f96',1,'Lib::BSP::XPT2046::Version2::Driver::Impl::Position::X']]],
-  ['xmax_1',['xMax',['../d7/def/a00521.html#a318412e6e6406c3f63e01ee3b25a903c',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::xMax'],['../d8/d6e/a00537.html#a6c7c0c28f843b89815025a75aa96fe46',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::xMax']]],
-  ['xmin_2',['xMin',['../d7/def/a00521.html#aa9f986e9de6ce1b9f9c925dfc8d8510c',1,'Lib::BSP::XPT2046::Version1::Driver::Parameters::xMin'],['../d8/d6e/a00537.html#adad3e10ac51ad89058a628db12309997',1,'Lib::BSP::XPT2046::Version2::Driver::Parameters::xMin']]]
+  ['y_0',['y',['../d1/d85/struct_cubic_interpolation_1_1_point.html#ac3a0b1dfb8d8ab67f71c0c9c2b71e5ff',1,'CubicInterpolation::Point::y'],['../d2/dd1/struct_lib_1_1_math_1_1_linear_interpolation_1_1_point.html#a0921a157fe3803511d1d72c3b5461ca4',1,'Lib::Math::LinearInterpolation::Point::y']]],
+  ['year_1',['year',['../d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a1026d89f27e48fd23eccde7a9850b302',1,'Lib::Helper::DateTime::Date']]],
+  ['ymax_2',['yMax',['../dc/df7/struct_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046_1_1_parameters.html#af6181132388ff5dd0b0b925bc3e0613f',1,'Lib::BSP::TouchScreen::XPT2046::Parameters']]],
+  ['ymin_3',['yMin',['../dc/df7/struct_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046_1_1_parameters.html#a81cfdad890325aa9a51880483371344c',1,'Lib::BSP::TouchScreen::XPT2046::Parameters']]]
 ];

@@ -1,0 +1,38 @@
+var class_lib_1_1_digi_1_1_core_1_1_frame0x8a =
+[
+    [ "ModemStatus", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0", [
+      [ "HARDWARE_RESET", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0aa6da8f53a548c6aee798589d46c12cc1", null ],
+      [ "WATCHDOG_TIMER_RESET", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a171b7735a4ff925ae1382f8ddbcf5f28", null ],
+      [ "JOINED_NETWORK", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a31c040e73875a28a2998346bbf88d686", null ],
+      [ "LEFT_NETWORK", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ac52b410f59ce89a9459336d6c54ccc18", null ],
+      [ "COORDINATOR_STARTED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0acdaab0d2fe9a5758886fd7f567f1264e", null ],
+      [ "NETWORK_SECURITY_KEY_WAS_UPDATED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a4595c4849e233c8007a0ec5cc244c38e", null ],
+      [ "NETWORK_WOKE_UP", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a7a518fb254d737db3a56cd820ee17bac", null ],
+      [ "NETWORK_WENT_TO_SLEEP", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a8b94771bece2491319c653ea9fdfdbb8", null ],
+      [ "VOLTAGE_SUPPLY_LIMIT_EXCEEDED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a3ad384b9b7a770aaa0359028247f96fd", null ],
+      [ "REMOTE_MANAGER_CONNECTED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ac9375d9c47bca01fc5b33ee27969a1ef", null ],
+      [ "REMOTE_MANAGER_DISCONNECTED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ac0e0f32e157c8ba488cfcf1f0ee501e6", null ],
+      [ "MODEM_CONFIGURATION_CHANGED_WHILE_JOIN_IN_PROGRESS", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a59b9887429b867a85d180627b16d7384", null ],
+      [ "ACCESS_FAULT", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a91100801e159856fece68d18dd57f4a2", null ],
+      [ "FATAL_ERROR", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ac6179cb17067a08588ff65efb6d02cdd", null ],
+      [ "BLE_CONNECT", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ac0772455e76024e94186291c6f4ba453", null ],
+      [ "BLE_DISCONNECT", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a8ea39dff8822b2319506f783bcaec692", null ],
+      [ "BANDMASK_CONFIGURATION_FAILED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a22d48f412577f387714ef93f7da484db", null ],
+      [ "CELLULAR_COMPONENT_UPDATE_STARTED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ab6c10168f9b88a6612e3e293d1cb834e", null ],
+      [ "CELLULAR_COMPONENT_UPDATE_FAILED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a6526b9ca9f8a83cc2068ba7302c55dd8", null ],
+      [ "CELLULAR_COMPONENT_UPDATE_COMPLETED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0afa5daab1e7c755b24ffc3c6f1cbbf7ce", null ],
+      [ "XBEE_FIRMWARE_UPDATE_STARTED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a9c846b30f227326dc17f3440c9d7493e", null ],
+      [ "XBEE_FIRMWARE_UPDATE_FAILED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ab0f7dd38cd478b58e723d014dc8046fc", null ],
+      [ "XBEE_FIRMWARE_UPDATE_APPLYING", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a38d0c45b715b845544a06f11b8ce9701", null ],
+      [ "SECURE_SESSION_SUCCESSFULLY_ESTABLISHED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a6d74f703add784eed2934738d7394d5f", null ],
+      [ "SECURE_SESSION_ENDED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a993e5a49f6a8edc3d21a4ec747108aa7", null ],
+      [ "SECURE_SESSION_AUTHENTICATION_FAILED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a2e99e5dc4968ce76c38add117219dc8a", null ],
+      [ "COORDINATOR_DETECTED_A_PAN_ID_CONFLICT_BUT_TOOK_NO_ACTION", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0adc91c60858049dd329869b0b7fe0549d", null ],
+      [ "COORDINATOR_CHANGED_PAN_ID_DUE_TO_A_CONFLICT", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ae788160cb1f4c0faf19f46df34503fb1", null ],
+      [ "ROUTER_PAN_ID_WAS_CHANGED_BY_COORDINATOR_DUE_TO_A_CONFLICT", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0af2c6e4edd04e54fbdd170b46e035bbba", null ],
+      [ "NETWORK_WATCHDOG_TIMEOUT_EXPIRED", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0a8de3c62403fe65dfc47c1675cd0772d8", null ],
+      [ "STACK_ERROR", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a77e14a4fecb368feaf9178216a844ec0ad2884fa6c360974bc033ce3ab23c63f6", null ]
+    ] ],
+    [ "Frame0x8a", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a1f855aa4ecca1dc02d6cf6cf0322bffc", null ],
+    [ "modemStatus", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#ad038fbdf7bbecc09398898f19c49ec11", null ]
+];

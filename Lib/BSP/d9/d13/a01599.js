@@ -1,0 +1,55 @@
+var a01599 =
+[
+    [ "BitIndex", "d9/d13/a01599.html#a012f775c662b6f78b957c0fbaaee59fd", null ],
+    [ "BitMask", "d9/d13/a01599.html#ac74e666a12cf067093f8391125aea68b", null ],
+    [ "Handle", "d9/d13/a01599.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
+    [ "TickType", "d9/d13/a01599.html#a033b94b6ee235e14580246b0d5cd2394", null ],
+    [ "ClearMode", "d9/d13/a01599.html#a7842763cd7cbf505f418b7e9820de1e1", [
+      [ "CLEAR_NO_CLEAR", "d9/d13/a01599.html#a7842763cd7cbf505f418b7e9820de1e1af2a73acafbf6511d53c48821ebb4145d", null ],
+      [ "CLEAR_CLEAR", "d9/d13/a01599.html#a7842763cd7cbf505f418b7e9820de1e1a55c5f39a50a1ab8d14aaabf73f5de025", null ]
+    ] ],
+    [ "State", "d9/d13/a01599.html#a548ac7c2c1698a2ba9273c46d34b30dc", [
+      [ "STATE_INVALID", "d9/d13/a01599.html#a548ac7c2c1698a2ba9273c46d34b30dca96a60f9b9ba8c12ac5a2b9ab1413e3cb", null ],
+      [ "STATE_ACTIVE", "d9/d13/a01599.html#a548ac7c2c1698a2ba9273c46d34b30dcaba58ebecca82dc96e823c77db3698ff3", null ]
+    ] ],
+    [ "WaitMode", "d9/d13/a01599.html#ae93b1d87c779d4ac130983129d6b4ae5", [
+      [ "WAIT_ANY", "d9/d13/a01599.html#ae93b1d87c779d4ac130983129d6b4ae5a7df520023c64cf5de50e885556c656dd", null ],
+      [ "WAIT_ALL", "d9/d13/a01599.html#ae93b1d87c779d4ac130983129d6b4ae5ab1ccc001e2ff3cc2a025c7466139cddd", null ]
+    ] ],
+    [ "EventGroup", "d9/d13/a01599.html#a5cd4a6dcc7805dcdf420bdc550b1c719", null ],
+    [ "EventGroup", "d9/d13/a01599.html#a7abcf2e22f8961aefb22138a000cc65b", null ],
+    [ "EventGroup", "d9/d13/a01599.html#ae83c0e347985e554dbffd399d6749c28", null ],
+    [ "~EventGroup", "d9/d13/a01599.html#ab2273906f7c7de0565e852fbceeefaab", null ],
+    [ "allBitsSet", "d9/d13/a01599.html#af21635b1bebfcbcb63d7fb8e41125026", null ],
+    [ "anyBitsSet", "d9/d13/a01599.html#a7bb9a7d3bc1399d6a1d760f4ad473fcb", null ],
+    [ "clearAllBits", "d9/d13/a01599.html#ae3f87c78f0997af15819097a6f4bcbe8", null ],
+    [ "clearBit", "d9/d13/a01599.html#a32fea73e65f36e2c8706f7b1b781789a", null ],
+    [ "clearBitFromISR", "d9/d13/a01599.html#a0cfca4992ef6828cbbde5fb9a3734344", null ],
+    [ "clearBits", "d9/d13/a01599.html#a44c825f79126d916f8d7e17d93b416b5", null ],
+    [ "clearBitsFromISR", "d9/d13/a01599.html#ac3e4026472c8b09395f8e14b8a71fe3b", null ],
+    [ "create", "d9/d13/a01599.html#ae123b21b37e587e5e424af4651768471", null ],
+    [ "destroy", "d9/d13/a01599.html#ab62fda92e8b329bb70ffde8da9490580", null ],
+    [ "getBits", "d9/d13/a01599.html#ab940e7baf67c42162d8700c967c6903f", null ],
+    [ "getBitsFromISR", "d9/d13/a01599.html#aa84d7ab47becac379a95e46708b425b5", null ],
+    [ "getHandle", "d9/d13/a01599.html#ab870843ca495f26ed413846b29bfef4e", null ],
+    [ "getState", "d9/d13/a01599.html#a427ae2886c5c4a296fa82a8d02f430f4", null ],
+    [ "isBitSet", "d9/d13/a01599.html#a06ff768b84f44803bb09725dae31c4fc", null ],
+    [ "isCreated", "d9/d13/a01599.html#ae08389e11d83cf7dfc460d5f2fa0dc27", null ],
+    [ "isValid", "d9/d13/a01599.html#a64add0f43154d7bcba6da15f5e6f5d2d", null ],
+    [ "operator bool", "d9/d13/a01599.html#a55b9f397f0d8b532c659f9ab2fcd210b", null ],
+    [ "operator=", "d9/d13/a01599.html#a2576c192353ebd4e1261f2a0908f1946", null ],
+    [ "setBit", "d9/d13/a01599.html#a7334a4b6c75d487aadf4d05ef9ab661e", null ],
+    [ "setBitFromISR", "d9/d13/a01599.html#aa61a0593275c26e1942cbcb8fadda1ac", null ],
+    [ "setBits", "d9/d13/a01599.html#ad322ef154bfb1a2b05efe1fd53100ce1", null ],
+    [ "setBits", "d9/d13/a01599.html#a07bd3df9f015449f27be3b45aff0eae3", null ],
+    [ "setBitsFromISR", "d9/d13/a01599.html#accf7c19f83d8714302940aaea5bd552e", null ],
+    [ "syncBit", "d9/d13/a01599.html#ae94a3859c7084a1a914055f9a0e60f80", null ],
+    [ "syncBits", "d9/d13/a01599.html#adfec7dfbd63b1807a0c6f85a5fa282dc", null ],
+    [ "syncBitsMs", "d9/d13/a01599.html#ad413c8bdb65daf4f54463989c9c9d22c", null ],
+    [ "tryWaitForBits", "d9/d13/a01599.html#afd5cfdfce8b4f93fa25c3c2ab3af330f", null ],
+    [ "waitForBit", "d9/d13/a01599.html#a2db0d19a92d306d9dec928801563017d", null ],
+    [ "waitForBits", "d9/d13/a01599.html#a49bf7e6c28716f7eec119a3d37adec2b", null ],
+    [ "waitForBits", "d9/d13/a01599.html#a935e621cf7df505df888f97cd980de95", null ],
+    [ "waitForBitsMs", "d9/d13/a01599.html#acef4aab474722e2eb0a8f209fd8cf687", null ],
+    [ "waitForBitsSeconds", "d9/d13/a01599.html#a7e426417ff1674dc4ad2ee372c041903", null ]
+];

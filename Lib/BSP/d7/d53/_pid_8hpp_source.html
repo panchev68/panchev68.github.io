@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="bg">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>IAR Library: Pid.hpp Изходен файл</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<script type="text/javascript" src="../../clipboard.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
+   </div>
+   <div id="projectbrief">IAR  Library</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Генериран от Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','Търсене',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d7/d53/_pid_8hpp_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Зареждане...</div>
+<div class="SRStatus" id="Searching">Търсене...</div>
+<div class="SRStatus" id="NoMatches">Не намерено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Pid.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d7/d53/_pid_8hpp.html">Вижте документацията за този файл.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** PID controller implementation for control systems.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * This file provides a robust and flexible PID controller class for discrete-time control systems. The implementation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * supports advanced features such as output clamping, integral windup protection, derivative kick prevention, and</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * bumpless transfer between automatic and manual modes. The controller can be configured for direct or reverse action</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * and allows runtime adjustment of gains, output limits, and sample time. The design is suitable for embedded and</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * real-time applications, ensuring safe parameter validation and bounded control outputs. Type aliases for single and</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * double precision are provided for convenience.</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @file Pid.hpp</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span>Lib::Math {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    /** PID controller for control systems.</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     * Implements a discrete-time PID controller with anti-windup, output clamping, and derivative kick prevention.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">     * Supports both automatic and manual modes with bumpless transfer. The controller is suitable for embedded and</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     * real-time applications, providing safe parameter validation and bounded control outputs.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     * @tparam T Numeric type for calculations (typically float or double).</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = <span class="keywordtype">float</span>&gt;</div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html">   26</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a41a37f36dc432f8e971650f9ff2e7a8e">Pid</a> final {</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">        /** PID controller parameters structure.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">         * Contains all tuning parameters for the PID controller, including gains, sample time, and output limits.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html">   31</a></span>        <span class="keyword">struct </span><a class="code hl_function" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a1755515e60fdfe10aafe099283f9d593">Parameters</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#af4932c40d48d9c972bd4f448a37388bc">   32</a></span>            T <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#af4932c40d48d9c972bd4f448a37388bc">kp</a>;         <span class="comment">/*!&lt; Proportional gain. */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#ac30cd8786ec60c8114bc21b7f63145d4">   33</a></span>            T <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#ac30cd8786ec60c8114bc21b7f63145d4">ki</a>;         <span class="comment">/*!&lt; Integral gain. */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a6fd341537b6f12074478402b53dea8f1">   34</a></span>            T <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a6fd341537b6f12074478402b53dea8f1">kd</a>;         <span class="comment">/*!&lt; Derivative gain. */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a37913f8c463aabd9669d332ce99bb9b6">   35</a></span>            T <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a37913f8c463aabd9669d332ce99bb9b6">sampleTime</a>; <span class="comment">/*!&lt; Sample time in seconds. */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a">   36</a></span>            T <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a">outputMin</a>;  <span class="comment">/*!&lt; Minimum output value. */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab">   37</a></span>            T <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab">outputMax</a>;  <span class="comment">/*!&lt; Maximum output value. */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">            /** Default constructor of Parameters class. Initializes with safe default values. */</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a1755515e60fdfe10aafe099283f9d593">   40</a></span>            <span class="keyword">constexpr</span> <a class="code hl_function" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a1755515e60fdfe10aafe099283f9d593">Parameters</a>()</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                : <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#af4932c40d48d9c972bd4f448a37388bc">kp</a>(1.0), <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#ac30cd8786ec60c8114bc21b7f63145d4">ki</a>(0.0), <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a6fd341537b6f12074478402b53dea8f1">kd</a>(0.0), <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a37913f8c463aabd9669d332ce99bb9b6">sampleTime</a>(0.1), <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a">outputMin</a>(-100.0), <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab">outputMax</a>(100.0) {}</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">            /** Constructor of Parameters class.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">             * @param proportional Proportional gain.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">             * @param integral Integral gain.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">             * @param derivative Derivative gain.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">             * @param sample Sample time in seconds.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">             * @param minOutput Minimum output value.</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">             * @param maxOutput Maximum output value.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">             */</span></div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#aa086f9cd96f4da06f3838b4b9c9d018c">   51</a></span>            <span class="keyword">constexpr</span> <a class="code hl_function" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#aa086f9cd96f4da06f3838b4b9c9d018c">Parameters</a>(T proportional, T integral, T derivative, T sample, T minOutput, T maxOutput)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                : <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#af4932c40d48d9c972bd4f448a37388bc">kp</a>(proportional),</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                  <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#ac30cd8786ec60c8114bc21b7f63145d4">ki</a>(integral),</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                  <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a6fd341537b6f12074478402b53dea8f1">kd</a>(derivative),</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                  <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a37913f8c463aabd9669d332ce99bb9b6">sampleTime</a>(sample),</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                  <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a">outputMin</a>(minOutput),</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                  <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab">outputMax</a>(maxOutput) {</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a37913f8c463aabd9669d332ce99bb9b6">sampleTime</a> &gt; T{0})) assert(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>                <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a">outputMin</a> &lt;= <a class="code hl_variable" href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab">outputMax</a>)) assert(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            }</div>
+</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        };</div>
+</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">        /** PID controller state structure.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">         * Contains internal state variables for the controller, including previous input, accumulated integral term,</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">         * last output, and a flag for first execution.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html">   67</a></span>        <span class="keyword">struct </span><a class="code hl_function" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#afe35f3917f1fcf220ff6a116f81ddc4f">State</a> {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aee85caac0b3ab6791a7d81348950ea4b">   68</a></span>            T <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aee85caac0b3ab6791a7d81348950ea4b">lastInput</a>;   <span class="comment">/*!&lt; Previous input value for derivative calculation. */</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#ac2512432c839efc7cb014a77b0df4dc5">   69</a></span>            T <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#ac2512432c839efc7cb014a77b0df4dc5">integralSum</a>; <span class="comment">/*!&lt; Accumulated integral term. */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#a862f1f2c16be14d1c1caa0a261fd5598">   70</a></span>            T <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#a862f1f2c16be14d1c1caa0a261fd5598">lastOutput</a>;  <span class="comment">/*!&lt; Previous output value for manual mode. */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aa91a1cb5adce924c40ec92d505f95d36">   71</a></span>            <span class="keywordtype">bool</span> <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aa91a1cb5adce924c40ec92d505f95d36">firstRun</a>; <span class="comment">/*!&lt; Flag indicating first execution. */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">            /** Default constructor of State class. */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#afe35f3917f1fcf220ff6a116f81ddc4f">   74</a></span>            <span class="keyword">constexpr</span> <a class="code hl_function" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#afe35f3917f1fcf220ff6a116f81ddc4f">State</a>() : <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aee85caac0b3ab6791a7d81348950ea4b">lastInput</a>(T{0}), <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#ac2512432c839efc7cb014a77b0df4dc5">integralSum</a>(T{0}), <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#a862f1f2c16be14d1c1caa0a261fd5598">lastOutput</a>(T{0}), <a class="code hl_variable" href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aa91a1cb5adce924c40ec92d505f95d36">firstRun</a>(true) {}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        };</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        Parameters params;     <span class="comment">/*!&lt; PID controller parameters. */</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        State state;           <span class="comment">/*!&lt; PID controller state. */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordtype">bool</span> autoMode;         <span class="comment">/*!&lt; Automatic mode flag. */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordtype">bool</span> reverseDirection; <span class="comment">/*!&lt; Reverse control direction flag. */</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">        /** Default constructor of Pid class. */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a41a37f36dc432f8e971650f9ff2e7a8e">   85</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a41a37f36dc432f8e971650f9ff2e7a8e">Pid</a>() : autoMode(false), reverseDirection(false) {}</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"></span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">        /** Constructor of Pid class.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">         * @param parameters PID controller parameters.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a1fabd4f5399e04107a81b4b5b8a74ddb">   90</a></span>        <span class="keyword">explicit</span> <span class="keyword">constexpr</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a1fabd4f5399e04107a81b4b5b8a74ddb">Pid</a>(<span class="keyword">const</span> Parameters &amp; parameters)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            : params(parameters), autoMode(false), reverseDirection(false) {}</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">        /** Constructor of Pid class.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">         * @param kp Proportional gain.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">         * @param ki Integral gain.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">         * @param kd Derivative gain.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">         * @param sampleTime Sample time in seconds.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a3545b5dac092bbf4b74a70eb0d3e21a7">   99</a></span>        <span class="keyword">constexpr</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a3545b5dac092bbf4b74a70eb0d3e21a7">Pid</a>(T kp, T ki, T kd, T sampleTime)</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            : params(kp, ki, kd, sampleTime, -std::numeric_limits&lt;T&gt;::max(), std::numeric_limits&lt;T&gt;::max()),</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>              autoMode(false),</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>              reverseDirection(false) {}</div>
+</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">        /** Compute PID output.</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">         * @param setpoint Desired value.</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">         * @param input Current process variable.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">         * @return PID controller output.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a5ebd947fb71cac9e012eeda62346bb39">  109</a></span>        T <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a5ebd947fb71cac9e012eeda62346bb39">compute</a>(T setpoint, T input) {</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="keywordflow">if</span> (!autoMode) <span class="keywordflow">return</span> state.lastOutput;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>            T error = reverseDirection ? (input - setpoint) : (setpoint - input);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="keywordflow">if</span> (state.firstRun) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                state.lastInput = input;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>                state.firstRun = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            T proportional = params.kp * error;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            state.integralSum += params.ki * error * params.sampleTime;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            state.integralSum =</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>                std::clamp(state.integralSum, params.outputMin - proportional, params.outputMax - proportional);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            T derivative = -params.kd * (input - state.lastInput) / params.sampleTime;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            T output = std::clamp(proportional + state.integralSum + derivative, params.outputMin, params.outputMax);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            state.lastInput = input;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            state.lastOutput = output;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            <span class="keywordflow">return</span> output;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        }</div>
+</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"></span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">        /** Set PID parameters.</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">         * @param parameters New PID parameters.</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a168254291d8c630ee2ebfba757491daf">  136</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a168254291d8c630ee2ebfba757491daf">setParameters</a>(<span class="keyword">const</span> Parameters &amp; parameters) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            params = parameters;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>            <span class="keywordflow">if</span> (!(params.sampleTime &gt; T{0})) assert(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            <span class="keywordflow">if</span> (!(params.outputMin &lt;= params.outputMax)) assert(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
+</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"></span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">        /** Set PID gains.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">         * @param kp Proportional gain.</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">         * @param ki Integral gain.</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">         * @param kd Derivative gain.</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00147" data-start="{" data-end="}">
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a6ebec94b45c9fd0543e2d4e529ba19c1">  147</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a6ebec94b45c9fd0543e2d4e529ba19c1">setGains</a>(T kp, T ki, T kd) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            params.kp = kp;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            params.ki = ki;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            params.kd = kd;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>        }</div>
+</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment"></span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">        /** Set output limits.</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">         * @param minOutput Minimum output value.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">         * @param maxOutput Maximum output value.</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00157" data-start="{" data-end="}">
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ac87b3672a759beebebc2a98ebbab8c00">  157</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ac87b3672a759beebebc2a98ebbab8c00">setOutputLimits</a>(T minOutput, T maxOutput) {</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>            <span class="keywordflow">if</span> (!(minOutput &lt;= maxOutput)) assert(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            params.outputMin = minOutput;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            params.outputMax = maxOutput;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">if</span> (autoMode) {</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>                T proportional = params.kp * state.lastInput;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                state.integralSum = std::clamp(state.integralSum, minOutput - proportional, maxOutput - proportional);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                state.lastOutput = std::clamp(state.lastOutput, minOutput, maxOutput);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        }</div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment"></span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">        /** Set sample time.</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">         * @param sampleTime New sample time in seconds.</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00172" data-start="{" data-end="}">
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a7eb49cd9682da72b19692d3eb28f1606">  172</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a7eb49cd9682da72b19692d3eb28f1606">setSampleTime</a>(T sampleTime) {</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="keywordflow">if</span> (!(sampleTime &gt; T{0})) assert(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            T ratio = sampleTime / params.sampleTime;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            params.ki *= ratio;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            params.kd /= ratio;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            params.sampleTime = sampleTime;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        }</div>
+</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment"></span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">        /** Set controller mode.</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">         * @param automatic `true` for automatic mode, `false` for manual mode.</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#af5e5b90007ad75d2739fcbd55618265c">  184</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#af5e5b90007ad75d2739fcbd55618265c">setMode</a>(<span class="keywordtype">bool</span> automatic) {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>            <span class="keywordflow">if</span> (automatic &amp;&amp; !autoMode) {</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>                state.integralSum = std::clamp(state.lastOutput, params.outputMin, params.outputMax);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                state.firstRun = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>            }</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            autoMode = automatic;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        }</div>
+</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment"></span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="comment">        /** Set control direction.</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="comment">         * @param reverse `true` for reverse action, `false` for direct action.</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a131b9717e760441b15ff258f878c02a1">  195</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a131b9717e760441b15ff258f878c02a1">setDirection</a>(<span class="keywordtype">bool</span> reverse) {</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordflow">if</span> (reverse != reverseDirection) {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                params.kp = -params.kp;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                params.ki = -params.ki;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                params.kd = -params.kd;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                reverseDirection = reverse;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            }</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        }</div>
+</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"></span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">        /** Reset controller state. Clears integral sum and resets internal state. */</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aa7e0c148fa92993acc0e062e7ebd50b2">  205</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aa7e0c148fa92993acc0e062e7ebd50b2">reset</a>() { state = State{}; }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment"></span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">        /** Set manual output value.</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">         * @param output Manual output value.</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aaf9fc6f5598723d89c5b53ab57d0523d">  210</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aaf9fc6f5598723d89c5b53ab57d0523d">setManualOutput</a>(T output) { state.lastOutput = std::clamp(output, params.outputMin, params.outputMax); }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment"></span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">        /** Get current PID parameters.</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">         * @return Current parameters.</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a066c07863ac118108e2a5966421c3563">  215</a></span>        <span class="keyword">const</span> <span class="keyword">constexpr</span> Parameters &amp; <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a066c07863ac118108e2a5966421c3563">getParameters</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> params; }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment"></span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">        /** Get current controller state.</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">         * @return Current state.</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ab99976ac5fa3dffa31e4ae703220934f">  220</a></span>        <span class="keyword">const</span> <span class="keyword">constexpr</span> State &amp; <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ab99976ac5fa3dffa31e4ae703220934f">getState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> state; }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment"></span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">        /** Check if controller is in automatic mode.</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">         * @return `true` if in automatic mode, `false` if in manual mode.</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ae87f395bf6f7789860ecd320c3146844">  225</a></span>        <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ae87f395bf6f7789860ecd320c3146844">isAutomatic</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> autoMode; }</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment"></span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">        /** Check if controller has reverse direction.</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">         * @return `true` if reverse direction, `false` if direct direction.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a86c187fc462eb3fbcda4c4765ca5dbef">  230</a></span>        <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a86c187fc462eb3fbcda4c4765ca5dbef">isReverse</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> reverseDirection; }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment"></span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="comment">        /** Get last computed output.</span></div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="comment">         * @return Last output value.</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aa9cd09e31eeca872417ddc17552872f6">  235</a></span>        <span class="keyword">constexpr</span> T <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aa9cd09e31eeca872417ddc17552872f6">getOutput</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> state.lastOutput; }</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"></span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">        /** Get current integral term.</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">         * @return Current integral sum.</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a09cf8e3d1fb8e112834bb169d4479a55">  240</a></span>        <span class="keyword">constexpr</span> T <a class="code hl_function" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a09cf8e3d1fb8e112834bb169d4479a55">getIntegralTerm</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> state.integralSum; }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    };</div>
+</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="../../d7/d53/_pid_8hpp.html#a948fc056c1100dd929fbdca345047060">  243</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../d7/d53/_pid_8hpp.html#a948fc056c1100dd929fbdca345047060">PidF</a> = <a class="code hl_class" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html">Pid&lt;float&gt;</a>;  <span class="comment">/*!&lt; Single precision PID controller. */</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="../../d7/d53/_pid_8hpp.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9">  244</a></span>    <span class="keyword">using </span><a class="code hl_typedef" href="../../d7/d53/_pid_8hpp.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9">PidD</a> = <a class="code hl_class" href="../../d1/da4/class_lib_1_1_math_1_1_pid.html">Pid&lt;double&gt;</a>; <span class="comment">/*!&lt; Double precision PID controller. */</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>} <span class="comment">// namespace Lib::Math</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment"></span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">/** @example Pid</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="comment"> * Example demonstrating the use of the Pid class for controlling a process variable.</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="comment"> * This example shows how to configure a PID controller, set its parameters, and compute the control output</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment"> * for a simulated process variable. The controller is switched to automatic mode, and the output is printed</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment"> * for several iterations to illustrate its response to a changing input.</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="comment"> * @par Example Usage</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="comment"> * @code</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment"> * #include &quot;Lib/Math/Pid.hpp&quot;</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment"> * #include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment"> * int main() {</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="comment"> *     Lib::Math::PidF::Parameters params(2.0f, 0.5f, 1.0f, 0.1f, -10.0f, 10.0f);</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment"> *     Lib::Math::PidF pid(params);</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment"> *     pid.setMode(true); // Enable automatic mode</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment"> *     float setpoint = 5.0f;</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="comment"> *     float input = 0.0f;</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="comment"> *     for (int i = 0; i &lt; 10; ++i) {</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span><span class="comment"> *         float output = pid.compute(setpoint, input);</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span><span class="comment"> *         std::cout &lt;&lt; &quot;Step &quot; &lt;&lt; i &lt;&lt; &quot;: Input=&quot; &lt;&lt; input &lt;&lt; &quot; Output=&quot; &lt;&lt; output &lt;&lt; std::endl;</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="comment"> *         input += output * 0.1f; // Simulate process response</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"> *     }</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment"> *     return 0;</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment"> * }</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span><span class="comment"> * @endcode</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="comment"> * @par Expected Output</span></div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="comment"> * @code</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span><span class="comment"> * Step 0: Input=0 Output=10</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span><span class="comment"> * Step 1: Input=1 Output=7.9</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment"> * Step 2: Input=1.79 Output=6.638</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment"> * Step 3: Input=2.4538 Output=5.732</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment"> * Step 4: Input=3.027 Output=5.048</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="comment"> * Step 5: Input=3.5318 Output=4.511</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment"> * Step 6: Input=3.9829 Output=4.079</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="comment"> * Step 7: Input=4.3908 Output=3.726</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span><span class="comment"> * Step 8: Input=4.7634 Output=3.434</span></div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span><span class="comment"> * Step 9: Input=5.1068 Output=3.191</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="comment"> * @endcode</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment"> */</span></div>
+<div class="ttc" id="a_pid_8hpp_html_a948fc056c1100dd929fbdca345047060"><div class="ttname"><a href="../../d7/d53/_pid_8hpp.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a></div><div class="ttdeci">Pid&lt; float &gt; PidF</div><div class="ttdoc">Single precision PID controller.</div><div class="ttdef"><b>Definition</b> Pid.hpp:243</div></div>
+<div class="ttc" id="a_pid_8hpp_html_ab35c1bb42b7af8a9c4b7bb5f07ec29b9"><div class="ttname"><a href="../../d7/d53/_pid_8hpp.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9">Lib::Math::PidD</a></div><div class="ttdeci">Pid&lt; double &gt; PidD</div><div class="ttdoc">Double precision PID controller.</div><div class="ttdef"><b>Definition</b> Pid.hpp:244</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html">Lib::Math::Pid</a></div><div class="ttdoc">PID controller for control systems.</div><div class="ttdef"><b>Definition</b> Pid.hpp:26</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a066c07863ac118108e2a5966421c3563"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a066c07863ac118108e2a5966421c3563">Lib::Math::Pid::getParameters</a></div><div class="ttdeci">const constexpr Parameters &amp; getParameters() const</div><div class="ttdoc">Get current PID parameters.</div><div class="ttdef"><b>Definition</b> Pid.hpp:215</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a09cf8e3d1fb8e112834bb169d4479a55"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a09cf8e3d1fb8e112834bb169d4479a55">Lib::Math::Pid::getIntegralTerm</a></div><div class="ttdeci">constexpr T getIntegralTerm() const</div><div class="ttdoc">Get current integral term.</div><div class="ttdef"><b>Definition</b> Pid.hpp:240</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a131b9717e760441b15ff258f878c02a1"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a131b9717e760441b15ff258f878c02a1">Lib::Math::Pid::setDirection</a></div><div class="ttdeci">void setDirection(bool reverse)</div><div class="ttdoc">Set control direction.</div><div class="ttdef"><b>Definition</b> Pid.hpp:195</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a168254291d8c630ee2ebfba757491daf"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a168254291d8c630ee2ebfba757491daf">Lib::Math::Pid::setParameters</a></div><div class="ttdeci">void setParameters(const Parameters &amp;parameters)</div><div class="ttdoc">Set PID parameters.</div><div class="ttdef"><b>Definition</b> Pid.hpp:136</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a1fabd4f5399e04107a81b4b5b8a74ddb"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a1fabd4f5399e04107a81b4b5b8a74ddb">Lib::Math::Pid::Pid</a></div><div class="ttdeci">constexpr Pid(const Parameters &amp;parameters)</div><div class="ttdoc">Constructor of Pid class.</div><div class="ttdef"><b>Definition</b> Pid.hpp:90</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a3545b5dac092bbf4b74a70eb0d3e21a7"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a3545b5dac092bbf4b74a70eb0d3e21a7">Lib::Math::Pid::Pid</a></div><div class="ttdeci">constexpr Pid(T kp, T ki, T kd, T sampleTime)</div><div class="ttdoc">Constructor of Pid class.</div><div class="ttdef"><b>Definition</b> Pid.hpp:99</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a41a37f36dc432f8e971650f9ff2e7a8e"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a41a37f36dc432f8e971650f9ff2e7a8e">Lib::Math::Pid::Pid</a></div><div class="ttdeci">constexpr Pid()</div><div class="ttdoc">Default constructor of Pid class.</div><div class="ttdef"><b>Definition</b> Pid.hpp:85</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a5ebd947fb71cac9e012eeda62346bb39"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a5ebd947fb71cac9e012eeda62346bb39">Lib::Math::Pid::compute</a></div><div class="ttdeci">T compute(T setpoint, T input)</div><div class="ttdoc">Compute PID output.</div><div class="ttdef"><b>Definition</b> Pid.hpp:109</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a6ebec94b45c9fd0543e2d4e529ba19c1"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a6ebec94b45c9fd0543e2d4e529ba19c1">Lib::Math::Pid::setGains</a></div><div class="ttdeci">void setGains(T kp, T ki, T kd)</div><div class="ttdoc">Set PID gains.</div><div class="ttdef"><b>Definition</b> Pid.hpp:147</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a7eb49cd9682da72b19692d3eb28f1606"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a7eb49cd9682da72b19692d3eb28f1606">Lib::Math::Pid::setSampleTime</a></div><div class="ttdeci">void setSampleTime(T sampleTime)</div><div class="ttdoc">Set sample time.</div><div class="ttdef"><b>Definition</b> Pid.hpp:172</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_a86c187fc462eb3fbcda4c4765ca5dbef"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#a86c187fc462eb3fbcda4c4765ca5dbef">Lib::Math::Pid::isReverse</a></div><div class="ttdeci">constexpr bool isReverse() const</div><div class="ttdoc">Check if controller has reverse direction.</div><div class="ttdef"><b>Definition</b> Pid.hpp:230</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_aa7e0c148fa92993acc0e062e7ebd50b2"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aa7e0c148fa92993acc0e062e7ebd50b2">Lib::Math::Pid::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset controller state.</div><div class="ttdef"><b>Definition</b> Pid.hpp:205</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_aa9cd09e31eeca872417ddc17552872f6"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aa9cd09e31eeca872417ddc17552872f6">Lib::Math::Pid::getOutput</a></div><div class="ttdeci">constexpr T getOutput() const</div><div class="ttdoc">Get last computed output.</div><div class="ttdef"><b>Definition</b> Pid.hpp:235</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_aaf9fc6f5598723d89c5b53ab57d0523d"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#aaf9fc6f5598723d89c5b53ab57d0523d">Lib::Math::Pid::setManualOutput</a></div><div class="ttdeci">void setManualOutput(T output)</div><div class="ttdoc">Set manual output value.</div><div class="ttdef"><b>Definition</b> Pid.hpp:210</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_ab99976ac5fa3dffa31e4ae703220934f"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ab99976ac5fa3dffa31e4ae703220934f">Lib::Math::Pid::getState</a></div><div class="ttdeci">const constexpr State &amp; getState() const</div><div class="ttdoc">Get current controller state.</div><div class="ttdef"><b>Definition</b> Pid.hpp:220</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_ac87b3672a759beebebc2a98ebbab8c00"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ac87b3672a759beebebc2a98ebbab8c00">Lib::Math::Pid::setOutputLimits</a></div><div class="ttdeci">void setOutputLimits(T minOutput, T maxOutput)</div><div class="ttdoc">Set output limits.</div><div class="ttdef"><b>Definition</b> Pid.hpp:157</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_ae87f395bf6f7789860ecd320c3146844"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#ae87f395bf6f7789860ecd320c3146844">Lib::Math::Pid::isAutomatic</a></div><div class="ttdeci">constexpr bool isAutomatic() const</div><div class="ttdoc">Check if controller is in automatic mode.</div><div class="ttdef"><b>Definition</b> Pid.hpp:225</div></div>
+<div class="ttc" id="aclass_lib_1_1_math_1_1_pid_html_af5e5b90007ad75d2739fcbd55618265c"><div class="ttname"><a href="../../d1/da4/class_lib_1_1_math_1_1_pid.html#af5e5b90007ad75d2739fcbd55618265c">Lib::Math::Pid::setMode</a></div><div class="ttdeci">void setMode(bool automatic)</div><div class="ttdoc">Set controller mode.</div><div class="ttdef"><b>Definition</b> Pid.hpp:184</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_a1755515e60fdfe10aafe099283f9d593"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a1755515e60fdfe10aafe099283f9d593">Lib::Math::Pid::Parameters::Parameters</a></div><div class="ttdeci">constexpr Parameters()</div><div class="ttdoc">Default constructor of Parameters class.</div><div class="ttdef"><b>Definition</b> Pid.hpp:40</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_a23515cb5c24f985549f55404aee2928a"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a">Lib::Math::Pid::Parameters::outputMin</a></div><div class="ttdeci">T outputMin</div><div class="ttdoc">Minimum output value.</div><div class="ttdef"><b>Definition</b> Pid.hpp:36</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_a37913f8c463aabd9669d332ce99bb9b6"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a37913f8c463aabd9669d332ce99bb9b6">Lib::Math::Pid::Parameters::sampleTime</a></div><div class="ttdeci">T sampleTime</div><div class="ttdoc">Sample time in seconds.</div><div class="ttdef"><b>Definition</b> Pid.hpp:35</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_a413072c853e2fdf9a83cb1b601c736ab"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab">Lib::Math::Pid::Parameters::outputMax</a></div><div class="ttdeci">T outputMax</div><div class="ttdoc">Maximum output value.</div><div class="ttdef"><b>Definition</b> Pid.hpp:37</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_a6fd341537b6f12074478402b53dea8f1"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a6fd341537b6f12074478402b53dea8f1">Lib::Math::Pid::Parameters::kd</a></div><div class="ttdeci">T kd</div><div class="ttdoc">Derivative gain.</div><div class="ttdef"><b>Definition</b> Pid.hpp:34</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_aa086f9cd96f4da06f3838b4b9c9d018c"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#aa086f9cd96f4da06f3838b4b9c9d018c">Lib::Math::Pid::Parameters::Parameters</a></div><div class="ttdeci">constexpr Parameters(T proportional, T integral, T derivative, T sample, T minOutput, T maxOutput)</div><div class="ttdoc">Constructor of Parameters class.</div><div class="ttdef"><b>Definition</b> Pid.hpp:51</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_ac30cd8786ec60c8114bc21b7f63145d4"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#ac30cd8786ec60c8114bc21b7f63145d4">Lib::Math::Pid::Parameters::ki</a></div><div class="ttdeci">T ki</div><div class="ttdoc">Integral gain.</div><div class="ttdef"><b>Definition</b> Pid.hpp:33</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_parameters_html_af4932c40d48d9c972bd4f448a37388bc"><div class="ttname"><a href="../../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#af4932c40d48d9c972bd4f448a37388bc">Lib::Math::Pid::Parameters::kp</a></div><div class="ttdeci">T kp</div><div class="ttdoc">Proportional gain.</div><div class="ttdef"><b>Definition</b> Pid.hpp:32</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_state_html_a862f1f2c16be14d1c1caa0a261fd5598"><div class="ttname"><a href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#a862f1f2c16be14d1c1caa0a261fd5598">Lib::Math::Pid::State::lastOutput</a></div><div class="ttdeci">T lastOutput</div><div class="ttdoc">Previous output value for manual mode.</div><div class="ttdef"><b>Definition</b> Pid.hpp:70</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_state_html_aa91a1cb5adce924c40ec92d505f95d36"><div class="ttname"><a href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aa91a1cb5adce924c40ec92d505f95d36">Lib::Math::Pid::State::firstRun</a></div><div class="ttdeci">bool firstRun</div><div class="ttdoc">Flag indicating first execution.</div><div class="ttdef"><b>Definition</b> Pid.hpp:71</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_state_html_ac2512432c839efc7cb014a77b0df4dc5"><div class="ttname"><a href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#ac2512432c839efc7cb014a77b0df4dc5">Lib::Math::Pid::State::integralSum</a></div><div class="ttdeci">T integralSum</div><div class="ttdoc">Accumulated integral term.</div><div class="ttdef"><b>Definition</b> Pid.hpp:69</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_state_html_aee85caac0b3ab6791a7d81348950ea4b"><div class="ttname"><a href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#aee85caac0b3ab6791a7d81348950ea4b">Lib::Math::Pid::State::lastInput</a></div><div class="ttdeci">T lastInput</div><div class="ttdoc">Previous input value for derivative calculation.</div><div class="ttdef"><b>Definition</b> Pid.hpp:68</div></div>
+<div class="ttc" id="astruct_lib_1_1_math_1_1_pid_1_1_state_html_afe35f3917f1fcf220ff6a116f81ddc4f"><div class="ttname"><a href="../../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html#afe35f3917f1fcf220ff6a116f81ddc4f">Lib::Math::Pid::State::State</a></div><div class="ttdeci">constexpr State()</div><div class="ttdoc">Default constructor of State class.</div><div class="ttdef"><b>Definition</b> Pid.hpp:74</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_d7b902938708671190894d621f68a9dd.html">Math</a></li><li class="navelem"><a href="../../d7/d53/_pid_8hpp.html">Pid.hpp</a></li>
+    <li class="footer">Генериран от <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+var a01099 =
+[
+    [ "Channel", "d6/dbc/a01099.html#a19c45129c0395bc0e359767afe3e0796", null ],
+    [ "~Channel", "d6/dbc/a01099.html#a5ba5b651064d72454063ae973a142d45", null ],
+    [ "getConnectionQuality", "d6/dbc/a01099.html#a89dd3a775e4109d36992764e39ae2aeb", null ],
+    [ "operator uint8_t", "d6/dbc/a01099.html#a56ab929d244a03d7ebb660fe544ad30d", null ],
+    [ "operator=", "d6/dbc/a01099.html#a9acd0aada7ca0bcfa07aa3bd70526261", null ],
+    [ "setConnectionQuality", "d6/dbc/a01099.html#a57a36ad2abf98aaf00b7852f2de6e2bb", null ]
+];

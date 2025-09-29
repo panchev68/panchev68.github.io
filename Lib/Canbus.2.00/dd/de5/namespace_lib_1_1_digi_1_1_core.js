@@ -1,0 +1,36 @@
+var namespace_lib_1_1_digi_1_1_core =
+[
+    [ "ApiFrameBuffer", "d0/d78/class_lib_1_1_digi_1_1_core_1_1_api_frame_buffer.html", "d0/d78/class_lib_1_1_digi_1_1_core_1_1_api_frame_buffer" ],
+    [ "AtCommandString", "db/d57/class_lib_1_1_digi_1_1_core_1_1_at_command_string.html", "db/d57/class_lib_1_1_digi_1_1_core_1_1_at_command_string" ],
+    [ "Checksum", "d6/dee/class_lib_1_1_digi_1_1_core_1_1_checksum.html", "d6/dee/class_lib_1_1_digi_1_1_core_1_1_checksum" ],
+    [ "ComDriver", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver" ],
+    [ "Diagnostic", "d4/dc6/class_lib_1_1_digi_1_1_core_1_1_diagnostic.html", "d4/dc6/class_lib_1_1_digi_1_1_core_1_1_diagnostic" ],
+    [ "EscapedCode", "d2/d1c/class_lib_1_1_digi_1_1_core_1_1_escaped_code.html", "d2/d1c/class_lib_1_1_digi_1_1_core_1_1_escaped_code" ],
+    [ "Frame0x00", "da/da7/class_lib_1_1_digi_1_1_core_1_1_frame0x00.html", "da/da7/class_lib_1_1_digi_1_1_core_1_1_frame0x00" ],
+    [ "Frame0x01", "d5/de5/class_lib_1_1_digi_1_1_core_1_1_frame0x01.html", "d5/de5/class_lib_1_1_digi_1_1_core_1_1_frame0x01" ],
+    [ "Frame0x08", "d1/d13/class_lib_1_1_digi_1_1_core_1_1_frame0x08.html", "d1/d13/class_lib_1_1_digi_1_1_core_1_1_frame0x08" ],
+    [ "Frame0x09", "d0/ded/class_lib_1_1_digi_1_1_core_1_1_frame0x09.html", "d0/ded/class_lib_1_1_digi_1_1_core_1_1_frame0x09" ],
+    [ "Frame0x17", "da/d0a/class_lib_1_1_digi_1_1_core_1_1_frame0x17.html", "da/d0a/class_lib_1_1_digi_1_1_core_1_1_frame0x17" ],
+    [ "Frame0x80", "d9/dec/class_lib_1_1_digi_1_1_core_1_1_frame0x80.html", "d9/dec/class_lib_1_1_digi_1_1_core_1_1_frame0x80" ],
+    [ "Frame0x81", "d0/dfa/class_lib_1_1_digi_1_1_core_1_1_frame0x81.html", "d0/dfa/class_lib_1_1_digi_1_1_core_1_1_frame0x81" ],
+    [ "Frame0x88", "d3/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x88.html", "d3/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x88" ],
+    [ "Frame0x89", "d7/d3d/class_lib_1_1_digi_1_1_core_1_1_frame0x89.html", "d7/d3d/class_lib_1_1_digi_1_1_core_1_1_frame0x89" ],
+    [ "Frame0x8a", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a" ],
+    [ "Frame0x8b", "d0/d8c/class_lib_1_1_digi_1_1_core_1_1_frame0x8b.html", "d0/d8c/class_lib_1_1_digi_1_1_core_1_1_frame0x8b" ],
+    [ "Frame0x90", "d5/d99/class_lib_1_1_digi_1_1_core_1_1_frame0x90.html", "d5/d99/class_lib_1_1_digi_1_1_core_1_1_frame0x90" ],
+    [ "Frame0x97", "d3/d04/class_lib_1_1_digi_1_1_core_1_1_frame0x97.html", "d3/d04/class_lib_1_1_digi_1_1_core_1_1_frame0x97" ],
+    [ "LocalAtCommand", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command" ],
+    [ "Message", "d6/da7/class_lib_1_1_digi_1_1_core_1_1_message.html", "d6/da7/class_lib_1_1_digi_1_1_core_1_1_message" ],
+    [ "ModemStatus", "d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status.html", "d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status" ],
+    [ "Module", "df/deb/class_lib_1_1_digi_1_1_core_1_1_module.html", "df/deb/class_lib_1_1_digi_1_1_core_1_1_module" ],
+    [ "Protocol", "d0/dad/class_lib_1_1_digi_1_1_core_1_1_protocol.html", null ],
+    [ "QueryBase", "d4/d48/class_lib_1_1_digi_1_1_core_1_1_query_base.html", "d4/d48/class_lib_1_1_digi_1_1_core_1_1_query_base" ],
+    [ "QueueMessage", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message" ],
+    [ "RemoteAtCommand", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command.html", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command" ],
+    [ "ResponseEvents", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events.html", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events" ],
+    [ "ApiMode", "dd/de5/namespace_lib_1_1_digi_1_1_core.html#a02e93cb119dca37a301c172e1ffa9185", [
+      [ "TRANSPARENT", "dd/de5/namespace_lib_1_1_digi_1_1_core.html#a02e93cb119dca37a301c172e1ffa9185a6dbf1b8bc39b4ed513395a18b554979f", null ],
+      [ "API1", "dd/de5/namespace_lib_1_1_digi_1_1_core.html#a02e93cb119dca37a301c172e1ffa9185a7e8d092d9c015707dedc7a3b8173f6b5", null ],
+      [ "API2", "dd/de5/namespace_lib_1_1_digi_1_1_core.html#a02e93cb119dca37a301c172e1ffa9185a51dfa65dc2042cfa662ff3a4cd76c968", null ]
+    ] ]
+];
