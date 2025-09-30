@@ -1,9 +1,8 @@
 var a00311 =
 [
-    [ "OutputsBase", "d1/d5d/a00311.html#ae81809afc88680f3fb320b87b4e53330", null ],
-    [ "~OutputsBase", "d1/d5d/a00311.html#ae3c8fd1fb9e54ae588714b1a0888a2fb", null ],
-    [ "bindErrorHandler", "d1/d5d/a00311.html#ac008e887b6ed12826eeb5c89221a3104", null ],
-    [ "deinit", "d1/d5d/a00311.html#af64d7bda1db09c4f3fabfc34f062eb5d", null ],
-    [ "getErrorState", "d1/d5d/a00311.html#ad8ffce6c029813a3b4a294e79bc3e1fd", null ],
-    [ "init", "d1/d5d/a00311.html#a42b8a9315a636cdfa823def9ad2c6756", null ]
+    [ "Lib::BSP::XPT2046::Driver", "d5/d78/a01330.html", "d5/d78/a01330" ],
+    [ "Lib::BSP::XPT2046::Driver::Config", "d4/dd1/a01334.html", "d4/dd1/a01334" ],
+    [ "Lib::BSP::XPT2046::Driver::Parameters", "d2/d4d/a01338.html", "d2/d4d/a01338" ],
+    [ "Lib::BSP::XPT2046::Driver::Position", "d5/da0/a01342.html", "d5/da0/a01342" ],
+    [ "Lib::BSP::XPT2046::Driver::Impl", "d9/de4/a01346.html", "d9/de4/a01346" ]
 ];

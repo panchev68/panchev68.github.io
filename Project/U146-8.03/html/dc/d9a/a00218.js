@@ -1,4 +1,4 @@
 var a00218 =
 [
-    [ "Xbee::Client", "d4/d9c/a00543.html", "d4/d9c/a00543" ]
+    [ "Xbee::Client", "d5/d4c/a01058.html", "d5/d4c/a01058" ]
 ];

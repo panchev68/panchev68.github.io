@@ -1,4 +1,4 @@
 var a00122 =
 [
-    [ "BSP::TouchScreen", "d3/dc9/a00355.html", "d3/dc9/a00355" ]
+    [ "BSP::TouchScreen", "da/d98/a00870.html", "da/d98/a00870" ]
 ];

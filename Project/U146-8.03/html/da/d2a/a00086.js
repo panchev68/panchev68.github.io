@@ -1,5 +1,5 @@
 var a00086 =
 [
-    [ "BSP::Inputs", "dd/dfe/a00283.html", "dd/dfe/a00283" ],
-    [ "BSP::Inputs::Config", "d6/d7f/a00287.html", "d6/d7f/a00287" ]
+    [ "BSP::Inputs", "de/d79/a00798.html", "de/d79/a00798" ],
+    [ "BSP::Inputs::Config", "d5/dcd/a00802.html", "d5/dcd/a00802" ]
 ];

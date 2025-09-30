@@ -1,5 +1,5 @@
 var a00089 =
 [
-    [ "BSP::Outputs< OutputVersion::V1 >", "da/dd4/a00291.html", "da/dd4/a00291" ],
-    [ "BSP::Outputs< OutputVersion::V1 >::Config", "d9/d5e/a00295.html", "d9/d5e/a00295" ]
+    [ "BSP::Outputs< OutputVersion::V1 >", "d0/dad/a00806.html", "d0/dad/a00806" ],
+    [ "BSP::Outputs< OutputVersion::V1 >::Config", "d4/dfd/a00810.html", "d4/dfd/a00810" ]
 ];

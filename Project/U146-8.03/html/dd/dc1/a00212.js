@@ -1,4 +1,4 @@
 var a00212 =
 [
-    [ "SerialPortRepeater", "d3/d87/a00539.html", "d3/d87/a00539" ]
+    [ "SerialPortRepeater", "dd/d57/a01054.html", "dd/d57/a01054" ]
 ];

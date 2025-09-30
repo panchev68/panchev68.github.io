@@ -1,4 +1,4 @@
 var a00173 =
 [
-    [ "System::SaleDate", "d1/d05/a00423.html", "d1/d05/a00423" ]
+    [ "System::SaleDate", "d5/d54/a00938.html", "d5/d54/a00938" ]
 ];

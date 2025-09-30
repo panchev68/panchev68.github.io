@@ -1,7 +1,7 @@
 var a00191 =
 [
-    [ "ModelCanbus", "de/d84/a00447.html", "de/d84/a00447" ],
-    [ "ModelCanbus::Listener", "d9/d69/a00451.html", "d9/d69/a00451" ],
-    [ "ModelCanbus::Node", "dd/d63/a00455.html", "dd/d63/a00455" ],
-    [ "ModelCanbus::Diagnostic", "d2/d91/a00459.html", "d2/d91/a00459" ]
+    [ "ModelCanbus", "df/d88/a00962.html", "df/d88/a00962" ],
+    [ "ModelCanbus::Listener", "d2/d6e/a00966.html", "d2/d6e/a00966" ],
+    [ "ModelCanbus::Node", "d0/daf/a00970.html", "d0/daf/a00970" ],
+    [ "ModelCanbus::Diagnostic", "df/dce/a00974.html", "df/dce/a00974" ]
 ];

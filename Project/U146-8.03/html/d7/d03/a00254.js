@@ -1,5 +1,6 @@
 var a00254 =
 [
-    [ "Server", "d9/d9b/a00363.html", "d9/d9b/a00363" ],
-    [ "server", "d7/d03/a00254.html#abf1d40e8b981769a11525c826d76f63a", null ]
+    [ "Lib::BSP::DigitalPeripheral::MC33879", "da/d4e/a01106.html", "da/d4e/a01106" ],
+    [ "Lib::BSP::DigitalPeripheral::MC33879::RxPort", "d1/d3d/a01110.html", null ],
+    [ "Lib::BSP::DigitalPeripheral::MC33879::TxPort", "d6/d40/a01114.html", null ]
 ];
