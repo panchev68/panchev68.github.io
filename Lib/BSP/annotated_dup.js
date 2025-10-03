@@ -133,6 +133,7 @@ var annotated_dup =
         [ "DeviceManagerBase", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base" ],
         [ "Handle", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", "de/d0a/class_lib_1_1_h_a_l_1_1_handle" ],
         [ "Port", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
+        [ "Port< Lib::HAL::DriverMode::DMA >", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
         [ "Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset" ],
         [ "Timer", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer" ],
         [ "Timer< Mode::ENCODER >", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4" ]
@@ -223,6 +224,7 @@ var annotated_dup =
       [ "TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", "d0/d51/class_r_t_o_s_1_1_tick_service" ],
       [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", "dc/d33/class_r_t_o_s_1_1_timeout" ]
     ] ],
+    [ "AdcChannel", "dc/dee/class_adc_channel.html", "dc/dee/class_adc_channel" ],
     [ "Buffer", "d5/d2a/class_buffer.html", "d5/d2a/class_buffer" ],
     [ "BufferHandle", "d2/d8a/class_buffer_handle.html", "d2/d8a/class_buffer_handle" ],
     [ "BufferStatic", "dd/dda/class_buffer_static.html", "dd/dda/class_buffer_static" ],

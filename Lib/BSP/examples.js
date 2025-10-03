@@ -18,6 +18,6 @@ var examples =
     [ "RTOS::MemoryManager", "d4/d30/_r_t_o_s_1_1_memory_manager-example.html", null ],
     [ "RTOS::MessageBuffer", "d5/d13/_r_t_o_s_1_1_message_buffer-example.html", null ],
     [ "RTOS::Mutex", "d3/da4/_r_t_o_s_1_1_mutex-example.html", null ],
-    [ "SemaphoreCounting", "dc/d29/_semaphore_counting-example.html", null ],
+    [ "RTOS::SemaphoreCounting", "d1/d2e/_r_t_o_s_1_1_semaphore_counting-example.html", null ],
     [ "TimeoutExample", "da/d54/_timeout_example-example.html", null ]
 ];

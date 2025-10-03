@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['library_0',['RTOS Library',['../da/d31/_r_t_o_s.html',1,'']]]
+  ['for_20resource_20pooling_0',['Example usage of SemaphoreCounting for resource pooling.',['../X:/Lib/IAR/inc/Lib/RTOS/SemaphoreCounting.hpp#example-usage-of-semaphorecounting-for-resource-pooling',1,'']]]
 ];

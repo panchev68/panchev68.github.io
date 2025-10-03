@@ -1,5 +1,12 @@
 var hierarchy =
 [
+    [ "ADC_ChannelConfTypeDef", null, [
+      [ "AdcChannel::Config", "de/db2/class_adc_channel_1_1_config.html", null ]
+    ] ],
+    [ "AdcChannel", "dc/dee/class_adc_channel.html", null ],
+    [ "AdcTransparentPortBase", null, [
+      [ "Lib::HAL::Port< Lib::HAL::DriverMode::DMA >", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", null ]
+    ] ],
     [ "Lib::Digi::Core::ApiFrameBuffer", "d0/d78/class_lib_1_1_digi_1_1_core_1_1_api_frame_buffer.html", null ],
     [ "Lib::Helper::Convert::Ascii", "db/d4d/class_lib_1_1_helper_1_1_convert_1_1_ascii.html", null ],
     [ "Lib::Digi::Core::AtCommandString", "db/d57/class_lib_1_1_digi_1_1_core_1_1_at_command_string.html", null ],

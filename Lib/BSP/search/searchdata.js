@@ -10,8 +10,7 @@ var indexSectionsWithContent =
   7: "abcdelmnrstuw",
   8: "abcdefghijlmnoprstuvwx",
   9: "c",
-  10: "r",
-  11: "abcdelmortu"
+  10: "abcdeflmoprstu"
 };
 
 var indexSectionNames =
@@ -26,23 +25,21 @@ var indexSectionNames =
   7: "enums",
   8: "enumvalues",
   9: "related",
-  10: "defines",
-  11: "pages"
+  10: "pages"
 };
 
 var indexSectionLabels =
 {
-  0: "Указател към не филтриран списък на всички членове",
-  1: "Класове",
-  2: "Именни пространства",
-  3: "Файлове",
-  4: "Функции",
-  5: "Променливи",
-  6: "Дефиниции на типове",
-  7: "Изброявания",
-  8: "Елементи на изброяване",
-  9: "Приятели",
-  10: "Макроси",
-  11: "Страници"
+  0: "All",
+  1: "Classes",
+  2: "Namespaces",
+  3: "Files",
+  4: "Functions",
+  5: "Variables",
+  6: "Typedefs",
+  7: "Enumerations",
+  8: "Enumerator",
+  9: "Friends",
+  10: "Pages"
 };
 

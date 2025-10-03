@@ -23,21 +23,21 @@
  @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var menudata={children:[
-{text:"Главна страница",url:"index.html"},
-{text:"Свързани страници",url:"pages.html"},
-{text:"Именни пространства",url:"namespaces.html",children:[
-{text:"Именни пространства Списък ",url:"namespaces.html"},
-{text:"Членове Именни пространства",url:"namespacemembers.html",children:[
-{text:"Указател към не филтриран списък на всички членове",url:"namespacemembers.html"},
-{text:"Функции",url:"namespacemembers_func.html"},
-{text:"Дефиниции на типове",url:"namespacemembers_type.html"},
-{text:"Изброявания",url:"namespacemembers_enum.html"}]}]},
-{text:"Класове",url:"annotated.html",children:[
-{text:"Класове Списък",url:"annotated.html"},
-{text:"Класове Указател",url:"classes.html"},
-{text:"Класове Йерархия",url:"inherits.html"},
-{text:"Членове на класа",url:"functions.html",children:[
-{text:"Указател към не филтриран списък на всички членове",url:"functions.html",children:[
+{text:"Main Page",url:"index.html"},
+{text:"Related Pages",url:"pages.html"},
+{text:"Namespaces",url:"namespaces.html",children:[
+{text:"Namespace List",url:"namespaces.html"},
+{text:"Namespace Members",url:"namespacemembers.html",children:[
+{text:"All",url:"namespacemembers.html"},
+{text:"Functions",url:"namespacemembers_func.html"},
+{text:"Typedefs",url:"namespacemembers_type.html"},
+{text:"Enumerations",url:"namespacemembers_enum.html"}]}]},
+{text:"Classes",url:"annotated.html",children:[
+{text:"Class List",url:"annotated.html"},
+{text:"Class Index",url:"classes.html"},
+{text:"Class Hierarchy",url:"inherits.html"},
+{text:"Class Members",url:"functions.html",children:[
+{text:"All",url:"functions.html",children:[
 {text:"a",url:"functions.html#index_a"},
 {text:"b",url:"functions_b.html#index_b"},
 {text:"c",url:"functions_c.html#index_c"},
@@ -64,7 +64,7 @@ var menudata={children:[
 {text:"x",url:"functions_x.html#index_x"},
 {text:"y",url:"functions_y.html#index_y"},
 {text:"~",url:"functions_~.html#index__7E"}]},
-{text:"Функции",url:"functions_func.html",children:[
+{text:"Functions",url:"functions_func.html",children:[
 {text:"a",url:"functions_func.html#index_a"},
 {text:"b",url:"functions_func_b.html#index_b"},
 {text:"c",url:"functions_func_c.html#index_c"},
@@ -91,7 +91,7 @@ var menudata={children:[
 {text:"x",url:"functions_func_x.html#index_x"},
 {text:"y",url:"functions_func_y.html#index_y"},
 {text:"~",url:"functions_func_~.html#index__7E"}]},
-{text:"Променливи",url:"functions_vars.html",children:[
+{text:"Variables",url:"functions_vars.html",children:[
 {text:"a",url:"functions_vars.html#index_a"},
 {text:"b",url:"functions_vars_b.html#index_b"},
 {text:"c",url:"functions_vars_c.html#index_c"},
@@ -115,8 +115,8 @@ var menudata={children:[
 {text:"w",url:"functions_vars_w.html#index_w"},
 {text:"x",url:"functions_vars_x.html#index_x"},
 {text:"y",url:"functions_vars_y.html#index_y"}]},
-{text:"Дефиниции на типове",url:"functions_type.html"},
-{text:"Изброявания",url:"functions_enum.html",children:[
+{text:"Typedefs",url:"functions_type.html"},
+{text:"Enumerations",url:"functions_enum.html",children:[
 {text:"b",url:"functions_enum.html#index_b"},
 {text:"c",url:"functions_enum.html#index_c"},
 {text:"d",url:"functions_enum.html#index_d"},
@@ -126,7 +126,7 @@ var menudata={children:[
 {text:"s",url:"functions_enum.html#index_s"},
 {text:"u",url:"functions_enum.html#index_u"},
 {text:"w",url:"functions_enum.html#index_w"}]},
-{text:"Елементи на изброяване",url:"functions_eval.html",children:[
+{text:"Enumerator",url:"functions_eval.html",children:[
 {text:"b",url:"functions_eval.html#index_b"},
 {text:"c",url:"functions_eval.html#index_c"},
 {text:"e",url:"functions_eval.html#index_e"},
@@ -140,12 +140,11 @@ var menudata={children:[
 {text:"t",url:"functions_eval.html#index_t"},
 {text:"u",url:"functions_eval.html#index_u"},
 {text:"w",url:"functions_eval.html#index_w"}]},
-{text:"Функции, свързани с класа",url:"functions_rela.html"}]}]},
-{text:"Файлове",url:"files.html",children:[
-{text:"Файлове Списък",url:"files.html"},
-{text:"Файлове Членове",url:"globals.html",children:[
-{text:"Указател към не филтриран списък на всички членове",url:"globals.html"},
-{text:"Променливи",url:"globals_vars.html"},
-{text:"Дефиниции на типове",url:"globals_type.html"},
-{text:"Макроси",url:"globals_defs.html"}]}]},
-{text:"Примери",url:"examples.html"}]}
+{text:"Related Symbols",url:"functions_rela.html"}]}]},
+{text:"Files",url:"files.html",children:[
+{text:"File List",url:"files.html"},
+{text:"File Members",url:"globals.html",children:[
+{text:"All",url:"globals.html"},
+{text:"Variables",url:"globals_vars.html"},
+{text:"Typedefs",url:"globals_type.html"}]}]},
+{text:"Examples",url:"examples.html"}]}

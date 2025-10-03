@@ -80,7 +80,7 @@ var searchData=
   ['getpriority_77',['getPriority',['../d1/d23/class_r_t_o_s_1_1_task.html#a89083e60c321f7a7cbf2d6608d1c2026',1,'RTOS::Task::getPriority()'],['../d0/d51/class_r_t_o_s_1_1_tick_service.html#a656935fd3fa802584313019c26e131c0',1,'RTOS::TickService::getPriority()']]],
   ['getprogresspercent_78',['getProgressPercent',['../dc/d33/class_r_t_o_s_1_1_timeout.html#ad0cc9f6cd4a3ebd568027e5dc23433d9',1,'RTOS::Timeout']]],
   ['getrawvalue_79',['getRawValue',['../d4/dec/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a3b7d20ddbe2ac20f3fde05ffc28b4772',1,'Lib::Digi::API::Connection::Info::Period']]],
-  ['getreceivedsize_80',['getReceivedSize',['../d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html#a3bf5be59e9da3d54b24982e1a1c176be',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['getreceivedsize_80',['getReceivedSize',['../d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html#a5e0d49cdfd2b5c8b143cacd641bc6f73',1,'Lib::Ethernet::Wiznet::Socket']]],
   ['getremaining_81',['getRemaining',['../dc/d33/class_r_t_o_s_1_1_timeout.html#a7c9970080cf34f6199d970b3bd64447f',1,'RTOS::Timeout']]],
   ['getremainingcapacity_82',['getRemainingCapacity',['../df/d69/class_r_t_o_s_1_1_semaphore_counting.html#afa492a2b3ec19a7e6cfdeba9b15732a1',1,'RTOS::SemaphoreCounting']]],
   ['getremainingms_83',['getRemainingMs',['../dc/d33/class_r_t_o_s_1_1_timeout.html#aa0d343779f312d14ba3af6c2c8c11a59',1,'RTOS::Timeout']]],

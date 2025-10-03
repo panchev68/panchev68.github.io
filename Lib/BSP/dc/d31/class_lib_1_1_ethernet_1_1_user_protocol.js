@@ -15,12 +15,12 @@ var class_lib_1_1_ethernet_1_1_user_protocol =
     ] ],
     [ "UserProtocol", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a26bd091672abe4590d5e98f68b185f5b", null ],
     [ "~UserProtocol", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a24d727deb7ea5446e8549a576e6d5b3f", null ],
-    [ "build", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab5769db088c289d3c47bdbc3e19b05fc", null ],
+    [ "build", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a3be116838c1bf5044ab2ea1bd37d83b7", null ],
     [ "echoCallback", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab1bac861412dff00ff1a803a81d86f86", null ],
     [ "getLastSentTimeStamp", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a214eade10a664fdb01ade38674777f2e", null ],
-    [ "handleIncomingMessageHeader", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a248b2f8c32d4a9615be4a5317689d93b", null ],
+    [ "handleIncomingMessageHeader", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a77a0ba9440c3525ca8d03074a653c98a", null ],
+    [ "handleOututsUpdate", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ad4589dd003540615028230d97836f119", null ],
     [ "inputsUpdateCallback", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab7c782101422a33d37d8a3083ac28ad0", null ],
-    [ "outputsUpdateCallback", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a8a61a95f27ba3571808c7d85b7cf6d64", null ],
-    [ "parse", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a49f94a704aeeebdf8599f9a7df43faf4", null ],
-    [ "updateNodeActivityCallback", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af21943f4772a46224b5d13acc2e3ce77", null ]
+    [ "parse", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a868128b38a1236e8585047b9e6a3efd9", null ],
+    [ "updateNodeActivityCallback", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a640250065dbf3b447ed7723dce56dc9c", null ]
 ];
