@@ -1,7 +1,0 @@
-var a02142 =
-[
-    [ "operator Frame::Data", "df/de7/a02142.html#ada5cf058e970e50629475a98a0c13bbf", null ],
-    [ "atCommand", "df/de7/a02142.html#a1ab3428b505b1130132e9297030c23be", null ],
-    [ "frameId", "df/de7/a02142.html#a2b07bae66a1033e5443c3565a995841c", null ],
-    [ "parameterValue", "df/de7/a02142.html#a378ec4abfc84d6655dff6c53e1e66a2f", null ]
-];

@@ -1,5 +1,0 @@
-var a01961 =
-[
-    [ "firmwareVersion", "d2/d23/a01961.html#a0e3af2ba44f5b2ad106d3fb9569f29de", null ],
-    [ "hardwareVersion", "d2/d23/a01961.html#a2fa3980f9dd4e0bb2dc66d678ec055ba", null ]
-];
