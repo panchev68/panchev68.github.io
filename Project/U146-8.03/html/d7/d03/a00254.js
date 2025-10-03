@@ -1,6 +1,6 @@
 var a00254 =
 [
-    [ "Lib::BSP::DigitalPeripheral::MC33879", "da/d4e/a01106.html", "da/d4e/a01106" ],
-    [ "Lib::BSP::DigitalPeripheral::MC33879::RxPort", "d1/d3d/a01110.html", null ],
-    [ "Lib::BSP::DigitalPeripheral::MC33879::TxPort", "d6/d40/a01114.html", null ]
+    [ "Lib::BSP::DigitalPeripheral::MC33879", "d3/de1/a01111.html", "d3/de1/a01111" ],
+    [ "Lib::BSP::DigitalPeripheral::MC33879::RxPort", "df/dd5/a01115.html", null ],
+    [ "Lib::BSP::DigitalPeripheral::MC33879::TxPort", "d0/d02/a01119.html", null ]
 ];

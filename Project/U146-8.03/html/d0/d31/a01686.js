@@ -1,13 +1,13 @@
 var a01686 =
 [
-    [ "BitArray", "d0/d31/a01686.html#a944a9b285048727db97923fed4cc20cc", null ],
-    [ "~BitArray", "d0/d31/a01686.html#a780ab4b915a041f0e0d4e7a6c2ca8042", null ],
-    [ "count", "d0/d31/a01686.html#aff2a5bb44a9ba404ef074f64c652cfc2", null ],
-    [ "operator T", "d0/d31/a01686.html#a9e4d492e8fe7d65292584463420f8baf", null ],
-    [ "operator=", "d0/d31/a01686.html#aa7be662268a69c42c5c81789774e92d6", null ],
-    [ "operator[]", "d0/d31/a01686.html#ad832a2ea769abdcc118f8ff3e2f8492a", null ],
-    [ "operator[]", "d0/d31/a01686.html#a623e3148ead834b49f756c93c339c804", null ],
-    [ "reset", "d0/d31/a01686.html#aabea61d59c69cc85673f3326df3198d0", null ],
-    [ "set", "d0/d31/a01686.html#a2a2f7a7838029d3a2073fee26e96a831", null ],
-    [ "size", "d0/d31/a01686.html#a2702981020d34f55ee112ff1e371d1c7", null ]
+    [ "Port", "d0/d31/a01686.html#a6f5d7478b054f823a2bb7c45a3bd35b0", null ],
+    [ "~Port", "d0/d31/a01686.html#af48abb0913db5bdf26680a732a970094", null ],
+    [ "abort", "d0/d31/a01686.html#abeb71d6bc3f1b19c34654642bbde5858", null ],
+    [ "beginReceive", "d0/d31/a01686.html#ae511dc4c8e17eb95cf169f2821914a55", null ],
+    [ "close", "d0/d31/a01686.html#a68cfd12d85d5d1ed2b5038704f013e05", null ],
+    [ "getBaudrate", "d0/d31/a01686.html#a425bb18b39e477911d651ca6f6ea620d", null ],
+    [ "open", "d0/d31/a01686.html#add21178ef803d3687d3802b2636ca917", null ],
+    [ "receive", "d0/d31/a01686.html#a2c25d3644f5089932f11856d63512be2", null ],
+    [ "send", "d0/d31/a01686.html#afc3e3804adde40d80fef453f1c667a6a", null ],
+    [ "setBaudrate", "d0/d31/a01686.html#acef9512c200f06e3903d1f332e533911", null ]
 ];

@@ -1,4 +1,4 @@
 var a00392 =
 [
-    [ "Lib::HAL::ADCPort::TransparentBase", "da/d36/a01482.html", "da/d36/a01482" ]
+    [ "Lib::HAL::ADCPort::TransparentBase", "dc/d47/a01487.html", "dc/d47/a01487" ]
 ];

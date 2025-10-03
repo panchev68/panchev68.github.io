@@ -1,11 +1,7 @@
 var a02106 =
 [
-    [ "LocalAtCommand", "d4/d18/a02106.html#addda60d3a9df9ad69fca73fe9c4c411d", null ],
-    [ "~LocalAtCommand", "d4/d18/a02106.html#a6913bf0f1bc23fcbc6c48453f482774e", null ],
-    [ "close", "d4/d18/a02106.html#acbb81c7b2432668009bd71e2d5013552", null ],
-    [ "isOpen", "d4/d18/a02106.html#a7e6339c19fbf976995b1ff767bf341e6", null ],
-    [ "open", "d4/d18/a02106.html#ade085fab503854c155aef54f5a2657f5", null ],
-    [ "receive", "d4/d18/a02106.html#ad315b1d4880ae504e299c405bd819848", null ],
-    [ "send", "d4/d18/a02106.html#a43d8915881c269bb5b34f2b496ddeed8", null ],
-    [ "send", "d4/d18/a02106.html#a70f78c26bf298be388a5b24330cbb512", null ]
+    [ "append", "d4/d18/a02106.html#a5adf9136385bc696005d9b4057097d2b", null ],
+    [ "append", "d4/d18/a02106.html#a9d02f1b44d618474316f9d89df8cf91c", null ],
+    [ "append", "d4/d18/a02106.html#a82f595980e38f461f1570d867f2c665e", null ],
+    [ "append", "d4/d18/a02106.html#a4c0148fc757bfeb937d8049d0401a4f7", null ]
 ];

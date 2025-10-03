@@ -1,10 +1,7 @@
 var a02154 =
 [
-    [ "RemoteAtCommand", "d9/d8d/a02154.html#ab40150fd9cd0b1a80580efde4448fc09", null ],
-    [ "~RemoteAtCommand", "d9/d8d/a02154.html#ab96de54e4c297197767a7523366e7bff", null ],
-    [ "close", "d9/d8d/a02154.html#a4118c157ab83c07a2d55a18ecc6b634a", null ],
-    [ "open", "d9/d8d/a02154.html#a5ab5d7fe26af53e7b41b725de27ffae6", null ],
-    [ "receive", "d9/d8d/a02154.html#a121e0d883bd7e0c7d454e0fa47316553", null ],
-    [ "send", "d9/d8d/a02154.html#ae14186e77131954dae0cafb8f37a89b1", null ],
-    [ "send", "d9/d8d/a02154.html#abe83b49a7235b333769a37d3a229f2f2", null ]
+    [ "QueueMessage", "d9/d8d/a02154.html#ae10da5aec8d931b21400aa2db40ddf76", null ],
+    [ "operator std::vector< uint8_t >", "d9/d8d/a02154.html#a03e465a34d7e70b7d5b69fc14e8acd5d", null ],
+    [ "data", "d9/d8d/a02154.html#a4e21f71366772206f8e08e051c7c8238", null ],
+    [ "size", "d9/d8d/a02154.html#acc175efdd6199a0ad2b06c64ee0d957e", null ]
 ];

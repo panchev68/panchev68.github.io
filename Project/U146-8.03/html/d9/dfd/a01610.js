@@ -1,15 +1,16 @@
 var a01610 =
 [
-    [ "RTClock", "d9/dfd/a01610.html#ace0651febc1e99b1c4d0fc4c4663cc74", null ],
-    [ "~RTClock", "d9/dfd/a01610.html#a548d81268d21d312fb75ba87d36aa127", null ],
-    [ "deinitialize", "d9/dfd/a01610.html#a9f18866c594f544465d3f65cf2e9bef3", null ],
-    [ "get", "d9/dfd/a01610.html#a13534402101bc31c42a52727497ab869", null ],
-    [ "getHandle", "d9/dfd/a01610.html#a78b97998c85e82f2734b669a95fb7e09", null ],
-    [ "getRegister", "d9/dfd/a01610.html#ab13b4296e8282fbcee836b5be5fe4370", null ],
-    [ "initialize", "d9/dfd/a01610.html#a5de43ac7c9c4ff8963ba1dd51e17d935", null ],
-    [ "set", "d9/dfd/a01610.html#ae8809efc3c1b64625757647c3600edfc", null ],
-    [ "setDate", "d9/dfd/a01610.html#a0536dc844eff02831414a1c7624c72a2", null ],
-    [ "setRegister", "d9/dfd/a01610.html#af198825381f4e668a9689495c66461d2", null ],
-    [ "setTime", "d9/dfd/a01610.html#a9ceb16ac67fe179dbe6b19f5f414c47a", null ],
-    [ "onTimeChanged", "d9/dfd/a01610.html#ad0971eaa086b739dd0c8b2b8c22f5c96", null ]
+    [ "~OTP", "d9/dfd/a01610.html#a8efd2b6189c3269e3d9cd9ad7c97d93e", null ],
+    [ "lock", "d9/dfd/a01610.html#a1d6e1e7645b5a8242314315f989770ff", null ],
+    [ "read", "d9/dfd/a01610.html#abdd314428e48944cb7f52d23b22f722e", null ],
+    [ "read", "d9/dfd/a01610.html#a6ca137d3c4ea692a9604f1ce7ebac0ea", null ],
+    [ "read", "d9/dfd/a01610.html#ac06b46d28d3e89575aa6f921ba6037a4", null ],
+    [ "read", "d9/dfd/a01610.html#a776379f24455eb68258256ef339e9388", null ],
+    [ "read", "d9/dfd/a01610.html#a7e21e0b711b4bd8abaf098de8a42fd2c", null ],
+    [ "unlock", "d9/dfd/a01610.html#ad1393be4f030a47d4380ac6f81653cf4", null ],
+    [ "write", "d9/dfd/a01610.html#ae27a2294584feb9016a95bd56b06b8b3", null ],
+    [ "write", "d9/dfd/a01610.html#aef4f9a5a2282fed85c656f971c92a28b", null ],
+    [ "write", "d9/dfd/a01610.html#a696780f2c858284f0021afcea5e71378", null ],
+    [ "write", "d9/dfd/a01610.html#ae053ffae24d48d87bf6bc585b3c37a05", null ],
+    [ "write", "d9/dfd/a01610.html#a8b57c99d2789fc7aceb826e082efe61d", null ]
 ];

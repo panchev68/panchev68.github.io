@@ -1,19 +1,5 @@
 var a02014 =
 [
-    [ "Data", "da/d2d/a02018.html", "da/d2d/a02018" ],
-    [ "Parameters", "d0/d48/a02014.html#ae582163c1056252cb454024b162ef8f4", null ],
-    [ "~Parameters", "d0/d48/a02014.html#aa5efed84f5648760499323b1f83d1898", null ],
-    [ "close", "d0/d48/a02014.html#a4120d48e91cc7b88dfa8ab900c7babe3", null ],
-    [ "getChannel", "d0/d48/a02014.html#a10cb78ed041b1ef609dae62acf5aa4f6", null ],
-    [ "getData", "d0/d48/a02014.html#a90f7c7a3b7224d237ab271e65b9413a8", null ],
-    [ "getPanId", "d0/d48/a02014.html#a9063c3463c741fe4cee3f0846154efb8", null ],
-    [ "initialize", "d0/d48/a02014.html#a6b39572ff27d621a6d7255196d0b3ceb", null ],
-    [ "open", "d0/d48/a02014.html#aef8d28553d15bf49bffd4b4aca242399", null ],
-    [ "pauseReadDynamicParameters", "d0/d48/a02014.html#a887531e05816f81a3467198e196f52f8", null ],
-    [ "process", "d0/d48/a02014.html#a3eefac62cc110facf78b4750dde84367", null ],
-    [ "read", "d0/d48/a02014.html#a0f2f784e8709f02bb2c0108a545b15b4", null ],
-    [ "setChannel", "d0/d48/a02014.html#a134ea35be49423d97c204edb0523e3c3", null ],
-    [ "setPanId", "d0/d48/a02014.html#ad1292b39e33d6fb48a509b251c8757b6", null ],
-    [ "tearDown", "d0/d48/a02014.html#a3e58317f73869115925dc68dd3281bf1", null ],
-    [ "writeChanges", "d0/d48/a02014.html#ac593496f4b98749072d2a824057eb887", null ]
+    [ "localAtCommand", "d0/d48/a02014.html#ad965739e2f1d2b6731f49fb2c73be207", null ],
+    [ "remoteAtCommand", "d0/d48/a02014.html#a82bb74e51c19fe60fedf7af10f45896d", null ]
 ];

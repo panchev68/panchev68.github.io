@@ -1,7 +1,7 @@
 var a01734 =
 [
-    [ "Hex", "d0/d1f/a01734.html#a1a33fc1699d51765043ec485274f1965", null ],
-    [ "toBCD", "d0/d1f/a01734.html#a4e2ad4f7c855ebf257509a5fe4040b1a", null ],
-    [ "toBcdString", "d0/d1f/a01734.html#affc4a1fc6359a13f44dc99455ef5a14c", null ],
-    [ "toString", "d0/d1f/a01734.html#a3fff9acbb5e05033d25a58f3696cec9a", null ]
+    [ "Hex", "d0/d1f/a01734.html#a2b041d3f71c4310873c6d1090c231c2f", null ],
+    [ "toBCD", "d0/d1f/a01734.html#a66df4b99c3d53b3625dea5866d66b4d7", null ],
+    [ "toBcdString", "d0/d1f/a01734.html#af33dfe84528fdb39bf77c6821e4d93a1", null ],
+    [ "toString", "d0/d1f/a01734.html#ad896bddff9d6f8e018416ca8ea4dcb02", null ]
 ];

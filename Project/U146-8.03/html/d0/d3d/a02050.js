@@ -1,25 +1,17 @@
 var a02050 =
 [
-    [ "Config", "d7/d38/a02054.html", "d7/d38/a02054" ],
-    [ "ComDriver", "d0/d3d/a02050.html#a6a8d1d7994fd3278f28b264abc880083", null ],
-    [ "~ComDriver", "d0/d3d/a02050.html#a2a807f5e4f7d8a07994caa63b2cf372c", null ],
-    [ "ComDriver", "d0/d3d/a02050.html#a6a8d1d7994fd3278f28b264abc880083", null ],
-    [ "~ComDriver", "d0/d3d/a02050.html#a2a807f5e4f7d8a07994caa63b2cf372c", null ],
-    [ "init", "d0/d3d/a02050.html#a4f8f69c206941e985e7e0f256f159923", null ],
-    [ "init", "d0/d3d/a02050.html#a4f8f69c206941e985e7e0f256f159923", null ],
-    [ "reset", "d0/d3d/a02050.html#abcca03325455d33b43b4088dda6285e7", null ],
-    [ "reset", "d0/d3d/a02050.html#abcca03325455d33b43b4088dda6285e7", null ],
-    [ "send", "d0/d3d/a02050.html#a69b6c41e48ae2bd6ea04831f60d63d6e", null ],
-    [ "send", "d0/d3d/a02050.html#a0d0e3e5faa6f90e79742eec1ac8aa76e", null ],
-    [ "signalBeginMessageReceive", "d0/d3d/a02050.html#a9e3b1c68e48214f52072532da77ab1ce", null ],
-    [ "signalBeginMessageReceive", "d0/d3d/a02050.html#a9e3b1c68e48214f52072532da77ab1ce", null ],
-    [ "signalBeginMessageSend", "d0/d3d/a02050.html#a06ab17f1d1cf7505818843f8948ff13b", null ],
-    [ "signalBeginMessageSend", "d0/d3d/a02050.html#a06ab17f1d1cf7505818843f8948ff13b", null ],
-    [ "signalEndMessageReceived", "d0/d3d/a02050.html#a0ea40b290e509b87c45272118969077e", null ],
-    [ "signalEndMessageReceived", "d0/d3d/a02050.html#a0ea40b290e509b87c45272118969077e", null ],
-    [ "signalEndMessageSend", "d0/d3d/a02050.html#aa003dbabcb8a5a467f1282913d1e462b", null ],
-    [ "signalEndMessageSend", "d0/d3d/a02050.html#aa003dbabcb8a5a467f1282913d1e462b", null ],
-    [ "diagnostic", "d0/d3d/a02050.html#ab82d707400abf675e9569208e2f78822", null ],
-    [ "mutexSend", "d0/d3d/a02050.html#a65dfef3aa3d40baa5968ab9a7f2b3db9", null ],
-    [ "xrst", "d0/d3d/a02050.html#a104a09e2d20102931b503a96ef27b08a", null ]
+    [ "Command", "d0/d3d/a02050.html#a1f45c48e80a02e12555ce929b1a8b401", [
+      [ "INPUTS", "d0/d3d/a02050.html#a1f45c48e80a02e12555ce929b1a8b401a6e5f0c2d3a6ac74a157069f9eea5273c", null ],
+      [ "GET_PARAMETERS", "d0/d3d/a02050.html#a1f45c48e80a02e12555ce929b1a8b401a4dc1f3b15aafec3172eab0c63581417f", null ],
+      [ "OUTPUTS", "d0/d3d/a02050.html#a1f45c48e80a02e12555ce929b1a8b401a4bfce0bb26cb61859c51e9e03708fb33", null ],
+      [ "SET_PARAMETERS", "d0/d3d/a02050.html#a1f45c48e80a02e12555ce929b1a8b401a7a195a8a42bc1f4979d7f289065d4c2c", null ]
+    ] ],
+    [ "UserProtocol", "d0/d3d/a02050.html#a99732c52b4b4c0346956131eed156cf0", null ],
+    [ "~UserProtocol", "d0/d3d/a02050.html#a04cd110654235ccbb299b9d6754791a1", null ],
+    [ "build", "d0/d3d/a02050.html#abb1e501c48f9709a9b0917bff222a7bc", null ],
+    [ "handleGetParameters", "d0/d3d/a02050.html#a07414fd6f7a39957c6f6ed59e6e67ff0", null ],
+    [ "handleInputsUpdate", "d0/d3d/a02050.html#afec07c68619489ef8c9b8f86ee312c0d", null ],
+    [ "handleOutputsUpdate", "d0/d3d/a02050.html#a5d51bf515eb2d6a8df09435ac30bccbc", null ],
+    [ "handleSetParameters", "d0/d3d/a02050.html#aa5b6a2332e258280c674f98fc473fa8c", null ],
+    [ "parse", "d0/d3d/a02050.html#ae889ef5cbf508d81e3383327c2f4275c", null ]
 ];

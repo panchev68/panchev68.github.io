@@ -1,6 +1,7 @@
 var a00910 =
 [
-    [ "HardwareVersion", "d4/d12/a00910.html#a0347aa4c7dfba19e907b928c32f059bd", null ],
-    [ "getString", "d4/d12/a00910.html#a65f8aa6be8aaa19ddf3531ebb87277e5", null ],
-    [ "readVersionId", "d4/d12/a00910.html#aff323d7ba600fd59abb8abcd6e42fd02", null ]
+    [ "DisplayRotation", "d4/d12/a00910.html#a1d9cbe1602173ae33305781048ef84fb", null ],
+    [ "~DisplayRotation", "d4/d12/a00910.html#a3b0cb50cd35826d8de6ee46d6bf43979", null ],
+    [ "get", "d4/d12/a00910.html#a151eb29747ebd39d25e68a19e0a3d065", null ],
+    [ "set", "d4/d12/a00910.html#a169410c437f4b1cc12af21eafb1f3406", null ]
 ];

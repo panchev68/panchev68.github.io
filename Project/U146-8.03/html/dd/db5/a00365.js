@@ -1,4 +1,4 @@
 var a00365 =
 [
-    [ "Lib::FreeRTOS::StreamBuffer", "d5/dd0/a01438.html", "d5/dd0/a01438" ]
+    [ "Lib::FreeRTOS::StreamBuffer", "d6/d65/a01443.html", "d6/d65/a01443" ]
 ];

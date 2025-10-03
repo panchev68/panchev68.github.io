@@ -1,16 +1,17 @@
 var a01606 =
 [
-    [ "~OTP", "d3/d2d/a01606.html#a8efd2b6189c3269e3d9cd9ad7c97d93e", null ],
-    [ "lock", "d3/d2d/a01606.html#a1d6e1e7645b5a8242314315f989770ff", null ],
-    [ "read", "d3/d2d/a01606.html#abdd314428e48944cb7f52d23b22f722e", null ],
-    [ "read", "d3/d2d/a01606.html#a6ca137d3c4ea692a9604f1ce7ebac0ea", null ],
-    [ "read", "d3/d2d/a01606.html#ac06b46d28d3e89575aa6f921ba6037a4", null ],
-    [ "read", "d3/d2d/a01606.html#a776379f24455eb68258256ef339e9388", null ],
-    [ "read", "d3/d2d/a01606.html#a7e21e0b711b4bd8abaf098de8a42fd2c", null ],
-    [ "unlock", "d3/d2d/a01606.html#ad1393be4f030a47d4380ac6f81653cf4", null ],
-    [ "write", "d3/d2d/a01606.html#ae27a2294584feb9016a95bd56b06b8b3", null ],
-    [ "write", "d3/d2d/a01606.html#aef4f9a5a2282fed85c656f971c92a28b", null ],
-    [ "write", "d3/d2d/a01606.html#a696780f2c858284f0021afcea5e71378", null ],
-    [ "write", "d3/d2d/a01606.html#ae053ffae24d48d87bf6bc585b3c37a05", null ],
-    [ "write", "d3/d2d/a01606.html#a8b57c99d2789fc7aceb826e082efe61d", null ]
+    [ "State", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803", [
+      [ "UNKNOWN", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803af7775612c7a04cb57df1786896ee429e", null ],
+      [ "LOW_POWER_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803a72c5160d5ad9cb3adc3e32ce0e1dc7fb", null ],
+      [ "WINDOW_WATCHDOG_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803ab8adc1567757ab6cfbbb0543b5a900a6", null ],
+      [ "INDEPENDENT_WATCHDOG_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803a0b5f4c28c4ad38477555e8f5809697e0", null ],
+      [ "SOFTWARE_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803a91db9fb1c36bc07ae2c7599d6a12c20b", null ],
+      [ "POWER_ON_POWER_DOWN_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803af3dc7bd050253d9b92fb751d92760b3f", null ],
+      [ "EXTERNAL_RESET_PIN_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803a94cc2fce86e47fd129bd8afce8e5b665", null ],
+      [ "BROWNOUT_RESET", "d3/d2d/a01606.html#a2a19c559bf07ddd181d31f7a4cbb8803aa23c52f3ff6c6cc192119dcfed9e5dc8", null ]
+    ] ],
+    [ "LastResetState", "d3/d2d/a01606.html#abbd01627966d996019ebe16bb0d685d0", null ],
+    [ "~LastResetState", "d3/d2d/a01606.html#a9764e97ea414a4a782184c9e0e81789c", null ],
+    [ "get", "d3/d2d/a01606.html#aceb01a835768bfb0b1af57d2be901501", null ],
+    [ "operator State", "d3/d2d/a01606.html#a13ec1bfab2ba4cca80dcc32ca47bca3c", null ]
 ];

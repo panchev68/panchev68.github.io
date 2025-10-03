@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['handle_0',['Handle',['../d0/de2/a01442.html#a1226098e07f0f85c5f86c13598f9ce9a',1,'Lib::FreeRTOS::Task::Handle'],['../d7/dd1/a01458.html#a633139578fbee328217ff36615d40e60',1,'Lib::FreeRTOS::Timer::Handle'],['../d8/d08/a03160.html#aed738b67d6059766239d54b08c196b18',1,'Lib::HAL::SPI::Handle']]],
-  ['hex_1',['hex',['../d5/d0f/a00494.html#a60e614729279abe20d7718c969b604bb',1,'Hex.hpp']]]
+  ['i2chandle_0',['I2CHandle',['../d1/dc2/_i2_c_8hpp.html#a08aeae32dc9ff8c770ee7f90688f2b66',1,'Lib::HAL']]],
+  ['ili9341_1',['ILI9341',['../d1/db8/_i_l_i9341_8hpp.html#a62bc20ecfb713696b3f744fc5833d417',1,'Lib::BSP::Display']]],
+  ['integrator_2',['integrator',['../db/d06/_integrator_8hpp.html#ab98dfbcaadb00507b4aedde95a9e710b',1,'Integrator.hpp']]]
 ];

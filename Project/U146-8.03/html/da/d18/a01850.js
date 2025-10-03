@@ -1,6 +1,7 @@
 var a01850 =
 [
-    [ "Base", "d7/d97/a01854.html", "d7/d97/a01854" ],
-    [ "Firmware", "d0/d4a/a01862.html", "d0/d4a/a01862" ],
-    [ "Hardware", "d4/d7f/a01858.html", "d4/d7f/a01858" ]
+    [ "SerialNumber", "da/d18/a01850.html#a303f21a745ca36366d4bc5bfc2c47e1e", null ],
+    [ "operator std::string", "da/d18/a01850.html#aeaf3bd6bb3e5c5bebae442ba859faaf4", null ],
+    [ "operator uint32_t", "da/d18/a01850.html#a0c3ea29cb3e4f9d8aa9bb37f230f26c2", null ],
+    [ "toString", "da/d18/a01850.html#af658d5a64eefd56ee564b9ed3be5e1a3", null ]
 ];

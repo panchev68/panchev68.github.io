@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['w25q128jvsiq_0',['W25Q128JVSIQ',['../df/d2a/a00874.html',1,'BSP::W25Q128JVSIQ'],['../d0/d00/a01286.html',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['watchdog_1',['Watchdog',['../d3/da5/a01598.html',1,'Lib::HAL::Watchdog'],['../df/d39/a00950.html',1,'System::Watchdog']]]
+  ['w25q128jvsiq_0',['W25Q128JVSIQ',['../d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html',1,'BSP::W25Q128JVSIQ'],['../d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html',1,'Lib::BSP::W25Q128JVSIQ']]],
+  ['watchdog_1',['Watchdog',['../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html',1,'Lib::HAL::Watchdog'],['../df/d8f/class_system_1_1_watchdog.html',1,'System::Watchdog']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['outputs_20peripheral_0',['Digital Inputs/ Outputs Peripheral',['../d3/dda/a00712.html',1,'']]]
+  ['models_0',['TouchGFX Models',['../d2/db3/group___touch_g_f_x_models.html',1,'']]]
 ];

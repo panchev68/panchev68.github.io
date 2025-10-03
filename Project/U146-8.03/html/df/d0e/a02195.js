@@ -1,0 +1,38 @@
+var a02195 =
+[
+    [ "DeliveryStatus", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4", [
+      [ "SUCCESS", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "NO_ACK_RECEIVED", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a40fd88ab5d7bd1fc2c52162b3841c610", null ],
+      [ "CCA_FAILURE", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a43cfdc533b16b403456be8acbaba2512", null ],
+      [ "INDIRECT_MESSAGE_UNREQUESTED", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ab0de4df6a2d5453c7557c5b0340aea91", null ],
+      [ "TRANSCEIVER_UNABLE_TO_COMPLETE", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4aca07f0d271cc0ccdc2d55d447845422d", null ],
+      [ "NETWORK_ACK_FAILURE", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a01ccdb1865b61552076f587dfbb770f0", null ],
+      [ "NOT_JOINED_TO_NETWORK", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a38460768703ab35c6170ad73b597579c", null ],
+      [ "INVALID_FRAME_VALUES", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a4686d529cd92a743c34e665dfecf98d9", null ],
+      [ "INTERNAL_ERROR", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ae8c0c70879b5895c615677261d64a1ee", null ],
+      [ "RESOURCE_ERROR", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ae8f19147b1155bd2cc91003c9180d459", null ],
+      [ "NO_SECURE_SESSION_CONNECTION", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a25b5a05fb1f8f44bae8333ed6be5771f", null ],
+      [ "ENCRYPTION_FAILURE", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4aa463b1b5b108ed4439a73d3d91ff916c", null ],
+      [ "MESSAGE_TOO_LONG", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a79a708cdeba9c2de896e6498bacaffa7", null ],
+      [ "SOCKET_CLOSED_UNEXPECTEDLY", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a8cd7e7f35c4cea9fd09ccc10e33f4dcb", null ],
+      [ "INVALID_UDP_PORT", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a7eedc8233229b97774444e403a5c6aa1", null ],
+      [ "INVALID_TCP_PORT", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ab2e0a96462a5124296b38c8c80353210", null ],
+      [ "INVALID_HOST_ADDRESS", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a24213305ef69eb6cd2cf9a8698464d81", null ],
+      [ "INVALID_DATA_MODE", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4aacbb02d1608081390ae1e80252ad04bc", null ],
+      [ "INVALID_INTERFACE", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a2eca914413e779cbfd9655005a0128c8", null ],
+      [ "INTERFACE_NOT_ACCEPTING_FRAMES", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a067127d1c36970e5b2e77ced0ef46a35", null ],
+      [ "MODEM_UPDATE_IN_PROGRESS", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a27b071737e20d1ed918b9530a9bdfe6e", null ],
+      [ "CONNECTION_REFUSED", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a9a7e1b9b707101066b0b47c87694a85e", null ],
+      [ "SOCKET_CONNECTION_LOST", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a2490595411e855aae2d1a40f782d1c02", null ],
+      [ "NO_SERVER", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a58a0155a60a1504f4a8da01907461400", null ],
+      [ "SOCKET_CLOSED", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ad2076b969f453f0134047ff070e73e49", null ],
+      [ "UNKNOWN_SERVER", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a75771b1e752285ed6ddcfe642ed8930e", null ],
+      [ "UNKNOWN_ERROR", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a9a10f345b0f755d461a8673a5e9ef6b4", null ],
+      [ "INVALID_TLS_CONFIG", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4aef2a2143c3fd0522b231aadce7d9ec04", null ],
+      [ "SOCKET_NOT_CONNECTED", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4ae13234a1673ca85e1c8d21fc4db4f851", null ],
+      [ "SOCKET_NOT_BOUND", "df/d0e/a02195.html#af0e24ee3946bdeed1a63a7d66b31e6b4a850cc86f84c5ebad712fce7430403f67", null ]
+    ] ],
+    [ "Frame0x89", "df/d0e/a02195.html#a21b71f4d37fb1fe4e2e90f42033efb68", null ],
+    [ "deliveryStatus", "df/d0e/a02195.html#a11b431b642e06e520be84f2038ee0a57", null ],
+    [ "frameId", "df/d0e/a02195.html#aa2250cb47f3c93b7cd7dd070f18076bd", null ]
+];

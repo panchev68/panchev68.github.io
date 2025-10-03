@@ -1,8 +1,13 @@
 var a01534 =
 [
-    [ "DeviceManagerBase", "dc/d2d/a01534.html#abdfac94f393ea76ce81101fa3ec4e0c1", null ],
-    [ "~DeviceManagerBase", "dc/d2d/a01534.html#ae8d7937ca259b487b3bca307e520fd07", null ],
-    [ "add", "dc/d2d/a01534.html#a02525534e0f3709fe5dd2164cd1543b4", null ],
-    [ "getDevice", "dc/d2d/a01534.html#aabfe1fe6de74384902fb187bf365e674", null ],
-    [ "remove", "dc/d2d/a01534.html#a92a61cd08aed0e18c54eaaadc9b6d45c", null ]
+    [ "Port", "dc/d2d/a01534.html#aa0d4f0088e6886dc1eab8a11fabe5c8b", null ],
+    [ "~Port", "dc/d2d/a01534.html#aed497348f60814dc72dd29b9a51e6ccb", null ],
+    [ "close", "dc/d2d/a01534.html#a118315cc6a47c8c720d0f47e6e0d4e8e", null ],
+    [ "errorCallback", "dc/d2d/a01534.html#a41b125a7c37a7d611c329b941581417d", null ],
+    [ "messageReceivedCallback", "dc/d2d/a01534.html#afbab408a8af2e2f2de2ac91097e7a82c", null ],
+    [ "open", "dc/d2d/a01534.html#ae02ae673c20f629b1af29f74b1562ccb", null ],
+    [ "postSendCallback", "dc/d2d/a01534.html#a52522e9f278617f9c45140253564a3da", null ],
+    [ "preSendCallback", "dc/d2d/a01534.html#af37917a767d68861f56da4f1dcf37b01", null ],
+    [ "send", "dc/d2d/a01534.html#a60efa232070a29361246ef1b47cd1795", null ],
+    [ "setFilter", "dc/d2d/a01534.html#af2028bbd5afcd65d8e3d1b4eebbd3cce", null ]
 ];

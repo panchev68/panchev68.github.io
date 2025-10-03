@@ -1,8 +1,6 @@
 var a01838 =
 [
-    [ "Config", "db/d09/a01838.html#a218090000fde0593aac895f84c88fa73", null ],
-    [ "~Config", "db/d09/a01838.html#a2dd8c5fa88fa8f7a8abd85c828949540", null ],
-    [ "isEmpty", "db/d09/a01838.html#a562aff91ccc086c34db77884d133ed92", null ],
-    [ "operator uint32_t", "db/d09/a01838.html#a5cf484cf67071bcfb8d474ceb7fc10f0", null ],
-    [ "operator=", "db/d09/a01838.html#a62313cf2dff090b34d894bdbfdff4fa0", null ]
+    [ "ValueInfo", "db/d09/a01838.html#ac2308d7eee38e50a77fafb7e33f5f28d", null ],
+    [ "getData", "db/d09/a01838.html#a94a450ffebd5410da540732c8e9c2f02", null ],
+    [ "getTypeInfo", "db/d09/a01838.html#aec9b66ef222dc83b47d38c1fb6eb95ef", null ]
 ];

@@ -1,5 +1,5 @@
 var a00476 =
 [
-    [ "Lib::Helper::BufferHandle", "d5/da6/a01698.html", "d5/da6/a01698" ],
-    [ "BufferHandle", "d3/de2/a02959.html", "d3/de2/a02959" ]
+    [ "Lib::Helper::BufferHandle", "df/d12/a01703.html", "df/d12/a01703" ],
+    [ "BufferHandle", "db/db9/a02964.html", "db/db9/a02964" ]
 ];

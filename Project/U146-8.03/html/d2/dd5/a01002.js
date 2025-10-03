@@ -1,18 +1,14 @@
 var a01002 =
 [
-    [ "ProduceDate", "dc/d81/a01006.html", "dc/d81/a01006" ],
-    [ "ProduceDates", "d0/d2b/a01010.html", "d0/d2b/a01010" ],
-    [ "ResetState", "d2/dd5/a01002.html#a040219ebd21945827272e7306a03a44f", null ],
-    [ "StartupMode", "d2/dd5/a01002.html#a3f122653834e6f9d9f5b5e3dcd459758", null ],
-    [ "ModelSystem", "d2/dd5/a01002.html#aeeb0b1acfe3ec719a549d69ed156e07b", null ],
-    [ "~ModelSystem", "d2/dd5/a01002.html#a6612ec38f817406f3548be734b2b92e8", null ],
-    [ "getBuildVersion", "d2/dd5/a01002.html#a35c2344f118a166c467f6348febd459b", null ],
-    [ "getHardwareVersion", "d2/dd5/a01002.html#a55c01ab00d5e1873c19c704819658883", null ],
-    [ "getLastResetStateColor", "d2/dd5/a01002.html#a3ec9902366c5c17f73b8b6df84dabf65", null ],
-    [ "getLastResetStateString", "d2/dd5/a01002.html#a9cc824f9e231250b811b223881b2783c", null ],
-    [ "getSerialNumber", "d2/dd5/a01002.html#a01994f85003a78ebe925d64f00aadcc4", null ],
-    [ "getStartupMode", "d2/dd5/a01002.html#a66ac7f779ce3a045630bb820e7637c5a", null ],
-    [ "setStartupMode", "d2/dd5/a01002.html#a1e0418af774e02b850d6e31b9f398e9c", null ],
-    [ "waitForReadyAfterStartup", "d2/dd5/a01002.html#aa778daab85ce24e0963cca75208a0e9a", null ],
-    [ "produceDates", "d2/dd5/a01002.html#a19262c7d71bc2000a91a0d4ad09c9e55", null ]
+    [ "TestOutputsClient", "d2/dd5/a01002.html#ac404f0a1d405d3d537487af2944ddfb7", null ],
+    [ "~TestOutputsClient", "d2/dd5/a01002.html#a49ac9213108d3f2bc7bd77b873b79ecc", null ],
+    [ "getIndex", "d2/dd5/a01002.html#a7f2a465a3530b222e39dbe47593931a8", null ],
+    [ "getNumberOfTests", "d2/dd5/a01002.html#aae97c82baaf245d8bf06705e4137eb09", null ],
+    [ "getUpdatePeriod", "d2/dd5/a01002.html#a4dbbf9f0bb6a95b17b0099f86ba18dd7", null ],
+    [ "handleTickEvent", "d2/dd5/a01002.html#a341d14101209225dd989f5f7f989d86a", null ],
+    [ "isRunning", "d2/dd5/a01002.html#a2bacf014ca2c9ec6f2c1ef1dd31efcf3", null ],
+    [ "setIndex", "d2/dd5/a01002.html#a0651bb8592b161b9c4a675ed882bafaf", null ],
+    [ "setUpdatePeriod", "d2/dd5/a01002.html#abfd6ab41767e7226d57547f0f858aaad", null ],
+    [ "start", "d2/dd5/a01002.html#ab2cf2a987f36e372636dee95efbe415e", null ],
+    [ "stop", "d2/dd5/a01002.html#a1ed6b7085c2a848f248c83df462e7549", null ]
 ];

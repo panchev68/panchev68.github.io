@@ -1,14 +1,11 @@
 var a00990 =
 [
-    [ "Listener", "d4/dd0/a00994.html", "d4/dd0/a00994" ],
-    [ "TestOutputsClient", "d9/d9a/a00998.html", "d9/d9a/a00998" ],
-    [ "ModelPeripheral", "dd/d7a/a00990.html#a40e756a43a00f16141f4c63bfb30eb63", null ],
-    [ "~ModelPeripheral", "dd/d7a/a00990.html#a04449d4f1de3c23367f10cc26ad0f92c", null ],
-    [ "getInputs", "dd/d7a/a00990.html#a8ff5ada0d918c2f97355cfbaa3e2d360", null ],
-    [ "getNodeActivity", "dd/d7a/a00990.html#a02ddf4f59cd8bb06cb3670a0e2a7efa6", null ],
-    [ "getOutputs", "dd/d7a/a00990.html#a63ff9dc7d021c43130c42fbc9a6f321f", null ],
-    [ "getSelectedNode", "dd/d7a/a00990.html#a0cec472c281317f55f70f7b2c7fe58bb", null ],
-    [ "handleTickEvent", "dd/d7a/a00990.html#a63036dc9a05e12a019d98f8d3386200f", null ],
-    [ "setSelectedNode", "dd/d7a/a00990.html#a780eeaa13f975203eca40dc37ebaed34", null ],
-    [ "testOutputsClient", "dd/d7a/a00990.html#a71b208a64132c4ed74c806c231d4a54c", null ]
+    [ "ModelDisplay", "dd/d7a/a00990.html#a58223329475bd6ee8131ab9bae0f8b98", null ],
+    [ "~ModelDisplay", "dd/d7a/a00990.html#a0aea6e6d10f65cee865c9b0dd3fabedf", null ],
+    [ "getBacklight", "dd/d7a/a00990.html#a26220ad31816ebd602de45f84a9924bc", null ],
+    [ "getRotation", "dd/d7a/a00990.html#af9872d3de81b8e825ddc3ab56593c3da", null ],
+    [ "saveParameters", "dd/d7a/a00990.html#aa3265c70aad48c54df411111545485d0", null ],
+    [ "setBacklight", "dd/d7a/a00990.html#a21f51676c92060b09d488e16814eaf90", null ],
+    [ "setRotation", "dd/d7a/a00990.html#a965e06a9aac36b2e646a4d0913f07d35", null ],
+    [ "storageOfParametersIsPresent", "dd/d7a/a00990.html#af229b88cc2c5e18f976f65d56c56c3da", null ]
 ];

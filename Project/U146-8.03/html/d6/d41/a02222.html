@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>U146: Lib::Canbus::ClientBase</title>
+<title>U146: BSP::DigitalPeripheral</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -89,41 +89,32 @@ $(function(){initNavTree('d6/d41/a02222.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Canbus::ClientBase</div></div>
+  <div class="headertitle"><div class="title">BSP::DigitalPeripheral</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-the-can-bus-client-base-class"></a>
-Example usage of the CAN bus client base class.</h1>
-<p>This example demonstrates how to derive from the CAN bus client base class and implement the required task function for periodic processing.</p>
-<hr  />
-<dl class="section user"><dt>Example usage:</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;ClientBase.hpp&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MyCanClient : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../da/d64/a03073.html#a6a342d3a95a10dc45d846c70f8fd7fb9">Lib::Canbus::ClientBase</a> {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> MyCanClient(CAN_HandleTypeDef *handle) : ClientBase(handle) {}</div>
-<div class="line">    <span class="keywordtype">void</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/dfe/a01366.html#a3f461c3e0f637c2be89463249c736b46">taskFn</a>()<span class="keyword"> override </span>{</div>
-<div class="line">        <span class="comment">// Implement periodic or event-driven logic here.</span></div>
-<div class="line">        <span class="comment">// For example, send a message every cycle.</span></div>
-<div class="line">        send();</div>
-<div class="line">    }</div>
-<div class="line">};</div>
+<h1 class="doxsection"><a class="anchor" id="example-usage-of-digitalperipheral-for-digital-io-management"></a>
+Example usage of DigitalPeripheral for digital IO management.</h1>
+<p>This example demonstrates how to initialize the DigitalPeripheral, check for errors, and access input/output interfaces.</p>
+<dl class="section user"><dt>Example usage:</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d81/a00110.html">DigitalPeripheral.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    CAN_HandleTypeDef canHandle{};</div>
-<div class="line">    MyCanClient <a class="code hl_variable" href="../../d4/d91/a00733.html#a334c2d4e817f5d715af314a7436db2b5">client</a>(&amp;canHandle);</div>
-<div class="line">    <a class="code hl_variable" href="../../d4/d91/a00733.html#a334c2d4e817f5d715af314a7436db2b5">client</a>.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d4c/a01058.html#aa349941f32aa06dd2cd4a0579d02e954">start</a>(1);</div>
-<div class="line">    <span class="comment">// Main loop</span></div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <a class="code hl_variable" href="../../d4/d91/a00733.html#a334c2d4e817f5d715af314a7436db2b5">client</a>.taskFn();</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/d12/a00794.html">BSP::DigitalPeripheral</a> digitalPeripheral;</div>
+<div class="line">    <span class="keywordflow">if</span> (digitalPeripheral.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d12/a00794.html#a1f0614700f8805ac33f064bec7639111">init</a>()) {</div>
+<div class="line">        <span class="comment">// Initialization successful</span></div>
+<div class="line">        <span class="keywordflow">if</span> (!digitalPeripheral.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d12/a00794.html#a0386ab54304b0e697c8326feee1044d5">getErrorOutput</a>()) {</div>
+<div class="line">            <span class="comment">// No error present, proceed with IO operations</span></div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Initialization failed, handle error</span></div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00733_html_a334c2d4e817f5d715af314a7436db2b5"><div class="ttname"><a href="../../d4/d91/a00733.html#a334c2d4e817f5d715af314a7436db2b5">Xbee::client</a></div><div class="ttdeci">Client client</div><div class="ttdef"><b>Definition</b> Xbee.hpp:17</div></div>
-<div class="ttc" id="aa01058_html_aa349941f32aa06dd2cd4a0579d02e954"><div class="ttname"><a href="../../d5/d4c/a01058.html#aa349941f32aa06dd2cd4a0579d02e954">Xbee::Client::start</a></div><div class="ttdeci">bool start(bool paused=false) override</div><div class="ttdoc">Starts the XBee client.</div></div>
-<div class="ttc" id="aa01366_html_a3f461c3e0f637c2be89463249c736b46"><div class="ttname"><a href="../../d6/dfe/a01366.html#a3f461c3e0f637c2be89463249c736b46">Lib::Canbus::ServiceBase::taskFn</a></div><div class="ttdeci">virtual void taskFn()=0</div><div class="ttdoc">CAN service task function.</div></div>
-<div class="ttc" id="aa03073_html_a6a342d3a95a10dc45d846c70f8fd7fb9"><div class="ttname"><a href="../../da/d64/a03073.html#a6a342d3a95a10dc45d846c70f8fd7fb9">Lib::Canbus::ClientBase</a></div><div class="ttdeci">Service&lt; Mode::CLIENT &gt; ClientBase</div><div class="ttdef"><b>Definition</b> Canbus/ClientBase.hpp:95</div></div>
+<div class="ttc" id="aa00110_html"><div class="ttname"><a href="../../d4/d81/a00110.html">DigitalPeripheral.hpp</a></div><div class="ttdoc">DigitalPeripheral interface for digital IO management.</div></div>
+<div class="ttc" id="aa00794_html"><div class="ttname"><a href="../../d5/d12/a00794.html">BSP::DigitalPeripheral</a></div><div class="ttdoc">DigitalPeripheral class for digital IO management.</div><div class="ttdef"><b>Definition</b> DigitalPeripheral.hpp:26</div></div>
+<div class="ttc" id="aa00794_html_a0386ab54304b0e697c8326feee1044d5"><div class="ttname"><a href="../../d5/d12/a00794.html#a0386ab54304b0e697c8326feee1044d5">BSP::DigitalPeripheral::getErrorOutput</a></div><div class="ttdeci">bool getErrorOutput() const</div><div class="ttdoc">Get error output state.</div></div>
+<div class="ttc" id="aa00794_html_a1f0614700f8805ac33f064bec7639111"><div class="ttname"><a href="../../d5/d12/a00794.html#a1f0614700f8805ac33f064bec7639111">BSP::DigitalPeripheral::init</a></div><div class="ttdeci">bool init()</div><div class="ttdoc">Initialize digital peripherals.</div></div>
 </div><!-- fragment --></dd></dl>
-<p>This example shows how to create a custom CAN bus client by inheriting from ClientBase, implementing the required task function, and starting the service.</p>
+<p>This example initializes the DigitalPeripheral, checks for successful initialization, and verifies error state. It demonstrates basic integration with the BSP layer for digital IO management in an embedded STM32 project.</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

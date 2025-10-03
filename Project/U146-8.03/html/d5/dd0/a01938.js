@@ -1,8 +1,14 @@
 var a01938 =
 [
-    [ "SignalStrength", "d5/dd0/a01938.html#a1ce2364041f3b3e645a4e0b859fe7947", null ],
-    [ "SignalStrength", "d5/dd0/a01938.html#a009abd76b7dc04973b8b169045dc0387", null ],
-    [ "operator uint8_t", "d5/dd0/a01938.html#a3178e46aafee03c497e85cc876d77714", null ],
-    [ "operator=", "d5/dd0/a01938.html#a9c3e114fa03c127fa87bd485169eb746", null ],
-    [ "toPercent", "d5/dd0/a01938.html#a402158bba858bcd7f7041a2cfa22719d", null ]
+    [ "Period", "d5/dd0/a01938.html#a367552e26954ea07ffc89cb992ec6fd4", null ],
+    [ "beginMeasurement", "d5/dd0/a01938.html#aea94baa9aaa625d44e2d9d1e721789c1", null ],
+    [ "clearMinMax", "d5/dd0/a01938.html#a65be30bfc9ca767fade44cfc57f29aaf", null ],
+    [ "endMeasurement", "d5/dd0/a01938.html#ae896e69612be75d176a6709b0716257d", null ],
+    [ "getMaximum", "d5/dd0/a01938.html#a271b3e4f82eba0fd1f08711f43a098b6", null ],
+    [ "getMinimum", "d5/dd0/a01938.html#ae641a0fdbb64828fcabc4fd011335eaa", null ],
+    [ "getRawValue", "d5/dd0/a01938.html#afbf7542819293a8a7e4cb19f92fb108e", null ],
+    [ "getValue", "d5/dd0/a01938.html#acd8c7b6213a8292c7928a55db3effad8", null ],
+    [ "operator uint32_t", "d5/dd0/a01938.html#a736d633147bc950fd451a4d092d455d2", null ],
+    [ "reset", "d5/dd0/a01938.html#a0672403a31deda500f5fa3d1abe492d6", null ],
+    [ "stopMeasurement", "d5/dd0/a01938.html#a9ed0089376e60287c3fdbeb23c93d9da", null ]
 ];

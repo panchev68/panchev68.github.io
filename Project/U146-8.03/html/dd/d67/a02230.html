@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>U146: Lib::FreeRTOS::TickCounter</title>
+<title>U146: Lib::FreeRTOS::Queue</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -89,30 +89,45 @@ $(function(){initNavTree('dd/d67/a02230.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::FreeRTOS::TickCounter</div></div>
+  <div class="headertitle"><div class="title">Lib::FreeRTOS::Queue</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-the-tickcounter-utility-class"></a>
-Example usage of the TickCounter utility class.</h1>
-<p>Demonstrates how to retrieve the current FreeRTOS tick count from both task and ISR contexts using the TickCounter utility class.</p>
+<h1 class="doxsection"><a class="anchor" id="mermaid-class-diagram-for-libfreertosqueue"></a>
+Mermaid class diagram for Lib::FreeRTOS::Queue</h1>
+<p>This diagram illustrates the structure and main methods of the Queue class, which wraps FreeRTOS queue management in a safe, resource-managed C++ interface. The Queue class provides methods for creation, sending, receiving, peeking, overwriting, and registry management, supporting both dynamic and static allocation. The diagram shows the public API and the main private members.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="example-usage-3"></a>
-Example usage:</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d80/a00371.html">TickCounter.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTaskFunction() {</div>
-<div class="line">    uint32_t currentTick = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d3/da3/a01450.html#adf5058865dfb549db97fec8ef14752a0">Lib::FreeRTOS::TickCounter::get</a>();</div>
-<div class="line">    <span class="comment">// Use currentTick for timeout or scheduling logic</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleISRHandler() {</div>
-<div class="line">    uint32_t isrTick = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/da3/a01450.html#a78ad0c298cc7c89a8abd56f2a349f8b0">Lib::FreeRTOS::TickCounter::getFromISR</a>();</div>
-<div class="line">    <span class="comment">// Use isrTick for ISR-specific timing</span></div>
-<div class="line">}</div>
-<div class="ttc" id="aa00371_html"><div class="ttname"><a href="../../d6/d80/a00371.html">TickCounter.hpp</a></div><div class="ttdoc">TickCounter utility for FreeRTOS tick retrieval.</div></div>
-<div class="ttc" id="aa01450_html_a78ad0c298cc7c89a8abd56f2a349f8b0"><div class="ttname"><a href="../../d3/da3/a01450.html#a78ad0c298cc7c89a8abd56f2a349f8b0">Lib::FreeRTOS::TickCounter::getFromISR</a></div><div class="ttdeci">static uint32_t getFromISR()</div><div class="ttdoc">Returns the current FreeRTOS tick count from ISR context.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:30</div></div>
-<div class="ttc" id="aa01450_html_adf5058865dfb549db97fec8ef14752a0"><div class="ttname"><a href="../../d3/da3/a01450.html#adf5058865dfb549db97fec8ef14752a0">Lib::FreeRTOS::TickCounter::get</a></div><div class="ttdeci">static uint32_t get()</div><div class="ttdoc">Returns the current FreeRTOS tick count.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:25</div></div>
-</div><!-- fragment --><p>This example shows how to use the TickCounter class to obtain the current tick count in both task and ISR contexts, ensuring type safety and consistency across the application.</p>
+<h2 class="doxsection"><a class="anchor" id="mermaid-class-diagram"></a>
+Mermaid class diagram:</h2>
+<div class="fragment"><div class="line">%% Mermaid <span class="keyword">class </span>diagram for Lib::<a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d8/ddd/a00380.html#ad33d4f698bea99fb640ca75ba828e422">FreeRTOS::Queue</a></div>
+<div class="line">classDiagram</div>
+<div class="line">  Queue : +Queue()</div>
+<div class="line">  Queue : +Queue(queueLength, itemSizeBytes)</div>
+<div class="line">  Queue : +~Queue()</div>
+<div class="line">  Queue : +bool create(queueLength, itemSizeBytes)</div>
+<div class="line">  Queue : +bool createStatic(queueLength, itemSizeBytes, buffer, staticQueue)</div>
+<div class="line">  Queue : +void release()</div>
+<div class="line">  Queue : +void reset()</div>
+<div class="line">  Queue : +bool receive(dstBuffer, timeoutTicks)</div>
+<div class="line">  Queue : +bool receiveFromISR(dstBuffer)</div>
+<div class="line">  Queue : +bool peek(dstBuffer, timeoutTicks)</div>
+<div class="line">  Queue : +bool peekFromISR(dstBuffer)</div>
+<div class="line">  Queue : +bool send(srcBuffer, timeoutTicks)</div>
+<div class="line">  Queue : +bool sendToBackFromISR(srcBuffer)</div>
+<div class="line">  Queue : +bool sendToFrontFromISR(srcBuffer)</div>
+<div class="line">  Queue : +bool overwrite(srcBuffer)</div>
+<div class="line">  Queue : +bool overwriteFromISR(srcBuffer)</div>
+<div class="line">  Queue : +size_t messagesWaiting()</div>
+<div class="line">  Queue : +size_t messagesWaitingFromISR()</div>
+<div class="line">  Queue : +size_t spacesAvailable()</div>
+<div class="line">  Queue : +void addToRegistry(registryName)</div>
+<div class="line">  Queue : +void removeFromRegistry()</div>
+<div class="line">  Queue : +operator QueueHandle_t &amp;()</div>
+<div class="line">  Queue : +bool isCreated()</div>
+<div class="line">  Queue : -size_t queueLen</div>
+<div class="line">  Queue : -size_t itemSize</div>
+<div class="line">  Queue : -QueueHandle_t handle</div>
+<div class="ttc" id="aa00380_html_ad33d4f698bea99fb640ca75ba828e422"><div class="ttname"><a href="../../d8/ddd/a00380.html#ad33d4f698bea99fb640ca75ba828e422">FreeRTOS::Queue</a></div><div class="ttdeci">Lib::FreeRTOS::Queue Queue</div><div class="ttdef"><b>Definition</b> FreeRTOS.hpp:30</div></div>
+</div><!-- fragment --><p>The diagram shows the Queue class with its constructors, destructor, public API methods, and private members. It provides a clear overview of the class structure and main operations for FreeRTOS queue management in C++.</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

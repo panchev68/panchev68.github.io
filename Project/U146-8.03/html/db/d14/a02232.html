@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>U146: Lib::Helper::Delay</title>
+<title>U146: Lib::FreeRTOS::SemaphoreCounting</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -89,27 +89,46 @@ $(function(){initNavTree('db/d14/a02232.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Delay</div></div>
+  <div class="headertitle"><div class="title">Lib::FreeRTOS::SemaphoreCounting</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-delay-classes-for-precise-timing"></a>
-Example usage of Delay classes for precise timing.</h1>
-<p>Demonstrates how to use the nanosecond and microsecond delay classes for precise timing in embedded applications using the DWT cycle counter.</p>
+<h1 class="doxsection"><a class="anchor" id="example-usage-of-semaphorecounting-in-freertos"></a>
+Example usage of SemaphoreCounting in FreeRTOS.</h1>
+<p>Demonstrates creation, usage, and destruction of a counting semaphore using the SemaphoreCounting class.</p>
 <hr  />
-<dl class="section user"><dt>Example usage:</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Delay.hpp&quot;</span></div>
+<h2 class="doxsection"><a class="anchor" id="example-usage-2"></a>
+Example usage:</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../de/dd7/a00362.html">SemaphoreCounting.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d0/d9b/a03103.html#a7d5250e406667ab9f62d18f815884941">delay_us</a> delayMicro(10); <span class="comment">// Delay for 10 microseconds</span></div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../d0/d9b/a03103.html#a666798127da2ef642baed83f23f96c09">delay_ns</a> delayNano(100); <span class="comment">// Delay for 100 nanoseconds</span></div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t t1 = delayMicro.get();</div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t t2 = delayNano.get();</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="keywordtype">void</span> exampleSemaphoreCounting() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/dd0/a01438.html">Lib::FreeRTOS::SemaphoreCounting</a> semaphore;</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t MAX_COUNT = 5;</div>
+<div class="line">    <span class="keyword">constexpr</span> uint32_t INIT_COUNT = 2;</div>
+<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/dd0/a01438.html#a862c131b30d198cea3b940845ff7ab71">create</a>(MAX_COUNT, INIT_COUNT)) {</div>
+<div class="line">        <span class="comment">// Take the semaphore (decrement count)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/dd0/a01438.html#a849a78948ee9032331219bd53cd7a631">take</a>(10)) {</div>
+<div class="line">            <span class="comment">// Critical section</span></div>
+<div class="line">            semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d5/dd0/a01438.html#a6bfe5fea68fa0b84e0914a8a445152e7">give</a>(); <span class="comment">// Release the semaphore (increment count)</span></div>
+<div class="line">        }</div>
+<div class="line">        <span class="comment">// Query current count</span></div>
+<div class="line">        uint32_t count = semaphore.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d5/dd0/a01438.html#a2ba9c425252137f3e434915d93906409">getCount</a>();</div>
+<div class="line">        (void)count;</div>
+<div class="line">        semaphore.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d5/dd0/a01438.html#a832b62ec703a78807cad724e9fc959a1">release</a>(); <span class="comment">// Clean up</span></div>
+<div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa03103_html_a666798127da2ef642baed83f23f96c09"><div class="ttname"><a href="../../d0/d9b/a03103.html#a666798127da2ef642baed83f23f96c09">delay_ns</a></div><div class="ttdeci">Lib::Helper::Delay&lt; Lib::Helper::DelayType::NANO_SEC &gt; delay_ns</div><div class="ttdef"><b>Definition</b> Helper/Delay.hpp:121</div></div>
-<div class="ttc" id="aa03103_html_a7d5250e406667ab9f62d18f815884941"><div class="ttname"><a href="../../d0/d9b/a03103.html#a7d5250e406667ab9f62d18f815884941">delay_us</a></div><div class="ttdeci">Lib::Helper::Delay&lt; Lib::Helper::DelayType::MICRO_SEC &gt; delay_us</div><div class="ttdef"><b>Definition</b> Helper/Delay.hpp:122</div></div>
-</div><!-- fragment --></dd></dl>
-<p>This example shows how to instantiate and use the delay classes for microsecond and nanosecond precision delays. The get() method returns the current timer value in the selected time unit.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00362_html"><div class="ttname"><a href="../../de/dd7/a00362.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">Counting semaphore implementation for FreeRTOS.</div></div>
+<div class="ttc" id="aa01438_html"><div class="ttname"><a href="../../d5/dd0/a01438.html">Lib::FreeRTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore for FreeRTOS.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:23</div></div>
+<div class="ttc" id="aa01438_html_a2ba9c425252137f3e434915d93906409"><div class="ttname"><a href="../../d5/dd0/a01438.html#a2ba9c425252137f3e434915d93906409">Lib::FreeRTOS::SemaphoreCounting::getCount</a></div><div class="ttdeci">uint32_t getCount() const</div><div class="ttdoc">Gets the current count value.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:55</div></div>
+<div class="ttc" id="aa01438_html_a6bfe5fea68fa0b84e0914a8a445152e7"><div class="ttname"><a href="../../d5/dd0/a01438.html#a6bfe5fea68fa0b84e0914a8a445152e7">Lib::FreeRTOS::SemaphoreCounting::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:79</div></div>
+<div class="ttc" id="aa01438_html_a832b62ec703a78807cad724e9fc959a1"><div class="ttname"><a href="../../d5/dd0/a01438.html#a832b62ec703a78807cad724e9fc959a1">Lib::FreeRTOS::SemaphoreCounting::release</a></div><div class="ttdeci">void release() override</div><div class="ttdoc">Releases the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:64</div></div>
+<div class="ttc" id="aa01438_html_a849a78948ee9032331219bd53cd7a631"><div class="ttname"><a href="../../d5/dd0/a01438.html#a849a78948ee9032331219bd53cd7a631">Lib::FreeRTOS::SemaphoreCounting::take</a></div><div class="ttdeci">bool take(uint32_t timeout=0) override</div><div class="ttdoc">Takes the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:72</div></div>
+<div class="ttc" id="aa01438_html_a862c131b30d198cea3b940845ff7ab71"><div class="ttname"><a href="../../d5/dd0/a01438.html#a862c131b30d198cea3b940845ff7ab71">Lib::FreeRTOS::SemaphoreCounting::create</a></div><div class="ttdeci">bool create(uint32_t maxCount, uint32_t initCount)</div><div class="ttdoc">Creates a counting semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:43</div></div>
+</div><!-- fragment --><p>This example shows how to create a counting semaphore, take and give it, query its count, and release resources.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="expected-output-1"></a>
+Expected output:</h2>
+<div class="fragment"><div class="line"><span class="comment">// No output; this is a synchronization primitive example.</span></div>
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

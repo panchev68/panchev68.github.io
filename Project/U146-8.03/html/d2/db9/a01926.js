@@ -1,16 +1,24 @@
 var a01926 =
 [
-    [ "Counter", "d3/d33/a01930.html", "d3/d33/a01930" ],
-    [ "Period", "de/da9/a01934.html", "de/da9/a01934" ],
-    [ "SignalStrength", "d5/dd0/a01938.html", "d5/dd0/a01938" ],
-    [ "Info", "d2/db9/a01926.html#a94ab4d2357495b289850cd75b4ad93b5", null ],
-    [ "~Info", "d2/db9/a01926.html#aa8f682d9bbc7f2efd37b3ecdb02333d8", null ],
-    [ "deletedMessages", "d2/db9/a01926.html#a705dc8167da88eb4a979b22034cd38f5", null ],
-    [ "deletedTransmitStatus", "d2/db9/a01926.html#ac7602dcb50e3e40dea4d3cecc3b1f011", null ],
-    [ "noTransmitStatus", "d2/db9/a01926.html#a3495f7aa9a02a0bedea74cdfb555f064", null ],
-    [ "reconnectionCounter", "d2/db9/a01926.html#ad78cf630029e22338e53d145370ab7df", null ],
-    [ "retriesCounter", "d2/db9/a01926.html#aabc1a251f30ed7ac1f7a5c60e0855a24", null ],
-    [ "signalStrength", "d2/db9/a01926.html#a9532d017e0ebeca4b869f7fae686d69a", null ],
-    [ "transmitPeriod", "d2/db9/a01926.html#ad742df4085e1de03f5612a8ae59aa005", null ],
-    [ "unsuccessTransmitStatus", "d2/db9/a01926.html#a72294cb1d101486383dd1ea4d12a8f1b", null ]
+    [ "Mode", "d2/db9/a01926.html#ab86d4bb3256a42b21bbfdb6b055f1ad0", [
+      [ "RUNTIME", "d2/db9/a01926.html#ab86d4bb3256a42b21bbfdb6b055f1ad0ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
+      [ "SCANNER", "d2/db9/a01926.html#ab86d4bb3256a42b21bbfdb6b055f1ad0aa1323822e71d19091075dd86a90ee35d", null ]
+    ] ],
+    [ "State", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1ba", [
+      [ "DISCONNECTED", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1baafaa33ec6a06f0cbbee1ee384b44e3b85", null ],
+      [ "UNUSABLE", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1baa9fcc9a18e1b6986b534e44f31369fab2", null ],
+      [ "NOT_GOOD", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1baa6db6d58a5ceaa2e846c2283164a8103c", null ],
+      [ "OKAY", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1baa374ed74533d30a6d68725541d68bfd73", null ],
+      [ "VERY_GOOD", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1baa48729031683e739385a71c3ae4418c7f", null ],
+      [ "AMAZING", "d2/db9/a01926.html#a177acb95c6332ad601f7e96efce3c1baa962810610fe3ce9b7e7318d0729a3478", null ]
+    ] ],
+    [ "Quality", "d2/db9/a01926.html#a15c66cd9c3e7d51464f04a01b72696cd", null ],
+    [ "clear", "d2/db9/a01926.html#af12636e28eea386dd9865cbf1341a815", null ],
+    [ "getPercent", "d2/db9/a01926.html#afc367efdbe030e874c34edfce9d25bbc", null ],
+    [ "getState", "d2/db9/a01926.html#a5ad3fe1147d4116358e555829f21aea9", null ],
+    [ "setRuntimeMode", "d2/db9/a01926.html#a770c4bb9fb99328c3b1d7e23cdd51517", null ],
+    [ "setScannerMode", "d2/db9/a01926.html#a59b3b0352cf9a5cd61272a6dbe33ef09", null ],
+    [ "start", "d2/db9/a01926.html#a4ed19c8666485c2de5e9c4bf0b73d84e", null ],
+    [ "update", "d2/db9/a01926.html#a8b6bbd630416436893ef593e4595fee8", null ],
+    [ "onUpdate", "d2/db9/a01926.html#ae119e3ddddf687165c637c54bfdedc9b", null ]
 ];

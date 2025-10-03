@@ -1,4 +1,4 @@
 var a00527 =
 [
-    [ "Lib::Helper::RingBuffer< T, SIZE >", "df/d3a/a01810.html", "df/d3a/a01810" ]
+    [ "Lib::Helper::RingBuffer< T, SIZE >", "d8/dce/a01815.html", "d8/dce/a01815" ]
 ];

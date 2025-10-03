@@ -11,6 +11,6 @@ var dir_dc0c861d01f904accb9acb7a17911520 =
     [ "Thermometer", "dir_a72545d8e2abf6bf4c5ae6bd02aad69b.html", "dir_a72545d8e2abf6bf4c5ae6bd02aad69b" ],
     [ "TouchScreen", "dir_825bb58a13fe4428577ea28679486c3f.html", "dir_825bb58a13fe4428577ea28679486c3f" ],
     [ "Voltmeter", "dir_e66bae261b2f035453b04cb3985fc6f9.html", "dir_e66bae261b2f035453b04cb3985fc6f9" ],
-    [ "DeviceDriverBase.hpp", "d6/de1/a00233.html", "d6/de1/a00233" ],
-    [ "DeviceDriverManager.hpp", "d7/d40/a00236.html", "d7/d40/a00236" ]
+    [ "DeviceDriverBase.hpp", "d0/d26/_device_driver_base_8hpp.html", "d0/d26/_device_driver_base_8hpp" ],
+    [ "DeviceDriverManager.hpp", "d2/d27/_device_driver_manager_8hpp.html", "d2/d27/_device_driver_manager_8hpp" ]
 ];

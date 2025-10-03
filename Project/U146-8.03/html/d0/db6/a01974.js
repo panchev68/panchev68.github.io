@@ -1,12 +1,7 @@
 var a01974 =
 [
-    [ "ServerBase", "d0/db6/a01974.html#adb364cf0815818658a53e310e76c54b7", null ],
-    [ "~ServerBase", "d0/db6/a01974.html#a5ee1345fabaabf673cbb2a5957f15fde", null ],
-    [ "getModulePresent", "d0/db6/a01974.html#acfed555928393684a780b991b149ab6d", null ],
-    [ "handleIncomingMessage", "d0/db6/a01974.html#a4631c3bfa559292bf88f01622a2bfa41", null ],
-    [ "handleOutgoingMessage", "d0/db6/a01974.html#af66f49df3b26790771b362e2cebb2c2f", null ],
-    [ "handleTaskTickEvent", "d0/db6/a01974.html#a5a4179e53e9fe02a24c2714e9b054e6e", null ],
-    [ "outputsUpdatedSucceessfulCallback", "d0/db6/a01974.html#a3e2d511ed14afa93dfffb99a51ed3f0e", null ],
-    [ "sendData", "d0/db6/a01974.html#afcd46dc2045902915e940452278fe676", null ],
-    [ "start", "d0/db6/a01974.html#a1ffa49be7d278d1774b760b4ace61e88", null ]
+    [ "Pause", "d0/db6/a01974.html#a81c28dad80826c7f44f4a684b4546bb5", null ],
+    [ "~Pause", "d0/db6/a01974.html#a9bf5748eee1fcbfc29ddbfacdd6a7c7f", null ],
+    [ "pause", "d0/db6/a01974.html#a8ba9ee90021fb74994821b180621512b", null ],
+    [ "resume", "d0/db6/a01974.html#a0170f09bc29ee41ca0f12849c3be7900", null ]
 ];

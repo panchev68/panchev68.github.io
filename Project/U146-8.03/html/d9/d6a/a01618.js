@@ -1,15 +1,14 @@
 var a01618 =
 [
-    [ "Base", "d9/d6a/a01618.html#ae20e8e9e6b76537248a811fedd7f72e2", null ],
-    [ "~Base", "d9/d6a/a01618.html#a196ad46582cd01b24c10603ec7f70e60", null ],
-    [ "abort", "d9/d6a/a01618.html#affe84a0d4ac4bf3b92541907e1765e6f", null ],
-    [ "close", "d9/d6a/a01618.html#a48d5bedf92851ab7ccbfe833ddf288e6", null ],
-    [ "deinit", "d9/d6a/a01618.html#a21d3d5d2f04f2a3529e72a4e3d434e0b", null ],
-    [ "getHandle", "d9/d6a/a01618.html#af8202cde7c74327f43656655dabd5413", null ],
-    [ "init", "d9/d6a/a01618.html#a9ff4161ea19c49aeb6f983588f90d0f2", null ],
-    [ "open", "d9/d6a/a01618.html#acdc0d0b66dae57105bee9efb3f101f62", null ],
-    [ "receive", "d9/d6a/a01618.html#a9c06a2dcfdcc893817e99c4148ae798d", null ],
-    [ "send", "d9/d6a/a01618.html#a6b834801e1eaf2c6cf3a6b406021fbed", null ],
-    [ "sendReceive", "d9/d6a/a01618.html#ab0a6aec57bca6b34b8d746e877d1725d", null ],
-    [ "handle", "d9/d6a/a01618.html#a22585aff8a6dfc86b9308637354409ca", null ]
+    [ "Port", "d9/d6a/a01618.html#aee9debd2bfe5ffdaf1801d3027a5769c", null ],
+    [ "~Port", "d9/d6a/a01618.html#a0e7fb1bc055746f628e036cb3cb71ede", null ],
+    [ "abort", "d9/d6a/a01618.html#a45aab866cae6224e68ed18310ad21b8b", null ],
+    [ "close", "d9/d6a/a01618.html#a78a5b9a263fddaff78f72241860f6a95", null ],
+    [ "deinit", "d9/d6a/a01618.html#a7b432b4c02235f1100bdf6f3b48e2173", null ],
+    [ "init", "d9/d6a/a01618.html#a997b4610e86dce8ff0bf862d2eeb81a6", null ],
+    [ "open", "d9/d6a/a01618.html#ac60f625969e85f879cfb4dd9e3d17fb7", null ],
+    [ "operator SPI_HandleTypeDef *", "d9/d6a/a01618.html#a975f597a18d9463e6da26697cc11987f", null ],
+    [ "receive", "d9/d6a/a01618.html#a9b8ae1970240648c5f7ee0a76e2edde6", null ],
+    [ "send", "d9/d6a/a01618.html#a142863ac6798bfae0e3addb7c5ef9fa3", null ],
+    [ "sendReceive", "d9/d6a/a01618.html#a6da039e296e4d513071de10a8219d781", null ]
 ];

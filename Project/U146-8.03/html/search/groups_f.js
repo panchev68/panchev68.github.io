@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['w25q128jvsiq_20spi_20flash_20driver_0',['W25Q128JVSIQ SPI Flash Driver',['../d1/d04/a00713.html',1,'']]]
+  ['u146_20firmware_20project_0',['U146-Firmware Project',['../db/de0/group___project.html',1,'']]],
+  ['utilities_1',['Helper Utilities',['../db/dcb/group___helper.html',1,'']]]
 ];

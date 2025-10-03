@@ -1,6 +1,7 @@
 var a01082 =
 [
-    [ "bind", "dd/df1/a01082.html#a7b5dd19afdc5f797c63842251b28ec07", null ],
-    [ "bind", "dd/df1/a01082.html#a1cf2ffdcfb5c06965ff356ac70bf4604", null ],
-    [ "initialize", "dd/df1/a01082.html#a7e9e6fb59de47593a4b3947a36c8beb6", null ]
+    [ "DeviceDriverBase", "dd/df1/a01082.html#ac9ff3bdbc9ac25e9bbfcfb6f07eff6d8", null ],
+    [ "~DeviceDriverBase", "dd/df1/a01082.html#a26edd854193ea57b3ee862b69a96de44", null ],
+    [ "init", "dd/df1/a01082.html#a6cf5f20d4d0de799d96c719b732e33f6", null ],
+    [ "tick", "dd/df1/a01082.html#a34396d39f314a88ed42c4101f00a966b", null ]
 ];

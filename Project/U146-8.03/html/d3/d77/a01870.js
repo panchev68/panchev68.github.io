@@ -1,12 +1,15 @@
 var a01870 =
 [
-    [ "boxColor", "d3/d77/a01870.html#a56867bb09358ce86e645e80682e789e7", null ],
-    [ "boxCursorColor", "d3/d77/a01870.html#a9d398ff08a9a68b3fd06918311671973", null ],
-    [ "buttonsOffset", "d3/d77/a01870.html#a2cd77cd6d8f96c00a08b9402638b302e", null ],
-    [ "changeSpeed", "d3/d77/a01870.html#addb7d47716794df1b78a9db3957d9043", null ],
-    [ "height", "d3/d77/a01870.html#a23d0429217ca5637de6fb69249dceca9", null ],
-    [ "textColor", "d3/d77/a01870.html#a6f5a5689f99398b19ec2628c885fc3ed", null ],
-    [ "textCursorColor", "d3/d77/a01870.html#a161a6b3642fef02e62f4352240e5af11", null ],
-    [ "textYOffset", "d3/d77/a01870.html#a93fb25ae89b5b9b86101829c6cd6bcd5", null ],
-    [ "width", "d3/d77/a01870.html#aef46ec4b2af05d50cc83f7ed4ace43ad", null ]
+    [ "ButtonParm", "de/dfb/a01874.html", "de/dfb/a01874" ],
+    [ "Config", "dc/d33/a01878.html", "dc/d33/a01878" ],
+    [ "ButtonMenuBase", "d3/d77/a01870.html#aeee84888bc74e10b5c3993eeda36ace5", null ],
+    [ "ButtonMenuBase", "d3/d77/a01870.html#aefe9950ff9eed1aa3250176b64b8a673", null ],
+    [ "~ButtonMenuBase", "d3/d77/a01870.html#a7ad6f16ce56952a0213764a90be7c324", null ],
+    [ "deselect", "d3/d77/a01870.html#aecd233fbd47f83327a76c92bc7baabe7", null ],
+    [ "down", "d3/d77/a01870.html#a339c220601de2c09ba66eb56376afbc3", null ],
+    [ "getSelectPosition", "d3/d77/a01870.html#acf98a4392b902caaeb6fb011a066c28d", null ],
+    [ "select", "d3/d77/a01870.html#aa03b96c15b98e22503990065f4c2f7bd", null ],
+    [ "setupScreen", "d3/d77/a01870.html#a45bb7e5a3399ef4250db2016f3400f1c", null ],
+    [ "tearDownScreen", "d3/d77/a01870.html#aab6e558fff98594bb0a0676e5ca1e300", null ],
+    [ "up", "d3/d77/a01870.html#ae275600a66bd5c06e1b470e44b396189", null ]
 ];

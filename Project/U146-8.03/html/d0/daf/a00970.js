@@ -1,6 +1,8 @@
 var a00970 =
 [
-    [ "inputs", "d0/daf/a00970.html#a169d04e4faf39b278a006376a35120bc", null ],
-    [ "isActive", "d0/daf/a00970.html#acaa81ba3963972853844477ff29b8097", null ],
-    [ "outputs", "d0/daf/a00970.html#a1135b7c6763f7b0c9bd782d2575284c6", null ]
+    [ "Listener", "d0/daf/a00970.html#a40b08afa18c8b3614049a7cb3f169c4a", null ],
+    [ "~Listener", "d0/daf/a00970.html#a19939671aced6e8f9fc0ef4f9a1b9db9", null ],
+    [ "canbusNodeActivityChangedCallback", "d0/daf/a00970.html#a0003da87f332f822db6aee74bac8f7e2", null ],
+    [ "canbusNodeInputsChangedCallback", "d0/daf/a00970.html#ae086ddd21993ec085d5c56d554967075", null ],
+    [ "canbusNodeOutputsChangedCallback", "d0/daf/a00970.html#a5efc68a2f8aa85bc3bbf0e0bd5ce9c12", null ]
 ];

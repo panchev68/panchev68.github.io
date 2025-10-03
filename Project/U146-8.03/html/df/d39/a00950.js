@@ -1,5 +1,12 @@
 var a00950 =
 [
-    [ "Watchdog", "df/d39/a00950.html#a374de9a5e90ca021251a944a3d3b87b5", null ],
-    [ "refresh", "df/d39/a00950.html#a97a4f01df9868c4d9da9b3948e8df974", null ]
+    [ "Mode", "df/d39/a00950.html#ad496924c198cc57ee90a46752753cebe", [
+      [ "NORMAL", "df/d39/a00950.html#ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "CONFIG", "df/d39/a00950.html#ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73", null ],
+      [ "USB", "df/d39/a00950.html#ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf", null ]
+    ] ],
+    [ "StartupMode", "df/d39/a00950.html#a4c45b6d0c329795d0199d63b7a32e17b", null ],
+    [ "changeMode", "df/d39/a00950.html#a98783fd4a2fa9b20395321a9b8466064", null ],
+    [ "getMode", "df/d39/a00950.html#a73940b22b8582e180a5994d86ff4e33e", null ],
+    [ "isPoweredByUsb", "df/d39/a00950.html#aa6508e3545d55ef93730e2cc54e0ab8d", null ]
 ];

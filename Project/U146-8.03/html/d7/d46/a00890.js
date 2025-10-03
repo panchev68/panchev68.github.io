@@ -1,11 +1,6 @@
 var a00890 =
 [
-    [ "Peripheral", "d7/d46/a00890.html#ad595da29630a0e1481c2e467c934188a", null ],
-    [ "~Peripheral", "d7/d46/a00890.html#a12849339045b8bf7a3225b3b40703fb4", null ],
-    [ "getInputs", "d7/d46/a00890.html#a0bf990cd1e5630319fb7a9384efbe6c1", null ],
-    [ "getOutputs", "d7/d46/a00890.html#ad99cfc649d570b070ac088eebdce5e03", null ],
-    [ "setInputs", "d7/d46/a00890.html#a89a385744efb9fe7b2f7851978623068", null ],
-    [ "setOutputs", "d7/d46/a00890.html#af99db4ee13e325369147e18f722fb9aa", null ],
-    [ "onInputsChanged", "d7/d46/a00890.html#a7a12b409a4df8ced93684818340de69e", null ],
-    [ "onOutputsChanged", "d7/d46/a00890.html#ae0a0e2f8d2b80de2e8b6ab8fe2545aa3", null ]
+    [ "inputs", "d7/d46/a00890.html#a7b5451e1588d5b19ce9236b860bacab7", null ],
+    [ "isActive", "d7/d46/a00890.html#a303e56042e0d943a6f5f79c66171c1c4", null ],
+    [ "outputs", "d7/d46/a00890.html#aeba2080e5fb214c7938a3782590a01b1", null ]
 ];

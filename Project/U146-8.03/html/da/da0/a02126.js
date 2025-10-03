@@ -1,8 +1,8 @@
 var a02126 =
 [
-    [ "operator Frame::Data", "da/da0/a02126.html#ad89717f6738c10191c8074c4d758ef59", null ],
-    [ "dstAddress", "da/da0/a02126.html#a2e366937405eddf8986078da1f8f8e8c", null ],
-    [ "frameId", "da/da0/a02126.html#a189a5b0c88cd7a5cc5312d7a8405516d", null ],
-    [ "options", "da/da0/a02126.html#ab92cb253974bc603727df07a497fa0e7", null ],
-    [ "rfData", "da/da0/a02126.html#a73c0c7e2e9d0278cb2f1b1e4e392a41f", null ]
+    [ "handleIncomingMessage", "da/da0/a02126.html#af87b1737933bbaa420ee029370dc349f", null ],
+    [ "handleOutgoingMessage", "da/da0/a02126.html#adce9b0f032cbcdf0e2cf260c946f8ec7", null ],
+    [ "parse", "da/da0/a02126.html#a584bfe54057b21b63e893ed71c3cd60e", null ],
+    [ "validate", "da/da0/a02126.html#a7c535814ce5781ee660f5916caeb9e93", null ],
+    [ "validate", "da/da0/a02126.html#a480b0afff2cca7b81ed9974119d61648", null ]
 ];

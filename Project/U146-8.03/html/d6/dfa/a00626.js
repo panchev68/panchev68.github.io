@@ -1,4 +1,4 @@
 var a00626 =
 [
-    [ "Lib::Xbee::Core::DigiApiFrameBuffer", "d6/d5b/a02078.html", "d6/d5b/a02078" ]
+    [ "Lib::Xbee::Core::Diagnostic", "dc/d21/a02079.html", "dc/d21/a02079" ]
 ];

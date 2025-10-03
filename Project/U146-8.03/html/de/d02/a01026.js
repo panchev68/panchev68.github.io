@@ -1,8 +1,26 @@
 var a01026 =
 [
-    [ "getData", "de/d02/a01026.html#ac303f1b1ee7c5746416c7d403c35bbf5", null ],
-    [ "getMax", "de/d02/a01026.html#ab957f5c34e2fb8a0e805de8c212eb6b2", null ],
-    [ "getMin", "de/d02/a01026.html#adec084a9bf03fcc0c1009709ed31d9ff", null ],
-    [ "getValue", "de/d02/a01026.html#af88cdf7e70416728c479705ef2cd9373", null ],
-    [ "tick", "de/d02/a01026.html#a3d51bfa50aba159a772c5fc6f22a3e51", null ]
+    [ "Listener", "de/d02/a01026.html#a1759cef90626808c90df066cb5cd201d", null ],
+    [ "~Listener", "de/d02/a01026.html#ab1a446313ca8fd3f77f4ca5d1f674279", null ],
+    [ "xbeeConnectionStateChanged", "de/d02/a01026.html#ac796d47459d74c3280a6665d06940280", null ],
+    [ "xbeeInfoACKFailuresChanged", "de/d02/a01026.html#a4bb146e17dc2e4f914f7e4d695510dde", null ],
+    [ "xbeeInfoCCAFailuresChanged", "de/d02/a01026.html#afac717b0f5992dac1502b132dc269f57", null ],
+    [ "xbeeInfoChannelChanged", "de/d02/a01026.html#a06ea2628801712226d99d2fa6cc24bd3", null ],
+    [ "xbeeInfoTemperatureChanged", "de/d02/a01026.html#a0a1fa4b5df9031e873450e9e841b1a04", null ],
+    [ "xbeeInfoVoltageChanged", "de/d02/a01026.html#a47cbf1ad8a4967cc2b3eb06f55a307f4", null ],
+    [ "xbeeLedRxStateChanged", "de/d02/a01026.html#a46f48d1269bf5a622db5f4792fe31008", null ],
+    [ "xbeeLedTxStateChanged", "de/d02/a01026.html#aee9a229c129f50062831b3736331d55a", null ],
+    [ "xbeeQualityPercentsChanged", "de/d02/a01026.html#a44d476e60df6f7ae29f31521d4f56727", null ],
+    [ "xbeeQualityStateChanged", "de/d02/a01026.html#adb694dd315631f1fdbbc638530d40c57", null ],
+    [ "xbeeReconnectionCounterChanged", "de/d02/a01026.html#a0b54a5b99125161c876f68aab88e070c", null ],
+    [ "xbeeRetryCounterChanged", "de/d02/a01026.html#a3eba8c8e5d306752f9ed0eb14aa572a5", null ],
+    [ "xbeeSignalStrengthAddDataPoint", "de/d02/a01026.html#a948728b5536b89f020399611cb0b3b8c", null ],
+    [ "xbeeSignalStrengthMaxValueChanged", "de/d02/a01026.html#a26d1c676a27fb819f9d86d440ef05093", null ],
+    [ "xbeeSignalStrengthMinValueChanged", "de/d02/a01026.html#a8faff2e99854a072cce67eb1d7ed45c9", null ],
+    [ "xbeeSignalStrengthValueChanged", "de/d02/a01026.html#abb3d5ef153d798f10b3117f0e04019aa", null ],
+    [ "xbeeSpectrumAnalyzerDataChanged", "de/d02/a01026.html#a716b2f710670a5210e11ae300fa57711", null ],
+    [ "xbeeTransmitTimeAddPoint", "de/d02/a01026.html#a8336b04da29dcf72992cdd4309bf8636", null ],
+    [ "xbeeTransmitTimeMaxValueChanged", "de/d02/a01026.html#a98a91fcfbf1ba58d456129e3c4c7651e", null ],
+    [ "xbeeTransmitTimeMinValueChanged", "de/d02/a01026.html#ab1978386e94692a0862b1fbe4dfccd18", null ],
+    [ "xbeeTransmitTimeValueChanged", "de/d02/a01026.html#a86d33c8c01904e69d35f7f0c121d7629", null ]
 ];

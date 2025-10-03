@@ -1,7 +1,7 @@
 var a00870 =
 [
-    [ "TouchScreen", "da/d98/a00870.html#ae89df91532790f238bc2d0c7ecaf562a", null ],
-    [ "init", "da/d98/a00870.html#a84f02bc98632e79324fb4f17c1824301", null ],
-    [ "sampleTouch", "da/d98/a00870.html#a7eeae3e75fa29ab23e5316f52ddfa69e", null ],
-    [ "setRotation", "da/d98/a00870.html#a806cbe259ba7b1207ea66c287f744553", null ]
+    [ "chipSize", "da/d98/a00870.html#a7b73a4ac017e77aa9fd54a7e73f3abe5", null ],
+    [ "deviceAddress", "da/d98/a00870.html#aa218f16ee30b24ceb02fa0d3542aef4f", null ],
+    [ "i2cHandle", "da/d98/a00870.html#a010c390f124351611c1d1e2c0ebeb7de", null ],
+    [ "pageSize", "da/d98/a00870.html#a06d5450506b0fbf380cd2e8f37c84952", null ]
 ];

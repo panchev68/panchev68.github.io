@@ -1,13 +1,13 @@
 var examples =
 [
-    [ "BSP::Beep", "d8/d5f/a02216.html", null ],
-    [ "BSP::DigitalPeripheral", "d4/d54/a02218.html", null ],
-    [ "ModelSystem", "d5/de0/a02220.html", null ],
-    [ "Lib::Canbus::ClientBase", "d6/d41/a02222.html", null ],
-    [ "Lib::FreeRTOS::MessageBuffer", "db/da6/a02224.html", null ],
-    [ "Lib::FreeRTOS::Queue", "d3/d10/a02226.html", null ],
-    [ "Lib::FreeRTOS::SemaphoreCounting", "de/dfd/a02228.html", null ],
-    [ "Lib::FreeRTOS::TickCounter", "dd/d67/a02230.html", null ],
-    [ "Lib::Helper::Delay", "db/d14/a02232.html", null ],
-    [ "Lib::Helper::ValueInfo", "d8/d6f/a02234.html", null ]
+    [ "BSP::Beep", "de/d5a/_b_s_p_1_1_beep-example.html", null ],
+    [ "BSP::DigitalPeripheral", "dc/d22/_b_s_p_1_1_digital_peripheral-example.html", null ],
+    [ "ModelSystem", "d6/d38/_model_system-example.html", null ],
+    [ "Lib::Canbus::ClientBase", "d8/dea/_lib_1_1_canbus_1_1_client_base-example.html", null ],
+    [ "Lib::FreeRTOS::MessageBuffer", "d3/d62/_lib_1_1_free_r_t_o_s_1_1_message_buffer-example.html", null ],
+    [ "Lib::FreeRTOS::Queue", "d3/d32/_lib_1_1_free_r_t_o_s_1_1_queue-example.html", null ],
+    [ "Lib::FreeRTOS::SemaphoreCounting", "da/d34/_lib_1_1_free_r_t_o_s_1_1_semaphore_counting-example.html", null ],
+    [ "Lib::FreeRTOS::TickCounter", "d0/df3/_lib_1_1_free_r_t_o_s_1_1_tick_counter-example.html", null ],
+    [ "Lib::Helper::Delay", "d3/d00/_lib_1_1_helper_1_1_delay-example.html", null ],
+    [ "Lib::Helper::ValueInfo", "df/d9d/_lib_1_1_helper_1_1_value_info-example.html", null ]
 ];

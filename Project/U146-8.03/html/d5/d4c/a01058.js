@@ -1,7 +1,10 @@
 var a01058 =
 [
-    [ "Client", "d5/d4c/a01058.html#a8ee4af8cdd56bb48ec572b632338087e", null ],
-    [ "~Client", "d5/d4c/a01058.html#ae018de551463dbb286b36f08f2465e63", null ],
-    [ "getModulePresent", "d5/d4c/a01058.html#a763fb69a5edf76f212628629a7ded0c9", null ],
-    [ "start", "d5/d4c/a01058.html#aa349941f32aa06dd2cd4a0579d02e954", null ]
+    [ "SerialPortRepeater", "d5/d4c/a01058.html#a1f3690081f2c23ec0b36a1f1ed53e252", null ],
+    [ "~SerialPortRepeater", "d5/d4c/a01058.html#a61d9803d99f2de8d822e70cb74568049", null ],
+    [ "close", "d5/d4c/a01058.html#ad858c86b4068b567dd1fe766d1fb6b28", null ],
+    [ "enableUSBPort", "d5/d4c/a01058.html#a16366a9c3a0e0ad59fb5c002639d375b", null ],
+    [ "isPoweredByUSB", "d5/d4c/a01058.html#abb93347c323c9907b95690e47fc8b172", null ],
+    [ "open", "d5/d4c/a01058.html#a8fe446fb4fa64e585a2502f42520211d", null ],
+    [ "setModuleResetPin", "d5/d4c/a01058.html#a0100618038d7279802a0612ce39fac29", null ]
 ];

@@ -1,16 +1,5 @@
 var a01590 =
 [
-    [ "Port", "d4/d49/a01590.html#a93f28b0a554b41a683d54cd191e68b0a", null ],
-    [ "~Port", "d4/d49/a01590.html#a20676d66004937c26a6dbc97b4a28d65", null ],
-    [ "close", "d4/d49/a01590.html#ace5b648e90941da64c93e43ab98f0203", null ],
-    [ "open", "d4/d49/a01590.html#a2b8be9b655870dfa893a85b76a8b3f97", null ],
-    [ "operator I2C_HandleTypeDef *", "d4/d49/a01590.html#aa715995b7b7a1e3313b176cc397173c1", null ],
-    [ "receive", "d4/d49/a01590.html#a49161d0bfb9fe767bbcaa3ca3f7c450b", null ],
-    [ "receive", "d4/d49/a01590.html#afbaa437185cff60434b8bf5969699234", null ],
-    [ "send", "d4/d49/a01590.html#ae83d9b900d6e4ace5f039cb46916c069", null ],
-    [ "send", "d4/d49/a01590.html#a97c79074899a998d274f71c3de1c89ba", null ],
-    [ "onAbort", "d4/d49/a01590.html#a38bb7f4ae44074d98bce97c4e2404113", null ],
-    [ "onError", "d4/d49/a01590.html#a57f8e43e98a06e9181d04cc1e5ee8738", null ],
-    [ "onRxComplete", "d4/d49/a01590.html#a5675272e1c23a61fe7d90a53660ee6b9", null ],
-    [ "onTxComplete", "d4/d49/a01590.html#a133bd114ab4b8150988e291fe10e3516", null ]
+    [ "add", "d4/d49/a01590.html#afb5a48387c32a93cdddbb6aaa3ec27c9", null ],
+    [ "remove", "d4/d49/a01590.html#af986dd195721a5b1a0d8e8c7bde5e07e", null ]
 ];

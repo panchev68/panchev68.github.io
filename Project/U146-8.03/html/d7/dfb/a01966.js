@@ -1,5 +1,5 @@
 var a01966 =
 [
-    [ "ascFailureCount", "d7/dfb/a01966.html#a7d31e296e42f71903cd31dacfdf121dd", null ],
-    [ "ccaFailureCount", "d7/dfb/a01966.html#ad10979f007719d36c86ccedbfa84ac03", null ]
+    [ "temperatureValue", "d7/dfb/a01966.html#a3d93bbc5033eb9116a99512da53102dd", null ],
+    [ "voltageValue", "d7/dfb/a01966.html#a897e761e520c30855ff4c5fec0f70159", null ]
 ];

@@ -1,4 +1,4 @@
 var a00155 =
 [
-    [ "System::DisplayRotation", "da/dd8/a00906.html", "da/dd8/a00906" ]
+    [ "System::DisplayRotation", "d7/d12/a00911.html", "d7/d12/a00911" ]
 ];

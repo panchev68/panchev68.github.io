@@ -1,11 +1,15 @@
 var a01802 =
 [
-    [ "MoonPhase", "dd/ddc/a01802.html#a7f7186b33d83f79ab229e3c7bc4b787a", null ],
-    [ "MoonPhase", "dd/ddc/a01802.html#acc3daabfb29a95c39da3439ec453d576", null ],
-    [ "~MoonPhase", "dd/ddc/a01802.html#a09b7df7620634482ff06b8f17367a7c9", null ],
-    [ "calculate", "dd/ddc/a01802.html#a3c3d764af02ebda6d76ed522a3c7048d", null ],
-    [ "index", "dd/ddc/a01802.html#a7053f318f5c93816be4d145fae2972fa", null ],
-    [ "name", "dd/ddc/a01802.html#a535a0ccb9979e6054fc46dfc01e5e0ea", null ],
-    [ "operator const std::string &", "dd/ddc/a01802.html#ab8afd18d645d2b7642d99f7d8bc5e66c", null ],
-    [ "operator uint32_t", "dd/ddc/a01802.html#afa23ed768db232d0ac576e91b490112f", null ]
+    [ "JaggedArray", "dd/ddc/a01802.html#ac7a221b87270f5d2790ef4bb552c0c09", null ],
+    [ "~JaggedArray", "dd/ddc/a01802.html#ac7800e79da903780c747cc333cbc9064", null ],
+    [ "add", "dd/ddc/a01802.html#a7dbe9d142e3a841c688d6e3ee4c757da", null ],
+    [ "add", "dd/ddc/a01802.html#ab561870c8a986e5f856c81fc1524596a", null ],
+    [ "add", "dd/ddc/a01802.html#a0c3f3c17a891090f337d10ce1998b4d4", null ],
+    [ "clear", "dd/ddc/a01802.html#a08a64933255d4cfd6bc2089de0577d47", null ],
+    [ "getVector", "dd/ddc/a01802.html#a08b0699c56b63db60624b479988c42a7", null ],
+    [ "operator[]", "dd/ddc/a01802.html#a1fdd83b316ef951ceb2cb70f87fe2eb3", null ],
+    [ "remove", "dd/ddc/a01802.html#a55d8ec0d460f9c989dd80d6c8b75f00f", null ],
+    [ "remove", "dd/ddc/a01802.html#a2e70282850b2847e8b222079f400965e", null ],
+    [ "size", "dd/ddc/a01802.html#a9ea6af8be43cb7f14efbb01462db486f", null ],
+    [ "pointers", "dd/ddc/a01802.html#a842c5aed6b919244cdafe70d33b28fd5", null ]
 ];

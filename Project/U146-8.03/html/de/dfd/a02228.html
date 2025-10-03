@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.14.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>U146: Lib::FreeRTOS::SemaphoreCounting</title>
+<title>U146: Lib::FreeRTOS::MessageBuffer</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -89,46 +89,37 @@ $(function(){initNavTree('de/dfd/a02228.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::FreeRTOS::SemaphoreCounting</div></div>
+  <div class="headertitle"><div class="title">Lib::FreeRTOS::MessageBuffer</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-semaphorecounting-in-freertos"></a>
-Example usage of SemaphoreCounting in FreeRTOS.</h1>
-<p>Demonstrates creation, usage, and destruction of a counting semaphore using the SemaphoreCounting class.</p>
+<h1 class="doxsection"><a class="anchor" id="example-usage-of-messagebuffer-for-inter-task-communication"></a>
+Example usage of MessageBuffer for inter-task communication.</h1>
+<p>Demonstrates creation, sending, and receiving of messages using the MessageBuffer class.</p>
 <hr  />
-<h2 class="doxsection"><a class="anchor" id="example-usage-2"></a>
+<h2 class="doxsection"><a class="anchor" id="example-usage-1"></a>
 Example usage:</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../de/dd7/a00362.html">SemaphoreCounting.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d8/d8e/a00344.html">MessageBuffer.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleSemaphoreCounting() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/de7/a01434.html">Lib::FreeRTOS::SemaphoreCounting</a> semaphore;</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t MAX_COUNT = 5;</div>
-<div class="line">    <span class="keyword">constexpr</span> uint32_t INIT_COUNT = 2;</div>
-<div class="line">    <span class="keywordflow">if</span> (semaphore.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d1/de7/a01434.html#a862c131b30d198cea3b940845ff7ab71">create</a>(MAX_COUNT, INIT_COUNT)) {</div>
-<div class="line">        <span class="comment">// Take the semaphore (decrement count)</span></div>
-<div class="line">        <span class="keywordflow">if</span> (semaphore.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/de7/a01434.html#a849a78948ee9032331219bd53cd7a631">take</a>(10)) {</div>
-<div class="line">            <span class="comment">// Critical section</span></div>
-<div class="line">            semaphore.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/de7/a01434.html#a6bfe5fea68fa0b84e0914a8a445152e7">give</a>(); <span class="comment">// Release the semaphore (increment count)</span></div>
-<div class="line">        }</div>
-<div class="line">        <span class="comment">// Query current count</span></div>
-<div class="line">        uint32_t count = semaphore.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/de7/a01434.html#a2ba9c425252137f3e434915d93906409">getCount</a>();</div>
-<div class="line">        (void)count;</div>
-<div class="line">        semaphore.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d1/de7/a01434.html#a832b62ec703a78807cad724e9fc959a1">release</a>(); <span class="comment">// Clean up</span></div>
+<div class="line"><span class="keywordtype">void</span> exampleUsage() {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/df1/a01414.html">Lib::FreeRTOS::MessageBuffer</a> buffer;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> bufferSize = 128;</div>
+<div class="line">    <span class="keywordflow">if</span> (buffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/df1/a01414.html#a428d017eb8783b900fb4cb41891d3876">create</a>(bufferSize)) {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">char</span>* message = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
+<div class="line">        <span class="keywordtype">size_t</span> sent = buffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/df1/a01414.html#a5c8b181750dd6c4ce1821d4fb48a77f7">send</a>(message, 17, 10);</div>
+<div class="line">        <span class="keywordtype">char</span> recv[32] = {};</div>
+<div class="line">        <span class="keywordtype">size_t</span> received = buffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/df1/a01414.html#abae98a82c16f34275ebb4df83c8d9481">receive</a>(recv, <span class="keyword">sizeof</span>(recv), 10);</div>
+<div class="line">        <span class="comment">// Use recv and received as needed</span></div>
+<div class="line">        buffer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/df1/a01414.html#a6e19504ccebb37e3057dbec82a850712">release</a>();</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00362_html"><div class="ttname"><a href="../../de/dd7/a00362.html">SemaphoreCounting.hpp</a></div><div class="ttdoc">Counting semaphore implementation for FreeRTOS.</div></div>
-<div class="ttc" id="aa01434_html"><div class="ttname"><a href="../../d1/de7/a01434.html">Lib::FreeRTOS::SemaphoreCounting</a></div><div class="ttdoc">Counting semaphore for FreeRTOS.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:23</div></div>
-<div class="ttc" id="aa01434_html_a2ba9c425252137f3e434915d93906409"><div class="ttname"><a href="../../d1/de7/a01434.html#a2ba9c425252137f3e434915d93906409">Lib::FreeRTOS::SemaphoreCounting::getCount</a></div><div class="ttdeci">uint32_t getCount() const</div><div class="ttdoc">Gets the current count value.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:55</div></div>
-<div class="ttc" id="aa01434_html_a6bfe5fea68fa0b84e0914a8a445152e7"><div class="ttname"><a href="../../d1/de7/a01434.html#a6bfe5fea68fa0b84e0914a8a445152e7">Lib::FreeRTOS::SemaphoreCounting::give</a></div><div class="ttdeci">bool give() override</div><div class="ttdoc">Gives the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:79</div></div>
-<div class="ttc" id="aa01434_html_a832b62ec703a78807cad724e9fc959a1"><div class="ttname"><a href="../../d1/de7/a01434.html#a832b62ec703a78807cad724e9fc959a1">Lib::FreeRTOS::SemaphoreCounting::release</a></div><div class="ttdeci">void release() override</div><div class="ttdoc">Releases the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:64</div></div>
-<div class="ttc" id="aa01434_html_a849a78948ee9032331219bd53cd7a631"><div class="ttname"><a href="../../d1/de7/a01434.html#a849a78948ee9032331219bd53cd7a631">Lib::FreeRTOS::SemaphoreCounting::take</a></div><div class="ttdeci">bool take(uint32_t timeout=0) override</div><div class="ttdoc">Takes the semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:72</div></div>
-<div class="ttc" id="aa01434_html_a862c131b30d198cea3b940845ff7ab71"><div class="ttname"><a href="../../d1/de7/a01434.html#a862c131b30d198cea3b940845ff7ab71">Lib::FreeRTOS::SemaphoreCounting::create</a></div><div class="ttdeci">bool create(uint32_t maxCount, uint32_t initCount)</div><div class="ttdoc">Creates a counting semaphore.</div><div class="ttdef"><b>Definition</b> SemaphoreCounting.hpp:43</div></div>
-</div><!-- fragment --><p>This example shows how to create a counting semaphore, take and give it, query its count, and release resources.</p>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="expected-output-1"></a>
-Expected output:</h2>
-<div class="fragment"><div class="line"><span class="comment">// No output; this is a synchronization primitive example.</span></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00344_html"><div class="ttname"><a href="../../d8/d8e/a00344.html">MessageBuffer.hpp</a></div><div class="ttdoc">Type-safe FreeRTOS message buffer wrapper.</div></div>
+<div class="ttc" id="aa01414_html"><div class="ttname"><a href="../../d8/df1/a01414.html">Lib::FreeRTOS::MessageBuffer</a></div><div class="ttdoc">Type-safe FreeRTOS message buffer for inter-task and ISR communication.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:24</div></div>
+<div class="ttc" id="aa01414_html_a428d017eb8783b900fb4cb41891d3876"><div class="ttname"><a href="../../d8/df1/a01414.html#a428d017eb8783b900fb4cb41891d3876">Lib::FreeRTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t length)</div><div class="ttdoc">Creates the underlying FreeRTOS message buffer resource.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:41</div></div>
+<div class="ttc" id="aa01414_html_a5c8b181750dd6c4ce1821d4fb48a77f7"><div class="ttname"><a href="../../d8/df1/a01414.html#a5c8b181750dd6c4ce1821d4fb48a77f7">Lib::FreeRTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *data, size_t length, uint32_t timeout)</div><div class="ttdoc">Sends data to the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:68</div></div>
+<div class="ttc" id="aa01414_html_a6e19504ccebb37e3057dbec82a850712"><div class="ttname"><a href="../../d8/df1/a01414.html#a6e19504ccebb37e3057dbec82a850712">Lib::FreeRTOS::MessageBuffer::release</a></div><div class="ttdeci">void release()</div><div class="ttdoc">Releases the underlying FreeRTOS message buffer resource.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:52</div></div>
+<div class="ttc" id="aa01414_html_abae98a82c16f34275ebb4df83c8d9481"><div class="ttname"><a href="../../d8/df1/a01414.html#abae98a82c16f34275ebb4df83c8d9481">Lib::FreeRTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t length, uint32_t timeout)</div><div class="ttdoc">Receives data from the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:103</div></div>
+</div><!-- fragment --><p>This example creates a message buffer, sends a string, receives it into a local buffer, and releases the resource. It demonstrates safe resource management and typical usage patterns for inter-task communication in FreeRTOS.</p>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

@@ -1,5 +1,4 @@
 var a00608 =
 [
-    [ "Lib::Xbee::Core::ComDriver", "d0/d3d/a02050.html", "d0/d3d/a02050" ],
-    [ "Lib::Xbee::Core::ComDriver::Config", "d7/d38/a02054.html", "d7/d38/a02054" ]
+    [ "Lib::Xbee::API::UserProtocol", "d4/d2e/a02051.html", "d4/d2e/a02051" ]
 ];

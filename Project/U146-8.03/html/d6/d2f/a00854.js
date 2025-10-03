@@ -1,9 +1,11 @@
 var a00854 =
 [
-    [ "Led", "d6/d2f/a00854.html#a0d7faf6ea0418b8c7888443e8d080ca7", null ],
-    [ "~Led", "d6/d2f/a00854.html#ae5fc6557edccbea238ec13debf7afda0", null ],
-    [ "blink", "d6/d2f/a00854.html#a4ee04644f7374624a76577ff487c20f1", null ],
-    [ "handleTickEvent", "d6/d2f/a00854.html#ab2e14c38856f5e44c96d64770c0c0b38", null ],
-    [ "off", "d6/d2f/a00854.html#afd568f8123b1934df4b75c4900680801", null ],
-    [ "on", "d6/d2f/a00854.html#a49071ca5ea4f405eb874edbaae0dbc70", null ]
+    [ "Config", "dc/d41/a00862.html", "dc/d41/a00862" ],
+    [ "Led", "d0/d66/a00858.html", "d0/d66/a00858" ],
+    [ "Leds", "d6/d2f/a00854.html#a0f973f7ae5885d96885b41a1e4e70245", null ],
+    [ "Leds", "d6/d2f/a00854.html#a0ae58b3df8e62dd0c650b7b2312d3cf6", null ],
+    [ "~Leds", "d6/d2f/a00854.html#a3ee71903ad7d84f7b608129f9ec539dc", null ],
+    [ "init", "d6/d2f/a00854.html#a5d9398da8f12b2192c4d1f32a7c1dd2a", null ],
+    [ "error", "d6/d2f/a00854.html#a15f9cfe1ccb9abe9b0ade66ced77c946", null ],
+    [ "ready", "d6/d2f/a00854.html#aa6f0ab9e1416602c0e81f5cf3880944d", null ]
 ];

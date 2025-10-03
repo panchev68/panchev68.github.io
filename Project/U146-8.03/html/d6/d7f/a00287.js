@@ -1,5 +1,5 @@
 var a00287 =
 [
-    [ "Lib::BSP::EncoderPins", "d9/d2e/a01194.html", "d9/d2e/a01194" ],
-    [ "Lib::BSP::EncoderPins::Config", "d0/d32/a01198.html", "d0/d32/a01198" ]
+    [ "Lib::BSP::EncoderPins", "d0/d5a/a01199.html", "d0/d5a/a01199" ],
+    [ "Lib::BSP::EncoderPins::Config", "da/d1f/a01203.html", "da/d1f/a01203" ]
 ];

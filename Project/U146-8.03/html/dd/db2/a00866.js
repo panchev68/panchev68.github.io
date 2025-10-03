@@ -1,7 +1,12 @@
 var a00866 =
 [
-    [ "chipSize", "dd/db2/a00866.html#a7b73a4ac017e77aa9fd54a7e73f3abe5", null ],
-    [ "deviceAddress", "dd/db2/a00866.html#aa218f16ee30b24ceb02fa0d3542aef4f", null ],
-    [ "i2cHandle", "dd/db2/a00866.html#a010c390f124351611c1d1e2c0ebeb7de", null ],
-    [ "pageSize", "dd/db2/a00866.html#a06d5450506b0fbf380cd2e8f37c84952", null ]
+    [ "Config", "da/d98/a00870.html", "da/d98/a00870" ],
+    [ "M24C64W", "dd/db2/a00866.html#a703cf4d34fd4af8f5063257e5bc1019f", null ],
+    [ "~M24C64W", "dd/db2/a00866.html#a48a9ddb73f7fbb1339ef163bcb9df904", null ],
+    [ "close", "dd/db2/a00866.html#a6bd42702f73f755f10672fb5759dc6c4", null ],
+    [ "getChipSize", "dd/db2/a00866.html#ae4cc536cd7703ac75547295659935376", null ],
+    [ "isPresent", "dd/db2/a00866.html#aa2077e65e08bbe5756a794c3d8bc287f", null ],
+    [ "open", "dd/db2/a00866.html#ae28e9464aab65954a786b12bb0d8f63d", null ],
+    [ "read", "dd/db2/a00866.html#ae123c508b4533308427ed6d68b08aa3e", null ],
+    [ "write", "dd/db2/a00866.html#a03fc9ed82cb2c8bd8de3381f101fae24", null ]
 ];

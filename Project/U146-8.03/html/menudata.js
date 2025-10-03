@@ -51,10 +51,10 @@ var menudata={children:[
 {text:"Enumerations",url:"namespacemembers_enum.html"},
 {text:"Enumerator",url:"namespacemembers_eval.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
-{text:"Class List",url:"annotated.html"},
-{text:"Class Index",url:"classes.html"},
-{text:"Class Hierarchy",url:"inherits.html"},
-{text:"Class Members",url:"functions.html",children:[
+{text:"List",url:"annotated.html"},
+{text:"Index",url:"classes.html"},
+{text:"Hierarchy",url:"inherits.html"},
+{text:"Members",url:"functions.html",children:[
 {text:"All",url:"functions.html",children:[
 {text:"a",url:"functions.html#index_a"},
 {text:"b",url:"functions_b.html#index_b"},
@@ -159,9 +159,5 @@ var menudata={children:[
 {text:"w",url:"functions_eval_w.html#index_w"},
 {text:"y",url:"functions_eval_y.html#index_y"}]}]}]},
 {text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"},
-{text:"File Members",url:"globals.html",children:[
-{text:"All",url:"globals.html"},
-{text:"Functions",url:"globals_func.html"},
-{text:"Typedefs",url:"globals_type.html"}]}]},
+{text:"File List",url:"files.html"}]},
 {text:"Examples",url:"examples.html"}]}

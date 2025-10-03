@@ -1,6 +1,6 @@
 var a00914 =
 [
-    [ "LastResetState", "d3/dd1/a00914.html#af175e7557f56bb9a22d8bbee3beffefe", null ],
-    [ "~LastResetState", "d3/dd1/a00914.html#a8d3bbc60d37628076a93c3a9aa84b7a1", null ],
-    [ "operator State", "d3/dd1/a00914.html#ad26869c984680598540552fb035ad265", null ]
+    [ "HardwareVersion", "d3/dd1/a00914.html#a0347aa4c7dfba19e907b928c32f059bd", null ],
+    [ "getString", "d3/dd1/a00914.html#a65f8aa6be8aaa19ddf3531ebb87277e5", null ],
+    [ "readVersionId", "d3/dd1/a00914.html#aff323d7ba600fd59abb8abcd6e42fd02", null ]
 ];

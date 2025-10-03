@@ -1,0 +1,26 @@
+var class_lib_1_1_free_r_t_o_s_1_1_queue =
+[
+    [ "Queue", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#af1e55d4085ed239901e70810ef50a473", null ],
+    [ "Queue", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a50a9ee6f43a459104e66c3f9293f19d8", null ],
+    [ "~Queue", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a1c4d39c31bcc1e17c3df60f7319a9dc5", null ],
+    [ "addToRegistry", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a2923b255b27e23dd43bac2cc4e968976", null ],
+    [ "create", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a92f4628bc7252077d62e80527f0e12d5", null ],
+    [ "createStatic", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#abf50ce1739181af76fadb498e3cf879a", null ],
+    [ "isCreated", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a7b659e1d089bc86516365f2118c83342", null ],
+    [ "messagesWaiting", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#af125b4b9c39dd07559a961599fa68ba4", null ],
+    [ "messagesWaitingFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a2d39f81ed48d8d1644f987f7849bf2a9", null ],
+    [ "operator QueueHandle_t &", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a05a8a544a0deae0402d1c0e046d26284", null ],
+    [ "overwrite", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a496e860aaf13c7a7592a055499331158", null ],
+    [ "overwriteFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#aec072f09196a4638aa4e41006ec0c0f0", null ],
+    [ "peek", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a2b8b789e0a66ccfbe6c46fc6d5041c02", null ],
+    [ "peekFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a02a6dd79bf87baa047c4311dd9ab096c", null ],
+    [ "receive", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#abf1c13bca2143aad42b2c0cf61c3e162", null ],
+    [ "receiveFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a6a7c9493adb0aefe382eb281a656bf32", null ],
+    [ "release", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#ae6f8a9c2849a945293d2ac3d6b27b194", null ],
+    [ "removeFromRegistry", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#ae4eb4e805527951b5e4c089b28092ccb", null ],
+    [ "reset", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a24b820857927155369dd3591be4288d9", null ],
+    [ "send", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a13140e830b6d01546d863b1670e77811", null ],
+    [ "sendToBackFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#afb91f9e57c0f97dc2a32b3552ec7f36a", null ],
+    [ "sendToFrontFromISR", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a3066f2b1df529629cf367461c7991e29", null ],
+    [ "spacesAvailable", "d6/dc7/class_lib_1_1_free_r_t_o_s_1_1_queue.html#a3266b106de696c7267fc4c00bc5edeb1", null ]
+];

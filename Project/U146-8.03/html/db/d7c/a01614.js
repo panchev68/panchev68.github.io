@@ -1,14 +1,15 @@
 var a01614 =
 [
-    [ "Port", "db/d7c/a01614.html#aee9debd2bfe5ffdaf1801d3027a5769c", null ],
-    [ "~Port", "db/d7c/a01614.html#a0e7fb1bc055746f628e036cb3cb71ede", null ],
-    [ "abort", "db/d7c/a01614.html#a45aab866cae6224e68ed18310ad21b8b", null ],
-    [ "close", "db/d7c/a01614.html#a78a5b9a263fddaff78f72241860f6a95", null ],
-    [ "deinit", "db/d7c/a01614.html#a7b432b4c02235f1100bdf6f3b48e2173", null ],
-    [ "init", "db/d7c/a01614.html#a997b4610e86dce8ff0bf862d2eeb81a6", null ],
-    [ "open", "db/d7c/a01614.html#ac60f625969e85f879cfb4dd9e3d17fb7", null ],
-    [ "operator SPI_HandleTypeDef *", "db/d7c/a01614.html#a975f597a18d9463e6da26697cc11987f", null ],
-    [ "receive", "db/d7c/a01614.html#a9b8ae1970240648c5f7ee0a76e2edde6", null ],
-    [ "send", "db/d7c/a01614.html#a142863ac6798bfae0e3addb7c5ef9fa3", null ],
-    [ "sendReceive", "db/d7c/a01614.html#a6da039e296e4d513071de10a8219d781", null ]
+    [ "RTClock", "db/d7c/a01614.html#ace0651febc1e99b1c4d0fc4c4663cc74", null ],
+    [ "~RTClock", "db/d7c/a01614.html#a548d81268d21d312fb75ba87d36aa127", null ],
+    [ "deinitialize", "db/d7c/a01614.html#a9f18866c594f544465d3f65cf2e9bef3", null ],
+    [ "get", "db/d7c/a01614.html#a13534402101bc31c42a52727497ab869", null ],
+    [ "getHandle", "db/d7c/a01614.html#a78b97998c85e82f2734b669a95fb7e09", null ],
+    [ "getRegister", "db/d7c/a01614.html#ab13b4296e8282fbcee836b5be5fe4370", null ],
+    [ "initialize", "db/d7c/a01614.html#a5de43ac7c9c4ff8963ba1dd51e17d935", null ],
+    [ "set", "db/d7c/a01614.html#ae8809efc3c1b64625757647c3600edfc", null ],
+    [ "setDate", "db/d7c/a01614.html#a0536dc844eff02831414a1c7624c72a2", null ],
+    [ "setRegister", "db/d7c/a01614.html#af198825381f4e668a9689495c66461d2", null ],
+    [ "setTime", "db/d7c/a01614.html#a9ceb16ac67fe179dbe6b19f5f414c47a", null ],
+    [ "onTimeChanged", "db/d7c/a01614.html#ad0971eaa086b739dd0c8b2b8c22f5c96", null ]
 ];

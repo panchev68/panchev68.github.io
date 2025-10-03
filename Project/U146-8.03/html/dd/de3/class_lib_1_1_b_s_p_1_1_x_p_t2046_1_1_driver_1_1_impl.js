@@ -1,0 +1,28 @@
+var class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl =
+[
+    [ "Impl", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a5142d2a8d2e9fe66b13d936fbe7eda32", null ],
+    [ "Impl", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a5142d2a8d2e9fe66b13d936fbe7eda32", null ],
+    [ "checkPressed", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a83e57ad8f0c623d46558d1bc1c16f2e5", null ],
+    [ "process", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#ab245e8f91150662c6d74545e329247d5", null ],
+    [ "readAdc", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#ad24bd9479564f515f02d3fd96c1323e6", null ],
+    [ "writeByte", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a81520e82a86907b19a248c594a6e5602", null ],
+    [ "debounceTime", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a7bdd8107237d94982dd4f5c94692dc5d", null ],
+    [ "devX", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#aabe17656a7a54924e60efa5eea8ff9b2", null ],
+    [ "devY", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#ab687e094430620f8488b7000b84152e5", null ],
+    [ "integratorX", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a5ee76c8e877602bca28429c97f9cc081", null ],
+    [ "integratorY", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#ab95b903fcdda769c4c2e4bdc5c14e3fc", null ],
+    [ "isReady", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a140593dcb8c22cee91d7ac3b9ad87a31", null ],
+    [ "lastPressState", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a80aa8730d5d87a554387ac45c65eebc3", null ],
+    [ "nirq", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#ac26a13fa7dca8ee883b72c0d2512b864", null ],
+    [ "nss", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a6066ef5a3c0b7f8a0eb3968864eddedd", null ],
+    [ "parameters", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a6df7629b54d259fbd71e25f22d4b54b8", null ],
+    [ "position", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a9a8dc943e7e2c328714159edef525ee7", null ],
+    [ "rawPosition", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a2f313226489aac7e67a9de5da2d793df", null ],
+    [ "rotation", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a9ce31dc48e986d165966c579e2a128e6", null ],
+    [ "sck", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#ae80da77dd75a56ddba872911c7d63585", null ],
+    [ "si", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a4c397edf4331375c405a46eebc647d3a", null ],
+    [ "so", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a92443c2af2b9c5da862daf71377ac79b", null ],
+    [ "tempPosition", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a480aed0d5a2d0fd4508e0dd4d1a460ab", null ],
+    [ "tempRawPosition", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#adfd437878a142b7db35ad3acc10f28a6", null ],
+    [ "timeoutDebounce", "dd/de3/class_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_driver_1_1_impl.html#a90d137d8c3c7b50a9c8854f9a7f37b31", null ]
+];

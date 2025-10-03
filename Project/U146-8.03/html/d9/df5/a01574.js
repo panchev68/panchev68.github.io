@@ -1,11 +1,10 @@
 var a01574 =
 [
-    [ "Base", "d9/df5/a01574.html#a87303868ef5ee6704d1bc3f6c1d9f4bc", null ],
-    [ "~Base", "d9/df5/a01574.html#a9280008b408922b5c5c3f22755a6f1f7", null ],
-    [ "close", "d9/df5/a01574.html#abfb3566104fbd518832630039557c5c8", null ],
-    [ "getHandle", "d9/df5/a01574.html#a370647e610deac51357a6d7320b202de", null ],
-    [ "isReady", "d9/df5/a01574.html#a2ed183719756c95d2c4fad0bf5b9729c", null ],
-    [ "open", "d9/df5/a01574.html#ac36f8256b6857fde9c5f5544dc59a699", null ],
-    [ "receive", "d9/df5/a01574.html#a4fb65182280b2f3d8069e27a0d32e6a1", null ],
-    [ "send", "d9/df5/a01574.html#aeeafcd87622340a4a832ba5b3d89e46d", null ]
+    [ "Port", "d9/df5/a01574.html#a30398f04ebb5aead459c6fefa60d0879", null ],
+    [ "~Port", "d9/df5/a01574.html#ada7cd8d464239efd939cd4baf9a54c54", null ],
+    [ "close", "d9/df5/a01574.html#a66baded00c48cedf1a4e64b6c5adb79f", null ],
+    [ "open", "d9/df5/a01574.html#ae273b8b549b094bd8cfa8b45cf21328b", null ],
+    [ "operator I2C_HandleTypeDef *", "d9/df5/a01574.html#a3c0d89314fa50575aebd981a6a8cc338", null ],
+    [ "receive", "d9/df5/a01574.html#a6b781d18797166d3314af29ca46d9407", null ],
+    [ "send", "d9/df5/a01574.html#aeef0c9e2224570cfccf8d40fab03aae7", null ]
 ];

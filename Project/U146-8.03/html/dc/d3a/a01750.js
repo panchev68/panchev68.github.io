@@ -1,10 +1,8 @@
 var a01750 =
 [
-    [ "DataHandle", "dc/d3a/a01750.html#a5da62112f4ea26d05314d8ff440909cb", null ],
-    [ "DataHandle", "dc/d3a/a01750.html#ad4305a9b10988842983bfe058d0e82bd", null ],
-    [ "clear", "dc/d3a/a01750.html#ac8dd7c36bae422ac14b1aaf2933aa24a", null ],
-    [ "getPointer", "dc/d3a/a01750.html#a80fa4679478165405e005b461748f6a5", null ],
-    [ "getSize", "dc/d3a/a01750.html#a79c84bd9854b26c7e0f07634ac4b7ccc", null ],
-    [ "moveFrom", "dc/d3a/a01750.html#a3088320c98fd141e2412231987b97d55", null ],
-    [ "set", "dc/d3a/a01750.html#a5b20ecedd1bb8d4f31bc72dfd13c6f03", null ]
+    [ "crc16", "dc/d3a/a01750.html#a2f7651fb8b43ec513292015a8f91da6e", null ],
+    [ "crc16", "dc/d3a/a01750.html#a76ceb90175e6783072eaec5efae31c65", null ],
+    [ "getData", "dc/d3a/a01750.html#ae5ac0fc7405fc91b3915ccf51e93321d", null ],
+    [ "getSize", "dc/d3a/a01750.html#a5d35fee913b962b7ed7a0126c253f9b9", null ],
+    [ "operator uint16_t", "dc/d3a/a01750.html#af55bee7520378a484a1b862ac7b92f29", null ]
 ];

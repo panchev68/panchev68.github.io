@@ -1,4 +1,4 @@
 var a00605 =
 [
-    [ "Lib::Xbee::API::UserProtocol", "d2/dd9/a02046.html", "d2/dd9/a02046" ]
+    [ "Lib::Xbee::API::Service::SpectrumAnalyzer", "dc/d05/a02043.html", "dc/d05/a02043" ]
 ];

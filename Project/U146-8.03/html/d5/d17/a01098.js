@@ -1,12 +1,6 @@
 var a01098 =
 [
-    [ "InputsBase", "d5/d17/a01098.html#a3d1b85a73292730279ae24eb4124fdb0", null ],
-    [ "~InputsBase", "d5/d17/a01098.html#ad4f7b8fb7c4fa7f4c76ace9e4e7ea666", null ],
-    [ "getChangedCounter", "d5/d17/a01098.html#ad3f7e6d66bc887552afe739b8f49f035", null ],
-    [ "getValue", "d5/d17/a01098.html#a30709c5c439896c9c58f3077103e602d", null ],
-    [ "handleValueChangedEvent", "d5/d17/a01098.html#aec67aca94588da8441f24093e0cc212e", null ],
-    [ "init", "d5/d17/a01098.html#a558618c4cd1cc798b1999e27bd86b6ae", null ],
-    [ "preInit", "d5/d17/a01098.html#a0f3e460bb10577d0bf43fa1b56ce139e", null ],
-    [ "update", "d5/d17/a01098.html#aa369df5a4feef5d4b8feb366e741336c", null ],
-    [ "waitForCompleted", "d5/d17/a01098.html#ab3071ed2db38c8a4b692105864132b74", null ]
+    [ "Input", "d5/d17/a01098.html#ab6c53991ed89a7fb9c7f643697951d97", null ],
+    [ "~Input", "d5/d17/a01098.html#ad4fd27aa9e9142bc2dc9cc9137c5f7a9", null ],
+    [ "update", "d5/d17/a01098.html#a92278db4edc68dbfe2647d15e9a526a0", null ]
 ];

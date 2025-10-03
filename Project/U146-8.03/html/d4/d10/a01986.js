@@ -1,10 +1,16 @@
 var a01986 =
 [
-    [ "Channel", "d4/d10/a01986.html#a28fee9e4cb1f60673af2a80d06a47329", null ],
-    [ "Channel", "d4/d10/a01986.html#a0122cc28f02386cad7f9768748ede5e8", null ],
-    [ "getConnectionQuality", "d4/d10/a01986.html#a9c1c5769c95972ad432dfe39722bb457", null ],
-    [ "operator uint8_t", "d4/d10/a01986.html#afe47662340cd7ba2f2ae9700b4dc084a", null ],
-    [ "operator=", "d4/d10/a01986.html#a13dd9e1ebaf66602b4b1eed817d8dfdf", null ],
-    [ "reset", "d4/d10/a01986.html#a20bbb754378c063ad17f1d0110064547", null ],
-    [ "setConnectionQuality", "d4/d10/a01986.html#af89efd18229c8692741456b9ad393a65", null ]
+    [ "Channel", "d3/dc4/a01990.html", "d3/dc4/a01990" ],
+    [ "Error", "d4/d10/a01986.html#ad32134c59a8a2da7db5c286886d3938e", [
+      [ "NONE", "d4/d10/a01986.html#ad32134c59a8a2da7db5c286886d3938eab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "d4/d10/a01986.html#ad32134c59a8a2da7db5c286886d3938ea2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d4/d10/a01986.html#ad32134c59a8a2da7db5c286886d3938ea2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "d4/d10/a01986.html#a97c650163900b10024458f395f2fc366", null ],
+    [ "~ChannelScanner", "d4/d10/a01986.html#a4de3b1c6fa943c787b045b388601f4b3", null ],
+    [ "close", "d4/d10/a01986.html#ac1479201a5123bb67ba2ddb14f23600f", null ],
+    [ "getChannels", "d4/d10/a01986.html#a57540518f7ade9bbe5aff0a9bca64927", null ],
+    [ "open", "d4/d10/a01986.html#a2fd98550c8591d11637033f1c93d94f8", null ],
+    [ "process", "d4/d10/a01986.html#abfd363a4548a88e18e5d52cb3f8956a1", null ],
+    [ "onError", "d4/d10/a01986.html#a82f1d6a962aebcd5ca6542635694ebcd", null ]
 ];

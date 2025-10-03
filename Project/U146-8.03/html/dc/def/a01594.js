@@ -1,17 +1,16 @@
 var a01594 =
 [
-    [ "Port", "dc/def/a01594.html#ace45d54c9035bb357d1df27c33148448", null ],
-    [ "~Port", "dc/def/a01594.html#a0b6102be266a7ed9a6a3071bdf64c148", null ],
-    [ "close", "dc/def/a01594.html#a47dc4a4513a792d2d3117e502a34313d", null ],
-    [ "isReady", "dc/def/a01594.html#ad4a4714625486f0b4ec797ff07f30c15", null ],
-    [ "open", "dc/def/a01594.html#aadda51d0e2d99b6bfac578f9dd0b2c4c", null ],
-    [ "operator I2C_HandleTypeDef *", "dc/def/a01594.html#adb17327cbd61e23fb767400436204747", null ],
-    [ "receive", "dc/def/a01594.html#a9b6350c3772a3e99dd0202c63bb86f1a", null ],
-    [ "receive", "dc/def/a01594.html#a2316b773643c85916892c9feccd0d5f7", null ],
-    [ "send", "dc/def/a01594.html#a5089355ba7fa5bad29c237f1b479d255", null ],
-    [ "send", "dc/def/a01594.html#af5332fd81c5483bb600cb832699c893d", null ],
-    [ "onAbort", "dc/def/a01594.html#a54d5f2486576f624002cddc575c0d70a", null ],
-    [ "onError", "dc/def/a01594.html#ab6ccf9a01c48565845a7d65aac721856", null ],
-    [ "onRxComplete", "dc/def/a01594.html#a67030b3802a06fedfa0c423b83df24c0", null ],
-    [ "onTxComplete", "dc/def/a01594.html#a978781bf7fc0f405f493c3721ec025e9", null ]
+    [ "Port", "dc/def/a01594.html#a93f28b0a554b41a683d54cd191e68b0a", null ],
+    [ "~Port", "dc/def/a01594.html#a20676d66004937c26a6dbc97b4a28d65", null ],
+    [ "close", "dc/def/a01594.html#ace5b648e90941da64c93e43ab98f0203", null ],
+    [ "open", "dc/def/a01594.html#a2b8be9b655870dfa893a85b76a8b3f97", null ],
+    [ "operator I2C_HandleTypeDef *", "dc/def/a01594.html#aa715995b7b7a1e3313b176cc397173c1", null ],
+    [ "receive", "dc/def/a01594.html#a49161d0bfb9fe767bbcaa3ca3f7c450b", null ],
+    [ "receive", "dc/def/a01594.html#afbaa437185cff60434b8bf5969699234", null ],
+    [ "send", "dc/def/a01594.html#ae83d9b900d6e4ace5f039cb46916c069", null ],
+    [ "send", "dc/def/a01594.html#a97c79074899a998d274f71c3de1c89ba", null ],
+    [ "onAbort", "dc/def/a01594.html#a38bb7f4ae44074d98bce97c4e2404113", null ],
+    [ "onError", "dc/def/a01594.html#a57f8e43e98a06e9181d04cc1e5ee8738", null ],
+    [ "onRxComplete", "dc/def/a01594.html#a5675272e1c23a61fe7d90a53660ee6b9", null ],
+    [ "onTxComplete", "dc/def/a01594.html#a133bd114ab4b8150988e291fe10e3516", null ]
 ];

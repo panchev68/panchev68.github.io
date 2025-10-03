@@ -1,12 +1,17 @@
 var a01414 =
 [
-    [ "Mutex", "d8/df1/a01414.html#ab40a1fec6fa8904a155fcb2791f9768d", null ],
-    [ "~Mutex", "d8/df1/a01414.html#a89d122298f5ce39c2fa0907db300d728", null ],
-    [ "create", "d8/df1/a01414.html#a0ff325eaaffe0bdabfb24e4bc24d325b", null ],
-    [ "give", "d8/df1/a01414.html#a65f8f7f26f6688544ca4c98beff81c06", null ],
-    [ "giveFromISR", "d8/df1/a01414.html#aea6ab11fa318eb0894f3cd88ad17feed", null ],
-    [ "isCreated", "d8/df1/a01414.html#a2f3fde303420f7057a7edb83fabd38a2", null ],
-    [ "release", "d8/df1/a01414.html#a166d1f206082850042a2833bc9a4e81c", null ],
-    [ "take", "d8/df1/a01414.html#aedf8385022154e8adced4cfb79ea7668", null ],
-    [ "takeFromISR", "d8/df1/a01414.html#a4ed897026254f85a7266f770d6fa7314", null ]
+    [ "MessageBuffer", "d8/df1/a01414.html#a917e7c361552431b7457d4a3d096d930", null ],
+    [ "~MessageBuffer", "d8/df1/a01414.html#a5c8df4e18ee2b9b86b2b9f52100244ac", null ],
+    [ "create", "d8/df1/a01414.html#a428d017eb8783b900fb4cb41891d3876", null ],
+    [ "getSpacesAvailable", "d8/df1/a01414.html#a34b67bca936765725907e6d33d232ab1", null ],
+    [ "isCreated", "d8/df1/a01414.html#a428f709f716eaa601850ae56bd23a48d", null ],
+    [ "isEmpty", "d8/df1/a01414.html#a2051f879f6137c89fe7885acce8c5595", null ],
+    [ "isFull", "d8/df1/a01414.html#ad74e5ea770d15cd27cadd8e7121a5c04", null ],
+    [ "operator MessageBufferHandle_t &", "d8/df1/a01414.html#a8fd135a1dc6f702562e92af1e66addf0", null ],
+    [ "receive", "d8/df1/a01414.html#abae98a82c16f34275ebb4df83c8d9481", null ],
+    [ "receiveFromISR", "d8/df1/a01414.html#a1096ec619982fc5fec8d8336b85b7c09", null ],
+    [ "release", "d8/df1/a01414.html#a6e19504ccebb37e3057dbec82a850712", null ],
+    [ "reset", "d8/df1/a01414.html#abb3be43cdd5867d298946cd814601af2", null ],
+    [ "send", "d8/df1/a01414.html#a5c8b181750dd6c4ce1821d4fb48a77f7", null ],
+    [ "sendFromISR", "d8/df1/a01414.html#aa89d628c97222e983caeff3fc9ec1e9a", null ]
 ];

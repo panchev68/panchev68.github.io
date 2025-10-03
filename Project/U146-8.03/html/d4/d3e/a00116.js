@@ -1,6 +1,6 @@
 var a00116 =
 [
-    [ "BSP::Leds", "dc/d0a/a00850.html", "dc/d0a/a00850" ],
-    [ "BSP::Leds::Led", "d6/d2f/a00854.html", "d6/d2f/a00854" ],
-    [ "BSP::Leds::Config", "d0/d66/a00858.html", "d0/d66/a00858" ]
+    [ "BSP::Leds", "da/de6/a00855.html", "da/de6/a00855" ],
+    [ "BSP::Leds::Led", "dc/d8c/a00859.html", "dc/d8c/a00859" ],
+    [ "BSP::Leds::Config", "d7/d49/a00863.html", "d7/d49/a00863" ]
 ];

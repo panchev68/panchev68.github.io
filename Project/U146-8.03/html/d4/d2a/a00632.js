@@ -1,4 +1,4 @@
 var a00632 =
 [
-    [ "Lib::Xbee::Core::Frame::Data", "df/d4d/a02086.html", "df/d4d/a02086" ]
+    [ "Lib::Xbee::Core::EscapedCode", "d2/d31/a02087.html", "d2/d31/a02087" ]
 ];

@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['uart_5fdma_0',['Uart_DMA',['../d7/d5e/a00467.html#a3d6584b65f66a43442f4620e0831561b',1,'Lib::HAL']]],
-  ['uart_5fit_1',['Uart_IT',['../d7/d5e/a00467.html#a704ecae4cc5fb8bf7bf61d69a4964e3e',1,'Lib::HAL']]],
-  ['uarthandle_2',['UartHandle',['../d7/d5e/a00467.html#af19a8304ef187cc851502e33873fb68a',1,'Lib::HAL']]]
+  ['xterminatehandler_0',['XTerminateHandler',['../d0/d22/class_lib_1_1_helper_1_1_exception.html#a9da2678b5137e811bfa9d11450068840',1,'Lib::Helper::Exception']]]
 ];

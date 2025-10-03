@@ -1,9 +1,15 @@
 var a01066 =
 [
-    [ "dimmerMax", "d0/dfb/a01066.html#a35479166e7a914b7471de66b17cc8d68", null ],
-    [ "dimmerMin", "d0/dfb/a01066.html#a16c87d9d2094c1fa109880e195a13b51", null ],
-    [ "fadeStep", "d0/dfb/a01066.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
-    [ "sleepTime", "d0/dfb/a01066.html#ad30dd39f20169c3d91c056daced3a362", null ],
-    [ "timerChannel", "d0/dfb/a01066.html#ac0d932741746d6e82962fc930d8c1f16", null ],
-    [ "timerHandle", "d0/dfb/a01066.html#a1b8b4c4a18b711fd58c916b24535f7c0", null ]
+    [ "Config", "d5/d67/a01070.html", "d5/d67/a01070" ],
+    [ "Backlight", "d0/dfb/a01066.html#ae1576365076fd9cb0802723cef651d0a", null ],
+    [ "~Backlight", "d0/dfb/a01066.html#acb6486a968fee440125df9e98fe9612c", null ],
+    [ "disableDimmer", "d0/dfb/a01066.html#a81d580b32630e8dab646f7ba2cfa8de5", null ],
+    [ "enableDimmer", "d0/dfb/a01066.html#a87973d67ac321509088552d8c227f9b6", null ],
+    [ "get", "d0/dfb/a01066.html#a989cb4fb6805cb41d7ddd6229290fb1d", null ],
+    [ "init", "d0/dfb/a01066.html#a7887d56a6dc55d47feee973e4801791c", null ],
+    [ "operator=", "d0/dfb/a01066.html#a5bb178db31ff9430043d7d7e7d5a3ddd", null ],
+    [ "restartDimmer", "d0/dfb/a01066.html#a491713aac10b5443307a08542e206418", null ],
+    [ "set", "d0/dfb/a01066.html#aca96c1b90042a7bbc5f858c53871c870", null ],
+    [ "setupDimmer", "d0/dfb/a01066.html#a25ae8c8c88fb0a05745926c0dc299ab5", null ],
+    [ "tick", "d0/dfb/a01066.html#a448528b7400740d41c95cc74ecef1a87", null ]
 ];

@@ -1,4 +1,5 @@
 var a00578 =
 [
-    [ "Lib::Xbee::API::ApplicationBase", "d2/dd7/a01902.html", "d2/dd7/a01902" ]
+    [ "Lib::USB::SerialPortRepeaterBase", "d9/d32/a01899.html", "d9/d32/a01899" ],
+    [ "Lib::USB::SerialPortRepeaterBase::Config", "d6/d4c/a01903.html", "d6/d4c/a01903" ]
 ];

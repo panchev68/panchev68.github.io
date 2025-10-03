@@ -1,9 +1,7 @@
 var a01558 =
 [
-    [ "Handle", "da/dcf/a01558.html#ae128e9247a87fb1881947b8c98668ac8", null ],
-    [ "Handle", "da/dcf/a01558.html#aebaf0c7d99f3afae98f5d1b1d8a0badf", null ],
-    [ "~Handle", "da/dcf/a01558.html#afae3082c56a1e38ad86c1557d6d4f02f", null ],
-    [ "operator==", "da/dcf/a01558.html#a298fe029e4d1475e8f0beb860a799546", null ],
-    [ "number", "da/dcf/a01558.html#a889bbf284e7828319d31e2960a93001e", null ],
-    [ "port", "da/dcf/a01558.html#a9fe63e76c3f91573e13801bc8359a449", null ]
+    [ "add", "da/dcf/a01558.html#ab92393de4a33483e0bf2bba704e56028", null ],
+    [ "emitCallback", "da/dcf/a01558.html#a5e0d80b3f11dac0c838686d0b80620a4", null ],
+    [ "getDevice", "da/dcf/a01558.html#ae40395ee82398292c64b962c6e6803a5", null ],
+    [ "remove", "da/dcf/a01558.html#a2c16dd3319bcb20232ac7310edbabdd2", null ]
 ];

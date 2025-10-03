@@ -1,13 +1,12 @@
 var a01426 =
 [
-    [ "Semaphore", "dc/de6/a01426.html#a63aeaf529966e505291afed03a11fda5", null ],
-    [ "~Semaphore", "dc/de6/a01426.html#a47d5184355ed6ae86a8e30552561b45b", null ],
-    [ "create", "dc/de6/a01426.html#aa094fa83e5e9c385fa79de95cb2094d9", null ],
-    [ "give", "dc/de6/a01426.html#a2121df27f97694ff8972147e3e4c99f6", null ],
-    [ "giveFromISR", "dc/de6/a01426.html#ac35d77d9f4dad22c8ae60017d1d5aabf", null ],
-    [ "isCreated", "dc/de6/a01426.html#a92a05d95d899d18603b26731834c9281", null ],
-    [ "operator SemaphoreHandle_t &", "dc/de6/a01426.html#ac40bf28903271f18af81303e64311907", null ],
-    [ "release", "dc/de6/a01426.html#a04f9f12d5b59aba89d48a0afbc18f096", null ],
-    [ "take", "dc/de6/a01426.html#a8883bfe73252a37a9ea41f1505cddedc", null ],
-    [ "takeFromISR", "dc/de6/a01426.html#afb0e809a4af00a2bf75aaf8aa127f938", null ]
+    [ "Member", "dc/de6/a01426.html#ade8aa1efc6485f2bce0dd30c5de327a1", null ],
+    [ "QueueSet", "dc/de6/a01426.html#a1e6d075a49de4167193aef3d04bb5da0", null ],
+    [ "~QueueSet", "dc/de6/a01426.html#ad8c95c6a9e35e8e25a1e498546941c3b", null ],
+    [ "create", "dc/de6/a01426.html#a947402a607435f0d48e31d9fb78d7e4f", null ],
+    [ "isCreated", "dc/de6/a01426.html#a41bbd25f152c971627a1c8a522c73369", null ],
+    [ "release", "dc/de6/a01426.html#afe3a69888aaa2e274ad5b4541545adfa", null ],
+    [ "remove", "dc/de6/a01426.html#a6c833a9d231e9d0441d6d8408c96759b", null ],
+    [ "select", "dc/de6/a01426.html#a8184a857e2667aa6c87c2cfd62f7b2fa", null ],
+    [ "selectFromISR", "dc/de6/a01426.html#a9bef0c0685cfe5a2abddea96db0d1f34", null ]
 ];

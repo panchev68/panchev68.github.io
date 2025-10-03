@@ -1,9 +1,10 @@
 var a01826 =
 [
-    [ "day", "d2/d45/a01826.html#a9120483124a11ef1d1dce63f40a44166", null ],
-    [ "hour", "d2/d45/a01826.html#a5cf96145a7cb08aaf37fc12b7ce7cbba", null ],
-    [ "month", "d2/d45/a01826.html#a05f8a287b487483feb4c6c62d496efa3", null ],
-    [ "name", "d2/d45/a01826.html#ac20a4f1a7658e352b28915e2b64fea85", null ],
-    [ "offset", "d2/d45/a01826.html#ae285caa10378b9c77bba234998a28bc7", null ],
-    [ "week", "d2/d45/a01826.html#a885581fcfe63bac3283ce47061364bb8", null ]
+    [ "TimeChangeRule", "d0/d4f/a01830.html", "d0/d4f/a01830" ],
+    [ "TimeZone", "d2/d45/a01826.html#a91f53c518c0baf547232edb13e15381c", null ],
+    [ "convertToUtcMinutes", "d2/d45/a01826.html#a92f95318c9be21e9ccd657858b43a7ea", null ],
+    [ "getName", "d2/d45/a01826.html#a6f7e623d810feda16fdea241e1ba0ad2", null ],
+    [ "getOffset", "d2/d45/a01826.html#abb13ad81559c959bbb79574e41fb4b91", null ],
+    [ "setName", "d2/d45/a01826.html#a1d6f9864edefed2ef0b1301307620ca0", null ],
+    [ "setOffset", "d2/d45/a01826.html#a596ef2910ac098c146bf6601d8f3bf71", null ]
 ];

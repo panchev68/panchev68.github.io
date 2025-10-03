@@ -1,15 +1,11 @@
 var a02038 =
 [
-    [ "SpectrumAnalyzer", "df/dcf/a02038.html#a27ebee47a28eb30258ceb1d174a55be9", null ],
-    [ "~SpectrumAnalyzer", "df/dcf/a02038.html#a684a5b81a907c6355c84d6a680b6ef13", null ],
-    [ "close", "df/dcf/a02038.html#a0e9f9da436a79e52c0840328005471b9", null ],
-    [ "getAverageArray", "df/dcf/a02038.html#a0e8c60025820d1bf051afa2121546e5f", null ],
-    [ "getCurrentArray", "df/dcf/a02038.html#a3a97a47ccfade3760eb1f4fc74cc2046", null ],
-    [ "getMaxArray", "df/dcf/a02038.html#a2460fc8ac1399af5b9f24c3f9ee8be01", null ],
-    [ "initialize", "df/dcf/a02038.html#ae694a131d072eecf96ccfa1716b52e04", null ],
-    [ "isNewData", "df/dcf/a02038.html#af406181599ad281e1dd5c998ef8033f2", null ],
-    [ "open", "df/dcf/a02038.html#a2859385ba27aca503bcfd2bd7dffde8b", null ],
-    [ "process", "df/dcf/a02038.html#ae13e96b577421ef92f30b9778cd960cc", null ],
-    [ "resetData", "df/dcf/a02038.html#ad681973039568ff4028b98ba10bfddf2", null ],
-    [ "tearDown", "df/dcf/a02038.html#ac5699f6c7813b229fb4f07b59b6893c7", null ]
+    [ "ServiceBase", "df/dcf/a02038.html#a4f8590c3b7a368d2eb22befa1e8916f1", null ],
+    [ "~ServiceBase", "df/dcf/a02038.html#aa1b6296f0710c448eef4036ddd2616a1", null ],
+    [ "close", "df/dcf/a02038.html#aed0cea99139ebf63abda20141e9f6809", null ],
+    [ "initialize", "df/dcf/a02038.html#a4b9d9f77f0acf3d82425077a3e656977", null ],
+    [ "isRunning", "df/dcf/a02038.html#af8ea0344f930c164af59c424f15db234", null ],
+    [ "open", "df/dcf/a02038.html#a65aca1cfb5fb04ac4069fb90af77f406", null ],
+    [ "process", "df/dcf/a02038.html#a639b4f0d14b432fd6a42517b9cfbd618", null ],
+    [ "tearDown", "df/dcf/a02038.html#a047ac1f7619cd3a58377bb69a27b95d0", null ]
 ];

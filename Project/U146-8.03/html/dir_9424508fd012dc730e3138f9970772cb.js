@@ -13,11 +13,11 @@ var dir_9424508fd012dc730e3138f9970772cb =
     [ "SPI", "dir_8728efef9575a6d71873c4b9f9ffad91.html", "dir_8728efef9575a6d71873c4b9f9ffad91" ],
     [ "TIM", "dir_1c21fc21b049a5e2deab2de87099a10f.html", "dir_1c21fc21b049a5e2deab2de87099a10f" ],
     [ "UART", "dir_c2c1eb8c45f7f1dbace7182742d06ed2.html", "dir_c2c1eb8c45f7f1dbace7182742d06ed2" ],
-    [ "ADC.hpp", "da/dee/a00383.html", "da/dee/a00383" ],
-    [ "BKPSRAM.hpp", "d9/de6/a00404.html", null ],
-    [ "GPIO.hpp", "d0/dc4/a00443.html", "d0/dc4/a00443" ],
-    [ "I2C.hpp", "d1/d0b/a00452.html", "d1/d0b/a00452" ],
-    [ "SPI.hpp", "da/d65/a00458.html", null ],
-    [ "TIM.hpp", "d2/d9d/a00464.html", null ],
-    [ "UART.hpp", "d7/d5e/a00467.html", "d7/d5e/a00467" ]
+    [ "ADC.hpp", "d1/d38/_a_d_c_8hpp.html", "d1/d38/_a_d_c_8hpp" ],
+    [ "BKPSRAM.hpp", "d7/d83/_b_k_p_s_r_a_m_8hpp.html", null ],
+    [ "GPIO.hpp", "db/dd0/_g_p_i_o_8hpp.html", "db/dd0/_g_p_i_o_8hpp" ],
+    [ "I2C.hpp", "d1/dc2/_i2_c_8hpp.html", "d1/dc2/_i2_c_8hpp" ],
+    [ "SPI.hpp", "dd/d73/_s_p_i_8hpp.html", null ],
+    [ "TIM.hpp", "d7/deb/_t_i_m_8hpp.html", null ],
+    [ "UART.hpp", "da/d10/_u_a_r_t_8hpp.html", "da/d10/_u_a_r_t_8hpp" ]
 ];

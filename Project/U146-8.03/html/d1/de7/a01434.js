@@ -1,13 +1,14 @@
 var a01434 =
 [
-    [ "SemaphoreCounting", "d1/de7/a01434.html#a6f41f18bc29a2477ee620682265cbc25", null ],
-    [ "~SemaphoreCounting", "d1/de7/a01434.html#aff7c25a7a2490d5c601b9deb4f699213", null ],
-    [ "create", "d1/de7/a01434.html#a862c131b30d198cea3b940845ff7ab71", null ],
-    [ "getCount", "d1/de7/a01434.html#a2ba9c425252137f3e434915d93906409", null ],
-    [ "give", "d1/de7/a01434.html#a6bfe5fea68fa0b84e0914a8a445152e7", null ],
-    [ "giveFromISR", "d1/de7/a01434.html#a3f8e436a15eac45c2242938b31d730f7", null ],
-    [ "isCreated", "d1/de7/a01434.html#a19fd76a71af534b9735eb44f6b6b63e3", null ],
-    [ "release", "d1/de7/a01434.html#a832b62ec703a78807cad724e9fc959a1", null ],
-    [ "take", "d1/de7/a01434.html#a849a78948ee9032331219bd53cd7a631", null ],
-    [ "takeFromISR", "d1/de7/a01434.html#a9e7e00fe8a3a3e3e791a0f6bd45bdadf", null ]
+    [ "SemaphoreBase", "d1/de7/a01434.html#a240355463532b5f8151f606e1e89c0e1", null ],
+    [ "~SemaphoreBase", "d1/de7/a01434.html#a253934193ee0de5b0fce552c75256ee3", null ],
+    [ "create", "d1/de7/a01434.html#a7984ce7686710bacb1b2e7239e79151e", null ],
+    [ "give", "d1/de7/a01434.html#a494f63a7a96566f17e1ac85cfb5b55a4", null ],
+    [ "giveFromISR", "d1/de7/a01434.html#ad44726c956c5a3a3316a3a4fa0f0f952", null ],
+    [ "isCreated", "d1/de7/a01434.html#a58e8cc9baf2e1387aa62194834bcdee3", null ],
+    [ "operator SemaphoreHandle_t &", "d1/de7/a01434.html#a5a34444a4b8d9744d6824dd17f328c88", null ],
+    [ "release", "d1/de7/a01434.html#a8a54584609b12a9c0dafac152ac50617", null ],
+    [ "take", "d1/de7/a01434.html#af2da82676bb7578ffd1f591beeef2d0c", null ],
+    [ "takeFromISR", "d1/de7/a01434.html#ac0253cf90b5a647286873e2febb2da24", null ],
+    [ "handle", "d1/de7/a01434.html#aee3497d68c0b1e7efa6a5e623d47c968", null ]
 ];

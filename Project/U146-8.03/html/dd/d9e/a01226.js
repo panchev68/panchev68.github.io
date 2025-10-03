@@ -1,7 +1,6 @@
 var a01226 =
 [
-    [ "bytes", "dd/d9e/a01226.html#a9453ad69bd14a16e615c0db18c563eec", null ],
-    [ "highByte", "dd/d9e/a01226.html#aa2ccbb5edc1842e9bf2c8af034443452", null ],
-    [ "lowByte", "dd/d9e/a01226.html#a4cfc1b4b23bd2b32d6687b3e74fb721e", null ],
-    [ "value", "dd/d9e/a01226.html#abd91cebf9395b832f3a2c39cc721e16c", null ]
+    [ "U16", "d0/d58/a01230.html", "d0/d58/a01230" ],
+    [ "U32", "d8/ddf/a01238.html", "d8/ddf/a01238" ],
+    [ "U64", "dc/d83/a01254.html", "dc/d83/a01254" ]
 ];

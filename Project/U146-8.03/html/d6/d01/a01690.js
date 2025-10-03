@@ -1,23 +1,13 @@
 var a01690 =
 [
-    [ "Buffer", "d6/d01/a01690.html#a89f832145ac8b08607eff8883f9538c6", null ],
-    [ "Buffer", "d6/d01/a01690.html#aaf090943cd833502fa0fe4b984051e91", null ],
-    [ "Buffer", "d6/d01/a01690.html#ac0aa509372678b130aeadd141a703555", null ],
-    [ "Buffer", "d6/d01/a01690.html#a055335d7b809c4e73caeb9ebefc2a69e", null ],
-    [ "Buffer", "d6/d01/a01690.html#ac31b93bfcaef22e71c590bd9db4fa590", null ],
-    [ "Buffer", "d6/d01/a01690.html#a4152df5fad433c572bef169ee46cb991", null ],
-    [ "~Buffer", "d6/d01/a01690.html#ad75952f4adfa5273158269813f7020f3", null ],
-    [ "clear", "d6/d01/a01690.html#a0e7ef4b64a58bc31c6c5646862c7b09d", null ],
-    [ "getSize", "d6/d01/a01690.html#afb3bf56a00a2482e2aaf2d50921b15e7", null ],
-    [ "operator const uint8_t *", "d6/d01/a01690.html#a395c302369d45d53c2db93af5ed3f667", null ],
-    [ "operator uint8_t *", "d6/d01/a01690.html#af1e548d29d2d913f26cd76e51aa2110d", null ],
-    [ "operator=", "d6/d01/a01690.html#a3fdf645153f22a40d6ede4e0b4d43667", null ],
-    [ "operator=", "d6/d01/a01690.html#afeac32a1c08591e60e89c8547c352871", null ],
-    [ "operator[]", "d6/d01/a01690.html#a04d29c5c8edda64d8c8e9b02a735bdc6", null ],
-    [ "setExternal", "d6/d01/a01690.html#a8f9f8ce2ff64cf4081b39f912d168a65", null ],
-    [ "setSize", "d6/d01/a01690.html#a9442fbc9e5922f8160dfa46e5fdc5a31", null ],
-    [ "holder", "d6/d01/a01690.html#a28f828f6e919ec43a1be472aa5a1ab06", null ],
-    [ "isOwned", "d6/d01/a01690.html#a813c4f64acd9fdad665a650a892bc016", null ],
-    [ "length", "d6/d01/a01690.html#adc6cc612ab1241affc0ef6b1e552dd14", null ],
-    [ "ptr", "d6/d01/a01690.html#a23f5ece8f6e0cc36d95be135474cd2f4", null ]
+    [ "BitArray", "d6/d01/a01690.html#a944a9b285048727db97923fed4cc20cc", null ],
+    [ "~BitArray", "d6/d01/a01690.html#a780ab4b915a041f0e0d4e7a6c2ca8042", null ],
+    [ "count", "d6/d01/a01690.html#aff2a5bb44a9ba404ef074f64c652cfc2", null ],
+    [ "operator T", "d6/d01/a01690.html#a9e4d492e8fe7d65292584463420f8baf", null ],
+    [ "operator=", "d6/d01/a01690.html#aa7be662268a69c42c5c81789774e92d6", null ],
+    [ "operator[]", "d6/d01/a01690.html#ad832a2ea769abdcc118f8ff3e2f8492a", null ],
+    [ "operator[]", "d6/d01/a01690.html#a623e3148ead834b49f756c93c339c804", null ],
+    [ "reset", "d6/d01/a01690.html#aabea61d59c69cc85673f3326df3198d0", null ],
+    [ "set", "d6/d01/a01690.html#a2a2f7a7838029d3a2073fee26e96a831", null ],
+    [ "size", "d6/d01/a01690.html#a2702981020d34f55ee112ff1e371d1c7", null ]
 ];

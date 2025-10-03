@@ -1,15 +1,11 @@
 var a01798 =
 [
-    [ "JaggedArray", "d2/d86/a01798.html#ac7a221b87270f5d2790ef4bb552c0c09", null ],
-    [ "~JaggedArray", "d2/d86/a01798.html#ac7800e79da903780c747cc333cbc9064", null ],
-    [ "add", "d2/d86/a01798.html#a7dbe9d142e3a841c688d6e3ee4c757da", null ],
-    [ "add", "d2/d86/a01798.html#ab561870c8a986e5f856c81fc1524596a", null ],
-    [ "add", "d2/d86/a01798.html#a0c3f3c17a891090f337d10ce1998b4d4", null ],
-    [ "clear", "d2/d86/a01798.html#a08a64933255d4cfd6bc2089de0577d47", null ],
-    [ "getVector", "d2/d86/a01798.html#a08b0699c56b63db60624b479988c42a7", null ],
-    [ "operator[]", "d2/d86/a01798.html#a1fdd83b316ef951ceb2cb70f87fe2eb3", null ],
-    [ "remove", "d2/d86/a01798.html#a55d8ec0d460f9c989dd80d6c8b75f00f", null ],
-    [ "remove", "d2/d86/a01798.html#a2e70282850b2847e8b222079f400965e", null ],
-    [ "size", "d2/d86/a01798.html#a9ea6af8be43cb7f14efbb01462db486f", null ],
-    [ "pointers", "d2/d86/a01798.html#a842c5aed6b919244cdafe70d33b28fd5", null ]
+    [ "Integrator", "d2/d86/a01798.html#a897d920c584f713cb146a7ec4cfed4a1", null ],
+    [ "~Integrator", "d2/d86/a01798.html#a2832c4982c91d0f49b567dcc8d154c09", null ],
+    [ "add", "d2/d86/a01798.html#a12a09f613edd594c47a6938fe00d8130", null ],
+    [ "isFull", "d2/d86/a01798.html#a69b222e493cd3f6f5af73233ace971b9", null ],
+    [ "operator()", "d2/d86/a01798.html#a5584f7868dfdac90fea7da1facf7b2a5", null ],
+    [ "process", "d2/d86/a01798.html#a6f8209db7b3d1c8f4ebbd7527b57ca06", null ],
+    [ "reset", "d2/d86/a01798.html#aec4d9c69fb79abf9e96ba3cfe5dfa00b", null ],
+    [ "result", "d2/d86/a01798.html#af0b0b3d534f728f885f81c41ea2eecc7", null ]
 ];

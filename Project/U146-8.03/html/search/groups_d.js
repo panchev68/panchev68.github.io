@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['touch_20screen_20driver_0',['Touch Screen driver',['../d4/deb/a00710.html',1,'']]],
-  ['touchgfx_20layer_1',['TouchGFX Layer',['../de/de6/a00723.html',1,'']]]
+  ['screen_20driver_0',['Touch Screen Driver',['../d7/d08/group___touch_screen.html',1,'']]],
+  ['serial_20eeprom_1',['64KB I2C Serial EEPROM',['../d9/dd1/group___e_e_p_r_o_m.html',1,'']]],
+  ['server_2',['CAN Bus Server',['../dd/da6/group___canbus_server.html',1,'']]],
+  ['spi_20flash_20driver_3',['W25Q128JVSIQ SPI Flash Driver',['../d7/d81/group___spi_flash.html',1,'']]],
+  ['supported_20peripherals_4',['Board Supported Peripherals',['../d5/d53/group___b_s_p.html',1,'']]],
+  ['system_20layer_5',['System Layer',['../d3/de2/group___system.html',1,'']]]
 ];

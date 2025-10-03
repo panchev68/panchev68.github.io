@@ -1,7 +1,7 @@
 var a02150 =
 [
-    [ "QueueMessage", "d4/d5d/a02150.html#ae10da5aec8d931b21400aa2db40ddf76", null ],
-    [ "operator std::vector< uint8_t >", "d4/d5d/a02150.html#a03e465a34d7e70b7d5b69fc14e8acd5d", null ],
-    [ "data", "d4/d5d/a02150.html#a4e21f71366772206f8e08e051c7c8238", null ],
-    [ "size", "d4/d5d/a02150.html#acc175efdd6199a0ad2b06c64ee0d957e", null ]
+    [ "QueryBase", "d4/d5d/a02150.html#a58274afc505fbcf5e4650b6aee520f93", null ],
+    [ "~QueryBase", "d4/d5d/a02150.html#a6dfa7d7edd411d2c5ee3bf1aa326a866", null ],
+    [ "operator Frame::Data", "d4/d5d/a02150.html#a60e123691222cb011f9e206959411d12", null ],
+    [ "frameData", "d4/d5d/a02150.html#a30e34ed89d46523222150b62c76aa931", null ]
 ];

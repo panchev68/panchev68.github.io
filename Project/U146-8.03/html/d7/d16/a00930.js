@@ -1,5 +1,5 @@
 var a00930 =
 [
-    [ "outputsNum", "d7/d16/a00930.html#acc54900a70a9ad9b3d481358133b1ebc", null ],
-    [ "switchPeriod", "d7/d16/a00930.html#acb0a0e49e26660b87aa16c6849dc0906", null ]
+    [ "backlight", "d7/d16/a00930.html#af9a94242dd06fa992401d60108f22efd", null ],
+    [ "rotation", "d7/d16/a00930.html#a6fe64328031be2d731237e9970bb6b89", null ]
 ];

@@ -1,5 +1,5 @@
 var a01962 =
 [
-    [ "temperatureValue", "d1/d0f/a01962.html#a3d93bbc5033eb9116a99512da53102dd", null ],
-    [ "voltageValue", "d1/d0f/a01962.html#a897e761e520c30855ff4c5fec0f70159", null ]
+    [ "firmwareVersion", "d1/d0f/a01962.html#a0e3af2ba44f5b2ad106d3fb9569f29de", null ],
+    [ "hardwareVersion", "d1/d0f/a01962.html#a2fa3980f9dd4e0bb2dc66d678ec055ba", null ]
 ];

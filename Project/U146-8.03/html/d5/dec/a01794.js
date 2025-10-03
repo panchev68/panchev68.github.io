@@ -1,11 +1,8 @@
 var a01794 =
 [
-    [ "Integrator", "d5/dec/a01794.html#a897d920c584f713cb146a7ec4cfed4a1", null ],
-    [ "~Integrator", "d5/dec/a01794.html#a2832c4982c91d0f49b567dcc8d154c09", null ],
-    [ "add", "d5/dec/a01794.html#a12a09f613edd594c47a6938fe00d8130", null ],
-    [ "isFull", "d5/dec/a01794.html#a69b222e493cd3f6f5af73233ace971b9", null ],
-    [ "operator()", "d5/dec/a01794.html#a5584f7868dfdac90fea7da1facf7b2a5", null ],
-    [ "process", "d5/dec/a01794.html#a6f8209db7b3d1c8f4ebbd7527b57ca06", null ],
-    [ "reset", "d5/dec/a01794.html#aec4d9c69fb79abf9e96ba3cfe5dfa00b", null ],
-    [ "result", "d5/dec/a01794.html#af0b0b3d534f728f885f81c41ea2eecc7", null ]
+    [ "XTerminateHandler", "d5/dec/a01794.html#a9da2678b5137e811bfa9d11450068840", null ],
+    [ "Exception", "d5/dec/a01794.html#a94f0a766efa5e1ce0bab96d42fc913f1", null ],
+    [ "Exception", "d5/dec/a01794.html#ab8b85cc9abb3047319eb0961ceccd6ff", null ],
+    [ "~Exception", "d5/dec/a01794.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "what", "d5/dec/a01794.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

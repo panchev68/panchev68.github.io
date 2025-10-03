@@ -1,13 +1,11 @@
 var a01806 =
 [
-    [ "Property", "db/db2/a01806.html#a24ee114ed5b741c53838d756fe2c2427", null ],
-    [ "Property", "db/db2/a01806.html#a532632353ce159ddbbead3a93e228fc4", null ],
-    [ "Property", "db/db2/a01806.html#a426447b9d9d5cdbd59f99b0c3a81316b", null ],
-    [ "Property", "db/db2/a01806.html#a70df83d6c7c1382bc46e19bf57a687be", null ],
-    [ "get", "db/db2/a01806.html#a2c8eee3792014c4b668986152fbed876", null ],
-    [ "operator const T &", "db/db2/a01806.html#a81e1e7e1b8bb9ca6bc10af527e905f97", null ],
-    [ "operator=", "db/db2/a01806.html#ac2a68dc1952f8e9e3c0380cc1f53000a", null ],
-    [ "operator=", "db/db2/a01806.html#a625eb001e6564c19b0df181c4ff5a67f", null ],
-    [ "set", "db/db2/a01806.html#af1351ee2c62afd8b2c9011fc90f4c199", null ],
-    [ "set", "db/db2/a01806.html#a6fed2a00e16f26147e3bd9d5c5f8c0c1", null ]
+    [ "MoonPhase", "db/db2/a01806.html#a7f7186b33d83f79ab229e3c7bc4b787a", null ],
+    [ "MoonPhase", "db/db2/a01806.html#acc3daabfb29a95c39da3439ec453d576", null ],
+    [ "~MoonPhase", "db/db2/a01806.html#a09b7df7620634482ff06b8f17367a7c9", null ],
+    [ "calculate", "db/db2/a01806.html#a3c3d764af02ebda6d76ed522a3c7048d", null ],
+    [ "index", "db/db2/a01806.html#a7053f318f5c93816be4d145fae2972fa", null ],
+    [ "name", "db/db2/a01806.html#a535a0ccb9979e6054fc46dfc01e5e0ea", null ],
+    [ "operator const std::string &", "db/db2/a01806.html#ab8afd18d645d2b7642d99f7d8bc5e66c", null ],
+    [ "operator uint32_t", "db/db2/a01806.html#afa23ed768db232d0ac576e91b490112f", null ]
 ];
