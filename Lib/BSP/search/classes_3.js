@@ -1,11 +1,11 @@
 var searchData=
 [
-  ['data_0',['Data',['../dc/dfa/struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data.html',1,'Lib::Digi::API::Service::Parameters::Data'],['../d3/de4/class_lib_1_1_digi_1_1_core_1_1_frame_1_1_data.html',1,'Lib::Digi::Core::Frame::Data'],['../d8/d08/class_r_t_o_s_1_1_task_1_1_data.html',1,'RTOS::Task::Data']]],
+  ['data_0',['Data',['../dc/dfa/struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data.html',1,'Lib::Digi::API::Service::Parameters::Data'],['../d3/de4/class_lib_1_1_digi_1_1_core_1_1_frame_1_1_data.html',1,'Lib::Digi::Core::Frame::Data'],['../d1/da9/struct_r_t_o_s_1_1_task_1_1_data.html',1,'RTOS::Task::Data']]],
   ['datahandle_1',['DataHandle',['../d9/d1a/class_lib_1_1_helper_1_1_data_handle.html',1,'Lib::Helper']]],
   ['date_2',['Date',['../d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html',1,'Lib::Helper::DateTime']]],
   ['datetime_3',['DateTime',['../de/d5f/class_lib_1_1_helper_1_1_date_time.html',1,'Lib::Helper']]],
   ['dbm_4',['dBM',['../de/daa/class_lib_1_1_helper_1_1_convert_1_1d_b_m.html',1,'Lib::Helper::Convert']]],
-  ['delayus_5',['DelayUs',['../d5/d5a/class_lib_1_1_helper_1_1_delay_us.html',1,'Lib::Helper']]],
+  ['delay_5',['Delay',['../d7/d08/class_lib_1_1_helper_1_1_delay.html',1,'Lib::Helper']]],
   ['devicebase_6',['DeviceBase',['../d9/d15/class_lib_1_1_b_s_p_1_1_device_manager_1_1_device_base.html',1,'Lib::BSP::DeviceManager']]],
   ['devicemanager_7',['DeviceManager',['../d9/d42/class_lib_1_1_b_s_p_1_1_device_manager.html',1,'Lib::BSP']]],
   ['devicemanagerbase_8',['DeviceManagerBase',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html',1,'Lib::HAL']]],

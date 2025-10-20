@@ -7,5 +7,6 @@ var class_lib_1_1_helper_1_1_ring_buffer =
     [ "isEmpty", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#a8a68d8ec42dbb567bfc5e1c4f6b184e2", null ],
     [ "isFull", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#aae0292d24e3da1f41e8abd6b9f709faf", null ],
     [ "pop", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#a69f27652f42b576f4b6b38b1b6355e95", null ],
-    [ "push", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#ad8577b7db6b4831e3de907d979afbece", null ]
+    [ "push", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#ad8577b7db6b4831e3de907d979afbece", null ],
+    [ "push", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#a78d4fb6d7ccfff4652cc52e7a751a4c9", null ]
 ];

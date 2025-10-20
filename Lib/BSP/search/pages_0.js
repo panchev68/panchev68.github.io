@@ -1,4 +1,21 @@
 var searchData=
 [
-  ['and_20mutexguard_0',['Example usage of RTOS::Mutex and MutexGuard.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard',1,'']]]
+  ['a_20shared_20resource_20in_20concurrent_20tasks_0',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['access_1',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
+  ['advanced_20example_3a_20using_20rtos_3a_3amutex_20for_20protecting_20a_20shared_20resource_20in_20concurrent_20tasks_2',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['allocation_20and_20diagnostics_3',['Example usage of RTOS::MemoryManager for heap allocation and diagnostics.',['../X:/Lib/IAR/inc/Lib/RTOS/MemoryManager.hpp#example-usage-of-rtosmemorymanager-for-heap-allocation-and-diagnostics',1,'']]],
+  ['and_20clientbase_4',['Example usage of TickService and ClientBase.',['../X:/Lib/IAR/inc/Lib/RTOS/TickService.hpp#example-usage-of-tickservice-and-clientbase',1,'']]],
+  ['and_20decoding_20with_20error_20correction_5',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
+  ['and_20diagnostics_6',['Example usage of RTOS::MemoryManager for heap allocation and diagnostics.',['../X:/Lib/IAR/inc/Lib/RTOS/MemoryManager.hpp#example-usage-of-rtosmemorymanager-for-heap-allocation-and-diagnostics',1,'']]],
+  ['and_20firmware_20version_20management_7',['Example usage of Version class for hardware and firmware version management.',['../X:/Lib/IAR/inc/Lib/System/Version.hpp#example-usage-of-version-class-for-hardware-and-firmware-version-management',1,'']]],
+  ['and_20heap_20diagnostics_8',['Example usage of RTOS::Kernel for task management, timing, and heap diagnostics.',['../X:/Lib/IAR/inc/Lib/RTOS/Kernel.hpp#example-usage-of-rtoskernel-for-task-management-timing-and-heap-diagnostics',1,'']]],
+  ['and_20memory_20buffers_9',['Example of using swapBytes for various integer types and memory buffers.',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#example-of-using-swapbytes-for-various-integer-types-and-memory-buffers',1,'']]],
+  ['and_20moon_20phase_20calculation_10',['Example of using the Sunset class for sunrise, sunset, and moon phase calculation.',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#example-of-using-the-sunset-class-for-sunrise-sunset-and-moon-phase-calculation',1,'']]],
+  ['and_20mutexguard_20for_20thread_20safe_20access_11',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
+  ['and_20parsing_20xcom_20frames_12',['Example usage of Protocol class for building and parsing XCOM frames.',['../X:/Lib/IAR/inc/Lib/XCOM/Protocol.hpp#example-usage-of-protocol-class-for-building-and-parsing-xcom-frames',1,'']]],
+  ['and_20receiving_20messages_13',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
+  ['and_20time_20classes_14',['Example usage of DateTime, Date, and Time classes.',['../X:/Lib/IAR/inc/Lib/Helper/DateTime.hpp#example-usage-of-datetime-date-and-time-classes',1,'']]],
+  ['arrays_20of_20integers_15',['Example usage of JaggedArray for managing jagged arrays of integers.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#example-usage-of-jaggedarray-for-managing-jagged-arrays-of-integers',1,'']]],
+  ['ascii_20character_20conversion_16',['Example usage of Ascii class for ASCII character conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'']]],
+  ['ascii_20class_20for_20ascii_20character_20conversion_17',['Example usage of Ascii class for ASCII character conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'']]]
 ];

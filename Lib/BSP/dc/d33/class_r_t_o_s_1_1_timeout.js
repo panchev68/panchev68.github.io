@@ -1,10 +1,10 @@
 var class_r_t_o_s_1_1_timeout =
 [
     [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html#a3f92605e733513d2d484f1e56732616f", null ],
-    [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html#af39b238e64a049a8ed8c93e62b9e37e3", null ],
+    [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html#aa7e80b393926dd9d2f6cfd49912146a5", null ],
     [ "disable", "dc/d33/class_r_t_o_s_1_1_timeout.html#ad588a6703c9736cf1cf1238fd9874e1f", null ],
-    [ "extend", "dc/d33/class_r_t_o_s_1_1_timeout.html#a628fdfee259eba4b9966e99cc4da26fc", null ],
-    [ "extendMs", "dc/d33/class_r_t_o_s_1_1_timeout.html#af5a4e02f8cd773102cbf3a9cd0d24dbe", null ],
+    [ "extend", "dc/d33/class_r_t_o_s_1_1_timeout.html#af5dab82accf6b7348ddfe085c20e20c4", null ],
+    [ "extendMs", "dc/d33/class_r_t_o_s_1_1_timeout.html#ad964cb7ef28b873abf941e8ff655bf3b", null ],
     [ "getDuration", "dc/d33/class_r_t_o_s_1_1_timeout.html#a0181a397dcbe24f883b16403edb0dc80", null ],
     [ "getDurationMs", "dc/d33/class_r_t_o_s_1_1_timeout.html#ab0e24523379064ca4af722150366c353", null ],
     [ "getElapsed", "dc/d33/class_r_t_o_s_1_1_timeout.html#a7d284ed1a91d568f176eb93a816e2b13", null ],
@@ -19,14 +19,14 @@ var class_r_t_o_s_1_1_timeout =
     [ "operator bool", "dc/d33/class_r_t_o_s_1_1_timeout.html#a91278feb2a2991bfdf95d6a849f46919", null ],
     [ "operator TickType", "dc/d33/class_r_t_o_s_1_1_timeout.html#aef6290c600bc3d6a209df352aeb3c4c4", null ],
     [ "operator!=", "dc/d33/class_r_t_o_s_1_1_timeout.html#a11a9f02a546f98502dce9d30a4d8562f", null ],
-    [ "operator+=", "dc/d33/class_r_t_o_s_1_1_timeout.html#abf78c4c7fcebc3eeaff9d92d4849155c", null ],
-    [ "operator-=", "dc/d33/class_r_t_o_s_1_1_timeout.html#a45089833ae08c0df4d4dd7321323908e", null ],
-    [ "operator=", "dc/d33/class_r_t_o_s_1_1_timeout.html#aa2354674b639ed23fc78b0480b6630eb", null ],
+    [ "operator+=", "dc/d33/class_r_t_o_s_1_1_timeout.html#a679c487c10ae4f10573239618915d341", null ],
+    [ "operator-=", "dc/d33/class_r_t_o_s_1_1_timeout.html#a0ae2a0f3a1489c7517ad0ff460843755", null ],
+    [ "operator=", "dc/d33/class_r_t_o_s_1_1_timeout.html#a009a69e4230ac29678a37aa04e2daf42", null ],
     [ "operator==", "dc/d33/class_r_t_o_s_1_1_timeout.html#a2e21851db10482d0274ec8adb2a74d75", null ],
     [ "reset", "dc/d33/class_r_t_o_s_1_1_timeout.html#a09aec4ad865ca9b9275f8e0060f93314", null ],
-    [ "set", "dc/d33/class_r_t_o_s_1_1_timeout.html#ad284d793baaa181e0241a2a5b1f8ea3a", null ],
+    [ "set", "dc/d33/class_r_t_o_s_1_1_timeout.html#a559d053c431419c37eb01a65b2523c74", null ],
     [ "setMilliseconds", "dc/d33/class_r_t_o_s_1_1_timeout.html#a52c0f44c1a6b6f4009f6ed93153fd18f", null ],
-    [ "setSeconds", "dc/d33/class_r_t_o_s_1_1_timeout.html#a382ed892633de8ff732ae268c4e85c58", null ],
-    [ "willExpireWithin", "dc/d33/class_r_t_o_s_1_1_timeout.html#afa5201886dcc6c0974c3752324d0d51c", null ],
-    [ "willExpireWithinMs", "dc/d33/class_r_t_o_s_1_1_timeout.html#a415352c21da62d71455c1125aba9f066", null ]
+    [ "setSeconds", "dc/d33/class_r_t_o_s_1_1_timeout.html#a16bd88741697e1982bf87543480f1e4b", null ],
+    [ "willExpireWithin", "dc/d33/class_r_t_o_s_1_1_timeout.html#a5f6d717f1c112c27c17e6cdac1770c2a", null ],
+    [ "willExpireWithinMs", "dc/d33/class_r_t_o_s_1_1_timeout.html#a9e227af5491b90346a72de5bef9a159d", null ]
 ];

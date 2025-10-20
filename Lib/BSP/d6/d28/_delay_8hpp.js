@@ -1,4 +1,4 @@
 var _delay_8hpp =
 [
-    [ "Lib::Helper::DelayUs", "d5/d5a/class_lib_1_1_helper_1_1_delay_us.html", "d5/d5a/class_lib_1_1_helper_1_1_delay_us" ]
+    [ "Lib::Helper::Delay", "d7/d08/class_lib_1_1_helper_1_1_delay.html", null ]
 ];

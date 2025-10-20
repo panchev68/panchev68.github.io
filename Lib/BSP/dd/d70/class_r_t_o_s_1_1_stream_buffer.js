@@ -1,8 +1,5 @@
 var class_r_t_o_s_1_1_stream_buffer =
 [
-    [ "StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a689f901c2a0767c8bfa6588ecc6279a4", null ],
-    [ "~StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a4279301601dc12497575fbe9b250f62a", null ],
-    [ "StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a935040ce16ea4f9dae2f5596b21516d6", null ],
     [ "create", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#aa2c511443cf2207c917749583857480a", null ],
     [ "destroy", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a61e72fe0b7e6d6115d71d9d7e789cdb5", null ],
     [ "getBytesAvailable", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a106b6b1961b742c76bd83f3d032aad3a", null ],
@@ -16,7 +13,6 @@ var class_r_t_o_s_1_1_stream_buffer =
     [ "isEmpty", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#ac63276981f0f2652f909f8caf99eded6", null ],
     [ "isFull", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#ab28a179ad13782df9ebce66f220d9084", null ],
     [ "operator Handle &", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a8f44e79071890fe52737b0a611f8204b", null ],
-    [ "operator=", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a60c80251d968c318350f7db4b26781a7", null ],
     [ "receive", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a2f834c797b0531c384526b653a69382c", null ],
     [ "receiveForever", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a0b1c3892fd000e37ac3994ee02d066c5", null ],
     [ "receiveFromISR", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a468f0e726b4e418f48f34533e5351506", null ],

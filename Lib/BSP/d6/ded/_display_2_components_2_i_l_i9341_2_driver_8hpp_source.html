@@ -107,254 +107,253 @@ $(function(){initNavTree('d6/ded/_display_2_components_2_i_l_i9341_2_driver_8hpp
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dd5/_b_s_p_2_display_2_components_2_template_8hpp.html">Lib/BSP/Display/Components/Template.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/dd0/_g_p_i_o_8hpp.html">Lib/HAL/GPIO.hpp</a>&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d73/_s_p_i_8hpp.html">Lib/HAL/SPI.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d06/_integrator_8hpp.html">Lib/Helper/Integrator.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html">Registers.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">namespace </span>Lib::BSP::Display {</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"></span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">/** ILI9341 display controller driver.</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * Provides initialization, configuration, and pixel data transfer for ILI9341.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">template</span> &lt;&gt; <span class="keyword">class </span><a class="code hl_class" href="../../dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html">Driver</a>&lt;<a class="code hl_enumeration" href="../../d8/dd5/_b_s_p_2_display_2_components_2_template_8hpp.html#abce278c9e48f7f4b0be0c20c7c142d73">Controller</a>::<a class="code hl_typedef" href="../../d1/db8/_i_l_i9341_8hpp.html#a62bc20ecfb713696b3f744fc5833d417">ILI9341</a>&gt; : <span class="keyword">public</span> <a class="code hl_class" href="../../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html">DriverBase</a> {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    /** Configuration structure for ILI9341 driver.</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     * Contains SPI and GPIO handles required for operation.</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     */</span></div>
-<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">   30</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">Config</a> {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a5abb69571055f2522dd47451e37532de">   31</a></span>        SPI_HandleTypeDef * <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a5abb69571055f2522dd47451e37532de">spi</a>; <span class="comment">/*!&lt; SPI handle. */</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a96a9055d3ed018f98db3b0b54cd5ed69">   32</a></span>        PinHandle <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a96a9055d3ed018f98db3b0b54cd5ed69">dcPin</a>;         <span class="comment">/*!&lt; Data/Command pin handle. */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#ac483c840dae55b7b5ea7d9d9d6e4476f">   33</a></span>        PinHandle <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#ac483c840dae55b7b5ea7d9d9d6e4476f">csPin</a>;         <span class="comment">/*!&lt; Chip Select pin handle. */</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa5042772c08d179d43c85d36e342ef8f">   34</a></span>        PinHandle <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa5042772c08d179d43c85d36e342ef8f">rstPin</a>;        <span class="comment">/*!&lt; Reset pin handle. */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    };</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html">Registers.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">namespace </span>Lib::BSP::Display {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"></span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">/** ILI9341 display controller driver.</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * Provides initialization, configuration, and pixel data transfer for ILI9341.</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">template</span> &lt;&gt; <span class="keyword">class </span><a class="code hl_class" href="../../dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html">Driver</a>&lt;<a class="code hl_enumeration" href="../../d8/dd5/_b_s_p_2_display_2_components_2_template_8hpp.html#abce278c9e48f7f4b0be0c20c7c142d73">Controller</a>::<a class="code hl_typedef" href="../../d1/db8/_i_l_i9341_8hpp.html#a62bc20ecfb713696b3f744fc5833d417">ILI9341</a>&gt; : <span class="keyword">public</span> <a class="code hl_class" href="../../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html">DriverBase</a> {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">    /** Configuration structure for ILI9341 driver.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     * Contains SPI and GPIO handles required for operation.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="};">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">   29</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">Config</a> {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a5abb69571055f2522dd47451e37532de">   30</a></span>        SPI_HandleTypeDef * <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a5abb69571055f2522dd47451e37532de">spi</a>; <span class="comment">/*!&lt; SPI handle. */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a96a9055d3ed018f98db3b0b54cd5ed69">   31</a></span>        PinHandle <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a96a9055d3ed018f98db3b0b54cd5ed69">dcPin</a>;         <span class="comment">/*!&lt; Data/Command pin handle. */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#ac483c840dae55b7b5ea7d9d9d6e4476f">   32</a></span>        PinHandle <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#ac483c840dae55b7b5ea7d9d9d6e4476f">csPin</a>;         <span class="comment">/*!&lt; Chip Select pin handle. */</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa5042772c08d179d43c85d36e342ef8f">   33</a></span>        PinHandle <a class="code hl_variable" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa5042772c08d179d43c85d36e342ef8f">rstPin</a>;        <span class="comment">/*!&lt; Reset pin handle. */</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
 </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"></span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">    /** Constructor of the Driver class.</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     * @param config Driver configuration.</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">explicit</span> Driver(<span class="keyword">const</span> <a class="code hl_struct" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">Config</a> &amp; config)</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        : spiPort(config.spi, this), dcPin(config.dcPin), csPin(config.csPin), rstPin(config.rstPin) {}</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    /** Destructor of the Driver class. */</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="../../dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html">~Driver</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">    /** Initializes the ILI9341 display controller.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     * @return `true` if initialization succeeded, `false` otherwise.</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">bool</span> setup()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <span class="keyword">constexpr</span> uint8_t INIT_SEQUENCE[] = {</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            4, Registers::POWCTRB, 0x00, 0xc3, 0x30,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            5, Registers::POWONSEQCTRL, 0x64, 0x03, 0x12, 0x81,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            4, Registers::DRVTCTRA, 0x85, 0x10, 0x79,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            6, Registers::POWCTRA, 0x39, 0x2c, 0x00, 0x34, 0x02,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            2, Registers::PUMPCRTL, 0x20,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            3, Registers::DRVTCTRB, 0x00, 0x00,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            2, Registers::PWCTR1, 0x22,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            2, Registers::PWCTR2, 0x11,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            3, Registers::VMCTR1, 0x3a, 0x1c,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            2, Registers::VMCTR2, 0xa9,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            2, Registers::MADCTL, 0b01111000,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            2, Registers::PIXFMT, 0x55,</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            3, Registers::FRMCTR1, 0x00, 0x1b,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            3, Registers::DFUNCTR, 0x0a, 0xa2,</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            3, 0xf6, 0x01, 0x1d,</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            2, Registers::ENBLABLE3G, 0x00,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            2, Registers::GAMMASET, 0x01,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            16, Registers::GMCTRP1, 0x0f, 0x3f, 0x2f, 0x0c, 0x10, 0x0a, 0x53, 0xd5, 0x40, 0x0a, 0x13, 0x03, 0x08, 0x03, 0x00,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            16, Registers::GMCTRN1, 0x00, 0x00, 0x10, 0x03, 0x0f, 0x05, 0x2c, 0xa2, 0x3f, 0x05, 0x0e, 0x0c, 0x37, 0x3c, 0x0F,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            1, Registers::INVON,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            1, Registers::SLPOUT,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            0};</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">constexpr</span> uint8_t BACKLIGHT_OFF = 0;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">constexpr</span> uint8_t BACKLIGHT_ON = 100;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">constexpr</span> uint32_t DELAY_SHORT = 100;</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">constexpr</span> uint32_t DELAY_LONG = 120;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        <span class="keyword">constexpr</span> uint32_t DELAY_FINAL = 150;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        csPin.write(1);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        spiPort.init();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        setBacklight(BACKLIGHT_OFF);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        vTaskDelay(DELAY_SHORT);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        resetDevice();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        csPin.write(0);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> uint8_t * seq = INIT_SEQUENCE; *seq; seq += seq[0] + 1) {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            sendCommand(seq[1]);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; seq[0] - 1; ++i) sendData(seq[2 + i]);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        vTaskDelay(DELAY_LONG);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        sendCommand(Registers::DISPON);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        vTaskDelay(DELAY_FINAL);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        setBacklight(BACKLIGHT_ON);</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"></span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">    /** Transmits a rectangular block of pixel data to the display.</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     * @param buffer Pointer to pixel data buffer.</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     * @param x X-coordinate of block start.</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     * @param y Y-coordinate of block start.</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">     * @param width Width of the block.</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">     * @param height Height of the block.</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordtype">void</span> transmitBlock(<span class="keyword">const</span> <span class="keywordtype">void</span> * buffer, uint32_t x, uint32_t y, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        assert(buffer);</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        assert(width);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        assert(height);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        assert(width * height &lt;= 0xffff);</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">const</span> <span class="keyword">auto</span> * pixelData = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>uint16_t *<span class="keyword">&gt;</span>(buffer);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keyword">auto</span> spi = spiPort.getHandle();</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keywordflow">if</span> (spi-&gt;Init.DataSize != SPI_DATASIZE_8BIT) {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            spi-&gt;Init.DataSize = SPI_DATASIZE_8BIT;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            HAL_SPI_Init(spi);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        setAddressWindow(x, y, width, height);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        sendCommand(Registers::RAMWR);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keywordflow">if</span> (spi-&gt;Init.DataSize != SPI_DATASIZE_16BIT) {</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            spi-&gt;Init.DataSize = SPI_DATASIZE_16BIT;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            HAL_SPI_Init(spi);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        }</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        setTransferActive(1);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        spiPort.sendBlock(pixelData, width * height);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">protected</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">    /** SPI communication handler for ILI9341 driver.</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">     * Provides SPI data transfer and event handling.</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">     */</span></div>
-<div class="foldopen" id="foldopen00127" data-start="{" data-end="};">
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html">  127</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">SpiPort</a> : <span class="keyword">public</span> Lib::HAL::SpiPort {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">        /** Constructor of the SpiPort class.</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">         * @param spiHandle SPI handle.</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">         * @param parent Parent driver pointer.</span></div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment">         */</span></div>
-<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">  133</a></span>        <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">SpiPort</a>(SPI_HandleTypeDef * spiHandle, Driver&lt;Controller::ILI9341&gt; * parent)</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>            : Lib::<a class="code hl_namespace" href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">HAL</a>::<a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">SpiPort</a>(spiHandle), parent(parent) {}</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">    /** Constructor of the Driver class.</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">     * @param config Driver configuration.</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keyword">explicit</span> Driver(<span class="keyword">const</span> <a class="code hl_struct" href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">Config</a> &amp; config)</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        : spiPort(config.spi, this), dcPin(config.dcPin), csPin(config.csPin), rstPin(config.rstPin) {}</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    /** Destructor of the Driver class. */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="../../dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html">~Driver</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">    /** Initializes the ILI9341 display controller.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     * @return `true` if initialization succeeded, `false` otherwise.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">bool</span> setup()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">constexpr</span> uint8_t INIT_SEQUENCE[] = {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            4, Registers::POWCTRB, 0x00, 0xc3, 0x30,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>            5, Registers::POWONSEQCTRL, 0x64, 0x03, 0x12, 0x81,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>            4, Registers::DRVTCTRA, 0x85, 0x10, 0x79,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            6, Registers::POWCTRA, 0x39, 0x2c, 0x00, 0x34, 0x02,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            2, Registers::PUMPCRTL, 0x20,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            3, Registers::DRVTCTRB, 0x00, 0x00,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            2, Registers::PWCTR1, 0x22,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            2, Registers::PWCTR2, 0x11,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            3, Registers::VMCTR1, 0x3a, 0x1c,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            2, Registers::VMCTR2, 0xa9,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            2, Registers::MADCTL, 0b01111000,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            2, Registers::PIXFMT, 0x55,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            3, Registers::FRMCTR1, 0x00, 0x1b,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            3, Registers::DFUNCTR, 0x0a, 0xa2,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            3, 0xf6, 0x01, 0x1d,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            2, Registers::ENBLABLE3G, 0x00,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            2, Registers::GAMMASET, 0x01,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            16, Registers::GMCTRP1, 0x0f, 0x3f, 0x2f, 0x0c, 0x10, 0x0a, 0x53, 0xd5, 0x40, 0x0a, 0x13, 0x03, 0x08, 0x03, 0x00,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            16, Registers::GMCTRN1, 0x00, 0x00, 0x10, 0x03, 0x0f, 0x05, 0x2c, 0xa2, 0x3f, 0x05, 0x0e, 0x0c, 0x37, 0x3c, 0x0F,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            1, Registers::INVON,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            1, Registers::SLPOUT,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>            0};</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>        <span class="keyword">constexpr</span> uint8_t BACKLIGHT_OFF = 0;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keyword">constexpr</span> uint8_t BACKLIGHT_ON = 100;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keyword">constexpr</span> uint32_t DELAY_SHORT = 100;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">constexpr</span> uint32_t DELAY_LONG = 120;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <span class="keyword">constexpr</span> uint32_t DELAY_FINAL = 150;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        csPin.write(1);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        spiPort.init();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        setBacklight(BACKLIGHT_OFF);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        vTaskDelay(DELAY_SHORT);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        resetDevice();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        csPin.write(0);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> uint8_t * seq = INIT_SEQUENCE; *seq; seq += seq[0] + 1) {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            sendCommand(seq[1]);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; seq[0] - 1; ++i) sendData(seq[2 + i]);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        }</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        vTaskDelay(DELAY_LONG);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        sendCommand(Registers::DISPON);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        vTaskDelay(DELAY_FINAL);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        setBacklight(BACKLIGHT_ON);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">    /** Transmits a rectangular block of pixel data to the display.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">     * @param buffer Pointer to pixel data buffer.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">     * @param x X-coordinate of block start.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">     * @param y Y-coordinate of block start.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">     * @param width Width of the block.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">     * @param height Height of the block.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">void</span> transmitBlock(<span class="keyword">const</span> <span class="keywordtype">void</span> * buffer, uint32_t x, uint32_t y, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>        assert(buffer);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        assert(width);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        assert(height);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        assert(width * height &lt;= 0xffff);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keyword">const</span> <span class="keyword">auto</span> * pixelData = <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>uint16_t *<span class="keyword">&gt;</span>(buffer);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keyword">auto</span> spi = spiPort.getHandle();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">if</span> (spi-&gt;Init.DataSize != SPI_DATASIZE_8BIT) {</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            spi-&gt;Init.DataSize = SPI_DATASIZE_8BIT;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            HAL_SPI_Init(spi);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        setAddressWindow(x, y, width, height);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        sendCommand(Registers::RAMWR);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        <span class="keywordflow">if</span> (spi-&gt;Init.DataSize != SPI_DATASIZE_16BIT) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            spi-&gt;Init.DataSize = SPI_DATASIZE_16BIT;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            HAL_SPI_Init(spi);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        setTransferActive(1);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        spiPort.sendBlock(pixelData, width * height);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">protected</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">    /** SPI communication handler for ILI9341 driver.</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">     * Provides SPI data transfer and event handling.</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="};">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html">  126</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">SpiPort</a> : <span class="keyword">public</span> Lib::HAL::SpiPort {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">        /** Constructor of the SpiPort class.</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">         * @param spiHandle SPI handle.</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">         * @param parent Parent driver pointer.</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">  132</a></span>        <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">SpiPort</a>(SPI_HandleTypeDef * spiHandle, Driver&lt;Controller::ILI9341&gt; * parent)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>            : Lib::<a class="code hl_namespace" href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">HAL</a>::<a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">SpiPort</a>(spiHandle), parent(parent) {}</div>
 </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"></span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">        /** Sends a block of pixel data.</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">         * @param buffer Pointer to pixel data.</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">         * @param size Number of pixels.</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">         * @return `true` if transmission started, `false` otherwise.</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">         */</span></div>
-<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#a17134ba24a97f9574e9edca9d27c185e">  141</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#a17134ba24a97f9574e9edca9d27c185e">sendBlock</a>(<span class="keyword">const</span> uint16_t * buffer, <span class="keywordtype">size_t</span> size) {</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            assert(buffer);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            assert(size);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            <span class="keywordflow">return</span> Lib::HAL::SpiPort::sendData(buffer, size);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"></span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">        /** Sends a block of pixel data.</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">         * @param buffer Pointer to pixel data.</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">         * @param size Number of pixels.</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment">         * @return `true` if transmission started, `false` otherwise.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#a17134ba24a97f9574e9edca9d27c185e">  140</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#a17134ba24a97f9574e9edca9d27c185e">sendBlock</a>(<span class="keyword">const</span> uint16_t * buffer, <span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            assert(buffer);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            assert(size);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            <span class="keywordflow">return</span> Lib::HAL::SpiPort::sendData(buffer, size);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        }</div>
 </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment"></span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">        /** Sends a single byte via SPI.</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">         * @param value Byte value to send.</span></div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">         * @return `true` if sent, `false` otherwise.</span></div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">         */</span></div>
-<div class="foldopen" id="foldopen00151" data-start="{" data-end="}">
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aec80d0127efb090362bf3db388852d15">  151</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aec80d0127efb090362bf3db388852d15">sendByte</a>(uint8_t value) {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <span class="keywordtype">bool</span> result = (HAL_SPI_Transmit(<a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">getHandle</a>(), &amp;value, <span class="keyword">sizeof</span>(uint8_t), 10) == HAL_OK);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            assert(result);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        }</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment"></span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">        /** Sends a single byte via SPI.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">         * @param value Byte value to send.</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">         * @return `true` if sent, `false` otherwise.</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aec80d0127efb090362bf3db388852d15">  150</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aec80d0127efb090362bf3db388852d15">sendByte</a>(uint8_t value) {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            <span class="keywordtype">bool</span> result = (HAL_SPI_Transmit(<a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">getHandle</a>(), &amp;value, <span class="keyword">sizeof</span>(uint8_t), 10) == HAL_OK);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            assert(result);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        }</div>
 </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment"></span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">        /** Gets SPI handle.</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">         * @return SPI handle pointer.</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">  160</a></span>        SPI_HandleTypeDef * <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">getHandle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Lib::HAL::SpiPort::getHandle(); }</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment"></span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="comment">        /** Handles SPI transfer complete event. */</span></div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef">  163</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef">handleTxCompleteEvent</a>() { parent-&gt;handleTransferCompleteEvent(); }</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        Driver&lt;Controller::ILI9341&gt; * parent; <span class="comment">/*!&lt; Parent driver pointer. */</span></div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment"></span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">        /** Sends data buffer using DMA via SPI.</span></div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">         * @param buffer Pointer to data buffer.</span></div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">         * @param bufferSize Size of buffer in bytes.</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">         * @return `true` if DMA transmission started, `false` otherwise.</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">         * @note Assertion fails if DMA transmission could not be started.</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordtype">bool</span> sendData(<span class="keyword">const</span> <span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> bufferSize)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordtype">bool</span> result = HAL_SPI_Transmit_DMA(getHandle(), <span class="keyword">static_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(<span class="keyword">const_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(buffer)), bufferSize) == HAL_OK;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            assert(result);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    };</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment"></span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">        /** Gets SPI handle.</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">         * @return SPI handle pointer.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">  159</a></span>        SPI_HandleTypeDef * <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">getHandle</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> Lib::HAL::SpiPort::getHandle(); }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment"></span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">        /** Handles SPI transfer complete event. */</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef">  162</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef">handleTxCompleteEvent</a>() { parent-&gt;handleTransferCompleteEvent(); }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        Driver&lt;Controller::ILI9341&gt; * parent; <span class="comment">/*!&lt; Parent driver pointer. */</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment"></span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="comment">        /** Sends data buffer using DMA via SPI.</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="comment">         * @param buffer Pointer to data buffer.</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">         * @param bufferSize Size of buffer in bytes.</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">         * @return `true` if DMA transmission started, `false` otherwise.</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">         * @note Assertion fails if DMA transmission could not be started.</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordtype">bool</span> sendData(<span class="keyword">const</span> <span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> bufferSize)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="keywordtype">bool</span> result = HAL_SPI_Transmit_DMA(getHandle(), <span class="keyword">static_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(<span class="keyword">const_cast&lt;</span><span class="keywordtype">void</span> *<span class="keyword">&gt;</span>(buffer)), bufferSize) == HAL_OK;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            assert(result);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    };</div>
 </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    SpiPort spiPort;  <span class="comment">/*!&lt; SPI communication handler. */</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    PinOutput dcPin;  <span class="comment">/*!&lt; Data/Command pin. */</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    PinOutput csPin;  <span class="comment">/*!&lt; Chip Select pin. */</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    PinOutput rstPin; <span class="comment">/*!&lt; Reset pin. */</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment"></span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">    /** Sets the address window for pixel data transfer.</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     * @param x X-coordinate of window start.</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     * @param y Y-coordinate of window start.</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">     * @param width Width of the window.</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">     * @param height Height of the window.</span></div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordtype">void</span> setAddressWindow(uint32_t x, uint32_t y, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height) {</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        setPosition(Registers::CASET, x, x + width - 1);</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>        setPosition(Registers::PASET, y, y + height - 1);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    }</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment"></span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">    /** Sends position command and data.</span></div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">     * @param reg Register address.</span></div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">     * @param start Start value.</span></div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">     * @param end End value.</span></div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">void</span> setPosition(uint8_t reg, uint32_t start, uint32_t end) {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        uint8_t d[4] = {HI_BYTE(start), LO_BYTE(start), HI_BYTE(end), LO_BYTE(end)};</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        sendCommand(reg);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">for</span> (uint8_t b : d) spiPort.sendByte(b);</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    }</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment"></span> </div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">    /** Sets display rotation mode.</span></div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">     * @param rotate `true` for rotated orientation, `false` for default.</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordtype">void</span> setRotation(<span class="keywordtype">bool</span> rotate) {</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        sendCommand(Registers::MADCTL);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        sendData(rotate ? 0b10111000 : 0b01111000);</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    }</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment"></span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">    /** Sets backlight brightness.</span></div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">     * @param value Brightness value (0-100).</span></div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setBacklight(uint8_t value) = 0;</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"></span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">    /** Handles SPI transfer complete event. */</span></div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">void</span> handleTransferCompleteEvent()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        setTransferActive(0);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <a class="code hl_function" href="../../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html#a50d19e0792a7a08a81b9f29f968dffed">DriverBase::handleTransferCompleteEvent</a>();</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    }</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">    /** Sends a command byte to the display.</span></div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">     * @param command Command byte.</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordtype">void</span> sendCommand(uint8_t command) {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        dcPin.write(0);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        sendData(command);</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        dcPin.write(1);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    }</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment"></span> </div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">    /** Sends a data byte to the display.</span></div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">     * @param data Data byte.</span></div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <span class="keywordtype">void</span> sendData(uint8_t data) { spiPort.sendByte(data); }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment"></span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">    /** Resets the display device. */</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keywordtype">void</span> resetDevice() {</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        rstPin.write(0);</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        vTaskDelay(10);</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        rstPin.write(1);</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        vTaskDelay(120);</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    }</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>};</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>} <span class="comment">// namespace Lib::BSP::Display</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    SpiPort spiPort;  <span class="comment">/*!&lt; SPI communication handler. */</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    PinOutput dcPin;  <span class="comment">/*!&lt; Data/Command pin. */</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    PinOutput csPin;  <span class="comment">/*!&lt; Chip Select pin. */</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    PinOutput rstPin; <span class="comment">/*!&lt; Reset pin. */</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"></span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">    /** Sets the address window for pixel data transfer.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">     * @param x X-coordinate of window start.</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">     * @param y Y-coordinate of window start.</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">     * @param width Width of the window.</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">     * @param height Height of the window.</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">void</span> setAddressWindow(uint32_t x, uint32_t y, <span class="keywordtype">size_t</span> width, <span class="keywordtype">size_t</span> height) {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        setPosition(Registers::CASET, x, x + width - 1);</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        setPosition(Registers::PASET, y, y + height - 1);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment"></span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">    /** Sends position command and data.</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">     * @param reg Register address.</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment">     * @param start Start value.</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">     * @param end End value.</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">void</span> setPosition(uint8_t reg, uint32_t start, uint32_t end) {</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        uint8_t d[4] = {HI_BYTE(start), LO_BYTE(start), HI_BYTE(end), LO_BYTE(end)};</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        sendCommand(reg);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        <span class="keywordflow">for</span> (uint8_t b : d) spiPort.sendByte(b);</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="comment"></span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">    /** Sets display rotation mode.</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">     * @param rotate `true` for rotated orientation, `false` for default.</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">void</span> setRotation(<span class="keywordtype">bool</span> rotate) {</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        sendCommand(Registers::MADCTL);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        sendData(rotate ? 0b10111000 : 0b01111000);</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    }</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment"></span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">    /** Sets backlight brightness.</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">     * @param value Brightness value (0-100).</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> setBacklight(uint8_t value) = 0;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment"></span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment">    /** Handles SPI transfer complete event. */</span></div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">void</span> handleTransferCompleteEvent()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        setTransferActive(0);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <a class="code hl_function" href="../../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html#a50d19e0792a7a08a81b9f29f968dffed">DriverBase::handleTransferCompleteEvent</a>();</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="comment">    /** Sends a command byte to the display.</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment">     * @param command Command byte.</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordtype">void</span> sendCommand(uint8_t command) {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        dcPin.write(0);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        sendData(command);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        dcPin.write(1);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span><span class="comment"></span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="comment">    /** Sends a data byte to the display.</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="comment">     * @param data Data byte.</span></div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keywordtype">void</span> sendData(uint8_t data) { spiPort.sendByte(data); }</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment"></span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">    /** Resets the display device. */</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">void</span> resetDevice() {</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        rstPin.write(0);</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        vTaskDelay(10);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        rstPin.write(1);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        vTaskDelay(120);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>};</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>} <span class="comment">// namespace Lib::BSP::Display</span></div>
 <div class="ttc" id="a_b_s_p_2_display_2_components_2_template_8hpp_html"><div class="ttname"><a href="../../d8/dd5/_b_s_p_2_display_2_components_2_template_8hpp.html">Template.hpp</a></div><div class="ttdoc">Template definitions for display controllers.</div></div>
 <div class="ttc" id="a_b_s_p_2_display_2_components_2_template_8hpp_html_abce278c9e48f7f4b0be0c20c7c142d73"><div class="ttname"><a href="../../d8/dd5/_b_s_p_2_display_2_components_2_template_8hpp.html#abce278c9e48f7f4b0be0c20c7c142d73">Lib::BSP::Display::Controller</a></div><div class="ttdeci">Controller</div><div class="ttdoc">Enumeration of supported display controllers.</div><div class="ttdef"><b>Definition</b> BSP/Display/Components/Template.hpp:13</div></div>
 <div class="ttc" id="a_backlight_8hpp_html"><div class="ttname"><a href="../../d9/d0c/_backlight_8hpp.html">Backlight.hpp</a></div><div class="ttdoc">Backlight control and dimming driver.</div></div>
@@ -362,23 +361,22 @@ $(function(){initNavTree('d6/ded/_display_2_components_2_i_l_i9341_2_driver_8hpp
 <div class="ttc" id="a_display_2_components_2_i_l_i9341_2_registers_8hpp_html"><div class="ttname"><a href="../../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html">Registers.hpp</a></div><div class="ttdoc">Register definitions for ILI9341 display controller.</div></div>
 <div class="ttc" id="a_g_p_i_o_8hpp_html"><div class="ttname"><a href="../../db/dd0/_g_p_i_o_8hpp.html">GPIO.hpp</a></div><div class="ttdoc">GPIO HAL interface header.</div></div>
 <div class="ttc" id="a_i_l_i9341_8hpp_html_a62bc20ecfb713696b3f744fc5833d417"><div class="ttname"><a href="../../d1/db8/_i_l_i9341_8hpp.html#a62bc20ecfb713696b3f744fc5833d417">Lib::BSP::Display::ILI9341</a></div><div class="ttdeci">Driver&lt; Controller::ILI9341 &gt; ILI9341</div><div class="ttdoc">Alias for the ILI9341 display driver.</div><div class="ttdef"><b>Definition</b> ILI9341.hpp:14</div></div>
-<div class="ttc" id="a_integrator_8hpp_html"><div class="ttname"><a href="../../db/d06/_integrator_8hpp.html">Integrator.hpp</a></div><div class="ttdoc">Moving average integrator for fixed-size window.</div></div>
 <div class="ttc" id="a_r_t_o_s_8hpp_html"><div class="ttname"><a href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and class includes.</div></div>
 <div class="ttc" id="a_s_p_i_8hpp_html"><div class="ttname"><a href="../../dd/d73/_s_p_i_8hpp.html">SPI.hpp</a></div><div class="ttdoc">SPI interface header file.</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_a17134ba24a97f9574e9edca9d27c185e"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#a17134ba24a97f9574e9edca9d27c185e">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::sendBlock</a></div><div class="ttdeci">bool sendBlock(const uint16_t *buffer, size_t size)</div><div class="ttdoc">Sends a block of pixel data.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:141</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_aac5d8bc02a32f8245b4d0369c44d0a4e"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::SpiPort</a></div><div class="ttdeci">SpiPort(SPI_HandleTypeDef *spiHandle, Driver&lt; Controller::ILI9341 &gt; *parent)</div><div class="ttdoc">Constructor of the SpiPort class.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:133</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_abbb4543b7cdcb161c7b633ac92b5705b"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::getHandle</a></div><div class="ttdeci">SPI_HandleTypeDef * getHandle() const</div><div class="ttdoc">Gets SPI handle.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:160</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_ad74136788350d364708ad0e7c7dcf3ef"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::handleTxCompleteEvent</a></div><div class="ttdeci">void handleTxCompleteEvent()</div><div class="ttdoc">Handles SPI transfer complete event.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:163</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_aec80d0127efb090362bf3db388852d15"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aec80d0127efb090362bf3db388852d15">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::sendByte</a></div><div class="ttdeci">bool sendByte(uint8_t value)</div><div class="ttdoc">Sends a single byte via SPI.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:151</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_a17134ba24a97f9574e9edca9d27c185e"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#a17134ba24a97f9574e9edca9d27c185e">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::sendBlock</a></div><div class="ttdeci">bool sendBlock(const uint16_t *buffer, size_t size)</div><div class="ttdoc">Sends a block of pixel data.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:140</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_aac5d8bc02a32f8245b4d0369c44d0a4e"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aac5d8bc02a32f8245b4d0369c44d0a4e">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::SpiPort</a></div><div class="ttdeci">SpiPort(SPI_HandleTypeDef *spiHandle, Driver&lt; Controller::ILI9341 &gt; *parent)</div><div class="ttdoc">Constructor of the SpiPort class.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:132</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_abbb4543b7cdcb161c7b633ac92b5705b"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#abbb4543b7cdcb161c7b633ac92b5705b">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::getHandle</a></div><div class="ttdeci">SPI_HandleTypeDef * getHandle() const</div><div class="ttdoc">Gets SPI handle.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:159</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_ad74136788350d364708ad0e7c7dcf3ef"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::handleTxCompleteEvent</a></div><div class="ttdeci">void handleTxCompleteEvent()</div><div class="ttdoc">Handles SPI transfer complete event.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:162</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port_html_aec80d0127efb090362bf3db388852d15"><div class="ttname"><a href="../../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#aec80d0127efb090362bf3db388852d15">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort::sendByte</a></div><div class="ttdeci">bool sendByte(uint8_t value)</div><div class="ttdoc">Sends a single byte via SPI.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:150</div></div>
 <div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_base_html"><div class="ttname"><a href="../../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html">Lib::BSP::Display::DriverBase</a></div><div class="ttdoc">Abstract base class for display drivers.</div><div class="ttdef"><b>Definition</b> Display/Components/DriverBase.hpp:19</div></div>
 <div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_base_html_a50d19e0792a7a08a81b9f29f968dffed"><div class="ttname"><a href="../../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html#a50d19e0792a7a08a81b9f29f968dffed">Lib::BSP::Display::DriverBase::handleTransferCompleteEvent</a></div><div class="ttdeci">virtual void handleTransferCompleteEvent()</div><div class="ttdoc">Handles the transfer complete event.</div><div class="ttdef"><b>Definition</b> Display/Components/DriverBase.hpp:45</div></div>
 <div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_display_1_1_driver_html"><div class="ttname"><a href="../../dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html">Lib::BSP::Display::Driver</a></div><div class="ttdoc">Display driver template for specific controllers.</div><div class="ttdef"><b>Definition</b> BSP/Display/Components/Template.hpp:22</div></div>
-<div class="ttc" id="anamespace_lib_1_1_h_a_l_html"><div class="ttname"><a href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a></div><div class="ttdoc">Hardware Abstraction Layer (HAL) documentation.</div><div class="ttdef"><b>Definition</b> ADCPort.hpp:13</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config</a></div><div class="ttdoc">Configuration structure for ILI9341 driver.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:30</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_a5abb69571055f2522dd47451e37532de"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a5abb69571055f2522dd47451e37532de">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::spi</a></div><div class="ttdeci">SPI_HandleTypeDef * spi</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:31</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_a96a9055d3ed018f98db3b0b54cd5ed69"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a96a9055d3ed018f98db3b0b54cd5ed69">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::dcPin</a></div><div class="ttdeci">PinHandle dcPin</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:32</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_aa5042772c08d179d43c85d36e342ef8f"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa5042772c08d179d43c85d36e342ef8f">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::rstPin</a></div><div class="ttdeci">PinHandle rstPin</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:34</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_ac483c840dae55b7b5ea7d9d9d6e4476f"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#ac483c840dae55b7b5ea7d9d9d6e4476f">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::csPin</a></div><div class="ttdeci">PinHandle csPin</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:33</div></div>
+<div class="ttc" id="anamespace_lib_1_1_h_a_l_html"><div class="ttname"><a href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a></div><div class="ttdoc">Hardware Abstraction Layer (HAL) documentation.</div><div class="ttdef"><b>Definition</b> ADCPort.hpp:14</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config</a></div><div class="ttdoc">Configuration structure for ILI9341 driver.</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:29</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_a5abb69571055f2522dd47451e37532de"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a5abb69571055f2522dd47451e37532de">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::spi</a></div><div class="ttdeci">SPI_HandleTypeDef * spi</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:30</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_a96a9055d3ed018f98db3b0b54cd5ed69"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a96a9055d3ed018f98db3b0b54cd5ed69">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::dcPin</a></div><div class="ttdeci">PinHandle dcPin</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:31</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_aa5042772c08d179d43c85d36e342ef8f"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa5042772c08d179d43c85d36e342ef8f">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::rstPin</a></div><div class="ttdeci">PinHandle rstPin</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:33</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config_html_ac483c840dae55b7b5ea7d9d9d6e4476f"><div class="ttname"><a href="../../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#ac483c840dae55b7b5ea7d9d9d6e4476f">Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config::csPin</a></div><div class="ttdeci">PinHandle csPin</div><div class="ttdef"><b>Definition</b> Display/Components/ILI9341/Driver.hpp:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

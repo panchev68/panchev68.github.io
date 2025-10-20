@@ -1,8 +1,6 @@
 var class_lib_1_1_canbus_1_1_can_service_base =
 [
     [ "Diagnostic", "d4/d29/struct_lib_1_1_canbus_1_1_can_service_base_1_1_diagnostic.html", "d4/d29/struct_lib_1_1_canbus_1_1_can_service_base_1_1_diagnostic" ],
-    [ "CanServiceBase", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html#a4144026677759a3180eda264ec7f0140", null ],
-    [ "~CanServiceBase", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html#a166b6e9d1e6754f704b9f68e75fcaae2", null ],
     [ "getDiagnostic", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html#a2864f2a93ab005b7561a92d82d06c4a3", null ],
     [ "handleErrorEvent", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html#a2e88d28175f81a6cc95043378612a1de", null ],
     [ "handleMessageReceivedEvent", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html#a3fddfccd9ea22a792894799a9b006208", null ],

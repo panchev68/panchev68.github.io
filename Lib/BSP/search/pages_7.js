@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['m24c16_20eeprom_20driver_20class_0',['Example usage of the M24C16 EEPROM driver class.',['../X:/Lib/IAR/inc/Lib/BSP/EEPROM/I2C/M24C16.hpp#example-usage-of-the-m24c16-eeprom-driver-class',1,'']]],
-  ['m24c64w_20eeprom_20driver_1',['Example usage of the M24C64W EEPROM driver.',['../X:/Lib/IAR/inc/Lib/BSP/EEPROM/I2C/M24C64W.hpp#example-usage-of-the-m24c64w-eeprom-driver',1,'']]],
-  ['mutexguard_2',['Example usage of RTOS::Mutex and MutexGuard.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard',1,'']]]
+  ['in_20concurrent_20tasks_0',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['instance_20helpers_1',['Example usage of singleton instance helpers.',['../X:/Lib/IAR/inc/Lib/Helper/instance.hpp#example-usage-of-singleton-instance-helpers',1,'']]],
+  ['integer_20types_20and_20memory_20buffers_2',['Example of using swapBytes for various integer types and memory buffers.',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#example-of-using-swapbytes-for-various-integer-types-and-memory-buffers',1,'']]],
+  ['integers_3',['Example usage of JaggedArray for managing jagged arrays of integers.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#example-usage-of-jaggedarray-for-managing-jagged-arrays-of-integers',1,'']]],
+  ['interpolation_20with_20standard_20output_4',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]]
 ];

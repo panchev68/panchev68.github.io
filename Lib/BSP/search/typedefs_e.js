@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ticktype_0',['TickType',['../db/ddd/class_r_t_o_s_1_1_event_group.html#a033b94b6ee235e14580246b0d5cd2394',1,'RTOS::EventGroup']]]
+  ['xterminatehandler_0',['XTerminateHandler',['../d0/d22/class_lib_1_1_helper_1_1_exception.html#a9da2678b5137e811bfa9d11450068840',1,'Lib::Helper::Exception']]]
 ];

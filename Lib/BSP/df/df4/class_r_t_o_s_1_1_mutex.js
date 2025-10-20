@@ -5,7 +5,7 @@ var class_r_t_o_s_1_1_mutex =
       [ "NORMAL", "df/df4/class_r_t_o_s_1_1_mutex.html#a26d98a7cc72991078b6451ce810e841ea1e23852820b9154316c7c06e2b7ba051", null ],
       [ "RECURSIVE", "df/df4/class_r_t_o_s_1_1_mutex.html#a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638", null ]
     ] ],
-    [ "Mutex", "df/df4/class_r_t_o_s_1_1_mutex.html#a8242ca861b3f5ef8bf1ccc5a4c2f7c1b", null ],
+    [ "Mutex", "df/df4/class_r_t_o_s_1_1_mutex.html#af8835e310bfc17c2cfb2891a38b563d5", null ],
     [ "~Mutex", "df/df4/class_r_t_o_s_1_1_mutex.html#a766309378d3f1b9ad25492973f7d5c99", null ],
     [ "Mutex", "df/df4/class_r_t_o_s_1_1_mutex.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
     [ "create", "df/df4/class_r_t_o_s_1_1_mutex.html#adafcd69724aefab8d317c4473760d965", null ],

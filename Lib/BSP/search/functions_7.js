@@ -1,7 +1,7 @@
 var searchData=
 [
   ['hammingcode_0',['HammingCode',['../d1/db4/class_lib_1_1_math_1_1_hamming_code.html#aa2ddd761ce40e8a494570e9c428a15b0',1,'Lib::Math::HammingCode']]],
-  ['handle_1',['Handle',['../de/d0a/class_lib_1_1_h_a_l_1_1_handle.html#aff43d8f955691110437006cc7b708492',1,'Lib::HAL::Handle::Handle(T_HANDLE *handle)'],['../de/d0a/class_lib_1_1_h_a_l_1_1_handle.html#a61d105fbe173f96de8909502bd479b5a',1,'Lib::HAL::Handle::Handle()=delete']]],
+  ['handle_1',['Handle',['../de/d0a/class_lib_1_1_h_a_l_1_1_handle.html#aff43d8f955691110437006cc7b708492',1,'Lib::HAL::Handle::Handle(T_HANDLE *handle)'],['../de/d0a/class_lib_1_1_h_a_l_1_1_handle.html#a61d105fbe173f96de8909502bd479b5a',1,'Lib::HAL::Handle::Handle()=delete'],['../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187',1,'Handle::Handle()']]],
   ['handleapplicationprocess_2',['handleApplicationProcess',['../d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a68179032e365b80b51f92871a3a6370e',1,'Lib::Ethernet::Wiznet::ClientBase']]],
   ['handleconnectionstatechangedevent_3',['handleConnectionStateChangedEvent',['../d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a46ca686ccf72ecfd252f289bcafebcda',1,'Lib::Ethernet::Wiznet::ClientBase::handleConnectionStateChangedEvent(ConnectionState newState)=0'],['../d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a19b056f53cdbbb15ad191dc38d95a1b7',1,'Lib::Ethernet::Wiznet::ClientBase::handleConnectionStateChangedEvent(ConnectionState state)=0']]],
   ['handleerrorevent_4',['handleErrorEvent',['../db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html#a2e88d28175f81a6cc95043378612a1de',1,'Lib::Canbus::CanServiceBase']]],
@@ -23,13 +23,13 @@ var searchData=
   ['handletransfercompleteevent_20',['handleTransferCompleteEvent',['../df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html#a50d19e0792a7a08a81b9f29f968dffed',1,'Lib::BSP::Display::DriverBase']]],
   ['handletxcompleteevent_21',['handleTxCompleteEvent',['../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html#ad74136788350d364708ad0e7c7dcf3ef',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort']]],
   ['handlevaluechanged_22',['handleValueChanged',['../dd/da1/class_lib_1_1_b_s_p_1_1_voltmeter_1_1_base.html#a481c4ec27b49a8e51a16fec28ec9d21e',1,'Lib::BSP::Voltmeter::Base']]],
-  ['hardware_23',['Hardware',['../d1/dd7/class_lib_1_1_system_1_1_version_1_1_hardware.html#ae76715433dfa8efdc4f4eedb1d234a82',1,'Lib::System::Version::Hardware']]],
+  ['hardware_23',['Hardware',['../d1/dd7/class_lib_1_1_system_1_1_version_1_1_hardware.html#a40334b5c4a7c020200eca36290b728d3',1,'Lib::System::Version::Hardware']]],
   ['hardwareversion_24',['HardwareVersion',['../df/d44/class_lib_1_1_system_1_1_hardware_version.html#a58984c51af93ac8985a580219aed8a76',1,'Lib::System::HardwareVersion']]],
   ['hasdata_25',['hasData',['../dd/d70/class_r_t_o_s_1_1_stream_buffer.html#ade34797262b4f41441646aece7747bcc',1,'RTOS::StreamBuffer']]],
-  ['hasrunningtasks_26',['hasRunningTasks',['../d4/d93/class_r_t_o_s_1_1_kernel.html#a99ee8d57d81ca5d469c839e8beee1d5b',1,'RTOS::Kernel']]],
-  ['hasspace_27',['hasSpace',['../dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a859b528b648aa22f0334cd2ed7b9feaa',1,'RTOS::StreamBuffer']]],
-  ['hasspierror_28',['hasSpiError',['../d3/d3a/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs.html#aee204a6cbdf55da3b5cbbe6c628c8d7f',1,'Lib::BSP::DigitalPeripheralBase::Outputs']]],
-  ['hastimedout_29',['hasTimedOut',['../da/d2c/class_r_t_o_s_1_1_tick_counter.html#ae65b19457bd9b4fe8ecca581ad42adf6',1,'RTOS::TickCounter']]],
-  ['hastimedoutticks_30',['hasTimedOutTicks',['../da/d2c/class_r_t_o_s_1_1_tick_counter.html#a29654984a0cf81674d5a17fcc63d7df3',1,'RTOS::TickCounter']]],
-  ['hex_31',['Hex',['../d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html#abc6cc78131a51816d9660f1bfc5b49be',1,'Lib::Helper::Convert::Hex&lt; uint8_t &gt;::Hex()'],['../df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html#ad9d2d516494b975599f71aba7d014e21',1,'Lib::Helper::Convert::Hex&lt; uint16_t &gt;::Hex()'],['../db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html#a6244fa16d02f426fadfd2a4024dd0181',1,'Lib::Helper::Convert::Hex&lt; uint64_t &gt;::Hex(uint64_t value)'],['../db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html#a5eb7e05a00d7e6f23ef8af9794a8b098',1,'Lib::Helper::Convert::Hex&lt; uint64_t &gt;::Hex(uint64_t *ptr)'],['../db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html#a01d6c290adbfb19b9d24a8c7915fa08d',1,'Lib::Helper::Convert::Hex&lt; uint64_t &gt;::Hex(const uint64_t *ptr)']]]
+  ['hash_26',['hash',['../d1/d22/class_lib_1_1_helper_1_1_city_hash.html#ad1421ab56cd848c5596cc1dc29194d93',1,'Lib::Helper::CityHash']]],
+  ['hasrunningtasks_27',['hasRunningTasks',['../d4/d93/class_r_t_o_s_1_1_kernel.html#a99ee8d57d81ca5d469c839e8beee1d5b',1,'RTOS::Kernel']]],
+  ['hasspace_28',['hasSpace',['../dd/d70/class_r_t_o_s_1_1_stream_buffer.html#a859b528b648aa22f0334cd2ed7b9feaa',1,'RTOS::StreamBuffer']]],
+  ['hasspierror_29',['hasSpiError',['../d3/d3a/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs.html#aee204a6cbdf55da3b5cbbe6c628c8d7f',1,'Lib::BSP::DigitalPeripheralBase::Outputs']]],
+  ['hastimedout_30',['hasTimedOut',['../da/d2c/class_r_t_o_s_1_1_tick_counter.html#ae65b19457bd9b4fe8ecca581ad42adf6',1,'RTOS::TickCounter']]],
+  ['hastimedoutticks_31',['hasTimedOutTicks',['../da/d2c/class_r_t_o_s_1_1_tick_counter.html#a29654984a0cf81674d5a17fcc63d7df3',1,'RTOS::TickCounter']]]
 ];

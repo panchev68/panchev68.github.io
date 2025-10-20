@@ -94,40 +94,71 @@ $(function(){initNavTree('dd/d7a/_r_t_o_s_1_1_kernel-example.html','../../','');
   <div class="headertitle"><div class="title">RTOS::Kernel</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-rtoskernel"></a>
-Example usage of RTOS::Kernel</h1>
-<p>Demonstrates basic usage of RTOS::Kernel APIs for task delay, tick retrieval, and heap diagnostics.</p>
-<hr  />
-<dl class="section user"><dt>Example usage:</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d8b/_kernel_8hpp.html">Kernel.hpp</a>&quot;</span></div>
+<h2 class="doxsection"><a class="anchor" id="example-usage-of-rtoskernel-for-task-management-timing-and-heap-diagnostics"></a>
+Example usage of RTOS::Kernel for task management, timing, and heap diagnostics.</h2>
+<p>This example demonstrates how to use the <span class="tt">RTOS::Kernel</span> class to manage tasks, perform delays, enter critical sections, and retrieve heap and scheduler information in a FreeRTOS-based system.</p>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<p>The example creates a simple task, demonstrates delays, critical section usage, and prints heap and scheduler information to the standard output.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d8b/_kernel_8hpp.html">Lib/RTOS/Kernel.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Delay for 1000 milliseconds (1 second)</span></div>
-<div class="line">    <a id="a0" name="a0"></a><a class="code hl_function" href="../../dd/d8b/_kernel_8hpp.html#adc2c0e0e2347eb4c99e3fd264571b10d">RTOS::delay</a>(1000);</div>
+<div class="line"><span class="keywordtype">void</span> exampleTask(<span class="keywordtype">void</span> *param) {</div>
+<div class="line">    <span class="comment">// Print initial heap info</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_struct" href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html">RTOS::Kernel::MemoryInfo</a> memInfo = RTOS::Kernel::getMemoryInfo();</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Initial heap: total=%u, free=%u, minFree=%u\n&quot;</span>,</div>
+<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(memInfo.<a id="a1" name="a1"></a><a class="code hl_variable" href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html#a83580325c3df5098f79f23bd212fb20a">totalHeap</a>),</div>
+<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(memInfo.<a id="a2" name="a2"></a><a class="code hl_variable" href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html#a944d10ce32d8114a8a1349e2582022bd">freeHeap</a>),</div>
+<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(memInfo.<a id="a3" name="a3"></a><a class="code hl_variable" href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html#ae46d426a02aaacb8ac8552b7c3bd5e72">minimumFreeHeap</a>));</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Get current tick count</span></div>
-<div class="line">    RTOS::Kernel::TickType ticks = <a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d8b/_kernel_8hpp.html#a171abd2231ac3f45bc58d0241887dc4d">RTOS::getTicks</a>();</div>
+<div class="line">    <span class="comment">// Delay for 500 ms</span></div>
+<div class="line">    <a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ae3ea57199fa9aa21eb52b7af62f7e121">RTOS::Kernel::delayMs</a>(500);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Convert 500 ms to ticks</span></div>
-<div class="line">    uint32_t tickCount = <a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/d8b/_kernel_8hpp.html#a2527a41f829e60bf06ce95de9f2ee65d">RTOS::msToTicks</a>(500);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Get heap usage percent</span></div>
-<div class="line">    uint8_t heapUsage = RTOS::Kernel::getHeapUsagePercent();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Use critical section</span></div>
-<div class="line">    <a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ab829ab6ad769923dd01b4fad6d5d89e1">RTOS::Kernel::withCriticalSection</a>([]() {</div>
-<div class="line">        <span class="comment">// Critical section code here</span></div>
+<div class="line">    <span class="comment">// Enter critical section</span></div>
+<div class="line">    <a id="a5" name="a5"></a><a class="code hl_function" href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ab829ab6ad769923dd01b4fad6d5d89e1">RTOS::Kernel::withCriticalSection</a>([] {</div>
+<div class="line">        std::printf(<span class="stringliteral">&quot;In critical section\n&quot;</span>);</div>
 <div class="line">    });</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// Print tick count and uptime</span></div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Tick count: %u\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(<a id="_a6" name="_a6"></a><a class="code hl_function" href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#a170c0fdb885c138c4e4706cfc4cbee0f">RTOS::Kernel::getTickCount</a>()));</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Uptime (ms): %u\n&quot;</span>, <a id="_a7" name="_a7"></a><a class="code hl_function" href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ad746860c8adad35654a4d3d596d1ea3c">RTOS::Kernel::getUptimeMs</a>());</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Print scheduler state</span></div>
+<div class="line">    <span class="keyword">auto</span> state = RTOS::Kernel::getSchedulerState();</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Scheduler state: %d\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(state));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Print heap usage percent</span></div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Heap usage: %u%%\n&quot;</span>, RTOS::Kernel::getHeapUsagePercent());</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// End task</span></div>
+<div class="line">    vTaskDelete(<span class="keyword">nullptr</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <span class="comment">// Start FreeRTOS scheduler with one task</span></div>
+<div class="line">    xTaskCreate(exampleTask, <span class="stringliteral">&quot;Example&quot;</span>, 256, <span class="keyword">nullptr</span>, 1, <span class="keyword">nullptr</span>);</div>
+<div class="line">    <a id="a8" name="a8"></a><a class="code hl_function" href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#a3bbcfaa4177f2c2663b559f1fd7c154e">RTOS::Kernel::startScheduler</a>();</div>
+<div class="line">    <span class="comment">// Should never reach here</span></div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_kernel_8hpp_html"><div class="ttname"><a href="../../dd/d8b/_kernel_8hpp.html">Kernel.hpp</a></div><div class="ttdoc">Kernel abstraction for FreeRTOS task, tick, and memory management.</div></div>
-<div class="ttc" id="a_kernel_8hpp_html_a171abd2231ac3f45bc58d0241887dc4d"><div class="ttname"><a href="../../dd/d8b/_kernel_8hpp.html#a171abd2231ac3f45bc58d0241887dc4d">RTOS::getTicks</a></div><div class="ttdeci">Kernel::TickType getTicks()</div><div class="ttdoc">Gets current tick count.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:436</div></div>
-<div class="ttc" id="a_kernel_8hpp_html_a2527a41f829e60bf06ce95de9f2ee65d"><div class="ttname"><a href="../../dd/d8b/_kernel_8hpp.html#a2527a41f829e60bf06ce95de9f2ee65d">RTOS::msToTicks</a></div><div class="ttdeci">uint32_t msToTicks(uint32_t ms)</div><div class="ttdoc">Converts milliseconds to ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:442</div></div>
-<div class="ttc" id="a_kernel_8hpp_html_adc2c0e0e2347eb4c99e3fd264571b10d"><div class="ttname"><a href="../../dd/d8b/_kernel_8hpp.html#adc2c0e0e2347eb4c99e3fd264571b10d">RTOS::delay</a></div><div class="ttdeci">void delay(uint32_t ms)</div><div class="ttdoc">Delays current task by milliseconds.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:429</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_kernel_html_ab829ab6ad769923dd01b4fad6d5d89e1"><div class="ttname"><a href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ab829ab6ad769923dd01b4fad6d5d89e1">RTOS::Kernel::withCriticalSection</a></div><div class="ttdeci">static void withCriticalSection(FUNC &amp;&amp;func)</div><div class="ttdoc">Executes function in critical section.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:303</div></div>
-</div><!-- fragment --></dd></dl>
-<p>This example shows how to use the RTOS::Kernel static APIs for delays, tick conversion, heap diagnostics, and critical section management in a FreeRTOS-based embedded application.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aclass_r_t_o_s_1_1_kernel_html_a170c0fdb885c138c4e4706cfc4cbee0f"><div class="ttname"><a href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#a170c0fdb885c138c4e4706cfc4cbee0f">RTOS::Kernel::getTickCount</a></div><div class="ttdeci">static TickType getTickCount()</div><div class="ttdoc">Gets current tick count.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:208</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_kernel_html_a3bbcfaa4177f2c2663b559f1fd7c154e"><div class="ttname"><a href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#a3bbcfaa4177f2c2663b559f1fd7c154e">RTOS::Kernel::startScheduler</a></div><div class="ttdeci">static void startScheduler()</div><div class="ttdoc">Starts scheduler.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:332</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_kernel_html_ab829ab6ad769923dd01b4fad6d5d89e1"><div class="ttname"><a href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ab829ab6ad769923dd01b4fad6d5d89e1">RTOS::Kernel::withCriticalSection</a></div><div class="ttdeci">static void withCriticalSection(FUNC &amp;&amp;func)</div><div class="ttdoc">Executes function in critical section.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:315</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_kernel_html_ad746860c8adad35654a4d3d596d1ea3c"><div class="ttname"><a href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ad746860c8adad35654a4d3d596d1ea3c">RTOS::Kernel::getUptimeMs</a></div><div class="ttdeci">static uint32_t getUptimeMs()</div><div class="ttdoc">Gets system uptime in milliseconds.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:228</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_kernel_html_ae3ea57199fa9aa21eb52b7af62f7e121"><div class="ttname"><a href="../../d4/d93/class_r_t_o_s_1_1_kernel.html#ae3ea57199fa9aa21eb52b7af62f7e121">RTOS::Kernel::delayMs</a></div><div class="ttdeci">static void delayMs(uint32_t milliseconds)</div><div class="ttdoc">Delays current task by milliseconds.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:268</div></div>
+<div class="ttc" id="astruct_r_t_o_s_1_1_kernel_1_1_memory_info_html"><div class="ttname"><a href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html">RTOS::Kernel::MemoryInfo</a></div><div class="ttdoc">Heap memory diagnostic info.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:52</div></div>
+<div class="ttc" id="astruct_r_t_o_s_1_1_kernel_1_1_memory_info_html_a83580325c3df5098f79f23bd212fb20a"><div class="ttname"><a href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html#a83580325c3df5098f79f23bd212fb20a">RTOS::Kernel::MemoryInfo::totalHeap</a></div><div class="ttdeci">size_t totalHeap</div><div class="ttdef"><b>Definition</b> Kernel.hpp:53</div></div>
+<div class="ttc" id="astruct_r_t_o_s_1_1_kernel_1_1_memory_info_html_a944d10ce32d8114a8a1349e2582022bd"><div class="ttname"><a href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html#a944d10ce32d8114a8a1349e2582022bd">RTOS::Kernel::MemoryInfo::freeHeap</a></div><div class="ttdeci">size_t freeHeap</div><div class="ttdef"><b>Definition</b> Kernel.hpp:54</div></div>
+<div class="ttc" id="astruct_r_t_o_s_1_1_kernel_1_1_memory_info_html_ae46d426a02aaacb8ac8552b7c3bd5e72"><div class="ttname"><a href="../../db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html#ae46d426a02aaacb8ac8552b7c3bd5e72">RTOS::Kernel::MemoryInfo::minimumFreeHeap</a></div><div class="ttdeci">size_t minimumFreeHeap</div><div class="ttdef"><b>Definition</b> Kernel.hpp:55</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
+<p>The output will show heap statistics, tick count, uptime, scheduler state, and heap usage percent.</p>
+<div class="fragment"><div class="line">Initial heap: total=..., free=..., minFree=...</div>
+<div class="line">In critical section</div>
+<div class="line">Tick count: ...</div>
+<div class="line">Uptime (ms): ...</div>
+<div class="line">Scheduler state: 2</div>
+<div class="line">Heap usage: ...%</div>
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

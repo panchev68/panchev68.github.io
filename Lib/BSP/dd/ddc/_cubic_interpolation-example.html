@@ -94,30 +94,41 @@ $(function(){initNavTree('dd/ddc/_cubic_interpolation-example.html','../../','')
   <div class="headertitle"><div class="title">CubicInterpolation</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example demonstrating cubic spline interpolation for sensor data.</p>
-<p>Example demonstrating cubic spline interpolation for sensor data.This example shows how to use the CubicInterpolation class to interpolate sensor readings at arbitrary input values. It initializes the interpolation table with sample data points, configures boundary conditions, and performs interpolation and derivative queries. </p><dl class="section user"><dt>Example Usage</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/de7/_cubic_interpolation_8hpp.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<h1 class="doxsection"><a class="anchor" id="cubic-spline-interpolation-example"></a>
+Cubic Spline Interpolation Example</h1>
+<p>This example demonstrates how to use the CubicInterpolation class for smooth interpolation between data points in an embedded system. It shows adding points, setting boundary conditions, and performing interpolation.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="example-usage-18"></a>
+Example usage:</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/de7/_cubic_interpolation_8hpp.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="keyword">using </span>Interp = <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../db/de7/_cubic_interpolation_8hpp.html#a76861a7df56b49da47b5af64ec37c08e">CubicInterpolationF</a>;</div>
-<div class="line">    Interp interp;</div>
-<div class="line">    interp.addPoint(0.0f, 0.0f);</div>
-<div class="line">    interp.addPoint(1.0f, 2.0f);</div>
-<div class="line">    interp.addPoint(2.0f, 0.0f);</div>
-<div class="line">    interp.setBoundaryConditions(Interp::BoundaryType::NATURAL);</div>
-<div class="line">    <span class="keywordtype">float</span> x = 1.5f;</div>
-<div class="line">    <span class="keywordtype">float</span> y = interp.interpolate(x);</div>
-<div class="line">    <span class="keywordtype">float</span> dy = interp.getDerivative(x);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Interpolated value at x = &quot;</span> &lt;&lt; x &lt;&lt; <span class="stringliteral">&quot; is &quot;</span> &lt;&lt; y &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Derivative at x = &quot;</span> &lt;&lt; x &lt;&lt; <span class="stringliteral">&quot; is &quot;</span> &lt;&lt; dy &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Create interpolation object with natural boundary conditions</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../db/de7/_cubic_interpolation_8hpp.html#a76861a7df56b49da47b5af64ec37c08e">CubicInterpolationF</a> interp;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Add data points</span></div>
+<div class="line">    interp.<a id="a1" name="a1"></a><a class="code hl_function" href="../../da/dc6/class_cubic_interpolation.html#ac1b29fdbbc1117ce47ac3c194eba84e6">addPoint</a>(0.0f, 0.0f);</div>
+<div class="line">    interp.<a class="code hl_function" href="../../da/dc6/class_cubic_interpolation.html#ac1b29fdbbc1117ce47ac3c194eba84e6">addPoint</a>(1.0f, 1.0f);</div>
+<div class="line">    interp.<a class="code hl_function" href="../../da/dc6/class_cubic_interpolation.html#ac1b29fdbbc1117ce47ac3c194eba84e6">addPoint</a>(2.0f, 4.0f);</div>
+<div class="line">    interp.<a class="code hl_function" href="../../da/dc6/class_cubic_interpolation.html#ac1b29fdbbc1117ce47ac3c194eba84e6">addPoint</a>(3.0f, 9.0f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Interpolate at x = 1.5</span></div>
+<div class="line">    <span class="keywordtype">float</span> result = interp.<a id="a2" name="a2"></a><a class="code hl_function" href="../../da/dc6/class_cubic_interpolation.html#acb6952082aa6ee79c3eaa5497afaaf56">interpolate</a>(1.5f);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Get derivative at x = 1.5</span></div>
+<div class="line">    <span class="keywordtype">float</span> deriv = interp.<a id="a3" name="a3"></a><a class="code hl_function" href="../../da/dc6/class_cubic_interpolation.html#af8ac81ced3cfbcc8358f187f42474e12">getDerivative</a>(1.5f);</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_cubic_interpolation_8hpp_html"><div class="ttname"><a href="../../db/de7/_cubic_interpolation_8hpp.html">CubicInterpolation.hpp</a></div><div class="ttdoc">Implements cubic spline interpolation for STM32 embedded systems.</div></div>
 <div class="ttc" id="a_cubic_interpolation_8hpp_html_a76861a7df56b49da47b5af64ec37c08e"><div class="ttname"><a href="../../db/de7/_cubic_interpolation_8hpp.html#a76861a7df56b49da47b5af64ec37c08e">CubicInterpolationF</a></div><div class="ttdeci">CubicInterpolation&lt; float, float &gt; CubicInterpolationF</div><div class="ttdoc">Type alias for float-based cubic interpolation.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:321</div></div>
-</div><!-- fragment --></dd></dl>
-<dl class="section user"><dt>Expected Output</dt><dd><div class="fragment"><div class="line">Interpolated value at x = 1.5 is 1</div>
-<div class="line">Derivative at x = 1.5 is -3</div>
-</div><!-- fragment --></dd></dl>
+<div class="ttc" id="aclass_cubic_interpolation_html_ac1b29fdbbc1117ce47ac3c194eba84e6"><div class="ttname"><a href="../../da/dc6/class_cubic_interpolation.html#ac1b29fdbbc1117ce47ac3c194eba84e6">CubicInterpolation::addPoint</a></div><div class="ttdeci">bool addPoint(const Point &amp;point)</div><div class="ttdoc">Add a data point to the interpolation table.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:143</div></div>
+<div class="ttc" id="aclass_cubic_interpolation_html_acb6952082aa6ee79c3eaa5497afaaf56"><div class="ttname"><a href="../../da/dc6/class_cubic_interpolation.html#acb6952082aa6ee79c3eaa5497afaaf56">CubicInterpolation::interpolate</a></div><div class="ttdeci">T_VALUE interpolate(T_INPUT x)</div><div class="ttdoc">Perform cubic spline interpolation for a given input value.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:191</div></div>
+<div class="ttc" id="aclass_cubic_interpolation_html_af8ac81ced3cfbcc8358f187f42474e12"><div class="ttname"><a href="../../da/dc6/class_cubic_interpolation.html#af8ac81ced3cfbcc8358f187f42474e12">CubicInterpolation::getDerivative</a></div><div class="ttdeci">T_VALUE getDerivative(T_INPUT x)</div><div class="ttdoc">Get the first derivative at a given input value.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:205</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="expected-output-14"></a>
+Expected output:</h2>
+<p>The interpolated value at x = 1.5 should be approximately 2.25 (quadratic function y = x^2). The derivative at x = 1.5 should be approximately 3.0.</p>
+<hr  />
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

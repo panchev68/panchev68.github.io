@@ -25,10 +25,8 @@ var searchData=
   ['spi2en_22',['SPI2EN',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba2a3aad958b55e3585c329703d03a768a',1,'Lib::BSP::Display']]],
   ['st7789_23',['ST7789',['../d8/dd5/_b_s_p_2_display_2_components_2_template_8hpp.html#abce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199',1,'Lib::BSP::Display']]],
   ['stack_5ferror_24',['STACK_ERROR',['../db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#a1ca3b1d6d0209c50bd947bfccb88bb66ad2884fa6c360974bc033ce3ab23c63f6',1,'Lib::Digi::Core::Frame0x8a']]],
-  ['state_5factive_25',['STATE_ACTIVE',['../db/ddd/class_r_t_o_s_1_1_event_group.html#a548ac7c2c1698a2ba9273c46d34b30dcaba58ebecca82dc96e823c77db3698ff3',1,'RTOS::EventGroup']]],
-  ['state_5finvalid_26',['STATE_INVALID',['../db/ddd/class_r_t_o_s_1_1_event_group.html#a548ac7c2c1698a2ba9273c46d34b30dca96a60f9b9ba8c12ac5a2b9ab1413e3cb',1,'RTOS::EventGroup']]],
-  ['status_5fchanged_27',['STATUS_CHANGED',['../d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4',1,'Lib::Errors::Dispatcher']]],
-  ['ste_28',['STE',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515bae527e6a1e4c0f58008a5972f58006fc8',1,'Lib::BSP::Display']]],
-  ['success_29',['SUCCESS',['../d7/d3d/class_lib_1_1_digi_1_1_core_1_1_frame0x89.html#a1f2d004cd4c6fbc142552586f654c372ad0749aaba8b833466dfcbb0428e4f89c',1,'Lib::Digi::Core::Frame0x89::SUCCESS'],['../db/d7d/class_r_t_o_s_1_1_memory_manager.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c',1,'RTOS::MemoryManager::SUCCESS']]],
-  ['swreset_30',['SWRESET',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba710cf29764a32e64d2d70db3e4850044',1,'Lib::BSP::Display']]]
+  ['status_5fchanged_25',['STATUS_CHANGED',['../d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4',1,'Lib::Errors::Dispatcher']]],
+  ['ste_26',['STE',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515bae527e6a1e4c0f58008a5972f58006fc8',1,'Lib::BSP::Display']]],
+  ['success_27',['SUCCESS',['../d7/d3d/class_lib_1_1_digi_1_1_core_1_1_frame0x89.html#a1f2d004cd4c6fbc142552586f654c372ad0749aaba8b833466dfcbb0428e4f89c',1,'Lib::Digi::Core::Frame0x89::SUCCESS'],['../db/d7d/class_r_t_o_s_1_1_memory_manager.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c',1,'RTOS::MemoryManager::SUCCESS']]],
+  ['swreset_28',['SWRESET',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba710cf29764a32e64d2d70db3e4850044',1,'Lib::BSP::Display']]]
 ];

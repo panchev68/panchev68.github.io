@@ -1,13 +1,4 @@
 var searchData=
 [
-  ['of_20bsp_3a_3abeep_0',['Example usage of BSP::Beep',['../X:/Projects/U146-Firmware/8.03/Project/BSP/Beep.hpp#example-usage-of-bspbeep',1,'']]],
-  ['of_20delay_20classes_20for_20precise_20timing_1',['Example usage of Delay classes for precise timing.',['../X:/Projects/U146-Firmware/8.03/Lib/Helper/Delay.hpp#example-usage-of-delay-classes-for-precise-timing',1,'']]],
-  ['of_20messagebuffer_20for_20inter_20task_20communication_2',['Example usage of MessageBuffer for inter-task communication.',['../X:/Projects/U146-Firmware/8.03/Lib/FreeRTOS/MessageBuffer.hpp#example-usage-of-messagebuffer-for-inter-task-communication',1,'']]],
-  ['of_20modelsystem_20for_20system_20metadata_20access_20and_20ui_20integration_3',['Example usage of ModelSystem for system metadata access and UI integration.',['../X:/Projects/U146-Firmware/8.03/Project/TouchGFX/Model/ModelSystem.hpp#example-usage-of-modelsystem-for-system-metadata-access-and-ui-integration',1,'']]],
-  ['of_20semaphorecounting_20in_20freertos_4',['Example usage of SemaphoreCounting in FreeRTOS.',['../X:/Projects/U146-Firmware/8.03/Lib/FreeRTOS/SemaphoreCounting.hpp#example-usage-of-semaphorecounting-in-freertos',1,'']]],
-  ['of_20the_20can_20bus_20client_20base_20class_5',['Example usage of the CAN bus client base class.',['../X:/Projects/U146-Firmware/8.03/Lib/Canbus/ClientBase.hpp#example-usage-of-the-can-bus-client-base-class',1,'']]],
-  ['of_20the_20digitalperipheral_20class_6',['Example usage of the DigitalPeripheral class.',['../X:/Projects/U146-Firmware/8.03/Project/BSP/DigitalPeripheral.hpp#example-usage-of-the-digitalperipheral-class',1,'']]],
-  ['of_20the_20tickcounter_20utility_20class_7',['Example usage of the TickCounter utility class.',['../X:/Projects/U146-Firmware/8.03/Lib/FreeRTOS/TickCounter.hpp#example-usage-of-the-tickcounter-utility-class',1,'']]],
-  ['of_20valueinfo_8',['Example usage of ValueInfo.',['../X:/Projects/U146-Firmware/8.03/Lib/Helper/ValueInfo.hpp#example-usage-of-valueinfo',1,'']]],
-  ['output_3a_9',['output:',['../X:/Projects/U146-Firmware/8.03/Project/TouchGFX/Model/ModelSystem.hpp#expected-output',1,'Expected output:'],['../X:/Projects/U146-Firmware/8.03/Lib/FreeRTOS/SemaphoreCounting.hpp#expected-output-1',1,'Expected output:'],['../X:/Projects/U146-Firmware/8.03/Lib/Helper/ValueInfo.hpp#expected-output-2',1,'Expected output:']]]
+  ['project_0',['U146 Firmware Project',['../index.html',1,'']]]
 ];

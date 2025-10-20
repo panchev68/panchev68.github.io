@@ -1,7 +1,7 @@
 var _cubic_interpolation_8hpp =
 [
-    [ "CubicInterpolation< T_VALUE, T_INPUT >", "da/dc6/class_cubic_interpolation.html", "da/dc6/class_cubic_interpolation" ],
-    [ "CubicInterpolation< T_VALUE, T_INPUT >::Point", "d1/d85/struct_cubic_interpolation_1_1_point.html", "d1/d85/struct_cubic_interpolation_1_1_point" ],
-    [ "CubicInterpolationD", "db/de7/_cubic_interpolation_8hpp.html#a158a128bcf7d12576583f364244e7a15", null ],
-    [ "CubicInterpolationF", "db/de7/_cubic_interpolation_8hpp.html#a76861a7df56b49da47b5af64ec37c08e", null ]
+    [ "Lib::Math::CubicInterpolation< T_VALUE, T_INPUT >", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation" ],
+    [ "Lib::Math::CubicInterpolation< T_VALUE, T_INPUT >::Point", "d6/d50/struct_lib_1_1_math_1_1_cubic_interpolation_1_1_point.html", "d6/d50/struct_lib_1_1_math_1_1_cubic_interpolation_1_1_point" ],
+    [ "Lib::Math::CubicInterpolationD", "db/de7/_cubic_interpolation_8hpp.html#ad4addb27687a1c6accb56c4e27269048", null ],
+    [ "Lib::Math::CubicInterpolationF", "db/de7/_cubic_interpolation_8hpp.html#a95e75623bdeeebff3be6c024135bfea2", null ]
 ];

@@ -123,7 +123,7 @@ var annotated_dup =
           [ "ClientBase", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base" ],
           [ "Socket", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket" ]
         ] ],
-        [ "IpAddress", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address" ],
+        [ "IpAddress", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html", null ],
         [ "MacAddress", "df/da1/class_lib_1_1_ethernet_1_1_mac_address.html", "df/da1/class_lib_1_1_ethernet_1_1_mac_address" ],
         [ "Node", "d9/dfa/class_lib_1_1_ethernet_1_1_node.html", "d9/dfa/class_lib_1_1_ethernet_1_1_node" ],
         [ "Port", "d9/db1/class_lib_1_1_ethernet_1_1_port.html", "d9/db1/class_lib_1_1_ethernet_1_1_port" ],
@@ -144,9 +144,10 @@ var annotated_dup =
           [ "Bcd", "dc/d7c/class_lib_1_1_helper_1_1_convert_1_1_bcd.html", null ],
           [ "dBM", "de/daa/class_lib_1_1_helper_1_1_convert_1_1d_b_m.html", null ],
           [ "Hex", "d1/d75/class_lib_1_1_helper_1_1_convert_1_1_hex.html", null ],
-          [ "Hex< uint16_t >", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4" ],
-          [ "Hex< uint64_t >", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4" ],
-          [ "Hex< uint8_t >", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4" ],
+          [ "Hex< uint16_t >", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
+          [ "Hex< uint32_t >", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
+          [ "Hex< uint64_t >", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
+          [ "Hex< uint8_t >", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
           [ "HexHelper", "dc/d3d/class_lib_1_1_helper_1_1_convert_1_1_hex_helper.html", null ],
           [ "Percent", "d4/d46/class_lib_1_1_helper_1_1_convert_1_1_percent.html", null ]
         ] ],
@@ -159,7 +160,7 @@ var annotated_dup =
         [ "Crc16", "da/dd3/class_lib_1_1_helper_1_1_crc16.html", "da/dd3/class_lib_1_1_helper_1_1_crc16" ],
         [ "DataHandle", "d9/d1a/class_lib_1_1_helper_1_1_data_handle.html", "d9/d1a/class_lib_1_1_helper_1_1_data_handle" ],
         [ "DateTime", "de/d5f/class_lib_1_1_helper_1_1_date_time.html", "de/d5f/class_lib_1_1_helper_1_1_date_time" ],
-        [ "DelayUs", "d5/d5a/class_lib_1_1_helper_1_1_delay_us.html", "d5/d5a/class_lib_1_1_helper_1_1_delay_us" ],
+        [ "Delay", "d7/d08/class_lib_1_1_helper_1_1_delay.html", null ],
         [ "Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", "d0/d22/class_lib_1_1_helper_1_1_exception" ],
         [ "FindPeaks", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks" ],
         [ "Instance", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", "d8/d2f/class_lib_1_1_helper_1_1_instance" ],
@@ -171,12 +172,14 @@ var annotated_dup =
         [ "Singleton", "d6/dea/class_lib_1_1_helper_1_1_singleton.html", "d6/dea/class_lib_1_1_helper_1_1_singleton" ],
         [ "StringHelper", "d0/d40/class_lib_1_1_helper_1_1_string_helper.html", null ],
         [ "Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html", "d6/dd5/class_lib_1_1_helper_1_1_sunset" ],
-        [ "TimePeriod", "dd/d9f/class_lib_1_1_helper_1_1_time_period.html", "dd/d9f/class_lib_1_1_helper_1_1_time_period" ]
+        [ "TimePeriod", "dd/d9f/class_lib_1_1_helper_1_1_time_period.html", "dd/d9f/class_lib_1_1_helper_1_1_time_period" ],
+        [ "TimeZone", "de/d22/class_lib_1_1_helper_1_1_time_zone.html", "de/d22/class_lib_1_1_helper_1_1_time_zone" ]
       ] ],
       [ "Math", null, [
         [ "Filter", null, [
           [ "Kalman", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman.html", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman" ]
         ] ],
+        [ "CubicInterpolation", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation" ],
         [ "HammingCode", "d1/db4/class_lib_1_1_math_1_1_hamming_code.html", "d1/db4/class_lib_1_1_math_1_1_hamming_code" ],
         [ "LinearInterpolation", "d3/d1f/class_lib_1_1_math_1_1_linear_interpolation.html", "d3/d1f/class_lib_1_1_math_1_1_linear_interpolation" ],
         [ "Pid", "d1/da4/class_lib_1_1_math_1_1_pid.html", "d1/da4/class_lib_1_1_math_1_1_pid" ]
@@ -201,10 +204,10 @@ var annotated_dup =
         [ "ServiceBase", "d1/df0/class_lib_1_1_x_c_o_m_1_1_service_base.html", "d1/df0/class_lib_1_1_x_c_o_m_1_1_service_base" ]
       ] ]
     ] ],
-    [ "RTOS", null, [
+    [ "RTOS", "da/d8a/namespace_r_t_o_s.html", [
       [ "Optimization", null, [
-        [ "inline_if", "de/d73/struct_r_t_o_s_1_1_optimization_1_1inline__if.html", null ],
-        [ "inline_if< true >", "df/d5d/struct_r_t_o_s_1_1_optimization_1_1inline__if_3_01true_01_4.html", null ],
+        [ "InlineIf", "d1/de6/struct_r_t_o_s_1_1_optimization_1_1_inline_if.html", null ],
+        [ "InlineIf< true >", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
         [ "QueueOptimization", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
         [ "TaskPriorityOptimization", "dc/d4a/struct_r_t_o_s_1_1_optimization_1_1_task_priority_optimization.html", null ],
         [ "TimerOptimization", "da/d29/struct_r_t_o_s_1_1_optimization_1_1_timer_optimization.html", null ]
@@ -220,7 +223,7 @@ var annotated_dup =
       [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html", "df/d69/class_r_t_o_s_1_1_semaphore_counting" ],
       [ "StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html", "dd/d70/class_r_t_o_s_1_1_stream_buffer" ],
       [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html", "d1/d23/class_r_t_o_s_1_1_task" ],
-      [ "TickCounter", "da/d2c/class_r_t_o_s_1_1_tick_counter.html", null ],
+      [ "TickCounter", "da/d2c/class_r_t_o_s_1_1_tick_counter.html", "da/d2c/class_r_t_o_s_1_1_tick_counter" ],
       [ "TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", "d0/d51/class_r_t_o_s_1_1_tick_service" ],
       [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", "dc/d33/class_r_t_o_s_1_1_timeout" ]
     ] ],
@@ -232,7 +235,6 @@ var annotated_dup =
     [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", "d0/dd1/class_can_rx_message" ],
     [ "CanTxHeader", "de/da2/class_can_tx_header.html", "de/da2/class_can_tx_header" ],
     [ "CanTxMessage", "d3/d28/class_can_tx_message.html", "d3/d28/class_can_tx_message" ],
-    [ "CubicInterpolation", "da/dc6/class_cubic_interpolation.html", "da/dc6/class_cubic_interpolation" ],
-    [ "Singleton", "d3/dbc/class_singleton.html", "d3/dbc/class_singleton" ],
-    [ "TimeZone", "dd/de6/class_time_zone.html", "dd/de6/class_time_zone" ]
+    [ "Handle", "db/d8c/struct_handle.html", "db/d8c/struct_handle" ],
+    [ "Singleton", "d3/dbc/class_singleton.html", "d3/dbc/class_singleton" ]
 ];

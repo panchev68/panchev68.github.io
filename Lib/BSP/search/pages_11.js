@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['safe_20access_0',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
+  ['semaphorecounting_1',['Example usage of SemaphoreCounting.',['../X:/Lib/IAR/inc/Lib/RTOS/SemaphoreCounting.hpp#example-usage-of-semaphorecounting',1,'']]],
+  ['sending_20and_20receiving_20messages_2',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
+  ['sensor_20data_3',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
+  ['serial_20repeater_20functionality_4',['Example usage of SerialPortRepeaterBase for USB serial repeater functionality.',['../X:/Lib/IAR/inc/Lib/USB/SerialPortRepeaterBase.hpp#example-usage-of-serialportrepeaterbase-for-usb-serial-repeater-functionality',1,'']]],
+  ['serialnumber_20class_5',['Example usage of SerialNumber class.',['../X:/Lib/IAR/inc/Lib/System/SerialNumber.hpp#example-usage-of-serialnumber-class',1,'']]],
+  ['serialport_20for_20usb_20communication_6',['Example usage of SerialPort for USB communication.',['../X:/Lib/IAR/inc/Lib/USB/SerialPort.hpp#example-usage-of-serialport-for-usb-communication',1,'']]],
+  ['serialportrepeaterbase_20for_20usb_20serial_20repeater_20functionality_7',['Example usage of SerialPortRepeaterBase for USB serial repeater functionality.',['../X:/Lib/IAR/inc/Lib/USB/SerialPortRepeaterBase.hpp#example-usage-of-serialportrepeaterbase-for-usb-serial-repeater-functionality',1,'']]],
+  ['sets_8',['Example usage of QueueSet with FreeRTOS queue sets.',['../X:/Lib/IAR/inc/Lib/RTOS/QueueSet.hpp#example-usage-of-queueset-with-freertos-queue-sets',1,'']]],
+  ['shared_20resource_20in_20concurrent_20tasks_9',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['singleton_20instance_20helpers_10',['Example usage of singleton instance helpers.',['../X:/Lib/IAR/inc/Lib/Helper/instance.hpp#example-usage-of-singleton-instance-helpers',1,'']]],
+  ['singleton_20template_11',['Example usage of Singleton template.',['../X:/Lib/IAR/inc/Lib/Helper/Singleton.hpp#example-usage-of-singleton-template',1,'']]],
+  ['smoothing_20noisy_20sensor_20data_12',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
+  ['spline_20interpolation_20with_20standard_20output_13',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]],
+  ['standard_20output_14',['standard output',['../X:/Lib/IAR/inc/Lib/RTOS/Queue.hpp#example-usage-of-rtosqueue-with-standard-output',1,'Example usage of RTOS::Queue with standard output.'],['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'Example: Cubic spline interpolation with standard output']]],
+  ['streambuffer_15',['Example usage of StreamBuffer.',['../X:/Lib/IAR/inc/Lib/RTOS/StreamBuffer.hpp#example-usage-of-streambuffer',1,'']]],
+  ['stringhelper_20utilities_16',['Example usage of StringHelper utilities.',['../X:/Lib/IAR/inc/Lib/Helper/StringHelper.hpp#example-usage-of-stringhelper-utilities',1,'']]],
+  ['sunrise_20sunset_20and_20moon_20phase_20calculation_17',['Example of using the Sunset class for sunrise, sunset, and moon phase calculation.',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#example-of-using-the-sunset-class-for-sunrise-sunset-and-moon-phase-calculation',1,'']]],
+  ['sunset_20and_20moon_20phase_20calculation_18',['Example of using the Sunset class for sunrise, sunset, and moon phase calculation.',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#example-of-using-the-sunset-class-for-sunrise-sunset-and-moon-phase-calculation',1,'']]],
+  ['sunset_20class_20for_20sunrise_20sunset_20and_20moon_20phase_20calculation_19',['Example of using the Sunset class for sunrise, sunset, and moon phase calculation.',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#example-of-using-the-sunset-class-for-sunrise-sunset-and-moon-phase-calculation',1,'']]],
+  ['swapbytes_20for_20various_20integer_20types_20and_20memory_20buffers_20',['Example of using swapBytes for various integer types and memory buffers.',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#example-of-using-swapbytes-for-various-integer-types-and-memory-buffers',1,'']]],
+  ['synchronization_21',['Example usage of RTOS::EventGroup for task synchronization.',['../X:/Lib/IAR/inc/Lib/RTOS/EventGroup.hpp#example-usage-of-rtoseventgroup-for-task-synchronization',1,'']]],
+  ['system_20class_22',['Example usage of System class.',['../X:/Lib/IAR/inc/Lib/System/System.hpp#example-usage-of-system-class',1,'']]],
+  ['system_20parameter_20management_23',['Example usage of ParametersBase for system parameter management.',['../X:/Lib/IAR/inc/Lib/System/ParametersBase.hpp#example-usage-of-parametersbase-for-system-parameter-management',1,'']]]
+];

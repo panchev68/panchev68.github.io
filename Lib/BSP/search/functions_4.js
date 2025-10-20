@@ -2,7 +2,7 @@ var searchData=
 [
   ['each_0',['each',['../d6/ddd/class_lib_1_1_helper_1_1_container_base.html#a2b9f8191a13c271ead628b442705b128',1,'Lib::Helper::ContainerBase']]],
   ['echocallback_1',['echoCallback',['../dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#ab1bac861412dff00ff1a803a81d86f86',1,'Lib::Ethernet::UserProtocol']]],
-  ['elementsize_2',['elementSize',['../de/d77/class_r_t_o_s_1_1_queue.html#ad566d746b9183156724179424a6d2dc8',1,'RTOS::Queue']]],
+  ['elementsize_2',['elementSize',['../de/d77/class_r_t_o_s_1_1_queue.html#add7705d817c4f4633f1c1ded3b51ba53',1,'RTOS::Queue']]],
   ['emitbeginmessagereceive_3',['emitBeginMessageReceive',['../df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a470c82f87b53ca28005229839cec7d66',1,'Lib::Digi::Core::ComDriver']]],
   ['emitbeginmessagesend_4',['emitBeginMessageSend',['../df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#ac1376bdcf9b24b86defd586255a4f49e',1,'Lib::Digi::Core::ComDriver']]],
   ['emitendmessagereceived_5',['emitEndMessageReceived',['../df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a0b4cb10c6e88d6e637a5c28b6f5384dc',1,'Lib::Digi::Core::ComDriver']]],
@@ -25,11 +25,10 @@ var searchData=
   ['erasesector_22',['eraseSector',['../de/d0c/class_lib_1_1_b_s_p_1_1_f_m_e_m_1_1_s_p_i_1_1_driver_base.html#a9facbbb0e5407ea583af9af15e3ff649',1,'Lib::BSP::FMEM::SPI::DriverBase::eraseSector()'],['../d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#a0e00412be17cc69665ac20b2bc41c8c0',1,'Lib::BSP::W25Q128JVSIQ::eraseSector()']]],
   ['error_23',['Error',['../d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error.html#a63de8a1a19ccb2b0f27ece29d72327a7',1,'Lib::Ethernet::Wiznet::Socket::Error::Error()'],['../d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error.html#a427c8660ac9eb6901640a2290a28ffa5',1,'Lib::Ethernet::Wiznet::Socket::Error::Error(int8_t error)']]],
   ['escapedcode_24',['EscapedCode',['../d2/d1c/class_lib_1_1_digi_1_1_core_1_1_escaped_code.html#a4aa5ca060b5f2d63c236bb4c17fca432',1,'Lib::Digi::Core::EscapedCode']]],
-  ['esccoding_25',['escCoding',['../d9/def/class_lib_1_1_x_c_o_m_1_1_protocol.html#afa20e362247f8cc28d2ea499ba0cf31f',1,'Lib::XCOM::Protocol']]],
-  ['eventgroup_26',['EventGroup',['../db/ddd/class_r_t_o_s_1_1_event_group.html#a5cd4a6dcc7805dcdf420bdc550b1c719',1,'RTOS::EventGroup::EventGroup()'],['../db/ddd/class_r_t_o_s_1_1_event_group.html#ac9cdc9f17deb34838ac221acf3ce8423',1,'RTOS::EventGroup::EventGroup(bool isAutoCreate)'],['../db/ddd/class_r_t_o_s_1_1_event_group.html#ae83c0e347985e554dbffd399d6749c28',1,'RTOS::EventGroup::EventGroup(EventGroup &amp;&amp;other) noexcept']]],
-  ['exception_27',['Exception',['../d0/d22/class_lib_1_1_helper_1_1_exception.html#a94f0a766efa5e1ce0bab96d42fc913f1',1,'Lib::Helper::Exception::Exception()=default'],['../d0/d22/class_lib_1_1_helper_1_1_exception.html#ab8b85cc9abb3047319eb0961ceccd6ff',1,'Lib::Helper::Exception::Exception(const std::string &amp;caption)']]],
-  ['exitcritical_28',['exitCritical',['../d4/d93/class_r_t_o_s_1_1_kernel.html#a9f5f648ce2a0965160372f4f94cc562d',1,'RTOS::Kernel']]],
-  ['exitcriticalfromisr_29',['exitCriticalFromISR',['../d4/d93/class_r_t_o_s_1_1_kernel.html#a8c4eb8d71e1d1908522d0819d110ae87',1,'RTOS::Kernel']]],
-  ['extend_30',['extend',['../dc/d33/class_r_t_o_s_1_1_timeout.html#a628fdfee259eba4b9966e99cc4da26fc',1,'RTOS::Timeout']]],
-  ['extendms_31',['extendMs',['../dc/d33/class_r_t_o_s_1_1_timeout.html#af5a4e02f8cd773102cbf3a9cd0d24dbe',1,'RTOS::Timeout']]]
+  ['eventgroup_25',['EventGroup',['../db/ddd/class_r_t_o_s_1_1_event_group.html#a6690412802cf948348b7db9c47e9f25f',1,'RTOS::EventGroup::EventGroup()=default'],['../db/ddd/class_r_t_o_s_1_1_event_group.html#a7abcf2e22f8961aefb22138a000cc65b',1,'RTOS::EventGroup::EventGroup(bool autoCreate)'],['../db/ddd/class_r_t_o_s_1_1_event_group.html#ae83c0e347985e554dbffd399d6749c28',1,'RTOS::EventGroup::EventGroup(EventGroup &amp;&amp;other) noexcept']]],
+  ['exception_26',['Exception',['../d0/d22/class_lib_1_1_helper_1_1_exception.html#a94f0a766efa5e1ce0bab96d42fc913f1',1,'Lib::Helper::Exception::Exception()=default'],['../d0/d22/class_lib_1_1_helper_1_1_exception.html#ab8b85cc9abb3047319eb0961ceccd6ff',1,'Lib::Helper::Exception::Exception(const std::string &amp;caption)']]],
+  ['exitcritical_27',['exitCritical',['../d4/d93/class_r_t_o_s_1_1_kernel.html#a9f5f648ce2a0965160372f4f94cc562d',1,'RTOS::Kernel']]],
+  ['exitcriticalfromisr_28',['exitCriticalFromISR',['../d4/d93/class_r_t_o_s_1_1_kernel.html#a8c4eb8d71e1d1908522d0819d110ae87',1,'RTOS::Kernel']]],
+  ['extend_29',['extend',['../dc/d33/class_r_t_o_s_1_1_timeout.html#af5dab82accf6b7348ddfe085c20e20c4',1,'RTOS::Timeout']]],
+  ['extendms_30',['extendMs',['../dc/d33/class_r_t_o_s_1_1_timeout.html#ad964cb7ef28b873abf941e8ff655bf3b',1,'RTOS::Timeout']]]
 ];

@@ -7,7 +7,7 @@ var class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner =
       [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
     ] ],
     [ "ChannelScanner", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a4e5e432e90ad28ac43f265bb8d9782f8", null ],
-    [ "~ChannelScanner", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a2f6e11137ccadb530193f287d1fc5072", null ],
+    [ "~ChannelScanner", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a88d1a4c996a492ce3eb098ac50a05dda", null ],
     [ "beginUpdate", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a8051541c82e38b791f21273141bef9fd", null ],
     [ "close", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a14c6a2f0f48452b5c56debb57e9f14d3", null ],
     [ "endUpdate", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a77f6985bc7ef2b9feac65ee75a3018cb", null ],

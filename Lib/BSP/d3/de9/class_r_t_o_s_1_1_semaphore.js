@@ -1,5 +1,7 @@
 var class_r_t_o_s_1_1_semaphore =
 [
+    [ "Handle", "d3/de9/class_r_t_o_s_1_1_semaphore.html#ab6421331ba2f810ca117af37f7da747a", null ],
+    [ "TickType", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a806a00a3c2bbad5664fc717ccdd58fd6", null ],
     [ "State", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a7ad1b7a849143d5692507f7dddbcfde8", [
       [ "AVAILABLE", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
       [ "TAKEN", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
@@ -11,9 +13,8 @@ var class_r_t_o_s_1_1_semaphore =
     [ "~Semaphore", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a2d627bf941aee18be37ff40b383a0226", null ],
     [ "create", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a89c77ce82882d1c04a9adbb0a4816a79", null ],
     [ "destroy", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a20dab5ad75e48b973309d994006e99b5", null ],
-    [ "forceAvailable", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a95ccb792543b9328de7a58a509bf2188", null ],
     [ "getCount", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a6b60607bc3dcc820fc4bc4fc1ac5d070", null ],
-    [ "getHandle", "d3/de9/class_r_t_o_s_1_1_semaphore.html#abefc7cd00d7bf5f818a36b8084851c91", null ],
+    [ "getHandle", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a24fa36629ef9e1521686f80d46e25e58", null ],
     [ "getState", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a5009d38dee84f70f14770db0859c6d90", null ],
     [ "give", "d3/de9/class_r_t_o_s_1_1_semaphore.html#aad3313acf8b7b8d3282fa087e94699a3", null ],
     [ "giveFromISR", "d3/de9/class_r_t_o_s_1_1_semaphore.html#af808649cc6157fb1fce8c815039cb27c", null ],
@@ -26,15 +27,13 @@ var class_r_t_o_s_1_1_semaphore =
     [ "operator=", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a1a51d6d93aca7541fa693263a433f39c", null ],
     [ "overwrite", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a52cb4c76003b898b7b12736211785d06", null ],
     [ "overwriteFromISR", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a571a1c7023d93b55e0fe4418d4b9f3ff", null ],
-    [ "release", "d3/de9/class_r_t_o_s_1_1_semaphore.html#aa4fc753746a7bbab21bf138e2f39ccc8", null ],
-    [ "signal", "d3/de9/class_r_t_o_s_1_1_semaphore.html#aea3dcb3c211963409f3a398b7ee320be", null ],
-    [ "signalFromISR", "d3/de9/class_r_t_o_s_1_1_semaphore.html#ad0569f4d76f26aaddf6f06501f3ac565", null ],
     [ "take", "d3/de9/class_r_t_o_s_1_1_semaphore.html#addf0c91575ab2e1f42ea68401dfe6f99", null ],
     [ "take", "d3/de9/class_r_t_o_s_1_1_semaphore.html#ac0367cbf72b18dbcb43b5670a21b645c", null ],
-    [ "takeForever", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a6a762ec1386b301aff487b5995fbadc6", null ],
+    [ "takeForever", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a0155f939b0894a744affc5b215e328aa", null ],
     [ "takeFromISR", "d3/de9/class_r_t_o_s_1_1_semaphore.html#afcf122ec069b8b33fd1e1ff8efbedc7f", null ],
     [ "takeMs", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a4a7818ec0650533bfcb8006d2d0a6a0e", null ],
-    [ "takeNow", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a18ac5cf63b6637ae35076b4b124c5a11", null ],
+    [ "takeNow", "d3/de9/class_r_t_o_s_1_1_semaphore.html#afbd4c57b6833311400c4c0bed409b2c7", null ],
     [ "takeSeconds", "d3/de9/class_r_t_o_s_1_1_semaphore.html#a5c38539632b06a44afe1cdfc4fe638a9", null ],
-    [ "tryTake", "d3/de9/class_r_t_o_s_1_1_semaphore.html#ae9effef8483f1c67b4c037fb01b8e6c8", null ]
+    [ "tryTake", "d3/de9/class_r_t_o_s_1_1_semaphore.html#ae9effef8483f1c67b4c037fb01b8e6c8", null ],
+    [ "handle", "d3/de9/class_r_t_o_s_1_1_semaphore.html#af98089a48fabe8207cc736331543af75", null ]
 ];

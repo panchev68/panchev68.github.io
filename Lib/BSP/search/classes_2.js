@@ -21,7 +21,7 @@ var searchData=
   ['crc16_18',['Crc16',['../da/dd3/class_lib_1_1_helper_1_1_crc16.html',1,'Lib::Helper']]],
   ['criticalsection_19',['CriticalSection',['../dc/d60/class_r_t_o_s_1_1_kernel_1_1_critical_section.html',1,'RTOS::Kernel']]],
   ['criticalsectionisr_20',['CriticalSectionISR',['../d4/d74/class_r_t_o_s_1_1_kernel_1_1_critical_section_i_s_r.html',1,'RTOS::Kernel']]],
-  ['cubicinterpolation_21',['CubicInterpolation',['../da/dc6/class_cubic_interpolation.html',1,'']]],
-  ['cubicinterpolation_3c_20double_2c_20double_20_3e_22',['CubicInterpolation&lt; double, double &gt;',['../da/dc6/class_cubic_interpolation.html',1,'']]],
-  ['cubicinterpolation_3c_20float_2c_20float_20_3e_23',['CubicInterpolation&lt; float, float &gt;',['../da/dc6/class_cubic_interpolation.html',1,'']]]
+  ['cubicinterpolation_21',['CubicInterpolation',['../d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html',1,'Lib::Math']]],
+  ['cubicinterpolation_3c_20double_2c_20double_20_3e_22',['CubicInterpolation&lt; double, double &gt;',['../d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html',1,'Lib::Math']]],
+  ['cubicinterpolation_3c_20float_2c_20float_20_3e_23',['CubicInterpolation&lt; float, float &gt;',['../d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html',1,'Lib::Math']]]
 ];

@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['gammaset_0',['GAMMASET',['../dd/d62/struct_lib_1_1_b_s_p_1_1_display_1_1_registers.html#a3ef1351a2cb2d38e40a48a5815194ede',1,'Lib::BSP::Display::Registers']]],
-  ['gmctrn1_1',['GMCTRN1',['../dd/d62/struct_lib_1_1_b_s_p_1_1_display_1_1_registers.html#a5f60dc74efdb33d66bd60145607ced6e',1,'Lib::BSP::Display::Registers']]],
-  ['gmctrp1_2',['GMCTRP1',['../dd/d62/struct_lib_1_1_b_s_p_1_1_display_1_1_registers.html#ac4d5e94ea789d84ead7b70eb1daa5068',1,'Lib::BSP::Display::Registers']]],
-  ['grouping_3',['grouping',['../d6/da2/class_lib_1_1_b_s_p_1_1_digital_peripheral_1_1_outputs_base.html#a2e46bae49fa869ddd25d8dd38300a0af',1,'Lib::BSP::DigitalPeripheral::OutputsBase']]]
+  ['hardwareversion_0',['hardwareVersion',['../d8/dd0/namespace_system.html#a7904c52e674deeb0be864cfecbd85e4b',1,'System']]],
+  ['hrtc_1',['hrtc',['../d0/dca/_r_t_clock_8hpp.html#aa0c7fca836406ade332e1e3f1039d8ab',1,'RTClock.hpp']]],
+  ['hw_2',['hw',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#a52a87414cf22211111448b298ad690f8',1,'ModelXbee::ModuleParameters::Data']]]
 ];

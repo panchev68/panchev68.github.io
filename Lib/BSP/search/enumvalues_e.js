@@ -29,5 +29,6 @@ var searchData=
   ['pwctr5_26',['PWCTR5',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515babb77f0d38ffd0ab622e2a1049ed3646e',1,'Lib::BSP::Display']]],
   ['pwctrl1_27',['PWCTRL1',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515babf1db6bfa60f5e0f3f534e59ef98d102',1,'Lib::BSP::Display']]],
   ['pwctrl2_28',['PWCTRL2',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515baa567f0bd49c0d06d950f12ff8db731f4',1,'Lib::BSP::Display']]],
-  ['pwmfrsel_29',['PWMFRSEL',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba17e4be1c8a395b3d146a9b72e9abadd4',1,'Lib::BSP::Display']]]
+  ['pwm_29',['PWM',['../d7/dba/_mode_8hpp.html#a3455a6e5732bcbe7776279b0062ad326a8449bc264b69c3a0fe8b60361eaf7aeb',1,'Mode.hpp']]],
+  ['pwmfrsel_30',['PWMFRSEL',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba17e4be1c8a395b3d146a9b72e9abadd4',1,'Lib::BSP::Display']]]
 ];

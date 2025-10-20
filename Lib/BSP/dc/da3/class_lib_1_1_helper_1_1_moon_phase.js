@@ -1,5 +1,6 @@
 var class_lib_1_1_helper_1_1_moon_phase =
 [
+    [ "Date", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
     [ "MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a7f7186b33d83f79ab229e3c7bc4b787a", null ],
     [ "MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a4fcfbbc21d892484fdc7bc8ce7da0825", null ],
     [ "~MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a596a429fbae33fa36ad3639cf2158818", null ],

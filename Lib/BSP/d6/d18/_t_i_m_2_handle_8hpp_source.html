@@ -94,66 +94,63 @@ $(function(){initNavTree('d6/d18/_t_i_m_2_handle_8hpp_source.html','../../','');
   <div class="headertitle"><div class="title">TIM/Handle.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d6/d18/_t_i_m_2_handle_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** TIM handle wrapper for peripheral and channel management.</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * This file defines a lightweight wrapper for TIM_HandleTypeDef and channel management in STM32 HAL.</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * It ensures type safety, valid handle usage, and facilitates direct access to TIM peripheral and channel.</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * The wrapper is designed for embedded applications, supporting safe construction, comparison, and validity checks.</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * It is intended for use in both real-time and non-real-time contexts, with careful separation of implementation</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * details and interface contracts. The file adheres to C++17 standards and project documentation guidelines.</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @file Handle.hpp</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;stm32f4xx_hal_tim.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#if (USE_HAL_TIM_REGISTER_CALLBACKS != 1)</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#error USE_HAL_TIM_REGISTER_CALLBACKS must be 1</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">namespace </span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">    /** Wrapper for TIM_HandleTypeDef and channel.</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">     *</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">     * Encapsulates a TIM peripheral handle and its channel, ensuring valid construction and direct access.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">     * Provides comparison operators and validity checks for safe usage in embedded STM32 applications.</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     */</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">struct </span>Handle {</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        TIM_HandleTypeDef * handle; <span class="comment">/*!&lt; Pointer to TIM_HandleTypeDef. */</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        uint32_t channel;           <span class="comment">/*!&lt; TIM channel number. */</span></div>
+<a href="../../d6/d18/_t_i_m_2_handle_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** Handle type for STM32 TIM peripherals.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * This file defines the `Handle` type for encapsulating a `TIM_HandleTypeDef*` and channel,</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * providing comparison and validity checks for STM32 TIM peripherals. It is intended for use</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * with the STM32 HAL TIM driver and requires `USE_HAL_TIM_REGISTER_CALLBACKS` to be enabled.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @file Handle.hpp</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;stm32f4xx_hal_tim.h&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#if (USE_HAL_TIM_REGISTER_CALLBACKS != 1)</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#error USE_HAL_TIM_REGISTER_CALLBACKS must be 1</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/** Handle type for STM32 TIM peripherals.</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * Encapsulates a `TIM_HandleTypeDef*` and channel, providing comparison and validity checks.</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> */</span></div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html">   22</a></span><span class="keyword">struct </span><a class="code hl_function" href="../../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187">Handle</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">   23</a></span>    TIM_HandleTypeDef * <a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a>; <span class="comment">/*!&lt; Pointer to the TIM handle. */</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">   24</a></span>    uint32_t <a class="code hl_variable" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">channel</a>;           <span class="comment">/*!&lt; TIM channel identifier. */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"></span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">    /** Constructor of the Handle class.</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">     * @param handle Pointer to the TIM handle.</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">     * @param channel TIM channel identifier.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">     * @pre `handle` must not be `nullptr`.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187">   31</a></span>    <span class="keyword">explicit</span> <a class="code hl_function" href="../../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187">Handle</a>(TIM_HandleTypeDef * <a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a>, uint32_t <a class="code hl_variable" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">channel</a>) : <a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a>(<a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a>), <a class="code hl_variable" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">channel</a>(<a class="code hl_variable" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">channel</a>) { assert(<a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a>); }</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"></span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">        /** Constructor of Handle struct.</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">         * @param handle Pointer to TIM_HandleTypeDef.</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">         * @param channel TIM channel number.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">explicit</span> Handle(TIM_HandleTypeDef * handle, uint32_t channel) : handle(handle), channel(channel) {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>            <span class="comment">/* ERROR: Handle must not be null. */</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>            assert(handle);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">        /** Equality comparison operator.</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">         * @param other Handle to compare.</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">         * @return `true` if both handle and channel are equal, `false` otherwise.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> Handle &amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> handle == other.handle &amp;&amp; channel == other.channel; }</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"></span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">        /** Inequality comparison operator.</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">         * @param other Handle to compare.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">         * @return `true` if either handle or channel differ, `false` otherwise.</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> Handle &amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other); }</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">        /** Check if handle is valid.</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">         * @return `true` if handle is not nullptr, `false` otherwise.</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordtype">bool</span> isValid()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> handle != <span class="keyword">nullptr</span>; }</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    };</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>} <span class="comment">// namespace</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">    /** Equality operator of the Handle class.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     * @param other Handle to compare with.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">     * @return `true` if both handle and channel are equal, `false` otherwise.</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html#a27dfaa14f7f3fbd52e97292493235abe">   37</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d8c/struct_handle.html#a27dfaa14f7f3fbd52e97292493235abe">operator==</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187">Handle</a> &amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a> == other.<a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a> &amp;&amp; <a class="code hl_variable" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">channel</a> == other.<a class="code hl_variable" href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">channel</a>; }</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"></span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">    /** Inequality operator of the Handle class.</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">     * @param other Handle to compare with.</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">     * @return `true` if either handle or channel differ, `false` otherwise.</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html#a5cb29169b3560b0749d9d6462167e8b1">   43</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d8c/struct_handle.html#a5cb29169b3560b0749d9d6462167e8b1">operator!=</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187">Handle</a> &amp; other)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other); }</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">    /** Checks if the handle is valid.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">     * @return `true` if handle is not `nullptr`, `false` otherwise.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="../../db/d8c/struct_handle.html#a3bab36ffa11ba548ee66ec408da4937f">   48</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d8c/struct_handle.html#a3bab36ffa11ba548ee66ec408da4937f">isValid</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">handle</a> != <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>};</div>
+</div>
+<div class="ttc" id="astruct_handle_html_a27dfaa14f7f3fbd52e97292493235abe"><div class="ttname"><a href="../../db/d8c/struct_handle.html#a27dfaa14f7f3fbd52e97292493235abe">Handle::operator==</a></div><div class="ttdeci">bool operator==(const Handle &amp;other) const</div><div class="ttdoc">Equality operator of the Handle class.</div><div class="ttdef"><b>Definition</b> TIM/Handle.hpp:37</div></div>
+<div class="ttc" id="astruct_handle_html_a3bab36ffa11ba548ee66ec408da4937f"><div class="ttname"><a href="../../db/d8c/struct_handle.html#a3bab36ffa11ba548ee66ec408da4937f">Handle::isValid</a></div><div class="ttdeci">bool isValid() const</div><div class="ttdoc">Checks if the handle is valid.</div><div class="ttdef"><b>Definition</b> TIM/Handle.hpp:48</div></div>
+<div class="ttc" id="astruct_handle_html_a5cb29169b3560b0749d9d6462167e8b1"><div class="ttname"><a href="../../db/d8c/struct_handle.html#a5cb29169b3560b0749d9d6462167e8b1">Handle::operator!=</a></div><div class="ttdeci">bool operator!=(const Handle &amp;other) const</div><div class="ttdoc">Inequality operator of the Handle class.</div><div class="ttdef"><b>Definition</b> TIM/Handle.hpp:43</div></div>
+<div class="ttc" id="astruct_handle_html_a89a868d2327ba990dbe0bfc4866b9187"><div class="ttname"><a href="../../db/d8c/struct_handle.html#a89a868d2327ba990dbe0bfc4866b9187">Handle::Handle</a></div><div class="ttdeci">Handle(TIM_HandleTypeDef *handle, uint32_t channel)</div><div class="ttdoc">Constructor of the Handle class.</div><div class="ttdef"><b>Definition</b> TIM/Handle.hpp:31</div></div>
+<div class="ttc" id="astruct_handle_html_aa5346d5b8b0577adb881524456218cc0"><div class="ttname"><a href="../../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0">Handle::channel</a></div><div class="ttdeci">uint32_t channel</div><div class="ttdef"><b>Definition</b> TIM/Handle.hpp:24</div></div>
+<div class="ttc" id="astruct_handle_html_ab9dc2aac1ceeb1c803c10cd99df99b4b"><div class="ttname"><a href="../../db/d8c/struct_handle.html#ab9dc2aac1ceeb1c803c10cd99df99b4b">Handle::handle</a></div><div class="ttdeci">TIM_HandleTypeDef * handle</div><div class="ttdef"><b>Definition</b> TIM/Handle.hpp:23</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

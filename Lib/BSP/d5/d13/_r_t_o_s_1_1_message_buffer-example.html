@@ -94,39 +94,55 @@ $(function(){initNavTree('d5/d13/_r_t_o_s_1_1_message_buffer-example.html','../.
   <div class="headertitle"><div class="title">RTOS::MessageBuffer</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-rtosmessagebuffer"></a>
-Example usage of RTOS::MessageBuffer</h1>
-<p>This example demonstrates how to create, send, and receive messages using the RTOS::MessageBuffer class.</p>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="example-usage-1"></a>
-Example usage:</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d27/_message_buffer_8hpp.html">Lib/RTOS/MessageBuffer.hpp</a>&quot;</span></div>
+<h2 class="doxsection"><a class="anchor" id="example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages"></a>
+Example usage of RTOS::MessageBuffer for sending and receiving messages.</h2>
+<p>This example demonstrates how to create a FreeRTOS message buffer using the RTOS::MessageBuffer class, send a message from a task, and receive it in another task. The example prints the sent and received messages to the standard output.</p>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d27/_message_buffer_8hpp.html">Lib/RTOS/MessageBuffer.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> senderTask(<span class="keywordtype">void</span> *) {</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html">RTOS::MessageBuffer</a> messageBuffer;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> bufferSize = 128;</div>
+<div class="line">    <span class="keywordflow">if</span> (!messageBuffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#adf8a8075ffc1f03938788678aabc84a9">create</a>(bufferSize)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;Failed to create message buffer\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> *text = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
+<div class="line">    <span class="keywordtype">size_t</span> sent = messageBuffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a068a40062ee7f6e0a3f7987ed317e607">send</a>(text, strlen(text) + 1, 100);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;Sent %u bytes: %s\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(sent), text);</div>
+<div class="line">    vTaskDelete(<span class="keyword">nullptr</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> receiverTask(<span class="keywordtype">void</span> *) {</div>
+<div class="line">    <a class="code hl_class" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html">RTOS::MessageBuffer</a> messageBuffer;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> bufferSize = 128;</div>
+<div class="line">    <span class="keywordflow">if</span> (!messageBuffer.<a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#adf8a8075ffc1f03938788678aabc84a9">create</a>(bufferSize)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;Failed to create message buffer\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">char</span> buffer[128] = {};</div>
+<div class="line">    <span class="keywordtype">size_t</span> received = messageBuffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a332a7e9908cee99a840903b9db2bae62">receive</a>(buffer, <span class="keyword">sizeof</span>(buffer), 100);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;Received %u bytes: %s\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(received), buffer);</div>
+<div class="line">    vTaskDelete(<span class="keyword">nullptr</span>);</div>
+<div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html">RTOS::MessageBuffer</a> buffer;</div>
-<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> BUFFER_SIZE = 128;</div>
-<div class="line">    <span class="keywordflow">if</span> (!buffer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#adf8a8075ffc1f03938788678aabc84a9">create</a>(BUFFER_SIZE)) {</div>
-<div class="line">        <span class="comment">// Handle error</span></div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> message[] = <span class="stringliteral">&quot;Hello, FreeRTOS!&quot;</span>;</div>
-<div class="line">    buffer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#ad1164d0967b1c77d21cd469e3f2be8c0">send</a>(message, <span class="keyword">sizeof</span>(message), 10);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">char</span> receiveBuffer[32] = {};</div>
-<div class="line">    buffer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#ae4b5ed9d9d2425556c2f5bfb8fa88bbd">receive</a>(receiveBuffer, <span class="keyword">sizeof</span>(receiveBuffer), 10);</div>
-<div class="line"> </div>
-<div class="line">    buffer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a1e249f31ec313628be3b536d4d7c7f3c">destroy</a>();</div>
+<div class="line">    xTaskCreate(senderTask, <span class="stringliteral">&quot;Sender&quot;</span>, 256, <span class="keyword">nullptr</span>, 1, <span class="keyword">nullptr</span>);</div>
+<div class="line">    xTaskCreate(receiverTask, <span class="stringliteral">&quot;Receiver&quot;</span>, 256, <span class="keyword">nullptr</span>, 1, <span class="keyword">nullptr</span>);</div>
+<div class="line">    vTaskStartScheduler();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_message_buffer_8hpp_html"><div class="ttname"><a href="../../d4/d27/_message_buffer_8hpp.html">MessageBuffer.hpp</a></div><div class="ttdoc">MessageBuffer class for FreeRTOS message buffer management.</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html">RTOS::MessageBuffer</a></div><div class="ttdoc">MessageBuffer class for FreeRTOS message buffer management.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:19</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_a1e249f31ec313628be3b536d4d7c7f3c"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a1e249f31ec313628be3b536d4d7c7f3c">RTOS::MessageBuffer::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">Destroys the message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:47</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_ad1164d0967b1c77d21cd469e3f2be8c0"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#ad1164d0967b1c77d21cd469e3f2be8c0">RTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, uint32_t waitTime)</div><div class="ttdoc">Sends a message to the buffer from a task context.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:60</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_adf8a8075ffc1f03938788678aabc84a9"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#adf8a8075ffc1f03938788678aabc84a9">RTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t bufferSize)</div><div class="ttdoc">Creates a new message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:33</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_ae4b5ed9d9d2425556c2f5bfb8fa88bbd"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#ae4b5ed9d9d2425556c2f5bfb8fa88bbd">RTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *destination, size_t length, uint32_t waitTime)</div><div class="ttdoc">Receives a message from the buffer in task context.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:90</div></div>
-</div><!-- fragment --><p>This example creates a message buffer, sends a string, receives it into another buffer, and then destroys the message buffer.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html">RTOS::MessageBuffer</a></div><div class="ttdoc">MessageBuffer class for FreeRTOS message buffer management.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:21</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_a068a40062ee7f6e0a3f7987ed317e607"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a068a40062ee7f6e0a3f7987ed317e607">RTOS::MessageBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, uint32_t timeout)</div><div class="ttdoc">Sends a message to the buffer from a task context.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:62</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_a332a7e9908cee99a840903b9db2bae62"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a332a7e9908cee99a840903b9db2bae62">RTOS::MessageBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t length, uint32_t timeout)</div><div class="ttdoc">Receives a message from the buffer in task context.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:92</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_message_buffer_html_adf8a8075ffc1f03938788678aabc84a9"><div class="ttname"><a href="../../d4/d5a/class_r_t_o_s_1_1_message_buffer.html#adf8a8075ffc1f03938788678aabc84a9">RTOS::MessageBuffer::create</a></div><div class="ttdeci">bool create(size_t bufferSize)</div><div class="ttdoc">Creates a new message buffer.</div><div class="ttdef"><b>Definition</b> MessageBuffer.hpp:35</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
+<p>The following output is expected on the standard output:</p>
+<div class="fragment"><div class="line">Sent 16 bytes: Hello, FreeRTOS!</div>
+<div class="line">Received 16 bytes: Hello, FreeRTOS!</div>
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

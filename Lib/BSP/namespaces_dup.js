@@ -8,5 +8,6 @@ var namespaces_dup =
       [ "Ethernet", "d1/d6f/namespace_lib_1_1_ethernet.html", "d1/d6f/namespace_lib_1_1_ethernet" ],
       [ "HAL", "d9/d8d/namespace_lib_1_1_h_a_l.html", "d9/d8d/namespace_lib_1_1_h_a_l" ],
       [ "Helper", "df/d8e/namespace_lib_1_1_helper.html", "df/d8e/namespace_lib_1_1_helper" ]
-    ] ]
+    ] ],
+    [ "RTOS", "da/d8a/namespace_r_t_o_s.html", "da/d8a/namespace_r_t_o_s" ]
 ];

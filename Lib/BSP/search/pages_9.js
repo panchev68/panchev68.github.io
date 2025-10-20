@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pooling_0',['Example usage of SemaphoreCounting for resource pooling.',['../X:/Lib/IAR/inc/Lib/RTOS/SemaphoreCounting.hpp#example-usage-of-semaphorecounting-for-resource-pooling',1,'']]]
+  ['kalman_20filter_20usage_20for_20smoothing_20noisy_20sensor_20data_0',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]]
 ];

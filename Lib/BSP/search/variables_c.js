@@ -2,7 +2,7 @@ var searchData=
 [
   ['oepin_0',['oePin',['../de/d17/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config_1_1_outputs.html#ad65334adb3ad809e06b272cedcb59224',1,'Lib::BSP::DigitalPeripheralBase::Config::Outputs']]],
   ['official_5fsunset_5fangle_1',['OFFICIAL_SUNSET_ANGLE',['../d6/dd5/class_lib_1_1_helper_1_1_sunset.html#abc1968b9c3c9d2bfb4bb90ccbb2f99cb',1,'Lib::Helper::Sunset']]],
-  ['offsetminutes_2',['offsetMinutes',['../d5/dba/struct_time_zone_1_1_time_change_rule.html#a7644062149b6a16009fc043e3cba8573',1,'TimeZone::TimeChangeRule']]],
+  ['offsetminutes_2',['offsetMinutes',['../df/da6/struct_lib_1_1_helper_1_1_time_zone_1_1_time_change_rule.html#a146d9089071352f4fd4fce372e049ca6',1,'Lib::Helper::TimeZone::TimeChangeRule']]],
   ['onaccessfault_3',['onAccessFault',['../d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status.html#a511d6d111c3fdbe3acb40bf0a374e575',1,'Lib::Digi::Core::ModemStatus']]],
   ['onbandmaskconfigurationfailed_4',['onBandmaskConfigurationFailed',['../d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status.html#afa0a70fa47059400a0d5fc71aa1397e2',1,'Lib::Digi::Core::ModemStatus']]],
   ['onbeginmessagereceive_5',['onBeginMessageReceive',['../df/deb/class_lib_1_1_digi_1_1_core_1_1_module.html#aaec05258252e8e8caa3f4be7ad710427',1,'Lib::Digi::Core::Module']]],

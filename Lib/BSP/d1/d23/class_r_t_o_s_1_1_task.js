@@ -1,6 +1,6 @@
 var class_r_t_o_s_1_1_task =
 [
-    [ "Data", "d8/d08/class_r_t_o_s_1_1_task_1_1_data.html", "d8/d08/class_r_t_o_s_1_1_task_1_1_data" ],
+    [ "Data", "d1/da9/struct_r_t_o_s_1_1_task_1_1_data.html", "d1/da9/struct_r_t_o_s_1_1_task_1_1_data" ],
     [ "Handle", "d1/d23/class_r_t_o_s_1_1_task.html#a357f3c6aaef67bcff1043d89bd785281", null ],
     [ "NotificationBits", "d1/d23/class_r_t_o_s_1_1_task.html#a46b832087eb0a767ed881203db958980", null ],
     [ "NotifyAction", "d1/d23/class_r_t_o_s_1_1_task.html#add02795e71b66883a93beaf1ff57fa7f", [
@@ -13,7 +13,7 @@ var class_r_t_o_s_1_1_task =
     [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html#a8079bed5750c40f336e23799d0883834", null ],
     [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html#a7346905f52861bde0f626ba053f7ec6e", null ],
     [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html#af8a4dec2eae733177c3aac4e4a05704d", null ],
-    [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html#a77372b04c52dd05ad2b282f11b9443a5", null ],
+    [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html#a7b9ec8b4dd75b334990bb4ca42c1fc6d", null ],
     [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html#a35151c84fc2cd41b1af5b4ad1f7cd4ac", null ],
     [ "~Task", "d1/d23/class_r_t_o_s_1_1_task.html#a2d73a90fab600a7b74b5fecd19f4ad85", null ],
     [ "getHandle", "d1/d23/class_r_t_o_s_1_1_task.html#a2b44b116a5594b0ffdfbb86c77981020", null ],
@@ -29,7 +29,7 @@ var class_r_t_o_s_1_1_task =
     [ "isValid", "d1/d23/class_r_t_o_s_1_1_task.html#a62de4af32150099f70bb657f02d4d04e", null ],
     [ "operator Handle", "d1/d23/class_r_t_o_s_1_1_task.html#a9df6cd1299039d3b039d4335e3c82a5d", null ],
     [ "operator!=", "d1/d23/class_r_t_o_s_1_1_task.html#aea20eb6ee2244a2d417e7118ac3c4af7", null ],
-    [ "operator=", "d1/d23/class_r_t_o_s_1_1_task.html#a26e26644aafa456d7031e22dbb085c4a", null ],
+    [ "operator=", "d1/d23/class_r_t_o_s_1_1_task.html#a871517eba63ad08e0422c95a9f9710ab", null ],
     [ "operator=", "d1/d23/class_r_t_o_s_1_1_task.html#adfab89d0cb0473c346a51dd7f7ba2345", null ],
     [ "operator==", "d1/d23/class_r_t_o_s_1_1_task.html#a0599d075062867fe806062c718a649f5", null ],
     [ "resume", "d1/d23/class_r_t_o_s_1_1_task.html#a2eeb82ee21502e313c8580cff4013ee4", null ],

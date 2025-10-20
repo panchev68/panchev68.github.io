@@ -47,7 +47,6 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
         [ "Variables", "namespacemembers_vars.html", null ],
         [ "Typedefs", "namespacemembers_type.html", null ],
         [ "Enumerations", "namespacemembers_enum.html", null ],
@@ -61,10 +60,9 @@ var NAVTREE =
       [ "Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Enumerator", "functions_eval.html", "functions_eval" ]
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -77,23 +75,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/ddb/_i2_c_2_master_2_i_t_8hpp.html",
-"d1/dea/class_serial_port_repeater.html#a8fe446fb4fa64e585a2502f42520211d",
-"d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#ae3993d3922639e037e2d54472f27ae33",
-"d4/d1f/class_lib_1_1_b_s_p_1_1_backlight.html#a7887d56a6dc55d47feee973e4801791c",
-"d5/d37/class_lib_1_1_xbee_1_1_core_1_1_frame0x88.html#a5211ac981c73eebfd95e3e031c5eb233",
-"d6/dbc/class_lib_1_1_xbee_1_1_core_1_1_frame0x8a.html#ad860b80ce37d47c71c6a9064b916291aadc91c60858049dd329869b0b7fe0549d",
-"d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a8c24c2b9cb3959dd3a70607fe2cd43d0",
-"d8/d0c/class_lib_1_1_helper_1_1_jagged_array.html#a55d8ec0d460f9c989dd80d6c8b75f00f",
-"d8/dd0/namespace_system.html#ae88b5de60b1243429bf02f2bd840c6cf",
-"d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a3e5dd26684517af535a16480564e55d5",
-"da/d9b/group___digital_peripheral.html",
-"db/d24/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_tx_message.html#a5403acfee25835376b305a77a2d4f004",
-"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#ac6f9a15030c4d608d281be5da5baecae",
-"dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ac4eeb5db1bc8932abe015e9732a72b3c",
-"de/d42/struct_lib_1_1_free_r_t_o_s_1_1_task_1_1_config.html",
-"df/d8d/_ext_interrupt_8hpp.html",
-"functions_h.html"
+"d3/dc4/group___backlight.html",
+"d9/d0c/_backlight_8hpp.html",
+"dc/dc2/class_b_s_p_1_1_outputs_base.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
