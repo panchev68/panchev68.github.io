@@ -1,8 +1,8 @@
 var class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q =
 [
+    [ "Register", "d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html", null ],
     [ "Config", "d3/d82/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_config.html", "d3/d82/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_config" ],
     [ "Info", "d2/d7d/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_info.html", "d2/d7d/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_info" ],
-    [ "Register", "d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html", null ],
     [ "W25Q128JVSIQ", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#af1b755c474085a41e554dcb38ad9056a", null ],
     [ "~W25Q128JVSIQ", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
     [ "close", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html#a949717933a1c298041adcf500a7d8f9d", null ],

@@ -2,7 +2,7 @@ var class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery =
 [
     [ "Node", "d8/dcb/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery_1_1_node.html", "d8/dcb/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery_1_1_node" ],
     [ "NetworkDiscovery", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html#a8d3e8f22b1607f08ec7c3fe435bd6faa", null ],
-    [ "~NetworkDiscovery", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html#a6da7df16c42b73364bbda3d7f7ae9408", null ],
+    [ "~NetworkDiscovery", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html#ab39ee06ad42634e9c8c4c614ee64ebbd", null ],
     [ "beginUpdate", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html#a8051541c82e38b791f21273141bef9fd", null ],
     [ "close", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html#a22a976a5466278b39ea3188adc32351a", null ],
     [ "endUpdate", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html#a77f6985bc7ef2b9feac65ee75a3018cb", null ],

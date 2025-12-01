@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['backlight_0',['Backlight',['../d2/ddb/class_b_s_p_1_1_backlight.html',1,'BSP::Backlight'],['../d2/ddb/class_b_s_p_1_1_backlight.html#ab727aad995a94e0946319da71185633d',1,'BSP::Backlight::Backlight()'],['../d2/ddb/class_b_s_p_1_1_backlight.html#a6f1fd821fbcbdec498787f13da1686c9',1,'BSP::Backlight::Backlight(const Backlight &amp;other)=delete'],['../d2/ddb/class_b_s_p_1_1_backlight.html#a48eb450c0f2d55a5f288574189af2ce3',1,'BSP::Backlight::Backlight(Backlight &amp;&amp;other)=delete']]],
+  ['backlight_0',['Backlight',['../d2/ddb/class_b_s_p_1_1_backlight.html',1,'BSP']]],
   ['backlight_1',['backlight',['../d8/dda/struct_system_1_1_parameters_1_1_data_1_1_display.html#af9a94242dd06fa992401d60108f22efd',1,'System::Parameters::Data::Display::backlight'],['../da/da7/namespace_b_s_p.html#a806905925402b669868caa57d27a23ca',1,'BSP::backlight']]],
   ['backlight_20driver_2',['Display Backlight Driver',['../d3/dc4/group___backlight.html',1,'']]],
   ['backlight_2ehpp_3',['Backlight.hpp',['../d9/d0c/_backlight_8hpp.html',1,'']]],

@@ -3,8 +3,10 @@ var annotated_dup =
     [ "Lib", null, [
       [ "BSP", "da/ddf/namespace_lib_1_1_b_s_p.html", [
         [ "Display", null, [
-          [ "Driver", "dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html", null ],
-          [ "DriverBase", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base" ]
+          [ "DriverBase", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base" ],
+          [ "Driver&lt; Controller::ILI9341 &gt;", "d6/de3/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4.html", "d6/de3/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4" ],
+          [ "Driver&lt; Controller::ST7789 &gt;", "d1/d32/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_s_t7789_01_4.html", "d1/d32/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_s_t7789_01_4" ],
+          [ "Driver", "dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html", null ]
         ] ],
         [ "EEPROM", null, [
           [ "I2C", null, [
@@ -31,8 +33,9 @@ var annotated_dup =
         [ "Termometer", null, [
           [ "DTH", null, [
             [ "Base", "d0/d5f/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_base.html", "d0/d5f/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_base" ],
-            [ "Driver", "dd/d10/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver.html", null ],
-            [ "Parm", "d7/d6e/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_parm.html", null ]
+            [ "Driver&lt; Type::DTH22 &gt;", "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html", "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4" ],
+            [ "Parm", "d7/d6e/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_parm.html", null ],
+            [ "Driver", "dd/d10/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver.html", null ]
           ] ]
         ] ],
         [ "TouchScreen", null, [
@@ -47,15 +50,16 @@ var annotated_dup =
         [ "DigitalPeripheralBase", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base" ],
         [ "EncoderPins", "d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html", "d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins" ],
         [ "EncoderTimer", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer" ],
+        [ "W25Q128JVSIQ", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q" ],
         [ "I2CPort", "db/d63/class_lib_1_1_b_s_p_1_1_i2_c_port.html", "db/d63/class_lib_1_1_b_s_p_1_1_i2_c_port" ],
         [ "SPIPort", "dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html", "dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port" ],
-        [ "UARTPort", "d9/d1d/class_lib_1_1_b_s_p_1_1_u_a_r_t_port.html", "d9/d1d/class_lib_1_1_b_s_p_1_1_u_a_r_t_port" ],
-        [ "W25Q128JVSIQ", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q" ]
+        [ "UARTPort", "d9/d1d/class_lib_1_1_b_s_p_1_1_u_a_r_t_port.html", "d9/d1d/class_lib_1_1_b_s_p_1_1_u_a_r_t_port" ]
       ] ],
-      [ "Canbus", "d0/d07/namespace_lib_1_1_canbus.html", [
-        [ "CanServiceBase", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base" ],
-        [ "Service", "df/dec/class_lib_1_1_canbus_1_1_service.html", null ],
-        [ "Service< CanServiceMode::SERVER >", "d1/d77/class_lib_1_1_canbus_1_1_service_3_01_can_service_mode_1_1_s_e_r_v_e_r_01_4.html", "d1/d77/class_lib_1_1_canbus_1_1_service_3_01_can_service_mode_1_1_s_e_r_v_e_r_01_4" ]
+      [ "Canbus", null, [
+        [ "Service&lt; Mode::CLIENT &gt;", "dd/d5f/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_c_l_i_e_n_t_01_4.html", "dd/d5f/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_c_l_i_e_n_t_01_4" ],
+        [ "Service&lt; Mode::SERVER &gt;", "dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html", "dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4" ],
+        [ "ServiceBase", "d6/d56/class_lib_1_1_canbus_1_1_service_base.html", "d6/d56/class_lib_1_1_canbus_1_1_service_base" ],
+        [ "Service", "df/dec/class_lib_1_1_canbus_1_1_service.html", null ]
       ] ],
       [ "Digi", "d9/dd6/namespace_lib_1_1_digi.html", [
         [ "API", "d6/d8a/namespace_lib_1_1_digi_1_1_a_p_i.html", [
@@ -88,11 +92,20 @@ var annotated_dup =
           [ "ComDriver", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver" ],
           [ "Diagnostic", "d4/dc6/class_lib_1_1_digi_1_1_core_1_1_diagnostic.html", "d4/dc6/class_lib_1_1_digi_1_1_core_1_1_diagnostic" ],
           [ "EscapedCode", "d2/d1c/class_lib_1_1_digi_1_1_core_1_1_escaped_code.html", "d2/d1c/class_lib_1_1_digi_1_1_core_1_1_escaped_code" ],
+          [ "LocalAtCommand", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command" ],
+          [ "Message", "d6/da7/class_lib_1_1_digi_1_1_core_1_1_message.html", "d6/da7/class_lib_1_1_digi_1_1_core_1_1_message" ],
+          [ "ModemStatus", "d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status.html", "d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status" ],
+          [ "Module", "df/deb/class_lib_1_1_digi_1_1_core_1_1_module.html", "df/deb/class_lib_1_1_digi_1_1_core_1_1_module" ],
+          [ "Protocol", "d0/dad/class_lib_1_1_digi_1_1_core_1_1_protocol.html", null ],
           [ "Frame0x00", "da/da7/class_lib_1_1_digi_1_1_core_1_1_frame0x00.html", "da/da7/class_lib_1_1_digi_1_1_core_1_1_frame0x00" ],
           [ "Frame0x01", "d5/de5/class_lib_1_1_digi_1_1_core_1_1_frame0x01.html", "d5/de5/class_lib_1_1_digi_1_1_core_1_1_frame0x01" ],
           [ "Frame0x08", "d1/d13/class_lib_1_1_digi_1_1_core_1_1_frame0x08.html", "d1/d13/class_lib_1_1_digi_1_1_core_1_1_frame0x08" ],
           [ "Frame0x09", "d0/ded/class_lib_1_1_digi_1_1_core_1_1_frame0x09.html", "d0/ded/class_lib_1_1_digi_1_1_core_1_1_frame0x09" ],
           [ "Frame0x17", "da/d0a/class_lib_1_1_digi_1_1_core_1_1_frame0x17.html", "da/d0a/class_lib_1_1_digi_1_1_core_1_1_frame0x17" ],
+          [ "QueryBase", "d4/d48/class_lib_1_1_digi_1_1_core_1_1_query_base.html", "d4/d48/class_lib_1_1_digi_1_1_core_1_1_query_base" ],
+          [ "QueueMessage", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message" ],
+          [ "RemoteAtCommand", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command.html", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command" ],
+          [ "ResponseEvents", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events.html", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events" ],
           [ "Frame0x80", "d9/dec/class_lib_1_1_digi_1_1_core_1_1_frame0x80.html", "d9/dec/class_lib_1_1_digi_1_1_core_1_1_frame0x80" ],
           [ "Frame0x81", "d0/dfa/class_lib_1_1_digi_1_1_core_1_1_frame0x81.html", "d0/dfa/class_lib_1_1_digi_1_1_core_1_1_frame0x81" ],
           [ "Frame0x88", "d3/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x88.html", "d3/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x88" ],
@@ -100,16 +113,7 @@ var annotated_dup =
           [ "Frame0x8a", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html", "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a" ],
           [ "Frame0x8b", "d0/d8c/class_lib_1_1_digi_1_1_core_1_1_frame0x8b.html", "d0/d8c/class_lib_1_1_digi_1_1_core_1_1_frame0x8b" ],
           [ "Frame0x90", "d5/d99/class_lib_1_1_digi_1_1_core_1_1_frame0x90.html", "d5/d99/class_lib_1_1_digi_1_1_core_1_1_frame0x90" ],
-          [ "Frame0x97", "d3/d04/class_lib_1_1_digi_1_1_core_1_1_frame0x97.html", "d3/d04/class_lib_1_1_digi_1_1_core_1_1_frame0x97" ],
-          [ "LocalAtCommand", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command" ],
-          [ "Message", "d6/da7/class_lib_1_1_digi_1_1_core_1_1_message.html", "d6/da7/class_lib_1_1_digi_1_1_core_1_1_message" ],
-          [ "ModemStatus", "d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status.html", "d8/d4b/class_lib_1_1_digi_1_1_core_1_1_modem_status" ],
-          [ "Module", "df/deb/class_lib_1_1_digi_1_1_core_1_1_module.html", "df/deb/class_lib_1_1_digi_1_1_core_1_1_module" ],
-          [ "Protocol", "d0/dad/class_lib_1_1_digi_1_1_core_1_1_protocol.html", null ],
-          [ "QueryBase", "d4/d48/class_lib_1_1_digi_1_1_core_1_1_query_base.html", "d4/d48/class_lib_1_1_digi_1_1_core_1_1_query_base" ],
-          [ "QueueMessage", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message" ],
-          [ "RemoteAtCommand", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command.html", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command" ],
-          [ "ResponseEvents", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events.html", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events" ]
+          [ "Frame0x97", "d3/d04/class_lib_1_1_digi_1_1_core_1_1_frame0x97.html", "d3/d04/class_lib_1_1_digi_1_1_core_1_1_frame0x97" ]
         ] ]
       ] ],
       [ "Errors", "da/d3c/namespace_lib_1_1_errors.html", [
@@ -130,13 +134,14 @@ var annotated_dup =
         [ "UserProtocol", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol" ]
       ] ],
       [ "HAL", "d9/d8d/namespace_lib_1_1_h_a_l.html", [
+        [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
+        [ "AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base" ],
         [ "DeviceManagerBase", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base" ],
         [ "Handle", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", "de/d0a/class_lib_1_1_h_a_l_1_1_handle" ],
         [ "Port", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
-        [ "Port< Lib::HAL::DriverMode::DMA >", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
         [ "Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset" ],
         [ "Timer", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer" ],
-        [ "Timer< Mode::ENCODER >", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4" ]
+        [ "Timer&lt; Mode::ENCODER &gt;", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4" ]
       ] ],
       [ "Helper", "df/d8e/namespace_lib_1_1_helper.html", [
         [ "Convert", null, [
@@ -144,16 +149,16 @@ var annotated_dup =
           [ "Bcd", "dc/d7c/class_lib_1_1_helper_1_1_convert_1_1_bcd.html", null ],
           [ "dBM", "de/daa/class_lib_1_1_helper_1_1_convert_1_1d_b_m.html", null ],
           [ "Hex", "d1/d75/class_lib_1_1_helper_1_1_convert_1_1_hex.html", null ],
-          [ "Hex< uint16_t >", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
-          [ "Hex< uint32_t >", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
-          [ "Hex< uint64_t >", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
-          [ "Hex< uint8_t >", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
+          [ "Hex&lt; uint8_t &gt;", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
+          [ "Hex&lt; uint16_t &gt;", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
+          [ "Hex&lt; uint32_t &gt;", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
+          [ "Hex&lt; uint64_t &gt;", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
           [ "HexHelper", "dc/d3d/class_lib_1_1_helper_1_1_convert_1_1_hex_helper.html", null ],
           [ "Percent", "d4/d46/class_lib_1_1_helper_1_1_convert_1_1_percent.html", null ]
         ] ],
         [ "Buffer", "d0/d95/class_lib_1_1_helper_1_1_buffer.html", "d0/d95/class_lib_1_1_helper_1_1_buffer" ],
-        [ "BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle" ],
         [ "BufferStatic", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static.html", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static" ],
+        [ "BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle" ],
         [ "CityHash", "d1/d22/class_lib_1_1_helper_1_1_city_hash.html", "d1/d22/class_lib_1_1_helper_1_1_city_hash" ],
         [ "Container", "d9/d33/class_lib_1_1_helper_1_1_container.html", "d9/d33/class_lib_1_1_helper_1_1_container" ],
         [ "ContainerBase", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", "d6/ddd/class_lib_1_1_helper_1_1_container_base" ],
@@ -179,8 +184,8 @@ var annotated_dup =
         [ "Filter", null, [
           [ "Kalman", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman.html", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman" ]
         ] ],
+        [ "HammingCode", "d1/db4/class_lib_1_1_math_1_1_hamming_code.html", null ],
         [ "CubicInterpolation", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation" ],
-        [ "HammingCode", "d1/db4/class_lib_1_1_math_1_1_hamming_code.html", "d1/db4/class_lib_1_1_math_1_1_hamming_code" ],
         [ "LinearInterpolation", "d3/d1f/class_lib_1_1_math_1_1_linear_interpolation.html", "d3/d1f/class_lib_1_1_math_1_1_linear_interpolation" ],
         [ "Pid", "d1/da4/class_lib_1_1_math_1_1_pid.html", "d1/da4/class_lib_1_1_math_1_1_pid" ]
       ] ],
@@ -207,9 +212,9 @@ var annotated_dup =
     [ "RTOS", "da/d8a/namespace_r_t_o_s.html", [
       [ "Optimization", null, [
         [ "InlineIf", "d1/de6/struct_r_t_o_s_1_1_optimization_1_1_inline_if.html", null ],
-        [ "InlineIf< true >", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
-        [ "QueueOptimization", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
+        [ "InlineIf&lt; true &gt;", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
         [ "TaskPriorityOptimization", "dc/d4a/struct_r_t_o_s_1_1_optimization_1_1_task_priority_optimization.html", null ],
+        [ "QueueOptimization", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
         [ "TimerOptimization", "da/d29/struct_r_t_o_s_1_1_optimization_1_1_timer_optimization.html", null ]
       ] ],
       [ "EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html", "db/ddd/class_r_t_o_s_1_1_event_group" ],
@@ -231,8 +236,10 @@ var annotated_dup =
     [ "Buffer", "d5/d2a/class_buffer.html", "d5/d2a/class_buffer" ],
     [ "BufferHandle", "d2/d8a/class_buffer_handle.html", "d2/d8a/class_buffer_handle" ],
     [ "BufferStatic", "dd/dda/class_buffer_static.html", "dd/dda/class_buffer_static" ],
+    [ "CAN_FilterTypeDef", "df/d9e/struct_c_a_n___filter_type_def.html", "df/d9e/struct_c_a_n___filter_type_def" ],
+    [ "CAN_TxHeaderTypeDef", "db/d54/struct_c_a_n___tx_header_type_def.html", "db/d54/struct_c_a_n___tx_header_type_def" ],
     [ "CanFilter", "d2/d8d/class_can_filter.html", "d2/d8d/class_can_filter" ],
-    [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", "d0/dd1/class_can_rx_message" ],
+    [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", null ],
     [ "CanTxHeader", "de/da2/class_can_tx_header.html", "de/da2/class_can_tx_header" ],
     [ "CanTxMessage", "d3/d28/class_can_tx_message.html", "d3/d28/class_can_tx_message" ],
     [ "Handle", "db/d8c/struct_handle.html", "db/d8c/struct_handle" ],

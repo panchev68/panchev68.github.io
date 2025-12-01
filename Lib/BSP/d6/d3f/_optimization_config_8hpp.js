@@ -1,9 +1,9 @@
 var _optimization_config_8hpp =
 [
-    [ "RTOS::Optimization::InlineIf< T_ENABLE >", "d1/de6/struct_r_t_o_s_1_1_optimization_1_1_inline_if.html", null ],
-    [ "RTOS::Optimization::InlineIf< true >", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
+    [ "RTOS::Optimization::InlineIf&lt; T_ENABLE &gt;", "d1/de6/struct_r_t_o_s_1_1_optimization_1_1_inline_if.html", null ],
+    [ "RTOS::Optimization::InlineIf&lt; true &gt;", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
     [ "RTOS::Optimization::TaskPriorityOptimization", "dc/d4a/struct_r_t_o_s_1_1_optimization_1_1_task_priority_optimization.html", null ],
-    [ "RTOS::Optimization::QueueOptimization< T_MESSAGE_TYPE >", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
+    [ "RTOS::Optimization::QueueOptimization&lt; T_MESSAGE_TYPE &gt;", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
     [ "RTOS::Optimization::TimerOptimization", "da/d29/struct_r_t_o_s_1_1_optimization_1_1_timer_optimization.html", null ],
     [ "RTOS::Optimization::Level", "d6/d3f/_optimization_config_8hpp.html#a9d335d824420c23a1d522f7cbc8de271", [
       [ "SPACE", "d6/d3f/_optimization_config_8hpp.html#a9d335d824420c23a1d522f7cbc8de271a6506ae39fdca9845e3a6de3865183e57", null ],

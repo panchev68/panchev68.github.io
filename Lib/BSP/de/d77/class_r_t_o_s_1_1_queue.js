@@ -1,6 +1,13 @@
 var class_r_t_o_s_1_1_queue =
 [
     [ "Handle", "de/d77/class_r_t_o_s_1_1_queue.html#a164446642700aa6dc1ec57acabe40547", null ],
+    [ "Status", "de/d77/class_r_t_o_s_1_1_queue.html#a172c1c4408bdfe1f9c737d72b3ee7109", [
+      [ "SUCCESS", "de/d77/class_r_t_o_s_1_1_queue.html#a172c1c4408bdfe1f9c737d72b3ee7109ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_QUEUE", "de/d77/class_r_t_o_s_1_1_queue.html#a172c1c4408bdfe1f9c737d72b3ee7109a963a3911340ee292e3d18106588c2ce3", null ],
+      [ "TIMEOUT", "de/d77/class_r_t_o_s_1_1_queue.html#a172c1c4408bdfe1f9c737d72b3ee7109a070a0fb40f6c308ab544b227660aadff", null ],
+      [ "FULL", "de/d77/class_r_t_o_s_1_1_queue.html#a172c1c4408bdfe1f9c737d72b3ee7109aba7de5bc6888294e5884b024a4c894f1", null ],
+      [ "EMPTY", "de/d77/class_r_t_o_s_1_1_queue.html#a172c1c4408bdfe1f9c737d72b3ee7109aba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    ] ],
     [ "Queue", "de/d77/class_r_t_o_s_1_1_queue.html#aab1fd2221767baffcf06d45785ba0083", null ],
     [ "~Queue", "de/d77/class_r_t_o_s_1_1_queue.html#aa679c3985258c10108f0dd21d41f4812", null ],
     [ "Queue", "de/d77/class_r_t_o_s_1_1_queue.html#a1fd5057fc014acc2b0b03eb587768d5c", null ],
@@ -29,9 +36,7 @@ var class_r_t_o_s_1_1_queue =
     [ "removeFromRegistry", "de/d77/class_r_t_o_s_1_1_queue.html#af995204b0c030ab109ae642efd9d79ab", null ],
     [ "reset", "de/d77/class_r_t_o_s_1_1_queue.html#a3842787a722f26424982fec7290bc0ce", null ],
     [ "send", "de/d77/class_r_t_o_s_1_1_queue.html#a9a040733bcc4a778eecb89633d167c65", null ],
-    [ "sendToBack", "de/d77/class_r_t_o_s_1_1_queue.html#a06c2e06f92c501abacdd9b47c0451f63", null ],
     [ "sendToBackFromISR", "de/d77/class_r_t_o_s_1_1_queue.html#ac9791fbc2eeaa61b04a895ebb69c239c", null ],
-    [ "sendToFront", "de/d77/class_r_t_o_s_1_1_queue.html#ab7df1ff2ceba485c051ceadc740b65a3", null ],
     [ "sendToFrontFromISR", "de/d77/class_r_t_o_s_1_1_queue.html#a9ffebf4fcae7c73612ce1c4846c5a9fc", null ],
     [ "spacesAvailable", "de/d77/class_r_t_o_s_1_1_queue.html#a2f75845ab3ebc455d8a79f920a9744c0", null ]
 ];

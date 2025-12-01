@@ -10,7 +10,7 @@ var dir_8614472618abc149a31dd7841874bafa =
     [ "RTC", "dir_68f5bb62bee927019f41daab48652118.html", "dir_68f5bb62bee927019f41daab48652118" ],
     [ "SPI", "dir_9fed9c41db75c1a3148af1e30257a6a9.html", "dir_9fed9c41db75c1a3148af1e30257a6a9" ],
     [ "TIM", "dir_108b62c0e70fd74a326c4126470fe17d.html", "dir_108b62c0e70fd74a326c4126470fe17d" ],
-    [ "DeviceManagerBase.hpp", "dc/d39/core_2_device_manager_base_8hpp.html", "dc/d39/core_2_device_manager_base_8hpp" ],
+    [ "DeviceManagerBase.hpp", "d2/d30/_device_manager_base_8hpp.html", "d2/d30/_device_manager_base_8hpp" ],
     [ "DriverDataDirection.hpp", "da/d5a/_driver_data_direction_8hpp.html", "da/d5a/_driver_data_direction_8hpp" ],
     [ "DriverMode.hpp", "df/d8f/_driver_mode_8hpp.html", "df/d8f/_driver_mode_8hpp" ],
     [ "Handle.hpp", "d6/d2a/_handle_8hpp.html", "d6/d2a/_handle_8hpp" ],

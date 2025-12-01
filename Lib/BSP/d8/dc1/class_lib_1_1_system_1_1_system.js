@@ -1,8 +1,9 @@
 var class_lib_1_1_system_1_1_system =
 [
-    [ "System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a1460817725ada707ab0fb240c1a7a494", null ],
-    [ "~System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a11b8ca0e17004e6d825d07712d2a6703", null ],
-    [ "restart", "d8/dc1/class_lib_1_1_system_1_1_system.html#ace422e15e30cdd7b81bc32ad89186d6d", null ],
+    [ "DataMap", "d1/d54/struct_lib_1_1_system_1_1_system_1_1_data_map.html", "d1/d54/struct_lib_1_1_system_1_1_system_1_1_data_map" ],
+    [ "System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a7f6a1b0a5f04e2815bfc7b9167a576a2", null ],
+    [ "~System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a239294ea5a5b57e39477c677f885a169", null ],
+    [ "restart", "d8/dc1/class_lib_1_1_system_1_1_system.html#a0b2f46c2a6dffec536061366ae34debc", null ],
     [ "configuration", "d8/dc1/class_lib_1_1_system_1_1_system.html#a97e928b4c78a8a3e74760b983ea17573", null ],
     [ "firmwareVersion", "d8/dc1/class_lib_1_1_system_1_1_system.html#ab2cee70f45a9983819db3e9230ceeb95", null ],
     [ "hardwareVersion", "d8/dc1/class_lib_1_1_system_1_1_system.html#a8cc92326b4a8214960afddcd1b18c7d9", null ],

@@ -1,17 +1,18 @@
 var class_buffer =
 [
     [ "Buffer", "d5/d2a/class_buffer.html#af9ab2e45b1d521e81c19589542b4b0b0", null ],
-    [ "Buffer", "d5/d2a/class_buffer.html#aaf090943cd833502fa0fe4b984051e91", null ],
+    [ "Buffer", "d5/d2a/class_buffer.html#a6fb427549ecf8c1c20820700c019f58f", null ],
     [ "Buffer", "d5/d2a/class_buffer.html#afc235cba5b43abb8c59632bc12a6c824", null ],
     [ "Buffer", "d5/d2a/class_buffer.html#a673cbd44b87cf900982433619fd7680f", null ],
     [ "Buffer", "d5/d2a/class_buffer.html#a4152df5fad433c572bef169ee46cb991", null ],
-    [ "~Buffer", "d5/d2a/class_buffer.html#ad75952f4adfa5273158269813f7020f3", null ],
-    [ "clear", "d5/d2a/class_buffer.html#a0e7ef4b64a58bc31c6c5646862c7b09d", null ],
-    [ "getSize", "d5/d2a/class_buffer.html#afb3bf56a00a2482e2aaf2d50921b15e7", null ],
-    [ "operator const uint8_t *", "d5/d2a/class_buffer.html#a395c302369d45d53c2db93af5ed3f667", null ],
-    [ "operator uint8_t *", "d5/d2a/class_buffer.html#af1e548d29d2d913f26cd76e51aa2110d", null ],
-    [ "operator=", "d5/d2a/class_buffer.html#afeac32a1c08591e60e89c8547c352871", null ],
-    [ "operator[]", "d5/d2a/class_buffer.html#afa7011001c5933e26098bd9573505ef4", null ],
+    [ "~Buffer", "d5/d2a/class_buffer.html#a950e8ecd45d712bd45ab87f7b7c65507", null ],
+    [ "clear", "d5/d2a/class_buffer.html#a1bb2eec77281d4dca8975cff25654415", null ],
+    [ "getSize", "d5/d2a/class_buffer.html#acc24103eef1ab4a7b639bff60303891a", null ],
+    [ "operator const uint8_t *", "d5/d2a/class_buffer.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
+    [ "operator uint8_t *", "d5/d2a/class_buffer.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
+    [ "operator=", "d5/d2a/class_buffer.html#a57b913d3f6c04a2b4e00ea9eaeb73fb1", null ],
+    [ "operator[]", "d5/d2a/class_buffer.html#a349ac1909667d09f057d02a94389ecb5", null ],
+    [ "operator[]", "d5/d2a/class_buffer.html#a31a9debe78ef23f609d52d233fff4870", null ],
     [ "setExisting", "d5/d2a/class_buffer.html#aa618cdbf9dc710e5b4406b7601c497b1", null ],
-    [ "setSize", "d5/d2a/class_buffer.html#a7f807adb0598b9f97b994765e4e80504", null ]
+    [ "setSize", "d5/d2a/class_buffer.html#a44d28f117f561e52889860c89eb76c4e", null ]
 ];

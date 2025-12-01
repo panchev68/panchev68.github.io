@@ -3,7 +3,9 @@ var hierarchy =
     [ "ADC_ChannelConfTypeDef", null, [
       [ "AdcChannel::Config", "de/db2/class_adc_channel_1_1_config.html", null ]
     ] ],
-    [ "AdcChannel", "dc/dee/class_adc_channel.html", null ],
+    [ "AdcChannel", "dc/dee/class_adc_channel.html", [
+      [ "Lib::HAL::AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", null ]
+    ] ],
     [ "AdcTransparentPortBase", null, [
       [ "Lib::HAL::Port< Lib::HAL::DriverMode::DMA >", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", null ]
     ] ],
@@ -14,7 +16,9 @@ var hierarchy =
       [ "Lib::HAL::Timer< Mode::ENCODER >", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", null ]
     ] ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html", null ],
-    [ "Lib::BSP::Termometer::DTH::Base", "d0/d5f/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_base.html", null ],
+    [ "Lib::BSP::Termometer::DTH::Base", "d0/d5f/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_base.html", [
+      [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >", "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html", null ]
+    ] ],
     [ "Lib::System::Version::Base", "d6/d55/class_lib_1_1_system_1_1_version_1_1_base.html", [
       [ "Lib::System::Version::Firmware", "df/d5e/class_lib_1_1_system_1_1_version_1_1_firmware.html", null ],
       [ "Lib::System::Version::Hardware", "d1/dd7/class_lib_1_1_system_1_1_version_1_1_hardware.html", null ]
@@ -28,22 +32,12 @@ var hierarchy =
     ] ],
     [ "BufferHandle", "d2/d8a/class_buffer_handle.html", null ],
     [ "Lib::Helper::BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", null ],
-    [ "CAN_FilterTypeDef", null, [
-      [ "CanFilter", "d2/d8d/class_can_filter.html", null ]
-    ] ],
-    [ "CAN_RxHeaderTypeDef", null, [
-      [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", null ]
-    ] ],
-    [ "CAN_TxHeaderTypeDef", null, [
-      [ "CanTxHeader", "de/da2/class_can_tx_header.html", [
-        [ "CanTxMessage", "d3/d28/class_can_tx_message.html", null ]
-      ] ]
-    ] ],
-    [ "CanPortBase", null, [
-      [ "Lib::Canbus::CanServiceBase", "db/d6e/class_lib_1_1_canbus_1_1_can_service_base.html", [
-        [ "Lib::Canbus::Service< CanServiceMode::SERVER >", "d1/d77/class_lib_1_1_canbus_1_1_service_3_01_can_service_mode_1_1_s_e_r_v_e_r_01_4.html", null ]
-      ] ]
-    ] ],
+    [ "CAN_FilterTypeDef", "df/d9e/struct_c_a_n___filter_type_def.html", null ],
+    [ "CAN_TxHeaderTypeDef", "db/d54/struct_c_a_n___tx_header_type_def.html", null ],
+    [ "CanFilter", "d2/d8d/class_can_filter.html", null ],
+    [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", null ],
+    [ "CanTxHeader", "de/da2/class_can_tx_header.html", null ],
+    [ "CanTxMessage", "d3/d28/class_can_tx_message.html", null ],
     [ "Lib::Digi::API::Service::ChannelScanner::Channel", "d2/d4a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner_1_1_channel.html", null ],
     [ "Lib::Digi::Core::Checksum", "d6/dee/class_lib_1_1_digi_1_1_core_1_1_checksum.html", null ],
     [ "Lib::Helper::CityHash", "d1/d22/class_lib_1_1_helper_1_1_city_hash.html", null ],
@@ -59,8 +53,8 @@ var hierarchy =
     [ "Lib::BSP::Backlight::Config", "db/d19/struct_lib_1_1_b_s_p_1_1_backlight_1_1_config.html", null ],
     [ "Lib::BSP::Beep::Config", "d7/d87/struct_lib_1_1_b_s_p_1_1_beep_1_1_config.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Config", "d7/d09/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config.html", null ],
-    [ "Lib::BSP::Display::Driver< Controller::ILI9341 >::Config", "dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html", null ],
-    [ "Lib::BSP::Display::Driver< Controller::ST7789 >::Config", "d9/d64/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_s_t7789_01_4_1_1_config.html", null ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config", "dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html", null ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Config", "d9/d64/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_s_t7789_01_4_1_1_config.html", null ],
     [ "Lib::BSP::EEPROM::I2C::DriverBase::Config", "d7/d12/struct_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_driver_base_1_1_config.html", null ],
     [ "Lib::BSP::EncoderPins::Config", "d8/d35/struct_lib_1_1_b_s_p_1_1_encoder_pins_1_1_config.html", null ],
     [ "Lib::BSP::EncoderTimer::Config", "da/da4/struct_lib_1_1_b_s_p_1_1_encoder_timer_1_1_config.html", null ],
@@ -72,24 +66,25 @@ var hierarchy =
     [ "Lib::BSP::Voltmeter::Base::Config", "d8/d05/struct_lib_1_1_b_s_p_1_1_voltmeter_1_1_base_1_1_config.html", null ],
     [ "Lib::BSP::W25Q128JVSIQ::Config", "d3/d82/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_config.html", null ],
     [ "Lib::Digi::Core::ComDriver::Config", "d3/d5e/struct_lib_1_1_digi_1_1_core_1_1_com_driver_1_1_config.html", null ],
-    [ "Lib::Math::Filter::Kalman< T >::Config", "d9/d85/struct_lib_1_1_math_1_1_filter_1_1_kalman_1_1_config.html", null ],
+    [ "Lib::Math::Filter::Kalman&lt; T &gt;::Config", "d9/d85/struct_lib_1_1_math_1_1_filter_1_1_kalman_1_1_config.html", null ],
     [ "Lib::USB::SerialPort::Config", "d9/d53/struct_lib_1_1_u_s_b_1_1_serial_port_1_1_config.html", [
       [ "Lib::USB::SerialPortRepeaterBase::Config", "dc/d29/struct_lib_1_1_u_s_b_1_1_serial_port_repeater_base_1_1_config.html", null ]
     ] ],
     [ "Lib::System::Configuration", "df/db3/class_lib_1_1_system_1_1_configuration.html", null ],
     [ "Lib::Digi::API::Connection", "d4/d54/class_lib_1_1_digi_1_1_a_p_i_1_1_connection.html", null ],
-    [ "Lib::Helper::Container< T >", "d9/d33/class_lib_1_1_helper_1_1_container.html", null ],
-    [ "Lib::Helper::ContainerBase< T >", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", null ],
+    [ "Lib::Helper::Container&lt; T &gt;", "d9/d33/class_lib_1_1_helper_1_1_container.html", null ],
+    [ "Lib::Helper::ContainerBase&lt; T &gt;", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", null ],
     [ "Lib::Digi::Core::Frame::Helper::Convert", "d5/d03/class_lib_1_1_digi_1_1_core_1_1_frame_1_1_helper_1_1_convert.html", null ],
     [ "Lib::Digi::API::Connection::Info::Counter", "da/de4/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_info_1_1_counter.html", null ],
     [ "Lib::Helper::Crc16", "da/dd3/class_lib_1_1_helper_1_1_crc16.html", null ],
     [ "RTOS::Kernel::CriticalSection", "dc/d60/class_r_t_o_s_1_1_kernel_1_1_critical_section.html", null ],
     [ "RTOS::Kernel::CriticalSectionISR", "d4/d74/class_r_t_o_s_1_1_kernel_1_1_critical_section_i_s_r.html", null ],
-    [ "Lib::Math::CubicInterpolation< T_VALUE, T_INPUT >", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html", null ],
+    [ "Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;", "d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html", null ],
     [ "Lib::Digi::API::Service::Parameters::Data", "dc/dfa/struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data.html", null ],
     [ "Lib::Digi::Core::Frame::Data", "d3/de4/class_lib_1_1_digi_1_1_core_1_1_frame_1_1_data.html", null ],
     [ "RTOS::Task::Data", "d1/da9/struct_r_t_o_s_1_1_task_1_1_data.html", null ],
-    [ "Lib::Helper::DataHandle< T >", "d9/d1a/class_lib_1_1_helper_1_1_data_handle.html", null ],
+    [ "Lib::Helper::DataHandle&lt; T &gt;", "d9/d1a/class_lib_1_1_helper_1_1_data_handle.html", null ],
+    [ "Lib::System::System::DataMap", "d1/d54/struct_lib_1_1_system_1_1_system_1_1_data_map.html", null ],
     [ "Lib::Helper::DateTime::Date", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html", null ],
     [ "Lib::Helper::DateTime", "de/d5f/class_lib_1_1_helper_1_1_date_time.html", null ],
     [ "Lib::Helper::Convert::dBM", "de/daa/class_lib_1_1_helper_1_1_convert_1_1d_b_m.html", null ],
@@ -98,16 +93,19 @@ var hierarchy =
       [ "Lib::BSP::Voltmeter::Base", "dd/da1/class_lib_1_1_b_s_p_1_1_voltmeter_1_1_base.html", null ]
     ] ],
     [ "Lib::BSP::DeviceManager", "d9/d42/class_lib_1_1_b_s_p_1_1_device_manager.html", null ],
-    [ "Lib::HAL::DeviceManagerBase< T_DEVICE, T_HANDLE >", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", null ],
-    [ "Lib::BSP::Termometer::DTH::Driver< Type::DTH22 >::Diagnostic", "d9/d4e/struct_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4_1_1_diagnostic.html", null ],
-    [ "Lib::Canbus::CanServiceBase::Diagnostic", "d4/d29/struct_lib_1_1_canbus_1_1_can_service_base_1_1_diagnostic.html", null ],
+    [ "Lib::HAL::DeviceManagerBase&lt; T_DEVICE, T_HANDLE &gt;", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", null ],
+    [ "Lib::BSP::Termometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "d9/d4e/struct_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4_1_1_diagnostic.html", null ],
+    [ "Lib::Canbus::ServiceBase::Diagnostic", "dc/d77/struct_lib_1_1_canbus_1_1_service_base_1_1_diagnostic.html", null ],
     [ "Lib::Digi::Core::Diagnostic", "d4/dc6/class_lib_1_1_digi_1_1_core_1_1_diagnostic.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html", null ],
     [ "Lib::BSP::Backlight::Dimmer", "d0/db8/class_lib_1_1_b_s_p_1_1_backlight_1_1_dimmer.html", null ],
     [ "Lib::Digi::API::NodeInfo::Discovery", "d5/d07/class_lib_1_1_digi_1_1_a_p_i_1_1_node_info_1_1_discovery.html", null ],
-    [ "Lib::BSP::Display::Driver< CONTROLLER >", "dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html", null ],
-    [ "Lib::BSP::Termometer::DTH::Driver< SENSOR_TYPE >", "dd/d10/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver.html", null ],
-    [ "Lib::BSP::Display::DriverBase", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html", null ],
+    [ "Lib::BSP::Display::Driver&lt; CONTROLLER &gt;", "dc/dd7/class_lib_1_1_b_s_p_1_1_display_1_1_driver.html", null ],
+    [ "Lib::BSP::Termometer::DTH::Driver&lt; SENSOR_TYPE &gt;", "dd/d10/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver.html", null ],
+    [ "Lib::BSP::Display::DriverBase", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html", [
+      [ "Lib::BSP::Display::Driver< Controller::ILI9341 >", "d6/de3/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4.html", null ],
+      [ "Lib::BSP::Display::Driver< Controller::ST7789 >", "d1/d32/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_s_t7789_01_4.html", null ]
+    ] ],
     [ "Lib::BSP::EEPROM::I2C::DriverBase", "d1/d8d/class_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_driver_base.html", [
       [ "Lib::BSP::EEPROM::I2C::M24C16", "d0/da4/class_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_m24_c16.html", null ],
       [ "Lib::BSP::EEPROM::I2C::M24C64W", "d0/d06/class_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_m24_c64_w.html", null ]
@@ -137,32 +135,35 @@ var hierarchy =
     [ "Lib::Errors::Group", "d7/dc8/class_lib_1_1_errors_1_1_group.html", null ],
     [ "Lib::Math::HammingCode", "d1/db4/class_lib_1_1_math_1_1_hamming_code.html", null ],
     [ "Handle", "db/d8c/struct_handle.html", null ],
-    [ "Lib::HAL::Handle< T_HANDLE >", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", null ],
+    [ "Lib::HAL::Handle&lt; T_HANDLE &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", null ],
+    [ "Lib::HAL::Handle&lt; ADC_HandleTypeDef &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", [
+      [ "Lib::HAL::AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", null ]
+    ] ],
     [ "Lib::Digi::Core::Frame::Header", "d5/dc4/struct_lib_1_1_digi_1_1_core_1_1_frame_1_1_header.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Helper", "d8/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper.html", null ],
     [ "Lib::Digi::Core::Frame::Helper", "d4/ded/class_lib_1_1_digi_1_1_core_1_1_frame_1_1_helper.html", null ],
-    [ "Lib::Helper::Convert::Hex< T >", "d1/d75/class_lib_1_1_helper_1_1_convert_1_1_hex.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint16_t >", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint32_t >", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint64_t >", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
-    [ "Lib::Helper::Convert::Hex< uint8_t >", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
+    [ "Lib::Helper::Convert::Hex&lt; T &gt;", "d1/d75/class_lib_1_1_helper_1_1_convert_1_1_hex.html", null ],
+    [ "Lib::Helper::Convert::Hex&lt; uint16_t &gt;", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
+    [ "Lib::Helper::Convert::Hex&lt; uint32_t &gt;", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
+    [ "Lib::Helper::Convert::Hex&lt; uint64_t &gt;", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
+    [ "Lib::Helper::Convert::Hex&lt; uint8_t &gt;", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
     [ "Lib::Helper::Convert::HexHelper", "dc/d3d/class_lib_1_1_helper_1_1_convert_1_1_hex_helper.html", null ],
     [ "Lib::BSP::I2CPort", "db/d63/class_lib_1_1_b_s_p_1_1_i2_c_port.html", null ],
     [ "Lib::BSP::FMEM::SPI::DriverBase::Info", "d6/d60/struct_lib_1_1_b_s_p_1_1_f_m_e_m_1_1_s_p_i_1_1_driver_base_1_1_info.html", null ],
     [ "Lib::BSP::W25Q128JVSIQ::Info", "d2/d7d/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_info.html", null ],
     [ "Lib::Digi::API::Connection::Info", "da/daf/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_info.html", null ],
-    [ "RTOS::Optimization::InlineIf< T_ENABLE >", "d1/de6/struct_r_t_o_s_1_1_optimization_1_1_inline_if.html", null ],
-    [ "RTOS::Optimization::InlineIf< true >", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
+    [ "RTOS::Optimization::InlineIf&lt; T_ENABLE &gt;", "d1/de6/struct_r_t_o_s_1_1_optimization_1_1_inline_if.html", null ],
+    [ "RTOS::Optimization::InlineIf&lt; true &gt;", "d3/ddb/struct_r_t_o_s_1_1_optimization_1_1_inline_if_3_01true_01_4.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Config::Inputs", "d2/d98/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config_1_1_inputs.html", null ],
-    [ "Lib::Helper::Instance< T >", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", null ],
-    [ "Lib::Helper::InstanceWithArg< T, TConfig >", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg.html", null ],
-    [ "Lib::Helper::Integrator< T_VALUE, T_WINDOW_SIZE >", "d8/dfa/class_lib_1_1_helper_1_1_integrator.html", null ],
+    [ "Lib::Helper::Instance&lt; T &gt;", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", null ],
+    [ "Lib::Helper::InstanceWithArg&lt; T, TConfig &gt;", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg.html", null ],
+    [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d8/dfa/class_lib_1_1_helper_1_1_integrator.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface", "d8/db4/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_interface.html", null ],
     [ "Lib::Ethernet::IpAddress", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html", null ],
-    [ "Lib::Helper::JaggedArrayBase< T >", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base.html", null ],
-    [ "Lib::Math::Filter::Kalman< T >", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman.html", null ],
+    [ "Lib::Helper::JaggedArrayBase&lt; T &gt;", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base.html", null ],
+    [ "Lib::Math::Filter::Kalman&lt; T &gt;", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman.html", null ],
     [ "RTOS::Kernel", "d4/d93/class_r_t_o_s_1_1_kernel.html", null ],
-    [ "Lib::Math::LinearInterpolation< T_VALUE, T_INPUT >", "d3/d1f/class_lib_1_1_math_1_1_linear_interpolation.html", null ],
+    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;", "d3/d1f/class_lib_1_1_math_1_1_linear_interpolation.html", null ],
     [ "Lib::Digi::Core::LocalAtCommand", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html", null ],
     [ "RTOS::Mutex::LockGuard", "db/d54/class_r_t_o_s_1_1_mutex_1_1_lock_guard.html", null ],
     [ "Lib::Digi::API::NodeInfo::MacAddress", "d4/d39/class_lib_1_1_digi_1_1_a_p_i_1_1_node_info_1_1_mac_address.html", null ],
@@ -180,13 +181,14 @@ var hierarchy =
     [ "Lib::Helper::MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html", null ],
     [ "RTOS::Mutex", "df/df4/class_r_t_o_s_1_1_mutex.html", null ],
     [ "Lib::Digi::API::NodeInfo::NetworkInfo", "da/d79/class_lib_1_1_digi_1_1_a_p_i_1_1_node_info_1_1_network_info.html", null ],
+    [ "Lib::Canbus::ServiceBase::Node", "d0/db3/struct_lib_1_1_canbus_1_1_service_base_1_1_node.html", null ],
     [ "Lib::Digi::API::Service::NetworkDiscovery::Node", "d8/dcb/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery_1_1_node.html", null ],
     [ "Lib::Ethernet::Node", "d9/dfa/class_lib_1_1_ethernet_1_1_node.html", null ],
     [ "Lib::Digi::API::NodeInfo", "d6/dea/class_lib_1_1_digi_1_1_a_p_i_1_1_node_info.html", null ],
     [ "Lib::Errors::Observer", "d9/d25/class_lib_1_1_errors_1_1_observer.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Config::Outputs", "de/d17/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config_1_1_outputs.html", null ],
     [ "Lib::BSP::TouchScreen::XPT2046::Parameters", "dc/df7/struct_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046_1_1_parameters.html", null ],
-    [ "Lib::Math::Pid< T >::Parameters", "da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html", null ],
+    [ "Lib::Math::Pid&lt; T &gt;::Parameters", "da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html", null ],
     [ "Lib::System::ParametersBase", "da/dc6/class_lib_1_1_system_1_1_parameters_base.html", null ],
     [ "Lib::BSP::Termometer::DTH::Parm", "d7/d6e/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_parm.html", null ],
     [ "Lib::Digi::API::Pause", "d8/da3/class_lib_1_1_digi_1_1_a_p_i_1_1_pause.html", [
@@ -197,11 +199,11 @@ var hierarchy =
     ] ],
     [ "Lib::Helper::Convert::Percent", "d4/d46/class_lib_1_1_helper_1_1_convert_1_1_percent.html", null ],
     [ "Lib::Digi::API::Connection::Info::Period", "d4/dec/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html", null ],
-    [ "Lib::Math::Pid< T >", "d1/da4/class_lib_1_1_math_1_1_pid.html", null ],
-    [ "Lib::Math::CubicInterpolation< T_VALUE, T_INPUT >::Point", "d6/d50/struct_lib_1_1_math_1_1_cubic_interpolation_1_1_point.html", null ],
-    [ "Lib::Math::LinearInterpolation< T_VALUE, T_INPUT >::Point", "d2/dd1/struct_lib_1_1_math_1_1_linear_interpolation_1_1_point.html", null ],
+    [ "Lib::Math::Pid&lt; T &gt;", "d1/da4/class_lib_1_1_math_1_1_pid.html", null ],
+    [ "Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;::Point", "d6/d50/struct_lib_1_1_math_1_1_cubic_interpolation_1_1_point.html", null ],
+    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;::Point", "d2/dd1/struct_lib_1_1_math_1_1_linear_interpolation_1_1_point.html", null ],
     [ "Lib::Ethernet::Port", "d9/db1/class_lib_1_1_ethernet_1_1_port.html", null ],
-    [ "Lib::HAL::Port< T_DRIVER_MODE >", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
+    [ "Lib::HAL::Port&lt; T_DRIVER_MODE &gt;", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::PortBase", "d4/d7f/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_port_base.html", [
       [ "Lib::BSP::DigitalPeripheralBase::Inputs", "d7/dca/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_inputs.html", null ],
       [ "Lib::BSP::DigitalPeripheralBase::Outputs", "d3/d3a/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs.html", null ]
@@ -218,15 +220,15 @@ var hierarchy =
       [ "Lib::Digi::Core::Frame0x09", "d0/ded/class_lib_1_1_digi_1_1_core_1_1_frame0x09.html", null ],
       [ "Lib::Digi::Core::Frame0x17", "da/d0a/class_lib_1_1_digi_1_1_core_1_1_frame0x17.html", null ]
     ] ],
-    [ "RTOS::Queue< T_ELEMENT_TYPE, QUEUE_LENGTH >", "de/d77/class_r_t_o_s_1_1_queue.html", null ],
+    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, QUEUE_LENGTH &gt;", "de/d77/class_r_t_o_s_1_1_queue.html", null ],
     [ "Lib::Digi::Core::QueueMessage", "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html", null ],
-    [ "RTOS::Optimization::QueueOptimization< T_MESSAGE_TYPE >", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
+    [ "RTOS::Optimization::QueueOptimization&lt; T_MESSAGE_TYPE &gt;", "df/d85/struct_r_t_o_s_1_1_optimization_1_1_queue_optimization.html", null ],
     [ "Lib::BSP::W25Q128JVSIQ::Register", "d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html", null ],
     [ "Lib::BSP::Ethercat::PDI::LAN9252::Registers", "de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html", null ],
     [ "Lib::Digi::Core::RemoteAtCommand", "da/d75/class_lib_1_1_digi_1_1_core_1_1_remote_at_command.html", null ],
     [ "Lib::HAL::Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", null ],
     [ "Lib::Digi::Core::ResponseEvents", "d0/def/class_lib_1_1_digi_1_1_core_1_1_response_events.html", null ],
-    [ "Lib::Helper::RingBuffer< T, T_SIZE >", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html", null ],
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::RxPort", "da/d81/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs_1_1_m_c33879_1_1_rx_port.html", null ],
     [ "RTOS::Kernel::SchedulerSuspension", "de/dca/class_r_t_o_s_1_1_kernel_1_1_scheduler_suspension.html", null ],
     [ "RTOS::SemaphoreBase", "dd/da2/class_r_t_o_s_1_1_semaphore_base.html", [
@@ -238,7 +240,11 @@ var hierarchy =
     [ "Lib::USB::SerialPort", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html", [
       [ "Lib::USB::SerialPortRepeaterBase", "d2/d37/class_lib_1_1_u_s_b_1_1_serial_port_repeater_base.html", null ]
     ] ],
-    [ "Lib::Canbus::Service< T_MODE >", "df/dec/class_lib_1_1_canbus_1_1_service.html", null ],
+    [ "Lib::Canbus::Service&lt; T_MODE &gt;", "df/dec/class_lib_1_1_canbus_1_1_service.html", null ],
+    [ "Lib::Canbus::ServiceBase", "d6/d56/class_lib_1_1_canbus_1_1_service_base.html", [
+      [ "Lib::Canbus::Service< Mode::CLIENT >", "dd/d5f/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_c_l_i_e_n_t_01_4.html", null ],
+      [ "Lib::Canbus::Service< Mode::SERVER >", "dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html", null ]
+    ] ],
     [ "Lib::Digi::API::Service::ServiceBase", "d7/d85/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_service_base.html", [
       [ "Lib::Digi::API::Service::ChannelScanner", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html", null ],
       [ "Lib::Digi::API::Service::NetworkDiscovery", "d8/d0a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_network_discovery.html", null ],
@@ -247,15 +253,15 @@ var hierarchy =
     ] ],
     [ "Lib::XCOM::ServiceBase", "d1/df0/class_lib_1_1_x_c_o_m_1_1_service_base.html", null ],
     [ "Lib::Digi::API::Connection::Info::SignalStrength", "d1/d75/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_info_1_1_signal_strength.html", null ],
-    [ "Lib::Helper::Singleton< T >", "d6/dea/class_lib_1_1_helper_1_1_singleton.html", null ],
-    [ "Singleton< T >", "d3/dbc/class_singleton.html", null ],
+    [ "Lib::Helper::Singleton&lt; T &gt;", "d6/dea/class_lib_1_1_helper_1_1_singleton.html", null ],
+    [ "Singleton&lt; T &gt;", "d3/dbc/class_singleton.html", null ],
     [ "Lib::Ethernet::Wiznet::Socket", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html", null ],
     [ "Lib::BSP::SPIPort", "dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html", null ],
     [ "Lib::HAL::SpiPort", null, [
       [ "Lib::BSP::Display::Driver< Controller::ILI9341 >::SpiPort", "df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html", null ]
     ] ],
     [ "Lib::Digi::API::Connection::State", "db/da8/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_state.html", null ],
-    [ "Lib::Math::Pid< T >::State", "d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html", null ],
+    [ "Lib::Math::Pid&lt; T &gt;::State", "d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html", null ],
     [ "Lib::System::ParametersBase::StorageBase", "d6/d38/class_lib_1_1_system_1_1_parameters_base_1_1_storage_base.html", null ],
     [ "RTOS::StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html", null ],
     [ "Lib::Helper::StringHelper", "d0/d40/class_lib_1_1_helper_1_1_string_helper.html", null ],
@@ -269,7 +275,7 @@ var hierarchy =
     [ "Lib::Helper::TimeZone::TimeChangeRule", "df/da6/struct_lib_1_1_helper_1_1_time_zone_1_1_time_change_rule.html", null ],
     [ "RTOS::Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", null ],
     [ "Lib::Helper::TimePeriod", "dd/d9f/class_lib_1_1_helper_1_1_time_period.html", null ],
-    [ "Lib::HAL::Timer< T_MODE >", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", null ],
+    [ "Lib::HAL::Timer&lt; T_MODE &gt;", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", null ],
     [ "RTOS::Optimization::TimerOptimization", "da/d29/struct_r_t_o_s_1_1_optimization_1_1_timer_optimization.html", null ],
     [ "Lib::Helper::TimeZone", "de/d22/class_lib_1_1_helper_1_1_time_zone.html", null ],
     [ "Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort", "d1/d34/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs_1_1_m_c33879_1_1_tx_port.html", null ],

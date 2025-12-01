@@ -12,7 +12,7 @@ var searchData=
   ['clamped_9',['CLAMPED',['../d1/d5b/class_lib_1_1_math_1_1_cubic_interpolation.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad',1,'Lib::Math::CubicInterpolation']]],
   ['clear_10',['CLEAR',['../db/ddd/class_r_t_o_s_1_1_event_group.html#a7842763cd7cbf505f418b7e9820de1e1a813461e0c58e7ad59a2fd83ca2237fec',1,'RTOS::EventGroup']]],
   ['cleared_11',['CLEARED',['../d9/dcd/class_lib_1_1_errors_1_1_error.html#ac97d949e755c3b10315681da95176f7ba62574ee27e6c5f985a6bc1dc344e7438',1,'Lib::Errors::Error']]],
-  ['client_12',['CLIENT',['../d0/d07/namespace_lib_1_1_canbus.html#ab09131df7907782da40cfd9ea1efb1a4aef10c650df47bffd6399e5e78da2a9b1',1,'Lib::Canbus']]],
+  ['client_12',['CLIENT',['../df/dc7/_canbus_2_mode_8hpp.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1',1,'Lib::Canbus']]],
   ['clrset_13',['CLRSET',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515bad474c6fefd8856a85558da0a68d0ed9d',1,'Lib::BSP::Display']]],
   ['cmd2en_14',['CMD2EN',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba7aefb6b253c8bb6b3a36db3431ed60c8',1,'Lib::BSP::Display']]],
   ['colmod_15',['COLMOD',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515baffce61404e7948e73e9beb8c0f5f04c9',1,'Lib::BSP::Display']]],

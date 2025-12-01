@@ -13,8 +13,8 @@ var hierarchy =
     [ "BSP::Inputs::Config", "df/d7b/struct_b_s_p_1_1_inputs_1_1_config.html", null ],
     [ "BSP::Leds::Config", "de/d3e/struct_b_s_p_1_1_leds_1_1_config.html", null ],
     [ "BSP::M24C64W::Config", "dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html", null ],
-    [ "BSP::Outputs< OutputVersion::V1 >::Config", "d1/de1/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4_1_1_config.html", null ],
-    [ "BSP::Outputs< OutputVersion::V2 >::Config", "d7/db0/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4_1_1_config.html", null ],
+    [ "BSP::Outputs&lt; OutputVersion::V1 &gt;::Config", "d1/de1/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4_1_1_config.html", null ],
+    [ "BSP::Outputs&lt; OutputVersion::V2 &gt;::Config", "d7/db0/struct_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4_1_1_config.html", null ],
     [ "ModelXbee::Connection", "d8/d6c/class_model_xbee_1_1_connection.html", null ],
     [ "ModelXbee::ModuleParameters::Data", "d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html", null ],
     [ "System::Parameters::Data", "d9/d2e/class_system_1_1_parameters_1_1_data.html", null ],
@@ -67,7 +67,7 @@ var hierarchy =
     [ "ModelXbee", "d9/da2/class_model_xbee.html", null ],
     [ "ModelXbee::ModuleParameters", "dc/dd5/class_model_xbee_1_1_module_parameters.html", null ],
     [ "ModelCanbus::Node", "d7/d54/struct_model_canbus_1_1_node.html", null ],
-    [ "BSP::Outputs< T_VERSION >", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
+    [ "BSP::Outputs&lt; T_VERSION &gt;", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
     [ "BSP::OutputsBase", "dc/dc2/class_b_s_p_1_1_outputs_base.html", [
       [ "BSP::Outputs< OutputVersion::V1 >", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4.html", null ],
       [ "BSP::Outputs< OutputVersion::V2 >", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4.html", null ]

@@ -58,5 +58,5 @@ var searchData=
   ['output_5fspi_5ftimeout_55',['OUTPUT_SPI_TIMEOUT',['../dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a82419f67c16fcd91cbb3ae4475476c60',1,'Lib::BSP::DigitalPeripheralBase']]],
   ['outputmax_56',['outputMax',['../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a413072c853e2fdf9a83cb1b601c736ab',1,'Lib::Math::Pid::Parameters']]],
   ['outputmin_57',['outputMin',['../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a23515cb5c24f985549f55404aee2928a',1,'Lib::Math::Pid::Parameters']]],
-  ['outputs_58',['outputs',['../d7/d09/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config.html#a3e42ca7231401f4f017eabd5f77bdd4e',1,'Lib::BSP::DigitalPeripheralBase::Config::outputs'],['../dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a51773719b9429f690be7e1128f2ff064',1,'Lib::BSP::DigitalPeripheralBase::outputs']]]
+  ['outputs_58',['outputs',['../d7/d09/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config.html#a3e42ca7231401f4f017eabd5f77bdd4e',1,'Lib::BSP::DigitalPeripheralBase::Config']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xpt2046_0',['XPT2046',['../d9/df8/class_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046.html#a5cd13588e49d7afd0f23bf16cfb48159',1,'Lib::BSP::TouchScreen::XPT2046::XPT2046(const Config &amp;&amp;config, const Parameters &amp;&amp;parameters)'],['../d9/df8/class_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046.html#a83974eb2bdcca66e194e65409dc61d12',1,'Lib::BSP::TouchScreen::XPT2046::XPT2046(const Config &amp;&amp;config)']]]
+  ['xpt2046_0',['XPT2046',['../d9/df8/class_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046.html#a0babb0e16cd2142d9da635447dad3414',1,'Lib::BSP::TouchScreen::XPT2046::XPT2046(const Config &amp;config, const Parameters &amp;parameters)'],['../d9/df8/class_lib_1_1_b_s_p_1_1_touch_screen_1_1_x_p_t2046.html#a46c253bc80b81488911ed5c5f2107cb3',1,'Lib::BSP::TouchScreen::XPT2046::XPT2046(const Config &amp;config)']]]
 ];

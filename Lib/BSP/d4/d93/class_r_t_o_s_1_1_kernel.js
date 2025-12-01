@@ -1,8 +1,8 @@
 var class_r_t_o_s_1_1_kernel =
 [
+    [ "MemoryInfo", "db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html", "db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info" ],
     [ "CriticalSection", "dc/d60/class_r_t_o_s_1_1_kernel_1_1_critical_section.html", "dc/d60/class_r_t_o_s_1_1_kernel_1_1_critical_section" ],
     [ "CriticalSectionISR", "d4/d74/class_r_t_o_s_1_1_kernel_1_1_critical_section_i_s_r.html", "d4/d74/class_r_t_o_s_1_1_kernel_1_1_critical_section_i_s_r" ],
-    [ "MemoryInfo", "db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info.html", "db/dce/struct_r_t_o_s_1_1_kernel_1_1_memory_info" ],
     [ "SchedulerSuspension", "de/dca/class_r_t_o_s_1_1_kernel_1_1_scheduler_suspension.html", "de/dca/class_r_t_o_s_1_1_kernel_1_1_scheduler_suspension" ],
     [ "InterruptMask", "d4/d93/class_r_t_o_s_1_1_kernel.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
     [ "TaskCount", "d4/d93/class_r_t_o_s_1_1_kernel.html#af7a420a4b87d0be61161891e404c55c3", null ],

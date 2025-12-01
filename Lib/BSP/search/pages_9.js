@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kalman_20filter_20usage_20for_20smoothing_20noisy_20sensor_20data_0',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]]
+  ['jagged_20arrays_20of_20integers_0',['Example usage of JaggedArray for managing jagged arrays of integers.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#example-usage-of-jaggedarray-for-managing-jagged-arrays-of-integers',1,'']]],
+  ['jaggedarray_20for_20managing_20jagged_20arrays_20of_20integers_1',['Example usage of JaggedArray for managing jagged arrays of integers.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#example-usage-of-jaggedarray-for-managing-jagged-arrays-of-integers',1,'']]]
 ];

@@ -2,7 +2,7 @@ var class_lib_1_1_helper_1_1_sunset =
 [
     [ "Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#a1474288f907dca97d2a49e3208a25c59", null ],
     [ "Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#a42ba8a41a70fb635437a5ddda85869f0", null ],
-    [ "~Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#a40dcc55c8f32be00c375731848dab1b4", null ],
+    [ "~Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#afc74c163fc56ddc7f1b0013a28277fb2", null ],
     [ "calculateAstronomicalSunrise", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#ac1a6fec505b951a38312d8302c83a358", null ],
     [ "calculateAstronomicalSunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#a8c3c056ac86e53d9d3baac49f073b7b8", null ],
     [ "calculateCivilSunrise", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html#aba812d5c7844f66f4c5925887ed5ad23", null ],

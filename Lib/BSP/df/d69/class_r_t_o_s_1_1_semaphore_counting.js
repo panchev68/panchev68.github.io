@@ -1,8 +1,15 @@
 var class_r_t_o_s_1_1_semaphore_counting =
 [
     [ "Handle", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a22b0e6acc842fa59ab21e42babbb11e2", null ],
+    [ "Status", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a61fa958b085e13c4001ceaf6fbd855fd", [
+      [ "SUCCESS", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a61fa958b085e13c4001ceaf6fbd855fdad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "TIMEOUT", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a61fa958b085e13c4001ceaf6fbd855fda070a0fb40f6c308ab544b227660aadff", null ],
+      [ "INVALID", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a61fa958b085e13c4001ceaf6fbd855fdaccc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "AT_MAX", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a61fa958b085e13c4001ceaf6fbd855fdaab06979c91ba49479340319f0b3a18d6", null ],
+      [ "EMPTY", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a61fa958b085e13c4001ceaf6fbd855fdaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    ] ],
     [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a5d1aa1d90732f499e3b424f831e2935c", null ],
-    [ "~SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#afb5341458c94ba15df05e20a9b1892e4", null ],
+    [ "~SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#af8d0c30e44b1208a42f524a67f95ac3e", null ],
     [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a7e497551b91db5e404470925688a3ea2", null ],
     [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a454ed896d515ff38e9a61af54e8d1bb5", null ],
     [ "create", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a79abb88c91a63fdd98ae9c4877adcf23", null ],
@@ -24,8 +31,6 @@ var class_r_t_o_s_1_1_semaphore_counting =
     [ "overwrite", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a7c5c112cc6fa284881ed6ec7f0e42a9a", null ],
     [ "overwriteFromISR", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#aa7c1963252786f79f75e567b7096ddc6", null ],
     [ "take", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#ae6fba858289e80900d83e4a4b03c0723", null ],
-    [ "takeForever", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a0155f939b0894a744affc5b215e328aa", null ],
     [ "takeFromISR", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#a0cfe802036a09ae27fbeff3145011ae1", null ],
-    [ "takeNow", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#afbd4c57b6833311400c4c0bed409b2c7", null ],
     [ "handle", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html#af98089a48fabe8207cc736331543af75", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zone_20conversion_0',['Example usage of TimeZone class for time zone conversion.',['../X:/Lib/IAR/inc/Lib/Helper/TimeZone.hpp#example-usage-of-timezone-class-for-time-zone-conversion',1,'']]]
+  ['xcom_20frames_0',['Example usage of Protocol class for building and parsing XCOM frames.',['../X:/Lib/IAR/inc/Lib/XCOM/Protocol.hpp#example-usage-of-protocol-class-for-building-and-parsing-xcom-frames',1,'']]]
 ];

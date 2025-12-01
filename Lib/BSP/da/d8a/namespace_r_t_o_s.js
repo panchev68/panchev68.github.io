@@ -13,6 +13,5 @@ var namespace_r_t_o_s =
     [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html", "d1/d23/class_r_t_o_s_1_1_task" ],
     [ "TickCounter", "da/d2c/class_r_t_o_s_1_1_tick_counter.html", "da/d2c/class_r_t_o_s_1_1_tick_counter" ],
     [ "TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", "d0/d51/class_r_t_o_s_1_1_tick_service" ],
-    [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", "dc/d33/class_r_t_o_s_1_1_timeout" ],
-    [ "EventBits", "da/d8a/namespace_r_t_o_s.html#a6409dee49239fc30c27bcc7cc5f52011", null ]
+    [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", "dc/d33/class_r_t_o_s_1_1_timeout" ]
 ];

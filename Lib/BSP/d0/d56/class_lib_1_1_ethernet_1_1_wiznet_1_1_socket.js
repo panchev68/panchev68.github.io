@@ -1,8 +1,8 @@
 var class_lib_1_1_ethernet_1_1_wiznet_1_1_socket =
 [
-    [ "Error", "d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error.html", "d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error" ],
     [ "Flag", "dd/d55/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_flag.html", "dd/d55/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_flag" ],
     [ "Protocol", "d6/d75/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_protocol.html", "d6/d75/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_protocol" ],
+    [ "Error", "d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error.html", "d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error" ],
     [ "close", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html#aa2bec6062131bda01409f9e65c4bc3a3", null ],
     [ "connect", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html#a83b8a9c0567d6521b07de4dd16be5ca0", null ],
     [ "disconnect", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html#a7eea42d895b1af93cec20af8796520fc", null ],
