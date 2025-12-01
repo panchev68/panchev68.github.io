@@ -1,6 +1,5 @@
 var NAVTREEINDEX12 =
 {
-"db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5":[2,0,0,2,0,6,1,4],
 "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498":[1,0,0,1,0,5,1,1],
 "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498":[2,0,0,2,0,6,1,1],
 "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#a76d56fe7fbe8256988ec1e0b536aa0a1":[1,0,0,1,0,5,12],
@@ -239,7 +238,7 @@ var NAVTREEINDEX12 =
 "db/df2/class_lib_1_1_digi_1_1_core_1_1_frame0x8a.html#add853bcf2bc223ec6eb7176a71cfff22":[2,0,0,2,1,25,2],
 "db/df7/_can_port_base_8hpp.html":[3,0,0,0,5,0,2,0,2],
 "db/df7/_can_port_base_8hpp_source.html":[3,0,0,0,5,0,2,0,2],
-"dc/d09/_lib_1_1_helper_1_1_exception-example.html":[4,15],
+"dc/d09/_lib_1_1_helper_1_1_exception-example.html":[4,14],
 "dc/d22/_s_t7789_8hpp.html":[3,0,0,0,0,3,2],
 "dc/d22/_s_t7789_8hpp_source.html":[3,0,0,0,0,3,2],
 "dc/d29/struct_lib_1_1_u_s_b_1_1_serial_port_repeater_base_1_1_config.html":[2,0,0,9,1,0],
@@ -249,5 +248,6 @@ var NAVTREEINDEX12 =
 "dc/d29/struct_lib_1_1_u_s_b_1_1_serial_port_repeater_base_1_1_config.html#ac8ee29a38a959691946cf28fbfc75e60":[2,0,0,9,1,0,0],
 "dc/d29/struct_lib_1_1_u_s_b_1_1_serial_port_repeater_base_1_1_config.html#aeafd4713f3249500c2a871623ffc4e6c":[2,0,0,9,1,0,4],
 "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html":[1,0,0,3,4],
-"dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html":[2,0,0,4,5]
+"dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html":[2,0,0,4,5],
+"dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#a214eade10a664fdb01ade38674777f2e":[1,0,0,3,4,7]
 };

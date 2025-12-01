@@ -1,6 +1,6 @@
 var dir_5c17e5f690e92284d42df705067145f0 =
 [
-    [ "Configuration.hpp", "d1/d32/_configuration_8hpp.html", "d1/d32/_configuration_8hpp" ],
+    [ "Configuration.hpp", "d1/d32/_configuration_8hpp.html", null ],
     [ "FirmwareVersion.hpp", "da/d96/_firmware_version_8hpp.html", "da/d96/_firmware_version_8hpp" ],
     [ "HardwareVersion.hpp", "dd/d6e/_hardware_version_8hpp.html", "dd/d6e/_hardware_version_8hpp" ],
     [ "ParametersBase.hpp", "d4/d43/_parameters_base_8hpp.html", "d4/d43/_parameters_base_8hpp" ],

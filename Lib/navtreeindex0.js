@@ -17,7 +17,7 @@ var NAVTREEINDEX0 =
 "d0/d06/class_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_m24_c64_w.html#af1e4d56cfa449b83af508883eacc4254":[2,0,0,0,1,0,2,5],
 "d0/d0a/_checksum_8hpp.html":[3,0,0,0,2,1,6],
 "d0/d0a/_checksum_8hpp_source.html":[3,0,0,0,2,1,6],
-"d0/d0c/_lib_1_1_helper_1_1_sunset-example.html":[4,25],
+"d0/d0c/_lib_1_1_helper_1_1_sunset-example.html":[4,24],
 "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html":[1,0,0,1,1,17],
 "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html":[2,0,0,2,1,18],
 "d0/d22/class_lib_1_1_digi_1_1_core_1_1_queue_message.html#a1a2bb42d97aa1681a867a11a8efb4b63":[1,0,0,1,1,17,2],

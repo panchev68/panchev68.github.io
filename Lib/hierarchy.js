@@ -70,7 +70,6 @@ var hierarchy =
     [ "Lib::USB::SerialPort::Config", "d9/d53/struct_lib_1_1_u_s_b_1_1_serial_port_1_1_config.html", [
       [ "Lib::USB::SerialPortRepeaterBase::Config", "dc/d29/struct_lib_1_1_u_s_b_1_1_serial_port_repeater_base_1_1_config.html", null ]
     ] ],
-    [ "Lib::System::Configuration", "df/db3/class_lib_1_1_system_1_1_configuration.html", null ],
     [ "Lib::Digi::API::Connection", "d4/d54/class_lib_1_1_digi_1_1_a_p_i_1_1_connection.html", null ],
     [ "Lib::Helper::Container&lt; T &gt;", "d9/d33/class_lib_1_1_helper_1_1_container.html", null ],
     [ "Lib::Helper::ContainerBase&lt; T &gt;", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", null ],
