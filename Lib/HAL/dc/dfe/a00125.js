@@ -1,9 +1,6 @@
 var a00125 =
 [
-    [ "DataDirection", "dc/dfe/a00125.html#ad8e8e2d3daffefa3e43d21916835b820", null ],
-    [ "Lib::HAL::DriverDataDirection", "dc/d9a/a00218.html#a82754326f2fd3bd32ea447c756ec2825", [
-      [ "Lib::HAL::DriverDataDirection::RX", "dc/d9a/a00218.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
-      [ "Lib::HAL::DriverDataDirection::TX", "dc/d9a/a00218.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ],
-      [ "Lib::HAL::DriverDataDirection::RX_TX", "dc/d9a/a00218.html#a82754326f2fd3bd32ea447c756ec2825aa9f94fc2b5a22b1ebff62655559f82b2", null ]
-    ] ]
+    [ "Lib::HAL::GPIO::EXTIBase", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
+    [ "Lib::HAL::GPIO::EXTIBase::EventManager", "da/d53/a00265.html", "da/d53/a00265" ],
+    [ "HAL_GPIO_EXTI_Callback", "dc/dfe/a00125.html#a13bf50d1a30cc4e9c6cf32af3490ee4d", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HAL: Mode.hpp File Reference</title>
+<title>HAL: Timer-Encoder.hpp File Reference</title>
 <link rel="icon" href="../../HAL.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -26,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../HAL.png"/></td>
   <td id="projectalign">
    <div id="projectname">HAL<span id="projectnumber">&#160;3.00</span>
    </div>
@@ -90,143 +91,46 @@ $(function(){initNavTree('d5/dcb/a00170.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Mode.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">Timer-Encoder.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Timer-Encoder class definition.  
+<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Timer mode enumeration and utilities. This file defines the <span class="tt">Mode</span> enum class for timer operation modes and provides utility functions for working with all supported modes. Intended for use in timer configuration and mode selection logic in embedded systems. </p>
-</div><div class="textblock"><code>#include &lt;array&gt;</code><br />
+<div class="textblock"><p>Timer-Encoder class definition. </p>
+<p>This file defines the Timer&lt;Mode::ENCODER&gt; specialization for encoder mode timer peripherals, providing an interface for quadrature encoder counting and value change notification. It extends the Base timer abstraction and integrates with STM32 HAL for encoder mode operation. </p>
+</div><div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Mode.hpp:</div>
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../d6/d7d/a00161.html">Lib/HAL/core/TIM/Base.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ddf/a00164.html">Lib/HAL/core/TIM/Mode.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/de6/a00167.html">Lib/HAL/core/TIM/template.hpp</a>&quot;</code><br />
+<code>#include &quot;stm32f4xx_hal.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Timer-Encoder.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d0d/a00171.svg" width="147" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/d0d/a00171.svg" width="1179" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dfb/a00172.svg" width="203" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dfb/a00172.svg" width="143" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a3455a6e5732bcbe7776279b0062ad326" id="r_a3455a6e5732bcbe7776279b0062ad326"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3455a6e5732bcbe7776279b0062ad326">Mode</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="#a3455a6e5732bcbe7776279b0062ad326a1e23852820b9154316c7c06e2b7ba051">NORMAL</a>
-, <br />
-&#160;&#160;<a class="el" href="#a3455a6e5732bcbe7776279b0062ad326a8449bc264b69c3a0fe8b60361eaf7aeb">PWM</a>
-, <br />
-&#160;&#160;<a class="el" href="#a3455a6e5732bcbe7776279b0062ad326a628ac2641a11205611acfdd540e18809">OC</a>
-, <br />
-&#160;&#160;<a class="el" href="#a3455a6e5732bcbe7776279b0062ad326a9e1de45ee3c680d9a2ff400816f05e0f">ENCODER</a>
-<br />
- }</td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Lib_3A_3AHAL_3A_3ATimer_3C_20Mode_3A_3AENCODER_20_3E" id="r_Lib_3A_3AHAL_3A_3ATimer_3C_20Mode_3A_3AENCODER_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/d53/a00321.html">Lib::HAL::Timer&lt; Mode::ENCODER &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer specialization for encoder mode.  <a href="../../db/d53/a00321.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a9eb315e861c44be33a34ae615a44fabd" id="r_a9eb315e861c44be33a34ae615a44fabd"><td class="memItemLeft" align="right" valign="top">constexpr std::array&lt; <a class="el" href="#a3455a6e5732bcbe7776279b0062ad326">Mode</a>, 4 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9eb315e861c44be33a34ae615a44fabd">allModes</a> ()</td></tr>
-<tr class="memitem:a8ac5415979bfd9eb5d41023ee2c9b8c5" id="r_a8ac5415979bfd9eb5d41023ee2c9b8c5"><td class="memItemLeft" align="right" valign="top">constexpr size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ac5415979bfd9eb5d41023ee2c9b8c5">modeCount</a> ()</td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/ded/a00211.html">Lib</a></td></tr>
+<tr class="memitem:Lib_3A_3AHAL" id="r_Lib_3A_3AHAL"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/dc1/a00212.html">Lib::HAL</a></td></tr>
+<tr class="memdesc:dd/dc1/a00212"><td class="mdescLeft">&#160;</td><td class="mdescRight">HAL Layer. <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="a3455a6e5732bcbe7776279b0062ad326" name="a3455a6e5732bcbe7776279b0062ad326"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3455a6e5732bcbe7776279b0062ad326">&#9670;&#160;</a></span>Mode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a3455a6e5732bcbe7776279b0062ad326">Mode</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Timer mode enumeration. Enumerates all supported timer operation modes. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3455a6e5732bcbe7776279b0062ad326a1e23852820b9154316c7c06e2b7ba051" name="a3455a6e5732bcbe7776279b0062ad326a1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Normal timer mode. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3455a6e5732bcbe7776279b0062ad326a8449bc264b69c3a0fe8b60361eaf7aeb" name="a3455a6e5732bcbe7776279b0062ad326a8449bc264b69c3a0fe8b60361eaf7aeb"></a>PWM&#160;</td><td class="fielddoc"><p>Pulse-width modulation mode. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3455a6e5732bcbe7776279b0062ad326a628ac2641a11205611acfdd540e18809" name="a3455a6e5732bcbe7776279b0062ad326a628ac2641a11205611acfdd540e18809"></a>OC&#160;</td><td class="fielddoc"><p>Output compare mode. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3455a6e5732bcbe7776279b0062ad326a9e1de45ee3c680d9a2ff400816f05e0f" name="a3455a6e5732bcbe7776279b0062ad326a9e1de45ee3c680d9a2ff400816f05e0f"></a>ENCODER&#160;</td><td class="fielddoc"><p>Encoder interface mode. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a9eb315e861c44be33a34ae615a44fabd" name="a9eb315e861c44be33a34ae615a44fabd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9eb315e861c44be33a34ae615a44fabd">&#9670;&#160;</a></span>allModes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::array&lt; <a class="el" href="#a3455a6e5732bcbe7776279b0062ad326">Mode</a>, 4 &gt; allModes </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns an array of all supported timer modes. </p><dl class="section return"><dt>Returns</dt><dd>Array containing all <span class="tt">Mode</span> enum values. </dd></dl>
-<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dcb/a00170_a9eb315e861c44be33a34ae615a44fabd_icgraph.svg" width="220" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8ac5415979bfd9eb5d41023ee2c9b8c5" name="a8ac5415979bfd9eb5d41023ee2c9b8c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ac5415979bfd9eb5d41023ee2c9b8c5">&#9670;&#160;</a></span>modeCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t modeCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Returns the number of supported timer modes. </p><dl class="section return"><dt>Returns</dt><dd>Number of elements in the array returned by <span class="tt">allModes()</span>. </dd></dl>
-<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dcb/a00170_a8ac5415979bfd9eb5d41023ee2c9b8c5_cgraph.svg" width="220" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -240,7 +144,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_8614472618abc149a31dd7841874bafa.html">core</a></li><li class="navelem"><a href="../../dir_108b62c0e70fd74a326c4126470fe17d.html">TIM</a></li><li class="navelem"><a href="../../d5/dcb/a00170.html">Mode.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_8614472618abc149a31dd7841874bafa.html">core</a></li><li class="navelem"><a href="../../dir_108b62c0e70fd74a326c4126470fe17d.html">TIM</a></li><li class="navelem"><a href="../../d5/dcb/a00170.html">Timer-Encoder.hpp</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for HAL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

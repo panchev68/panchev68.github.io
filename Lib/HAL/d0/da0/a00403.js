@@ -1,4 +1,4 @@
 var a00403 =
 [
-    [ "Handle", "de/dab/a00319.html", "de/dab/a00319" ]
+    [ "Lib::HAL::Reset", "d3/d07/a00305.html", "d3/d07/a00305" ]
 ];

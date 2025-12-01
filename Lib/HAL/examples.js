@@ -1,8 +1,8 @@
 var examples =
 [
-    [ "Lib::HAL::AdcPortBlock", "d4/dce/a00337.html", null ],
-    [ "Lib::HAL::I2CPort", "d0/d01/a00339.html", null ],
-    [ "Lib::HAL::Reset", "d3/d93/a00341.html", null ],
-    [ "Lib::HAL::RTClock", "d0/dc5/a00343.html", null ],
-    [ "Lib::HAL::OTP", "d9/d48/a00345.html", null ]
+    [ "Lib::HAL::AdcPortBlock", "d8/df7/a00331.html", null ],
+    [ "Lib::HAL::I2CPort", "d2/d0a/a00333.html", null ],
+    [ "Lib::HAL::Reset", "df/d91/a00335.html", null ],
+    [ "Lib::HAL::RTClock", "d4/dce/a00337.html", null ],
+    [ "Lib::HAL::OTP", "d0/d01/a00339.html", null ]
 ];

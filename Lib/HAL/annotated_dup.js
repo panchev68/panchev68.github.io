@@ -1,36 +1,36 @@
 var annotated_dup =
 [
-    [ "Lib", "df/d24/a00217.html", [
-      [ "HAL", "dc/d9a/a00218.html", [
-        [ "GPIO", "dd/df3/a00219.html", [
-          [ "EXTIBase", "d1/dd4/a00267.html", "d1/dd4/a00267" ],
-          [ "Handle", "d3/d5e/a00275.html", "d3/d5e/a00275" ],
-          [ "Input", "d2/d82/a00279.html", "d2/d82/a00279" ],
-          [ "Output", "dd/dfe/a00283.html", "dd/dfe/a00283" ],
-          [ "PinMode", "d6/d7f/a00287.html", "d6/d7f/a00287" ],
-          [ "Port", "da/dd4/a00291.html", "da/dd4/a00291" ]
+    [ "Lib", "dd/ded/a00211.html", [
+      [ "HAL", "dd/dc1/a00212.html", [
+        [ "GPIO", "d1/de1/a00213.html", [
+          [ "EXTIBase", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
+          [ "Handle", "d5/d42/a00269.html", "d5/d42/a00269" ],
+          [ "Input", "d0/d19/a00273.html", "d0/d19/a00273" ],
+          [ "Output", "d6/d4b/a00277.html", "d6/d4b/a00277" ],
+          [ "PinMode", "d2/d04/a00281.html", "d2/d04/a00281" ],
+          [ "Port", "d3/d58/a00285.html", "d3/d58/a00285" ]
         ] ],
-        [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "dc/d28/a00223.html", "dc/d28/a00223" ],
-        [ "AdcPortBase", "d3/d42/a00235.html", "d3/d42/a00235" ],
-        [ "DeviceManagerBase", "df/da9/a00263.html", "df/da9/a00263" ],
-        [ "Handle", "d9/d5e/a00295.html", "d9/d5e/a00295" ],
-        [ "I2CPort", "df/d95/a00299.html", "df/d95/a00299" ],
-        [ "Watchdog", "dc/d0f/a00303.html", "dc/d0f/a00303" ],
-        [ "Port", "d0/da2/a00307.html", null ],
-        [ "Reset", "d1/d5d/a00311.html", "d1/d5d/a00311" ],
-        [ "RTClock", "d4/d6f/a00315.html", "d4/d6f/a00315" ],
-        [ "Timer", "de/d55/a00323.html", "de/d55/a00323" ],
-        [ "Timer&lt; Mode::ENCODER &gt;", "d8/dfc/a00327.html", "d8/dfc/a00327" ],
-        [ "OTP", "d8/df7/a00331.html", "d8/df7/a00331" ],
-        [ "UARTBase", "df/d91/a00335.html", "df/d91/a00335" ]
+        [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "df/d24/a00217.html", "df/d24/a00217" ],
+        [ "AdcPortBase", "dd/d2d/a00229.html", "dd/d2d/a00229" ],
+        [ "DeviceManagerBase", "d9/d39/a00257.html", "d9/d39/a00257" ],
+        [ "Handle", "d4/d66/a00289.html", "d4/d66/a00289" ],
+        [ "I2CPort", "d6/d82/a00293.html", "d6/d82/a00293" ],
+        [ "Watchdog", "d3/d4a/a00297.html", "d3/d4a/a00297" ],
+        [ "Port", "da/d50/a00301.html", null ],
+        [ "Reset", "d3/d07/a00305.html", "d3/d07/a00305" ],
+        [ "RTClock", "d2/d71/a00309.html", "d2/d71/a00309" ],
+        [ "Timer", "da/de0/a00317.html", "da/de0/a00317" ],
+        [ "Timer&lt; Mode::ENCODER &gt;", "db/d53/a00321.html", "db/d53/a00321" ],
+        [ "OTP", "de/dc8/a00325.html", "de/dc8/a00325" ],
+        [ "UARTBase", "dd/d4e/a00329.html", "dd/d4e/a00329" ]
       ] ]
     ] ],
-    [ "AdcChannel", "d9/d01/a00227.html", "d9/d01/a00227" ],
-    [ "CAN_FilterTypeDef", "d0/d27/a00239.html", "d0/d27/a00239" ],
-    [ "CAN_TxHeaderTypeDef", "d3/d1a/a00251.html", "d3/d1a/a00251" ],
-    [ "CanFilter", "d6/d82/a00243.html", "d6/d82/a00243" ],
-    [ "CanRxMessage", "d0/d1f/a00247.html", "d0/d1f/a00247" ],
-    [ "CanTxHeader", "d4/d04/a00255.html", "d4/d04/a00255" ],
-    [ "CanTxMessage", "d0/d2f/a00259.html", "d0/d2f/a00259" ],
-    [ "Handle", "de/dab/a00319.html", "de/dab/a00319" ]
+    [ "AdcChannel", "dd/d52/a00221.html", "dd/d52/a00221" ],
+    [ "CAN_FilterTypeDef", "d6/de1/a00233.html", "d6/de1/a00233" ],
+    [ "CAN_TxHeaderTypeDef", "d6/d22/a00245.html", "d6/d22/a00245" ],
+    [ "CanFilter", "d4/d08/a00237.html", "d4/d08/a00237" ],
+    [ "CanRxMessage", "d6/db6/a00241.html", "d6/db6/a00241" ],
+    [ "CanTxHeader", "de/dbc/a00249.html", "de/dbc/a00249" ],
+    [ "CanTxMessage", "d0/d3e/a00253.html", "d0/d3e/a00253" ],
+    [ "Handle", "dd/db3/a00313.html", "dd/db3/a00313" ]
 ];

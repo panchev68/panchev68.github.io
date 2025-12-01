@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HAL: Lib::HAL::AdcPortBlock</title>
+<title>HAL: Lib::HAL::RTClock</title>
 <link rel="icon" href="../../HAL.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -26,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../HAL.png"/></td>
   <td id="projectalign">
    <div id="projectname">HAL<span id="projectnumber">&#160;3.00</span>
    </div>
@@ -90,30 +91,40 @@ $(function(){initNavTree('d4/dce/a00337.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::AdcPortBlock</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::RTClock</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="adc-port-block-mode-usage-example"></a>
-ADC Port Block Mode Usage Example.</h2>
-<p>This example demonstrates how to use the AdcPortBlock type alias for blocking ADC operations. The AdcPortBlock is instantiated with DriverMode::BLOCK, allowing synchronous ADC readings.</p>
+<h2 class="doxsection"><a class="anchor" id="basic-usage-of-rtclock"></a>
+Basic Usage of RTClock</h2>
+<p>This example demonstrates how to initialize the RTClock, write a date and time, and read it back.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<p>The following code shows initialization and reading from an ADC port in block mode. It assumes the ADC peripheral is properly configured and the port is ready for use.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d24/a00068.html">Lib/HAL/ADCPort.hpp</a>&quot;</span></div>
+<p>The following code shows the setup, writing, and reading operations for the RTClock class.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d3/df8/a00155.html">Lib/HAL/core/RTC/RTClock.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Initialize the ADC port in block mode</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../dc/d9a/a00218.html#a8130c93d5aebbf1c11fcfd1944602fc5">Lib::HAL::AdcPortBlock</a> adcPort;</div>
+<div class="line">    <span class="comment">// Assume RTC_HandleTypeDef is initialized elsewhere</span></div>
+<div class="line">    RTC_HandleTypeDef rtcHandle;</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d2/d71/a00309.html">Lib::HAL::RTClock</a> rtc(&amp;rtcHandle);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Perform a blocking ADC read</span></div>
-<div class="line">    uint16_t adcValue = adcPort.read();</div>
+<div class="line">    rtc.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d2/d71/a00309.html#a199e421e1627d19dab55e5aaebdc7f81">setup</a>();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Process the ADC value</span></div>
-<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">    <span class="comment">// Write a date and time</span></div>
+<div class="line">    Lib::Helper::DateTime dt = {{2023, 10, 1}, {12, 30, 0}};</div>
+<div class="line">    rtc.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d2/d71/a00309.html#ae735c2a856a35cba07d8ba8c83d98e08">write</a>(dt);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Read the date and time</span></div>
+<div class="line">    Lib::Helper::DateTime readDt = rtc.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d2/d71/a00309.html#a6f0c82ee4d0e1db7149e63bf8df58d97">read</a>();</div>
+<div class="line"> </div>
+<div class="line">    rtc.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d2/d71/a00309.html#a88194da738adc6fc8ed08fa2e2eed621">release</a>();</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00068_html"><div class="ttname"><a href="../../da/d24/a00068.html">ADCPort.hpp</a></div></div>
-<div class="ttc" id="aa00218_html_a8130c93d5aebbf1c11fcfd1944602fc5"><div class="ttname"><a href="../../dc/d9a/a00218.html#a8130c93d5aebbf1c11fcfd1944602fc5">Lib::HAL::AdcPortBlock</a></div><div class="ttdeci">Port&lt; DriverMode::BLOCK &gt; AdcPortBlock</div><div class="ttdef"><b>Definition</b> ADCPort.hpp:19</div></div>
+<div class="ttc" id="aa00155_html"><div class="ttname"><a href="../../d3/df8/a00155.html">RTClock.hpp</a></div><div class="ttdoc">STM32 RTC peripheral device abstraction.</div></div>
+<div class="ttc" id="aa00309_html"><div class="ttname"><a href="../../d2/d71/a00309.html">Lib::HAL::RTClock</a></div><div class="ttdoc">STM32 RTC peripheral device abstraction.</div><div class="ttdef"><b>Definition</b> RTClock.hpp:40</div></div>
+<div class="ttc" id="aa00309_html_a199e421e1627d19dab55e5aaebdc7f81"><div class="ttname"><a href="../../d2/d71/a00309.html#a199e421e1627d19dab55e5aaebdc7f81">Lib::HAL::RTClock::setup</a></div><div class="ttdeci">void setup() noexcept</div><div class="ttdoc">Initialize RTC device and enable backup SRAM.</div><div class="ttdef"><b>Definition</b> RTClock.hpp:55</div></div>
+<div class="ttc" id="aa00309_html_a6f0c82ee4d0e1db7149e63bf8df58d97"><div class="ttname"><a href="../../d2/d71/a00309.html#a6f0c82ee4d0e1db7149e63bf8df58d97">Lib::HAL::RTClock::read</a></div><div class="ttdeci">DateTime read() noexcept</div><div class="ttdoc">Read current date and time from RTC.</div><div class="ttdef"><b>Definition</b> RTClock.hpp:67</div></div>
+<div class="ttc" id="aa00309_html_a88194da738adc6fc8ed08fa2e2eed621"><div class="ttname"><a href="../../d2/d71/a00309.html#a88194da738adc6fc8ed08fa2e2eed621">Lib::HAL::RTClock::release</a></div><div class="ttdeci">void release() noexcept</div><div class="ttdoc">Release device resources.</div><div class="ttdef"><b>Definition</b> RTClock.hpp:62</div></div>
+<div class="ttc" id="aa00309_html_ae735c2a856a35cba07d8ba8c83d98e08"><div class="ttname"><a href="../../d2/d71/a00309.html#ae735c2a856a35cba07d8ba8c83d98e08">Lib::HAL::RTClock::write</a></div><div class="ttdeci">void write(const DateTime &amp;dateTime) noexcept</div><div class="ttdoc">Write date and time to RTC.</div><div class="ttdef"><b>Definition</b> RTClock.hpp:80</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

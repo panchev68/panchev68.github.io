@@ -24,60 +24,12 @@
 */
 var NAVTREE =
 [
-  [ "U146", "index.html", [
-    [ "U146 Firmware Project", "index.html", null ],
-    [ "Changelog", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html", [
-      [ "[8.03] - 2025-07-23", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md803---2025-07-23", [
-        [ "Added", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#added", null ],
-        [ "Changed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#changed", null ],
-        [ "Fixed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#fixed", null ],
-        [ "Removed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#removed", null ]
-      ] ],
-      [ "[8.03] - 2025-07-20", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md803---2025-07-20", [
-        [ "Added", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#added-1", null ],
-        [ "Changed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#changed-1", null ],
-        [ "Fixed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#fixed-1", null ],
-        [ "Removed", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#removed-1", null ]
-      ] ],
-      [ "[8.02] - June 29, 2025", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md802---june-29-2025", null ],
-      [ "[8.02] - June 28, 2025", "d2/dc3/md__x_1_2_projects_2_u146-_firmware_28_803_2_changelog.html#autotoc_md802---june-28-2025", null ]
-    ] ],
-    [ "Topics", "topics.html", "topics" ],
-    [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ],
-        [ "Enumerator", "namespacemembers_eval.html", null ]
-      ] ]
-    ] ],
-    [ "Classes", "annotated.html", [
-      [ "List", "annotated.html", "annotated_dup" ],
-      [ "Index", "classes.html", null ],
-      [ "Hierarchy", "hierarchy.html", "hierarchy" ],
-      [ "Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ],
-    [ "Examples", "examples.html", "examples" ]
-  ] ]
+  [ "U146", "index.html", ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d4/d0d/class_model_diagnostic.html#ad6c7f079d55c0549dc52490ccf33b0ce",
-"d9/d56/_watchdog_8hpp.html",
-"dc/dc2/class_b_s_p_1_1_outputs_base.html#af64d7bda1db09c4f3fabfc34f062eb5d"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

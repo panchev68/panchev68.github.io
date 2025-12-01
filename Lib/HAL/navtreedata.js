@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "HAL", "index.html", [
     [ "Hardware Abstract Layer Library", "index.html", "index" ],
-    [ "Device Driver Implementation", "d9/dd1/a00398.html", null ],
+    [ "Device Driver Implementation", "d4/d27/a00392.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -58,8 +58,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d6/d7f/a00287.html#a08ae4617e440d7d55e7462a3967448e2aa84cc046d48610b05c21fd3670d0c829",
-"de/d55/a00323.html#a01223696b727b977c3128d7d527b49b4",
+"d5/d42/a00269.html#af5367d50b92a46c289825d4a0e55112b",
+"dc/d6a/a00261.html#a7160d7335704e4036c387a7ceb95d7d7",
 "functions_func_i.html"
 ];
 

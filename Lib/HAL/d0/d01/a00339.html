@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HAL: Lib::HAL::I2CPort</title>
+<title>HAL: Lib::HAL::OTP</title>
 <link rel="icon" href="../../HAL.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -26,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../HAL.png"/></td>
   <td id="projectalign">
    <div id="projectname">HAL<span id="projectnumber">&#160;3.00</span>
    </div>
@@ -90,55 +91,34 @@ $(function(){initNavTree('d0/d01/a00339.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::I2CPort</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::OTP</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="i2c-port-usage-example"></a>
-I2C Port Usage Example</h2>
-<p>This example demonstrates how to initialize and use the I2CPort class for I2C communication with an external device, such as reading and writing data to an EEPROM.</p>
+<h2 class="doxsection"><a class="anchor" id="program-otp-memory-unlock-write-read-lock"></a>
+Program OTP memory: unlock, write, read, lock.</h2>
+<p>Demonstrates basic usage of <span class="tt">Lib::HAL::OTP</span> to access STM32 OTP memory: unlocking FLASH, writing a value, locking back, and validating by reading. Use with caution: OTP cells are one-time programmable and cannot be erased.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<p>Initialize the I2C port, check device readiness, and perform memory read/write operations.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d1e/a00149.html">Lib/HAL/core/I2C/I2CPort.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Assume hi2c1 is initialized HAL I2C handle</span></div>
-<div class="line"><span class="keyword">extern</span> I2C_HandleTypeDef hi2c1;</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/dd9/a00179.html">Lib/HAL/OTP.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../df/d95/a00299.html">Lib::HAL::I2CPort</a> i2cPort(&amp;hi2c1);</div>
-<div class="line">    <span class="keywordflow">if</span> (!i2cPort.<a id="a1" name="a1"></a><a class="code hl_function" href="../../df/d95/a00299.html#ae7ad12743194e320b2739a9e8e95ca99">init</a>()) {</div>
-<div class="line">        <span class="comment">// Handle initialization failure</span></div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keyword">auto</span> &amp;otp = <a id="a0" name="a0"></a><a class="code hl_function" href="../../de/dc8/a00325.html#a6d93b8922e83ba7e9c910158475f1b8c">Lib::HAL::OTP::instance</a>();</div>
+<div class="line">    <span class="keyword">const</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../de/dc8/a00325.html#a6c42e9ceeb8fc562e73e706b638b832d">Lib::HAL::OTP::AddressType</a> addr = <a id="a2" name="a2"></a><a class="code hl_function" href="../../de/dc8/a00325.html#ab25598d3d5f7ba1b13d1e90db7a08bd7">Lib::HAL::OTP::beginAddr</a>();</div>
+<div class="line">    <span class="keyword">const</span> uint32_t value = 0x12345678;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> uint8_t deviceAddr = 0x50; <span class="comment">// Example EEPROM address</span></div>
-<div class="line">    <span class="keywordflow">if</span> (!i2cPort.<a id="a2" name="a2"></a><a class="code hl_function" href="../../df/d95/a00299.html#af4eb189505cde43b5417e1a7bf6f9912">isReady</a>(deviceAddr)) {</div>
-<div class="line">        <span class="comment">// Device not ready</span></div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (!otp.unlock()) { <span class="keywordflow">return</span> -1; }</div>
 <div class="line"> </div>
-<div class="line">    uint8_t dataToWrite[4] = {0x01, 0x02, 0x03, 0x04};</div>
-<div class="line">    <span class="keywordflow">if</span> (!i2cPort.<a id="a3" name="a3"></a><a class="code hl_function" href="../../df/d95/a00299.html#a673d5060c3fdbf62a5dce07d900a9066">send</a>(deviceAddr, <a id="_a4" name="_a4"></a><a class="code hl_enumvalue" href="../../df/d95/a00299.html#afae58565820707132148c9fb94aa662da9990dd355fcb596ae478c4035a8a1d12">Lib::HAL::I2CPort::MemAddrSize::ADDR_16BITS</a>, 0x0000, dataToWrite, <span class="keyword">sizeof</span>(dataToWrite))) {</div>
-<div class="line">        <span class="comment">// Write failed</span></div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> ok = otp.write&lt;uint32_t&gt;(addr, value);</div>
+<div class="line">    (void)otp.lock();</div>
 <div class="line"> </div>
-<div class="line">    uint8_t dataToRead[4];</div>
-<div class="line">    <span class="keywordflow">if</span> (!i2cPort.<a id="a5" name="a5"></a><a class="code hl_function" href="../../df/d95/a00299.html#ab90c8634aabe5a688652f188520a9e07">receive</a>(deviceAddr, <a class="code hl_enumvalue" href="../../df/d95/a00299.html#afae58565820707132148c9fb94aa662da9990dd355fcb596ae478c4035a8a1d12">Lib::HAL::I2CPort::MemAddrSize::ADDR_16BITS</a>, 0x0000, dataToRead, <span class="keyword">sizeof</span>(dataToRead))) {</div>
-<div class="line">        <span class="comment">// Read failed</span></div>
-<div class="line">        <span class="keywordflow">return</span> -1;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Data read successfully</span></div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">    <span class="keyword">const</span> uint32_t readBack = otp.read&lt;uint32_t&gt;(addr);</div>
+<div class="line">    <span class="keywordflow">return</span> (ok &amp;&amp; readBack == value) ? 0 : -1;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00149_html"><div class="ttname"><a href="../../da/d1e/a00149.html">I2CPort.hpp</a></div></div>
-<div class="ttc" id="aa00299_html"><div class="ttname"><a href="../../df/d95/a00299.html">Lib::HAL::I2CPort</a></div><div class="ttdef"><b>Definition</b> I2CPort.hpp:38</div></div>
-<div class="ttc" id="aa00299_html_a673d5060c3fdbf62a5dce07d900a9066"><div class="ttname"><a href="../../df/d95/a00299.html#a673d5060c3fdbf62a5dce07d900a9066">Lib::HAL::I2CPort::send</a></div><div class="ttdeci">bool send(uint32_t deviceAddress, const void *source, size_t size, uint32_t timeout=0)</div><div class="ttdef"><b>Definition</b> I2CPort.hpp:141</div></div>
-<div class="ttc" id="aa00299_html_ab90c8634aabe5a688652f188520a9e07"><div class="ttname"><a href="../../df/d95/a00299.html#ab90c8634aabe5a688652f188520a9e07">Lib::HAL::I2CPort::receive</a></div><div class="ttdeci">bool receive(uint32_t deviceAddress, void *destination, size_t size, uint32_t timeout=0)</div><div class="ttdef"><b>Definition</b> I2CPort.hpp:128</div></div>
-<div class="ttc" id="aa00299_html_ae7ad12743194e320b2739a9e8e95ca99"><div class="ttname"><a href="../../df/d95/a00299.html#ae7ad12743194e320b2739a9e8e95ca99">Lib::HAL::I2CPort::init</a></div><div class="ttdeci">bool init()</div><div class="ttdef"><b>Definition</b> I2CPort.hpp:91</div></div>
-<div class="ttc" id="aa00299_html_af4eb189505cde43b5417e1a7bf6f9912"><div class="ttname"><a href="../../df/d95/a00299.html#af4eb189505cde43b5417e1a7bf6f9912">Lib::HAL::I2CPort::isReady</a></div><div class="ttdeci">bool isReady(uint8_t deviceAddress, uint32_t timeout=100)</div><div class="ttdef"><b>Definition</b> I2CPort.hpp:186</div></div>
-<div class="ttc" id="aa00299_html_afae58565820707132148c9fb94aa662da9990dd355fcb596ae478c4035a8a1d12"><div class="ttname"><a href="../../df/d95/a00299.html#afae58565820707132148c9fb94aa662da9990dd355fcb596ae478c4035a8a1d12">Lib::HAL::I2CPort::MemAddrSize::ADDR_16BITS</a></div><div class="ttdeci">@ ADDR_16BITS</div><div class="ttdef"><b>Definition</b> I2CPort.hpp:49</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00179_html"><div class="ttname"><a href="../../db/dd9/a00179.html">OTP.hpp</a></div><div class="ttdoc">OTP (One-Time Programmable) memory management interface.</div></div>
+<div class="ttc" id="aa00325_html_a6c42e9ceeb8fc562e73e706b638b832d"><div class="ttname"><a href="../../de/dc8/a00325.html#a6c42e9ceeb8fc562e73e706b638b832d">Lib::HAL::OTP::AddressType</a></div><div class="ttdeci">uint32_t AddressType</div><div class="ttdoc">Type alias for OTP address.</div><div class="ttdef"><b>Definition</b> OTP.hpp:36</div></div>
+<div class="ttc" id="aa00325_html_a6d93b8922e83ba7e9c910158475f1b8c"><div class="ttname"><a href="../../de/dc8/a00325.html#a6d93b8922e83ba7e9c910158475f1b8c">Lib::HAL::OTP::instance</a></div><div class="ttdeci">static OTP &amp; instance()</div><div class="ttdoc">Retrieves the singleton instance of the OTP class.</div><div class="ttdef"><b>Definition</b> OTP.hpp:197</div></div>
+<div class="ttc" id="aa00325_html_ab25598d3d5f7ba1b13d1e90db7a08bd7"><div class="ttname"><a href="../../de/dc8/a00325.html#ab25598d3d5f7ba1b13d1e90db7a08bd7">Lib::HAL::OTP::beginAddr</a></div><div class="ttdeci">static constexpr AddressType beginAddr()</div><div class="ttdoc">Returns the beginning address of OTP memory.</div><div class="ttdef"><b>Definition</b> OTP.hpp:172</div></div>
+</div><!-- fragment --><p>After unlocking, the example writes a 32-bit value to the first OTP address, locks the FLASH again, and verifies by reading back. Writing to OTP is irreversible.</p>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

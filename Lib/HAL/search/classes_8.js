@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reset_0',['Reset',['../d1/d5d/a00311.html',1,'Lib::HAL']]],
-  ['rtclock_1',['RTClock',['../d4/d6f/a00315.html',1,'Lib::HAL']]]
+  ['reset_0',['Reset',['../d3/d07/a00305.html',1,'Lib::HAL']]],
+  ['rtclock_1',['RTClock',['../d2/d71/a00309.html',1,'Lib::HAL']]]
 ];
