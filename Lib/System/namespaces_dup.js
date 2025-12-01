@@ -1,6 +1,0 @@
-var namespaces_dup =
-[
-    [ "Lib", null, [
-      [ "System", "d9/d73/a00060.html", "d9/d73/a00060" ]
-    ] ]
-];
