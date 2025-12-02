@@ -26,7 +26,7 @@ var NAVTREE =
 [
   [ "HAL", "index.html", [
     [ "Hardware Abstract Layer Library", "index.html", "index" ],
-    [ "Device Driver Implementation", "d4/d27/a00392.html", null ],
+    [ "Device Driver Implementation", "d9/d4f/md_md_2_device_driver_implementation.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -42,10 +42,11 @@ var NAVTREE =
       [ "Hierarchy", "hierarchy.html", "hierarchy" ],
       [ "Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
+        [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -58,9 +59,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d42/a00269.html#af5367d50b92a46c289825d4a0e55112b",
-"dc/d6a/a00261.html#a7160d7335704e4036c387a7ceb95d7d7",
-"functions_func_i.html"
+"d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html#ad1393be4f030a47d4380ac6f81653cf4",
+"de/d0a/class_lib_1_1_h_a_l_1_1_handle.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

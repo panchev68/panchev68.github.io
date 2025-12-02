@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.15.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>HAL: GPIO.hpp File Reference</title>
+<title>HAL: Timer-Encoder.hpp File Reference</title>
 <link rel="icon" href="../../HAL.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,188 +91,46 @@ $(function(){initNavTree('d7/d3f/a00173.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">GPIO.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">Timer-Encoder.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>GPIO HAL interface header.  
+<p>Timer-Encoder class definition.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>GPIO HAL interface header. </p>
-<p>This file provides type aliases and EXTI callback for the GPIO HAL abstraction layer.<br  />
-It defines convenient aliases for GPIO handle, input, output, and port types, and provides a macro for pin handle<br  />
-construction. The file also declares the HAL EXTI callback for GPIO, which routes EXTI events to the EXTIBase<br  />
-device manager. This infrastructure enables unified GPIO handling and event management for STM32 HAL-based projects.<br  />
-</p>
-</div><div class="textblock"><code>#include &quot;<a class="el" href="../../dc/dfe/a00125.html">core/GPIO/EXTIBase.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d9/dad/a00394.html">core/GPIO/Handle.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d7/d06/a00131.html">core/GPIO/Input.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../de/d76/a00134.html">core/GPIO/Output.hpp</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="../../d5/db1/a00140.html">core/GPIO/Port.hpp</a>&quot;</code><br />
-<code>#include &lt;cassert&gt;</code><br />
+<div class="textblock"><p>Timer-Encoder class definition. </p>
+<p>This file defines the Timer&lt;Mode::ENCODER&gt; specialization for encoder mode timer peripherals, providing an interface for quadrature encoder counting and value change notification. It extends the Base timer abstraction and integrates with STM32 HAL for encoder mode operation. </p>
+</div><div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstdint&gt;</code><br />
-</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for GPIO.hpp:</div>
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &quot;<a class="el" href="../../db/ddf/a00164.html">Lib/HAL/core/TIM/Base.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../dc/de6/a00167.html">Lib/HAL/core/TIM/Mode.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="../../d5/dcb/a00170.html">Lib/HAL/core/TIM/template.hpp</a>&quot;</code><br />
+<code>#include &quot;stm32f4xx_hal.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Timer-Encoder.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/df1/a00174.svg" width="1030" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/df1/a00174.svg" width="1179" height="352"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a45dbeff58bd7e046067745552ea8044c" id="r_a45dbeff58bd7e046067745552ea8044c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45dbeff58bd7e046067745552ea8044c">PIN</a>(p)</td></tr>
-<tr class="memdesc:a45dbeff58bd7e046067745552ea8044c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro for pin handle construction.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:acd389cc92a6a175118816d170af42e10" id="r_acd389cc92a6a175118816d170af42e10"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acd389cc92a6a175118816d170af42e10">PinHandle</a> = <a class="el" href="../../d5/d42/a00269.html">Lib::HAL::GPIO::Handle</a></td></tr>
-<tr class="memitem:a8ec0ca73e638e4f25bf78418c3871eda" id="r_a8ec0ca73e638e4f25bf78418c3871eda"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ec0ca73e638e4f25bf78418c3871eda">PinInput</a> = <a class="el" href="../../d0/d19/a00273.html">Lib::HAL::GPIO::Input</a></td></tr>
-<tr class="memitem:a5f9adc83bde8d23ea2a3a1b7d37630c9" id="r_a5f9adc83bde8d23ea2a3a1b7d37630c9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f9adc83bde8d23ea2a3a1b7d37630c9">PinOutput</a> = <a class="el" href="../../d6/d4b/a00277.html">Lib::HAL::GPIO::Output</a></td></tr>
-<tr class="memitem:a68610c9600ef69739854c1568f8acb00" id="r_a68610c9600ef69739854c1568f8acb00"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68610c9600ef69739854c1568f8acb00">PinPort</a> = <a class="el" href="../../d3/d58/a00285.html">Lib::HAL::GPIO::Port</a></td></tr>
-<tr class="memitem:a8e6cf0e2bc5e271cb609170343c6ffa3" id="r_a8e6cf0e2bc5e271cb609170343c6ffa3"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e6cf0e2bc5e271cb609170343c6ffa3">EXTIBase</a> = <a class="el" href="../../dc/d6a/a00261.html">Lib::HAL::GPIO::EXTIBase</a></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a443d7388b42e6cf926b2aebafd27447d" id="r_a443d7388b42e6cf926b2aebafd27447d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a443d7388b42e6cf926b2aebafd27447d">HAL_GPIO_EXTI_Callback</a> (uint16_t pinNum) noexcept</td></tr>
-<tr class="memdesc:a443d7388b42e6cf926b2aebafd27447d"><td class="mdescLeft">&#160;</td><td class="mdescRight">HAL EXTI callback for GPIO.  <br /></td></tr>
-</table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
-<a id="a45dbeff58bd7e046067745552ea8044c" name="a45dbeff58bd7e046067745552ea8044c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45dbeff58bd7e046067745552ea8044c">&#9670;&#160;</a></span>PIN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PIN</td>
-          <td>(</td>
-          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>p</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">p##_GPIO_Port, p##_Pin</div>
-</div><!-- fragment -->
-<p>Macro for pin handle construction. </p>
-
-</div>
-</div>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
-<a id="a8e6cf0e2bc5e271cb609170343c6ffa3" name="a8e6cf0e2bc5e271cb609170343c6ffa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e6cf0e2bc5e271cb609170343c6ffa3">&#9670;&#160;</a></span>EXTIBase</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a8e6cf0e2bc5e271cb609170343c6ffa3">EXTIBase</a> = <a class="el" href="../../dc/d6a/a00261.html">Lib::HAL::GPIO::EXTIBase</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO EXTI base type. </p>
-
-</div>
-</div>
-<a id="acd389cc92a6a175118816d170af42e10" name="acd389cc92a6a175118816d170af42e10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd389cc92a6a175118816d170af42e10">&#9670;&#160;</a></span>PinHandle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#acd389cc92a6a175118816d170af42e10">PinHandle</a> = <a class="el" href="../../d5/d42/a00269.html">Lib::HAL::GPIO::Handle</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO pin handle type. </p>
-
-</div>
-</div>
-<a id="a8ec0ca73e638e4f25bf78418c3871eda" name="a8ec0ca73e638e4f25bf78418c3871eda"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ec0ca73e638e4f25bf78418c3871eda">&#9670;&#160;</a></span>PinInput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a8ec0ca73e638e4f25bf78418c3871eda">PinInput</a> = <a class="el" href="../../d0/d19/a00273.html">Lib::HAL::GPIO::Input</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO input pin type. </p>
-
-</div>
-</div>
-<a id="a5f9adc83bde8d23ea2a3a1b7d37630c9" name="a5f9adc83bde8d23ea2a3a1b7d37630c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f9adc83bde8d23ea2a3a1b7d37630c9">&#9670;&#160;</a></span>PinOutput</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a5f9adc83bde8d23ea2a3a1b7d37630c9">PinOutput</a> = <a class="el" href="../../d6/d4b/a00277.html">Lib::HAL::GPIO::Output</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO output pin type. </p>
-
-</div>
-</div>
-<a id="a68610c9600ef69739854c1568f8acb00" name="a68610c9600ef69739854c1568f8acb00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68610c9600ef69739854c1568f8acb00">&#9670;&#160;</a></span>PinPort</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a68610c9600ef69739854c1568f8acb00">PinPort</a> = <a class="el" href="../../d3/d58/a00285.html">Lib::HAL::GPIO::Port</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>GPIO port type. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a443d7388b42e6cf926b2aebafd27447d" name="a443d7388b42e6cf926b2aebafd27447d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a443d7388b42e6cf926b2aebafd27447d">&#9670;&#160;</a></span>HAL_GPIO_EXTI_Callback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HAL_GPIO_EXTI_Callback </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pinNum</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>HAL EXTI callback for GPIO. </p>
-<p>Calls the EXTI event handler for the given pin number. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pinNum</td><td>Pin number (0-15). </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/d3f/a00173_a443d7388b42e6cf926b2aebafd27447d_cgraph.svg" width="684" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d45/a00175.svg" width="143" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Lib_3A_3AHAL_3A_3ATimer_3C_20Mode_3A_3AENCODER_20_3E" id="r_Lib_3A_3AHAL_3A_3ATimer_3C_20Mode_3A_3AENCODER_20_3E"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/d8f/a00324.html">Lib::HAL::Timer&lt; Mode::ENCODER &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer specialization for encoder mode.  <a href="../../d4/d8f/a00324.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd1/a00214.html">Lib</a></td></tr>
+<tr class="memitem:Lib_3A_3AHAL" id="r_Lib_3A_3AHAL"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/dd5/a00215.html">Lib::HAL</a></td></tr>
+<tr class="memdesc:d3/dd5/a00215"><td class="mdescLeft">&#160;</td><td class="mdescRight">HAL Layer. <br /></td></tr>
+</table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -286,7 +144,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../d7/d3f/a00173.html">GPIO.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_8614472618abc149a31dd7841874bafa.html">core</a></li><li class="navelem"><a href="../../dir_108b62c0e70fd74a326c4126470fe17d.html">TIM</a></li><li class="navelem"><a href="../../d7/d3f/a00173.html">Timer-Encoder.hpp</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for HAL by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0 </li>
   </ul>
 </div>

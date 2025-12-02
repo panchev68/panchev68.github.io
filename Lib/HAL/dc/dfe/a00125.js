@@ -1,6 +1,8 @@
 var a00125 =
 [
-    [ "Lib::HAL::GPIO::EXTIBase", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
-    [ "Lib::HAL::GPIO::EXTIBase::EventManager", "da/d53/a00265.html", "da/d53/a00265" ],
-    [ "HAL_GPIO_EXTI_Callback", "dc/dfe/a00125.html#a13bf50d1a30cc4e9c6cf32af3490ee4d", null ]
+    [ "Lib::HAL::DriverMode", "d3/dd5/a00215.html#a031c16cd1ba2f466615bbfa2b2832ed0", [
+      [ "Lib::HAL::DriverMode::BLOCK", "d3/dd5/a00215.html#a031c16cd1ba2f466615bbfa2b2832ed0a4d34f53389ed7f28ca91fc31ea360a66", null ],
+      [ "Lib::HAL::DriverMode::IT", "d3/dd5/a00215.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c", null ],
+      [ "Lib::HAL::DriverMode::DMA", "d3/dd5/a00215.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949", null ]
+    ] ]
 ];

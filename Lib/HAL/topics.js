@@ -1,11 +1,11 @@
 var topics =
 [
-    [ "ADC - Analog to Digital Convertor", "d3/db1/a00200.html", null ],
-    [ "GPIO - General-purpose input/output", "dd/de3/a00201.html", null ],
-    [ "CAN - Controller Area Network", "db/d53/a00202.html", null ],
-    [ "RTC - Real Time Clock", "de/d79/a00203.html", null ],
-    [ "BKPRAM - Backup SRAM", "d1/d72/a00204.html", null ],
-    [ "OTP - One-Time-Programmable Memory", "d5/d13/a00205.html", null ],
-    [ "Last Reset State", "d5/df1/a00206.html", null ],
-    [ "Communication interface", "de/dd2/a00207.html", "de/dd2/a00207" ]
+    [ "ADC - Analog to Digital Convertor", "db/d78/group___a_d_c.html", null ],
+    [ "GPIO - General-purpose input/output", "dd/d94/group___g_p_i_o.html", null ],
+    [ "CAN - Controller Area Network", "df/df1/group___c_a_n.html", null ],
+    [ "RTC - Real Time Clock", "d9/dfc/group___r_t_c.html", null ],
+    [ "BKPRAM - Backup SRAM", "da/d1d/group___b_k_p_r_a_m.html", null ],
+    [ "OTP - One-Time-Programmable Memory", "da/d15/group___o_t_p.html", null ],
+    [ "Last Reset State", "db/dcb/group___r_e_s_e_t.html", null ],
+    [ "Communication interface", "d4/dd1/group___c_o_m.html", "d4/dd1/group___c_o_m" ]
 ];

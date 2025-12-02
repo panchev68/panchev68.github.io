@@ -1,4 +1,5 @@
 var a00083 =
 [
-    [ "Lib::HAL::AdcHandle", "dd/dc1/a00212.html#a43a2c31ac11dcdbf7f7a7a5caf258644", null ]
+    [ "AdcChannel", "d5/ddf/a00224.html", "d5/ddf/a00224" ],
+    [ "AdcChannel::Config", "de/dc2/a00228.html", "de/dc2/a00228" ]
 ];

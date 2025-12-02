@@ -1,36 +1,36 @@
 var annotated_dup =
 [
-    [ "Lib", "dd/ded/a00211.html", [
-      [ "HAL", "dd/dc1/a00212.html", [
-        [ "GPIO", "d1/de1/a00213.html", [
-          [ "EXTIBase", "dc/d6a/a00261.html", "dc/d6a/a00261" ],
-          [ "Handle", "d5/d42/a00269.html", "d5/d42/a00269" ],
-          [ "Input", "d0/d19/a00273.html", "d0/d19/a00273" ],
-          [ "Output", "d6/d4b/a00277.html", "d6/d4b/a00277" ],
-          [ "PinMode", "d2/d04/a00281.html", "d2/d04/a00281" ],
-          [ "Port", "d3/d58/a00285.html", "d3/d58/a00285" ]
+    [ "Lib", "d1/d1f/namespace_lib.html", [
+      [ "HAL", "d9/d8d/namespace_lib_1_1_h_a_l.html", [
+        [ "GPIO", "d9/dae/namespace_lib_1_1_h_a_l_1_1_g_p_i_o.html", [
+          [ "EXTIBase", "d1/d51/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_e_x_t_i_base.html", "d1/d51/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_e_x_t_i_base" ],
+          [ "Handle", "d3/d9a/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_handle.html", "d3/d9a/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_handle" ],
+          [ "Input", "d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html", "d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input" ],
+          [ "Output", "d0/d6d/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_output.html", "d0/d6d/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_output" ],
+          [ "PinMode", "d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html", "d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode" ],
+          [ "Port", "dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port.html", "dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port" ]
         ] ],
-        [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "df/d24/a00217.html", "df/d24/a00217" ],
-        [ "AdcPortBase", "dd/d2d/a00229.html", "dd/d2d/a00229" ],
-        [ "DeviceManagerBase", "d9/d39/a00257.html", "d9/d39/a00257" ],
-        [ "Handle", "d4/d66/a00289.html", "d4/d66/a00289" ],
-        [ "I2CPort", "d6/d82/a00293.html", "d6/d82/a00293" ],
-        [ "Watchdog", "d3/d4a/a00297.html", "d3/d4a/a00297" ],
-        [ "Port", "da/d50/a00301.html", null ],
-        [ "Reset", "d3/d07/a00305.html", "d3/d07/a00305" ],
-        [ "RTClock", "d2/d71/a00309.html", "d2/d71/a00309" ],
-        [ "Timer", "da/de0/a00317.html", "da/de0/a00317" ],
-        [ "Timer&lt; Mode::ENCODER &gt;", "db/d53/a00321.html", "db/d53/a00321" ],
-        [ "OTP", "de/dc8/a00325.html", "de/dc8/a00325" ],
-        [ "UARTBase", "dd/d4e/a00329.html", "dd/d4e/a00329" ]
+        [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
+        [ "AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base" ],
+        [ "DeviceManagerBase", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base" ],
+        [ "Handle", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", "de/d0a/class_lib_1_1_h_a_l_1_1_handle" ],
+        [ "I2CPort", "d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html", "d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port" ],
+        [ "Watchdog", "d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html", "d9/d45/class_lib_1_1_h_a_l_1_1_watchdog" ],
+        [ "Port", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
+        [ "Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset" ],
+        [ "RTClock", "da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock.html", "da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock" ],
+        [ "Timer", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer" ],
+        [ "Timer&lt; Mode::ENCODER &gt;", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4" ],
+        [ "OTP", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p" ],
+        [ "UARTBase", "dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html", "dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base" ]
       ] ]
     ] ],
-    [ "AdcChannel", "dd/d52/a00221.html", "dd/d52/a00221" ],
-    [ "CAN_FilterTypeDef", "d6/de1/a00233.html", "d6/de1/a00233" ],
-    [ "CAN_TxHeaderTypeDef", "d6/d22/a00245.html", "d6/d22/a00245" ],
-    [ "CanFilter", "d4/d08/a00237.html", "d4/d08/a00237" ],
-    [ "CanRxMessage", "d6/db6/a00241.html", "d6/db6/a00241" ],
-    [ "CanTxHeader", "de/dbc/a00249.html", "de/dbc/a00249" ],
-    [ "CanTxMessage", "d0/d3e/a00253.html", "d0/d3e/a00253" ],
-    [ "Handle", "dd/db3/a00313.html", "dd/db3/a00313" ]
+    [ "AdcChannel", "dc/dee/class_adc_channel.html", "dc/dee/class_adc_channel" ],
+    [ "CAN_FilterTypeDef", "df/d9e/struct_c_a_n___filter_type_def.html", "df/d9e/struct_c_a_n___filter_type_def" ],
+    [ "CAN_TxHeaderTypeDef", "db/d54/struct_c_a_n___tx_header_type_def.html", "db/d54/struct_c_a_n___tx_header_type_def" ],
+    [ "CanFilter", "d2/d8d/class_can_filter.html", "d2/d8d/class_can_filter" ],
+    [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", null ],
+    [ "CanTxHeader", "de/da2/class_can_tx_header.html", "de/da2/class_can_tx_header" ],
+    [ "CanTxMessage", "d3/d28/class_can_tx_message.html", "d3/d28/class_can_tx_message" ],
+    [ "Handle", "db/d8c/struct_handle.html", "db/d8c/struct_handle" ]
 ];

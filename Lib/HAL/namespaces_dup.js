@@ -1,4 +1,4 @@
 var namespaces_dup =
 [
-    [ "Lib", "dd/ded/a00211.html", "dd/ded/a00211" ]
+    [ "Lib", "d1/d1f/namespace_lib.html", "d1/d1f/namespace_lib" ]
 ];

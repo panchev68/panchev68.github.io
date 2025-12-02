@@ -1,4 +1,4 @@
 var a00140 =
 [
-    [ "Lib::HAL::GPIO::Port", "d3/d58/a00285.html", "d3/d58/a00285" ]
+    [ "Lib::HAL::GPIO::PinMode", "db/dc3/a00284.html", "db/dc3/a00284" ]
 ];

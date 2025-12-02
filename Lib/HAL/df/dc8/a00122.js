@@ -1,8 +1,9 @@
 var a00122 =
 [
-    [ "Lib::HAL::DriverMode", "dd/dc1/a00212.html#a031c16cd1ba2f466615bbfa2b2832ed0", [
-      [ "Lib::HAL::DriverMode::BLOCK", "dd/dc1/a00212.html#a031c16cd1ba2f466615bbfa2b2832ed0a4d34f53389ed7f28ca91fc31ea360a66", null ],
-      [ "Lib::HAL::DriverMode::IT", "dd/dc1/a00212.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c", null ],
-      [ "Lib::HAL::DriverMode::DMA", "dd/dc1/a00212.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949", null ]
+    [ "DataDirection", "df/dc8/a00122.html#ad8e8e2d3daffefa3e43d21916835b820", null ],
+    [ "Lib::HAL::DriverDataDirection", "d3/dd5/a00215.html#a82754326f2fd3bd32ea447c756ec2825", [
+      [ "Lib::HAL::DriverDataDirection::RX", "d3/dd5/a00215.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
+      [ "Lib::HAL::DriverDataDirection::TX", "d3/dd5/a00215.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ],
+      [ "Lib::HAL::DriverDataDirection::RX_TX", "d3/dd5/a00215.html#a82754326f2fd3bd32ea447c756ec2825aa9f94fc2b5a22b1ebff62655559f82b2", null ]
     ] ]
 ];

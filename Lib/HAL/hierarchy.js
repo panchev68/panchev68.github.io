@@ -1,51 +1,51 @@
 var hierarchy =
 [
     [ "ADC_ChannelConfTypeDef", null, [
-      [ "AdcChannel::Config", "dc/d98/a00225.html", null ]
+      [ "AdcChannel::Config", "de/db2/class_adc_channel_1_1_config.html", null ]
     ] ],
-    [ "AdcChannel", "dd/d52/a00221.html", [
-      [ "Lib::HAL::AdcPortBase", "dd/d2d/a00229.html", null ]
+    [ "AdcChannel", "dc/dee/class_adc_channel.html", [
+      [ "Lib::HAL::AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", null ]
     ] ],
     [ "AdcTransparentPortBase", null, [
-      [ "Lib::HAL::Port< Lib::HAL::DriverMode::DMA >", "df/d24/a00217.html", null ]
+      [ "Lib::HAL::Port< Lib::HAL::DriverMode::DMA >", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", null ]
     ] ],
     [ "Base", null, [
-      [ "Lib::HAL::Timer< Mode::ENCODER >", "db/d53/a00321.html", null ]
+      [ "Lib::HAL::Timer< Mode::ENCODER >", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", null ]
     ] ],
-    [ "CAN_FilterTypeDef", "d6/de1/a00233.html", null ],
-    [ "CAN_TxHeaderTypeDef", "d6/d22/a00245.html", null ],
-    [ "CanFilter", "d4/d08/a00237.html", null ],
-    [ "CanRxMessage", "d6/db6/a00241.html", null ],
-    [ "CanTxHeader", "de/dbc/a00249.html", null ],
-    [ "CanTxMessage", "d0/d3e/a00253.html", null ],
-    [ "Lib::HAL::DeviceManagerBase&lt; T_DEVICE, T_HANDLE &gt;", "d9/d39/a00257.html", null ],
-    [ "Lib::HAL::DeviceManagerBase&lt; EXTIBase, uint16_t &gt;", "d9/d39/a00257.html", [
-      [ "Lib::HAL::GPIO::EXTIBase::EventManager", "da/d53/a00265.html", null ]
+    [ "CAN_FilterTypeDef", "df/d9e/struct_c_a_n___filter_type_def.html", null ],
+    [ "CAN_TxHeaderTypeDef", "db/d54/struct_c_a_n___tx_header_type_def.html", null ],
+    [ "CanFilter", "d2/d8d/class_can_filter.html", null ],
+    [ "CanRxMessage", "d0/dd1/class_can_rx_message.html", null ],
+    [ "CanTxHeader", "de/da2/class_can_tx_header.html", null ],
+    [ "CanTxMessage", "d3/d28/class_can_tx_message.html", null ],
+    [ "Lib::HAL::DeviceManagerBase&lt; T_DEVICE, T_HANDLE &gt;", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", null ],
+    [ "Lib::HAL::DeviceManagerBase&lt; EXTIBase, uint16_t &gt;", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", [
+      [ "Lib::HAL::GPIO::EXTIBase::EventManager", "df/db9/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_e_x_t_i_base_1_1_event_manager.html", null ]
     ] ],
-    [ "Handle", "dd/db3/a00313.html", null ],
-    [ "Lib::HAL::GPIO::Handle", "d5/d42/a00269.html", null ],
-    [ "Lib::HAL::Handle&lt; T_HANDLE &gt;", "d4/d66/a00289.html", null ],
-    [ "Lib::HAL::Handle&lt; ADC_HandleTypeDef &gt;", "d4/d66/a00289.html", [
-      [ "Lib::HAL::AdcPortBase", "dd/d2d/a00229.html", null ]
+    [ "Handle", "db/d8c/struct_handle.html", null ],
+    [ "Lib::HAL::GPIO::Handle", "d3/d9a/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_handle.html", null ],
+    [ "Lib::HAL::Handle&lt; T_HANDLE &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", null ],
+    [ "Lib::HAL::Handle&lt; ADC_HandleTypeDef &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", [
+      [ "Lib::HAL::AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", null ]
     ] ],
-    [ "Lib::HAL::Handle&lt; I2C_HandleTypeDef &gt;", "d4/d66/a00289.html", [
-      [ "Lib::HAL::I2CPort", "d6/d82/a00293.html", null ]
+    [ "Lib::HAL::Handle&lt; I2C_HandleTypeDef &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", [
+      [ "Lib::HAL::I2CPort", "d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html", null ]
     ] ],
-    [ "Lib::HAL::Handle&lt; RTC_HandleTypeDef &gt;", "d4/d66/a00289.html", [
-      [ "Lib::HAL::RTClock", "d2/d71/a00309.html", null ]
+    [ "Lib::HAL::Handle&lt; RTC_HandleTypeDef &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", [
+      [ "Lib::HAL::RTClock", "da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock.html", null ]
     ] ],
-    [ "Lib::HAL::Handle&lt; UART_HandleTypeDef &gt;", "d4/d66/a00289.html", [
-      [ "Lib::HAL::UARTBase", "dd/d4e/a00329.html", null ]
+    [ "Lib::HAL::Handle&lt; UART_HandleTypeDef &gt;", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", [
+      [ "Lib::HAL::UARTBase", "dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html", null ]
     ] ],
-    [ "Lib::HAL::GPIO::Input", "d0/d19/a00273.html", [
-      [ "Lib::HAL::GPIO::EXTIBase", "dc/d6a/a00261.html", null ],
-      [ "Lib::HAL::GPIO::Output", "d6/d4b/a00277.html", null ]
+    [ "Lib::HAL::GPIO::Input", "d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html", [
+      [ "Lib::HAL::GPIO::EXTIBase", "d1/d51/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_e_x_t_i_base.html", null ],
+      [ "Lib::HAL::GPIO::Output", "d0/d6d/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_output.html", null ]
     ] ],
-    [ "Lib::HAL::OTP", "de/dc8/a00325.html", null ],
-    [ "Lib::HAL::GPIO::PinMode", "d2/d04/a00281.html", null ],
-    [ "Lib::HAL::GPIO::Port", "d3/d58/a00285.html", null ],
-    [ "Lib::HAL::Port&lt; T_DRIVER_MODE &gt;", "da/d50/a00301.html", null ],
-    [ "Lib::HAL::Reset", "d3/d07/a00305.html", null ],
-    [ "Lib::HAL::Timer&lt; T_MODE &gt;", "da/de0/a00317.html", null ],
-    [ "Lib::HAL::Watchdog", "d3/d4a/a00297.html", null ]
+    [ "Lib::HAL::OTP", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html", null ],
+    [ "Lib::HAL::GPIO::PinMode", "d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html", null ],
+    [ "Lib::HAL::GPIO::Port", "dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port.html", null ],
+    [ "Lib::HAL::Port&lt; T_DRIVER_MODE &gt;", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
+    [ "Lib::HAL::Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", null ],
+    [ "Lib::HAL::Timer&lt; T_MODE &gt;", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", null ],
+    [ "Lib::HAL::Watchdog", "d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html", null ]
 ];

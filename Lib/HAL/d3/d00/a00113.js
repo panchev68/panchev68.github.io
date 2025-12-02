@@ -1,4 +1,5 @@
 var a00113 =
 [
-    [ "CanTxMessage", "d0/d3e/a00253.html", "d0/d3e/a00253" ]
+    [ "CAN_TxHeaderTypeDef", "dd/dd7/a00248.html", "dd/dd7/a00248" ],
+    [ "CanTxHeader", "dc/ded/a00252.html", "dc/ded/a00252" ]
 ];
