@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['layer_20library_0',['Hardware Abstract Layer Library',['../index.html',1,'']]],
-  ['library_1',['Hardware Abstract Layer Library',['../index.html',1,'']]],
-  ['lock_2',['Program OTP memory: unlock, write, read, lock.',['../X:/Lib/IAR/inc/Lib/HAL/OTP.hpp#program-otp-memory-unlock-write-read-lock',1,'']]]
+  ['general_20purpose_20input_20output_20gpio_0',['General Purpose Input/Output (GPIO)',['../index.html#general-purpose-inputoutput-gpio',1,'']]],
+  ['gpio_1',['General Purpose Input/Output (GPIO)',['../index.html#general-purpose-inputoutput-gpio',1,'']]]
 ];

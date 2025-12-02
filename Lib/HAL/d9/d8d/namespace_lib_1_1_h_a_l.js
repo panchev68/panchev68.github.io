@@ -1,8 +1,8 @@
 var namespace_lib_1_1_h_a_l =
 [
     [ "GPIO", "d9/dae/namespace_lib_1_1_h_a_l_1_1_g_p_i_o.html", "d9/dae/namespace_lib_1_1_h_a_l_1_1_g_p_i_o" ],
-    [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
     [ "AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base" ],
+    [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
     [ "DeviceManagerBase", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base" ],
     [ "Handle", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", "de/d0a/class_lib_1_1_h_a_l_1_1_handle" ],
     [ "I2CPort", "d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html", "d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port" ],

@@ -1,4 +1,32 @@
 var searchData=
 [
-  ['query_20and_20system_20reset_20example_0',['Reset State Query and System Reset Example',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#reset-state-query-and-system-reset-example',1,'']]]
+  ['parity_5ferror_0',['PARITY_ERROR',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ab895d375e3d4a50f29c3904659de8326ac660efeaf70229ba5fd5e53da70c9a7c',1,'Lib::HAL::UARTBase']]],
+  ['peripheral_20interface_1',['SPI - Serial Peripheral Interface',['../dd/d3c/group___s_p_i.html',1,'']]],
+  ['peripheral_20interface_20spi_2',['Serial Peripheral Interface (SPI)',['../index.html#serial-peripheral-interface-spi',1,'']]],
+  ['pin_3',['PIN',['../db/dd0/_g_p_i_o_8hpp.html#a45dbeff58bd7e046067745552ea8044c',1,'GPIO.hpp']]],
+  ['pinhandle_4',['PinHandle',['../db/dd0/_g_p_i_o_8hpp.html#acd389cc92a6a175118816d170af42e10',1,'GPIO.hpp']]],
+  ['pininput_5',['PinInput',['../db/dd0/_g_p_i_o_8hpp.html#a8ec0ca73e638e4f25bf78418c3871eda',1,'GPIO.hpp']]],
+  ['pinmode_6',['PinMode',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html',1,'Lib::HAL::GPIO']]],
+  ['pinmode_7',['pinMode',['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html#ad55d27d302dcc4574cb71f58ee3114f0',1,'Lib::HAL::GPIO::Input']]],
+  ['pinmode_2ehpp_8',['PinMode.hpp',['../da/d6e/_pin_mode_8hpp.html',1,'']]],
+  ['pinoutput_9',['PinOutput',['../db/dd0/_g_p_i_o_8hpp.html#a5f9adc83bde8d23ea2a3a1b7d37630c9',1,'GPIO.hpp']]],
+  ['pinport_10',['PinPort',['../db/dd0/_g_p_i_o_8hpp.html#a68610c9600ef69739854c1568f8acb00',1,'GPIO.hpp']]],
+  ['port_11',['Port',['../dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port.html',1,'Lib::HAL::GPIO::Port'],['../d7/db0/class_lib_1_1_h_a_l_1_1_port.html',1,'Lib::HAL::Port&lt; T_DRIVER_MODE &gt;'],['../d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html#aca01bc5bf34f7ed501c19553386e02ab',1,'Lib::HAL::Port&lt; Lib::HAL::DriverMode::DMA &gt;::Port()'],['../dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port.html#a3b44fabfe796316ff21231ab84e9aae5',1,'Lib::HAL::GPIO::Port::Port()']]],
+  ['port_20block_20mode_20usage_20example_12',['ADC Port Block Mode Usage Example.',['../X:/Lib/IAR/inc/Lib/HAL/ADCPort.hpp#adc-port-block-mode-usage-example',1,'']]],
+  ['port_20usage_20example_13',['I2C Port Usage Example',['../X:/Lib/IAR/inc/Lib/HAL/core/I2C/I2CPort.hpp#i2c-port-usage-example',1,'']]],
+  ['port_2ehpp_14',['Port.hpp',['../d7/dbd/_port_8hpp.html',1,'']]],
+  ['port_3c_20drivermode_3a_3ablock_20_3e_15',['Port&lt; DriverMode::BLOCK &gt;',['../d7/db0/class_lib_1_1_h_a_l_1_1_port.html',1,'Lib::HAL']]],
+  ['port_3c_20drivermode_3a_3adma_20_3e_16',['Port&lt; DriverMode::DMA &gt;',['../d7/db0/class_lib_1_1_h_a_l_1_1_port.html',1,'Lib::HAL']]],
+  ['port_3c_20drivermode_3a_3ait_20_3e_17',['Port&lt; DriverMode::IT &gt;',['../d7/db0/class_lib_1_1_h_a_l_1_1_port.html',1,'Lib::HAL']]],
+  ['port_3c_20lib_3a_3ahal_3a_3adrivermode_3a_3adma_20_3e_18',['Port&lt; Lib::HAL::DriverMode::DMA &gt;',['../d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html',1,'Lib::HAL']]],
+  ['porttemplate_2ehpp_19',['PortTemplate.hpp',['../d6/d44/_port_template_8hpp.html',1,'']]],
+  ['power_5fon_5fpower_5fdown_5freset_20',['POWER_ON_POWER_DOWN_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91af312bff7200b6868277e61c8c8f5d8c9',1,'Lib::HAL::Reset']]],
+  ['program_20otp_20memory_3a_20unlock_20write_20read_20lock_21',['Program OTP memory: unlock, write, read, lock.',['../X:/Lib/IAR/inc/Lib/HAL/OTP.hpp#program-otp-memory-unlock-write-read-lock',1,'']]],
+  ['programmable_20memory_22',['OTP - One-Time-Programmable Memory',['../da/d15/group___o_t_p.html',1,'']]],
+  ['programmable_20otp_23',['One-Time Programmable (OTP)',['../index.html#one-time-programmable-otp',1,'']]],
+  ['pulldown_24',['PULLDOWN',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#aaa88999873589f302305cbd35df78a49ad08b3001fc1b2f26c5ba712336e16a17',1,'Lib::HAL::GPIO::PinMode']]],
+  ['pullup_25',['PULLUP',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#aaa88999873589f302305cbd35df78a49a2989a4b0b16772a6f65da71eda483c9f',1,'Lib::HAL::GPIO::PinMode']]],
+  ['purpose_20input_20output_26',['GPIO - General-purpose input/output',['../dd/d94/group___g_p_i_o.html',1,'']]],
+  ['purpose_20input_20output_20gpio_27',['General Purpose Input/Output (GPIO)',['../index.html#general-purpose-inputoutput-gpio',1,'']]],
+  ['pwm_28',['PWM',['../d7/dba/_mode_8hpp.html#a3455a6e5732bcbe7776279b0062ad326a8449bc264b69c3a0fe8b60361eaf7aeb',1,'Mode.hpp']]]
 ];

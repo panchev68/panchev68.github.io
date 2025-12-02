@@ -1,13 +1,22 @@
 var searchData=
 [
-  ['uart_20universal_20synchronous_20and_20asynchronous_20receiver_20transmitter_0',['UART - Universal synchronous and asynchronous receiver-transmitter',['../d2/d48/group___u_a_r_t.html',1,'']]],
-  ['uart_2ehpp_1',['UART.hpp',['../da/d10/_u_a_r_t_8hpp.html',1,'']]],
-  ['uartbase_2',['UARTBase',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html',1,'Lib::HAL::UARTBase'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a130fa274446b90c406386a5055bca6db',1,'Lib::HAL::UARTBase::UARTBase()']]],
-  ['unbind_3',['unbind',['../d1/d51/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_e_x_t_i_base.html#a7160d7335704e4036c387a7ceb95d7d7',1,'Lib::HAL::GPIO::EXTIBase']]],
-  ['universal_20synchronous_20and_20asynchronous_20receiver_20transmitter_4',['UART - Universal synchronous and asynchronous receiver-transmitter',['../d2/d48/group___u_a_r_t.html',1,'']]],
-  ['unknown_5',['UNKNOWN',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3',1,'Lib::HAL::Reset']]],
-  ['unlock_6',['unlock',['../d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html#ad1393be4f030a47d4380ac6f81653cf4',1,'Lib::HAL::OTP']]],
-  ['unlock_20write_20read_20lock_7',['Program OTP memory: unlock, write, read, lock.',['../X:/Lib/IAR/inc/Lib/HAL/OTP.hpp#program-otp-memory-unlock-write-read-lock',1,'']]],
-  ['usage_20example_8',['Usage Example',['../X:/Lib/IAR/inc/Lib/HAL/ADCPort.hpp#adc-port-block-mode-usage-example',1,'ADC Port Block Mode Usage Example.'],['../X:/Lib/IAR/inc/Lib/HAL/core/I2C/I2CPort.hpp#i2c-port-usage-example',1,'I2C Port Usage Example']]],
-  ['usage_20of_20rtclock_9',['Basic Usage of RTClock',['../X:/Lib/IAR/inc/Lib/HAL/core/RTC/RTClock.hpp#basic-usage-of-rtclock',1,'']]]
+  ['template_2ehpp_0',['template.hpp',['../d4/d6a/template_8hpp.html',1,'']]],
+  ['tim_1',['Timer (TIM)',['../index.html#timer-tim',1,'']]],
+  ['tim_2ehpp_2',['TIM.hpp',['../d7/deb/_t_i_m_8hpp.html',1,'']]],
+  ['tim_2fhandle_2ehpp_3',['Handle.hpp',['../d6/d18/_t_i_m_2_handle_8hpp.html',1,'']]],
+  ['time_20clock_4',['RTC - Real Time Clock',['../d9/dfc/group___r_t_c.html',1,'']]],
+  ['time_20clock_20rtc_5',['Real-Time Clock (RTC)',['../index.html#real-time-clock-rtc',1,'']]],
+  ['time_20programmable_20memory_6',['OTP - One-Time-Programmable Memory',['../da/d15/group___o_t_p.html',1,'']]],
+  ['time_20programmable_20otp_7',['One-Time Programmable (OTP)',['../index.html#one-time-programmable-otp',1,'']]],
+  ['timer_8',['Timer',['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html',1,'Lib::HAL::Timer&lt; T_MODE &gt;'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#ac3334b4fac467e24bbf5ec4ae177d2fb',1,'Lib::HAL::Timer::Timer()=default'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a9b429ed9758c85cca7ce536158aa1672',1,'Lib::HAL::Timer::Timer(const Timer &amp;)=delete'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a2b5fe5419e1eed31e1e3afdc4ed86947',1,'Lib::HAL::Timer::Timer(Timer &amp;&amp;)=delete'],['../de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html#a6aaa9105ec44b5ab8ac4bdfeab383b78',1,'Lib::HAL::Timer&lt; Mode::ENCODER &gt;::Timer()'],['../index.html#watchdog-timer',1,'Watchdog Timer']]],
+  ['timer_20tim_9',['Timer (TIM)',['../index.html#timer-tim',1,'']]],
+  ['timer_2dencoder_2ehpp_10',['Timer-Encoder.hpp',['../df/d10/_timer-_encoder_8hpp.html',1,'']]],
+  ['timer_3c_20mode_3a_3aencoder_20_3e_11',['Timer&lt; Mode::ENCODER &gt;',['../de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html',1,'Lib::HAL']]],
+  ['to_20digital_20converter_20adc_12',['Analog-to-Digital Converter (ADC)',['../index.html#analog-to-digital-converter-adc',1,'']]],
+  ['to_20digital_20convertor_13',['ADC - Analog to Digital Convertor',['../db/d78/group___a_d_c.html',1,'']]],
+  ['toggle_14',['toggle',['../d0/d6d/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_output.html#a9e07ce14c9966a0db4c72c090b4c776d',1,'Lib::HAL::GPIO::Output']]],
+  ['transmitglobaltime_15',['TransmitGlobalTime',['../db/d54/struct_c_a_n___tx_header_type_def.html#a8c55bd21ca56bf9dbdedf3fe12e2ef74',1,'CAN_TxHeaderTypeDef']]],
+  ['transmitter_16',['UART - Universal synchronous and asynchronous receiver-transmitter',['../d2/d48/group___u_a_r_t.html',1,'']]],
+  ['transmitter_20uart_17',['Universal Asynchronous Receiver/Transmitter (UART)',['../index.html#universal-asynchronous-receivertransmitter-uart',1,'']]],
+  ['tx_18',['TX',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49',1,'Lib::HAL']]]
 ];

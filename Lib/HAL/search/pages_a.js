@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['query_20and_20system_20reset_20example_0',['Reset State Query and System Reset Example',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#reset-state-query-and-system-reset-example',1,'']]]
+  ['layer_20library_0',['Hardware Abstract Layer Library',['../index.html',1,'']]],
+  ['library_1',['Hardware Abstract Layer Library',['../index.html',1,'']]],
+  ['license_2',['License',['../index.html#license',1,'']]],
+  ['lock_3',['Program OTP memory: unlock, write, read, lock.',['../X:/Lib/IAR/inc/Lib/HAL/OTP.hpp#program-otp-memory-unlock-write-read-lock',1,'']]]
 ];

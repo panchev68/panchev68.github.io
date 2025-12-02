@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['mainpage_2emd_0',['MainPage.md',['../d8/d33/_main_page_8md.html',1,'']]],
-  ['max_5fcounter_5fvalue_1',['MAX_COUNTER_VALUE',['../de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html#a183a9dee3ac64e9c5b451b1b55a5af78',1,'Lib::HAL::Timer&lt; Mode::ENCODER &gt;']]],
-  ['medium_2',['MEDIUM',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#a7e3bd58fc22671c6314533d8dc884497ac87f3be66ffc3c0d4249f1c2cc5f3cce',1,'Lib::HAL::GPIO::PinMode']]],
-  ['memory_3',['OTP - One-Time-Programmable Memory',['../da/d15/group___o_t_p.html',1,'']]],
-  ['memory_3a_20unlock_20write_20read_20lock_4',['Program OTP memory: unlock, write, read, lock.',['../X:/Lib/IAR/inc/Lib/HAL/OTP.hpp#program-otp-memory-unlock-write-read-lock',1,'']]],
-  ['mode_5',['Mode',['../d7/dba/_mode_8hpp.html#a3455a6e5732bcbe7776279b0062ad326',1,'Mode.hpp']]],
-  ['mode_20usage_20example_6',['ADC Port Block Mode Usage Example.',['../X:/Lib/IAR/inc/Lib/HAL/ADCPort.hpp#adc-port-block-mode-usage-example',1,'']]],
-  ['mode_2ehpp_7',['Mode.hpp',['../d7/dba/_mode_8hpp.html',1,'']]],
-  ['modecount_8',['modeCount',['../d7/dba/_mode_8hpp.html#a8ac5415979bfd9eb5d41023ee2c9b8c5',1,'Mode.hpp']]]
+  ['last_20reset_20state_0',['Last Reset State',['../db/dcb/group___r_e_s_e_t.html',1,'']]],
+  ['layer_20library_1',['Hardware Abstract Layer Library',['../index.html',1,'']]],
+  ['lib_2',['Lib',['../d1/d1f/namespace_lib.html',1,'']]],
+  ['lib_3a_3ahal_3',['HAL',['../d9/d8d/namespace_lib_1_1_h_a_l.html',1,'Lib']]],
+  ['lib_3a_3ahal_3a_3adevicemanagerbase_3c_20i2cport_2c_20i2c_5fhandletypedef_20_3e_4',['DeviceManagerBase&lt; I2CPort, I2C_HandleTypeDef &gt;',['../d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html#a17ba55919fa586df0ddc7242ff804604',1,'Lib::HAL::I2CPort']]],
+  ['lib_3a_3ahal_3a_3adevicemanagerbase_3c_20uartbase_2c_20uart_5fhandletypedef_20_3e_5',['DeviceManagerBase&lt; UARTBase, UART_HandleTypeDef &gt;',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a3d2554f93efe4740d55a3b7f8786de3d',1,'Lib::HAL::UARTBase']]],
+  ['lib_3a_3ahal_3a_3agpio_6',['GPIO',['../d9/dae/namespace_lib_1_1_h_a_l_1_1_g_p_i_o.html',1,'Lib::HAL']]],
+  ['library_7',['Hardware Abstract Layer Library',['../index.html',1,'']]],
+  ['license_8',['License',['../index.html#license',1,'']]],
+  ['lock_9',['lock',['../d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html#a1d6e1e7645b5a8242314315f989770ff',1,'Lib::HAL::OTP::lock()'],['../X:/Lib/IAR/inc/Lib/HAL/OTP.hpp#program-otp-memory-unlock-write-read-lock',1,'Program OTP memory: unlock, write, read, lock.']]],
+  ['low_10',['LOW',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#a7e3bd58fc22671c6314533d8dc884497a41bc94cbd8eebea13ce0491b2ac11b88',1,'Lib::HAL::GPIO::PinMode']]],
+  ['low_5fpower_5freset_11',['LOW_POWER_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a1dede1dcda411044d2c01e06ff1442c5',1,'Lib::HAL::Reset']]]
 ];
