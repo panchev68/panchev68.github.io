@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uartbase_0',['UARTBase',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html',1,'Lib::HAL']]]
+  ['timer_0',['Timer',['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html',1,'Lib::HAL']]],
+  ['timer_3c_20mode_3a_3aencoder_20_3e_1',['Timer&lt; Mode::ENCODER &gt;',['../de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html',1,'Lib::HAL']]]
 ];

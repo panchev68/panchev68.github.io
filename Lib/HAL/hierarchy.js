@@ -46,6 +46,13 @@ var hierarchy =
     [ "Lib::HAL::GPIO::Port", "dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port.html", null ],
     [ "Lib::HAL::Port&lt; T_DRIVER_MODE &gt;", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
     [ "Lib::HAL::Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", null ],
+    [ "Lib::HAL::SpiPort&lt; T_MODE &gt;", "db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html", null ],
     [ "Lib::HAL::Timer&lt; T_MODE &gt;", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", null ],
+    [ "Lib::HAL::UartPort&lt; T_MODE &gt;", "d1/dbe/class_lib_1_1_h_a_l_1_1_uart_port.html", null ],
+    [ "Lib::HAL::UartPortBase", "d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html", [
+      [ "Lib::HAL::UartPort< DriverMode::BLOCK >", "d3/d35/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_b_l_o_c_k_01_4.html", null ],
+      [ "Lib::HAL::UartPort< DriverMode::DMA >", "d9/d87/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_d_m_a_01_4.html", null ],
+      [ "Lib::HAL::UartPort< DriverMode::DMA >", "d9/d87/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_d_m_a_01_4.html", null ]
+    ] ],
     [ "Lib::HAL::Watchdog", "d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html", null ]
 ];

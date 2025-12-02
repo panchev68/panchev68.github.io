@@ -11,8 +11,7 @@ var searchData=
   ['bkpram_20backup_20sram_8',['BKPRAM - Backup SRAM',['../da/d1d/group___b_k_p_r_a_m.html',1,'']]],
   ['bkpsram_9',['Backup SRAM (BKPSRAM)',['../index.html#backup-sram-bkpsram',1,'']]],
   ['bkpsram_2ehpp_10',['BKPSRAM.hpp',['../d7/d83/_b_k_p_s_r_a_m_8hpp.html',1,'']]],
-  ['block_11',['BLOCK',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0a4d34f53389ed7f28ca91fc31ea360a66',1,'Lib::HAL']]],
-  ['block_20mode_20usage_20example_12',['ADC Port Block Mode Usage Example.',['../X:/Lib/IAR/inc/Lib/HAL/ADCPort.hpp#adc-port-block-mode-usage-example',1,'']]],
-  ['brownout_5freset_13',['BROWNOUT_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a6c84682a5c427172331e0e944730cac9',1,'Lib::HAL::Reset']]],
-  ['building_20and_20integration_14',['Building and Integration',['../index.html#building-and-integration',1,'']]]
+  ['block_20mode_20usage_20example_11',['ADC Port Block Mode Usage Example.',['../X:/Lib/IAR/inc/Lib/HAL/ADCPort.hpp#adc-port-block-mode-usage-example',1,'']]],
+  ['brownout_5freset_12',['BROWNOUT_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a6c84682a5c427172331e0e944730cac9',1,'Lib::HAL::Reset']]],
+  ['building_20and_20integration_13',['Building and Integration',['../index.html#building-and-integration',1,'']]]
 ];

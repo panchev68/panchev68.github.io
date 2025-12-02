@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['very_5fhigh_0',['VERY_HIGH',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#a7e3bd58fc22671c6314533d8dc884497a2eae31361b8d1a454cadc17a8d4b70ac',1,'Lib::HAL::GPIO::PinMode']]]
+  ['unknown_0',['UNKNOWN',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3',1,'Lib::HAL::Reset']]]
 ];

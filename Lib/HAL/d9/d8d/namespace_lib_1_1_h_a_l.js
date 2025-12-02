@@ -10,8 +10,13 @@ var namespace_lib_1_1_h_a_l =
     [ "Port", "d7/db0/class_lib_1_1_h_a_l_1_1_port.html", null ],
     [ "Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset" ],
     [ "RTClock", "da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock.html", "da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock" ],
+    [ "SpiPort", "db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html", null ],
     [ "Timer", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer" ],
     [ "Timer&lt; Mode::ENCODER &gt;", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html", "de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4" ],
+    [ "UartPort", "d1/dbe/class_lib_1_1_h_a_l_1_1_uart_port.html", null ],
+    [ "UartPort&lt; DriverMode::BLOCK &gt;", "d3/d35/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_b_l_o_c_k_01_4.html", "d3/d35/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_b_l_o_c_k_01_4" ],
+    [ "UartPort&lt; DriverMode::DMA &gt;", "d9/d87/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_d_m_a_01_4.html", "d9/d87/class_lib_1_1_h_a_l_1_1_uart_port_3_01_driver_mode_1_1_d_m_a_01_4" ],
+    [ "UartPortBase", "d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html", "d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base" ],
     [ "OTP", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p" ],
     [ "UARTBase", "dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html", "dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base" ],
     [ "AdcHandle", "d9/d8d/namespace_lib_1_1_h_a_l.html#a43a2c31ac11dcdbf7f7a7a5caf258644", null ],
@@ -23,15 +28,5 @@ var namespace_lib_1_1_h_a_l =
       [ "RX", "d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
       [ "TX", "d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ],
       [ "RX_TX", "d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825aa9f94fc2b5a22b1ebff62655559f82b2", null ]
-    ] ],
-    [ "DriverMode", "d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0", [
-      [ "BLOCK", "d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0a4d34f53389ed7f28ca91fc31ea360a66", null ],
-      [ "IT", "d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c", null ],
-      [ "DMA", "d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949", null ]
-    ] ],
-    [ "RTClockStatus", "d9/d8d/namespace_lib_1_1_h_a_l.html#a589d748d6dac218b216a4a801c3a597c", [
-      [ "OK", "d9/d8d/namespace_lib_1_1_h_a_l.html#a589d748d6dac218b216a4a801c3a597cae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "INVALID_INDEX", "d9/d8d/namespace_lib_1_1_h_a_l.html#a589d748d6dac218b216a4a801c3a597caf059dd129fb8a61588d41ba6df391a4e", null ],
-      [ "HAL_ERROR", "d9/d8d/namespace_lib_1_1_h_a_l.html#a589d748d6dac218b216a4a801c3a597ca235920354e5ba37ee70ca39c8bce15d4", null ]
     ] ]
 ];

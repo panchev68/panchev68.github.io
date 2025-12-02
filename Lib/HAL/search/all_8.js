@@ -10,7 +10,7 @@ var searchData=
   ['ide_7',['IDE',['../db/d54/struct_c_a_n___tx_header_type_def.html#a57cc23f7373e3e4d8c8652b094086397',1,'CAN_TxHeaderTypeDef']]],
   ['implementation_8',['Device Driver Implementation',['../d9/d4f/md_md_2_device_driver_implementation.html',1,'']]],
   ['independent_5fwatchdog_5freset_9',['INDEPENDENT_WATCHDOG_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a587ff4e1b3c506854dddd9a32ba32db3',1,'Lib::HAL::Reset']]],
-  ['init_10',['init',['../d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html#ae7ad12743194e320b2739a9e8e95ca99',1,'Lib::HAL::I2CPort::init()'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ae535c5c205a8acd55f868cbf0c7479d6',1,'Lib::HAL::UARTBase::init()']]],
+  ['init_10',['init',['../d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html#ae7ad12743194e320b2739a9e8e95ca99',1,'Lib::HAL::I2CPort::init()'],['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#a31cf7bcf3180aff38115df6f18069641',1,'Lib::HAL::UartPortBase::init()'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ae535c5c205a8acd55f868cbf0c7479d6',1,'Lib::HAL::UARTBase::init()']]],
   ['input_11',['INPUT',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#a08ae4617e440d7d55e7462a3967448e2aa84cc046d48610b05c21fd3670d0c829',1,'Lib::HAL::GPIO::PinMode']]],
   ['input_12',['Input',['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html',1,'Lib::HAL::GPIO::Input'],['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html#a73990cb33681e905254809a1a270f288',1,'Lib::HAL::GPIO::Input::Input()=default'],['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html#af605a436e8c2a1d559213145b75a2842',1,'Lib::HAL::GPIO::Input::Input(GPIO_TypeDef *port, uint16_t pinNumber)'],['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html#aa73ce9acdd4bb50691c722bf948c9432',1,'Lib::HAL::GPIO::Input::Input(const Handle &amp;handle)'],['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html#a9ec3f96728f7d8870b814afecf6cd315',1,'Lib::HAL::GPIO::Input::Input(const Input &amp;other)=default'],['../d9/ded/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_input.html#a3ac1e5e957c4cf78f0bdc268a24b8585',1,'Lib::HAL::GPIO::Input::Input(Input &amp;&amp;other)=default']]],
   ['input_20output_13',['GPIO - General-purpose input/output',['../dd/d94/group___g_p_i_o.html',1,'']]],
@@ -25,12 +25,11 @@ var searchData=
   ['interface_22',['SPI - Serial Peripheral Interface',['../dd/d3c/group___s_p_i.html',1,'']]],
   ['interface_23',['Communication interface',['../d4/dd1/group___c_o_m.html',1,'']]],
   ['interface_20spi_24',['Serial Peripheral Interface (SPI)',['../index.html#serial-peripheral-interface-spi',1,'']]],
-  ['invalid_5findex_25',['INVALID_INDEX',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a589d748d6dac218b216a4a801c3a597caf059dd129fb8a61588d41ba6df391a4e',1,'Lib::HAL']]],
+  ['invalid_5findex_25',['INVALID_INDEX',['../da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock.html#a30c89f173eea95031de6334a602ceeffaf059dd129fb8a61588d41ba6df391a4e',1,'Lib::HAL::RTClock']]],
   ['isenabled_26',['isEnabled',['../d2/d8d/class_can_filter.html#aa025232fc970f22c816c48673599216d',1,'CanFilter']]],
   ['isextendedid_27',['isExtendedId',['../de/da2/class_can_tx_header.html#a82a3cbbd09465eac474959c5dbe24ece',1,'CanTxHeader']]],
   ['isready_28',['isReady',['../d4/dde/class_lib_1_1_h_a_l_1_1_i2_c_port.html#af4eb189505cde43b5417e1a7bf6f9912',1,'Lib::HAL::I2CPort']]],
   ['isremote_29',['isRemote',['../de/da2/class_can_tx_header.html#adad155e0eaaee1e286da7ddcdfaae4cd',1,'CanTxHeader']]],
   ['istimestampenabled_30',['isTimestampEnabled',['../de/da2/class_can_tx_header.html#a3e3bd97c3b60bbc9afe1ee846bbb8478',1,'CanTxHeader']]],
-  ['isvalid_31',['isValid',['../db/d8c/struct_handle.html#a3bab36ffa11ba548ee66ec408da4937f',1,'Handle::isValid()'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a5da7279d7e27e6c55eee3e0c281d4670',1,'Lib::HAL::Timer::isValid()'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a5da7279d7e27e6c55eee3e0c281d4670',1,'Lib::HAL::Timer&lt; Mode::ENCODER &gt;::isValid()']]],
-  ['it_32',['IT',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c',1,'Lib::HAL']]]
+  ['isvalid_31',['isValid',['../db/d8c/struct_handle.html#a3bab36ffa11ba548ee66ec408da4937f',1,'Handle::isValid()'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a5da7279d7e27e6c55eee3e0c281d4670',1,'Lib::HAL::Timer::isValid()'],['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a5da7279d7e27e6c55eee3e0c281d4670',1,'Lib::HAL::Timer&lt; Mode::ENCODER &gt;::isValid()']]]
 ];

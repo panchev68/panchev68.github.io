@@ -11,8 +11,9 @@ var searchData=
   ['_7eoutput_8',['~Output',['../d0/d6d/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_output.html#a115f054c9c65935a5159ff636c35dd14',1,'Lib::HAL::GPIO::Output']]],
   ['_7eport_9',['~Port',['../d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html#a56ee239346303d925faccc273deef6bd',1,'Lib::HAL::Port&lt; Lib::HAL::DriverMode::DMA &gt;::~Port()'],['../dc/db0/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_port.html#ae773a0aa1b575a77ffccb2bc215289c1',1,'Lib::HAL::GPIO::Port::~Port()']]],
   ['_7ereset_10',['~Reset',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a86fcd1e02701a3c6c3c7f44d4f518f5a',1,'Lib::HAL::Reset']]],
-  ['_7ertclock_11',['~RTClock',['../da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock.html#a245a59f7cb7ee1fa2911ff84ab999ef5',1,'Lib::HAL::RTClock']]],
+  ['_7ertclock_11',['~RTClock',['../da/db6/class_lib_1_1_h_a_l_1_1_r_t_clock.html#a67d312e95e77f283f7cba230a1f34d4e',1,'Lib::HAL::RTClock']]],
   ['_7etimer_12',['~Timer',['../d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a695e9d215c11246589153349d4a8efe9',1,'Lib::HAL::Timer::~Timer()'],['../de/d41/class_lib_1_1_h_a_l_1_1_timer_3_01_mode_1_1_e_n_c_o_d_e_r_01_4.html#af21209d03d14ca77ff58a265d1dd3417',1,'Lib::HAL::Timer&lt; Mode::ENCODER &gt;::~Timer()']]],
   ['_7euartbase_13',['~UARTBase',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ae4ed4252e3759ba9ed4e3afb55c0beab',1,'Lib::HAL::UARTBase']]],
-  ['_7ewatchdog_14',['~Watchdog',['../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html#a5bbaa21bb0572dd55fa170c7b3b6559d',1,'Lib::HAL::Watchdog']]]
+  ['_7euartportbase_14',['~UartPortBase',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#a05b4636fda5c87e5f20c19e0b291a314',1,'Lib::HAL::UartPortBase']]],
+  ['_7ewatchdog_15',['~Watchdog',['../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html#a5bbaa21bb0572dd55fa170c7b3b6559d',1,'Lib::HAL::Watchdog']]]
 ];

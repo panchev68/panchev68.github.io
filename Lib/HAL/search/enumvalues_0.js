@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['block_0',['BLOCK',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a031c16cd1ba2f466615bbfa2b2832ed0a4d34f53389ed7f28ca91fc31ea360a66',1,'Lib::HAL']]],
-  ['brownout_5freset_1',['BROWNOUT_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a6c84682a5c427172331e0e944730cac9',1,'Lib::HAL::Reset']]]
+  ['abort_5fcomplete_0',['ABORT_COMPLETE',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#a53373e1a997df6ba3881ab9bcfd7b20aae162fae09ac3766f3850da965c1354c3',1,'Lib::HAL::UartPortBase']]]
 ];

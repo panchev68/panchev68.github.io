@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['template_2ehpp_0',['template.hpp',['../d4/d6a/template_8hpp.html',1,'']]],
-  ['tim_1',['Timer (TIM)',['../index.html#timer-tim',1,'']]],
-  ['tim_2ehpp_2',['TIM.hpp',['../d7/deb/_t_i_m_8hpp.html',1,'']]],
-  ['tim_2fhandle_2ehpp_3',['Handle.hpp',['../d6/d18/_t_i_m_2_handle_8hpp.html',1,'']]],
+  ['tim_0',['Timer (TIM)',['../index.html#timer-tim',1,'']]],
+  ['tim_2ehpp_1',['TIM.hpp',['../d7/deb/_t_i_m_8hpp.html',1,'']]],
+  ['tim_2fhandle_2ehpp_2',['Handle.hpp',['../d6/d18/_t_i_m_2_handle_8hpp.html',1,'']]],
+  ['tim_2ftemplate_2ehpp_3',['template.hpp',['../de/d69/_t_i_m_2template_8hpp.html',1,'']]],
   ['time_20clock_4',['RTC - Real Time Clock',['../d9/dfc/group___r_t_c.html',1,'']]],
   ['time_20clock_20rtc_5',['Real-Time Clock (RTC)',['../index.html#real-time-clock-rtc',1,'']]],
   ['time_20programmable_20memory_6',['OTP - One-Time-Programmable Memory',['../da/d15/group___o_t_p.html',1,'']]],
@@ -18,5 +18,6 @@ var searchData=
   ['transmitglobaltime_15',['TransmitGlobalTime',['../db/d54/struct_c_a_n___tx_header_type_def.html#a8c55bd21ca56bf9dbdedf3fe12e2ef74',1,'CAN_TxHeaderTypeDef']]],
   ['transmitter_16',['UART - Universal synchronous and asynchronous receiver-transmitter',['../d2/d48/group___u_a_r_t.html',1,'']]],
   ['transmitter_20uart_17',['Universal Asynchronous Receiver/Transmitter (UART)',['../index.html#universal-asynchronous-receivertransmitter-uart',1,'']]],
-  ['tx_18',['TX',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49',1,'Lib::HAL']]]
+  ['tx_18',['TX',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49',1,'Lib::HAL']]],
+  ['tx_5fcomplete_19',['TX_COMPLETE',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#a53373e1a997df6ba3881ab9bcfd7b20aaa3bf0a3629a0bc1364d0a1e5c253d650',1,'Lib::HAL::UartPortBase']]]
 ];

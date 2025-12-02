@@ -11,8 +11,9 @@ var searchData=
   ['filtermode_8',['FilterMode',['../df/d9e/struct_c_a_n___filter_type_def.html#ac1a2ff19d9b97941d930bd0d8024d5f8',1,'CAN_FilterTypeDef']]],
   ['filterscale_9',['FilterScale',['../df/d9e/struct_c_a_n___filter_type_def.html#a825514326a8114b00ceb3bef7cd46e6e',1,'CAN_FilterTypeDef']]],
   ['finddevice_10',['findDevice',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a5778287f7cb765c3b063091e4e477ec3',1,'Lib::HAL::DeviceManagerBase']]],
-  ['flag_5fabort_5fcomplete_11',['FLAG_ABORT_COMPLETE',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a58caf4522c4e9f0e7ea520e8841c8533',1,'Lib::HAL::UARTBase']]],
-  ['flag_5frx_5fcomplete_12',['FLAG_RX_COMPLETE',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a2fc5ad7f8d5e2c56ef3db0979b127a5a',1,'Lib::HAL::UARTBase']]],
-  ['flag_5ftx_5fcomplete_13',['FLAG_TX_COMPLETE',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a9d97735abc12f869fc3df5e1c8aa6406',1,'Lib::HAL::UARTBase']]],
-  ['frame_5ferror_14',['FRAME_ERROR',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UARTBase']]]
+  ['flag_11',['Flag',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#a53373e1a997df6ba3881ab9bcfd7b20a',1,'Lib::HAL::UartPortBase']]],
+  ['flag_5fabort_5fcomplete_12',['FLAG_ABORT_COMPLETE',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a58caf4522c4e9f0e7ea520e8841c8533',1,'Lib::HAL::UARTBase']]],
+  ['flag_5frx_5fcomplete_13',['FLAG_RX_COMPLETE',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a2fc5ad7f8d5e2c56ef3db0979b127a5a',1,'Lib::HAL::UARTBase']]],
+  ['flag_5ftx_5fcomplete_14',['FLAG_TX_COMPLETE',['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#a9d97735abc12f869fc3df5e1c8aa6406',1,'Lib::HAL::UARTBase']]],
+  ['frame_5ferror_15',['FRAME_ERROR',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#ac81315118af23b1a6612394b36305aa0a6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UartPortBase::FRAME_ERROR'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ab895d375e3d4a50f29c3904659de8326a6f688deb98243b55da9393ed2d968f3f',1,'Lib::HAL::UARTBase::FRAME_ERROR']]]
 ];
