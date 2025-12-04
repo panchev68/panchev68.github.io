@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['channel_0',['channel',['../db/d8c/struct_handle.html#aa5346d5b8b0577adb881524456218cc0',1,'Handle']]]
+  ['channel_0',['channel',['../d1/def/struct_lib_1_1_h_a_l_1_1_timer_handle.html#a5993210d639b5ec07d91de77feb71c34',1,'Lib::HAL::TimerHandle']]]
 ];

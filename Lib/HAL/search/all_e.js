@@ -28,5 +28,5 @@ var searchData=
   ['pullup_25',['PULLUP',['../d5/d91/class_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_pin_mode.html#aaa88999873589f302305cbd35df78a49a2989a4b0b16772a6f65da71eda483c9f',1,'Lib::HAL::GPIO::PinMode']]],
   ['purpose_20input_20output_26',['GPIO - General-purpose input/output',['../dd/d94/group___g_p_i_o.html',1,'']]],
   ['purpose_20input_20output_20gpio_27',['General Purpose Input/Output (GPIO)',['../index.html#general-purpose-inputoutput-gpio',1,'']]],
-  ['pwm_28',['PWM',['../d7/dba/_mode_8hpp.html#a3455a6e5732bcbe7776279b0062ad326a8449bc264b69c3a0fe8b60361eaf7aeb',1,'Mode.hpp']]]
+  ['pwm_28',['PWM',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a586ac8c7aa34b851a36ea17e6794f59ca8449bc264b69c3a0fe8b60361eaf7aeb',1,'Lib::HAL']]]
 ];

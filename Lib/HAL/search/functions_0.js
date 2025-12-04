@@ -4,6 +4,5 @@ var searchData=
   ['abortfunc_1',['abortFunc',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#a68be7394ed5c4666f119d9dc994d9fa8',1,'Lib::HAL::UartPortBase::abortFunc()'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#aae021834eb8480de4c7e1f3a1af4bc6a',1,'Lib::HAL::UARTBase::abortFunc()']]],
   ['adcchannel_2',['AdcChannel',['../dc/dee/class_adc_channel.html#aa3b3adc550725e6a24df99b55126da7b',1,'AdcChannel']]],
   ['adcportbase_3',['AdcPortBase',['../de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html#acead73ec114aee5d8f4806c1cf5c750f',1,'Lib::HAL::AdcPortBase']]],
-  ['adddevice_4',['addDevice',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a572865c886970e9aa0d402c3155081c0',1,'Lib::HAL::DeviceManagerBase']]],
-  ['allmodes_5',['allModes',['../d7/dba/_mode_8hpp.html#a9eb315e861c44be33a34ae615a44fabd',1,'Mode.hpp']]]
+  ['adddevice_4',['addDevice',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a572865c886970e9aa0d402c3155081c0',1,'Lib::HAL::DeviceManagerBase']]]
 ];

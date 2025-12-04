@@ -13,10 +13,9 @@ var searchData=
   ['devicemanagerbase_3c_20uartportbase_2c_20uart_5fhandletypedef_20_3e_10',['DeviceManagerBase&lt; UartPortBase, UART_HandleTypeDef &gt;',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html',1,'Lib::HAL']]],
   ['digital_20converter_20adc_11',['Analog-to-Digital Converter (ADC)',['../index.html#analog-to-digital-converter-adc',1,'']]],
   ['digital_20convertor_12',['ADC - Analog to Digital Convertor',['../db/d78/group___a_d_c.html',1,'']]],
-  ['dlc_13',['DLC',['../db/d54/struct_c_a_n___tx_header_type_def.html#a5ed4998891467103c9e344e1aa307bef',1,'CAN_TxHeaderTypeDef']]],
-  ['dma_5ftransfer_5ferror_14',['DMA_TRANSFER_ERROR',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#ac81315118af23b1a6612394b36305aa0aa347986104d500024d8d699e0b72b24d',1,'Lib::HAL::UartPortBase::DMA_TRANSFER_ERROR'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d',1,'Lib::HAL::UARTBase::DMA_TRANSFER_ERROR']]],
-  ['driver_20implementation_15',['Device Driver Implementation',['../d9/d4f/md_md_2_device_driver_implementation.html',1,'']]],
-  ['driverdatadirection_16',['DriverDataDirection',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825',1,'Lib::HAL']]],
-  ['driverdatadirection_2ehpp_17',['DriverDataDirection.hpp',['../da/d5a/_driver_data_direction_8hpp.html',1,'']]],
-  ['drivermode_2ehpp_18',['DriverMode.hpp',['../df/d8f/_driver_mode_8hpp.html',1,'']]]
+  ['dma_5ftransfer_5ferror_13',['DMA_TRANSFER_ERROR',['../d4/d86/class_lib_1_1_h_a_l_1_1_uart_port_base.html#ac81315118af23b1a6612394b36305aa0aa347986104d500024d8d699e0b72b24d',1,'Lib::HAL::UartPortBase::DMA_TRANSFER_ERROR'],['../dd/d10/class_lib_1_1_h_a_l_1_1_u_a_r_t_base.html#ab895d375e3d4a50f29c3904659de8326aa347986104d500024d8d699e0b72b24d',1,'Lib::HAL::UARTBase::DMA_TRANSFER_ERROR']]],
+  ['driver_20implementation_14',['Device Driver Implementation',['../d9/d4f/md_md_2_device_driver_implementation.html',1,'']]],
+  ['driverdatadirection_15',['DriverDataDirection',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a82754326f2fd3bd32ea447c756ec2825',1,'Lib::HAL']]],
+  ['driverdatadirection_2ehpp_16',['DriverDataDirection.hpp',['../da/d5a/_driver_data_direction_8hpp.html',1,'']]],
+  ['drivermode_2ehpp_17',['DriverMode.hpp',['../df/d8f/_driver_mode_8hpp.html',1,'']]]
 ];
