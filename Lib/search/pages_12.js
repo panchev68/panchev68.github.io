@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['safe_20access_0',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
+  ['semaphorecounting_1',['Example usage of SemaphoreCounting.',['../X:/Lib/IAR/inc/Lib/RTOS/SemaphoreCounting.hpp#example-usage-of-semaphorecounting',1,'']]],
+  ['sending_20and_20receiving_20messages_2',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
+  ['sensor_20data_3',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
+  ['serial_20number_20generation_20and_20formatting_20example_4',['Serial Number Generation and Formatting Example',['../X:/Lib/IAR/inc/Lib/System/SerialNumber.hpp#serial-number-generation-and-formatting-example',1,'']]],
+  ['serial_20repeater_20functionality_5',['Example usage of SerialPortRepeaterBase for USB serial repeater functionality.',['../X:/Lib/IAR/inc/Lib/USB/SerialPortRepeaterBase.hpp#example-usage-of-serialportrepeaterbase-for-usb-serial-repeater-functionality',1,'']]],
+  ['serialport_20for_20usb_20communication_6',['Example usage of SerialPort for USB communication.',['../X:/Lib/IAR/inc/Lib/USB/SerialPort.hpp#example-usage-of-serialport-for-usb-communication',1,'']]],
+  ['serialportrepeaterbase_20for_20usb_20serial_20repeater_20functionality_7',['Example usage of SerialPortRepeaterBase for USB serial repeater functionality.',['../X:/Lib/IAR/inc/Lib/USB/SerialPortRepeaterBase.hpp#example-usage-of-serialportrepeaterbase-for-usb-serial-repeater-functionality',1,'']]],
+  ['sets_8',['Example usage of QueueSet with FreeRTOS queue sets.',['../X:/Lib/IAR/inc/Lib/RTOS/QueueSet.hpp#example-usage-of-queueset-with-freertos-queue-sets',1,'']]],
+  ['shared_20resource_20in_20concurrent_20tasks_9',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['simple_20open_20ethercat_20slave_20or_20soes_10',['Simple Open EtherCAT Slave or SOES',['../index.html',1,'']]],
+  ['singleton_20instance_20helpers_11',['Example usage of singleton instance helpers.',['../X:/Lib/IAR/inc/Lib/Helper/instance.hpp#example-usage-of-singleton-instance-helpers',1,'']]],
+  ['singleton_20template_12',['Example usage of Singleton template.',['../X:/Lib/IAR/inc/Lib/Helper/Singleton.hpp#example-usage-of-singleton-template',1,'']]],
+  ['slave_20or_20soes_13',['Simple Open EtherCAT Slave or SOES',['../index.html',1,'']]],
+  ['smoothing_20noisy_20sensor_20data_14',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
+  ['soes_15',['Simple Open EtherCAT Slave or SOES',['../index.html',1,'']]],
+  ['spline_20interpolation_20with_20standard_20output_16',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]],
+  ['standard_20output_17',['standard output',['../X:/Lib/IAR/inc/Lib/RTOS/Queue.hpp#example-usage-of-rtosqueue-with-standard-output',1,'Example usage of RTOS::Queue with standard output.'],['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'Example: Cubic spline interpolation with standard output']]],
+  ['state_20query_20and_20system_20reset_20example_18',['Reset State Query and System Reset Example',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#reset-state-query-and-system-reset-example',1,'']]],
+  ['stream_20communication_19',['Example usage of RTOS::StreamBuffer for byte stream communication.',['../X:/Lib/IAR/inc/Lib/RTOS/StreamBuffer.hpp#example-usage-of-rtosstreambuffer-for-byte-stream-communication',1,'']]],
+  ['stringhelper_20utilities_20',['Example usage of StringHelper utilities.',['../X:/Lib/IAR/inc/Lib/Helper/StringHelper.hpp#example-usage-of-stringhelper-utilities',1,'']]],
+  ['swapbytes_20for_20various_20integer_20types_20and_20memory_20buffers_21',['Example of using swapBytes for various integer types and memory buffers.',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#example-of-using-swapbytes-for-various-integer-types-and-memory-buffers',1,'']]],
+  ['system_20class_22',['Example usage of System class.',['../X:/Lib/IAR/inc/Lib/System/System.hpp#example-usage-of-system-class',1,'']]],
+  ['system_20reset_20example_23',['Reset State Query and System Reset Example',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#reset-state-query-and-system-reset-example',1,'']]]
+];
