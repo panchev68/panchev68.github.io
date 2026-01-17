@@ -4,10 +4,6 @@ var class_lib_1_1_h_a_l_1_1_can_tx_message =
     [ "CanTxMessage", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#a6b318726f496dfe8d652a239e09b7be3", null ],
     [ "CanTxMessage", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#ab21f1c80683e955435a01bba02781593", null ],
     [ "getData", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#a21412517c0bc54d27f9069b885961e11", null ],
-    [ "getDataLength", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#a3d9c26ab611acc969977d7f86a2e6c7b", null ],
     [ "getId", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#ae65b37efbaaf212a2b56b71cba1c0c88", null ],
-    [ "getLength", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#a9fc379318bb72a4ce55b0cac68205271", null ],
-    [ "isExtendedId", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#ad2074c33d5da3a55df0de976e95f4a72", null ],
-    [ "isRemote", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#aa4416c400978c4b3a07e98035411da56", null ],
-    [ "isTimestampEnabled", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#a6fbb771c17039f012671ca5ce5cd188e", null ]
+    [ "getLength", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html#a9fc379318bb72a4ce55b0cac68205271", null ]
 ];

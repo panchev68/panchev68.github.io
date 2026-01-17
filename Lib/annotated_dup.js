@@ -1,6 +1,43 @@
 var annotated_dup =
 [
     [ "Lib", null, [
+      [ "Helper", "df/d8e/namespace_lib_1_1_helper.html", [
+        [ "Convert", null, [
+          [ "Ascii", "db/d4d/class_lib_1_1_helper_1_1_convert_1_1_ascii.html", null ],
+          [ "Bcd", "dc/d7c/class_lib_1_1_helper_1_1_convert_1_1_bcd.html", null ],
+          [ "dBM", "de/daa/class_lib_1_1_helper_1_1_convert_1_1d_b_m.html", null ],
+          [ "Hex", "d1/d75/class_lib_1_1_helper_1_1_convert_1_1_hex.html", null ],
+          [ "Hex&lt; uint8_t &gt;", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
+          [ "Hex&lt; uint16_t &gt;", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
+          [ "Hex&lt; uint32_t &gt;", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
+          [ "Hex&lt; uint64_t &gt;", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
+          [ "HexHelper", "dc/d3d/class_lib_1_1_helper_1_1_convert_1_1_hex_helper.html", null ],
+          [ "Percent", "d4/d46/class_lib_1_1_helper_1_1_convert_1_1_percent.html", null ]
+        ] ],
+        [ "Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", "d0/d22/class_lib_1_1_helper_1_1_exception" ],
+        [ "Buffer", "d0/d95/class_lib_1_1_helper_1_1_buffer.html", "d0/d95/class_lib_1_1_helper_1_1_buffer" ],
+        [ "BufferStatic", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static.html", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static" ],
+        [ "BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle" ],
+        [ "CityHash", "d1/d22/class_lib_1_1_helper_1_1_city_hash.html", "d1/d22/class_lib_1_1_helper_1_1_city_hash" ],
+        [ "Container", "d9/d33/class_lib_1_1_helper_1_1_container.html", "d9/d33/class_lib_1_1_helper_1_1_container" ],
+        [ "ContainerBase", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", "d6/ddd/class_lib_1_1_helper_1_1_container_base" ],
+        [ "Crc16", "da/dd3/class_lib_1_1_helper_1_1_crc16.html", "da/dd3/class_lib_1_1_helper_1_1_crc16" ],
+        [ "DataHandle", "d9/d1a/class_lib_1_1_helper_1_1_data_handle.html", "d9/d1a/class_lib_1_1_helper_1_1_data_handle" ],
+        [ "DateTime", "de/d5f/class_lib_1_1_helper_1_1_date_time.html", "de/d5f/class_lib_1_1_helper_1_1_date_time" ],
+        [ "Delay", "d7/d08/class_lib_1_1_helper_1_1_delay.html", null ],
+        [ "FindPeaks", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks" ],
+        [ "Instance", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", "d8/d2f/class_lib_1_1_helper_1_1_instance" ],
+        [ "InstanceWithArg", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg.html", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg" ],
+        [ "Integrator", "d8/dfa/class_lib_1_1_helper_1_1_integrator.html", "d8/dfa/class_lib_1_1_helper_1_1_integrator" ],
+        [ "JaggedArrayBase", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base.html", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base" ],
+        [ "MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html", "dc/da3/class_lib_1_1_helper_1_1_moon_phase" ],
+        [ "RingBuffer", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer" ],
+        [ "Singleton", "d6/dea/class_lib_1_1_helper_1_1_singleton.html", "d6/dea/class_lib_1_1_helper_1_1_singleton" ],
+        [ "StringHelper", "d0/d40/class_lib_1_1_helper_1_1_string_helper.html", null ],
+        [ "Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html", "d6/dd5/class_lib_1_1_helper_1_1_sunset" ],
+        [ "TimePeriod", "dd/d9f/class_lib_1_1_helper_1_1_time_period.html", "dd/d9f/class_lib_1_1_helper_1_1_time_period" ],
+        [ "TimeZone", "de/d22/class_lib_1_1_helper_1_1_time_zone.html", "de/d22/class_lib_1_1_helper_1_1_time_zone" ]
+      ] ],
       [ "BSP", "da/ddf/namespace_lib_1_1_b_s_p.html", [
         [ "Display", null, [
           [ "DriverBase", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base.html", "df/dda/class_lib_1_1_b_s_p_1_1_display_1_1_driver_base" ],
@@ -139,18 +176,19 @@ var annotated_dup =
           [ "ClientBase", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base" ],
           [ "Socket", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket" ]
         ] ],
-        [ "IpAddress", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html", null ],
+        [ "IpAddress", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address" ],
         [ "MacAddress", "df/da1/class_lib_1_1_ethernet_1_1_mac_address.html", "df/da1/class_lib_1_1_ethernet_1_1_mac_address" ],
         [ "Node", "d9/dfa/class_lib_1_1_ethernet_1_1_node.html", "d9/dfa/class_lib_1_1_ethernet_1_1_node" ],
         [ "Port", "d9/db1/class_lib_1_1_ethernet_1_1_port.html", "d9/db1/class_lib_1_1_ethernet_1_1_port" ],
         [ "UserProtocol", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol" ]
       ] ],
       [ "HAL", "d9/d8d/namespace_lib_1_1_h_a_l.html", [
+        [ "AdcChannel", "d7/d5a/class_lib_1_1_h_a_l_1_1_adc_channel.html", "d7/d5a/class_lib_1_1_h_a_l_1_1_adc_channel" ],
         [ "AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base" ],
-        [ "Port&lt; Lib::HAL::DriverMode::DMA &gt;", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4" ],
+        [ "Port&lt; DriverMode::DMA &gt;", "dc/db4/class_lib_1_1_h_a_l_1_1_port_3_01_driver_mode_1_1_d_m_a_01_4.html", "dc/db4/class_lib_1_1_h_a_l_1_1_port_3_01_driver_mode_1_1_d_m_a_01_4" ],
         [ "CanFilter", "d7/dd9/class_lib_1_1_h_a_l_1_1_can_filter.html", "d7/dd9/class_lib_1_1_h_a_l_1_1_can_filter" ],
         [ "CanRxMessage", "d3/db7/class_lib_1_1_h_a_l_1_1_can_rx_message.html", "d3/db7/class_lib_1_1_h_a_l_1_1_can_rx_message" ],
-        [ "CanTxHeader", "d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html", "d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header" ],
+        [ "CanTxHeader", "d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html", null ],
         [ "CanTxMessage", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message.html", "df/d1f/class_lib_1_1_h_a_l_1_1_can_tx_message" ],
         [ "DeviceManagerBase", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base" ],
         [ "Handle", "de/d0a/class_lib_1_1_h_a_l_1_1_handle.html", "de/d0a/class_lib_1_1_h_a_l_1_1_handle" ],
@@ -162,43 +200,6 @@ var annotated_dup =
         [ "TimerHandle", "d1/def/struct_lib_1_1_h_a_l_1_1_timer_handle.html", "d1/def/struct_lib_1_1_h_a_l_1_1_timer_handle" ],
         [ "UartPort", "d1/dbe/class_lib_1_1_h_a_l_1_1_uart_port.html", "d1/dbe/class_lib_1_1_h_a_l_1_1_uart_port" ],
         [ "OTP", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p.html", "d7/d8f/class_lib_1_1_h_a_l_1_1_o_t_p" ]
-      ] ],
-      [ "Helper", "df/d8e/namespace_lib_1_1_helper.html", [
-        [ "Convert", null, [
-          [ "Ascii", "db/d4d/class_lib_1_1_helper_1_1_convert_1_1_ascii.html", null ],
-          [ "Bcd", "dc/d7c/class_lib_1_1_helper_1_1_convert_1_1_bcd.html", null ],
-          [ "dBM", "de/daa/class_lib_1_1_helper_1_1_convert_1_1d_b_m.html", null ],
-          [ "Hex", "d1/d75/class_lib_1_1_helper_1_1_convert_1_1_hex.html", null ],
-          [ "Hex&lt; uint8_t &gt;", "d6/dcc/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint8__t_01_4.html", null ],
-          [ "Hex&lt; uint16_t &gt;", "df/d17/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint16__t_01_4.html", null ],
-          [ "Hex&lt; uint32_t &gt;", "d3/d38/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint32__t_01_4.html", null ],
-          [ "Hex&lt; uint64_t &gt;", "db/d8b/class_lib_1_1_helper_1_1_convert_1_1_hex_3_01uint64__t_01_4.html", null ],
-          [ "HexHelper", "dc/d3d/class_lib_1_1_helper_1_1_convert_1_1_hex_helper.html", null ],
-          [ "Percent", "d4/d46/class_lib_1_1_helper_1_1_convert_1_1_percent.html", null ]
-        ] ],
-        [ "Buffer", "d0/d95/class_lib_1_1_helper_1_1_buffer.html", "d0/d95/class_lib_1_1_helper_1_1_buffer" ],
-        [ "BufferStatic", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static.html", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static" ],
-        [ "BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle" ],
-        [ "CityHash", "d1/d22/class_lib_1_1_helper_1_1_city_hash.html", "d1/d22/class_lib_1_1_helper_1_1_city_hash" ],
-        [ "Container", "d9/d33/class_lib_1_1_helper_1_1_container.html", "d9/d33/class_lib_1_1_helper_1_1_container" ],
-        [ "ContainerBase", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", "d6/ddd/class_lib_1_1_helper_1_1_container_base" ],
-        [ "Crc16", "da/dd3/class_lib_1_1_helper_1_1_crc16.html", "da/dd3/class_lib_1_1_helper_1_1_crc16" ],
-        [ "DataHandle", "d9/d1a/class_lib_1_1_helper_1_1_data_handle.html", "d9/d1a/class_lib_1_1_helper_1_1_data_handle" ],
-        [ "DateTime", "de/d5f/class_lib_1_1_helper_1_1_date_time.html", "de/d5f/class_lib_1_1_helper_1_1_date_time" ],
-        [ "Delay", "d7/d08/class_lib_1_1_helper_1_1_delay.html", null ],
-        [ "Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", "d0/d22/class_lib_1_1_helper_1_1_exception" ],
-        [ "FindPeaks", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks" ],
-        [ "Instance", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", "d8/d2f/class_lib_1_1_helper_1_1_instance" ],
-        [ "InstanceWithArg", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg.html", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg" ],
-        [ "Integrator", "d8/dfa/class_lib_1_1_helper_1_1_integrator.html", "d8/dfa/class_lib_1_1_helper_1_1_integrator" ],
-        [ "JaggedArrayBase", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base.html", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base" ],
-        [ "MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html", "dc/da3/class_lib_1_1_helper_1_1_moon_phase" ],
-        [ "RingBuffer", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html", "d2/d9b/class_lib_1_1_helper_1_1_ring_buffer" ],
-        [ "Singleton", "d6/dea/class_lib_1_1_helper_1_1_singleton.html", "d6/dea/class_lib_1_1_helper_1_1_singleton" ],
-        [ "StringHelper", "d0/d40/class_lib_1_1_helper_1_1_string_helper.html", null ],
-        [ "Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html", "d6/dd5/class_lib_1_1_helper_1_1_sunset" ],
-        [ "TimePeriod", "dd/d9f/class_lib_1_1_helper_1_1_time_period.html", "dd/d9f/class_lib_1_1_helper_1_1_time_period" ],
-        [ "TimeZone", "de/d22/class_lib_1_1_helper_1_1_time_zone.html", "de/d22/class_lib_1_1_helper_1_1_time_zone" ]
       ] ],
       [ "Math", null, [
         [ "Filter", null, [
@@ -241,15 +242,14 @@ var annotated_dup =
       [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html", "df/d69/class_r_t_o_s_1_1_semaphore_counting" ],
       [ "StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html", "dd/d70/class_r_t_o_s_1_1_stream_buffer" ],
       [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html", "d1/d23/class_r_t_o_s_1_1_task" ],
+      [ "TaskWorker", "d2/dd6/class_r_t_o_s_1_1_task_worker.html", "d2/dd6/class_r_t_o_s_1_1_task_worker" ],
       [ "TickCounter", "da/d2c/class_r_t_o_s_1_1_tick_counter.html", "da/d2c/class_r_t_o_s_1_1_tick_counter" ],
       [ "TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", "d0/d51/class_r_t_o_s_1_1_tick_service" ],
       [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", "dc/d33/class_r_t_o_s_1_1_timeout" ]
     ] ],
-    [ "AdcChannel", "dc/dee/class_adc_channel.html", "dc/dee/class_adc_channel" ],
     [ "BootStrap", "d7/d27/class_boot_strap.html", null ],
     [ "Buffer", "d5/d2a/class_buffer.html", "d5/d2a/class_buffer" ],
     [ "BufferHandle", "d2/d8a/class_buffer_handle.html", "d2/d8a/class_buffer_handle" ],
     [ "BufferStatic", "dd/dda/class_buffer_static.html", "dd/dda/class_buffer_static" ],
-    [ "CAN_FilterTypeDef", "df/d9e/struct_c_a_n___filter_type_def.html", "df/d9e/struct_c_a_n___filter_type_def" ],
     [ "Singleton", "d3/dbc/class_singleton.html", "d3/dbc/class_singleton" ]
 ];

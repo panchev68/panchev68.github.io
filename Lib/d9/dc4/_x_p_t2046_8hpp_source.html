@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: XPT2046.hpp Source File</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -92,329 +94,424 @@ $(function(){initNavTree('d9/dc4/_x_p_t2046_8hpp_source.html','../../',''); });
   <div class="headertitle"><div class="title">XPT2046.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../d9/dc4/_x_p_t2046_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** @file XPT2046.hpp</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * @brief XPT2046 touchscreen controller driver.</span></div>
+<a href="../../d9/dc4/_x_p_t2046_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** XPT2046 touchscreen controller driver with SPI interface and debouncing.</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> *</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * This file contains the XPT2046 class for interfacing with the XPT2046 touchscreen controller.</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/dd0/_g_p_i_o_8hpp.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/d06/_integrator_8hpp.html">Lib/Helper/Integrator.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/ddf/namespace_lib_1_1_b_s_p.html">Lib::BSP</a> {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"></span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">    /** XPT2046 touchscreen controller driver.</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">     * This class provides an interface to read touch coordinates from an XPT2046 touchscreen controller.</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">     */</span></div>
-<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a1193ac656cebc627f10d4788fd1d059f">XPT2046</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">        /** Configuration structure for XPT2046 pins. */</span></div>
-<div class="foldopen" id="foldopen00022" data-start="{" data-end="};">
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">   22</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">Config</a> {</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a910a59f08ad5274a68776e743dbaedee">   23</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a910a59f08ad5274a68776e743dbaedee">nirq</a>; <span class="comment">/*!&lt; Interrupt pin handle. */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a25f143d2f7674576d969696bb116ccd0">   24</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a25f143d2f7674576d969696bb116ccd0">mosi</a>; <span class="comment">/*!&lt; MOSI pin handle. */</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a406b7c242c5d8a43eb0e35ed8da7822e">   25</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a406b7c242c5d8a43eb0e35ed8da7822e">miso</a>; <span class="comment">/*!&lt; MISO pin handle. */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a2bddcf040cbe86554ab6027c20f10236">   26</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a2bddcf040cbe86554ab6027c20f10236">sck</a>;  <span class="comment">/*!&lt; SCK pin handle. */</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#ab28458323220459a7d7310bc64b538a2">   27</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#ab28458323220459a7d7310bc64b538a2">nss</a>;  <span class="comment">/*!&lt; NSS pin handle. */</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        };</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * ## Overview</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * Provides a complete driver for the XPT2046 capacitive touch controller, a 4-wire resistive</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * touch panel controller with integrated 12-bit ADC. The driver uses bit-banged SPI for</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * communication via GPIO pins (no hardware SPI required) and runs touch detection on a dedicated</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * FreeRTOS task for non-blocking operation.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * ## Key Features</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * - 12-bit ADC resolution for precise touch position detection</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * - Configurable calibration ranges for X and Y axes with automatic scaling</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * - Moving average integration (10-sample window) for noise reduction and stability</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> * - Debounce filtering to eliminate transient touch noise</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * - Support for multiple display orientations with rotation capability (normal and flipped)</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> * - Event-driven interrupt handling via active-low NIRQ signal with RTOS queue signaling</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"> * - Non-blocking operation with dedicated FreeRTOS task (IDLE priority)</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> * ## Hardware Interface</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment"> * - NIRQ: Interrupt pin (active-low touch detection signal)</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"> * - MOSI: Serial data output to controller</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"> * - MISO: Serial data input from controller ADC</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * - SCK:  Serial clock signal</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * - NSS:  Chip select (active-low)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * ## Notes</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * - Touch coordinates are automatically clamped and scaled to display dimensions</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * - All SPI communication is performed via GPIO bit-banging (not hardware SPI)</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * - Integrator window must fill before reliable coordinates are available</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * - RTOS task automatically starts during construction</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @file XPT2046.hpp</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/dd0/_g_p_i_o_8hpp.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/d06/_integrator_8hpp.html">Lib/Helper/Integrator.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &lt;<a class="code" href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../da/ddf/namespace_lib_1_1_b_s_p.html">Lib::BSP</a> {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">    /** XPT2046 touchscreen controller driver with SPI interface and debouncing.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">     * Provides direct SPI communication with the XPT2046 capacitive touch controller using GPIO pins</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">     * for all signals (MOSI, MISO, SCK, NSS). Includes automatic debouncing, calibration support,</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">     * and coordinate transformation with rotation capability. Runs touch detection on a dedicated</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">     * FreeRTOS task for non-blocking operation.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">     * Features:</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">     * - 12-bit ADC resolution touch position detection.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">     * - Configurable calibration ranges for X and Y axes.</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">     * - Moving average integration for noise reduction.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">     * - Support for multiple display orientations with rotation.</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">     * - Debounce filtering to eliminate touch noise.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">     * - Event-driven interrupt handling with RTOS queue signaling.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">     * @note Uses bit-banged SPI communication instead of hardware SPI module.</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">     * @note Touch coordinates are clamped to calibration bounds and scaled to display dimensions.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">     * @note Interrupt pin (NIRQ) must be active-low to trigger touch detection.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">     */</span></div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="};">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html">   65</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a> : <a class="code hl_class" href="../../d2/dd6/class_r_t_o_s_1_1_task_worker.html">RTOS::TaskWorker</a> {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">        /** Configuration structure for XPT2046 SPI and interrupt pin handles. */</span></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="};">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">   68</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">Config</a> {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a910a59f08ad5274a68776e743dbaedee">   69</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a910a59f08ad5274a68776e743dbaedee">nirq</a>; <span class="comment">/*!&lt; Interrupt pin handle. */</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a25f143d2f7674576d969696bb116ccd0">   70</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a25f143d2f7674576d969696bb116ccd0">mosi</a>; <span class="comment">/*!&lt; MOSI pin handle. */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a406b7c242c5d8a43eb0e35ed8da7822e">   71</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a406b7c242c5d8a43eb0e35ed8da7822e">miso</a>; <span class="comment">/*!&lt; MISO pin handle. */</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a2bddcf040cbe86554ab6027c20f10236">   72</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a2bddcf040cbe86554ab6027c20f10236">sck</a>;  <span class="comment">/*!&lt; SCK pin handle. */</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#ab28458323220459a7d7310bc64b538a2">   73</a></span>            PinHandle <a class="code hl_variable" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#ab28458323220459a7d7310bc64b538a2">nss</a>;  <span class="comment">/*!&lt; NSS pin handle. */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        };</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"></span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">        /** Parameters structure for XPT2046 calibration and settings. */</span></div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">   31</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Parameters</a> {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">   32</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">xMin</a>;            <span class="comment">/*!&lt; Minimum X raw value. */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">   33</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">xMax</a>;            <span class="comment">/*!&lt; Maximum X raw value. */</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">   34</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">yMin</a>;            <span class="comment">/*!&lt; Minimum Y raw value. */</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">   35</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">yMax</a>;            <span class="comment">/*!&lt; Maximum Y raw value. */</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">   36</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">width</a>;            <span class="comment">/*!&lt; Display width in pixels. */</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">   37</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">height</a>;           <span class="comment">/*!&lt; Display height in pixels. */</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df">   38</a></span>            uint8_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df">rotationNormal</a>;  <span class="comment">/*!&lt; Rotation value for normal orientation. */</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64">   39</a></span>            uint8_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64">rotationFlipped</a>; <span class="comment">/*!&lt; Rotation value for flipped orientation. */</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a5c89d850de977fe46535087f559472cb">   40</a></span>            uint32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a5c89d850de977fe46535087f559472cb">debounceMs</a>;     <span class="comment">/*!&lt; Debounce time in milliseconds. */</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        };</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"></span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">        /** Touch controller calibration and display configuration parameters.</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">         * Defines raw ADC value ranges, display dimensions, and rotation settings</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">         * for coordinate transformation and debouncing behavior.</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">   81</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Parameters</a> {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">   82</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">xMin</a>;            <span class="comment">/*!&lt; Minimum X raw value. */</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">   83</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">xMax</a>;            <span class="comment">/*!&lt; Maximum X raw value. */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">   84</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">yMin</a>;            <span class="comment">/*!&lt; Minimum Y raw value. */</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">   85</a></span>            int32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">yMax</a>;            <span class="comment">/*!&lt; Maximum Y raw value. */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">   86</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">width</a>;            <span class="comment">/*!&lt; Display width in pixels. */</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">   87</a></span>            <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">height</a>;           <span class="comment">/*!&lt; Display height in pixels. */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df">   88</a></span>            uint8_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df">rotationNormal</a>;  <span class="comment">/*!&lt; Rotation value for normal orientation. */</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64">   89</a></span>            uint8_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64">rotationFlipped</a>; <span class="comment">/*!&lt; Rotation value for flipped orientation. */</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a5c89d850de977fe46535087f559472cb">   90</a></span>            uint32_t <a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a5c89d850de977fe46535087f559472cb">debounceMs</a>;     <span class="comment">/*!&lt; Debounce time in milliseconds. */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        };</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">        /** Constructor for XPT2046.</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">         * @param config Configuration structure with pin handles.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">         * @param parameters Calibration and settings parameters.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">         */</span></div>
-<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a1193ac656cebc627f10d4788fd1d059f">   47</a></span>        <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a1193ac656cebc627f10d4788fd1d059f">XPT2046</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">Config</a> &amp; config, <span class="keyword">const</span> <a class="code hl_struct" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Parameters</a> &amp; parameters)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>            : interface{</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>                  ExtInterrupt{config.nirq},</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                  PinOutput{config.mosi},</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                  PinOutput{config.sck},</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                  PinOutput{config.nss},</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                  PinInput{config.miso}},</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>              parameters(parameters),</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>              position{-1, -1},</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>              isPressed(false),</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>              rotation(0) {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            <span class="keyword">const</span> int32_t xRange = parameters.xMax - parameters.xMin;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            <span class="keyword">const</span> int32_t yRange = parameters.yMax - parameters.yMin;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>            assert(xRange &gt; 0);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>            assert(yRange &gt; 0);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            assert(parameters.width &gt; 0);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            assert(parameters.height &gt; 0);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            scaleMultiplierX = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>((<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(parameters.width) &lt;&lt; 16) / xRange);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            scaleMultiplierY = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>((<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(parameters.height) &lt;&lt; 16) / yRange);</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            interface.nirq.bind([<span class="keyword">this</span>](<span class="keyword">const</span> Lib::HAL::GPIO::ExtInterrupt *) { queueButtonPressed.overwriteFromISR(<span class="keyword">true</span>); });</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            interface.sck.write(1);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            interface.nss.write(1);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> queueCreated = queueButtonPressed.create();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            assert(queueCreated);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>            task.setup({<span class="stringliteral">&quot;XPT2046&quot;</span>, 128, <a class="code hl_enumvalue" href="../../d1/d23/class_r_t_o_s_1_1_task.html#ac39613196a84b94ae2e68f7ce6f31a44a098520142725c05f51540645fa83fb35">RTOS::Task::Priority::IDLE</a>});</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>            <span class="keyword">const</span> <span class="keyword">auto</span> taskHandle = task.start([<span class="keyword">this</span>] {</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                    handleTouchPress();</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    handleTouchWhilePressed();</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            });</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            assert(taskHandle != <span class="keyword">nullptr</span>);</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">        /** Initializes the XPT2046 touchscreen controller with SPI pins and calibration.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">         * Configures interrupt handler, SPI pins, scale multipliers, integrators,</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">         * and starts the touch detection task.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">         * @param config SPI and interrupt pin handles.</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">         * @param parameters Calibration ranges and display configuration.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">         * @pre Pin handles and parameters must be valid; xMax&gt;xMin, yMax&gt;yMin, width&gt;0, height&gt;0.</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">         * @post Interrupt handler bound and touch detection task running.</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0dda6dc35a85166d57bd689d629e6846">  103</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0dda6dc35a85166d57bd689d629e6846">XPT2046</a>(<span class="keyword">const</span> <a class="code hl_struct" href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">Config</a> &amp; config, <span class="keyword">const</span> <a class="code hl_struct" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Parameters</a> &amp; parameters) noexcept</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            : <a class="code hl_function" href="../../d2/dd6/class_r_t_o_s_1_1_task_worker.html#affdc2eb97079d8b070f98cf6eb1794d2">TaskWorker</a>({<span class="stringliteral">&quot;XPT2046&quot;</span>, 128, <a class="code hl_enumvalue" href="../../d1/d23/class_r_t_o_s_1_1_task.html#ac39613196a84b94ae2e68f7ce6f31a44a098520142725c05f51540645fa83fb35">RTOS::Task::Priority::IDLE</a>}),</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>              interface{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>                  ExtInterrupt(config.nirq),</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>                  PinOutput(config.mosi),</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>                  PinOutput(config.sck),</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                  PinOutput(config.nss),</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>                  PinInput(config.miso)},</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>              parameters(parameters),</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>              position{-1, -1},</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>              rotation(0),</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>              isPressed(<span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="keyword">const</span> int32_t xRange = parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">xMax</a> - parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">xMin</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            <span class="keyword">const</span> int32_t yRange = parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">yMax</a> - parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">yMin</a>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            assert(xRange &gt; 0 &amp;&amp; <span class="stringliteral">&quot;X range must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            assert(yRange &gt; 0 &amp;&amp; <span class="stringliteral">&quot;Y range must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            assert(parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">width</a> &gt; 0 &amp;&amp; <span class="stringliteral">&quot;Display width must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            assert(parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">height</a> &gt; 0 &amp;&amp; <span class="stringliteral">&quot;Display height must be positive.&quot;</span>);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            scaleMultiplierX = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>((<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">width</a>) &lt;&lt; 16) / xRange);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            scaleMultiplierY = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>((<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(parameters.<a class="code hl_variable" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">height</a>) &lt;&lt; 16) / yRange);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            interface.nirq.bind([<span class="keyword">this</span>](<span class="keyword">const</span> Lib::HAL::GPIO::ExtInterrupt *) { queueButtonPressed.<a class="code hl_function" href="../../de/d77/class_r_t_o_s_1_1_queue.html#a18205d8376d7e4185ed5791b7fe6775a">overwriteFromISR</a>(<span class="keyword">true</span>); });</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            interface.sck.write(1);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>            interface.nss.write(1);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>            <span class="keyword">const</span> <span class="keywordtype">bool</span> queueCreated = queueButtonPressed.open();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            assert(queueCreated &amp;&amp; <span class="stringliteral">&quot;Failed to create button press queue.&quot;</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
 </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">virtual</span> <a class="code hl_class" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html">~XPT2046</a>() {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            interface.nirq.unbind();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"></span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">        /** Reads the current touch position.</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">         * @param x Reference to store the X coordinate.</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">         * @param y Reference to store the Y coordinate.</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">         * @return True if touch is pressed and coordinates are valid, false otherwise.</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">         */</span></div>
-<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#afa4dcbb84f597d5a0b0bf8f18d69b9cb">   95</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#afa4dcbb84f597d5a0b0bf8f18d69b9cb">read</a>(int32_t &amp; x, int32_t &amp; y)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>            <span class="keywordflow">if</span> (!isPressed) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>            x = position.x;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>            y = position.y;</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"></span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">        /** Cleans up touch detection resources and unbinds interrupt handler. */</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#ade43bfcc35bf568dcc3ca409512206d0">  131</a></span>        <span class="keyword">virtual</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#ade43bfcc35bf568dcc3ca409512206d0">~XPT2046</a>() noexcept { interface.nirq.unbind(); }</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="comment"></span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="comment">        /** Starts the touch detection task.</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">         * Schedules the underlying RTOS task to run, enabling touch detection</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">         * and processing in the background.</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00138" data-start="{" data-end="}">
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#aaaeb1bd30faf525b52edd7a2fd06094c">  138</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#aaaeb1bd30faf525b52edd7a2fd06094c">start</a>() noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>            TaskWorker::start();</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        }</div>
 </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"></span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">        /** Sets the rotation of the touchscreen.</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">         * @param flipped True for flipped orientation, false for normal.</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0adc48a03d1bc5ac94a780f86652b4c0">  105</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0adc48a03d1bc5ac94a780f86652b4c0">setRotation</a>(<span class="keywordtype">bool</span> flipped) { rotation = flipped ? parameters.rotationFlipped : parameters.rotationNormal; }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">private</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">        /** Position structure for coordinates. */</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        <span class="keyword">struct </span>Position {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            int32_t x = -1; <span class="comment">/*!&lt; X coordinate. */</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            int32_t y = -1; <span class="comment">/*!&lt; Y coordinate. */</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        };</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"></span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">        /** Interface structure for hardware pins. */</span></div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        <span class="keyword">class </span>Interface {</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>            ExtInterrupt nirq; <span class="comment">/*!&lt; Interrupt pin. */</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>            PinOutput mosi;    <span class="comment">/*!&lt; MOSI pin. */</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>            PinOutput sck;     <span class="comment">/*!&lt; SCK pin. */</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>            PinOutput nss;     <span class="comment">/*!&lt; NSS pin. */</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>            PinInput miso;     <span class="comment">/*!&lt; MISO pin. */</span></div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"></span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">            /** Constructor for Interface.</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span><span class="comment">             * @param nirq Interrupt pin.</span></div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">             * @param mosi MOSI pin.</span></div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">             * @param sck SCK pin.</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment">             * @param nss NSS pin.</span></div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment">             * @param miso MISO pin.</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">             */</span></div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>            Interface(<span class="keyword">const</span> ExtInterrupt &amp; nirq, <span class="keyword">const</span> PinOutput &amp; mosi, <span class="keyword">const</span> PinOutput &amp; sck, <span class="keyword">const</span> PinOutput &amp; nss, <span class="keyword">const</span> PinInput &amp; miso)</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                : nirq(nirq), mosi(mosi), sck(sck), nss(nss), miso(miso) {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>            }</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        };</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t CMD_READ_X = 0x90; <span class="comment">/*!&lt; Command to read X coordinate. */</span></div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t CMD_READ_Y = 0xD0; <span class="comment">/*!&lt; Command to read Y coordinate. */</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        Interface interface;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        Lib::Helper::Integrator&lt;uint32_t, 10&gt; integratorX;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        Lib::Helper::Integrator&lt;uint32_t, 10&gt; integratorY;</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        RTOS::Timeout timeoutPinDebounce;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        <a class="code hl_struct" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Parameters</a> parameters;</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        Position position;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        Position rawPosition;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        RTOS::Queue&lt;bool&gt; queueButtonPressed;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        RTOS::Task task;</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        int32_t scaleMultiplierX;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        int32_t scaleMultiplierY;</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        uint8_t rotation;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordtype">bool</span> isPressed;</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment"></span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">        /** Handles the initial touch press event and debouncing. */</span></div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordtype">void</span> handleTouchPress() {</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            isPressed = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>            <span class="keywordtype">bool</span> pinState = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>            queueButtonPressed.receive(pinState, portMAX_DELAY);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            <a class="code hl_function" href="../../da/d8a/namespace_r_t_o_s.html#acfb40af377a8f385e09c24a37df281b6">RTOS::delay</a>(5);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>            integratorX.resetWindow();</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            integratorY.resetWindow();</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>            position.x = -1;</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            position.y = -1;</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            timeoutPinDebounce.set(parameters.debounceMs);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            <span class="keywordflow">while</span> (!timeoutPinDebounce.isExpired()) {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>                <span class="keywordflow">if</span> (interface.nirq.read()) timeoutPinDebounce.set(parameters.debounceMs);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>                <a class="code hl_function" href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(1);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            }</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        }</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment"></span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">        /** Writes a byte to SPI.</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">         * @param data The byte to write.</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> writeSpiByte(uint8_t data) {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">for</span> (uint8_t bit = 8; bit &gt; 0; --bit) {</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>                interface.mosi.write(data &amp; 0x80);</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>                data &lt;&lt;= 1;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>                interface.sck.write(0);</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>                __NOP();</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>                interface.sck.write(1);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>                __NOP();</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>            }</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        }</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment"></span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">        /** Reads ADC value from specified channel.</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">         * @param command The command byte to send.</span></div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">         * @return The 12-bit ADC value.</span></div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keyword">inline</span> uint16_t readAdc(uint8_t command) {</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            uint16_t adc = 0;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            interface.nss.write(0);</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            writeSpiByte(command);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            <span class="keywordflow">for</span> (uint8_t bit = 12; bit &gt; 0; --bit) {</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                interface.sck.write(0);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                __NOP();</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                adc = (adc &lt;&lt; 1) | interface.miso.read();</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                interface.sck.write(1);</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                __NOP();</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>            }</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>            interface.nss.write(1);</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>            <span class="keywordflow">return</span> adc;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        }</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment"></span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">        /** Applies rotation transformation to position. */</span></div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> applyRotation() {</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>            <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(parameters.width);</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>            <span class="keyword">const</span> <span class="keyword">auto</span> height = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(parameters.height);</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>            <span class="keywordflow">switch</span> (rotation) {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>            <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>                position.x = width - position.x;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>            <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                position.x = width - position.x;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                position.y = height - position.y;</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>            <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                position.y = height - position.y;</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>            <span class="keywordflow">case</span> 4:</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>                position.x = width - position.x;</div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>                position.y = height - position.y;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>            <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>            <span class="keywordflow">default</span>:</div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>            }</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        }</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="comment"></span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="comment">        /** Reads and integrates ADC values.</span></div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span><span class="comment">         * @return True if integration window is full, false otherwise.</span></div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keyword">inline</span> <span class="keywordtype">bool</span> readAndIntegrateAdc() {</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            rawPosition.x = integratorX.processValue(readAdc(CMD_READ_X));</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            rawPosition.y = integratorY.processValue(readAdc(CMD_READ_Y));</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            <span class="keywordflow">if</span> (!integratorX.isWindowFull()) {</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                <a class="code hl_function" href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(5);</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        }</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment"></span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="comment">        /** Clamps and scales raw position to display coordinates. */</span></div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> clampAndScalePosition() {</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keywordflow">if</span> (rawPosition.x &lt; parameters.xMin) {</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                rawPosition.x = parameters.xMin;</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rawPosition.x &gt; parameters.xMax) {</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>                rawPosition.x = parameters.xMax;</div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>            }</div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <span class="keywordflow">if</span> (rawPosition.y &lt; parameters.yMin) {</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                rawPosition.y = parameters.yMin;</div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (rawPosition.y &gt; parameters.yMax) {</div>
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                rawPosition.y = parameters.yMax;</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>            }</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            rawPosition.x -= parameters.xMin;</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>            rawPosition.y -= parameters.yMin;</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>            position.x = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>((<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(rawPosition.x) * scaleMultiplierX) &gt;&gt; 16);</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>            position.y = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>((<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(rawPosition.y) * scaleMultiplierY) &gt;&gt; 16);</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        }</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment"></span> </div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment">        /** Processes touch data and updates position. */</span></div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> processTouch() {</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <span class="keywordflow">if</span> (!readAndIntegrateAdc()) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            clampAndScalePosition();</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            isPressed = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            applyRotation();</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            <a class="code hl_function" href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(40);</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        }</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment"></span> </div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment">        /** Handles touch while pressed. */</span></div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keyword">inline</span> <span class="keywordtype">void</span> handleTouchWhilePressed() {</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keywordflow">while</span> (!interface.nirq.read()) {</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>                processTouch();</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            }</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    };</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"></span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">        /** Returns the current touch position if touch is actively pressed.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="comment">         * @param[out] x X coordinate in display pixels.</span></div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">         * @param[out] y Y coordinate in display pixels.</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">         * @return True if touch pressed; false otherwise.</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a38e4ec10fd546edefabd0ed3a0dd903d">  148</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a38e4ec10fd546edefabd0ed3a0dd903d">read</a>(int32_t &amp; x, int32_t &amp; y) <span class="keyword">const</span> <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>            <span class="keywordflow">if</span> (!isPressed) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            x = position.x;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            y = position.y;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
 </div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>} <span class="comment">// namespace Lib::BSP</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">        /** Configures rotation for display orientation.</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">         * @param flipped True for flipped; false for normal orientation.</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">         */</span></div>
+<div class="foldopen" id="foldopen00159" data-start="{" data-end="}">
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a90de2aabfe2d3c808d9362cf6e950359">  159</a></span>        <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a90de2aabfe2d3c808d9362cf6e950359">setRotation</a>(<span class="keywordtype">bool</span> flipped) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>            rotation = flipped ? parameters.rotationFlipped : parameters.rotationNormal;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        }</div>
+</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keyword">private</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">        /** 2D coordinate container. */</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keyword">struct </span>Position {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            int32_t x = -1; <span class="comment">/*!&lt; X coordinate. */</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            int32_t y = -1; <span class="comment">/*!&lt; Y coordinate. */</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        };</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"></span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">        /** Encapsulates SPI and interrupt GPIO pins. */</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keyword">class </span>Interface {</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>        <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            ExtInterrupt nirq; <span class="comment">/*!&lt; Interrupt pin. */</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            PinOutput mosi;    <span class="comment">/*!&lt; MOSI pin. */</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            PinOutput sck;     <span class="comment">/*!&lt; SCK pin. */</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            PinOutput nss;     <span class="comment">/*!&lt; NSS pin. */</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            PinInput miso;     <span class="comment">/*!&lt; MISO pin. */</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span><span class="comment"></span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">            /** Initializes GPIO pin references for SPI communication.</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">             *</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">             * @param nirq Interrupt pin (active-low).</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">             * @param mosi SPI data output.</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">             * @param sck SPI clock signal.</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">             * @param nss Chip select (active-low).</span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">             * @param miso SPI data input from ADC.</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">             */</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>            Interface(<span class="keyword">const</span> ExtInterrupt &amp; nirq, <span class="keyword">const</span> PinOutput &amp; mosi, <span class="keyword">const</span> PinOutput &amp; sck,</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                <span class="keyword">const</span> PinOutput &amp; nss, <span class="keyword">const</span> PinInput &amp; miso) noexcept</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                : nirq(nirq), mosi(mosi), sck(sck), nss(nss), miso(miso) {}</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        };</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t CMD_READ_X = 0x90;        <span class="comment">/*!&lt; SPI command: read X position from ADC. */</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint8_t CMD_READ_Y = 0xD0;        <span class="comment">/*!&lt; SPI command: read Y position from ADC. */</span></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>        Interface interface;                               <span class="comment">/*!&lt; GPIO pins for SPI communication and interrupt. */</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        Lib::Helper::Integrator&lt;uint32_t, 10&gt; integratorX; <span class="comment">/*!&lt; Moving average for X. */</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        Lib::Helper::Integrator&lt;uint32_t, 10&gt; integratorY; <span class="comment">/*!&lt; Moving average for Y. */</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>        RTOS::Timeout timeoutPinDebounce;                  <span class="comment">/*!&lt; Debounce timer. */</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <a class="code hl_struct" href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Parameters</a> parameters;                             <span class="comment">/*!&lt; Calibration parameters. */</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        Position position;                                 <span class="comment">/*!&lt; Current scaled coordinates. */</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        Position rawPosition;                              <span class="comment">/*!&lt; Current raw ADC values. */</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>        RTOS::Queue&lt;bool&gt; queueButtonPressed;              <span class="comment">/*!&lt; Interrupt signaling queue. */</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        int32_t scaleMultiplierX;                          <span class="comment">/*!&lt; X scale factor (fixed-point). */</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        int32_t scaleMultiplierY;                          <span class="comment">/*!&lt; Y scale factor (fixed-point). */</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        uint8_t rotation;                                  <span class="comment">/*!&lt; Current rotation setting (0-4). */</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordtype">bool</span> isPressed;                                    <span class="comment">/*!&lt; Touch pressed state. */</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment"></span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">        /** Main touch detection task function.</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment">         * Runs in an infinite loop, waiting for touch press interrupts.</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">         * On touch press, applies debounce filtering, reads ADC values,</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">         * updates position with calibration and scaling, and sets pressed state.</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="../../d2/dd6/class_r_t_o_s_1_1_task_worker.html#ab04d06e0529642a346ca3fd06d2d6c41">taskFunction</a>() noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>            <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>                handleTouchPress();</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>                handleTouchWhilePressed();</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>            }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span><span class="comment"></span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span><span class="comment">        /** Waits for touch interrupt and applies debounce filtering.</span></div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">         * Blocks until NIRQ signals touch, then validates with debounce timeout</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">         * before resetting integrators and position data.</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordtype">void</span> handleTouchPress() noexcept {</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>            isPressed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>            <span class="keywordtype">bool</span> unused = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            queueButtonPressed.receive(unused, portMAX_DELAY);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>            <a class="code hl_function" href="../../da/d8a/namespace_r_t_o_s.html#ae2040b5c3ddf2ffbd181e7ebfcb59087">RTOS::delay</a>(5);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>            integratorX.resetWindow();</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>            integratorY.resetWindow();</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>            position.x = -1;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>            position.y = -1;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            timeoutPinDebounce.set(parameters.debounceMs);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>            <span class="keywordflow">while</span> (!timeoutPinDebounce.isExpired()) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>                <span class="keywordflow">if</span> (interface.nirq.read()) timeoutPinDebounce.set(parameters.debounceMs);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>                <a class="code hl_function" href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(1);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>            }</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        }</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span><span class="comment"></span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="comment">        /** Transmits a byte via bit-banged SPI.</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="comment">         * @param data Byte value to transmit.</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span><span class="comment">         * @pre NSS must be asserted before calling.</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keywordtype">void</span> writeSpiByte(uint8_t data) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            <span class="keywordflow">for</span> (uint8_t bit = 0x80; bit &gt; 0; bit &gt;&gt;= 1) {</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                interface.mosi.write(data &amp; bit);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                interface.sck.write(0);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>                __NOP();</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>                interface.sck.write(1);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                __NOP();</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>            }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment"></span> </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="comment">        /** Reads 12-bit ADC value from specified channel via SPI.</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="comment">         * @param command ADC channel select command (CMD_READ_X or CMD_READ_Y).</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span><span class="comment">         * @return 12-bit ADC value (0-4095).</span></div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        uint16_t readAdc(uint8_t command) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            uint16_t adc = 0;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            interface.nss.write(0);</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            writeSpiByte(command);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            <span class="keywordflow">for</span> (uint8_t bit = 12; bit &gt; 0; --bit) {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>                interface.sck.write(0);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>                __NOP();</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>                adc = (adc &lt;&lt; 1) | interface.miso.read();</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>                interface.sck.write(1);</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>                __NOP();</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            }</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>            interface.nss.write(1);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            <span class="keywordflow">return</span> adc;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        }</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="comment"></span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="comment">        /** Applies coordinate rotation based on orientation setting.</span></div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span><span class="comment">         * Updates position in-place with rotated values.</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keywordtype">void</span> applyRotation() noexcept {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>            <span class="keyword">const</span> <span class="keyword">auto</span> width = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(parameters.width);</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>            <span class="keyword">const</span> <span class="keyword">auto</span> height = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(parameters.height);</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>            <span class="keywordflow">switch</span> (rotation) {</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>                position.x = width - position.x;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>            <span class="keywordflow">case</span> 2:</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>            <span class="keywordflow">case</span> 4:</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>                position.x = width - position.x;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>                position.y = height - position.y;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>            <span class="keywordflow">case</span> 3:</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>                position.y = height - position.y;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>            <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>            <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>            }</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        }</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span><span class="comment"></span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span><span class="comment">        /** Samples ADC channels and updates moving average integrators.</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="comment">         * @return True when integration window complete; false if accumulating.</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keywordtype">bool</span> readAndIntegrateAdc() noexcept {</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>            rawPosition.x = integratorX.processValue(readAdc(CMD_READ_X));</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>            rawPosition.y = integratorY.processValue(readAdc(CMD_READ_Y));</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>            <span class="keywordflow">if</span> (!integratorX.isWindowFull()) {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>                <a class="code hl_function" href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(5);</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>            }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        }</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment"></span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment">        /** Clamps raw ADC values and scales to display pixel coordinates.</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="comment">         * Applies calibration bounds and fixed-point scaling transformation.</span></div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keywordtype">void</span> clampAndScalePosition() noexcept {</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>            clampValue(rawPosition.x, parameters.xMin, parameters.xMax);</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>            clampValue(rawPosition.y, parameters.yMin, parameters.yMax);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>            <span class="keyword">constexpr</span> int32_t SCALE_FACTOR = 16;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>            rawPosition.x -= parameters.xMin;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>            rawPosition.y -= parameters.yMin;</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>            position.x = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>                (<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(rawPosition.x) * scaleMultiplierX) &gt;&gt; SCALE_FACTOR);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            position.y = <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>                (<span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(rawPosition.y) * scaleMultiplierY) &gt;&gt; SCALE_FACTOR);</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        }</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="comment"></span> </div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="comment">        /** Samples, integrates, scales, and rotates touch coordinates.</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span><span class="comment">         * Updates position and marks press state as valid.</span></div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keywordtype">void</span> processTouch() noexcept {</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>            <span class="keywordflow">if</span> (!readAndIntegrateAdc()) <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>            clampAndScalePosition();</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>            isPressed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>            applyRotation();</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>            <a class="code hl_function" href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(40);</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        }</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="comment"></span> </div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span><span class="comment">        /** Clamps value within min/max bounds. */</span></div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        <span class="keyword">static</span> <span class="keywordtype">void</span> clampValue(int32_t &amp; value, int32_t minVal, int32_t maxVal) <span class="keyword">noexcept</span> {</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>            <span class="keywordflow">if</span> (value &lt; minVal) {</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>                value = minVal;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value &gt; maxVal) {</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>                value = maxVal;</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>            }</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>        }</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="comment"></span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span><span class="comment">        /** Continuously processes touch data while NIRQ is asserted.</span></div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><span class="comment">         *</span></div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span><span class="comment">         * Loops until touch release, updating position throughout.</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span><span class="comment">         */</span></div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        <span class="keywordtype">void</span> handleTouchWhilePressed() noexcept {</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>            <span class="keywordflow">while</span> (!interface.nirq.read()) { processTouch(); }</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>        }</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    };</div>
+</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>} <span class="comment">// namespace Lib::BSP</span></div>
 <div class="ttc" id="a_g_p_i_o_8hpp_html"><div class="ttname"><a href="../../db/dd0/_g_p_i_o_8hpp.html">GPIO.hpp</a></div><div class="ttdoc">GPIO HAL interface header.</div></div>
-<div class="ttc" id="a_integrator_8hpp_html"><div class="ttname"><a href="../../db/d06/_integrator_8hpp.html">Integrator.hpp</a></div><div class="ttdoc">Integrator template class.</div></div>
+<div class="ttc" id="a_integrator_8hpp_html"><div class="ttname"><a href="../../db/d06/_integrator_8hpp.html">Integrator.hpp</a></div><div class="ttdoc">Integrator template class for computing moving averages.</div></div>
 <div class="ttc" id="a_r_t_o_s_8hpp_html"><div class="ttname"><a href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and class includes.</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html">Lib::BSP::XPT2046</a></div><div class="ttdoc">XPT2046 touchscreen controller driver.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:19</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_a0adc48a03d1bc5ac94a780f86652b4c0"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0adc48a03d1bc5ac94a780f86652b4c0">Lib::BSP::XPT2046::setRotation</a></div><div class="ttdeci">virtual void setRotation(bool flipped)</div><div class="ttdoc">Sets the rotation of the touchscreen.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:105</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_a1193ac656cebc627f10d4788fd1d059f"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a1193ac656cebc627f10d4788fd1d059f">Lib::BSP::XPT2046::XPT2046</a></div><div class="ttdeci">XPT2046(const Config &amp;config, const Parameters &amp;parameters)</div><div class="ttdoc">Constructor for XPT2046.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:47</div></div>
-<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_afa4dcbb84f597d5a0b0bf8f18d69b9cb"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#afa4dcbb84f597d5a0b0bf8f18d69b9cb">Lib::BSP::XPT2046::read</a></div><div class="ttdeci">virtual bool read(int32_t &amp;x, int32_t &amp;y) const</div><div class="ttdoc">Reads the current touch position.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:95</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_task_html_a816e0f2d4a66248c3d6627c45ea06bcd"><div class="ttname"><a href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType_t ticks)</div><div class="ttdoc">Wrapper for vTaskDelay.</div><div class="ttdef"><b>Definition</b> Task.hpp:233</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_task_html_ac39613196a84b94ae2e68f7ce6f31a44a098520142725c05f51540645fa83fb35"><div class="ttname"><a href="../../d1/d23/class_r_t_o_s_1_1_task.html#ac39613196a84b94ae2e68f7ce6f31a44a098520142725c05f51540645fa83fb35">RTOS::Task::IDLE</a></div><div class="ttdeci">@ IDLE</div><div class="ttdef"><b>Definition</b> Task.hpp:41</div></div>
-<div class="ttc" id="anamespace_lib_1_1_b_s_p_html"><div class="ttname"><a href="../../da/ddf/namespace_lib_1_1_b_s_p.html">Lib::BSP</a></div><div class="ttdoc">Namespace for BSP library classes and functions.</div><div class="ttdef"><b>Definition</b> Backlight.hpp:13</div></div>
-<div class="ttc" id="anamespace_r_t_o_s_html_acfb40af377a8f385e09c24a37df281b6"><div class="ttname"><a href="../../da/d8a/namespace_r_t_o_s.html#acfb40af377a8f385e09c24a37df281b6">RTOS::delay</a></div><div class="ttdeci">void delay(uint32_t duration)</div><div class="ttdoc">Delay execution for a specified number of milliseconds.</div><div class="ttdef"><b>Definition</b> functions.hpp:13</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">Lib::BSP::XPT2046::Config</a></div><div class="ttdoc">Configuration structure for XPT2046 pins.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:22</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a25f143d2f7674576d969696bb116ccd0"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a25f143d2f7674576d969696bb116ccd0">Lib::BSP::XPT2046::Config::mosi</a></div><div class="ttdeci">PinHandle mosi</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:24</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a2bddcf040cbe86554ab6027c20f10236"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a2bddcf040cbe86554ab6027c20f10236">Lib::BSP::XPT2046::Config::sck</a></div><div class="ttdeci">PinHandle sck</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:26</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a406b7c242c5d8a43eb0e35ed8da7822e"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a406b7c242c5d8a43eb0e35ed8da7822e">Lib::BSP::XPT2046::Config::miso</a></div><div class="ttdeci">PinHandle miso</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:25</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a910a59f08ad5274a68776e743dbaedee"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a910a59f08ad5274a68776e743dbaedee">Lib::BSP::XPT2046::Config::nirq</a></div><div class="ttdeci">PinHandle nirq</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:23</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_ab28458323220459a7d7310bc64b538a2"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#ab28458323220459a7d7310bc64b538a2">Lib::BSP::XPT2046::Config::nss</a></div><div class="ttdeci">PinHandle nss</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:27</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Lib::BSP::XPT2046::Parameters</a></div><div class="ttdoc">Parameters structure for XPT2046 calibration and settings.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:31</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_a47d4bc5bc1391ff4795d4e74e187e0bc"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">Lib::BSP::XPT2046::Parameters::width</a></div><div class="ttdeci">size_t width</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:36</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_a5c89d850de977fe46535087f559472cb"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a5c89d850de977fe46535087f559472cb">Lib::BSP::XPT2046::Parameters::debounceMs</a></div><div class="ttdeci">uint32_t debounceMs</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:40</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_aadaae6a4db069c6011ab028581b7c460"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">Lib::BSP::XPT2046::Parameters::height</a></div><div class="ttdeci">size_t height</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:37</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_ac2cd6aa16ead1e5ce384d823cfc14098"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">Lib::BSP::XPT2046::Parameters::yMax</a></div><div class="ttdeci">int32_t yMax</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:35</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_aca3ae32e6bdecc7bc919ef20ed75beac"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">Lib::BSP::XPT2046::Parameters::xMin</a></div><div class="ttdeci">int32_t xMin</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:32</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_acda2f52d642f3f712c72b8046d83fa30"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">Lib::BSP::XPT2046::Parameters::yMin</a></div><div class="ttdeci">int32_t yMin</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:34</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_ad7faa3502a791114bf456c98c0dbf644"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">Lib::BSP::XPT2046::Parameters::xMax</a></div><div class="ttdeci">int32_t xMax</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:33</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_aded7fd6f255b5cdaa202d1615ae38c64"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64">Lib::BSP::XPT2046::Parameters::rotationFlipped</a></div><div class="ttdeci">uint8_t rotationFlipped</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:39</div></div>
-<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_afcfd3b948c2d0f02e81edaa1e86755df"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df">Lib::BSP::XPT2046::Parameters::rotationNormal</a></div><div class="ttdeci">uint8_t rotationNormal</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:38</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_a0dda6dc35a85166d57bd689d629e6846"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a0dda6dc35a85166d57bd689d629e6846">Lib::BSP::XPT2046::XPT2046</a></div><div class="ttdeci">XPT2046(const Config &amp;config, const Parameters &amp;parameters) noexcept</div><div class="ttdoc">Initializes the XPT2046 touchscreen controller with SPI pins and calibration.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:103</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_a38e4ec10fd546edefabd0ed3a0dd903d"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a38e4ec10fd546edefabd0ed3a0dd903d">Lib::BSP::XPT2046::read</a></div><div class="ttdeci">virtual bool read(int32_t &amp;x, int32_t &amp;y) const noexcept</div><div class="ttdoc">Returns the current touch position if touch is actively pressed.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:148</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_a90de2aabfe2d3c808d9362cf6e950359"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a90de2aabfe2d3c808d9362cf6e950359">Lib::BSP::XPT2046::setRotation</a></div><div class="ttdeci">virtual void setRotation(bool flipped) noexcept</div><div class="ttdoc">Configures rotation for display orientation.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:159</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_aaaeb1bd30faf525b52edd7a2fd06094c"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#aaaeb1bd30faf525b52edd7a2fd06094c">Lib::BSP::XPT2046::start</a></div><div class="ttdeci">void start() noexcept override</div><div class="ttdoc">Starts the touch detection task.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:138</div></div>
+<div class="ttc" id="aclass_lib_1_1_b_s_p_1_1_x_p_t2046_html_ade43bfcc35bf568dcc3ca409512206d0"><div class="ttname"><a href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#ade43bfcc35bf568dcc3ca409512206d0">Lib::BSP::XPT2046::~XPT2046</a></div><div class="ttdeci">virtual ~XPT2046() noexcept</div><div class="ttdoc">Cleans up touch detection resources and unbinds interrupt handler.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:131</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_queue_html_a18205d8376d7e4185ed5791b7fe6775a"><div class="ttname"><a href="../../de/d77/class_r_t_o_s_1_1_queue.html#a18205d8376d7e4185ed5791b7fe6775a">RTOS::Queue::overwriteFromISR</a></div><div class="ttdeci">bool overwriteFromISR(const T_ELEMENT_TYPE &amp;item) noexcept</div><div class="ttdoc">Overwrites front item in ISR context (ISR-safe).</div><div class="ttdef"><b>Definition</b> Queue.hpp:451</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_task_html_a816e0f2d4a66248c3d6627c45ea06bcd"><div class="ttname"><a href="../../d1/d23/class_r_t_o_s_1_1_task.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType_t ticks)</div><div class="ttdoc">Delays current task for specified number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:308</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_task_html_ac39613196a84b94ae2e68f7ce6f31a44a098520142725c05f51540645fa83fb35"><div class="ttname"><a href="../../d1/d23/class_r_t_o_s_1_1_task.html#ac39613196a84b94ae2e68f7ce6f31a44a098520142725c05f51540645fa83fb35">RTOS::Task::IDLE</a></div><div class="ttdeci">@ IDLE</div><div class="ttdef"><b>Definition</b> Task.hpp:55</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_task_worker_html"><div class="ttname"><a href="../../d2/dd6/class_r_t_o_s_1_1_task_worker.html">RTOS::TaskWorker</a></div><div class="ttdoc">TaskWorker base class.</div><div class="ttdef"><b>Definition</b> TaskWorker.hpp:38</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_task_worker_html_ab04d06e0529642a346ca3fd06d2d6c41"><div class="ttname"><a href="../../d2/dd6/class_r_t_o_s_1_1_task_worker.html#ab04d06e0529642a346ca3fd06d2d6c41">RTOS::TaskWorker::taskFunction</a></div><div class="ttdeci">virtual void taskFunction() noexcept=0</div><div class="ttdoc">Pure virtual task function to be implemented by derived classes.</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_task_worker_html_affdc2eb97079d8b070f98cf6eb1794d2"><div class="ttname"><a href="../../d2/dd6/class_r_t_o_s_1_1_task_worker.html#affdc2eb97079d8b070f98cf6eb1794d2">RTOS::TaskWorker::TaskWorker</a></div><div class="ttdeci">TaskWorker(const Config &amp;config) noexcept</div><div class="ttdoc">Constructor with configuration.</div><div class="ttdef"><b>Definition</b> TaskWorker.hpp:54</div></div>
+<div class="ttc" id="anamespace_lib_1_1_b_s_p_html"><div class="ttname"><a href="../../da/ddf/namespace_lib_1_1_b_s_p.html">Lib::BSP</a></div><div class="ttdoc">Namespace for BSP library classes and functions.</div><div class="ttdef"><b>Definition</b> Backlight.hpp:25</div></div>
+<div class="ttc" id="anamespace_r_t_o_s_html_ae2040b5c3ddf2ffbd181e7ebfcb59087"><div class="ttname"><a href="../../da/d8a/namespace_r_t_o_s.html#ae2040b5c3ddf2ffbd181e7ebfcb59087">RTOS::delay</a></div><div class="ttdeci">void delay(uint32_t duration) noexcept</div><div class="ttdoc">Delay execution for a specified number of milliseconds.</div><div class="ttdef"><b>Definition</b> functions.hpp:38</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html">Lib::BSP::XPT2046::Config</a></div><div class="ttdoc">Configuration structure for XPT2046 SPI and interrupt pin handles.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:68</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a25f143d2f7674576d969696bb116ccd0"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a25f143d2f7674576d969696bb116ccd0">Lib::BSP::XPT2046::Config::mosi</a></div><div class="ttdeci">PinHandle mosi</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:70</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a2bddcf040cbe86554ab6027c20f10236"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a2bddcf040cbe86554ab6027c20f10236">Lib::BSP::XPT2046::Config::sck</a></div><div class="ttdeci">PinHandle sck</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:72</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a406b7c242c5d8a43eb0e35ed8da7822e"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a406b7c242c5d8a43eb0e35ed8da7822e">Lib::BSP::XPT2046::Config::miso</a></div><div class="ttdeci">PinHandle miso</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:71</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_a910a59f08ad5274a68776e743dbaedee"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#a910a59f08ad5274a68776e743dbaedee">Lib::BSP::XPT2046::Config::nirq</a></div><div class="ttdeci">PinHandle nirq</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:69</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config_html_ab28458323220459a7d7310bc64b538a2"><div class="ttname"><a href="../../d0/de6/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_config.html#ab28458323220459a7d7310bc64b538a2">Lib::BSP::XPT2046::Config::nss</a></div><div class="ttdeci">PinHandle nss</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:73</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html">Lib::BSP::XPT2046::Parameters</a></div><div class="ttdoc">Touch controller calibration and display configuration parameters.</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:81</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_a47d4bc5bc1391ff4795d4e74e187e0bc"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a47d4bc5bc1391ff4795d4e74e187e0bc">Lib::BSP::XPT2046::Parameters::width</a></div><div class="ttdeci">size_t width</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:86</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_a5c89d850de977fe46535087f559472cb"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#a5c89d850de977fe46535087f559472cb">Lib::BSP::XPT2046::Parameters::debounceMs</a></div><div class="ttdeci">uint32_t debounceMs</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:90</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_aadaae6a4db069c6011ab028581b7c460"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aadaae6a4db069c6011ab028581b7c460">Lib::BSP::XPT2046::Parameters::height</a></div><div class="ttdeci">size_t height</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:87</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_ac2cd6aa16ead1e5ce384d823cfc14098"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ac2cd6aa16ead1e5ce384d823cfc14098">Lib::BSP::XPT2046::Parameters::yMax</a></div><div class="ttdeci">int32_t yMax</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:85</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_aca3ae32e6bdecc7bc919ef20ed75beac"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aca3ae32e6bdecc7bc919ef20ed75beac">Lib::BSP::XPT2046::Parameters::xMin</a></div><div class="ttdeci">int32_t xMin</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:82</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_acda2f52d642f3f712c72b8046d83fa30"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#acda2f52d642f3f712c72b8046d83fa30">Lib::BSP::XPT2046::Parameters::yMin</a></div><div class="ttdeci">int32_t yMin</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:84</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_ad7faa3502a791114bf456c98c0dbf644"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#ad7faa3502a791114bf456c98c0dbf644">Lib::BSP::XPT2046::Parameters::xMax</a></div><div class="ttdeci">int32_t xMax</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:83</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_aded7fd6f255b5cdaa202d1615ae38c64"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64">Lib::BSP::XPT2046::Parameters::rotationFlipped</a></div><div class="ttdeci">uint8_t rotationFlipped</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:89</div></div>
+<div class="ttc" id="astruct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters_html_afcfd3b948c2d0f02e81edaa1e86755df"><div class="ttname"><a href="../../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df">Lib::BSP::XPT2046::Parameters::rotationNormal</a></div><div class="ttdeci">uint8_t rotationNormal</div><div class="ttdef"><b>Definition</b> XPT2046.hpp:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>BSP</b></li><li class="navelem"><b>TouchScreen</b></li><li class="navelem"><b>XPT2046</b></li><li class="navelem"><a href="../../d9/dc4/_x_p_t2046_8hpp.html">XPT2046.hpp</a></li>
+    <li class="navelem"><b>inc</b></li><li class="navelem"><b>Lib</b></li><li class="navelem"><b>BSP</b></li><li class="navelem"><b>TouchScreen</b></li><li class="navelem"><a href="../../d9/dc4/_x_p_t2046_8hpp.html">XPT2046.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

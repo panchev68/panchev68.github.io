@@ -1,7 +1,20 @@
 var class_lib_1_1_helper_1_1_date_time_1_1_date =
 [
     [ "DayOfWeek", "d8/d7f/class_lib_1_1_helper_1_1_date_time_1_1_date_1_1_day_of_week.html", "d8/d7f/class_lib_1_1_helper_1_1_date_time_1_1_date_1_1_day_of_week" ],
-    [ "Month", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89a", null ],
+    [ "Month", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89a", [
+      [ "JAN", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa8de35eaa5968c478c5b2086b3cc4badf", null ],
+      [ "FEB", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aafe39e5e822e646acf86873dd4c967e07", null ],
+      [ "MAR", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa6ab0461982f82fe5bc6c71e6faef45b3", null ],
+      [ "APR", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa400b07623925470b21ca55c3ce9913f4", null ],
+      [ "MAY", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aaf94061e4bbcb32597c80ba304f781006", null ],
+      [ "JUN", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa70993ae907799296b4bed0a03244d55a", null ],
+      [ "JUL", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa8585542e0ab980c5f29166a4767b0b4b", null ],
+      [ "AUG", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aab84c7af9d827d3aee2535ef6fcd4f936", null ],
+      [ "SEP", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aaedf5bdfdf496166746e1794e80042a49", null ],
+      [ "OCT", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa3926d07453f350556c4e2e8094e42a98", null ],
+      [ "NOV", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa52722be4a3d1773f2384a8238fd9a824", null ],
+      [ "DEC", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aa38344a4d87bb35ec197f26fad338b6ab", null ]
+    ] ],
     [ "Date", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a8ea7578d44142ead5cb00363bc428d8c", null ],
     [ "Date", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a686e0b5b9853974d725500aaa4e657ac", null ],
     [ "~Date", "d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#ac73bd055cb67f984c388741d1d47df98", null ],

@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: Lib::Helper::Container</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -92,51 +94,51 @@ $(function(){initNavTree('df/d37/_lib_1_1_helper_1_1_container-example.html','..
   <div class="headertitle"><div class="title">Lib::Helper::Container</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-container-class"></a>
-Example usage of Container class.</h1>
-<p>Demonstrates adding, removing, and processing pointers with standard output.</p>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="example-usage-1"></a>
-Example usage:</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/dc3/_container_8hpp.html">Lib/Helper/Container.hpp</a>&quot;</span></div>
+<h2 class="doxsection"><a class="anchor" id="managing-a-collection-of-pointers-with-container"></a>
+Managing a collection of pointers with Container.</h2>
+<p>This example demonstrates how to use the Container class to manage a collection of pointers to objects. It shows adding items, processing them with a callback, and removing items. This is useful in embedded systems for managing lists of objects without copying.</p>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/dc3/_container_8hpp.html">Lib/Helper/Container.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>Dummy {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    <span class="keyword">explicit</span> Dummy(<span class="keywordtype">int</span> value) : value(value) {}</div>
+<div class="line"><span class="keyword">struct </span>MyObject {</div>
 <div class="line">    <span class="keywordtype">int</span> value;</div>
+<div class="line">    MyObject(<span class="keywordtype">int</span> v) : value(v) {}</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printItem(Dummy * item, <span class="keywordtype">void</span> * arg) {</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Item value: &quot;</span> &lt;&lt; item-&gt;value &lt;&lt; std::endl;</div>
+<div class="line"><span class="keywordtype">void</span> printCallback(MyObject* obj, <span class="keywordtype">void</span>* context) {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;Object value: %d\n&quot;</span>, obj-&gt;value);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html">Lib::Helper::Container&lt;Dummy&gt;</a> container;</div>
-<div class="line">    Dummy a(1), b(2), c(3);</div>
-<div class="line">    container.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a2327e19f257556a7b71bbbd5820a7134">add</a>(&amp;a);</div>
-<div class="line">    container.<a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a2327e19f257556a7b71bbbd5820a7134">add</a>(&amp;b);</div>
-<div class="line">    container.<a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a2327e19f257556a7b71bbbd5820a7134">add</a>(&amp;c);</div>
-<div class="line">    container.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#ab4276f04c245feb4b4de67d2fb6aed90">processItems</a>(printItem);</div>
-<div class="line">    container.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a8e3dc1e8820822148810c8b8796dd25d">remove</a>(&amp;b);</div>
-<div class="line">    container.<a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#ab4276f04c245feb4b4de67d2fb6aed90">processItems</a>(printItem);</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html">Lib::Helper::Container&lt;MyObject&gt;</a> container;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create objects</span></div>
+<div class="line">    MyObject obj1(10);</div>
+<div class="line">    MyObject obj2(20);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Add pointers to container</span></div>
+<div class="line">    container.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#abc936366755ee054f9eb59161e8a2d20">add</a>(&amp;obj1);</div>
+<div class="line">    container.<a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#abc936366755ee054f9eb59161e8a2d20">add</a>(&amp;obj2);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Process items with callback</span></div>
+<div class="line">    container.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#aee986d3fbf46488dea3d2355d436536d">processItems</a>(printCallback);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Remove an item</span></div>
+<div class="line">    container.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#aacba5dd5579f2777cc6d6411a1aac0c4">remove</a>(&amp;obj1);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Clear all</span></div>
+<div class="line">    container.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a909d3a02f57c2bd184ceffb32877a6ee">clear</a>();</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="a_container_8hpp_html"><div class="ttname"><a href="../../db/dc3/_container_8hpp.html">Container.hpp</a></div><div class="ttdoc">Generic pointer container for object management.</div></div>
-<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html">Lib::Helper::Container</a></div><div class="ttdoc">Generic pointer container for object management.</div><div class="ttdef"><b>Definition</b> Container.hpp:16</div></div>
-<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_a2327e19f257556a7b71bbbd5820a7134"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a2327e19f257556a7b71bbbd5820a7134">Lib::Helper::Container::add</a></div><div class="ttdeci">bool add(T *obj)</div><div class="ttdoc">Adds a pointer to the container if not already present.</div><div class="ttdef"><b>Definition</b> Container.hpp:28</div></div>
-<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_a8e3dc1e8820822148810c8b8796dd25d"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a8e3dc1e8820822148810c8b8796dd25d">Lib::Helper::Container::remove</a></div><div class="ttdeci">bool remove(T *obj)</div><div class="ttdoc">Removes a pointer from the container.</div><div class="ttdef"><b>Definition</b> Container.hpp:49</div></div>
-<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_ab4276f04c245feb4b4de67d2fb6aed90"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#ab4276f04c245feb4b4de67d2fb6aed90">Lib::Helper::Container::processItems</a></div><div class="ttdeci">void processItems(void(*callback)(T *, void *), void *arg=nullptr)</div><div class="ttdoc">Processes all items with a callback function.</div><div class="ttdef"><b>Definition</b> Container.hpp:63</div></div>
-</div><!-- fragment --><p>This example creates a <span class="tt">Container</span> of <span class="tt">Dummy</span> pointers, adds three objects, processes them with a callback that prints their values, removes one object, and processes again.</p>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="expected-output"></a>
-Expected output:</h2>
-<div class="fragment"><div class="line">Item value: 1</div>
-<div class="line">Item value: 2</div>
-<div class="line">Item value: 3</div>
-<div class="line">Item value: 1</div>
-<div class="line">Item value: 3</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="a_container_8hpp_html"><div class="ttname"><a href="../../db/dc3/_container_8hpp.html">Container.hpp</a></div><div class="ttdoc">Container.hpp - Template class for managing collections of pointers.</div></div>
+<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html">Lib::Helper::Container</a></div><div class="ttdoc">Container - Template class for managing collections of pointers.</div><div class="ttdef"><b>Definition</b> Container.hpp:32</div></div>
+<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_a909d3a02f57c2bd184ceffb32877a6ee"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#a909d3a02f57c2bd184ceffb32877a6ee">Lib::Helper::Container::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears all pointers from the container.</div><div class="ttdef"><b>Definition</b> Container.hpp:91</div></div>
+<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_aacba5dd5579f2777cc6d6411a1aac0c4"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#aacba5dd5579f2777cc6d6411a1aac0c4">Lib::Helper::Container::remove</a></div><div class="ttdeci">bool remove(T *item)</div><div class="ttdoc">Removes a pointer from the container.</div><div class="ttdef"><b>Definition</b> Container.hpp:80</div></div>
+<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_abc936366755ee054f9eb59161e8a2d20"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#abc936366755ee054f9eb59161e8a2d20">Lib::Helper::Container::add</a></div><div class="ttdeci">bool add(T *item)</div><div class="ttdoc">Adds a pointer to the container if not already present.</div><div class="ttdef"><b>Definition</b> Container.hpp:53</div></div>
+<div class="ttc" id="aclass_lib_1_1_helper_1_1_container_html_aee986d3fbf46488dea3d2355d436536d"><div class="ttname"><a href="../../d9/d33/class_lib_1_1_helper_1_1_container.html#aee986d3fbf46488dea3d2355d436536d">Lib::Helper::Container::processItems</a></div><div class="ttdeci">void processItems(void(*callback)(T *, void *), void *context=nullptr)</div><div class="ttdoc">Processes each item with a callback function.</div><div class="ttdef"><b>Definition</b> Container.hpp:101</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>Object value: 10 Object value: 20</dd></dl>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

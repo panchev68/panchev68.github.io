@@ -18,7 +18,7 @@ var searchData=
   ['socket_15',['Socket',['../d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html',1,'Lib::Ethernet::Wiznet']]],
   ['spectrumanalyzer_16',['SpectrumAnalyzer',['../dd/d07/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_spectrum_analyzer.html',1,'Lib::Digi::API::Service']]],
   ['spiport_17',['SPIPort',['../dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html',1,'Lib::BSP']]],
-  ['spiport_18',['SpiPort',['../df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::SpiPort'],['../db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html',1,'Lib::HAL::SpiPort&lt; T_MODE &gt;']]],
+  ['spiport_18',['SpiPort',['../db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html',1,'Lib::HAL']]],
   ['spiport_3c_20drivermode_3a_3adma_20_3e_19',['SpiPort&lt; DriverMode::DMA &gt;',['../db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html',1,'Lib::HAL']]],
   ['state_20',['State',['../db/da8/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_state.html',1,'Lib::Digi::API::Connection::State'],['../d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html',1,'Lib::Math::Pid&lt; T &gt;::State']]],
   ['storagebase_21',['StorageBase',['../d6/d38/class_lib_1_1_system_1_1_parameters_base_1_1_storage_base.html',1,'Lib::System::ParametersBase']]],

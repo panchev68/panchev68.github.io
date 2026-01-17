@@ -1,13 +1,13 @@
 var hierarchy =
 [
     [ "ADC_ChannelConfTypeDef", null, [
-      [ "AdcChannel::Config", "de/db2/class_adc_channel_1_1_config.html", null ]
+      [ "Lib::HAL::AdcChannel::Config", "dd/d7d/class_lib_1_1_h_a_l_1_1_adc_channel_1_1_config.html", null ]
     ] ],
-    [ "AdcChannel", "dc/dee/class_adc_channel.html", [
+    [ "Lib::HAL::AdcChannel", "d7/d5a/class_lib_1_1_h_a_l_1_1_adc_channel.html", [
       [ "Lib::HAL::AdcPortBase", "de/dff/class_lib_1_1_h_a_l_1_1_adc_port_base.html", null ]
     ] ],
     [ "AdcTransparentPortBase", null, [
-      [ "Lib::HAL::Port< Lib::HAL::DriverMode::DMA >", "d1/db9/class_lib_1_1_h_a_l_1_1_port_3_01_lib_1_1_h_a_l_1_1_driver_mode_1_1_d_m_a_01_4.html", null ]
+      [ "Lib::HAL::Port< DriverMode::DMA >", "dc/db4/class_lib_1_1_h_a_l_1_1_port_3_01_driver_mode_1_1_d_m_a_01_4.html", null ]
     ] ],
     [ "Lib::Digi::Core::ApiFrameBuffer", "d0/d78/class_lib_1_1_digi_1_1_core_1_1_api_frame_buffer.html", null ],
     [ "Lib::Helper::Convert::Ascii", "db/d4d/class_lib_1_1_helper_1_1_convert_1_1_ascii.html", null ],
@@ -30,7 +30,7 @@ var hierarchy =
     ] ],
     [ "BufferHandle", "d2/d8a/class_buffer_handle.html", null ],
     [ "Lib::Helper::BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", null ],
-    [ "CAN_FilterTypeDef", "df/d9e/struct_c_a_n___filter_type_def.html", [
+    [ "CAN_FilterTypeDef", null, [
       [ "Lib::HAL::CanFilter", "d7/dd9/class_lib_1_1_h_a_l_1_1_can_filter.html", null ]
     ] ],
     [ "CAN_RxHeaderTypeDef", null, [
@@ -123,8 +123,9 @@ var hierarchy =
     [ "Lib::Errors::Error", "d9/dcd/class_lib_1_1_errors_1_1_error.html", null ],
     [ "Lib::Ethernet::Wiznet::Socket::Error", "d8/dce/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket_1_1_error.html", null ],
     [ "Lib::Digi::Core::EscapedCode", "d2/d1c/class_lib_1_1_digi_1_1_core_1_1_escaped_code.html", null ],
-    [ "RTOS::EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html", null ],
+    [ "RTOS::EventGroup&lt; N_BITS &gt;", "db/ddd/class_r_t_o_s_1_1_event_group.html", null ],
     [ "std::exception", null, [
+      [ "Lib::Helper::Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", null ],
       [ "Lib::Helper::Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", null ]
     ] ],
     [ "Lib::Helper::FindPeaks", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html", null ],
@@ -264,9 +265,6 @@ var hierarchy =
     [ "Lib::Ethernet::Wiznet::Socket", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html", null ],
     [ "Lib::BSP::SPIPort", "dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html", null ],
     [ "Lib::HAL::SpiPort&lt; T_MODE &gt;", "db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html", null ],
-    [ "Lib::HAL::SpiPort&lt; DriverMode::DMA &gt;", "db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html", [
-      [ "Lib::BSP::Display::Driver< Controller::ILI9341 >::SpiPort", "df/d3b/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_spi_port.html", null ]
-    ] ],
     [ "Lib::Digi::API::Connection::State", "db/da8/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_state.html", null ],
     [ "Lib::Math::Pid&lt; T &gt;::State", "d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html", null ],
     [ "Lib::System::ParametersBase::StorageBase", "d6/d38/class_lib_1_1_system_1_1_parameters_base_1_1_storage_base.html", null ],
@@ -275,8 +273,11 @@ var hierarchy =
     [ "Lib::Helper::Sunset", "d6/dd5/class_lib_1_1_helper_1_1_sunset.html", null ],
     [ "Lib::System::System", "d8/dc1/class_lib_1_1_system_1_1_system.html", null ],
     [ "RTOS::Task", "d1/d23/class_r_t_o_s_1_1_task.html", null ],
+    [ "RTOS::TaskWorker", "d2/dd6/class_r_t_o_s_1_1_task_worker.html", [
+      [ "Lib::BSP::XPT2046", "db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html", null ],
+      [ "RTOS::TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", null ]
+    ] ],
     [ "RTOS::TickCounter", "da/d2c/class_r_t_o_s_1_1_tick_counter.html", null ],
-    [ "RTOS::TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", null ],
     [ "Lib::Helper::DateTime::Time", "d7/dee/class_lib_1_1_helper_1_1_date_time_1_1_time.html", null ],
     [ "Lib::Helper::TimeZone::TimeChangeRule", "df/da6/struct_lib_1_1_helper_1_1_time_zone_1_1_time_change_rule.html", null ],
     [ "RTOS::Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", null ],
@@ -308,6 +309,5 @@ var hierarchy =
       [ "Lib::System::HardwareVersion", "df/d44/class_lib_1_1_system_1_1_hardware_version.html", null ]
     ] ],
     [ "Lib::Digi::API::NodeInfo::Versions", "de/d0e/class_lib_1_1_digi_1_1_a_p_i_1_1_node_info_1_1_versions.html", null ],
-    [ "Lib::BSP::W25Q128JVSIQ", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html", null ],
-    [ "Lib::BSP::XPT2046", "db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html", null ]
+    [ "Lib::BSP::W25Q128JVSIQ", "d2/daf/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q.html", null ]
 ];

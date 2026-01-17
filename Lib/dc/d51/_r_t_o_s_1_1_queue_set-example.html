@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: RTOS::QueueSet</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -92,19 +94,21 @@ $(function(){initNavTree('dc/d51/_r_t_o_s_1_1_queue_set-example.html','../../','
   <div class="headertitle"><div class="title">RTOS::QueueSet</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="example-usage-of-queueset-with-freertos-queue-sets"></a>
-Example usage of QueueSet with FreeRTOS queue sets.</h2>
-<p>This example demonstrates how to create a QueueSet, add queues to it, and select a ready member for processing. The QueueSet allows monitoring multiple queues and determining which one has data available.</p>
+<h1 class="doxsection"><a class="anchor" id="example-usage-of-rtosqueueset-with-freertos-queue-sets"></a>
+Example usage of RTOS::QueueSet with FreeRTOS queue sets.</h1>
+<p>This example demonstrates how to create a QueueSet, add queues to it, send data, and select ready members for processing. Queue sets allow monitoring multiple queues and determining which one has data available.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<p>Demonstrates creating a queue set, adding queues, sending data, and selecting ready members.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/de4/_queue_set_8hpp.html">Lib/RTOS/QueueSet.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;queue.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;FreeRTOS.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;queue.h&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Create queue set with capacity for 2 members</span></div>
+<div class="line">RTOS::QueueSet queueSet;</div>
 <div class="line"><span class="keyword">constexpr</span> UBaseType_t queueLength = 5;</div>
 <div class="line"><span class="keyword">constexpr</span> UBaseType_t itemSize = <span class="keyword">sizeof</span>(int);</div>
-<div class="line">RTOS::QueueSet queueSet = RTOS::createQueueSet(2);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Open the queue set</span></div>
+<div class="line">queueSet.open(2);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Create two queues</span></div>
 <div class="line">QueueHandle_t queue1 = xQueueCreate(queueLength, itemSize);</div>
@@ -131,11 +135,10 @@ Example usage of QueueSet with FreeRTOS queue sets.</h2>
 <div class="line">queueSet.removeFromSet(queue2);</div>
 <div class="line">vQueueDelete(queue1);</div>
 <div class="line">vQueueDelete(queue2);</div>
-<div class="ttc" id="a_queue_set_8hpp_html"><div class="ttname"><a href="../../dd/de4/_queue_set_8hpp.html">QueueSet.hpp</a></div><div class="ttdoc">QueueSet class and helpers for FreeRTOS queue sets.</div></div>
+<div class="ttc" id="a_queue_set_8hpp_html"><div class="ttname"><a href="../../dd/de4/_queue_set_8hpp.html">QueueSet.hpp</a></div><div class="ttdoc">C++ wrapper for FreeRTOS queue sets.</div></div>
 </div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
-<p>The example sends value 42 to queue1, selects it as the ready member, and receives the value. The received variable will contain the value 42.</p>
-<div class="fragment"><div class="line">received = 42</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<p>The example sends value 42 to queue1, selects it as the ready member, and receives the value. The received variable will contain 42.</p>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

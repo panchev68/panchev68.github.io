@@ -13,5 +13,6 @@ var class_lib_1_1_b_s_p_1_1_encoder_timer =
     [ "EncoderTimer", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#adae151ce252453b9d7875ff248990927", null ],
     [ "~EncoderTimer", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#ac94930ccccaf915988c8889a8506730e", null ],
     [ "init", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a71d28d6d793be5c6e8d8b187b9174e85", null ],
+    [ "operator=", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a48b400eb7c1065cef9188cc83010b54b", null ],
     [ "read", "d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a0b1c61c19c58792564f88bf25bc400e1", null ]
 ];

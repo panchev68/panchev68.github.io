@@ -4,16 +4,12 @@ var class_r_t_o_s_1_1_tick_service =
     [ "Status", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59cc", [
       [ "SUCCESS", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59ccad0749aaba8b833466dfcbb0428e4f89c", null ],
       [ "FAILURE", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59cca36fc6065a3e970bc3e6b2e59da52bf2a", null ],
-      [ "INVALID", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59ccaccc0377a8afbf50e7094f5c23a8af223", null ],
-      [ "ALREADY_RUNNING", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59ccae72544c6de918198c7e098d9c9152b1e", null ],
-      [ "NOT_RUNNING", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59cca0d30777007362ccc9e8b2d0d22e4db13", null ]
+      [ "INVALID_CLIENT", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59ccaa911726f65bdbd28b7505803dc051557", null ],
+      [ "CLIENT_ALREADY_REGISTERED", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59cca728a37982f117fdea4bbf66f18877aa5", null ],
+      [ "CLIENT_NOT_REGISTERED", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a70c86355486eeceee2c06726100e59cca27c23c1789c39f430229a3297e215e44", null ]
     ] ],
-    [ "getClientCount", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a1fbddf884e90eda1cd1ebefe9de70d2c", null ],
-    [ "getPriority", "d0/d51/class_r_t_o_s_1_1_tick_service.html#ad16610db0bbd8e2184e99e61731d02e0", null ],
-    [ "getTickInterval", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a457b84eda584831ecda6667a11059a3c", null ],
-    [ "isRunning", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a2b5b44562ccf4a0b03bd2eb38a071f81", null ],
-    [ "registerClient", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a56ff1175986e41c9897c0e8a23b3de6c", null ],
-    [ "setPriority", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a288042d9e79b8b2f6bd9bd0c0d4e81ec", null ],
-    [ "unregisterClient", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a1aaf0ca3e02352909442d35f21d54af8", null ],
+    [ "registerClient", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a499a72dd586e445f70000fbb0e8eee34", null ],
+    [ "taskFunction", "d0/d51/class_r_t_o_s_1_1_tick_service.html#ae9306e9c7a9b0db3019148ad65974249", null ],
+    [ "unregisterClient", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a9c8ab0931dd70061d5404a38f6908380", null ],
     [ "ClientBase", "d0/d51/class_r_t_o_s_1_1_tick_service.html#a01ff8e2c567461efe526865a3b9b7f5e", null ]
 ];

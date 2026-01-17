@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['jagged_20arrays_20of_20integers_0',['Example usage of JaggedArray for managing jagged arrays of integers.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#example-usage-of-jaggedarray-for-managing-jagged-arrays-of-integers',1,'']]],
-  ['jaggedarray_20for_20managing_20jagged_20arrays_20of_20integers_1',['Example usage of JaggedArray for managing jagged arrays of integers.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#example-usage-of-jaggedarray-for-managing-jagged-arrays-of-integers',1,'']]]
+  ['jagged_20array_20usage_20example_0',['Jagged Array Usage Example.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#jagged-array-usage-example',1,'']]]
 ];

@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['finddevice_0',['findDevice',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#af6e7cfe2e86697645d6f1909bb4b52e3',1,'Lib::HAL::DeviceManagerBase']]],
-  ['findinarray_1',['findInArray',['../d0/d40/class_lib_1_1_helper_1_1_string_helper.html#a1c50c5b0cf5d1f0a19d6fa97a20dc1de',1,'Lib::Helper::StringHelper']]],
+  ['findinarray_0',['findInArray',['../d0/d40/class_lib_1_1_helper_1_1_string_helper.html#a5bf7c03b90ed1b3520a8a5cd682b08a3',1,'Lib::Helper::StringHelper']]],
+  ['finditem_1',['findItem',['../d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a4b81e3704431c4dd4f577ba6ee97d2b8',1,'Lib::HAL::DeviceManagerBase']]],
   ['findpeaks_2',['FindPeaks',['../d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html#a92d5cff86019af3c569f6e27071715e1',1,'Lib::Helper::FindPeaks']]],
   ['firmware_3',['Firmware',['../df/d5e/class_lib_1_1_system_1_1_version_1_1_firmware.html#abbb7da14a7113d5cf210d52927fe3245',1,'Lib::System::Version::Firmware']]],
   ['firmwareversion_4',['FirmwareVersion',['../de/d82/class_lib_1_1_system_1_1_firmware_version.html#abf87178acd437a6b05a22644edcf3ab9',1,'Lib::System::FirmwareVersion']]],
@@ -18,7 +18,7 @@ var searchData=
   ['fromascii_15',['fromAscii',['../dc/d3d/class_lib_1_1_helper_1_1_convert_1_1_hex_helper.html#a637390b4d2c07b259343e67e801aa8ad',1,'Lib::Helper::Convert::HexHelper']]],
   ['fromdbm_16',['fromDBm',['../d4/d46/class_lib_1_1_helper_1_1_convert_1_1_percent.html#a7d7ae400d6729e68f91d6b1e211ad8ab',1,'Lib::Helper::Convert::Percent']]],
   ['fromhex_17',['fromHex',['../db/d4d/class_lib_1_1_helper_1_1_convert_1_1_ascii.html#a1ca7821adaea64fb3a7a3c673190bf35',1,'Lib::Helper::Convert::Ascii']]],
-  ['fromstring_18',['fromString',['../df/da1/class_lib_1_1_ethernet_1_1_mac_address.html#a3026e9f5536051bc1080f326410da6d4',1,'Lib::Ethernet::MacAddress::fromString()'],['../d9/db1/class_lib_1_1_ethernet_1_1_port.html#aa0638258c31f11e4ef3cc62727431773',1,'Lib::Ethernet::Port::fromString(const std::string &amp;str)'],['../d9/db1/class_lib_1_1_ethernet_1_1_port.html#a0203f5e25d8c4a6188deed8adfad9b85',1,'Lib::Ethernet::Port::fromString(const std::string &amp;str, uint16_t &amp;result)']]],
+  ['fromstring_18',['fromString',['../d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html#a386c64a42079e58ec899c9c7110819de',1,'Lib::Ethernet::IpAddress::fromString(const std::string_view &amp;str) noexcept'],['../d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html#a62cbf1ff5f14398a3c2773605efd47da',1,'Lib::Ethernet::IpAddress::fromString(const std::string_view &amp;str, std::array&lt; uint8_t, 4 &gt; &amp;address) noexcept'],['../df/da1/class_lib_1_1_ethernet_1_1_mac_address.html#a684691ff673f6b90b7b5ac5dea629c5b',1,'Lib::Ethernet::MacAddress::fromString()'],['../d9/db1/class_lib_1_1_ethernet_1_1_port.html#a6ca53053249ee41fb1270de3cd257b5b',1,'Lib::Ethernet::Port::fromString(const std::string_view &amp;str) noexcept'],['../d9/db1/class_lib_1_1_ethernet_1_1_port.html#a640aed9a1a27ceebea6ddc7ab08c7243',1,'Lib::Ethernet::Port::fromString(const std::string_view &amp;str, uint16_t &amp;result) noexcept']]],
   ['fromvec_19',['fromVec',['../d1/df0/class_lib_1_1_x_c_o_m_1_1_service_base.html#afcd88ea1c9f8679164e4495a00c20a58',1,'Lib::XCOM::ServiceBase']]],
   ['front_20',['front',['../d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#a355bd20b51552ad58441b70ee56558dc',1,'Lib::Helper::RingBuffer::front()'],['../d2/d9b/class_lib_1_1_helper_1_1_ring_buffer.html#aade49f0218a38f79f4ca46708496c9f2',1,'Lib::Helper::RingBuffer::front() const']]]
 ];

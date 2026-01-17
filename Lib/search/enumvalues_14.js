@@ -7,7 +7,7 @@ var searchData=
   ['wrcace_4',['WRCACE',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba0114037b78c765eda31a500255c0cebe',1,'Lib::BSP::Display']]],
   ['wrctrld_5',['WRCTRLD',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515baafcd7c6ccbd22055c7e8be371ff8d840',1,'Lib::BSP::Display']]],
   ['wrdisbv_6',['WRDISBV',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515bac06e33ef739de23eb8a661a971992d7c',1,'Lib::BSP::Display']]],
-  ['write_5fdisable_7',['WRITE_DISABLE',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#adec713c7c8ff95e546a542c8746fd8a3ade349ce6f9b39f8f424c2e397f38cf4b',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['write_5fenable_8',['WRITE_ENABLE',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#adec713c7c8ff95e546a542c8746fd8a3adac254736f4921da27f47c873858109a',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['write_5fdisable_7',['WRITE_DISABLE',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#af7d790bb48b1b3266cbe8ba0332658d0ade349ce6f9b39f8f424c2e397f38cf4b',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['write_5fenable_8',['WRITE_ENABLE',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#af7d790bb48b1b3266cbe8ba0332658d0adac254736f4921da27f47c873858109a',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['wrmemc_9',['WRMEMC',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515baa4b9f6db63d9706d69e2637c576da541',1,'Lib::BSP::Display']]]
 ];

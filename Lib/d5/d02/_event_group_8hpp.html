@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: EventGroup.hpp File Reference</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -93,13 +95,13 @@ $(function(){initNavTree('d5/d02/_event_group_8hpp.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Event group wrapper for FreeRTOS.  
+<p>RAII wrapper for FreeRTOS event groups with type-safe bit management.  
 <a href="#details">More...</a></p>
 <div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for EventGroup.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d53/_event_group_8hpp__incl.svg" width="856" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d53/_event_group_8hpp__incl.svg" width="707" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -112,22 +114,24 @@ $(function(){initNavTree('d5/d02/_event_group_8hpp.html','../../',''); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:RTOS_3A_3AEventGroup" id="r_RTOS_3A_3AEventGroup"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html">RTOS::EventGroup</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event group wrapper class.  <a href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#details">More...</a><br /></td></tr>
+<tr class="memitem:RTOS_3A_3AEventGroup_3C_20N_5FBITS_20_3E" id="r_RTOS_3A_3AEventGroup_3C_20N_5FBITS_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html">RTOS::EventGroup&lt; N_BITS &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">RAII wrapper for FreeRTOS event groups.  <a href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:RTOS" id="r_RTOS"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../da/d8a/namespace_r_t_o_s.html">RTOS</a></td></tr>
 <tr class="memdesc:da/d8a/namespace_r_t_o_s"><td class="mdescLeft">&#160;</td><td class="mdescRight">RTOS namespace. <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a6409dee49239fc30c27bcc7cc5f52011" id="r_a6409dee49239fc30c27bcc7cc5f52011"><td class="memItemLeft"><a id="a6409dee49239fc30c27bcc7cc5f52011" name="a6409dee49239fc30c27bcc7cc5f52011"></a>
-using&#160;</td><td class="memItemRight"><b>RTOS::EventBits</b> = std::bitset&lt;24&gt;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Event group wrapper for FreeRTOS. </p>
-<p>This file provides a C++ wrapper class for FreeRTOS event groups, offering a safer and more convenient interface for managing event bits in embedded systems. It supports setting, clearing, and waiting for event bits with various modes and timeouts, including ISR-safe operations. The class ensures RAII compliance and integrates with the project's timeout and tick counter utilities. </p>
+<div class="textblock"><p>RAII wrapper for FreeRTOS event groups with type-safe bit management. </p>
+<p>Defines <span class="tt">RTOS::EventGroup&lt;N_BITS&gt;</span>, a C++17 move-only RAII wrapper around FreeRTOS event groups. Provides type-safe helpers for setting and waiting on event bits, supports both template- and bitset-based interfaces, and includes ISR-safe helpers that call the appropriate FreeRTOS ISR APIs.</p>
+<p>The wrapper manages event group lifecycle through RAII semantics, automatically releasing resources in the destructor. Supports variadic template bit operations for compile-time type checking and flexible bitset-based operations for dynamic bit selection. All ISR-safe operations perform context switching when needed.</p>
+<p>Important dependencies include FreeRTOS.h, event_groups.h, and Timeout.hpp. Template parameter <span class="tt">N_BITS</span> must not exceed the bit width of <span class="tt">EventBits_t</span> on the target platform. The class is move-only to prevent accidental double-release.</p>
+<dl class="section note"><dt>Note</dt><dd>Designed for real-time embedded applications with interrupt handling. </dd>
+<dd>
+Thread-safe ISR operations with automatic context switch support.</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>3.04 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>17 Jan 2026 </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -141,7 +145,7 @@ using&#160;</td><td class="memItemRight"><b>RTOS::EventBits</b> = std::bitset&lt
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d5/d02/_event_group_8hpp.html">EventGroup.hpp</a></li>
+    <li class="navelem"><b>inc</b></li><li class="navelem"><b>Lib</b></li><li class="navelem"><b>RTOS</b></li><li class="navelem"><a href="../../d5/d02/_event_group_8hpp.html">EventGroup.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

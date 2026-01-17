@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: GPIO.hpp Source File</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -93,45 +95,49 @@ $(function(){initNavTree('db/dd0/_g_p_i_o_8hpp_source.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 <a href="../../db/dd0/_g_p_i_o_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** GPIO HAL interface header.</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * This file provides type aliases and EXTI callback for the GPIO HAL abstraction layer.\n</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * It defines convenient aliases for GPIO handle, input, output, and port types, and provides a macro for pin handle\n</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * construction. The file also declares the HAL EXTI callback for GPIO, which routes EXTI events to the EXTIBase\n</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * device manager. This infrastructure enables unified GPIO handling and event management for STM32 HAL-based projects.\n</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * @file GPIO.hpp</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#pragma once</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d8d/_ext_interrupt_8hpp.html">core/GPIO/ExtInterrupt.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/da8/_g_p_i_o_2_handle_8hpp.html">core/GPIO/Handle.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4b/_input_8hpp.html">core/GPIO/Input.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dd1/_output_8hpp.html">core/GPIO/Output.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d71/_h_a_l_2core_2_g_p_i_o_2_port_8hpp.html">core/GPIO/Port.hpp</a>&quot;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#if defined(HAL_GPIO_MODULE_ENABLED) || defined(__INTELLISENSE__) || defined(__DOXYGEN__)</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">using </span>PinHandle = Lib::HAL::GPIO::Handle;          <span class="comment">/*!&lt; GPIO pin handle type. */</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">using </span>PinInput = Lib::HAL::GPIO::Input;            <span class="comment">/*!&lt; GPIO input pin type. */</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="keyword">using </span>PinOutput = Lib::HAL::GPIO::Output;          <span class="comment">/*!&lt; GPIO output pin type. */</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keyword">using </span>PinPort = Lib::HAL::GPIO::Port;              <span class="comment">/*!&lt; GPIO port type. */</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using </span>ExtInterrupt = Lib::HAL::GPIO::ExtInterrupt; <span class="comment">/*!&lt; GPIO external interrupt pin type. */</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="a_ext_interrupt_8hpp_html"><div class="ttname"><a href="../../df/d8d/_ext_interrupt_8hpp.html">ExtInterrupt.hpp</a></div><div class="ttdoc">Base class for GPIO external interrupt (EXTI) management.</div></div>
-<div class="ttc" id="a_g_p_i_o_2_handle_8hpp_html"><div class="ttname"><a href="../../dd/da8/_g_p_i_o_2_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">GPIO pin handle abstraction.</div></div>
-<div class="ttc" id="a_h_a_l_2core_2_g_p_i_o_2_port_8hpp_html"><div class="ttname"><a href="../../d2/d71/_h_a_l_2core_2_g_p_i_o_2_port_8hpp.html">Port.hpp</a></div><div class="ttdoc">Port abstraction for GPIO operations.</div></div>
-<div class="ttc" id="a_input_8hpp_html"><div class="ttname"><a href="../../d0/d4b/_input_8hpp.html">Input.hpp</a></div><div class="ttdoc">GPIO input pin abstraction and management.</div></div>
-<div class="ttc" id="a_output_8hpp_html"><div class="ttname"><a href="../../d2/dd1/_output_8hpp.html">Output.hpp</a></div><div class="ttdoc">GPIO output pin abstraction and management.</div></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * This file provides type aliases and EXTI callback for the GPIO HAL abstraction layer.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * It defines convenient aliases for GPIO handle, input, output, and port types, and provides a macro for pin handle construction.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * The file also declares the HAL EXTI callback for GPIO, which routes EXTI events to the EXTIBase device manager.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * This infrastructure enables unified GPIO handling and event management for STM32 HAL-based projects.</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * @version 3.04</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> * @date 17 Jan 2026</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * @file GPIO.hpp</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="../../df/d8d/_ext_interrupt_8hpp.html">core/GPIO/ExtInterrupt.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="../../dd/da8/_g_p_i_o_2_handle_8hpp.html">core/GPIO/Handle.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d4b/_input_8hpp.html">core/GPIO/Input.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/dd1/_output_8hpp.html">core/GPIO/Output.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d71/_h_a_l_2core_2_g_p_i_o_2_port_8hpp.html">core/GPIO/Port.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#if defined(HAL_GPIO_MODULE_ENABLED) || defined(__INTELLISENSE__) || defined(__DOXYGEN__)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">using </span>PinHandle = Lib::HAL::GPIO::Handle;          <span class="comment">/*!&lt; GPIO pin handle type. */</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">using </span>PinInput = Lib::HAL::GPIO::Input;            <span class="comment">/*!&lt; GPIO input pin type. */</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">using </span>PinOutput = Lib::HAL::GPIO::Output;          <span class="comment">/*!&lt; GPIO output pin type. */</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">using </span>PinPort = Lib::HAL::GPIO::Port;              <span class="comment">/*!&lt; GPIO port type. */</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">using </span>ExtInterrupt = Lib::HAL::GPIO::ExtInterrupt; <span class="comment">/*!&lt; GPIO external interrupt pin type. */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="a_ext_interrupt_8hpp_html"><div class="ttname"><a href="../../df/d8d/_ext_interrupt_8hpp.html">ExtInterrupt.hpp</a></div><div class="ttdoc">External interrupt handling for GPIO pins with event-driven architecture.</div></div>
+<div class="ttc" id="a_g_p_i_o_2_handle_8hpp_html"><div class="ttname"><a href="../../dd/da8/_g_p_i_o_2_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">GPIO Handle class for managing GPIO pins.</div></div>
+<div class="ttc" id="a_h_a_l_2core_2_g_p_i_o_2_port_8hpp_html"><div class="ttname"><a href="../../d2/d71/_h_a_l_2core_2_g_p_i_o_2_port_8hpp.html">Port.hpp</a></div><div class="ttdoc">GPIO Port class for handling GPIO ports.</div></div>
+<div class="ttc" id="a_input_8hpp_html"><div class="ttname"><a href="../../d0/d4b/_input_8hpp.html">Input.hpp</a></div><div class="ttdoc">GPIO Input class for handling input pins.</div></div>
+<div class="ttc" id="a_output_8hpp_html"><div class="ttname"><a href="../../d2/dd1/_output_8hpp.html">Output.hpp</a></div><div class="ttdoc">GPIO Output class for handling output pins.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>HAL</b></li><li class="navelem"><a href="../../db/dd0/_g_p_i_o_8hpp.html">GPIO.hpp</a></li>
+    <li class="navelem"><b>inc</b></li><li class="navelem"><b>Lib</b></li><li class="navelem"><b>HAL</b></li><li class="navelem"><a href="../../db/dd0/_g_p_i_o_8hpp.html">GPIO.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

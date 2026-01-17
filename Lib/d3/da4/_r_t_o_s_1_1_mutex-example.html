@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: RTOS::Mutex</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -94,7 +96,7 @@ $(function(){initNavTree('d3/da4/_r_t_o_s_1_1_mutex-example.html','../../',''); 
 <div class="contents">
 <h2 class="doxsection"><a class="anchor" id="advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks"></a>
 Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.</h2>
-<p>This example demonstrates the use of <span class="tt">RTOS::Mutex</span> and <span class="tt">MutexGuard</span> to synchronize access to a shared resource (<span class="tt">sharedBuffer</span>) between two concurrent tasks in a FreeRTOS-based application. The example shows how to create a recursive mutex, use RAII-based locking, and safely update a buffer from multiple tasks. It also demonstrates how to check lock status and handle lock acquisition failures.</p>
+<p>This example demonstrates the use of <span class="tt">RTOS::Mutex</span> and <span class="tt">MutexGuard</span> to synchronize access to a shared resource (<span class="tt">sharedBuffer</span>) between two concurrent tasks in a FreeRTOS-based application. The example shows how to open a recursive mutex, use RAII-based locking, and safely update a buffer from multiple tasks. It also demonstrates how to check lock status and handle lock acquisition failures.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d48/_mutex_8hpp.html">Lib/RTOS/Mutex.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
@@ -104,7 +106,7 @@ Advanced example: Using RTOS::Mutex for protecting a shared resource in concurre
 <div class="line"><span class="keywordtype">char</span> sharedBuffer[32] = {0};</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> writerTask(<span class="keyword">const</span> <span class="keywordtype">char</span> *text) {</div>
-<div class="line">    <span class="keywordflow">if</span> (!sharedBufferMutex.isValid()) sharedBufferMutex.create();</div>
+<div class="line">    <span class="keywordflow">if</span> (!sharedBufferMutex.isValid()) sharedBufferMutex.open();</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
 <div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_typedef" href="../../d4/d48/_mutex_8hpp.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(sharedBufferMutex, 50);</div>
 <div class="line">        <span class="keywordflow">if</span> (guard) {</div>
@@ -117,7 +119,7 @@ Advanced example: Using RTOS::Mutex for protecting a shared resource in concurre
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> readerTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!sharedBufferMutex.isValid()) sharedBufferMutex.create();</div>
+<div class="line">    <span class="keywordflow">if</span> (!sharedBufferMutex.isValid()) sharedBufferMutex.open();</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
 <div class="line">        <a class="code hl_typedef" href="../../d4/d48/_mutex_8hpp.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(sharedBufferMutex, 50);</div>
 <div class="line">        <span class="keywordflow">if</span> (guard.isLocked()) {</div>
@@ -129,18 +131,18 @@ Advanced example: Using RTOS::Mutex for protecting a shared resource in concurre
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    sharedBufferMutex.create();</div>
+<div class="line">    sharedBufferMutex.open();</div>
 <div class="line">    writerTask(<span class="stringliteral">&quot;Hello&quot;</span>);</div>
 <div class="line">    readerTask();</div>
 <div class="line">    writerTask(<span class="stringliteral">&quot;World&quot;</span>);</div>
 <div class="line">    readerTask();</div>
-<div class="line">    sharedBufferMutex.destroy();</div>
+<div class="line">    sharedBufferMutex.close();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 <div class="ttc" id="a_mutex_8hpp_html"><div class="ttname"><a href="../../d4/d48/_mutex_8hpp.html">Mutex.hpp</a></div><div class="ttdoc">Mutex class for FreeRTOS synchronization.</div></div>
-<div class="ttc" id="a_mutex_8hpp_html_a374642113cf09f4704dd8242b052899d"><div class="ttname"><a href="../../d4/d48/_mutex_8hpp.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a></div><div class="ttdeci">RTOS::Mutex::LockGuard MutexGuard</div><div class="ttdoc">Type alias for Mutex::LockGuard.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:234</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_mutex_html"><div class="ttname"><a href="../../df/df4/class_r_t_o_s_1_1_mutex.html">RTOS::Mutex</a></div><div class="ttdoc">Mutex class for synchronization.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:30</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_mutex_html_a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638"><div class="ttname"><a href="../../df/df4/class_r_t_o_s_1_1_mutex.html#a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::MutexType::RECURSIVE</a></div><div class="ttdeci">@ RECURSIVE</div><div class="ttdef"><b>Definition</b> Mutex.hpp:44</div></div>
+<div class="ttc" id="a_mutex_8hpp_html_a374642113cf09f4704dd8242b052899d"><div class="ttname"><a href="../../d4/d48/_mutex_8hpp.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a></div><div class="ttdeci">RTOS::Mutex::LockGuard MutexGuard</div><div class="ttdoc">Type alias for Mutex::LockGuard.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:425</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_mutex_html"><div class="ttname"><a href="../../df/df4/class_r_t_o_s_1_1_mutex.html">RTOS::Mutex</a></div><div class="ttdoc">Mutex class for synchronization.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:86</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_mutex_html_a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638"><div class="ttname"><a href="../../df/df4/class_r_t_o_s_1_1_mutex.html#a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::MutexType::RECURSIVE</a></div><div class="ttdeci">@ RECURSIVE</div><div class="ttdef"><b>Definition</b> Mutex.hpp:103</div></div>
 </div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
 <div class="fragment"><div class="line">Writer: Write 0: Hello</div>
 <div class="line">Writer: Write 1: Hello</div>

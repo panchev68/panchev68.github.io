@@ -25,10 +25,8 @@ var searchData=
   ['rotationflipped_22',['rotationFlipped',['../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#aded7fd6f255b5cdaa202d1615ae38c64',1,'Lib::BSP::XPT2046::Parameters']]],
   ['rotationnormal_23',['rotationNormal',['../da/df9/struct_lib_1_1_b_s_p_1_1_x_p_t2046_1_1_parameters.html#afcfd3b948c2d0f02e81edaa1e86755df',1,'Lib::BSP::XPT2046::Parameters']]],
   ['rssi_24',['rssi',['../d9/dec/class_lib_1_1_digi_1_1_core_1_1_frame0x80.html#a75c9b510bbf5bbdfae41d3f2cfff6428',1,'Lib::Digi::Core::Frame0x80::rssi'],['../d0/dfa/class_lib_1_1_digi_1_1_core_1_1_frame0x81.html#af6b4d51bb9e62729e45af3c4c973f0f4',1,'Lib::Digi::Core::Frame0x81::rssi']]],
-  ['rstpin_25',['rstPin',['../d6/de3/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4.html#a570394d7f9e7b80d53a680c896938d92',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;']]],
-  ['rstpinhandle_26',['rstPinHandle',['../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#a821738d8ce3f21b2a2f58631aba92949',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config']]],
-  ['rulename_27',['ruleName',['../df/da6/struct_lib_1_1_helper_1_1_time_zone_1_1_time_change_rule.html#a3a9d427a2211a761198fb95fdd17d801',1,'Lib::Helper::TimeZone::TimeChangeRule']]],
-  ['rxfifofullcounter_28',['rxFifoFullCounter',['../dc/d77/struct_lib_1_1_canbus_1_1_service_base_1_1_diagnostic.html#ae1980d93ca6461dabf615247c5043049',1,'Lib::Canbus::ServiceBase::Diagnostic']]],
-  ['rxhandle_29',['rxHandle',['../d3/d5e/struct_lib_1_1_digi_1_1_core_1_1_com_driver_1_1_config.html#a104be6f4dc8435537f4c67f92b766d13',1,'Lib::Digi::Core::ComDriver::Config']]],
-  ['rxport_30',['rxPort',['../d9/d53/struct_lib_1_1_u_s_b_1_1_serial_port_1_1_config.html#a98a7f460b778792479ec51b4e7348ddb',1,'Lib::USB::SerialPort::Config']]]
+  ['rulename_25',['ruleName',['../df/da6/struct_lib_1_1_helper_1_1_time_zone_1_1_time_change_rule.html#a1ee23cdce5ebbada4f7a6497aaf2058a',1,'Lib::Helper::TimeZone::TimeChangeRule']]],
+  ['rxfifofullcounter_26',['rxFifoFullCounter',['../dc/d77/struct_lib_1_1_canbus_1_1_service_base_1_1_diagnostic.html#ae1980d93ca6461dabf615247c5043049',1,'Lib::Canbus::ServiceBase::Diagnostic']]],
+  ['rxhandle_27',['rxHandle',['../d3/d5e/struct_lib_1_1_digi_1_1_core_1_1_com_driver_1_1_config.html#a104be6f4dc8435537f4c67f92b766d13',1,'Lib::Digi::Core::ComDriver::Config']]],
+  ['rxport_28',['rxPort',['../d9/d53/struct_lib_1_1_u_s_b_1_1_serial_port_1_1_config.html#a98a7f460b778792479ec51b4e7348ddb',1,'Lib::USB::SerialPort::Config']]]
 ];

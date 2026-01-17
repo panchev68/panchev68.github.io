@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: Lib::Helper::Delay Class Reference</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -93,7 +95,7 @@ $(function(){initNavTree('d7/d08/class_lib_1_1_helper_1_1_delay.html','../../','
 </div><!--header-->
 <div class="contents">
 
-<p>Delay class for precise timing delays.  
+<p>Non-instantiable busy-wait delay utilities.  
  <a href="#details">More...</a></p>
 <div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::Delay:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -105,13 +107,16 @@ $(function(){initNavTree('d7/d08/class_lib_1_1_helper_1_1_delay.html','../../','
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae4992352e2ebd205261b54a09caed7dc" id="r_ae4992352e2ebd205261b54a09caed7dc"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ae4992352e2ebd205261b54a09caed7dc">microseconds</a> (uint32_t delay)</td></tr>
-<tr class="memdesc:ae4992352e2ebd205261b54a09caed7dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of microseconds.  <br /></td></tr>
+<tr class="memdesc:ae4992352e2ebd205261b54a09caed7dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform busy-wait delay for specified microseconds.  <br /></td></tr>
 <tr class="memitem:aa7b4181daba2b915c853bcfff99644eb" id="r_aa7b4181daba2b915c853bcfff99644eb"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aa7b4181daba2b915c853bcfff99644eb">nanoseconds</a> (uint32_t delay)</td></tr>
-<tr class="memdesc:aa7b4181daba2b915c853bcfff99644eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of nanoseconds.  <br /></td></tr>
+<tr class="memdesc:aa7b4181daba2b915c853bcfff99644eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform busy-wait delay for specified nanoseconds.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Delay class for precise timing delays. </p>
-<p>Provides static methods for microsecond and nanosecond delays using the DWT cycle counter. Designed for embedded systems to achieve accurate timing without system blocking. </p>
+<div class="textblock"><p>Non-instantiable busy-wait delay utilities. </p>
+<p>Provides static methods for precise busy-wait delays using the Cortex-M DWT cycle counter. Supports delays in microseconds and nanoseconds with automatic clock frequency detection. The class is designed to be non-instantiable to prevent construction and copying.</p>
+<p>This utility is optimized for short blocking delays where interrupt disabling is acceptable. For longer delays or when interrupts must remain enabled, use RTOS delay functions instead.</p>
+<dl class="section note"><dt>Note</dt><dd>Uses DWT cycle counter for high-precision timing. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Performs busy-waiting; interrupts are disabled during delay. </dd></dl>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ae4992352e2ebd205261b54a09caed7dc" name="ae4992352e2ebd205261b54a09caed7dc"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4992352e2ebd205261b54a09caed7dc">&#9670;&#160;</a></span>microseconds()</h2>
@@ -136,14 +141,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Delays execution for the specified number of microseconds. </p>
+<p>Perform busy-wait delay for specified microseconds. </p>
+<p>Blocks execution for approximately the specified number of microseconds using the DWT cycle counter for precise timing. The actual delay may vary slightly due to clock frequency accuracy and interrupt overhead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delay</td><td>Delay duration in microseconds. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">delay</td><td>Delay duration in microseconds; must be greater than 0.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>delay must be greater than 0. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>DWT cycle counter must be available and HAL_RCC_GetHCLKFreq() must return valid core clock frequency in Hz. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Execution is blocked for at least the specified delay duration. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d00/_lib_1_1_helper_1_1_delay-example.html#a0">Lib::Helper::Delay</a>.</dd>
 </dl>
 
@@ -172,14 +179,16 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Delays execution for the specified number of nanoseconds. </p>
+<p>Perform busy-wait delay for specified nanoseconds. </p>
+<p>Blocks execution for approximately the specified number of nanoseconds using the DWT cycle counter for precise timing. The actual delay may vary slightly due to clock frequency accuracy and interrupt overhead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">delay</td><td>Delay duration in nanoseconds. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">delay</td><td>Delay duration in nanoseconds; must be greater than 0.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd>delay must be greater than 0. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>DWT cycle counter must be available and HAL_RCC_GetHCLKFreq() must return valid core clock frequency in Hz. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>Execution is blocked for at least the specified delay duration. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d3/d00/_lib_1_1_helper_1_1_delay-example.html#a1">Lib::Helper::Delay</a>.</dd>
 </dl>
 

@@ -56,7 +56,9 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ]
       ] ]
     ] ],
     [ "Examples", "examples.html", "examples" ]
@@ -66,25 +68,25 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d95/class_lib_1_1_helper_1_1_buffer.html#ae5bda49ac628300172da394adb8e6b7c",
-"d1/d2c/class_lib_1_1_b_s_p_1_1_encoder_timer.html#a79bb5179e93b8bb7fb1dca034f1572f7",
-"d2/d37/class_lib_1_1_u_s_b_1_1_serial_port_repeater_base.html#a9a4303c3638d7dd014eb41329dfaa458",
-"d3/d82/struct_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_config.html#af85ee7d75b038cf80f96fa395058786a",
-"d4/d7f/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_port_base.html",
-"d6/d36/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters.html#aa7cbff35e2408ac14a6e5b781755445d",
-"d6/ddd/class_lib_1_1_helper_1_1_container_base.html#a70e9c1cc3082b68083c1870aaf00f399",
-"d7/d3d/class_lib_1_1_digi_1_1_core_1_1_frame0x89.html#a1f2d004cd4c6fbc142552586f654c372ad0749aaba8b833466dfcbb0428e4f89c",
-"d7/dee/class_lib_1_1_helper_1_1_date_time_1_1_time.html#a51eaea0c22091d48dd679ed95386a253",
-"d8/dc9/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_quality.html#ac0ce3488e55e61cb6a016e5037e89822",
-"d9/db1/class_lib_1_1_ethernet_1_1_port.html#a17eb9d56ec5a24404f0a8a529326ad7c",
-"da/dc6/class_lib_1_1_system_1_1_parameters_base.html#a2502491a4326f3f7b8750a3a16751e5f",
-"db/da8/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_state.html#a9b994b0a748f87f74f1297ef9aed5b1b",
-"dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html#af1bf58d46a2365d039aa946466c931e4",
-"dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html#a50d117d1cbd979e6167cd51ccb7fdb7b",
-"dd/de5/namespace_lib_1_1_digi_1_1_core.html#ac00e3258c1e2d55846ad6f50ddfebbdc",
-"de/dca/class_r_t_o_s_1_1_kernel_1_1_scheduler_suspension.html#aee3081c3b5a7eb161bfea93b68b7572d",
-"df/da1/class_lib_1_1_ethernet_1_1_mac_address.html#a1f0169e55ffd6342fdac1722c1a5a969",
-"functions_r.html"
+"d0/d95/class_lib_1_1_helper_1_1_buffer.html#a57b913d3f6c04a2b4e00ea9eaeb73fb1",
+"d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693",
+"d2/d37/class_lib_1_1_u_s_b_1_1_serial_port_repeater_base.html#a46f5773a9ac867bad0a0393b9ef22a1f",
+"d3/d3a/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs.html#aee204a6cbdf55da3b5cbbe6c628c8d7f",
+"d4/d5a/class_r_t_o_s_1_1_message_buffer.html#a9a62bafeca63426a70575b7228f9c698",
+"d6/d1a/class_lib_1_1_x_c_o_m_1_1_protocol_1_1_frame.html#a412f102d12f67ae6c10d1de7fbaa3b1a",
+"d6/dd5/class_lib_1_1_helper_1_1_sunset.html#abba3f1c193dc992555b2bc2a9a2c0261",
+"d7/d3b/class_lib_1_1_helper_1_1_date_time_1_1_date.html#a888416dec009c5081fcdd9cb01d3d89aab84c7af9d827d3aee2535ef6fcd4f936",
+"d7/dca/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_inputs.html#ac257493a25a7d920e01b36479ab5bf8d",
+"d8/da3/class_lib_1_1_digi_1_1_a_p_i_1_1_pause.html#af7c0961b55cb5b94b132896f289c4fb9",
+"d9/d33/class_lib_1_1_helper_1_1_container.html#aafd7a52090d31d23220d6906397a0e43",
+"da/da7/class_lib_1_1_digi_1_1_core_1_1_frame0x00.html",
+"db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#a71f91e486ebbe685b8ef04a85df9816e",
+"dc/d33/class_r_t_o_s_1_1_timeout.html#a2823f4f34a13bb76fb12f52f16521b4e",
+"dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html#af7131bad29fcbc58704df1ea0912b739",
+"dd/de4/_queue_set_8hpp_source.html",
+"de/dcb/_frame0x97_8hpp_source.html",
+"df/dab/_socket_8hpp_source.html",
+"functions_vars_u.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

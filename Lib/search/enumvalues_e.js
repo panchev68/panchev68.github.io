@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['page_5fprogram_0',['PAGE_PROGRAM',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#adec713c7c8ff95e546a542c8746fd8a3a83abf4c5f8e37e32281de9e521a053d8',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['page_5fprogram_0',['PAGE_PROGRAM',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#af7d790bb48b1b3266cbe8ba0332658d0a83abf4c5f8e37e32281de9e521a053d8',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['parallel_1',['PARALLEL',['../dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb',1,'Lib::BSP::DigitalPeripheralBase']]],
   ['parctrl_2',['PARCTRL',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515baf8f3ccb50325566ce3c537c4c15ce4c1',1,'Lib::BSP::Display']]],
   ['paset_3',['PASET',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba53f42a78a108f1836e479cb2f4cd2f54',1,'Lib::BSP::Display']]],
@@ -9,10 +9,10 @@ var searchData=
   ['porctrl_6',['PORCTRL',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba1e2077b660e807e9bb53287cc5d74f79',1,'Lib::BSP::Display']]],
   ['powctra_7',['POWCTRA',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba80190f8fd400dbd58277a0c58180b1f2',1,'Lib::BSP::Display']]],
   ['powctrb_8',['POWCTRB',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba31821580abe3026fc9b5dfc144f33203',1,'Lib::BSP::Display']]],
-  ['power_5fdown_9',['POWER_DOWN',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#adec713c7c8ff95e546a542c8746fd8a3a2ac47afab90505dcc5d38c9fdd92c72d',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['power_5fdown_9',['POWER_DOWN',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#af7d790bb48b1b3266cbe8ba0332658d0a2ac47afab90505dcc5d38c9fdd92c72d',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['power_5foff_10',['POWER_OFF',['../de/d0c/class_lib_1_1_b_s_p_1_1_f_m_e_m_1_1_s_p_i_1_1_driver_base.html#a87152117d0e4d147672262b5420769bcaa15cea80d926d7282b831d451ba8aee8',1,'Lib::BSP::FMEM::SPI::DriverBase']]],
   ['power_5fon_5fpower_5fdown_5freset_11',['POWER_ON_POWER_DOWN_RESET',['../dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91af312bff7200b6868277e61c8c8f5d8c9',1,'Lib::HAL::Reset']]],
-  ['power_5fup_12',['POWER_UP',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#adec713c7c8ff95e546a542c8746fd8a3aa3fdd0664f79c6b09e2d8041f7c78be6',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['power_5fup_12',['POWER_UP',['../d9/d80/class_lib_1_1_b_s_p_1_1_w25_q128_j_v_s_i_q_1_1_register.html#af7d790bb48b1b3266cbe8ba0332658d0aa3fdd0664f79c6b09e2d8041f7c78be6',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
   ['powonseqctrl_13',['POWONSEQCTRL',['../da/d7f/_display_2_components_2_i_l_i9341_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba54f9da66bddfb7bc03084696c8519759',1,'Lib::BSP::Display']]],
   ['powsave_14',['POWSAVE',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515bad4608edea13392bb16f991954b896457',1,'Lib::BSP::Display']]],
   ['promact_15',['PROMACT',['../d1/d87/_display_2_components_2_s_t7789_2_registers_8hpp.html#afe2d246e2a2a5bc3699440ae4548515ba8071744584708e7fcbfaa4264801781f',1,'Lib::BSP::Display']]],

@@ -10,8 +10,8 @@ var class_lib_1_1_h_a_l_1_1_reset =
       [ "EXTERNAL_RESET_PIN_RESET", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91afc5e50d6793983bf73cfd7d662e3bb70", null ],
       [ "BROWNOUT_RESET", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#ae9f0fa1c20664b577fc615da59211d91a6c84682a5c427172331e0e944730cac9", null ]
     ] ],
-    [ "~Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a86fcd1e02701a3c6c3c7f44d4f518f5a", null ],
-    [ "getState", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a6f2776a717fc1c6cba75f18f9ec5dc16", null ],
-    [ "operator State", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a8d3fc523924d5214f8dcfc4d7e080b6f", null ],
-    [ "reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a225bc2f9446e98c3aa0c41b90cc94161", null ]
+    [ "~Reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a45bcac105083241b60210c5a43fdb2ba", null ],
+    [ "getState", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a8004052ba43a88b67e9caa20fa86f7b0", null ],
+    [ "operator State", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a9687843fee0f64c8b855fd9bbfb72c2d", null ],
+    [ "reset", "dd/d7c/class_lib_1_1_h_a_l_1_1_reset.html#a370e4164b8c09ce5f5dd88069336917d", null ]
 ];

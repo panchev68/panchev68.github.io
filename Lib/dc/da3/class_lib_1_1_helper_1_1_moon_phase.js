@@ -6,7 +6,7 @@ var class_lib_1_1_helper_1_1_moon_phase =
     [ "~MoonPhase", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a93a72371cff9590d6c36059c5f533263", null ],
     [ "calculate", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a213b5c31de45b7d146a2a5c4bc636745", null ],
     [ "index", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
-    [ "name", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a8d628a7d089e773ab60f33d1d7023c41", null ],
-    [ "operator const char *", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#af8c58e219e2ed1eea720829c0e9d8995", null ],
+    [ "name", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
     [ "operator uint32_t", "dc/da3/class_lib_1_1_helper_1_1_moon_phase.html#a64022e97a09da5fcaa242d39634aafbf", null ]
 ];

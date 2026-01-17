@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: CanTxHeader.hpp Source File</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -92,117 +94,61 @@ $(function(){initNavTree('db/d84/_can_tx_header_8hpp_source.html','../../',''); 
   <div class="headertitle"><div class="title">CanTxHeader.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="../../db/d84/_can_tx_header_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/** CAN TX Header class.</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * This file defines the CanTxHeader class, which extends `CAN_TxHeaderTypeDef` and provides a type-safe,</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * convenient interface for configuring CAN transmit headers in embedded applications. The class supports</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * standard and extended identifiers, remote frames, and timestamping for CAN messages.</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * @file CanTxHeader.hpp</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#pragma once</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#if defined(__INTELLISENSE__)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;stm32f4xx_hal_can.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#if defined(__INTELLISENSE__)</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;stm32f4xx_hal_can.h&quot;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment"></span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">    /** CAN TX Header class.</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">     * The `CanTxHeader` class extends `CAN_TxHeaderTypeDef` and provides a type-safe, convenient interface for</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">     * configuring CAN transmit headers, including support for standard and extended IDs, remote frames, and</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">     * timestamping. It allows initialization and configuration of CAN message headers for transmission.</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">     */</span></div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html">   24</a></span>    <span class="keyword">class </span><a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">CanTxHeader</a> : <span class="keyword">public</span> CAN_TxHeaderTypeDef {</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a4e766cf6b753e748d682572d246a21d8">   26</a></span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a4e766cf6b753e748d682572d246a21d8">MAX_DATA_LENGTH</a> = 8; <span class="comment">/*!&lt; Maximum CAN data length. */</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"></span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">        /** Constructor of CanTxHeader class. */</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">   29</a></span>        <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">CanTxHeader</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"></span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">        /** Copy constructor of CanTxHeader class.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">         * @param other Other CanTxHeader to copy.</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a1a642e2ae56662765a732cd7a466d5de">   34</a></span>        <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a1a642e2ae56662765a732cd7a466d5de">CanTxHeader</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">CanTxHeader</a> &amp; other) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">        /** Copy assignment operator of CanTxHeader class.</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">         * @param other Other CanTxHeader to assign.</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">         * @return Reference to this.</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a922c2c735191d684ee67bf0bd1d840a2">   40</a></span>        <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">CanTxHeader</a> &amp; <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a922c2c735191d684ee67bf0bd1d840a2">operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">CanTxHeader</a> &amp; other) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">        /** Destructor of CanTxHeader class. */</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a93baecad702677d823678610f20edfbc">   43</a></span>        <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a93baecad702677d823678610f20edfbc">~CanTxHeader</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"></span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">        /** Constructor of CanTxHeader class.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">         * @param messageId CAN message identifier.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">         * @param dataLength Number of data bytes (0-8).</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">         * @param isExtendedId `true` for extended ID, `false` for standard ID.</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">         * @param isRemote `true` for remote frame, `false` for data frame.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">         * @param enableTimestamp `true` to enable timestamping, `false` otherwise.</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         */</span></div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a8b210d46baaff27768749b0cd123c5d3">   52</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a8b210d46baaff27768749b0cd123c5d3">CanTxHeader</a>(uint32_t messageId, <span class="keywordtype">size_t</span> dataLength = 0, <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">isExtendedId</a> = <span class="keyword">false</span>, <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#aa4416c400978c4b3a07e98035411da56">isRemote</a> = <span class="keyword">false</span>, <span class="keywordtype">bool</span> enableTimestamp = <span class="keyword">false</span>) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>            assert(dataLength &lt;= <a class="code hl_variable" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a4e766cf6b753e748d682572d246a21d8">MAX_DATA_LENGTH</a>);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>            CAN_TxHeaderTypeDef::StdId = <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">isExtendedId</a> ? 0U : messageId;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            CAN_TxHeaderTypeDef::ExtId = <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">isExtendedId</a> ? messageId : 0U;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            CAN_TxHeaderTypeDef::IDE = <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">isExtendedId</a> ? CAN_ID_EXT : CAN_ID_STD;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            CAN_TxHeaderTypeDef::RTR = <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#aa4416c400978c4b3a07e98035411da56">isRemote</a> ? CAN_RTR_REMOTE : CAN_RTR_DATA;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            CAN_TxHeaderTypeDef::TransmitGlobalTime = enableTimestamp ? ENABLE : DISABLE;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            CAN_TxHeaderTypeDef::DLC = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(dataLength);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a> {</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html">   12</a></span>    <span class="keyword">class </span>CanTxHeader : <span class="keyword">public</span> CAN_TxHeaderTypeDef {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> MAX_DATA_LENGTH = 8;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        CanTxHeader() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        CanTxHeader(<span class="keyword">const</span> CanTxHeader &amp; other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        CanTxHeader &amp; operator=(<span class="keyword">const</span> CanTxHeader &amp; other) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        ~CanTxHeader() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keyword">explicit</span> CanTxHeader(uint32_t messageId, <span class="keywordtype">size_t</span> dataLength = 0, <span class="keywordtype">bool</span> isExtendedId = <span class="keyword">false</span>, <span class="keywordtype">bool</span> isRemote = <span class="keyword">false</span>, <span class="keywordtype">bool</span> enableTimestamp = <span class="keyword">false</span>) {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>            assert(dataLength &lt;= MAX_DATA_LENGTH);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>            CAN_TxHeaderTypeDef::StdId = isExtendedId ? 0U : messageId;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>            CAN_TxHeaderTypeDef::ExtId = isExtendedId ? messageId : 0U;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>            CAN_TxHeaderTypeDef::IDE = isExtendedId ? CAN_ID_EXT : CAN_ID_STD;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>            CAN_TxHeaderTypeDef::RTR = isRemote ? CAN_RTR_REMOTE : CAN_RTR_DATA;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            CAN_TxHeaderTypeDef::TransmitGlobalTime = enableTimestamp ? ENABLE : DISABLE;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>            CAN_TxHeaderTypeDef::DLC = <span class="keyword">static_cast&lt;</span>uint32_t<span class="keyword">&gt;</span>(dataLength);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        }</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        uint32_t getId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (CAN_TxHeaderTypeDef::IDE == CAN_ID_EXT) ? CAN_TxHeaderTypeDef::ExtId : CAN_TxHeaderTypeDef::StdId; }</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">size_t</span> getDataLength()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::DLC; }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">bool</span> isExtendedId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::IDE == CAN_ID_EXT; }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keywordtype">bool</span> isRemote()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::RTR == CAN_RTR_REMOTE; }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordtype">bool</span> isTimestampEnabled()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::TransmitGlobalTime == ENABLE; }</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    };</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"></span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">        /** Gets the CAN message identifier.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">         * @return Standard or extended identifier of the CAN message.</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a259d1a63a359124d7efbfc36a9bd4999">   65</a></span>        uint32_t <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a259d1a63a359124d7efbfc36a9bd4999">getId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (CAN_TxHeaderTypeDef::IDE == CAN_ID_EXT) ? CAN_TxHeaderTypeDef::ExtId : CAN_TxHeaderTypeDef::StdId; }</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"></span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">        /** Gets the data length code (DLC) for the CAN message.</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">         * @return Number of data bytes.</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a3d9c26ab611acc969977d7f86a2e6c7b">   70</a></span>        <span class="keywordtype">size_t</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a3d9c26ab611acc969977d7f86a2e6c7b">getDataLength</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::DLC; }</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">        /** Checks if the identifier is extended.</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">         * @return `true` if extended ID, `false` otherwise.</span></div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">   75</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">isExtendedId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::IDE == CAN_ID_EXT; }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"></span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">        /** Checks if the frame is remote.</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">         * @return `true` if remote frame, `false` otherwise.</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#aa4416c400978c4b3a07e98035411da56">   80</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#aa4416c400978c4b3a07e98035411da56">isRemote</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::RTR == CAN_RTR_REMOTE; }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">        /** Checks if timestamping is enabled.</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">         * @return `true` if timestamping is enabled, `false` otherwise.</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a6fbb771c17039f012671ca5ce5cd188e">   85</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a6fbb771c17039f012671ca5ce5cd188e">isTimestampEnabled</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> CAN_TxHeaderTypeDef::TransmitGlobalTime == ENABLE; }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    };</div>
-</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>} <span class="comment">// namespace Lib::HAL</span></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a013137758e90e499f00e83259cfcb928"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a013137758e90e499f00e83259cfcb928">Lib::HAL::CanTxHeader::CanTxHeader</a></div><div class="ttdeci">CanTxHeader()=default</div><div class="ttdoc">Constructor of CanTxHeader class.</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a1a642e2ae56662765a732cd7a466d5de"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a1a642e2ae56662765a732cd7a466d5de">Lib::HAL::CanTxHeader::CanTxHeader</a></div><div class="ttdeci">CanTxHeader(const CanTxHeader &amp;other)=default</div><div class="ttdoc">Copy constructor of CanTxHeader class.</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a259d1a63a359124d7efbfc36a9bd4999"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a259d1a63a359124d7efbfc36a9bd4999">Lib::HAL::CanTxHeader::getId</a></div><div class="ttdeci">uint32_t getId() const</div><div class="ttdoc">Gets the CAN message identifier.</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:65</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a3d9c26ab611acc969977d7f86a2e6c7b"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a3d9c26ab611acc969977d7f86a2e6c7b">Lib::HAL::CanTxHeader::getDataLength</a></div><div class="ttdeci">size_t getDataLength() const</div><div class="ttdoc">Gets the data length code (DLC) for the CAN message.</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:70</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a4e766cf6b753e748d682572d246a21d8"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a4e766cf6b753e748d682572d246a21d8">Lib::HAL::CanTxHeader::MAX_DATA_LENGTH</a></div><div class="ttdeci">static constexpr size_t MAX_DATA_LENGTH</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:26</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a6fbb771c17039f012671ca5ce5cd188e"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a6fbb771c17039f012671ca5ce5cd188e">Lib::HAL::CanTxHeader::isTimestampEnabled</a></div><div class="ttdeci">bool isTimestampEnabled() const</div><div class="ttdoc">Checks if timestamping is enabled.</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:85</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a8b210d46baaff27768749b0cd123c5d3"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a8b210d46baaff27768749b0cd123c5d3">Lib::HAL::CanTxHeader::CanTxHeader</a></div><div class="ttdeci">CanTxHeader(uint32_t messageId, size_t dataLength=0, bool isExtendedId=false, bool isRemote=false, bool enableTimestamp=false)</div><div class="ttdoc">Constructor of CanTxHeader class.</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:52</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a922c2c735191d684ee67bf0bd1d840a2"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a922c2c735191d684ee67bf0bd1d840a2">Lib::HAL::CanTxHeader::operator=</a></div><div class="ttdeci">CanTxHeader &amp; operator=(const CanTxHeader &amp;other)=default</div><div class="ttdoc">Copy assignment operator of CanTxHeader class.</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_a93baecad702677d823678610f20edfbc"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#a93baecad702677d823678610f20edfbc">Lib::HAL::CanTxHeader::~CanTxHeader</a></div><div class="ttdeci">~CanTxHeader()=default</div><div class="ttdoc">Destructor of CanTxHeader class.</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_aa4416c400978c4b3a07e98035411da56"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#aa4416c400978c4b3a07e98035411da56">Lib::HAL::CanTxHeader::isRemote</a></div><div class="ttdeci">bool isRemote() const</div><div class="ttdoc">Checks if the frame is remote.</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:80</div></div>
-<div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_can_tx_header_html_ad2074c33d5da3a55df0de976e95f4a72"><div class="ttname"><a href="../../d9/d04/class_lib_1_1_h_a_l_1_1_can_tx_header.html#ad2074c33d5da3a55df0de976e95f4a72">Lib::HAL::CanTxHeader::isExtendedId</a></div><div class="ttdeci">bool isExtendedId() const</div><div class="ttdoc">Checks if the identifier is extended.</div><div class="ttdef"><b>Definition</b> CanTxHeader.hpp:75</div></div>
-<div class="ttc" id="anamespace_lib_1_1_h_a_l_html"><div class="ttname"><a href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a></div><div class="ttdoc">The Lib::HAL namespace contains all classes, functions, and types related to the Hardware Abstraction...</div><div class="ttdef"><b>Definition</b> AdcPort.hpp:14</div></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>} <span class="comment">// namespace Lib::HAL</span></div>
+<div class="ttc" id="anamespace_lib_1_1_h_a_l_html"><div class="ttname"><a href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a></div><div class="ttdoc">ADC Port type aliases for different driver modes.</div><div class="ttdef"><b>Definition</b> AdcPort.hpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>HAL</b></li><li class="navelem"><b>core</b></li><li class="navelem"><b>CAN</b></li><li class="navelem"><a href="../../db/d84/_can_tx_header_8hpp.html">CanTxHeader.hpp</a></li>
+    <li class="navelem"><b>inc</b></li><li class="navelem"><b>Lib</b></li><li class="navelem"><b>HAL</b></li><li class="navelem"><b>core</b></li><li class="navelem"><b>CAN</b></li><li class="navelem"><b>CanTxHeader.hpp</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

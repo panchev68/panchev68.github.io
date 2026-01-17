@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: RTOS::Timer</title>
+<link rel="icon" href="../../Library.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
    </div>
@@ -92,28 +94,46 @@ $(function(){initNavTree('d8/d70/_r_t_o_s_1_1_timer-example.html','../../',''); 
   <div class="headertitle"><div class="title">RTOS::Timer</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-rtostimer-class"></a>
-Example usage of RTOS::Timer class.</h1>
-<p>Demonstrates creation, configuration, and usage of FreeRTOS software timers via the RTOS::Timer abstraction.</p>
-<hr  />
-<dl class="section user"><dt>Example usage:</dt><dd><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d91/_timer_8hpp.html">Lib/RTOS/Timer.hpp</a>&quot;</span></div>
+<h2 class="doxsection"><a class="anchor" id="timer-usage-example"></a>
+Timer Usage Example</h2>
+<p>This example demonstrates how to create, configure, and manage FreeRTOS software timers using the RTOS::Timer abstraction. It shows one-shot and auto-reload timers, setting periods, starting/stopping, and handling timer callbacks.</p>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/d91/_timer_8hpp.html">Lib/RTOS/Timer.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> onTimeout() {</div>
-<div class="line">    <span class="comment">// Timer callback logic</span></div>
+<div class="line"><span class="keywordtype">void</span> heartbeatCallback() {</div>
+<div class="line">    <span class="comment">// Heartbeat logic executed when timer expires</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line"><span class="keywordtype">void</span> someTaskFunction(<span class="keywordtype">void</span> *pvParameters) {</div>
 <div class="line">    <span class="comment">// Create a one-shot timer with 1000 ms period</span></div>
-<div class="line">    <span class="keyword">auto</span> timer = RTOS::Timer::createMs(<span class="stringliteral">&quot;MyTimer&quot;</span>, onTimeout, 1000, RTOS::Timer::Mode::ONE_SHOT);</div>
-<div class="line">    <span class="keywordflow">if</span> (timer &amp;&amp; timer-&gt;start()) {</div>
-<div class="line">        <span class="comment">// Timer started successfully</span></div>
+<div class="line">    <span class="keyword">auto</span> oneShotTimer = RTOS::Timer::makeMs(<span class="stringliteral">&quot;OneShotTimer&quot;</span>, heartbeatCallback, 1000);</div>
+<div class="line">    <span class="keywordflow">if</span> (oneShotTimer &amp;&amp; oneShotTimer-&gt;start()) {</div>
+<div class="line">        <span class="comment">// One-shot timer started successfully</span></div>
 <div class="line">    }</div>
-<div class="line">    <span class="comment">// ... application logic ...</span></div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Create an auto-reload timer with 2000 ms period</span></div>
+<div class="line">    <span class="keyword">auto</span> autoReloadTimer = RTOS::Timer::makeMs(<span class="stringliteral">&quot;AutoReloadTimer&quot;</span>, heartbeatCallback, 2000, RTOS::Timer::Mode::AUTO_RELOAD);</div>
+<div class="line">    <span class="keywordflow">if</span> (autoReloadTimer &amp;&amp; autoReloadTimer-&gt;start()) {</div>
+<div class="line">        <span class="comment">// Auto-reload timer started successfully</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Check timer state</span></div>
+<div class="line">    <span class="keywordflow">if</span> (autoReloadTimer-&gt;isActive()) {</div>
+<div class="line">        uint32_t remaining = autoReloadTimer-&gt;getRemainingTimeMs();</div>
+<div class="line">        <span class="comment">// Use remaining time information</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Change timer period</span></div>
+<div class="line">    autoReloadTimer-&gt;setPeriodMs(3000);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stop timer</span></div>
+<div class="line">    autoReloadTimer-&gt;stop();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Reset timer from task context</span></div>
+<div class="line">    autoReloadTimer-&gt;reset();</div>
 <div class="line">}</div>
-<div class="ttc" id="a_timer_8hpp_html"><div class="ttname"><a href="../../dd/d91/_timer_8hpp.html">Timer.hpp</a></div><div class="ttdoc">RTOS Timer abstraction.</div></div>
-</div><!-- fragment --></dd></dl>
-<p>This example shows how to create a one-shot timer, assign a callback, start the timer, and check for success.</p>
+<div class="ttc" id="a_timer_8hpp_html"><div class="ttname"><a href="../../dd/d91/_timer_8hpp.html">Timer.hpp</a></div><div class="ttdoc">FreeRTOS Timer Abstraction Header.</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The timers execute their callbacks at the specified periods. One-shot timer fires once, while auto-reload timer fires repeatedly until stopped. All operations are thread-safe and integrated with FreeRTOS timer daemon task.</dd></dl>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

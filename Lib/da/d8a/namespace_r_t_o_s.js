@@ -11,10 +11,11 @@ var namespace_r_t_o_s =
     [ "SemaphoreCounting", "df/d69/class_r_t_o_s_1_1_semaphore_counting.html", "df/d69/class_r_t_o_s_1_1_semaphore_counting" ],
     [ "StreamBuffer", "dd/d70/class_r_t_o_s_1_1_stream_buffer.html", "dd/d70/class_r_t_o_s_1_1_stream_buffer" ],
     [ "Task", "d1/d23/class_r_t_o_s_1_1_task.html", "d1/d23/class_r_t_o_s_1_1_task" ],
+    [ "TaskWorker", "d2/dd6/class_r_t_o_s_1_1_task_worker.html", "d2/dd6/class_r_t_o_s_1_1_task_worker" ],
     [ "TickCounter", "da/d2c/class_r_t_o_s_1_1_tick_counter.html", "da/d2c/class_r_t_o_s_1_1_tick_counter" ],
     [ "TickService", "d0/d51/class_r_t_o_s_1_1_tick_service.html", "d0/d51/class_r_t_o_s_1_1_tick_service" ],
     [ "Timeout", "dc/d33/class_r_t_o_s_1_1_timeout.html", "dc/d33/class_r_t_o_s_1_1_timeout" ],
-    [ "delay", "da/d8a/namespace_r_t_o_s.html#acfb40af377a8f385e09c24a37df281b6", null ],
-    [ "getTickCountMs", "da/d8a/namespace_r_t_o_s.html#a1557952a224686962313d97f4598ec77", null ],
-    [ "yield", "da/d8a/namespace_r_t_o_s.html#a0967927b904c36fdb2d3d206bd88c9fd", null ]
+    [ "delay", "da/d8a/namespace_r_t_o_s.html#ae2040b5c3ddf2ffbd181e7ebfcb59087", null ],
+    [ "getTickCountMs", "da/d8a/namespace_r_t_o_s.html#a7c05877d59581f004d0b52da6adae332", null ],
+    [ "yield", "da/d8a/namespace_r_t_o_s.html#a902a6465e9954317eb8729e342e4f166", null ]
 ];

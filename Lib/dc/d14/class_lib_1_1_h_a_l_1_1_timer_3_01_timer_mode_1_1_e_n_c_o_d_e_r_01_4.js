@@ -1,13 +1,13 @@
 var class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4 =
 [
-    [ "Timer", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#adeef24557fc882a05d6f340188677f41", null ],
-    [ "~Timer", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#a620aac77bea1c596863447222a109321", null ],
-    [ "close", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#adbddfcababa9b40d0ea281fab40fe74f", null ],
-    [ "getHandle", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a072445472948e2764c8f5cf374455726", null ],
-    [ "getMode", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a8f5d57feee3402e0a2bb2d795cda01a5", null ],
-    [ "isValid", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a5da7279d7e27e6c55eee3e0c281d4670", null ],
-    [ "open", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#a7f8707dc341498aa194a933254b04b97", null ],
+    [ "Timer", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#ac18a441c986ed058e6c7778387ff4899", null ],
+    [ "~Timer", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#affaa00ee233d891bc58c7374a956b68b", null ],
+    [ "close", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#aa41109990534414f315a0664f59cf49a", null ],
+    [ "getHandle", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a349154b02220b5e552e011c830360399", null ],
+    [ "getMode", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a77275ac5836abdcf9b6e6d8c048f08a8", null ],
+    [ "isValid", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#ad4a98e50dc492cc0059792694c20781c", null ],
+    [ "open", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#aa47698e7d199885c2778e27ce5656bb6", null ],
     [ "operator=", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a01223696b727b977c3128d7d527b49b4", null ],
-    [ "setHandle", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#ac055522ed8734c52595b4f79d5d2febc", null ],
+    [ "setHandle", "d0/d2f/class_lib_1_1_h_a_l_1_1_timer.html#a9dbec8e1c7829150a52d97e48cfeed97", null ],
     [ "onValueChanged", "dc/d14/class_lib_1_1_h_a_l_1_1_timer_3_01_timer_mode_1_1_e_n_c_o_d_e_r_01_4.html#acf7bf94348e39ee9fcc35de8c635fb35", null ]
 ];

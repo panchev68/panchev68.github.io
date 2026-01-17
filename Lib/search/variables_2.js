@@ -41,10 +41,8 @@ var searchData=
   ['connection_38',['connection',['../d6/dc8/class_lib_1_1_digi_1_1_a_p_i_1_1_application_base.html#aeef129f6673307b01cf2cba5a92bf845',1,'Lib::Digi::API::ApplicationBase']]],
   ['control_39',['control',['../d1/d34/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs_1_1_m_c33879_1_1_tx_port.html#a673a74355aa4903c637670bd743b0e5a',1,'Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort']]],
   ['crc_5fsize_40',['CRC_SIZE',['../da/dc6/class_lib_1_1_system_1_1_parameters_base.html#ac8f980caf1722f606d31e57f099c7621',1,'Lib::System::ParametersBase']]],
-  ['cspin_41',['csPin',['../d6/de3/class_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4.html#ac9de08b67dae3fd628328ffdbdeb7d49',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;']]],
-  ['cspinhandle_42',['csPinHandle',['../dd/d36/struct_lib_1_1_b_s_p_1_1_display_1_1_driver_3_01_controller_1_1_i_l_i9341_01_4_1_1_config.html#aa978745d84f1bb2e0545978560b4a9fb',1,'Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config']]],
-  ['csr_5fcmd_5freg_43',['CSR_CMD_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a0cd56c09fd79004b9acf684bee8d8ca1',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['csr_5fcmd_5freg_5foffset_44',['CSR_CMD_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a1c1ba994c5780050df4e901adf25f2',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['csr_5fdata_5freg_45',['CSR_DATA_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a35035d975ede0fb29c570f462df4f7cd',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['csr_5fdata_5freg_5foffset_46',['CSR_DATA_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a0cc45dc91229a521002d858da98358',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]]
+  ['csr_5fcmd_5freg_41',['CSR_CMD_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a0cd56c09fd79004b9acf684bee8d8ca1',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['csr_5fcmd_5freg_5foffset_42',['CSR_CMD_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a1c1ba994c5780050df4e901adf25f2',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['csr_5fdata_5freg_43',['CSR_DATA_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a35035d975ede0fb29c570f462df4f7cd',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['csr_5fdata_5freg_5foffset_44',['CSR_DATA_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a0cc45dc91229a521002d858da98358',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]]
 ];
