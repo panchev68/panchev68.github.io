@@ -1,7 +1,7 @@
 var searchData=
 [
   ['safe_20access_0',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
-  ['select_20the_20appropriate_20mode_20based_20on_20performance_20and_20interrupt_20requirements_1',['Select the appropriate mode based on performance and interrupt requirements.',['../d9/d8d/namespace_lib_1_1_h_a_l.html#select-the-appropriate-mode-based-on-performance-and-interrupt-requirements',1,'']]],
+  ['select_20the_20appropriate_20mode_20based_20on_20performance_20and_20interrupt_20requirements_1',['Select the appropriate mode based on performance and interrupt requirements.',['../da/dc3/a00657.html#select-the-appropriate-mode-based-on-performance-and-interrupt-requirements',1,'']]],
   ['sending_20and_20receiving_20messages_2',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
   ['sensor_20data_3',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
   ['serial_20number_20generation_20and_20usage_20example_4',['Serial Number Generation and Usage Example',['../X:/Lib/IAR/inc/Lib/System/SerialNumber.hpp#serial-number-generation-and-usage-example',1,'']]],
@@ -14,7 +14,7 @@ var searchData=
   ['slave_20or_20soes_11',['Simple Open EtherCAT Slave or SOES',['../index.html',1,'']]],
   ['smoothing_20noisy_20sensor_20data_12',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
   ['soes_13',['Simple Open EtherCAT Slave or SOES',['../index.html',1,'']]],
-  ['specializations_20for_20various_20use_20cases_20in_20embedded_20systems_14',['It provides convenient access to ADC port specializations for various use cases in embedded systems.',['../d9/d8d/namespace_lib_1_1_h_a_l.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'']]],
+  ['specializations_20for_20various_20use_20cases_20in_20embedded_20systems_14',['It provides convenient access to ADC port specializations for various use cases in embedded systems.',['../da/dc3/a00657.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'']]],
   ['spline_20interpolation_20with_20standard_20output_15',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]],
   ['standard_20output_16',['standard output',['../X:/Lib/IAR/inc/Lib/RTOS/Queue.hpp#example-usage-of-rtosqueue-with-standard-output',1,'Example usage of RTOS::Queue with standard output.'],['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'Example: Cubic spline interpolation with standard output']]],
   ['storage_17',['Managing dynamic buffers for data storage.',['../X:/Lib/IAR/inc/Lib/Helper/Buffer/Buffer.hpp#managing-dynamic-buffers-for-data-storage',1,'']]],
@@ -23,5 +23,5 @@ var searchData=
   ['sunset_20times_20',['Calculating Sunrise and Sunset Times',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#calculating-sunrise-and-sunset-times',1,'']]],
   ['swapping_20example_21',['Byte-Order Swapping Example',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#byte-order-swapping-example',1,'']]],
   ['system_20class_22',['Example usage of System class.',['../X:/Lib/IAR/inc/Lib/System/System.hpp#example-usage-of-system-class',1,'']]],
-  ['systems_23',['systems',['../d9/d8d/namespace_lib_1_1_h_a_l.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'It provides convenient access to ADC port specializations for various use cases in embedded systems.'],['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'Using Delay for short busy-wait delays in embedded systems.']]]
+  ['systems_23',['systems',['../da/dc3/a00657.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'It provides convenient access to ADC port specializations for various use cases in embedded systems.'],['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'Using Delay for short busy-wait delays in embedded systems.']]]
 ];
