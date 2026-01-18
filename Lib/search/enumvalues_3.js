@@ -11,8 +11,9 @@ var searchData=
   ['dispoff_8',['DISPOFF',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515ba158c232c6ade5348489ccc9fddd284c7',1,'Lib::BSP::Display']]],
   ['dispon_9',['DISPON',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515bad3bc1684d575f40d34b12c9c2f0e6a1f',1,'Lib::BSP::Display']]],
   ['dlpoffsave_10',['DLPOFFSAVE',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515bac624a8f5f250e968070bebecedb5e753',1,'Lib::BSP::Display']]],
-  ['drvtctra_11',['DRVTCTRA',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515ba24ac13fec14140fbc83536ec265a00b5',1,'Lib::BSP::Display']]],
-  ['drvtctrb_12',['DRVTCTRB',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515ba92ed4e5487ebed86cd625c8c7ef0bc82',1,'Lib::BSP::Display']]],
-  ['dth11_13',['DTH11',['../df/dcf/a00642.html#a739459324a89506aa4cced1716275d06a8c1ff87e2818df1689e21b28586306b2',1,'Lib::BSP::Thermometer::DTH']]],
-  ['dth22_14',['DTH22',['../df/dcf/a00642.html#a739459324a89506aa4cced1716275d06a9605c38a0c968e9fa948ea26056471a7',1,'Lib::BSP::Thermometer::DTH']]]
+  ['dma_11',['DMA',['../d1/dc6/a00347.html#a9820e7068a67bc7e99e62fb27f9040c2a6537a62f6f155792bb9a320ee2ec4d68',1,'DriverMode.hpp']]],
+  ['drvtctra_12',['DRVTCTRA',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515ba24ac13fec14140fbc83536ec265a00b5',1,'Lib::BSP::Display']]],
+  ['drvtctrb_13',['DRVTCTRB',['../d9/d1d/a00633.html#afe2d246e2a2a5bc3699440ae4548515ba92ed4e5487ebed86cd625c8c7ef0bc82',1,'Lib::BSP::Display']]],
+  ['dth11_14',['DTH11',['../df/dcf/a00642.html#a739459324a89506aa4cced1716275d06a8c1ff87e2818df1689e21b28586306b2',1,'Lib::BSP::Thermometer::DTH']]],
+  ['dth22_15',['DTH22',['../df/dcf/a00642.html#a739459324a89506aa4cced1716275d06a9605c38a0c968e9fa948ea26056471a7',1,'Lib::BSP::Thermometer::DTH']]]
 ];

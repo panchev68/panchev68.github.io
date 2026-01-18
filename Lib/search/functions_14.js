@@ -8,5 +8,6 @@ var searchData=
   ['updatenodeactivitycallback_5',['updateNodeActivityCallback',['../dd/d6e/a01339.html#a640250065dbf3b447ed7723dce56dc9c',1,'Lib::Ethernet::UserProtocol']]],
   ['updaterxledcallback_6',['updateRxLedCallback',['../df/d96/a01347.html#a7f63d1e5c59a4127eabaf2ac0e374ae9',1,'Lib::Ethernet::Wiznet::ClientBase::updateRxLedCallback(bool isRxLedOn)'],['../df/d96/a01347.html#af5c8ad44042ca65903ee1bedd95aa6a8',1,'Lib::Ethernet::Wiznet::ClientBase::updateRxLedCallback(bool isActive)']]],
   ['updatetxledcallback_7',['updateTxLedCallback',['../df/d96/a01347.html#aa7ddddd67a6dd1af8a1e00afd2d77b24',1,'Lib::Ethernet::Wiznet::ClientBase::updateTxLedCallback(bool isTxLedOn)'],['../df/d96/a01347.html#a5005197f8f146e7d50b4cff52f948948',1,'Lib::Ethernet::Wiznet::ClientBase::updateTxLedCallback(bool isActive)']]],
-  ['userprotocol_8',['UserProtocol',['../df/dd5/a01115.html#a2c269949020f7b26dc12cf29f12d347d',1,'Lib::Digi::API::UserProtocol::UserProtocol()'],['../dd/d6e/a01339.html#a26bd091672abe4590d5e98f68b185f5b',1,'Lib::Ethernet::UserProtocol::UserProtocol()']]]
+  ['usbd_5fcdc_5freceivepacket_8',['USBD_CDC_ReceivePacket',['../df/d6f/a00623.html#a7c4014397838b40b7716d800fd90ebcf',1,'SerialPortRepeaterBase.hpp']]],
+  ['userprotocol_9',['UserProtocol',['../df/dd5/a01115.html#a2c269949020f7b26dc12cf29f12d347d',1,'Lib::Digi::API::UserProtocol::UserProtocol()'],['../dd/d6e/a01339.html#a26bd091672abe4590d5e98f68b185f5b',1,'Lib::Ethernet::UserProtocol::UserProtocol()']]]
 ];

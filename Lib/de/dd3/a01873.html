@@ -96,9 +96,9 @@ $(function(){initNavTree('de/dd3/a01873.html','../../',''); });
 <div class="contents">
 <h2 class="doxsection"><a class="anchor" id="advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks"></a>
 Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.</h2>
-<p>This example demonstrates the use of <span class="tt"><a class="el" href="../../d4/d3c/a01671.html" title="Mutex class for synchronization.">RTOS::Mutex</a></span> and <span class="tt">MutexGuard</span> to synchronize access to a shared resource (<span class="tt">sharedBuffer</span>) between two concurrent tasks in a FreeRTOS-based application. The example shows how to open a recursive mutex, use RAII-based locking, and safely update a buffer from multiple tasks. It also demonstrates how to check lock status and handle lock acquisition failures.</p>
+<p>This example demonstrates the use of <span class="tt"><a class="el" href="../../d4/d3c/a01671.html" title="Mutex class for synchronization.">RTOS::Mutex</a></span> and <span class="tt"><a class="el" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d" title="Type alias for Mutex::LockGuard.">MutexGuard</a></span> to synchronize access to a shared resource (<span class="tt">sharedBuffer</span>) between two concurrent tasks in a FreeRTOS-based application. The example shows how to open a recursive mutex, use RAII-based locking, and safely update a buffer from multiple tasks. It also demonstrates how to check lock status and handle lock acquisition failures.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Lib/RTOS/Mutex.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d87/a00551.html">Lib/RTOS/Mutex.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;cstring&gt;</span></div>
 <div class="line"> </div>
@@ -108,7 +108,7 @@ Advanced example: Using RTOS::Mutex for protecting a shared resource in concurre
 <div class="line"><span class="keywordtype">void</span> writerTask(<span class="keyword">const</span> <span class="keywordtype">char</span> *text) {</div>
 <div class="line">    <span class="keywordflow">if</span> (!sharedBufferMutex.isValid()) sharedBufferMutex.open();</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
-<div class="line">        MutexGuard guard(sharedBufferMutex, 50);</div>
+<div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_typedef" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(sharedBufferMutex, 50);</div>
 <div class="line">        <span class="keywordflow">if</span> (guard) {</div>
 <div class="line">            std::snprintf(sharedBuffer, <span class="keyword">sizeof</span>(sharedBuffer), <span class="stringliteral">&quot;Write %d: %s&quot;</span>, i, text);</div>
 <div class="line">            std::printf(<span class="stringliteral">&quot;Writer: %s\n&quot;</span>, sharedBuffer);</div>
@@ -121,7 +121,7 @@ Advanced example: Using RTOS::Mutex for protecting a shared resource in concurre
 <div class="line"><span class="keywordtype">void</span> readerTask() {</div>
 <div class="line">    <span class="keywordflow">if</span> (!sharedBufferMutex.isValid()) sharedBufferMutex.open();</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; ++i) {</div>
-<div class="line">        MutexGuard guard(sharedBufferMutex, 50);</div>
+<div class="line">        <a class="code hl_typedef" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(sharedBufferMutex, 50);</div>
 <div class="line">        <span class="keywordflow">if</span> (guard.isLocked()) {</div>
 <div class="line">            std::printf(<span class="stringliteral">&quot;Reader: %s\n&quot;</span>, sharedBuffer);</div>
 <div class="line">        } <span class="keywordflow">else</span> {</div>
@@ -139,6 +139,8 @@ Advanced example: Using RTOS::Mutex for protecting a shared resource in concurre
 <div class="line">    sharedBufferMutex.close();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
+<div class="ttc" id="aa00551_html"><div class="ttname"><a href="../../d9/d87/a00551.html">Mutex.hpp</a></div><div class="ttdoc">Mutex class for FreeRTOS synchronization.</div></div>
+<div class="ttc" id="aa00551_html_a374642113cf09f4704dd8242b052899d"><div class="ttname"><a href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a></div><div class="ttdeci">RTOS::Mutex::LockGuard MutexGuard</div><div class="ttdoc">Type alias for Mutex::LockGuard.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:425</div></div>
 <div class="ttc" id="aa01671_html"><div class="ttname"><a href="../../d4/d3c/a01671.html">RTOS::Mutex</a></div><div class="ttdoc">Mutex class for synchronization.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:86</div></div>
 <div class="ttc" id="aa01671_html_a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638"><div class="ttname"><a href="../../d4/d3c/a01671.html#a26d98a7cc72991078b6451ce810e841ea1c1aa83dfe54dfc3528f9e40131cf638">RTOS::Mutex::MutexType::RECURSIVE</a></div><div class="ttdeci">@ RECURSIVE</div><div class="ttdef"><b>Definition</b> Mutex.hpp:103</div></div>
 </div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
