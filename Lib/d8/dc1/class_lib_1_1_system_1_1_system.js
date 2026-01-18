@@ -1,7 +1,8 @@
 var class_lib_1_1_system_1_1_system =
 [
     [ "DataMap", "d1/d54/struct_lib_1_1_system_1_1_system_1_1_data_map.html", "d1/d54/struct_lib_1_1_system_1_1_system_1_1_data_map" ],
-    [ "System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a7f6a1b0a5f04e2815bfc7b9167a576a2", null ],
+    [ "LastResetState", "d8/dc1/class_lib_1_1_system_1_1_system.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
+    [ "System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a4bbaf95e7578e2569f945f30d7ce2fc1", null ],
     [ "~System", "d8/dc1/class_lib_1_1_system_1_1_system.html#a11b8ca0e17004e6d825d07712d2a6703", null ],
     [ "restart", "d8/dc1/class_lib_1_1_system_1_1_system.html#ace422e15e30cdd7b81bc32ad89186d6d", null ],
     [ "configuration", "d8/dc1/class_lib_1_1_system_1_1_system.html#a97e928b4c78a8a3e74760b983ea17573", null ],

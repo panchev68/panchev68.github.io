@@ -1,5 +1,6 @@
 var _swap_bytes_8hpp =
 [
+    [ "Lib::Helper::Detail::bswapUnsigned", "d5/df8/namespace_lib_1_1_helper_1_1_detail.html#a0332270f6b42fec357fd510fc6a7652b", null ],
     [ "Lib::Helper::swapBytes", "df/d8e/namespace_lib_1_1_helper.html#a6a0921f7c2c8d4aec6f62a8a6c67d6b7", null ],
     [ "Lib::Helper::swapBytes", "df/d8e/namespace_lib_1_1_helper.html#a72eafc4c080feb760d3b112c9c0408c8", null ],
     [ "Lib::Helper::swapBytes", "df/d8e/namespace_lib_1_1_helper.html#aa9f5b2bf7e573b4b83c531b171e4506f", null ],

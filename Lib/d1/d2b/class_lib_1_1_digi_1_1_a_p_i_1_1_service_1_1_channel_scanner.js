@@ -1,6 +1,7 @@
 var class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner =
 [
     [ "Channel", "d2/d4a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner_1_1_channel.html", "d2/d4a/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner_1_1_channel" ],
+    [ "QualityMode", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
     [ "Error", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#acb54f9ec6751a18eda393e2c5bd0675c", [
       [ "NONE", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
       [ "MODULE_IS_NOT_CONNECTED", "d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],

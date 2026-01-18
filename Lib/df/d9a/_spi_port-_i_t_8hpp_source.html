@@ -6,7 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: SpiPort-IT.hpp Source File</title>
-<link rel="icon" href="../../Library.png" type="image/x-icon" />
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -26,9 +26,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.04</span>
    </div>
    <div id="projectbrief">IAR  Library</div>
   </td>
@@ -137,17 +137,17 @@ $(function(){initNavTree('df/d9a/_spi_port-_i_t_8hpp_source.html','../../',''); 
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">         * @param handle Pointer to `SPI_HandleTypeDef` provided by HAL.</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">         * @pre `handle` must be a valid, initialized SPI handle.</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">explicit</span> SpiPort(SPI_HandleTypeDef * handle) noexcept : SpiPortBase(handle) {}</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keyword">explicit</span> <a class="code hl_typedef" href="../../dc/dfb/namespace_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252.html#a680300994fd6a1940cf31c5cdf260aa7">SpiPort</a>(SPI_HandleTypeDef * handle) : SpiPortBase(handle) {}</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">        /** Destructor for interrupt-mode SPI port. */</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> ~SpiPort() noexcept = default;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">virtual</span> ~SpiPort() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"></span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">        /** Abort an ongoing interrupt-driven transfer and wait for completion.</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">         *</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">         * @param timeout RTOS ticks to wait for abort completion.</span></div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">         * @return `true` if the abort was requested and the completion event occurred, `false` otherwise.</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        virtual <span class="keywordtype">bool</span> abort(uint32_t timeout) noexcept<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> abort(uint32_t timeout)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>            <span class="keywordflow">return</span> HAL_SPI_Abort_IT(handle.getHandle()) == HAL_OK &amp;&amp; waitForEvent(ABORT_COMPLETED, timeout);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        }</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
@@ -160,7 +160,7 @@ $(function(){initNavTree('df/d9a/_spi_port-_i_t_8hpp_source.html','../../',''); 
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">         * @return `true` if the receive was started and the completion event occurred, `false` otherwise.</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">         * @pre `buffer` must point to valid memory and `size` must be positive.</span></div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> receiveData(<span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> size, uint32_t timeout) <span class="keyword">noexcept</span> <span class="keyword">override</span> {</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> receiveData(<span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> size, uint32_t timeout)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordflow">return</span> HAL_SPI_Receive_IT(handle.getHandle(), <span class="keyword">static_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(buffer), size) == HAL_OK &amp;&amp;</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                   waitForEvent(RX_COMPLETED, timeout);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
@@ -173,7 +173,7 @@ $(function(){initNavTree('df/d9a/_spi_port-_i_t_8hpp_source.html','../../',''); 
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">         * @return `true` if the transmit was started and the completion event occurred, `false` otherwise.</span></div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">         * @pre `buffer` must point to valid memory and `size` must be positive.</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> sendData(<span class="keyword">const</span> <span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> size, uint32_t timeout) <span class="keyword">noexcept</span> <span class="keyword">override</span> {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> sendData(<span class="keyword">const</span> <span class="keywordtype">void</span> * buffer, <span class="keywordtype">size_t</span> size, uint32_t timeout)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            <span class="keywordflow">return</span> HAL_SPI_Transmit_IT(handle.getHandle(), <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>uint8_t *<span class="keyword">&gt;</span>(buffer), size) == HAL_OK &amp;&amp;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                   waitForEvent(TX_COMPLETED, timeout);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        }</div>
@@ -187,7 +187,7 @@ $(function(){initNavTree('df/d9a/_spi_port-_i_t_8hpp_source.html','../../',''); 
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">         * @return `true` if the transfer was started and the completion event occurred, `false` otherwise.</span></div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">         * @pre `txBuffer` and `rxBuffer` must point to valid memory and `size` must be positive.</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> sendReceiveData(<span class="keyword">const</span> <span class="keywordtype">void</span> * txBuffer, <span class="keywordtype">void</span> * rxBuffer, <span class="keywordtype">size_t</span> size, uint32_t timeout) <span class="keyword">noexcept</span> <span class="keyword">override</span> {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        <span class="keyword">virtual</span> <span class="keywordtype">bool</span> sendReceiveData(<span class="keyword">const</span> <span class="keywordtype">void</span> * txBuffer, <span class="keywordtype">void</span> * rxBuffer, <span class="keywordtype">size_t</span> size, uint32_t timeout)<span class="keyword"> override </span>{</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>            <span class="keywordflow">return</span> HAL_SPI_TransmitReceive_IT(handle.getHandle(), <span class="keyword">static_cast&lt;</span><span class="keyword">const </span>uint8_t *<span class="keyword">&gt;</span>(txBuffer),</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                       <span class="keyword">static_cast&lt;</span>uint8_t *<span class="keyword">&gt;</span>(rxBuffer), size) == HAL_OK &amp;&amp;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                   waitForEvent(TX_RX_COMPLETED, timeout);</div>
@@ -202,6 +202,7 @@ $(function(){initNavTree('df/d9a/_spi_port-_i_t_8hpp_source.html','../../',''); 
 <div class="ttc" id="a_h_a_l_2core_2_s_p_i_2_template_8hpp_html"><div class="ttname"><a href="../../d8/daf/_h_a_l_2core_2_s_p_i_2_template_8hpp.html">template.hpp</a></div><div class="ttdoc">SPI port template declaration.</div></div>
 <div class="ttc" id="a_spi_port_base_8hpp_html"><div class="ttname"><a href="../../de/d01/_spi_port_base_8hpp.html">SpiPortBase.hpp</a></div><div class="ttdoc">Base class for SPI port abstraction with asynchronous operation support.</div></div>
 <div class="ttc" id="aclass_lib_1_1_h_a_l_1_1_spi_port_html"><div class="ttname"><a href="../../db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html">Lib::HAL::SpiPort</a></div><div class="ttdoc">SpiPort template class for SPI communication.</div><div class="ttdef"><b>Definition</b> HAL/core/SPI/Template.hpp:26</div></div>
+<div class="ttc" id="anamespace_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_html_a680300994fd6a1940cf31c5cdf260aa7"><div class="ttname"><a href="../../dc/dfb/namespace_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252.html#a680300994fd6a1940cf31c5cdf260aa7">Lib::BSP::Ethercat::PDI::LAN9252::SpiPort</a></div><div class="ttdeci">Lib::HAL::SpiPort&lt; IT &gt; SpiPort</div><div class="ttdef"><b>Definition</b> Interface.hpp:32</div></div>
 <div class="ttc" id="anamespace_lib_1_1_h_a_l_html"><div class="ttname"><a href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a></div><div class="ttdoc">ADC Port type aliases for different driver modes.</div><div class="ttdef"><b>Definition</b> AdcPort.hpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -209,7 +210,7 @@ $(function(){initNavTree('df/d9a/_spi_port-_i_t_8hpp_source.html','../../',''); 
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>inc</b></li><li class="navelem"><b>Lib</b></li><li class="navelem"><b>HAL</b></li><li class="navelem"><b>core</b></li><li class="navelem"><b>SPI</b></li><li class="navelem"><a href="../../df/d9a/_spi_port-_i_t_8hpp.html">SpiPort-IT.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_8614472618abc149a31dd7841874bafa.html">core</a></li><li class="navelem"><a href="../../dir_9fed9c41db75c1a3148af1e30257a6a9.html">SPI</a></li><li class="navelem"><a href="../../df/d9a/_spi_port-_i_t_8hpp.html">SpiPort-IT.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

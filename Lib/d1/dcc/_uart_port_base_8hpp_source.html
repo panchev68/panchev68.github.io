@@ -6,7 +6,7 @@
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>IAR Library: UartPortBase.hpp Source File</title>
-<link rel="icon" href="../../Library.png" type="image/x-icon" />
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -26,9 +26,9 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
-  <td id="projectlogo"><img alt="Logo" src="../../Library.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.03</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.04</span>
    </div>
    <div id="projectbrief">IAR  Library</div>
   </td>
@@ -164,7 +164,7 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">         * @pre HAL must be properly configured.</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">         * @post UART is ready for communication; interrupt callbacks are registered.</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">bool</span> init() {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordtype">bool</span> open() {</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            <span class="keywordflow">if</span> (!eventBits.isOpen()) eventBits.open();</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>            <span class="keywordflow">if</span> (HAL_UART_Init(getHandle()) != HAL_OK) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp; callback : CALLBACKS)</div>
@@ -178,7 +178,7 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">         *</span></div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">         * @post UART is disabled and event bits are closed.</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">         */</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">bool</span> deinit() {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <span class="keywordtype">bool</span> close() {</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            <span class="keywordflow">if</span> (HAL_UART_DeInit(getHandle()) != HAL_OK) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            eventBits.close();</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -235,9 +235,9 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordtype">void</span> setBaudRate(uint32_t baudRate) {</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>            <span class="keyword">auto</span> handle = getHandle();</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>            <span class="keywordflow">if</span> (handle-&gt;Init.BaudRate == baudRate) <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            deinit();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            close();</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>            handle-&gt;Init.BaudRate = baudRate;</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            init();</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>            open();</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        }</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keyword">protected</span>:<span class="comment"></span></div>
@@ -337,23 +337,23 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        }</div>
 <div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="keyword">private</span>:</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keyword">using </span>CallbackID = HAL_UART_CallbackIDTypeDef;        <span class="comment">/*!&lt; Type alias for HAL UART callback ID. */</span></div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keyword">using </span>Handle = Lib::HAL::Handle&lt;UART_HandleTypeDef&gt;;  <span class="comment">/*!&lt; Type alias for UART handle wrapper. */</span></div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keyword">using </span>DeviceManager = Lib::HAL::DeviceManagerBase&lt;UartPortBase, UART_HandleTypeDef&gt;; <span class="comment">/*!&lt; Type alias for device manager. */</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keyword">using </span>CallbackID = HAL_UART_CallbackIDTypeDef;                                                                           <span class="comment">/*!&lt; Type alias for HAL UART callback ID. */</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keyword">using </span>Handle = Lib::HAL::Handle&lt;UART_HandleTypeDef&gt;;                                                                     <span class="comment">/*!&lt; Type alias for UART handle wrapper. */</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keyword">using </span>DeviceManager = Lib::HAL::DeviceManagerBase&lt;UartPortBase, UART_HandleTypeDef&gt;;                                     <span class="comment">/*!&lt; Type alias for device manager. */</span></div>
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        Handle handle;                                         <span class="comment">/*!&lt; HAL UART handle instance. */</span></div>
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        RTOS::EventGroup&lt;3&gt; eventBits{};                       <span class="comment">/*!&lt; Event group for synchronization of UART operations. */</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keyword">static</span> <span class="keyword">inline</span> DeviceManager &amp; deviceManager = DeviceManager::instance(); <span class="comment">/*!&lt; Reference to global device manager instance. */</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        Handle handle;                                                                                                           <span class="comment">/*!&lt; HAL UART handle instance. */</span></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        RTOS::EventGroup&lt;3&gt; eventBits{};                                                                                         <span class="comment">/*!&lt; Event group for synchronization of UART operations. */</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keyword">static</span> <span class="keyword">inline</span> DeviceManager &amp; deviceManager = DeviceManager::instance();                                                 <span class="comment">/*!&lt; Reference to global device manager instance. */</span></div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span> </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keyword">template</span> &lt;CallbackID&gt; <span class="keywordtype">void</span> event(); <span class="comment">/*!&lt; Template function for handling UART callback events. */</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keyword">template</span> &lt;CallbackID&gt; <span class="keywordtype">void</span> event();                                                                                      <span class="comment">/*!&lt; Template function for handling UART callback events. */</span></div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_RX_COMPLETE_CB_ID&gt;() { eventBits.<a class="code hl_function" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#aee1b435e20d0593f74173f3501c6c653">setBitsFromISR</a>(RX_COMPLETE); } <span class="comment">/*!&lt; Handle receive completion callback. */</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_RX_COMPLETE_CB_ID&gt;() { eventBits.<a class="code hl_function" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#a5b6e31124ed4704af2176b90cfbc4999">setBitsFromISR</a>(RX_COMPLETE); }       <span class="comment">/*!&lt; Handle receive completion callback. */</span></div>
 <div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_TX_COMPLETE_CB_ID&gt;() { eventBits.<a class="code hl_function" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#aee1b435e20d0593f74173f3501c6c653">setBitsFromISR</a>(TX_COMPLETE); } <span class="comment">/*!&lt; Handle transmit completion callback. */</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_TX_COMPLETE_CB_ID&gt;() { eventBits.<a class="code hl_function" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#a5b6e31124ed4704af2176b90cfbc4999">setBitsFromISR</a>(TX_COMPLETE); }       <span class="comment">/*!&lt; Handle transmit completion callback. */</span></div>
 <div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_ABORT_COMPLETE_CB_ID&gt;() { eventBits.<a class="code hl_function" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#aee1b435e20d0593f74173f3501c6c653">setBitsFromISR</a>(ABORT_COMPLETE); } <span class="comment">/*!&lt; Handle abort completion callback. */</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_ABORT_COMPLETE_CB_ID&gt;() { eventBits.<a class="code hl_function" href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#a5b6e31124ed4704af2176b90cfbc4999">setBitsFromISR</a>(ABORT_COMPLETE); } <span class="comment">/*!&lt; Handle abort completion callback. */</span></div>
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_ERROR_CB_ID&gt;() { <span class="comment">/*!&lt; Handle UART error callback. */</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keyword">template</span> &lt;&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span> event&lt;CallbackID::HAL_UART_ERROR_CB_ID&gt;() {                                                      <span class="comment">/*!&lt; Handle UART error callback. */</span></div>
 <div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>            __HAL_UART_FLUSH_DRREGISTER(getHandle());</div>
 <div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>            handleErrorEvent(<span class="keyword">static_cast&lt;</span>ErrorCode<span class="keyword">&gt;</span>(HAL_UART_GetError(getHandle())));</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        }</div>
@@ -370,7 +370,7 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>            <span class="keywordflow">if</span> (<span class="keyword">auto</span> device = deviceManager.findItem(handle)) device-&gt;event&lt;T_CALLBACK_ID&gt;();</div>
 <div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        }</div>
 <div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keyword">static</span> <span class="keyword">inline</span> std::array&lt;std::pair&lt;CallbackID, void (*)(UART_HandleTypeDef *)&gt;, 4&gt; CALLBACKS{ <span class="comment">/*!&lt; Array of UART callback registrations. */</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keyword">static</span> <span class="keyword">inline</span> std::array&lt;std::pair&lt;CallbackID, void (*)(UART_HandleTypeDef *)&gt;, 4&gt; CALLBACKS{<span class="comment">/*!&lt; Array of UART callback registrations. */</span></div>
 <div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>            std::make_pair(HAL_UART_ERROR_CB_ID, handleInterrupt&lt;HAL_UART_ERROR_CB_ID&gt;),</div>
 <div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>            std::make_pair(HAL_UART_RX_COMPLETE_CB_ID, handleInterrupt&lt;HAL_UART_RX_COMPLETE_CB_ID&gt;),</div>
 <div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>            std::make_pair(HAL_UART_TX_COMPLETE_CB_ID, handleInterrupt&lt;HAL_UART_TX_COMPLETE_CB_ID&gt;),</div>
@@ -382,7 +382,7 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <div class="ttc" id="a_device_manager_base_8hpp_html"><div class="ttname"><a href="../../d2/d30/_device_manager_base_8hpp.html">DeviceManagerBase.hpp</a></div><div class="ttdoc">Device Manager Base Class.</div></div>
 <div class="ttc" id="a_handle_8hpp_html"><div class="ttname"><a href="../../d6/d2a/_handle_8hpp.html">Handle.hpp</a></div><div class="ttdoc">Type-Safe Handle Wrapper.</div></div>
 <div class="ttc" id="a_r_t_o_s_8hpp_html"><div class="ttname"><a href="../../db/d09/_r_t_o_s_8hpp.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and class includes.</div></div>
-<div class="ttc" id="aclass_r_t_o_s_1_1_event_group_html_aee1b435e20d0593f74173f3501c6c653"><div class="ttname"><a href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#aee1b435e20d0593f74173f3501c6c653">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">void setBitsFromISR(const EventBits &amp;bits) noexcept</div><div class="ttdoc">Set event bits from ISR context (bitset variant).</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:147</div></div>
+<div class="ttc" id="aclass_r_t_o_s_1_1_event_group_html_a5b6e31124ed4704af2176b90cfbc4999"><div class="ttname"><a href="../../db/ddd/class_r_t_o_s_1_1_event_group.html#a5b6e31124ed4704af2176b90cfbc4999">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">void setBitsFromISR(const EventBits &amp;bits)</div><div class="ttdoc">Set event bits from ISR context (bitset variant).</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:147</div></div>
 <div class="ttc" id="anamespace_lib_1_1_h_a_l_html"><div class="ttname"><a href="../../d9/d8d/namespace_lib_1_1_h_a_l.html">Lib::HAL</a></div><div class="ttdoc">ADC Port type aliases for different driver modes.</div><div class="ttdef"><b>Definition</b> AdcPort.hpp:21</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -390,7 +390,7 @@ $(function(){initNavTree('d1/dcc/_uart_port_base_8hpp_source.html','../../','');
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>inc</b></li><li class="navelem"><b>Lib</b></li><li class="navelem"><b>HAL</b></li><li class="navelem"><b>core</b></li><li class="navelem"><b>UART</b></li><li class="navelem"><a href="../../d1/dcc/_uart_port_base_8hpp.html">UartPortBase.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_8614472618abc149a31dd7841874bafa.html">core</a></li><li class="navelem"><a href="../../dir_7064eabf9469244d886deff6a02a37e2.html">UART</a></li><li class="navelem"><a href="../../d1/dcc/_uart_port_base_8hpp.html">UartPortBase.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

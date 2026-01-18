@@ -10,7 +10,7 @@ var class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base =
     [ "Lan9252Base", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#a6613ded26f4052f2bb7e489ca0a9d34f", null ],
     [ "~Lan9252Base", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#a66d90a4dc25f714b6f83521b9902948d", null ],
     [ "bootstrapInit", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#a1a819911d5aea1bee33f6ad5a43d64f2", null ],
-    [ "init", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#a17637b8cda11da4518f77ec09fbd89b3", null ],
+    [ "open", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#a0534b34d3744382c2ce7971668bf002e", null ],
     [ "readAlEventReg", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#add21f08bddf425da4fdd9d55c18fd634", null ],
     [ "readBurstMode", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#a953506631707f09af869d55fd061bc6f", null ],
     [ "readCSR", "d0/d0f/class_lib_1_1_ethercat_1_1_dev_1_1_lan9252_base.html#acf0858d839854cd0ade7fcfd96779d31", null ],

@@ -6,5 +6,6 @@ var class_lib_1_1_errors_1_1_dispatcher =
     ] ],
     [ "createError", "d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#abe899d15f692a631334f269cf9f98f0e", null ],
     [ "start", "d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#a0dea9c515fd6a0ec071f86548f913907", null ],
+    [ "Observer", "d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#a1bc1613ca5d6d0e8b2fbce5ef15dd38f", null ],
     [ "statusChangedHook", "d3/d2f/class_lib_1_1_errors_1_1_dispatcher.html#a9a8c8741f8ed042e05b1d3ec4444d4c2", null ]
 ];

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['linearinterpolationd_0',['LinearInterpolationD',['../d2/dbd/_linear_interpolation_8hpp.html#a1d12636ad2a6d0818fd7fbc37d9758db',1,'Lib::Math']]],
-  ['linearinterpolationf_1',['LinearInterpolationF',['../d2/dbd/_linear_interpolation_8hpp.html#a2b6eed225af1b53f1d8827a670cf2977',1,'Lib::Math']]],
-  ['linearinterpolationi_2',['LinearInterpolationI',['../d2/dbd/_linear_interpolation_8hpp.html#a9dc61be53d99a077ca7b9526abbf9868',1,'Lib::Math']]]
+  ['jaggedarray_0',['JaggedArray',['../df/d8e/namespace_lib_1_1_helper.html#acc663a4a7ed85f66c63917708fb9dae4',1,'Lib::Helper']]],
+  ['jaggedarrayrow_1',['JaggedArrayRow',['../df/d8e/namespace_lib_1_1_helper.html#a18a2265f0012970450288fda0c0793fb',1,'Lib::Helper']]]
 ];

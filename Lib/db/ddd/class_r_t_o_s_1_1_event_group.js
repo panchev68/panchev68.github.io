@@ -1,13 +1,14 @@
 var class_r_t_o_s_1_1_event_group =
 [
-    [ "EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html#a59487e69e9913e9928e7c595b6e2094e", null ],
-    [ "~EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html#ae5da7ca21441157a26c7da3179eaba0e", null ],
-    [ "EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html#a2ee2c8c90dda19e3b830a72b48f3adba", null ],
-    [ "close", "db/ddd/class_r_t_o_s_1_1_event_group.html#a9501a68ccc3eccbc4b9e89d981353746", null ],
-    [ "isOpen", "db/ddd/class_r_t_o_s_1_1_event_group.html#aeb404dc43e17f09f881c17b271e038cf", null ],
-    [ "open", "db/ddd/class_r_t_o_s_1_1_event_group.html#a5971b0264101e202fc977ffd051c8ff8", null ],
-    [ "setBitsFromISR", "db/ddd/class_r_t_o_s_1_1_event_group.html#a62a37a0cdf9cbe30bc795b2972fa19c1", null ],
-    [ "setBitsFromISR", "db/ddd/class_r_t_o_s_1_1_event_group.html#aee1b435e20d0593f74173f3501c6c653", null ],
-    [ "waitForBits", "db/ddd/class_r_t_o_s_1_1_event_group.html#a635902ad3ab7abe86badfe6b44f3371f", null ],
-    [ "waitForBits", "db/ddd/class_r_t_o_s_1_1_event_group.html#aab34e0115904e5875bf4e724067ddd77", null ]
+    [ "EventBits", "db/ddd/class_r_t_o_s_1_1_event_group.html#a7144387f30909b64ae6126349d1cfbfd", null ],
+    [ "EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html#ac91569f6202499a97e3c4bb894045b33", null ],
+    [ "~EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html#acf4e7e0abea6c9857d1392f6c8be20fd", null ],
+    [ "EventGroup", "db/ddd/class_r_t_o_s_1_1_event_group.html#a892f8bbae8e5eb74c78a791cfc2d2c79", null ],
+    [ "close", "db/ddd/class_r_t_o_s_1_1_event_group.html#aa92b9ecd05ee34d5510aab4a9989b4f9", null ],
+    [ "isOpen", "db/ddd/class_r_t_o_s_1_1_event_group.html#ad92261a2076f7f59d3ae7a15d60ecf18", null ],
+    [ "open", "db/ddd/class_r_t_o_s_1_1_event_group.html#a1b34aab0e7709a8c5b9564db628edc27", null ],
+    [ "setBitsFromISR", "db/ddd/class_r_t_o_s_1_1_event_group.html#ab2af0ce55332f71eca1728f0aa27af61", null ],
+    [ "setBitsFromISR", "db/ddd/class_r_t_o_s_1_1_event_group.html#a5b6e31124ed4704af2176b90cfbc4999", null ],
+    [ "waitForBits", "db/ddd/class_r_t_o_s_1_1_event_group.html#a86387ba147dbf7a67ca82ebe309f803f", null ],
+    [ "waitForBits", "db/ddd/class_r_t_o_s_1_1_event_group.html#a45ce13c9ad14f3786212ad59207c5271", null ]
 ];

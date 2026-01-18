@@ -1,10 +1,7 @@
 var examples =
 [
-    [ "Lib::BSP::Beep", "d3/db6/_lib_1_1_b_s_p_1_1_beep-example.html", null ],
-    [ "Lib::BSP::EEPROM::I2C::M24C64W", "d3/ded/_lib_1_1_b_s_p_1_1_e_e_p_r_o_m_1_1_i2_c_1_1_m24_c64_w-example.html", null ],
     [ "Lib::Canbus::ClientBase", "d8/dea/_lib_1_1_canbus_1_1_client_base-example.html", null ],
     [ "Lib::HAL::GPIO::ExtInterrupt", "d4/d34/_lib_1_1_h_a_l_1_1_g_p_i_o_1_1_ext_interrupt-example.html", null ],
-    [ "Lib::HAL::SpiPortBase", "d2/dcf/_lib_1_1_h_a_l_1_1_spi_port_base-example.html", null ],
     [ "Lib::Helper::Buffer", "db/df7/_lib_1_1_helper_1_1_buffer-example.html", null ],
     [ "Lib::Helper::BufferHandle", "d4/d3f/_lib_1_1_helper_1_1_buffer_handle-example.html", null ],
     [ "Lib::Helper::CityHash", "d7/db6/_lib_1_1_helper_1_1_city_hash-example.html", null ],
@@ -48,9 +45,8 @@ var examples =
     [ "RTOS::Timer", "d8/d70/_r_t_o_s_1_1_timer-example.html", null ],
     [ "Lib::System::Configuration", "d9/d8e/_lib_1_1_system_1_1_configuration-example.html", null ],
     [ "Lib::System::FirmwareVersion", "d6/d6d/_lib_1_1_system_1_1_firmware_version-example.html", null ],
-    [ "Lib::System::ProduceDate", "d5/db4/_lib_1_1_system_1_1_produce_date-example.html", null ],
+    [ "Lib::System::HardwareVersion", "dc/df3/_lib_1_1_system_1_1_hardware_version-example.html", null ],
     [ "Lib::System::SerialNumber", "dc/db4/_lib_1_1_system_1_1_serial_number-example.html", null ],
     [ "Lib::System::System", "de/dda/_lib_1_1_system_1_1_system-example.html", null ],
-    [ "Lib::System::Version", "db/d78/_lib_1_1_system_1_1_version-example.html", null ],
     [ "Lib::USB::SerialPortRepeaterBase", "d1/d9a/_lib_1_1_u_s_b_1_1_serial_port_repeater_base-example.html", null ]
 ];

@@ -1,9 +1,12 @@
 var namespace_lib_1_1_helper =
 [
-    [ "Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", "d0/d22/class_lib_1_1_helper_1_1_exception" ],
+    [ "Convert", "d3/d6d/namespace_lib_1_1_helper_1_1_convert.html", "d3/d6d/namespace_lib_1_1_helper_1_1_convert" ],
+    [ "Detail", "d5/df8/namespace_lib_1_1_helper_1_1_detail.html", [
+      [ "bswapUnsigned", "d5/df8/namespace_lib_1_1_helper_1_1_detail.html#a0332270f6b42fec357fd510fc6a7652b", null ]
+    ] ],
     [ "Buffer", "d0/d95/class_lib_1_1_helper_1_1_buffer.html", "d0/d95/class_lib_1_1_helper_1_1_buffer" ],
-    [ "BufferStatic", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static.html", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static" ],
     [ "BufferHandle", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html", "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle" ],
+    [ "BufferStatic", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static.html", "d8/dc5/class_lib_1_1_helper_1_1_buffer_static" ],
     [ "CityHash", "d1/d22/class_lib_1_1_helper_1_1_city_hash.html", "d1/d22/class_lib_1_1_helper_1_1_city_hash" ],
     [ "Container", "d9/d33/class_lib_1_1_helper_1_1_container.html", "d9/d33/class_lib_1_1_helper_1_1_container" ],
     [ "ContainerBase", "d6/ddd/class_lib_1_1_helper_1_1_container_base.html", "d6/ddd/class_lib_1_1_helper_1_1_container_base" ],
@@ -11,6 +14,7 @@ var namespace_lib_1_1_helper =
     [ "DataHandle", "d9/d1a/class_lib_1_1_helper_1_1_data_handle.html", "d9/d1a/class_lib_1_1_helper_1_1_data_handle" ],
     [ "DateTime", "de/d5f/class_lib_1_1_helper_1_1_date_time.html", "de/d5f/class_lib_1_1_helper_1_1_date_time" ],
     [ "Delay", "d7/d08/class_lib_1_1_helper_1_1_delay.html", null ],
+    [ "Exception", "d0/d22/class_lib_1_1_helper_1_1_exception.html", "d0/d22/class_lib_1_1_helper_1_1_exception" ],
     [ "FindPeaks", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks.html", "d7/dd1/class_lib_1_1_helper_1_1_find_peaks" ],
     [ "Instance", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", "d8/d2f/class_lib_1_1_helper_1_1_instance" ],
     [ "InstanceWithArg", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg.html", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg" ],
@@ -45,5 +49,7 @@ var namespace_lib_1_1_helper =
     [ "swapBytes< uint64_t >", "df/d8e/namespace_lib_1_1_helper.html#ae1c7a2d129e51daba17a3fc28b2e6cb0", null ],
     [ "swapBytes< uint64_t >", "df/d8e/namespace_lib_1_1_helper.html#ada9836f47cd56df75c2f1c5d863782aa", null ],
     [ "swapBytes< uint8_t >", "df/d8e/namespace_lib_1_1_helper.html#aa10af9621b1351eddf91461757289011", null ],
-    [ "swapBytes< uint8_t >", "df/d8e/namespace_lib_1_1_helper.html#a649a3e136e765a4aa93c4580b0724266", null ]
+    [ "swapBytes< uint8_t >", "df/d8e/namespace_lib_1_1_helper.html#a649a3e136e765a4aa93c4580b0724266", null ],
+    [ "InstanceWithArg< T, TConfig >::initialized", "df/d8e/namespace_lib_1_1_helper.html#a67e3cecb4d5c3c63f2c5f59e4f1c6f77", null ],
+    [ "InstanceWithArg< T, TConfig >::storage", "df/d8e/namespace_lib_1_1_helper.html#aff59b4c1de3f729ea941d38ae4a40a3c", null ]
 ];

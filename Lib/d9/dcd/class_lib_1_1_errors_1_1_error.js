@@ -19,5 +19,7 @@ var class_lib_1_1_errors_1_1_error =
     [ "operator=", "d9/dcd/class_lib_1_1_errors_1_1_error.html#a5dcdc591bb95b2a77e2cfbd2571990b6", null ],
     [ "reset", "d9/dcd/class_lib_1_1_errors_1_1_error.html#a2d8621d38d2537a40d9d88a1e49fcf51", null ],
     [ "set", "d9/dcd/class_lib_1_1_errors_1_1_error.html#a2362ab99ab92aaf59826bd75724bc13f", null ],
-    [ "setGroup", "d9/dcd/class_lib_1_1_errors_1_1_error.html#a15b3c4820301ca10f7f90b1a38178bbd", null ]
+    [ "setGroup", "d9/dcd/class_lib_1_1_errors_1_1_error.html#a15b3c4820301ca10f7f90b1a38178bbd", null ],
+    [ "Dispatcher", "d9/dcd/class_lib_1_1_errors_1_1_error.html#ad90424f003fc2afb836709cbffa47e2c", null ],
+    [ "Observer", "d9/dcd/class_lib_1_1_errors_1_1_error.html#a1bc1613ca5d6d0e8b2fbce5ef15dd38f", null ]
 ];

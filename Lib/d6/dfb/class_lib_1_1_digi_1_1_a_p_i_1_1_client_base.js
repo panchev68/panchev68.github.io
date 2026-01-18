@@ -1,5 +1,6 @@
 var class_lib_1_1_digi_1_1_a_p_i_1_1_client_base =
 [
+    [ "Config", "d6/dfb/class_lib_1_1_digi_1_1_a_p_i_1_1_client_base.html#a604074b8d923be3f29323943f4ca4fa7", null ],
     [ "Error", "d6/dfb/class_lib_1_1_digi_1_1_a_p_i_1_1_client_base.html#afa81fc7edb49711bb251f7c66f6a47d8", [
       [ "NONE", "d6/dfb/class_lib_1_1_digi_1_1_a_p_i_1_1_client_base.html#afa81fc7edb49711bb251f7c66f6a47d8ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "NO_RESPONSE_FROM_MODULE", "d6/dfb/class_lib_1_1_digi_1_1_a_p_i_1_1_client_base.html#afa81fc7edb49711bb251f7c66f6a47d8aa08bb1910c79f97745aa956dacf651a9", null ]

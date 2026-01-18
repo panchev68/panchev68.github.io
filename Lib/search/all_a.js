@@ -5,7 +5,7 @@ var searchData=
   ['kalman_2ehpp_2',['Kalman.hpp',['../de/d17/_kalman_8hpp.html',1,'']]],
   ['kbdhit_3',['kbdhit',['../d0/d32/class_lib_1_1_b_s_p_1_1_encoder_pins.html#a4b596e140dbc52af97d489200c126b2c',1,'Lib::BSP::EncoderPins']]],
   ['kd_4',['kd',['../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#a6fd341537b6f12074478402b53dea8f1',1,'Lib::Math::Pid::Parameters']]],
-  ['kernel_5',['Kernel',['../d4/d93/class_r_t_o_s_1_1_kernel.html',1,'RTOS']]],
+  ['kernel_5',['Kernel',['../d4/d93/class_r_t_o_s_1_1_kernel.html',1,'RTOS::Kernel'],['../d4/d93/class_r_t_o_s_1_1_kernel.html#abbc417c1dbe0eb579cf07e6568e6f922',1,'RTOS::Kernel::Kernel()=delete'],['../d4/d93/class_r_t_o_s_1_1_kernel.html#a708bcd79ba9d6d5c9084e4100788b79e',1,'RTOS::Kernel::Kernel(const Kernel &amp;)=delete']]],
   ['kernel_2ehpp_6',['Kernel.hpp',['../dd/d8b/_kernel_8hpp.html',1,'']]],
   ['key_20features_7',['Key Features',['../d9/dc4/_x_p_t2046_8hpp.html#key-features',1,'']]],
   ['ki_8',['ki',['../da/dc4/struct_lib_1_1_math_1_1_pid_1_1_parameters.html#ac30cd8786ec60c8114bc21b7f63145d4',1,'Lib::Math::Pid::Parameters']]],

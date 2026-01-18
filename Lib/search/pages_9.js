@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['jagged_20array_20usage_20example_0',['Jagged Array Usage Example.',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#jagged-array-usage-example',1,'']]]
+  ['kalman_20filter_20usage_20for_20smoothing_20noisy_20sensor_20data_0',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
+  ['key_20features_1',['Key Features',['../d9/dc4/_x_p_t2046_8hpp.html#key-features',1,'']]]
 ];

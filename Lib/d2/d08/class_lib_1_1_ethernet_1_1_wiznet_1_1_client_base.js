@@ -4,9 +4,17 @@ var class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base =
       [ "INIT", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53bafaee4ca3c30ee18148ce3ada37466498", null ],
       [ "IDLE", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5daf7f2ebbba4975d61dab1c40188c7", null ],
       [ "CONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5afd6edd5336d91316964e493936858", null ],
+      [ "DISCONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53ba99c8ce56e7ab246445d3b134724428f3", null ],
+      [ "INIT", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53bafaee4ca3c30ee18148ce3ada37466498", null ],
+      [ "IDLE", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5daf7f2ebbba4975d61dab1c40188c7", null ],
+      [ "CONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5afd6edd5336d91316964e493936858", null ],
       [ "DISCONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53ba99c8ce56e7ab246445d3b134724428f3", null ]
     ] ],
     [ "ConnectionState", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53b", [
+      [ "INIT", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53bafaee4ca3c30ee18148ce3ada37466498", null ],
+      [ "IDLE", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5daf7f2ebbba4975d61dab1c40188c7", null ],
+      [ "CONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5afd6edd5336d91316964e493936858", null ],
+      [ "DISCONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53ba99c8ce56e7ab246445d3b134724428f3", null ],
       [ "INIT", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53bafaee4ca3c30ee18148ce3ada37466498", null ],
       [ "IDLE", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5daf7f2ebbba4975d61dab1c40188c7", null ],
       [ "CONNECTED", "d2/d08/class_lib_1_1_ethernet_1_1_wiznet_1_1_client_base.html#a3979b73b342f44c9cbf74da659e0e53baa5afd6edd5336d91316964e493936858", null ],

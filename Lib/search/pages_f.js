@@ -1,14 +1,4 @@
 var searchData=
 [
-  ['percent_20class_20for_20percentage_20to_20dbm_20conversion_0',['Example usage of Percent class for percentage to dBM conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Percent.hpp#example-usage-of-percent-class-for-percentage-to-dbm-conversion',1,'']]],
-  ['percentage_20to_20dbm_20conversion_1',['Example usage of Percent class for percentage to dBM conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Percent.hpp#example-usage-of-percent-class-for-percentage-to-dbm-conversion',1,'']]],
-  ['performance_20and_20interrupt_20requirements_2',['Select the appropriate mode based on performance and interrupt requirements.',['../d9/d8d/namespace_lib_1_1_h_a_l.html#select-the-appropriate-mode-based-on-performance-and-interrupt-requirements',1,'']]],
-  ['phase_20calculation_20example_3',['Moon Phase Calculation Example.',['../X:/Lib/IAR/inc/Lib/Helper/MoonPhase.hpp#moon-phase-calculation-example',1,'']]],
-  ['pid_20controller_20for_20temperature_20regulation_4',['Example usage of the Pid controller for temperature regulation.',['../X:/Lib/IAR/inc/Lib/Math/Pid.hpp#example-usage-of-the-pid-controller-for-temperature-regulation',1,'']]],
-  ['pointers_20with_20container_5',['Managing a collection of pointers with Container.',['../X:/Lib/IAR/inc/Lib/Helper/Container.hpp#managing-a-collection-of-pointers-with-container',1,'']]],
-  ['port_20specializations_20for_20various_20use_20cases_20in_20embedded_20systems_6',['It provides convenient access to ADC port specializations for various use cases in embedded systems.',['../d9/d8d/namespace_lib_1_1_h_a_l.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'']]],
-  ['ports_20operating_20in_20blocking_20interrupt_20driven_20and_20dma_20based_20modes_7',['This file defines type aliases for ADC ports operating in blocking, interrupt-driven, and DMA-based modes.',['../d9/d8d/namespace_lib_1_1_h_a_l.html#this-file-defines-type-aliases-for-adc-ports-operating-in-blocking-interrupt-driven-and-dma-based-modes',1,'']]],
-  ['producedate_20class_8',['Example usage of ProduceDate class.',['../X:/Lib/IAR/inc/Lib/System/ProduceDate.hpp#example-usage-of-producedate-class',1,'']]],
-  ['protecting_20a_20shared_20resource_20in_20concurrent_20tasks_9',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['provides_20convenient_20access_20to_20adc_20port_20specializations_20for_20various_20use_20cases_20in_20embedded_20systems_10',['It provides convenient access to ADC port specializations for various use cases in embedded systems.',['../d9/d8d/namespace_lib_1_1_h_a_l.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'']]]
+  ['queue_20sets_0',['Example usage of RTOS::QueueSet with FreeRTOS queue sets.',['../X:/Lib/IAR/inc/Lib/RTOS/QueueSet.hpp#example-usage-of-rtosqueueset-with-freertos-queue-sets',1,'']]]
 ];

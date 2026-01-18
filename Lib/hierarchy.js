@@ -16,10 +16,6 @@ var hierarchy =
     [ "Lib::BSP::Thermometer::DTH::Base", "d9/d0d/class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base.html", [
       [ "Lib::BSP::Thermometer::DTH::Driver< Type::DTH22 >", "d5/da8/class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html", null ]
     ] ],
-    [ "Lib::System::Version::Base", "d6/d55/class_lib_1_1_system_1_1_version_1_1_base.html", [
-      [ "Lib::System::Version::Firmware", "df/d5e/class_lib_1_1_system_1_1_version_1_1_firmware.html", null ],
-      [ "Lib::System::Version::Hardware", "d1/dd7/class_lib_1_1_system_1_1_version_1_1_hardware.html", null ]
-    ] ],
     [ "Lib::Helper::Convert::Bcd", "dc/d7c/class_lib_1_1_helper_1_1_convert_1_1_bcd.html", null ],
     [ "BootStrap", "d7/d27/class_boot_strap.html", null ],
     [ "Buffer", "d5/d2a/class_buffer.html", [
@@ -163,7 +159,6 @@ var hierarchy =
     [ "Lib::Helper::Instance&lt; T &gt;", "d8/d2f/class_lib_1_1_helper_1_1_instance.html", null ],
     [ "Lib::Helper::InstanceWithArg&lt; T, TConfig &gt;", "d7/d4c/class_lib_1_1_helper_1_1_instance_with_arg.html", null ],
     [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d8/dfa/class_lib_1_1_helper_1_1_integrator.html", null ],
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface", "d8/db4/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_interface.html", null ],
     [ "Lib::Ethernet::IpAddress", "d7/d34/class_lib_1_1_ethernet_1_1_ip_address.html", null ],
     [ "Lib::Helper::JaggedArrayBase&lt; T &gt;", "d8/dd0/class_lib_1_1_helper_1_1_jagged_array_base.html", null ],
     [ "Lib::Math::Filter::Kalman&lt; T &gt;", "d6/d76/class_lib_1_1_math_1_1_filter_1_1_kalman.html", null ],
@@ -265,6 +260,9 @@ var hierarchy =
     [ "Lib::Ethernet::Wiznet::Socket", "d0/d56/class_lib_1_1_ethernet_1_1_wiznet_1_1_socket.html", null ],
     [ "Lib::BSP::SPIPort", "dd/d4a/class_lib_1_1_b_s_p_1_1_s_p_i_port.html", null ],
     [ "Lib::HAL::SpiPort&lt; T_MODE &gt;", "db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html", null ],
+    [ "Lib::HAL::SpiPort&lt; IT &gt;", "db/de3/class_lib_1_1_h_a_l_1_1_spi_port.html", [
+      [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface", "d8/db4/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_interface.html", null ]
+    ] ],
     [ "Lib::Digi::API::Connection::State", "db/da8/class_lib_1_1_digi_1_1_a_p_i_1_1_connection_1_1_state.html", null ],
     [ "Lib::Math::Pid&lt; T &gt;::State", "d5/d16/struct_lib_1_1_math_1_1_pid_1_1_state.html", null ],
     [ "Lib::System::ParametersBase::StorageBase", "d6/d38/class_lib_1_1_system_1_1_parameters_base_1_1_storage_base.html", null ],
@@ -303,7 +301,6 @@ var hierarchy =
     [ "Lib::Ethernet::UserProtocol", "dc/d31/class_lib_1_1_ethernet_1_1_user_protocol.html", null ],
     [ "Lib::XCOM::ServiceBase::Value64Handle", "d7/d0e/class_lib_1_1_x_c_o_m_1_1_service_base_1_1_value64_handle.html", null ],
     [ "Lib::Digi::Core::Frame::Helper::Vector", "dc/d4d/class_lib_1_1_digi_1_1_core_1_1_frame_1_1_helper_1_1_vector.html", null ],
-    [ "Lib::System::Version", "dd/d4c/class_lib_1_1_system_1_1_version.html", null ],
     [ "Lib::System::VersionBase", "d1/d03/class_lib_1_1_system_1_1_version_base.html", [
       [ "Lib::System::FirmwareVersion", "de/d82/class_lib_1_1_system_1_1_firmware_version.html", null ],
       [ "Lib::System::HardwareVersion", "df/d44/class_lib_1_1_system_1_1_hardware_version.html", null ]

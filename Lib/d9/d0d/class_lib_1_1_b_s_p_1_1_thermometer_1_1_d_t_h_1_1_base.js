@@ -1,7 +1,7 @@
 var class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base =
 [
-    [ "TimerHandle", "d0/da9/struct_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base_1_1_timer_handle.html", "d0/da9/struct_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base_1_1_timer_handle" ],
     [ "Config", "d4/dcf/struct_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base_1_1_config.html", "d4/dcf/struct_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base_1_1_config" ],
+    [ "TimerHandle", "d0/da9/struct_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base_1_1_timer_handle.html", "d0/da9/struct_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base_1_1_timer_handle" ],
     [ "PinHandle", "d9/d0d/class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base.html#ad9f7a4314fe4222dfcf73ed2eaa3be9b", null ],
     [ "Base", "d9/d0d/class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base.html#ac7ae923615744bfe534fb805f7e798c7", null ],
     [ "~Base", "d9/d0d/class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base.html#a20b0ed9d992c87b4f7a9a325f0f29eb3", null ],

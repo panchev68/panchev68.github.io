@@ -1,5 +1,6 @@
 var class_lib_1_1_digi_1_1_core_1_1_local_at_command =
 [
+    [ "Command", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html#ad7de9040ab35a62c524e02edb5857497", null ],
     [ "LocalAtCommand", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html#ace3f385c65714bbf47b0c572a8848d6e", null ],
     [ "~LocalAtCommand", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html#a7342ebde08b2926419d08b5e464f6d84", null ],
     [ "close", "dc/dde/class_lib_1_1_digi_1_1_core_1_1_local_at_command.html#afce8b86b4e721a40c5af48d4fc9c6657", null ],

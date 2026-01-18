@@ -1,7 +1,7 @@
 var class_lib_1_1_canbus_1_1_service_base =
 [
-    [ "Node", "d0/db3/struct_lib_1_1_canbus_1_1_service_base_1_1_node.html", "d0/db3/struct_lib_1_1_canbus_1_1_service_base_1_1_node" ],
     [ "Diagnostic", "dc/d77/struct_lib_1_1_canbus_1_1_service_base_1_1_diagnostic.html", "dc/d77/struct_lib_1_1_canbus_1_1_service_base_1_1_diagnostic" ],
+    [ "Node", "d0/db3/struct_lib_1_1_canbus_1_1_service_base_1_1_node.html", "d0/db3/struct_lib_1_1_canbus_1_1_service_base_1_1_node" ],
     [ "Filter", "d6/d56/class_lib_1_1_canbus_1_1_service_base.html#aba2543fcfb2d0bfb529f5b29a749d9f5", null ],
     [ "RxMessage", "d6/d56/class_lib_1_1_canbus_1_1_service_base.html#a4037831aea825654d7dbddde75b316c7", null ],
     [ "ServiceBase", "d6/d56/class_lib_1_1_canbus_1_1_service_base.html#acbfceb92cefef5281785b7d5db81df5d", null ],

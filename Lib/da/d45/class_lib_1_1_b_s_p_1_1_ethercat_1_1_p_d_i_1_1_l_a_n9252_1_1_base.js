@@ -9,7 +9,7 @@ var class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base =
     ] ],
     [ "Base", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#a12aecbfda8834bf3a667148d765a5131", null ],
     [ "~Base", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#aa9f11ccc2dd39f23cc2812b7787d7175", null ],
-    [ "init", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#a6793d0ac82442ee5dfc4e77a16776c0d", null ],
+    [ "open", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
     [ "readAlEventReg", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#a42597a0a26e0b841c990fac2f0725181", null ],
     [ "readBurstMode", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#af5210952b59bbcb05e58064fba813e02", null ],
     [ "readCSR", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#a2cadde5c24b96d67b63df1a7376b6c1d", null ],

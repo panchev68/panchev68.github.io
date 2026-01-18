@@ -8,7 +8,7 @@ var class_lib_1_1_digi_1_1_core_1_1_com_driver =
     [ "emitBeginMessageSend", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#ac1376bdcf9b24b86defd586255a4f49e", null ],
     [ "emitEndMessageReceived", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a0b4cb10c6e88d6e637a5c28b6f5384dc", null ],
     [ "emitEndMessageSend", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#ab4617c7f8d128843863a5213ed053afd", null ],
-    [ "init", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a90a0d9c3c3d6fed72368258200ac81d7", null ],
+    [ "open", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a5b33e8e2f1cda871f76da1a63e43c772", null ],
     [ "reset", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a20953e1a45e4965621784d0a295a9933", null ],
     [ "send", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#ac8d80be0df262f35365e8961fbaa0169", null ],
     [ "diagnostic", "df/d88/class_lib_1_1_digi_1_1_core_1_1_com_driver.html#a1c1a1b45d9814694f4ad831bb2645d12", null ],

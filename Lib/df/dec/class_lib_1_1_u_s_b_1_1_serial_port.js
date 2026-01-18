@@ -8,9 +8,9 @@ var class_lib_1_1_u_s_b_1_1_serial_port =
     [ "SerialPort", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a598e18433429c3e9aa74a063852aaccd", null ],
     [ "~SerialPort", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#afded1dc48b51225406bff4ec53c93689", null ],
     [ "close", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a833dd7b50ed3c60c51a1f2e6dc8b8647", null ],
+    [ "handlePostReceivedEvent", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a75314779b791b1fba08ecb13324d3caa", null ],
+    [ "handlePostTransmitEvent", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
     [ "open", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
-    [ "postReceivedCallback", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a939947622019f67174644c43262287a9", null ],
-    [ "postTransmitCallback", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#afc4e69a133f2012e749824971054dcd8", null ],
     [ "send", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
     [ "setBaudRate", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
     [ "setResetPin", "df/dec/class_lib_1_1_u_s_b_1_1_serial_port.html#a0abe8e602336b586b790df6ea81b4ab0", null ]

@@ -39,10 +39,11 @@ var searchData=
   ['config_36',['config',['../d9/d0d/class_lib_1_1_b_s_p_1_1_thermometer_1_1_d_t_h_1_1_base.html#a4aaaf0704216aabb831a391f835c4a84',1,'Lib::BSP::Thermometer::DTH::Base']]],
   ['configuration_37',['configuration',['../d1/d54/struct_lib_1_1_system_1_1_system_1_1_data_map.html#a207811e42d707051b821430532e14dca',1,'Lib::System::System::DataMap::configuration'],['../d8/dc1/class_lib_1_1_system_1_1_system.html#a97e928b4c78a8a3e74760b983ea17573',1,'Lib::System::System::configuration']]],
   ['connection_38',['connection',['../d6/dc8/class_lib_1_1_digi_1_1_a_p_i_1_1_application_base.html#aeef129f6673307b01cf2cba5a92bf845',1,'Lib::Digi::API::ApplicationBase']]],
-  ['control_39',['control',['../d1/d34/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs_1_1_m_c33879_1_1_tx_port.html#a673a74355aa4903c637670bd743b0e5a',1,'Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort']]],
-  ['crc_5fsize_40',['CRC_SIZE',['../da/dc6/class_lib_1_1_system_1_1_parameters_base.html#ac8f980caf1722f606d31e57f099c7621',1,'Lib::System::ParametersBase']]],
-  ['csr_5fcmd_5freg_41',['CSR_CMD_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a0cd56c09fd79004b9acf684bee8d8ca1',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['csr_5fcmd_5freg_5foffset_42',['CSR_CMD_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a1c1ba994c5780050df4e901adf25f2',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['csr_5fdata_5freg_43',['CSR_DATA_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a35035d975ede0fb29c570f462df4f7cd',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
-  ['csr_5fdata_5freg_5foffset_44',['CSR_DATA_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a0cc45dc91229a521002d858da98358',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]]
+  ['connection_5ftimeout_39',['CONNECTION_TIMEOUT',['../d6/dc8/class_lib_1_1_digi_1_1_a_p_i_1_1_application_base.html#a9871ba5c9846a928b8480dff5a3974f5',1,'Lib::Digi::API::ApplicationBase']]],
+  ['control_40',['control',['../d1/d34/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs_1_1_m_c33879_1_1_tx_port.html#a673a74355aa4903c637670bd743b0e5a',1,'Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort']]],
+  ['crc_5fsize_41',['CRC_SIZE',['../da/dc6/class_lib_1_1_system_1_1_parameters_base.html#ac8f980caf1722f606d31e57f099c7621',1,'Lib::System::ParametersBase']]],
+  ['csr_5fcmd_5freg_42',['CSR_CMD_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a0cd56c09fd79004b9acf684bee8d8ca1',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['csr_5fcmd_5freg_5foffset_43',['CSR_CMD_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a1c1ba994c5780050df4e901adf25f2',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['csr_5fdata_5freg_44',['CSR_DATA_REG',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a35035d975ede0fb29c570f462df4f7cd',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]],
+  ['csr_5fdata_5freg_5foffset_45',['CSR_DATA_REG_OFFSET',['../de/dc8/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_registers.html#a8a0cc45dc91229a521002d858da98358',1,'Lib::BSP::Ethercat::PDI::LAN9252::Registers']]]
 ];

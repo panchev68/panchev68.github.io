@@ -1,6 +1,6 @@
 var class_lib_1_1_h_a_l_1_1_device_manager_base =
 [
-    [ "addItem", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a06e2e209cb8b3e65250539d68d38ea4f", null ],
-    [ "findItem", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a4b81e3704431c4dd4f577ba6ee97d2b8", null ],
-    [ "removeItem", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a762c8911d98a6f77ad711f593d094f20", null ]
+    [ "addItem", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#aeb740a010d01c37260ebc898d6bc96c4", null ],
+    [ "findItem", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a6a816f9abc2947e85381d5c225bb1e61", null ],
+    [ "removeItem", "d5/d35/class_lib_1_1_h_a_l_1_1_device_manager_base.html#a7024322fa7a380e09e409104669bfe94", null ]
 ];

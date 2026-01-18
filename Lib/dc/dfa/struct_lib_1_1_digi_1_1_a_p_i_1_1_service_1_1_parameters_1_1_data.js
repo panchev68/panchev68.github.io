@@ -1,6 +1,6 @@
 var struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data =
 [
-    [ "SerialNumber", "d8/d12/union_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data_1_1_serial_number.html", null ],
+    [ "SerialNumber", "d8/d12/union_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data_1_1_serial_number.html", "d8/d12/union_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data_1_1_serial_number" ],
     [ "ackFailures", "dc/dfa/struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data.html#aa36464587f33788505f069d1c46ec004", null ],
     [ "ccaFailures", "dc/dfa/struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
     [ "channel", "dc/dfa/struct_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_parameters_1_1_data.html#a910133d925087a409f8f8357447b9e3a", null ],

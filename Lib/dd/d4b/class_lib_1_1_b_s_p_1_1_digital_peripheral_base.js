@@ -1,10 +1,11 @@
 var class_lib_1_1_b_s_p_1_1_digital_peripheral_base =
 [
-    [ "MapField", "d3/d04/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_map_field.html", "d3/d04/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_map_field" ],
     [ "Config", "d7/d09/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config.html", "d7/d09/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_config" ],
-    [ "PortBase", "d4/d7f/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_port_base.html", "d4/d7f/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_port_base" ],
     [ "Inputs", "d7/dca/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_inputs.html", "d7/dca/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_inputs" ],
+    [ "MapField", "d3/d04/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_map_field.html", "d3/d04/struct_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_map_field" ],
     [ "Outputs", "d3/d3a/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs.html", "d3/d3a/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_outputs" ],
+    [ "PortBase", "d4/d7f/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_port_base.html", "d4/d7f/class_lib_1_1_b_s_p_1_1_digital_peripheral_base_1_1_port_base" ],
+    [ "SpiPort", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a54cca49c73e60884cc47c8ece7d1b7a1", null ],
     [ "UpdateMode", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a50419179ec3a60e3ac3b5036b3b284eb", [
       [ "SEQUENTIAL", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
       [ "PARALLEL", "dd/d4b/class_lib_1_1_b_s_p_1_1_digital_peripheral_base.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]

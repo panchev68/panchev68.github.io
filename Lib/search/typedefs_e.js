@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['st7789_0',['ST7789',['../dc/d22/_s_t7789_8hpp.html#a65945dd063f1bdba63771905189c1761',1,'Lib::BSP::Display']]]
+  ['qualitymode_0',['QualityMode',['../d1/d2b/class_lib_1_1_digi_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#ad5fc8e4a205712347c919b6c0934fb03',1,'Lib::Digi::API::Service::ChannelScanner']]]
 ];

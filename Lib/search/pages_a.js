@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['kalman_20filter_20usage_20for_20smoothing_20noisy_20sensor_20data_0',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
-  ['key_20features_1',['Key Features',['../d9/dc4/_x_p_t2046_8hpp.html#key-features',1,'']]]
+  ['legal_20notice_0',['Legal notice',['../index.html#legal',1,'']]],
+  ['lib_3a_3ahelper_3a_3aexception_1',['Example usage of Lib::Helper::Exception.',['../X:/Lib/IAR/inc/Lib/Helper/Exception.hpp#example-usage-of-libhelperexception',1,'']]],
+  ['library_20documentation_2',['RTOS Library Documentation',['../df/d15/_r_t_o_s_page.html',1,'']]],
+  ['linearinterpolation_20for_20float_20values_3',['Example of using LinearInterpolation for float values.',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/LinearInterpolation.hpp#example-of-using-linearinterpolation-for-float-values',1,'']]]
 ];

@@ -1,5 +1,6 @@
 var class_lib_1_1_digi_1_1_a_p_i_1_1_server_base =
 [
+    [ "Config", "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#a636c2697a2b7b88bf663270d24489697", null ],
     [ "Error", "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#afa81fc7edb49711bb251f7c66f6a47d8", [
       [ "NONE", "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#afa81fc7edb49711bb251f7c66f6a47d8ab50339a10e1de285ac99d4c3990b8693", null ],
       [ "NO_RESPONSE_FROM_MODULE", "db/da4/class_lib_1_1_digi_1_1_a_p_i_1_1_server_base.html#afa81fc7edb49711bb251f7c66f6a47d8aa08bb1910c79f97745aa956dacf651a9", null ]
