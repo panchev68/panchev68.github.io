@@ -99,13 +99,12 @@ $(function(){initNavTree('db/d98/a01675.html','../../','d2/d7b/a01672'); });
 <p>Automatically locks the mutex on construction and unlocks on destruction. This RAII (Resource Acquisition Is Initialization) wrapper ensures that mutexes are properly unlocked even if exceptions occur or early returns happen.</p>
 <p>The <a class="el" href="../../db/d98/a01675.html" title="LockGuard class for RAII locking.">LockGuard</a> attempts to acquire the mutex during construction with an optional timeout. If the lock is acquired, it will be automatically released when the <a class="el" href="../../db/d98/a01675.html" title="LockGuard class for RAII locking.">LockGuard</a> goes out of scope. The lock status can be checked using <a class="el" href="#a0e645100f87f3d44b702c163e6790ae4" title="Check if the lock was acquired.">isLocked()</a> or the bool conversion operator.</p>
 <p>Usage example: </p><div class="fragment"><div class="line">{</div>
-<div class="line">    <a class="code hl_typedef" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(myMutex, 100); <span class="comment">// Try to lock for 100 ticks</span></div>
+<div class="line">    MutexGuard guard(myMutex, 100); <span class="comment">// Try to lock for 100 ticks</span></div>
 <div class="line">    <span class="keywordflow">if</span> (guard) {</div>
 <div class="line">        <span class="comment">// Critical section - mutex is locked</span></div>
 <div class="line">        <span class="comment">// ...</span></div>
 <div class="line">    } <span class="comment">// Mutex automatically unlocked here</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00551_html_a374642113cf09f4704dd8242b052899d"><div class="ttname"><a href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a></div><div class="ttdeci">RTOS::Mutex::LockGuard MutexGuard</div><div class="ttdoc">Type alias for Mutex::LockGuard.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:425</div></div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd><a class="el" href="../../db/d98/a01675.html" title="LockGuard class for RAII locking.">LockGuard</a> is non-copyable and non-movable to prevent accidental resource management issues. </dd>
 <dd>
 If lock acquisition fails, the guard can still be used but will not unlock on destruction. </dd></dl>

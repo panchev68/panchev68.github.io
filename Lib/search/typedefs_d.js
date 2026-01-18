@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['pidd_0',['PidD',['../d0/d50/a00661.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9',1,'Lib::Math']]],
-  ['pidf_1',['PidF',['../d0/d50/a00661.html#a948fc056c1100dd929fbdca345047060',1,'Lib::Math']]],
-  ['pinhandle_2',['PinHandle',['../d7/d12/a00911.html#ad9f7a4314fe4222dfcf73ed2eaa3be9b',1,'Lib::BSP::Thermometer::DTH::Base']]]
+  ['qualitymode_0',['QualityMode',['../de/de6/a01063.html#ad5fc8e4a205712347c919b6c0934fb03',1,'Lib::Digi::API::Service::ChannelScanner']]]
 ];

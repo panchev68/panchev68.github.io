@@ -50,9 +50,6 @@ var NAVTREE =
         [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ]
-    ] ],
     [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
@@ -60,18 +57,16 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d1/dac/a01015.html#a5219f980e88593710270956d6fcb2d95",
-"d2/ddd/a00755.html#ab178d2536db34733af537ae7bec2353c",
-"d4/d2c/a01327.html#a85452ad134f85dbeb0c8bcced1916eeb",
-"d5/da7/a01283.html#aef13941925622e62ee117b645f61be4c",
-"d6/dd7/a01555.html#a76a43ab2aa98908343d0abaab577e928",
-"d7/db8/a01687.html#a63040679550b2c81ed1d0c88a55c5e9f",
-"d9/d1b/a01583.html#af1067251b1b869d0f145ea226144728d",
-"db/d51/a01603.html#ad765c01d7900e28b930e24ab049bae4e",
-"dc/d70/a01187.html#ac2585942261cabaa51522f461c64816b",
-"dd/d6e/a01339.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409",
-"de/dad/a00963.html#a41b59ad5c5b3ad1f6a7220fbbb325c88",
-"df/daa/a02135_source.html"
+"d2/d34/a01679.html#a172c1c4408bdfe1f9c737d72b3ee7109",
+"d3/d42/a01275.html#a5dcdc591bb95b2a77e2cfbd2571990b6",
+"d4/d94/a00967.html#aa6e2069cd0ca82608d533788d367dddf",
+"d6/d7f/a02082.html#a0fc61b2913177e45940c8000e8c0ac87",
+"d7/db4/a01747.html#a5408703bbac658def8945c333793a593",
+"d9/d40/a01387.html#a4dbc0edab8d10631d60621dd2975508d",
+"db/db2/a01143.html#a6fb7ff71a17c1dfdef66b2ddd783817a",
+"dc/dc8/a01695.html#ae40918e60c2277acebaa9cba5209ca7aad0749aaba8b833466dfcbb0428e4f89c",
+"de/d0f/a01727.html#ac7addfec6bb7d8a898813e8e042a6409",
+"df/d96/a01347.html#a7f63d1e5c59a4127eabaf2ac0e374ae9"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

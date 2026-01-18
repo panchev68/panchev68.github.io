@@ -17,6 +17,5 @@ var searchData=
   ['module_14',['Module',['../dc/d70/a01187.html#a9a7eefcf7b0ca8a399ea243393a2d98c',1,'Lib::Digi::Core::Module']]],
   ['moonphase_15',['MoonPhase',['../de/d1a/a01559.html#a7f7186b33d83f79ab229e3c7bc4b787a',1,'Lib::Helper::MoonPhase::MoonPhase()=default'],['../de/d1a/a01559.html#acc3daabfb29a95c39da3439ec453d576',1,'Lib::Helper::MoonPhase::MoonPhase(const Date &amp;date)']]],
   ['mstoticks_16',['msToTicks',['../db/dca/a01639.html#abcaea09ab32e1addd128f0cb3f24b705',1,'RTOS::Kernel::msToTicks()'],['../d8/df7/a01711.html#ac0cef5f74597d9fd2e71b9eed937365d',1,'RTOS::TickCounter::msToTicks()']]],
-  ['mutex_17',['Mutex',['../d4/d3c/a01671.html#af8835e310bfc17c2cfb2891a38b563d5',1,'RTOS::Mutex::Mutex(MutexType type=MutexType::NORMAL)'],['../d4/d3c/a01671.html#aa51a9ee1ebb174028eb60ad5b9c58427',1,'RTOS::Mutex::Mutex(Mutex &amp;&amp;other)']]],
-  ['mx_5fusb_5fdevice_5finit_18',['MX_USB_DEVICE_Init',['../df/d6f/a00623.html#adab4f7fc1db4ce2be073d3913209d2af',1,'SerialPortRepeaterBase.hpp']]]
+  ['mutex_17',['Mutex',['../d4/d3c/a01671.html#af8835e310bfc17c2cfb2891a38b563d5',1,'RTOS::Mutex::Mutex(MutexType type=MutexType::NORMAL)'],['../d4/d3c/a01671.html#aa51a9ee1ebb174028eb60ad5b9c58427',1,'RTOS::Mutex::Mutex(Mutex &amp;&amp;other)']]]
 ];
