@@ -6,6 +6,5 @@ var searchData=
   ['hardware_20version_20creation_20and_20usage_20example_3',['Hardware Version Creation and Usage Example.',['../X:/Lib/IAR/inc/Lib/System/HardwareVersion.hpp#hardware-version-creation-and-usage-example',1,'']]],
   ['hash_20for_20a_20data_20buffer_4',['Computing hash for a data buffer.',['../X:/Lib/IAR/inc/Lib/Helper/CityHash.hpp#computing-hash-for-a-data-buffer',1,'']]],
   ['hex_20conversion_20utilities_5',['Example usage of Hex conversion utilities.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Hex.hpp#example-usage-of-hex-conversion-utilities',1,'']]],
-  ['hexhelper_6',['Example usage of HexHelper.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/HexHelper.hpp#example-usage-of-hexhelper',1,'']]],
-  ['hpp_7',['@file AdcPort.hpp',['../da/dc3/a00657.html#file-adcporthpp',1,'']]]
+  ['hexhelper_6',['Example usage of HexHelper.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/HexHelper.hpp#example-usage-of-hexhelper',1,'']]]
 ];

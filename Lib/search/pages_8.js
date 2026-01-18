@@ -1,14 +1,10 @@
 var searchData=
 [
   ['implementation_20example_0',['TickService Client Implementation Example',['../X:/Lib/IAR/inc/Lib/RTOS/TickService.hpp#tickservice-client-implementation-example',1,'']]],
-  ['in_20blocking_20interrupt_20driven_20and_20dma_20based_20modes_1',['This file defines type aliases for ADC ports operating in blocking, interrupt-driven, and DMA-based modes.',['../da/dc3/a00657.html#this-file-defines-type-aliases-for-adc-ports-operating-in-blocking-interrupt-driven-and-dma-based-modes',1,'']]],
-  ['in_20concurrent_20tasks_2',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['in_20embedded_20systems_3',['in embedded systems',['../da/dc3/a00657.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'It provides convenient access to ADC port specializations for various use cases in embedded systems.'],['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'Using Delay for short busy-wait delays in embedded systems.']]],
-  ['integers_4',['Basic usage of ContainerBase for managing a collection of integers.',['../X:/Lib/IAR/inc/Lib/Helper/ContainerBase.hpp#basic-usage-of-containerbase-for-managing-a-collection-of-integers',1,'']]],
-  ['interface_5',['Hardware Interface',['../da/dec/a00080.html#hardware-interface',1,'']]],
-  ['interpolation_20with_20standard_20output_6',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]],
-  ['interrupt_20driven_20and_20dma_20based_20modes_7',['This file defines type aliases for ADC ports operating in blocking, interrupt-driven, and DMA-based modes.',['../da/dc3/a00657.html#this-file-defines-type-aliases-for-adc-ports-operating-in-blocking-interrupt-driven-and-dma-based-modes',1,'']]],
-  ['interrupt_20requirements_8',['Select the appropriate mode based on performance and interrupt requirements.',['../da/dc3/a00657.html#select-the-appropriate-mode-based-on-performance-and-interrupt-requirements',1,'']]],
-  ['interrupt_20usage_20example_9',['External Interrupt Usage Example',['../X:/Lib/IAR/inc/Lib/HAL/core/GPIO/ExtInterrupt.hpp#external-interrupt-usage-example',1,'']]],
-  ['it_20provides_20convenient_20access_20to_20adc_20port_20specializations_20for_20various_20use_20cases_20in_20embedded_20systems_10',['It provides convenient access to ADC port specializations for various use cases in embedded systems.',['../da/dc3/a00657.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'']]]
+  ['in_20concurrent_20tasks_1',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['in_20embedded_20systems_2',['Using Delay for short busy-wait delays in embedded systems.',['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'']]],
+  ['integers_3',['Basic usage of ContainerBase for managing a collection of integers.',['../X:/Lib/IAR/inc/Lib/Helper/ContainerBase.hpp#basic-usage-of-containerbase-for-managing-a-collection-of-integers',1,'']]],
+  ['interface_4',['Hardware Interface',['../da/dec/a00080.html#hardware-interface',1,'']]],
+  ['interpolation_20with_20standard_20output_5',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]],
+  ['interrupt_20usage_20example_6',['External Interrupt Usage Example',['../X:/Lib/IAR/inc/Lib/HAL/core/GPIO/ExtInterrupt.hpp#external-interrupt-usage-example',1,'']]]
 ];

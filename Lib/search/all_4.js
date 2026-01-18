@@ -10,7 +10,7 @@ var searchData=
   ['element_5fsize_7',['ELEMENT_SIZE',['../d2/d34/a01679.html#a967ed393a947e4aa10a08787a26e02d0',1,'RTOS::Queue']]],
   ['elementlist_8',['elementList',['../d6/dd7/a01555.html#a76a43ab2aa98908343d0abaab577e928',1,'Lib::Helper::JaggedArrayBase']]],
   ['elementsize_9',['elementSize',['../d2/d34/a01679.html#a4e9c3b397abfdb7fe1a62c28c1ce8fed',1,'RTOS::Queue']]],
-  ['embedded_20systems_10',['embedded systems',['../da/dc3/a00657.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'It provides convenient access to ADC port specializations for various use cases in embedded systems.'],['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'Using Delay for short busy-wait delays in embedded systems.']]],
+  ['embedded_20systems_10',['Using Delay for short busy-wait delays in embedded systems.',['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'']]],
   ['emitbeginmessagereceive_11',['emitBeginMessageReceive',['../d8/d84/a01131.html#a470c82f87b53ca28005229839cec7d66',1,'Lib::Digi::Core::ComDriver']]],
   ['emitbeginmessagesend_12',['emitBeginMessageSend',['../d8/d84/a01131.html#ac1376bdcf9b24b86defd586255a4f49e',1,'Lib::Digi::Core::ComDriver']]],
   ['emitendmessagereceived_13',['emitEndMessageReceived',['../d8/d84/a01131.html#a0b4cb10c6e88d6e637a5c28b6f5384dc',1,'Lib::Digi::Core::ComDriver']]],

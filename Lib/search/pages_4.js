@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['embedded_20systems_0',['embedded systems',['../da/dc3/a00657.html#it-provides-convenient-access-to-adc-port-specializations-for-various-use-cases-in-embedded-systems',1,'It provides convenient access to ADC port specializations for various use cases in embedded systems.'],['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'Using Delay for short busy-wait delays in embedded systems.']]],
+  ['embedded_20systems_0',['Using Delay for short busy-wait delays in embedded systems.',['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'']]],
   ['encoding_20and_20decoding_20with_20error_20correction_1',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
   ['error_20correction_2',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
   ['ethercat_20slave_20or_20soes_3',['Simple Open EtherCAT Slave or SOES',['../index.html',1,'']]],
