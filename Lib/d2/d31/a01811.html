@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::Container</title>
+<title>IAR Library: Lib::HAL::Reset</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,53 +91,45 @@ $(function(){initNavTree('d2/d31/a01811.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Container</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Reset</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="managing-a-collection-of-pointers-with-container"></a>
-Managing a collection of pointers with Container.</h2>
-<p>This example demonstrates how to use the Container class to manage a collection of pointers to objects. It shows adding items, processing them with a callback, and removing items. This is useful in embedded systems for managing lists of objects without copying.</p>
+<h2 class="doxsection"><a class="anchor" id="checking-system-reset-cause-and-performing-reset"></a>
+Checking System Reset Cause and Performing Reset</h2>
+<p>This example demonstrates how to use the Reset class to check the cause of the last system reset and perform a software reset if needed. The Reset class is a singleton that reads RCC flags to determine the reset type.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d0/dc4/a00443.html">Lib/Helper/Container.hpp</a>&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">struct </span>MyObject {</div>
-<div class="line">    <span class="keywordtype">int</span> value;</div>
-<div class="line">    MyObject(<span class="keywordtype">int</span> v) : value(v) {}</div>
-<div class="line">};</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> printCallback(MyObject* obj, <span class="keywordtype">void</span>* context) {</div>
-<div class="line">    printf(<span class="stringliteral">&quot;Object value: %d\n&quot;</span>, obj-&gt;value);</div>
-<div class="line">}</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d43/a02205.html">Lib/HAL/core/Reset/Reset.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d3b/a01459.html">Lib::Helper::Container&lt;MyObject&gt;</a> container;</div>
+<div class="line">    <span class="comment">// Get the reset cause</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_enumeration" href="../../db/df2/a01425.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a> resetCause = <a id="a1" name="a1"></a><a class="code hl_function" href="../../db/df2/a01425.html#a5e6f3764e871cb52af861786dcc51877">Lib::HAL::Reset::getResetState</a>();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Create objects</span></div>
-<div class="line">    MyObject obj1(10);</div>
-<div class="line">    MyObject obj2(20);</div>
+<div class="line">    <span class="keywordflow">switch</span> (resetCause) {</div>
+<div class="line">        <span class="keywordflow">case</span> <a id="_a2" name="_a2"></a><a class="code hl_enumvalue" href="../../db/df2/a01425.html#ae9f0fa1c20664b577fc615da59211d91a7cf0dce90671f62c8d1c4b4d9104f959">Lib::HAL::Reset::State::SOFTWARE_RESET</a>:</div>
+<div class="line">            <span class="comment">// Handle software reset</span></div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">case</span> <a id="_a3" name="_a3"></a><a class="code hl_enumvalue" href="../../db/df2/a01425.html#ae9f0fa1c20664b577fc615da59211d91af312bff7200b6868277e61c8c8f5d8c9">Lib::HAL::Reset::State::POWER_ON_POWER_DOWN_RESET</a>:</div>
+<div class="line">            <span class="comment">// Handle power-on reset</span></div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">        <span class="keywordflow">default</span>:</div>
+<div class="line">            <span class="comment">// Handle other reset types</span></div>
+<div class="line">            <span class="keywordflow">break</span>;</div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Add pointers to container</span></div>
-<div class="line">    container.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d3b/a01459.html#abc936366755ee054f9eb59161e8a2d20">add</a>(&amp;obj1);</div>
-<div class="line">    container.<a class="code hl_function" href="../../d6/d3b/a01459.html#abc936366755ee054f9eb59161e8a2d20">add</a>(&amp;obj2);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Process items with callback</span></div>
-<div class="line">    container.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d3b/a01459.html#aee986d3fbf46488dea3d2355d436536d">processItems</a>(printCallback);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Remove an item</span></div>
-<div class="line">    container.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/d3b/a01459.html#aacba5dd5579f2777cc6d6411a1aac0c4">remove</a>(&amp;obj1);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Clear all</span></div>
-<div class="line">    container.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d6/d3b/a01459.html#a909d3a02f57c2bd184ceffb32877a6ee">clear</a>();</div>
+<div class="line">    <span class="comment">// Perform a system reset if needed</span></div>
+<div class="line">    <span class="keywordflow">if</span> (someCondition) {</div>
+<div class="line">        <a id="a4" name="a4"></a><a class="code hl_function" href="../../db/df2/a01425.html#a1d568487ad61b085a42b3479ab265112">Lib::HAL::Reset::resetSystem</a>();</div>
+<div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00443_html"><div class="ttname"><a href="../../d0/dc4/a00443.html">Container.hpp</a></div><div class="ttdoc">Container.hpp - Template class for managing collections of pointers.</div></div>
-<div class="ttc" id="aa01459_html"><div class="ttname"><a href="../../d6/d3b/a01459.html">Lib::Helper::Container</a></div><div class="ttdoc">Container - Template class for managing collections of pointers.</div><div class="ttdef"><b>Definition</b> Container.hpp:32</div></div>
-<div class="ttc" id="aa01459_html_a909d3a02f57c2bd184ceffb32877a6ee"><div class="ttname"><a href="../../d6/d3b/a01459.html#a909d3a02f57c2bd184ceffb32877a6ee">Lib::Helper::Container::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clears all pointers from the container.</div><div class="ttdef"><b>Definition</b> Container.hpp:91</div></div>
-<div class="ttc" id="aa01459_html_aacba5dd5579f2777cc6d6411a1aac0c4"><div class="ttname"><a href="../../d6/d3b/a01459.html#aacba5dd5579f2777cc6d6411a1aac0c4">Lib::Helper::Container::remove</a></div><div class="ttdeci">bool remove(T *item)</div><div class="ttdoc">Removes a pointer from the container.</div><div class="ttdef"><b>Definition</b> Container.hpp:80</div></div>
-<div class="ttc" id="aa01459_html_abc936366755ee054f9eb59161e8a2d20"><div class="ttname"><a href="../../d6/d3b/a01459.html#abc936366755ee054f9eb59161e8a2d20">Lib::Helper::Container::add</a></div><div class="ttdeci">bool add(T *item)</div><div class="ttdoc">Adds a pointer to the container if not already present.</div><div class="ttdef"><b>Definition</b> Container.hpp:53</div></div>
-<div class="ttc" id="aa01459_html_aee986d3fbf46488dea3d2355d436536d"><div class="ttname"><a href="../../d6/d3b/a01459.html#aee986d3fbf46488dea3d2355d436536d">Lib::Helper::Container::processItems</a></div><div class="ttdeci">void processItems(void(*callback)(T *, void *), void *context=nullptr)</div><div class="ttdoc">Processes each item with a callback function.</div><div class="ttdef"><b>Definition</b> Container.hpp:101</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>Object value: 10 Object value: 20</dd></dl>
+<div class="ttc" id="aa01425_html_a1d568487ad61b085a42b3479ab265112"><div class="ttname"><a href="../../db/df2/a01425.html#a1d568487ad61b085a42b3479ab265112">Lib::HAL::Reset::resetSystem</a></div><div class="ttdeci">static void resetSystem()</div><div class="ttdoc">Reset the system statically.</div><div class="ttdef"><b>Definition</b> core/Reset/Reset.hpp:89</div></div>
+<div class="ttc" id="aa01425_html_a5e6f3764e871cb52af861786dcc51877"><div class="ttname"><a href="../../db/df2/a01425.html#a5e6f3764e871cb52af861786dcc51877">Lib::HAL::Reset::getResetState</a></div><div class="ttdeci">static State getResetState()</div><div class="ttdoc">Get the reset state statically.</div><div class="ttdef"><b>Definition</b> core/Reset/Reset.hpp:83</div></div>
+<div class="ttc" id="aa01425_html_ae9f0fa1c20664b577fc615da59211d91"><div class="ttname"><a href="../../db/df2/a01425.html#ae9f0fa1c20664b577fc615da59211d91">Lib::HAL::Reset::State</a></div><div class="ttdeci">State</div><div class="ttdoc">State enumeration.</div><div class="ttdef"><b>Definition</b> core/Reset/Reset.hpp:33</div></div>
+<div class="ttc" id="aa01425_html_ae9f0fa1c20664b577fc615da59211d91a7cf0dce90671f62c8d1c4b4d9104f959"><div class="ttname"><a href="../../db/df2/a01425.html#ae9f0fa1c20664b577fc615da59211d91a7cf0dce90671f62c8d1c4b4d9104f959">Lib::HAL::Reset::State::SOFTWARE_RESET</a></div><div class="ttdeci">@ SOFTWARE_RESET</div><div class="ttdef"><b>Definition</b> core/Reset/Reset.hpp:38</div></div>
+<div class="ttc" id="aa01425_html_ae9f0fa1c20664b577fc615da59211d91af312bff7200b6868277e61c8c8f5d8c9"><div class="ttname"><a href="../../db/df2/a01425.html#ae9f0fa1c20664b577fc615da59211d91af312bff7200b6868277e61c8c8f5d8c9">Lib::HAL::Reset::State::POWER_ON_POWER_DOWN_RESET</a></div><div class="ttdeci">@ POWER_ON_POWER_DOWN_RESET</div><div class="ttdef"><b>Definition</b> core/Reset/Reset.hpp:39</div></div>
+<div class="ttc" id="aa02205_html"><div class="ttname"><a href="../../dc/d43/a02205.html">Reset.hpp</a></div><div class="ttdoc">Reset header file.</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The program checks the reset cause and performs actions based on it. If a reset is triggered, the system will restart.</dd></dl>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

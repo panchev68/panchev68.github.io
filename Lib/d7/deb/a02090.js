@@ -1,9 +1,15 @@
 var a02090 =
 [
-    [ "Singleton", "d7/deb/a02090.html#af605667b8cb3a12a35592b4a3760c446", null ],
-    [ "Singleton", "d7/deb/a02090.html#aec36107e1ad2329ce6ec1a05a670724b", null ],
-    [ "Singleton", "d7/deb/a02090.html#af19452ba68db64b1d181c8929ca91e02", null ],
-    [ "~Singleton", "d7/deb/a02090.html#a0bca4247a417dee919ffcd88bc68c653", null ],
-    [ "operator=", "d7/deb/a02090.html#ae109b45d35700f9ced85cc5607d7c488", null ],
-    [ "operator=", "d7/deb/a02090.html#a17817c065c00ce4dd22feb8e20018821", null ]
+    [ "BufferHandle", "d7/deb/a02090.html#a178fee8d1c634241a55a4c8a8e80bffa", null ],
+    [ "BufferHandle", "d7/deb/a02090.html#ada02c7448505870777a13ea9f7a56626", null ],
+    [ "BufferHandle", "d7/deb/a02090.html#ac65c249fd421e412486221b6fb5ff894", null ],
+    [ "~BufferHandle", "d7/deb/a02090.html#a350282ca4851321c92a4ea0d128db92f", null ],
+    [ "data", "d7/deb/a02090.html#a31d3f63a76400072a52cb7110e704f55", null ],
+    [ "data", "d7/deb/a02090.html#a2e1ce5e9048b9458848affceacbd9544", null ],
+    [ "getSize", "d7/deb/a02090.html#ae3e4a082ca400798becc5c74adefab4e", null ],
+    [ "operator const uint8_t *", "d7/deb/a02090.html#af3cb0c7a9dd8c33a06471e225f49fec5", null ],
+    [ "operator uint8_t *", "d7/deb/a02090.html#acdde4edabc36ac36ef22e68437cac305", null ],
+    [ "operator()", "d7/deb/a02090.html#aa90c1259b967b7b7a7f892fcf8c863f3", null ],
+    [ "operator=", "d7/deb/a02090.html#a759d74d0d6f7e56bd8f6b794e978aedd", null ],
+    [ "set", "d7/deb/a02090.html#af4608c5b99e8105ccf58b6d6a4b90b47", null ]
 ];

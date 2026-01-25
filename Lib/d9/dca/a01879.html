@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS::TickCounter</title>
+<title>IAR Library: RTOS::Timeout</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,48 +91,63 @@ $(function(){initNavTree('d9/dca/a01879.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::TickCounter</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timeout</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="tickcounter-usage-example"></a>
-TickCounter Usage Example</h2>
-<p>This example demonstrates how to use the TickCounter class to measure elapsed time in a FreeRTOS task. It shows retrieving the current tick count, calculating elapsed ticks, and converting between milliseconds and ticks.</p>
+<h2 class="doxsection"><a class="anchor" id="timeout-usage-example"></a>
+Timeout Usage Example</h2>
+<p>This example demonstrates how to use the Timeout class to manage timing operations in a FreeRTOS task. It shows setting timeouts, checking expiration, resetting timeouts, and performing arithmetic operations.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d8/dc8/a00581.html">Lib/RTOS/TickCounter.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.h&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;task.h&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/db1/a00590.html">Lib/RTOS/Timeout.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d21/a00584.html">Lib/RTOS/TickCounter.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> someTaskFunction(<span class="keywordtype">void</span> *pvParameters) {</div>
-<div class="line">    <span class="comment">// Get the starting tick count</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d8/df7/a01711.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> startTicks = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/df7/a01711.html#a0fe8362c851a572e236d8c4978c0677a">RTOS::TickCounter::get</a>();</div>
+<div class="line">    <span class="comment">// Create a timeout for 1000 ticks (approximately 1 second at 1000Hz tick rate)</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/d9c/a01733.html">RTOS::Timeout</a> timeout(1000);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Simulate some work (e.g., delay for 100 ms)</span></div>
-<div class="line">    vTaskDelay(<a id="_a2" name="_a2"></a><a class="code hl_function" href="../../d8/df7/a01711.html#ac0cef5f74597d9fd2e71b9eed937365d">RTOS::TickCounter::msToTicks</a>(100));</div>
+<div class="line">    <span class="comment">// Main task loop</span></div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// Check if timeout has expired</span></div>
+<div class="line">        <span class="keywordflow">if</span> (timeout.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/d9c/a01733.html#a0323d632712ac0fe685a1109c9b60c1a">isExpired</a>()) {</div>
+<div class="line">            <span class="comment">// Perform periodic action</span></div>
+<div class="line">            <span class="comment">// ... (e.g., toggle LED, send heartbeat, etc.)</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Get the current tick count</span></div>
-<div class="line">    <a class="code hl_typedef" href="../../d8/df7/a01711.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> currentTicks = <a class="code hl_function" href="../../d8/df7/a01711.html#a0fe8362c851a572e236d8c4978c0677a">RTOS::TickCounter::get</a>();</div>
+<div class="line">            <span class="comment">// Reset timeout to start counting again</span></div>
+<div class="line">            timeout.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/d9c/a01733.html#a09aec4ad865ca9b9275f8e0060f93314">reset</a>();</div>
+<div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Calculate elapsed ticks</span></div>
-<div class="line">    <a class="code hl_typedef" href="../../d8/df7/a01711.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> elapsedTicks = <a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/df7/a01711.html#acc9d8bae28f6361185b7a2a71d3f8456">RTOS::TickCounter::getElapsedTicksSince</a>(startTicks);</div>
+<div class="line">        <span class="comment">// Alternative: Check remaining time</span></div>
+<div class="line">        uint32_t remaining = timeout.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/d9c/a01733.html#aab14889d1afd8d7f1a02ab91de41579c">getRemainingTicks</a>();</div>
+<div class="line">        <span class="keywordflow">if</span> (remaining &lt; 100) {</div>
+<div class="line">            <span class="comment">// Timeout is about to expire, prepare for action</span></div>
+<div class="line">        }</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Convert elapsed ticks back to milliseconds</span></div>
-<div class="line">    uint32_t elapsedMs = <a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/df7/a01711.html#a4279f1f55ee184a461e549bd9d8284a2">RTOS::TickCounter::ticksToMs</a>(elapsedTicks);</div>
+<div class="line">        <span class="comment">// Extend timeout by 500 ticks</span></div>
+<div class="line">        timeout += 500;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Use elapsedMs for further processing (e.g., logging or decision making)</span></div>
-<div class="line">    <span class="comment">// ...</span></div>
+<div class="line">        <span class="comment">// Shorten timeout by 200 ticks</span></div>
+<div class="line">        timeout -= 200;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Infinite loop for task</span></div>
-<div class="line">    <span class="keywordflow">for</span> (;;) {</div>
-<div class="line">        vTaskDelay(<a class="code hl_function" href="../../d8/df7/a01711.html#ac0cef5f74597d9fd2e71b9eed937365d">RTOS::TickCounter::msToTicks</a>(1000)); <span class="comment">// Delay 1 second</span></div>
+<div class="line">        <span class="comment">// Disable timeout temporarily</span></div>
+<div class="line">        timeout.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/d9c/a01733.html#ad588a6703c9736cf1cf1238fd9874e1f">disable</a>();</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Re-enable with new duration</span></div>
+<div class="line">        timeout.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d8/d9c/a01733.html#a03b6300c5966ce8e711c4062898d4797">set</a>(2000);</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Delay task for 100 ticks</span></div>
+<div class="line">        <a id="a6" name="a6"></a><a class="code hl_function" href="../../d1/da7/a01709.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a>(100);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00581_html"><div class="ttname"><a href="../../d8/dc8/a00581.html">TickCounter.hpp</a></div><div class="ttdoc">TickCounter header file.</div></div>
-<div class="ttc" id="aa01711_html_a0fe8362c851a572e236d8c4978c0677a"><div class="ttname"><a href="../../d8/df7/a01711.html#a0fe8362c851a572e236d8c4978c0677a">RTOS::TickCounter::get</a></div><div class="ttdeci">static TickType get()</div><div class="ttdoc">Get current FreeRTOS tick count.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:46</div></div>
-<div class="ttc" id="aa01711_html_a4279f1f55ee184a461e549bd9d8284a2"><div class="ttname"><a href="../../d8/df7/a01711.html#a4279f1f55ee184a461e549bd9d8284a2">RTOS::TickCounter::ticksToMs</a></div><div class="ttdeci">static uint32_t ticksToMs(TickType ticks)</div><div class="ttdoc">Convert ticks to milliseconds.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:95</div></div>
-<div class="ttc" id="aa01711_html_ac0cef5f74597d9fd2e71b9eed937365d"><div class="ttname"><a href="../../d8/df7/a01711.html#ac0cef5f74597d9fd2e71b9eed937365d">RTOS::TickCounter::msToTicks</a></div><div class="ttdeci">static TickType msToTicks(uint32_t ms)</div><div class="ttdoc">Convert milliseconds to ticks.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:86</div></div>
-<div class="ttc" id="aa01711_html_acc9d8bae28f6361185b7a2a71d3f8456"><div class="ttname"><a href="../../d8/df7/a01711.html#acc9d8bae28f6361185b7a2a71d3f8456">RTOS::TickCounter::getElapsedTicksSince</a></div><div class="ttdeci">static TickType getElapsedTicksSince(TickType startTick)</div><div class="ttdoc">Get elapsed ticks since a given tick count.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:67</div></div>
-<div class="ttc" id="aa01711_html_af8b741f7cd6bd8cefd26aae83980fbfd"><div class="ttname"><a href="../../d8/df7/a01711.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:35</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The task measures the elapsed time after a 100 ms delay, calculates the elapsed ticks and milliseconds, and can use this information for timing-related operations in the embedded system.</dd></dl>
+<div class="ttc" id="aa00584_html"><div class="ttname"><a href="../../d7/d21/a00584.html">TickCounter.hpp</a></div><div class="ttdoc">TickCounter header file.</div></div>
+<div class="ttc" id="aa00590_html"><div class="ttname"><a href="../../d7/db1/a00590.html">Timeout.hpp</a></div><div class="ttdoc">Timeout header file.</div></div>
+<div class="ttc" id="aa01709_html_a816e0f2d4a66248c3d6627c45ea06bcd"><div class="ttname"><a href="../../d1/da7/a01709.html#a816e0f2d4a66248c3d6627c45ea06bcd">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType_t ticks)</div><div class="ttdoc">Delays current task for specified number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:344</div></div>
+<div class="ttc" id="aa01733_html"><div class="ttname"><a href="../../d8/d9c/a01733.html">RTOS::Timeout</a></div><div class="ttdoc">Timeout utility for FreeRTOS tick-based timing.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:35</div></div>
+<div class="ttc" id="aa01733_html_a0323d632712ac0fe685a1109c9b60c1a"><div class="ttname"><a href="../../d8/d9c/a01733.html#a0323d632712ac0fe685a1109c9b60c1a">RTOS::Timeout::isExpired</a></div><div class="ttdeci">bool isExpired() const</div><div class="ttdoc">Check if timeout has expired.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:77</div></div>
+<div class="ttc" id="aa01733_html_a03b6300c5966ce8e711c4062898d4797"><div class="ttname"><a href="../../d8/d9c/a01733.html#a03b6300c5966ce8e711c4062898d4797">RTOS::Timeout::set</a></div><div class="ttdeci">void set(uint32_t ticks)</div><div class="ttdoc">Set timeout duration from now.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:60</div></div>
+<div class="ttc" id="aa01733_html_a09aec4ad865ca9b9275f8e0060f93314"><div class="ttname"><a href="../../d8/d9c/a01733.html#a09aec4ad865ca9b9275f8e0060f93314">RTOS::Timeout::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Reset timeout to start counting from now with current duration.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:67</div></div>
+<div class="ttc" id="aa01733_html_aab14889d1afd8d7f1a02ab91de41579c"><div class="ttname"><a href="../../d8/d9c/a01733.html#aab14889d1afd8d7f1a02ab91de41579c">RTOS::Timeout::getRemainingTicks</a></div><div class="ttdeci">uint32_t getRemainingTicks() const</div><div class="ttdoc">Get remaining ticks until timeout expiration.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:86</div></div>
+<div class="ttc" id="aa01733_html_ad588a6703c9736cf1cf1238fd9874e1f"><div class="ttname"><a href="../../d8/d9c/a01733.html#ad588a6703c9736cf1cf1238fd9874e1f">RTOS::Timeout::disable</a></div><div class="ttdeci">void disable()</div><div class="ttdoc">Disable the timeout.</div><div class="ttdef"><b>Definition</b> Timeout.hpp:50</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The task manages timing operations using the Timeout class, performing actions when timeouts expire and adjusting timeout durations as needed for dynamic timing requirements.</dd></dl>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

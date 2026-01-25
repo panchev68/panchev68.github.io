@@ -1,5 +1,4 @@
 var a00584 =
 [
-    [ "RTOS::TickService", "df/d9a/a01715.html", "df/d9a/a01715" ],
-    [ "RTOS::TickService::ClientBase", "d6/d56/a01719.html", "d6/d56/a01719" ]
+    [ "RTOS::TickCounter", "db/d66/a01721.html", "db/d66/a01721" ]
 ];

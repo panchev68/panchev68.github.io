@@ -1,5 +1,5 @@
 var a00008 =
 [
-    [ "Lib::BSP::Beep", "df/d1b/a00687.html", "df/d1b/a00687" ],
-    [ "Lib::BSP::Beep::Config", "db/dde/a00691.html", "db/dde/a00691" ]
+    [ "Lib::BSP::Beep", "d3/dd2/a00693.html", "d3/dd2/a00693" ],
+    [ "Lib::BSP::Beep::Config", "d2/d74/a00697.html", "d2/d74/a00697" ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::Convert::Percent</title>
+<title>IAR Library: Lib::Helper::DataHandle</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,38 +91,44 @@ $(function(){initNavTree('d9/d88/a01823.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::Percent</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::DataHandle</div></div>
 </div><!--header-->
 <div class="contents">
-<h1 class="doxsection"><a class="anchor" id="example-usage-of-percent-class-for-percentage-to-dbm-conversion"></a>
-Example usage of Percent class for percentage to dBM conversion.</h1>
-<p>Demonstrates converting percentage values to dBM and vice versa using static methods.</p>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="example-usage-2"></a>
-Example usage:</h2>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d2/d9d/a00464.html">Lib/Helper/Convert/Percent.hpp</a>&quot;</span></div>
+<h2 class="doxsection"><a class="anchor" id="managing-data-buffers-with-datahandle"></a>
+Managing Data Buffers with DataHandle</h2>
+<p>This example demonstrates how to use the DataHandle class to manage data buffers and access typed data. It shows initialization with a single element, setting data, and retrieving the data and length.</p>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d8e/a00473.html">DataHandle.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    uint8_t percentage = 75;</div>
-<div class="line">    int8_t dbm = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d6/df5/a01503.html#af68a8e07cf5f82254a8ee93d1ce91f9f">Lib::Helper::Convert::Percent::toDBm</a>(percentage);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Percentage: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percentage) &lt;&lt; <span class="stringliteral">&quot;% -&gt; dBM: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dbm) &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Create a DataHandle for a single uint16_t element</span></div>
+<div class="line">    uint16_t value = 0x1234;</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d42/a01521.html">Lib::Helper::DataHandle&lt;uint16_t&gt;</a> handle(value);</div>
 <div class="line"> </div>
-<div class="line">    int8_t dbmValue = -80;</div>
-<div class="line">    uint8_t percent = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/df5/a01503.html#a7d7ae400d6729e68f91d6b1e211ad8ab">Lib::Helper::Convert::Percent::fromDBm</a>(dbmValue);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dBM: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(dbmValue) &lt;&lt; <span class="stringliteral">&quot; -&gt; Percentage: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percent) &lt;&lt; <span class="stringliteral">&quot;%&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Access the data</span></div>
+<div class="line">    uint16_t * data = handle.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dc/d42/a01521.html#ae23f55aa2f095ee54f1330fe50e7fa3c">getData</a>();</div>
+<div class="line">    <span class="keywordtype">size_t</span> length = handle.<a id="a2" name="a2"></a><a class="code hl_function" href="../../dc/d42/a01521.html#ab61cd37fbf44d5050c4c46467e698782">getLength</a>();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Data: 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; *data &lt;&lt; <span class="stringliteral">&quot;, Length: &quot;</span> &lt;&lt; std::dec &lt;&lt; length &lt;&lt; std::endl;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Set new data buffer</span></div>
+<div class="line">    uint8_t buffer[] = {0x01, 0x02, 0x03, 0x04};</div>
+<div class="line">    handle.<a id="a3" name="a3"></a><a class="code hl_function" href="../../dc/d42/a01521.html#a0bbe57bd32baaa026b925b8edce95534">setData</a>(buffer, <span class="keyword">sizeof</span>(buffer));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Access the new data (cast to uint8_t*)</span></div>
+<div class="line">    uint8_t * newData = handle.<a class="code hl_function" href="../../dc/d42/a01521.html#ae23f55aa2f095ee54f1330fe50e7fa3c">getData</a>();</div>
+<div class="line">    <span class="keywordtype">size_t</span> newLength = handle.<a class="code hl_function" href="../../dc/d42/a01521.html#ab61cd37fbf44d5050c4c46467e698782">getLength</a>();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;New data length: &quot;</span> &lt;&lt; newLength &lt;&lt; std::endl;</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00464_html"><div class="ttname"><a href="../../d2/d9d/a00464.html">Percent.hpp</a></div><div class="ttdoc">Utility class for percentage to dBM conversion.</div></div>
-<div class="ttc" id="aa01503_html_a7d7ae400d6729e68f91d6b1e211ad8ab"><div class="ttname"><a href="../../d6/df5/a01503.html#a7d7ae400d6729e68f91d6b1e211ad8ab">Lib::Helper::Convert::Percent::fromDBm</a></div><div class="ttdeci">static constexpr uint8_t fromDBm(int8_t dbm)</div><div class="ttdoc">Converts a dBM value to a percentage.</div><div class="ttdef"><b>Definition</b> Percent.hpp:38</div></div>
-<div class="ttc" id="aa01503_html_af68a8e07cf5f82254a8ee93d1ce91f9f"><div class="ttname"><a href="../../d6/df5/a01503.html#af68a8e07cf5f82254a8ee93d1ce91f9f">Lib::Helper::Convert::Percent::toDBm</a></div><div class="ttdeci">static constexpr int8_t toDBm(uint8_t percentage)</div><div class="ttdoc">Converts a percentage value to a dBM value.</div><div class="ttdef"><b>Definition</b> Percent.hpp:27</div></div>
-</div><!-- fragment --><p>This example shows how to convert a percentage value to dBM and a dBM value back to percentage using the Percent class.</p>
-<hr  />
-<h2 class="doxsection"><a class="anchor" id="expected-output-2"></a>
-Expected output:</h2>
-<div class="fragment"><div class="line">Percentage: 75% -&gt; dBM: -63</div>
-<div class="line">dBM: -80 -&gt; Percentage: 40%</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00473_html"><div class="ttname"><a href="../../dc/d8e/a00473.html">DataHandle.hpp</a></div><div class="ttdoc">DataHandle class for managing data buffers.</div></div>
+<div class="ttc" id="aa01521_html"><div class="ttname"><a href="../../dc/d42/a01521.html">Lib::Helper::DataHandle</a></div><div class="ttdoc">DataHandle template class for managing data buffers.</div><div class="ttdef"><b>Definition</b> DataHandle.hpp:34</div></div>
+<div class="ttc" id="aa01521_html_a0bbe57bd32baaa026b925b8edce95534"><div class="ttname"><a href="../../dc/d42/a01521.html#a0bbe57bd32baaa026b925b8edce95534">Lib::Helper::DataHandle::setData</a></div><div class="ttdeci">void setData(void *buffer, size_t length)</div><div class="ttdoc">Sets the data buffer.</div><div class="ttdef"><b>Definition</b> DataHandle.hpp:60</div></div>
+<div class="ttc" id="aa01521_html_ab61cd37fbf44d5050c4c46467e698782"><div class="ttname"><a href="../../dc/d42/a01521.html#ab61cd37fbf44d5050c4c46467e698782">Lib::Helper::DataHandle::getLength</a></div><div class="ttdeci">size_t getLength() const</div><div class="ttdoc">Gets the length of the data buffer.</div><div class="ttdef"><b>Definition</b> DataHandle.hpp:75</div></div>
+<div class="ttc" id="aa01521_html_ae23f55aa2f095ee54f1330fe50e7fa3c"><div class="ttname"><a href="../../dc/d42/a01521.html#ae23f55aa2f095ee54f1330fe50e7fa3c">Lib::Helper::DataHandle::getData</a></div><div class="ttdeci">T * getData() const</div><div class="ttdoc">Gets the typed data pointer.</div><div class="ttdef"><b>Definition</b> DataHandle.hpp:69</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>Data: 0x1234, Length: 2 New data length: 4</dd></dl>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

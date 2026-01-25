@@ -1,15 +1,12 @@
 var a02086 =
 [
-    [ "BufferHandle", "df/d4d/a02086.html#a178fee8d1c634241a55a4c8a8e80bffa", null ],
-    [ "BufferHandle", "df/d4d/a02086.html#ada02c7448505870777a13ea9f7a56626", null ],
-    [ "BufferHandle", "df/d4d/a02086.html#ac65c249fd421e412486221b6fb5ff894", null ],
-    [ "~BufferHandle", "df/d4d/a02086.html#a350282ca4851321c92a4ea0d128db92f", null ],
-    [ "data", "df/d4d/a02086.html#a31d3f63a76400072a52cb7110e704f55", null ],
-    [ "data", "df/d4d/a02086.html#a2e1ce5e9048b9458848affceacbd9544", null ],
-    [ "getSize", "df/d4d/a02086.html#ae3e4a082ca400798becc5c74adefab4e", null ],
-    [ "operator const uint8_t *", "df/d4d/a02086.html#af3cb0c7a9dd8c33a06471e225f49fec5", null ],
-    [ "operator uint8_t *", "df/d4d/a02086.html#acdde4edabc36ac36ef22e68437cac305", null ],
-    [ "operator()", "df/d4d/a02086.html#aa90c1259b967b7b7a7f892fcf8c863f3", null ],
-    [ "operator=", "df/d4d/a02086.html#a759d74d0d6f7e56bd8f6b794e978aedd", null ],
-    [ "set", "df/d4d/a02086.html#af4608c5b99e8105ccf58b6d6a4b90b47", null ]
+    [ "BufferStatic", "df/d4d/a02086.html#a0dc25520d77bf4d387cfab337ac1e758", null ],
+    [ "clear", "df/d4d/a02086.html#a1bb2eec77281d4dca8975cff25654415", null ],
+    [ "getSize", "df/d4d/a02086.html#acc24103eef1ab4a7b639bff60303891a", null ],
+    [ "operator const uint8_t *", "df/d4d/a02086.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
+    [ "operator uint8_t *", "df/d4d/a02086.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
+    [ "operator[]", "df/d4d/a02086.html#a349ac1909667d09f057d02a94389ecb5", null ],
+    [ "operator[]", "df/d4d/a02086.html#a31a9debe78ef23f609d52d233fff4870", null ],
+    [ "setExisting", "df/d4d/a02086.html#aa618cdbf9dc710e5b4406b7601c497b1", null ],
+    [ "setSize", "df/d4d/a02086.html#a44d28f117f561e52889860c89eb76c4e", null ]
 ];

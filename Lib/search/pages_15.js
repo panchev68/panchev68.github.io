@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['wait_20delays_20in_20embedded_20systems_0',['Using Delay for short busy-wait delays in embedded systems.',['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'']]],
-  ['with_20bufferhandle_1',['Handling buffer data with BufferHandle.',['../X:/Lib/IAR/inc/Lib/Helper/Buffer/BufferHandle.hpp#handling-buffer-data-with-bufferhandle',1,'']]],
-  ['with_20container_2',['Managing a collection of pointers with Container.',['../X:/Lib/IAR/inc/Lib/Helper/Container.hpp#managing-a-collection-of-pointers-with-container',1,'']]],
-  ['with_20error_20correction_3',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
-  ['with_20freertos_20queue_20sets_4',['Example usage of RTOS::QueueSet with FreeRTOS queue sets.',['../X:/Lib/IAR/inc/Lib/RTOS/QueueSet.hpp#example-usage-of-rtosqueueset-with-freertos-queue-sets',1,'']]],
-  ['with_20standard_20output_5',['with standard output',['../X:/Lib/IAR/inc/Lib/RTOS/Queue.hpp#example-usage-of-rtosqueue-with-standard-output',1,'Example usage of RTOS::Queue with standard output.'],['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'Example: Cubic spline interpolation with standard output']]]
+  ['values_0',['Example of using LinearInterpolation for float values.',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/LinearInterpolation.hpp#example-of-using-linearinterpolation-for-float-values',1,'']]],
+  ['values_20to_20percentages_20using_20the_20dbm_20class_1',['Converting dB values to percentages using the dBM class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/dBM.hpp#converting-db-values-to-percentages-using-the-dbm-class',1,'']]],
+  ['values_20using_20hexhelper_2',['Converting values using HexHelper.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/HexHelper.hpp#converting-values-using-hexhelper',1,'']]],
+  ['values_20using_20the_20bcd_20class_3',['Converting BCD values using the Bcd class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#converting-bcd-values-using-the-bcd-class',1,'']]],
+  ['version_20creation_20and_20usage_20example_4',['Hardware Version Creation and Usage Example.',['../X:/Lib/IAR/inc/Lib/System/HardwareVersion.hpp#hardware-version-creation-and-usage-example',1,'']]]
 ];

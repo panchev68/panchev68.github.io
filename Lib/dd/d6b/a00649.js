@@ -1,37 +1,4 @@
 var a00649 =
 [
-    [ "Frame", "da/d36/a00650.html", "da/d36/a00650" ],
-    [ "ApiFrameBuffer", "d0/d02/a01119.html", "d0/d02/a01119" ],
-    [ "AtCommandString", "de/de5/a01123.html", "de/de5/a01123" ],
-    [ "Checksum", "d9/d5b/a01127.html", "d9/d5b/a01127" ],
-    [ "ComDriver", "d8/d84/a01131.html", "d8/d84/a01131" ],
-    [ "Diagnostic", "db/db2/a01143.html", "db/db2/a01143" ],
-    [ "EscapedCode", "d8/ddb/a01147.html", "d8/ddb/a01147" ],
-    [ "Frame0x00", "d8/df3/a01195.html", "d8/df3/a01195" ],
-    [ "Frame0x01", "d0/d5a/a01199.html", "d0/d5a/a01199" ],
-    [ "Frame0x08", "da/d1f/a01203.html", "da/d1f/a01203" ],
-    [ "Frame0x09", "d5/dad/a01207.html", "d5/dad/a01207" ],
-    [ "Frame0x17", "d1/d34/a01211.html", "d1/d34/a01211" ],
-    [ "Frame0x80", "d7/dbf/a01239.html", "d7/dbf/a01239" ],
-    [ "Frame0x81", "d8/db0/a01243.html", "d8/db0/a01243" ],
-    [ "Frame0x88", "dd/d95/a01247.html", "dd/d95/a01247" ],
-    [ "Frame0x89", "dc/dc2/a01251.html", "dc/dc2/a01251" ],
-    [ "Frame0x8a", "d7/d88/a01255.html", "d7/d88/a01255" ],
-    [ "Frame0x8b", "dd/d42/a01259.html", "dd/d42/a01259" ],
-    [ "Frame0x90", "de/dcb/a01263.html", "de/dcb/a01263" ],
-    [ "Frame0x97", "d4/d41/a01267.html", "d4/d41/a01267" ],
-    [ "LocalAtCommand", "d6/df2/a01175.html", "d6/df2/a01175" ],
-    [ "Message", "de/d1a/a01179.html", "de/d1a/a01179" ],
-    [ "ModemStatus", "dc/d2d/a01183.html", "dc/d2d/a01183" ],
-    [ "Module", "dc/d70/a01187.html", "dc/d70/a01187" ],
-    [ "Protocol", "d1/d0d/a01191.html", null ],
-    [ "QueryBase", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
-    [ "QueueMessage", "d9/da8/a01227.html", "d9/da8/a01227" ],
-    [ "RemoteAtCommand", "d0/d88/a01231.html", "d0/d88/a01231" ],
-    [ "ResponseEvents", "dd/dad/a01235.html", "dd/dad/a01235" ],
-    [ "ApiMode", "dd/d6b/a00649.html#ac00e3258c1e2d55846ad6f50ddfebbdc", [
-      [ "TRANSPARENT", "dd/d6b/a00649.html#ac00e3258c1e2d55846ad6f50ddfebbdca6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "API1", "dd/d6b/a00649.html#ac00e3258c1e2d55846ad6f50ddfebbdca7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "API2", "dd/d6b/a00649.html#ac00e3258c1e2d55846ad6f50ddfebbdca51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ]
+    [ "DTH", "da/d36/a00650.html", "da/d36/a00650" ]
 ];

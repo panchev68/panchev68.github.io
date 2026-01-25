@@ -1,17 +1,4 @@
 var searchData=
 [
-  ['a_20collection_20of_20integers_0',['Basic usage of ContainerBase for managing a collection of integers.',['../X:/Lib/IAR/inc/Lib/Helper/ContainerBase.hpp#basic-usage-of-containerbase-for-managing-a-collection-of-integers',1,'']]],
-  ['a_20collection_20of_20pointers_20with_20container_1',['Managing a collection of pointers with Container.',['../X:/Lib/IAR/inc/Lib/Helper/Container.hpp#managing-a-collection-of-pointers-with-container',1,'']]],
-  ['a_20data_20buffer_2',['a data buffer',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc16-checksum-for-a-data-buffer',1,'Computing CRC16 checksum for a data buffer.'],['../X:/Lib/IAR/inc/Lib/Helper/CityHash.hpp#computing-hash-for-a-data-buffer',1,'Computing hash for a data buffer.']]],
-  ['a_20shared_20resource_20in_20concurrent_20tasks_3',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['a_20task_4',['Measuring Execution Time of a Task',['../X:/Lib/IAR/inc/Lib/Helper/TimePeriod.hpp#measuring-execution-time-of-a-task',1,'']]],
-  ['access_5',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
-  ['advanced_20example_3a_20using_20rtos_3a_3amutex_20for_20protecting_20a_20shared_20resource_20in_20concurrent_20tasks_6',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['and_20decoding_20with_20error_20correction_7',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
-  ['and_20mutexguard_20for_20thread_20safe_20access_8',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
-  ['and_20receiving_20messages_9',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
-  ['and_20sunset_20times_10',['Calculating Sunrise and Sunset Times',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#calculating-sunrise-and-sunset-times',1,'']]],
-  ['and_20usage_20example_11',['and Usage Example',['../X:/Lib/IAR/inc/Lib/System/HardwareVersion.hpp#hardware-version-creation-and-usage-example',1,'Hardware Version Creation and Usage Example.'],['../X:/Lib/IAR/inc/Lib/System/SerialNumber.hpp#serial-number-generation-and-usage-example',1,'Serial Number Generation and Usage Example']]],
-  ['ascii_20character_20conversion_12',['Example usage of Ascii class for ASCII character conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'']]],
-  ['ascii_20class_20for_20ascii_20character_20conversion_13',['Example usage of Ascii class for ASCII character conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'']]]
+  ['16_20checksum_20for_20data_20integrity_0',['Computing CRC-16 Checksum for Data Integrity',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc-16-checksum-for-data-integrity',1,'']]]
 ];

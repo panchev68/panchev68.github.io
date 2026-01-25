@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::swapBytes</title>
+<title>IAR Library: Lib::Helper::TimeZone</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,42 +91,28 @@ $(function(){initNavTree('db/dd4/a01849.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::swapBytes</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::TimeZone</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="byte-order-swapping-example"></a>
-Byte-Order Swapping Example</h2>
-<p>This example demonstrates the usage of the swapBytes utilities for converting byte order of integral values and raw memory buffers in the context of embedded and networking code. It showcases template-based value swapping for different integer types and the buffer overload for reversing byte arrays, which is useful for endianness conversion in data serialization and communication protocols.</p>
+<h2 class="doxsection"><a class="anchor" id="time-zone-conversion-example"></a>
+Time zone conversion example.</h2>
+<p>This example demonstrates basic usage of the TimeZone class: construction, reading the configured offset, and conversion of a local calendar time to UTC minutes.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/dfb/a00512.html">Lib/Helper/SwapBytes.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/def/a00521.html">Lib/Helper/TimeZone.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_function" href="../../d5/de3/a00631.html#aa9f5b2bf7e573b4b83c531b171e4506f">Lib::Helper::swapBytes</a>;</div>
-<div class="line">    std::cout &lt;&lt; std::hex &lt;&lt; std::showbase;</div>
+<div class="line"><span class="keyword">static</span> <span class="keywordtype">void</span> useTimeZoneExample() {</div>
+<div class="line">    <span class="comment">// Eastern European Time (EET, UTC+2).</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d9/dc8/a01593.html">Lib::Helper::TimeZone</a> tz(<span class="stringliteral">&quot;EET&quot;</span>, 120);</div>
 <div class="line"> </div>
-<div class="line">    uint16_t u16 = 0x1234U;</div>
-<div class="line">    uint32_t u32 = 0x12345678U;</div>
-<div class="line">    uint64_t u64 = 0x0123456789ABCDEFULL;</div>
-<div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;u16: &quot;</span> &lt;&lt; u16 &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; swapBytes(u16) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;u32: &quot;</span> &lt;&lt; u32 &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; swapBytes(u32) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;u64: &quot;</span> &lt;&lt; u64 &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; swapBytes(u64) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"> </div>
-<div class="line">    uint8_t src[4] = {0x11, 0x22, 0x33, 0x44};</div>
-<div class="line">    uint8_t dst[4] = {};</div>
-<div class="line">    swapBytes(src, dst, 4);</div>
-<div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;buffer src: &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> b : src) std::cout &lt;&lt; <span class="stringliteral">&quot;0x&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(b) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;\nbuffer dst: &quot;</span>;</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> b : dst) std::cout &lt;&lt; <span class="stringliteral">&quot;0x&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(b) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; std::endl;</div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">    <span class="comment">// Convert 2026-01-16 10:30 local time to UTC minutes.</span></div>
+<div class="line">    <span class="keyword">const</span> time_t offsetSeconds = <span class="keyword">static_cast&lt;</span>time_t<span class="keyword">&gt;</span>(tz.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/dc8/a01593.html#a3a3f9633c775b750b915e245d01249e7">getOffsetMinutes</a>()) * 60;</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> utcMinutes = tz.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d9/dc8/a01593.html#a41a0ee1ad10262c058b41a1b8bac7bbb">convertLocalToUtcMinutes</a>(2026, 1, 16, 10, 30, offsetSeconds);</div>
+<div class="line">    (void)utcMinutes;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00512_html"><div class="ttname"><a href="../../d4/dfb/a00512.html">SwapBytes.hpp</a></div><div class="ttdoc">SwapBytes.hpp - Byte order swap utilities.</div></div>
-<div class="ttc" id="aa00631_html_aa9f5b2bf7e573b4b83c531b171e4506f"><div class="ttname"><a href="../../d5/de3/a00631.html#aa9f5b2bf7e573b4b83c531b171e4506f">Lib::Helper::swapBytes</a></div><div class="ttdeci">constexpr T_TYPE swapBytes(T_TYPE value)</div><div class="ttdoc">Swaps the byte order of a value.</div><div class="ttdef"><b>Definition</b> SwapBytes.hpp:54</div></div>
+<div class="ttc" id="aa00521_html"><div class="ttname"><a href="../../d7/def/a00521.html">TimeZone.hpp</a></div><div class="ttdoc">TimeZone.hpp - Time zone helper and conversion utilities.</div></div>
+<div class="ttc" id="aa01593_html"><div class="ttname"><a href="../../d9/dc8/a01593.html">Lib::Helper::TimeZone</a></div><div class="ttdoc">TimeZone class.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:35</div></div>
+<div class="ttc" id="aa01593_html_a3a3f9633c775b750b915e245d01249e7"><div class="ttname"><a href="../../d9/dc8/a01593.html#a3a3f9633c775b750b915e245d01249e7">Lib::Helper::TimeZone::getOffsetMinutes</a></div><div class="ttdeci">int getOffsetMinutes() const</div><div class="ttdoc">Return the offset in minutes from UTC.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:70</div></div>
+<div class="ttc" id="aa01593_html_a41a0ee1ad10262c058b41a1b8bac7bbb"><div class="ttname"><a href="../../d9/dc8/a01593.html#a41a0ee1ad10262c058b41a1b8bac7bbb">Lib::Helper::TimeZone::convertLocalToUtcMinutes</a></div><div class="ttdeci">int convertLocalToUtcMinutes(int year, int month, int day, int hour, int minute, time_t offsetSeconds) const</div><div class="ttdoc">Convert local calendar time to UTC minutes since the epoch.</div><div class="ttdef"><b>Definition</b> TimeZone.hpp:100</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

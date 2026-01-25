@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::TimePeriod</title>
+<title>IAR Library: Lib::Math::Filter::Kalman</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,54 +91,77 @@ $(function(){initNavTree('d2/d3e/a01851.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::Filter::Kalman</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="measuring-execution-time-of-a-task"></a>
-Measuring Execution Time of a Task</h2>
-<p>This example demonstrates how to use the TimePeriod class to measure the elapsed time for executing a simple task, such as a loop that performs some computations. The class is useful in embedded systems for profiling code execution without dynamic allocation.</p>
+<h3 class="doxsection"><a class="anchor" id="example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data"></a>
+Example of Kalman filter usage for smoothing noisy sensor data.</h3>
+<p>This example demonstrates how to configure and use the <span class="tt">Kalman</span> filter to smooth a sequence of noisy sensor readings. The example shows initialization, filtering of multiple values, and resetting the filter. The output illustrates the effect of the Kalman filter in reducing noise.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"> cpp</div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d19/a00515.html">Lib/Helper/TimePeriod.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d6/dfa/a00626.html">RTOS.hpp</a>&gt;</span>  <span class="comment">// Assuming RTOS::TickCounter is available</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> someTask() {</div>
-<div class="line">    <span class="comment">// Simulate some work</span></div>
-<div class="line">    <span class="keyword">volatile</span> uint32_t sum = 0U;</div>
-<div class="line">    <span class="keywordflow">for</span> (uint32_t i = 0U; i &lt; 1000U; ++i) {</div>
-<div class="line">        sum += i;</div>
-<div class="line">    }</div>
-<div class="line">}</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d24/a00524.html">Lib/Math/Filter/Kalman.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d5/d81/a01579.html">Lib::Helper::TimePeriod</a> timer;</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman</a>;</div>
+<div class="line">    <span class="keyword">using </span>KalmanDouble = Kalman&lt;double&gt;;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Start measuring time</span></div>
-<div class="line">    timer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d81/a01579.html#a09cae40734888833ba1e743af5167478">start</a>();</div>
+<div class="line">    <span class="comment">// Configure the Kalman filter for a typical sensor scenario</span></div>
+<div class="line">    KalmanDouble::Config config;</div>
+<div class="line">    config.<a id="a1" name="a1"></a>processNoise = 0.0001;</div>
+<div class="line">    config.sensorNoise = 0.01;</div>
+<div class="line">    config.estimatedError = 1.0;</div>
+<div class="line">    config.value = 0.0;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Perform the task</span></div>
-<div class="line">    someTask();</div>
+<div class="line">    KalmanDouble filter(config);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Stop measuring and get elapsed ticks</span></div>
-<div class="line">    uint32_t elapsedTicks = 0U;</div>
-<div class="line">    <span class="keywordflow">if</span> (timer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d81/a01579.html#a5b891569c1b43194dbbf388443fe39e8">stop</a>(elapsedTicks)) {</div>
-<div class="line">        <span class="comment">// Use elapsedTicks, e.g., log or process</span></div>
-<div class="line">        <span class="comment">// For demonstration, assume we have a logging function</span></div>
-<div class="line">        <span class="comment">// log(&quot;Task took %u ticks&quot;, elapsedTicks);</span></div>
+<div class="line">    <span class="comment">// Simulated noisy sensor data</span></div>
+<div class="line">    <span class="keywordtype">double</span> sensorData[] = {0.39, 0.50, 0.48, 0.29, 0.25, 0.32, 0.34, 0.48, 0.41, 0.45};</div>
+<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> dataCount = <span class="keyword">sizeof</span>(sensorData) / <span class="keyword">sizeof</span>(sensorData[0]);</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Raw\tFiltered&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; dataCount; ++i) {</div>
+<div class="line">        <span class="keywordtype">double</span> filtered = filter(sensorData[i]);</div>
+<div class="line">        std::cout &lt;&lt; sensorData[i] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; filtered &lt;&lt; std::endl;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
+<div class="line">    <span class="comment">// Reset the filter and filter the same data again</span></div>
+<div class="line">    filter.reset();</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;\nAfter reset:&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; dataCount; ++i) {</div>
+<div class="line">        <span class="keywordtype">double</span> filtered = filter(sensorData[i]);</div>
+<div class="line">        std::cout &lt;&lt; sensorData[i] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; filtered &lt;&lt; std::endl;</div>
+<div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00515_html"><div class="ttname"><a href="../../dc/d19/a00515.html">TimePeriod.hpp</a></div><div class="ttdoc">TimePeriod.hpp - Time period measurement using FreeRTOS ticks.</div></div>
-<div class="ttc" id="aa00626_html"><div class="ttname"><a href="../../d6/dfa/a00626.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and class includes.</div></div>
-<div class="ttc" id="aa01579_html"><div class="ttname"><a href="../../d5/d81/a01579.html">Lib::Helper::TimePeriod</a></div><div class="ttdoc">Measures time periods using FreeRTOS TickCounter.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:25</div></div>
-<div class="ttc" id="aa01579_html_a09cae40734888833ba1e743af5167478"><div class="ttname"><a href="../../d5/d81/a01579.html#a09cae40734888833ba1e743af5167478">Lib::Helper::TimePeriod::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Starts the time measurement.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:36</div></div>
-<div class="ttc" id="aa01579_html_a5b891569c1b43194dbbf388443fe39e8"><div class="ttname"><a href="../../d5/d81/a01579.html#a5b891569c1b43194dbbf388443fe39e8">Lib::Helper::TimePeriod::stop</a></div><div class="ttdeci">bool stop(uint32_t &amp;ticks)</div><div class="ttdoc">Stops the time measurement and stores the elapsed ticks.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:49</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The elapsedTicks variable will contain the number of FreeRTOS ticks that passed during the execution of someTask(). This can be used for performance monitoring or timing constraints validation in real-time systems.</dd></dl>
-<div class="fragment"><div class="line"> text</div>
-<div class="line">Task took 150 ticks</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00524_html"><div class="ttname"><a href="../../d9/d24/a00524.html">Kalman.hpp</a></div><div class="ttdoc">Kalman filter implementation for generic numeric types.</div></div>
+<div class="ttc" id="aa01601_html"><div class="ttname"><a href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman</a></div><div class="ttdoc">Kalman filter for generic numeric types.</div><div class="ttdef"><b>Definition</b> Kalman.hpp:25</div></div>
+</div><!-- fragment --><p>This example initializes a Kalman filter for double values, processes a sequence of noisy sensor readings, and prints both the raw and filtered values. After resetting the filter, the same data is filtered again to demonstrate the reset functionality. The output shows how the Kalman filter smooths the noisy input data.</p>
+<dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
+<div class="fragment"><div class="line">Raw     Filtered</div>
+<div class="line">0.39    0.389996</div>
+<div class="line">0.5     0.399993</div>
+<div class="line">0.48    0.407991</div>
+<div class="line">0.29    0.398989</div>
+<div class="line">0.25    0.384987</div>
+<div class="line">0.32    0.378985</div>
+<div class="line">0.34    0.375983</div>
+<div class="line">0.48    0.384981</div>
+<div class="line">0.41    0.386979</div>
+<div class="line">0.45    0.391977</div>
+<div class="line"> </div>
+<div class="line">After reset:</div>
+<div class="line">0.39    0.389996</div>
+<div class="line">0.5     0.399993</div>
+<div class="line">0.48    0.407991</div>
+<div class="line">0.29    0.398989</div>
+<div class="line">0.25    0.384987</div>
+<div class="line">0.32    0.378985</div>
+<div class="line">0.34    0.375983</div>
+<div class="line">0.48    0.384981</div>
+<div class="line">0.41    0.386979</div>
+<div class="line">0.45    0.391977</div>
+</div><!-- fragment --><p>The filtered values demonstrate the Kalman filter's ability to reduce noise and provide a smooth estimate of the true value, even when the input data is noisy.</p>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

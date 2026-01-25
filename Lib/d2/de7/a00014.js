@@ -1,5 +1,5 @@
 var a00014 =
 [
-    [ "Lib::BSP::DeviceManager", "d5/d5b/a00695.html", "d5/d5b/a00695" ],
-    [ "Lib::BSP::DeviceManager::DeviceBase", "d8/d33/a00699.html", "d8/d33/a00699" ]
+    [ "Lib::BSP::DeviceManager", "dd/d57/a00701.html", "dd/d57/a00701" ],
+    [ "Lib::BSP::DeviceManager::DeviceBase", "d7/df1/a00705.html", "d7/df1/a00705" ]
 ];

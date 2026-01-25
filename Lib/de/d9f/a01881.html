@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS::TickService::ClientBase</title>
+<title>IAR Library: RTOS::Timer</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,39 +91,49 @@ $(function(){initNavTree('de/d9f/a01881.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::TickService::ClientBase</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timer</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="tickservice-client-implementation-example"></a>
-TickService Client Implementation Example</h2>
-<p>This example demonstrates how to create a client that inherits from TickService::ClientBase to receive periodic tick events. The client is automatically registered upon construction and unregistered upon destruction.</p>
+<h2 class="doxsection"><a class="anchor" id="timer-usage-example"></a>
+Timer Usage Example</h2>
+<p>This example demonstrates how to create, configure, and manage FreeRTOS software timers using the RTOS::Timer abstraction. It shows one-shot and auto-reload timers, setting periods, starting/stopping, and handling timer callbacks.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d21/a00584.html">Lib/RTOS/TickService.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d2/da3/a00593.html">Lib/RTOS/Timer.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">class </span>MyTickClient : <span class="keyword">public</span> <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d56/a01719.html">RTOS::TickService::ClientBase</a> {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line">    MyTickClient() : <a id="a1" name="a1"></a><a class="code hl_friend" href="../../df/d9a/a01715.html#a01ff8e2c567461efe526865a3b9b7f5e">ClientBase</a>(10) {} <span class="comment">// Update every 10 ticks</span></div>
+<div class="line"><span class="keywordtype">void</span> heartbeatCallback() {</div>
+<div class="line">    <span class="comment">// Heartbeat logic executed when timer expires</span></div>
+<div class="line">}</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> <a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d56/a01719.html#a813aed3eccda809913d539e2eeaacabd">handleTickEvent</a>()<span class="keyword"> override </span>{</div>
-<div class="line">        <span class="comment">// Perform periodic actions on tick event</span></div>
-<div class="line">        tickCount++;</div>
+<div class="line"><span class="keywordtype">void</span> someTaskFunction(<span class="keywordtype">void</span> *pvParameters) {</div>
+<div class="line">    <span class="comment">// Create a one-shot timer with 1000 ms period</span></div>
+<div class="line">    <span class="keyword">auto</span> oneShotTimer = RTOS::Timer::makeMs(<span class="stringliteral">&quot;OneShotTimer&quot;</span>, heartbeatCallback, 1000);</div>
+<div class="line">    <span class="keywordflow">if</span> (oneShotTimer &amp;&amp; oneShotTimer-&gt;start()) {</div>
+<div class="line">        <span class="comment">// One-shot timer started successfully</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line">    <span class="keywordtype">int</span> tickCount = 0;</div>
-<div class="line">};</div>
+<div class="line">    <span class="comment">// Create an auto-reload timer with 2000 ms period</span></div>
+<div class="line">    <span class="keyword">auto</span> autoReloadTimer = RTOS::Timer::makeMs(<span class="stringliteral">&quot;AutoReloadTimer&quot;</span>, heartbeatCallback, 2000, RTOS::Timer::Mode::AUTO_RELOAD);</div>
+<div class="line">    <span class="keywordflow">if</span> (autoReloadTimer &amp;&amp; autoReloadTimer-&gt;start()) {</div>
+<div class="line">        <span class="comment">// Auto-reload timer started successfully</span></div>
+<div class="line">    }</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    MyTickClient client;</div>
-<div class="line">    <span class="comment">// TickService starts automatically when first client registers.</span></div>
-<div class="line">    <span class="comment">// In a real RTOS application, the scheduler runs here.</span></div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
+<div class="line">    <span class="comment">// Check timer state</span></div>
+<div class="line">    <span class="keywordflow">if</span> (autoReloadTimer-&gt;isActive()) {</div>
+<div class="line">        uint32_t remaining = autoReloadTimer-&gt;getRemainingTimeMs();</div>
+<div class="line">        <span class="comment">// Use remaining time information</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Change timer period</span></div>
+<div class="line">    autoReloadTimer-&gt;setPeriodMs(3000);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stop timer</span></div>
+<div class="line">    autoReloadTimer-&gt;stop();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Reset timer from task context</span></div>
+<div class="line">    autoReloadTimer-&gt;reset();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00584_html"><div class="ttname"><a href="../../d7/d21/a00584.html">TickService.hpp</a></div><div class="ttdoc">TickService header file.</div></div>
-<div class="ttc" id="aa01715_html_a01ff8e2c567461efe526865a3b9b7f5e"><div class="ttname"><a href="../../df/d9a/a01715.html#a01ff8e2c567461efe526865a3b9b7f5e">RTOS::TickService::ClientBase</a></div><div class="ttdeci">friend class ClientBase</div><div class="ttdef"><b>Definition</b> TickService.hpp:44</div></div>
-<div class="ttc" id="aa01719_html"><div class="ttname"><a href="../../d6/d56/a01719.html">RTOS::TickService::ClientBase</a></div><div class="ttdoc">Base class for tick event clients.</div><div class="ttdef"><b>Definition</b> TickService.hpp:62</div></div>
-<div class="ttc" id="aa01719_html_a813aed3eccda809913d539e2eeaacabd"><div class="ttname"><a href="../../d6/d56/a01719.html#a813aed3eccda809913d539e2eeaacabd">RTOS::TickService::ClientBase::handleTickEvent</a></div><div class="ttdeci">virtual void handleTickEvent()=0</div><div class="ttdoc">Handle tick event.</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The client receives tick notifications every 10 ticks and increments its counter accordingly.</dd></dl>
+<div class="ttc" id="aa00593_html"><div class="ttname"><a href="../../d2/da3/a00593.html">Timer.hpp</a></div><div class="ttdoc">FreeRTOS Timer Abstraction Header.</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The timers execute their callbacks at the specified periods. One-shot timer fires once, while auto-reload timer fires repeatedly until stopped. All operations are thread-safe and integrated with FreeRTOS timer daemon task.</dd></dl>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -1,4 +1,4 @@
 var a00065 =
 [
-    [ "Lib::BSP::UARTPort", "d5/d89/a00907.html", "d5/d89/a00907" ]
+    [ "Lib::BSP::SPIPort", "de/dc3/a00909.html", "de/dc3/a00909" ]
 ];

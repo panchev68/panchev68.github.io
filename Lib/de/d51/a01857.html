@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Math::HammingCode</title>
+<title>IAR Library: Lib::Math::LinearInterpolation</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,43 +91,51 @@ $(function(){initNavTree('de/d51/a01857.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::HammingCode</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::LinearInterpolation</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction"></a>
-Example usage of HammingCode for encoding and decoding with error correction.</h2>
-<p>This example demonstrates how to use the <span class="tt">HammingCode</span> class to encode a 16-bit value, introduce a single-bit error, and then decode and correct the error using the Hamming(21,16) code.</p>
+<h2 class="doxsection"><a class="anchor" id="example-of-using-linearinterpolation-for-float-values"></a>
+Example of using LinearInterpolation for float values.</h2>
+<p>Demonstrates how to open a linear interpolation table, add points, and interpolate values.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d24/a00524.html">Lib/Math/HammingCode.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/d44/a00533.html">Lib/Math/Interpolation/LinearInterpolation.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    uint16_t original = 0xBEEF; <span class="comment">// Example 16-bit value</span></div>
-<div class="line">    uint32_t encoded = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d9/d13/a01599.html#a5ef7a4e643ba476d99e4154f136a82c5">Lib::Math::HammingCode::encode</a>(original);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Original: 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; std::setw(4) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; original &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Encoded : 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; std::setw(6) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; encoded &lt;&lt; std::endl;</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d2/d6e/a00667.html#a2b6eed225af1b53f1d8827a670cf2977">Lib::Math::LinearInterpolationF</a> interp;</div>
+<div class="line">    interp.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d3/d2d/a01625.html#ae9ff1244db9d92fba2ee8051605e41f8">addPoint</a>(0.0f, 0.0f);</div>
+<div class="line">    interp.<a class="code hl_function" href="../../d3/d2d/a01625.html#ae9ff1244db9d92fba2ee8051605e41f8">addPoint</a>(1.0f, 10.0f);</div>
+<div class="line">    interp.<a class="code hl_function" href="../../d3/d2d/a01625.html#ae9ff1244db9d92fba2ee8051605e41f8">addPoint</a>(2.0f, 20.0f);</div>
+<div class="line">    interp.<a class="code hl_function" href="../../d3/d2d/a01625.html#ae9ff1244db9d92fba2ee8051605e41f8">addPoint</a>(3.0f, 30.0f);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Introduce a single-bit error at bit 5 (1-based)</span></div>
-<div class="line">    uint32_t corrupted = encoded ^ (1U &lt;&lt; (5 - 1));</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Corrupted: 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; std::setw(6) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; corrupted &lt;&lt; std::endl;</div>
+<div class="line">    <span class="keywordtype">float</span> x = 1.5f;</div>
+<div class="line">    <span class="keywordtype">float</span> y = interp.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d3/d2d/a01625.html#af24f58b59a444e8689241916780c74ec">interpolate</a>(x);</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Interpolated value at x=%.2f: %.2f\n&quot;</span>, x, y);</div>
 <div class="line"> </div>
-<div class="line">    uint16_t decoded = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/d13/a01599.html#a54ecb3582dd9d06d069cf127f533d5a6">Lib::Math::HammingCode::decode</a>(corrupted);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Decoded : 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; std::setw(4) &lt;&lt; std::setfill(<span class="charliteral">&#39;0&#39;</span>) &lt;&lt; decoded &lt;&lt; std::endl;</div>
+<div class="line">    x = 0.0f;</div>
+<div class="line">    y = interp.<a class="code hl_function" href="../../d3/d2d/a01625.html#af24f58b59a444e8689241916780c74ec">interpolate</a>(x);</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Interpolated value at x=%.2f: %.2f\n&quot;</span>, x, y);</div>
 <div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Correction &quot;</span> &lt;&lt; (decoded == original ? <span class="stringliteral">&quot;successful&quot;</span> : <span class="stringliteral">&quot;failed&quot;</span>) &lt;&lt; std::endl;</div>
+<div class="line">    x = 3.0f;</div>
+<div class="line">    y = interp.<a class="code hl_function" href="../../d3/d2d/a01625.html#af24f58b59a444e8689241916780c74ec">interpolate</a>(x);</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Interpolated value at x=%.2f: %.2f\n&quot;</span>, x, y);</div>
+<div class="line"> </div>
+<div class="line">    x = 2.25f;</div>
+<div class="line">    y = interp.<a class="code hl_function" href="../../d3/d2d/a01625.html#af24f58b59a444e8689241916780c74ec">interpolate</a>(x);</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Interpolated value at x=%.2f: %.2f\n&quot;</span>, x, y);</div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00524_html"><div class="ttname"><a href="../../d9/d24/a00524.html">HammingCode.hpp</a></div><div class="ttdoc">Hamming code encoder/decoder for 16-bit values.</div></div>
-<div class="ttc" id="aa01599_html_a54ecb3582dd9d06d069cf127f533d5a6"><div class="ttname"><a href="../../d9/d13/a01599.html#a54ecb3582dd9d06d069cf127f533d5a6">Lib::Math::HammingCode::decode</a></div><div class="ttdeci">static uint16_t decode(uint32_t value)</div><div class="ttdoc">Decode a 21-bit Hamming encoded value and correct a single-bit error if present.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:79</div></div>
-<div class="ttc" id="aa01599_html_a5ef7a4e643ba476d99e4154f136a82c5"><div class="ttname"><a href="../../d9/d13/a01599.html#a5ef7a4e643ba476d99e4154f136a82c5">Lib::Math::HammingCode::encode</a></div><div class="ttdeci">static uint32_t encode(uint16_t value)</div><div class="ttdoc">Encode a 16-bit value using Hamming(21,16) code.</div><div class="ttdef"><b>Definition</b> HammingCode.hpp:65</div></div>
-</div><!-- fragment --><p>This example encodes a 16-bit value, flips a single bit to simulate a transmission error, then decodes and corrects the error. The output shows the original, encoded, corrupted, and decoded values, and verifies if the correction was successful.</p>
+<div class="ttc" id="aa00533_html"><div class="ttname"><a href="../../db/d44/a00533.html">LinearInterpolation.hpp</a></div><div class="ttdoc">Linear interpolation implementation for STM32 embedded systems.</div></div>
+<div class="ttc" id="aa00667_html_a2b6eed225af1b53f1d8827a670cf2977"><div class="ttname"><a href="../../d2/d6e/a00667.html#a2b6eed225af1b53f1d8827a670cf2977">Lib::Math::LinearInterpolationF</a></div><div class="ttdeci">LinearInterpolation&lt; float, float &gt; LinearInterpolationF</div><div class="ttdoc">Type alias for float-based linear interpolation.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:193</div></div>
+<div class="ttc" id="aa01625_html_ae9ff1244db9d92fba2ee8051605e41f8"><div class="ttname"><a href="../../d3/d2d/a01625.html#ae9ff1244db9d92fba2ee8051605e41f8">Lib::Math::LinearInterpolation::addPoint</a></div><div class="ttdeci">Status addPoint(const Point &amp;point)</div><div class="ttdoc">Add a data point to the interpolation table.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:84</div></div>
+<div class="ttc" id="aa01625_html_af24f58b59a444e8689241916780c74ec"><div class="ttname"><a href="../../d3/d2d/a01625.html#af24f58b59a444e8689241916780c74ec">Lib::Math::LinearInterpolation::interpolate</a></div><div class="ttdeci">T_VALUE interpolate(T_INPUT x) const</div><div class="ttdoc">Perform linear interpolation for a given input value.</div><div class="ttdef"><b>Definition</b> LinearInterpolation.hpp:118</div></div>
+</div><!-- fragment --><p>This example creates a float-based interpolation table, adds four points, and queries interpolated values at several positions, including boundaries and an intermediate value.</p>
 <dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
-<div class="fragment"><div class="line">Original: 0xbeef</div>
-<div class="line">Encoded : 0x1b7bdf</div>
-<div class="line">Corrupted: 0x1b7bcf</div>
-<div class="line">Decoded : 0xbeef</div>
-<div class="line">Correction successful</div>
+<div class="fragment"><div class="line">Interpolated value at x=1.50: 15.00</div>
+<div class="line">Interpolated value at x=0.00: 0.00</div>
+<div class="line">Interpolated value at x=3.00: 30.00</div>
+<div class="line">Interpolated value at x=2.25: 22.50</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::Sunset</title>
+<title>IAR Library: Lib::Helper::TimePeriod</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,61 +91,53 @@ $(function(){initNavTree('d3/d19/a01847.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Sunset</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="calculating-sunrise-and-sunset-times"></a>
-Calculating Sunrise and Sunset Times</h2>
-<p>This example demonstrates how to use the Sunset class to calculate sunrise and sunset times for a specific geographic location and date. It shows setting the position, date, and computing various solar events including official, civil, nautical, and astronomical sunrise/sunset times. Additionally, it illustrates moon phase calculation for the given date.</p>
+<h2 class="doxsection"><a class="anchor" id="measuring-execution-time-of-a-task"></a>
+Measuring Execution Time of a Task</h2>
+<p>This example demonstrates how to use the TimePeriod class to measure the elapsed time for executing a simple task, such as a loop that performs some computations. The class is useful in embedded systems for profiling code execution without dynamic allocation.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
 <div class="fragment"><div class="line"> cpp</div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../df/db6/a00509.html">Lib/Helper/Sunset.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d8e/a00473.html">Lib/Helper/DateTime.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/dee/a00518.html">Lib/Helper/TimePeriod.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/dd1/a00629.html">RTOS.hpp</a>&gt;</span>  <span class="comment">// Assuming RTOS::TickCounter is available</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> someTask() {</div>
+<div class="line">    <span class="comment">// Simulate some work</span></div>
+<div class="line">    <span class="keyword">volatile</span> uint32_t sum = 0U;</div>
+<div class="line">    <span class="keywordflow">for</span> (uint32_t i = 0U; i &lt; 1000U; ++i) {</div>
+<div class="line">        sum += i;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Create a Sunset instance for a location (e.g., Sofia, Bulgaria)</span></div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d2c/a01575.html">Lib::Helper::Sunset</a> sunset(42.6977, 23.3219, 2.0); <span class="comment">// Latitude, Longitude, UTC offset</span></div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d29/a01589.html">Lib::Helper::TimePeriod</a> timer;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Set the current date (e.g., January 16, 2026)</span></div>
-<div class="line">    <a id="_a1" name="_a1"></a><a class="code hl_class" href="../../db/d8e/a01523.html">Lib::Helper::DateTime::Date</a> date{2026, 1, 16};</div>
-<div class="line">    sunset.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d4/d2c/a01575.html#afa1371432a7a67b6cfe6d95a8a0d9e89">setCurrentDate</a>(date);</div>
+<div class="line">    <span class="comment">// Start measuring time</span></div>
+<div class="line">    timer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d7/d29/a01589.html#a09cae40734888833ba1e743af5167478">start</a>();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Calculate sunrise and sunset times</span></div>
-<div class="line">    <span class="keywordtype">double</span> sunrise = sunset.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d4/d2c/a01575.html#ae7fc31a2454ae8654a093a26e99aa77f">calculateSunrise</a>();</div>
-<div class="line">    <span class="keywordtype">double</span> sunset = sunset.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d4/d2c/a01575.html#aeb06ae2c832579cf921c041e1d736016">calculateSunset</a>();</div>
+<div class="line">    <span class="comment">// Perform the task</span></div>
+<div class="line">    someTask();</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Convert to Time objects for display</span></div>
-<div class="line">    <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../d1/d34/a01519.html">Lib::Helper::DateTime::Time</a> sunriseTime = <a id="a6" name="a6"></a><a class="code hl_function" href="../../d4/d2c/a01575.html#a8528fa5d6b3a7fe9364030b55c366ab5">Lib::Helper::Sunset::convertToTime</a>(sunrise);</div>
-<div class="line">    <a class="code hl_class" href="../../d1/d34/a01519.html">Lib::Helper::DateTime::Time</a> sunsetTime = <a class="code hl_function" href="../../d4/d2c/a01575.html#a8528fa5d6b3a7fe9364030b55c366ab5">Lib::Helper::Sunset::convertToTime</a>(sunset);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Calculate moon phase</span></div>
-<div class="line">    <span class="keywordtype">int</span> moonPhase = sunset.<a id="a7" name="a7"></a><a class="code hl_function" href="../../d4/d2c/a01575.html#a97c5d7383641193d29baae257fec50e0">calculateCurrentMoonPhase</a>();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Output the results</span></div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Sunrise: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(sunriseTime.hour) &lt;&lt; <span class="stringliteral">&quot;:&quot;</span></div>
-<div class="line">              &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(sunriseTime.minute) &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Sunset: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(sunsetTime.hour) &lt;&lt; <span class="stringliteral">&quot;:&quot;</span></div>
-<div class="line">              &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(sunsetTime.minute) &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Moon Phase Index: &quot;</span> &lt;&lt; moonPhase &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Stop measuring and get elapsed ticks</span></div>
+<div class="line">    uint32_t elapsedTicks = 0U;</div>
+<div class="line">    <span class="keywordflow">if</span> (timer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/d29/a01589.html#a5b891569c1b43194dbbf388443fe39e8">stop</a>(elapsedTicks)) {</div>
+<div class="line">        <span class="comment">// Use elapsedTicks, e.g., log or process</span></div>
+<div class="line">        <span class="comment">// For demonstration, assume we have a logging function</span></div>
+<div class="line">        <span class="comment">// log(&quot;Task took %u ticks&quot;, elapsedTicks);</span></div>
+<div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00473_html"><div class="ttname"><a href="../../dc/d8e/a00473.html">DateTime.hpp</a></div><div class="ttdoc">Comprehensive DateTime handling for embedded systems.</div></div>
-<div class="ttc" id="aa00509_html"><div class="ttname"><a href="../../df/db6/a00509.html">Sunset.hpp</a></div><div class="ttdoc">Sunset and Moon Phase Calculation Header.</div></div>
-<div class="ttc" id="aa01519_html"><div class="ttname"><a href="../../d1/d34/a01519.html">Lib::Helper::DateTime::Time</a></div><div class="ttdoc">Time of day representation with hours, minutes, and seconds.</div><div class="ttdef"><b>Definition</b> DateTime.hpp:52</div></div>
-<div class="ttc" id="aa01523_html"><div class="ttname"><a href="../../db/d8e/a01523.html">Lib::Helper::DateTime::Date</a></div><div class="ttdoc">Date representation with day, month, and year components.</div><div class="ttdef"><b>Definition</b> DateTime.hpp:161</div></div>
-<div class="ttc" id="aa01575_html"><div class="ttname"><a href="../../d4/d2c/a01575.html">Lib::Helper::Sunset</a></div><div class="ttdoc">Sunset and moon phase calculation utility.</div><div class="ttdef"><b>Definition</b> Sunset.hpp:39</div></div>
-<div class="ttc" id="aa01575_html_a8528fa5d6b3a7fe9364030b55c366ab5"><div class="ttname"><a href="../../d4/d2c/a01575.html#a8528fa5d6b3a7fe9364030b55c366ab5">Lib::Helper::Sunset::convertToTime</a></div><div class="ttdeci">static Time convertToTime(double value)</div><div class="ttdoc">Converts a time value in minutes to a DateTime::Time object.</div><div class="ttdef"><b>Definition</b> Sunset.hpp:283</div></div>
-<div class="ttc" id="aa01575_html_a97c5d7383641193d29baae257fec50e0"><div class="ttname"><a href="../../d4/d2c/a01575.html#a97c5d7383641193d29baae257fec50e0">Lib::Helper::Sunset::calculateCurrentMoonPhase</a></div><div class="ttdeci">int calculateCurrentMoonPhase() const</div><div class="ttdoc">Calculates the current moon phase index using the system time.</div><div class="ttdef"><b>Definition</b> Sunset.hpp:271</div></div>
-<div class="ttc" id="aa01575_html_ae7fc31a2454ae8654a093a26e99aa77f"><div class="ttname"><a href="../../d4/d2c/a01575.html#ae7fc31a2454ae8654a093a26e99aa77f">Lib::Helper::Sunset::calculateSunrise</a></div><div class="ttdeci">double calculateSunrise() const</div><div class="ttdoc">Calculates the time of official sunrise for the current date and position.</div><div class="ttdef"><b>Definition</b> Sunset.hpp:226</div></div>
-<div class="ttc" id="aa01575_html_aeb06ae2c832579cf921c041e1d736016"><div class="ttname"><a href="../../d4/d2c/a01575.html#aeb06ae2c832579cf921c041e1d736016">Lib::Helper::Sunset::calculateSunset</a></div><div class="ttdeci">double calculateSunset() const</div><div class="ttdoc">Calculates the time of official sunset for the current date and position.</div><div class="ttdef"><b>Definition</b> Sunset.hpp:237</div></div>
-<div class="ttc" id="aa01575_html_afa1371432a7a67b6cfe6d95a8a0d9e89"><div class="ttname"><a href="../../d4/d2c/a01575.html#afa1371432a7a67b6cfe6d95a8a0d9e89">Lib::Helper::Sunset::setCurrentDate</a></div><div class="ttdeci">double setCurrentDate(int year, int month, int day)</div><div class="ttdoc">Sets the current date and calculates the Julian date.</div><div class="ttdef"><b>Definition</b> Sunset.hpp:129</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The program outputs the calculated sunrise and sunset times in hours and minutes, along with the current moon phase index. For the given location and date, the output might be similar to:</dd></dl>
+<div class="ttc" id="aa00518_html"><div class="ttname"><a href="../../d5/dee/a00518.html">TimePeriod.hpp</a></div><div class="ttdoc">TimePeriod.hpp - Time period measurement using FreeRTOS ticks.</div></div>
+<div class="ttc" id="aa00629_html"><div class="ttname"><a href="../../da/dd1/a00629.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and class includes.</div></div>
+<div class="ttc" id="aa01589_html"><div class="ttname"><a href="../../d7/d29/a01589.html">Lib::Helper::TimePeriod</a></div><div class="ttdoc">Measures time periods using FreeRTOS TickCounter.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:25</div></div>
+<div class="ttc" id="aa01589_html_a09cae40734888833ba1e743af5167478"><div class="ttname"><a href="../../d7/d29/a01589.html#a09cae40734888833ba1e743af5167478">Lib::Helper::TimePeriod::start</a></div><div class="ttdeci">void start()</div><div class="ttdoc">Starts the time measurement.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:36</div></div>
+<div class="ttc" id="aa01589_html_a5b891569c1b43194dbbf388443fe39e8"><div class="ttname"><a href="../../d7/d29/a01589.html#a5b891569c1b43194dbbf388443fe39e8">Lib::Helper::TimePeriod::stop</a></div><div class="ttdeci">bool stop(uint32_t &amp;ticks)</div><div class="ttdoc">Stops the time measurement and stores the elapsed ticks.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:49</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>The elapsedTicks variable will contain the number of FreeRTOS ticks that passed during the execution of someTask(). This can be used for performance monitoring or timing constraints validation in real-time systems.</dd></dl>
 <div class="fragment"><div class="line"> text</div>
-<div class="line">Sunrise: 7:45</div>
-<div class="line">Sunset: 17:30</div>
-<div class="line">Moon Phase Index: 15</div>
+<div class="line">Task took 150 ticks</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

@@ -1,4 +1,4 @@
 var a00569 =
 [
-    [ "RTOS::SemaphoreCounting", "d0/d54/a01691.html", "d0/d54/a01691" ]
+    [ "RTOS::SemaphoreBase", "d6/d15/a01697.html", "d6/d15/a01697" ]
 ];

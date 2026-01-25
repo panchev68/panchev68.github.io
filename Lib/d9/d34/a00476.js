@@ -1,5 +1,7 @@
 var a00476 =
 [
-    [ "Lib::Helper::Delay", "d4/d62/a01531.html", null ],
-    [ "HAL_RCC_GetHCLKFreq", "d9/d34/a00476.html#a38d6c5c7a5d8758849912c9aa0a2156d", null ]
+    [ "Lib::Helper::DateTime", "db/de9/a01525.html", "db/de9/a01525" ],
+    [ "Lib::Helper::DateTime::Time", "db/dce/a01529.html", "db/dce/a01529" ],
+    [ "Lib::Helper::DateTime::Date", "d1/d62/a01533.html", "d1/d62/a01533" ],
+    [ "Lib::Helper::DateTime::Date::DayOfWeek", "df/d3f/a01537.html", "df/d3f/a01537" ]
 ];

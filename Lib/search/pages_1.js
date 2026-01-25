@@ -1,13 +1,15 @@
 var searchData=
 [
-  ['base_20class_0',['Example usage of the CAN bus client base class.',['../X:/Lib/IAR/inc/Lib/Canbus/ClientBase.hpp#example-usage-of-the-can-bus-client-base-class',1,'']]],
-  ['basic_20usage_20of_20containerbase_20for_20managing_20a_20collection_20of_20integers_1',['Basic usage of ContainerBase for managing a collection of integers.',['../X:/Lib/IAR/inc/Lib/Helper/ContainerBase.hpp#basic-usage-of-containerbase-for-managing-a-collection-of-integers',1,'']]],
-  ['bcd_20conversion_20utilities_2',['Example usage of Bcd conversion utilities.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#example-usage-of-bcd-conversion-utilities',1,'']]],
-  ['buffer_3',['buffer',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc16-checksum-for-a-data-buffer',1,'Computing CRC16 checksum for a data buffer.'],['../X:/Lib/IAR/inc/Lib/Helper/CityHash.hpp#computing-hash-for-a-data-buffer',1,'Computing hash for a data buffer.']]],
-  ['buffer_20data_20with_20bufferhandle_4',['Handling buffer data with BufferHandle.',['../X:/Lib/IAR/inc/Lib/Helper/Buffer/BufferHandle.hpp#handling-buffer-data-with-bufferhandle',1,'']]],
-  ['bufferhandle_5',['Handling buffer data with BufferHandle.',['../X:/Lib/IAR/inc/Lib/Helper/Buffer/BufferHandle.hpp#handling-buffer-data-with-bufferhandle',1,'']]],
-  ['buffers_20for_20data_20storage_6',['Managing dynamic buffers for data storage.',['../X:/Lib/IAR/inc/Lib/Helper/Buffer/Buffer.hpp#managing-dynamic-buffers-for-data-storage',1,'']]],
-  ['bus_20client_20base_20class_7',['Example usage of the CAN bus client base class.',['../X:/Lib/IAR/inc/Lib/Canbus/ClientBase.hpp#example-usage-of-the-can-bus-client-base-class',1,'']]],
-  ['busy_20wait_20delays_20in_20embedded_20systems_8',['Using Delay for short busy-wait delays in embedded systems.',['../X:/Lib/IAR/inc/Lib/Helper/Delay.hpp#using-delay-for-short-busy-wait-delays-in-embedded-systems',1,'']]],
-  ['byte_20order_20swapping_20example_9',['Byte-Order Swapping Example',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#byte-order-swapping-example',1,'']]]
+  ['a_20shared_20resource_20in_20concurrent_20tasks_0',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['a_20signal_1',['Example title: Detecting peaks in a signal.',['../X:/Lib/IAR/inc/Lib/Helper/FindPeaks.hpp#example-title-detecting-peaks-in-a-signal',1,'']]],
+  ['a_20task_2',['Measuring Execution Time of a Task',['../X:/Lib/IAR/inc/Lib/Helper/TimePeriod.hpp#measuring-execution-time-of-a-task',1,'']]],
+  ['access_3',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
+  ['advanced_20example_3a_20using_20rtos_3a_3amutex_20for_20protecting_20a_20shared_20resource_20in_20concurrent_20tasks_4',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
+  ['and_20decoding_20with_20error_20correction_5',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
+  ['and_20mutexguard_20for_20thread_20safe_20access_6',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
+  ['and_20performing_20reset_7',['Checking System Reset Cause and Performing Reset',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#checking-system-reset-cause-and-performing-reset',1,'']]],
+  ['and_20receiving_20messages_8',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
+  ['and_20sunset_20times_9',['Calculating Sunrise and Sunset Times',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#calculating-sunrise-and-sunset-times',1,'']]],
+  ['and_20time_20in_20embedded_20systems_10',['Working with Date and Time in Embedded Systems',['../X:/Lib/IAR/inc/Lib/Helper/DateTime.hpp#working-with-date-and-time-in-embedded-systems',1,'']]],
+  ['and_20usage_20example_11',['and Usage Example',['../X:/Lib/IAR/inc/Lib/System/HardwareVersion.hpp#hardware-version-creation-and-usage-example',1,'Hardware Version Creation and Usage Example.'],['../X:/Lib/IAR/inc/Lib/System/SerialNumber.hpp#serial-number-generation-and-usage-example',1,'Serial Number Generation and Usage Example']]]
 ];

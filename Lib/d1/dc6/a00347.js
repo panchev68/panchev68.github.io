@@ -1,8 +1,9 @@
 var a00347 =
 [
-    [ "DriverMode", "d1/dc6/a00347.html#a9820e7068a67bc7e99e62fb27f9040c2", [
-      [ "BLOCK", "d1/dc6/a00347.html#a9820e7068a67bc7e99e62fb27f9040c2a02fc27068fe9a3c151ffcc08ec5bb65d", null ],
-      [ "IT", "d1/dc6/a00347.html#a9820e7068a67bc7e99e62fb27f9040c2ae9e2537cbd38bd116d7bdb8b634f991a", null ],
-      [ "DMA", "d1/dc6/a00347.html#a9820e7068a67bc7e99e62fb27f9040c2a6537a62f6f155792bb9a320ee2ec4d68", null ]
+    [ "DataDirection", "d1/dc6/a00347.html#ad8e8e2d3daffefa3e43d21916835b820", null ],
+    [ "Lib::HAL::DriverDataDirection", "d7/d5f/a00663.html#a82754326f2fd3bd32ea447c756ec2825", [
+      [ "Lib::HAL::DriverDataDirection::RX", "d7/d5f/a00663.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
+      [ "Lib::HAL::DriverDataDirection::TX", "d7/d5f/a00663.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ],
+      [ "Lib::HAL::DriverDataDirection::RX_TX", "d7/d5f/a00663.html#a82754326f2fd3bd32ea447c756ec2825aa9f94fc2b5a22b1ebff62655559f82b2", null ]
     ] ]
 ];

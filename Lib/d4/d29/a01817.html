@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::Convert::Bcd</title>
+<title>IAR Library: Lib::Helper::Convert::dBM</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,39 +91,42 @@ $(function(){initNavTree('d4/d29/a01817.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::Bcd</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::dBM</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="example-usage-of-bcd-conversion-utilities"></a>
-Example usage of Bcd conversion utilities.</h2>
-<p>Demonstrates converting BCD values to ASCII strings, ASCII characters, and hexadecimal integers.</p>
+<h2 class="doxsection"><a class="anchor" id="converting-db-values-to-percentages-using-the-dbm-class"></a>
+Converting dB values to percentages using the dBM class.</h2>
+<p>This example demonstrates how to use the dBM class to convert dB (decibel) values to percentage representations for signal strength indicators. The class provides both linear and lookup-table based conversions.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d1/d0b/a00452.html">Lib/Helper/Convert/Bcd.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d65/a00458.html">Lib/Helper/Convert/dBM.hpp</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    uint16_t bcdValue = 0x1234;</div>
-<div class="line">    std::string asciiStr = <a id="a0" name="a0"></a><a class="code hl_function" href="../../dd/d15/a01471.html#aad49893687e05c5f4bb63546bb116875">Lib::Helper::Convert::Bcd::toString</a>(bcdValue);</div>
-<div class="line">    <span class="keywordtype">char</span> asciiChar = <a id="a1" name="a1"></a><a class="code hl_function" href="../../dd/d15/a01471.html#a112e5daa53c981d9ce8300b9191d5737">Lib::Helper::Convert::Bcd::toAsc</a>(0x05);</div>
-<div class="line">    uint16_t hexValue = <a id="a2" name="a2"></a><a class="code hl_function" href="../../dd/d15/a01471.html#a45b7ff8ae935495eb3581200ba4e81ee">Lib::Helper::Convert::Bcd::toHex</a>(bcdValue);</div>
+<div class="line">    <span class="comment">// Convert dB values to linear percentages</span></div>
+<div class="line">    int16_t dbValue1 = -50;  <span class="comment">// -50 dB</span></div>
+<div class="line">    uint8_t percent1 = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d4/d39/a01485.html#a8c4b111c6bdfbd4551e1ea11c56dfe6f">Lib::Helper::Convert::dBM::toPercent</a>(dbValue1);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dB -50 to percent: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percent1) &lt;&lt; <span class="stringliteral">&quot;%&quot;</span> &lt;&lt; std::endl;  <span class="comment">// Output: 50%</span></div>
 <div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;BCD value: 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; bcdValue &lt;&lt; std::dec &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ASCII string: &quot;</span> &lt;&lt; asciiStr &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ASCII char: &quot;</span> &lt;&lt; asciiChar &lt;&lt; std::endl;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex value: &quot;</span> &lt;&lt; hexValue &lt;&lt; std::endl;</div>
+<div class="line">    int8_t dbValue2 = -20;   <span class="comment">// -20 dB</span></div>
+<div class="line">    uint8_t percent2 = <a class="code hl_function" href="../../d4/d39/a01485.html#a8c4b111c6bdfbd4551e1ea11c56dfe6f">Lib::Helper::Convert::dBM::toPercent</a>(dbValue2);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dB -20 to percent: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(percent2) &lt;&lt; <span class="stringliteral">&quot;%&quot;</span> &lt;&lt; std::endl;  <span class="comment">// Output: 80%</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Convert using digital percent lookup table</span></div>
+<div class="line">    int8_t dbValue3 = 10;    <span class="comment">// 10 dB</span></div>
+<div class="line">    uint8_t digiPercent = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d4/d39/a01485.html#a03240aa651e7b84c76ca473ee93f7520">Lib::Helper::Convert::dBM::toDigiPercent</a>(dbValue3);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dB 10 to digital percent: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(digiPercent) &lt;&lt; <span class="stringliteral">&quot;%&quot;</span> &lt;&lt; std::endl;  <span class="comment">// Output: 100%</span></div>
+<div class="line"> </div>
+<div class="line">    int8_t dbValue4 = 50;    <span class="comment">// 50 dB</span></div>
+<div class="line">    uint8_t digiPercent2 = <a class="code hl_function" href="../../d4/d39/a01485.html#a03240aa651e7b84c76ca473ee93f7520">Lib::Helper::Convert::dBM::toDigiPercent</a>(dbValue4);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dB 50 to digital percent: &quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(digiPercent2) &lt;&lt; <span class="stringliteral">&quot;%&quot;</span> &lt;&lt; std::endl;  <span class="comment">// Output: 50%</span></div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00452_html"><div class="ttname"><a href="../../d1/d0b/a00452.html">Bcd.hpp</a></div><div class="ttdoc">Provides utilities for Binary-Coded Decimal (BCD) conversions.</div></div>
-<div class="ttc" id="aa01471_html_a112e5daa53c981d9ce8300b9191d5737"><div class="ttname"><a href="../../dd/d15/a01471.html#a112e5daa53c981d9ce8300b9191d5737">Lib::Helper::Convert::Bcd::toAsc</a></div><div class="ttdeci">static constexpr char toAsc(uint8_t bcd)</div><div class="ttdoc">Converts a BCD digit to its ASCII character representation.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:63</div></div>
-<div class="ttc" id="aa01471_html_a45b7ff8ae935495eb3581200ba4e81ee"><div class="ttname"><a href="../../dd/d15/a01471.html#a45b7ff8ae935495eb3581200ba4e81ee">Lib::Helper::Convert::Bcd::toHex</a></div><div class="ttdeci">static constexpr uint16_t toHex(uint16_t bcd)</div><div class="ttdoc">Converts a 16-bit BCD value to its hexadecimal integer representation.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:77</div></div>
-<div class="ttc" id="aa01471_html_aad49893687e05c5f4bb63546bb116875"><div class="ttname"><a href="../../dd/d15/a01471.html#aad49893687e05c5f4bb63546bb116875">Lib::Helper::Convert::Bcd::toString</a></div><div class="ttdeci">static std::string toString(uint16_t bcd)</div><div class="ttdoc">Converts a 16-bit BCD value to its ASCII string representation.</div><div class="ttdef"><b>Definition</b> Bcd.hpp:37</div></div>
-</div><!-- fragment --><p>This example converts a 16-bit BCD value (0x1234) to its ASCII string ("1234"), a BCD digit (0x05) to its ASCII character ('5'), and the BCD value to its hexadecimal integer (1234). The results are printed to standard output.</p>
-<dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
-<div class="fragment"><div class="line">BCD value: 0x1234</div>
-<div class="line">ASCII string: 1234</div>
-<div class="line">ASCII char: 5</div>
-<div class="line">Hex value: 1234</div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00458_html"><div class="ttname"><a href="../../da/d65/a00458.html">dBM.hpp</a></div><div class="ttdoc">dB to percent conversion utilities.</div></div>
+<div class="ttc" id="aa01485_html_a03240aa651e7b84c76ca473ee93f7520"><div class="ttname"><a href="../../d4/d39/a01485.html#a03240aa651e7b84c76ca473ee93f7520">Lib::Helper::Convert::dBM::toDigiPercent</a></div><div class="ttdeci">static constexpr uint8_t toDigiPercent(int8_t value)</div><div class="ttdoc">Convert dB value to digital percentage using lookup table.</div><div class="ttdef"><b>Definition</b> dBM.hpp:55</div></div>
+<div class="ttc" id="aa01485_html_a8c4b111c6bdfbd4551e1ea11c56dfe6f"><div class="ttname"><a href="../../d4/d39/a01485.html#a8c4b111c6bdfbd4551e1ea11c56dfe6f">Lib::Helper::Convert::dBM::toPercent</a></div><div class="ttdeci">static constexpr uint8_t toPercent(int16_t value)</div><div class="ttdoc">Convert dB value to percentage (int16_t version).</div><div class="ttdef"><b>Definition</b> dBM.hpp:35</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd>dB -50 to percent: 50% dB -20 to percent: 80% dB 10 to digital percent: 100% dB 50 to digital percent: 50%</dd></dl>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

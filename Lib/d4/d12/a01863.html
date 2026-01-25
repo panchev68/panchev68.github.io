@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Math::Pid</title>
+<title>IAR Library: RTOS::MemoryManager</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,76 +91,59 @@ $(function(){initNavTree('d4/d12/a01863.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::Pid</div></div>
+  <div class="headertitle"><div class="title">RTOS::MemoryManager</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="example-usage-of-the-pid-controller-for-temperature-regulation"></a>
-Example usage of the Pid controller for temperature regulation.</h2>
-<p>This example demonstrates how to configure and use the <span class="tt">Pid</span> controller to regulate the temperature of a simulated process. The controller is tuned for a simple first-order system and runs in a loop to maintain the setpoint. The output is clamped, and the integral term is protected against windup.</p>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/d44/a00533.html">Lib/Math/Pid.hpp</a>&quot;</span></div>
+<p>Demonstrates FreeRTOS heap allocation with status tracking and optional diagnostics.</p>
+<p>Demonstrates FreeRTOS heap allocation with status tracking and optional diagnostics.</p><dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dd/de6/a00548.html">Lib/RTOS/MemoryManager.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d0/d50/a00661.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a>;</div>
-<div class="line">    <span class="comment">// PID parameters: kp, ki, kd, sampleTime</span></div>
-<div class="line">    PidF::Parameters params(2.0f, 0.5f, 1.0f, 0.1f, 0.0f, 100.0f);</div>
-<div class="line">    PidF pid(params);</div>
-<div class="line">    pid.setMode(<span class="keyword">true</span>); <span class="comment">// Enable automatic mode</span></div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/dec/a01669.html">RTOS::MemoryManager</a>;</div>
+<div class="line">    <span class="keyword">using </span><a id="_a1" name="_a1"></a><a class="code hl_enumeration" href="../../dc/dec/a01669.html#a12545d9824f6613ee89191861f120584">RTOS::MemoryManager::Status</a>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keywordtype">float</span> setpoint = 50.0f; <span class="comment">// Target temperature</span></div>
-<div class="line">    <span class="keywordtype">float</span> process = 20.0f;  <span class="comment">// Initial temperature</span></div>
-<div class="line">    <span class="keywordtype">float</span> ambient = 20.0f;  <span class="comment">// Ambient temperature</span></div>
-<div class="line">    <span class="keywordtype">float</span> heaterPower = 0.0f;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 30; ++i) {</div>
-<div class="line">        heaterPower = pid.compute(setpoint, process);</div>
-<div class="line">        <span class="comment">// Simulate process: simple first-order lag + disturbance</span></div>
-<div class="line">        process += (heaterPower * 0.05f - (process - ambient) * 0.02f);</div>
-<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Step &quot;</span> &lt;&lt; i</div>
-<div class="line">                  &lt;&lt; <span class="stringliteral">&quot; | Setpoint: &quot;</span> &lt;&lt; setpoint</div>
-<div class="line">                  &lt;&lt; <span class="stringliteral">&quot; | Process: &quot;</span> &lt;&lt; process</div>
-<div class="line">                  &lt;&lt; <span class="stringliteral">&quot; | Output: &quot;</span> &lt;&lt; heaterPower</div>
-<div class="line">                  &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Allocate 128 bytes</span></div>
+<div class="line">    Status status;</div>
+<div class="line">    <span class="keywordtype">void</span> *ptr = MemoryManager::allocate(128, status);</div>
+<div class="line">    <span class="keywordflow">if</span> (status == Status::SUCCESS &amp;&amp; ptr) {</div>
+<div class="line">        std::printf(<span class="stringliteral">&quot;Allocated 128 bytes at %p\n&quot;</span>, ptr);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        std::printf(<span class="stringliteral">&quot;Allocation failed: %u\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(status));</div>
 <div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Try to allocate zero bytes (should fail)</span></div>
+<div class="line">    <span class="keywordtype">void</span> *zeroPtr = MemoryManager::allocate(0, status);</div>
+<div class="line">    <span class="keywordflow">if</span> (!zeroPtr) {</div>
+<div class="line">        std::printf(<span class="stringliteral">&quot;Zero-size allocation failed as expected: %u\n&quot;</span>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span><span class="keyword">&gt;</span>(status));</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Deallocate the first allocation</span></div>
+<div class="line">    MemoryManager::deallocate(ptr, status);</div>
+<div class="line">    <span class="keywordflow">if</span> (status == Status::SUCCESS) {</div>
+<div class="line">        std::printf(<span class="stringliteral">&quot;Deallocated memory at %p\n&quot;</span>, ptr);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#if defined(MEMORY_MANAGER_DIAG)</span></div>
+<div class="line">    <span class="comment">// Print diagnostic information</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> &amp;diag = MemoryManager::getDiagnostics();</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Allocations: %u, Deallocations: %u, Active: %u, Failed: %u\n&quot;</span>,</div>
+<div class="line">                diag.allocated, diag.deallocated, diag.active, diag.failedAllocations);</div>
+<div class="line">    std::printf(<span class="stringliteral">&quot;Peak usage: %zu, Current usage: %zu\n&quot;</span>, diag.peakUsage, diag.currentUsage);</div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00533_html"><div class="ttname"><a href="../../db/d44/a00533.html">Pid.hpp</a></div><div class="ttdoc">PID controller implementation for control systems.</div></div>
-<div class="ttc" id="aa00661_html_a948fc056c1100dd929fbdca345047060"><div class="ttname"><a href="../../d0/d50/a00661.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a></div><div class="ttdeci">Pid&lt; float &gt; PidF</div><div class="ttdef"><b>Definition</b> Pid.hpp:239</div></div>
-</div><!-- fragment --><p>The example simulates a temperature control loop for 30 steps. The PID controller adjusts the heater power to bring the process variable (temperature) closer to the setpoint. The output is clamped, and the integral term prevents windup.</p>
-<dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
-<div class="fragment"><div class="line">Step 0 | Setpoint: 50 | Process: 21 | Output: 100</div>
-<div class="line">Step 1 | Setpoint: 50 | Process: 22.57 | Output: 100</div>
-<div class="line">Step 2 | Setpoint: 50 | Process: 24.66 | Output: 100</div>
-<div class="line">Step 3 | Setpoint: 50 | Process: 27.26 | Output: 100</div>
-<div class="line">Step 4 | Setpoint: 50 | Process: 30.33 | Output: 100</div>
-<div class="line">Step 5 | Setpoint: 50 | Process: 33.84 | Output: 100</div>
-<div class="line">Step 6 | Setpoint: 50 | Process: 37.75 | Output: 100</div>
-<div class="line">Step 7 | Setpoint: 50 | Process: 41.99 | Output: 100</div>
-<div class="line">Step 8 | Setpoint: 50 | Process: 46.52 | Output: 100</div>
-<div class="line">Step 9 | Setpoint: 50 | Process: 51.27 | Output: 98.5</div>
-<div class="line">Step 10 | Setpoint: 50 | Process: 55.97 | Output: 89.1</div>
-<div class="line">Step 11 | Setpoint: 50 | Process: 60.33 | Output: 73.2</div>
-<div class="line">Step 12 | Setpoint: 50 | Process: 64.01 | Output: 54.2</div>
-<div class="line">Step 13 | Setpoint: 50 | Process: 66.74 | Output: 36.1</div>
-<div class="line">Step 14 | Setpoint: 50 | Process: 68.41 | Output: 21.1</div>
-<div class="line">Step 15 | Setpoint: 50 | Process: 69.06 | Output: 10.2</div>
-<div class="line">Step 16 | Setpoint: 50 | Process: 68.81 | Output: 3.2</div>
-<div class="line">Step 17 | Setpoint: 50 | Process: 67.87 | Output: -0.7</div>
-<div class="line">Step 18 | Setpoint: 50 | Process: 66.54 | Output: -2.9</div>
-<div class="line">Step 19 | Setpoint: 50 | Process: 65.07 | Output: -3.9</div>
-<div class="line">Step 20 | Setpoint: 50 | Process: 63.66 | Output: -4.1</div>
-<div class="line">Step 21 | Setpoint: 50 | Process: 62.48 | Output: -3.8</div>
-<div class="line">Step 22 | Setpoint: 50 | Process: 61.58 | Output: -3.3</div>
-<div class="line">Step 23 | Setpoint: 50 | Process: 61.01 | Output: -2.7</div>
-<div class="line">Step 24 | Setpoint: 50 | Process: 60.69 | Output: -2.1</div>
-<div class="line">Step 25 | Setpoint: 50 | Process: 60.54 | Output: -1.6</div>
-<div class="line">Step 26 | Setpoint: 50 | Process: 60.48 | Output: -1.2</div>
-<div class="line">Step 27 | Setpoint: 50 | Process: 60.47 | Output: -0.9</div>
-<div class="line">Step 28 | Setpoint: 50 | Process: 60.48 | Output: -0.7</div>
-<div class="line">Step 29 | Setpoint: 50 | Process: 60.5 | Output: -0.5</div>
-</div><!-- fragment --><p>The output shows the process variable approaching the setpoint, with the controller output adapting to minimize the error. The output is clamped, and the integral term prevents windup.</p>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00548_html"><div class="ttname"><a href="../../dd/de6/a00548.html">MemoryManager.hpp</a></div><div class="ttdoc">Memory manager for FreeRTOS heap allocation and diagnostics.</div></div>
+<div class="ttc" id="aa01669_html"><div class="ttname"><a href="../../dc/dec/a01669.html">RTOS::MemoryManager</a></div><div class="ttdoc">MemoryManager class for FreeRTOS heap allocation and diagnostics.</div><div class="ttdef"><b>Definition</b> MemoryManager.hpp:58</div></div>
+<div class="ttc" id="aa01669_html_a12545d9824f6613ee89191861f120584"><div class="ttname"><a href="../../dc/dec/a01669.html#a12545d9824f6613ee89191861f120584">RTOS::MemoryManager::Status</a></div><div class="ttdeci">Status</div><div class="ttdoc">Status codes for memory operations.</div><div class="ttdef"><b>Definition</b> MemoryManager.hpp:66</div></div>
+</div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
+<div class="fragment"><div class="line">Allocated 128 bytes at 0xXXXXXXXX</div>
+<div class="line">Zero-size allocation failed as expected: 1</div>
+<div class="line">Deallocated memory at 0xXXXXXXXX</div>
+<div class="line">Allocations: 1, Deallocations: 1, Active: 0, Failed: 1</div>
+<div class="line">Peak usage: 128, Current usage: 0</div>
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

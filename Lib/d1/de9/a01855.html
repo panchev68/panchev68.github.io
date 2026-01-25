@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Math::Filter::Kalman</title>
+<title>IAR Library: Lib::Math::CubicInterpolation</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,76 +91,54 @@ $(function(){initNavTree('d1/de9/a01855.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::Filter::Kalman</div></div>
+  <div class="headertitle"><div class="title">Lib::Math::CubicInterpolation</div></div>
 </div><!--header-->
 <div class="contents">
-<h3 class="doxsection"><a class="anchor" id="example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data"></a>
-Example of Kalman filter usage for smoothing noisy sensor data.</h3>
-<p>This example demonstrates how to configure and use the <span class="tt">Kalman</span> filter to smooth a sequence of noisy sensor readings. The example shows initialization, filtering of multiple values, and resetting the filter. The output illustrates the effect of the Kalman filter in reducing noise.</p>
+<h3 class="doxsection"><a class="anchor" id="example-cubic-spline-interpolation-with-standard-output"></a>
+Example: Cubic spline interpolation with standard output</h3>
+<p>This example demonstrates how to use the <span class="tt">CubicInterpolationF</span> class to perform cubic spline interpolation on a set of data points and print the interpolated values and derivatives to the standard output.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/def/a00521.html">Lib/Math/Filter/Kalman.hpp</a>&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d7e/a00530.html">Lib/Math/Interpolation/CubicInterpolation.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d42/a01591.html">Lib::Math::Filter::Kalman</a>;</div>
-<div class="line">    <span class="keyword">using </span>KalmanDouble = Kalman&lt;double&gt;;</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d2/d6e/a00667.html#a95e75623bdeeebff3be6c024135bfea2">Lib::Math::CubicInterpolationF</a>;</div>
+<div class="line">    <span class="keyword">using </span>Lib::Math::CubicInterpolationF::Point;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Configure the Kalman filter for a typical sensor scenario</span></div>
-<div class="line">    KalmanDouble::Config config;</div>
-<div class="line">    config.<a id="a1" name="a1"></a>processNoise = 0.0001;</div>
-<div class="line">    config.sensorNoise = 0.01;</div>
-<div class="line">    config.estimatedError = 1.0;</div>
-<div class="line">    config.value = 0.0;</div>
+<div class="line">    <span class="comment">// Define interpolation points</span></div>
+<div class="line">    <span class="keyword">constexpr</span> std::array&lt;Point, 5&gt; points = {{</div>
+<div class="line">        {0.0f, 0.0f},</div>
+<div class="line">        {1.0f, 2.0f},</div>
+<div class="line">        {2.0f, 0.0f},</div>
+<div class="line">        {3.0f, 2.0f},</div>
+<div class="line">        {4.0f, 0.0f}</div>
+<div class="line">    }};</div>
 <div class="line"> </div>
-<div class="line">    KalmanDouble filter(config);</div>
+<div class="line">    <span class="comment">// Create cubic interpolation object with natural boundary</span></div>
+<div class="line">    CubicInterpolationF spline(points);</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Simulated noisy sensor data</span></div>
-<div class="line">    <span class="keywordtype">double</span> sensorData[] = {0.39, 0.50, 0.48, 0.29, 0.25, 0.32, 0.34, 0.48, 0.41, 0.45};</div>
-<div class="line">    <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> dataCount = <span class="keyword">sizeof</span>(sensorData) / <span class="keyword">sizeof</span>(sensorData[0]);</div>
-<div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Raw\tFiltered&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; dataCount; ++i) {</div>
-<div class="line">        <span class="keywordtype">double</span> filtered = filter(sensorData[i]);</div>
-<div class="line">        std::cout &lt;&lt; sensorData[i] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; filtered &lt;&lt; std::endl;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Reset the filter and filter the same data again</span></div>
-<div class="line">    filter.reset();</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;\nAfter reset:&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; dataCount; ++i) {</div>
-<div class="line">        <span class="keywordtype">double</span> filtered = filter(sensorData[i]);</div>
-<div class="line">        std::cout &lt;&lt; sensorData[i] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; filtered &lt;&lt; std::endl;</div>
+<div class="line">    <span class="comment">// Interpolate and print results</span></div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">float</span> x = 0.0f; x &lt;= 4.0f; x += 0.5f) {</div>
+<div class="line">        <span class="keywordtype">float</span> y = spline.interpolate(x);</div>
+<div class="line">        <span class="keywordtype">float</span> dy = spline.getDerivative(x);</div>
+<div class="line">        std::printf(<span class="stringliteral">&quot;x = %.2f, y = %.4f, dy/dx = %.4f\n&quot;</span>, x, y, dy);</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00521_html"><div class="ttname"><a href="../../d7/def/a00521.html">Kalman.hpp</a></div><div class="ttdoc">Kalman filter implementation for generic numeric types.</div></div>
-<div class="ttc" id="aa01591_html"><div class="ttname"><a href="../../dc/d42/a01591.html">Lib::Math::Filter::Kalman</a></div><div class="ttdoc">Kalman filter for generic numeric types.</div><div class="ttdef"><b>Definition</b> Kalman.hpp:25</div></div>
-</div><!-- fragment --><p>This example initializes a Kalman filter for double values, processes a sequence of noisy sensor readings, and prints both the raw and filtered values. After resetting the filter, the same data is filtered again to demonstrate the reset functionality. The output shows how the Kalman filter smooths the noisy input data.</p>
+<div class="ttc" id="aa00530_html"><div class="ttname"><a href="../../da/d7e/a00530.html">CubicInterpolation.hpp</a></div><div class="ttdoc">Implements cubic spline interpolation for STM32 embedded systems.</div></div>
+<div class="ttc" id="aa00667_html_a95e75623bdeeebff3be6c024135bfea2"><div class="ttname"><a href="../../d2/d6e/a00667.html#a95e75623bdeeebff3be6c024135bfea2">Lib::Math::CubicInterpolationF</a></div><div class="ttdeci">CubicInterpolation&lt; float, float &gt; CubicInterpolationF</div><div class="ttdoc">Type alias for float-based cubic interpolation.</div><div class="ttdef"><b>Definition</b> CubicInterpolation.hpp:322</div></div>
+</div><!-- fragment --><p>This code creates a cubic spline interpolation for five points, then evaluates and prints the interpolated value and its first derivative at intervals of 0.5 along the x-axis.</p>
 <dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
-<div class="fragment"><div class="line">Raw     Filtered</div>
-<div class="line">0.39    0.389996</div>
-<div class="line">0.5     0.399993</div>
-<div class="line">0.48    0.407991</div>
-<div class="line">0.29    0.398989</div>
-<div class="line">0.25    0.384987</div>
-<div class="line">0.32    0.378985</div>
-<div class="line">0.34    0.375983</div>
-<div class="line">0.48    0.384981</div>
-<div class="line">0.41    0.386979</div>
-<div class="line">0.45    0.391977</div>
-<div class="line"> </div>
-<div class="line">After reset:</div>
-<div class="line">0.39    0.389996</div>
-<div class="line">0.5     0.399993</div>
-<div class="line">0.48    0.407991</div>
-<div class="line">0.29    0.398989</div>
-<div class="line">0.25    0.384987</div>
-<div class="line">0.32    0.378985</div>
-<div class="line">0.34    0.375983</div>
-<div class="line">0.48    0.384981</div>
-<div class="line">0.41    0.386979</div>
-<div class="line">0.45    0.391977</div>
-</div><!-- fragment --><p>The filtered values demonstrate the Kalman filter's ability to reduce noise and provide a smooth estimate of the true value, even when the input data is noisy.</p>
+<div class="fragment"><div class="line">x = 0.00, y = 0.0000, dy/dx = 2.0000</div>
+<div class="line">x = 0.50, y = 1.0156, dy/dx = 1.3281</div>
+<div class="line">x = 1.00, y = 2.0000, dy/dx = 0.0000</div>
+<div class="line">x = 1.50, y = 1.3281, dy/dx = -1.3281</div>
+<div class="line">x = 2.00, y = 0.0000, dy/dx = -2.0000</div>
+<div class="line">x = 2.50, y = 0.9844, dy/dx = -1.3281</div>
+<div class="line">x = 3.00, y = 2.0000, dy/dx = 0.0000</div>
+<div class="line">x = 3.50, y = 1.3281, dy/dx = 1.3281</div>
+<div class="line">x = 4.00, y = 0.0000, dy/dx = 2.0000</div>
+</div><!-- fragment --><p>The output shows the interpolated values and their derivatives at each sampled x position.</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

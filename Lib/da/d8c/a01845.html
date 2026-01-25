@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::StringHelper</title>
+<title>IAR Library: Lib::Helper::swapBytes</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,43 +91,42 @@ $(function(){initNavTree('da/d8c/a01845.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::StringHelper</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::swapBytes</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="example-usage-of-stringhelper-utilities"></a>
-Example usage of StringHelper utilities.</h2>
-<p>This example demonstrates the use of StringHelper static methods for string case conversion, trimming whitespace, and searching for strings in null-terminated arrays. It shows how to perform common string operations safely and efficiently.</p>
+<h2 class="doxsection"><a class="anchor" id="byte-order-swapping-example"></a>
+Byte-Order Swapping Example</h2>
+<p>This example demonstrates the usage of the swapBytes utilities for converting byte order of integral values and raw memory buffers in the context of embedded and networking code. It showcases template-based value swapping for different integer types and the buffer overload for reversing byte arrays, which is useful for endianness conversion in data serialization and communication protocols.</p>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d1f/a00506.html">Lib/Helper/StringHelper.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iomanip&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d19/a00515.html">Lib/Helper/SwapBytes.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    std::string original = <span class="stringliteral">&quot;  Example String  &quot;</span>;</div>
-<div class="line">    std::string upper = <a id="a0" name="a0"></a><a class="code hl_function" href="../../d5/d10/a01571.html#a4952735391f79682bec81dda8f9fa955">Lib::Helper::StringHelper::toUpperCase</a>(original);</div>
-<div class="line">    std::string lower = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d5/d10/a01571.html#a8662ab1b4f07fad4a04e5025ce403b78">Lib::Helper::StringHelper::toLowerCase</a>(original);</div>
-<div class="line">    std::string trimmed = <a id="a2" name="a2"></a><a class="code hl_function" href="../../d5/d10/a01571.html#a68177e664d3170c5adcd6509c780a2c2">Lib::Helper::StringHelper::trim</a>(original);</div>
+<div class="line">    <span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_function" href="../../d7/de4/a00634.html#aa9f5b2bf7e573b4b83c531b171e4506f">Lib::Helper::swapBytes</a>;</div>
+<div class="line">    std::cout &lt;&lt; std::hex &lt;&lt; std::showbase;</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> * fruits[] = { <span class="stringliteral">&quot;Apple&quot;</span>, <span class="stringliteral">&quot;Banana&quot;</span>, <span class="stringliteral">&quot;Cherry&quot;</span>, <span class="keyword">nullptr</span> };</div>
-<div class="line">    int32_t index = <a id="a3" name="a3"></a><a class="code hl_function" href="../../d5/d10/a01571.html#acc1a3b50ee54477894fa62f8c7f4d470">Lib::Helper::StringHelper::findInArray</a>(<span class="stringliteral">&quot;Banana&quot;</span>, fruits);</div>
+<div class="line">    uint16_t u16 = 0x1234U;</div>
+<div class="line">    uint32_t u32 = 0x12345678U;</div>
+<div class="line">    uint64_t u64 = 0x0123456789ABCDEFULL;</div>
 <div class="line"> </div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Original: &#39;&quot;</span> &lt;&lt; original &lt;&lt; <span class="stringliteral">&quot;&#39;\n&quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Uppercase: &#39;&quot;</span> &lt;&lt; upper &lt;&lt; <span class="stringliteral">&quot;&#39;\n&quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Lowercase: &#39;&quot;</span> &lt;&lt; lower &lt;&lt; <span class="stringliteral">&quot;&#39;\n&quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Trimmed: &#39;&quot;</span> &lt;&lt; trimmed &lt;&lt; <span class="stringliteral">&quot;&#39;\n&quot;</span>;</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Index of &#39;Banana&#39;: &quot;</span> &lt;&lt; index &lt;&lt; std::endl;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;u16: &quot;</span> &lt;&lt; u16 &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; swapBytes(u16) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;u32: &quot;</span> &lt;&lt; u32 &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; swapBytes(u32) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;u64: &quot;</span> &lt;&lt; u64 &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; swapBytes(u64) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">    uint8_t src[4] = {0x11, 0x22, 0x33, 0x44};</div>
+<div class="line">    uint8_t dst[4] = {};</div>
+<div class="line">    swapBytes(src, dst, 4);</div>
+<div class="line"> </div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;buffer src: &quot;</span>;</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> b : src) std::cout &lt;&lt; <span class="stringliteral">&quot;0x&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(b) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;\nbuffer dst: &quot;</span>;</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keyword">auto</span> b : dst) std::cout &lt;&lt; <span class="stringliteral">&quot;0x&quot;</span> &lt;&lt; <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(b) &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line">    std::cout &lt;&lt; std::endl;</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00506_html"><div class="ttname"><a href="../../d4/d1f/a00506.html">StringHelper.hpp</a></div><div class="ttdoc">String Helper Utilities Header.</div></div>
-<div class="ttc" id="aa01571_html_a4952735391f79682bec81dda8f9fa955"><div class="ttname"><a href="../../d5/d10/a01571.html#a4952735391f79682bec81dda8f9fa955">Lib::Helper::StringHelper::toUpperCase</a></div><div class="ttdeci">static std::string toUpperCase(std::string_view input)</div><div class="ttdoc">Convert string to uppercase.</div><div class="ttdef"><b>Definition</b> StringHelper.hpp:45</div></div>
-<div class="ttc" id="aa01571_html_a68177e664d3170c5adcd6509c780a2c2"><div class="ttname"><a href="../../d5/d10/a01571.html#a68177e664d3170c5adcd6509c780a2c2">Lib::Helper::StringHelper::trim</a></div><div class="ttdeci">static std::string_view trim(std::string_view input)</div><div class="ttdoc">Trim leading and trailing whitespace.</div><div class="ttdef"><b>Definition</b> StringHelper.hpp:75</div></div>
-<div class="ttc" id="aa01571_html_a8662ab1b4f07fad4a04e5025ce403b78"><div class="ttname"><a href="../../d5/d10/a01571.html#a8662ab1b4f07fad4a04e5025ce403b78">Lib::Helper::StringHelper::toLowerCase</a></div><div class="ttdeci">static std::string toLowerCase(std::string_view input)</div><div class="ttdoc">Convert string to lowercase.</div><div class="ttdef"><b>Definition</b> StringHelper.hpp:60</div></div>
-<div class="ttc" id="aa01571_html_acc1a3b50ee54477894fa62f8c7f4d470"><div class="ttname"><a href="../../d5/d10/a01571.html#acc1a3b50ee54477894fa62f8c7f4d470">Lib::Helper::StringHelper::findInArray</a></div><div class="ttdeci">static int32_t findInArray(std::string_view target, const char *const *array)</div><div class="ttdoc">Find index of a C-string in a null-terminated array.</div><div class="ttdef"><b>Definition</b> StringHelper.hpp:93</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Output:</dt><dd></dd></dl>
-<div class="fragment"><div class="line">Original: <span class="stringliteral">&#39;  Example String  &#39;</span></div>
-<div class="line">Uppercase: <span class="stringliteral">&#39;  EXAMPLE STRING  &#39;</span></div>
-<div class="line">Lowercase: <span class="stringliteral">&#39;  example string  &#39;</span></div>
-<div class="line">Trimmed: <span class="stringliteral">&#39;Example String&#39;</span></div>
-<div class="line">Index of <span class="stringliteral">&#39;Banana&#39;</span>: 1</div>
+<div class="ttc" id="aa00515_html"><div class="ttname"><a href="../../dc/d19/a00515.html">SwapBytes.hpp</a></div><div class="ttdoc">SwapBytes.hpp - Byte order swap utilities.</div></div>
+<div class="ttc" id="aa00634_html_aa9f5b2bf7e573b4b83c531b171e4506f"><div class="ttname"><a href="../../d7/de4/a00634.html#aa9f5b2bf7e573b4b83c531b171e4506f">Lib::Helper::swapBytes</a></div><div class="ttdeci">constexpr T_TYPE swapBytes(T_TYPE value)</div><div class="ttdoc">Swaps the byte order of a value.</div><div class="ttdef"><b>Definition</b> SwapBytes.hpp:54</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

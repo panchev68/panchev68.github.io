@@ -1,5 +1,4 @@
 var a00500 =
 [
-    [ "Lib::Helper::Singleton&lt; T &gt;", "d7/d57/a01567.html", "d7/d57/a01567" ],
-    [ "Singleton&lt; T &gt;", "d7/deb/a02090.html", "d7/deb/a02090" ]
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d6/db5/a01573.html", "d6/db5/a01573" ]
 ];

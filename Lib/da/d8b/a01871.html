@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS::MutexGuard</title>
+<title>IAR Library: RTOS::Queue</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,67 +91,50 @@ $(function(){initNavTree('da/d8b/a01871.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
+  <div class="headertitle"><div class="title">RTOS::Queue</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access"></a>
-Example usage of RTOS::Mutex and MutexGuard for thread-safe access.</h2>
-<p>This example demonstrates how to use the <span class="tt"><a class="el" href="../../d4/d3c/a01671.html" title="Mutex class for synchronization.">RTOS::Mutex</a></span> class and its <span class="tt"><a class="el" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d" title="Type alias for Mutex::LockGuard.">MutexGuard</a></span> (aliased as <span class="tt"><a class="el" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d" title="Type alias for Mutex::LockGuard.">MutexGuard</a></span>) to provide thread-safe access to a shared resource in a FreeRTOS-based application. The example shows how to open a mutex, use the RAII-based guard for automatic locking and unlocking, and check lock status.</p>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d9/d87/a00551.html">Lib/RTOS/Mutex.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d4/d3c/a01671.html">RTOS::Mutex</a> sharedMutex(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../d4/d3c/a01671.html#a26d98a7cc72991078b6451ce810e841ea1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::MutexType::NORMAL</a>);</div>
-<div class="line"><span class="keywordtype">int</span> sharedCounter = 0;</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> incrementTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!sharedMutex.isValid()) sharedMutex.open();</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 5; ++i) {</div>
-<div class="line">        <a id="_a2" name="_a2"></a><a class="code hl_typedef" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(sharedMutex, 100);</div>
-<div class="line">        <span class="keywordflow">if</span> (guard) {</div>
-<div class="line">            ++sharedCounter;</div>
-<div class="line">            std::printf(<span class="stringliteral">&quot;Incremented: %d\n&quot;</span>, sharedCounter);</div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            std::printf(<span class="stringliteral">&quot;Failed to acquire lock in incrementTask\n&quot;</span>);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> decrementTask() {</div>
-<div class="line">    <span class="keywordflow">if</span> (!sharedMutex.isValid()) sharedMutex.open();</div>
-<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 5; ++i) {</div>
-<div class="line">        <a class="code hl_typedef" href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a> guard(sharedMutex, 100);</div>
-<div class="line">        <span class="keywordflow">if</span> (guard.isLocked()) {</div>
-<div class="line">            --sharedCounter;</div>
-<div class="line">            std::printf(<span class="stringliteral">&quot;Decremented: %d\n&quot;</span>, sharedCounter);</div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            std::printf(<span class="stringliteral">&quot;Failed to acquire lock in decrementTask\n&quot;</span>);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">}</div>
+<h1 class="doxsection"><a class="anchor" id="example-usage-of-rtosqueue-with-standard-output"></a>
+Example usage of RTOS::Queue with standard output.</h1>
+<p>Demonstrates creation, sending, receiving, and querying of a FreeRTOS queue using the <a class="el" href="../../da/d20/a01689.html" title="RAII wrapper for FreeRTOS queues.">RTOS::Queue</a> wrapper.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="example-usage"></a>
+Example usage:</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d8/df0/a00557.html">Lib/RTOS/Queue.hpp</a>&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    sharedMutex.open();</div>
-<div class="line">    incrementTask();</div>
-<div class="line">    decrementTask();</div>
-<div class="line">    sharedMutex.close();</div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d20/a01689.html">RTOS::Queue&lt;int, 4&gt;</a> queue;</div>
+<div class="line">    <span class="keywordflow">if</span> (!queue.<a id="a1" name="a1"></a><a class="code hl_function" href="../../da/d20/a01689.html#a14b1a09ac2edd1cfac4711e6ffd33c88">open</a>()) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Failed to open queue.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line">        <span class="keywordflow">return</span> 1;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">int</span> value = 42;</div>
+<div class="line">    <span class="keywordflow">if</span> (queue.<a id="a2" name="a2"></a><a class="code hl_function" href="../../da/d20/a01689.html#a15abd6ffc7d7bafa732635dacf1d1a97">send</a>(value)) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Sent value: &quot;</span> &lt;&lt; value &lt;&lt; std::endl;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordtype">int</span> received = 0;</div>
+<div class="line">    <span class="keywordflow">if</span> (queue.<a id="a3" name="a3"></a><a class="code hl_function" href="../../da/d20/a01689.html#ad9ebf13b7905918972b0956fa26d4d60">receive</a>(received)) {</div>
+<div class="line">        std::cout &lt;&lt; <span class="stringliteral">&quot;Received value: &quot;</span> &lt;&lt; received &lt;&lt; std::endl;</div>
+<div class="line">    }</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Messages waiting: &quot;</span> &lt;&lt; queue.<a id="a4" name="a4"></a><a class="code hl_function" href="../../da/d20/a01689.html#afa12b76b211c73935b45cb240f0c13e6">messagesWaiting</a>() &lt;&lt; std::endl;</div>
+<div class="line">    queue.<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d20/a01689.html#a64c10821220572abcf4b7e7e003c0f61">close</a>();</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00551_html"><div class="ttname"><a href="../../d9/d87/a00551.html">Mutex.hpp</a></div><div class="ttdoc">Mutex class for FreeRTOS synchronization.</div></div>
-<div class="ttc" id="aa00551_html_a374642113cf09f4704dd8242b052899d"><div class="ttname"><a href="../../d9/d87/a00551.html#a374642113cf09f4704dd8242b052899d">MutexGuard</a></div><div class="ttdeci">RTOS::Mutex::LockGuard MutexGuard</div><div class="ttdoc">Type alias for Mutex::LockGuard.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:425</div></div>
-<div class="ttc" id="aa01671_html"><div class="ttname"><a href="../../d4/d3c/a01671.html">RTOS::Mutex</a></div><div class="ttdoc">Mutex class for synchronization.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:86</div></div>
-<div class="ttc" id="aa01671_html_a26d98a7cc72991078b6451ce810e841ea1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../d4/d3c/a01671.html#a26d98a7cc72991078b6451ce810e841ea1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::MutexType::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdef"><b>Definition</b> Mutex.hpp:102</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Expected output:</dt><dd></dd></dl>
-<div class="fragment"><div class="line">Incremented: 1</div>
-<div class="line">Incremented: 2</div>
-<div class="line">Incremented: 3</div>
-<div class="line">Incremented: 4</div>
-<div class="line">Incremented: 5</div>
-<div class="line">Decremented: 4</div>
-<div class="line">Decremented: 3</div>
-<div class="line">Decremented: 2</div>
-<div class="line">Decremented: 1</div>
-<div class="line">Decremented: 0</div>
+<div class="ttc" id="aa00557_html"><div class="ttname"><a href="../../d8/df0/a00557.html">Queue.hpp</a></div><div class="ttdoc">Queue wrapper for FreeRTOS queues.</div></div>
+<div class="ttc" id="aa01689_html"><div class="ttname"><a href="../../da/d20/a01689.html">RTOS::Queue</a></div><div class="ttdoc">RAII wrapper for FreeRTOS queues.</div><div class="ttdef"><b>Definition</b> Queue.hpp:86</div></div>
+<div class="ttc" id="aa01689_html_a14b1a09ac2edd1cfac4711e6ffd33c88"><div class="ttname"><a href="../../da/d20/a01689.html#a14b1a09ac2edd1cfac4711e6ffd33c88">RTOS::Queue::open</a></div><div class="ttdeci">bool open()</div><div class="ttdoc">Creates dynamic queue for storing elements.</div><div class="ttdef"><b>Definition</b> Queue.hpp:174</div></div>
+<div class="ttc" id="aa01689_html_a15abd6ffc7d7bafa732635dacf1d1a97"><div class="ttname"><a href="../../da/d20/a01689.html#a15abd6ffc7d7bafa732635dacf1d1a97">RTOS::Queue::send</a></div><div class="ttdeci">bool send(const T_ELEMENT_TYPE &amp;item, TickType_t maxTicksToWait=portMAX_DELAY)</div><div class="ttdoc">Sends item to back of queue with optional timeout.</div><div class="ttdef"><b>Definition</b> Queue.hpp:322</div></div>
+<div class="ttc" id="aa01689_html_a64c10821220572abcf4b7e7e003c0f61"><div class="ttname"><a href="../../da/d20/a01689.html#a64c10821220572abcf4b7e7e003c0f61">RTOS::Queue::close</a></div><div class="ttdeci">void close()</div><div class="ttdoc">Closes and destroys the queue if created.</div><div class="ttdef"><b>Definition</b> Queue.hpp:213</div></div>
+<div class="ttc" id="aa01689_html_ad9ebf13b7905918972b0956fa26d4d60"><div class="ttname"><a href="../../da/d20/a01689.html#ad9ebf13b7905918972b0956fa26d4d60">RTOS::Queue::receive</a></div><div class="ttdeci">bool receive(T_ELEMENT_TYPE &amp;item, TickType_t maxTicksToWait=portMAX_DELAY) const</div><div class="ttdoc">Receives item from queue with optional timeout.</div><div class="ttdef"><b>Definition</b> Queue.hpp:246</div></div>
+<div class="ttc" id="aa01689_html_afa12b76b211c73935b45cb240f0c13e6"><div class="ttname"><a href="../../da/d20/a01689.html#afa12b76b211c73935b45cb240f0c13e6">RTOS::Queue::messagesWaiting</a></div><div class="ttdeci">size_t messagesWaiting() const</div><div class="ttdoc">Returns count of messages currently in queue.</div><div class="ttdef"><b>Definition</b> Queue.hpp:481</div></div>
+</div><!-- fragment --><p>This example shows how to open a queue, send and receive an integer value, and print the queue state.</p>
+<hr  />
+<h2 class="doxsection"><a class="anchor" id="expected-output"></a>
+Expected output:</h2>
+<div class="fragment"><div class="line">Sent value: 42</div>
+<div class="line">Received value: 42</div>
+<div class="line">Messages waiting: 0</div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

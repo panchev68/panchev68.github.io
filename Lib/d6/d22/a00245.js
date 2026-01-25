@@ -1,4 +1,4 @@
 var a00245 =
 [
-    [ "Lib::Ethercat::Driver::DeviceBase", "d2/d68/a01295.html", "d2/d68/a01295" ]
+    [ "Lib::Ethercat::CoE", "dc/d8c/a01297.html", "dc/d8c/a01297" ]
 ];

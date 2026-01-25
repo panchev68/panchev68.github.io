@@ -1,28 +1,7 @@
 var searchData=
 [
-  ['calculating_20sunrise_20and_20sunset_20times_0',['Calculating Sunrise and Sunset Times',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#calculating-sunrise-and-sunset-times',1,'']]],
-  ['can_20bus_20client_20base_20class_1',['Example usage of the CAN bus client base class.',['../X:/Lib/IAR/inc/Lib/Canbus/ClientBase.hpp#example-usage-of-the-can-bus-client-base-class',1,'']]],
-  ['character_20conversion_2',['Example usage of Ascii class for ASCII character conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'']]],
-  ['checksum_20for_20a_20data_20buffer_3',['Computing CRC16 checksum for a data buffer.',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc16-checksum-for-a-data-buffer',1,'']]],
-  ['class_4',['class',['../X:/Lib/IAR/inc/Lib/System/System.hpp#example-usage-of-system-class',1,'Example usage of System class.'],['../X:/Lib/IAR/inc/Lib/Canbus/ClientBase.hpp#example-usage-of-the-can-bus-client-base-class',1,'Example usage of the CAN bus client base class.']]],
-  ['class_20for_20ascii_20character_20conversion_5',['Example usage of Ascii class for ASCII character conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'']]],
-  ['class_20for_20percentage_20to_20dbm_20conversion_6',['Example usage of Percent class for percentage to dBM conversion.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Percent.hpp#example-usage-of-percent-class-for-percentage-to-dbm-conversion',1,'']]],
-  ['client_20base_20class_7',['Example usage of the CAN bus client base class.',['../X:/Lib/IAR/inc/Lib/Canbus/ClientBase.hpp#example-usage-of-the-can-bus-client-base-class',1,'']]],
-  ['client_20implementation_20example_8',['TickService Client Implementation Example',['../X:/Lib/IAR/inc/Lib/RTOS/TickService.hpp#tickservice-client-implementation-example',1,'']]],
-  ['collection_20of_20integers_9',['Basic usage of ContainerBase for managing a collection of integers.',['../X:/Lib/IAR/inc/Lib/Helper/ContainerBase.hpp#basic-usage-of-containerbase-for-managing-a-collection-of-integers',1,'']]],
-  ['collection_20of_20pointers_20with_20container_10',['Managing a collection of pointers with Container.',['../X:/Lib/IAR/inc/Lib/Helper/Container.hpp#managing-a-collection-of-pointers-with-container',1,'']]],
-  ['computing_20crc16_20checksum_20for_20a_20data_20buffer_11',['Computing CRC16 checksum for a data buffer.',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc16-checksum-for-a-data-buffer',1,'']]],
-  ['computing_20hash_20for_20a_20data_20buffer_12',['Computing hash for a data buffer.',['../X:/Lib/IAR/inc/Lib/Helper/CityHash.hpp#computing-hash-for-a-data-buffer',1,'']]],
-  ['concurrent_20tasks_13',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['container_14',['Managing a collection of pointers with Container.',['../X:/Lib/IAR/inc/Lib/Helper/Container.hpp#managing-a-collection-of-pointers-with-container',1,'']]],
-  ['containerbase_20for_20managing_20a_20collection_20of_20integers_15',['Basic usage of ContainerBase for managing a collection of integers.',['../X:/Lib/IAR/inc/Lib/Helper/ContainerBase.hpp#basic-usage-of-containerbase-for-managing-a-collection-of-integers',1,'']]],
-  ['controller_20for_20temperature_20regulation_16',['Example usage of the Pid controller for temperature regulation.',['../X:/Lib/IAR/inc/Lib/Math/Pid.hpp#example-usage-of-the-pid-controller-for-temperature-regulation',1,'']]],
-  ['conversion_17',['conversion',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Ascii.hpp#example-usage-of-ascii-class-for-ascii-character-conversion',1,'Example usage of Ascii class for ASCII character conversion.'],['../X:/Lib/IAR/inc/Lib/Helper/Convert/Percent.hpp#example-usage-of-percent-class-for-percentage-to-dbm-conversion',1,'Example usage of Percent class for percentage to dBM conversion.']]],
-  ['conversion_20example_18',['Time zone conversion example.',['../X:/Lib/IAR/inc/Lib/Helper/TimeZone.hpp#time-zone-conversion-example',1,'']]],
-  ['conversion_20utilities_19',['conversion utilities',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#example-usage-of-bcd-conversion-utilities',1,'Example usage of Bcd conversion utilities.'],['../X:/Lib/IAR/inc/Lib/Helper/Convert/Hex.hpp#example-usage-of-hex-conversion-utilities',1,'Example usage of Hex conversion utilities.']]],
-  ['conversion_20utilities_20usage_20',['Conversion utilities usage.',['../X:/Lib/IAR/inc/Lib/Helper/stdlib.hpp#conversion-utilities-usage',1,'']]],
-  ['correction_21',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
-  ['crc16_20checksum_20for_20a_20data_20buffer_22',['Computing CRC16 checksum for a data buffer.',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc16-checksum-for-a-data-buffer',1,'']]],
-  ['creation_20and_20usage_20example_23',['Hardware Version Creation and Usage Example.',['../X:/Lib/IAR/inc/Lib/System/HardwareVersion.hpp#hardware-version-creation-and-usage-example',1,'']]],
-  ['cubic_20spline_20interpolation_20with_20standard_20output_24',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]]
+  ['bcd_20class_0',['Converting BCD values using the Bcd class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#converting-bcd-values-using-the-bcd-class',1,'']]],
+  ['bcd_20values_20using_20the_20bcd_20class_1',['Converting BCD values using the Bcd class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#converting-bcd-values-using-the-bcd-class',1,'']]],
+  ['buffers_20with_20datahandle_2',['Managing Data Buffers with DataHandle',['../X:/Lib/IAR/inc/Lib/Helper/DataHandle.hpp#managing-data-buffers-with-datahandle',1,'']]],
+  ['byte_20order_20swapping_20example_3',['Byte-Order Swapping Example',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#byte-order-swapping-example',1,'']]]
 ];

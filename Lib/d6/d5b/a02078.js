@@ -1,18 +1,15 @@
 var a02078 =
 [
-    [ "Buffer", "d6/d5b/a02078.html#af9ab2e45b1d521e81c19589542b4b0b0", null ],
-    [ "Buffer", "d6/d5b/a02078.html#a6fb427549ecf8c1c20820700c019f58f", null ],
-    [ "Buffer", "d6/d5b/a02078.html#afc235cba5b43abb8c59632bc12a6c824", null ],
-    [ "Buffer", "d6/d5b/a02078.html#a673cbd44b87cf900982433619fd7680f", null ],
-    [ "Buffer", "d6/d5b/a02078.html#a4152df5fad433c572bef169ee46cb991", null ],
-    [ "~Buffer", "d6/d5b/a02078.html#a950e8ecd45d712bd45ab87f7b7c65507", null ],
-    [ "clear", "d6/d5b/a02078.html#a1bb2eec77281d4dca8975cff25654415", null ],
-    [ "getSize", "d6/d5b/a02078.html#acc24103eef1ab4a7b639bff60303891a", null ],
-    [ "operator const uint8_t *", "d6/d5b/a02078.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
-    [ "operator uint8_t *", "d6/d5b/a02078.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
-    [ "operator=", "d6/d5b/a02078.html#a57b913d3f6c04a2b4e00ea9eaeb73fb1", null ],
-    [ "operator[]", "d6/d5b/a02078.html#a349ac1909667d09f057d02a94389ecb5", null ],
-    [ "operator[]", "d6/d5b/a02078.html#a31a9debe78ef23f609d52d233fff4870", null ],
-    [ "setExisting", "d6/d5b/a02078.html#aa618cdbf9dc710e5b4406b7601c497b1", null ],
-    [ "setSize", "d6/d5b/a02078.html#a44d28f117f561e52889860c89eb76c4e", null ]
+    [ "BufferHandle", "d6/d5b/a02078.html#a178fee8d1c634241a55a4c8a8e80bffa", null ],
+    [ "BufferHandle", "d6/d5b/a02078.html#ada02c7448505870777a13ea9f7a56626", null ],
+    [ "BufferHandle", "d6/d5b/a02078.html#ac65c249fd421e412486221b6fb5ff894", null ],
+    [ "~BufferHandle", "d6/d5b/a02078.html#a350282ca4851321c92a4ea0d128db92f", null ],
+    [ "data", "d6/d5b/a02078.html#a31d3f63a76400072a52cb7110e704f55", null ],
+    [ "data", "d6/d5b/a02078.html#a2e1ce5e9048b9458848affceacbd9544", null ],
+    [ "getSize", "d6/d5b/a02078.html#ae3e4a082ca400798becc5c74adefab4e", null ],
+    [ "operator const uint8_t *", "d6/d5b/a02078.html#af3cb0c7a9dd8c33a06471e225f49fec5", null ],
+    [ "operator uint8_t *", "d6/d5b/a02078.html#acdde4edabc36ac36ef22e68437cac305", null ],
+    [ "operator()", "d6/d5b/a02078.html#aa90c1259b967b7b7a7f892fcf8c863f3", null ],
+    [ "operator=", "d6/d5b/a02078.html#a759d74d0d6f7e56bd8f6b794e978aedd", null ],
+    [ "set", "d6/d5b/a02078.html#af4608c5b99e8105ccf58b6d6a4b90b47", null ]
 ];

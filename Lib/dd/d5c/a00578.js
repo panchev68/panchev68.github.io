@@ -1,4 +1,5 @@
 var a00578 =
 [
-    [ "RTOS::TaskWorker", "d0/d42/a01707.html", "d0/d42/a01707" ]
+    [ "RTOS::Task", "d1/da7/a01709.html", "d1/da7/a01709" ],
+    [ "RTOS::Task::Config", "d2/d0c/a01713.html", "d2/d0c/a01713" ]
 ];

@@ -1,6 +1,5 @@
 var a00491 =
 [
-    [ "Lib::Helper::JaggedArrayBase&lt; T &gt;", "d6/dd7/a01555.html", "d6/dd7/a01555" ],
-    [ "Lib::Helper::JaggedArray", "d5/de3/a00631.html#acc663a4a7ed85f66c63917708fb9dae4", null ],
-    [ "Lib::Helper::JaggedArrayRow", "d5/de3/a00631.html#a18a2265f0012970450288fda0c0793fb", null ]
+    [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d2/d49/a01561.html", "d2/d49/a01561" ],
+    [ "IntegratorAlias", "d6/d60/a00491.html#aa5891569d7159ddc5a551608f52584d4", null ]
 ];

@@ -1,4 +1,5 @@
 var a00662 =
 [
-    [ "Kalman", "dc/d42/a01591.html", "dc/d42/a01591" ]
+    [ "ClientBase", "d7/d81/a01365.html", "d7/d81/a01365" ],
+    [ "Socket", "d7/d38/a01373.html", "d7/d38/a01373" ]
 ];

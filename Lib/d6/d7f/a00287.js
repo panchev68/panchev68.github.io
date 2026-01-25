@@ -1,6 +1,4 @@
 var a00287 =
 [
-    [ "Lib::HAL::AdcPortBlock", "da/dc3/a00657.html#a8130c93d5aebbf1c11fcfd1944602fc5", null ],
-    [ "Lib::HAL::AdcPortDMA", "da/dc3/a00657.html#a8ee2bba775cca54a6ebdf0e8d4104d59", null ],
-    [ "Lib::HAL::AdcPortIT", "da/dc3/a00657.html#aee2bb3a11e751b1c2bee2da949cbf1c8", null ]
+    [ "Lib::Ethernet::Wiznet::ClientBase", "df/d10/a01357.html", "df/d10/a01357" ]
 ];

@@ -1,8 +1,6 @@
 var a00638 =
 [
-    [ "Base", "dd/d07/a00811.html", "dd/d07/a00811" ],
-    [ "Helper", "d7/d4f/a00819.html", "d7/d4f/a00819" ],
-    [ "Interface", "dc/d8c/a00859.html", "dc/d8c/a00859" ],
-    [ "Registers", "d2/db8/a00867.html", null ],
-    [ "SpiPort", "d1/daa/a00638.html#a680300994fd6a1940cf31c5cdf260aa7", null ]
+    [ "DriverBase", "d6/d86/a00781.html", "d6/d86/a00781" ],
+    [ "M24C16", "d8/d7d/a00789.html", "d8/d7d/a00789" ],
+    [ "M24C64W", "d4/dd7/a00793.html", "d4/dd7/a00793" ]
 ];
