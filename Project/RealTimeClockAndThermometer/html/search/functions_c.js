@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['tick_0',['tick',['../d7/d06/a00131.html#acd33b4994e205b49fed55e9d40e11a16',1,'ModelBase']]],
-  ['touchscreendriver_1',['TouchScreenDriver',['../d5/d1e/a00103.html#a453b91a022297082465b62b352ac4b58',1,'BSP::TouchScreenDriver']]],
-  ['transfer_2',['transfer',['../d1/d51/a00079.html#a8b06b473690ce2845f707db84c8ea87e',1,'BSP::DisplayDriver::Communication']]],
-  ['transmitblock_3',['transmitBlock',['../d0/d89/a00071.html#a82ea395f4168c3f09d7801afa5e26169',1,'BSP::DisplayDriver']]]
+  ['read_0',['read',['../d7/d9a/a00152.html#ab4beb205c0ee88149e00d13dc89d19f4',1,'BSP::TouchScreenDriver::read()'],['../d5/de9/a00176.html#a647b966a8068f209714930167582010b',1,'HAL::RealTimeClock::read() override']]],
+  ['readregister_1',['readRegister',['../d5/de9/a00176.html#a1effb8ee2cea8cbd589f5680382acab3',1,'HAL::RealTimeClock']]],
+  ['refresh_2',['refresh',['../da/d15/a00188.html#a8f136df665243ce9a84ac5d2cf127773',1,'ModelClock::refresh()'],['../dc/d31/a00208.html#a7d61fceaa4fe9b291e911a7696b1779e',1,'ModelThermometer::refresh()']]]
 ];

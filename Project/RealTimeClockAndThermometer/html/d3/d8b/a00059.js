@@ -1,4 +1,4 @@
 var a00059 =
 [
-    [ "RealTimeClock", "df/dcd/a00127.html", "df/dcd/a00127" ]
+    [ "ClockView", "d5/d0b/a00220.html", "d5/d0b/a00220" ]
 ];

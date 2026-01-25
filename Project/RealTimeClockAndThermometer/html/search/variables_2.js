@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['height_0',['height',['../d9/da5/a00075.html#afbcef26ff46df617df109ea4bc5092f6',1,'BSP::DisplayDriver::Config']]],
-  ['humidity_1',['humidity',['../df/d6a/a00119.html#a443aa71c587df20c426a61bb9e1d95e5',1,'Data::BackupRamData::Simple']]]
+  ['datalogger_0',['dataLogger',['../d0/d81/a00180.html#aae08003b26b53b1b24c4c417949e34aa',1,'ModelBase']]],
+  ['dataport_1',['dataPort',['../d5/deb/a00132.html#ae35e4f9817aabbad94036730eeb096ac',1,'BSP::DisplayDriver::Communication::Config']]],
+  ['dmahandle_2',['dmaHandle',['../d5/deb/a00132.html#acef6b17d8a30df1a0f851e200be72438',1,'BSP::DisplayDriver::Communication::Config']]]
 ];

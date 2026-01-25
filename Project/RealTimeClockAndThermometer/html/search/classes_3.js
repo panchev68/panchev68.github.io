@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['listener_0',['Listener',['../d5/d5b/a00135.html',1,'ModelBase::Listener'],['../d7/dce/a00143.html',1,'ModelClock::Listener'],['../dd/db2/a00151.html',1,'ModelDataLogger::Listener'],['../dd/dae/a00163.html',1,'ModelThermometer::Listener']]]
+  ['frontendapplication_0',['FrontendApplication',['../d5/ddf/a00224.html',1,'']]],
+  ['frontendheap_1',['FrontendHeap',['../de/dc2/a00228.html',1,'']]]
 ];

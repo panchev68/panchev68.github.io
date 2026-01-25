@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['backlight_0',['Backlight',['../da/d82/a00091.html#a6bb87a20b324596b25fd803d64f24363',1,'BSP::DisplayDriver::Backlight']]],
-  ['bindondatalogged_1',['bindOnDataLogged',['../d1/d6f/a00063.html#ac1e5776edfabbfa759e8f12c6c1b1cc7',1,'App::DataLogger']]],
-  ['bindtickcallback_2',['bindTickCallback',['../d0/d89/a00071.html#a14c7ef734d965bac523690c071e8db58',1,'BSP::DisplayDriver']]],
-  ['bindtransfercompletecallback_3',['bindTransferCompleteCallback',['../d0/d89/a00071.html#a83b1632733f673be4332578d574e0361',1,'BSP::DisplayDriver']]]
+  ['activate_0',['activate',['../d6/d43/a00216.html#ac69649df3ff9abf5032602f3666b3825',1,'ClockPresenter::activate()'],['../d3/dcc/a00264.html#aefd07d511dd3815dcfbb16a5573e3fac',1,'SetupPresenter::activate()'],['../d9/dd6/a00272.html#addbf1808a48b3caba1ef067786ef7ce5',1,'WelcomePresenter::activate()']]]
 ];

@@ -1,4 +1,4 @@
 var a00032 =
 [
-    [ "HAL::RealTimeClock", "df/dcd/a00127.html", "df/dcd/a00127" ]
+    [ "HAL::RealTimeClock", "d5/de9/a00176.html", "d5/de9/a00176" ]
 ];

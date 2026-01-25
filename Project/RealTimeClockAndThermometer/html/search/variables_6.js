@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['registerport_0',['registerPort',['../d2/d1f/a00083.html#a6fefc6468b2fc0f0e046e6ac677a0f9b',1,'BSP::DisplayDriver::Communication::Config']]]
+  ['ontransfercompleted_0',['onTransferCompleted',['../d1/d88/a00128.html#aac50bf94da30afb05f9e43784eb77b83',1,'BSP::DisplayDriver::Communication']]]
 ];
