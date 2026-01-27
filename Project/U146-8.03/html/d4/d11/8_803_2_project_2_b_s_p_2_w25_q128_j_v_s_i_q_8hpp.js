@@ -1,4 +1,0 @@
-var 8_803_2_project_2_b_s_p_2_w25_q128_j_v_s_i_q_8hpp =
-[
-    [ "BSP::W25Q128JVSIQ", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html", null ]
-];
