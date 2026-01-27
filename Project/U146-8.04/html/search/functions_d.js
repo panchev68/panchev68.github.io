@@ -1,7 +1,7 @@
 var searchData=
 [
   ['saledateisset_0',['saleDateIsSet',['../d4/d0d/class_model_diagnostic.html#a2b4414207603d5ea62ea29ecb6b05448',1,'ModelDiagnostic']]],
-  ['sampletouch_1',['sampleTouch',['../d7/d14/class_b_s_p_1_1_touch_screen.html#a7eeae3e75fa29ab23e5316f52ddfa69e',1,'BSP::TouchScreen']]],
+  ['sampletouch_1',['sampleTouch',['../d7/d14/class_b_s_p_1_1_touch_screen.html#ac6d6ff76f7bee905f65a667d38918884',1,'BSP::TouchScreen']]],
   ['saveparameters_2',['saveParameters',['../d1/dc3/class_model_display.html#aa3265c70aad48c54df411111545485d0',1,'ModelDisplay']]],
   ['send_3',['send',['../d2/da4/class_h_a_l_1_1_uart_port.html#a117b48e66343b14c7ed0a8641997a2ae',1,'HAL::UartPort']]],
   ['set_4',['set',['../d0/d1f/class_system_1_1_display_rotation.html#a169410c437f4b1cc12af21eafb1f3406',1,'System::DisplayRotation']]],
@@ -16,7 +16,7 @@ var searchData=
   ['setpanid_13',['setPanId',['../dc/dd5/class_model_xbee_1_1_module_parameters.html#a8a1037175e3f72e9d4ef243f14f215f9',1,'ModelXbee::ModuleParameters']]],
   ['setqualitymodeserviceruntime_14',['setQualityModeServiceRuntime',['../d8/d6c/class_model_xbee_1_1_connection.html#a79c28fbab6027a9ded58b3cbda19a0b9',1,'ModelXbee::Connection']]],
   ['setqualitymodeservicescanner_15',['setQualityModeServiceScanner',['../d8/d6c/class_model_xbee_1_1_connection.html#a87eff96c208cf32626671ad0291c16ac',1,'ModelXbee::Connection']]],
-  ['setrotation_16',['setRotation',['../d1/d6d/class_b_s_p_1_1_display.html#af8a347b6009476a120a4df23a2e42de8',1,'BSP::Display::setRotation()'],['../d7/d14/class_b_s_p_1_1_touch_screen.html#a806cbe259ba7b1207ea66c287f744553',1,'BSP::TouchScreen::setRotation()'],['../d1/dc3/class_model_display.html#a965e06a9aac36b2e646a4d0913f07d35',1,'ModelDisplay::setRotation()']]],
+  ['setrotation_16',['setRotation',['../d1/d6d/class_b_s_p_1_1_display.html#af8a347b6009476a120a4df23a2e42de8',1,'BSP::Display::setRotation()'],['../d7/d14/class_b_s_p_1_1_touch_screen.html#ac8c8dde4524bfdae396b9f9fc1ed260e',1,'BSP::TouchScreen::setRotation()'],['../d1/dc3/class_model_display.html#a965e06a9aac36b2e646a4d0913f07d35',1,'ModelDisplay::setRotation()']]],
   ['setselectednode_17',['setSelectedNode',['../dc/d93/class_model_peripheral.html#a780eeaa13f975203eca40dc37ebaed34',1,'ModelPeripheral']]],
   ['setstartupmode_18',['setStartupMode',['../d8/de9/class_model_system.html#a1e0418af774e02b850d6e31b9f398e9c',1,'ModelSystem']]],
   ['setup_19',['setup',['../d0/d11/class_b_s_p_1_1_outputs_listener.html#adbdb9e0aa6c2fdafd6fe28752a9521dd',1,'BSP::OutputsListener']]],
