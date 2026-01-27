@@ -1,5 +1,6 @@
 var class_lib_1_1_xbee_1_1_core_1_1_local_at_command =
 [
+    [ "Command", "d2/d15/class_lib_1_1_xbee_1_1_core_1_1_local_at_command.html#a65850dd8467fa6e4e39a242178a3ff40", null ],
     [ "LocalAtCommand", "d2/d15/class_lib_1_1_xbee_1_1_core_1_1_local_at_command.html#addda60d3a9df9ad69fca73fe9c4c411d", null ],
     [ "~LocalAtCommand", "d2/d15/class_lib_1_1_xbee_1_1_core_1_1_local_at_command.html#a6913bf0f1bc23fcbc6c48453f482774e", null ],
     [ "close", "d2/d15/class_lib_1_1_xbee_1_1_core_1_1_local_at_command.html#acbb81c7b2432668009bd71e2d5013552", null ],

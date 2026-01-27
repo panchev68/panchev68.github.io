@@ -7,5 +7,6 @@ var class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base =
     [ "isRunning", "d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#af8ea0344f930c164af59c424f15db234", null ],
     [ "open", "d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#a65aca1cfb5fb04ac4069fb90af77f406", null ],
     [ "process", "d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#a639b4f0d14b432fd6a42517b9cfbd618", null ],
-    [ "tearDown", "d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#a047ac1f7619cd3a58377bb69a27b95d0", null ]
+    [ "tearDown", "d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#a047ac1f7619cd3a58377bb69a27b95d0", null ],
+    [ "Manager", "d9/df6/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_service_base.html#adddd5c43ff870a047aa66db4edf82a7e", null ]
 ];

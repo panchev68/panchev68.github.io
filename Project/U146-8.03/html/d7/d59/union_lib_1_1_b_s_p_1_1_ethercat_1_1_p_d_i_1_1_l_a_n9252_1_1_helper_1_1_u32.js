@@ -1,5 +1,6 @@
 var union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32 =
 [
+    [ "byte", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a1c15cfecd3d00fd8e33f01fef5753c59", null ],
     [ "bytes", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#ab4611f7aaa3dd10e80f48f8ab35a0334", null ],
     [ "high", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#ab20796de5a00099a5dca4a189f2e4129", null ],
     [ "highByte", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a8c24c2b9cb3959dd3a70607fe2cd43d0", null ],
@@ -9,6 +10,8 @@ var union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32 
     [ "lowWord", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#ad5b89bb59a2a809193405b8bae8e9452", null ],
     [ "mostByte", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a020c4d2ff405978a76a96a4ca6fd425e", null ],
     [ "upperByte", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#adf4fa924ad9ec2eea63f10d973fb5c25", null ],
+    [ "uword", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#acd84bd55c5a63877af852e044db09956", null ],
     [ "value", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a3fb20a17ce9fb8894ecc25effe70c101", null ],
+    [ "word", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#afcc86489ec454741b1b72bfd58f2fa09", null ],
     [ "words", "d7/d59/union_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_helper_1_1_u32.html#a3d6ee064a10af80929f5c8895f227376", null ]
 ];

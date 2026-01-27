@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['queue_0',['Queue',['../d9/dd3/_free_r_t_o_s_8hpp.html#ad33d4f698bea99fb640ca75ba828e422',1,'FreeRTOS']]],
-  ['queueset_1',['QueueSet',['../d9/dd3/_free_r_t_o_s_8hpp.html#af2b9e1b1fbd6eb43d967f32b82f7b063',1,'FreeRTOS']]]
+  ['node_0',['Node',['../dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html#ab091b12fa34f220a5e75b16695a26a92',1,'Lib::Canbus::Service&lt; Mode::SERVER &gt;']]]
 ];

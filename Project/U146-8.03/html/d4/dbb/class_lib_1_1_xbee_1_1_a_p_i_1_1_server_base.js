@@ -1,5 +1,6 @@
 var class_lib_1_1_xbee_1_1_a_p_i_1_1_server_base =
 [
+    [ "Config", "d4/dbb/class_lib_1_1_xbee_1_1_a_p_i_1_1_server_base.html#ae15a84071862979919e4bd730d98fbee", null ],
     [ "ServerBase", "d4/dbb/class_lib_1_1_xbee_1_1_a_p_i_1_1_server_base.html#adb364cf0815818658a53e310e76c54b7", null ],
     [ "~ServerBase", "d4/dbb/class_lib_1_1_xbee_1_1_a_p_i_1_1_server_base.html#a5ee1345fabaabf673cbb2a5957f15fde", null ],
     [ "getModulePresent", "d4/dbb/class_lib_1_1_xbee_1_1_a_p_i_1_1_server_base.html#acfed555928393684a780b991b149ab6d", null ],

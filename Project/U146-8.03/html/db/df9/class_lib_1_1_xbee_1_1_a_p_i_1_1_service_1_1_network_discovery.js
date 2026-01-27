@@ -1,7 +1,7 @@
 var class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery =
 [
     [ "Node", "df/dc8/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery_1_1_node.html", "df/dc8/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery_1_1_node" ],
-    [ "NetworkDiscovery", "db/df9/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery.html#afa16c791970e3de1f8aa6f7427a27203", null ],
+    [ "NetworkDiscovery", "db/df9/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery.html#aba83897efd5440a0be7f16e1928b074b", null ],
     [ "~NetworkDiscovery", "db/df9/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery.html#acca83d03f0fcde61885a1995e0dc1fb3", null ],
     [ "close", "db/df9/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery.html#a4e6a050f391792bb1daa596ed659aba4", null ],
     [ "getNodeCount", "db/df9/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_network_discovery.html#ab0978bb1a5863af035213b48ffc46492", null ],

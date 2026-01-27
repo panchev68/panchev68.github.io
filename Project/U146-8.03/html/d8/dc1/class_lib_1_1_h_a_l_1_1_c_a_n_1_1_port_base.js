@@ -13,6 +13,7 @@ var class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base =
     [ "send", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#af5f835ed8341c2154d407d6b47f42caa", null ],
     [ "send", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#af663c5a065c84409cf06d42eb8f234dc", null ],
     [ "setFilter", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#a14d7f125e79116cc3dd489283d7445b7", null ],
+    [ "DeviceManager", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#aead9a9546ea765538d3f95894afea912", null ],
     [ "handle", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#aa0531831919c37344e58a5da81d7c8e1", null ],
     [ "queueRxMessage", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#a100f70e1c55d56525f25ffb9faa75f0f", null ],
     [ "queueSet", "d8/dc1/class_lib_1_1_h_a_l_1_1_c_a_n_1_1_port_base.html#a22a593300d5ea8f15a831383def6af86", null ],

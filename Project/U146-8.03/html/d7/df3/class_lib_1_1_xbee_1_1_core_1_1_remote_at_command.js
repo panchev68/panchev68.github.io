@@ -1,5 +1,6 @@
 var class_lib_1_1_xbee_1_1_core_1_1_remote_at_command =
 [
+    [ "Command", "d7/df3/class_lib_1_1_xbee_1_1_core_1_1_remote_at_command.html#aef634740746620477b93924a6f9821d7", null ],
     [ "RemoteAtCommand", "d7/df3/class_lib_1_1_xbee_1_1_core_1_1_remote_at_command.html#ab40150fd9cd0b1a80580efde4448fc09", null ],
     [ "~RemoteAtCommand", "d7/df3/class_lib_1_1_xbee_1_1_core_1_1_remote_at_command.html#ab96de54e4c297197767a7523366e7bff", null ],
     [ "close", "d7/df3/class_lib_1_1_xbee_1_1_core_1_1_remote_at_command.html#a4118c157ab83c07a2d55a18ecc6b634a", null ],

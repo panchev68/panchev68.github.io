@@ -1,5 +1,6 @@
 var class_lib_1_1_xbee_1_1_core_1_1_module =
 [
+    [ "Config", "da/d16/class_lib_1_1_xbee_1_1_core_1_1_module.html#a9017e181b97c87427aa84353bd1a0eb4", null ],
     [ "Module", "da/d16/class_lib_1_1_xbee_1_1_core_1_1_module.html#a0117fd9e08b8cb84dcf53ccba4119796", null ],
     [ "~Module", "da/d16/class_lib_1_1_xbee_1_1_core_1_1_module.html#a50be57fbaa0e3e4cfe868693f80cef65", null ],
     [ "init", "da/d16/class_lib_1_1_xbee_1_1_core_1_1_module.html#af1760d2127584bea04822f2d893a033b", null ],

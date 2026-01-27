@@ -1,6 +1,7 @@
 var class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner =
 [
     [ "Channel", "df/d4c/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner_1_1_channel.html", "df/d4c/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner_1_1_channel" ],
+    [ "QualityMode", "dc/dcd/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#a079fd301a3ac2c95ebd5cc626cbf2324", null ],
     [ "Error", "dc/dcd/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#ad32134c59a8a2da7db5c286886d3938e", [
       [ "NONE", "dc/dcd/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#ad32134c59a8a2da7db5c286886d3938eab50339a10e1de285ac99d4c3990b8693", null ],
       [ "MODULE_IS_NOT_CONNECTED", "dc/dcd/class_lib_1_1_xbee_1_1_a_p_i_1_1_service_1_1_channel_scanner.html#ad32134c59a8a2da7db5c286886d3938ea2ca69989fcd0489fd209ace247dd1b45", null ],

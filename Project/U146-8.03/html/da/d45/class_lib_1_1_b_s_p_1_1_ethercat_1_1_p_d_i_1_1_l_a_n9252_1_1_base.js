@@ -1,6 +1,7 @@
 var class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base =
 [
     [ "Config", "db/d07/struct_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base_1_1_config.html", "db/d07/struct_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base_1_1_config" ],
+    [ "Helper", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#afa158b37f3c6791a0871f202aee60bc7", null ],
     [ "State", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#afd037810d0cac882509f9811be8895be", [
       [ "NO_INIT", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#afd037810d0cac882509f9811be8895bea72144f138e8a9f73854d58b59deca26d", null ],
       [ "READY", "da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html#afd037810d0cac882509f9811be8895bea2baa69eafc7204f3bd8648eba580c489", null ],
