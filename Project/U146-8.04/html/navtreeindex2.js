@@ -14,8 +14,7 @@ var NAVTREEINDEX2 =
 "d9/dd1/group___e_e_p_r_o_m.html":[2,0,0,6],
 "d9/dfb/namespace_canbus.html":[3,0,2],
 "da/d1b/group___beeper.html":[2,0,0,3],
-"da/d42/namespace_touch_g_f_x.html":[3,0,8],
-"da/d6a/namespace_display.html":[3,0,4],
+"da/d42/namespace_touch_g_f_x.html":[3,0,7],
 "da/d7d/_serial_port_repeter_8hpp.html":[5,0,0,7,0],
 "da/d9b/group___digital_peripheral.html":[2,0,0,4],
 "da/da3/class_model_canbus_1_1_listener.html":[4,0,9,0],
@@ -31,7 +30,7 @@ var NAVTREEINDEX2 =
 "da/da7/namespace_b_s_p.html#a2c70392b35dbd7b9c395820e10498d04aec765f1adc3b4253f2d3b131a4a8618f":[3,0,1,18,1],
 "da/da7/namespace_b_s_p.html#acec5b0b703d3f9505d05ae9988e02386":[3,0,1,17],
 "da/dc3/_w25_q128_j_v_s_i_q_8hpp.html":[5,0,0,1,8],
-"da/dd9/class_h_a_l_1_1_r_t_clock.html":[3,0,6,0],
+"da/dd9/class_h_a_l_1_1_r_t_clock.html":[3,0,5,0],
 "da/dd9/class_h_a_l_1_1_r_t_clock.html":[4,0,4,0],
 "da/df6/class_model_xbee_1_1_listener.html":[4,0,15,0],
 "da/df6/class_model_xbee_1_1_listener.html#a06ea2628801712226d99d2fa6cc24bd3":[4,0,15,0,5],
@@ -174,7 +173,7 @@ var NAVTREEINDEX2 =
 "db/d20/class_b_s_p_1_1_d_r_v8908.html#afdf7383dd3e0a5036a91d63c0fbcfc6e":[4,0,1,7,8],
 "db/d74/_input_port_8hpp.html":[5,0,0,1,0,1],
 "db/d7d/_model_base_8hpp.html":[5,0,0,6,0,0],
-"db/dce/namespace_free_r_t_o_s.html":[3,0,5],
+"db/dce/namespace_free_r_t_o_s.html":[3,0,4],
 "db/dd6/_beep_8hpp.html":[5,0,0,1,2],
 "db/de0/group___project.html":[2,0],
 "db/df3/class_model_peripheral_1_1_test_outputs_client.html":[4,0,12,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "dd/d0f/class_model_diagnostic_1_1_listener.html#a20f779d64072ffc6687244e776315214":[4,0,10,0,1],
 "dd/d0f/class_model_diagnostic_1_1_listener.html#a9aa4c96a719c35077e671be2f0a42e7d":[4,0,10,0,0],
 "dd/d6e/_hardware_version_8hpp.html":[5,0,0,5,2],
-"dd/da6/group___canbus_server.html":[2,0,3,1,0]
+"dd/da6/group___canbus_server.html":[2,0,3,1,0],
+"dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html":[3,0,1,14,0]
 };

@@ -13,7 +13,7 @@ var searchData=
   ['digital_20inputs_20outputs_20peripheral_10',['Digital Inputs/Outputs Peripheral',['../da/d9b/group___digital_peripheral.html',1,'']]],
   ['digitalperipheral_11',['DigitalPeripheral',['../d2/d97/class_b_s_p_1_1_digital_peripheral.html',1,'BSP']]],
   ['digitalperipheral_2ehpp_12',['DigitalPeripheral.hpp',['../d3/d00/_digital_peripheral_8hpp.html',1,'']]],
-  ['display_13',['Display',['../d1/d6d/class_b_s_p_1_1_display.html',1,'BSP::Display'],['../d8/dda/struct_system_1_1_parameters_1_1_data_1_1_display.html',1,'System::Parameters::Data::Display'],['../da/d6a/namespace_display.html',1,'Display']]],
+  ['display_13',['Display',['../d1/d6d/class_b_s_p_1_1_display.html',1,'BSP::Display'],['../d8/dda/struct_system_1_1_parameters_1_1_data_1_1_display.html',1,'System::Parameters::Data::Display']]],
   ['display_14',['display',['../d9/d2e/class_system_1_1_parameters_1_1_data.html#a7d7abf8b4bfafc2af85f531c1e6228ae',1,'System::Parameters::Data::display'],['../d1/d75/class_model_base.html#a3f242a463a5ddb52a70f5a4e17bfbe33',1,'ModelBase::display']]],
   ['display_20backlight_20driver_15',['Display Backlight Driver',['../d3/dc4/group___backlight.html',1,'']]],
   ['display_20driver_16',['Display Driver',['../d9/d23/group___display.html',1,'']]],
