@@ -80,8 +80,8 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d5/d1a/class_system_1_1_parameters.html#aafcb3514d580e83599e3a2377d14be36",
-"da/da3/class_model_canbus_1_1_listener.html#a0003da87f332f822db6aee74bac8f7e2",
-"de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#changed-1"
+"d9/da2/class_model_xbee.html",
+"dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

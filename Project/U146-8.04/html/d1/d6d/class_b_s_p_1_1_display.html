@@ -94,7 +94,13 @@ $(function(){initNavTree('d1/d6d/class_b_s_p_1_1_display.html','../../','d1/d9b/
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>ILI9341-based TFT display controller. </p>
-<p>The Display class inherits from Lib::BSP::Display::ILI9341 and manages display initialization, backlight brightness, and rotation for STM32-based systems. Implemented as a singleton to ensure single instance management of the display hardware. </p>
+<p>The Display class inherits from Lib::BSP::Display::ILI9341 and manages display initialization, backlight brightness control, and rotation for STM32-based systems. It integrates with the Backlight singleton for brightness management and provides a unified interface for display operations. Implemented as a singleton to ensure single instance management of the display hardware.</p>
+<p>Role within the module: Primary interface for TFT display control in the BSP.</p>
+<p>Important design decisions: Singleton pattern prevents multiple display instances; delegates backlight control to the Backlight class for separation of concerns.</p>
+<dl class="section note"><dt>Note</dt><dd>Ensure SPI and GPIO peripherals are initialized before using the display.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Lib::BSP::Display::ILI9341 </dd>
+<dd>
+Backlight </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::Display:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -139,6 +145,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the singleton instance of the Display. </p>
+<p>Provides access to the single instance of the Display class, ensuring global and thread-safe access to display management. The instance is created on first access.</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the singleton Display instance. </dd></dl>
 
 </div>
@@ -167,9 +174,10 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets display backlight brightness. </p>
+<p>Adjusts the brightness of the display backlight by delegating to the Backlight singleton. The brightness value ranges from 0 (off) to 255 (maximum brightness).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Brightness value (0-255). </td></tr>
+    <tr><td class="paramname">value</td><td>Brightness value between 0 and 255. </td></tr>
   </table>
   </dd>
 </dl>
@@ -200,9 +208,10 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets display rotation. </p>
+<p>Changes the orientation of the display by setting the rotation flag in the underlying driver. A value of true rotates the display, false sets it to default orientation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td><span class="tt">true</span> for rotated, <span class="tt">false</span> for default orientation. </td></tr>
+    <tr><td class="paramname">value</td><td><span class="tt">true</span> for rotated orientation, <span class="tt">false</span> for default. </td></tr>
   </table>
   </dd>
 </dl>

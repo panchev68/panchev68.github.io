@@ -50,11 +50,12 @@ var searchData=
   ['startupsync_47',['StartupSync',['../df/d8b/class_system_1_1_startup_sync.html',1,'System']]],
   ['startupsync_2ehpp_48',['StartupSync.hpp',['../df/d27/_startup_sync_8hpp.html',1,'']]],
   ['state_49',['State',['../d8/d62/class_system_1_1_last_reset_state.html#a8599b1dbb9767ffe7471e4f9c6d668ef',1,'System::LastResetState']]],
-  ['stop_50',['stop',['../df/d4a/class_app_1_1_test_peripheral_outputs.html#ad53b53a00a858cce0326bd740e4d5e05',1,'App::TestPeripheralOutputs::stop()'],['../d1/d2d/class_canbus_1_1_server.html#a98c415b5cce6bd01abafb4d9d3c18a7f',1,'Canbus::Server::stop()'],['../db/df3/class_model_peripheral_1_1_test_outputs_client.html#a1ed6b7085c2a848f248c83df462e7549',1,'ModelPeripheral::TestOutputsClient::stop()']]],
-  ['storageofparametersispresent_51',['storageOfParametersIsPresent',['../d1/dc3/class_model_display.html#af229b88cc2c5e18f976f65d56c56c3da',1,'ModelDisplay']]],
-  ['supported_20peripherals_52',['Board Supported Peripherals',['../d5/d53/group___b_s_p.html',1,'']]],
-  ['switchperiod_53',['switchPeriod',['../d0/d10/struct_system_1_1_parameters_1_1_data_1_1_peripheral_grouping.html#acb0a0e49e26660b87aa16c6849dc0906',1,'System::Parameters::Data::PeripheralGrouping']]],
-  ['system_54',['System',['../d8/dd0/namespace_system.html',1,'']]],
-  ['system_55',['system',['../d1/d75/class_model_base.html#aa00083573c233e847c6c2ab4a9c58daa',1,'ModelBase']]],
-  ['system_20layer_56',['System Layer',['../d3/de2/group___system.html',1,'']]]
+  ['status_50',['Status',['../d7/d44/class_b_s_p_1_1_m24_c64_w.html#aa1704a70423061bb7e2f032e9b56ee50',1,'BSP::M24C64W']]],
+  ['stop_51',['stop',['../df/d4a/class_app_1_1_test_peripheral_outputs.html#ad53b53a00a858cce0326bd740e4d5e05',1,'App::TestPeripheralOutputs::stop()'],['../d1/d2d/class_canbus_1_1_server.html#a98c415b5cce6bd01abafb4d9d3c18a7f',1,'Canbus::Server::stop()'],['../db/df3/class_model_peripheral_1_1_test_outputs_client.html#a1ed6b7085c2a848f248c83df462e7549',1,'ModelPeripheral::TestOutputsClient::stop()']]],
+  ['storageofparametersispresent_52',['storageOfParametersIsPresent',['../d1/dc3/class_model_display.html#af229b88cc2c5e18f976f65d56c56c3da',1,'ModelDisplay']]],
+  ['supported_20peripherals_53',['Board Supported Peripherals',['../d5/d53/group___b_s_p.html',1,'']]],
+  ['switchperiod_54',['switchPeriod',['../d0/d10/struct_system_1_1_parameters_1_1_data_1_1_peripheral_grouping.html#acb0a0e49e26660b87aa16c6849dc0906',1,'System::Parameters::Data::PeripheralGrouping']]],
+  ['system_55',['System',['../d8/dd0/namespace_system.html',1,'']]],
+  ['system_56',['system',['../d1/d75/class_model_base.html#aa00083573c233e847c6c2ab4a9c58daa',1,'ModelBase']]],
+  ['system_20layer_57',['System Layer',['../d3/de2/group___system.html',1,'']]]
 ];

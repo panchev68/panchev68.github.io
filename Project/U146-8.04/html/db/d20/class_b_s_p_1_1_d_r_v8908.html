@@ -94,7 +94,9 @@ $(function(){initNavTree('db/d20/class_b_s_p_1_1_d_r_v8908.html','../../','dd/de
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>DRV8908 motor driver abstraction. </p>
-<p>Encapsulates register operations, error management, and output control for DRV8908 chips. Provides high-level access to device features, including register read/write, output mapping, and error/status monitoring for embedded motor control applications. Intended for use in systems requiring robust and efficient management of DRV8908 devices, supporting both configuration and runtime diagnostics. </p><dl class="section see"><dt>See also</dt><dd><a href="https://www.ti.com/product/DRV8908-Q1">https://www.ti.com/product/DRV8908-Q1</a> </dd></dl>
+<p>Encapsulates register operations, error management, and output control for DRV8908 chips.</p>
+<p>Provides high-level access to device features, including register read/write, output mapping, and error/status monitoring for embedded motor control applications. Intended for use in systems requiring robust and efficient management of DRV8908 devices, supporting both configuration and runtime diagnostics.</p>
+<dl class="section see"><dt>See also</dt><dd><a href="https://www.ti.com/product/DRV8908-Q1">https://www.ti.com/product/DRV8908-Q1</a> </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::DRV8908:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -151,7 +153,8 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>DRV8908 error states. </p>
-<p>Enumerates the possible error states reported by the DRV8908 device. These states indicate fault conditions such as power-on reset, overvoltage, undervoltage, overcurrent, open load, or overtemperature errors detected by the chip. Used for error reporting and diagnostics. </p>
+<p>Enumerates the possible error states reported by the DRV8908 device.</p>
+<p>These states indicate fault conditions such as power-on reset, overvoltage, undervoltage, overcurrent, open load, or overtemperature errors detected by the chip. Used for error reporting and diagnostics. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3973d1b47ff31712e6f79ba7587929d5ab50339a10e1de285ac99d4c3990b8693" name="a3973d1b47ff31712e6f79ba7587929d5ab50339a10e1de285ac99d4c3990b8693"></a>NONE&#160;</td><td class="fielddoc"><p>No error </p>
 </td></tr>
@@ -192,7 +195,8 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>DRV8908 register addresses. </p>
-<p>Enumerates the register addresses used for DRV8908 device communication and configuration. Each value corresponds to a specific register in the chip, enabling control and monitoring of device features such as output control, PWM, open load detection, and status reporting. </p>
+<p>Enumerates the register addresses used for DRV8908 device communication and configuration.</p>
+<p>Each value corresponds to a specific register in the chip, enabling control and monitoring of device features such as output control, PWM, open load detection, and status reporting. </p>
 <table class="fieldtable">
 <tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a9b58fdb4efbefe8618beebad45e6cf60abc0ced4f7902fe7705d977e44990b0e7" name="a9b58fdb4efbefe8618beebad45e6cf60abc0ced4f7902fe7705d977e44990b0e7"></a>IC_STAT&#160;</td><td class="fieldinit">0x00&#160;</td><td class="fielddoc"><p>IC status register </p>
 </td></tr>
@@ -358,6 +362,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the DRV8908 device is in an error state. </p>
+<p>Evaluates the current status byte against a mask of error conditions to determine if any faults are present.</p>
 <dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if error condition exists, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
@@ -386,6 +391,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the current status byte. </p>
+<p>Returns the most recently updated status byte from the device, reflecting error conditions and operational state as processed by handleChipStatus.</p>
 <dl class="section return"><dt>Returns</dt><dd>Status byte value. </dd></dl>
 
 </div>
@@ -414,6 +420,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Handles changes in chip status. </p>
+<p>Processes the new status byte, updates internal status, and triggers error callbacks if applicable. Uses a mapping array to check for specific error conditions and calls the error handler for the first detected error.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newStatus</td><td>New status byte to process. </td></tr>
@@ -447,6 +454,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the DRV8908 device for operation. </p>
+<p>Configures the device with default settings for configuration control, open load detection, and PWM controls to prepare the motor driver for safe and efficient operation. </p>
 
 </div>
 </div>
@@ -474,6 +482,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reads a byte from a DRV8908 register. </p>
+<p>Sends a read command to the specified register via SPI communication using the OutputsListener. Sets the read bit in the command and retrieves the data, handling chip status after the operation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reg</td><td>Register to read. </td></tr>
@@ -539,6 +548,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Writes a byte to a DRV8908 register. </p>
+<p>Sends a write command to the specified register via SPI communication using the OutputsListener. Applies a register mask to ensure valid addressing and handles chip status after the operation.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">reg</td><td>Register to write. </td></tr>
@@ -574,6 +584,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Writes output data to the DRV8908 device. </p>
+<p>Maps the input data byte to the appropriate output control registers using a predefined mapping table. Only writes to registers if the computed values differ from previous data to minimize SPI transactions.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">data</td><td>Output data byte. </td></tr>

@@ -93,13 +93,12 @@ $(function(){initNavTree('d2/d32/class_b_s_p_1_1_leds.html','../../','da/d52/cla
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Leds driver class. </p>
-<p>Provides control and management of status LEDs, including ready and error indicators. This class encapsulates the logic for LED state management, blinking, and hardware control through GPIO interfaces. It inherits from DeviceDriverBase for standard driver functionality and implements tick-based updates for blinking LEDs. Implements Singleton pattern for global access.</p>
-<p>The class manages two LEDs: ready and error, with configurable pin assignments and automatic blinking logic based on system ticks.</p>
-<p>Role of the type within the module or system: Manages board status LEDs for user feedback and system diagnostics.</p>
-<p>Important design decisions or considerations: Singleton ensures single instance for consistent LED control; uses static tick counter for blinking logic.</p>
-<dl class="section note"><dt>Note</dt><dd>Uses static variables for tick counting, now enforced by singleton pattern.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Lib::BSP::DeviceDriverBase </dd></dl>
+<div class="textblock"><p>LED management class for BSP. </p>
+<p>The Leds class manages ready and error LEDs, providing methods to turn them on, off, or blink. It inherits from DeviceDriverBase and uses a periodic tick to handle blinking states. Implemented as a singleton for global LED control.</p>
+<p>Role within the module: Provides user feedback through LED indicators.</p>
+<p>Important design decisions: Singleton ensures single LED manager; tick-based blinking for efficient resource usage without dedicated timers.</p>
+<dl class="section note"><dt>Note</dt><dd>Call init() after obtaining instance to initialize LEDs.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>DeviceDriverBase </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::Leds:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -110,7 +109,7 @@ $(function(){initNavTree('d2/d32/class_b_s_p_1_1_leds.html','../../','da/d52/cla
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Led" id="r_Led"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/dc4/class_b_s_p_1_1_leds_1_1_led.html">Led</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Led control class.  <a href="../../d7/dc4/class_b_s_p_1_1_leds_1_1_led.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Individual LED controller class.  <a href="../../d7/dc4/class_b_s_p_1_1_leds_1_1_led.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../de/d3e/struct_b_s_p_1_1_leds_1_1_config.html">Config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration structure for Leds.  <a href="../../de/d3e/struct_b_s_p_1_1_leds_1_1_config.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
@@ -122,7 +121,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0417ea4e62cf16782af4826d338cdd69" id="r_a0417ea4e62cf16782af4826d338cdd69"><td class="memItemLeft">static Leds &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0417ea4e62cf16782af4826d338cdd69">instance</a> ()</td></tr>
-<tr class="memdesc:a0417ea4e62cf16782af4826d338cdd69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the Leds class.  <br /></td></tr>
+<tr class="memdesc:a0417ea4e62cf16782af4826d338cdd69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of Leds.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -154,7 +153,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the LEDs. </p>
-<p>Sets the initial state of the LEDs, turning off both ready and error indicators. This method should be called after object construction to ensure proper hardware state. </p>
+<p>Turns off both ready and error LEDs during initialization. </p>
 
 </div>
 </div>
@@ -181,9 +180,9 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of the Leds class. </p>
-<p>Provides access to the single instance of the Leds class, ensuring global and thread-safe access to the LED control functionality. The instance is created on first access with default pin configurations.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
+<p>Gets the singleton instance of Leds. </p>
+<p>Provides access to the single instance of the Leds class.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton Leds instance. </dd></dl>
 
 </div>
 </div>
@@ -199,7 +198,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Error status LED. </p>
+<p>Error LED instance. </p>
 
 </div>
 </div>
@@ -214,7 +213,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Ready status LED. </p>
+<p>Ready LED instance. </p>
 
 </div>
 </div>

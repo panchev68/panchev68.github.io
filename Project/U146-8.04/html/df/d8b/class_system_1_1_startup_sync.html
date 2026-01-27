@@ -107,9 +107,9 @@ $(function(){initNavTree('df/d8b/class_system_1_1_startup_sync.html','../../','d
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae1d0604822cf4f37f21213d4f62cd153" id="r_ae1d0604822cf4f37f21213d4f62cd153"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae1d0604822cf4f37f21213d4f62cd153">signalSystemReady</a> ()</td></tr>
-<tr class="memdesc:ae1d0604822cf4f37f21213d4f62cd153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signals that the system is ready.  <br /></td></tr>
+<tr class="memdesc:ae1d0604822cf4f37f21213d4f62cd153"><td class="mdescLeft">&#160;</td><td class="mdescRight">System ready signaling method for StartupSync.  <br /></td></tr>
 <tr class="memitem:a828d4731990f55b07ef36cca99365eb6" id="r_a828d4731990f55b07ef36cca99365eb6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a828d4731990f55b07ef36cca99365eb6">waitForSystemReady</a> (uint32_t timeout)</td></tr>
-<tr class="memdesc:a828d4731990f55b07ef36cca99365eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the system to be ready.  <br /></td></tr>
+<tr class="memdesc:a828d4731990f55b07ef36cca99365eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">System ready waiting method for StartupSync.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -169,8 +169,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Signals that the system is ready. </p>
-<p>Sets the SYSTEM_IS_READY event bit to indicate that the system initialization is complete and all components are operational. </p>
+<p>System ready signaling method for StartupSync. </p>
+<p>Sets the SYSTEM_IS_READY event bit to indicate that the system initialization is complete and all critical components are operational. This allows waiting tasks to proceed.</p>
+<dl class="section note"><dt>Note</dt><dd>This method should be called once all system components are initialized.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>waitForSystemReady() </dd></dl>
 
 </div>
 </div>
@@ -197,15 +199,17 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Waits for the system to be ready. </p>
-<p>Blocks the calling task until the SYSTEM_IS_READY event bit is set, or until the specified timeout expires.</p>
+<p>System ready waiting method for StartupSync. </p>
+<p>Blocks the calling task until the SYSTEM_IS_READY event bit is set, indicating that system initialization is complete, or until the specified timeout expires. This ensures that dependent tasks wait for full system readiness.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait in ticks. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait in FreeRTOS ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the system is ready, false if timeout occurred. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the system is ready within the timeout, <span class="tt">false</span> if timeout occurred.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use appropriate timeout values to prevent indefinite blocking.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>signalSystemReady() </dd></dl>
 
 </div>
 </div>
