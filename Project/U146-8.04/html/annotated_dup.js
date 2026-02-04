@@ -29,10 +29,6 @@ var annotated_dup =
       [ "CanbusNodes", "d9/d85/class_data_1_1_canbus_nodes.html", "d9/d85/class_data_1_1_canbus_nodes" ],
       [ "Peripheral", "d3/dd5/class_data_1_1_peripheral.html", "d3/dd5/class_data_1_1_peripheral" ]
     ] ],
-    [ "HAL", "df/da1/namespace_h_a_l.html", [
-      [ "RTClock", "da/dd9/class_h_a_l_1_1_r_t_clock.html", null ],
-      [ "UartPort", "d2/da4/class_h_a_l_1_1_uart_port.html", "d2/da4/class_h_a_l_1_1_uart_port" ]
-    ] ],
     [ "System", "d8/dd0/namespace_system.html", [
       [ "BuildVersion", "d4/dff/class_system_1_1_build_version.html", "d4/dff/class_system_1_1_build_version" ],
       [ "DisplayRotation", "d0/d1f/class_system_1_1_display_rotation.html", "d0/d1f/class_system_1_1_display_rotation" ],

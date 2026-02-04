@@ -48,7 +48,6 @@ var NAVTREE =
       [ "[8.02] - June 29, 2025", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md802---june-29-2025", null ],
       [ "[8.02] - June 28, 2025", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md802---june-28-2025", null ]
     ] ],
-    [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -79,9 +78,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d1a/class_system_1_1_parameters.html#aafcb3514d580e83599e3a2377d14be36",
-"d9/da2/class_model_xbee.html",
-"dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html"
+"d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4.html#a43049c2ba62e43dc1e9c5100daa554fc",
+"da/df6/class_model_xbee_1_1_listener.html#a948728b5536b89f020399611cb0b3b8c",
+"df/d4a/class_app_1_1_test_peripheral_outputs.html#a47ae1e7c0e7886fdd6f860e9214f5c1d"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

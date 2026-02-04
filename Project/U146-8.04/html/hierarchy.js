@@ -87,9 +87,6 @@ var hierarchy =
       [ "System::SaleDate", "d1/de4/class_system_1_1_sale_date.html", null ]
     ] ],
     [ "ModelSystem::ProduceDates", "d8/d93/struct_model_system_1_1_produce_dates.html", null ],
-    [ "Lib::HAL::RTClock", null, [
-      [ "HAL::RTClock", "da/dd9/class_h_a_l_1_1_r_t_clock.html", null ]
-    ] ],
     [ "Lib::System::SerialNumber", null, [
       [ "System::SerialNumber", "de/d56/class_system_1_1_serial_number.html", null ]
     ] ],
@@ -108,7 +105,6 @@ var hierarchy =
       [ "BSP::TouchScreen", "d7/d14/class_b_s_p_1_1_touch_screen.html", null ]
     ] ],
     [ "ModelXbee::TransmitTime", "d9/d9e/class_model_xbee_1_1_transmit_time.html", null ],
-    [ "HAL::UartPort", "d2/da4/class_h_a_l_1_1_uart_port.html", null ],
     [ "Lib::Xbee::API::UserProtocol", null, [
       [ "Xbee::Client", "d3/daf/class_xbee_1_1_client.html", null ]
     ] ],
