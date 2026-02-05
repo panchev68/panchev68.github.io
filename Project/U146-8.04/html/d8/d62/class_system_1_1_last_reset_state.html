@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">U146<span id="projectnumber">&#160;8.04.0</span>
+   <div id="projectname">U146<span id="projectnumber">&#160;8.04.4</span>
    </div>
    <div id="projectbrief">48 Inputs/ 32 Outputs / 802.15.4 Client Canbus Server</div>
   </td>
@@ -93,13 +93,13 @@ $(function(){initNavTree('d8/d62/class_system_1_1_last_reset_state.html','../../
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Last Reset State Manager Class. </p>
-<p>This class extends the HAL LastResetState to provide system-level reset state tracking. It implements the singleton pattern to ensure a single, globally accessible instance for reset cause determination. The class allows conversion to the State enumeration for easy querying and handling of different reset types.</p>
-<p>The LastResetState is crucial for embedded systems that need to differentiate between reset causes (e.g., power-on, watchdog, brown-out) to implement appropriate recovery strategies or logging.</p>
-<p>Role within the system: Acts as the authoritative source for reset state information, used by startup routines, error handlers, and diagnostic modules.</p>
-<p>Design considerations: Singleton prevents multiple conflicting instances; inheritance from HAL class ensures access to low-level reset detection; virtual destructor allows proper cleanup in inheritance hierarchies.</p>
-<dl class="section note"><dt>Note</dt><dd>The reset state is determined by reading hardware reset flags, which may be cleared after reading depending on HAL implementation.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Lib::HAL::LastResetState for base HAL functionality. </dd></dl>
+<div class="textblock"><p>LastResetState class. </p>
+<p>Extends the HAL LastResetState functionality for the System namespace to provide access to the last reset state. This class follows the Singleton pattern to ensure a single instance for reset state tracking across the system. It allows retrieval of the reset cause and conversion to a state enumeration for diagnostics and error handling.</p>
+<p>Role of the type within the module or system: Serves as a centralized interface for reset state information, enabling the application to determine the cause of system resets and take appropriate actions.</p>
+<p>Important design decisions or considerations: Implements Singleton pattern to maintain a single source of truth for reset state, preventing inconsistencies from multiple instances.</p>
+<dl class="section note"><dt>Note</dt><dd>This class relies on HAL functionality for actual reset state detection. </dd></dl>
+<dl class="section important"><dt>Important</dt><dd>The Singleton pattern ensures thread-safe and consistent access to reset state information. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Lib::HAL::LastResetState </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::LastResetState:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -115,7 +115,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a25b979b107c1feea356e2520c28febd4" id="r_a25b979b107c1feea356e2520c28febd4"><td class="memItemLeft">static LastResetState &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a25b979b107c1feea356e2520c28febd4">instance</a> ()</td></tr>
-<tr class="memdesc:a25b979b107c1feea356e2520c28febd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of LastResetState.  <br /></td></tr>
+<tr class="memdesc:a25b979b107c1feea356e2520c28febd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the singleton instance of LastResetState.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a8599b1dbb9767ffe7471e4f9c6d668ef" name="a8599b1dbb9767ffe7471e4f9c6d668ef"></a>
@@ -129,7 +129,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Type alias for the reset state enumeration. </p>
+<p>State type alias for reset state. </p>
 
 </div>
 </div>
@@ -152,15 +152,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of LastResetState. </p>
-<p>Provides global access to the single LastResetState instance. The instance is created lazily on first access and enables thread-safe reset state queries throughout the system.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton LastResetState instance.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This method is thread-safe and suitable for use during system initialization. </dd></dl>
+<p>Returns the singleton instance of LastResetState. </p>
+<p>Provides global access to the single LastResetState instance for tracking reset states.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton LastResetState instance. </dd></dl>
 
 </div>
 </div>
@@ -182,15 +181,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Conversion operator to State. </p>
-<p>Allows implicit conversion of the LastResetState object to its current State value. This operator delegates to the base class implementation for state retrieval.</p>
-<dl class="section return"><dt>Returns</dt><dd>The current reset state as a State enumeration value.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The state value indicates the cause of the last reset (e.g., power-on, watchdog). </dd></dl>
+<p>This operator allows implicit conversion of the LastResetState object to the State enum value. It delegates to the base class implementation.</p>
+<dl class="section return"><dt>Returns</dt><dd>The current reset state as State enum. </dd></dl>
 
 </div>
 </div>

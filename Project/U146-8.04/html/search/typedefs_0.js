@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['diagnostic_0',['Diagnostic',['../d1/d2d/class_canbus_1_1_server.html#a568abebb298c38760288bad9236c125e',1,'Canbus::Server']]]
+  ['message_0',['Message',['../da/da7/namespace_b_s_p.html#acec5b0b703d3f9505d05ae9988e02386',1,'BSP']]]
 ];

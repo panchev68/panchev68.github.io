@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">U146<span id="projectnumber">&#160;8.04.0</span>
+   <div id="projectname">U146<span id="projectnumber">&#160;8.04.4</span>
    </div>
    <div id="projectbrief">48 Inputs/ 32 Outputs / 802.15.4 Client Canbus Server</div>
   </td>
@@ -93,11 +93,10 @@ $(function(){initNavTree('df/d8f/class_system_1_1_watchdog.html','../../','dc/d8
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Watchdog wrapper for STM32 firmware. </p>
-<p>Extends Lib::HAL::Watchdog to provide type-safe access to the STM32 IWDG hardware. Implements Singleton pattern for global access to ensure single instance and consistent watchdog management.</p>
-<p>Role of the type within the module or system: Manages hardware watchdog timer to ensure system reliability and fault tolerance in embedded firmware.</p>
-<p>Important design decisions or considerations: Singleton prevents multiple instances, private constructor ensures single initialization with STM32 IWDG handle.</p>
-<dl class="section note"><dt>Note</dt><dd>Refresh periodically to avoid system reset.</dd></dl>
+<div class="textblock"><p>System Watchdog class. </p>
+<p>Singleton class that provides system-level watchdog management for the embedded application. Inherits from the HAL watchdog base class and implements the refresh mechanism to prevent system resets. Ensures continuous operation by periodically refreshing the hardware watchdog timer.</p>
+<p>The class uses the IWDG peripheral for independent watchdog functionality, providing protection against software hangs and infinite loops.</p>
+<dl class="section note"><dt>Note</dt><dd>This class is designed as a singleton to ensure only one instance manages the watchdog.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd>Lib::HAL::Watchdog </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::Watchdog:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -109,7 +108,7 @@ $(function(){initNavTree('df/d8f/class_system_1_1_watchdog.html','../../','dc/d8
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a97a4f01df9868c4d9da9b3948e8df974" id="r_a97a4f01df9868c4d9da9b3948e8df974"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a97a4f01df9868c4d9da9b3948e8df974">refresh</a> () override</td></tr>
-<tr class="memdesc:a97a4f01df9868c4d9da9b3948e8df974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refreshes the watchdog timer to prevent system reset.  <br /></td></tr>
+<tr class="memdesc:a97a4f01df9868c4d9da9b3948e8df974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refresh the watchdog timer.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -141,8 +140,9 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the singleton instance of the Watchdog class. </p>
-<p>Provides access to the single instance of the Watchdog class, ensuring global and thread-safe access to the hardware watchdog functionality. The instance is created on first access.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
+<p>Returns a reference to the single instance of the Watchdog class, implementing the singleton pattern. This method ensures thread-safe lazy initialization of the watchdog instance.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the Watchdog singleton instance.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The instance is created on first access and persists for the program lifetime. </dd></dl>
 
 </div>
 </div>
@@ -169,8 +169,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Refreshes the watchdog timer to prevent system reset. </p>
-<p>Calls the base class refresh method to reset the hardware watchdog counter, preventing automatic system reset. Should be called periodically in the main application loop or dedicated watchdog task. </p>
+<p>Refresh the watchdog timer. </p>
+<p>Calls the base class refresh method to reset the watchdog timer and prevent system reset. This method should be called periodically to indicate that the system is operating normally.</p>
+<dl class="section note"><dt>Note</dt><dd>This method overrides the base class implementation. </dd></dl>
 
 </div>
 </div>

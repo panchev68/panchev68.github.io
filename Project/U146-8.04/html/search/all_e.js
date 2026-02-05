@@ -1,26 +1,5 @@
 var searchData=
 [
-  ['m24c64w_0',['M24C64W',['../d7/d44/class_b_s_p_1_1_m24_c64_w.html',1,'BSP::M24C64W'],['../d7/d44/class_b_s_p_1_1_m24_c64_w.html#a703cf4d34fd4af8f5063257e5bc1019f',1,'BSP::M24C64W::M24C64W()']]],
-  ['m24c64w_2ehpp_1',['M24C64W.hpp',['../d5/d69/_m24_c64_w_8hpp.html',1,'']]],
-  ['maclsb_2',['macLsb',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#a5b69f6d260be9c36154d35d7366937f0',1,'ModelXbee::ModuleParameters::Data']]],
-  ['macmsb_3',['macMsb',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#ac54e3e633ae48e69de4a120738ceab16',1,'ModelXbee::ModuleParameters::Data']]],
-  ['message_4',['Message',['../dc/d52/struct_b_s_p_1_1_outputs_listener_1_1_message.html',1,'BSP::OutputsListener::Message'],['../dc/d52/struct_b_s_p_1_1_outputs_listener_1_1_message.html#a84ce8b8c3fdea432620a4cf0a2e30f20',1,'BSP::OutputsListener::Message::Message()'],['../dc/d52/struct_b_s_p_1_1_outputs_listener_1_1_message.html#a2a5d12bb540ac1efc3f4f5e32e04a575',1,'BSP::OutputsListener::Message::Message(uint8_t device, uint8_t command, uint8_t data=0)'],['../da/da7/namespace_b_s_p.html#acec5b0b703d3f9505d05ae9988e02386',1,'BSP::Message']]],
-  ['mode_5',['Mode',['../d1/d49/class_system_1_1_startup_mode.html#ad496924c198cc57ee90a46752753cebe',1,'System::StartupMode']]],
-  ['modelbase_6',['ModelBase',['../d1/d75/class_model_base.html',1,'ModelBase'],['../d1/d75/class_model_base.html#ad9651b1894b453232748306e624155db',1,'ModelBase::ModelBase()']]],
-  ['modelbase_2ehpp_7',['ModelBase.hpp',['../db/d7d/_model_base_8hpp.html',1,'']]],
-  ['modelcanbus_8',['ModelCanbus',['../df/d8d/class_model_canbus.html',1,'ModelCanbus'],['../df/d8d/class_model_canbus.html#a49a6f717f838920d8bcf92af51a1c959',1,'ModelCanbus::ModelCanbus()']]],
-  ['modelcanbus_2ehpp_9',['ModelCanbus.hpp',['../d1/d13/_model_canbus_8hpp.html',1,'']]],
-  ['modeldiagnostic_10',['ModelDiagnostic',['../d4/d0d/class_model_diagnostic.html',1,'ModelDiagnostic'],['../d4/d0d/class_model_diagnostic.html#acecf984ed8b5b8b9b578d44b7e19c44e',1,'ModelDiagnostic::ModelDiagnostic()']]],
-  ['modeldiagnostic_2ehpp_11',['ModelDiagnostic.hpp',['../dc/dc1/_model_diagnostic_8hpp.html',1,'']]],
-  ['modeldisplay_12',['ModelDisplay',['../d1/dc3/class_model_display.html',1,'ModelDisplay'],['../d1/dc3/class_model_display.html#a58223329475bd6ee8131ab9bae0f8b98',1,'ModelDisplay::ModelDisplay()']]],
-  ['modeldisplay_2ehpp_13',['ModelDisplay.hpp',['../d7/d25/_model_display_8hpp.html',1,'']]],
-  ['modelperipheral_14',['ModelPeripheral',['../dc/d93/class_model_peripheral.html',1,'ModelPeripheral'],['../dc/d93/class_model_peripheral.html#a40e756a43a00f16141f4c63bfb30eb63',1,'ModelPeripheral::ModelPeripheral()']]],
-  ['modelperipheral_2ehpp_15',['ModelPeripheral.hpp',['../d5/d25/_model_peripheral_8hpp.html',1,'']]],
-  ['modelsystem_16',['ModelSystem',['../d8/de9/class_model_system.html',1,'ModelSystem'],['../d8/de9/class_model_system.html#aeeb0b1acfe3ec719a549d69ed156e07b',1,'ModelSystem::ModelSystem()']]],
-  ['modelsystem_2ehpp_17',['ModelSystem.hpp',['../d6/d60/_model_system_8hpp.html',1,'']]],
-  ['modelusb_18',['ModelUsb',['../d7/db8/class_model_usb.html',1,'ModelUsb'],['../d7/db8/class_model_usb.html#a2128eb9c9febc81e6c555ce38186d24c',1,'ModelUsb::ModelUsb()']]],
-  ['modelusb_2ehpp_19',['ModelUsb.hpp',['../d4/d82/_model_usb_8hpp.html',1,'']]],
-  ['modelxbee_20',['ModelXbee',['../d9/da2/class_model_xbee.html',1,'ModelXbee'],['../d9/da2/class_model_xbee.html#a9fd49a080789956eade567d3a837753a',1,'ModelXbee::ModelXbee()']]],
-  ['modelxbee_2ehpp_21',['ModelXbee.hpp',['../d7/d11/_model_xbee_8hpp.html',1,'']]],
-  ['moduleparameters_22',['ModuleParameters',['../dc/dd5/class_model_xbee_1_1_module_parameters.html',1,'ModelXbee::ModuleParameters'],['../dc/dd5/class_model_xbee_1_1_module_parameters.html#a31909da20244fe2e0237b9870457dcbb',1,'ModelXbee::ModuleParameters::ModuleParameters()']]]
+  ['june_2028_202025_0',['[8.02] - June 28, 2025',['../de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md802---june-28-2025',1,'']]],
+  ['june_2029_202025_1',['[8.02] - June 29, 2025',['../de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md802---june-29-2025',1,'']]]
 ];

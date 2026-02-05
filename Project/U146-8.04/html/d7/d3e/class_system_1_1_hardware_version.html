@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">U146<span id="projectnumber">&#160;8.04.0</span>
+   <div id="projectname">U146<span id="projectnumber">&#160;8.04.4</span>
    </div>
    <div id="projectbrief">48 Inputs/ 32 Outputs / 802.15.4 Client Canbus Server</div>
   </td>
@@ -93,13 +93,8 @@ $(function(){initNavTree('d7/d3e/class_system_1_1_hardware_version.html','../../
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Hardware Version Detector Class. </p>
-<p>This class encapsulates hardware version detection logic for STM32 systems. It reads dedicated GPIO pins to determine the hardware revision and provides methods to retrieve the version as an ID or string. The class uses the singleton pattern to provide global access to version information, ensuring consistency across the application.</p>
-<p>The hardware version is determined by reading four revision pins (HW_REV0 to HW_REV3), which are active-low and combined into a version ID. Known versions include 4.03, 4.04, and 4.05, with fallback to "UNKNOWN" for unrecognized combinations.</p>
-<p>Role within the system: Provides authoritative hardware version information for feature enablement, diagnostics, and compatibility checks.</p>
-<p>Design considerations: Singleton prevents multiple detections; GPIO reading is const to ensure no side effects; version mapping is hardcoded for reliability.</p>
-<dl class="section note"><dt>Note</dt><dd>Version detection occurs on-demand; cache results if called frequently.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Lib/HAL/GPIO for pin reading details. </dd></dl>
+<div class="textblock"><p>Hardware Version Class. </p>
+<p>The HardwareVersion class detects and provides the hardware version of the board by reading GPIO pins. It supports multiple version IDs and converts them to human-readable strings. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::HardwareVersion:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -112,22 +107,19 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a65f8aa6be8aaa19ddf3531ebb87277e5" id="r_a65f8aa6be8aaa19ddf3531ebb87277e5"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a65f8aa6be8aaa19ddf3531ebb87277e5">getString</a> () const</td></tr>
 <tr class="memdesc:a65f8aa6be8aaa19ddf3531ebb87277e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the hardware version as a string.  <br /></td></tr>
 <tr class="memitem:aff323d7ba600fd59abb8abcd6e42fd02" id="r_aff323d7ba600fd59abb8abcd6e42fd02"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aff323d7ba600fd59abb8abcd6e42fd02">readVersionId</a> () const</td></tr>
-<tr class="memdesc:aff323d7ba600fd59abb8abcd6e42fd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the hardware version ID from GPIO pins.  <br /></td></tr>
+<tr class="memdesc:aff323d7ba600fd59abb8abcd6e42fd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the hardware version ID.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8a086f7248ea32136a50a72705e1304" id="r_ae8a086f7248ea32136a50a72705e1304"><td class="memItemLeft">static HardwareVersion &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae8a086f7248ea32136a50a72705e1304">instance</a> ()</td></tr>
-<tr class="memdesc:ae8a086f7248ea32136a50a72705e1304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of HardwareVersion.  <br /></td></tr>
+<tr class="memdesc:ae8a086f7248ea32136a50a72705e1304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the HardwareVersion class.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
+<tr class="memitem:a628776b1d744b69d29fdfaeff7832ff9" id="r_a628776b1d744b69d29fdfaeff7832ff9"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a628776b1d744b69d29fdfaeff7832ff9">VERSION_ID_400</a> = 0</td></tr>
 <tr class="memitem:a0f5e0af91f019c335a1122376fc2af70" id="r_a0f5e0af91f019c335a1122376fc2af70"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f5e0af91f019c335a1122376fc2af70">VERSION_ID_403</a> = 4</td></tr>
-<tr class="memdesc:a0f5e0af91f019c335a1122376fc2af70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID corresponding to hardware revision 4.03.  <br /></td></tr>
 <tr class="memitem:aa3441a86664d6897868d6639d4c573d8" id="r_aa3441a86664d6897868d6639d4c573d8"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aa3441a86664d6897868d6639d4c573d8">VERSION_ID_404</a> = 5</td></tr>
-<tr class="memdesc:aa3441a86664d6897868d6639d4c573d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID corresponding to hardware revision 4.04.  <br /></td></tr>
 <tr class="memitem:acb32c6c9a8b53c78cb99f18fcafacbe6" id="r_acb32c6c9a8b53c78cb99f18fcafacbe6"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#acb32c6c9a8b53c78cb99f18fcafacbe6">VERSION_ID_405</a> = 6</td></tr>
-<tr class="memdesc:acb32c6c9a8b53c78cb99f18fcafacbe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID corresponding to hardware revision 4.05.  <br /></td></tr>
-<tr class="memitem:a4935eda5701100bcf44d3e865d278ad5" id="r_a4935eda5701100bcf44d3e865d278ad5"><td class="memItemLeft">static constexpr const char *&#160;</td><td class="memItemRight"><a class="el" href="#a4935eda5701100bcf44d3e865d278ad5">versionStrings</a> [3] = {&quot;4.03&quot;, &quot;4.04&quot;, &quot;4.05&quot;}</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a65f8aa6be8aaa19ddf3531ebb87277e5" name="a65f8aa6be8aaa19ddf3531ebb87277e5"></a>
@@ -135,9 +127,6 @@ Static Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">std::string System::HardwareVersion::getString </td>
@@ -146,17 +135,11 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Get the hardware version as a string. </p>
-<p>Retrieves the hardware version in human-readable string format by reading the version ID and mapping it to known revisions. Returns "UNKNOWN" for unrecognized version IDs.</p>
-<dl class="section return"><dt>Returns</dt><dd>A string representation of the hardware version (e.g., "4.03", "4.04", "4.05", or "UNKNOWN").</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>The string format uses dot notation for major.minor revisions. </dd></dl>
+<p>Retrieves the current hardware version in string format (e.g., "4.00").</p>
+<dl class="section return"><dt>Returns</dt><dd>String representation of the hardware version. </dd></dl>
 
 </div>
 </div>
@@ -178,15 +161,14 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of HardwareVersion. </p>
-<p>Provides global access to the single HardwareVersion instance. The instance is created lazily on first access and allows thread-safe hardware version queries.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton HardwareVersion instance.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This method is thread-safe and suitable for concurrent access. </dd></dl>
+<p>Get the singleton instance of the HardwareVersion class. </p>
+<p>Returns the single instance of the HardwareVersion for accessing hardware version information.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton HardwareVersion instance. </dd></dl>
 
 </div>
 </div>
@@ -195,9 +177,6 @@ Static Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">uint8_t System::HardwareVersion::readVersionId </td>
@@ -206,23 +185,38 @@ Static Public Attributes</h2></td></tr>
           <td> const</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Read the hardware version ID from GPIO pins. </p>
-<p>Reads the four hardware revision pins (HW_REV0 to HW_REV3), inverts their logic (active-low), and combines them into a single version ID byte. This ID is used for version identification and mapping. The result is cached after first read to avoid repeated GPIO operations.</p>
-<dl class="section return"><dt>Returns</dt><dd>The hardware version ID as an unsigned 8-bit integer.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>GPIO pins HW_REV0-3 must be properly configured and accessible. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>Returns a value between 0 and 15 based on pin states.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Active-low pins: true pin state becomes false in version ID. </dd></dl>
+<p>Read the hardware version ID. </p>
+<p>Reads the GPIO pins to determine the hardware version ID.</p>
+<dl class="section return"><dt>Returns</dt><dd>The hardware version ID as an 8-bit unsigned integer. </dd></dl>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a628776b1d744b69d29fdfaeff7832ff9" name="a628776b1d744b69d29fdfaeff7832ff9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628776b1d744b69d29fdfaeff7832ff9">&#9670;&#160;</a></span>VERSION_ID_400</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t System::HardwareVersion::VERSION_ID_400 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Version ID for hardware revision 4.00. </p>
+
+</div>
+</div>
 <a id="a0f5e0af91f019c335a1122376fc2af70" name="a0f5e0af91f019c335a1122376fc2af70"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0f5e0af91f019c335a1122376fc2af70">&#9670;&#160;</a></span>VERSION_ID_403</h2>
 
@@ -242,8 +236,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Version ID corresponding to hardware revision 4.03. </p>
+<p>Version ID for hardware revision 4.03. </p>
 
 </div>
 </div>
@@ -266,8 +259,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Version ID corresponding to hardware revision 4.04. </p>
+<p>Version ID for hardware revision 4.04. </p>
 
 </div>
 </div>
@@ -290,31 +282,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Version ID corresponding to hardware revision 4.05. </p>
-
-</div>
-</div>
-<a id="a4935eda5701100bcf44d3e865d278ad5" name="a4935eda5701100bcf44d3e865d278ad5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4935eda5701100bcf44d3e865d278ad5">&#9670;&#160;</a></span>versionStrings</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* System::HardwareVersion::versionStrings[3] = {&quot;4.03&quot;, &quot;4.04&quot;, &quot;4.05&quot;}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>Version string mappings. </p>
+<p>Version ID for hardware revision 4.05. </p>
 
 </div>
 </div>

@@ -25,9 +25,6 @@ var hierarchy =
     [ "BSP::DigitalPeripheral", "d2/d97/class_b_s_p_1_1_digital_peripheral.html", null ],
     [ "System::Parameters::Data::Display", "d8/dda/struct_system_1_1_parameters_1_1_data_1_1_display.html", null ],
     [ "System::DisplayRotation", "d0/d1f/class_system_1_1_display_rotation.html", null ],
-    [ "Lib::BSP::XPT2046::Driver", null, [
-      [ "BSP::TouchScreen", "d7/d14/class_b_s_p_1_1_touch_screen.html", null ]
-    ] ],
     [ "BSP::DRV8908", "db/d20/class_b_s_p_1_1_d_r_v8908.html", null ],
     [ "FreeRTOS::EventGroup", null, [
       [ "System::StartupSync", "df/d8b/class_system_1_1_startup_sync.html", null ]
@@ -69,7 +66,7 @@ var hierarchy =
     [ "ModelUsb", "d7/db8/class_model_usb.html", null ],
     [ "ModelXbee", "d9/da2/class_model_xbee.html", null ],
     [ "ModelXbee::ModuleParameters", "dc/dd5/class_model_xbee_1_1_module_parameters.html", null ],
-    [ "Data::CanbusNodes::Node", "d5/dad/struct_data_1_1_canbus_nodes_1_1_node.html", null ],
+    [ "Data::Node", "d2/da2/struct_data_1_1_node.html", null ],
     [ "ModelCanbus::Node", "d7/d54/struct_model_canbus_1_1_node.html", null ],
     [ "BSP::Outputs&lt; T_VERSION &gt;", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
     [ "BSP::OutputsBase", "dc/dc2/class_b_s_p_1_1_outputs_base.html", [
@@ -87,6 +84,9 @@ var hierarchy =
       [ "System::SaleDate", "d1/de4/class_system_1_1_sale_date.html", null ]
     ] ],
     [ "ModelSystem::ProduceDates", "d8/d93/struct_model_system_1_1_produce_dates.html", null ],
+    [ "Lib::HAL::RTClock", null, [
+      [ "HAL::RTClock", "da/dd9/class_h_a_l_1_1_r_t_clock.html", null ]
+    ] ],
     [ "Lib::System::SerialNumber", null, [
       [ "System::SerialNumber", "de/d56/class_system_1_1_serial_number.html", null ]
     ] ],
@@ -105,6 +105,7 @@ var hierarchy =
       [ "BSP::TouchScreen", "d7/d14/class_b_s_p_1_1_touch_screen.html", null ]
     ] ],
     [ "ModelXbee::TransmitTime", "d9/d9e/class_model_xbee_1_1_transmit_time.html", null ],
+    [ "HAL::UartPort", "d2/da4/class_h_a_l_1_1_uart_port.html", null ],
     [ "Lib::Xbee::API::UserProtocol", null, [
       [ "Xbee::Client", "d3/daf/class_xbee_1_1_client.html", null ]
     ] ],

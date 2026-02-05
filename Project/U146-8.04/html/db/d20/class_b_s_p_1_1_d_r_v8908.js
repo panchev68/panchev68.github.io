@@ -49,10 +49,9 @@ var class_b_s_p_1_1_d_r_v8908 =
       [ "OLD_CTRL_6", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a9b58fdb4efbefe8618beebad45e6cf60a9cdb551aebc54efaa8eee4b0e51caef1", null ]
     ] ],
     [ "DRV8908", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a7d297ef1ae54cb1749748da9645bf843", null ],
-    [ "~DRV8908", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a7fc4eed3ad5d713aad1e37088ec792fa", null ],
+    [ "~DRV8908", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a78e1287f14748e920bac7108ef4e81d8", null ],
     [ "getErrorState", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a08f8c83713bf03ebbbb584a733e02ce7", null ],
     [ "getStatus", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a51d020082ece32f89b9e86919cd9f770", null ],
-    [ "handleChipStatus", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a117dce195bb48ae85deb83a7b099e8c7", null ],
     [ "init", "db/d20/class_b_s_p_1_1_d_r_v8908.html#af5bc486f0de91a7459effa66272efd48", null ],
     [ "readByte", "db/d20/class_b_s_p_1_1_d_r_v8908.html#afdf7383dd3e0a5036a91d63c0fbcfc6e", null ],
     [ "readStatuses", "db/d20/class_b_s_p_1_1_d_r_v8908.html#a2ad27e3dbded92dbd0cf988de0463e99", null ],

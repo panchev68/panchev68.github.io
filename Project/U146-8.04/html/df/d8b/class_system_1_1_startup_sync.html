@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">U146<span id="projectnumber">&#160;8.04.0</span>
+   <div id="projectname">U146<span id="projectnumber">&#160;8.04.4</span>
    </div>
    <div id="projectbrief">48 Inputs/ 32 Outputs / 802.15.4 Client Canbus Server</div>
   </td>
@@ -94,9 +94,8 @@ $(function(){initNavTree('df/d8b/class_system_1_1_startup_sync.html','../../','d
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>StartupSync class for system startup synchronization. </p>
-<p>The StartupSync class provides a singleton-based synchronization mechanism for coordinating system startup processes. It inherits from FreeRTOS EventGroup to manage event bits that signal when various system components are ready, ensuring proper initialization order.</p>
-<p>Role of the type within the module or system: Acts as a central synchronization point in the System namespace for managing startup sequences and ensuring all components are initialized before proceeding.</p>
-<dl class="section see"><dt>See also</dt><dd>FreeRTOS::EventGroup </dd></dl>
+<p>This class provides a singleton-based synchronization mechanism using FreeRTOS EventGroup to coordinate system startup. It allows components to signal when the system is ready and wait for that signal with a timeout.</p>
+<p>The class inherits from FreeRTOS::EventGroup and uses a single bit flag to indicate system readiness. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::StartupSync:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -107,14 +106,14 @@ $(function(){initNavTree('df/d8b/class_system_1_1_startup_sync.html','../../','d
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae1d0604822cf4f37f21213d4f62cd153" id="r_ae1d0604822cf4f37f21213d4f62cd153"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae1d0604822cf4f37f21213d4f62cd153">signalSystemReady</a> ()</td></tr>
-<tr class="memdesc:ae1d0604822cf4f37f21213d4f62cd153"><td class="mdescLeft">&#160;</td><td class="mdescRight">System ready signaling method for StartupSync.  <br /></td></tr>
+<tr class="memdesc:ae1d0604822cf4f37f21213d4f62cd153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal that the system is ready.  <br /></td></tr>
 <tr class="memitem:a828d4731990f55b07ef36cca99365eb6" id="r_a828d4731990f55b07ef36cca99365eb6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a828d4731990f55b07ef36cca99365eb6">waitForSystemReady</a> (uint32_t timeout)</td></tr>
-<tr class="memdesc:a828d4731990f55b07ef36cca99365eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">System ready waiting method for StartupSync.  <br /></td></tr>
+<tr class="memdesc:a828d4731990f55b07ef36cca99365eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the system to be ready.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af13d1c85ff42dcab803fd01707a411fc" id="r_af13d1c85ff42dcab803fd01707a411fc"><td class="memItemLeft">static StartupSync &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af13d1c85ff42dcab803fd01707a411fc">instance</a> ()</td></tr>
-<tr class="memdesc:af13d1c85ff42dcab803fd01707a411fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the singleton instance of the StartupSync class.  <br /></td></tr>
+<tr class="memdesc:af13d1c85ff42dcab803fd01707a411fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of StartupSync.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="af13d1c85ff42dcab803fd01707a411fc" name="af13d1c85ff42dcab803fd01707a411fc"></a>
@@ -140,9 +139,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the singleton instance of the StartupSync class. </p>
-<p>This static method provides access to the single instance of the StartupSync class, implementing the singleton pattern for centralized startup synchronization.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton StartupSync instance. </dd></dl>
+<p>Get the singleton instance of StartupSync. </p>
+<p>Returns a reference to the single instance of the StartupSync class.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the StartupSync instance. </dd></dl>
 
 </div>
 </div>
@@ -169,10 +168,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>System ready signaling method for StartupSync. </p>
-<p>Sets the SYSTEM_IS_READY event bit to indicate that the system initialization is complete and all critical components are operational. This allows waiting tasks to proceed.</p>
-<dl class="section note"><dt>Note</dt><dd>This method should be called once all system components are initialized.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>waitForSystemReady() </dd></dl>
+<p>Signal that the system is ready. </p>
+<p>Sets the SYSTEM_IS_READY bit in the event group to indicate that the system has completed its startup sequence. </p>
 
 </div>
 </div>
@@ -199,17 +196,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>System ready waiting method for StartupSync. </p>
-<p>Blocks the calling task until the SYSTEM_IS_READY event bit is set, indicating that system initialization is complete, or until the specified timeout expires. This ensures that dependent tasks wait for full system readiness.</p>
+<p>Wait for the system to be ready. </p>
+<p>Blocks the calling task until the SYSTEM_IS_READY bit is set or the timeout expires.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait in FreeRTOS ticks. </td></tr>
+    <tr><td class="paramname">timeout</td><td>The maximum time to wait in ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the system is ready within the timeout, <span class="tt">false</span> if timeout occurred.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Use appropriate timeout values to prevent indefinite blocking.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>signalSystemReady() </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the system is ready, false if timeout occurred. </dd></dl>
 
 </div>
 </div>
