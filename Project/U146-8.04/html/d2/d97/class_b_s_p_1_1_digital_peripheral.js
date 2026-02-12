@@ -1,6 +1,5 @@
 var class_b_s_p_1_1_digital_peripheral =
 [
-    [ "~DigitalPeripheral", "d2/d97/class_b_s_p_1_1_digital_peripheral.html#a85cf7334ff4a20656f764308547ee2fa", null ],
-    [ "getErrorOutput", "d2/d97/class_b_s_p_1_1_digital_peripheral.html#a0386ab54304b0e697c8326feee1044d5", null ],
-    [ "init", "d2/d97/class_b_s_p_1_1_digital_peripheral.html#a1f0614700f8805ac33f064bec7639111", null ]
+    [ "getErrorOutput", "d2/d97/class_b_s_p_1_1_digital_peripheral.html#a00e29236e5f51f1dde43647efded6080", null ],
+    [ "setup", "d2/d97/class_b_s_p_1_1_digital_peripheral.html#a62eafd0d81d9e62c65768b615d1f37a7", null ]
 ];

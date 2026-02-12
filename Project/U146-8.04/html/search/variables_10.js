@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['temp_0',['temp',['../d7/d5a/struct_model_xbee_1_1_module_parameters_1_1_data.html#a36769c1c1857c369065c8ed13e414a3d',1,'ModelXbee::ModuleParameters::Data']]],
-  ['testoutputsclient_1',['testOutputsClient',['../dc/d93/class_model_peripheral.html#a71b208a64132c4ed74c806c231d4a54c',1,'ModelPeripheral']]],
-  ['transmittime_2',['transmitTime',['../d9/da2/class_model_xbee.html#a4b6926fdefb03410da3970df885db130',1,'ModelXbee']]]
+  ['usb_0',['usb',['../dc/d2c/struct_hardware_profile.html#afee7115e6dae83b39c23b38a8f71f756',1,'HardwareProfile::usb'],['../d1/d75/class_model_base.html#a822220caaddd29484bfb021268265966',1,'ModelBase::usb']]]
 ];

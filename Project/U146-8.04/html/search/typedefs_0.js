@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['message_0',['Message',['../da/da7/namespace_b_s_p.html#acec5b0b703d3f9505d05ae9988e02386',1,'BSP']]]
+  ['canhandle_0',['CanHandle',['../dc/d2c/struct_hardware_profile.html#a7a5d700a7cefbe60e535a7d265e2461b',1,'HardwareProfile']]],
+  ['caninit_1',['CanInit',['../dc/d2c/struct_hardware_profile.html#abb8fa28cdaa968b2f1bc4aa3abd5cb66',1,'HardwareProfile']]]
 ];

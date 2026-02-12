@@ -8,10 +8,13 @@ var class_model_system =
     [ "~ModelSystem", "d8/de9/class_model_system.html#a6612ec38f817406f3548be734b2b92e8", null ],
     [ "getBuildVersion", "d8/de9/class_model_system.html#a35c2344f118a166c467f6348febd459b", null ],
     [ "getHardwareVersion", "d8/de9/class_model_system.html#a55c01ab00d5e1873c19c704819658883", null ],
+    [ "getLastResetState", "d8/de9/class_model_system.html#a8f83ca78f3e02d2b9a326735a72059c9", null ],
     [ "getLastResetStateColor", "d8/de9/class_model_system.html#a3ec9902366c5c17f73b8b6df84dabf65", null ],
     [ "getLastResetStateString", "d8/de9/class_model_system.html#a9cc824f9e231250b811b223881b2783c", null ],
     [ "getSerialNumber", "d8/de9/class_model_system.html#a01994f85003a78ebe925d64f00aadcc4", null ],
     [ "getStartupMode", "d8/de9/class_model_system.html#a66ac7f779ce3a045630bb820e7637c5a", null ],
+    [ "getStartupModeColor", "d8/de9/class_model_system.html#a69c255a84c21b42bd7899c73415e5eb8", null ],
+    [ "getStartupModeString", "d8/de9/class_model_system.html#ad474f0aa47e45bc47ac6130d254b32eb", null ],
     [ "setStartupMode", "d8/de9/class_model_system.html#a1e0418af774e02b850d6e31b9f398e9c", null ],
     [ "waitForReadyAfterStartup", "d8/de9/class_model_system.html#aa778daab85ce24e0963cca75208a0e9a", null ],
     [ "produceDates", "d8/de9/class_model_system.html#a19262c7d71bc2000a91a0d4ad09c9e55", null ]

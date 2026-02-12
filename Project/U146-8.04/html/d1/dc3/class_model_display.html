@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">U146<span id="projectnumber">&#160;8.04.4</span>
+   <div id="projectname">U146<span id="projectnumber">&#160;8.05.0</span>
    </div>
    <div id="projectbrief">48 Inputs/ 32 Outputs / 802.15.4 Client Canbus Server</div>
   </td>
@@ -94,7 +94,17 @@ $(function(){initNavTree('d1/dc3/class_model_display.html','../../','d5/dec/clas
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>ModelDisplay class for display settings management. </p>
-<p>Enables querying and modifying display rotation and backlight, saving parameters, and checking parameter storage. </p>
+<p>The ModelDisplay class encapsulates the logic for querying and modifying display parameters, including rotation state and backlight intensity. It provides methods to retrieve current settings, update values with validation, save changes to persistent storage, and check the availability of parameter storage. This class acts as a bridge between the TouchGFX model layer and the underlying system components, ensuring consistent and safe display configuration.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Backlight values are clamped to a minimum of 10 to prevent complete darkness.</li>
+<li>Changes to display settings are not automatically saved; explicit save is required.</li>
+</ul>
+</dd></dl>
+<dl class="section important"><dt>Important</dt><dd><ul>
+<li>Ensure BSP::Backlight is properly initialized before setting backlight values.</li>
+<li>Parameter storage presence should be verified before attempting to save. </li>
+</ul>
+</dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for ModelDisplay:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,21 +115,21 @@ $(function(){initNavTree('d1/dc3/class_model_display.html','../../','d5/dec/clas
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a58223329475bd6ee8131ab9bae0f8b98" id="r_a58223329475bd6ee8131ab9bae0f8b98"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a58223329475bd6ee8131ab9bae0f8b98">ModelDisplay</a> ()=default</td></tr>
-<tr class="memdesc:a58223329475bd6ee8131ab9bae0f8b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor of ModelDisplay class.  <br /></td></tr>
+<tr class="memdesc:a58223329475bd6ee8131ab9bae0f8b98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct ModelDisplay instance.  <br /></td></tr>
 <tr class="memitem:a0aea6e6d10f65cee865c9b0dd3fabedf" id="r_a0aea6e6d10f65cee865c9b0dd3fabedf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0aea6e6d10f65cee865c9b0dd3fabedf">~ModelDisplay</a> ()=default</td></tr>
-<tr class="memdesc:a0aea6e6d10f65cee865c9b0dd3fabedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of ModelDisplay class.  <br /></td></tr>
+<tr class="memdesc:a0aea6e6d10f65cee865c9b0dd3fabedf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy ModelDisplay instance.  <br /></td></tr>
 <tr class="memitem:a26220ad31816ebd602de45f84a9924bc" id="r_a26220ad31816ebd602de45f84a9924bc"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a26220ad31816ebd602de45f84a9924bc">getBacklight</a> () const</td></tr>
-<tr class="memdesc:a26220ad31816ebd602de45f84a9924bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current backlight value.  <br /></td></tr>
+<tr class="memdesc:a26220ad31816ebd602de45f84a9924bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve current backlight intensity.  <br /></td></tr>
 <tr class="memitem:a21f51676c92060b09d488e16814eaf90" id="r_a21f51676c92060b09d488e16814eaf90"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a21f51676c92060b09d488e16814eaf90">setBacklight</a> (uint8_t value)</td></tr>
-<tr class="memdesc:a21f51676c92060b09d488e16814eaf90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the backlight value.  <br /></td></tr>
+<tr class="memdesc:a21f51676c92060b09d488e16814eaf90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update backlight intensity.  <br /></td></tr>
 <tr class="memitem:af9872d3de81b8e825ddc3ab56593c3da" id="r_af9872d3de81b8e825ddc3ab56593c3da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af9872d3de81b8e825ddc3ab56593c3da">getRotation</a> () const</td></tr>
-<tr class="memdesc:af9872d3de81b8e825ddc3ab56593c3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current display rotation state.  <br /></td></tr>
+<tr class="memdesc:af9872d3de81b8e825ddc3ab56593c3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve current display rotation state.  <br /></td></tr>
 <tr class="memitem:a965e06a9aac36b2e646a4d0913f07d35" id="r_a965e06a9aac36b2e646a4d0913f07d35"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a965e06a9aac36b2e646a4d0913f07d35">setRotation</a> (bool value)</td></tr>
-<tr class="memdesc:a965e06a9aac36b2e646a4d0913f07d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the display rotation state.  <br /></td></tr>
+<tr class="memdesc:a965e06a9aac36b2e646a4d0913f07d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update display rotation state.  <br /></td></tr>
 <tr class="memitem:aa3265c70aad48c54df411111545485d0" id="r_aa3265c70aad48c54df411111545485d0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa3265c70aad48c54df411111545485d0">saveParameters</a> ()</td></tr>
-<tr class="memdesc:aa3265c70aad48c54df411111545485d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Saves display parameters to persistent storage.  <br /></td></tr>
+<tr class="memdesc:aa3265c70aad48c54df411111545485d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Persist display parameters to storage.  <br /></td></tr>
 <tr class="memitem:af229b88cc2c5e18f976f65d56c56c3da" id="r_af229b88cc2c5e18f976f65d56c56c3da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af229b88cc2c5e18f976f65d56c56c3da">storageOfParametersIsPresent</a> () const</td></tr>
-<tr class="memdesc:af229b88cc2c5e18f976f65d56c56c3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if storage of display parameters is present.  <br /></td></tr>
+<tr class="memdesc:af229b88cc2c5e18f976f65d56c56c3da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check availability of parameter storage.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a58223329475bd6ee8131ab9bae0f8b98" name="a58223329475bd6ee8131ab9bae0f8b98"></a>
@@ -145,7 +155,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor of ModelDisplay class. </p>
+<p>Construct ModelDisplay instance. </p>
+<p>Initializes a new instance of the ModelDisplay class with default settings. No specific initialization is required as the class relies on external system components. </p>
 
 </div>
 </div>
@@ -172,7 +183,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destructor of ModelDisplay class. </p>
+<p>Destroy ModelDisplay instance. </p>
+<p>Cleans up resources associated with the ModelDisplay instance. Since the class uses default destruction, no special cleanup is performed. </p>
 
 </div>
 </div>
@@ -192,8 +204,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the current backlight value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Backlight value (0-255). </dd></dl>
+<p>Retrieve current backlight intensity. </p>
+<p>Gets the current backlight level from the system parameters. The value represents the brightness level of the display backlight.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current backlight value as an unsigned 8-bit integer (0-255). </dd></dl>
 
 </div>
 </div>
@@ -212,8 +225,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the current display rotation state. </p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if rotated, <span class="tt">false</span> otherwise. </dd></dl>
+<p>Retrieve current display rotation state. </p>
+<p>Gets the current rotation setting from the system parameters. A true value indicates the display is rotated, while false indicates normal orientation.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current rotation state as a boolean (true for rotated, false for normal). </dd></dl>
 
 </div>
 </div>
@@ -232,7 +246,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Saves display parameters to persistent storage. </p>
+<p>Persist display parameters to storage. </p>
+<p>Saves the current display settings (rotation and backlight) to persistent storage. This ensures that settings are retained across device restarts.</p>
+<dl class="section note"><dt>Note</dt><dd>This operation may involve writing to non-volatile memory. </dd></dl>
 
 </div>
 </div>
@@ -251,13 +267,15 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the backlight value. </p>
+<p>Update backlight intensity. </p>
+<p>Sets a new backlight level for the display. The value is clamped to ensure it does not fall below the minimum allowed level. The change is applied immediately to the hardware via the BSP and stored in system parameters.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Backlight value (0-255). </td></tr>
+    <tr><td class="paramname">value</td><td>Desired backlight value (0-255). Values below 10 are clamped to 10.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd>The backlight is updated in real-time on the hardware. </dd></dl>
 
 </div>
 </div>
@@ -276,10 +294,11 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets the display rotation state. </p>
+<p>Update display rotation state. </p>
+<p>Sets the rotation state for the display. This affects how the display is oriented and may impact the user interface layout.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>Rotation state (<span class="tt">true</span> for rotated, <span class="tt">false</span> for normal). </td></tr>
+    <tr><td class="paramname">value</td><td>New rotation state (true for rotated, false for normal). </td></tr>
   </table>
   </dd>
 </dl>
@@ -301,8 +320,9 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks if storage of display parameters is present. </p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if parameter storage is present, <span class="tt">false</span> otherwise. </dd></dl>
+<p>Check availability of parameter storage. </p>
+<p>Verifies whether the storage mechanism for display parameters is available. This is useful for determining if parameter persistence is supported.</p>
+<dl class="section return"><dt>Returns</dt><dd>True if parameter storage is present and accessible, false otherwise. </dd></dl>
 
 </div>
 </div>

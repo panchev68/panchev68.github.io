@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">U146<span id="projectnumber">&#160;8.04.4</span>
+   <div id="projectname">U146<span id="projectnumber">&#160;8.05.0</span>
    </div>
    <div id="projectbrief">48 Inputs/ 32 Outputs / 802.15.4 Client Canbus Server</div>
   </td>
@@ -94,7 +94,13 @@ $(function(){initNavTree('d2/ddb/class_b_s_p_1_1_backlight.html','../../','d0/d3
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Hardware-specific backlight controller. </p>
-<p>Provides PWM-based backlight control with smooth fading capabilities using timer hardware. Inherits from base backlight implementation and configures platform-specific resources. Implemented as a singleton to ensure single instance management of backlight hardware. </p>
+<p>Provides PWM-based backlight control with smooth fading capabilities using timer hardware. Inherits from the base Lib::BSP::Backlight class and configures platform-specific resources such as Timer 3 Channel 3 for PWM output. Implemented as a singleton to ensure single instance management of backlight hardware, preventing conflicts and ensuring consistent control. Supports configurable fade steps for smooth brightness transitions.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Uses Timer 3 Channel 3 for PWM output to control backlight intensity.</li>
+<li>Supports fade-in and fade-out operations with configurable step timing.</li>
+<li>Singleton pattern ensures only one instance manages the hardware. </li>
+</ul>
+</dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::Backlight:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,7 +111,7 @@ $(function(){initNavTree('d2/ddb/class_b_s_p_1_1_backlight.html','../../','d0/d3
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c489f8b6627711bc26b8769e375a332" id="r_a1c489f8b6627711bc26b8769e375a332"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1c489f8b6627711bc26b8769e375a332">~Backlight</a> () override=default</td></tr>
-<tr class="memdesc:a1c489f8b6627711bc26b8769e375a332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor of Backlight class.  <br /></td></tr>
+<tr class="memdesc:a1c489f8b6627711bc26b8769e375a332"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the Backlight class.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -136,7 +142,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destructor of Backlight class. </p>
+<p>Destructor for the Backlight class. </p>
+<p>Cleans up resources associated with the backlight controller. </p>
 
 </div>
 </div>
@@ -159,12 +166,13 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
 <p>Gets the singleton instance of the Backlight. </p>
+<p>Returns a reference to the singleton instance of the Backlight class. This method implements the Meyers' singleton pattern, ensuring thread-safe lazy initialization and providing global access to the backlight controller without exposing the constructor.</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the singleton Backlight instance. </dd></dl>
 
 </div>

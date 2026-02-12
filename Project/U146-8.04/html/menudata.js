@@ -30,8 +30,7 @@ var menudata={children:[
 {text:"Namespace List",url:"namespaces.html"},
 {text:"Namespace Members",url:"namespacemembers.html",children:[
 {text:"All",url:"namespacemembers.html"},
-{text:"Typedefs",url:"namespacemembers_type.html"},
-{text:"Enumerations",url:"namespacemembers_enum.html"}]}]},
+{text:"Typedefs",url:"namespacemembers_type.html"}]}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"List",url:"annotated.html"},
 {text:"Index",url:"classes.html"},
@@ -52,7 +51,6 @@ var menudata={children:[
 {text:"n",url:"functions_n.html#index_n"},
 {text:"o",url:"functions_o.html#index_o"},
 {text:"p",url:"functions_p.html#index_p"},
-{text:"q",url:"functions_q.html#index_q"},
 {text:"r",url:"functions_r.html#index_r"},
 {text:"s",url:"functions_s.html#index_s"},
 {text:"t",url:"functions_t.html#index_t"},
@@ -95,7 +93,6 @@ var menudata={children:[
 {text:"n",url:"functions_vars.html#index_n"},
 {text:"o",url:"functions_vars.html#index_o"},
 {text:"p",url:"functions_vars.html#index_p"},
-{text:"q",url:"functions_vars.html#index_q"},
 {text:"r",url:"functions_vars.html#index_r"},
 {text:"s",url:"functions_vars.html#index_s"},
 {text:"t",url:"functions_vars.html#index_t"},
@@ -103,7 +100,6 @@ var menudata={children:[
 {text:"v",url:"functions_vars.html#index_v"},
 {text:"x",url:"functions_vars.html#index_x"}]},
 {text:"Typedefs",url:"functions_type.html"},
-{text:"Enumerations",url:"functions_enum.html"},
-{text:"Related Symbols",url:"functions_rela.html"}]}]},
+{text:"Enumerations",url:"functions_enum.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]}]}

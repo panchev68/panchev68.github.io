@@ -27,26 +27,32 @@ var NAVTREE =
   [ "U146", "index.html", [
     [ "U146 Firmware Project", "index.html", null ],
     [ "Changelog", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html", [
-      [ "[8.04.4] - 2026-02-05", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md8044---2026-02-05", [
-        [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added", null ]
-      ] ],
-      [ "[8.03] - 23 ноември 2025", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---23-ноември-2025", [
-        [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added-1", null ],
+      [ "[8.05.0] - 2026-02-10", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md8050---2026-02-10", [
+        [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added", null ],
         [ "Changed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#changed", null ],
         [ "Fixed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#fixed", null ],
         [ "Removed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#removed", null ]
       ] ],
-      [ "[8.03] - 2025-07-23", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---2025-07-23", [
+      [ "[8.04.4] - 2026-02-05", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md8044---2026-02-05", [
+        [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added-1", null ]
+      ] ],
+      [ "[8.03] - 23 ноември 2025", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---23-ноември-2025", [
         [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added-2", null ],
         [ "Changed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#changed-1", null ],
         [ "Fixed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#fixed-1", null ],
         [ "Removed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#removed-1", null ]
       ] ],
-      [ "[8.03] - 2025-07-20", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---2025-07-20", [
+      [ "[8.03] - 2025-07-23", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---2025-07-23", [
         [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added-3", null ],
         [ "Changed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#changed-2", null ],
         [ "Fixed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#fixed-2", null ],
         [ "Removed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#removed-2", null ]
+      ] ],
+      [ "[8.03] - 2025-07-20", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---2025-07-20", [
+        [ "Added", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#added-4", null ],
+        [ "Changed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#changed-3", null ],
+        [ "Fixed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#fixed-3", null ],
+        [ "Removed", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#removed-3", null ]
       ] ],
       [ "[8.02] - June 29, 2025", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md802---june-29-2025", null ],
       [ "[8.02] - June 28, 2025", "de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md802---june-28-2025", null ]
@@ -56,8 +62,7 @@ var NAVTREE =
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
         [ "All", "namespacemembers.html", null ],
-        [ "Typedefs", "namespacemembers_type.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
+        [ "Typedefs", "namespacemembers_type.html", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
@@ -69,8 +74,7 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -82,9 +86,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d5/d1a/class_system_1_1_parameters.html",
-"da/d9b/group___digital_peripheral.html",
-"de/d2b/md__x_1_2_projects_2_u146-_firmware_2_project_2_changelog.html#autotoc_md803---23-ноември-2025"
+"d5/d21/class_b_s_p_1_1_outputs.html#ace919cc8cd5187982943e71a5456aa19",
+"da/df6/class_model_xbee_1_1_listener.html#a47cbf1ad8a4967cc2b3eb06f55a307f4",
+"functions_func_x.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

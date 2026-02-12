@@ -5,6 +5,7 @@ var namespaces_dup =
     [ "Canbus", "d9/dfb/namespace_canbus.html", "d9/dfb/namespace_canbus" ],
     [ "Data", "de/d75/namespace_data.html", "de/d75/namespace_data" ],
     [ "HAL", "df/da1/namespace_h_a_l.html", "df/da1/namespace_h_a_l" ],
+    [ "HardwareProfiles", "d4/d15/namespace_hardware_profiles.html", "d4/d15/namespace_hardware_profiles" ],
     [ "Lib", null, [
       [ "BSP", "da/ddf/namespace_lib_1_1_b_s_p.html", "da/ddf/namespace_lib_1_1_b_s_p" ]
     ] ],

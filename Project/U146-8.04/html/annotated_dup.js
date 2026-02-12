@@ -7,15 +7,8 @@ var annotated_dup =
       [ "Backlight", "d2/ddb/class_b_s_p_1_1_backlight.html", "d2/ddb/class_b_s_p_1_1_backlight" ],
       [ "Beep", "dc/d36/class_b_s_p_1_1_beep.html", "dc/d36/class_b_s_p_1_1_beep" ],
       [ "DigitalPeripheral", "d2/d97/class_b_s_p_1_1_digital_peripheral.html", "d2/d97/class_b_s_p_1_1_digital_peripheral" ],
-      [ "InputPort", "d3/d52/class_b_s_p_1_1_input_port.html", "d3/d52/class_b_s_p_1_1_input_port" ],
       [ "Inputs", "df/df2/class_b_s_p_1_1_inputs.html", "df/df2/class_b_s_p_1_1_inputs" ],
-      [ "Outputs&lt; OutputVersion::V1 &gt;", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4.html", "d5/df0/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v1_01_4" ],
-      [ "Outputs&lt; OutputVersion::V2 &gt;", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4.html", "d5/daa/class_b_s_p_1_1_outputs_3_01_output_version_1_1_v2_01_4" ],
-      [ "DRV8908", "db/d20/class_b_s_p_1_1_d_r_v8908.html", "db/d20/class_b_s_p_1_1_d_r_v8908" ],
-      [ "OutputsBase", "dc/dc2/class_b_s_p_1_1_outputs_base.html", "dc/dc2/class_b_s_p_1_1_outputs_base" ],
-      [ "OutputsListener", "d0/d11/class_b_s_p_1_1_outputs_listener.html", "d0/d11/class_b_s_p_1_1_outputs_listener" ],
-      [ "OutputsPrecodeItem", "d4/df1/struct_b_s_p_1_1_outputs_precode_item.html", "d4/df1/struct_b_s_p_1_1_outputs_precode_item" ],
-      [ "Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
+      [ "Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", "d5/d21/class_b_s_p_1_1_outputs" ],
       [ "Display", "d1/d6d/class_b_s_p_1_1_display.html", "d1/d6d/class_b_s_p_1_1_display" ],
       [ "Leds", "d2/d32/class_b_s_p_1_1_leds.html", "d2/d32/class_b_s_p_1_1_leds" ],
       [ "M24C64W", "d7/d44/class_b_s_p_1_1_m24_c64_w.html", "d7/d44/class_b_s_p_1_1_m24_c64_w" ],
@@ -33,6 +26,9 @@ var annotated_dup =
     [ "HAL", "df/da1/namespace_h_a_l.html", [
       [ "RTClock", "da/dd9/class_h_a_l_1_1_r_t_clock.html", null ],
       [ "UartPort", "d2/da4/class_h_a_l_1_1_uart_port.html", "d2/da4/class_h_a_l_1_1_uart_port" ]
+    ] ],
+    [ "HardwareProfiles", "d4/d15/namespace_hardware_profiles.html", [
+      [ "Manager", "d0/db6/class_hardware_profiles_1_1_manager.html", null ]
     ] ],
     [ "System", "d8/dd0/namespace_system.html", [
       [ "BuildVersion", "d4/dff/class_system_1_1_build_version.html", "d4/dff/class_system_1_1_build_version" ],
@@ -53,6 +49,8 @@ var annotated_dup =
     [ "Xbee", "d8/d6d/namespace_xbee.html", [
       [ "Client", "d3/daf/class_xbee_1_1_client.html", "d3/daf/class_xbee_1_1_client" ]
     ] ],
+    [ "HardwareProfile", "dc/d2c/struct_hardware_profile.html", "dc/d2c/struct_hardware_profile" ],
+    [ "Helper", "d4/de9/class_helper.html", null ],
     [ "ModelBase", "d1/d75/class_model_base.html", "d1/d75/class_model_base" ],
     [ "ModelCanbus", "df/d8d/class_model_canbus.html", "df/d8d/class_model_canbus" ],
     [ "ModelDiagnostic", "d4/d0d/class_model_diagnostic.html", "d4/d0d/class_model_diagnostic" ],

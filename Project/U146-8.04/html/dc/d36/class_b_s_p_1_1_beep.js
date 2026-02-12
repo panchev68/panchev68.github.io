@@ -1,4 +1,4 @@
 var class_b_s_p_1_1_beep =
 [
-    [ "operator()", "dc/d36/class_b_s_p_1_1_beep.html#a13ea454b731333f4f5e00b5d3a45cb5e", null ]
+    [ "play", "dc/d36/class_b_s_p_1_1_beep.html#a3cc06b8c2ef6e72728b260745d6fe73c", null ]
 ];

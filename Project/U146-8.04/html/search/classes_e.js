@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['w25q128jvsiq_0',['W25Q128JVSIQ',['../d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html',1,'BSP']]],
-  ['watchdog_1',['Watchdog',['../df/d8f/class_system_1_1_watchdog.html',1,'System']]]
+  ['uartport_0',['UartPort',['../d2/da4/class_h_a_l_1_1_uart_port.html',1,'HAL']]],
+  ['usbconfig_1',['UsbConfig',['../da/d32/struct_hardware_profile_1_1_usb_config.html',1,'HardwareProfile']]]
 ];
