@@ -35,6 +35,7 @@ var annotated_dup =
       [ "DisplayRotation", "d0/d1f/class_system_1_1_display_rotation.html", "d0/d1f/class_system_1_1_display_rotation" ],
       [ "HardwareVersion", "d7/d3e/class_system_1_1_hardware_version.html", "d7/d3e/class_system_1_1_hardware_version" ],
       [ "LastResetState", "d8/d62/class_system_1_1_last_reset_state.html", "d8/d62/class_system_1_1_last_reset_state" ],
+      [ "OTPMemoryMap", "d5/d1b/struct_system_1_1_o_t_p_memory_map.html", "d5/d1b/struct_system_1_1_o_t_p_memory_map" ],
       [ "Parameters", "d5/d1a/class_system_1_1_parameters.html", "d5/d1a/class_system_1_1_parameters" ],
       [ "ProduceDate", "d2/d52/class_system_1_1_produce_date.html", null ],
       [ "SaleDate", "d1/de4/class_system_1_1_sale_date.html", null ],

@@ -72,6 +72,7 @@ var hierarchy =
     [ "ModelXbee::ModuleParameters", "dc/dd5/class_model_xbee_1_1_module_parameters.html", null ],
     [ "Data::Node", "d2/da2/struct_data_1_1_node.html", null ],
     [ "ModelCanbus::Node", "d7/d54/struct_model_canbus_1_1_node.html", null ],
+    [ "System::OTPMemoryMap", "d5/d1b/struct_system_1_1_o_t_p_memory_map.html", null ],
     [ "BSP::Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", null ],
     [ "HardwareProfile::DigitalPeripheralsConfig::Outputs", "df/d69/struct_hardware_profile_1_1_digital_peripherals_config_1_1_outputs.html", null ],
     [ "System::Parameters", "d5/d1a/class_system_1_1_parameters.html", null ],

@@ -93,8 +93,14 @@ $(function(){initNavTree('d1/d75/class_model_base.html','../../','dd/d5b/class_m
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Base model class for TouchGFX application. </p>
-<p>This class serves as the foundation for the model layer in the TouchGFX-based embedded application. It aggregates subsystem models and provides core functionality for initialization, updates, and event handling. Designed for real-time embedded systems with RTOS support. </p>
+<div class="textblock"><p>Base model class aggregating subsystem models for the TouchGFX application. </p>
+<p>This class provides a centralized model for managing various subsystems in the U146 device, including communication interfaces, diagnostics, display, peripherals, system management, USB, and XBee. It defines a listener interface for event handling and implements core functionality for audio feedback and periodic system updates.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Subsystem models are public members for direct access by the presenter layer.</li>
+<li>The listener class inherits from multiple subsystem listeners to provide unified event handling.</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Listener </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for ModelBase:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -110,13 +116,11 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad9651b1894b453232748306e624155db" id="r_ad9651b1894b453232748306e624155db"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad9651b1894b453232748306e624155db">ModelBase</a> ()=default</td></tr>
-<tr class="memdesc:ad9651b1894b453232748306e624155db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
 <tr class="memitem:a1b40ef183c11026067f562dacfb127a7" id="r_a1b40ef183c11026067f562dacfb127a7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1b40ef183c11026067f562dacfb127a7">~ModelBase</a> ()=default</td></tr>
-<tr class="memdesc:a1b40ef183c11026067f562dacfb127a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <br /></td></tr>
 <tr class="memitem:a77c680dc77612d28fe5670b4e8d37b2d" id="r_a77c680dc77612d28fe5670b4e8d37b2d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a77c680dc77612d28fe5670b4e8d37b2d">beep</a> (size_t duration=100)</td></tr>
-<tr class="memdesc:a77c680dc77612d28fe5670b4e8d37b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Emits a beep notification.  <br /></td></tr>
+<tr class="memdesc:a77c680dc77612d28fe5670b4e8d37b2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Plays a beep sound for audio feedback.  <br /></td></tr>
 <tr class="memitem:af3f9e7c14f55220127f81923c0e0b99f" id="r_af3f9e7c14f55220127f81923c0e0b99f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af3f9e7c14f55220127f81923c0e0b99f">tick</a> (<a class="el" href="../../df/d93/class_model_base_1_1_listener.html">Listener</a> *modelListener)</td></tr>
-<tr class="memdesc:af3f9e7c14f55220127f81923c0e0b99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic update method.  <br /></td></tr>
+<tr class="memdesc:af3f9e7c14f55220127f81923c0e0b99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles periodic model updates and event processing.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -151,8 +155,7 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Default constructor. </p>
+<p>Default constructor for the model base class. </p>
 
 </div>
 </div>
@@ -178,8 +181,7 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Default destructor. </p>
+<p>Default destructor for the model base class. </p>
 
 </div>
 </div>
@@ -207,13 +209,20 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Emits a beep notification. </p>
+<p>Plays a beep sound for audio feedback. </p>
+<p>This method activates the beeper hardware to produce an audible sound for user feedback or alerts. The duration parameter controls how long the beep lasts, with a default of 100 milliseconds.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">duration</td><td>Duration of the beep in milliseconds (default 100). </td></tr>
+    <tr><td class="paramname">duration</td><td>The duration of the beep in milliseconds. Defaults to 100ms if not specified.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>This method uses the BSP Beep singleton instance for hardware control.</li>
+<li>Ensure that the beeper hardware is properly initialized before calling this method.</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>BSP::Beep::play() </dd></dl>
 
 </div>
 </div>
@@ -240,13 +249,21 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Periodic update method. </p>
-<p>Handles tick events for all subsystem models and refreshes the watchdog. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Handles periodic model updates and event processing. </p>
+<p>This method performs periodic updates for all subsystem models and refreshes the system watchdog. It should be called regularly (e.g., in the main application loop) to ensure proper system operation and responsiveness. The method delegates tick events to each subsystem model in a specific order.</p>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">modelListener</td><td>Pointer to the listener for event callbacks. </td></tr>
+    <tr><td class="paramname">modelListener</td><td>Pointer to the listener object that will receive subsystem events. Can be nullptr if no listener is needed.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>The order of subsystem updates is important for proper event sequencing.</li>
+<li>The watchdog is refreshed at the end to ensure system stability.</li>
+<li>This method should be called from a real-time context (e.g., RTOS task).</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Listener, System::Watchdog::refresh() </dd></dl>
 
 </div>
 </div>
@@ -262,7 +279,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>CAN bus subsystem model instance. </p>
+<p>CAN bus subsystem model for industrial communication. </p>
 
 </div>
 </div>
@@ -277,7 +294,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Diagnostic subsystem model instance. </p>
+<p>Diagnostic subsystem model for system health monitoring. </p>
 
 </div>
 </div>
@@ -292,7 +309,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Display subsystem model instance. </p>
+<p>Display subsystem model for GUI and screen management. </p>
 
 </div>
 </div>
@@ -307,7 +324,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Peripheral subsystem model instance. </p>
+<p>Peripheral subsystem model for hardware interfaces. </p>
 
 </div>
 </div>
@@ -322,7 +339,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>System subsystem model instance. </p>
+<p>System subsystem model for core system management. </p>
 
 </div>
 </div>
@@ -337,7 +354,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>USB subsystem model instance. </p>
+<p>USB subsystem model for USB connectivity. </p>
 
 </div>
 </div>
@@ -352,7 +369,7 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>XBee subsystem model instance. </p>
+<p>XBee subsystem model for wireless communication. </p>
 
 </div>
 </div>

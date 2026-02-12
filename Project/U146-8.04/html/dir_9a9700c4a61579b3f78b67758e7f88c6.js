@@ -4,6 +4,7 @@ var dir_9a9700c4a61579b3f78b67758e7f88c6 =
     [ "DisplayRotation.hpp", "d9/d0f/_display_rotation_8hpp.html", "d9/d0f/_display_rotation_8hpp" ],
     [ "HardwareVersion.hpp", "dd/d6e/_hardware_version_8hpp.html", "dd/d6e/_hardware_version_8hpp" ],
     [ "LastResetState.hpp", "d7/d6c/_last_reset_state_8hpp.html", "d7/d6c/_last_reset_state_8hpp" ],
+    [ "OTPMemoryMap.hpp", "d1/d3b/_o_t_p_memory_map_8hpp.html", "d1/d3b/_o_t_p_memory_map_8hpp" ],
     [ "Parameters.hpp", "d8/de8/_parameters_8hpp.html", "d8/de8/_parameters_8hpp" ],
     [ "ProduceDate.hpp", "d4/da1/_produce_date_8hpp.html", "d4/da1/_produce_date_8hpp" ],
     [ "ProduceDateBase.hpp", "df/d02/_produce_date_base_8hpp.html", "df/d02/_produce_date_base_8hpp" ],

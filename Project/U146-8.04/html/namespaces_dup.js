@@ -7,7 +7,8 @@ var namespaces_dup =
     [ "HAL", "df/da1/namespace_h_a_l.html", "df/da1/namespace_h_a_l" ],
     [ "HardwareProfiles", "d4/d15/namespace_hardware_profiles.html", "d4/d15/namespace_hardware_profiles" ],
     [ "Lib", null, [
-      [ "BSP", "da/ddf/namespace_lib_1_1_b_s_p.html", "da/ddf/namespace_lib_1_1_b_s_p" ]
+      [ "BSP", "da/ddf/namespace_lib_1_1_b_s_p.html", "da/ddf/namespace_lib_1_1_b_s_p" ],
+      [ "System", "d9/d04/namespace_lib_1_1_system.html", null ]
     ] ],
     [ "System", "d8/dd0/namespace_system.html", "d8/dd0/namespace_system" ],
     [ "TouchGFX", "da/d42/namespace_touch_g_f_x.html", null ],
