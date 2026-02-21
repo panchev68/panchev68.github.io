@@ -93,8 +93,9 @@ $(function(){initNavTree('d7/d44/class_b_s_p_1_1_m24_c64_w.html','../../','d3/d0
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>M24C64W EEPROM Driver Class. </p>
-<p>This class provides an interface for the M24C64W I2C EEPROM chip, handling read/write operations, device management, and I2C communication through the HAL layer. It supports page-based writing and validates address ranges to ensure safe operations. </p>
+<div class="textblock"><p>Driver for the M24C64W I2C EEPROM device. </p>
+<p>The class exposes read/write primitives with automatic handling of device page boundaries and provides lifecycle methods to open and close the device. The concrete, hardware-specific implementation is provided by a PIMPL defined in <span class="tt">M24C64W.cpp</span> which owns an I2C port wrapper and stores device parameters such as page size and total chip size.</p>
+<p>The implementation performs page-aligned writes and enforces chip-size limits. The <span class="tt">open()</span> method probes the device and sets an internal presence state used by <span class="tt">isPresent()</span>. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::M24C64W:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,31 +106,33 @@ $(function(){initNavTree('d7/d44/class_b_s_p_1_1_m24_c64_w.html','../../','d3/d0
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration structure for M24C64W.  <a href="../../dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration parameters for M24C64W driver.  <a href="../../dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a703cf4d34fd4af8f5063257e5bc1019f" id="r_a703cf4d34fd4af8f5063257e5bc1019f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a703cf4d34fd4af8f5063257e5bc1019f">M24C64W</a> (const <a class="el" href="../../dd/dfd/struct_b_s_p_1_1_m24_c64_w_1_1_config.html">Config</a> &amp;config)</td></tr>
-<tr class="memdesc:a703cf4d34fd4af8f5063257e5bc1019f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the M24C64W class.  <br /></td></tr>
+<tr class="memdesc:a703cf4d34fd4af8f5063257e5bc1019f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct the driver with the provided configuration.  <br /></td></tr>
 <tr class="memitem:a75ca5cad6f3d4f62ae272b59eb6cdfec" id="r_a75ca5cad6f3d4f62ae272b59eb6cdfec"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a75ca5cad6f3d4f62ae272b59eb6cdfec">~M24C64W</a> ()</td></tr>
-<tr class="memdesc:a75ca5cad6f3d4f62ae272b59eb6cdfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the M24C64W class.  <br /></td></tr>
+<tr class="memdesc:a75ca5cad6f3d4f62ae272b59eb6cdfec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for the driver.  <br /></td></tr>
 <tr class="memitem:ae28e9464aab65954a786b12bb0d8f63d" id="r_ae28e9464aab65954a786b12bb0d8f63d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae28e9464aab65954a786b12bb0d8f63d">open</a> ()</td></tr>
-<tr class="memdesc:ae28e9464aab65954a786b12bb0d8f63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the EEPROM device for communication.  <br /></td></tr>
+<tr class="memdesc:ae28e9464aab65954a786b12bb0d8f63d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Open the EEPROM device for communication.  <br /></td></tr>
 <tr class="memitem:a6bd42702f73f755f10672fb5759dc6c4" id="r_a6bd42702f73f755f10672fb5759dc6c4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6bd42702f73f755f10672fb5759dc6c4">close</a> ()</td></tr>
-<tr class="memdesc:a6bd42702f73f755f10672fb5759dc6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the EEPROM device.  <br /></td></tr>
+<tr class="memdesc:a6bd42702f73f755f10672fb5759dc6c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the EEPROM device.  <br /></td></tr>
 <tr class="memitem:ae123c508b4533308427ed6d68b08aa3e" id="r_ae123c508b4533308427ed6d68b08aa3e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae123c508b4533308427ed6d68b08aa3e">read</a> (uint32_t address, void *buffer, size_t length)</td></tr>
-<tr class="memdesc:ae123c508b4533308427ed6d68b08aa3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the EEPROM.  <br /></td></tr>
+<tr class="memdesc:ae123c508b4533308427ed6d68b08aa3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read bytes from the EEPROM into the provided buffer.  <br /></td></tr>
 <tr class="memitem:a03fc9ed82cb2c8bd8de3381f101fae24" id="r_a03fc9ed82cb2c8bd8de3381f101fae24"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a03fc9ed82cb2c8bd8de3381f101fae24">write</a> (uint32_t address, const void *buffer, size_t length)</td></tr>
-<tr class="memdesc:a03fc9ed82cb2c8bd8de3381f101fae24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to the EEPROM.  <br /></td></tr>
+<tr class="memdesc:a03fc9ed82cb2c8bd8de3381f101fae24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Write bytes to the EEPROM handling page boundaries transparently.  <br /></td></tr>
 <tr class="memitem:ae4cc536cd7703ac75547295659935376" id="r_ae4cc536cd7703ac75547295659935376"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae4cc536cd7703ac75547295659935376">getChipSize</a> () const</td></tr>
-<tr class="memdesc:ae4cc536cd7703ac75547295659935376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the chip size.  <br /></td></tr>
+<tr class="memdesc:ae4cc536cd7703ac75547295659935376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get configured chip size in bytes.  <br /></td></tr>
 <tr class="memitem:aa2077e65e08bbe5756a794c3d8bc287f" id="r_aa2077e65e08bbe5756a794c3d8bc287f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa2077e65e08bbe5756a794c3d8bc287f">isPresent</a> () const</td></tr>
-<tr class="memdesc:aa2077e65e08bbe5756a794c3d8bc287f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the device is present.  <br /></td></tr>
+<tr class="memdesc:aa2077e65e08bbe5756a794c3d8bc287f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the device acknowledges on the I2C bus.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:acc729b3471c6de5ec149e0fc858225a8" id="r_acc729b3471c6de5ec149e0fc858225a8"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#acc729b3471c6de5ec149e0fc858225a8">DEFAULT_CHIP_SIZE</a> = 64 * 1024</td></tr>
+<tr class="memdesc:acc729b3471c6de5ec149e0fc858225a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default chip size in bytes (64 KiB).  <br /></td></tr>
 <tr class="memitem:aa8bacf7c73b65b57421852b532852d09" id="r_aa8bacf7c73b65b57421852b532852d09"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aa8bacf7c73b65b57421852b532852d09">DEFAULT_PAGE_SIZE</a> = 32</td></tr>
+<tr class="memdesc:aa8bacf7c73b65b57421852b532852d09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default page size in bytes.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a703cf4d34fd4af8f5063257e5bc1019f" name="a703cf4d34fd4af8f5063257e5bc1019f"></a>
@@ -155,11 +158,19 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor for the M24C64W class. </p>
-<p>Initializes the M24C64W EEPROM driver with the provided configuration.</p>
+<p>Construct the driver with the provided configuration. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><ul>
+<li><span class="tt">config.i2cHandle</span> must point to a valid and initialized I2C peripheral handle.</li>
+<li><span class="tt">config.deviceAddress</span> must be set to the correct 7-bit address for the device.</li>
+</ul>
+</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd><ul>
+<li>The driver instance is constructed. No I2C transactions are performed by the constructor.</li>
+</ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Configuration parameters for the EEPROM driver. </td></tr>
+    <tr><td class="paramname">config</td><td>Configuration parameters used by the driver. </td></tr>
   </table>
   </dd>
 </dl>
@@ -189,8 +200,11 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destructor for the M24C64W class. </p>
-<p>Cleans up resources used by the M24C64W EEPROM driver. </p>
+<p>Destructor for the driver. </p>
+<dl class="section post"><dt>Postcondition</dt><dd><ul>
+<li>Any internal resources held by the driver are released. The device is not implicitly closed if <span class="tt">close()</span> was not called; callers should call <span class="tt">close()</span> prior to destruction when deterministic shutdown behaviour is required. </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -210,9 +224,13 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Closes the EEPROM device. </p>
-<p>Closes the I2C port and marks the device as not ready.</p>
-<dl class="section return"><dt>Returns</dt><dd>true indicating successful closure. </dd></dl>
+<p>Close the EEPROM device. </p>
+<p>Closes the I2C port wrapper and resets internal ready/presence state.</p>
+<dl class="section post"><dt>Postcondition</dt><dd><ul>
+<li>The device is considered not ready and any pending internal state is cleared.</li>
+</ul>
+</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on successful closure. </dd></dl>
 
 </div>
 </div>
@@ -231,9 +249,8 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Gets the chip size. </p>
-<p>Returns the size of the EEPROM chip in bytes.</p>
-<dl class="section return"><dt>Returns</dt><dd>The chip size in bytes. </dd></dl>
+<p>Get configured chip size in bytes. </p>
+<dl class="section return"><dt>Returns</dt><dd>Configured chip size in bytes. </dd></dl>
 
 </div>
 </div>
@@ -252,9 +269,12 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Checks if the device is present. </p>
-<p>Determines if the EEPROM device is detected and available.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if the device is present, false otherwise. </dd></dl>
+<p>Check whether the device acknowledges on the I2C bus. </p>
+<dl class="section pre"><dt>Precondition</dt><dd><ul>
+<li>The object was constructed with a valid <span class="tt">Config</span>.</li>
+</ul>
+</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the device is present on the bus, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -273,9 +293,17 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Opens the EEPROM device for communication. </p>
-<p>Initializes the I2C port and checks if the device is ready.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if the device is successfully opened and ready, false otherwise. </dd></dl>
+<p>Open the EEPROM device for communication. </p>
+<p>Initializes the underlying I2C port wrapper and probes the device. On success the driver records the device presence state which can be queried with <span class="tt">isPresent()</span>.</p>
+<dl class="section pre"><dt>Precondition</dt><dd><ul>
+<li>The object was constructed with a valid <span class="tt">Config</span>.</li>
+</ul>
+</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd><ul>
+<li>The device is probed and marked ready if present.</li>
+</ul>
+</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the device is present and ready for transfers, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -303,17 +331,26 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Reads data from the EEPROM. </p>
-<p>Reads a specified number of bytes from the given address in the EEPROM.</p>
+<p>Read bytes from the EEPROM into the provided buffer. </p>
+<p>Performs a 16-bit memory-address read via the HAL I2C master port. The method validates the address range against the configured chip size before issuing the transfer.</p>
+<dl class="section pre"><dt>Precondition</dt><dd><ul>
+<li><span class="tt">open()</span> has been called and returned <span class="tt">true</span>.</li>
+<li><span class="tt">address + length</span> must not exceed the configured chip size.</li>
+</ul>
+</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd><ul>
+<li>The buffer is filled with <span class="tt">length</span> bytes read from the device on success.</li>
+</ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The starting address to read from. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the buffer where data will be stored. </td></tr>
+    <tr><td class="paramname">address</td><td>Starting byte address inside the EEPROM. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Destination buffer for read data. </td></tr>
     <tr><td class="paramname">length</td><td>Number of bytes to read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the read operation is successful, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success, <span class="tt">false</span> on error. </dd></dl>
 
 </div>
 </div>
@@ -341,17 +378,26 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Writes data to the EEPROM. </p>
-<p>Writes a specified number of bytes to the given address in the EEPROM, handling page boundaries.</p>
+<p>Write bytes to the EEPROM handling page boundaries transparently. </p>
+<p>The implementation writes data in page-sized chunks and inserts a short delay after each page write to allow the device's internal write cycle to complete. This behaviour is implemented in the PIMPL (<span class="tt">writePages</span>).</p>
+<dl class="section pre"><dt>Precondition</dt><dd><ul>
+<li><span class="tt">open()</span> has been called and returned <span class="tt">true</span>.</li>
+<li><span class="tt">address + length</span> must not exceed the configured chip size.</li>
+</ul>
+</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd><ul>
+<li><span class="tt">length</span> bytes are written to the device on success.</li>
+</ul>
+</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>The starting address to write to. </td></tr>
-    <tr><td class="paramname">buffer</td><td>Pointer to the buffer containing data to write. </td></tr>
+    <tr><td class="paramname">address</td><td>Starting byte address inside the EEPROM. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Source buffer containing data to write. </td></tr>
     <tr><td class="paramname">length</td><td>Number of bytes to write. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if the write operation is successful, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success, <span class="tt">false</span> on error. </dd></dl>
 
 </div>
 </div>
@@ -375,7 +421,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Default EEPROM chip size in bytes. </p>
+
+<p>Default chip size in bytes (64 KiB). </p>
 
 </div>
 </div>
@@ -398,7 +445,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Default page size for write operations. </p>
+
+<p>Default page size in bytes. </p>
 
 </div>
 </div>

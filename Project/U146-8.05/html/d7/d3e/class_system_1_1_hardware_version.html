@@ -93,8 +93,15 @@ $(function(){initNavTree('d7/d3e/class_system_1_1_hardware_version.html','../../
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Hardware Version Class. </p>
-<p>The HardwareVersion class detects and provides the hardware version of the board by reading GPIO pins. It supports multiple version IDs and converts them to human-readable strings. </p>
+<div class="textblock"><p>Hardware version management class. </p>
+<p>This singleton class provides functionality to read and manage the hardware version of the U146 device. It reads revision bits from the hardware revision straps and exposes helpers to obtain a numeric version identifier and a human-readable profile name.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Uses GPIO pins HW_REV0 to HW_REV3 for version detection.</li>
+<li>Revision pins are read with inverted logic (active-low straps).</li>
+<li>Known version identifiers are declared as constexpr constants.</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/db6/class_hardware_profiles_1_1_manager.html" title="HardwareProfiles::Manager">HardwareProfiles::Manager</a> for profile management. </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::HardwareVersion:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,21 +112,25 @@ $(function(){initNavTree('d7/d3e/class_system_1_1_hardware_version.html','../../
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a97a7806bd151cf4fe638ed2f484977c7" id="r_a97a7806bd151cf4fe638ed2f484977c7"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a97a7806bd151cf4fe638ed2f484977c7">toString</a> () const</td></tr>
-<tr class="memdesc:a97a7806bd151cf4fe638ed2f484977c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the hardware version as a string.  <br /></td></tr>
+<tr class="memdesc:a97a7806bd151cf4fe638ed2f484977c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert hardware version to string representation.  <br /></td></tr>
 <tr class="memitem:aff323d7ba600fd59abb8abcd6e42fd02" id="r_aff323d7ba600fd59abb8abcd6e42fd02"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aff323d7ba600fd59abb8abcd6e42fd02">readVersionId</a> () const</td></tr>
-<tr class="memdesc:aff323d7ba600fd59abb8abcd6e42fd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the hardware version ID.  <br /></td></tr>
+<tr class="memdesc:aff323d7ba600fd59abb8abcd6e42fd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the hardware version ID from GPIO pins.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae8a086f7248ea32136a50a72705e1304" id="r_ae8a086f7248ea32136a50a72705e1304"><td class="memItemLeft">static HardwareVersion &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae8a086f7248ea32136a50a72705e1304">instance</a> ()</td></tr>
-<tr class="memdesc:ae8a086f7248ea32136a50a72705e1304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the HardwareVersion class.  <br /></td></tr>
+<tr class="memdesc:ae8a086f7248ea32136a50a72705e1304"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of HardwareVersion.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
 <tr class="memitem:a7b0539a15e7aced6e7ed845318cca80e" id="r_a7b0539a15e7aced6e7ed845318cca80e"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a7b0539a15e7aced6e7ed845318cca80e">VERSION_ID_OLD</a> = 0</td></tr>
+<tr class="memdesc:a7b0539a15e7aced6e7ed845318cca80e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID for old hardware revision.  <br /></td></tr>
 <tr class="memitem:a0f5e0af91f019c335a1122376fc2af70" id="r_a0f5e0af91f019c335a1122376fc2af70"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a0f5e0af91f019c335a1122376fc2af70">VERSION_ID_403</a> = 4</td></tr>
+<tr class="memdesc:a0f5e0af91f019c335a1122376fc2af70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID for hardware revision 4.03.  <br /></td></tr>
 <tr class="memitem:aa3441a86664d6897868d6639d4c573d8" id="r_aa3441a86664d6897868d6639d4c573d8"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aa3441a86664d6897868d6639d4c573d8">VERSION_ID_404</a> = 5</td></tr>
+<tr class="memdesc:aa3441a86664d6897868d6639d4c573d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID for hardware revision 4.04.  <br /></td></tr>
 <tr class="memitem:acb32c6c9a8b53c78cb99f18fcafacbe6" id="r_acb32c6c9a8b53c78cb99f18fcafacbe6"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#acb32c6c9a8b53c78cb99f18fcafacbe6">VERSION_ID_405</a> = 6</td></tr>
+<tr class="memdesc:acb32c6c9a8b53c78cb99f18fcafacbe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Version ID for hardware revision 4.05.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="ae8a086f7248ea32136a50a72705e1304" name="ae8a086f7248ea32136a50a72705e1304"></a>
@@ -145,9 +156,9 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of the HardwareVersion class. </p>
-<p>Returns the single instance of the HardwareVersion for accessing hardware version information.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton HardwareVersion instance. </dd></dl>
+<p>Get the singleton instance of HardwareVersion. </p>
+<p>Returns a reference to the single instance of the HardwareVersion class. This method implements the singleton pattern for global access to hardware version functionality.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the HardwareVersion singleton instance. </dd></dl>
 
 </div>
 </div>
@@ -174,9 +185,13 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Read the hardware version ID. </p>
-<p>Reads the GPIO pins to determine the hardware version ID.</p>
-<dl class="section return"><dt>Returns</dt><dd>The hardware version ID as an 8-bit unsigned integer. </dd></dl>
+<p>Read the hardware version ID from GPIO pins. </p>
+<p>Samples the hardware revision GPIO pins HW_REV0 .. HW_REV3 and constructs an 8-bit identifier where bit N corresponds to HW_REVN. Revision pins are read with inverted logic (active-low straps) and combined into a single numeric value.</p>
+<dl class="section return"><dt>Returns</dt><dd>8-bit hardware version identifier constructed from the sampled GPIO pin states.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><ul>
+<li>GPIO pins HW_REV0 to HW_REV3 must be configured as inputs and available to be read by the HAL layer before calling this function. Failure to configure the pins may yield incorrect version values. </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -203,9 +218,10 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the hardware version as a string. </p>
-<p>Retrieves the current hardware version in string format (e.g., "4.00").</p>
-<dl class="section return"><dt>Returns</dt><dd>String representation of the hardware version. </dd></dl>
+<p>Convert hardware version to string representation. </p>
+<p>Retrieves the name of the active hardware profile via the HardwareProfiles::Manager and returns it as a std::string. If the active profile does not provide a name, the function returns the literal "UNKNOWN".</p>
+<dl class="section return"><dt>Returns</dt><dd>std::string containing the human readable hardware profile name or "UNKNOWN" when no name is present.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d0/db6/class_hardware_profiles_1_1_manager.html#ac5e99036ff889cc816ec04bf0f931d24" title="HardwareProfiles::Manager::getActiveProfile">HardwareProfiles::Manager::getActiveProfile</a> </dd></dl>
 
 </div>
 </div>
@@ -229,6 +245,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Version ID for hardware revision 4.03. </p>
 
 </div>
@@ -252,6 +269,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Version ID for hardware revision 4.04. </p>
 
 </div>
@@ -275,6 +293,7 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
 <p>Version ID for hardware revision 4.05. </p>
 
 </div>
@@ -298,7 +317,8 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Version ID for old hardware revision </p>
+
+<p>Version ID for old hardware revision. </p>
 
 </div>
 </div>

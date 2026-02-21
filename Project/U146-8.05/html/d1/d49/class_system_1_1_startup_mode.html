@@ -93,14 +93,15 @@ $(function(){initNavTree('d1/d49/class_system_1_1_startup_mode.html','../../','d
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>StartupMode class for managing system startup modes. </p>
-<p>This class implements a singleton pattern to manage the system's startup mode. The mode is determined by a magic word stored in non-initialized memory, allowing persistence across system resets. It provides methods to get the current mode, check if powered by USB, and change the mode with automatic restart.</p>
-<dl class="section note"><dt>Note</dt><dd><ul>
-<li>This class uses non-initialized memory for the magic word.</li>
-<li>Mode changes trigger a system reset via NVIC_SystemReset().</li>
+<div class="textblock"><p>StartupMode class for managing device startup modes. </p>
+<p>This class provides a singleton interface to determine and change the device's startup mode (NORMAL, CONFIG, USB) based on magic words stored in non-volatile memory. It handles mode detection at startup and allows runtime mode switching with system restart. The class encapsulates the logic for converting between modes and magic words, ensuring thread-safe access through the singleton pattern.</p>
+<p>Key features:</p><ul>
+<li>Singleton access to prevent multiple instances</li>
+<li>Mode detection from persistent magic words</li>
+<li>Runtime mode switching with automatic restart</li>
+<li>USB power detection integration</li>
 </ul>
-</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Mode </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Mode changes are persisted via magic words in non-volatile memory and take effect after restart. The class is designed for embedded systems with limited resources and real-time constraints. </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::StartupMode:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -113,14 +114,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73940b22b8582e180a5994d86ff4e33e" id="r_a73940b22b8582e180a5994d86ff4e33e"><td class="memItemLeft"><a class="el" href="#ad496924c198cc57ee90a46752753cebe">Mode</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73940b22b8582e180a5994d86ff4e33e">getMode</a> () const</td></tr>
 <tr class="memdesc:a73940b22b8582e180a5994d86ff4e33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current startup mode.  <br /></td></tr>
 <tr class="memitem:aa6508e3545d55ef93730e2cc54e0ab8d" id="r_aa6508e3545d55ef93730e2cc54e0ab8d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6508e3545d55ef93730e2cc54e0ab8d">isPoweredByUsb</a> () const</td></tr>
-<tr class="memdesc:aa6508e3545d55ef93730e2cc54e0ab8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the system is powered by USB.  <br /></td></tr>
+<tr class="memdesc:aa6508e3545d55ef93730e2cc54e0ab8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if the device is powered by USB.  <br /></td></tr>
 <tr class="memitem:a98783fd4a2fa9b20395321a9b8466064" id="r_a98783fd4a2fa9b20395321a9b8466064"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a98783fd4a2fa9b20395321a9b8466064">changeMode</a> (<a class="el" href="#ad496924c198cc57ee90a46752753cebe">Mode</a> newMode)</td></tr>
-<tr class="memdesc:a98783fd4a2fa9b20395321a9b8466064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the startup mode.  <br /></td></tr>
+<tr class="memdesc:a98783fd4a2fa9b20395321a9b8466064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the startup mode and restart the system.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a280714064c58f6902d87f272f91cee72" id="r_a280714064c58f6902d87f272f91cee72"><td class="memItemLeft">static StartupMode &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a280714064c58f6902d87f272f91cee72">instance</a> ()</td></tr>
-<tr class="memdesc:a280714064c58f6902d87f272f91cee72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of StartupMode.  <br /></td></tr>
+<tr class="memdesc:a280714064c58f6902d87f272f91cee72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the StartupMode class.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="ad496924c198cc57ee90a46752753cebe" name="ad496924c198cc57ee90a46752753cebe"></a>
@@ -143,14 +144,14 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Enumeration of possible startup modes. </p>
-<p>Defines the different modes the system can start in, based on the magic word. </p>
+<p>Enumeration of possible startup modes for the device. </p>
+<p>Defines the different operational modes the device can enter at startup. The mode is determined by checking a magic word stored in non-volatile memory. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051" name="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Normal operation mode. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051" name="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Normal operational mode: Standard device functionality with full features enabled. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73" name="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73"></a>CONFIG&#160;</td><td class="fielddoc"><p>Configuration mode. </p>
+<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73" name="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73"></a>CONFIG&#160;</td><td class="fielddoc"><p>Configuration mode: Allows device setup and parameter adjustment. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf" name="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf"></a>USB&#160;</td><td class="fielddoc"><p>USB mode. </p>
+<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf" name="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf"></a>USB&#160;</td><td class="fielddoc"><p>USB mode: Enables USB-based communication and data transfer. </p>
 </td></tr>
 </table>
 
@@ -180,14 +181,17 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Change the startup mode. </p>
-<p>Changes the system's startup mode by setting the appropriate magic word and restarting. If the new mode is different from the current mode, the system will reset.</p>
+<p>Change the startup mode and restart the system. </p>
+<p>Sets a new magic word corresponding to the specified mode and initiates a system restart to apply the mode change. The new mode will be active on the next boot.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">newMode</td><td>The new Mode to set. </td></tr>
+    <tr><td class="paramname">newMode</td><td>The new Mode to set for the next startup.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section pre"><dt>Precondition</dt><dd>newMode must be a valid Mode enum value. </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>The system will restart, and the magic word will be set for the new mode.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This method does not return; it causes a system reset. </dd></dl>
 
 </div>
 </div>
@@ -215,8 +219,9 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get the current startup mode. </p>
-<p>Retrieves the current mode of the system.</p>
-<dl class="section return"><dt>Returns</dt><dd>The current Mode. </dd></dl>
+<p>Returns the mode that was detected at system startup based on the magic word.</p>
+<dl class="section return"><dt>Returns</dt><dd>The current Mode of the device.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The mode is set during construction and does not change until restart. </dd></dl>
 
 </div>
 </div>
@@ -243,9 +248,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of StartupMode. </p>
-<p>Returns a reference to the single instance of the StartupMode class.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the StartupMode instance. </dd></dl>
+<p>Get the singleton instance of the StartupMode class. </p>
+<p>Provides access to the single global instance of the StartupMode class. This method implements the singleton pattern to ensure only one instance exists.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton StartupMode instance.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Thread-safe due to static local variable initialization. </dd></dl>
 
 </div>
 </div>
@@ -272,9 +278,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check if the system is powered by USB. </p>
-<p>Determines if the system is currently powered by USB by querying the SerialPortRepeater.</p>
-<dl class="section return"><dt>Returns</dt><dd>true if powered by USB, false otherwise. </dd></dl>
+<p>Check if the device is powered by USB. </p>
+<p>Determines whether the device is currently powered via USB by querying the <span class="tt">SerialPortRepeater</span>. This information can be used to decide appropriate behavior or mode transitions.</p>
+<dl class="section return"><dt>Returns</dt><dd>True if powered by USB, false otherwise.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This method delegates to <span class="tt">USB::SerialPortRepeater::isPoweredByUSB()</span>. </dd></dl>
 
 </div>
 </div>

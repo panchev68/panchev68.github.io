@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['canhandle_0',['CanHandle',['../dc/d2c/struct_hardware_profile.html#a7a5d700a7cefbe60e535a7d265e2461b',1,'HardwareProfile']]],
-  ['caninit_1',['CanInit',['../dc/d2c/struct_hardware_profile.html#abb8fa28cdaa968b2f1bc4aa3abd5cb66',1,'HardwareProfile']]]
+  ['adc_0',['Adc',['../d9/d8d/namespace_lib_1_1_h_a_l.html#a6297cb2e3f0bee45ebe02c9ac845b5bc',1,'Lib::HAL']]],
+  ['array_1',['Array',['../df/d8e/namespace_lib_1_1_helper.html#a8fa33eca38b5200e3edb504c9d15c1fb',1,'Lib::Helper']]]
 ];

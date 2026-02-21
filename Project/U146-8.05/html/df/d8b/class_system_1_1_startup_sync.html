@@ -94,26 +94,25 @@ $(function(){initNavTree('df/d8b/class_system_1_1_startup_sync.html','../../','d
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>StartupSync class for system startup synchronization. </p>
-<p>This class provides a singleton-based synchronization mechanism using FreeRTOS EventGroup to coordinate system startup. It allows components to signal when the system is ready and wait for that signal with a timeout.</p>
-<p>The class inherits from FreeRTOS::EventGroup and uses a single bit flag to indicate system readiness. </p>
+<p>The <span class="tt">StartupSync</span> class inherits from <span class="tt">FreeRTOS::EventGroup</span> and provides a singleton instance for signaling and waiting for system readiness during startup. It uses event bits to coordinate between different system components during initialization. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::StartupSync:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d54/class_system_1_1_startup_sync__coll__graph.svg" width="178" height="252"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d54/class_system_1_1_startup_sync__coll__graph.svg" width="202" height="667"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae1d0604822cf4f37f21213d4f62cd153" id="r_ae1d0604822cf4f37f21213d4f62cd153"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae1d0604822cf4f37f21213d4f62cd153">signalSystemReady</a> ()</td></tr>
-<tr class="memdesc:ae1d0604822cf4f37f21213d4f62cd153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal that the system is ready.  <br /></td></tr>
+<tr class="memdesc:ae1d0604822cf4f37f21213d4f62cd153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signal that the system initialization is complete.  <br /></td></tr>
 <tr class="memitem:a828d4731990f55b07ef36cca99365eb6" id="r_a828d4731990f55b07ef36cca99365eb6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a828d4731990f55b07ef36cca99365eb6">waitForSystemReady</a> (uint32_t timeout)</td></tr>
-<tr class="memdesc:a828d4731990f55b07ef36cca99365eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the system to be ready.  <br /></td></tr>
+<tr class="memdesc:a828d4731990f55b07ef36cca99365eb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wait for the system to become ready.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af13d1c85ff42dcab803fd01707a411fc" id="r_af13d1c85ff42dcab803fd01707a411fc"><td class="memItemLeft">static StartupSync &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af13d1c85ff42dcab803fd01707a411fc">instance</a> ()</td></tr>
-<tr class="memdesc:af13d1c85ff42dcab803fd01707a411fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of StartupSync.  <br /></td></tr>
+<tr class="memdesc:af13d1c85ff42dcab803fd01707a411fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton instance of <span class="tt">StartupSync</span>.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="af13d1c85ff42dcab803fd01707a411fc" name="af13d1c85ff42dcab803fd01707a411fc"></a>
@@ -139,9 +138,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of StartupSync. </p>
-<p>Returns a reference to the single instance of the StartupSync class.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the StartupSync instance. </dd></dl>
+<p>Return the singleton instance of <span class="tt">StartupSync</span>. </p>
+<p>The instance is created on first use and guarantees a single event group is used for startup synchronization across the system.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
 
 </div>
 </div>
@@ -168,8 +167,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Signal that the system is ready. </p>
-<p>Sets the SYSTEM_IS_READY bit in the event group to indicate that the system has completed its startup sequence. </p>
+<p>Signal that the system initialization is complete. </p>
+<p>Sets the <span class="tt">SYSTEM_IS_READY</span> event bit to notify waiters that the system is ready to operate. </p>
 
 </div>
 </div>
@@ -196,15 +195,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Wait for the system to be ready. </p>
-<p>Blocks the calling task until the SYSTEM_IS_READY bit is set or the timeout expires.</p>
+<p>Wait for the system to become ready. </p>
+<p>Blocks until the <span class="tt">SYSTEM_IS_READY</span> bit is set or the provided timeout elapses.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>The maximum time to wait in ticks. </td></tr>
+    <tr><td class="paramname">timeout</td><td>The timeout value in FreeRTOS ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>True if the system is ready, false if timeout occurred. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the system is ready, <span class="tt">false</span> if the timeout occurred. </dd></dl>
 
 </div>
 </div>

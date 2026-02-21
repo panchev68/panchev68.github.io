@@ -93,18 +93,28 @@ $(function(){initNavTree('d3/d00/_digital_peripheral_8hpp.html','../../',''); })
 </div><!--header-->
 <div class="contents">
 
-<p>DigitalPeripheral header file for managing digital peripherals in the BSP layer.  
+<p>Digital peripheral manager for the U146 device.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>DigitalPeripheral header file for managing digital peripherals in the BSP layer. </p>
-<p>This file defines the DigitalPeripheral class, which encapsulates the management of digital inputs and outputs for the U146 device. It provides an interface to initialize and access digital peripherals through SPI communication, utilizing hardware profiles for configuration. The class ensures proper setup of inputs and outputs, handling SPI ports and pin configurations dynamically based on the active hardware profile.</p>
-<dl class="section version"><dt>Version</dt><dd>8.04.4 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-02-09 </dd></dl>
+<div class="textblock"><p>Digital peripheral manager for the U146 device. </p>
+<p>Provides a centralized manager for digital inputs and outputs. The class initializes peripheral hardware, binds data change callbacks from the application data layer and runs a periodic FreeRTOS task that updates the input and output drivers via SPI.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>The class implements the singleton pattern; use <span class="tt">DigitalPeripheral::instance()</span>.</li>
+<li>SPI ports are allocated dynamically from HAL handles supplied by the active hardware profile. Ownership and deletion semantics are implemented in the destructor; review them if hardware configuration changes.</li>
+</ul>
+</dd></dl>
+<dl class="section important"><dt>Important</dt><dd><ul>
+<li>Ensure the active hardware profile contains valid SPI handles and pin configuration before calling <span class="tt">setup()</span>.</li>
+<li><span class="tt">setup()</span> will start a FreeRTOS task; ensure the scheduler is available.</li>
+</ul>
+</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>8.05.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-02-21 </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:BSP_3A_3ADigitalPeripheral" id="r_BSP_3A_3ADigitalPeripheral"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/d97/class_b_s_p_1_1_digital_peripheral.html">BSP::DigitalPeripheral</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DigitalPeripheral class for managing digital inputs and outputs.  <a href="../../d2/d97/class_b_s_p_1_1_digital_peripheral.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital peripheral manager class.  <a href="../../d2/d97/class_b_s_p_1_1_digital_peripheral.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -124,7 +134,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_ffd1f789ec7bd0a45fc6ad92579c5070.html">Project</a></li><li class="navelem"><a href="../../dir_61e0c6c068d494aa3e9fc2b166624a1f.html">BSP</a></li><li class="navelem"><a href="../../d3/d00/_digital_peripheral_8hpp.html">DigitalPeripheral.hpp</a></li>
+    <li class="navelem"><a href="../../dir_0250499be9f5c23570b2916ce3fd0131.html">Project</a></li><li class="navelem"><a href="../../dir_b4aea8f791818cd56b41afa88d7855b1.html">BSP</a></li><li class="navelem"><a href="../../d3/d00/_digital_peripheral_8hpp.html">DigitalPeripheral.hpp</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for U146 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

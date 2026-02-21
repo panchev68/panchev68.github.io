@@ -93,29 +93,26 @@ $(function(){initNavTree('de/d56/class_system_1_1_serial_number.html','../../','
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>SerialNumber type for firmware builds. </p>
-<p>Provides type-safe conversions for system serial numbers and ensures consistent formatting for firmware integration. This class follows the Singleton pattern to ensure a single instance for serial number management. Inherits from Lib::System::SerialNumber to leverage base functionality for reading and formatting serial numbers.</p>
-<p>Role of the type within the module or system: Provides centralized access to system serial number, ensuring consistent identification across the application for diagnostics and versioning.</p>
-<p>Important design decisions or considerations: Uses inheritance for code reuse, implements Singleton to maintain a single source of serial number data, and provides conversion operators for flexibility.</p>
-<dl class="section note"><dt>Note</dt><dd>Depends on Lib::System::SerialNumber for base operations. </dd></dl>
+<div class="textblock"><p>Wrapper class for the library serial number type. </p>
+<p>This class inherits from <span class="tt">Lib::System::SerialNumber</span> and exposes a single global instance via the <span class="tt">instance()</span> method. It provides a <span class="tt">toString()</span> override and an implicit conversion to <span class="tt">uint32_t</span> that forwards to the base class. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::SerialNumber:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/daf/class_system_1_1_serial_number__coll__graph.svg" width="167" height="267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/daf/class_system_1_1_serial_number__coll__graph.svg" width="167" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a680149a234b10d18564cd9fb0fb69c1b" id="r_a680149a234b10d18564cd9fb0fb69c1b"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#a680149a234b10d18564cd9fb0fb69c1b">toString</a> () const override</td></tr>
-<tr class="memdesc:a680149a234b10d18564cd9fb0fb69c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get serial number as string.  <br /></td></tr>
+<tr class="memdesc:a680149a234b10d18564cd9fb0fb69c1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the serial number as a string.  <br /></td></tr>
 <tr class="memitem:a4e256ff9846ee7f36b84fd6a2a8ee045" id="r_a4e256ff9846ee7f36b84fd6a2a8ee045"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4e256ff9846ee7f36b84fd6a2a8ee045">operator uint32_t</a> () const</td></tr>
-<tr class="memdesc:a4e256ff9846ee7f36b84fd6a2a8ee045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts the serial number to a 32-bit unsigned integer.  <br /></td></tr>
+<tr class="memdesc:a4e256ff9846ee7f36b84fd6a2a8ee045"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implicit numeric conversion of the serial number.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abfe9e00a25734b2b6fea6d31c56157be" id="r_abfe9e00a25734b2b6fea6d31c56157be"><td class="memItemLeft">static SerialNumber &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abfe9e00a25734b2b6fea6d31c56157be">instance</a> ()</td></tr>
-<tr class="memdesc:abfe9e00a25734b2b6fea6d31c56157be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the singleton instance of SerialNumber.  <br /></td></tr>
+<tr class="memdesc:abfe9e00a25734b2b6fea6d31c56157be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton SerialNumber instance.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="abfe9e00a25734b2b6fea6d31c56157be" name="abfe9e00a25734b2b6fea6d31c56157be"></a>
@@ -141,9 +138,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the singleton instance of SerialNumber. </p>
-<p>Provides global access to the single SerialNumber instance for accessing system serial number.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton SerialNumber instance. </dd></dl>
+<p>Return the singleton SerialNumber instance. </p>
+<p>The instance is created on first use and the function-local static variable guarantees safe initialization in compliant C++11 (and later) runtimes.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the unique SerialNumber instance. </dd></dl>
 
 </div>
 </div>
@@ -170,9 +167,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Converts the serial number to a 32-bit unsigned integer. </p>
-<p>Returns a compact integer representation of the serial number for storage or comparison.</p>
-<dl class="section return"><dt>Returns</dt><dd>32-bit unsigned integer representation of the serial number. </dd></dl>
+<p>Implicit numeric conversion of the serial number. </p>
+<p>Returns the numeric value provided by the base class.</p>
+<dl class="section return"><dt>Returns</dt><dd>The serial number as a <span class="tt">uint32_t</span> value. </dd></dl>
 
 </div>
 </div>
@@ -194,13 +191,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get serial number as string. </p>
-<dl class="section return"><dt>Returns</dt><dd>Serial number formatted as string. </dd></dl>
+<p>Return the serial number as a string. </p>
+<p>This overrides the library implementation to expose a string representation from the base type.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">std::string</span> containing the serial number in human-readable form. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d7/db5/class_lib_1_1_system_1_1_serial_number.html#ab71dcdccbf270e67c507c14287808b00">Lib::System::SerialNumber</a>.</p>
 
 </div>
 </div>

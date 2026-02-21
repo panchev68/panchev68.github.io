@@ -93,24 +93,31 @@ $(function(){initNavTree('d8/d62/class_system_1_1_last_reset_state.html','../../
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>LastResetState class. </p>
-<p>Extends the HAL LastResetState functionality for the System namespace to provide access to the last reset state. This class follows the Singleton pattern to ensure a single instance for reset state tracking across the system. It allows retrieval of the reset cause and conversion to a state enumeration for diagnostics and error handling.</p>
-<p>Role of the type within the module or system: Serves as a centralized interface for reset state information, enabling the application to determine the cause of system resets and take appropriate actions.</p>
-<p>Important design decisions or considerations: Implements Singleton pattern to maintain a single source of truth for reset state, preventing inconsistencies from multiple instances.</p>
-<dl class="section note"><dt>Note</dt><dd>This class relies on HAL functionality for actual reset state detection. </dd></dl>
-<dl class="section important"><dt>Important</dt><dd>The Singleton pattern ensures thread-safe and consistent access to reset state information. </dd></dl>
-<dl class="section see"><dt>See also</dt><dd>Lib::HAL::LastResetState </dd></dl>
+<div class="textblock"><p>Last reset state management class. </p>
+<p>Singleton that exposes the device's last reset state at the <span class="tt">System</span> level. The class inherits from <span class="tt">Lib::HAL::LastResetState</span> and re-uses the HAL implementation while providing a single global access point for consumers.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>The class uses the Meyers singleton pattern via <span class="tt">instance()</span>.</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html" title="Lib::HAL::LastResetState">Lib::HAL::LastResetState</a> </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::LastResetState:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d7c/class_system_1_1_last_reset_state__coll__graph.svg" width="158" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d7c/class_system_1_1_last_reset_state__coll__graph.svg" width="160" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a13ec1bfab2ba4cca80dcc32ca47bca3c" id="r_a13ec1bfab2ba4cca80dcc32ca47bca3c"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a13ec1bfab2ba4cca80dcc32ca47bca3c">operator State</a> () const</td></tr>
+<tr class="memdesc:a13ec1bfab2ba4cca80dcc32ca47bca3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts LastResetState to its State value for convenient usage.  <br /></td></tr>
+<tr class="memitem:aceb01a835768bfb0b1af57d2be901501" id="r_aceb01a835768bfb0b1af57d2be901501"><td class="memItemLeft">virtual <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a2a19c559bf07ddd181d31f7a4cbb8803">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#aceb01a835768bfb0b1af57d2be901501">get</a> () const</td></tr>
+<tr class="memdesc:aceb01a835768bfb0b1af57d2be901501"><td class="mdescLeft">&#160;</td><td class="mdescRight">&lt; Inherit conversion operator to State.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a25b979b107c1feea356e2520c28febd4" id="r_a25b979b107c1feea356e2520c28febd4"><td class="memItemLeft">static LastResetState &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a25b979b107c1feea356e2520c28febd4">instance</a> ()</td></tr>
-<tr class="memdesc:a25b979b107c1feea356e2520c28febd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the singleton instance of LastResetState.  <br /></td></tr>
+<tr class="memdesc:a25b979b107c1feea356e2520c28febd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of LastResetState.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
 <a id="a8599b1dbb9767ffe7471e4f9c6d668ef" name="a8599b1dbb9767ffe7471e4f9c6d668ef"></a>
@@ -120,15 +127,45 @@ Static Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a8599b1dbb9767ffe7471e4f9c6d668ef">System::LastResetState::State</a> = Lib::HAL::LastResetState::State</td>
+          <td class="memname">using <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a2a19c559bf07ddd181d31f7a4cbb8803">System::LastResetState::State</a> = <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a2a19c559bf07ddd181d31f7a4cbb8803">Lib::HAL::LastResetState::State</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>State type alias for reset state. </p>
+
+<p>Type alias for reset state enumeration. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aceb01a835768bfb0b1af57d2be901501" name="aceb01a835768bfb0b1af57d2be901501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aceb01a835768bfb0b1af57d2be901501">&#9670;&#160;</a></span>get()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a2a19c559bf07ddd181d31f7a4cbb8803">State</a> <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#aceb01a835768bfb0b1af57d2be901501">Lib::HAL::LastResetState::get</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>&lt; Inherit conversion operator to State. </p>
+
+<p>Reimplemented from <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#aceb01a835768bfb0b1af57d2be901501">Lib::HAL::LastResetState</a>.</p>
+
+</div>
+</div>
 <a id="a25b979b107c1feea356e2520c28febd4" name="a25b979b107c1feea356e2520c28febd4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a25b979b107c1feea356e2520c28febd4">&#9670;&#160;</a></span>instance()</h2>
 
@@ -152,9 +189,40 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the singleton instance of LastResetState. </p>
-<p>Provides global access to the single LastResetState instance for tracking reset states.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton LastResetState instance. </dd></dl>
+<p>Get the singleton instance of LastResetState. </p>
+<p>Returns a reference to the single instance of the LastResetState class. This method implements the Meyers singleton pattern and provides a single global access point to reset state functionality.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the LastResetState singleton instance. </dd></dl>
+
+</div>
+</div>
+<a id="a13ec1bfab2ba4cca80dcc32ca47bca3c" name="a13ec1bfab2ba4cca80dcc32ca47bca3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13ec1bfab2ba4cca80dcc32ca47bca3c">&#9670;&#160;</a></span>operator State()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Lib::HAL::LastResetState::operator <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a2a19c559bf07ddd181d31f7a4cbb8803">State</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts LastResetState to its State value for convenient usage. </p>
+<p>This conversion operator allows the object to be used directly as a State value.</p>
+<dl class="section return"><dt>Returns</dt><dd>The last reset state as a State enumeration value. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../dd/daa/class_lib_1_1_h_a_l_1_1_last_reset_state.html#a13ec1bfab2ba4cca80dcc32ca47bca3c">Lib::HAL::LastResetState</a>.</p>
 
 </div>
 </div>

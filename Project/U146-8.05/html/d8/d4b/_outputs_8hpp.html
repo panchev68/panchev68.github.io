@@ -93,18 +93,32 @@ $(function(){initNavTree('d8/d4b/_outputs_8hpp.html','../../',''); });
 </div><!--header-->
 <div class="contents">
 
-<p>Digital Peripheral Outputs Header.  
+<p>Outputs peripheral driver for controlling daisy-chained LED output drivers.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Digital Peripheral Outputs Header. </p>
-<p>This header file defines the Outputs class for managing digital peripheral outputs in the BSP layer. It provides an interface for setting up and updating output states through SPI communication with DMA support, enabling efficient hardware control of digital outputs with daisy-chaining capabilities.</p>
-<dl class="section version"><dt>Version</dt><dd>8.04.4 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-02-09 </dd></dl>
+<div class="textblock"><p>Outputs peripheral driver for controlling daisy-chained LED output drivers. </p>
+<p>This header declares the <span class="tt">BSP::Outputs</span> class which manages a chain of parallel-output drivers over SPI. The class provides setup, update and error reporting facilities and translates a 64-bit logical output bitmap into the device-specific precode layout transmitted over the SPI bus.</p>
+<p>The driver expects an SPI master port and two GPIO control lines: chip-select (NSS) and output-enable (OE). Typical usage sequence:</p><ul>
+<li>Construct the <span class="tt">BSP::Outputs</span> object with the SPI port and pin handles.</li>
+<li>Call <span class="tt">setup()</span> to configure GPIOs and open the SPI port.</li>
+<li>Call <span class="tt">handleOutputDataChanged()</span> when the logical outputs bitmap changes.</li>
+<li>Call <span class="tt">update()</span> to transmit the current bitmap to the daisy-chained devices.</li>
+</ul>
+<p>Important dependencies and interactions:</p><ul>
+<li>The driver reconfigures the supplied SPI port to a fixed template if the current configuration differs.</li>
+<li>The <span class="tt">PRECODE_ARRAY</span> constant maps logical output indices to buffer indices and bit masks required by the hardware.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>The implementation assumes 24 outputs wired into multiple daisy-chained devices. The mapping from logical output index to device register is provided by <span class="tt">PRECODE_ARRAY</span>.</li>
+</ul>
+</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>8.05.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-02-21 </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:BSP_3A_3AOutputs" id="r_BSP_3A_3AOutputs"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d21/class_b_s_p_1_1_outputs.html">BSP::Outputs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digital Peripheral Outputs Class.  <a href="../../d5/d21/class_b_s_p_1_1_outputs.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for a set of digital outputs connected through SPI daisy-chains.  <a href="../../d5/d21/class_b_s_p_1_1_outputs.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -124,7 +138,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_ffd1f789ec7bd0a45fc6ad92579c5070.html">Project</a></li><li class="navelem"><a href="../../dir_61e0c6c068d494aa3e9fc2b166624a1f.html">BSP</a></li><li class="navelem"><a href="../../dir_617189ca9239e067a01bce720c7af75f.html">DigitalPeripheral</a></li><li class="navelem"><a href="../../d8/d4b/_outputs_8hpp.html">Outputs.hpp</a></li>
+    <li class="navelem"><a href="../../dir_0250499be9f5c23570b2916ce3fd0131.html">Project</a></li><li class="navelem"><a href="../../dir_b4aea8f791818cd56b41afa88d7855b1.html">BSP</a></li><li class="navelem"><a href="../../dir_77f286c5d946375cc163c1ab88b921d8.html">DigitalPeripheral</a></li><li class="navelem"><a href="../../d8/d4b/_outputs_8hpp.html">Outputs.hpp</a></li>
     <li class="footer">Generated on <span class="timestamp"></span> for U146 by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

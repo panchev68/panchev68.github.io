@@ -93,28 +93,28 @@ $(function(){initNavTree('d7/d14/class_b_s_p_1_1_touch_screen.html','../../','da
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>TouchScreen Driver Class. </p>
-<p>This class implements the TouchController interface for TouchGFX, providing touchscreen input functionality using the XPT2046 resistive touch controller. It supports touch sampling, initialization, and rotation settings, following the singleton pattern for global access. </p>
+<div class="textblock"><p>TouchScreen wrapper and controller adapter. </p>
+<p>Adapts the low-level <span class="tt">Lib::BSP::XPT2046</span> driver to the <span class="tt">touchgfx::TouchController</span> interface used by the GUI. The class provides initialization, sampling and rotation control and must be registered with the GUI subsystem as the active touch provider. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::TouchScreen:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da2/class_b_s_p_1_1_touch_screen__coll__graph.svg" width="174" height="286"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da2/class_b_s_p_1_1_touch_screen__coll__graph.svg" width="674" height="1566"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a84f02bc98632e79324fb4f17c1824301" id="r_a84f02bc98632e79324fb4f17c1824301"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a84f02bc98632e79324fb4f17c1824301">init</a> () override</td></tr>
-<tr class="memdesc:a84f02bc98632e79324fb4f17c1824301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the touchscreen.  <br /></td></tr>
+<tr class="memdesc:a84f02bc98632e79324fb4f17c1824301"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize touch controller hardware.  <br /></td></tr>
 <tr class="memitem:a7eeae3e75fa29ab23e5316f52ddfa69e" id="r_a7eeae3e75fa29ab23e5316f52ddfa69e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7eeae3e75fa29ab23e5316f52ddfa69e">sampleTouch</a> (int32_t &amp;x, int32_t &amp;y) override</td></tr>
-<tr class="memdesc:a7eeae3e75fa29ab23e5316f52ddfa69e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Samples touch coordinates.  <br /></td></tr>
+<tr class="memdesc:a7eeae3e75fa29ab23e5316f52ddfa69e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample touch coordinates.  <br /></td></tr>
 <tr class="memitem:a82fc95636855b739b4ffe8114641eee4" id="r_a82fc95636855b739b4ffe8114641eee4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a82fc95636855b739b4ffe8114641eee4">setRotation</a> (bool isRotationEnabled)</td></tr>
-<tr class="memdesc:a82fc95636855b739b4ffe8114641eee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the rotation mode.  <br /></td></tr>
+<tr class="memdesc:a82fc95636855b739b4ffe8114641eee4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set touch rotation.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a853aadf11407abe731f8078224246a49" id="r_a853aadf11407abe731f8078224246a49"><td class="memItemLeft">static TouchScreen &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a853aadf11407abe731f8078224246a49">instance</a> ()</td></tr>
-<tr class="memdesc:a853aadf11407abe731f8078224246a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the singleton instance of the TouchScreen.  <br /></td></tr>
+<tr class="memdesc:a853aadf11407abe731f8078224246a49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global TouchScreen instance.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a84f02bc98632e79324fb4f17c1824301" name="a84f02bc98632e79324fb4f17c1824301"></a>
@@ -135,13 +135,16 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes the touchscreen. </p>
-<p>Initializes the XPT2046 touch controller for operation. </p>
+<p>Initialize touch controller hardware. </p>
+<p>Calls the underlying XPT2046 initialization routine to configure GPIO and SPI resources used by the touch controller.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>Hardware profile must be valid and SPI pins available. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a35f713bde74dc4527b8cdcbccdf3c5a0">Lib::BSP::XPT2046</a>.</p>
 
 </div>
 </div>
@@ -163,14 +166,14 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the singleton instance of the TouchScreen. </p>
-<p>Returns the single instance of the TouchScreen class for global access.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the TouchScreen instance. </dd></dl>
+<p>Get the global TouchScreen instance. </p>
+<p>Returns a reference to the singleton instance. The instance is constructed on first use and remains valid for the application lifetime.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton <span class="tt">TouchScreen</span> instance. </dd></dl>
 
 </div>
 </div>
@@ -196,21 +199,21 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Samples touch coordinates. </p>
-<p>Samples the current touch position and stores the coordinates in the provided references.</p>
+<p>Sample touch coordinates. </p>
+<p>Queries the touch controller for the current touch position. When a valid touch is present the coordinates are written to <span class="tt">x</span> and <span class="tt">y</span>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Reference to store the x-coordinate. </td></tr>
-    <tr><td class="paramname">y</td><td>Reference to store the y-coordinate. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">x</td><td>X coordinate of the detected touch. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">y</td><td>Y coordinate of the detected touch. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if a touch is detected, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if a touch was detected and coordinates were updated, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -219,6 +222,9 @@ Static Public Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void BSP::TouchScreen::setRotation </td>
@@ -227,16 +233,23 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Sets the rotation mode. </p>
-<p>Enables or disables rotation for touch coordinate mapping.</p>
+<p>Set touch rotation. </p>
+<p>Configure whether the touch coordinates are rotated to match display orientation. The call is forwarded to the XPT2046 driver which will adjust sampling and coordinate transformation accordingly.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">isRotationEnabled</td><td>true to enable rotation, false to disable. </td></tr>
+    <tr><td class="paramname">isRotationEnabled</td><td><span class="tt">true</span> to enable rotated coordinates, <span class="tt">false</span> for native orientation. </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Reimplemented from <a class="el" href="../../db/d07/class_lib_1_1_b_s_p_1_1_x_p_t2046.html#a626ea304b709b6be8f40e400b27cb918">Lib::BSP::XPT2046</a>.</p>
 
 </div>
 </div>

@@ -1,0 +1,14 @@
+var class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period =
+[
+    [ "Period", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a367552e26954ea07ffc89cb992ec6fd4", null ],
+    [ "beginMeasurement", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#aea94baa9aaa625d44e2d9d1e721789c1", null ],
+    [ "clearMinMax", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a65be30bfc9ca767fade44cfc57f29aaf", null ],
+    [ "endMeasurement", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#ae896e69612be75d176a6709b0716257d", null ],
+    [ "getMaximum", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a271b3e4f82eba0fd1f08711f43a098b6", null ],
+    [ "getMinimum", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#ae641a0fdbb64828fcabc4fd011335eaa", null ],
+    [ "getRawValue", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#afbf7542819293a8a7e4cb19f92fb108e", null ],
+    [ "getValue", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#acd8c7b6213a8292c7928a55db3effad8", null ],
+    [ "operator uint32_t", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a736d633147bc950fd451a4d092d455d2", null ],
+    [ "reset", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a0672403a31deda500f5fa3d1abe492d6", null ],
+    [ "stopMeasurement", "d8/d3e/class_lib_1_1_xbee_1_1_a_p_i_1_1_connection_1_1_info_1_1_period.html#a9ed0089376e60287c3fdbeb23c93d9da", null ]
+];
