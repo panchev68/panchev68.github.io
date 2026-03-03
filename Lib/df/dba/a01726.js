@@ -1,0 +1,36 @@
+var a01726 =
+[
+    [ "Handle", "df/dba/a01726.html#a22b0e6acc842fa59ab21e42babbb11e2", null ],
+    [ "Status", "df/dba/a01726.html#a61fa958b085e13c4001ceaf6fbd855fd", [
+      [ "SUCCESS", "df/dba/a01726.html#a61fa958b085e13c4001ceaf6fbd855fdad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "TIMEOUT", "df/dba/a01726.html#a61fa958b085e13c4001ceaf6fbd855fda070a0fb40f6c308ab544b227660aadff", null ],
+      [ "INVALID", "df/dba/a01726.html#a61fa958b085e13c4001ceaf6fbd855fdaccc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "AT_MAX", "df/dba/a01726.html#a61fa958b085e13c4001ceaf6fbd855fdaab06979c91ba49479340319f0b3a18d6", null ],
+      [ "EMPTY", "df/dba/a01726.html#a61fa958b085e13c4001ceaf6fbd855fdaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    ] ],
+    [ "SemaphoreCounting", "df/dba/a01726.html#a5d1aa1d90732f499e3b424f831e2935c", null ],
+    [ "~SemaphoreCounting", "df/dba/a01726.html#af8d0c30e44b1208a42f524a67f95ac3e", null ],
+    [ "SemaphoreCounting", "df/dba/a01726.html#a7e497551b91db5e404470925688a3ea2", null ],
+    [ "SemaphoreCounting", "df/dba/a01726.html#a454ed896d515ff38e9a61af54e8d1bb5", null ],
+    [ "close", "df/dba/a01726.html#a486942e90c4bb73112995c10ab9bf2cd", null ],
+    [ "getAvailableCount", "df/dba/a01726.html#af76925bd534347395493df1d1c6d300d", null ],
+    [ "getCount", "df/dba/a01726.html#a237242c0475bb10af4c57e2b96b6a0a5", null ],
+    [ "getHandle", "df/dba/a01726.html#abefc7cd00d7bf5f818a36b8084851c91", null ],
+    [ "getInitialCount", "df/dba/a01726.html#ae4a1a4fa22811c607d763e524f0a27e4", null ],
+    [ "getMaxCount", "df/dba/a01726.html#a6d6cc3995c8b0da3dd924289a6dfc4cf", null ],
+    [ "getRemainingCapacity", "df/dba/a01726.html#afa492a2b3ec19a7e6cfdeba9b15732a1", null ],
+    [ "give", "df/dba/a01726.html#a97ac23e2c0fb9235e1e13a56dcc27c23", null ],
+    [ "giveFromISR", "df/dba/a01726.html#af2bf09cd3cb15cab16883862889e96c7", null ],
+    [ "isAtMaxCount", "df/dba/a01726.html#a64efd45b60a70a27d10a6270bd6e5666", null ],
+    [ "isEmpty", "df/dba/a01726.html#ae61cc7313762299f50e9496a3cfaba00", null ],
+    [ "isOpen", "df/dba/a01726.html#a194ad380377f5216c89e4f8449e7aa45", null ],
+    [ "open", "df/dba/a01726.html#a2a136990ecdca42b078cf3695afdea98", null ],
+    [ "operator Handle &", "df/dba/a01726.html#ad36952e1b8ad684b78520466b975c8fa", null ],
+    [ "operator=", "df/dba/a01726.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
+    [ "operator=", "df/dba/a01726.html#ad1d5a18bb04ee1bd2726ae8c6fac8974", null ],
+    [ "overwrite", "df/dba/a01726.html#a26617c96f4523fe5d58b0489248d0e6e", null ],
+    [ "overwriteFromISR", "df/dba/a01726.html#aa87af60fe2421cf538d1040cfe46be1c", null ],
+    [ "take", "df/dba/a01726.html#ab3693f3272d0bdf8e9e9499c188ac419", null ],
+    [ "takeFromISR", "df/dba/a01726.html#abb1dfdd4e3dfbf263c3bfa75ec97e95f", null ],
+    [ "handle", "df/dba/a01726.html#af98089a48fabe8207cc736331543af75", null ]
+];

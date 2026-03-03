@@ -1,4 +1,4 @@
 var a00566 =
 [
-    [ "RTOS::Semaphore", "dd/db4/a01693.html", "dd/db4/a01693" ]
+    [ "RTOS::MemoryManager", "d4/d8e/a01694.html", "d4/d8e/a01694" ]
 ];

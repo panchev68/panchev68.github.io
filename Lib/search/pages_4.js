@@ -1,13 +1,8 @@
 var searchData=
 [
-  ['data_0',['Example of Kalman filter usage for smoothing noisy sensor data.',['../X:/Lib/IAR/inc/Lib/Math/Filter/Kalman.hpp#example-of-kalman-filter-usage-for-smoothing-noisy-sensor-data',1,'']]],
-  ['data_20buffers_20with_20datahandle_1',['Managing Data Buffers with DataHandle',['../X:/Lib/IAR/inc/Lib/Helper/DataHandle.hpp#managing-data-buffers-with-datahandle',1,'']]],
-  ['data_20integrity_2',['Computing CRC-16 Checksum for Data Integrity',['../X:/Lib/IAR/inc/Lib/Helper/crc16.hpp#computing-crc-16-checksum-for-data-integrity',1,'']]],
-  ['datahandle_3',['Managing Data Buffers with DataHandle',['../X:/Lib/IAR/inc/Lib/Helper/DataHandle.hpp#managing-data-buffers-with-datahandle',1,'']]],
-  ['date_20and_20time_20in_20embedded_20systems_4',['Working with Date and Time in Embedded Systems',['../X:/Lib/IAR/inc/Lib/Helper/DateTime.hpp#working-with-date-and-time-in-embedded-systems',1,'']]],
-  ['db_20values_20to_20percentages_20using_20the_20dbm_20class_5',['Converting dB values to percentages using the dBM class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/dBM.hpp#converting-db-values-to-percentages-using-the-dbm-class',1,'']]],
-  ['dbm_20class_6',['Converting dB values to percentages using the dBM class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/dBM.hpp#converting-db-values-to-percentages-using-the-dbm-class',1,'']]],
-  ['decoding_20with_20error_20correction_7',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
-  ['detecting_20peaks_20in_20a_20signal_8',['Example title: Detecting peaks in a signal.',['../X:/Lib/IAR/inc/Lib/Helper/FindPeaks.hpp#example-title-detecting-peaks-in-a-signal',1,'']]],
-  ['documentation_9',['RTOS Library Documentation',['../d3/d79/a02083.html',1,'']]]
+  ['features_0',['Key Features',['../d1/d44/a00098.html#key-features',1,'']]],
+  ['float_20values_1',['Example of using LinearInterpolation for float values.',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/LinearInterpolation.hpp#example-of-using-linearinterpolation-for-float-values',1,'']]],
+  ['for_20a_20specific_20date_2',['Calculating Moon Phase for a Specific Date',['../X:/Lib/IAR/inc/Lib/Helper/MoonPhase.hpp#calculating-moon-phase-for-a-specific-date',1,'']]],
+  ['for_20float_20values_3',['Example of using LinearInterpolation for float values.',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/LinearInterpolation.hpp#example-of-using-linearinterpolation-for-float-values',1,'']]],
+  ['for_20quadrature_20encoder_20input_4',['Using Timer Encoder for Quadrature Encoder Input',['../X:/Lib/IAR/inc/Lib/HAL/core/TIM/Timer-Encoder.hpp#using-timer-encoder-for-quadrature-encoder-input',1,'']]]
 ];

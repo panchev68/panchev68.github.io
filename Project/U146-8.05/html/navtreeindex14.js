@@ -1,7 +1,5 @@
 var NAVTREEINDEX14 =
 {
-"d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a2871ef5e5f278627609748ccee116bc3":[4,0,12,0,98],
-"d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a2b90b5e047b0882984b682546580058e":[4,0,12,0,108],
 "d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a2bf53c7c40eab4ffd0648c0a5a94e508":[4,0,12,0,13],
 "d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a2cc53958c993543f88e59fa62812e160":[4,0,12,0,42],
 "d9/ddd/class_color.html#a80c4834cb363c0d3878e7f6d30c2aa79a2dd25cc17bead7d71f7ef514f890d1f6":[4,0,12,0,27],
@@ -249,5 +247,7 @@ var NAVTREEINDEX14 =
 "da/d32/struct_hardware_profile_1_1_usb_config.html":[4,0,14,8],
 "da/d32/struct_hardware_profile_1_1_usb_config.html#a0b6dd845c965622402ccd352c92d933b":[4,0,14,8,0],
 "da/d32/struct_hardware_profile_1_1_usb_config.html#a1f2b2ad6f115e27015d70329c5deaef6":[4,0,14,8,1],
-"da/d42/namespace_touch_g_f_x.html":[3,0,10]
+"da/d42/namespace_touch_g_f_x.html":[3,0,10],
+"da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html":[3,0,7,0,3,0,0,0],
+"da/d45/class_lib_1_1_b_s_p_1_1_ethercat_1_1_p_d_i_1_1_l_a_n9252_1_1_base.html":[4,0,6,0,3,0,0,0]
 };

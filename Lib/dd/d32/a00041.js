@@ -1,4 +1,4 @@
 var a00041 =
 [
-    [ "Lib::BSP::EEPROM::I2C::M24C64W", "d3/d00/a00785.html", "d3/d00/a00785" ]
+    [ "Lib::BSP::Display::ST7789", "d5/d4e/a00660.html#a65945dd063f1bdba63771905189c1761", null ]
 ];

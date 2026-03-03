@@ -1,4 +1,4 @@
 var a00569 =
 [
-    [ "RTOS::SemaphoreBase", "d6/d15/a01697.html", "d6/d15/a01697" ]
+    [ "RTOS::MessageBuffer", "de/d05/a01702.html", "de/d05/a01702" ]
 ];

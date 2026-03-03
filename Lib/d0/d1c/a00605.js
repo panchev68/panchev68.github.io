@@ -1,5 +1,5 @@
 var a00605 =
 [
-    [ "Lib::System::ParametersBase", "d5/d77/a01749.html", "d5/d77/a01749" ],
-    [ "Lib::System::ParametersBase::StorageBase", "d6/d72/a01753.html", "d6/d72/a01753" ]
+    [ "RTOS::TickService", "dc/d3a/a01750.html", "dc/d3a/a01750" ],
+    [ "RTOS::TickService::ClientBase", "d9/d37/a01754.html", "d9/d37/a01754" ]
 ];

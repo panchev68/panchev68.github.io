@@ -1,15 +1,9 @@
 var searchData=
 [
-  ['a_20shared_20resource_20in_20concurrent_20tasks_0',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['a_20signal_1',['Example title: Detecting peaks in a signal.',['../X:/Lib/IAR/inc/Lib/Helper/FindPeaks.hpp#example-title-detecting-peaks-in-a-signal',1,'']]],
-  ['a_20task_2',['Measuring Execution Time of a Task',['../X:/Lib/IAR/inc/Lib/Helper/TimePeriod.hpp#measuring-execution-time-of-a-task',1,'']]],
-  ['access_3',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
-  ['advanced_20example_3a_20using_20rtos_3a_3amutex_20for_20protecting_20a_20shared_20resource_20in_20concurrent_20tasks_4',['Advanced example: Using RTOS::Mutex for protecting a shared resource in concurrent tasks.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#advanced-example-using-rtosmutex-for-protecting-a-shared-resource-in-concurrent-tasks',1,'']]],
-  ['and_20decoding_20with_20error_20correction_5',['Example usage of HammingCode for encoding and decoding with error correction.',['../X:/Lib/IAR/inc/Lib/Math/HammingCode.hpp#example-usage-of-hammingcode-for-encoding-and-decoding-with-error-correction',1,'']]],
-  ['and_20mutexguard_20for_20thread_20safe_20access_6',['Example usage of RTOS::Mutex and MutexGuard for thread-safe access.',['../X:/Lib/IAR/inc/Lib/RTOS/Mutex.hpp#example-usage-of-rtosmutex-and-mutexguard-for-thread-safe-access',1,'']]],
-  ['and_20performing_20reset_7',['Checking System Reset Cause and Performing Reset',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#checking-system-reset-cause-and-performing-reset',1,'']]],
-  ['and_20receiving_20messages_8',['Example usage of RTOS::MessageBuffer for sending and receiving messages.',['../X:/Lib/IAR/inc/Lib/RTOS/MessageBuffer.hpp#example-usage-of-rtosmessagebuffer-for-sending-and-receiving-messages',1,'']]],
-  ['and_20sunset_20times_9',['Calculating Sunrise and Sunset Times',['../X:/Lib/IAR/inc/Lib/Helper/Sunset.hpp#calculating-sunrise-and-sunset-times',1,'']]],
-  ['and_20time_20in_20embedded_20systems_10',['Working with Date and Time in Embedded Systems',['../X:/Lib/IAR/inc/Lib/Helper/DateTime.hpp#working-with-date-and-time-in-embedded-systems',1,'']]],
-  ['and_20usage_20example_11',['and Usage Example',['../X:/Lib/IAR/inc/Lib/System/HardwareVersion.hpp#hardware-version-creation-and-usage-example',1,'Hardware Version Creation and Usage Example.'],['../X:/Lib/IAR/inc/Lib/System/SerialNumber.hpp#serial-number-generation-and-usage-example',1,'Serial Number Generation and Usage Example']]]
+  ['calculating_20moon_20phase_20for_20a_20specific_20date_0',['Calculating Moon Phase for a Specific Date',['../X:/Lib/IAR/inc/Lib/Helper/MoonPhase.hpp#calculating-moon-phase-for-a-specific-date',1,'']]],
+  ['cause_20and_20performing_20reset_1',['Checking System Reset Cause and Performing Reset',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#checking-system-reset-cause-and-performing-reset',1,'']]],
+  ['checking_20system_20reset_20cause_20and_20performing_20reset_2',['Checking System Reset Cause and Performing Reset',['../X:/Lib/IAR/inc/Lib/HAL/core/Reset/Reset.hpp#checking-system-reset-cause-and-performing-reset',1,'']]],
+  ['collection_20of_20integer_20pointers_3',['Managing a Collection of Integer Pointers',['../X:/Lib/IAR/inc/Lib/Helper/JaggedArray.hpp#managing-a-collection-of-integer-pointers',1,'']]],
+  ['conversion_20utilities_20usage_4',['Conversion utilities usage.',['../X:/Lib/IAR/inc/Lib/Helper/stdlib.hpp#conversion-utilities-usage',1,'']]],
+  ['cubic_20spline_20interpolation_20with_20standard_20output_5',['Example: Cubic spline interpolation with standard output',['../X:/Lib/IAR/inc/Lib/Math/Interpolation/CubicInterpolation.hpp#example-cubic-spline-interpolation-with-standard-output',1,'']]]
 ];

@@ -1,5 +1,5 @@
 var a00056 =
 [
-    [ "Lib::BSP::Ethercat::PDI::LAN9252", "dd/d7e/a00809.html", "dd/d7e/a00809" ],
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Config", "de/d9d/a00813.html", "de/d9d/a00813" ]
+    [ "Lib::BSP::EncoderTimer", "da/d90/a00826.html", "da/d90/a00826" ],
+    [ "Lib::BSP::EncoderTimer::Config", "d9/daf/a00830.html", "d9/daf/a00830" ]
 ];

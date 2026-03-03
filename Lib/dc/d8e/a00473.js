@@ -1,4 +1,4 @@
 var a00473 =
 [
-    [ "Lib::Helper::DataHandle&lt; T &gt;", "dc/d42/a01521.html", "dc/d42/a01521" ]
+    [ "Lib::Helper::Convert::Bcd", "db/d57/a01506.html", null ]
 ];

@@ -1,4 +1,5 @@
 var a02093 =
 [
-    [ "Lib::Helper::Exception", "d8/d13/a00671.html", "d8/d13/a00671" ]
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "d3/dca/a00954.html", "d3/dca/a00954" ],
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "df/d9c/a00958.html", "df/d9c/a00958" ]
 ];

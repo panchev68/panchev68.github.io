@@ -1,4 +1,4 @@
 var a00254 =
 [
-    [ "Lib::Ethercat::Eeprom", "d9/d5c/a01321.html", "d9/d5c/a01321" ]
+    [ "Lib::Errors::Group", "da/d79/a01310.html", "da/d79/a01310" ]
 ];

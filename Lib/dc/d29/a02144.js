@@ -1,4 +1,4 @@
 var a02144 =
 [
-    [ "Lib::HAL::UartPort&lt; T_MODE &gt;", "d3/d95/a01435.html", "d3/d95/a01435" ]
+    [ "Lib::Digi::API::ClientBase", "d3/d08/a01018.html", "d3/d08/a01018" ]
 ];

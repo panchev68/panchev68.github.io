@@ -1,4 +1,4 @@
 var a00257 =
 [
-    [ "Lib::Ethercat::FoE", "dd/d5d/a01325.html", "dd/d5d/a01325" ]
+    [ "Lib::Errors::Observer", "d9/de6/a01314.html", "d9/de6/a01314" ]
 ];

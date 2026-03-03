@@ -93,9 +93,13 @@ $(function(){initNavTree('d3/dd5/class_data_1_1_peripheral.html','../../','dd/d6
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Peripheral data manager. </p>
-<p>Singleton container for the device digital inputs and outputs. The class exposes read accessors and setters which trigger change events consumed by other system components.</p>
-<dl class="section note"><dt>Note</dt><dd>See <span class="tt">Lib::Helper::Event</span> for the event callback interface. </dd></dl>
+<div class="textblock"><p>Singleton class that holds peripheral input and output states. </p>
+<p>The class stores input and output bitmasks and provides events that subscribers can use to react to changes. Access is provided through a singleton instance.</p>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>This class does not provide internal thread-synchronization; callers must ensure thread-safety when accessing the singleton from multiple threads.</li>
+</ul>
+</dd></dl>
+<dl class="section see"><dt>See also</dt><dd>Lib::Helper::Event </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Data::Peripheral:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -106,27 +110,27 @@ $(function(){initNavTree('d3/dd5/class_data_1_1_peripheral.html','../../','dd/d6
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a1c065ef87e561f1b05b58e888fbd97a6" id="r_a1c065ef87e561f1b05b58e888fbd97a6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1c065ef87e561f1b05b58e888fbd97a6">~Peripheral</a> ()=default</td></tr>
-<tr class="memdesc:a1c065ef87e561f1b05b58e888fbd97a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="memdesc:a1c065ef87e561f1b05b58e888fbd97a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaulted destructor.  <br /></td></tr>
 <tr class="memitem:a0829f836a37989f53e777d6b39c6275f" id="r_a0829f836a37989f53e777d6b39c6275f"><td class="memItemLeft">const uint64_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0829f836a37989f53e777d6b39c6275f">getInputs</a> () const</td></tr>
-<tr class="memdesc:a0829f836a37989f53e777d6b39c6275f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read current inputs.  <br /></td></tr>
+<tr class="memdesc:a0829f836a37989f53e777d6b39c6275f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current input bitmask.  <br /></td></tr>
 <tr class="memitem:a53e19c0cfd6cca42f9d8939c1db1c40c" id="r_a53e19c0cfd6cca42f9d8939c1db1c40c"><td class="memItemLeft">const uint64_t &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a53e19c0cfd6cca42f9d8939c1db1c40c">getOutputs</a> () const</td></tr>
-<tr class="memdesc:a53e19c0cfd6cca42f9d8939c1db1c40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read current outputs.  <br /></td></tr>
+<tr class="memdesc:a53e19c0cfd6cca42f9d8939c1db1c40c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current output bitmask.  <br /></td></tr>
 <tr class="memitem:a491fa5fb77505a18f85091433821330d" id="r_a491fa5fb77505a18f85091433821330d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a491fa5fb77505a18f85091433821330d">setInputs</a> (const uint64_t &amp;data)</td></tr>
-<tr class="memdesc:a491fa5fb77505a18f85091433821330d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update inputs and notify listeners.  <br /></td></tr>
+<tr class="memdesc:a491fa5fb77505a18f85091433821330d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the input bitmask and invoke the change event if the value actually changes.  <br /></td></tr>
 <tr class="memitem:a1b203e7c2fe3f6a628f86990e9e12e36" id="r_a1b203e7c2fe3f6a628f86990e9e12e36"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1b203e7c2fe3f6a628f86990e9e12e36">setOutputs</a> (const uint64_t &amp;data)</td></tr>
-<tr class="memdesc:a1b203e7c2fe3f6a628f86990e9e12e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update outputs and notify listeners.  <br /></td></tr>
+<tr class="memdesc:a1b203e7c2fe3f6a628f86990e9e12e36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the output bitmask and invoke the change event if the value actually changes.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ad127ef83645e0cbec01430e723b0b4a6" id="r_ad127ef83645e0cbec01430e723b0b4a6"><td class="memItemLeft">static Peripheral &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad127ef83645e0cbec01430e723b0b4a6">instance</a> ()</td></tr>
-<tr class="memdesc:ad127ef83645e0cbec01430e723b0b4a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access singleton instance.  <br /></td></tr>
+<tr class="memdesc:ad127ef83645e0cbec01430e723b0b4a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton instance of <span class="tt">Peripheral</span>.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aa82587c0bc6f0810254769f6fee3a87a" id="r_aa82587c0bc6f0810254769f6fee3a87a"><td class="memItemLeft"><a class="el" href="../../d9/d49/class_lib_1_1_helper_1_1_event.html">Lib::Helper::Event</a>&lt; uint64_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa82587c0bc6f0810254769f6fee3a87a">onInputsChanged</a></td></tr>
-<tr class="memdesc:aa82587c0bc6f0810254769f6fee3a87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event fired when <span class="tt">inputs</span> changes.  <br /></td></tr>
+<tr class="memdesc:aa82587c0bc6f0810254769f6fee3a87a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event invoked when the input bitmask changes.  <br /></td></tr>
 <tr class="memitem:a470529f50e8329e3926435fec5f3637d" id="r_a470529f50e8329e3926435fec5f3637d"><td class="memItemLeft"><a class="el" href="../../d9/d49/class_lib_1_1_helper_1_1_event.html">Lib::Helper::Event</a>&lt; uint64_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a470529f50e8329e3926435fec5f3637d">onOutputsChanged</a></td></tr>
-<tr class="memdesc:a470529f50e8329e3926435fec5f3637d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event fired when <span class="tt">outputs</span> changes.  <br /></td></tr>
+<tr class="memdesc:a470529f50e8329e3926435fec5f3637d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event invoked when the output bitmask changes.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1c065ef87e561f1b05b58e888fbd97a6" name="a1c065ef87e561f1b05b58e888fbd97a6"></a>
@@ -152,8 +156,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destructor. </p>
-<p>Defaulted; destruction occurs at program termination for the singleton instance. </p>
+<p>Defaulted destructor. </p>
 
 </div>
 </div>
@@ -181,8 +184,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Read current inputs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Constant reference to the 64-bit inputs bitmask. </dd></dl>
+<p>Get the current input bitmask. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the stored input bitmask. </dd></dl>
 
 </div>
 </div>
@@ -209,8 +212,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Read current outputs. </p>
-<dl class="section return"><dt>Returns</dt><dd>Constant reference to the 64-bit outputs bitmask. </dd></dl>
+<p>Get the current output bitmask. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the stored output bitmask. </dd></dl>
 
 </div>
 </div>
@@ -237,9 +240,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Access singleton instance. </p>
-<p>Returns the global <span class="tt">Peripheral</span> instance. Created on first use and intended to live for the duration of the program.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton <span class="tt">Peripheral</span>. </dd></dl>
+<p>Return the singleton instance of <span class="tt">Peripheral</span>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the single <span class="tt">Peripheral</span> instance. </dd></dl>
 
 </div>
 </div>
@@ -266,14 +268,17 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Update inputs and notify listeners. </p>
-<p>Assigns <span class="tt">data</span> to the internal inputs container and invokes <span class="tt">onInputsChanged</span> if the value differs from the previous state.</p>
+<p>Set the input bitmask and invoke the change event if the value actually changes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>New 64-bit inputs bitmask. </td></tr>
+    <tr><td class="paramname">data</td><td>New input bitmask value.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Event <span class="tt">onInputsChanged</span> is invoked only when the new value differs from the current value. </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -300,14 +305,17 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Update outputs and notify listeners. </p>
-<p>Assigns <span class="tt">data</span> to the internal outputs container and invokes <span class="tt">onOutputsChanged</span> if the value differs from the previous state.</p>
+<p>Set the output bitmask and invoke the change event if the value actually changes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>New 64-bit outputs bitmask. </td></tr>
+    <tr><td class="paramname">data</td><td>New output bitmask value.</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section note"><dt>Note</dt><dd><ul>
+<li>Event <span class="tt">onOutputsChanged</span> is invoked only when the new value differs from the current value. </li>
+</ul>
+</dd></dl>
 
 </div>
 </div>
@@ -324,7 +332,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event fired when <span class="tt">inputs</span> changes. </p>
+<p>Event invoked when the input bitmask changes. </p>
+<p>The event payload is the new input bitmask value. </p>
 
 </div>
 </div>
@@ -340,7 +349,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Event fired when <span class="tt">outputs</span> changes. </p>
+<p>Event invoked when the output bitmask changes. </p>
+<p>The event payload is the new output bitmask value. </p>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::GPIO::ExtInterrupt</title>
+<title>IAR Library: Member List</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.04</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.05</span>
    </div>
    <div id="projectbrief">IAR  Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d3/dfd/a01803.html','../../',''); });
+$(function(){initNavTree('db/db2/a01806.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,107 +91,20 @@ $(function(){initNavTree('d3/dfd/a01803.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::GPIO::ExtInterrupt</div></div>
+  <div class="headertitle"><div class="title">Lib::System::Version::Hardware Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<h2 class="doxsection"><a class="anchor" id="external-interrupt-usage-example"></a>
-External Interrupt Usage Example</h2>
-<p>This example demonstrates how to configure and use external interrupts on GPIO pins in an embedded system using the ExtInterrupt class. The example shows button press detection with debouncing and event handling.</p>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../db/d10/a00350.html">ExtInterrupt.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d9c/a00413.html">GPIO.hpp</a>&quot;</span>  <span class="comment">// Assuming GPIO handle creation utilities</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Global variables for interrupt handling</span></div>
-<div class="line"><span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keywordtype">bool</span> buttonPressed = <span class="keyword">false</span>;</div>
-<div class="line"><span class="keyword">static</span> <span class="keyword">volatile</span> uint32_t pressCount = 0;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Interrupt callback function</span></div>
-<div class="line"><span class="keywordtype">void</span> onButtonPress(<span class="keyword">const</span> Lib::HAL::GPIO::ExtInterrupt * interrupt) {</div>
-<div class="line">    <span class="comment">// Simple debouncing - in real application, use timer-based debouncing</span></div>
-<div class="line">    <span class="keyword">static</span> uint32_t lastPressTime = 0;</div>
-<div class="line">    uint32_t currentTime = HAL_GetTick(); <span class="comment">// Assuming HAL tick function</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (currentTime - lastPressTime &gt; 50) { <span class="comment">// 50ms debounce</span></div>
-<div class="line">        buttonPressed = <span class="keyword">true</span>;</div>
-<div class="line">        pressCount++;</div>
-<div class="line">        lastPressTime = currentTime;</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Optional: Read pin state for additional logic</span></div>
-<div class="line">        <span class="keywordtype">bool</span> pinState = interrupt-&gt;read();</div>
-<div class="line">        <span class="comment">// Process pin state if needed</span></div>
-<div class="line">    }</div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">int</span> main() {</div>
-<div class="line">    <span class="comment">// Initialize HAL and GPIO peripherals</span></div>
-<div class="line">    HAL_Init();</div>
-<div class="line">    <span class="comment">// ... GPIO peripheral initialization ...</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create GPIO handle for pin 0 on GPIOA</span></div>
-<div class="line">    Lib::HAL::GPIO::Handle buttonHandle(GPIOA, 0); <span class="comment">// Assuming GPIOA is defined</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Create ExtInterrupt instance</span></div>
-<div class="line">    Lib::HAL::GPIO::ExtInterrupt buttonInterrupt(buttonHandle);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Bind the interrupt callback</span></div>
-<div class="line">    <span class="keywordtype">bool</span> bindSuccess = buttonInterrupt.bind(onButtonPress);</div>
-<div class="line">    <span class="keywordflow">if</span> (!bindSuccess) {</div>
-<div class="line">        <span class="comment">// Handle binding failure (e.g., pin already bound)</span></div>
-<div class="line">        <span class="comment">// Error handling code here</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Configure HAL EXTI for falling edge (button press)</span></div>
-<div class="line">    <span class="comment">// This is typically done through HAL_GPIO_Init or similar</span></div>
-<div class="line">    <span class="comment">// GPIO_EXTI_Config(buttonHandle.getPort(), buttonHandle.getPinNumber(),</span></div>
-<div class="line">    <span class="comment">//                  GPIO_MODE_IT_FALLING, GPIO_PULLUP);</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Main application loop</span></div>
-<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">        <span class="keywordflow">if</span> (buttonPressed) {</div>
-<div class="line">            buttonPressed = <span class="keyword">false</span>;</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// Process button press in main loop</span></div>
-<div class="line">            <span class="comment">// This ensures interrupt context is kept minimal</span></div>
-<div class="line">            printf(<span class="stringliteral">&quot;Button pressed! Total presses: %lu\n&quot;</span>, pressCount);</div>
-<div class="line"> </div>
-<div class="line">            <span class="comment">// Application logic for button press</span></div>
-<div class="line">            <span class="comment">// e.g., toggle LED, send message, etc.</span></div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Other application tasks</span></div>
-<div class="line">        <span class="comment">// ...</span></div>
-<div class="line"> </div>
-<div class="line">        <span class="comment">// Small delay to prevent busy waiting</span></div>
-<div class="line">        HAL_Delay(10);</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Cleanup (in real application, this might not be reached)</span></div>
-<div class="line">    buttonInterrupt.unbind();</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00350_html"><div class="ttname"><a href="../../db/d10/a00350.html">ExtInterrupt.hpp</a></div><div class="ttdoc">External interrupt handling for GPIO pins with event-driven architecture.</div></div>
-<div class="ttc" id="aa00413_html"><div class="ttname"><a href="../../da/d9c/a00413.html">GPIO.hpp</a></div><div class="ttdoc">GPIO HAL interface header.</div></div>
-</div><!-- fragment --><dl class="section user"><dt>Configuration Notes:</dt><dd><ul>
-<li>Ensure HAL_EXTI_MODULE_ENABLED is defined in project configuration</li>
-<li>Configure GPIO pin mode as interrupt-capable in HAL initialization</li>
-<li>Set appropriate interrupt priority and enable NVIC interrupts</li>
-<li>Consider <a class="el" href="../../d7/d5f/a00663.html" title="RTOS namespace.">RTOS</a> task priorities when handling interrupts</li>
-</ul>
-</dd></dl>
-<dl class="section user"><dt>Thread Safety:</dt><dd><ul>
-<li>Interrupt callbacks execute in interrupt context - keep them brief</li>
-<li>Use volatile variables for shared data between ISR and main code</li>
-<li>Consider using <a class="el" href="../../d7/d5f/a00663.html" title="RTOS namespace.">RTOS</a> queues or semaphores for complex inter-task communication</li>
-</ul>
-</dd></dl>
-<dl class="section user"><dt>Error Handling:</dt><dd><ul>
-<li>Check return values from bind() and unbind() operations</li>
-<li>Handle cases where interrupt binding fails (pin already in use)</li>
-<li>Implement proper cleanup in destructors and error paths</li>
-</ul>
-</dd></dl>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../db/db2/a01806.html">Lib::System::Version::Hardware</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../dd/ddc/a01802.html#ac609c4ab5dced66ee401a85d7fb44701">Base</a>(std::string_view versionString)</td><td class="entry"><a class="el" href="../../dd/ddc/a01802.html">Lib::System::Version::Base</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../db/db2/a01806.html#abf7e1433f09ffae61c7d1d321b74bf7e">Hardware</a>(std::string_view versionString)</td><td class="entry"><a class="el" href="../../db/db2/a01806.html">Lib::System::Version::Hardware</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../db/db2/a01806.html#a206cacc2c34b515f3bb7bc0a6578d1d4">operator std::string</a>() const</td><td class="entry"><a class="el" href="../../db/db2/a01806.html">Lib::System::Version::Hardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../db/db2/a01806.html#ad5bf719021eb4b29e6059abf4e8a7364">operator uint32_t</a>() const</td><td class="entry"><a class="el" href="../../db/db2/a01806.html">Lib::System::Version::Hardware</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../dd/ddc/a01802.html#a472fa772f558e73d939a68b3d06376a7">stringToDateTime</a>(std::string_view timeString, std::string_view dateString)</td><td class="entry"><a class="el" href="../../dd/ddc/a01802.html">Lib::System::Version::Base</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../dd/ddc/a01802.html#a31eaa2135a2564377e2b3f671f06ac1a">stringToU32</a>(std::string_view versionString)</td><td class="entry"><a class="el" href="../../dd/ddc/a01802.html">Lib::System::Version::Base</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../db/db2/a01806.html#a24678d02e43446c6c2ba3b8b0cefd54b">~Hardware</a>()=default</td><td class="entry"><a class="el" href="../../db/db2/a01806.html">Lib::System::Version::Hardware</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

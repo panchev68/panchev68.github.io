@@ -1,18 +1,5 @@
 var a02092 =
 [
-    [ "Buffer", "d4/de0/a02092.html#af9ab2e45b1d521e81c19589542b4b0b0", null ],
-    [ "Buffer", "d4/de0/a02092.html#a6fb427549ecf8c1c20820700c019f58f", null ],
-    [ "Buffer", "d4/de0/a02092.html#afc235cba5b43abb8c59632bc12a6c824", null ],
-    [ "Buffer", "d4/de0/a02092.html#a673cbd44b87cf900982433619fd7680f", null ],
-    [ "Buffer", "d4/de0/a02092.html#a4152df5fad433c572bef169ee46cb991", null ],
-    [ "~Buffer", "d4/de0/a02092.html#a950e8ecd45d712bd45ab87f7b7c65507", null ],
-    [ "clear", "d4/de0/a02092.html#a1bb2eec77281d4dca8975cff25654415", null ],
-    [ "getSize", "d4/de0/a02092.html#acc24103eef1ab4a7b639bff60303891a", null ],
-    [ "operator const uint8_t *", "d4/de0/a02092.html#a0fc61b2913177e45940c8000e8c0ac87", null ],
-    [ "operator uint8_t *", "d4/de0/a02092.html#afa53e512fa9d069dba8f4e387ffe43df", null ],
-    [ "operator=", "d4/de0/a02092.html#a57b913d3f6c04a2b4e00ea9eaeb73fb1", null ],
-    [ "operator[]", "d4/de0/a02092.html#a349ac1909667d09f057d02a94389ecb5", null ],
-    [ "operator[]", "d4/de0/a02092.html#a31a9debe78ef23f609d52d233fff4870", null ],
-    [ "setExisting", "d4/de0/a02092.html#aa618cdbf9dc710e5b4406b7601c497b1", null ],
-    [ "setSize", "d4/de0/a02092.html#a44d28f117f561e52889860c89eb76c4e", null ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "d0/d11/a00842.html", "d0/d11/a00842" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "d9/d87/a00846.html", "d9/d87/a00846" ]
 ];

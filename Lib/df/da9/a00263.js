@@ -1,7 +1,7 @@
 var a00263 =
 [
-    [ "Lib::Ethercat::Slave", "df/d29/a01329.html", "df/d29/a01329" ],
-    [ "APP_setwatchdog", "df/da9/a00263.html#af67b04f9943878f4c12faf38d5e6c9dd", null ],
-    [ "cb_get_inputs", "df/da9/a00263.html#a754ee45fbadd36167fb6109fce508e7b", null ],
-    [ "cb_set_outputs", "df/da9/a00263.html#a5206de2894172776c8bb1fb09874d097", null ]
+    [ "Lib::Ethercat::CoE", "d5/df4/a01322.html", "d5/df4/a01322" ],
+    [ "sizeRXPDO", "df/da9/a00263.html#a4406ef7bd64e697166e072458f08ecf7", null ],
+    [ "sizeTXPDO", "df/da9/a00263.html#a2a6a9317523c67842d9300ab24cfd8f0", null ],
+    [ "SDOobjects", "df/da9/a00263.html#a6f05428728936fdf9d9ce06d99fca3db", null ]
 ];

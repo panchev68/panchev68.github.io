@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['bcd_20class_0',['Converting BCD values using the Bcd class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#converting-bcd-values-using-the-bcd-class',1,'']]],
-  ['bcd_20values_20using_20the_20bcd_20class_1',['Converting BCD values using the Bcd class.',['../X:/Lib/IAR/inc/Lib/Helper/Convert/Bcd.hpp#converting-bcd-values-using-the-bcd-class',1,'']]],
-  ['buffers_20with_20datahandle_2',['Managing Data Buffers with DataHandle',['../X:/Lib/IAR/inc/Lib/Helper/DataHandle.hpp#managing-data-buffers-with-datahandle',1,'']]],
-  ['byte_20order_20swapping_20example_3',['Byte-Order Swapping Example',['../X:/Lib/IAR/inc/Lib/Helper/SwapBytes.hpp#byte-order-swapping-example',1,'']]]
+  ['date_0',['Calculating Moon Phase for a Specific Date',['../X:/Lib/IAR/inc/Lib/Helper/MoonPhase.hpp#calculating-moon-phase-for-a-specific-date',1,'']]],
+  ['date_20and_20time_20in_20embedded_20systems_1',['Working with Date and Time in Embedded Systems',['../X:/Lib/IAR/inc/Lib/Helper/DateTime.hpp#working-with-date-and-time-in-embedded-systems',1,'']]],
+  ['documentation_2',['RTOS Library Documentation',['../da/d14/a02066.html',1,'']]]
 ];

@@ -1,7 +1,5 @@
 var NAVTREEINDEX19 =
 {
-"dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a70ddd1b4f5361e0a3a719fa96432ad86":[3,0,7,0,5,0,1,4],
-"dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a70ddd1b4f5361e0a3a719fa96432ad86":[4,0,6,0,5,0,1,4],
 "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a8c3cb8aee7f7051a4e2acb494bb89ff4":[3,0,7,0,5,0,1,5],
 "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a8c3cb8aee7f7051a4e2acb494bb89ff4":[4,0,6,0,5,0,1,5],
 "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a8d0bee89610e9b3883f6ab912f2fb6fa":[3,0,7,0,5,0,1,9],
@@ -249,5 +247,7 @@ var NAVTREEINDEX19 =
 "dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ac93122df0f08229843dfb5d8105ad03b":[4,0,6,3,5,0,3,10],
 "dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ae092dba94338a5b24aa29b9ad9c9cf0c":[3,0,7,3,5,0,3,16],
 "dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ae092dba94338a5b24aa29b9ad9c9cf0c":[4,0,6,3,5,0,3,16],
-"dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ae176e9ab9148380f2307a54cc00bb7a6":[3,0,7,3,5,0,3,28]
+"dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ae176e9ab9148380f2307a54cc00bb7a6":[3,0,7,3,5,0,3,28],
+"dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ae176e9ab9148380f2307a54cc00bb7a6":[4,0,6,3,5,0,3,28],
+"dd/d3d/class_lib_1_1_h_a_l_1_1_s_p_i_1_1_master_1_1_transperent_base.html#ae59f638bf3c7607a5d720b1c03ca6bde":[3,0,7,3,5,0,3,15]
 };

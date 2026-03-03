@@ -93,8 +93,8 @@ $(function(){initNavTree('dc/d36/class_b_s_p_1_1_beep.html','../../','d0/d8b/cla
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Audio beep manager. </p>
-<p>Provides a project-level, singleton interface for simple beep sequences used for user notifications. The class inherits from <span class="tt">Lib::BSP::Beep</span> and supplies the HAL timer handle and channel required to generate PWM output. </p>
+<div class="textblock"><p>Singleton providing board-configured beep functionality. </p>
+<p>The class constructs the library beep with the MCU timer and channel used on this board and forwards calls to the underlying implementation. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::Beep:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,7 +105,7 @@ $(function(){initNavTree('dc/d36/class_b_s_p_1_1_beep.html','../../','d0/d8b/cla
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a3cc06b8c2ef6e72728b260745d6fe73c" id="r_a3cc06b8c2ef6e72728b260745d6fe73c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3cc06b8c2ef6e72728b260745d6fe73c">play</a> (uint32_t duration=100, uint32_t pause=0, uint32_t count=1)</td></tr>
-<tr class="memdesc:a3cc06b8c2ef6e72728b260745d6fe73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play a beep pattern.  <br /></td></tr>
+<tr class="memdesc:a3cc06b8c2ef6e72728b260745d6fe73c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play a beep pattern using the configured timer/channel.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_lib_1_1_b_s_p_1_1_beep"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_lib_1_1_b_s_p_1_1_beep')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../df/d71/class_lib_1_1_b_s_p_1_1_beep.html">Lib::BSP::Beep</a></td></tr>
 <tr class="memitem:a4884dabff2586fbf4eb9e94bbd9b5209 inherit pub_methods_class_lib_1_1_b_s_p_1_1_beep" id="r_a4884dabff2586fbf4eb9e94bbd9b5209"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../df/d71/class_lib_1_1_b_s_p_1_1_beep.html#a4884dabff2586fbf4eb9e94bbd9b5209">Beep</a> (const <a class="el" href="../../d7/d87/struct_lib_1_1_b_s_p_1_1_beep_1_1_config.html">Config</a> &amp;config)</td></tr>
 <tr class="memdesc:a4884dabff2586fbf4eb9e94bbd9b5209 inherit pub_methods_class_lib_1_1_b_s_p_1_1_beep"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for Beep class.  <br /></td></tr>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1e9fade569ee4ab7a48c40cc0f63d216" id="r_a1e9fade569ee4ab7a48c40cc0f63d216"><td class="memItemLeft">static Beep &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1e9fade569ee4ab7a48c40cc0f63d216">instance</a> ()</td></tr>
-<tr class="memdesc:a1e9fade569ee4ab7a48c40cc0f63d216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the global Beep instance.  <br /></td></tr>
+<tr class="memdesc:a1e9fade569ee4ab7a48c40cc0f63d216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the board beep controller.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a1e9fade569ee4ab7a48c40cc0f63d216" name="a1e9fade569ee4ab7a48c40cc0f63d216"></a>
@@ -150,9 +150,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the global Beep instance. </p>
-<p>Returns a reference to the singleton instance. The instance is constructed on first use and remains valid for the application lifetime.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the global <span class="tt">Beep</span> instance. </dd></dl>
+<p>Get the singleton instance of the board beep controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>reference to the unique Beep instance. </dd></dl>
 
 </div>
 </div>
@@ -188,20 +187,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Play a beep pattern. </p>
-<p>Forward the request to the base class which performs timer-driven PWM to generate audible beeps. This wrapper simpl y exposes the API from the library on the project singleton.</p>
+<p>Play a beep pattern using the configured timer/channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">duration</td><td>Duration of each beep in milliseconds. </td></tr>
-    <tr><td class="paramname">pause</td><td>Pause between beeps in milliseconds. </td></tr>
-    <tr><td class="paramname">count</td><td>Number of beeps to play.</td></tr>
+    <tr><td class="paramname">duration</td><td>duration of a single beep in milliseconds (default 100). </td></tr>
+    <tr><td class="paramname">pause</td><td>pause between beeps in milliseconds (default 0). </td></tr>
+    <tr><td class="paramname">count</td><td>number of beeps to play (default 1). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section pre"><dt>Precondition</dt><dd><ul>
-<li>The HAL timer referenced by the constructor must be configured by the system startup code and available for use. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: BufferHandle</title>
+<title>IAR Library: DriverBase.hpp</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.04</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.05</span>
    </div>
    <div id="projectbrief">IAR  Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d6/d5b/a02078.html','../../','d9/d95/a02075'); });
+$(function(){initNavTree('d6/d5b/a02078.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,449 +91,46 @@ $(function(){initNavTree('d6/d5b/a02078.html','../../','d9/d95/a02075'); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">BufferHandle</div></div>
+  <div class="headertitle"><div class="title">DriverBase.hpp</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Base driver class for SPI flash memory devices.  
+<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p><a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> class for managing uint8_t buffers. </p>
-<p>The <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> class encapsulates a std::vector&lt;uint8_t&gt; to provide safe management of dynamic buffers. It supports initialization from raw pointers, copying, and provides access methods for data manipulation. Assertions are used to ensure validity in debug builds.</p>
-<p>Role within the module: Acts as a wrapper for buffer data in helper utilities.</p>
-<p>Important design decisions: Uses std::vector for automatic memory management and RAII. </p>
-</div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BufferHandle:</div>
+<div class="textblock"><p>Base driver class for SPI flash memory devices. </p>
+<p>This file defines the base class for SPI flash memory drivers, providing a common interface for initializing, reading, writing, and erasing SPI flash memory chips. It includes configuration structures, status enumeration, and virtual methods that derived classes must implement.</p>
+<p>The class manages SPI communication and chip select pin control, offering a standardized way to interact with various SPI flash memory devices.</p>
+<dl class="section note"><dt>Note</dt><dd>This is an abstract base class; concrete implementations must inherit and implement the pure virtual methods.</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>Ensure proper SPI configuration and pin setup before using derived drivers.</dd></dl>
+<dl class="section version"><dt>Version</dt><dd>3.04 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>25 Jan 2026 </dd></dl>
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for BSP/FlashMemory/SPI/DriverBase.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d87/a02076.svg" width="178" height="315"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d21/a02079.svg" width="1646" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a178fee8d1c634241a55a4c8a8e80bffa" id="r_a178fee8d1c634241a55a4c8a8e80bffa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a178fee8d1c634241a55a4c8a8e80bffa">BufferHandle</a> ()=default</td></tr>
-<tr class="memdesc:a178fee8d1c634241a55a4c8a8e80bffa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>.  <br /></td></tr>
-<tr class="memitem:ada02c7448505870777a13ea9f7a56626" id="r_ada02c7448505870777a13ea9f7a56626"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ada02c7448505870777a13ea9f7a56626">BufferHandle</a> (uint8_t *buffer, size_t size)</td></tr>
-<tr class="memdesc:ada02c7448505870777a13ea9f7a56626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> from raw buffer.  <br /></td></tr>
-<tr class="memitem:ac65c249fd421e412486221b6fb5ff894" id="r_ac65c249fd421e412486221b6fb5ff894"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac65c249fd421e412486221b6fb5ff894">BufferHandle</a> (const <a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp;other)=default</td></tr>
-<tr class="memdesc:ac65c249fd421e412486221b6fb5ff894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>.  <br /></td></tr>
-<tr class="memitem:a350282ca4851321c92a4ea0d128db92f" id="r_a350282ca4851321c92a4ea0d128db92f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a350282ca4851321c92a4ea0d128db92f">~BufferHandle</a> ()=default</td></tr>
-<tr class="memdesc:a350282ca4851321c92a4ea0d128db92f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>.  <br /></td></tr>
-<tr class="memitem:a759d74d0d6f7e56bd8f6b794e978aedd" id="r_a759d74d0d6f7e56bd8f6b794e978aedd"><td class="memItemLeft"><a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a759d74d0d6f7e56bd8f6b794e978aedd">operator=</a> (const <a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp;other)=default</td></tr>
-<tr class="memdesc:a759d74d0d6f7e56bd8f6b794e978aedd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>.  <br /></td></tr>
-<tr class="memitem:af4608c5b99e8105ccf58b6d6a4b90b47" id="r_af4608c5b99e8105ccf58b6d6a4b90b47"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af4608c5b99e8105ccf58b6d6a4b90b47">set</a> (uint8_t *buffer, size_t size)</td></tr>
-<tr class="memdesc:af4608c5b99e8105ccf58b6d6a4b90b47"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the buffer data from a raw buffer.  <br /></td></tr>
-<tr class="memitem:a31d3f63a76400072a52cb7110e704f55" id="r_a31d3f63a76400072a52cb7110e704f55"><td class="memItemLeft">uint8_t *&#160;</td><td class="memItemRight"><a class="el" href="#a31d3f63a76400072a52cb7110e704f55">data</a> ()</td></tr>
-<tr class="memdesc:a31d3f63a76400072a52cb7110e704f55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the mutable buffer data.  <br /></td></tr>
-<tr class="memitem:a2e1ce5e9048b9458848affceacbd9544" id="r_a2e1ce5e9048b9458848affceacbd9544"><td class="memItemLeft">const uint8_t *&#160;</td><td class="memItemRight"><a class="el" href="#a2e1ce5e9048b9458848affceacbd9544">data</a> () const</td></tr>
-<tr class="memdesc:a2e1ce5e9048b9458848affceacbd9544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets a pointer to the constant buffer data.  <br /></td></tr>
-<tr class="memitem:ae3e4a082ca400798becc5c74adefab4e" id="r_ae3e4a082ca400798becc5c74adefab4e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae3e4a082ca400798becc5c74adefab4e">getSize</a> () const</td></tr>
-<tr class="memdesc:ae3e4a082ca400798becc5c74adefab4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the size of the buffer.  <br /></td></tr>
-<tr class="memitem:acdde4edabc36ac36ef22e68437cac305" id="r_acdde4edabc36ac36ef22e68437cac305"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acdde4edabc36ac36ef22e68437cac305">operator uint8_t *</a> ()</td></tr>
-<tr class="memdesc:acdde4edabc36ac36ef22e68437cac305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to mutable uint8_t pointer.  <br /></td></tr>
-<tr class="memitem:af3cb0c7a9dd8c33a06471e225f49fec5" id="r_af3cb0c7a9dd8c33a06471e225f49fec5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af3cb0c7a9dd8c33a06471e225f49fec5">operator const uint8_t *</a> () const</td></tr>
-<tr class="memdesc:af3cb0c7a9dd8c33a06471e225f49fec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion operator to const uint8_t pointer.  <br /></td></tr>
-<tr class="memitem:aa90c1259b967b7b7a7f892fcf8c863f3" id="r_aa90c1259b967b7b7a7f892fcf8c863f3"><td class="memItemLeft"><a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa90c1259b967b7b7a7f892fcf8c863f3">operator()</a> (uint8_t *buffer, size_t size)</td></tr>
-<tr class="memdesc:aa90c1259b967b7b7a7f892fcf8c863f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function call operator to set buffer data.  <br /></td></tr>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI_3A_3ADriverBase" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI_3A_3ADriverBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dd3/a00902.html">Lib::BSP::FMEM::SPI::DriverBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base driver class for <a class="el" href="../../d1/d97/a00670.html" title="SPI Flash Memory Drivers Namespace.">SPI</a> flash memory devices.  <a href="../../d5/dd3/a00902.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI_3A_3ADriverBase_3A_3AConfig" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI_3A_3ADriverBase_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../da/dd8/a00906.html">Lib::BSP::FMEM::SPI::DriverBase::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration structure for <a class="el" href="../../d1/d97/a00670.html" title="SPI Flash Memory Drivers Namespace.">SPI</a> flash memory driver.  <a href="../../da/dd8/a00906.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI_3A_3ADriverBase_3A_3AInfo" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI_3A_3ADriverBase_3A_3AInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d12/a00910.html">Lib::BSP::FMEM::SPI::DriverBase::Info</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Information structure for <a class="el" href="../../d1/d97/a00670.html" title="SPI Flash Memory Drivers Namespace.">SPI</a> flash memory device.  <a href="../../d4/d12/a00910.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../da/dc3/a00657.html">Lib</a></td></tr>
+<tr class="memdesc:da/dc3/a00657"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/dc3/a00657.html" title="Lib namespace for library components.">Lib</a> namespace for library components. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP" id="r_Lib_3A_3ABSP"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d91/a00659.html">Lib::BSP</a></td></tr>
+<tr class="memdesc:dc/d91/a00659"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../dc/d91/a00659.html" title="BSP namespace for board support package.">BSP</a> namespace for board support package. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM" id="r_Lib_3A_3ABSP_3A_3AFMEM"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d7a/a00669.html">Lib::BSP::FMEM</a></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3ASPI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d97/a00670.html">Lib::BSP::FMEM::SPI</a></td></tr>
+<tr class="memdesc:d1/d97/a00670"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d1/d97/a00670.html" title="SPI Flash Memory Drivers Namespace.">SPI</a> Flash Memory Drivers Namespace. <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a178fee8d1c634241a55a4c8a8e80bffa" name="a178fee8d1c634241a55a4c8a8e80bffa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a178fee8d1c634241a55a4c8a8e80bffa">&#9670;&#160;</a></span>BufferHandle() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d60/a01461.html#a178fee8d1c634241a55a4c8a8e80bffa">Lib::Helper::BufferHandle::BufferHandle</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default constructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>. </p>
-<p>Initializes an empty <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> with no data. </p>
-
-</div>
-</div>
-<a id="ada02c7448505870777a13ea9f7a56626" name="ada02c7448505870777a13ea9f7a56626"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada02c7448505870777a13ea9f7a56626">&#9670;&#160;</a></span>BufferHandle() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d60/a01461.html#a178fee8d1c634241a55a4c8a8e80bffa">Lib::Helper::BufferHandle::BufferHandle</a> </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> from raw buffer. </p>
-<p>Initializes the <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> with data copied from the provided raw buffer.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Pointer to the raw uint8_t buffer. Must not be null. </td></tr>
-    <tr><td class="paramname">size</td><td>Size of the buffer in bytes. Must be greater than 0.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section pre"><dt>Precondition</dt><dd>buffer is not null. </dd>
-<dd>
-size &gt; 0. </dd></dl>
-
-</div>
-</div>
-<a id="ac65c249fd421e412486221b6fb5ff894" name="ac65c249fd421e412486221b6fb5ff894"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac65c249fd421e412486221b6fb5ff894">&#9670;&#160;</a></span>BufferHandle() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d60/a01461.html#a178fee8d1c634241a55a4c8a8e80bffa">Lib::Helper::BufferHandle::BufferHandle</a> </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy constructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>. </p>
-<p>Creates a copy of the provided <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>, duplicating the internal buffer.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a350282ca4851321c92a4ea0d128db92f" name="a350282ca4851321c92a4ea0d128db92f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a350282ca4851321c92a4ea0d128db92f">&#9670;&#160;</a></span>~BufferHandle()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../dc/d60/a01461.html#a350282ca4851321c92a4ea0d128db92f">Lib::Helper::BufferHandle::~BufferHandle</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destructor for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>. </p>
-<p>Cleans up the internal buffer resources automatically. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a31d3f63a76400072a52cb7110e704f55" name="a31d3f63a76400072a52cb7110e704f55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31d3f63a76400072a52cb7110e704f55">&#9670;&#160;</a></span>data() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t * <a class="el" href="../../dc/d60/a01461.html#a31d3f63a76400072a52cb7110e704f55">Lib::Helper::BufferHandle::data</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a pointer to the mutable buffer data. </p>
-<p>Returns a pointer to the internal buffer for modification.</p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the uint8_t buffer data.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
-
-</div>
-</div>
-<a id="a2e1ce5e9048b9458848affceacbd9544" name="a2e1ce5e9048b9458848affceacbd9544"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e1ce5e9048b9458848affceacbd9544">&#9670;&#160;</a></span>data() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uint8_t * <a class="el" href="../../dc/d60/a01461.html#a31d3f63a76400072a52cb7110e704f55">Lib::Helper::BufferHandle::data</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets a pointer to the constant buffer data. </p>
-<p>Returns a const pointer to the internal buffer for read-only access.</p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the uint8_t buffer data.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
-
-</div>
-</div>
-<a id="ae3e4a082ca400798becc5c74adefab4e" name="ae3e4a082ca400798becc5c74adefab4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3e4a082ca400798becc5c74adefab4e">&#9670;&#160;</a></span>getSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../dc/d60/a01461.html#ae3e4a082ca400798becc5c74adefab4e">Lib::Helper::BufferHandle::getSize</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the size of the buffer. </p>
-<p>Returns the number of bytes in the buffer.</p>
-<dl class="section return"><dt>Returns</dt><dd>Size of the buffer in bytes. </dd></dl>
-
-</div>
-</div>
-<a id="af3cb0c7a9dd8c33a06471e225f49fec5" name="af3cb0c7a9dd8c33a06471e225f49fec5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3cb0c7a9dd8c33a06471e225f49fec5">&#9670;&#160;</a></span>operator const uint8_t *()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::BufferHandle::operator const uint8_t * </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Conversion operator to const uint8_t pointer. </p>
-<p>Allows implicit conversion to const uint8_t* for compatibility.</p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the buffer data. </dd></dl>
-
-</div>
-</div>
-<a id="acdde4edabc36ac36ef22e68437cac305" name="acdde4edabc36ac36ef22e68437cac305"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdde4edabc36ac36ef22e68437cac305">&#9670;&#160;</a></span>operator uint8_t *()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::BufferHandle::operator uint8_t * </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Conversion operator to mutable uint8_t pointer. </p>
-<p>Allows implicit conversion to uint8_t* for compatibility.</p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the buffer data. </dd></dl>
-
-</div>
-</div>
-<a id="aa90c1259b967b7b7a7f892fcf8c863f3" name="aa90c1259b967b7b7a7f892fcf8c863f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa90c1259b967b7b7a7f892fcf8c863f3">&#9670;&#160;</a></span>operator()()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp; Lib::Helper::BufferHandle::operator() </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Function call operator to set buffer data. </p>
-<p>Allows setting the buffer data using function call syntax.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Pointer to the raw uint8_t buffer. Must not be null. </td></tr>
-    <tr><td class="paramname">size</td><td>Size of the buffer in bytes. Must be greater than 0. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>buffer is not null. </dd>
-<dd>
-size &gt; 0. </dd></dl>
-
-</div>
-</div>
-<a id="a759d74d0d6f7e56bd8f6b794e978aedd" name="a759d74d0d6f7e56bd8f6b794e978aedd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a759d74d0d6f7e56bd8f6b794e978aedd">&#9670;&#160;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp; Lib::Helper::BufferHandle::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d6/d5b/a02078.html">BufferHandle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Assignment operator for <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>. </p>
-<p>Assigns the contents of another <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> to this one, copying the buffer.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>The <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a> to assign from. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this <a class="el" href="../../d6/d5b/a02078.html" title="BufferHandle class for managing uint8_t buffers.">BufferHandle</a>. </dd></dl>
-
-</div>
-</div>
-<a id="af4608c5b99e8105ccf58b6d6a4b90b47" name="af4608c5b99e8105ccf58b6d6a4b90b47"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af4608c5b99e8105ccf58b6d6a4b90b47">&#9670;&#160;</a></span>set()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../dc/d60/a01461.html#af4608c5b99e8105ccf58b6d6a4b90b47">Lib::Helper::BufferHandle::set</a> </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the buffer data from a raw buffer. </p>
-<p>Replaces the current buffer contents with data copied from the provided raw buffer.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Pointer to the raw uint8_t buffer. Must not be null. </td></tr>
-    <tr><td class="paramname">size</td><td>Size of the buffer in bytes. Must be greater than 0.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section pre"><dt>Precondition</dt><dd>buffer is not null. </dd>
-<dd>
-size &gt; 0. </dd></dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -547,7 +144,7 @@ size &gt; 0. </dd></dl>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d6/d5b/a02078.html">BufferHandle</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4f517acdbe9bc35e0af7a62669e9b8b9.html">BSP</a></li><li class="navelem"><a href="../../dir_5508e5af08ded39ca1c62077553f925e.html">FlashMemory</a></li><li class="navelem"><a href="../../dir_85c91813488a76134f3fa3be141ab59e.html">SPI</a></li><li class="navelem"><a href="../../d6/d5b/a02078.html">DriverBase.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

@@ -1,0 +1,37 @@
+var a01718 =
+[
+    [ "Handle", "db/d7f/a01718.html#ab6421331ba2f810ca117af37f7da747a", null ],
+    [ "TickType", "db/d7f/a01718.html#a4d9c4e73eda7ebc5e0f263310bd4e11c", null ],
+    [ "State", "db/d7f/a01718.html#a7ad1b7a849143d5692507f7dddbcfde8", [
+      [ "AVAILABLE", "db/d7f/a01718.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
+      [ "TAKEN", "db/d7f/a01718.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
+      [ "INVALID", "db/d7f/a01718.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "Semaphore", "db/d7f/a01718.html#ac18bbf45d7ea4f13cf097651078f372d", null ],
+    [ "Semaphore", "db/d7f/a01718.html#a9f4f302b0a41b1666886b778a1cdf248", null ],
+    [ "Semaphore", "db/d7f/a01718.html#a2309446f4d235d299dfbde53d38abbbf", null ],
+    [ "~Semaphore", "db/d7f/a01718.html#aa5e35a44d5786139f77a3a57a483c021", null ],
+    [ "close", "db/d7f/a01718.html#a499475d87b62474e5dd97867962362ee", null ],
+    [ "getCount", "db/d7f/a01718.html#a6b60607bc3dcc820fc4bc4fc1ac5d070", null ],
+    [ "getHandle", "db/d7f/a01718.html#abefc7cd00d7bf5f818a36b8084851c91", null ],
+    [ "getState", "db/d7f/a01718.html#a5009d38dee84f70f14770db0859c6d90", null ],
+    [ "give", "db/d7f/a01718.html#aad3313acf8b7b8d3282fa087e94699a3", null ],
+    [ "giveFromISR", "db/d7f/a01718.html#af808649cc6157fb1fce8c815039cb27c", null ],
+    [ "isAvailable", "db/d7f/a01718.html#a418c0da4610636ecb6b42afe5a8a8ae3", null ],
+    [ "isOpen", "db/d7f/a01718.html#a3a5848e60bf85ee79f2bb7f7f71a9fa2", null ],
+    [ "isTaken", "db/d7f/a01718.html#ae948c59459b209634db2f835f10e6102", null ],
+    [ "isValid", "db/d7f/a01718.html#a0cbcbe56768524e73303f7737fa9dacf", null ],
+    [ "open", "db/d7f/a01718.html#abf1c22de3fb938bbf2f31c837e4e5afa", null ],
+    [ "operator bool", "db/d7f/a01718.html#ac8cccca7ca96e76799d9e4c4579577b8", null ],
+    [ "operator Handle &", "db/d7f/a01718.html#abd3b5595aaa950dd9ca3407d013cbc08", null ],
+    [ "operator=", "db/d7f/a01718.html#ac7ba92942812fa8882e8aa0900f0685e", null ],
+    [ "overwrite", "db/d7f/a01718.html#a52cb4c76003b898b7b12736211785d06", null ],
+    [ "overwriteFromISR", "db/d7f/a01718.html#a571a1c7023d93b55e0fe4418d4b9f3ff", null ],
+    [ "take", "db/d7f/a01718.html#addf0c91575ab2e1f42ea68401dfe6f99", null ],
+    [ "take", "db/d7f/a01718.html#ac0367cbf72b18dbcb43b5670a21b645c", null ],
+    [ "takeFromISR", "db/d7f/a01718.html#afcf122ec069b8b33fd1e1ff8efbedc7f", null ],
+    [ "takeMs", "db/d7f/a01718.html#a4a7818ec0650533bfcb8006d2d0a6a0e", null ],
+    [ "takeSeconds", "db/d7f/a01718.html#a5c38539632b06a44afe1cdfc4fe638a9", null ],
+    [ "tryTake", "db/d7f/a01718.html#ae9effef8483f1c67b4c037fb01b8e6c8", null ],
+    [ "handle", "db/d7f/a01718.html#af98089a48fabe8207cc736331543af75", null ]
+];

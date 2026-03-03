@@ -1,4 +1,4 @@
 var a00620 =
 [
-    [ "Lib::System::VersionBase", "d5/d36/a01773.html", "d5/d36/a01773" ]
+    [ "Lib::System::HardwareVersion", "d4/dfe/a01770.html", "d4/dfe/a01770" ]
 ];

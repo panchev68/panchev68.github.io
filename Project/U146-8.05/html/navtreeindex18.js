@@ -1,7 +1,5 @@
 var NAVTREEINDEX18 =
 {
-"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a5496cc5e917049aec0263acbe2f6c22b":[4,0,6,4,4,7],
-"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a86ebcf10d0bd3293271333bbcfe7bbea":[3,0,7,4,4,10],
 "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a86ebcf10d0bd3293271333bbcfe7bbea":[4,0,6,4,4,10],
 "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a8869e0f4b211debbd6a4c8139944510e":[3,0,7,4,4,5],
 "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a8869e0f4b211debbd6a4c8139944510e":[4,0,6,4,4,5],
@@ -249,5 +247,7 @@ var NAVTREEINDEX18 =
 "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a3568d03c3f2305074a0ccae48db21a6d":[3,0,7,0,5,0,1,8],
 "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a3568d03c3f2305074a0ccae48db21a6d":[4,0,6,0,5,0,1,8],
 "dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a703822d5a27a0482c5b34d81e7d77940":[3,0,7,0,5,0,1,6],
-"dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a703822d5a27a0482c5b34d81e7d77940":[4,0,6,0,5,0,1,6]
+"dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a703822d5a27a0482c5b34d81e7d77940":[4,0,6,0,5,0,1,6],
+"dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a70ddd1b4f5361e0a3a719fa96432ad86":[3,0,7,0,5,0,1,4],
+"dc/de7/class_lib_1_1_b_s_p_1_1_termometer_1_1_d_t_h_1_1_driver_3_01_type_1_1_d_t_h22_01_4.html#a70ddd1b4f5361e0a3a719fa96432ad86":[4,0,6,0,5,0,1,4]
 };

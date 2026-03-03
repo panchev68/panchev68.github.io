@@ -93,8 +93,8 @@ $(function(){initNavTree('d5/d21/class_b_s_p_1_1_outputs.html','../../','d4/dc2/
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Driver for a set of digital outputs connected through SPI daisy-chains. </p>
-<p>The <span class="tt">Outputs</span> class accepts an SPI port reference and control pins for chip-select (NSS) and output-enable (OE). Use <span class="tt">setup()</span> to configure GPIO lines and open the SPI interface, then update the outputs by calling <span class="tt">handleOutputDataChanged()</span> followed by <span class="tt">update()</span> to transmit the new state to the hardware. </p>
+<div class="textblock"><p>Manages the SPI daisy-chain and drives the external output shift registers based on a 64-bit output bitmap. </p>
+<p>The class builds a transmit buffer using a precode lookup table and performs a full-duplex SPI transfer to the chained devices. It also provides simple error detection by validating returned daisy-chain identifiers. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::Outputs:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,17 +105,17 @@ $(function(){initNavTree('d5/d21/class_b_s_p_1_1_outputs.html','../../','d4/dc2/
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5484b9eb9ca1abd62ea97f41e648b542" id="r_a5484b9eb9ca1abd62ea97f41e648b542"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5484b9eb9ca1abd62ea97f41e648b542">Outputs</a> (SpiPort **spiPort, const <a class="el" href="../../dd/da8/_g_p_i_o_2_handle_8hpp.html#acd389cc92a6a175118816d170af42e10">PinHandle</a> &amp;nssPinHandle, const <a class="el" href="../../dd/da8/_g_p_i_o_2_handle_8hpp.html#acd389cc92a6a175118816d170af42e10">PinHandle</a> &amp;oePinHandle) noexcept</td></tr>
-<tr class="memdesc:a5484b9eb9ca1abd62ea97f41e648b542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct Outputs driver instance.  <br /></td></tr>
+<tr class="memdesc:a5484b9eb9ca1abd62ea97f41e648b542"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct Outputs controller.  <br /></td></tr>
 <tr class="memitem:ace919cc8cd5187982943e71a5456aa19" id="r_ace919cc8cd5187982943e71a5456aa19"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ace919cc8cd5187982943e71a5456aa19">~Outputs</a> ()=default</td></tr>
 <tr class="memdesc:ace919cc8cd5187982943e71a5456aa19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <br /></td></tr>
 <tr class="memitem:a47887771969ffa5d1d3fc97ada4746f5" id="r_a47887771969ffa5d1d3fc97ada4746f5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a47887771969ffa5d1d3fc97ada4746f5">setup</a> ()</td></tr>
-<tr class="memdesc:a47887771969ffa5d1d3fc97ada4746f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure GPIO pins and open the SPI port.  <br /></td></tr>
+<tr class="memdesc:a47887771969ffa5d1d3fc97ada4746f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure GPIOs and open the SPI port.  <br /></td></tr>
 <tr class="memitem:aa9d2d8221e8f3828c440567d17e1d24a" id="r_aa9d2d8221e8f3828c440567d17e1d24a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa9d2d8221e8f3828c440567d17e1d24a">update</a> () noexcept</td></tr>
-<tr class="memdesc:aa9d2d8221e8f3828c440567d17e1d24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Build the transmit buffer and send it to the daisy-chained devices.  <br /></td></tr>
+<tr class="memdesc:aa9d2d8221e8f3828c440567d17e1d24a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the outputs according to the current output bitmap.  <br /></td></tr>
 <tr class="memitem:aa7fc80e56d426b283238fe892eb5e28a" id="r_aa7fc80e56d426b283238fe892eb5e28a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa7fc80e56d426b283238fe892eb5e28a">getError</a> () const noexcept</td></tr>
-<tr class="memdesc:aa7fc80e56d426b283238fe892eb5e28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether the last update detected a communication or device error.  <br /></td></tr>
+<tr class="memdesc:aa7fc80e56d426b283238fe892eb5e28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether the last update detected a communication error.  <br /></td></tr>
 <tr class="memitem:a9ccc4010e45b0cf072ad19a5de232424" id="r_a9ccc4010e45b0cf072ad19a5de232424"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9ccc4010e45b0cf072ad19a5de232424">handleOutputDataChanged</a> (const uint64_t value) noexcept</td></tr>
-<tr class="memdesc:a9ccc4010e45b0cf072ad19a5de232424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Notify the driver that the logical output bitmap has changed.  <br /></td></tr>
+<tr class="memdesc:a9ccc4010e45b0cf072ad19a5de232424"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the internal 64-bit output bitmap.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5484b9eb9ca1abd62ea97f41e648b542" name="a5484b9eb9ca1abd62ea97f41e648b542"></a>
@@ -150,12 +150,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct Outputs driver instance. </p>
+<p>Construct Outputs controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">spiPort</td><td>Pointer to a pointer holding the SPI master port instance used for transfers. </td></tr>
-    <tr><td class="paramname">nssPinHandle</td><td>Pin handle used for chip-select (NSS) control. </td></tr>
-    <tr><td class="paramname">oePinHandle</td><td>Pin handle used for output-enable (OE) control. </td></tr>
+    <tr><td class="paramname">spiPort</td><td>Pointer to the pointer of the SPI master port used for transfers. The port is opened during setup().</td></tr>
+    <tr><td class="paramname">nssPinHandle</td><td>GPIO pin handle used as chip-select (NSS).</td></tr>
+    <tr><td class="paramname">oePinHandle</td><td>GPIO pin handle used as output-enable (OE). </td></tr>
   </table>
   </dd>
 </dl>
@@ -213,8 +213,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Query whether the last update detected a communication or device error. </p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an error was detected during the most recent <span class="tt">update()</span> call, <span class="tt">false</span> otherwise. </dd></dl>
+<p>Query whether the last update detected a communication error. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if an error was detected during the last SPI transfer; false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -241,18 +241,14 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Notify the driver that the logical output bitmap has changed. </p>
-<p>Store the new 64-bit bitmap; calling <span class="tt">update()</span> will transmit the updated state to the hardware. The method does not perform the transmission itself.</p>
+<p>Update the internal 64-bit output bitmap. </p>
+<p>The provided value is used by the next call to update() to set the physical outputs.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">value</td><td>64-bit bitmap where bit <span class="tt">i</span> corresponds to output index <span class="tt">i</span> (LSB = index 0).</td></tr>
+    <tr><td class="paramname">value</td><td>New output bitmap where bit 0 corresponds to the first output. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section post"><dt>Postcondition</dt><dd><ul>
-<li><span class="tt">outputData</span> is updated to contain the provided bitmap value. </li>
-</ul>
-</dd></dl>
 
 </div>
 </div>
@@ -279,16 +275,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Configure GPIO pins and open the SPI port. </p>
-<p>This prepares the NSS and OE pins and opens the configured SPI master port. It must be called before performing <span class="tt">update()</span>.</p>
-<dl class="section pre"><dt>Precondition</dt><dd><ul>
-<li><span class="tt">spiPort</span> must point to a valid SPI master port pointer. The caller must ensure that the pointer and the referenced object are valid before calling this method.</li>
-</ul>
-</dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd><ul>
-<li>The SPI port is opened and configured for transfers. The NSS and OE pins are configured as outputs and driven high (disabled state) after setup completes. </li>
-</ul>
-</dd></dl>
+<p>Configure GPIOs and open the SPI port. </p>
+<p>Sets NSS and OE pins to push-pull output, drives them to inactive state and opens the SPI port referenced by the provided pointer. </p>
 
 </div>
 </div>
@@ -315,16 +303,9 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Build the transmit buffer and send it to the daisy-chained devices. </p>
-<p>The method translates the current <span class="tt">outputData</span> bitmap into the device-specific precode bytes, transmits them over SPI and updates the internal error state based on the received response.</p>
-<dl class="section pre"><dt>Precondition</dt><dd><ul>
-<li><span class="tt">setup()</span> has been called and the SPI port is open. <span class="tt">spiPort</span> and the underlying handle must be valid before invoking this method.</li>
-</ul>
-</dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd><ul>
-<li><span class="tt">isError</span> is updated to reflect whether the device response matched the expected daisy-chain markers. The NSS line is released (driven high) when the transfer completes. </li>
-</ul>
-</dd></dl>
+<p>Update the outputs according to the current output bitmap. </p>
+<p>The method clears the transmit buffer, writes the daisy-chain header bytes, maps each bit from the 64-bit bitmap into the appropriate transmit byte using PRECODE_ARRAY, performs the SPI transfer and sets the internal error flag if the response does not contain the expected daisy-chain identifiers.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>spiPort must point to a valid opened SPI port (call setup() before update()). </dd></dl>
 
 </div>
 </div>

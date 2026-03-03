@@ -1,5 +1,5 @@
 var dir_faeb283bf437ec86682d826ccb2ce3ea =
 [
-    [ "SerialPort.hpp", "df/d6f/a00623.html", "df/d6f/a00623" ],
-    [ "SerialPortRepeaterBase.hpp", "d6/dfa/a00626.html", "d6/dfa/a00626" ]
+    [ "SerialPort.hpp", "db/d3a/a00641.html", "db/d3a/a00641" ],
+    [ "SerialPortRepeaterBase.hpp", "d9/d0f/a00644.html", "d9/d0f/a00644" ]
 ];

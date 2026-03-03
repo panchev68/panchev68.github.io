@@ -1,4 +1,4 @@
 var a00500 =
 [
-    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d6/db5/a01573.html", "d6/db5/a01573" ]
+    [ "Lib::Helper::FindPeaks", "d5/d75/a01570.html", "d5/d75/a01570" ]
 ];

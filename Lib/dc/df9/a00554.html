@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Mutex.hpp</title>
+<title>IAR Library: Pid.hpp</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.04</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.05</span>
    </div>
    <div id="projectbrief">IAR  Library</div>
   </td>
@@ -91,83 +91,46 @@ $(function(){initNavTree('dc/df9/a00554.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Mutex.hpp</div></div>
+  <div class="headertitle"><div class="title">Pid.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Mutex class for FreeRTOS synchronization.  
+<p>PID controller implementation (templated).  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Mutex class for FreeRTOS synchronization. </p>
-<p>This file provides a C++ wrapper around FreeRTOS mutexes, supporting both normal and recursive mutexes. It includes a LockGuard class for RAII-based locking to ensure automatic unlocking.</p>
-<p>The Mutex class encapsulates FreeRTOS semaphore functionality to provide thread-safe synchronization primitives for embedded systems. It supports both normal mutexes (non-recursive) and recursive mutexes for scenarios requiring nested locking. The LockGuard class implements RAII (Resource Acquisition Is Initialization) to automatically manage mutex locking and unlocking, preventing resource leaks and deadlocks.</p>
-<p>Key features:</p><ul>
-<li>Type-safe wrapper over FreeRTOS semaphores</li>
-<li>Support for normal and recursive mutex types</li>
-<li>RAII-based LockGuard for automatic resource management</li>
-<li>Move semantics for efficient resource transfer</li>
-<li>Timeout support for lock operations</li>
-<li>ISR-safe operations where applicable</li>
-</ul>
-<dl class="section note"><dt>Note</dt><dd>This implementation requires FreeRTOS configuration with mutex support enabled. </dd>
-<dd>
-Recursive mutexes require configUSE_RECURSIVE_MUTEXES = 1 in FreeRTOSConfig.h. </dd>
-<dd>
-Normal mutexes require configUSE_MUTEXES = 1 in FreeRTOSConfig.h.</dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd>Ensure proper FreeRTOS configuration before using this class. </dd>
-<dd>
-Avoid using recursive mutexes unless necessary, as they have higher overhead.</dd></dl>
-<dl class="section version"><dt>Version</dt><dd>3.04 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>17 Jan 2026 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Mutex.hpp:</div>
+<div class="textblock"><p>PID controller implementation (templated). </p>
+<p>Small, header-only PID controller that supports proportional, integral and derivative terms. Designed for embedded/real-time use with configurable sample time and output saturation. The template parameter T allows selection of the numeric type (e.g. float or double) used for inputs and outputs. The controller maintains internal state for the integral term and last input to compute the derivative. The compute() method calculates the control output based on the current setpoint and input, applying the PID formula and respecting the configured output limits. The controller can be switched between automatic and manual modes, and supports reversing the control direction. Parameters can be updated at runtime, with care taken to manage state consistency when changing sample time or output limits. The class is designed to be simple and efficient for use in embedded systems, with a focus on clarity and correctness.</p>
+<dl class="section version"><dt>Version</dt><dd>N/A </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-02-25 </dd></dl>
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Pid.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d75/a00555.svg" width="454" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
-</div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d95/a00556.svg" width="2686" height="784"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d75/a00555.svg" width="335" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:RTOS_3A_3AMutex" id="r_RTOS_3A_3AMutex"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../df/d5a/a01681.html">RTOS::Mutex</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../df/d5a/a01681.html" title="Mutex class for synchronization.">Mutex</a> class for synchronization.  <a href="../../df/d5a/a01681.html#details">More...</a><br /></td></tr>
-<tr class="memitem:RTOS_3A_3AMutex_3A_3ALockGuard" id="r_RTOS_3A_3AMutex_3A_3ALockGuard"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d96/a01685.html">RTOS::Mutex::LockGuard</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../de/d96/a01685.html" title="LockGuard class for RAII locking.">LockGuard</a> class for RAII locking.  <a href="../../de/d96/a01685.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AMath_3A_3APid_3C_20T_20_3E" id="r_Lib_3A_3AMath_3A_3APid_3C_20T_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d9/d79/a01658.html">Lib::Math::Pid&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Templated PID controller.  <a href="../../d9/d79/a01658.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AMath_3A_3APid_3C_20T_20_3E_3A_3AParameters" id="r_Lib_3A_3AMath_3A_3APid_3C_20T_20_3E_3A_3AParameters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d9/dbc/a01662.html">Lib::Math::Pid&lt; T &gt;::Parameters</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d9/dbc/a01662.html" title="Parameters controlling PID behaviour.">Parameters</a> controlling PID behaviour.  <a href="../../d9/dbc/a01662.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AMath_3A_3APid_3C_20T_20_3E_3A_3AState" id="r_Lib_3A_3AMath_3A_3APid_3C_20T_20_3E_3A_3AState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d75/a01666.html">Lib::Math::Pid&lt; T &gt;::State</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime state of the controller.  <a href="../../d8/d75/a01666.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:RTOS" id="r_RTOS"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d7a/a00669.html">RTOS</a></td></tr>
-<tr class="memdesc:d8/d7a/a00669"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d8/d7a/a00669.html" title="RTOS namespace.">RTOS</a> namespace. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../da/dc3/a00657.html">Lib</a></td></tr>
+<tr class="memdesc:da/dc3/a00657"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/dc3/a00657.html" title="Lib namespace for library components.">Lib</a> namespace for library components. <br /></td></tr>
+<tr class="memitem:Lib_3A_3AMath" id="r_Lib_3A_3AMath"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d0/db6/a00692.html">Lib::Math</a></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a374642113cf09f4704dd8242b052899d" id="r_a374642113cf09f4704dd8242b052899d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a374642113cf09f4704dd8242b052899d">MutexGuard</a> = <a class="el" href="../../de/d96/a01685.html">RTOS::Mutex::LockGuard</a></td></tr>
-<tr class="memdesc:a374642113cf09f4704dd8242b052899d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for Mutex::LockGuard.  <br /></td></tr>
+<tr class="memitem:a948fc056c1100dd929fbdca345047060" id="r_a948fc056c1100dd929fbdca345047060"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d0/db6/a00692.html#a948fc056c1100dd929fbdca345047060">Lib::Math::PidF</a> = <a class="el" href="../../d9/d79/a01658.html">Pid</a>&lt;float&gt;</td></tr>
+<tr class="memdesc:a948fc056c1100dd929fbdca345047060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for a PID controller using float precision.  <br /></td></tr>
+<tr class="memitem:ab35c1bb42b7af8a9c4b7bb5f07ec29b9" id="r_ab35c1bb42b7af8a9c4b7bb5f07ec29b9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d0/db6/a00692.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9">Lib::Math::PidD</a> = <a class="el" href="../../d9/d79/a01658.html">Pid</a>&lt;double&gt;</td></tr>
+<tr class="memdesc:ab35c1bb42b7af8a9c4b7bb5f07ec29b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type alias for a PID controller using double precision.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
-<a id="a374642113cf09f4704dd8242b052899d" name="a374642113cf09f4704dd8242b052899d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a374642113cf09f4704dd8242b052899d">&#9670;&#160;</a></span>MutexGuard</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a374642113cf09f4704dd8242b052899d">MutexGuard</a> = <a class="el" href="../../de/d96/a01685.html">RTOS::Mutex::LockGuard</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Type alias for Mutex::LockGuard. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d8/d3a/a01869.html#_a2">RTOS::Mutex</a>, and <a class="el" href="../../d1/de6/a01867.html#_a2">RTOS::MutexGuard</a>.</dd>
-</dl>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -181,7 +144,7 @@ Typedefs</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_3fba853156281524a1d2ff8b1fb19351.html">RTOS</a></li><li class="navelem"><a href="../../dc/df9/a00554.html">Mutex.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_d7b902938708671190894d621f68a9dd.html">Math</a></li><li class="navelem"><a href="../../dc/df9/a00554.html">Pid.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

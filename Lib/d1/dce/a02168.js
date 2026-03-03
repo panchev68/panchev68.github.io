@@ -1,4 +1,4 @@
 var a02168 =
 [
-    [ "Lib::Digi::API::ClientBase", "d4/d21/a00987.html", "d4/d21/a00987" ]
+    [ "Lib::Digi::Core::Protocol", "de/d7e/a01222.html", null ]
 ];

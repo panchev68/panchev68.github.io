@@ -94,7 +94,7 @@ $(function(){initNavTree('df/d8f/class_system_1_1_watchdog.html','../../','dc/d8
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>System Watchdog class. </p>
-<p>This class implements a singleton pattern for the system watchdog functionality. It provides methods to setup and refresh the Independent Watchdog (IWDG) to prevent system hangs and ensure reliability in embedded applications.</p>
+<p>This class implements a singleton pattern for the system watchdog functionality. It provides methods to set up and refresh the Independent Watchdog (IWDG) to prevent system hangs and ensure reliability in embedded applications.</p>
 <dl class="section see"><dt>See also</dt><dd>Lib::HAL::Watchdog </dd></dl>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::Watchdog:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -170,7 +170,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Refresh the watchdog timer. </p>
 <p>Resets the watchdog counter to prevent a system reset. This method should be called periodically to indicate that the system is functioning correctly.</p>
-<dl class="section pre"><dt>Precondition</dt><dd>The watchdog has been configured by a prior call to <span class="tt">setup()</span>. </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>The watchdog has been configured by a prior call to <span class="tt">setup()</span>.</dd></dl>
 <dl class="section post"><dt>Postcondition</dt><dd>The watchdog reload counter is reloaded; a system reset will be prevented until the next timeout unless <span class="tt">refresh()</span> is not called in time. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html#aa592ca9b4c17767c4ecdcb58b4237c63">Lib::HAL::Watchdog</a>.</p>
@@ -205,7 +205,9 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Setup the watchdog with specified parameters. </p>
-<p>Configures the Independent Watchdog with the given prescaler and reload values. The timeout is calculated as (prescaler * reload) / LSI frequency.</p>
+<p>Configures the Independent Watchdog with the given prescaler and reload values. The timeout is calculated as <span class="tt">(prescaler * reload) / LSI</span> frequency.</p>
+<dl class="section pre"><dt>Precondition</dt><dd>The IWDG peripheral clock is enabled and the hardware watchdog handle (<span class="tt">hiwdg</span>) is valid.</dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>On return <span class="tt">true</span> the watchdog is configured and running; on return <span class="tt">false</span> the watchdog configuration remains unchanged.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">prescaler</td><td>The prescaler value for the watchdog timer. </td></tr>
@@ -213,9 +215,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if setup was successful, <span class="tt">false</span> otherwise.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>The IWDG peripheral clock is enabled and the hardware watchdog handle (<span class="tt">hiwdg</span>) is valid. </dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>On return <span class="tt">true</span> the watchdog is configured and running; on return <span class="tt">false</span> the watchdog configuration remains unchanged. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if setup was successful, <span class="tt">false</span> otherwise. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html#a3e7b28b1179f546ab96b4e8ccc559cd6">Lib::HAL::Watchdog</a>.</p>
 

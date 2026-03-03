@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['value64handle_0',['Value64Handle',['../de/d3c/a01809.html',1,'Lib::XCOM::ServiceBase']]],
-  ['vector_1',['Vector',['../d7/d0c/a01173.html',1,'Lib::Digi::Core::Frame::Helper']]],
-  ['versionbase_2',['VersionBase',['../d5/d36/a01773.html',1,'Lib::System']]],
-  ['versions_3',['Versions',['../d7/d46/a01045.html',1,'Lib::Digi::API::NodeInfo']]]
+  ['value64handle_0',['Value64Handle',['../da/d18/a01850.html',1,'Lib::XCOM::ServiceBase']]],
+  ['vector_1',['Vector',['../d0/d32/a01198.html',1,'Lib::Digi::Core::Frame::Helper']]],
+  ['version_2',['Version',['../d2/d86/a01798.html',1,'Lib::System']]],
+  ['versionbase_3',['VersionBase',['../d6/dfc/a01814.html',1,'Lib::System']]],
+  ['versions_4',['Versions',['../d5/d67/a01070.html',1,'Lib::Digi::API::NodeInfo']]]
 ];

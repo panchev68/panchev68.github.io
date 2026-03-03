@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Member List</title>
+<title>IAR Library: Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -28,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.04</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.05</span>
    </div>
    <div id="projectbrief">IAR  Library</div>
   </td>
@@ -65,7 +65,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('d7/d82/a01601.html','../../',''); });
+$(function(){initNavTree('d3/da5/a01598.html','../../','dc/dbf/a01595'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -91,24 +91,602 @@ $(function(){initNavTree('d7/d82/a01601.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::Filter::Kalman&lt; T &gt; Member List</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t T_SIZE&gt;<br />
+class Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</div><p>Template class for a fixed-size ring buffer. </p>
+<p><a class="el" href="../../d3/da5/a01598.html" title="Template class for a fixed-size ring buffer.">RingBuffer</a> provides a circular buffer implementation with compile-time fixed capacity. It supports push/pop operations, access to front/back elements, and capacity queries. The buffer prevents overwriting when full, ensuring data integrity.</p>
+<p>This class is designed for embedded systems where memory is limited and predictable. It uses a fixed-size std::array for storage, avoiding dynamic allocation. Read and write operations maintain circular indexing to reuse space efficiently.</p>
+<p>Thread safety: This implementation is not thread-safe. External synchronization (e.g., mutexes) is required for concurrent access in multi-threaded environments.</p>
+<p>Performance: All operations are O(1) time complexity. No loops or dynamic memory.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of elements stored in the buffer. Must be copyable or movable. </td></tr>
+    <tr><td class="paramname">T_SIZE</td><td>The fixed capacity of the buffer (must be &gt; 0).</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Elements are stored in FIFO order. Push adds to back, pop removes from front. </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> does not resize; push fails if full. Check <a class="el" href="#aae0292d24e3da1f41e8abd6b9f709faf" title="Checks if the buffer is full.">isFull()</a> before push. </dd></dl>
+</div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d70/a01596.svg" width="236" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ab5740187c467706655fd4f06e97a00f0" id="r_ab5740187c467706655fd4f06e97a00f0"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#ab5740187c467706655fd4f06e97a00f0">RingBuffer</a> ()=default</td></tr>
+<tr class="memdesc:ab5740187c467706655fd4f06e97a00f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static assertion for valid capacity.  <br /></td></tr>
+<tr class="memitem:ae801f9952b8712f75a79d6e81011f01e" id="r_ae801f9952b8712f75a79d6e81011f01e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae801f9952b8712f75a79d6e81011f01e">~RingBuffer</a> ()=default</td></tr>
+<tr class="memdesc:ae801f9952b8712f75a79d6e81011f01e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <br /></td></tr>
+<tr class="memitem:ad8577b7db6b4831e3de907d979afbece" id="r_ad8577b7db6b4831e3de907d979afbece"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad8577b7db6b4831e3de907d979afbece">push</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:ad8577b7db6b4831e3de907d979afbece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a value into the buffer (copy version).  <br /></td></tr>
+<tr class="memitem:a78d4fb6d7ccfff4652cc52e7a751a4c9" id="r_a78d4fb6d7ccfff4652cc52e7a751a4c9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a78d4fb6d7ccfff4652cc52e7a751a4c9">push</a> (T &amp;&amp;value)</td></tr>
+<tr class="memdesc:a78d4fb6d7ccfff4652cc52e7a751a4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pushes a value into the buffer (move version).  <br /></td></tr>
+<tr class="memitem:a69f27652f42b576f4b6b38b1b6355e95" id="r_a69f27652f42b576f4b6b38b1b6355e95"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a69f27652f42b576f4b6b38b1b6355e95">pop</a> (T &amp;value)</td></tr>
+<tr class="memdesc:a69f27652f42b576f4b6b38b1b6355e95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pops a value from the buffer.  <br /></td></tr>
+<tr class="memitem:a355bd20b51552ad58441b70ee56558dc" id="r_a355bd20b51552ad58441b70ee56558dc"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a355bd20b51552ad58441b70ee56558dc">front</a> ()</td></tr>
+<tr class="memdesc:a355bd20b51552ad58441b70ee56558dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the front element.  <br /></td></tr>
+<tr class="memitem:aade49f0218a38f79f4ca46708496c9f2" id="r_aade49f0218a38f79f4ca46708496c9f2"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aade49f0218a38f79f4ca46708496c9f2">front</a> () const</td></tr>
+<tr class="memdesc:aade49f0218a38f79f4ca46708496c9f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the front element (const version).  <br /></td></tr>
+<tr class="memitem:ab7b58c704fe3e863ca9e39c0486f3598" id="r_ab7b58c704fe3e863ca9e39c0486f3598"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab7b58c704fe3e863ca9e39c0486f3598">back</a> ()</td></tr>
+<tr class="memdesc:ab7b58c704fe3e863ca9e39c0486f3598"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the back element.  <br /></td></tr>
+<tr class="memitem:aa52c4fde4d391ccfd257e186d985ecac" id="r_aa52c4fde4d391ccfd257e186d985ecac"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa52c4fde4d391ccfd257e186d985ecac">back</a> () const</td></tr>
+<tr class="memdesc:aa52c4fde4d391ccfd257e186d985ecac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the back element (const version).  <br /></td></tr>
+<tr class="memitem:aac1448d4b8dbe528e2ce62dce438631e" id="r_aac1448d4b8dbe528e2ce62dce438631e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aac1448d4b8dbe528e2ce62dce438631e">clear</a> ()</td></tr>
+<tr class="memdesc:aac1448d4b8dbe528e2ce62dce438631e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the buffer.  <br /></td></tr>
+<tr class="memitem:a49756c4e38eab984715b97bba7434417" id="r_a49756c4e38eab984715b97bba7434417"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a49756c4e38eab984715b97bba7434417">available</a> () const</td></tr>
+<tr class="memdesc:a49756c4e38eab984715b97bba7434417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of available elements.  <br /></td></tr>
+<tr class="memitem:a8a68d8ec42dbb567bfc5e1c4f6b184e2" id="r_a8a68d8ec42dbb567bfc5e1c4f6b184e2"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8a68d8ec42dbb567bfc5e1c4f6b184e2">isEmpty</a> () const</td></tr>
+<tr class="memdesc:a8a68d8ec42dbb567bfc5e1c4f6b184e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the buffer is empty.  <br /></td></tr>
+<tr class="memitem:aae0292d24e3da1f41e8abd6b9f709faf" id="r_aae0292d24e3da1f41e8abd6b9f709faf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aae0292d24e3da1f41e8abd6b9f709faf">isFull</a> () const</td></tr>
+<tr class="memdesc:aae0292d24e3da1f41e8abd6b9f709faf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the buffer is full.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ae0f1f8ce0127b345fb8300195fdab62e" id="r_ae0f1f8ce0127b345fb8300195fdab62e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e">CAPACITY</a> = T_SIZE</td></tr>
+<tr class="memdesc:ae0f1f8ce0127b345fb8300195fdab62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capacity of the ring buffer.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ab5740187c467706655fd4f06e97a00f0" name="ab5740187c467706655fd4f06e97a00f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5740187c467706655fd4f06e97a00f0">&#9670;&#160;</a></span>RingBuffer()</h2>
 
-<p>This is the complete list of members for <a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d82/a01601.html#ac2b13e76f2ea3e72f39f6dc3f1322ac5">Kalman</a>(const Config &amp;config)</td><td class="entry"><a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d7/d82/a01601.html#ad519cb215e5f8a8894f0b00e11d09dd2">operator()</a>(T value)</td><td class="entry"><a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d82/a01601.html#abf2c069fd6d973494e1c59ed9bad7015">reset</a>()</td><td class="entry"><a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d7/d82/a01601.html#a12d1cc6e2b24a5d682ee05f73f1dea0f">setParam</a>(const Config &amp;config)</td><td class="entry"><a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../d7/d82/a01601.html#a6299b25e39253a6560bca7d4546269fb">Status</a> enum name</td><td class="entry"><a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d7/d82/a01601.html#a95b61c24d58f6e8aa91a02793fb7a6ac">~Kalman</a>()=default</td><td class="entry"><a class="el" href="../../d7/d82/a01601.html">Lib::Math::Filter::Kalman&lt; T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Static assertion for valid capacity. </p>
+<p>Ensures the buffer size is greater than zero at compile time. Default constructor.</p>
+<p>Initializes an empty ring buffer with read/write positions at 0. </p>
+
+</div>
+</div>
+<a id="ae801f9952b8712f75a79d6e81011f01e" name="ae801f9952b8712f75a79d6e81011f01e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae801f9952b8712f75a79d6e81011f01e">&#9670;&#160;</a></span>~RingBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::~<a class="el" href="#ab5740187c467706655fd4f06e97a00f0">RingBuffer</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destructor. </p>
+<p>Cleans up resources; default implementation handles std::array automatically. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a49756c4e38eab984715b97bba7434417" name="a49756c4e38eab984715b97bba7434417"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49756c4e38eab984715b97bba7434417">&#9670;&#160;</a></span>available()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::available </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of available elements. </p>
+<p>Returns the current count of elements stored in the buffer.</p>
+<dl class="section return"><dt>Returns</dt><dd>The current number of elements in the buffer (0 to CAPACITY). </dd></dl>
+
+</div>
+</div>
+<a id="ab7b58c704fe3e863ca9e39c0486f3598" name="ab7b58c704fe3e863ca9e39c0486f3598"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7b58c704fe3e863ca9e39c0486f3598">&#9670;&#160;</a></span>back() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::back </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Accesses the back element. </p>
+<p>Returns a reference to the newest element in the buffer (the last pushed). This allows inspection or modification of the back element.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the back element.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not empty (asserted internally). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The back element is calculated using circular arithmetic from write position. </dd></dl>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_ab7b58c704fe3e863ca9e39c0486f3598_cgraph.svg" width="458" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa52c4fde4d391ccfd257e186d985ecac" name="aa52c4fde4d391ccfd257e186d985ecac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa52c4fde4d391ccfd257e186d985ecac">&#9670;&#160;</a></span>back() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::back </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Accesses the back element (const version). </p>
+<p>Returns a const reference to the newest element in the buffer. This allows read-only access to the back element.</p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the back element.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not empty (asserted internally). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use this for const-correctness. </dd></dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_aa52c4fde4d391ccfd257e186d985ecac_cgraph.svg" width="458" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aac1448d4b8dbe528e2ce62dce438631e" name="aac1448d4b8dbe528e2ce62dce438631e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1448d4b8dbe528e2ce62dce438631e">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears the buffer. </p>
+<p>Resets all positions and count to zero, effectively emptying the buffer. Existing elements are not destructed explicitly; relies on RAII for cleanup.</p>
+<dl class="section post"><dt>Postcondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is empty, read/write positions reset to 0. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This operation is O(1) and does not modify the underlying array. </dd></dl>
+
+</div>
+</div>
+<a id="a355bd20b51552ad58441b70ee56558dc" name="a355bd20b51552ad58441b70ee56558dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a355bd20b51552ad58441b70ee56558dc">&#9670;&#160;</a></span>front() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T &amp; <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Accesses the front element. </p>
+<p>Returns a reference to the oldest element in the buffer (the next to be popped). This allows inspection or modification of the front element without removing it.</p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the front element.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not empty (asserted internally). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Modifying the returned reference affects the buffer's contents. </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_a355bd20b51552ad58441b70ee56558dc_cgraph.svg" width="456" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aade49f0218a38f79f4ca46708496c9f2" name="aade49f0218a38f79f4ca46708496c9f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aade49f0218a38f79f4ca46708496c9f2">&#9670;&#160;</a></span>front() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const T &amp; <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Accesses the front element (const version). </p>
+<p>Returns a const reference to the oldest element in the buffer. This allows read-only access to the front element without removing it.</p>
+<dl class="section return"><dt>Returns</dt><dd>Const reference to the front element.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not empty (asserted internally). </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use this for const-correctness when modification is not needed. </dd></dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_aade49f0218a38f79f4ca46708496c9f2_cgraph.svg" width="456" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8a68d8ec42dbb567bfc5e1c4f6b184e2" name="a8a68d8ec42dbb567bfc5e1c4f6b184e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a68d8ec42dbb567bfc5e1c4f6b184e2">&#9670;&#160;</a></span>isEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isEmpty </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the buffer is empty. </p>
+<p>Determines whether the buffer contains any elements.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the buffer contains no elements, false otherwise. </dd></dl>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_a8a68d8ec42dbb567bfc5e1c4f6b184e2_icgraph.svg" width="458" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aae0292d24e3da1f41e8abd6b9f709faf" name="aae0292d24e3da1f41e8abd6b9f709faf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae0292d24e3da1f41e8abd6b9f709faf">&#9670;&#160;</a></span>isFull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isFull </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the buffer is full. </p>
+<p>Determines whether the buffer has reached its maximum capacity.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the buffer is at maximum capacity, false otherwise. </dd></dl>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_aae0292d24e3da1f41e8abd6b9f709faf_icgraph.svg" width="440" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a69f27652f42b576f4b6b38b1b6355e95" name="a69f27652f42b576f4b6b38b1b6355e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f27652f42b576f4b6b38b1b6355e95">&#9670;&#160;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::pop </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pops a value from the buffer. </p>
+<p>Removes and returns the front element from the buffer if available. The element is moved out to avoid unnecessary copies, and the read position advances circularly to the next element.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Reference to store the popped value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if a value was successfully popped, false if the buffer is empty.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not empty (check with <a class="el" href="#a8a68d8ec42dbb567bfc5e1c4f6b184e2" title="Checks if the buffer is empty.">isEmpty()</a>). </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>If successful, count decreases by 1 and read position advances. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The popped element is moved into 'value'; original slot may be left in moved-from state. </dd></dl>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_a69f27652f42b576f4b6b38b1b6355e95_cgraph.svg" width="451" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad8577b7db6b4831e3de907d979afbece" name="ad8577b7db6b4831e3de907d979afbece"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8577b7db6b4831e3de907d979afbece">&#9670;&#160;</a></span>push() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pushes a value into the buffer (copy version). </p>
+<p>Adds a copy of the value to the end of the buffer if space is available. The write position advances circularly, wrapping around to the beginning when reaching the end of the array. This maintains FIFO order.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The value to push into the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the value was successfully added, false if the buffer is full.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not full (check with <a class="el" href="#aae0292d24e3da1f41e8abd6b9f709faf" title="Checks if the buffer is full.">isFull()</a>). </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>If successful, count increases by 1 and write position advances. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Copy operation may be expensive for large objects; consider move version. </dd></dl>
+<div id="dynsection-8" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-8-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_ad8577b7db6b4831e3de907d979afbece_cgraph.svg" width="440" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a78d4fb6d7ccfff4652cc52e7a751a4c9" name="a78d4fb6d7ccfff4652cc52e7a751a4c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78d4fb6d7ccfff4652cc52e7a751a4c9">&#9670;&#160;</a></span>push() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Pushes a value into the buffer (move version). </p>
+<p>Moves the value into the buffer if space is available, potentially optimizing for expensive-to-copy types by transferring ownership instead of copying. The write position advances circularly, ensuring efficient reuse of buffer space.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>The value to move into the buffer. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the value was successfully added, false if the buffer is full.</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><a class="el" href="../../d8/d7b/a01478.html" title="Buffer class for managing byte buffers.">Buffer</a> is not full (check with <a class="el" href="#aae0292d24e3da1f41e8abd6b9f709faf" title="Checks if the buffer is full.">isFull()</a>). </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>If successful, count increases by 1 and write position advances. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Use this for rvalue references to avoid unnecessary copies. </dd></dl>
+<div id="dynsection-9" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-9-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/da5/a01598_a78d4fb6d7ccfff4652cc52e7a751a4c9_cgraph.svg" width="440" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ae0f1f8ce0127b345fb8300195fdab62e" name="ae0f1f8ce0127b345fb8300195fdab62e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f1f8ce0127b345fb8300195fdab62e">&#9670;&#160;</a></span>CAPACITY</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T, size_t T_SIZE&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d3/da5/a01598.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::CAPACITY = T_SIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Capacity of the ring buffer. </p>
+<p>Compile-time constant representing the maximum number of elements. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../da/dc3/a00657.html">Lib</a></li><li class="navelem"><a href="../../d9/db8/a00658.html">Helper</a></li><li class="navelem"><a href="../../d3/da5/a01598.html">RingBuffer</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

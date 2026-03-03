@@ -1,5 +1,5 @@
 var dir_8f8edc1b574d9b93214d2eeeb71b6059 =
 [
-    [ "Client.hpp", "d2/d04/a00281.html", "d2/d04/a00281" ],
-    [ "Socket.hpp", "db/dc3/a00284.html", "db/dc3/a00284" ]
+    [ "Client.hpp", "df/d95/a00299.html", "df/d95/a00299" ],
+    [ "Socket.hpp", "d0/d61/a00302.html", "d0/d61/a00302" ]
 ];

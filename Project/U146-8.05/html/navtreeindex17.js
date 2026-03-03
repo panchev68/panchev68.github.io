@@ -1,7 +1,5 @@
 var NAVTREEINDEX17 =
 {
-"db/dd0/class_lib_1_1_free_r_t_o_s_1_1_event.html#ada53cc36482a6a3d87b8a1beb0320c65":[3,0,7,2,2,6],
-"db/dd0/class_lib_1_1_free_r_t_o_s_1_1_event.html#ada53cc36482a6a3d87b8a1beb0320c65":[4,0,6,2,2,6],
 "db/ddb/namespace_lib_1_1_h_a_l_1_1_s_p_i.html":[3,0,7,3,5],
 "db/ddb/namespace_lib_1_1_h_a_l_1_1_s_p_i.html#aed738b67d6059766239d54b08c196b18":[3,0,7,3,5,1],
 "db/de0/group___project.html":[2,0],
@@ -249,5 +247,7 @@ var NAVTREEINDEX17 =
 "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a350282ca4851321c92a4ea0d128db92f":[4,0,6,4,4,3],
 "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a4b5bca48013fed0b7ee00f0aad5d6e1e":[3,0,7,4,4,2],
 "dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a4b5bca48013fed0b7ee00f0aad5d6e1e":[4,0,6,4,4,2],
-"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a5496cc5e917049aec0263acbe2f6c22b":[3,0,7,4,4,7]
+"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a5496cc5e917049aec0263acbe2f6c22b":[3,0,7,4,4,7],
+"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a5496cc5e917049aec0263acbe2f6c22b":[4,0,6,4,4,7],
+"dc/d5d/class_lib_1_1_helper_1_1_buffer_handle.html#a86ebcf10d0bd3293271333bbcfe7bbea":[3,0,7,4,4,10]
 };

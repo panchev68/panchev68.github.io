@@ -93,9 +93,8 @@ $(function(){initNavTree('d2/d97/class_b_s_p_1_1_digital_peripheral.html','../..
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Digital peripheral manager class. </p>
-<p>Coordinates the <span class="tt">Inputs</span> and <span class="tt">Outputs</span> subsystems, maps application data changes to hardware updates and runs a periodic task that performs SPI transfers. This class is the recommended single access point for all digital peripheral operations within the BSP layer.</p>
-<dl class="section see"><dt>See also</dt><dd>Inputs, Outputs, Data::Peripheral </dd></dl>
+<div class="textblock"><p>Manager that instantiates and runs the digital input/output devices. </p>
+<p>The singleton configures board-specific SPI ports for the input and output chains, links peripheral data callbacks and runs a polling task which calls <span class="tt">update()</span> on both controllers. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::DigitalPeripheral:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -106,14 +105,14 @@ $(function(){initNavTree('d2/d97/class_b_s_p_1_1_digital_peripheral.html','../..
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a62eafd0d81d9e62c65768b615d1f37a7" id="r_a62eafd0d81d9e62c65768b615d1f37a7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a62eafd0d81d9e62c65768b615d1f37a7">setup</a> ()</td></tr>
-<tr class="memdesc:a62eafd0d81d9e62c65768b615d1f37a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize peripherals and start the update task.  <br /></td></tr>
+<tr class="memdesc:a62eafd0d81d9e62c65768b615d1f37a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize peripheral controllers, bind data callbacks and start the background task.  <br /></td></tr>
 <tr class="memitem:a00e29236e5f51f1dde43647efded6080" id="r_a00e29236e5f51f1dde43647efded6080"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a00e29236e5f51f1dde43647efded6080">getErrorOutput</a> ()</td></tr>
-<tr class="memdesc:a00e29236e5f51f1dde43647efded6080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get outputs error status.  <br /></td></tr>
+<tr class="memdesc:a00e29236e5f51f1dde43647efded6080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether the outputs subsystem has reported an error.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a471f8222452337a1bf470da4ce1f38e4" id="r_a471f8222452337a1bf470da4ce1f38e4"><td class="memItemLeft">static DigitalPeripheral &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a471f8222452337a1bf470da4ce1f38e4">instance</a> ()</td></tr>
-<tr class="memdesc:a471f8222452337a1bf470da4ce1f38e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get singleton instance.  <br /></td></tr>
+<tr class="memdesc:a471f8222452337a1bf470da4ce1f38e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the singleton instance.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a00e29236e5f51f1dde43647efded6080" name="a00e29236e5f51f1dde43647efded6080"></a>
@@ -139,13 +138,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get outputs error status. </p>
-<p>Query the outputs subsystem for the last transmission or device error state.</p>
-<dl class="section pre"><dt>Precondition</dt><dd><ul>
-<li><span class="tt">setup()</span> has been called so the outputs subsystem is initialized.</li>
-</ul>
-</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an error was detected; <span class="tt">false</span> otherwise. </dd></dl>
+<p>Query whether the outputs subsystem has reported an error. </p>
+<dl class="section return"><dt>Returns</dt><dd>true if outputs reported an error; false otherwise. </dd></dl>
 
 </div>
 </div>
@@ -172,13 +166,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get singleton instance. </p>
-<p>Returns the global <span class="tt">DigitalPeripheral</span> instance. The instance is created on first use and lives for the duration of the program.</p>
-<dl class="section post"><dt>Postcondition</dt><dd><ul>
-<li>A single <span class="tt">DigitalPeripheral</span> instance is constructed on first call and a reference to it is returned. Subsequent calls return the same instance.</li>
-</ul>
-</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
+<p>Access the singleton instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>reference to the unique DigitalPeripheral instance. </dd></dl>
 
 </div>
 </div>
@@ -205,18 +194,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initialize peripherals and start the update task. </p>
-<p>Configures inputs and outputs, binds application data change callbacks to the respective handlers and starts a FreeRTOS task that calls <span class="tt">taskEntry()</span> periodically.</p>
-<dl class="section pre"><dt>Precondition</dt><dd><ul>
-<li>The active hardware profile must contain valid pin and SPI handles.</li>
-<li>The FreeRTOS scheduler must be available so tasks can be created.</li>
-</ul>
-</dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd><ul>
-<li><span class="tt">inputs</span> and <span class="tt">outputs</span> subsystems are configured and bound to application data callbacks.</li>
-<li>A FreeRTOS task named "DigitalPeripheralTask" is started and will execute <span class="tt">taskEntry()</span>. </li>
-</ul>
-</dd></dl>
+<p>Initialize peripheral controllers, bind data callbacks and start the background task. </p>
 
 </div>
 </div>

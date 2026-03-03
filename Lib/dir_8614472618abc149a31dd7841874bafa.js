@@ -11,9 +11,9 @@ var dir_8614472618abc149a31dd7841874bafa =
     [ "SPI", "dir_9fed9c41db75c1a3148af1e30257a6a9.html", "dir_9fed9c41db75c1a3148af1e30257a6a9" ],
     [ "TIM", "dir_108b62c0e70fd74a326c4126470fe17d.html", "dir_108b62c0e70fd74a326c4126470fe17d" ],
     [ "UART", "dir_7064eabf9469244d886deff6a02a37e2.html", "dir_7064eabf9469244d886deff6a02a37e2" ],
-    [ "DeviceManagerBase.hpp", "d8/d8e/a00344.html", "d8/d8e/a00344" ],
-    [ "DriverDataDirection.hpp", "d1/dc6/a00347.html", "d1/dc6/a00347" ],
-    [ "DriverMode.hpp", "db/d10/a00350.html", "db/d10/a00350" ],
-    [ "Handle.hpp", "d6/de1/a00356.html", "d6/de1/a00356" ],
-    [ "PortTemplate.hpp", "d6/d80/a00371.html", null ]
+    [ "DeviceManagerBase.hpp", "de/dd7/a00362.html", "de/dd7/a00362" ],
+    [ "DriverDataDirection.hpp", "dd/db5/a00365.html", "dd/db5/a00365" ],
+    [ "DriverMode.hpp", "d8/d21/a00368.html", "d8/d21/a00368" ],
+    [ "Handle.hpp", "d5/db5/a00374.html", "d5/db5/a00374" ],
+    [ "PortTemplate.hpp", "dc/dc9/a00389.html", null ]
 ];

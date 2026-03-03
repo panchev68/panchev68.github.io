@@ -93,8 +93,8 @@ $(function(){initNavTree('d1/d2d/class_canbus_1_1_server.html','../../','d5/d15/
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>CAN bus server class. </p>
-<p>Provides the application-facing server which manages CAN client nodes, forwards messages to the data layer and exposes diagnostic information. </p>
+<div class="textblock"><p>CAN server implementation for the project. </p>
+<p>Inherits from <span class="tt">Lib::Canbus::ServerBase</span> and maintains per-client runtime state in <span class="tt">clientNodes</span>. The server exposes control methods and the task entry used to process incoming messages and send periodic updates. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Canbus::Server:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,18 +105,18 @@ $(function(){initNavTree('d1/d2d/class_canbus_1_1_server.html','../../','d5/d15/
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abbe25b597d22962aa45f808576dbc724" id="r_abbe25b597d22962aa45f808576dbc724"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abbe25b597d22962aa45f808576dbc724">~Server</a> () override=default</td></tr>
-<tr class="memdesc:abbe25b597d22962aa45f808576dbc724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Server destructor.  <br /></td></tr>
+<tr class="memdesc:abbe25b597d22962aa45f808576dbc724"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaulted virtual destructor.  <br /></td></tr>
 <tr class="memitem:af5cfa555cb487e1afc8e8ccebecf7b83" id="r_af5cfa555cb487e1afc8e8ccebecf7b83"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af5cfa555cb487e1afc8e8ccebecf7b83">start</a> () override</td></tr>
 <tr class="memdesc:af5cfa555cb487e1afc8e8ccebecf7b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the server.  <br /></td></tr>
 <tr class="memitem:a98c415b5cce6bd01abafb4d9d3c18a7f" id="r_a98c415b5cce6bd01abafb4d9d3c18a7f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a98c415b5cce6bd01abafb4d9d3c18a7f">stop</a> () override</td></tr>
 <tr class="memdesc:a98c415b5cce6bd01abafb4d9d3c18a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop the server.  <br /></td></tr>
 <tr class="memitem:aaeb7b66711ce19ba13ab328fea92d0e7" id="r_aaeb7b66711ce19ba13ab328fea92d0e7"><td class="memItemLeft">const <a class="el" href="../../dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html#a74fdde35a787cd13d6069871c0ff8976">Lib::Canbus::ServerBase::Diagnostic</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aaeb7b66711ce19ba13ab328fea92d0e7">getDiagnostic</a> () const override</td></tr>
-<tr class="memdesc:aaeb7b66711ce19ba13ab328fea92d0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve diagnostics.  <br /></td></tr>
+<tr class="memdesc:aaeb7b66711ce19ba13ab328fea92d0e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve diagnostic information from the server base.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a595a441654975e2ef634363b86262f20" id="r_a595a441654975e2ef634363b86262f20"><td class="memItemLeft">static Server &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a595a441654975e2ef634363b86262f20">instance</a> ()</td></tr>
-<tr class="memdesc:a595a441654975e2ef634363b86262f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access singleton instance.  <br /></td></tr>
+<tr class="memdesc:a595a441654975e2ef634363b86262f20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton instance of the Server.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -231,8 +231,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Server destructor. </p>
-<p>Defaulted. The singleton instance is intended to live for the application lifetime; destruction is implicit at program termination. </p>
+<p>Defaulted virtual destructor. </p>
 
 </div>
 </div>
@@ -260,9 +259,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieve diagnostics. </p>
-<p>Returns runtime diagnostic information collected by the server base implementation including connection state and error counters.</p>
-<dl class="section return"><dt>Returns</dt><dd>Constant reference to the <span class="tt">Diagnostic</span> structure. </dd></dl>
+<p>Retrieve diagnostic information from the server base. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the diagnostic structure. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html#a568458f9461115a1ea8f443f2dfde355">Lib::Canbus::Service&lt; Mode::SERVER &gt;</a>.</p>
 
@@ -291,9 +289,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Access singleton instance. </p>
-<p>The instance is created on first use and remains valid for the application lifetime.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the global <span class="tt">Server</span> instance. </dd></dl>
+<p>Return the singleton instance of the Server. </p>
 
 </div>
 </div>
@@ -321,8 +317,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Start the server. </p>
-<p>Performs initialization and starts the internal processing task which handles incoming CAN messages and client management.</p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success, <span class="tt">false</span> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html#a93223c3fff4c00dc1af2fb2189a857ee">Lib::Canbus::Service&lt; Mode::SERVER &gt;</a>.</p>
 
@@ -352,8 +347,7 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Stop the server. </p>
-<p>Signals the internal task to terminate and releases runtime resources.</p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success, <span class="tt">false</span> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../dd/d14/class_lib_1_1_canbus_1_1_service_3_01_mode_1_1_s_e_r_v_e_r_01_4.html#a7ddbb1abfc9d0f93b2d9e809819651cb">Lib::Canbus::Service&lt; Mode::SERVER &gt;</a>.</p>
 

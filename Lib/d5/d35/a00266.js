@@ -1,4 +1,4 @@
 var a00266 =
 [
-    [ "Lib::Ethernet::IpAddress", "dc/d2a/a01333.html", "dc/d2a/a01333" ]
+    [ "Lib::Ethercat::Driver::DeviceBase", "d1/d54/a01326.html", "d1/d54/a01326" ]
 ];

@@ -93,13 +93,8 @@ $(function(){initNavTree('d5/d1b/struct_system_1_1_o_t_p_memory_map.html','../..
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Packed structure representing the OTP memory layout. </p>
-<p>The OTPMemoryMap structure defines the layout for storing production and sale dates in OTP memory. It uses packed alignment to ensure no padding between members for efficient memory usage.</p>
-<dl class="section note"><dt>Note</dt><dd><ul>
-<li>The structure is packed to ensure no padding between members and a stable on-flash layout.</li>
-<li>Dates are stored as 32-bit timestamps produced by the factory tooling. Consumers should treat these values as opaque 32-bit timestamps and not assume a specific epoch or format beyond what the production tooling documents. </li>
-</ul>
-</dd></dl>
+<div class="textblock"><p>Packed structure matching the OTP memory layout for production/sale dates and related fields. </p>
+<p>The structure is packed to guarantee a predictable memory layout that corresponds directly to the on-device OTP storage. Field formats (timestamp format, encoding, endianness) are board-specific — consult the platform/HAL documentation for exact encoding details. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::OTPMemoryMap:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -110,13 +105,13 @@ $(function(){initNavTree('d5/d1b/struct_system_1_1_o_t_p_memory_map.html','../..
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a9d1c3d27fec65c40ce23a784c5c49f4f" id="r_a9d1c3d27fec65c40ce23a784c5c49f4f"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a9d1c3d27fec65c40ce23a784c5c49f4f">productionDate</a></td></tr>
-<tr class="memdesc:a9d1c3d27fec65c40ce23a784c5c49f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Production date timestamp.  <br /></td></tr>
+<tr class="memdesc:a9d1c3d27fec65c40ce23a784c5c49f4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Production date stored in OTP (board-specific format).  <br /></td></tr>
 <tr class="memitem:a94ad2844df1ccb3279e3353b30290873" id="r_a94ad2844df1ccb3279e3353b30290873"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a94ad2844df1ccb3279e3353b30290873">saleDate</a></td></tr>
-<tr class="memdesc:a94ad2844df1ccb3279e3353b30290873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sale date timestamp.  <br /></td></tr>
+<tr class="memdesc:a94ad2844df1ccb3279e3353b30290873"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sale/shipping date stored in OTP (board-specific format).  <br /></td></tr>
 <tr class="memitem:a53ff986a71f9a676844adde50a34be69" id="r_a53ff986a71f9a676844adde50a34be69"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a53ff986a71f9a676844adde50a34be69">productionDate2</a></td></tr>
-<tr class="memdesc:a53ff986a71f9a676844adde50a34be69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Secondary production date timestamp.  <br /></td></tr>
+<tr class="memdesc:a53ff986a71f9a676844adde50a34be69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Secondary/backup production date field (optional/board-specific).  <br /></td></tr>
 <tr class="memitem:acf3b35dcbcbbd6510c654279e7cbb484" id="r_acf3b35dcbcbbd6510c654279e7cbb484"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#acf3b35dcbcbbd6510c654279e7cbb484">saleDate2</a></td></tr>
-<tr class="memdesc:acf3b35dcbcbbd6510c654279e7cbb484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Secondary sale date timestamp.  <br /></td></tr>
+<tr class="memdesc:acf3b35dcbcbbd6510c654279e7cbb484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Secondary/backup sale date field (optional/board-specific).  <br /></td></tr>
 </table>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="a9d1c3d27fec65c40ce23a784c5c49f4f" name="a9d1c3d27fec65c40ce23a784c5c49f4f"></a>
@@ -131,7 +126,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Production date timestamp. </p>
+<p>Production date stored in OTP (board-specific format). </p>
 
 </div>
 </div>
@@ -147,7 +142,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Secondary production date timestamp. </p>
+<p>Secondary/backup production date field (optional/board-specific). </p>
 
 </div>
 </div>
@@ -163,7 +158,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sale date timestamp. </p>
+<p>Sale/shipping date stored in OTP (board-specific format). </p>
 
 </div>
 </div>
@@ -179,7 +174,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Secondary sale date timestamp. </p>
+<p>Secondary/backup sale date field (optional/board-specific). </p>
 
 </div>
 </div>

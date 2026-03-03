@@ -1,7 +1,5 @@
 var NAVTREEINDEX24 =
 {
-"functions_func_m.html":[4,3,1,12],
-"functions_func_n.html":[4,3,1,13],
 "functions_func_o.html":[4,3,1,14],
 "functions_func_p.html":[4,3,1,15],
 "functions_func_q.html":[4,3,1,16],
