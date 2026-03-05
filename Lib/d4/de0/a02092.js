@@ -1,5 +1,7 @@
 var a02092 =
 [
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "d0/d11/a00842.html", "d0/d11/a00842" ],
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "d9/d87/a00846.html", "d9/d87/a00846" ]
+    [ "operator Frame::Data", "d4/de0/a02092.html#a29ff3a1e655ad7f7dec7fef9d9c2f800", null ],
+    [ "atCommand", "d4/de0/a02092.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "d4/de0/a02092.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameters", "d4/de0/a02092.html#a23a8d96719db8eab9fd754c07d0123a5", null ]
 ];

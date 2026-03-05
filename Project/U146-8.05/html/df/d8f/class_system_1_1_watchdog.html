@@ -93,9 +93,8 @@ $(function(){initNavTree('df/d8f/class_system_1_1_watchdog.html','../../','dc/d8
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>System Watchdog class. </p>
-<p>This class implements a singleton pattern for the system watchdog functionality. It provides methods to set up and refresh the Independent Watchdog (IWDG) to prevent system hangs and ensure reliability in embedded applications.</p>
-<dl class="section see"><dt>See also</dt><dd>Lib::HAL::Watchdog </dd></dl>
+<div class="textblock"><p>Singleton system-level watchdog. </p>
+<p>Binds the platform <span class="tt">hiwdg</span> handle to the library watchdog implementation. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::Watchdog:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -106,14 +105,14 @@ $(function(){initNavTree('df/d8f/class_system_1_1_watchdog.html','../../','dc/d8
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae710d88615256bdc2547fea20f4afab5" id="r_ae710d88615256bdc2547fea20f4afab5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae710d88615256bdc2547fea20f4afab5">setup</a> (uint32_t prescaler=IWDG_PRESCALER_64, uint32_t reload=1000) noexcept override</td></tr>
-<tr class="memdesc:ae710d88615256bdc2547fea20f4afab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the watchdog with specified parameters.  <br /></td></tr>
+<tr class="memdesc:ae710d88615256bdc2547fea20f4afab5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the watchdog timer.  <br /></td></tr>
 <tr class="memitem:ac1944ce1ddf8ed72ff7bed2c915253c1" id="r_ac1944ce1ddf8ed72ff7bed2c915253c1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac1944ce1ddf8ed72ff7bed2c915253c1">refresh</a> () noexcept override</td></tr>
-<tr class="memdesc:ac1944ce1ddf8ed72ff7bed2c915253c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refresh the watchdog timer.  <br /></td></tr>
+<tr class="memdesc:ac1944ce1ddf8ed72ff7bed2c915253c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refresh (kick) the watchdog to prevent reset.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a683cf3df70c37307f4b7130fd4c46cc4" id="r_a683cf3df70c37307f4b7130fd4c46cc4"><td class="memItemLeft">static Watchdog &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a683cf3df70c37307f4b7130fd4c46cc4">instance</a> ()</td></tr>
-<tr class="memdesc:a683cf3df70c37307f4b7130fd4c46cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the Watchdog.  <br /></td></tr>
+<tr class="memdesc:a683cf3df70c37307f4b7130fd4c46cc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get singleton instance.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a683cf3df70c37307f4b7130fd4c46cc4" name="a683cf3df70c37307f4b7130fd4c46cc4"></a>
@@ -139,9 +138,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the singleton instance of the Watchdog. </p>
-<p>Returns a reference to the single instance of the <span class="tt">Watchdog</span> class. This method ensures thread-safe lazy initialization of the singleton.</p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the Watchdog instance. </dd></dl>
+<p>Get singleton instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the <span class="tt">Watchdog</span> singleton. </dd></dl>
 
 </div>
 </div>
@@ -168,10 +166,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Refresh the watchdog timer. </p>
-<p>Resets the watchdog counter to prevent a system reset. This method should be called periodically to indicate that the system is functioning correctly.</p>
-<dl class="section pre"><dt>Precondition</dt><dd>The watchdog has been configured by a prior call to <span class="tt">setup()</span>.</dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>The watchdog reload counter is reloaded; a system reset will be prevented until the next timeout unless <span class="tt">refresh()</span> is not called in time. </dd></dl>
+<p>Refresh (kick) the watchdog to prevent reset. </p>
 
 <p>Reimplemented from <a class="el" href="../../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html#aa592ca9b4c17767c4ecdcb58b4237c63">Lib::HAL::Watchdog</a>.</p>
 
@@ -204,18 +199,15 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Setup the watchdog with specified parameters. </p>
-<p>Configures the Independent Watchdog with the given prescaler and reload values. The timeout is calculated as <span class="tt">(prescaler * reload) / LSI</span> frequency.</p>
-<dl class="section pre"><dt>Precondition</dt><dd>The IWDG peripheral clock is enabled and the hardware watchdog handle (<span class="tt">hiwdg</span>) is valid.</dd></dl>
-<dl class="section post"><dt>Postcondition</dt><dd>On return <span class="tt">true</span> the watchdog is configured and running; on return <span class="tt">false</span> the watchdog configuration remains unchanged.</dd></dl>
+<p>Initialize the watchdog timer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">prescaler</td><td>The prescaler value for the watchdog timer. </td></tr>
-    <tr><td class="paramname">reload</td><td>The reload value for the watchdog timer. </td></tr>
+    <tr><td class="paramname">prescaler</td><td>Hardware prescaler value (platform-specific constant). </td></tr>
+    <tr><td class="paramname">reload</td><td>Reload value in ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if setup was successful, <span class="tt">false</span> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on successful setup, <span class="tt">false</span> otherwise. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../d9/d45/class_lib_1_1_h_a_l_1_1_watchdog.html#a3e7b28b1179f546ab96b4e8ccc559cd6">Lib::HAL::Watchdog</a>.</p>
 

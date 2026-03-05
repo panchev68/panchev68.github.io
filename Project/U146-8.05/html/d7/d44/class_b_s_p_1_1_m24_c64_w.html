@@ -121,7 +121,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ae4cc536cd7703ac75547295659935376" id="r_ae4cc536cd7703ac75547295659935376"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae4cc536cd7703ac75547295659935376">getChipSize</a> () const</td></tr>
 <tr class="memdesc:ae4cc536cd7703ac75547295659935376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the total configured chip size in bytes.  <br /></td></tr>
 <tr class="memitem:aa2077e65e08bbe5756a794c3d8bc287f" id="r_aa2077e65e08bbe5756a794c3d8bc287f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa2077e65e08bbe5756a794c3d8bc287f">isPresent</a> () const</td></tr>
-<tr class="memdesc:aa2077e65e08bbe5756a794c3d8bc287f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return whether the device was detected during the last <span class="tt">open()</span>.  <br /></td></tr>
+<tr class="memdesc:aa2077e65e08bbe5756a794c3d8bc287f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the device was detected during the last <span class="tt">open()</span> operation.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -210,7 +210,8 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Close the underlying I2C port and reset internal state. </p>
-<dl class="section return"><dt>Returns</dt><dd>true on success (always returns true currently). </dd></dl>
+<p>The method always returns <span class="tt">true</span> currently, but it may be extended in the future to report errors during port closing operations.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success (always returns <span class="tt">true</span> currently). </dd></dl>
 
 </div>
 </div>
@@ -249,8 +250,9 @@ Static Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Return whether the device was detected during the last <span class="tt">open()</span>. </p>
-<dl class="section return"><dt>Returns</dt><dd>true if the device was present, false otherwise. </dd></dl>
+<p>Check whether the device was detected during the last <span class="tt">open()</span> operation. </p>
+<p>This method returns <span class="tt">true</span> if the device acknowledged its presence on the I2C bus during the last <span class="tt">open()</span> call, and <span class="tt">false</span> if it did not. Note that this does not guarantee that the device is still present or operational, as it only reflects the state at the time of the last <span class="tt">open()</span>.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the device was present, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -270,7 +272,8 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Open the underlying I2C port and probe device presence. </p>
-<dl class="section return"><dt>Returns</dt><dd>true if the I2C port was opened successfully. </dd></dl>
+<p>Updates internal readiness and presence flags used by other methods. The method must be called before performing read/write operations. Returns <span class="tt">true</span> if the port was opened successfully, <span class="tt">false</span> otherwise. Device presence can be checked separately using <span class="tt">isPresent()</span>.</p>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the I2C port was opened successfully. </dd></dl>
 
 </div>
 </div>
@@ -299,16 +302,16 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read bytes from the EEPROM. </p>
-<p>Reads <span class="tt">length</span> bytes starting at <span class="tt">address</span> into <span class="tt">buffer</span>. Bounds and readiness are checked before the transfer.</p>
+<p>Reads <span class="tt">length</span> bytes starting at <span class="tt">address</span> into <span class="tt">buffer</span>. Bounds and readiness are checked before the transfer. The method will return <span class="tt">false</span> if the device is not ready, the address range is invalid, or the underlying I2C transfer fails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>Start address inside the EEPROM (0..chipSize-1). </td></tr>
+    <tr><td class="paramname">address</td><td>Start address inside the EEPROM (0..<span class="tt">chipSize</span>-1). </td></tr>
     <tr><td class="paramname">buffer</td><td>Destination buffer pointer. </td></tr>
     <tr><td class="paramname">length</td><td>Number of bytes to read. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true on successful read, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on successful read, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>
@@ -337,16 +340,16 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Write bytes to the EEPROM. </p>
-<p>The driver splits writes into page-sized chunks and waits for the device internal write cycle between pages.</p>
+<p>The driver splits writes into page-sized chunks and waits for the device internal write cycle between pages. Bounds and readiness are checked before the transfer. The caller must ensure that the target address range does not cross the device page boundary, or the write will fail.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">address</td><td>Start address inside the EEPROM (0..chipSize-1). </td></tr>
+    <tr><td class="paramname">address</td><td>Start address inside the EEPROM (0..<span class="tt">chipSize</span>-1). </td></tr>
     <tr><td class="paramname">buffer</td><td>Source buffer pointer. </td></tr>
     <tr><td class="paramname">length</td><td>Number of bytes to write. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true on successful write, false otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on successful write, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
 </div>

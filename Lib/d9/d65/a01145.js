@@ -1,4 +1,4 @@
 var a01145 =
 [
-    [ "UartPort", "d9/d65/a01145.html#acb50b4dd4037041ee46153272af0865f", null ]
+    [ "Lib::HAL::AdcPortBase", "dd/d76/a02268.html", "dd/d76/a02268" ]
 ];

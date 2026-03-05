@@ -1,7 +1,8 @@
 var a02124 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Type", "dd/d1f/a00648.html#a739459324a89506aa4cced1716275d06", [
-      [ "Lib::BSP::Thermometer::DTH::Type::DTH11", "dd/d1f/a00648.html#a739459324a89506aa4cced1716275d06a8c1ff87e2818df1689e21b28586306b2", null ],
-      [ "Lib::BSP::Thermometer::DTH::Type::DTH22", "dd/d1f/a00648.html#a739459324a89506aa4cced1716275d06a9605c38a0c968e9fa948ea26056471a7", null ]
-    ] ]
+    [ "Frame0x80", "db/d0e/a02124.html#a0ff648972da16fac1c8c93d56f4d3081", null ],
+    [ "option", "db/d0e/a02124.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
+    [ "rfData", "db/d0e/a02124.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
+    [ "rssi", "db/d0e/a02124.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
+    [ "srcAddr64", "db/d0e/a02124.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
 ];

@@ -1,5 +1,5 @@
 var a02087 =
 [
-    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;", "d0/d7d/a00786.html", "d0/d7d/a00786" ],
-    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Config", "d3/daf/a00790.html", "d3/daf/a00790" ]
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;", "df/d0c/a00788.html", "df/d0c/a00788" ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Config", "d2/d5a/a00792.html", "d2/d5a/a00792" ]
 ];

@@ -1,4 +1,4 @@
 var a00569 =
 [
-    [ "RTOS::MessageBuffer", "de/d05/a01702.html", "de/d05/a01702" ]
+    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, QUEUE_LENGTH &gt;", "d4/df6/a01716.html", "d4/df6/a01716" ]
 ];

@@ -1,5 +1,5 @@
 var a02165 =
 [
-    [ "Lib::Ethernet::UserProtocol", "d2/dff/a01374.html", "d2/dff/a01374" ],
-    [ "Lib::Ethernet::UserProtocol::MessageHeader", "db/d74/a01378.html", "db/d74/a01378" ]
+    [ "Lib::Ethernet::UserProtocol", "de/d1f/a01364.html", "de/d1f/a01364" ],
+    [ "Lib::Ethernet::UserProtocol::MessageHeader", "dd/d0c/a01368.html", "dd/d0c/a01368" ]
 ];

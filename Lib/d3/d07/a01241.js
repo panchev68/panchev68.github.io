@@ -1,11 +1,9 @@
 var a01241 =
 [
-    [ "onExtendedTransmitStatusChanged", "d3/d07/a01241.html#a472d4f1ca01c68f979b0a9876fbacb0f", null ],
-    [ "onLocalAtCommand", "d3/d07/a01241.html#ac86650cf7338781104f542795b8b5ff5", null ],
-    [ "onModemStatusChanged", "d3/d07/a01241.html#a69efd2d36b37591495765c1bc5ac68b5", null ],
-    [ "onPacketReceived", "d3/d07/a01241.html#ae4edadc1772654bd8c897547cb90b69a", null ],
-    [ "onReceivePacket16bit", "d3/d07/a01241.html#a16acb554b5f72577434ce07a8346df60", null ],
-    [ "onReceivePacket64bit", "d3/d07/a01241.html#a99f064b9f95883ef3b826e754565facf", null ],
-    [ "onRemoteATCommand", "d3/d07/a01241.html#a2c5d183021cabffd65ea280945833fe0", null ],
-    [ "onTransmitStatus", "d3/d07/a01241.html#a955b52564edc51630a93974077e5874c", null ]
+    [ "Lib::HAL::TimerMode", "d9/da1/a01546.html#a586ac8c7aa34b851a36ea17e6794f59c", [
+      [ "Lib::HAL::TimerMode::NORMAL", "d9/da1/a01546.html#a586ac8c7aa34b851a36ea17e6794f59ca1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "Lib::HAL::TimerMode::PWM", "d9/da1/a01546.html#a586ac8c7aa34b851a36ea17e6794f59ca8449bc264b69c3a0fe8b60361eaf7aeb", null ],
+      [ "Lib::HAL::TimerMode::OC", "d9/da1/a01546.html#a586ac8c7aa34b851a36ea17e6794f59ca628ac2641a11205611acfdd540e18809", null ],
+      [ "Lib::HAL::TimerMode::ENCODER", "d9/da1/a01546.html#a586ac8c7aa34b851a36ea17e6794f59ca9e1de45ee3c680d9a2ff400816f05e0f", null ]
+    ] ]
 ];

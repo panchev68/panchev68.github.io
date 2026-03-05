@@ -1,7 +1,8 @@
 var a00548 =
 [
-    [ "Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;", "dd/d55/a01638.html", "dd/d55/a01638" ],
-    [ "Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;::Point", "d7/d94/a01642.html", "d7/d94/a01642" ],
-    [ "Lib::Math::CubicInterpolationD", "d0/db6/a00692.html#ad4addb27687a1c6accb56c4e27269048", null ],
-    [ "Lib::Math::CubicInterpolationF", "d0/db6/a00692.html#a95e75623bdeeebff3be6c024135bfea2", null ]
+    [ "Lib::Math::Pid&lt; T &gt;", "d6/d5e/a01660.html", "d6/d5e/a01660" ],
+    [ "Lib::Math::Pid&lt; T &gt;::Parameters", "dc/d71/a01664.html", "dc/d71/a01664" ],
+    [ "Lib::Math::Pid&lt; T &gt;::State", "d7/d47/a01668.html", "d7/d47/a01668" ],
+    [ "Lib::Math::PidD", "df/d9e/a00686.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9", null ],
+    [ "Lib::Math::PidF", "df/d9e/a00686.html#a948fc056c1100dd929fbdca345047060", null ]
 ];

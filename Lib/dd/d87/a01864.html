@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: integrator_example.cpp</title>
+<title>IAR Library: Lib::Canbus::Service&lt; T_MODE &gt;</title>
 <link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
@@ -91,70 +91,39 @@ $(function(){initNavTree('dd/d87/a01864.html','../../',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">integrator_example.cpp</div></div>
+  <div class="headertitle"><div class="title">Lib::Canbus::Service&lt; T_MODE &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-<p>@title Moving Average Computation with Fixed-Size Window</p>
-<p>@title Moving Average Computation with Fixed-Size WindowThis example demonstrates the usage of the Integrator class for computing moving averages over a fixed-size window. The integrator is particularly useful in embedded systems for smoothing sensor data and noise reduction with minimal computational overhead.</p>
-<h1 class="doxsection"><a class="anchor" id="Example"></a>
-Scenario</h1>
-<p>Processing temperature sensor readings to compute a running average over the last 10 samples. This is a common pattern in real-time sensor data filtering.</p>
-<div class="fragment"><div class="line"><span class="comment">// Create an integrator for temperature values (int) with a 10-sample window</span></div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d2/d2f/a01586.html">Lib::Helper::Integrator&lt;int, 10&gt;</a> temperatureFilter;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Simulate receiving sensor readings</span></div>
-<div class="line"><span class="keywordtype">int</span> sensorReadings[] = {245, 248, 247, 249, 246, 244, 250, 248, 247, 249, 251, 248};</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Process each reading and obtain the running average</span></div>
-<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> reading : sensorReadings) {</div>
-<div class="line">    <span class="keywordtype">int</span> averageTemp = temperatureFilter.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d2/d2f/a01586.html#aef613108f685c1f439c3e7fb00c5e656">processValue</a>(reading);</div>
-<div class="line">    <span class="comment">// averageTemp now contains the average of up to 10 most recent readings</span></div>
-<div class="line">    <span class="comment">// Output: 245, 246, 246, 247, 247, 246, 247, 247, 247, 247, 248, 248</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Alternatively, separate processing and computation steps</span></div>
-<div class="line"><a class="code hl_class" href="../../d2/d2f/a01586.html">Lib::Helper::Integrator&lt;float, 5&gt;</a> voltageFilter;</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Add values individually</span></div>
-<div class="line">voltageFilter.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d2/d2f/a01586.html#a05d6fd890607ede5a5afbb3696e40818">addValue</a>(3.3f);</div>
-<div class="line">voltageFilter.<a class="code hl_function" href="../../d2/d2f/a01586.html#a05d6fd890607ede5a5afbb3696e40818">addValue</a>(3.31f);</div>
-<div class="line">voltageFilter.<a class="code hl_function" href="../../d2/d2f/a01586.html#a05d6fd890607ede5a5afbb3696e40818">addValue</a>(3.29f);</div>
-<div class="line">voltageFilter.<a class="code hl_function" href="../../d2/d2f/a01586.html#a05d6fd890607ede5a5afbb3696e40818">addValue</a>(3.32f);</div>
-<div class="line">voltageFilter.<a class="code hl_function" href="../../d2/d2f/a01586.html#a05d6fd890607ede5a5afbb3696e40818">addValue</a>(3.30f);</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Compute the result once the window is full (5 samples)</span></div>
-<div class="line"><span class="keywordtype">float</span> smoothedVoltage = voltageFilter.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d2/d2f/a01586.html#ac96252aaff53255bb087b3277c69a32e">computeResult</a>();  <span class="comment">// Returns 3.304</span></div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Check if the window is full</span></div>
-<div class="line"><span class="keywordflow">if</span> (voltageFilter.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d2/d2f/a01586.html#a375635ef76eaefc223118c33ae8e9735">isWindowFull</a>()) {</div>
-<div class="line">    <span class="comment">// Buffer contains exactly 5 samples</span></div>
-<div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Reset for a new batch of readings</span></div>
-<div class="line">voltageFilter.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d2/d2f/a01586.html#a739cba2c4006033bad58f9f7ac3efee4">resetWindow</a>();</div>
-<div class="line"> </div>
-<div class="line"><span class="comment">// Use the operator() overload for functional processing</span></div>
-<div class="line"><span class="keywordtype">float</span> result = voltageFilter(3.25f);  <span class="comment">// Equivalent to processValue(3.25f)</span></div>
-<div class="ttc" id="aa01586_html"><div class="ttname"><a href="../../d2/d2f/a01586.html">Lib::Helper::Integrator</a></div><div class="ttdoc">Integrator template class for computing moving averages.</div><div class="ttdef"><b>Definition</b> Integrator.hpp:31</div></div>
-<div class="ttc" id="aa01586_html_a05d6fd890607ede5a5afbb3696e40818"><div class="ttname"><a href="../../d2/d2f/a01586.html#a05d6fd890607ede5a5afbb3696e40818">Lib::Helper::Integrator::addValue</a></div><div class="ttdeci">void addValue(T_VALUE value)</div><div class="ttdoc">Add a value to the integrator window.</div><div class="ttdef"><b>Definition</b> Integrator.hpp:47</div></div>
-<div class="ttc" id="aa01586_html_a375635ef76eaefc223118c33ae8e9735"><div class="ttname"><a href="../../d2/d2f/a01586.html#a375635ef76eaefc223118c33ae8e9735">Lib::Helper::Integrator::isWindowFull</a></div><div class="ttdeci">constexpr bool isWindowFull() const</div><div class="ttdoc">Check whether the internal window buffer is full.</div><div class="ttdef"><b>Definition</b> Integrator.hpp:108</div></div>
-<div class="ttc" id="aa01586_html_a739cba2c4006033bad58f9f7ac3efee4"><div class="ttname"><a href="../../d2/d2f/a01586.html#a739cba2c4006033bad58f9f7ac3efee4">Lib::Helper::Integrator::resetWindow</a></div><div class="ttdeci">void resetWindow()</div><div class="ttdoc">Reset the integrator window to its initial state.</div><div class="ttdef"><b>Definition</b> Integrator.hpp:96</div></div>
-<div class="ttc" id="aa01586_html_ac96252aaff53255bb087b3277c69a32e"><div class="ttname"><a href="../../d2/d2f/a01586.html#ac96252aaff53255bb087b3277c69a32e">Lib::Helper::Integrator::computeResult</a></div><div class="ttdeci">T_VALUE computeResult() const</div><div class="ttdoc">Compute the average of the values in the window.</div><div class="ttdef"><b>Definition</b> Integrator.hpp:64</div></div>
-<div class="ttc" id="aa01586_html_aef613108f685c1f439c3e7fb00c5e656"><div class="ttname"><a href="../../d2/d2f/a01586.html#aef613108f685c1f439c3e7fb00c5e656">Lib::Helper::Integrator::processValue</a></div><div class="ttdeci">T_VALUE processValue(T_VALUE value)</div><div class="ttdoc">Add a value and return the updated average.</div><div class="ttdef"><b>Definition</b> Integrator.hpp:77</div></div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="Performance"></a>
-Notes</h1>
-<ul>
-<li>addValue() and processValue() operations complete in O(1) time.</li>
-<li>computeResult() runs in O(1) time using the precomputed running sum.</li>
-<li>No dynamic memory allocation; uses stack-based std::array for deterministic behavior.</li>
-<li>Ideal for real-time embedded systems with strict timing constraints.</li>
-</ul>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="../../dc/d2d/a01534.html#ad81e761f20d5185ff2c7cbf5e547ef02">Mode</a> T_MODE&gt;<br />
+class Lib::Canbus::Service&lt; T_MODE &gt;</div><p>Primary template declaration for CAN service. </p>
+<p>This template is specialized by operating <a class="el" href="../../dc/d2d/a01534.html#ad81e761f20d5185ff2c7cbf5e547ef02" title="Operating mode for a CAN service.">Mode</a> (CLIENT or SERVER) in other headers to provide mode-specific implementations. The primary template is left undefined to enforce specialization.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MODE</td><td>Operating mode for the service (<a class="el" href="../../dc/d2d/a01534.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1" title="Client mode: initiates requests.">Mode::CLIENT</a> or <a class="el" href="../../dc/d2d/a01534.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844" title="Server mode: responds to requests.">Mode::SERVER</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Canbus::Service&lt; T_MODE &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4a/a01862.svg" width="222" height="80"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d2/de0/a01515.html">Lib</a></li><li class="navelem"><a href="../../dc/d2d/a01534.html">Canbus</a></li><li class="navelem"><a href="../../dd/d87/a01864.html">Service</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

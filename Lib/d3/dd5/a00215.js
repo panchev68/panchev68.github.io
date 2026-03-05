@@ -1,4 +1,4 @@
 var a00215 =
 [
-    [ "Lib::Digi::Core::ResponseEvents", "d7/d73/a01266.html", "d7/d73/a01266" ]
+    [ "Lib::Digi::Core::QueryBase", "d8/dd8/a02108.html", "d8/dd8/a02108" ]
 ];

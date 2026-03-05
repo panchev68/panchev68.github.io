@@ -1,26 +1,4 @@
 var a01439 =
 [
-    [ "AddressType", "d7/dfd/a01439.html#a6c42e9ceeb8fc562e73e706b638b832d", null ],
-    [ "lock", "d7/dfd/a01439.html#a1d6e1e7645b5a8242314315f989770ff", null ],
-    [ "read", "d7/dfd/a01439.html#a54faf408d408f554e386b3598e8435f9", null ],
-    [ "read", "d7/dfd/a01439.html#a1e8b636d69a686202d71ad5e93347f24", null ],
-    [ "read", "d7/dfd/a01439.html#a3a67d5b50f1803db86cb84df928437f0", null ],
-    [ "read", "d7/dfd/a01439.html#ae739ed78b7030dda30c04a5c2f7f0aef", null ],
-    [ "read", "d7/dfd/a01439.html#a910b72fed11976b5ac047081d57ed716", null ],
-    [ "read", "d7/dfd/a01439.html#a910b72fed11976b5ac047081d57ed716", null ],
-    [ "read", "d7/dfd/a01439.html#a54faf408d408f554e386b3598e8435f9", null ],
-    [ "read", "d7/dfd/a01439.html#a1e8b636d69a686202d71ad5e93347f24", null ],
-    [ "read", "d7/dfd/a01439.html#a3a67d5b50f1803db86cb84df928437f0", null ],
-    [ "read", "d7/dfd/a01439.html#ae739ed78b7030dda30c04a5c2f7f0aef", null ],
-    [ "read", "d7/dfd/a01439.html#a910b72fed11976b5ac047081d57ed716", null ],
-    [ "unlock", "d7/dfd/a01439.html#ad1393be4f030a47d4380ac6f81653cf4", null ],
-    [ "write", "d7/dfd/a01439.html#a82ac30abe0ad80232cca2a92a336ff76", null ],
-    [ "write", "d7/dfd/a01439.html#a68c1f32bb69af1f499354a1ef2eaf8ad", null ],
-    [ "write", "d7/dfd/a01439.html#a68c1f32bb69af1f499354a1ef2eaf8ad", null ],
-    [ "write", "d7/dfd/a01439.html#aab9f63780ad606b4ae42423e9600cc5a", null ],
-    [ "write", "d7/dfd/a01439.html#aab9f63780ad606b4ae42423e9600cc5a", null ],
-    [ "write", "d7/dfd/a01439.html#a332c8bbdf0ca52ba460ce4fb112ec1d8", null ],
-    [ "write", "d7/dfd/a01439.html#a332c8bbdf0ca52ba460ce4fb112ec1d8", null ],
-    [ "write", "d7/dfd/a01439.html#ab1991265d00464d6b97a70db5beac8e7", null ],
-    [ "write", "d7/dfd/a01439.html#ab1991265d00464d6b97a70db5beac8e7", null ]
+    [ "RTOS::StreamBuffer", "df/d5d/a02596.html", "df/d5d/a02596" ]
 ];

@@ -1,4 +1,4 @@
 var a00242 =
 [
-    [ "Lib::Ethercat::BootStrap", "dc/dd5/a01293.html", "dc/dd5/a01293" ]
+    [ "Lib::Digi::Core::Frame0x8a", "de/d81/a02140.html", "de/d81/a02140" ]
 ];

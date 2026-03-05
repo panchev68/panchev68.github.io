@@ -1,0 +1,38 @@
+var a02596 =
+[
+    [ "Handle", "df/d5d/a02596.html#ac43f2585fb807014368f17cd4dd8bc9e", null ],
+    [ "TickType", "df/d5d/a02596.html#a42a3f1a25643f889cf225fcfe5cff5a9", null ],
+    [ "Status", "df/d5d/a02596.html#ae40918e60c2277acebaa9cba5209ca7a", [
+      [ "SUCCESS", "df/d5d/a02596.html#ae40918e60c2277acebaa9cba5209ca7aad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "TIMEOUT", "df/d5d/a02596.html#ae40918e60c2277acebaa9cba5209ca7aa070a0fb40f6c308ab544b227660aadff", null ],
+      [ "INVALID", "df/d5d/a02596.html#ae40918e60c2277acebaa9cba5209ca7aaccc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "FULL", "df/d5d/a02596.html#ae40918e60c2277acebaa9cba5209ca7aaba7de5bc6888294e5884b024a4c894f1", null ],
+      [ "EMPTY", "df/d5d/a02596.html#ae40918e60c2277acebaa9cba5209ca7aaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    ] ],
+    [ "StreamBuffer", "df/d5d/a02596.html#a689f901c2a0767c8bfa6588ecc6279a4", null ],
+    [ "~StreamBuffer", "df/d5d/a02596.html#a4279301601dc12497575fbe9b250f62a", null ],
+    [ "StreamBuffer", "df/d5d/a02596.html#a14ffbec31d8017c6cdee1c7a66c70b10", null ],
+    [ "close", "df/d5d/a02596.html#a8b8e9cc9c77e3a4fdf068e77a1f69500", null ],
+    [ "getBytesAvailable", "df/d5d/a02596.html#a106b6b1961b742c76bd83f3d032aad3a", null ],
+    [ "getCapacity", "df/d5d/a02596.html#a541db117ce6ec35a33c7caa9fc1b147d", null ],
+    [ "getHandle", "df/d5d/a02596.html#a856bb4199be3cd07184eaaf548e7e728", null ],
+    [ "getSpacesAvailable", "df/d5d/a02596.html#a9fa51825dff8d1fb8914b5700becd22a", null ],
+    [ "getUtilizationPercent", "df/d5d/a02596.html#ad3c64196f5f3abf8c76c122e7f5e6c86", null ],
+    [ "hasData", "df/d5d/a02596.html#ade34797262b4f41441646aece7747bcc", null ],
+    [ "hasSpace", "df/d5d/a02596.html#a859b528b648aa22f0334cd2ed7b9feaa", null ],
+    [ "isEmpty", "df/d5d/a02596.html#ac63276981f0f2652f909f8caf99eded6", null ],
+    [ "isFull", "df/d5d/a02596.html#ab28a179ad13782df9ebce66f220d9084", null ],
+    [ "isOpen", "df/d5d/a02596.html#ac2a2af65aa4c8373be7100ce359db847", null ],
+    [ "open", "df/d5d/a02596.html#a4aa3cc2ae2f3839df3b4181ee6505247", null ],
+    [ "operator Handle", "df/d5d/a02596.html#af3ea86170ac27de1d9f4aeb769872769", null ],
+    [ "operator=", "df/d5d/a02596.html#a8146ee7009c27932a3972b1526a5d480", null ],
+    [ "receive", "df/d5d/a02596.html#a23942b99e5d83c83a2402a731c93d7f6", null ],
+    [ "receiveFromISR", "df/d5d/a02596.html#a468f0e726b4e418f48f34533e5351506", null ],
+    [ "reset", "df/d5d/a02596.html#a945ae0f4f0d0051decd64f9e208f59fc", null ],
+    [ "send", "df/d5d/a02596.html#a8f84006980abb3442a742fbf27112294", null ],
+    [ "send", "df/d5d/a02596.html#a61da11a1a15b23d6cc661b11b12001a8", null ],
+    [ "send", "df/d5d/a02596.html#ad7953bedd63493e30895ed4bbe38cf4a", null ],
+    [ "sendFromISR", "df/d5d/a02596.html#a3e6fa44665f7be26c710d25ae9b80d5b", null ],
+    [ "sendFromISR", "df/d5d/a02596.html#af0d7b2f1971bd4ed46bfa94122fc0b4b", null ],
+    [ "setTriggerLevel", "df/d5d/a02596.html#a861b60a2bb7532cbbff910e8b1fc0a33", null ]
+];

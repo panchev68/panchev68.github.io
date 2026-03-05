@@ -1,4 +1,4 @@
 var a00611 =
 [
-    [ "Lib::System::SerialNumber", "db/db8/a01761.html", "db/db8/a01761" ]
+    [ "Lib::System::FirmwareVersion", "de/dda/a01768.html", "de/dda/a01768" ]
 ];

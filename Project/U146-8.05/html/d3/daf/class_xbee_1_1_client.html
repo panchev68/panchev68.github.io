@@ -93,8 +93,8 @@ $(function(){initNavTree('d3/daf/class_xbee_1_1_client.html','../../','d9/d5c/cl
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Class for managing the XBee wireless communication client. </p>
-<p>Inherits from <span class="tt">ClientBase</span> and <span class="tt">UserProtocol</span> to provide wireless communication capabilities. Implements a singleton pattern for managing XBee client operations, message handling, and state management. </p>
+<div class="textblock"><p>XBee client class implementing message handling and application logic. </p>
+<p>Inherits from <span class="tt">Lib::Xbee::API::ClientBase</span> and <span class="tt">Lib::Xbee::API::UserProtocol</span>. Provides a singleton access via <span class="tt">instance()</span> and overrides hooks for message processing and periodic ticks. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Xbee::Client:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,9 +105,9 @@ $(function(){initNavTree('d3/daf/class_xbee_1_1_client.html','../../','d9/d5c/cl
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa349941f32aa06dd2cd4a0579d02e954" id="r_aa349941f32aa06dd2cd4a0579d02e954"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa349941f32aa06dd2cd4a0579d02e954">start</a> (bool paused=false) override</td></tr>
-<tr class="memdesc:aa349941f32aa06dd2cd4a0579d02e954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the XBee client with optional pause state.  <br /></td></tr>
+<tr class="memdesc:aa349941f32aa06dd2cd4a0579d02e954"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the client.  <br /></td></tr>
 <tr class="memitem:a763fb69a5edf76f212628629a7ded0c9" id="r_a763fb69a5edf76f212628629a7ded0c9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a763fb69a5edf76f212628629a7ded0c9">getModulePresent</a> () const override</td></tr>
-<tr class="memdesc:a763fb69a5edf76f212628629a7ded0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the XBee module is present.  <br /></td></tr>
+<tr class="memdesc:a763fb69a5edf76f212628629a7ded0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether the XBee module is present.  <br /></td></tr>
 <tr class="inherit_header pub_methods_class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html">Lib::Xbee::API::ApplicationBase</a></td></tr>
 <tr class="memitem:a0c77e32ecb01d92fc88bdb5a5f15147c inherit pub_methods_class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base" id="r_a0c77e32ecb01d92fc88bdb5a5f15147c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#a0c77e32ecb01d92fc88bdb5a5f15147c">pause</a> ()</td></tr>
 <tr class="memdesc:a0c77e32ecb01d92fc88bdb5a5f15147c inherit pub_methods_class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pauses the application if not already paused.  <br /></td></tr>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:abe87c3fa27b697dcdfba653f52cf64e1" id="r_abe87c3fa27b697dcdfba653f52cf64e1"><td class="memItemLeft">static Client &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abe87c3fa27b697dcdfba653f52cf64e1">instance</a> ()</td></tr>
-<tr class="memdesc:abe87c3fa27b697dcdfba653f52cf64e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the singleton instance of the Client class.  <br /></td></tr>
+<tr class="memdesc:abe87c3fa27b697dcdfba653f52cf64e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the singleton instance of the client.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -233,7 +233,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the XBee module is present. </p>
+<p>Query whether the XBee module is present. </p>
 <dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the module is present, <span class="tt">false</span> otherwise. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#aa9d023e2638e9a66f2600a0158810d19">Lib::Xbee::API::ApplicationBase</a>.</p>
@@ -263,8 +263,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the singleton instance of the Client class. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the Client instance. </dd></dl>
+<p>Get the singleton instance of the client. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the <span class="tt">Client</span> singleton. </dd></dl>
 
 </div>
 </div>
@@ -291,14 +291,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the XBee client with optional pause state. </p>
+<p>Start the client. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">paused</td><td>If <span class="tt">true</span>, starts the client in paused state. </td></tr>
+    <tr><td class="paramname">paused</td><td>If <span class="tt">true</span>, start the client in paused state. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if started successfully, <span class="tt">false</span> otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> on success, <span class="tt">false</span> on failure. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../d2/d61/class_lib_1_1_xbee_1_1_a_p_i_1_1_application_base.html#a5c2587b4d6b532d30546299936254df7">Lib::Xbee::API::ApplicationBase</a>.</p>
 

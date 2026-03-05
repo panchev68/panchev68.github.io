@@ -1,5 +1,5 @@
 var dir_aceb1e7d1e25e130c932bba4fb149c79 =
 [
-    [ "Buffer.hpp", "dd/d63/a00455.html", "dd/d63/a00455" ],
-    [ "BufferHandle.hpp", "da/d65/a00458.html", "da/d65/a00458" ]
+    [ "Buffer.hpp", "d2/d1d/a01277.html", "d2/d1d/a01277" ],
+    [ "BufferHandle.hpp", "d8/d0d/a01280.html", "d8/d0d/a01280" ]
 ];

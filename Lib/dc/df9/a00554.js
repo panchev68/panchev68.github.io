@@ -1,8 +1,6 @@
 var a00554 =
 [
-    [ "Lib::Math::Pid&lt; T &gt;", "d9/d79/a01658.html", "d9/d79/a01658" ],
-    [ "Lib::Math::Pid&lt; T &gt;::Parameters", "d9/dbc/a01662.html", "d9/dbc/a01662" ],
-    [ "Lib::Math::Pid&lt; T &gt;::State", "d8/d75/a01666.html", "d8/d75/a01666" ],
-    [ "Lib::Math::PidD", "d0/db6/a00692.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9", null ],
-    [ "Lib::Math::PidF", "d0/db6/a00692.html#a948fc056c1100dd929fbdca345047060", null ]
+    [ "RTOS::delay", "d6/dd3/a00688.html#acfb40af377a8f385e09c24a37df281b6", null ],
+    [ "RTOS::getTickCountMs", "d6/dd3/a00688.html#a1557952a224686962313d97f4598ec77", null ],
+    [ "RTOS::yield", "d6/dd3/a00688.html#a0967927b904c36fdb2d3d206bd88c9fd", null ]
 ];

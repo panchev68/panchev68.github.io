@@ -1,9 +1,6 @@
 var a00506 =
 [
-    [ "Lib::Helper::Instance&lt; T &gt;", "d1/d88/a01578.html", "d1/d88/a01578" ],
-    [ "Lib::Helper::InstanceWithArg&lt; T, T_CONFIG &gt;", "d0/d21/a01582.html", "d0/d21/a01582" ],
-    [ "Lib::Helper::instance", "d9/db8/a00658.html#ab3e0db985bcaac97f793a230bdcd6543", null ],
-    [ "Lib::Helper::instance", "d9/db8/a00658.html#a4835e9c66dcc81332df29b9f7d188acc", null ],
-    [ "Lib::Helper::initialized", "d9/db8/a00658.html#a43ca80d33a6ced48c7a8aca1f35dd799", null ],
-    [ "Lib::Helper::storage", "d9/db8/a00658.html#a897a39e1b7ff714d7629f922842cb4a8", null ]
+    [ "Lib::Helper::JaggedArrayBase&lt; T &gt;", "d7/d71/a01588.html", "d7/d71/a01588" ],
+    [ "Lib::Helper::JaggedArray", "df/d37/a00652.html#acc663a4a7ed85f66c63917708fb9dae4", null ],
+    [ "Lib::Helper::JaggedArrayRow", "df/d37/a00652.html#a18a2265f0012970450288fda0c0793fb", null ]
 ];

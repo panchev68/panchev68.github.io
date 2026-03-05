@@ -1,7 +1,5 @@
 var a00059 =
 [
-    [ "Lib::BSP::W25Q128JVSIQ", "de/dc8/a00889.html", "de/dc8/a00889" ],
-    [ "Lib::BSP::W25Q128JVSIQ::Register", "dc/d2c/a00893.html", null ],
-    [ "Lib::BSP::W25Q128JVSIQ::Config", "de/d01/a00897.html", "de/d01/a00897" ],
-    [ "Lib::BSP::W25Q128JVSIQ::Info", "d0/dac/a00901.html", "d0/dac/a00901" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252", "d3/d13/a00836.html", "d3/d13/a00836" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Config", "d9/d61/a00840.html", "d9/d61/a00840" ]
 ];

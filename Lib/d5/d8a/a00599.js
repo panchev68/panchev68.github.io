@@ -1,5 +1,5 @@
 var a00599 =
 [
-    [ "RTOS::TaskWorker", "d1/dd5/a01742.html", "d1/dd5/a01742" ],
-    [ "RTOS::Config", "da/d3a/a00694.html#ab8633362623a25f9b0a7577245e8912f", null ]
+    [ "RTOS::TickService", "d3/dbf/a01752.html", "d3/dbf/a01752" ],
+    [ "RTOS::TickService::ClientBase", "d5/d14/a01756.html", "d5/d14/a01756" ]
 ];

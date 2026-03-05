@@ -1,7 +1,6 @@
 var a02108 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Type", "d5/d40/a00672.html#a739459324a89506aa4cced1716275d06", [
-      [ "Lib::BSP::Thermometer::DTH::Type::DTH11", "d5/d40/a00672.html#a739459324a89506aa4cced1716275d06a8c1ff87e2818df1689e21b28586306b2", null ],
-      [ "Lib::BSP::Thermometer::DTH::Type::DTH22", "d5/d40/a00672.html#a739459324a89506aa4cced1716275d06a9605c38a0c968e9fa948ea26056471a7", null ]
-    ] ]
+    [ "QueryBase", "d8/dd8/a02108.html#a8d690d6f0fde7350c6e0ca0b0c15ab4a", null ],
+    [ "~QueryBase", "d8/dd8/a02108.html#a2333b8742b873bb771c4b75862830d01", null ],
+    [ "operator Frame::Data", "d8/dd8/a02108.html#ad87543401ed27e60b892b67db35312e8", null ]
 ];

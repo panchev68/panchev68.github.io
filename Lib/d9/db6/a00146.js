@@ -1,4 +1,4 @@
 var a00146 =
 [
-    [ "Lib::Digi::Core::ApiFrameBuffer", "d2/d7b/a01150.html", "d2/d7b/a01150" ]
+    [ "Lib::Digi::Core::AtCommandString", "db/d51/a01144.html", "db/d51/a01144" ]
 ];

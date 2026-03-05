@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['adchandle_0',['AdcHandle',['../d6/dd3/a00688.html#a43a2c31ac11dcdbf7f7a7a5caf258644',1,'Lib::HAL']]],
-  ['adcportblock_1',['AdcPortBlock',['../d6/dd3/a00688.html#a8130c93d5aebbf1c11fcfd1944602fc5',1,'Lib::HAL']]],
-  ['adcportdma_2',['AdcPortDMA',['../d6/dd3/a00688.html#a8ee2bba775cca54a6ebdf0e8d4104d59',1,'Lib::HAL']]],
-  ['adcportit_3',['AdcPortIT',['../d6/dd3/a00688.html#aee2bb3a11e751b1c2bee2da949cbf1c8',1,'Lib::HAL']]],
-  ['addresstype_4',['AddressType',['../df/d2f/a01474.html#a6c42e9ceeb8fc562e73e706b638b832d',1,'Lib::HAL::OTP']]]
+  ['adchandle_0',['AdcHandle',['../d9/da1/a01546.html#a43a2c31ac11dcdbf7f7a7a5caf258644',1,'Lib::HAL']]],
+  ['adcportblock_1',['AdcPortBlock',['../d9/da1/a01546.html#a8130c93d5aebbf1c11fcfd1944602fc5',1,'Lib::HAL']]],
+  ['adcportdma_2',['AdcPortDMA',['../d9/da1/a01546.html#a8ee2bba775cca54a6ebdf0e8d4104d59',1,'Lib::HAL']]],
+  ['adcportit_3',['AdcPortIT',['../d9/da1/a01546.html#aee2bb3a11e751b1c2bee2da949cbf1c8',1,'Lib::HAL']]],
+  ['addresstype_4',['AddressType',['../d3/d9c/a02336.html#a6c42e9ceeb8fc562e73e706b638b832d',1,'Lib::HAL::OTP']]]
 ];

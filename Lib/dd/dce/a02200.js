@@ -1,4 +1,9 @@
 var a02200 =
 [
-    [ "Lib::Digi::API::UserProtocol", "d9/d17/a01129.html", "d9/d17/a01129" ]
+    [ "Eeprom", "dd/dce/a02200.html#ae21375516821c529faa73f450955c5f9", null ],
+    [ "~Eeprom", "dd/dce/a02200.html#ae359dedf96b30dca7f5d5e4b508f9a82", null ],
+    [ "handleTickEvent", "dd/dce/a02200.html#ad64b9ad70efb7a02ddfe432cbc052a55", null ],
+    [ "initialize", "dd/dce/a02200.html#a55a57c658586b2689d3e1a6dc4537b6c", null ],
+    [ "read", "dd/dce/a02200.html#aaeffcb009c5d46550cb48a49a0c5e6b3", null ],
+    [ "write", "dd/dce/a02200.html#a65d837cd0c6c70ab9aeb97f0c232bc5d", null ]
 ];

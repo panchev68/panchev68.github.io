@@ -1,4 +1,4 @@
 var a00581 =
 [
-    [ "RTOS::TaskWorker", "dd/ddb/a01717.html", "dd/ddb/a01717" ]
+    [ "RTOS::SemaphoreBase", "d3/d4c/a01724.html", "d3/d4c/a01724" ]
 ];

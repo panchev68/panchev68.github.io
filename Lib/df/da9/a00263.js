@@ -1,7 +1,6 @@
 var a00263 =
 [
-    [ "Lib::Ethercat::CoE", "d5/df4/a01322.html", "d5/df4/a01322" ],
-    [ "sizeRXPDO", "df/da9/a00263.html#a4406ef7bd64e697166e072458f08ecf7", null ],
-    [ "sizeTXPDO", "df/da9/a00263.html#a2a6a9317523c67842d9300ab24cfd8f0", null ],
-    [ "SDOobjects", "df/da9/a00263.html#a6f05428728936fdf9d9ce06d99fca3db", null ]
+    [ "Lib::Ethercat::Dev::Lan9252Base", "d5/d53/a01324.html", "d5/d53/a01324" ],
+    [ "Lib::Ethercat::Dev::Lan9252Base::Config", "dc/dd9/a01328.html", "dc/dd9/a01328" ],
+    [ "Lib::Ethercat::Dev::Lan9252Base::SpiPort", "d9/d45/a01332.html", "d9/d45/a01332" ]
 ];

@@ -1,4 +1,5 @@
 var a00590 =
 [
-    [ "RTOS::SemaphoreCounting", "df/dba/a01726.html", "df/dba/a01726" ]
+    [ "RTOS::Task", "de/daf/a01736.html", "de/daf/a01736" ],
+    [ "RTOS::Task::Config", "df/d8f/a01740.html", "df/d8f/a01740" ]
 ];

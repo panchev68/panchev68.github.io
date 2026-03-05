@@ -1,4 +1,5 @@
 var a00311 =
 [
-    [ "Lib::HAL::Port&lt; DriverMode::DMA &gt;", "d3/d92/a01393.html", "d3/d92/a01393" ]
+    [ "Lib::HAL::AdcChannel", "d9/d45/a01396.html", "d9/d45/a01396" ],
+    [ "Lib::HAL::AdcChannel::Config", "dc/d35/a01400.html", "dc/d35/a01400" ]
 ];

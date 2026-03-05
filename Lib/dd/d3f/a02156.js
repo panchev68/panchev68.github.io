@@ -1,4 +1,11 @@
 var a02156 =
 [
-    [ "Lib::Digi::API::Service::ServiceBase", "d0/d39/a01138.html", "d0/d39/a01138" ]
+    [ "Status", "dd/d3f/a02156.html#a577acdd119b66063413debe6a438470f", [
+      [ "STATUS_CHANGED", "dd/d3f/a02156.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "dd/d3f/a02156.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "createError", "dd/d3f/a02156.html#aa4d92d0d842417c3d82fb4f80de28f34", null ],
+    [ "start", "dd/d3f/a02156.html#a0dea9c515fd6a0ec071f86548f913907", null ],
+    [ "Observer", "dd/d3f/a02156.html#a1bc1613ca5d6d0e8b2fbce5ef15dd38f", null ],
+    [ "statusChangedHook", "dd/d3f/a02156.html#a9a8c8741f8ed042e05b1d3ec4444d4c2", null ]
 ];

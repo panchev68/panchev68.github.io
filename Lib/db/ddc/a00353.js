@@ -1,4 +1,4 @@
 var a00353 =
 [
-    [ "Lib::HAL::CanRxMessage", "dc/de6/a01426.html", "dc/de6/a01426" ]
+    [ "Lib::HAL::CanTxMessage", "d5/da5/a01424.html", "d5/da5/a01424" ]
 ];

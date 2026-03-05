@@ -1,7 +1,6 @@
 var a01406 =
 [
-    [ "Config", "d8/d01/a01410.html", "d8/d01/a01410" ],
-    [ "Handle", "dc/d25/a01406.html#aed6a5b038d5becd196e5744e57dc3aab", null ],
-    [ "AdcChannel", "dc/d25/a01406.html#a50ce4b0b3684357e6b8838aa03033f72", null ],
-    [ "setup", "dc/d25/a01406.html#a185d39739dd5b2e44a271a46863fb37b", null ]
+    [ "RTOS::delay", "d0/db9/a01552.html#acfb40af377a8f385e09c24a37df281b6", null ],
+    [ "RTOS::getTickCountMs", "d0/db9/a01552.html#a1557952a224686962313d97f4598ec77", null ],
+    [ "RTOS::yield", "d0/db9/a01552.html#a0967927b904c36fdb2d3d206bd88c9fd", null ]
 ];

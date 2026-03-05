@@ -93,8 +93,8 @@ $(function(){initNavTree('d1/d49/class_system_1_1_startup_mode.html','../../','d
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Manager for selecting and changing the system startup mode. </p>
-<p>The mode is selected via a magic word in no-init memory that is checked during early boot. Changing the mode writes a new magic word and triggers a system reset so the boot code can pick the requested mode. </p>
+<div class="textblock"><p>Runtime startup mode control. </p>
+<p>The <span class="tt">StartupMode</span> singleton reads a magic word that indicates which startup mode should be selected and clears it to the <span class="tt">NORMAL</span> value on construction. </p>
 </div><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for System::StartupMode:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
@@ -105,16 +105,16 @@ $(function(){initNavTree('d1/d49/class_system_1_1_startup_mode.html','../../','d
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a73940b22b8582e180a5994d86ff4e33e" id="r_a73940b22b8582e180a5994d86ff4e33e"><td class="memItemLeft"><a class="el" href="#ad496924c198cc57ee90a46752753cebe">Mode</a>&#160;</td><td class="memItemRight"><a class="el" href="#a73940b22b8582e180a5994d86ff4e33e">getMode</a> () const</td></tr>
-<tr class="memdesc:a73940b22b8582e180a5994d86ff4e33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current startup mode as detected at construction time.  <br /></td></tr>
+<tr class="memdesc:a73940b22b8582e180a5994d86ff4e33e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current startup mode.  <br /></td></tr>
 <tr class="memitem:aa6508e3545d55ef93730e2cc54e0ab8d" id="r_aa6508e3545d55ef93730e2cc54e0ab8d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6508e3545d55ef93730e2cc54e0ab8d">isPoweredByUsb</a> () const</td></tr>
-<tr class="memdesc:aa6508e3545d55ef93730e2cc54e0ab8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the system is currently powered by USB.  <br /></td></tr>
+<tr class="memdesc:aa6508e3545d55ef93730e2cc54e0ab8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether the device is powered via USB.  <br /></td></tr>
 <tr class="memitem:a98783fd4a2fa9b20395321a9b8466064" id="r_a98783fd4a2fa9b20395321a9b8466064"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a98783fd4a2fa9b20395321a9b8466064">changeMode</a> (<a class="el" href="#ad496924c198cc57ee90a46752753cebe">Mode</a> newMode)</td></tr>
-<tr class="memdesc:a98783fd4a2fa9b20395321a9b8466064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request a mode change.  <br /></td></tr>
+<tr class="memdesc:a98783fd4a2fa9b20395321a9b8466064"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request a change of startup mode; triggers a system restart if the mode differs from the current one.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a280714064c58f6902d87f272f91cee72" id="r_a280714064c58f6902d87f272f91cee72"><td class="memItemLeft">static StartupMode &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a280714064c58f6902d87f272f91cee72">instance</a> ()</td></tr>
-<tr class="memdesc:a280714064c58f6902d87f272f91cee72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton instance of <span class="tt">StartupMode</span>.  <br /></td></tr>
+<tr class="memdesc:a280714064c58f6902d87f272f91cee72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get singleton instance.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="ad496924c198cc57ee90a46752753cebe" name="ad496924c198cc57ee90a46752753cebe"></a>
@@ -139,12 +139,9 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Available startup modes. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051" name="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"><p>Default application mode. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73" name="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73"></a>CONFIG&#160;</td><td class="fielddoc"><p>Configuration/setup mode. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf" name="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf"></a>USB&#160;</td><td class="fielddoc"><p>USB bridge/repeater mode. </p>
-</td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051" name="ad496924c198cc57ee90a46752753cebea1e23852820b9154316c7c06e2b7ba051"></a>NORMAL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73" name="ad496924c198cc57ee90a46752753cebea73e99d350a4aa6f1a5af04ec29173f73"></a>CONFIG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf" name="ad496924c198cc57ee90a46752753cebea7aca5ec618f7317328dcd7014cf9bdcf"></a>USB&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
@@ -173,11 +170,10 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Request a mode change. </p>
-<p>If the new mode differs from the current mode, writes the corresponding magic word and triggers a system reset so the new mode takes effect on next boot.</p>
+<p>Request a change of startup mode; triggers a system restart if the mode differs from the current one. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">newMode</td><td>Target mode to switch to. </td></tr>
+    <tr><td class="paramname">newMode</td><td>New desired startup <span class="tt">Mode</span>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -207,8 +203,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the current startup mode as detected at construction time. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current <span class="tt">Mode</span> value. </dd></dl>
+<p>Get current startup mode. </p>
+<dl class="section return"><dt>Returns</dt><dd>Current <span class="tt">Mode</span>. </dd></dl>
 
 </div>
 </div>
@@ -235,8 +231,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return the singleton instance of <span class="tt">StartupMode</span>. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the global <span class="tt">StartupMode</span> instance. </dd></dl>
+<p>Get singleton instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the <span class="tt">StartupMode</span> singleton. </dd></dl>
 
 </div>
 </div>
@@ -263,8 +259,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check whether the system is currently powered by USB. </p>
-<p>Forwards to <span class="tt">USB::SerialPortRepeater::isPoweredByUSB()</span>.</p>
+<p>Query whether the device is powered via USB. </p>
 <dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if powered by USB, <span class="tt">false</span> otherwise. </dd></dl>
 
 </div>
