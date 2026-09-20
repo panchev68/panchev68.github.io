@@ -1,0 +1,35 @@
+var a01943 =
+[
+    [ "Handle", "df/dd8/a01943.html#ab6421331ba2f810ca117af37f7da747a", null ],
+    [ "TickType", "df/dd8/a01943.html#a4d9c4e73eda7ebc5e0f263310bd4e11c", null ],
+    [ "State", "df/dd8/a01943.html#a7ad1b7a849143d5692507f7dddbcfde8", [
+      [ "AVAILABLE", "df/dd8/a01943.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
+      [ "TAKEN", "df/dd8/a01943.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
+      [ "INVALID", "df/dd8/a01943.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "Semaphore", "df/dd8/a01943.html#ac18bbf45d7ea4f13cf097651078f372d", null ],
+    [ "Semaphore", "df/dd8/a01943.html#a81c2289b5095339fc9301c72fae88487", null ],
+    [ "Semaphore", "df/dd8/a01943.html#a95f891886a3122df28f63cf1abae74c3", null ],
+    [ "~Semaphore", "df/dd8/a01943.html#aa5e35a44d5786139f77a3a57a483c021", null ],
+    [ "Semaphore", "df/dd8/a01943.html#a87fa949b382d64e96b2d93f381032500", null ],
+    [ "close", "df/dd8/a01943.html#a88cca8922a10665d965481833160a8e6", null ],
+    [ "getCount", "df/dd8/a01943.html#a08742d5c4dd86e38a1efccfa47dd01af", null ],
+    [ "getState", "df/dd8/a01943.html#a4dc6f42d28351e57274eb7e45aa62248", null ],
+    [ "give", "df/dd8/a01943.html#a2c3aa70b05fa4a66775a0227d626af7c", null ],
+    [ "giveFromISR", "df/dd8/a01943.html#a8f3fa6ba6cea7933abbb4ee221091d11", null ],
+    [ "isAvailable", "df/dd8/a01943.html#a58227dfaddfa5a315561f0619d791a45", null ],
+    [ "isOpen", "df/dd8/a01943.html#a63815102d5707754fcc45ba719ee7cd8", null ],
+    [ "isTaken", "df/dd8/a01943.html#ad88c6e815967329927ac73939fb3361d", null ],
+    [ "isValid", "df/dd8/a01943.html#a2f764c53c71ab97a0a98162a07ed0120", null ],
+    [ "open", "df/dd8/a01943.html#a4f3a14ce62c98f7ce5520ce3e91b2322", null ],
+    [ "operator=", "df/dd8/a01943.html#abe1f7c1fff0d8632a0e3f7dda8ed9b0b", null ],
+    [ "operator=", "df/dd8/a01943.html#aca5634e72d5efa546fc5ce5ddea7b3a2", null ],
+    [ "overwrite", "df/dd8/a01943.html#a70748ace923762624068ff43a0438e8b", null ],
+    [ "overwriteFromISR", "df/dd8/a01943.html#ac4fa91c7638ef0a1811557de4ff2709a", null ],
+    [ "take", "df/dd8/a01943.html#a77c57fc8a48f4cbc15e4fb729c9eafd9", null ],
+    [ "take", "df/dd8/a01943.html#a006d09521e03ac71a892ca11da4b3183", null ],
+    [ "takeFromISR", "df/dd8/a01943.html#ad98e64079a472c36597e54ba779af242", null ],
+    [ "takeMs", "df/dd8/a01943.html#a4a7b4e66593bcbcf465ddf9458cee540", null ],
+    [ "takeSeconds", "df/dd8/a01943.html#a154ec0be77fe01c345872f7420174929", null ],
+    [ "tryTake", "df/dd8/a01943.html#afd8aabbb465bbf28880b4f31c3955ecf", null ]
+];

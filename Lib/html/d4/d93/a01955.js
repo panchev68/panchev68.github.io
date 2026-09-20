@@ -1,0 +1,36 @@
+var a01955 =
+[
+    [ "Handle", "d4/d93/a01955.html#ac43f2585fb807014368f17cd4dd8bc9e", null ],
+    [ "TickType", "d4/d93/a01955.html#aa8e929031667848dffb73aef396842ee", null ],
+    [ "Status", "d4/d93/a01955.html#ae40918e60c2277acebaa9cba5209ca7a", [
+      [ "SUCCESS", "d4/d93/a01955.html#ae40918e60c2277acebaa9cba5209ca7aad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "TIMEOUT", "d4/d93/a01955.html#ae40918e60c2277acebaa9cba5209ca7aa070a0fb40f6c308ab544b227660aadff", null ],
+      [ "INVALID", "d4/d93/a01955.html#ae40918e60c2277acebaa9cba5209ca7aaccc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "FULL", "d4/d93/a01955.html#ae40918e60c2277acebaa9cba5209ca7aaba7de5bc6888294e5884b024a4c894f1", null ],
+      [ "EMPTY", "d4/d93/a01955.html#ae40918e60c2277acebaa9cba5209ca7aaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    ] ],
+    [ "StreamBuffer", "d4/d93/a01955.html#a6d894360f80c822b178de66210a2bc6a", null ],
+    [ "~StreamBuffer", "d4/d93/a01955.html#a4279301601dc12497575fbe9b250f62a", null ],
+    [ "StreamBuffer", "d4/d93/a01955.html#a935040ce16ea4f9dae2f5596b21516d6", null ],
+    [ "StreamBuffer", "d4/d93/a01955.html#adcb8b228bfa619f6f7a9c75ac77515df", null ],
+    [ "close", "d4/d93/a01955.html#aa09e180a4dce804bb789ba9c2a6b58d9", null ],
+    [ "getBytesAvailable", "d4/d93/a01955.html#aca144ddaa56a23cc87168343d27cd515", null ],
+    [ "getCapacity", "d4/d93/a01955.html#a725f06f4f04e9a088083224f52ddc777", null ],
+    [ "getHandle", "d4/d93/a01955.html#a9af2458f6d36e9bf855dbf3d83190201", null ],
+    [ "getSpacesAvailable", "d4/d93/a01955.html#a7b2b0bd7bcc2d727ccd57f3a84cf9383", null ],
+    [ "getUtilizationPercent", "d4/d93/a01955.html#a686ba54e0101dfceb25069210888b515", null ],
+    [ "isEmpty", "d4/d93/a01955.html#a176079270ddb33f374241586fe5996c7", null ],
+    [ "isFull", "d4/d93/a01955.html#aac6fea7283a53695897f243410f88c20", null ],
+    [ "isOpen", "d4/d93/a01955.html#aee40f8d6ee707eb02ba219943b88b3f6", null ],
+    [ "open", "d4/d93/a01955.html#a0db48ccc2b4aa5a6bef43dcfb6c60676", null ],
+    [ "operator=", "d4/d93/a01955.html#ac8eab9e88742bbcce6a00ce27225ddad", null ],
+    [ "operator=", "d4/d93/a01955.html#a60c80251d968c318350f7db4b26781a7", null ],
+    [ "receive", "d4/d93/a01955.html#a4af8c6d51d2855e838887e2944b1c7d1", null ],
+    [ "receiveFromISR", "d4/d93/a01955.html#a97854f9de8be9d323e9fd10fa9b8189d", null ],
+    [ "reset", "d4/d93/a01955.html#a7f884411ea5c6b895b81aa33e6c7f1da", null ],
+    [ "send", "d4/d93/a01955.html#ae5018eddb067132bf3c0994b0ed1a8b2", null ],
+    [ "send", "d4/d93/a01955.html#a6655d15afb7a4123dc01349f5f444287", null ],
+    [ "send", "d4/d93/a01955.html#a184b20d2e5c08e1d26f98c05a465c6f3", null ],
+    [ "sendFromISR", "d4/d93/a01955.html#ac075893a2ae54de669ab71b07609f8a1", null ],
+    [ "setTriggerLevel", "d4/d93/a01955.html#aa5ac1e409b4369f454af973ddb5c7426", null ]
+];
