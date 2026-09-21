@@ -12,7 +12,9 @@ var a01986 =
     [ "operator=", "d4/d10/a01986.html#a206dc99dd3e2606043f77ede19d83bf5", null ],
     [ "setup", "d4/d10/a01986.html#a95568f125f0eac00c1b1668b017ae662", null ],
     [ "start", "d4/d10/a01986.html#a59730ccf7ef04d00837d566cd5184305", null ],
+    [ "startFromISR", "d4/d10/a01986.html#a7c3baef45d5c6e812ec90241dd97ff6c", null ],
     [ "startFromISR", "d4/d10/a01986.html#adf87e93a9e774ae37b684423c1f2acde", null ],
     [ "stop", "d4/d10/a01986.html#a63fcbf5699a2025dba2c058bc0715c62", null ],
+    [ "stopFromISR", "d4/d10/a01986.html#ab9f24e9be6431fa9de927ef5b39ce61e", null ],
     [ "stopFromISR", "d4/d10/a01986.html#a950094a7c5c23bac35a8dfa0472dbd02", null ]
 ];
