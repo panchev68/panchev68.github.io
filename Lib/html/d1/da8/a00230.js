@@ -1,4 +1,4 @@
 var a00230 =
 [
-    [ "Lib::Digi::Core::QueryBase&lt; Derived &gt;", "db/da8/a01323.html", "db/da8/a01323" ]
+    [ "Lib::Digi::Core::Frame0x17", "d4/dd1/a01334.html", "d4/dd1/a01334" ]
 ];

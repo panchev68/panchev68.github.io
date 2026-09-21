@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['jaggedarraybase_0',['JaggedArrayBase',['../d5/df4/a01779.html',1,'Lib::Helper']]],
-  ['jaggedarraybase_3c_20jaggedarrayrow_3c_20t_5felement_20_3e_20_3e_1',['JaggedArrayBase&lt; JaggedArrayRow&lt; T_ELEMENT &gt; &gt;',['../d5/df4/a01779.html',1,'Lib::Helper']]]
+  ['kalman_0',['Kalman',['../d2/d45/a01826.html',1,'Lib::Math::Filter']]],
+  ['kernel_1',['Kernel',['../dd/d8e/a01898.html',1,'RTOS']]]
 ];

@@ -1,4 +1,4 @@
 var a00380 =
 [
-    [ "Lib::HAL::Timer::TimEncoder", "d0/da4/a01631.html", "d0/da4/a01631" ]
+    [ "Lib::HAL::OTP", "dc/def/a01594.html", "dc/def/a01594" ]
 ];

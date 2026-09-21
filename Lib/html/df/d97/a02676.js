@@ -1,5 +1,5 @@
 var a02676 =
 [
-    [ "Lib::HAL::OSPI::Base&lt; T_DEVICE &gt;", "de/d1a/a01559.html", "de/d1a/a01559" ],
-    [ "Lib::HAL::OSPI::Base&lt; T_DEVICE &gt;::Event", "d8/d6c/a01563.html", null ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface", "d9/d87/a00846.html", "d9/d87/a00846" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface::Config", "dc/d0a/a00850.html", "dc/d0a/a00850" ]
 ];

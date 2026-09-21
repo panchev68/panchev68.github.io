@@ -1,4 +1,4 @@
 var a00233 =
 [
-    [ "Lib::Digi::Core::QueueMessage", "d4/d2c/a01327.html", "d4/d2c/a01327" ]
+    [ "Lib::Digi::Core::QueryBase&lt; Derived &gt;", "d2/d4d/a01338.html", "d2/d4d/a01338" ]
 ];

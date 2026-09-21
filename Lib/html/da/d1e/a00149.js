@@ -1,4 +1,4 @@
 var a00149 =
 [
-    [ "Lib::Digi::API::Service::ChannelScanner", "d2/d22/a01171.html", "d2/d22/a01171" ]
+    [ "Lib::Digi::API::Pause", "dd/de9/a01182.html", "dd/de9/a01182" ]
 ];

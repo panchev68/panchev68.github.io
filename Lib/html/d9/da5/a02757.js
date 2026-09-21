@@ -1,4 +1,4 @@
 var a02757 =
 [
-    [ "Lib::HAL::OSPI::Port&lt; DriverMode::DMA &gt;", "d4/d2c/a01575.html", "d4/d2c/a01575" ]
+    [ "Lib::HAL::GPIO::Port", "d7/def/a01538.html", "d7/def/a01538" ]
 ];

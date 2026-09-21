@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Errors Namespace Reference</title>
+<title>Library: Lib::BSP::FMEM::SPI Namespace Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,26 +111,71 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dc3/a00657.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Errors Namespace Reference</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::FMEM::SPI Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Centralized error creation, state tracking and observation.  
+<p>Plain 4-wire SPI serial flash memory drivers.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>The 'Dispatcher' singleton owns every 'Error' created via 'createError()' and periodically scans it for state transitions; 'Observer' provides the pull-based, group-filterable read side. </p>
+<div class="textblock"><p>Provides configuration/information structures and the CRTP 'DriverBase' interface required by SPI flash drivers in the board support package. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Dispatcher" id="r_Dispatcher"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d4d/a01371.html">Dispatcher</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Owns every constructed 'Error' and periodically scans it for state changes via an 'RTOS::TickClient'.  <a href="../../d6/d4d/a01371.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Error" id="r_Error"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/df5/a01375.html">Error</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tracks a single error condition through an explicit lifecycle and reports it to the owning 'Dispatcher'.  <a href="../../d5/df5/a01375.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Group" id="r_Group"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d9b/a01379.html">Group</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A named category that 'Error' instances can be tagged with, and that 'Observer' can filter by.  <a href="../../d0/d9b/a01379.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Observer" id="r_Observer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/dfe/a01383.html">Observer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads active errors from the 'Dispatcher', optionally restricted to a single 'Group'.  <a href="../../de/dfe/a01383.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/d2a/a00874.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime configuration for an SPI flash driver instance.  <a href="../../df/d2a/a00874.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Info" id="r_Info"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d69/a00878.html">Info</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device information populated by the driver after probe/initialization.  <a href="../../d5/d69/a00878.html#details">More...</a><br /></td></tr>
+<tr class="memitem:DriverBase" id="r_DriverBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d50/a00882.html">DriverBase</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base class for SPI flash drivers.  <a href="../../d3/d50/a00882.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a93a86005cbff0244fb1cfdaa80180a51" id="r_a93a86005cbff0244fb1cfdaa80180a51"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a93a86005cbff0244fb1cfdaa80180a51">Status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d">NO_INIT</a>
+, <br />
+&#160;&#160;<a class="el" href="#a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489">READY</a>
+, <br />
+&#160;&#160;<a class="el" href="#a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8">POWER_OFF</a>
+, <br />
+&#160;&#160;<a class="el" href="#a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57">ERRORS</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a93a86005cbff0244fb1cfdaa80180a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current driver status.  <a href="#a93a86005cbff0244fb1cfdaa80180a51">More...</a><br /></td></tr>
 </table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="a93a86005cbff0244fb1cfdaa80180a51" name="a93a86005cbff0244fb1cfdaa80180a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a86005cbff0244fb1cfdaa80180a51">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a93a86005cbff0244fb1cfdaa80180a51">Lib::BSP::FMEM::SPI::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d" name="a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d"></a>NO_INIT&#160;</td><td class="fielddoc"><p>Driver not initialized. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489" name="a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489"></a>READY&#160;</td><td class="fielddoc"><p>Ready for operations. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8" name="a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8"></a>POWER_OFF&#160;</td><td class="fielddoc"><p>Device powered off. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57" name="a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57"></a>ERRORS&#160;</td><td class="fielddoc"><p>Error state. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -144,7 +189,7 @@ Classes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d2a/a00632.html">Lib</a></li><li class="navelem"><a href="../../da/dc3/a00657.html">Errors</a></li>
+    <li class="navelem"><a href="../../d3/d8e/a00647.html">Lib</a></li><li class="navelem"><a href="../../dd/d1f/a00648.html">BSP</a></li><li class="navelem"><a href="../../d8/ddc/a00655.html">FMEM</a></li><li class="navelem"><a href="../../da/dc3/a00657.html">SPI</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

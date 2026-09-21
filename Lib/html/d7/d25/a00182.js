@@ -1,6 +1,4 @@
 var a00182 =
 [
-    [ "Lib::Digi::Core::ComDriver&lt; Derived &gt;", "d9/da8/a01227.html", "d9/da8/a01227" ],
-    [ "Lib::Digi::Core::ComDriver&lt; Derived &gt;::Config", "d0/d88/a01231.html", "d0/d88/a01231" ],
-    [ "Lib::Digi::Core::ComDriver&lt; Derived &gt;::UartPort", "dd/dad/a01235.html", "dd/dad/a01235" ]
+    [ "Lib::Digi::Core::Checksum", "d7/d04/a01246.html", "d7/d04/a01246" ]
 ];

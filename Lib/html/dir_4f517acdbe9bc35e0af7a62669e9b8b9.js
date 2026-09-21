@@ -15,5 +15,5 @@ var dir_4f517acdbe9bc35e0af7a62669e9b8b9 =
     [ "Thermometer", "dir_c778f88f19230b3e72552521b86c965e.html", "dir_c778f88f19230b3e72552521b86c965e" ],
     [ "TouchScreen", "dir_d9b2e0683852a0625c6bcd646761efe8.html", "dir_d9b2e0683852a0625c6bcd646761efe8" ],
     [ "Voltmeter", "dir_7cdb38f29c48374a5bf21d6ca474c36d.html", "dir_7cdb38f29c48374a5bf21d6ca474c36d" ],
-    [ "DeviceManager.hpp", "d8/d4e/a02595.html", "d8/d4e/a02595" ]
+    [ "DeviceManager.hpp", "d8/d70/a02629.html", "d8/d70/a02629" ]
 ];

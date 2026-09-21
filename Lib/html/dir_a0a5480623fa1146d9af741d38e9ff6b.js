@@ -1,7 +1,7 @@
 var dir_a0a5480623fa1146d9af741d38e9ff6b =
 [
-    [ "Base.hpp", "df/d46/a02673.html", "df/d46/a02673" ],
-    [ "DMA.hpp", "d2/d83/a02754.html", "d2/d83/a02754" ],
-    [ "I2CPort.hpp", "d8/d69/a02661.html", "d8/d69/a02661" ],
-    [ "IT.hpp", "d9/db0/a02742.html", "d9/db0/a02742" ]
+    [ "I2CPort-Block.hpp", "db/ddc/a00353.html", "db/ddc/a00353" ],
+    [ "I2CPort-DMA.hpp", "d6/de1/a00356.html", "d6/de1/a00356" ],
+    [ "I2CPort-IT.hpp", "d4/def/a00359.html", "d4/def/a00359" ],
+    [ "I2CPortBase.hpp", "de/dd7/a00362.html", "de/dd7/a00362" ]
 ];

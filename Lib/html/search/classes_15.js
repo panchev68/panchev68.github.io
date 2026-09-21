@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['uartbase_0',['UARTBase',['../db/d98/a01675.html',1,'Lib::HAL']]],
-  ['uartport_1',['UARTPort',['../de/dfc/a00891.html',1,'Lib::BSP']]],
-  ['uartport_2',['UartPort',['../dd/dad/a01235.html',1,'Lib::Digi::Core::ComDriver']]],
-  ['uid_3',['Uid',['../d2/d5e/a00915.html',1,'Lib::BSP::RFID::MFRC522::Card']]],
-  ['userprotocol_4',['UserProtocol',['../d5/dad/a01207.html',1,'Lib::Digi::API::UserProtocol'],['../d8/d31/a01407.html',1,'Lib::Ethernet::UserProtocol']]]
+  ['value64handle_0',['Value64Handle',['../d8/d23/a02122.html',1,'Lib::XCOM::ServiceBase']]],
+  ['version_1',['Version',['../d8/d9c/a02070.html',1,'Lib::System']]],
+  ['versionbase_2',['VersionBase',['../df/d4d/a02086.html',1,'Lib::System']]],
+  ['versionbase_3c_20firmwareversion_20_3e_3',['VersionBase&lt; FirmwareVersion &gt;',['../df/d4d/a02086.html',1,'Lib::System']]],
+  ['versionbase_3c_20hardwareversion_20_3e_4',['VersionBase&lt; HardwareVersion &gt;',['../df/d4d/a02086.html',1,'Lib::System']]],
+  ['versions_5',['Versions',['../d3/dc7/a01170.html',1,'Lib::Digi::API::NodeInfo']]],
+  ['vscode_6',['vscode',['../d4/d18/a02106.html',1,'']]]
 ];

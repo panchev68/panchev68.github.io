@@ -16,5 +16,6 @@ var dir_60dee5c7276bc3cd6fcd1017695b942b =
     [ "SolarControl", "dir_eedd53edf1417b8f9bca7922241a9bda.html", "dir_eedd53edf1417b8f9bca7922241a9bda" ],
     [ "System", "dir_5c17e5f690e92284d42df705067145f0.html", "dir_5c17e5f690e92284d42df705067145f0" ],
     [ "USB", "dir_faeb283bf437ec86682d826ccb2ce3ea.html", "dir_faeb283bf437ec86682d826ccb2ce3ea" ],
-    [ "XCOM", "dir_f15e15be8a771e0bd42be81332eec275.html", "dir_f15e15be8a771e0bd42be81332eec275" ]
+    [ "XCOM", "dir_f15e15be8a771e0bd42be81332eec275.html", "dir_f15e15be8a771e0bd42be81332eec275" ],
+    [ "vscode.hpp", "db/d3a/a00641.html", "db/d3a/a00641" ]
 ];

@@ -1,4 +1,4 @@
 var a00587 =
 [
-    [ "RTOS::Timeout", "d3/d4e/a01991.html", "d3/d4e/a01991" ]
+    [ "RTOS::StreamBuffer", "d3/d67/a01958.html", "d3/d67/a01958" ]
 ];

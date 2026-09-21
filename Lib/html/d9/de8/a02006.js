@@ -1,7 +1,13 @@
 var a02006 =
 [
-    [ "Lib::BSP::Display::Controller", "d7/de4/a00634.html#abce278c9e48f7f4b0be0c20c7c142d73", [
-      [ "Lib::BSP::Display::Controller::ILI9341", "d7/de4/a00634.html#abce278c9e48f7f4b0be0c20c7c142d73a56132a4ec9a1880f4963a4b9d8d7bfca", null ],
-      [ "Lib::BSP::Display::Controller::ST7789", "d7/de4/a00634.html#abce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199", null ]
-    ] ]
+    [ "ReferenceParameters", "d3/d59/a02010.html", "d3/d59/a02010" ],
+    [ "Measurement", "d0/d48/a02014.html", "d0/d48/a02014" ],
+    [ "MaxPowerEstimator", "d9/de8/a02006.html#ab6d38b8c1754c759596d660976369a94", null ],
+    [ "MPPT", "d9/de8/a02006.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getEfficiencyCoefficient", "d9/de8/a02006.html#aadda3ac3f51b12bc5b27a4332e2fa48d", null ],
+    [ "getIrradianceCoefficient", "d9/de8/a02006.html#a72b3be464f95151a7b2e4eb351b6009e", null ],
+    [ "getTolerance", "d9/de8/a02006.html#ac344a17d9e2da8cc55e89d0fb61e5fe3", null ],
+    [ "getVoltageSetpoint", "d9/de8/a02006.html#ac983a74b1107de2f1eb1dceb3e92c899", null ],
+    [ "setMaxPowerEstimationFunction", "d9/de8/a02006.html#aa6ae22083aa728e8dc13b99d39677b4b", null ],
+    [ "update", "d9/de8/a02006.html#aec001faa8257027e3f674aeddfc33d41", null ]
 ];

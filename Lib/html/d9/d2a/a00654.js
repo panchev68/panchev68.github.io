@@ -1,9 +1,7 @@
 var a00654 =
 [
-    [ "ChannelScanner", "d2/d22/a01171.html", "d2/d22/a01171" ],
-    [ "Manager", "d6/df2/a01175.html", "d6/df2/a01175" ],
-    [ "NetworkDiscovery", "de/d1a/a01179.html", "de/d1a/a01179" ],
-    [ "Parameters", "dc/d2d/a01183.html", "dc/d2d/a01183" ],
-    [ "ServiceBase", "d8/df3/a01195.html", "d8/df3/a01195" ],
-    [ "SpectrumAnalyzer", "d0/d5a/a01199.html", "d0/d5a/a01199" ]
+    [ "Base", "d9/d02/a00834.html", "d9/d02/a00834" ],
+    [ "Helper", "d0/d11/a00842.html", null ],
+    [ "Interface", "d9/d87/a00846.html", "d9/d87/a00846" ],
+    [ "Registers", "d6/d2f/a00854.html", null ]
 ];

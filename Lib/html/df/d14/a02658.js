@@ -1,4 +1,4 @@
 var a02658 =
 [
-    [ "Lib::BSP::I2CPort", "d7/d34/a00883.html", "d7/d34/a00883" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Registers", "d6/d2f/a00854.html", null ]
 ];

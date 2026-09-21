@@ -1,4 +1,5 @@
 var a02751 =
 [
-    [ "Lib::HAL::UART::Port&lt; DriverMode::IT &gt;", "d4/d3c/a01671.html", "d4/d3c/a01671" ]
+    [ "Lib::Ethernet::UserProtocol", "d1/df4/a01422.html", "d1/df4/a01422" ],
+    [ "Lib::Ethernet::UserProtocol::MessageHeader", "dc/de6/a01426.html", "dc/de6/a01426" ]
 ];

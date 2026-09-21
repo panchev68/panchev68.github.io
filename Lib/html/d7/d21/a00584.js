@@ -1,4 +1,4 @@
 var a00584 =
 [
-    [ "RTOS::TickCounter", "d2/d8a/a01987.html", "d2/d8a/a01987" ]
+    [ "RTOS::SemaphoreCounting", "d7/d34/a01954.html", "d7/d34/a01954" ]
 ];

@@ -1,0 +1,25 @@
+var a01806 =
+[
+    [ "Sunset", "db/db2/a01806.html#a402a1203f51a88c0d732a65d431084b2", null ],
+    [ "Sunset", "db/db2/a01806.html#a433a8c7bf95fefb5bbdf89df2e4f5aa1", null ],
+    [ "~Sunset", "db/db2/a01806.html#afc74c163fc56ddc7f1b0013a28277fb2", null ],
+    [ "Sunset", "db/db2/a01806.html#ab2253e9c6db079f5c06c48114941a099", null ],
+    [ "Sunset", "db/db2/a01806.html#a08ca08fa9fb28f48996640448d9704d8", null ],
+    [ "calculateEquationOfTime", "db/db2/a01806.html#a7b8f4cc400ef2019e20f90caee0dcfe3", null ],
+    [ "calculateSunDeclination", "db/db2/a01806.html#a4eaca79ea76034a65c38bfef6127df43", null ],
+    [ "calculateSunTime", "db/db2/a01806.html#aa40b189a49a6033eada96c4f2a137c72", null ],
+    [ "computeHourAngle", "db/db2/a01806.html#aa170e0c6fd9b52582ca218eeef3175c9", null ],
+    [ "operator=", "db/db2/a01806.html#a319d5ab471133ddc6bf0961eebd23a76", null ],
+    [ "operator=", "db/db2/a01806.html#a2b6ed5108190806204f6fee441565f9d", null ],
+    [ "setCurrentDate", "db/db2/a01806.html#a8203fb9b1573625770282a528ae52b66", null ],
+    [ "setPosition", "db/db2/a01806.html#a7d5233089e5d41d0ddeac9a476dce574", null ],
+    [ "sunrise", "db/db2/a01806.html#a096cef2749b6f1b7f61a6acb5fe1b1b0", null ],
+    [ "sunset", "db/db2/a01806.html#a3746c321f873a0662bcd9ab3527fafb6", null ],
+    [ "cosLat", "db/db2/a01806.html#ab5f190afd3d1c45ea78dea3ca4f34860", null ],
+    [ "geoLatitude", "db/db2/a01806.html#ae94bca0602990ac8c9d78a22bc0b4e13", null ],
+    [ "geoLongitude", "db/db2/a01806.html#a0d254b61cd89f18f17e58bdb3440046a", null ],
+    [ "julianDate", "db/db2/a01806.html#a465409260e9376ae1297110fa1b29271", null ],
+    [ "latRad", "db/db2/a01806.html#a482497b91da9e79a70f6b22e55c9ee28", null ],
+    [ "sinLat", "db/db2/a01806.html#a0ba2004a98fd397f6e7b3155edfc0aac", null ],
+    [ "utcOffset", "db/db2/a01806.html#a6a78085a61c41d4d57ed00a4ad8158ab", null ]
+];

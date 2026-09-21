@@ -1,4 +1,4 @@
 var a02628 =
 [
-    [ "Lib::BSP::Ethercat::PDI::LAN9252::Registers", "df/de8/a00839.html", null ]
+    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "d6/dc9/a01498.html", "d6/dc9/a01498" ]
 ];

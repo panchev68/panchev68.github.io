@@ -1,6 +1,15 @@
 var a02030 =
 [
-    [ "Lib::BSP::W25Q128JVSIQ", "d5/d72/a00803.html", "d5/d72/a00803" ],
-    [ "Lib::BSP::W25Q128JVSIQ::Register", "df/dc7/a00807.html", "df/dc7/a00807" ],
-    [ "Lib::BSP::W25Q128JVSIQ::Info", "dd/d07/a00811.html", "dd/d07/a00811" ]
+    [ "Bitset", "d8/de7/a02030.html#a942e0af1a522af427d507bc4646b2c3c", null ],
+    [ "Status", "d8/de7/a02030.html#a8f5a768cb3389dad7d8109f48cedaf22", [
+      [ "OK", "d8/de7/a02030.html#a8f5a768cb3389dad7d8109f48cedaf22ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d8/de7/a02030.html#a8f5a768cb3389dad7d8109f48cedaf22abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Configuration", "d8/de7/a02030.html#a0496b3d19c7bb3da8baa5eb827375bc4", null ],
+    [ "~Configuration", "d8/de7/a02030.html#ab0a917963ddead9ca393b4a366eabb3b", null ],
+    [ "isEmpty", "d8/de7/a02030.html#ac7addfec6bb7d8a898813e8e042a6409", null ],
+    [ "isValid", "d8/de7/a02030.html#a295f6c846c2146cf08aa4aa9a6172cd5", null ],
+    [ "read", "d8/de7/a02030.html#a180404fbcee71e5d5fbc135cebdd99a3", null ],
+    [ "write", "d8/de7/a02030.html#a0611412a6160e2f8f7195f0afbdc03ee", null ],
+    [ "flashAddress", "d8/de7/a02030.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

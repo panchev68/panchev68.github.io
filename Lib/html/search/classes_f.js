@@ -1,7 +1,27 @@
 var searchData=
 [
-  ['observer_0',['Observer',['../de/dfe/a01383.html',1,'Lib::Errors']]],
-  ['otp_1',['OTP',['../d9/d1b/a01583.html',1,'Lib::HAL']]],
-  ['output_2',['Output',['../d1/d34/a01519.html',1,'Lib::HAL::GPIO']]],
-  ['outputs_3',['Outputs',['../dc/ddc/a00727.html',1,'Lib::BSP::DigitalPeripheralBase::Config::Outputs'],['../da/df7/a00739.html',1,'Lib::BSP::DigitalPeripheralBase::Outputs']]]
+  ['parameters_0',['Parameters',['../d0/d56/a01014.html',1,'Lib::BSP::XPT2046::Parameters'],['../dc/d9e/a01206.html',1,'Lib::Digi::API::Service::Parameters'],['../d0/d4a/a01862.html',1,'Lib::Math::Pid&lt; T &gt;::Parameters'],['../d2/dd9/a02046.html',1,'Lib::System::Parameters&lt; T_STORAGE &gt;']]],
+  ['parm_1',['Parm',['../dd/d7a/a00990.html',1,'Lib::BSP::Thermometer::DTH']]],
+  ['pause_2',['Pause',['../dd/de9/a01182.html',1,'Lib::Digi::API']]],
+  ['payload_3',['Payload',['../dc/ded/a01290.html',1,'Lib::Digi::Core::Frame']]],
+  ['payload_3c_20max_5fsize_20_3e_4',['Payload&lt; MAX_SIZE &gt;',['../dc/ded/a01290.html',1,'Lib::Digi::Core::Frame']]],
+  ['peakinfo_5',['PeakInfo',['../d9/d02/a01774.html',1,'Lib::Helper::FindPeaks']]],
+  ['percent_6',['Percent',['../d5/d10/a01738.html',1,'Lib::Helper::Convert']]],
+  ['period_7',['Period',['../d2/d7b/a01150.html',1,'Lib::Digi::API::Connection::Info']]],
+  ['perturbandobserve_8',['PerturbAndObserve',['../da/d2d/a02018.html',1,'Lib::SolarControl']]],
+  ['pid_9',['Pid',['../d4/d7f/a01858.html',1,'Lib::Math']]],
+  ['pid_3c_20double_20_3e_10',['Pid&lt; double &gt;',['../d4/d7f/a01858.html',1,'Lib::Math']]],
+  ['pid_3c_20float_20_3e_11',['Pid&lt; float &gt;',['../d4/d7f/a01858.html',1,'Lib::Math']]],
+  ['pinconfig_12',['PinConfig',['../da/da6/a01522.html',1,'Lib::HAL::GPIO']]],
+  ['point_13',['Point',['../db/d5a/a01842.html',1,'Lib::Math::CubicInterpolation&lt; T_VALUE, T_INPUT &gt;::Point'],['../d7/d97/a01854.html',1,'Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;::Point']]],
+  ['port_14',['Port',['../d4/d3c/a01418.html',1,'Lib::Ethernet::Port'],['../d0/d34/a01486.html',1,'Lib::HAL::CAN::Port&lt; Mode &gt;'],['../d7/def/a01538.html',1,'Lib::HAL::GPIO::Port'],['../d1/d88/a01578.html',1,'Lib::HAL::OSPI::Port&lt; Mode &gt;'],['../dc/d42/a01674.html',1,'Lib::HAL::UART::Port&lt; Mode &gt;']]],
+  ['port_3c_20drivermode_3a_3ablocking_20_3e_15',['Port&lt; DriverMode::BLOCKING &gt;',['../d0/d21/a01582.html',1,'Lib::HAL::OSPI']]],
+  ['port_3c_20drivermode_3a_3adma_20_3e_16',['Port&lt; DriverMode::DMA &gt;',['../d2/d2f/a01586.html',1,'Lib::HAL::OSPI::Port&lt; DriverMode::DMA &gt;'],['../d6/d26/a01678.html',1,'Lib::HAL::UART::Port&lt; DriverMode::DMA &gt;']]],
+  ['port_3c_20drivermode_3a_3ait_20_3e_17',['Port&lt; DriverMode::IT &gt;',['../de/d3c/a01490.html',1,'Lib::HAL::CAN::Port&lt; DriverMode::IT &gt;'],['../d4/d49/a01590.html',1,'Lib::HAL::OSPI::Port&lt; DriverMode::IT &gt;'],['../dd/d08/a01682.html',1,'Lib::HAL::UART::Port&lt; DriverMode::IT &gt;']]],
+  ['port_3c_20lib_3a_3ahal_3a_3adrivermode_3a_3ait_20_3e_18',['Port&lt; Lib::HAL::DriverMode::IT &gt;',['../d1/d88/a01578.html',1,'Lib::HAL::OSPI']]],
+  ['portbase_19',['PortBase',['../d4/dfa/a00746.html',1,'Lib::BSP::DigitalPeripheralBase']]],
+  ['powermanager_20',['PowerManager',['../d5/dd0/a01938.html',1,'RTOS']]],
+  ['priority_21',['Priority',['../d5/dd7/a01970.html',1,'RTOS::Task']]],
+  ['producedate_22',['ProduceDate',['../d0/d3d/a02050.html',1,'Lib::System']]],
+  ['protocol_23',['Protocol',['../d0/dfb/a01066.html',1,'Lib::Communication::Modbus::Protocol'],['../d9/de6/a01314.html',1,'Lib::Digi::Core::Protocol'],['../d8/d22/a01446.html',1,'Lib::Ethernet::Wiznet::Socket::Protocol'],['../d5/d23/a02110.html',1,'Lib::XCOM::Protocol']]]
 ];

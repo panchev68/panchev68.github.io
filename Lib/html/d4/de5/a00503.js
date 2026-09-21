@@ -1,4 +1,4 @@
 var a00503 =
 [
-    [ "Lib::Math::HammingCode", "d0/db3/a01831.html", null ]
+    [ "Lib::Helper::SwapBytes", "df/d3a/a01810.html", null ]
 ];

@@ -192,14 +192,7 @@ var menudata={children:[
 {text:"r",url:"functions_eval.html#index_r"},
 {text:"t",url:"functions_eval.html#index_t"},
 {text:"u",url:"functions_eval.html#index_u"}]},
-{text:"Related Symbols",url:"functions_rela.html",children:[
-{text:"a",url:"functions_rela.html#index_a"},
-{text:"b",url:"functions_rela.html#index_b"},
-{text:"c",url:"functions_rela.html#index_c"},
-{text:"d",url:"functions_rela.html#index_d"},
-{text:"m",url:"functions_rela.html#index_m"},
-{text:"s",url:"functions_rela.html#index_s"},
-{text:"v",url:"functions_rela.html#index_v"}]}]}]},
+{text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
 {text:"File List",url:"files.html"}]},
 {text:"Examples",url:"examples.html"}]}

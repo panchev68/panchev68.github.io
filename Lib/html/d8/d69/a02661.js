@@ -1,4 +1,7 @@
 var a02661 =
 [
-    [ "Lib::HAL::I2CPort", "da/ded/a01547.html", "da/ded/a01547" ]
+    [ "Lib::BSP::Display::Controller", "dd/d6b/a00649.html#abce278c9e48f7f4b0be0c20c7c142d73", [
+      [ "Lib::BSP::Display::Controller::ILI9341", "dd/d6b/a00649.html#abce278c9e48f7f4b0be0c20c7c142d73a56132a4ec9a1880f4963a4b9d8d7bfca", null ],
+      [ "Lib::BSP::Display::Controller::ST7789", "dd/d6b/a00649.html#abce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199", null ]
+    ] ]
 ];

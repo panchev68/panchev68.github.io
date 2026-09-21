@@ -1,4 +1,4 @@
 var a00332 =
 [
-    [ "Lib::HAL::FlashInterface", "d2/d36/a01495.html", "d2/d36/a01495" ]
+    [ "Lib::HAL::DacPort&lt; DriverMode::DMA &gt;", "db/d57/a01506.html", "db/d57/a01506" ]
 ];

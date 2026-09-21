@@ -1,4 +1,4 @@
 var a00488 =
 [
-    [ "Lib::Helper::Sunset", "d3/dfd/a01803.html", "d3/dfd/a01803" ]
+    [ "Lib::Helper::MoonPhase", "db/d4b/a01786.html", "db/d4b/a01786" ]
 ];

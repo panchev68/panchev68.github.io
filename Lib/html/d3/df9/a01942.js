@@ -1,0 +1,27 @@
+var a01942 =
+[
+    [ "Handle", "d3/df9/a01942.html#a7b7645018d43538240c762c09964eb6d", null ],
+    [ "Queue", "d3/df9/a01942.html#a756ec611c56dde5bbc553b033f532682", null ],
+    [ "~Queue", "d3/df9/a01942.html#a422eb8516a8979c73aa579833bef8054", null ],
+    [ "Queue", "d3/df9/a01942.html#a26973b6d8a64d88a5dc5fcaca14fd774", null ],
+    [ "Queue", "d3/df9/a01942.html#ada5fbc10473e6f81a9c1f7388129a966", null ],
+    [ "capacity", "d3/df9/a01942.html#a47a154ec64fbd8d6ddce25c358219634", null ],
+    [ "close", "d3/df9/a01942.html#ae7166c29ff52cacbac2667b40d1920a9", null ],
+    [ "getHandle", "d3/df9/a01942.html#abd1cd42014765c2d80dc782dd6d5e25c", null ],
+    [ "isEmpty", "d3/df9/a01942.html#a1db3194c86039201896b5c13e11ac6cf", null ],
+    [ "isFull", "d3/df9/a01942.html#ac587aaa8dc44efa51a4159d88a2e4038", null ],
+    [ "isOpen", "d3/df9/a01942.html#aa6a3924c14ed3d4e5c955c50212345d9", null ],
+    [ "messagesWaiting", "d3/df9/a01942.html#aa6c7c851bebaf1b28298fdc41db466b7", null ],
+    [ "messagesWaitingFromISR", "d3/df9/a01942.html#a71fb3a1f28559d3f033144f1a0b4489f", null ],
+    [ "open", "d3/df9/a01942.html#a96b3206038c5d2189a0951edd245ebf0", null ],
+    [ "operator=", "d3/df9/a01942.html#a7c2a31fcce1468b3f504cead1c02a48c", null ],
+    [ "operator=", "d3/df9/a01942.html#a96b605104a9cd0185cf6be8596be2fe8", null ],
+    [ "overwrite", "d3/df9/a01942.html#aa2efbfd3ec5a20ad4df2a744e7f8aebe", null ],
+    [ "overwriteFromISR", "d3/df9/a01942.html#a8c3a548d7ac74afcd8410b4fefd0b835", null ],
+    [ "receive", "d3/df9/a01942.html#abe1cd4bde4ff79326492fd1d5c56ffc6", null ],
+    [ "receiveFromISR", "d3/df9/a01942.html#a2195f46d6d07e619db12bf5baee526c1", null ],
+    [ "reset", "d3/df9/a01942.html#a6950e31dce154f895380894a07095550", null ],
+    [ "send", "d3/df9/a01942.html#ab15322e6aead7ac29c01289b9be388d8", null ],
+    [ "sendFromISR", "d3/df9/a01942.html#ad4d0487e882e9df0a5ff94c12e2e8299", null ],
+    [ "spacesAvailable", "d3/df9/a01942.html#a84938db21ab97d1453a39c2eb6ba1bc4", null ]
+];

@@ -1,5 +1,4 @@
 var a00302 =
 [
-    [ "Lib::HAL::AdcPortBase&lt; T_DEVICE &gt;", "d7/dfd/a01439.html", "d7/dfd/a01439" ],
-    [ "Lib::HAL::AdcPortBase&lt; T_DEVICE &gt;::Event", "d6/d65/a01443.html", null ]
+    [ "Lib::Ethernet::Wiznet::ClientBase", "d8/dd0/a01430.html", "d8/dd0/a01430" ]
 ];

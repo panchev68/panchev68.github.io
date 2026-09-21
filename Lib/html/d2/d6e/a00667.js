@@ -1,7 +1,5 @@
 var a00667 =
 [
-    [ "Base", "df/ddd/a01655.html", "df/ddd/a01655" ],
-    [ "Port", "dd/d38/a01663.html", null ],
-    [ "Port&lt; DriverMode::DMA &gt;", "dd/d8d/a01667.html", "dd/d8d/a01667" ],
-    [ "Port&lt; DriverMode::IT &gt;", "d4/d3c/a01671.html", "d4/d3c/a01671" ]
+    [ "API", "d0/d5c/a00668.html", "d0/d5c/a00668" ],
+    [ "Core", "d1/d97/a00670.html", "d1/d97/a00670" ]
 ];

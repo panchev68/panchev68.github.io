@@ -1,4 +1,4 @@
 var a00482 =
 [
-    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d1/df0/a01795.html", "d1/df0/a01795" ]
+    [ "Lib::Helper::Integrator&lt; T_VALUE, N_WINDOW_SIZE &gt;", "df/d21/a01778.html", "df/d21/a01778" ]
 ];

@@ -1,4 +1,4 @@
 var a00200 =
 [
-    [ "Lib::Digi::Core::Frame::Type", "dd/d39/a01271.html", null ]
+    [ "Lib::Digi::Core::Frame::Payload&lt; N &gt;", "dc/ded/a01290.html", "dc/ded/a01290" ]
 ];

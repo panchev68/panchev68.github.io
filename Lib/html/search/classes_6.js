@@ -1,27 +1,4 @@
 var searchData=
 [
-  ['findpeaks_0',['FindPeaks',['../db/de5/a01759.html',1,'Lib::Helper']]],
-  ['firmware_1',['Firmware',['../dc/d21/a02079.html',1,'Lib::System::Version']]],
-  ['firmwareversion_2',['FirmwareVersion',['../da/df2/a02031.html',1,'Lib::System']]],
-  ['flag_3',['Flag',['../db/d78/a01427.html',1,'Lib::Ethernet::Wiznet::Socket']]],
-  ['flashinterface_4',['FlashInterface',['../d2/d36/a01495.html',1,'Lib::HAL']]],
-  ['frame_5',['Frame',['../da/d1e/a01479.html',1,'Lib::HAL::CAN::Port&lt; DriverMode::IT &gt;::Frame'],['../db/dd4/a02107.html',1,'Lib::XCOM::Protocol::Frame']]],
-  ['frame0x00_6',['Frame0x00',['../d2/d68/a01295.html',1,'Lib::Digi::Core']]],
-  ['frame0x01_7',['Frame0x01',['../d8/d38/a01299.html',1,'Lib::Digi::Core']]],
-  ['frame0x08_8',['Frame0x08',['../d6/d07/a01303.html',1,'Lib::Digi::Core']]],
-  ['frame0x09_9',['Frame0x09',['../d2/d4c/a01307.html',1,'Lib::Digi::Core']]],
-  ['frame0x17_10',['Frame0x17',['../de/d69/a01311.html',1,'Lib::Digi::Core']]],
-  ['frame0x80_11',['Frame0x80',['../dd/d6e/a01339.html',1,'Lib::Digi::Core']]],
-  ['frame0x81_12',['Frame0x81',['../d3/da4/a01343.html',1,'Lib::Digi::Core']]],
-  ['frame0x88_13',['Frame0x88',['../df/d96/a01347.html',1,'Lib::Digi::Core']]],
-  ['frame0x89_14',['Frame0x89',['../d1/dcd/a01351.html',1,'Lib::Digi::Core']]],
-  ['frame0x8a_15',['Frame0x8a',['../d8/d4e/a01355.html',1,'Lib::Digi::Core']]],
-  ['frame0x8b_16',['Frame0x8b',['../dc/d4b/a01359.html',1,'Lib::Digi::Core']]],
-  ['frame0x90_17',['Frame0x90',['../dd/d8b/a01363.html',1,'Lib::Digi::Core']]],
-  ['frame0x97_18',['Frame0x97',['../dd/d86/a01367.html',1,'Lib::Digi::Core']]],
-  ['functionref_19',['FunctionRef',['../d1/dab/a01767.html',1,'']]],
-  ['functionref_3c_20double_28double_2c_20double_2c_20double_29_3e_20',['FunctionRef&lt; double(double, double, double)&gt;',['../d1/dab/a01767.html',1,'']]],
-  ['functionref_3c_20ret_28args_2e_2e_2e_29_3e_21',['FunctionRef&lt; Ret(Args...)&gt;',['../d7/d02/a01771.html',1,'']]],
-  ['functionref_3c_20void_28status_20status_29_3e_22',['FunctionRef&lt; void(Status status)&gt;',['../d1/dab/a01767.html',1,'']]],
-  ['functionref_3c_20void_28std_3a_3aspan_3c_20const_20uint8_5ft_20_3e_29_3e_23',['FunctionRef&lt; void(std::span&lt; const uint8_t &gt;)&gt;',['../d1/dab/a01767.html',1,'']]]
+  ['group_0',['Group',['../d6/d2f/a01394.html',1,'Lib::Errors']]]
 ];

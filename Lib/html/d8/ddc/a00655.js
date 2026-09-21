@@ -1,38 +1,5 @@
 var a00655 =
 [
-    [ "Frame", "dc/df2/a00656.html", "dc/df2/a00656" ],
-    [ "ApiFrameBuffer", "d1/d34/a01211.html", "d1/d34/a01211" ],
-    [ "AtCommandChannel", "da/d3f/a01215.html", "da/d3f/a01215" ],
-    [ "AtCommandString", "d5/d39/a01219.html", "d5/d39/a01219" ],
-    [ "Checksum", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
-    [ "ComDriver", "d9/da8/a01227.html", "d9/da8/a01227" ],
-    [ "Diagnostic", "d8/db0/a01243.html", "d8/db0/a01243" ],
-    [ "EscapedCode", "dd/d95/a01247.html", "dd/d95/a01247" ],
-    [ "Frame0x00", "d2/d68/a01295.html", "d2/d68/a01295" ],
-    [ "Frame0x01", "d8/d38/a01299.html", "d8/d38/a01299" ],
-    [ "Frame0x08", "d6/d07/a01303.html", "d6/d07/a01303" ],
-    [ "Frame0x09", "d2/d4c/a01307.html", "d2/d4c/a01307" ],
-    [ "Frame0x17", "de/d69/a01311.html", "de/d69/a01311" ],
-    [ "Frame0x80", "dd/d6e/a01339.html", "dd/d6e/a01339" ],
-    [ "Frame0x81", "d3/da4/a01343.html", "d3/da4/a01343" ],
-    [ "Frame0x88", "df/d96/a01347.html", "df/d96/a01347" ],
-    [ "Frame0x89", "d1/dcd/a01351.html", "d1/dcd/a01351" ],
-    [ "Frame0x8a", "d8/d4e/a01355.html", "d8/d4e/a01355" ],
-    [ "Frame0x8b", "dc/d4b/a01359.html", "dc/d4b/a01359" ],
-    [ "Frame0x90", "dd/d8b/a01363.html", "dd/d8b/a01363" ],
-    [ "Frame0x97", "dd/d86/a01367.html", "dd/d86/a01367" ],
-    [ "LocalAtCommand", "d3/d42/a01275.html", "d3/d42/a01275" ],
-    [ "Message", "d9/de7/a01279.html", "d9/de7/a01279" ],
-    [ "ModemStatus", "d5/da7/a01283.html", "d5/da7/a01283" ],
-    [ "Module", "d7/da4/a01287.html", "d7/da4/a01287" ],
-    [ "Protocol", "d4/da0/a01291.html", null ],
-    [ "QueryBase", "db/da8/a01323.html", "db/da8/a01323" ],
-    [ "QueueMessage", "d4/d2c/a01327.html", "d4/d2c/a01327" ],
-    [ "RemoteAtCommand", "dc/d8e/a01331.html", "dc/d8e/a01331" ],
-    [ "ResponseEvents", "d4/d04/a01335.html", "d4/d04/a01335" ],
-    [ "ApiMode", "d8/ddc/a00655.html#ac00e3258c1e2d55846ad6f50ddfebbdc", [
-      [ "TRANSPARENT", "d8/ddc/a00655.html#ac00e3258c1e2d55846ad6f50ddfebbdca6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "API1", "d8/ddc/a00655.html#ac00e3258c1e2d55846ad6f50ddfebbdca7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "API2", "d8/ddc/a00655.html#ac00e3258c1e2d55846ad6f50ddfebbdca51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ]
+    [ "OSPI", "dc/df2/a00656.html", "dc/df2/a00656" ],
+    [ "SPI", "da/dc3/a00657.html", "da/dc3/a00657" ]
 ];

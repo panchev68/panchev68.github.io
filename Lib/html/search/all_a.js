@@ -1,10 +1,13 @@
 var searchData=
 [
-  ['jaggedarray_0',['JaggedArray',['../d0/d5c/a00668.html#ad371b43a764bd5b625afa226a1fc12eb',1,'Lib::Helper']]],
-  ['jaggedarray_2ehpp_1',['JaggedArray.hpp',['../dc/d8e/a00473.html',1,'']]],
-  ['jaggedarraybase_2',['JaggedArrayBase',['../d5/df4/a01779.html',1,'Lib::Helper::JaggedArrayBase&lt; T_ELEMENT &gt;'],['../d5/df4/a01779.html#a0f518918193bba4f57841ad74cb3d998',1,'Lib::Helper::JaggedArrayBase::JaggedArrayBase()=default'],['../d5/df4/a01779.html#a46fe449f30f42c02caed495f9bcc0c7d',1,'Lib::Helper::JaggedArrayBase::JaggedArrayBase(const JaggedArrayBase &amp;)=default'],['../d5/df4/a01779.html#affd072bf4ee99479680cbf709b44b7cf',1,'Lib::Helper::JaggedArrayBase::JaggedArrayBase(JaggedArrayBase &amp;&amp;)=default']]],
-  ['jaggedarraybase_3c_20jaggedarrayrow_3c_20t_5felement_20_3e_20_3e_3',['JaggedArrayBase&lt; JaggedArrayRow&lt; T_ELEMENT &gt; &gt;',['../d5/df4/a01779.html',1,'Lib::Helper']]],
-  ['jaggedarrayrow_4',['JaggedArrayRow',['../d0/d5c/a00668.html#abb4a58cc33c78b1e079bef9fe69346d0',1,'Lib::Helper']]],
-  ['joined_5fnetwork_5',['JOINED_NETWORK',['../d8/d4e/a01355.html#a1ca3b1d6d0209c50bd947bfccb88bb66a31c040e73875a28a2998346bbf88d686',1,'Lib::Digi::Core::Frame0x8a']]],
-  ['juliandate_6',['julianDate',['../d3/dfd/a01803.html#a465409260e9376ae1297110fa1b29271',1,'Lib::Helper::Sunset']]]
+  ['kalman_0',['Kalman',['../d2/d45/a01826.html',1,'Lib::Math::Filter::Kalman&lt; T_TYPE &gt;'],['../d2/d45/a01826.html#aa1d2d569c178bee69ecdf55d472c9b50',1,'Lib::Math::Filter::Kalman::Kalman()']]],
+  ['kalman_2ehpp_1',['Kalman.hpp',['../d4/dfb/a00512.html',1,'']]],
+  ['kbdhit_2',['kbdhit',['../da/d71/a00814.html#ab053ebdec73ad8b16ff1af3eebf17097',1,'Lib::BSP::EncoderPins']]],
+  ['kd_3',['kd',['../d0/d4a/a01862.html#a6fd341537b6f12074478402b53dea8f1',1,'Lib::Math::Pid::Parameters']]],
+  ['kernel_4',['Kernel',['../dd/d8e/a01898.html',1,'RTOS']]],
+  ['kernel_2ehpp_5',['Kernel.hpp',['../dc/df9/a00554.html',1,'']]],
+  ['key_5fsize_6',['KEY_SIZE',['../df/d12/a00942.html#af77082807fbcb5ac36ba3205827523ae',1,'Lib::BSP::RFID::MFRC522::Mifare']]],
+  ['khaki_7',['KHAKI',['../da/d40/a00946.html#a48b82b65f1fad4d9822cc288cd4f6c1a',1,'Color']]],
+  ['ki_8',['ki',['../d0/d4a/a01862.html#ac30cd8786ec60c8114bc21b7f63145d4',1,'Lib::Math::Pid::Parameters']]],
+  ['kp_9',['kp',['../d0/d4a/a01862.html#af4932c40d48d9c972bd4f448a37388bc',1,'Lib::Math::Pid::Parameters']]]
 ];

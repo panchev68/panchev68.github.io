@@ -1,6 +1,5 @@
 var a02697 =
 [
-    [ "Lib::Canbus::ServiceBase", "d6/dcf/a01031.html", "d6/dcf/a01031" ],
-    [ "Lib::Canbus::ServiceBase::Node", "de/d26/a01035.html", "de/d26/a01035" ],
-    [ "Lib::Canbus::ServiceBase::Diagnostic", "df/d21/a01039.html", "df/d21/a01039" ]
+    [ "Lib::HAL::OSPI::Base&lt; T_DEVICE &gt;", "d5/d75/a01570.html", "d5/d75/a01570" ],
+    [ "Lib::HAL::OSPI::Base&lt; T_DEVICE &gt;::Event", "d9/df5/a01574.html", null ]
 ];

@@ -1,5 +1,5 @@
 var dir_d10fe2c389a15fc38a8d2eee4da0ead4 =
 [
-    [ "Driver.hpp", "de/d3b/a02610.html", "de/d3b/a02610" ],
-    [ "Registers.hpp", "d5/d95/a02625.html", "d5/d95/a02625" ]
+    [ "Driver.hpp", "da/d26/a02644.html", "da/d26/a02644" ],
+    [ "Registers.hpp", "d3/d59/a02659.html", "d3/d59/a02659" ]
 ];
