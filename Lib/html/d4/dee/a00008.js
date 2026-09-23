@@ -1,4 +1,4 @@
 var a00008 =
 [
-    [ "Lib::BSP::Backlight", "df/dbb/a00698.html", "df/dbb/a00698" ]
+    [ "Lib::BSP::Backlight", "d9/d77/a00756.html", "d9/d77/a00756" ]
 ];

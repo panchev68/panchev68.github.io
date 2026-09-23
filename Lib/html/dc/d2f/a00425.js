@@ -1,4 +1,4 @@
 var a00425 =
 [
-    [ "Lib::Helper::CityHash", "d5/da6/a01698.html", "d5/da6/a01698" ]
+    [ "Lib::HAL::SPIPortBase&lt; Derived &gt;", "dc/d3e/a01712.html", "dc/d3e/a01712" ]
 ];

@@ -1,4 +1,4 @@
 var a00452 =
 [
-    [ "Lib::Helper::Convert::HexHelper", "d0/d1f/a01734.html", null ]
+    [ "Lib::HAL::UARTPort&lt; DriverMode::BLOCKING &gt;", "d9/d0d/a01748.html", "d9/d0d/a01748" ]
 ];

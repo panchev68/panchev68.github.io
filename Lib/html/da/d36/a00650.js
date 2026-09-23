@@ -1,4 +1,4 @@
 var a00650 =
 [
-    [ "I2C", "de/d33/a00651.html", "de/d33/a00651" ]
+    [ "RTOS::TickCounter", "d9/db6/a02056.html", "d9/db6/a02056" ]
 ];

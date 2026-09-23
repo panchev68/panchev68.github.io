@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "Lib::Digi::Core::Frame::Header", "d4/d10/a01278.html", "d4/d10/a01278" ]
+    [ "Lib::Digi::Core::EscapedCode", "df/d93/a01336.html", "df/d93/a01336" ]
 ];

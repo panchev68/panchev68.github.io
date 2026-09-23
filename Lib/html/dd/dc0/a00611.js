@@ -1,4 +1,4 @@
 var a00611 =
 [
-    [ "Lib::System::Configuration", "d8/de7/a02030.html", "d8/de7/a02030" ]
+    [ "RTOS::MemoryManager", "d6/d33/a01992.html", "d6/d33/a01992" ]
 ];

@@ -1,5 +1,5 @@
 var a00398 =
 [
-    [ "Lib::HAL::Timer::TimInputCapture", "df/dee/a01646.html", "df/dee/a01646" ],
-    [ "HAL_TIM_IC_CaptureCallback", "d9/dd1/a00398.html#aab7c9231e580e0987f9524c7aff04c39", null ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;", "d6/d5e/a01660.html", "d6/d5e/a01660" ],
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;::Event", "dc/d71/a01664.html", null ]
 ];

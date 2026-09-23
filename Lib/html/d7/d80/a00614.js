@@ -1,4 +1,4 @@
 var a00614 =
 [
-    [ "Lib::System::FirmwareVersion", "dc/ddb/a02034.html", "dc/ddb/a02034" ]
+    [ "RTOS::MessageBuffer", "d3/dcc/a01996.html", "d3/dcc/a01996" ]
 ];

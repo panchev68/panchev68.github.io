@@ -1,4 +1,4 @@
 var a00632 =
 [
-    [ "Lib::System::VersionBase&lt; Derived &gt;", "df/d4d/a02086.html", "df/d4d/a02086" ]
+    [ "RTOS::Semaphore", "d5/d2c/a02012.html", "d5/d2c/a02012" ]
 ];

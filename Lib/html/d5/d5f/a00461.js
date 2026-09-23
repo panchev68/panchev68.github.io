@@ -1,4 +1,4 @@
 var a00461 =
 [
-    [ "Lib::Helper::crc8", "d5/dfa/a01746.html", "d5/dfa/a01746" ]
+    [ "Lib::HAL::UARTPortBase&lt; Derived &gt;", "de/dda/a01768.html", "de/dda/a01768" ]
 ];

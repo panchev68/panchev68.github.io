@@ -1,4 +1,4 @@
 var a00434 =
 [
-    [ "Lib::Helper::Convert::dBM", "d6/d9a/a01710.html", null ]
+    [ "Lib::HAL::Timer::TimEncoder", "d3/d4c/a01724.html", "d3/d4c/a01724" ]
 ];

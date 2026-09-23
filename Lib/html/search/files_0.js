@@ -1,12 +1,13 @@
 var searchData=
 [
-  ['adcportbase_2ehpp_0',['AdcPortBase.hpp',['../d3/d07/a00305.html',1,'']]],
-  ['adcportdma_2ehpp_1',['AdcPortDMA.hpp',['../d5/d0f/a00308.html',1,'']]],
-  ['adcportit_2ehpp_2',['AdcPortIT.hpp',['../d1/d5d/a00311.html',1,'']]],
-  ['apiframebuffer_2ehpp_3',['ApiFrameBuffer.hpp',['../d5/dcb/a00170.html',1,'']]],
-  ['apimode_2ehpp_4',['ApiMode.hpp',['../d7/d3f/a00173.html',1,'']]],
-  ['applicationbase_2ehpp_5',['ApplicationBase.hpp',['../d5/db1/a00140.html',1,'']]],
-  ['ascii_2ehpp_6',['Ascii.hpp',['../d4/dd3/a00428.html',1,'']]],
-  ['atcommandchannel_2ehpp_7',['AtCommandChannel.hpp',['../d5/de9/a00176.html',1,'']]],
-  ['atcommandstring_2ehpp_8',['AtCommandString.hpp',['../db/dd9/a00179.html',1,'']]]
+  ['adcport_2dblock_2ehpp_0',['ADCPort-Block.hpp',['../d1/d5d/a00311.html',1,'']]],
+  ['adcport_2ddma_2ehpp_1',['ADCPort-DMA.hpp',['../d0/d39/a00314.html',1,'']]],
+  ['adcport_2dit_2ehpp_2',['ADCPort-IT.hpp',['../da/de0/a00317.html',1,'']]],
+  ['adcportbase_2ehpp_3',['ADCPortBase.hpp',['../dd/de2/a00320.html',1,'']]],
+  ['apiframebuffer_2ehpp_4',['ApiFrameBuffer.hpp',['../d5/de9/a00176.html',1,'']]],
+  ['apimode_2ehpp_5',['ApiMode.hpp',['../db/dd9/a00179.html',1,'']]],
+  ['applicationbase_2ehpp_6',['ApplicationBase.hpp',['../d9/db6/a00146.html',1,'']]],
+  ['ascii_2ehpp_7',['Ascii.hpp',['../d9/d34/a00476.html',1,'']]],
+  ['atcommandchannel_2ehpp_8',['AtCommandChannel.hpp',['../d7/d25/a00182.html',1,'']]],
+  ['atcommandstring_2ehpp_9',['AtCommandString.hpp',['../de/df3/a00185.html',1,'']]]
 ];

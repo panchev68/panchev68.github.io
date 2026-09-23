@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['devicemanager_3c_20t_5fdevice_2c_20t_5fhandle_20_3e_0',['DeviceManager&lt; T_DEVICE, T_HANDLE &gt;',['../de/dc6/a01502.html#ad317e84715f53c3ea50d6b4113c92403',1,'Lib::HAL::Device']]],
-  ['dispatcher_1',['Dispatcher',['../d5/d8e/a01390.html#ad90424f003fc2afb836709cbffa47e2c',1,'Lib::Errors::Error']]],
-  ['driver_3c_20m24c16_20_3e_2',['Driver&lt; M24C16 &gt;',['../d0/dad/a00806.html#abc7b2f2488b46308e0ee7a50e8b5c26b',1,'Lib::BSP::EEPROM::I2C::M24C16']]],
-  ['driver_3c_20m24c64w_20_3e_3',['Driver&lt; M24C64W &gt;',['../d4/dfd/a00810.html#a389c035ca7d606c8426542af2e4b7d70',1,'Lib::BSP::EEPROM::I2C::M24C64W']]]
+  ['slave_0',['Slave',['../d1/dae/a01136.html#af2d503cce06191d01441adbba146c9f5',1,'Lib::Communication::Modbus::Protocol::Slave()'],['../d6/db6/a01172.html#af2d503cce06191d01441adbba146c9f5',1,'Lib::Communication::Modbus::SerialPortBase::Slave()']]],
+  ['sockets_1',['Sockets',['../dd/d05/a01504.html#adf6639d046f29568f3db637dbbdd334f',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['spiportbase_3c_20spiport_3c_20drivermode_3a_3ablocking_20_3e_20_3e_2',['SPIPortBase&lt; SPIPort&lt; DriverMode::BLOCKING &gt; &gt;',['../da/dc4/a01692.html#a3cc7fe674d4d490be664ef3d7112e2fb',1,'Lib::HAL::SPIPort&lt; DriverMode::BLOCKING &gt;']]],
+  ['spiportbase_3c_20spiport_3c_20drivermode_3a_3adma_20_3e_20_3e_3',['SPIPortBase&lt; SPIPort&lt; DriverMode::DMA &gt; &gt;',['../d9/d49/a01696.html#a43d375fc7c88f2003ab23dd3833a2cd8',1,'Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;']]],
+  ['spiportbase_3c_20spiport_3c_20drivermode_3a_3ait_20_3e_20_3e_4',['SPIPortBase&lt; SPIPort&lt; DriverMode::IT &gt; &gt;',['../d0/dbc/a01704.html#a8818b3819068e3558f2ee4768a0b6669',1,'Lib::HAL::SPIPort&lt; DriverMode::IT &gt;']]]
 ];

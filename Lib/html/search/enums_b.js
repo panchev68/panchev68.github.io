@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['Value',['../dd/de2/a01134.html#a59c8aeef51295445b21b24d4c535d6e0',1,'Lib::Digi::API::Connection::State']]]
+  ['updatemode_0',['UpdateMode',['../d2/d5a/a00792.html#a50419179ec3a60e3ac3b5036b3b284eb',1,'Lib::BSP::DigitalPeripheralBase']]]
 ];

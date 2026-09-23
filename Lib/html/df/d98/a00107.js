@@ -1,6 +1,5 @@
 var a00107 =
 [
-    [ "Lib::BSP::XPT2046", "dc/d81/a01006.html", "dc/d81/a01006" ],
-    [ "Lib::BSP::XPT2046::Config", "d0/d2b/a01010.html", "d0/d2b/a01010" ],
-    [ "Lib::BSP::XPT2046::Parameters", "d0/d56/a01014.html", "d0/d56/a01014" ]
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20", "d9/db3/a01064.html", "d9/db3/a01064" ],
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20::Config", "d1/de6/a01068.html", "d1/de6/a01068" ]
 ];

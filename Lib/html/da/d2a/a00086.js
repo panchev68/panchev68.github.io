@@ -1,6 +1,5 @@
 var a00086 =
 [
-    [ "Color", "da/d40/a00946.html", "da/d40/a00946" ],
-    [ "Color::Data", "df/d39/a00950.html", "df/d39/a00950" ],
-    [ "ColorUtil::pack", "dc/d91/a00659.html#af98f79d12241a80c2c6743fd6472852f", null ]
+    [ "Lib::BSP::RFID::MFRC522", "d2/d4c/a00984.html", "d2/d4c/a00984" ],
+    [ "Lib::BSP::RFID::MFRC522::Config", "d6/d48/a00988.html", "d6/d48/a00988" ]
 ];

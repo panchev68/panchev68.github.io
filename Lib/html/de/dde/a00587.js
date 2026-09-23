@@ -1,4 +1,5 @@
 var a00587 =
 [
-    [ "RTOS::StreamBuffer", "d3/d67/a01958.html", "d3/d67/a01958" ]
+    [ "Lib::Pneumatics::Sensor", "d0/d59/a01956.html", "d0/d59/a01956" ],
+    [ "Lib::Pneumatics::Sensor::Config", "de/d7f/a01960.html", "de/d7f/a01960" ]
 ];

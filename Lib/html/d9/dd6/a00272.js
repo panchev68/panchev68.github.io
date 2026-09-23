@@ -1,4 +1,4 @@
 var a00272 =
 [
-    [ "Lib::Errors::Error", "d5/d8e/a01390.html", "d5/d8e/a01390" ]
+    [ "Lib::Digi::Core::Frame0x97", "dd/d08/a01448.html", "dd/d08/a01448" ]
 ];

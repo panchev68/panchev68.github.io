@@ -1,4 +1,4 @@
 var a00275 =
 [
-    [ "Lib::Errors::Group", "d6/d2f/a01394.html", "d6/d2f/a01394" ]
+    [ "Lib::Errors::Dispatcher", "dd/d1c/a01452.html", "dd/d1c/a01452" ]
 ];

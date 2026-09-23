@@ -1,7 +1,7 @@
 var dir_ba55c1c0ded231066ee3ccec1543efe8 =
 [
-    [ "Base.hpp", "da/dd2/a02701.html", "da/dd2/a02701" ],
-    [ "Block.hpp", "d6/d80/a00371.html", "d6/d80/a00371" ],
-    [ "DMA.hpp", "d5/dba/a02776.html", "d5/dba/a02776" ],
-    [ "IT.hpp", "dc/d40/a02767.html", "dc/d40/a02767" ]
+    [ "OSPIPort-Block.hpp", "d4/d27/a00392.html", "d4/d27/a00392" ],
+    [ "OSPIPort-DMA.hpp", "db/dbc/a00395.html", "db/dbc/a00395" ],
+    [ "OSPIPort-IT.hpp", "d9/dd1/a00398.html", "d9/dd1/a00398" ],
+    [ "OSPIPortBase.hpp", "d7/d00/a00401.html", "d7/d00/a00401" ]
 ];

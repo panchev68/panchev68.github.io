@@ -1,7 +1,6 @@
 var a00089 =
 [
-    [ "Lib::BSP::SK6812", "d3/dca/a00954.html", "d3/dca/a00954" ],
-    [ "Lib::BSP::SK6812::LedColor", "df/d9c/a00958.html", "df/d9c/a00958" ],
-    [ "Lib::BSP::SK6812::TimerData", "df/d88/a00962.html", "df/d88/a00962" ],
-    [ "Lib::BSP::SK6812::TimerBuffer", "d2/d6e/a00966.html", "d2/d6e/a00966" ]
+    [ "Color", "d4/d45/a01012.html", "d4/d45/a01012" ],
+    [ "Color::Data", "de/def/a01016.html", "de/def/a01016" ],
+    [ "ColorUtil::pack", "d2/d94/a00716.html#af98f79d12241a80c2c6743fd6472852f", null ]
 ];

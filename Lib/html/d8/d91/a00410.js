@@ -1,5 +1,5 @@
 var a00410 =
 [
-    [ "Lib::HAL::Timer::TimTimebase", "d9/dbc/a01662.html", "d9/dbc/a01662" ],
-    [ "HAL_TIM_PeriodElapsedCallback", "d8/d91/a00410.html#a05df78f721494863c4ad311956a3fccf", null ]
+    [ "Lib::HAL::Reset", "de/d3e/a01676.html", "de/d3e/a01676" ],
+    [ "NVIC_SystemReset", "d8/d91/a00410.html#a6e0b05b8a10d1939b1820fd9f07e9cb9", null ]
 ];

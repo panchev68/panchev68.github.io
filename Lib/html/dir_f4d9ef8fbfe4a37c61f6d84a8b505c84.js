@@ -1,6 +1,7 @@
 var dir_f4d9ef8fbfe4a37c61f6d84a8b505c84 =
 [
-    [ "Base.hpp", "d4/d9d/a02704.html", "d4/d9d/a02704" ],
-    [ "DMA.hpp", "dc/d6a/a02779.html", "dc/d6a/a02779" ],
-    [ "IT.hpp", "d6/d92/a02770.html", "d6/d92/a02770" ]
+    [ "SPIPort-Block.hpp", "df/d15/a00416.html", "df/d15/a00416" ],
+    [ "SPIPort-DMA.hpp", "d3/d29/a00419.html", "d3/d29/a00419" ],
+    [ "SPIPort-IT.hpp", "db/d43/a00422.html", "db/d43/a00422" ],
+    [ "SPIPortBase.hpp", "dc/d2f/a00425.html", "dc/d2f/a00425" ]
 ];

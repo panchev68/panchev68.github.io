@@ -1,4 +1,4 @@
 var a00296 =
 [
-    [ "Lib::Ethernet::Wiznet::ClientBase", "d8/dd0/a01430.html", "d8/dd0/a01430" ]
+    [ "Lib::Ethernet::Node", "d1/d38/a01480.html", "d1/d38/a01480" ]
 ];

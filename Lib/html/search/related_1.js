@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['base_3c_20port_3c_20drivermode_3a_3ablocking_20_3e_20_3e_0',['Base&lt; Port&lt; DriverMode::BLOCKING &gt; &gt;',['../d0/d21/a01582.html#ad94f2f2b3f030124128a676e787320bd',1,'Lib::HAL::OSPI::Port&lt; DriverMode::BLOCKING &gt;']]],
-  ['base_3c_20port_3c_20drivermode_3a_3adma_20_3e_20_3e_1',['Base&lt; Port&lt; DriverMode::DMA &gt; &gt;',['../d2/d2f/a01586.html#ab3c0b388139e3fa805cce08d65f87ca2',1,'Lib::HAL::OSPI::Port&lt; DriverMode::DMA &gt;::Base&lt; Port&lt; DriverMode::DMA &gt; &gt;()'],['../d6/d26/a01678.html#ab3c0b388139e3fa805cce08d65f87ca2',1,'Lib::HAL::UART::Port&lt; DriverMode::DMA &gt;::Base&lt; Port&lt; DriverMode::DMA &gt; &gt;()']]],
-  ['base_3c_20port_3c_20drivermode_3a_3ait_20_3e_20_3e_2',['Base&lt; Port&lt; DriverMode::IT &gt; &gt;',['../de/d3c/a01490.html#a62b7829af38074fe6f56a12ee0e65385',1,'Lib::HAL::CAN::Port&lt; DriverMode::IT &gt;::Base&lt; Port&lt; DriverMode::IT &gt; &gt;()'],['../d4/d49/a01590.html#a62b7829af38074fe6f56a12ee0e65385',1,'Lib::HAL::OSPI::Port&lt; DriverMode::IT &gt;::Base&lt; Port&lt; DriverMode::IT &gt; &gt;()'],['../dd/d08/a01682.html#a62b7829af38074fe6f56a12ee0e65385',1,'Lib::HAL::UART::Port&lt; DriverMode::IT &gt;::Base&lt; Port&lt; DriverMode::IT &gt; &gt;()']]]
+  ['devicemanager_3c_20t_5fdevice_2c_20t_5fhandle_20_3e_0',['DeviceManager&lt; T_DEVICE, T_HANDLE &gt;',['../d3/d22/a01572.html#ad317e84715f53c3ea50d6b4113c92403',1,'Lib::HAL::Device']]],
+  ['dispatcher_1',['Dispatcher',['../d4/d98/a01456.html#ad90424f003fc2afb836709cbffa47e2c',1,'Lib::Errors::Error']]],
+  ['driver_3c_20m24c16_20_3e_2',['Driver&lt; M24C16 &gt;',['../dc/d17/a00872.html#abc7b2f2488b46308e0ee7a50e8b5c26b',1,'Lib::BSP::EEPROM::I2C::M24C16']]],
+  ['driver_3c_20m24c64w_20_3e_3',['Driver&lt; M24C64W &gt;',['../d2/dac/a00876.html#a389c035ca7d606c8426542af2e4b7d70',1,'Lib::BSP::EEPROM::I2C::M24C64W']]]
 ];
