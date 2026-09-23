@@ -1,4 +1,4 @@
 var a00224 =
 [
-    [ "Lib::Digi::Core::Frame0x00", "d7/dde/a01384.html", "d7/dde/a01384" ]
+    [ "Lib::Digi::Core::Module", "d9/d40/a01387.html", "d9/d40/a01387" ]
 ];

@@ -1,9 +1,8 @@
 var a01548 =
 [
-    [ "CANPort", "da/dc7/a01548.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "da/dc7/a01548.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "getHandle", "da/dc7/a01548.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "da/dc7/a01548.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "readBlocking", "da/dc7/a01548.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "writeBlocking", "da/dc7/a01548.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "ADCPortBase", "da/dc7/a01548.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "da/dc7/a01548.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "da/dc7/a01548.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "da/dc7/a01548.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "da/dc7/a01548.html#aed764265c454323ee0b2d718d2f447cb", null ]
 ];

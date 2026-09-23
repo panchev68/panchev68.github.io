@@ -1,4 +1,4 @@
 var a00290 =
 [
-    [ "Lib::Ethernet::IpAddress", "d2/d48/a01472.html", "d2/d48/a01472" ]
+    [ "mbx_cfg_t", "da/d1e/a01479.html", "da/d1e/a01479" ]
 ];

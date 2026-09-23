@@ -1,8 +1,12 @@
 var a01640 =
 [
-    [ "I2CPortBase", "de/d14/a01640.html#a0799e8375106f060acac1105f7929263", null ],
-    [ "~I2CPortBase", "de/d14/a01640.html#a7251733e753305d29b84e4419bdb1e74", null ],
-    [ "close", "de/d14/a01640.html#ae52e9fc0f453c185e8aa1ca2308c31a3", null ],
-    [ "isBusy", "de/d14/a01640.html#a32555e8bba6120063cbf3a4c5f43504a", null ],
-    [ "open", "de/d14/a01640.html#a1af1410c7525783fa52db6f91844e144", null ]
+    [ "Event", "d3/d3e/a01644.html", null ],
+    [ "I2CPort", "de/d14/a01640.html#a40611840c6465c83718b07135ffd6505", null ],
+    [ "~I2CPort", "de/d14/a01640.html#a615afa9173b081285b7039a91ad6f52c", null ],
+    [ "abort", "de/d14/a01640.html#a5f141ee19d64a4945bb5351f14b83ab8", null ],
+    [ "close", "de/d14/a01640.html#a1b706b87f43092a8d6cb419370ea94d6", null ],
+    [ "masterReceive", "de/d14/a01640.html#aa009b69de090fc8996486efe52ba20d5", null ],
+    [ "masterTransmit", "de/d14/a01640.html#ac7a6fd08598fb913b7b39830d2dd947e", null ],
+    [ "open", "de/d14/a01640.html#ab3e1a68adbf83f6f27a25737cedaaf4c", null ],
+    [ "waitForEvent", "de/d14/a01640.html#a6fc4b7301aefc15319b9eb5095f49d77", null ]
 ];

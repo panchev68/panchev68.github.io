@@ -1,9 +1,11 @@
 var a01740 =
 [
-    [ "TimPwmOutput", "df/d8f/a01740.html#a47b87f7a58364829413da8553167cb9c", null ],
-    [ "~TimPwmOutput", "df/d8f/a01740.html#a0cbdb1ff03a11b37a4b54a4e534ed3ea", null ],
-    [ "close", "df/d8f/a01740.html#a99461b28a3b7f53dfad3bfddbe803aa5", null ],
-    [ "open", "df/d8f/a01740.html#a1a006a75e86e8a5fd62b69b862f41184", null ],
-    [ "setPeriod", "df/d8f/a01740.html#a356c01c6a41c8b106242fed7d597d40b", null ],
-    [ "setPulse", "df/d8f/a01740.html#a721247e0e729cbd77d8d34cbfb29719a", null ]
+    [ "TimOnePulse", "df/d8f/a01740.html#a6f2dfcc2daac5133790309480af76845", null ],
+    [ "~TimOnePulse", "df/d8f/a01740.html#a7baee98037611fb20edb29e72726c789", null ],
+    [ "setDelay", "df/d8f/a01740.html#a5d165adb78126c4c3847e9a00293af2c", null ],
+    [ "setPulseWidth", "df/d8f/a01740.html#a0c3c0479babba1ebc0fb776e3238f350", null ],
+    [ "start", "df/d8f/a01740.html#aea5379a13d387a1d14dbc1b7c68cedf4", null ],
+    [ "stop", "df/d8f/a01740.html#a10ae4c0c45eecf6f48ff2c986ecb0f34", null ],
+    [ "waitPulseComplete", "df/d8f/a01740.html#a79a7628947754a9bde98dd77e742e5c6", null ],
+    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "df/d8f/a01740.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
 ];

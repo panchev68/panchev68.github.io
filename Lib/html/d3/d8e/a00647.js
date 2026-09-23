@@ -1,4 +1,4 @@
 var a00647 =
 [
-    [ "RTOS::TickClient&lt; Derived &gt;", "d3/df9/a02052.html", "d3/df9/a02052" ]
+    [ "RTOS::StreamBuffer", "d9/d1f/a02035.html", "d9/d1f/a02035" ]
 ];

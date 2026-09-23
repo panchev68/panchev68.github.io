@@ -1,14 +1,12 @@
 var a01008 =
 [
-    [ "Mifare", "dd/dac/a01008.html#aef5ceb02194768e323519e146a3f9372", null ],
-    [ "~Mifare", "dd/dac/a01008.html#a5c517fb29c16a718dd67821a8f8f4e11", null ],
-    [ "adjustValue", "dd/dac/a01008.html#ac8eb4c03b4067024c77e9b804f89534c", null ],
-    [ "authenticate", "dd/dac/a01008.html#af3a8954f0220d3e5a6536790486a74d0", null ],
-    [ "decrement", "dd/dac/a01008.html#a9678fb3665a380616b7629d979c1eadc", null ],
-    [ "formatValueBlock", "dd/dac/a01008.html#a300a74963bf60ca2473e9828d9a7e387", null ],
-    [ "increment", "dd/dac/a01008.html#a1be462ee739e4180e887af3529c28e6d", null ],
-    [ "readBlock", "dd/dac/a01008.html#ac82181db204325e0845666fde25395b8", null ],
-    [ "restore", "dd/dac/a01008.html#a4ca98958510a9ddbc46f5ffab512e15b", null ],
-    [ "transfer", "dd/dac/a01008.html#ad604997b9bef761107d0df78d46ca2c1", null ],
-    [ "writeBlock", "dd/dac/a01008.html#a68fa396eee3800b8e42a8dff1c7142b9", null ]
+    [ "Data", "d4/d45/a01012.html", "d4/d45/a01012" ],
+    [ "Color", "dd/dac/a01008.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "dd/dac/a01008.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "dd/dac/a01008.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "dd/dac/a01008.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "dd/dac/a01008.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "dd/dac/a01008.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "dd/dac/a01008.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "dd/dac/a01008.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

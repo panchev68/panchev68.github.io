@@ -1,6 +1,5 @@
 var a02700 =
 [
-    [ "Lib::HAL::SPI::Base&lt; T_DEVICE &gt;", "db/d7c/a01614.html", "db/d7c/a01614" ],
-    [ "Lib::HAL::SPI::Base&lt; T_DEVICE &gt;::Event", "d9/d6a/a01618.html", null ],
-    [ "Lib::HAL::SPI::SpiHandle", "d2/d85/a00679.html#ac1e42fb8ec546b6754f402aaf7a6ea57", null ]
+    [ "Lib::Canbus::Service&lt; Mode::CLIENT &gt;", "d2/dd7/a01108.html", "d2/dd7/a01108" ],
+    [ "Lib::Canbus::ClientBase", "db/d7c/a00722.html#a6a342d3a95a10dc45d846c70f8fd7fb9", null ]
 ];

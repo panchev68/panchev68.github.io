@@ -1,4 +1,4 @@
 var a00473 =
 [
-    [ "Lib::Helper::CityHash", "d0/dce/a01780.html", "d0/dce/a01780" ]
+    [ "Lib::Helper::BitSet&lt; N_BITS &gt;", "de/dc3/a01787.html", "de/dc3/a01787" ]
 ];

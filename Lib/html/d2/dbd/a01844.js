@@ -1,10 +1,10 @@
 var a01844 =
 [
-    [ "Integrator", "d2/dbd/a01844.html#a26b6c856f31eb3f18b69a2c558877bb6", null ],
-    [ "addValue", "d2/dbd/a01844.html#ab8c5213f20bd01067aeac88ead9940b7", null ],
-    [ "computeResult", "d2/dbd/a01844.html#ae6a79a15ffceb467a5f0bae907528b41", null ],
-    [ "isWindowFull", "d2/dbd/a01844.html#aed1f08cf04d78f152ae3952e006ca13c", null ],
-    [ "operator()", "d2/dbd/a01844.html#a2bcca45dcea0f22ba259c5f84b6e96fd", null ],
-    [ "processValue", "d2/dbd/a01844.html#ac523e64f661ec063c92f060d3ef75380", null ],
-    [ "resetWindow", "d2/dbd/a01844.html#ade38a975d156689907c7327b45504fd3", null ]
+    [ "PeakInfo", "da/d4b/a01848.html", "da/d4b/a01848" ],
+    [ "FindPeaks", "d2/dbd/a01844.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
+    [ "addSample", "d2/dbd/a01844.html#af68c408bdc213c13c758fceb90fdf51e", null ],
+    [ "getCount", "d2/dbd/a01844.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
+    [ "getFallingPeak", "d2/dbd/a01844.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
+    [ "getRisingPeak", "d2/dbd/a01844.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
+    [ "reset", "d2/dbd/a01844.html#a176df2aab4c0e044fe550ca813f88168", null ]
 ];

@@ -1,6 +1,7 @@
 var a01404 =
 [
-    [ "QueryBase", "d2/d82/a01404.html#a008033823ae58ff3d565c4da6af8c683", null ],
-    [ "~QueryBase", "d2/d82/a01404.html#a26855efdb87426560af01e96a4b755b5", null ],
-    [ "operator Frame::Data", "d2/d82/a01404.html#a46d6a25dfd03552cd9de85a1a664572e", null ]
+    [ "operator Frame::Data", "d2/d82/a01404.html#aab8d6f4ea5f482ba1f9433244e211b65", null ],
+    [ "atCommand", "d2/d82/a01404.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "d2/d82/a01404.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameters", "d2/d82/a01404.html#a23a8d96719db8eab9fd754c07d0123a5", null ]
 ];

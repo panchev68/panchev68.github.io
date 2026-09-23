@@ -1,4 +1,4 @@
 var a00434 =
 [
-    [ "Lib::HAL::Timer::TimEncoder", "d3/d4c/a01724.html", "d3/d4c/a01724" ]
+    [ "Lib::HAL::LPTimer", "de/d0f/a01727.html", "de/d0f/a01727" ]
 ];

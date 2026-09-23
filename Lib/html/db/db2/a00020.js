@@ -1,13 +1,11 @@
 var a00020 =
 [
-    [ "Lib::BSP::DigitalPeripheralBase", "d2/d5a/a00792.html", "d2/d5a/a00792" ],
-    [ "Lib::BSP::DigitalPeripheralBase::MapField", "d0/da2/a00796.html", "d0/da2/a00796" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Config", "df/d0e/a00800.html", "df/d0e/a00800" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Config::Inputs", "d1/dd1/a00804.html", "d1/dd1/a00804" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Config::Outputs", "d7/dc8/a00808.html", "d7/dc8/a00808" ],
-    [ "Lib::BSP::DigitalPeripheralBase::PortBase", "d8/db7/a00812.html", "d8/db7/a00812" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Inputs", "d7/d60/a00816.html", "d7/d60/a00816" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Outputs", "dc/d00/a00820.html", "dc/d00/a00820" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::RxPort", "d8/d64/a00828.html", "d8/d64/a00828" ],
-    [ "Lib::BSP::DigitalPeripheralBase::Outputs::MC33879::TxPort", "d0/d08/a00832.html", "d0/d08/a00832" ]
+    [ "Lib::BSP::DigitalPeripheralBase", "d0/d7d/a00799.html", "d0/d7d/a00799" ],
+    [ "Lib::BSP::DigitalPeripheralBase::MapField", "d5/d72/a00803.html", "d5/d72/a00803" ],
+    [ "Lib::BSP::DigitalPeripheralBase::Config", "df/dc7/a00807.html", "df/dc7/a00807" ],
+    [ "Lib::BSP::DigitalPeripheralBase::Config::Inputs", "dd/d07/a00811.html", "dd/d07/a00811" ],
+    [ "Lib::BSP::DigitalPeripheralBase::Config::Outputs", "d8/d2d/a00815.html", "d8/d2d/a00815" ],
+    [ "Lib::BSP::DigitalPeripheralBase::PortBase&lt; T_DERIVED &gt;", "d7/d4f/a00819.html", "d7/d4f/a00819" ],
+    [ "Lib::BSP::DigitalPeripheralBase::Inputs", "d3/db4/a00823.html", "d3/db4/a00823" ],
+    [ "Lib::BSP::DigitalPeripheralBase::Outputs", "dc/d1b/a00827.html", "dc/d1b/a00827" ]
 ];

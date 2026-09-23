@@ -1,4 +1,5 @@
 var a01120 =
 [
-    [ "activity", "dc/d51/a01120.html#a18868bb97d02dec73fd63f7c1977762e", null ]
+    [ "Master", "dc/d51/a01120.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "dc/d51/a01120.html#af2d503cce06191d01441adbba146c9f5", null ]
 ];

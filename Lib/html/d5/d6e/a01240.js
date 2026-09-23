@@ -1,5 +1,7 @@
 var a01240 =
 [
-    [ "firmware", "d5/d6e/a01240.html#af298449f4cf690b7391a6b02a5e9bfd8", null ],
-    [ "hardware", "d5/d6e/a01240.html#a8163b4f45dcbc970c7402dbb4cf2ffa8", null ]
+    [ "is_valid", "d5/d6e/a01240.html#a6e783f4c5992cebfe886353a8efb864e", null ],
+    [ "operator uint64_t", "d5/d6e/a01240.html#a2b33a7d68c813149975cb02c2cb3bf06", null ],
+    [ "lsb", "d5/d6e/a01240.html#a524ab930990b008f2d475b20353986c4", null ],
+    [ "msb", "d5/d6e/a01240.html#a78ad58bd4bbff90eb0737c7ef482ba51", null ]
 ];

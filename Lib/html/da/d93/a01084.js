@@ -1,8 +1,9 @@
 var a01084 =
 [
-    [ "miso", "da/d93/a01084.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "da/d93/a01084.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "da/d93/a01084.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "da/d93/a01084.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "da/d93/a01084.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "Voltmeter", "da/d93/a01084.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "da/d93/a01084.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "da/d93/a01084.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "setup", "da/d93/a01084.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "da/d93/a01084.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "da/d93/a01084.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

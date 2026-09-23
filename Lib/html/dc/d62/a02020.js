@@ -1,24 +1,25 @@
 var a02020 =
 [
-    [ "Status", "dc/d62/a02020.html#a61fa958b085e13c4001ceaf6fbd855fd", [
-      [ "SUCCESS", "dc/d62/a02020.html#a61fa958b085e13c4001ceaf6fbd855fdad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "TIMEOUT", "dc/d62/a02020.html#a61fa958b085e13c4001ceaf6fbd855fda070a0fb40f6c308ab544b227660aadff", null ],
-      [ "INVALID", "dc/d62/a02020.html#a61fa958b085e13c4001ceaf6fbd855fdaccc0377a8afbf50e7094f5c23a8af223", null ],
-      [ "AT_MAX", "dc/d62/a02020.html#a61fa958b085e13c4001ceaf6fbd855fdaab06979c91ba49479340319f0b3a18d6", null ],
-      [ "EMPTY", "dc/d62/a02020.html#a61fa958b085e13c4001ceaf6fbd855fdaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    [ "State", "dc/d62/a02020.html#a7ad1b7a849143d5692507f7dddbcfde8", [
+      [ "AVAILABLE", "dc/d62/a02020.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
+      [ "TAKEN", "dc/d62/a02020.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
+      [ "INVALID", "dc/d62/a02020.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
     ] ],
-    [ "SemaphoreCounting", "dc/d62/a02020.html#a5d1aa1d90732f499e3b424f831e2935c", null ],
-    [ "SemaphoreCounting", "dc/d62/a02020.html#acdb5a9d9eb800e7176a7b50cc287837a", null ],
-    [ "~SemaphoreCounting", "dc/d62/a02020.html#afb5341458c94ba15df05e20a9b1892e4", null ],
-    [ "SemaphoreCounting", "dc/d62/a02020.html#a7e497551b91db5e404470925688a3ea2", null ],
-    [ "getAvailableCount", "dc/d62/a02020.html#a6de0f97e06346126824127e37caf592b", null ],
-    [ "getCount", "dc/d62/a02020.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
-    [ "getInitialCount", "dc/d62/a02020.html#abe4488af469ef47e32e09e2d38a602b1", null ],
-    [ "getMaxCount", "dc/d62/a02020.html#addd31c2ffd410bd866e7365497d65280", null ],
-    [ "getRemainingCapacity", "dc/d62/a02020.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
-    [ "isAtMaxCount", "dc/d62/a02020.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
-    [ "isEmpty", "dc/d62/a02020.html#a7d8026113d6006885360edd9ff77068d", null ],
-    [ "open", "dc/d62/a02020.html#abc57684576686004799b4afa06460768", null ],
-    [ "operator=", "dc/d62/a02020.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
-    [ "operator=", "dc/d62/a02020.html#a97213286b716b3e01c04a4e5d4d8a8a4", null ]
+    [ "Semaphore", "dc/d62/a02020.html#a05660cc9a7ec8aed6d962e4574ff41fd", null ],
+    [ "Semaphore", "dc/d62/a02020.html#a81c2289b5095339fc9301c72fae88487", null ],
+    [ "Semaphore", "dc/d62/a02020.html#a70791f9cd23a68a9bd9e6c2ff7067ab5", null ],
+    [ "Semaphore", "dc/d62/a02020.html#a87fa949b382d64e96b2d93f381032500", null ],
+    [ "getCount", "dc/d62/a02020.html#a08742d5c4dd86e38a1efccfa47dd01af", null ],
+    [ "getState", "dc/d62/a02020.html#a4dc6f42d28351e57274eb7e45aa62248", null ],
+    [ "isAvailable", "dc/d62/a02020.html#a58227dfaddfa5a315561f0619d791a45", null ],
+    [ "isTaken", "dc/d62/a02020.html#ad88c6e815967329927ac73939fb3361d", null ],
+    [ "isValid", "dc/d62/a02020.html#a2f764c53c71ab97a0a98162a07ed0120", null ],
+    [ "open", "dc/d62/a02020.html#a4f3a14ce62c98f7ce5520ce3e91b2322", null ],
+    [ "operator=", "dc/d62/a02020.html#abe1f7c1fff0d8632a0e3f7dda8ed9b0b", null ],
+    [ "operator=", "dc/d62/a02020.html#ab0c39e4bed96c5f7e874b3ecf89d8a63", null ],
+    [ "overwrite", "dc/d62/a02020.html#a70748ace923762624068ff43a0438e8b", null ],
+    [ "overwriteFromISR", "dc/d62/a02020.html#ae17808587d941f6cdf076edfc7f50a69", null ],
+    [ "overwriteFromISR", "dc/d62/a02020.html#ac4fa91c7638ef0a1811557de4ff2709a", null ],
+    [ "takeMs", "dc/d62/a02020.html#a4a7b4e66593bcbcf465ddf9458cee540", null ],
+    [ "takeSeconds", "dc/d62/a02020.html#a154ec0be77fe01c345872f7420174929", null ]
 ];

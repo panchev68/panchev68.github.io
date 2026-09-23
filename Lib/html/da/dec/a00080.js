@@ -1,4 +1,4 @@
 var a00080 =
 [
-    [ "Lib::BSP::RFID::MFRC522::Chipset", "d7/df2/a01000.html", "d7/df2/a01000" ]
+    [ "Lib::BSP::RFID::Chipset", "dd/d48/a00995.html", "dd/d48/a00995" ]
 ];

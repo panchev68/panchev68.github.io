@@ -1,0 +1,26 @@
+var a02027 =
+[
+    [ "Handle", "df/d52/a02027.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "df/d52/a02027.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreBase", "df/d52/a02027.html#a7717ea389a92a9878d51dfde3869dd64", null ],
+    [ "SemaphoreBase", "df/d52/a02027.html#ae0c09f0d483b3959297f30bd3909de83", null ],
+    [ "SemaphoreBase", "df/d52/a02027.html#aa8eb9e59c8d7eea278876d3a562dd4f0", null ],
+    [ "~SemaphoreBase", "df/d52/a02027.html#a15508562779df713e9be104d41d7664d", null ],
+    [ "close", "df/d52/a02027.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "getDerived", "df/d52/a02027.html#a2cd2d582d5bec19cc64612f8c4c5cd8c", null ],
+    [ "getDerived", "df/d52/a02027.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "df/d52/a02027.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "give", "df/d52/a02027.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "df/d52/a02027.html#aa210564f44d72420fb519ca27f12d9a1", null ],
+    [ "giveFromISR", "df/d52/a02027.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isOpen", "df/d52/a02027.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "operator=", "df/d52/a02027.html#aaba790805ac420c6d1b347ab01b9550a", null ],
+    [ "operator=", "df/d52/a02027.html#aaa0c4d93b7bd73160f68f700b6d86e26", null ],
+    [ "take", "df/d52/a02027.html#adba0e9091ed738abab54ed798d53a7ca", null ],
+    [ "take", "df/d52/a02027.html#a320bbbf470cde849ac2b5405273ff10d", null ],
+    [ "take", "df/d52/a02027.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "df/d52/a02027.html#a64003ee333dc11bd7ed7dff2d14e4145", null ],
+    [ "takeFromISR", "df/d52/a02027.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "df/d52/a02027.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "df/d52/a02027.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
+];

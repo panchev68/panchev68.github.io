@@ -1,0 +1,28 @@
+var a00747 =
+[
+    [ "EventGroup", "dd/d4e/a01975.html", "dd/d4e/a01975" ],
+    [ "Kernel", "d6/d8e/a01979.html", "d6/d8e/a01979" ],
+    [ "MemoryManager", "d7/d98/a02003.html", "d7/d98/a02003" ],
+    [ "MessageBuffer", "d6/d19/a02007.html", "d6/d19/a02007" ],
+    [ "Mutex", "d5/db4/a02011.html", "d5/db4/a02011" ],
+    [ "MutexGuard", "de/d0a/a02015.html", "de/d0a/a02015" ],
+    [ "PowerManager", "df/d78/a02019.html", "df/d78/a02019" ],
+    [ "Semaphore", "d6/d5d/a02023.html", "d6/d5d/a02023" ],
+    [ "SemaphoreBase", "df/d52/a02027.html", "df/d52/a02027" ],
+    [ "SemaphoreCounting", "da/df2/a02031.html", "da/df2/a02031" ],
+    [ "StreamBuffer", "d9/d1f/a02035.html", "d9/d1f/a02035" ],
+    [ "Task", "d4/d9b/a02039.html", "d4/d9b/a02039" ],
+    [ "TickClient", "d2/d8a/a02063.html", "d2/d8a/a02063" ],
+    [ "TickCounter", "d4/daa/a02067.html", "d4/daa/a02067" ],
+    [ "Timeout", "d5/d14/a02071.html", "d5/d14/a02071" ],
+    [ "Timer", "d9/d95/a02075.html", "d9/d95/a02075" ],
+    [ "delay", "d5/d68/a00747.html#a9457a17b234e2e6b6336f69c9f756021", null ],
+    [ "delay", "d5/d68/a00747.html#ae2040b5c3ddf2ffbd181e7ebfcb59087", null ],
+    [ "delayUntil", "d5/d68/a00747.html#aeaddd65089a8190241b5922399d6168c", null ],
+    [ "delayUntil", "d5/d68/a00747.html#a904f8d61ae68c4530debc90ea3d140ad", null ],
+    [ "durationToTicks", "d5/d68/a00747.html#ab892d206cb79c31e373b3631e023b644", null ],
+    [ "getTickCount", "d5/d68/a00747.html#ae3342c6be5e8c847f394afe2b43e5cee", null ],
+    [ "getTickCountFromISR", "d5/d68/a00747.html#a1850933d8242b388b14a3ebb49ede9c6", null ],
+    [ "inISR", "d5/d68/a00747.html#a974867cff953c89df2c50da604d4b606", null ],
+    [ "millisecondsToTicks", "d5/d68/a00747.html#ab9036f2c482c33e70aeba9221327efd6", null ]
+];

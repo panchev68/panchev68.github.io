@@ -1,5 +1,5 @@
 var a02649 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "d1/d7a/a00982.html", "d1/d7a/a00982" ],
-    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "d3/d7b/a00986.html", "d3/d7b/a00986" ]
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;", "d7/d1b/a00864.html", "d7/d1b/a00864" ],
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;::Config", "da/d5b/a00868.html", "da/d5b/a00868" ]
 ];

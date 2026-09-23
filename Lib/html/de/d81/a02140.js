@@ -1,8 +1,6 @@
 var a02140 =
 [
-    [ "VersionString", "de/d81/a02140.html#a14d622b42b339cf88d44c2e454048c87", null ],
-    [ "Base", "de/d81/a02140.html#ac609c4ab5dced66ee401a85d7fb44701", null ],
-    [ "operator uint32_t", "de/d81/a02140.html#a42cfef011018a9752d1ec4eb4e0c9fc9", null ],
-    [ "operator VersionString", "de/d81/a02140.html#a2463f3f86d8c6e59c72b5e36371ea12e", null ],
-    [ "subVersion", "de/d81/a02140.html#aaacdd9a41a2a4210b2c9ab071dff5b0b", null ]
+    [ "configuration", "de/d81/a02140.html#a207811e42d707051b821430532e14dca", null ],
+    [ "produceDate", "de/d81/a02140.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
+    [ "saleDate", "de/d81/a02140.html#ae15be586be491076f57ec2f103f5ed81", null ]
 ];

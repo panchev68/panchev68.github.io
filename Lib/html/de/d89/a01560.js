@@ -1,8 +1,9 @@
 var a01560 =
 [
-    [ "data", "de/d89/a01560.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "de/d89/a01560.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "de/d89/a01560.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "de/d89/a01560.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "de/d89/a01560.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "Event", "de/dd5/a01564.html", null ],
+    [ "CANPort", "de/d89/a01560.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
+    [ "~CANPort", "de/d89/a01560.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
+    [ "close", "de/d89/a01560.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "open", "de/d89/a01560.html#a591e40ed78afa5d73704475e00c55060", null ],
+    [ "waitForEvent", "de/d89/a01560.html#a1c4fcd17767b405bdecda984747567ed", null ]
 ];

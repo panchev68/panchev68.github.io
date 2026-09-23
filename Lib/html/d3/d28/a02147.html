@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RTOS::EventGroup</title>
+<title>Library: Lib::System::Version Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d28/a02147.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d28/a02147.html','../../','dc/d29/a02144'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,58 +111,73 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d28/a02147.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
+  <div class="headertitle"><div class="title">Lib::System::Version Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example demonstrating opening an EventGroup, setting bits from task and ISR-safe context, waiting for bits, and clearing them on exit.</p>
-<p>Example demonstrating opening an EventGroup, setting bits from task and ISR-safe context, waiting for bits, and clearing them on exit.The example shows a typical usage pattern: create wrapper, open underlying FreeRTOS event group, set and wait for bits, then close. It uses pdMS_TO_TICKS to convert milliseconds.</p>
-<dl class="section note"><dt>Note</dt><dd>Only include this example if it adds real value.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d3/d28/a02147.html" title="RTOS::EventGroup">RTOS::EventGroup</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d33/a00536.html">EventGroup.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.h&quot;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> example_task()</div>
-<div class="line">{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d8/dd1/a01894.html">RTOS::EventGroup</a> eg;</div>
-<div class="line">    <span class="keywordflow">if</span> (!eg.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d8/dd1/a01894.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) {</div>
-<div class="line">        <span class="comment">// handle error</span></div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    RTOS::EventGroup::EventBitset bits;</div>
-<div class="line">    bits.set(0); <span class="comment">// event bit 0</span></div>
-<div class="line">    bits.set(3); <span class="comment">// event bit 3</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Set bits from task context</span></div>
-<div class="line">    eg.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d8/dd1/a01894.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(bits);</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Wait up to 1000 ms for both bits to be set and clear them on exit</span></div>
-<div class="line">    <span class="keyword">auto</span> result = eg.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d8/dd1/a01894.html#a9f510df975403393f6ca28d371d00c70">waitForBits</a>(bits, pdMS_TO_TICKS(1000), <span class="keyword">true</span>, <span class="keyword">true</span>);</div>
-<div class="line">    <span class="keywordflow">if</span> (result.test(0) &amp;&amp; result.test(3)) {</div>
-<div class="line">        <span class="comment">// both bits set</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// timeout or partial</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    eg.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d8/dd1/a01894.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00536_html"><div class="ttname"><a href="../../d4/d33/a00536.html">EventGroup.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Event Groups.</div></div>
-<div class="ttc" id="aa01894_html"><div class="ttname"><a href="../../d8/dd1/a01894.html">RTOS::EventGroup</a></div><div class="ttdoc">RAII wrapper for FreeRTOS Event Group handles.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:36</div></div>
-<div class="ttc" id="aa01894_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../d8/dd1/a01894.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets specific bits in the group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:167</div></div>
-<div class="ttc" id="aa01894_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../d8/dd1/a01894.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Closes the event group and releases resources.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:114</div></div>
-<div class="ttc" id="aa01894_html_a9f510df975403393f6ca28d371d00c70"><div class="ttname"><a href="../../d8/dd1/a01894.html#a9f510df975403393f6ca28d371d00c70">RTOS::EventGroup::waitForBits</a></div><div class="ttdeci">Bits waitForBits(Bits requestedBits, uint32_t timeout, bool clearOnExit=true, bool waitForAll=true) noexcept</div><div class="ttdoc">Blocks until the requested bits are set, or the timeout expires.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:138</div></div>
-<div class="ttc" id="aa01894_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../d8/dd1/a01894.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native FreeRTOS event group, if not already open, and clears all its bits.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:97</div></div>
-</div><!-- fragment --><p>Results:</p><ul>
-<li>Opens an event group, sets bits 0 and 3, and waits up to 1s for both bits.</li>
-<li>'result' contains the snapshot of bits when wait returned; bits are cleared on success.</li>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Groups a status enumeration, the CRTP <b>Base</b> with the common parsing and formatting, and the <b>Hardware</b> and <b>Firmware</b> specializations. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::System::Version:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/d2d/a02145.svg" width="143" height="80"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Base" id="r_Base"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d99/a02151.html">Base</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base class providing common version functionality.  <a href="../../dd/d99/a02151.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Hardware" id="r_Hardware"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d89/a02155.html">Hardware</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware revision with no sub-version component.  <a href="../../d0/d89/a02155.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Firmware" id="r_Firmware"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d9b/a02159.html">Firmware</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Firmware version with the build date taken from the <b>__DATE__</b> macro.  <a href="../../d4/d9b/a02159.html#details">More...</a><br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a370a653bced85832b45cd4b8ada37bfa" name="a370a653bced85832b45cd4b8ada37bfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a370a653bced85832b45cd4b8ada37bfa">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a370a653bced85832b45cd4b8ada37bfa">Lib::System::Version::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a370a653bced85832b45cd4b8ada37bfaae0aa021e21dddbd6d8cecec71e9cf564" name="a370a653bced85832b45cd4b8ada37bfaae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a370a653bced85832b45cd4b8ada37bfaabb1ca97ec761fc37101737ba0aa2e7c5" name="a370a653bced85832b45cd4b8ada37bfaabb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Operation failed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d0/db6/a00692.html">Version.hpp</a></li>
 </ul>
-<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d4/deb/a00710.html">Lib</a></li><li class="navelem"><a href="../../d5/de8/a00749.html">System</a></li><li class="navelem"><a href="../../d3/d28/a02147.html">Version</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

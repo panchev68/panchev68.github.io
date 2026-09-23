@@ -1,27 +1,9 @@
 var a00741 =
 [
-    [ "EventGroup", "d6/d90/a01964.html", "d6/d90/a01964" ],
-    [ "Kernel", "d9/d4f/a01968.html", "d9/d4f/a01968" ],
-    [ "MemoryManager", "d6/d33/a01992.html", "d6/d33/a01992" ],
-    [ "MessageBuffer", "d3/dcc/a01996.html", "d3/dcc/a01996" ],
-    [ "Mutex", "da/d51/a02000.html", "da/d51/a02000" ],
-    [ "MutexGuard", "d3/dbb/a02004.html", "d3/dbb/a02004" ],
-    [ "PowerManager", "d5/d6e/a02008.html", "d5/d6e/a02008" ],
-    [ "Semaphore", "d5/d2c/a02012.html", "d5/d2c/a02012" ],
-    [ "SemaphoreBase", "df/df0/a02016.html", "df/df0/a02016" ],
-    [ "SemaphoreCounting", "dc/d62/a02020.html", "dc/d62/a02020" ],
-    [ "StreamBuffer", "d7/dbe/a02024.html", "d7/dbe/a02024" ],
-    [ "Task", "db/d68/a02028.html", "db/d68/a02028" ],
-    [ "TickClient", "d3/df9/a02052.html", "d3/df9/a02052" ],
-    [ "TickCounter", "d9/db6/a02056.html", "d9/db6/a02056" ],
-    [ "Timeout", "d5/d8b/a02060.html", "d5/d8b/a02060" ],
-    [ "Timer", "de/def/a02064.html", "de/def/a02064" ],
-    [ "delay", "da/da3/a00741.html#a9457a17b234e2e6b6336f69c9f756021", null ],
-    [ "delay", "da/da3/a00741.html#ae2040b5c3ddf2ffbd181e7ebfcb59087", null ],
-    [ "delayUntil", "da/da3/a00741.html#a5aaed817b80c748b5ebc15999a38116d", null ],
-    [ "delayUntil", "da/da3/a00741.html#a904f8d61ae68c4530debc90ea3d140ad", null ],
-    [ "getTickCount", "da/da3/a00741.html#ae3342c6be5e8c847f394afe2b43e5cee", null ],
-    [ "getTickCountFromISR", "da/da3/a00741.html#a1850933d8242b388b14a3ebb49ede9c6", null ],
-    [ "inISR", "da/da3/a00741.html#a974867cff953c89df2c50da604d4b606", null ],
-    [ "millisecondsToTicks", "da/da3/a00741.html#a657f95e1cbfde5514c6c3f45a80d49c2", null ]
+    [ "TimEncoder", "d6/d2e/a01735.html", "d6/d2e/a01735" ],
+    [ "TimInputCapture", "d1/d46/a01739.html", "d1/d46/a01739" ],
+    [ "TimOnePulse", "d5/d34/a01743.html", "d5/d34/a01743" ],
+    [ "TimOutputCompare", "d7/db4/a01747.html", "d7/db4/a01747" ],
+    [ "TimPwmOutput", "d5/db3/a01751.html", "d5/db3/a01751" ],
+    [ "TimTimebase", "d2/d7d/a01755.html", "d2/d7d/a01755" ]
 ];

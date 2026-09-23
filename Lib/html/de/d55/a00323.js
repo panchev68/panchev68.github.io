@@ -1,4 +1,4 @@
 var a00323 =
 [
-    [ "Lib::HAL::BackupRamDomain", "d6/d83/a01544.html", "d6/d83/a01544" ]
+    [ "Lib::HAL::ADCPortBase&lt; Derived &gt;", "d5/df4/a01551.html", "d5/df4/a01551" ]
 ];

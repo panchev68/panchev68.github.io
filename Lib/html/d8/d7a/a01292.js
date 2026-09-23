@@ -1,12 +1,6 @@
 var a01292 =
 [
-    [ "ResponseData", "d4/d64/a01296.html", "d4/d64/a01296" ],
-    [ "SpectrumAnalyzer", "d8/d7a/a01292.html#a029d5ca785f56bfc7ca8ff6bda1b772d", null ],
-    [ "beginUpdate", "d8/d7a/a01292.html#a1231ab75357c3b807b793cbf2ea82d24", null ],
-    [ "checkNewData", "d8/d7a/a01292.html#a4773638228894b21b9360cd7723c46ca", null ],
-    [ "close", "d8/d7a/a01292.html#acd1558e98317932c402b59b037346306", null ],
-    [ "endUpdate", "d8/d7a/a01292.html#a024d7473fcc421e0a741ff49bbe8dde3", null ],
-    [ "getData", "d8/d7a/a01292.html#a840417ace53cffda7a58f4a48961a125", null ],
-    [ "open", "d8/d7a/a01292.html#a4c4e10495e5a41c00f890f39b3440bdc", null ],
-    [ "update", "d8/d7a/a01292.html#af68fb8ada608860caedb0c8220337ff2", null ]
+    [ "operator uint64_t", "d8/d7a/a01292.html#ab5e3d831227924373f9002a91947d01b", null ],
+    [ "high", "d8/d7a/a01292.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
+    [ "low", "d8/d7a/a01292.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
 ];

@@ -1,14 +1,22 @@
 var a01864 =
 [
-    [ "FunctionRefType", "dd/d87/a01864.html#add5b82ad7e5bdba5c6923bee48bbd7f5", null ],
-    [ "MulticastDelegate", "dd/d87/a01864.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
-    [ "add", "dd/d87/a01864.html#aa2b6c6c0d7964d12880dbf1275e48b30", null ],
-    [ "clear", "dd/d87/a01864.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
-    [ "invoke", "dd/d87/a01864.html#abfd30810b143472b8393b53f898dbcd5", null ],
-    [ "isEmpty", "dd/d87/a01864.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
-    [ "operator()", "dd/d87/a01864.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
-    [ "operator+=", "dd/d87/a01864.html#a6edd20c96f013524d9b0bec9d2e59fb8", null ],
-    [ "operator-=", "dd/d87/a01864.html#aa02df5f95b7d0f45fbf49a4c05adcddb", null ],
-    [ "remove", "dd/d87/a01864.html#a8011d2703c314d5732673c920bf6c840", null ],
-    [ "size", "dd/d87/a01864.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
+    [ "Date", "dd/d87/a01864.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "dd/d87/a01864.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
+    ] ],
+    [ "MoonPhase", "dd/d87/a01864.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "dd/d87/a01864.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "dd/d87/a01864.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "dd/d87/a01864.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "dd/d87/a01864.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "dd/d87/a01864.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "dd/d87/a01864.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "dd/d87/a01864.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

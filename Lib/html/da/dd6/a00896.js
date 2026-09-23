@@ -1,5 +1,9 @@
 var a00896 =
 [
-    [ "button", "da/dd6/a00896.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-    [ "timHandle", "da/dd6/a00896.html#a742631ff7bb7073d1d41a82b29487dee", null ]
+    [ "pinIRQ", "da/dd6/a00896.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "da/dd6/a00896.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "da/dd6/a00896.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "da/dd6/a00896.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "da/dd6/a00896.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "da/dd6/a00896.html#aed57b8892979041579d2eb130d453151", null ]
 ];

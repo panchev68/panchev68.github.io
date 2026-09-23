@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: ServiceBase.hpp File Reference</title>
+<title>Library: StreamBuffer examples</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -110,40 +110,184 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d3c/a02714.
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">ServiceBase.hpp File Reference</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">StreamBuffer examples </div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Service base utilities for the XCOM subsystem.  
-<a href="#details">More...</a></p>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>This header provides a minimal base class for XCOM-related services, including lightweight helpers for serializing plain-old-data types to and from byte containers and a helper handle type for tracking 64-bit value updates.</p>
-<p>The helpers are intentionally simple and do not perform bounds checks beyond assertions; callers are responsible for ensuring valid offsets and sizes.</p>
-<dl class="section version"><dt>Version</dt><dd>3.05.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-03-14 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for XCOM/ServiceBase.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/db4/a02715.svg" width="791" height="262"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AXCOM_3A_3AServiceBase" id="r_Lib_3A_3AXCOM_3A_3AServiceBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/ddd/a02184.html">Lib::XCOM::ServiceBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for XCOM services.  <a href="../../d5/ddd/a02184.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AXCOM_3A_3AServiceBase_3A_3AValue64Handle" id="r_Lib_3A_3AXCOM_3A_3AServiceBase_3A_3AValue64Handle"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d3c/a02188.html">Lib::XCOM::ServiceBase::Value64Handle</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper for tracking and updating a 64-bit value reference.  <a href="../../dc/d3c/a02188.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d6a/a00704.html">Lib</a></td></tr>
-<tr class="memdesc:d4/d6a/a00704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AXCOM" id="r_Lib_3A_3AXCOM"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d79/a00745.html">Lib::XCOM</a></td></tr>
-<tr class="memdesc:d1/d79/a00745"><td class="mdescLeft">&#160;</td><td class="mdescRight">XCOM/XBEE frame protocol implementation. <br /></td></tr>
+<div class="textblock"><p>RTOS::StreamBuffer wraps a FreeRTOS stream buffer: a byte FIFO that carries a continuous stream of bytes from <b>one writer</b> to <b>one reader</b>.</p>
+<p>The writer can be a task or an ISR. Unlike a queue, the buffer does not keep message boundaries: a reader gets whatever bytes are buffered, up to its own buffer size.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Rule  </th><th class="markdownTableHeadNone">Detail  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Single writer/reader  </td><td class="markdownTableBodyNone">Two tasks blocked in <span class="tt">send()</span>, or two in <span class="tt">receive()</span>, trip a kernel assertion.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Trigger level  </td><td class="markdownTableBodyNone">A blocked reader wakes when at least <em>trigger level</em> bytes are buffered, or on timeout.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">ISR variants  </td><td class="markdownTableBodyNone">Use <span class="tt">sendFromISR()</span> / <span class="tt">receiveFromISR()</span> inside interrupts; they never block.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Static capacity  </td><td class="markdownTableBodyNone">A buffer created with <span class="tt">createStatic()</span> holds one byte less than its storage.  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Ownership  </td><td class="markdownTableBodyNone">The wrapper is move-only and deletes the native buffer in its destructor or <span class="tt">close()</span>.  </td></tr>
 </table>
-</div><!-- contents -->
+<h1 class="doxsection"><a class="anchor" id="streambuffer_dynamic"></a>
+Dynamic creation</h1>
+<p><span class="tt">open()</span> allocates the buffer from the FreeRTOS heap (<span class="tt">configSUPPORT_DYNAMIC_ALLOCATION == 1</span>).</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> stream;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> init() {</div>
+<div class="line">    <span class="comment">// 128 bytes capacity, wake the reader as soon as 1 byte is available.</span></div>
+<div class="line">    <span class="keywordflow">if</span> (!stream.open(128U, 1U)) {</div>
+<div class="line">        <span class="comment">// FreeRTOS heap exhausted or invalid parameters.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa02035_html"><div class="ttname"><a href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a></div><div class="ttdoc">Owner of a FreeRTOS stream buffer handle.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:47</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="streambuffer_static"></a>
+Static creation</h1>
+<p><span class="tt">createStatic()</span> uses caller-provided storage, so no heap is needed. The storage and the control structure must outlive the stream buffer.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    std::array&lt;uint8_t, 257U&gt; storage; <span class="comment">// 256 usable bytes</span></div>
+<div class="line">    StaticStreamBuffer_t control;</div>
+<div class="line">    <a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> stream;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> init() {</div>
+<div class="line">    <span class="comment">// Wake the reader once 16 bytes are buffered.</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> ok = stream.createStatic(storage, control, 16U);</div>
+<div class="line">    assert(ok);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="streambuffer_task"></a>
+Task to task</h1>
+<p>A producer task writes text and a consumer task reads it. Timeouts can be passed as ticks or as <span class="tt">std::chrono</span> durations.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> stream;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> producer() {</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keyword">constexpr</span> std::string_view text = <span class="stringliteral">&quot;Hello from producer\r\n&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">        <span class="comment">// Blocks up to 100 ms while the buffer has no free space.</span></div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">size_t</span> sent = stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#a6655d15afb7a4123dc01349f5f444287">send</a>(text, pdMS_TO_TICKS(100));</div>
+<div class="line">        <span class="keywordflow">if</span> (sent &lt; text.size()) {</div>
+<div class="line">            <span class="comment">// Timeout: only part of the text was written.</span></div>
+<div class="line">        }</div>
+<div class="line">        vTaskDelay(pdMS_TO_TICKS(500));</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> consumer() {</div>
+<div class="line">    std::array&lt;uint8_t, 32U&gt; rx{};</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="comment">// Blocks until at least the trigger level is buffered or 1 s elapses.</span></div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">size_t</span> received = stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#a4af8c6d51d2855e838887e2944b1c7d1">receive</a>(rx.data(), rx.size(), 1s);</div>
+<div class="line">        <span class="keywordflow">if</span> (received == 0U) {</div>
+<div class="line">            <span class="keywordflow">continue</span>; <span class="comment">// timeout, nothing received</span></div>
+<div class="line">        }</div>
+<div class="line">        process(std::span(rx.data(), received));</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa02035_html_a4af8c6d51d2855e838887e2944b1c7d1"><div class="ttname"><a href="../../d9/d1f/a02035.html#a4af8c6d51d2855e838887e2944b1c7d1">RTOS::StreamBuffer::receive</a></div><div class="ttdeci">size_t receive(void *dest, size_t maxLen, TickType timeout=0U) noexcept</div><div class="ttdoc">Reads up to maxLen bytes, blocking up to a timeout until the trigger level is reached.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:358</div></div>
+<div class="ttc" id="aa02035_html_a6655d15afb7a4123dc01349f5f444287"><div class="ttname"><a href="../../d9/d1f/a02035.html#a6655d15afb7a4123dc01349f5f444287">RTOS::StreamBuffer::send</a></div><div class="ttdeci">size_t send(const void *source, size_t length, TickType timeout=0U) noexcept</div><div class="ttdoc">Writes bytes to the buffer, blocking up to a timeout until all of them fit.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:232</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="streambuffer_isr"></a>
+ISR to task (UART receive)</h1>
+<p>The typical use case: a UART interrupt writes each received byte and a task handles the byte stream. Pass <span class="tt">higherPriorityTaskWoken</span> and call <span class="tt">portYIELD_FROM_ISR()</span> so the reader runs immediately after the ISR.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;RTOS.hpp&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> UART_HandleTypeDef huart2;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>{</div>
+<div class="line">    uint8_t rxByte;</div>
+<div class="line">    std::array&lt;uint8_t, 129U&gt; rxStorage;</div>
+<div class="line">    StaticStreamBuffer_t rxControl;</div>
+<div class="line">    <a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> rxStream;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> HAL_UART_RxCpltCallback(UART_HandleTypeDef * huart) {</div>
+<div class="line">    <span class="keywordflow">if</span> (huart != &amp;huart2) {</div>
+<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line">    }</div>
+<div class="line">    BaseType_t higherPriorityTaskWoken = pdFALSE;</div>
+<div class="line">    (void) rxStream.<a class="code hl_function" href="../../d9/d1f/a02035.html#ac075893a2ae54de669ab71b07609f8a1">sendFromISR</a>(&amp;rxByte, 1U, higherPriorityTaskWoken); <span class="comment">// byte is dropped if the buffer is full</span></div>
+<div class="line">    (void) HAL_UART_Receive_IT(&amp;huart2, &amp;rxByte, 1U);</div>
+<div class="line">    portYIELD_FROM_ISR(higherPriorityTaskWoken);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> uartReaderTask() {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> ok = rxStream.createStatic(rxStorage, rxControl, 1U);</div>
+<div class="line">    assert(ok);</div>
+<div class="line">    (void) HAL_UART_Receive_IT(&amp;huart2, &amp;rxByte, 1U);</div>
+<div class="line"> </div>
+<div class="line">    std::array&lt;uint8_t, 64U&gt; line{};</div>
+<div class="line">    <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">        <span class="keyword">const</span> <span class="keywordtype">size_t</span> n = rxStream.receive(line.data(), line.size(), portMAX_DELAY);</div>
+<div class="line">        handleBytes(std::span(line.data(), n));</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa02035_html_ac075893a2ae54de669ab71b07609f8a1"><div class="ttname"><a href="../../d9/d1f/a02035.html#ac075893a2ae54de669ab71b07609f8a1">RTOS::StreamBuffer::sendFromISR</a></div><div class="ttdeci">size_t sendFromISR(const void *source, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</div><div class="ttdoc">Writes bytes to the buffer from an interrupt, without blocking.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:293</div></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Start UART reception only after the stream buffer is created. An ISR must not write to a buffer that is not open yet.</dd></dl>
+<h1 class="doxsection"><a class="anchor" id="streambuffer_multiwriter"></a>
+Several writers</h1>
+<p>A stream buffer supports only one writer at a time. When several tasks write, serialize them with a mutex and use a zero timeout inside the lock, so no task blocks in <span class="tt">send()</span> while it holds the mutex.</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../d5/db4/a02011.html">RTOS::Mutex</a> writeMutex; <span class="comment">// opened at startup</span></div>
+<div class="line"><a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> logStream;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> log(std::string_view text) {</div>
+<div class="line">    <a class="code hl_class" href="../../de/d0a/a02015.html">RTOS::MutexGuard</a> guard(writeMutex);</div>
+<div class="line">    <span class="keywordflow">if</span> (logStream.<a class="code hl_function" href="../../d9/d1f/a02035.html#a6655d15afb7a4123dc01349f5f444287">send</a>(text) &lt; text.size()) {</div>
+<div class="line">        <span class="comment">// Buffer full: the rest of the text is dropped.</span></div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa02011_html"><div class="ttname"><a href="../../d5/db4/a02011.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock, normal or recursive.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:44</div></div>
+<div class="ttc" id="aa02015_html"><div class="ttname"><a href="../../de/d0a/a02015.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for RTOS::Mutex, in the style of std::lock_guard.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:41</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="streambuffer_monitor"></a>
+Monitoring and control</h1>
+<div class="fragment"><div class="line"><span class="keywordflow">if</span> (stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#aee40f8d6ee707eb02ba219943b88b3f6">isOpen</a>()) {</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> used = stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#aca144ddaa56a23cc87168343d27cd515">getBytesAvailable</a>();  <span class="comment">// bytes waiting to be read</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">size_t</span> free = stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#a7b2b0bd7bcc2d727ccd57f3a84cf9383">getSpacesAvailable</a>(); <span class="comment">// bytes that can still be written</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t load = stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#a686ba54e0101dfceb25069210888b515">getUtilizationPercent</a>();</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#aac6fea7283a53695897f243410f88c20">isFull</a>()) {</div>
+<div class="line">        <span class="comment">// The producer is faster than the consumer.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wake the reader only once 32 bytes are collected.</span></div>
+<div class="line">    (void) stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#aa5ac1e409b4369f454af973ddb5c7426">setTriggerLevel</a>(32U);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Discard all content; fails while a task is blocked on the buffer.</span></div>
+<div class="line">    (void) stream.<a class="code hl_function" href="../../d9/d1f/a02035.html#a7f884411ea5c6b895b81aa33e6c7f1da">reset</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa02035_html_a686ba54e0101dfceb25069210888b515"><div class="ttname"><a href="../../d9/d1f/a02035.html#a686ba54e0101dfceb25069210888b515">RTOS::StreamBuffer::getUtilizationPercent</a></div><div class="ttdeci">uint8_t getUtilizationPercent() const noexcept</div><div class="ttdoc">Gets the buffered bytes as a percentage of the capacity.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:499</div></div>
+<div class="ttc" id="aa02035_html_a7b2b0bd7bcc2d727ccd57f3a84cf9383"><div class="ttname"><a href="../../d9/d1f/a02035.html#a7b2b0bd7bcc2d727ccd57f3a84cf9383">RTOS::StreamBuffer::getSpacesAvailable</a></div><div class="ttdeci">size_t getSpacesAvailable() const noexcept</div><div class="ttdoc">Gets the number of bytes that can be written without blocking.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:452</div></div>
+<div class="ttc" id="aa02035_html_a7f884411ea5c6b895b81aa33e6c7f1da"><div class="ttname"><a href="../../d9/d1f/a02035.html#a7f884411ea5c6b895b81aa33e6c7f1da">RTOS::StreamBuffer::reset</a></div><div class="ttdeci">bool reset() noexcept</div><div class="ttdoc">Discards every buffered byte.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:216</div></div>
+<div class="ttc" id="aa02035_html_aa5ac1e409b4369f454af973ddb5c7426"><div class="ttname"><a href="../../d9/d1f/a02035.html#aa5ac1e409b4369f454af973ddb5c7426">RTOS::StreamBuffer::setTriggerLevel</a></div><div class="ttdeci">bool setTriggerLevel(size_t level) noexcept</div><div class="ttdoc">Changes the number of bytes that must be buffered to wake a blocked reader.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:429</div></div>
+<div class="ttc" id="aa02035_html_aac6fea7283a53695897f243410f88c20"><div class="ttname"><a href="../../d9/d1f/a02035.html#aac6fea7283a53695897f243410f88c20">RTOS::StreamBuffer::isFull</a></div><div class="ttdeci">bool isFull() const noexcept</div><div class="ttdoc">Checks whether no byte can be written without blocking.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:470</div></div>
+<div class="ttc" id="aa02035_html_aca144ddaa56a23cc87168343d27cd515"><div class="ttname"><a href="../../d9/d1f/a02035.html#aca144ddaa56a23cc87168343d27cd515">RTOS::StreamBuffer::getBytesAvailable</a></div><div class="ttdeci">size_t getBytesAvailable() const noexcept</div><div class="ttdoc">Gets the number of bytes ready to be read.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:443</div></div>
+<div class="ttc" id="aa02035_html_aee40f8d6ee707eb02ba219943b88b3f6"><div class="ttname"><a href="../../d9/d1f/a02035.html#aee40f8d6ee707eb02ba219943b88b3f6">RTOS::StreamBuffer::isOpen</a></div><div class="ttdeci">bool isOpen() const noexcept</div><div class="ttdoc">Checks whether the native stream buffer exists.</div><div class="ttdef"><b>Definition</b> StreamBuffer.hpp:479</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="streambuffer_move"></a>
+Moving ownership</h1>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> makeStream() {</div>
+<div class="line">    <a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> s;</div>
+<div class="line">    (void) s.open(64U, 1U);</div>
+<div class="line">    <span class="keywordflow">return</span> s; <span class="comment">// handle moves out, no copy</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> owner = makeStream();</div>
+<div class="line"><a class="code hl_class" href="../../d9/d1f/a02035.html">RTOS::StreamBuffer</a> other = std::move(owner); <span class="comment">// owner is closed afterwards</span></div>
+</div><!-- fragment --><dl class="section see"><dt>See also</dt><dd>RTOS::StreamBuffer, RTOS::Mutex </dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -156,7 +300,6 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_f15e15be8a771e0bd42be81332eec275.html">XCOM</a></li><li class="navelem"><a href="../../d1/d3c/a02714.html">ServiceBase.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

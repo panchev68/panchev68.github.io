@@ -1,11 +1,10 @@
 var a01736 =
 [
-    [ "TimOutputCompare", "de/daf/a01736.html#a27066a81329ea9e611121c1ad38b47e4", null ],
-    [ "~TimOutputCompare", "de/daf/a01736.html#ab46d4d7df11b6cb9ce3cf7b65f91e2aa", null ],
-    [ "getCounter", "de/daf/a01736.html#a448826975488c9824e1dc65028f638db", null ],
-    [ "setCompare", "de/daf/a01736.html#a4f2f5df6bed1ac53c53f6e101f0ec897", null ],
-    [ "start", "de/daf/a01736.html#a357822e008e2e85ba5c70d2ea8dd50b7", null ],
-    [ "stop", "de/daf/a01736.html#a3dab9388a5182d25f65dca0a88b663ec", null ],
-    [ "waitCompare", "de/daf/a01736.html#a80f97b34bd0bebdf83733b7fe49a5197", null ],
-    [ "void::HAL_TIM_OC_DelayElapsedCallback", "de/daf/a01736.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
+    [ "TimInputCapture", "de/daf/a01736.html#a653c667cf3354c62c4d187aa86e54851", null ],
+    [ "~TimInputCapture", "de/daf/a01736.html#a83efa5a35cbbdc44760006ba3c28eaf3", null ],
+    [ "getCapture", "de/daf/a01736.html#a3316965385b5a33fd8ce487b6b177ef3", null ],
+    [ "start", "de/daf/a01736.html#a6cca65c2a894e22b5533fc003a71802e", null ],
+    [ "stop", "de/daf/a01736.html#a2cf0cce398f5583e9fe970e1cd6f3f52", null ],
+    [ "waitCapture", "de/daf/a01736.html#aa9b901cafcb5e7cf806a06c15b6e8044", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "de/daf/a01736.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

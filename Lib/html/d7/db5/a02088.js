@@ -1,7 +1,7 @@
 var a02088 =
 [
-    [ "maxVoltage", "d7/db5/a02088.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d7/db5/a02088.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d7/db5/a02088.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d7/db5/a02088.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "current", "d7/db5/a02088.html#a3c52e2d0bbe89862c14148ebf02d6463", null ],
+    [ "irradiance", "d7/db5/a02088.html#a6d28fdf32a94b2134434e00c0fef4894", null ],
+    [ "temperature", "d7/db5/a02088.html#a2f7e9f752645a3cbee0fd950bfc2c255", null ],
+    [ "voltage", "d7/db5/a02088.html#a1c339469529ee402dcc9e7bb37113566", null ]
 ];

@@ -1,4 +1,4 @@
 var a02744 =
 [
-    [ "Lib::Ethernet::Port", "d2/d21/a01484.html", "d2/d21/a01484" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Registers", "d6/d66/a00916.html", null ]
 ];

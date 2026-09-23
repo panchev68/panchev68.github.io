@@ -1,7 +1,9 @@
 var a00844 =
 [
-    [ "diPinHandle", "d3/d69/a00844.html#ac1b56409fb324181fdf949402d46b876", null ],
-    [ "nrstPinHandle", "d3/d69/a00844.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
-    [ "nssPinHandle", "d3/d69/a00844.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
-    [ "spiHandle", "d3/d69/a00844.html#ab178d2536db34733af537ae7bec2353c", null ]
+    [ "Config", "d9/d30/a00848.html", "d9/d30/a00848" ],
+    [ "Driver", "d3/d69/a00844.html#aa6a5a648db22371bc00e3e3cd4495235", null ],
+    [ "~Driver", "d3/d69/a00844.html#a2be6a3cb5867990c2df4f757ff8ba7d4", null ],
+    [ "handleTransferCompleteEvent", "d3/d69/a00844.html#a7306a2ff3da357a6bff4516566c83536", null ],
+    [ "setup", "d3/d69/a00844.html#a6ed2410d02fb95c9ad186e2dda0b27c3", null ],
+    [ "transmitBlock", "d3/d69/a00844.html#a2455d706d42c4c4192884d9322f5d857", null ]
 ];

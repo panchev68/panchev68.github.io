@@ -1,8 +1,27 @@
 var a01972 =
 [
-    [ "allocations", "db/d9d/a01972.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "db/d9d/a01972.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "db/d9d/a01972.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "db/d9d/a01972.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "db/d9d/a01972.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Bits", "db/d9d/a01972.html#a27fe7bec268decd9b548d4ad2375ca34", null ],
+    [ "TickType", "db/d9d/a01972.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
+    [ "EventGroup", "db/d9d/a01972.html#a56df016b3829e560ce9e75a007e6e26c", null ],
+    [ "EventGroup", "db/d9d/a01972.html#ae83c0e347985e554dbffd399d6749c28", null ],
+    [ "~EventGroup", "db/d9d/a01972.html#a28986dc28cf1e996b6c98f1020f26294", null ],
+    [ "EventGroup", "db/d9d/a01972.html#a674ca6cf44432becf24267dda94e547d", null ],
+    [ "clearAllEvents", "db/d9d/a01972.html#a9e46ac55649d284c4950d9c85142bdcf", null ],
+    [ "clearBits", "db/d9d/a01972.html#a564e679e348f400f7840978d5ae63d7f", null ],
+    [ "clearBitsFromISR", "db/d9d/a01972.html#a32ff3286f958a78cacaa0f4b80b9711b", null ],
+    [ "clearFromISR", "db/d9d/a01972.html#a1a5e45f94b4b856ab55ff24bdef9595d", null ],
+    [ "close", "db/d9d/a01972.html#a86f5d90cf8de78fe435b35460bef5edd", null ],
+    [ "getBits", "db/d9d/a01972.html#ad61d21c064aaec70b93bbe5a12ce9436", null ],
+    [ "getBitsFromISR", "db/d9d/a01972.html#ac0074ec5d598a7d397984ff86e110e4a", null ],
+    [ "isOpen", "db/d9d/a01972.html#a14d4bddd8e6249a20ac2ae9f18e2caee", null ],
+    [ "open", "db/d9d/a01972.html#ae966e8d3efe519e3138fedaa3108a300", null ],
+    [ "operator=", "db/d9d/a01972.html#a81801feadd715f46e582f2bd0c8d2c99", null ],
+    [ "operator=", "db/d9d/a01972.html#a2576c192353ebd4e1261f2a0908f1946", null ],
+    [ "setBits", "db/d9d/a01972.html#a154c164a4617cf8553683bb42f04ff11", null ],
+    [ "setBitsFromISR", "db/d9d/a01972.html#a13c55cc45daa6d96a1f21460a4c71626", null ],
+    [ "setBitsFromISR", "db/d9d/a01972.html#a8145a3ffbcf914aa872e193c0368e43b", null ],
+    [ "wait", "db/d9d/a01972.html#a98eed0f8fde6aee2a7c1df202f1807fa", null ],
+    [ "wait", "db/d9d/a01972.html#ac933f049ba3d9d3e242bdc243dea3482", null ],
+    [ "waitForBits", "db/d9d/a01972.html#af83107349f5abc463a7f77aeecb20a20", null ],
+    [ "waitForBits", "db/d9d/a01972.html#aee10df615252c5814a3543f8d5924ac6", null ]
 ];

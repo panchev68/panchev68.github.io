@@ -1,7 +1,7 @@
 var a00804 =
 [
-    [ "mappingFields", "d1/dd1/a00804.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
-    [ "nssPin", "d1/dd1/a00804.html#a1057a60af84ee4d60342df596793afee", null ],
-    [ "pinCount", "d1/dd1/a00804.html#a4ec50d1e310701baec42aebd409d8af6", null ],
-    [ "spiPort", "d1/dd1/a00804.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
+    [ "Inputs", "d7/dc8/a00808.html", "d7/dc8/a00808" ],
+    [ "Outputs", "d8/db7/a00812.html", "d8/db7/a00812" ],
+    [ "inputs", "d1/dd1/a00804.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d1/dd1/a00804.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

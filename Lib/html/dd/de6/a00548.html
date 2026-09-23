@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RingBuffer.hpp File Reference</title>
+<title>Library: MulticastDelegate.hpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,35 +111,27 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/de6/a00548.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RingBuffer.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">MulticastDelegate.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Fixed-size, lock-free single-producer/single-consumer ring buffer (circular FIFO) for elements of type <b>T</b>.  
+<p>Header-only, non-owning replacement for a C# style multicast delegate/event.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p><b>writePos</b> is written only by <b>push()</b> and <b>readPos</b> only by <b>pop()</b>, so no shared counter is mutated from both sides. Both indices are <b>std::atomic</b> (lock-free on Cortex-M) with release/acquire ordering, which guarantees that a slot written by the producer is visible to the consumer before the index that publishes it, and that the compiler never caches an index in a register across a polling loop. This makes one <b>push()</b> context (e.g. an ISR) and one <b>pop()</b> context (e.g. a task) safe against each other without a lock. Queries such as <b>available()</b> still return a momentary snapshot when used across contexts.</p>
-<p>All <b>T_SIZE</b> slots are usable, no slot is sacrificed to tell full from empty: the indices run over twice the capacity, so the distance between them covers [0, T_SIZE]. When <b>T_SIZE</b> is a power of two the indices are free-running and the slot is found by masking, otherwise they wrap at 2 * T_SIZE.</p>
-<dl class="section version"><dt>Version</dt><dd>4.00.4 </dd></dl>
+<div class="textblock"><p>Holds a fixed-capacity list of <b>FunctionRef</b> subscribers and invokes all of them in registration order, without heap allocation, RTTI or virtual dispatch.</p>
+<dl class="section version"><dt>Version</dt><dd>1.01.1 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026-09-23 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for RingBuffer.hpp:</div>
+</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for MulticastDelegate.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d21/a00549.svg" width="830" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d21/a00549.svg" width="758" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AHelper_3A_3ARingBuffer_3C_20T_2C_20T_5FSIZE_20_3E" id="r_Lib_3A_3AHelper_3A_3ARingBuffer_3C_20T_2C_20T_5FSIZE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/de7/a01868.html">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics.  <a href="../../dd/de7/a01868.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d6a/a00704.html">Lib</a></td></tr>
-<tr class="memdesc:d4/d6a/a00704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AHelper" id="r_Lib_3A_3AHelper"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d85/a00736.html">Lib::Helper</a></td></tr>
-<tr class="memdesc:dc/d85/a00736"><td class="mdescLeft">&#160;</td><td class="mdescRight">String and utility helpers used throughout the library. <br /></td></tr>
+<tr class="memitem:MulticastDelegate_3C_20Ret_28Args_2E_2E_2E_29_2C_20T_5FCAPACITY_20_3E" id="r_MulticastDelegate_3C_20Ret_28Args_2E_2E_2E_29_2C_20T_5FCAPACITY_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d1e/a01875.html">MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-owning, fixed-capacity collection of <b>FunctionRef</b> subscribers sharing one <b>Ret(Args...)</b> signature.  <a href="../../dc/d1e/a01875.html#details">More...</a><br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -154,7 +146,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_1e782c96d6d1ca848bfd4a9f48d74d58.html">Helper</a></li><li class="navelem"><a href="../../dd/de6/a00548.html">RingBuffer.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_1e782c96d6d1ca848bfd4a9f48d74d58.html">Helper</a></li><li class="navelem"><a href="../../dd/de6/a00548.html">MulticastDelegate.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

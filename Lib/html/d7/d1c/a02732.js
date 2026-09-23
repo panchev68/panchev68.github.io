@@ -1,6 +1,5 @@
 var a02732 =
 [
-    [ "Lib::Digi::API::Service::Parameters", "d5/d37/a01276.html", "d5/d37/a01276" ],
-    [ "Lib::Digi::API::Service::Parameters::Data", "d8/d0d/a01280.html", "d8/d0d/a01280" ],
-    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "dd/d18/a01284.html", "dd/d18/a01284" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "d0/de2/a00892.html", "d0/de2/a00892" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "da/dd6/a00896.html", "da/dd6/a00896" ]
 ];

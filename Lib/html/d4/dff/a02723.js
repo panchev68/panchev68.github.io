@@ -1,5 +1,5 @@
 var a02723 =
 [
-    [ "Lib::XCOM::Protocol", "d6/d34/a02176.html", "d6/d34/a02176" ],
-    [ "Lib::XCOM::Protocol::Frame", "dd/d09/a02180.html", "dd/d09/a02180" ]
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;", "d0/d08/a00832.html", "d0/d08/a00832" ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config", "d3/d13/a00836.html", "d3/d13/a00836" ]
 ];

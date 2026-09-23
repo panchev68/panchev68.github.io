@@ -1,10 +1,7 @@
 var a01272 =
 [
-    [ "NetworkDiscovery", "d4/d0e/a01272.html#aa19ca20753bf0d04fd252fbb3c1414da", null ],
-    [ "close", "d4/d0e/a01272.html#a22a976a5466278b39ea3188adc32351a", null ],
-    [ "getNodes", "d4/d0e/a01272.html#a334e98172fca9208d45b0c0e56465aef", null ],
-    [ "isDiscoveryRunning", "d4/d0e/a01272.html#a571d72fcc38ebbd2e41a23ba6d959422", null ],
-    [ "open", "d4/d0e/a01272.html#adc0158a501c9ba158fc2637068b8ba9c", null ],
-    [ "start", "d4/d0e/a01272.html#aff92fd49196787f02172bfe434c77eeb", null ],
-    [ "update", "d4/d0e/a01272.html#acbec0e1ae97ed5eab94bc1433f2b5756", null ]
+    [ "ChannelScanner", "d4/d0e/a01272.html#a7be945183e9af7339e4fb490da779cae", null ],
+    [ "close", "d4/d0e/a01272.html#a1baa0259aef16bf6bf9659d8cffd8205", null ],
+    [ "open", "d4/d0e/a01272.html#a6227fe53411863d0796ae32216cc624e", null ],
+    [ "update", "d4/d0e/a01272.html#a256676088070b2d7eae144667955ab00", null ]
 ];

@@ -1,7 +1,28 @@
 var a00711 =
 [
-    [ "Base", "d9/db0/a00900.html", "d9/db0/a00900" ],
-    [ "Helper", "d0/d85/a00908.html", null ],
-    [ "Interface", "df/da5/a00912.html", "df/da5/a00912" ],
-    [ "Registers", "d6/d82/a00920.html", null ]
+    [ "Display", "d3/dda/a00712.html", "d3/dda/a00712" ],
+    [ "EEPROM", "d1/d04/a00713.html", "d1/d04/a00713" ],
+    [ "Ethercat", "d3/d3b/a00715.html", "d3/d3b/a00715" ],
+    [ "FMEM", "dc/d8f/a00718.html", "dc/d8f/a00718" ],
+    [ "RFID", "dd/dc1/a00721.html", "dd/dc1/a00721" ],
+    [ "Thermometer", "de/de6/a00723.html", "de/de6/a00723" ],
+    [ "Voltmeter", "d3/d95/a00757.html", "d3/d95/a00757" ],
+    [ "Backlight", "d3/de3/a00763.html", "d3/de3/a00763" ],
+    [ "Beep", "dc/d5d/a00775.html", "dc/d5d/a00775" ],
+    [ "DeviceManager", "d4/d45/a00791.html", "d4/d45/a00791" ],
+    [ "DigitalPeripheralBase", "d0/d7d/a00799.html", "d0/d7d/a00799" ],
+    [ "EncoderPins", "d1/d93/a00875.html", "d1/d93/a00875" ],
+    [ "EncoderTimer", "d7/d92/a00887.html", "d7/d92/a00887" ],
+    [ "I2CPort", "de/dad/a00963.html", "de/dad/a00963" ],
+    [ "INA219", "dc/d0c/a00783.html", "dc/d0c/a00783" ],
+    [ "IS62WV51216", "db/dbf/a00975.html", "db/dbf/a00975" ],
+    [ "SK6812", "db/daf/a01019.html", "db/daf/a01019" ],
+    [ "SPIPort", "d4/d94/a00967.html", "d4/d94/a00967" ],
+    [ "UARTPort", "d0/d3c/a00971.html", "d0/d3c/a00971" ],
+    [ "Voltmeter", "d0/d1f/a01087.html", "d0/d1f/a01087" ],
+    [ "W25Q128JVSIQ", "dc/da0/a00951.html", "dc/da0/a00951" ],
+    [ "XPT2046", "d2/d49/a01067.html", "d2/d49/a01067" ],
+    [ "AdcPort", "de/d4c/a00711.html#a85b379ca2a4d7d2956ae5317961081ba", null ],
+    [ "Integrator", "de/d4c/a00711.html#a345fa3420ca34ddf02b2c56c8705554b", null ],
+    [ "Interpolator", "de/d4c/a00711.html#a2cacda540ff04115fe891c00364a43a6", null ]
 ];

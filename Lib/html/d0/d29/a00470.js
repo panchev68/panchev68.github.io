@@ -1,4 +1,4 @@
 var a00470 =
 [
-    [ "Lib::Helper::BitSet&lt; N_BITS &gt;", "dd/d00/a01776.html", "dd/d00/a01776" ]
+    [ "Lib::HAL::WindowWatchdog", "da/da5/a01783.html", "da/da5/a01783" ]
 ];

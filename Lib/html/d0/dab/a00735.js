@@ -1,9 +1,10 @@
 var a00735 =
 [
-    [ "TimEncoder", "d3/d4c/a01724.html", "d3/d4c/a01724" ],
-    [ "TimInputCapture", "df/de0/a01728.html", "df/de0/a01728" ],
-    [ "TimOnePulse", "de/d25/a01732.html", "de/d25/a01732" ],
-    [ "TimOutputCompare", "de/daf/a01736.html", "de/daf/a01736" ],
-    [ "TimPwmOutput", "df/d8f/a01740.html", "df/d8f/a01740" ],
-    [ "TimTimebase", "d1/d04/a01744.html", "d1/d04/a01744" ]
+    [ "Data", "d1/dcd/a01351.html", "d1/dcd/a01351" ],
+    [ "Header", "d8/d4e/a01355.html", "d8/d4e/a01355" ],
+    [ "Helper", "dc/d4b/a01359.html", "dc/d4b/a01359" ],
+    [ "Payload", "dd/d86/a01367.html", "dd/d86/a01367" ],
+    [ "Type", "d6/d4d/a01371.html", null ],
+    [ "AppendableInteger", "d0/d9d/a02202.html", null ],
+    [ "ConvertibleInteger", "d3/d0f/a02203.html", null ]
 ];

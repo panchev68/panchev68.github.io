@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RTOS::EventGroup</title>
+<title>Library: Lib::Helper::Convert::HexHelper</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,52 +111,38 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d8e/a02213.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::HexHelper</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example demonstrating opening an EventGroup, setting bits from task and ISR-safe context, waiting for bits, and clearing them on exit.</p>
-<p>Example demonstrating opening an EventGroup, setting bits from task and ISR-safe context, waiting for bits, and clearing them on exit.The example shows a typical usage pattern: create wrapper, open underlying FreeRTOS event group, set and wait for bits, then close. It uses pdMS_TO_TICKS to convert milliseconds.</p>
-<dl class="section note"><dt>Note</dt><dd>Only include this example if it adds real value.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../de/d8e/a02213.html" title="RTOS::EventGroup">RTOS::EventGroup</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/db1/a00590.html">EventGroup.hpp</a>&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;FreeRTOS.h&quot;</span></div>
+<p>Example showing common usage of the lightweight conversion helpers provided by Lib::Helper::Convert::HexHelper.</p>
+<p>Example showing common usage of the lightweight conversion helpers provided by Lib::Helper::Convert::HexHelper. The example demonstrates converting a nibble to its ASCII hex representation, packing a 0..99 value into an 8-bit BCD, packing a decimal value into a 32-bit BCD, and converting an ASCII hex digit back to its numeric nibble.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../df/db6/a00509.html">Lib/Helper/Convert/HexHelper.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> example_task()</div>
-<div class="line">{</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d6/d90/a01964.html">RTOS::EventGroup</a> eg;</div>
-<div class="line">    <span class="keywordflow">if</span> (!eg.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d6/d90/a01964.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) {</div>
-<div class="line">        <span class="comment">// handle error</span></div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
+<div class="line"><span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d7/d02/a01808.html">Lib::Helper::Convert::HexHelper</a>;</div>
 <div class="line"> </div>
-<div class="line">    RTOS::EventGroup::EventBitset bits;</div>
-<div class="line">    bits.set(0); <span class="comment">// event bit 0</span></div>
-<div class="line">    bits.set(3); <span class="comment">// event bit 3</span></div>
+<div class="line"><span class="keywordtype">void</span> example_HexHelper_usage() {</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Set bits from task context</span></div>
-<div class="line">    eg.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d6/d90/a01964.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(bits);</div>
+<div class="line">    <span class="comment">// Convert low nibble 0xA to ASCII &#39;A&#39;</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">char</span> c = HexHelper::toAscii(0xAU);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Nibble 0xA -&gt; &quot;</span> &lt;&lt; c &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// Expected: A</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Wait up to 1000 ms for both bits to be set and clear them on exit</span></div>
-<div class="line">    <span class="keyword">auto</span> result = eg.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d6/d90/a01964.html#a9f510df975403393f6ca28d371d00c70">waitForBits</a>(bits, pdMS_TO_TICKS(1000), <span class="keyword">true</span>, <span class="keyword">true</span>);</div>
-<div class="line">    <span class="keywordflow">if</span> (result.test(0) &amp;&amp; result.test(3)) {</div>
-<div class="line">        <span class="comment">// both bits set</span></div>
-<div class="line">    } <span class="keywordflow">else</span> {</div>
-<div class="line">        <span class="comment">// timeout or partial</span></div>
-<div class="line">    }</div>
+<div class="line">    <span class="comment">// Pack decimal 42 into 8-bit BCD (0x42)</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t bcd8 = HexHelper::toBcd8(42U);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;BCD8(42) -&gt; 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; int(bcd8) &lt;&lt; std::dec &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// Expected: 0x42</span></div>
 <div class="line"> </div>
-<div class="line">    eg.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d6/d90/a01964.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
+<div class="line">    <span class="comment">// Pack decimal 1234 into 32-bit packed BCD</span></div>
+<div class="line">    <span class="keyword">const</span> uint32_t bcd32 = HexHelper::toBcd(1234U);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;BCD32(1234) -&gt; 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; bcd32 &lt;&lt; std::dec &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// Expected: 0x1234</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Convert ASCII &#39;F&#39; to numeric nibble (15); a non-hex character yields HexHelper::INVALID_NIBBLE</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t nibble = HexHelper::fromAscii(<span class="charliteral">&#39;F&#39;</span>);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;&#39;F&#39; -&gt; &quot;</span> &lt;&lt; int(nibble) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// Expected: 15</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00590_html"><div class="ttname"><a href="../../d7/db1/a00590.html">EventGroup.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Event Groups.</div></div>
-<div class="ttc" id="aa01964_html"><div class="ttname"><a href="../../d6/d90/a01964.html">RTOS::EventGroup</a></div><div class="ttdoc">RAII wrapper for FreeRTOS Event Group handles.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:36</div></div>
-<div class="ttc" id="aa01964_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../d6/d90/a01964.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets specific bits in the group.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:167</div></div>
-<div class="ttc" id="aa01964_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../d6/d90/a01964.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Closes the event group and releases resources.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:114</div></div>
-<div class="ttc" id="aa01964_html_a9f510df975403393f6ca28d371d00c70"><div class="ttname"><a href="../../d6/d90/a01964.html#a9f510df975403393f6ca28d371d00c70">RTOS::EventGroup::waitForBits</a></div><div class="ttdeci">Bits waitForBits(Bits requestedBits, uint32_t timeout, bool clearOnExit=true, bool waitForAll=true) noexcept</div><div class="ttdoc">Blocks until the requested bits are set, or the timeout expires.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:138</div></div>
-<div class="ttc" id="aa01964_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../d6/d90/a01964.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native FreeRTOS event group, if not already open, and clears all its bits.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:97</div></div>
-</div><!-- fragment --><p>Results:</p><ul>
-<li>Opens an event group, sets bits 0 and 3, and waits up to 1s for both bits.</li>
-<li>'result' contains the snapshot of bits when wait returned; bits are cleared on success.</li>
-</ul>
+<div class="ttc" id="aa00509_html"><div class="ttname"><a href="../../df/db6/a00509.html">HexHelper.hpp</a></div><div class="ttdoc">Utility helpers for hexadecimal and BCD conversions.</div></div>
+<div class="ttc" id="aa01808_html"><div class="ttname"><a href="../../d7/d02/a01808.html">Lib::Helper::Convert::HexHelper</a></div><div class="ttdoc">Helper class that exposes static constexpr conversion utilities.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:29</div></div>
+</div><!-- fragment --><p>Expected behaviour: prints four lines demonstrating nibble-to-ASCII mapping, 8-bit and 32-bit BCD packing, and ASCII-to-nibble conversion.</p>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

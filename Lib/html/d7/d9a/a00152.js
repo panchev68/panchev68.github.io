@@ -1,9 +1,10 @@
 var a00152 =
 [
-    [ "Lib::Digi::API::NodeInfo", "de/d16/a01228.html", "de/d16/a01228" ],
-    [ "Lib::Digi::API::NodeInfo::MacAddress", "d0/d67/a01232.html", "d0/d67/a01232" ],
-    [ "Lib::Digi::API::NodeInfo::NetworkInfo", "d8/d2b/a01236.html", "d8/d2b/a01236" ],
-    [ "Lib::Digi::API::NodeInfo::Versions", "d5/d6e/a01240.html", "d5/d6e/a01240" ],
-    [ "Lib::Digi::API::NodeInfo::Monitor", "d4/dd5/a01244.html", "d4/dd5/a01244" ],
-    [ "Lib::Digi::API::NodeInfo::MacDiagnostic", "da/de0/a01248.html", "da/de0/a01248" ]
+    [ "Lib::Digi::API::Connection", "d1/d34/a01211.html", "d1/d34/a01211" ],
+    [ "Lib::Digi::API::Connection::State", "da/d3f/a01215.html", "da/d3f/a01215" ],
+    [ "Lib::Digi::API::Connection::Quality", "d5/d39/a01219.html", "d5/d39/a01219" ],
+    [ "Lib::Digi::API::Connection::Info", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
+    [ "Lib::Digi::API::Connection::Info::Counter", "d9/da8/a01227.html", "d9/da8/a01227" ],
+    [ "Lib::Digi::API::Connection::Info::Period", "d0/d88/a01231.html", "d0/d88/a01231" ],
+    [ "Lib::Digi::API::Connection::Info::SignalStrength", "dd/dad/a01235.html", "dd/dad/a01235" ]
 ];

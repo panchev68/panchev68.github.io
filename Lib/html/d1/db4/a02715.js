@@ -1,4 +1,5 @@
 var a02715 =
 [
-    [ "Lib::Digi::API::ServerBase", "d9/dbb/a01186.html", "d9/dbb/a01186" ]
+    [ "Lib::BSP::DeviceManager", "d4/d45/a00791.html", "d4/d45/a00791" ],
+    [ "Lib::BSP::DeviceManager::DeviceBase", "dd/d7a/a00795.html", "dd/d7a/a00795" ]
 ];

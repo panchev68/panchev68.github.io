@@ -1,7 +1,8 @@
 var a01396 =
 [
-    [ "operator Frame::Data", "d9/d45/a01396.html#aab8d6f4ea5f482ba1f9433244e211b65", null ],
-    [ "atCommand", "d9/d45/a01396.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "d9/d45/a01396.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameters", "d9/d45/a01396.html#a23a8d96719db8eab9fd754c07d0123a5", null ]
+    [ "operator Frame::Data", "d9/d45/a01396.html#a17b184b443db4543afc48f73f2b2cb1e", null ],
+    [ "dstAddress", "d9/d45/a01396.html#a681024a962d2609634ac216a9325a808", null ],
+    [ "frameId", "d9/d45/a01396.html#a30b2f9e311fce068c3facfca4084a959", null ],
+    [ "options", "d9/d45/a01396.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
+    [ "rfData", "d9/d45/a01396.html#a647a428c66648b2c7897b90431917f0b", null ]
 ];

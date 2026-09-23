@@ -1,14 +1,10 @@
 var a02084 =
 [
-    [ "Config", "d7/db5/a02088.html", "d7/db5/a02088" ],
-    [ "Measurement", "d4/de0/a02092.html", "d4/de0/a02092" ],
-    [ "Direction", "da/dbe/a02084.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "da/dbe/a02084.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "da/dbe/a02084.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
-    ] ],
-    [ "PerturbAndObserve", "da/dbe/a02084.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "da/dbe/a02084.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "da/dbe/a02084.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "da/dbe/a02084.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "da/dbe/a02084.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "maxPowerRef", "da/dbe/a02084.html#a03f700e990948fcfe6c82de9a3e21657", null ],
+    [ "mppCurrentRef", "da/dbe/a02084.html#a7208d815760253f067e40908fdf5b2b1", null ],
+    [ "mppVoltageRef", "da/dbe/a02084.html#ad14a294ad527e4103971eddc9f39e1af", null ],
+    [ "referenceIrradiance", "da/dbe/a02084.html#abb7c80f88a2007497312ca7b74f5e216", null ],
+    [ "temperatureCoefficient", "da/dbe/a02084.html#aad0b3f3e89dee953a5ad229531788752", null ],
+    [ "toleranceFactor", "da/dbe/a02084.html#a5da34d5f09a437a775c5639065d1fcde", null ],
+    [ "updateInterval", "da/dbe/a02084.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
 ];

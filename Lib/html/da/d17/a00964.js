@@ -1,11 +1,12 @@
 var a00964 =
 [
-    [ "~I2CPort", "da/d17/a00964.html#a79d501d729d1a73e76d100e570c3b5c4", null ],
-    [ "close", "da/d17/a00964.html#a3bd1d3c1e7eb76875a09e29cf5080a84", null ],
-    [ "isReady", "da/d17/a00964.html#aadb8cd4306fa1423e693892b4cd029b2", null ],
-    [ "open", "da/d17/a00964.html#a6f1df1db44f6d865854b30574830faaf", null ],
-    [ "receive", "da/d17/a00964.html#a03a7a948a03869108c3dbcf5e94bb3cb", null ],
-    [ "receive", "da/d17/a00964.html#ac04ceaf3b4ca4d1779dfc89246c2ef54", null ],
-    [ "send", "da/d17/a00964.html#a0fb8d14c10fb4711ccd6be27938cb3b0", null ],
-    [ "send", "da/d17/a00964.html#a6d5d9e3ebac7873a98249d745dff26fc", null ]
+    [ "~SPIPort", "da/d17/a00964.html#ac1fb088b19e9bee3b5fe9ba4d11cbae4", null ],
+    [ "close", "da/d17/a00964.html#aa955c3c87a6b7704298c9e53204ef490", null ],
+    [ "deselect", "da/d17/a00964.html#aa6c3fde9662fb603a90bf89f4de2887c", null ],
+    [ "getHandle", "da/d17/a00964.html#a699a2655bdfe2e5629d657933f2b8771", null ],
+    [ "open", "da/d17/a00964.html#ad6b65cda60ec2ce80dbb6905f9e03987", null ],
+    [ "receive", "da/d17/a00964.html#af63aacebf1fba3e45a0e00a2d9e07111", null ],
+    [ "select", "da/d17/a00964.html#a50d117d1cbd979e6167cd51ccb7fdb7b", null ],
+    [ "send", "da/d17/a00964.html#a300a15dc5af8a9773e3e88b10ba4d7d1", null ],
+    [ "sendRecv", "da/d17/a00964.html#af7131bad29fcbc58704df1ea0912b739", null ]
 ];

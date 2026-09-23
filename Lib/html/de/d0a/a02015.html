@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Member List</title>
+<title>Library: RTOS::MutexGuard Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d2d/a02018.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d0a/a02015.html','../../','d5/d2c/a02012'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,25 +111,388 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d2d/a02018.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::SolarControl::PerturbAndObserve Member List</div></div>
+  <div class="headertitle"><div class="title">RTOS::MutexGuard Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Task context only.</p>
+<p>The guarded mutex must already be open via <b>Mutex::open()</b>; if it is not, or if the lock times out, construction still succeeds but the critical section is left unprotected and the destructor does not unlock. Callers relying on the lock must check <b>isLocked()</b>.</p>
+<p>The class is <b>nodiscard:</b> a guard constructed as an unnamed temporary is destroyed at the end of that statement instead of holding the lock for the following code, silently defeating the RAII protection; the attribute turns that mistake into a compiler warning. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/dfd/a02228.html#_a3">RTOS::MutexGuard</a>.</dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::MutexGuard:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/dc5/a02013.svg" width="243" height="464"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a06d66e08a55ebf1440edb711e6886307" id="r_a06d66e08a55ebf1440edb711e6886307"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> (<a class="el" href="../../d5/db4/a02011.html">Mutex</a> &amp;targetMutex, <a class="el" href="../../d5/db4/a02011.html#adc2e1b449462bfc5e02a4ee323b012e5">Mutex::TickType</a> timeout=<a class="el" href="../../d5/db4/a02011.html#acb650bbb5d2ae6ae2bab2490d29712be">Mutex::WAIT_FOREVER</a>) noexcept</td></tr>
+<tr class="memdesc:a06d66e08a55ebf1440edb711e6886307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires the lock on the provided mutex, waiting for at most the given number of ticks.  <br /></td></tr>
+<tr class="memitem:a8a8469451b606ba9c2030f5ac422e7d7" id="r_a8a8469451b606ba9c2030f5ac422e7d7"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a8a8469451b606ba9c2030f5ac422e7d7 template"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8a8469451b606ba9c2030f5ac422e7d7">MutexGuard</a> (<a class="el" href="../../d5/db4/a02011.html">Mutex</a> &amp;targetMutex, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a8a8469451b606ba9c2030f5ac422e7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires the lock on the provided mutex, waiting for at most the given duration.  <br /></td></tr>
+<tr class="memitem:a35526aab46b7a21b967df7060f8d6747" id="r_a35526aab46b7a21b967df7060f8d6747"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a35526aab46b7a21b967df7060f8d6747">~MutexGuard</a> () noexcept</td></tr>
+<tr class="memdesc:a35526aab46b7a21b967df7060f8d6747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the lock on the guarded mutex, but only if the constructor actually acquired it.  <br /></td></tr>
+<tr class="memitem:a61b8b1a0414884098d80ddf7a5ce0a68" id="r_a61b8b1a0414884098d80ddf7a5ce0a68"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> ()=delete</td></tr>
+<tr class="memdesc:a61b8b1a0414884098d80ddf7a5ce0a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor: the guard must be bound to a specific mutex for its entire lifetime.  <br /></td></tr>
+<tr class="memitem:a271282f741f6a7c1dcebff1616c9916e" id="r_a271282f741f6a7c1dcebff1616c9916e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a271282f741f6a7c1dcebff1616c9916e">MutexGuard</a> (const MutexGuard &amp;)=delete</td></tr>
+<tr class="memdesc:a271282f741f6a7c1dcebff1616c9916e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:ada341f5a3644025a9b57e448e023d88b" id="r_ada341f5a3644025a9b57e448e023d88b"><td class="memItemLeft"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ada341f5a3644025a9b57e448e023d88b">operator=</a> (const <a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ada341f5a3644025a9b57e448e023d88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:a66f7b610af22e97faef98e233dbd46d5" id="r_a66f7b610af22e97faef98e233dbd46d5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a66f7b610af22e97faef98e233dbd46d5">MutexGuard</a> (MutexGuard &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a66f7b610af22e97faef98e233dbd46d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:ab3ecbdac4533bf5b0bc98c2b855d335b" id="r_ab3ecbdac4533bf5b0bc98c2b855d335b"><td class="memItemLeft"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab3ecbdac4533bf5b0bc98c2b855d335b">operator=</a> (<a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ab3ecbdac4533bf5b0bc98c2b855d335b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:a3f156fd8fcb57426c142acbd54ddb267" id="r_a3f156fd8fcb57426c142acbd54ddb267"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a> () const noexcept</td></tr>
+<tr class="memdesc:a3f156fd8fcb57426c142acbd54ddb267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the mutex acquisition was successful.  <br /></td></tr>
+<tr class="memitem:af9126f464f900d7777d9bb069a13265b" id="r_af9126f464f900d7777d9bb069a13265b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af9126f464f900d7777d9bb069a13265b">operator bool</a> () const noexcept</td></tr>
+<tr class="memdesc:af9126f464f900d7777d9bb069a13265b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the mutex acquisition was successful, so the guard can be tested directly in an <b>if</b> statement.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a06d66e08a55ebf1440edb711e6886307" name="a06d66e08a55ebf1440edb711e6886307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06d66e08a55ebf1440edb711e6886307">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[1/5]</span></h2>
 
-<p>This is the complete list of members for <a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#a062ca7a73a3f13e392583ebf310cacfc">DEFAULT_SETPOINT</a></td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e">Direction</a> enum name</td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#a73dd4fe7f002f53b28e564f87f1854cf">getVoltageSetpoint</a>() const noexcept</td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#a7e1626362f778f8b7e085cdc41794a67">PerturbAndObserve</a>(const Config &amp;config=Config{}, float initialVoltageSetpoint=DEFAULT_SETPOINT)</td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#ad0977e4dba5c7109b4b046bcf505862b">reset</a>() noexcept</td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#a121c7b229d119d0ee55cd0b855065350">setStepSize</a>(float newStepSize) noexcept</td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/d2d/a02018.html#ab0587469fdbaa626d9f751ef04255627">update</a>(const Measurement &amp;measurement) noexcept</td><td class="entry"><a class="el" href="../../da/d2d/a02018.html">Lib::SolarControl::PerturbAndObserve</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db4/a02011.html">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetMutex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d5/db4/a02011.html#adc2e1b449462bfc5e02a4ee323b012e5">Mutex::TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d5/db4/a02011.html#acb650bbb5d2ae6ae2bab2490d29712be">Mutex::WAIT_FOREVER</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetMutex</td><td>The mutex instance to guard; must outlive the guard. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the mutex lock, in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0a/a02015_a06d66e08a55ebf1440edb711e6886307_icgraph.svg" width="490" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8a8469451b606ba9c2030f5ac422e7d7" name="a8a8469451b606ba9c2030f5ac422e7d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8469451b606ba9c2030f5ac422e7d7">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[2/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/db4/a02011.html">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetMutex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetMutex</td><td>The mutex instance to guard; must outlive the guard. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the mutex lock, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a35526aab46b7a21b967df7060f8d6747" name="a35526aab46b7a21b967df7060f8d6747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35526aab46b7a21b967df7060f8d6747">&#9670;&#160;</a></span>~MutexGuard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::~MutexGuard </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61b8b1a0414884098d80ddf7a5ce0a68" name="a61b8b1a0414884098d80ddf7a5ce0a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61b8b1a0414884098d80ddf7a5ce0a68">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[3/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a271282f741f6a7c1dcebff1616c9916e" name="a271282f741f6a7c1dcebff1616c9916e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a271282f741f6a7c1dcebff1616c9916e">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[4/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype">const MutexGuard &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0a/a02015_a271282f741f6a7c1dcebff1616c9916e_cgraph.svg" width="490" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a66f7b610af22e97faef98e233dbd46d5" name="a66f7b610af22e97faef98e233dbd46d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f7b610af22e97faef98e233dbd46d5">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[5/5]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype">MutexGuard &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0a/a02015_a66f7b610af22e97faef98e233dbd46d5_cgraph.svg" width="490" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3f156fd8fcb57426c142acbd54ddb267" name="a3f156fd8fcb57426c142acbd54ddb267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f156fd8fcb57426c142acbd54ddb267">&#9670;&#160;</a></span>isLocked()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::MutexGuard::isLocked </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired, <b>false</b> otherwise (including if the mutex was never opened via <b>Mutex::open()</b>). </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../de/dfd/a02228.html#a4">RTOS::MutexGuard</a>.</dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0a/a02015_a3f156fd8fcb57426c142acbd54ddb267_icgraph.svg" width="634" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af9126f464f900d7777d9bb069a13265b" name="af9126f464f900d7777d9bb069a13265b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9126f464f900d7777d9bb069a13265b">&#9670;&#160;</a></span>operator bool()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::operator bool </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Same value as <b>isLocked()</b>. </dd></dl>
+
+</div>
+</div>
+<a id="ada341f5a3644025a9b57e448e023d88b" name="ada341f5a3644025a9b57e448e023d88b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada341f5a3644025a9b57e448e023d88b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp; RTOS::MutexGuard::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0a/a02015_ada341f5a3644025a9b57e448e023d88b_cgraph.svg" width="474" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab3ecbdac4533bf5b0bc98c2b855d335b" name="ab3ecbdac4533bf5b0bc98c2b855d335b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ecbdac4533bf5b0bc98c2b855d335b">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp; RTOS::MutexGuard::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d0a/a02015_ab3ecbdac4533bf5b0bc98c2b855d335b_cgraph.svg" width="474" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d6/dfa/a00626.html">MutexGuard.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d5/d68/a00747.html">RTOS</a></li><li class="navelem"><a href="../../de/d0a/a02015.html">MutexGuard</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

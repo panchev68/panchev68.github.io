@@ -1,4 +1,4 @@
 var a02766 =
 [
-    [ "Lib::HAL::SPI::SpiPort&lt; DriverMode::IT &gt;", "d3/d33/a01630.html", "d3/d33/a01630" ]
+    [ "Lib::BSP::RFID::Interface", "dc/d10/a01003.html", "dc/d10/a01003" ]
 ];

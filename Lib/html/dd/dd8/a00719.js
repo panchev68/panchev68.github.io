@@ -1,4 +1,6 @@
 var a00719 =
 [
-    [ "DS18B20", "d9/db3/a01064.html", "d9/db3/a01064" ]
+    [ "Config", "df/de9/a00923.html", "df/de9/a00923" ],
+    [ "Info", "dd/d98/a00927.html", "dd/d98/a00927" ],
+    [ "W25Q128JVSIQ", "df/dbc/a00931.html", "df/dbc/a00931" ]
 ];

@@ -1,21 +1,14 @@
 var a01964 =
 [
-    [ "Bits", "d6/d90/a01964.html#a27fe7bec268decd9b548d4ad2375ca34", null ],
-    [ "EventGroup", "d6/d90/a01964.html#a6690412802cf948348b7db9c47e9f25f", null ],
-    [ "EventGroup", "d6/d90/a01964.html#ae83c0e347985e554dbffd399d6749c28", null ],
-    [ "~EventGroup", "d6/d90/a01964.html#ab2273906f7c7de0565e852fbceeefaab", null ],
-    [ "EventGroup", "d6/d90/a01964.html#a674ca6cf44432becf24267dda94e547d", null ],
-    [ "clearAllEvents", "d6/d90/a01964.html#a9e46ac55649d284c4950d9c85142bdcf", null ],
-    [ "clearBits", "d6/d90/a01964.html#a564e679e348f400f7840978d5ae63d7f", null ],
-    [ "clearBitsFromISR", "d6/d90/a01964.html#a32ff3286f958a78cacaa0f4b80b9711b", null ],
-    [ "clearFromISR", "d6/d90/a01964.html#a1a5e45f94b4b856ab55ff24bdef9595d", null ],
-    [ "close", "d6/d90/a01964.html#a86f5d90cf8de78fe435b35460bef5edd", null ],
-    [ "isOpen", "d6/d90/a01964.html#a14d4bddd8e6249a20ac2ae9f18e2caee", null ],
-    [ "open", "d6/d90/a01964.html#ae966e8d3efe519e3138fedaa3108a300", null ],
-    [ "operator=", "d6/d90/a01964.html#a81801feadd715f46e582f2bd0c8d2c99", null ],
-    [ "operator=", "d6/d90/a01964.html#a2576c192353ebd4e1261f2a0908f1946", null ],
-    [ "setBits", "d6/d90/a01964.html#a154c164a4617cf8553683bb42f04ff11", null ],
-    [ "setBitsFromISR", "d6/d90/a01964.html#a13c55cc45daa6d96a1f21460a4c71626", null ],
-    [ "wait", "d6/d90/a01964.html#abed785674e23aece8aa006fb5c59c218", null ],
-    [ "waitForBits", "d6/d90/a01964.html#a9f510df975403393f6ca28d371d00c70", null ]
+    [ "Config", "d9/d4f/a01968.html", "d9/d4f/a01968" ],
+    [ "State", "d6/d90/a01964.html#a9011b5c87c37ce3e390d0a9c63d7e133", [
+      [ "ACTIVE", "d6/d90/a01964.html#a9011b5c87c37ce3e390d0a9c63d7e133a18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d6/d90/a01964.html#a9011b5c87c37ce3e390d0a9c63d7e133a6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d6/d90/a01964.html#a9011b5c87c37ce3e390d0a9c63d7e133a055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d6/d90/a01964.html#a0d927c7ffb1baca913c9d1717ad0e069", null ],
+    [ "~Sensor", "d6/d90/a01964.html#a80bba12622a8196b342bd4b7465853e0", null ],
+    [ "getName", "d6/d90/a01964.html#ad92690781548258693391186b91d48f9", null ],
+    [ "isPresent", "d6/d90/a01964.html#a22368bf53b8093672474b75f55b0f73c", null ],
+    [ "read", "d6/d90/a01964.html#ac96bd14f6b3953869c4d63c379542315", null ]
 ];

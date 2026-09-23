@@ -1,10 +1,5 @@
 var a01476 =
 [
-    [ "MacString", "d0/d38/a01476.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
-    [ "MacAddress", "d0/d38/a01476.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
-    [ "MacAddress", "d0/d38/a01476.html#aa300b2a042efd76f66f61db709b5b736", null ],
-    [ "data", "d0/d38/a01476.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
-    [ "operator[]", "d0/d38/a01476.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
-    [ "size", "d0/d38/a01476.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
-    [ "toString", "d0/d38/a01476.html#a83b7f1a52401d479dea270cbe112b88c", null ]
+    [ "address", "d0/d38/a01476.html#a8edc20ff700b12e30b9160d3d9ef739b", null ],
+    [ "length", "d0/d38/a01476.html#a445d398b2d8c0b0bdcf47d8fb2b284c1", null ]
 ];

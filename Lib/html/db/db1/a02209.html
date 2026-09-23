@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Helper::TimePeriod</title>
+<title>Library: Lib::Helper::Convert::dBM</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,54 +111,45 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/db1/a02209.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::dBM</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.</p>
-<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.The example starts the stopwatch, delays for a known interval, reads the elapsed ticks and the elapsed time without stopping, then stops and resets the stopwatch.</p>
-<dl class="section note"><dt>Note</dt><dd>This example runs in task context and relies on the FreeRTOS scheduler. Use the FromISR variants inside an interrupt handler.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../db/db1/a02209.html" title="Lib::Helper::TimePeriod">Lib::Helper::TimePeriod</a>, <a class="el" href="../../db/d68/a02028.html#a1c0c1a0a57ee9332e741c8422eebbffe" title="RTOS::Task::delay">RTOS::Task::delay</a>, <a class="el" href="../../dd/dd6/a02221.html" title="RTOS::TickCounter">RTOS::TickCounter</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d19/a00560.html">Lib/Helper/TimePeriod.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d9/d0f/a00644.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
+<p>Demonstrates converting dBm-like values and discrete indices to percentage values using Lib::Helper::Convert::dBM helpers.</p>
+<p>Demonstrates converting dBm-like values and discrete indices to percentage values using Lib::Helper::Convert::dBM helpers.This example shows how to use toPercent and toDigiPercent for UI-ready percentage values.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d1a/a00485.html">Lib/Helper/Convert/dBM.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d42/a01800.html">Lib::Helper::Convert::dBM</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timingExampleTask() {</div>
-<div class="line">    <span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keywordtype">void</span> example_dBM_usage() {</div>
 <div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d7f/a01884.html">Lib::Helper::TimePeriod</a> timer;</div>
+<div class="line">    <span class="comment">// Convert a floating dBm-like value to percent</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">double</span> dbmValue = -45.0;</div>
+<div class="line">    <span class="keyword">const</span> uint8_t percent = dBM::toPercent(dbmValue);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dBm &quot;</span> &lt;&lt; dbmValue &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; int(percent) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 55</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Start measurement</span></div>
-<div class="line">    timer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dc/d7f/a01884.html#afc371b1b7ae3ad092d6048dc93bca6d5">start</a>();</div>
+<div class="line">    <span class="comment">// Edge cases</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dBm -120 -&gt; &quot;</span> &lt;&lt; int(dBM::toPercent(-120.0)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 0</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;dBm 0 -&gt; &quot;</span> &lt;&lt; int(dBM::toPercent(0.0)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;       <span class="comment">// 100</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Simulate work or wait for 200 ms</span></div>
-<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d68/a02028.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(<a id="_a3" name="_a3"></a><a class="code hl_function" href="../../d9/db6/a02056.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(200ms));</div>
+<div class="line">    <span class="comment">// Convert a discrete index (0..99) using the lookup table; any integer type is accepted</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t index = 40;</div>
+<div class="line">    <span class="keyword">const</span> uint8_t lookupPercent = dBM::toDigiPercent(index);</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;index &quot;</span> &lt;&lt; int(index) &lt;&lt; <span class="stringliteral">&quot; -&gt; &quot;</span> &lt;&lt; int(lookupPercent) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 88</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Query elapsed ticks and elapsed time without stopping</span></div>
-<div class="line">    <span class="keyword">const</span> uint32_t elapsedTicks = timer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dc/d7f/a01884.html#ada4c0a6cd0114194a6667e555b90a36a">elapsed</a>();</div>
-<div class="line">    <span class="keyword">const</span> std::chrono::milliseconds elapsedTime = timer.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dc/d7f/a01884.html#aea37e1feea05928a3dfd98f79e82c449">elapsedTime</a>();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Stop and retrieve elapsed ticks</span></div>
-<div class="line">    uint32_t measured = 0U;</div>
-<div class="line">    <span class="keywordflow">if</span> (timer.<a id="a6" name="a6"></a><a class="code hl_function" href="../../dc/d7f/a01884.html#a12059cd59e97f3575d46ed98120763a2">stop</a>(measured)) {</div>
-<div class="line">        <span class="comment">// measured contains the ticks elapsed since start</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Reset the timer for reuse</span></div>
-<div class="line">    timer.<a id="a7" name="a7"></a><a class="code hl_function" href="../../dc/d7f/a01884.html#a702f4bcc03c1b60bcb212b5276fa13fb">reset</a>();</div>
+<div class="line">    <span class="comment">// Discrete index edge cases</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;index -1 -&gt; &quot;</span> &lt;&lt; int(dBM::toDigiPercent(-1)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;                        <span class="comment">// 100</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;index 100 -&gt; &quot;</span> &lt;&lt; int(dBM::toDigiPercent(100)) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>;                      <span class="comment">// 1</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;index 200 -&gt; &quot;</span> &lt;&lt; int(dBM::toDigiPercent(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(200))) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// 1</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00560_html"><div class="ttname"><a href="../../d9/d19/a00560.html">TimePeriod.hpp</a></div><div class="ttdoc">Lightweight stopwatch measuring intervals with the FreeRTOS scheduler tick counter.</div></div>
-<div class="ttc" id="aa00644_html"><div class="ttname"><a href="../../d9/d0f/a00644.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS Tasks.</div></div>
-<div class="ttc" id="aa01884_html"><div class="ttname"><a href="../../dc/d7f/a01884.html">Lib::Helper::TimePeriod</a></div><div class="ttdoc">Stopwatch based on the RTOS tick counter.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:29</div></div>
-<div class="ttc" id="aa01884_html_a12059cd59e97f3575d46ed98120763a2"><div class="ttname"><a href="../../dc/d7f/a01884.html#a12059cd59e97f3575d46ed98120763a2">Lib::Helper::TimePeriod::stop</a></div><div class="ttdeci">bool stop(uint32_t &amp;ticks) noexcept</div><div class="ttdoc">Stops the stopwatch and reports the elapsed ticks, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:66</div></div>
-<div class="ttc" id="aa01884_html_a702f4bcc03c1b60bcb212b5276fa13fb"><div class="ttname"><a href="../../dc/d7f/a01884.html#a702f4bcc03c1b60bcb212b5276fa13fb">Lib::Helper::TimePeriod::reset</a></div><div class="ttdeci">constexpr void reset() noexcept</div><div class="ttdoc">Stops the stopwatch without reading the elapsed time.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:95</div></div>
-<div class="ttc" id="aa01884_html_ada4c0a6cd0114194a6667e555b90a36a"><div class="ttname"><a href="../../dc/d7f/a01884.html#ada4c0a6cd0114194a6667e555b90a36a">Lib::Helper::TimePeriod::elapsed</a></div><div class="ttdeci">uint32_t elapsed() const noexcept</div><div class="ttdoc">Returns the ticks elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:113</div></div>
-<div class="ttc" id="aa01884_html_aea37e1feea05928a3dfd98f79e82c449"><div class="ttname"><a href="../../dc/d7f/a01884.html#aea37e1feea05928a3dfd98f79e82c449">Lib::Helper::TimePeriod::elapsedTime</a></div><div class="ttdeci">std::chrono::milliseconds elapsedTime() const noexcept</div><div class="ttdoc">Returns the time elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:131</div></div>
-<div class="ttc" id="aa01884_html_afc371b1b7ae3ad092d6048dc93bca6d5"><div class="ttname"><a href="../../dc/d7f/a01884.html#afc371b1b7ae3ad092d6048dc93bca6d5">Lib::Helper::TimePeriod::start</a></div><div class="ttdeci">void start() noexcept</div><div class="ttdoc">Starts or restarts the stopwatch from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:47</div></div>
-<div class="ttc" id="aa02028_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../db/d68/a02028.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the current task for specified ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:413</div></div>
-<div class="ttc" id="aa02056_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d9/db6/a02056.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a &#39;std::chrono&#39; duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:144</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="ttc" id="aa00485_html"><div class="ttname"><a href="../../d6/d1a/a00485.html">dBM.hpp</a></div><div class="ttdoc">Helper utilities to convert dBm-like values or discrete indices into percentage values suitable for U...</div></div>
+<div class="ttc" id="aa01800_html"><div class="ttname"><a href="../../d1/d42/a01800.html">Lib::Helper::Convert::dBM</a></div><div class="ttdoc">Utility class providing conversions from dBm-like numeric values and discrete indices to percentage v...</div><div class="ttdef"><b>Definition</b> dBM.hpp:29</div></div>
+</div><!-- fragment --><p>Results:</p><ul>
+<li>Converts dBm-like values to percentages: values &lt;= -100 -&gt; 0, values &gt;= 0 -&gt; 100, intermediate -&gt; 100 + value.</li>
+<li>Discrete indices map via lookup table: negative -&gt; 100, &gt;= 100 -&gt; 1, otherwise table value.</li>
+</ul>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

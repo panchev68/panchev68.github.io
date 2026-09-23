@@ -1,23 +1,10 @@
 var a01208 =
 [
-    [ "Mode", "d9/d31/a01208.html#a1fa3d5a5e7307d0b5620518c07332406", [
-      [ "RUNTIME", "d9/d31/a01208.html#a1fa3d5a5e7307d0b5620518c07332406ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
-      [ "SCANNER", "d9/d31/a01208.html#a1fa3d5a5e7307d0b5620518c07332406aa1323822e71d19091075dd86a90ee35d", null ]
-    ] ],
-    [ "State", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8", [
-      [ "DISCONNECTED", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8a99c8ce56e7ab246445d3b134724428f3", null ],
-      [ "UNUSABLE", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8a22b311bc8cac928de4f019e7672bb154", null ],
-      [ "NOT_GOOD", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8a57a61c4494fc7176bda36f964b413e91", null ],
-      [ "OKAY", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8a74eb855e4de6fe58228f03006c02fd8a", null ],
-      [ "VERY_GOOD", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8a57e657071a4b2bdd078dc2de63037b3a", null ],
-      [ "AMAZING", "d9/d31/a01208.html#a2894ee50dc5996ed2f18b07b95eac6e8a50d3a20a2a39b495b6bec36ca77287e9", null ]
-    ] ],
-    [ "Quality", "d9/d31/a01208.html#ac8b7cad9c67eac45b83424fc09cfcff8", null ],
-    [ "clear", "d9/d31/a01208.html#a9f83d384f7ac11104d7797f317a07abe", null ],
-    [ "getPercent", "d9/d31/a01208.html#abdc935b5e4e162b6c98b3fe97c134901", null ],
-    [ "getState", "d9/d31/a01208.html#ac0ce3488e55e61cb6a016e5037e89822", null ],
-    [ "setMode", "d9/d31/a01208.html#aaf2759f8b73b8569418f26d46af5865e", null ],
-    [ "start", "d9/d31/a01208.html#a97e20d9aa5d1ccb636cd2f19696a0c09", null ],
-    [ "update", "d9/d31/a01208.html#a3c087691136285dc63a4cd1ff03f2459", null ],
-    [ "onUpdate", "d9/d31/a01208.html#a981c4d76b66480b0a86fca4fd7b89963", null ]
+    [ "State", "dc/db6/a01212.html", "dc/db6/a01212" ],
+    [ "Quality", "d8/df3/a01216.html", "d8/df3/a01216" ],
+    [ "Info", "db/d42/a01220.html", "db/d42/a01220" ],
+    [ "Connection", "d9/d31/a01208.html#ac4ae5d78fb394db2bd4c3e233711b44b", null ],
+    [ "info", "d9/d31/a01208.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
+    [ "quality", "d9/d31/a01208.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
+    [ "state", "d9/d31/a01208.html#a79f4aecc9bd038f5938e6373412ed099", null ]
 ];

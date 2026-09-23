@@ -25,6 +25,15 @@
 var NAVTREE =
 [
   [ "Library", "index.html", [
+    [ "StreamBuffer examples", "d1/d3c/a02714.html", [
+      [ "Dynamic creation", "d1/d3c/a02714.html#streambuffer_dynamic", null ],
+      [ "Static creation", "d1/d3c/a02714.html#streambuffer_static", null ],
+      [ "Task to task", "d1/d3c/a02714.html#streambuffer_task", null ],
+      [ "ISR to task (UART receive)", "d1/d3c/a02714.html#streambuffer_isr", null ],
+      [ "Several writers", "d1/d3c/a02714.html#streambuffer_multiwriter", null ],
+      [ "Monitoring and control", "d1/d3c/a02714.html#streambuffer_monitor", null ],
+      [ "Moving ownership", "d1/d3c/a02714.html#streambuffer_move", null ]
+    ] ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -59,32 +68,33 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/dc0/a01652.html#a1bfbad124ecbfdf6cba7511cef023187",
-"d1/db0/a01928.html#a1fabd4f5399e04107a81b4b5b8a74ddb",
-"d2/d3f/a01356.html#ac696981b4d124bf89d6a30c113ec50dc",
-"d2/db4/a01192.html#af9f8b689c8b6efe88b8e35a20f9511ac",
-"d3/dcc/a01996.html#a0f5b82df6b3d86f401191d1b11202f96",
-"d4/d98/a01456.html#ac97d949e755c3b10315681da95176f7bafc93ea58f6d27ffed2b6518ffecf3e4e",
-"d5/d6e/a02008.html#a98ee80183ed645629084a482c158afd1",
-"d6/d0c/a02080.html#a1c339469529ee402dcc9e7bb37113566",
-"d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5",
-"d7/d51/a01340.html#a72a1477ca98df2fd65670dbb3b157f8a",
-"d7/dbe/a02024.html#a4279301601dc12497575fbe9b250f62a",
-"d7/df2/a01000.html#a74ffb5806da05f308466c35151e699b2a775cca6869bbf39d24b365efc5e7995f",
-"d8/d79/a01036.html#ad9f7a4314fe4222dfcf73ed2eaa3be9b",
-"d8/dcb/a00706.html#afe2d246e2a2a5bc3699440ae4548515ba46487ad0c24c2b10e0145a3699304f31",
-"d9/d12/a01128.html",
-"d9/db0/a00900.html#ab28d40e8b1d5e784f01d5c8308dd8353",
-"da/d6b/a00708.html",
-"db/d42/a01220.html#a74fe067b228e91e888527cde922af4ab",
-"db/df3/a01836.html#af68c408bdc213c13c758fceb90fdf51e",
-"dc/d2b/a00936.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530",
-"dc/d85/a01436.html#a1ca3b1d6d0209c50bd947bfccb88bb66a8b94771bece2491319c653ea9fdfdbb8",
-"dd/d1c/a01452.html",
-"de/d1f/a01364.html#a031935c10edd7ee210a9d66f1aafa843",
-"de/dd1/a02100.html#a745fad5d63a08630dd3cf362c1b0eae5",
-"df/d0b/a01372.html#afb4c626a9eb6375c8e97ef51d1ffa47c",
-"df/df0/a02016.html#ae0c09f0d483b3959297f30bd3909de83"
+"d0/d90/a01059.html#a9615a95c96a36caed8310d176f26d849",
+"d1/de6/a01867.html#a47ac4868563998363835de249a5814a9",
+"d2/d4c/a01307.html#afb1d3ab66b7d545ad64678211e1916f3",
+"d2/df5/a01395.html#a9969bce892ba39508a48daebcde56b75",
+"d3/dbc/a01451.html#a664a688b154503cfcc1b025049d43046",
+"d3/dda/a00712.html#afe2d246e2a2a5bc3699440ae4548515babf40d185a1e6f6d9e1dbf31854583b3e",
+"d4/d2c/a01327.html#a975d7b7bec66de9f37566e22707b1666",
+"d4/d9b/a02039.html#a6409c2b90d6be59624dff71cea7aa2d1",
+"d5/d34/a01743.html#a5d165adb78126c4c3847e9a00293af2c",
+"d5/df5/a01375.html",
+"d6/d5d/a02023.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7",
+"d6/df2/a01175.html",
+"d7/d92/a00887.html#a13a84f28ca82dc10e03a683e12e1b8cc",
+"d8/d19/a00935.html",
+"d8/dd9/a01507.html#a4182131e0fecf200f84c032e3c57b565",
+"d9/d1f/a02035.html#ae40918e60c2277acebaa9cba5209ca7aaba7de5bc6888294e5884b024a4c894f1",
+"d9/dca/a01879.html",
+"da/df2/a02031.html#abc57684576686004799b4afa06460768",
+"db/dbf/a00975.html#ae5e3dd9c0f27272cb32821ea5542c3b3",
+"dc/d5d/a00775.html#ac6552c090b310890de41a06ba77a7e68",
+"dc/de8/a01723.html#a337a836c5de402d2e701a94771084d55",
+"dd/d48/a00995.html#ae4ff26d8e2b68bd7157659eaaddd1c91ae741e272ede26f6c9dd7dda154834fe6",
+"dd/dfd/a01027.html#a9c9b1adf3f4cdaad9fee54301cb21f1f",
+"de/d90/a01919.html#aa4199170b826f8a973a54466af4c6ee7",
+"df/d0e/a02195.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5",
+"df/d75/a01447.html#a303287b9e9aada7233ad32cc2b0b197b",
+"dir_dd581b7014d308663732db4f4fef0b37.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

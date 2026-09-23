@@ -1,8 +1,7 @@
 var a00578 =
 [
-    [ "Lib::Math::Pid&lt; T &gt;", "d1/db0/a01928.html", "d1/db0/a01928" ],
-    [ "Lib::Math::Pid&lt; T &gt;::Parameters", "d8/d22/a01932.html", "d8/d22/a01932" ],
-    [ "Lib::Math::Pid&lt; T &gt;::State", "dd/d20/a01936.html", "dd/d20/a01936" ],
-    [ "Lib::Math::PidD", "d1/da6/a00738.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9", null ],
-    [ "Lib::Math::PidF", "d1/da6/a00738.html#a948fc056c1100dd929fbdca345047060", null ]
+    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;", "d5/d31/a01931.html", "d5/d31/a01931" ],
+    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;::Point", "d0/d43/a01935.html", "d0/d43/a01935" ],
+    [ "Lib::Math::LinearInterpolationD", "d5/db3/a00744.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e", null ],
+    [ "Lib::Math::LinearInterpolationF", "d5/db3/a00744.html#a8e491be310ee384e098186699963cc0e", null ]
 ];

@@ -1,5 +1,5 @@
 var a02735 =
 [
-    [ "Lib::System::Storage&lt; T_DERIVED &gt;", "d8/dd8/a02108.html", "d8/dd8/a02108" ],
-    [ "Lib::System::Parameters&lt; T_STORAGE &gt;", "d8/d84/a02112.html", "d8/d84/a02112" ]
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "d8/d79/a01036.html", "d8/d79/a01036" ],
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "db/d14/a01040.html", "db/d14/a01040" ]
 ];

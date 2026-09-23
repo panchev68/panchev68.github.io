@@ -1,17 +1,16 @@
 var a00948 =
 [
-    [ "DriverBase", "d8/d18/a00948.html#a4865b730e5861bd7bb40b39ee4800bd1", null ],
-    [ "~DriverBase", "d8/d18/a00948.html#aea8e2f217977e88d7a0d171e32c8b565", null ],
-    [ "close", "d8/d18/a00948.html#a937232820c635f6a093714b6f33c1a85", null ],
-    [ "eraseChip", "d8/d18/a00948.html#a134ef5841b0a6e85976fa6d4ef3fd8cf", null ],
-    [ "eraseSector", "d8/d18/a00948.html#a74b2d44aa53af2fd1e7574d8657dc145", null ],
-    [ "getInfo", "d8/d18/a00948.html#ad53917a64ab539376be5b829bcc299f0", null ],
-    [ "getStatus", "d8/d18/a00948.html#abe4e9df23fb7e04bbf831254a236a357", null ],
-    [ "open", "d8/d18/a00948.html#a39c94e7d96d1fff02de7193b8142c923", null ],
-    [ "read", "d8/d18/a00948.html#af7a12304d4b17d0ab0c20002f4b6cd53", null ],
-    [ "write", "d8/d18/a00948.html#a7936cf92037932401201a3f7217786b4", null ],
-    [ "info", "d8/d18/a00948.html#a46253bfde5c017262e48ba58e7343818", null ],
-    [ "nss", "d8/d18/a00948.html#a87049c630e3c3935144941f749c11166", null ],
-    [ "spiPort", "d8/d18/a00948.html#a595a4e7dae6b992eb9f1194bc60250c6", null ],
-    [ "status", "d8/d18/a00948.html#a22db85ba35d1118e4cbc4fa7ca1287e3", null ]
+    [ "Register", "de/d49/a00952.html", "de/d49/a00952" ],
+    [ "Info", "d3/de5/a00956.html", "d3/de5/a00956" ],
+    [ "Config", "d8/d18/a00948.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "d8/d18/a00948.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "d8/d18/a00948.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "d8/d18/a00948.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChipImpl", "d8/d18/a00948.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSectorImpl", "d8/d18/a00948.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "d8/d18/a00948.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "isPresent", "d8/d18/a00948.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "d8/d18/a00948.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "readImpl", "d8/d18/a00948.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "writeImpl", "d8/d18/a00948.html#a00a39954e6187f8b4b393ed390f97239", null ]
 ];

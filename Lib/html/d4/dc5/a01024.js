@@ -1,9 +1,15 @@
 var a01024 =
 [
-    [ "LedColor", "d4/dc5/a01024.html#a6dcebaa2a594202e34d6d61f364e0caf", null ],
-    [ "clear", "d4/dc5/a01024.html#a57f9850d524bbf8566f538a5139548ee", null ],
-    [ "get", "d4/dc5/a01024.html#af045bf604dc42d24209eca3f34535637", null ],
-    [ "set", "d4/dc5/a01024.html#a3fa19dae19fdfcc408faf931907686ea", null ],
-    [ "set", "d4/dc5/a01024.html#ac9bd2fafb6b1876a12def6ce5f648239", null ],
-    [ "set", "d4/dc5/a01024.html#ac3ebd5fbdf07a9d4d828c06ea938cb0f", null ]
+    [ "TimerHandler", "db/d08/a01028.html", "db/d08/a01028" ],
+    [ "Config", "df/d89/a01032.html", "df/d89/a01032" ],
+    [ "PinHandle", "d4/dc5/a01024.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Base", "d4/dc5/a01024.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
+    [ "~Base", "d4/dc5/a01024.html#a1e239dacccfb4d56b62c3f04c33c163e", null ],
+    [ "beginReceiveData", "d4/dc5/a01024.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "d4/dc5/a01024.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "start", "d4/dc5/a01024.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
+    [ "startupImpulse", "d4/dc5/a01024.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "d4/dc5/a01024.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "d4/dc5/a01024.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "config", "d4/dc5/a01024.html#a3b31347dab82ede045f6e076046e5762", null ]
 ];

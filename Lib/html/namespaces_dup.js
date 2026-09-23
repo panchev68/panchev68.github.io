@@ -1,9 +1,10 @@
 var namespaces_dup =
 [
-    [ "BSP", "dc/d14/a00720.html", "dc/d14/a00720" ],
-    [ "ColorUtil", "d2/d94/a00716.html", [
-      [ "pack", "d2/d94/a00716.html#af98f79d12241a80c2c6743fd6472852f", null ]
+    [ "BSP", "d6/d59/a00726.html", "d6/d59/a00726" ],
+    [ "ColorDetail", "db/d7c/a00722.html", [
+      [ "pack", "db/d7c/a00722.html#ad8d403e5fc6766109d53890ca071caf2", null ]
     ] ],
-    [ "Lib", "d4/d6a/a00704.html", "d4/d6a/a00704" ],
-    [ "RTOS", "da/da3/a00741.html", "da/da3/a00741" ]
+    [ "FunctionRefDetail", "d2/db1/a00730.html", "d2/db1/a00730" ],
+    [ "Lib", "d4/deb/a00710.html", "d4/deb/a00710" ],
+    [ "RTOS", "d5/d68/a00747.html", "d5/d68/a00747" ]
 ];

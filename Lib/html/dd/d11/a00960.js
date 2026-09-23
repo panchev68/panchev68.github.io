@@ -1,9 +1,11 @@
 var a00960 =
 [
-    [ "chipManufacturer", "dd/d11/a00960.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "dd/d11/a00960.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "dd/d11/a00960.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "dd/d11/a00960.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "dd/d11/a00960.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "dd/d11/a00960.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "~I2CPort", "dd/d11/a00960.html#a79d501d729d1a73e76d100e570c3b5c4", null ],
+    [ "close", "dd/d11/a00960.html#a3bd1d3c1e7eb76875a09e29cf5080a84", null ],
+    [ "isReady", "dd/d11/a00960.html#aadb8cd4306fa1423e693892b4cd029b2", null ],
+    [ "open", "dd/d11/a00960.html#a6f1df1db44f6d865854b30574830faaf", null ],
+    [ "receive", "dd/d11/a00960.html#a03a7a948a03869108c3dbcf5e94bb3cb", null ],
+    [ "receive", "dd/d11/a00960.html#ac04ceaf3b4ca4d1779dfc89246c2ef54", null ],
+    [ "send", "dd/d11/a00960.html#a0fb8d14c10fb4711ccd6be27938cb3b0", null ],
+    [ "send", "dd/d11/a00960.html#a6d5d9e3ebac7873a98249d745dff26fc", null ]
 ];

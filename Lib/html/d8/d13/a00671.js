@@ -1,4 +1,6 @@
 var a00671 =
 [
-    [ "Lib::System::FirmwareVersion", "de/dd1/a02100.html", "de/dd1/a02100" ]
+    [ "Lib::SolarControl::PerturbAndObserve", "d0/d0c/a02095.html", "d0/d0c/a02095" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Config", "d9/dff/a02099.html", "d9/dff/a02099" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d2/dbe/a02103.html", "d2/dbe/a02103" ]
 ];

@@ -1,12 +1,8 @@
 var a01376 =
 [
-    [ "Config", "d2/d29/a01376.html#a112d0645246a20f0196de68b17f844e3", null ],
-    [ "Module", "d2/d29/a01376.html#a9a7eefcf7b0ca8a399ea243393a2d98c", null ],
-    [ "~Module", "d2/d29/a01376.html#a7db0dbed38c158186672ee098cff9d89", null ],
-    [ "ComDriver< Module >", "d2/d29/a01376.html#a4de00d2aae0cebeb53defb15b31647ee", null ],
-    [ "onBeginMessageReceive", "d2/d29/a01376.html#a4697d22b01f645ba00ef0b136feed426", null ],
-    [ "onBeginMessageSend", "d2/d29/a01376.html#a0aba8b3adfbd2eb1b8069dc9057f6cdb", null ],
-    [ "onEndMessageReceived", "d2/d29/a01376.html#ab7bb27e9ac529e3e399d4e79d8a295e3", null ],
-    [ "onEndMessageSend", "d2/d29/a01376.html#a2278ca80cde85e784fba739b3267e025", null ],
-    [ "responseEvents", "d2/d29/a01376.html#ac2585942261cabaa51522f461c64816b", null ]
+    [ "Message", "d2/d29/a01376.html#ac0559573583ad141a19e0fdcd6b5fb31", null ],
+    [ "Message", "d2/d29/a01376.html#a798f2ada4b0d67484dd425ecfc0843ff", null ],
+    [ "Message", "d2/d29/a01376.html#a69c2d00f7a4fbbf3ef56e807681c9b84", null ],
+    [ "~Message", "d2/d29/a01376.html#a5bb6f5ee00d81a52d45f8a835527e944", null ],
+    [ "operator std::vector< uint8_t >", "d2/d29/a01376.html#a35415de7cf962f29402cef32af19c8cb", null ]
 ];

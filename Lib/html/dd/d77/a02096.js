@@ -1,15 +1,7 @@
 var a02096 =
 [
-    [ "Bitset", "dd/d77/a02096.html#a942e0af1a522af427d507bc4646b2c3c", null ],
-    [ "Status", "dd/d77/a02096.html#a8f5a768cb3389dad7d8109f48cedaf22", [
-      [ "OK", "dd/d77/a02096.html#a8f5a768cb3389dad7d8109f48cedaf22ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dd/d77/a02096.html#a8f5a768cb3389dad7d8109f48cedaf22abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "dd/d77/a02096.html#a0496b3d19c7bb3da8baa5eb827375bc4", null ],
-    [ "~Configuration", "dd/d77/a02096.html#ab0a917963ddead9ca393b4a366eabb3b", null ],
-    [ "isEmpty", "dd/d77/a02096.html#ac7addfec6bb7d8a898813e8e042a6409", null ],
-    [ "isValid", "dd/d77/a02096.html#a295f6c846c2146cf08aa4aa9a6172cd5", null ],
-    [ "read", "dd/d77/a02096.html#a180404fbcee71e5d5fbc135cebdd99a3", null ],
-    [ "write", "dd/d77/a02096.html#a0611412a6160e2f8f7195f0afbdc03ee", null ],
-    [ "flashAddress", "dd/d77/a02096.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "maxVoltage", "dd/d77/a02096.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "dd/d77/a02096.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "dd/d77/a02096.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "dd/d77/a02096.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

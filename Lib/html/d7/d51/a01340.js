@@ -1,8 +1,11 @@
 var a01340 =
 [
-    [ "append", "d7/d51/a01340.html#a6584548573a21567151784636df136cd", null ],
-    [ "append", "d7/d51/a01340.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
-    [ "assign", "d7/d51/a01340.html#a98c90e40b1c75fb6ab2796c2c1b19611", null ],
-    [ "type", "d7/d51/a01340.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ],
-    [ "vector", "d7/d51/a01340.html#a75f0ffd076b45c90ef06327ac622c32e", null ]
+    [ "ignoredMessagesByTimeout", "d7/d51/a01340.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d7/d51/a01340.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLenghtErrors", "d7/d51/a01340.html#a19b949d69804027b030d60673036e28b", null ],
+    [ "receivedATCommandMessages", "d7/d51/a01340.html#a6fb7ff71a17c1dfdef66b2ddd783817a", null ],
+    [ "receivedDataMessages", "d7/d51/a01340.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sendedATCommandMessages", "d7/d51/a01340.html#ac5f7e2a9bd0ac879a4ba49d288cddf01", null ],
+    [ "sendedDataMessages", "d7/d51/a01340.html#aa1184d47786055d84c04109e7edd88d6", null ],
+    [ "sendedDataMessagesTimeout", "d7/d51/a01340.html#a3e625c66514f9d2db0371fce5fc1b6e4", null ]
 ];

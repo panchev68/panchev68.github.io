@@ -1,7 +1,12 @@
 var a01828 =
 [
-    [ "Delay", "dc/d79/a01828.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
-    [ "~Delay", "dc/d79/a01828.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
-    [ "Delay", "dc/d79/a01828.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
-    [ "operator=", "dc/d79/a01828.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
+    [ "Time", "dc/d79/a01828.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "dc/d79/a01828.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "dc/d79/a01828.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "dc/d79/a01828.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "dc/d79/a01828.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "dc/d79/a01828.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "dc/d79/a01828.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "dc/d79/a01828.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "dc/d79/a01828.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

@@ -1,6 +1,10 @@
 var a02144 =
 [
-    [ "Hardware", "dc/d29/a02144.html#abf7e1433f09ffae61c7d1d321b74bf7e", null ],
-    [ "operator uint32_t", "dc/d29/a02144.html#ad5bf719021eb4b29e6059abf4e8a7364", null ],
-    [ "operator VersionString", "dc/d29/a02144.html#a580750fc0c641a923b1659eb1c99affc", null ]
+    [ "Base", "d2/d08/a02148.html", "d2/d08/a02148" ],
+    [ "Hardware", "df/d28/a02152.html", "df/d28/a02152" ],
+    [ "Firmware", "dd/d3f/a02156.html", "dd/d3f/a02156" ],
+    [ "Status", "dc/d29/a02144.html#a370a653bced85832b45cd4b8ada37bfa", [
+      [ "OK", "dc/d29/a02144.html#a370a653bced85832b45cd4b8ada37bfaae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "dc/d29/a02144.html#a370a653bced85832b45cd4b8ada37bfaabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ]
 ];

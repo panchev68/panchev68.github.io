@@ -1,4 +1,4 @@
 var a00620 =
 [
-    [ "RTOS::MutexGuard", "d3/dbb/a02004.html", "d3/dbb/a02004" ]
+    [ "RTOS::MessageBuffer", "d6/d19/a02007.html", "d6/d19/a02007" ]
 ];

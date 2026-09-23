@@ -1,17 +1,28 @@
 var a00892 =
 [
     [ "Config", "da/dd6/a00896.html", "da/dd6/a00896" ],
-    [ "EventCode", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7", [
-      [ "BUTTON_PUSH", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-      [ "BUTTON_PULL", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972", null ],
-      [ "BUTTON_HOLD", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e", null ],
-      [ "ENCODER_CW", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404", null ],
-      [ "ENCODER_CCW", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b", null ],
-      [ "NONE", "d0/de2/a00892.html#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693", null ]
+    [ "State", "d0/de2/a00892.html#a9fd0a76196b2eb1e21013c1f0379cd08", [
+      [ "NO_INIT", "d0/de2/a00892.html#a9fd0a76196b2eb1e21013c1f0379cd08a72144f138e8a9f73854d58b59deca26d", null ],
+      [ "READY", "d0/de2/a00892.html#a9fd0a76196b2eb1e21013c1f0379cd08a2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "DISABLE", "d0/de2/a00892.html#a9fd0a76196b2eb1e21013c1f0379cd08afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "ERROR", "d0/de2/a00892.html#a9fd0a76196b2eb1e21013c1f0379cd08abb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "EncoderTimer", "d0/de2/a00892.html#a5765847abc97871303c16df2a1a11a19", null ],
-    [ "~EncoderTimer", "d0/de2/a00892.html#a924b7b93bff797f686f7d740642efb9e", null ],
-    [ "close", "d0/de2/a00892.html#a88af75d9657abb903157c0d631ff7858", null ],
-    [ "open", "d0/de2/a00892.html#a884d6c6095246789455d1542315337e1", null ],
-    [ "read", "d0/de2/a00892.html#a5164c86dd088a063e4854b9afef4e6d8", null ]
+    [ "Base", "d0/de2/a00892.html#a12aecbfda8834bf3a667148d765a5131", null ],
+    [ "close", "d0/de2/a00892.html#a661ff278a48b8dba19a2a054bc21a7cd", null ],
+    [ "getState", "d0/de2/a00892.html#adb79d7f488b262bfdc58c114a3ac6f33", null ],
+    [ "open", "d0/de2/a00892.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
+    [ "readAlEventReg", "d0/de2/a00892.html#aec3fa0792cf0cda4f5d91244b599d804", null ],
+    [ "readCSR", "d0/de2/a00892.html#a6872fa6c05dea9476d20434f28b40b99", null ],
+    [ "readDLStatus", "d0/de2/a00892.html#acae5d3c1c2b5679addbccc5506d2de0e", null ],
+    [ "readPDIRegister", "d0/de2/a00892.html#ac2aaa9d194b1af38aa02bc21b97e4b79", null ],
+    [ "readPRAM", "d0/de2/a00892.html#a3d2a55bfbcbe4193a6f9c88a6853c9e4", null ],
+    [ "readReg", "d0/de2/a00892.html#a5dcebd0d4f0135e2133880e9671892c6", null ],
+    [ "readU32", "d0/de2/a00892.html#a044adc74263d0844a30a59541c3162a6", null ],
+    [ "resetChip", "d0/de2/a00892.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
+    [ "resetPin", "d0/de2/a00892.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
+    [ "verifyChipId", "d0/de2/a00892.html#a92fb14a44d98ad85c15d007798f188d4", null ],
+    [ "writeCSR", "d0/de2/a00892.html#a6856933af0bd9892be77168a4e2dcdcf", null ],
+    [ "writePRAM", "d0/de2/a00892.html#a8a9b2c1a0824c7603b223ce93be6b268", null ],
+    [ "writeReg", "d0/de2/a00892.html#ab886f5f4a7c67fc4e763676ee25c8440", null ],
+    [ "writeU32", "d0/de2/a00892.html#af18c7df8aeade40e9137a8e803825144", null ]
 ];

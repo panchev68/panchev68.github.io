@@ -1,5 +1,7 @@
 var a00868 =
 [
-    [ "addr", "da/d5b/a00868.html#a52b4f081e411d6f6b400f02e266252f3", null ],
-    [ "port", "da/d5b/a00868.html#a6bbbf5bbcc0ec5d426cceafeb97ff9a8", null ]
+    [ "Config", "da/d5b/a00868.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "da/d5b/a00868.html#ad36362e96082dbe6c13067c41fa1736b", null ],
+    [ "~M24C64W", "da/d5b/a00868.html#a847c124f9564ab5f671ab8abe946983f", null ],
+    [ "Driver< M24C64W >", "da/d5b/a00868.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

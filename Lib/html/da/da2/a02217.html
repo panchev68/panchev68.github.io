@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RTOS::MutexGuard</title>
+<title>Library: Lib::Helper::TimePeriod</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,41 +111,53 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/da2/a02217.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates scope-based mutex locking with RTOS::MutexGuard to ensure automatic unlock.</p>
-<p>Demonstrates scope-based mutex locking with RTOS::MutexGuard to ensure automatic unlock.Shows creating and opening a Mutex, using MutexGuard to protect a critical section, and checking the guard state after construction. The example uses real project APIs and expects the underlying FreeRTOS kernel to be initialized before use.</p>
-<dl class="section note"><dt>Note</dt><dd>This example runs in a task context and blocks when Mutex::WAIT_FOREVER is used.</dd></dl>
+<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.</p>
+<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.The example starts the stopwatch, delays for a known interval, reads the elapsed ticks and the elapsed time without stopping, then stops and resets the stopwatch.</p>
+<dl class="section note"><dt>Note</dt><dd>This example runs in task context and relies on the FreeRTOS scheduler. Use the FromISR variants inside an interrupt handler.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../da/da2/a02217.html" title="Lib::Helper::TimePeriod">Lib::Helper::TimePeriod</a>, <a class="el" href="../../d7/db2/a02036.html#a1c0c1a0a57ee9332e741c8422eebbffe" title="RTOS::Task::delay">RTOS::Task::delay</a>, <a class="el" href="../../da/d3b/a02229.html" title="RTOS::TickCounter">RTOS::TickCounter</a></dd></dl>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Lib/RTOS/Mutex.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Lib/RTOS/MutexGuard.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/dae/a00563.html">Lib/Helper/TimePeriod.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d8e/a00647.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> exampleTask(<span class="keywordtype">void</span> * <span class="comment">/*unused*/</span>) {</div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../da/d51/a02000.html">RTOS::Mutex</a> m(<a id="_a1" name="_a1"></a><a class="code hl_enumvalue" href="../../da/d51/a02000.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a>);</div>
-<div class="line">    <span class="keywordflow">if</span> (!m.<a id="a2" name="a2"></a><a class="code hl_function" href="../../da/d51/a02000.html#a9f2abf5c8b3442dd741bac7c15e5726a">open</a>()) {</div>
-<div class="line">        <span class="comment">// handle creation failure</span></div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> timingExampleTask() {</div>
+<div class="line">    <span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d31/a01892.html">Lib::Helper::TimePeriod</a> timer;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Start measurement</span></div>
+<div class="line">    timer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dc/d31/a01892.html#afc371b1b7ae3ad092d6048dc93bca6d5">start</a>();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Simulate work or wait for 200 ms</span></div>
+<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../d7/db2/a02036.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(<a id="_a3" name="_a3"></a><a class="code hl_function" href="../../de/def/a02064.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(200ms));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Query elapsed ticks and elapsed time without stopping</span></div>
+<div class="line">    <span class="keyword">const</span> uint32_t elapsedTicks = timer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dc/d31/a01892.html#ada4c0a6cd0114194a6667e555b90a36a">elapsed</a>();</div>
+<div class="line">    <span class="keyword">const</span> std::chrono::milliseconds elapsedTime = timer.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dc/d31/a01892.html#aea37e1feea05928a3dfd98f79e82c449">elapsedTime</a>();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Stop and retrieve elapsed ticks</span></div>
+<div class="line">    uint32_t measured = 0U;</div>
+<div class="line">    <span class="keywordflow">if</span> (timer.<a id="a6" name="a6"></a><a class="code hl_function" href="../../dc/d31/a01892.html#a12059cd59e97f3575d46ed98120763a2">stop</a>(measured)) {</div>
+<div class="line">        <span class="comment">// measured contains the ticks elapsed since start</span></div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    {</div>
-<div class="line">        <a id="_a3" name="_a3"></a><a class="code hl_class" href="../../d3/dbb/a02004.html">RTOS::MutexGuard</a> guard(m); <span class="comment">// locks mutex on construction</span></div>
-<div class="line">        <span class="keywordflow">if</span> (!guard.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d3/dbb/a02004.html#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a>()) {</div>
-<div class="line">            <span class="comment">// lock failed - handle accordingly</span></div>
-<div class="line">        } <span class="keywordflow">else</span> {</div>
-<div class="line">            <span class="comment">// Critical section protected by &#39;m&#39;</span></div>
-<div class="line">            <span class="comment">// perform shared resource access here</span></div>
-<div class="line">        }</div>
-<div class="line">    } <span class="comment">// guard destroyed here; mutex unlocked if it was locked</span></div>
-<div class="line"> </div>
-<div class="line">    m.<a id="a5" name="a5"></a><a class="code hl_function" href="../../da/d51/a02000.html#acae6fb03115a857672d114638e6da0cb">close</a>();</div>
+<div class="line">    <span class="comment">// Reset the timer for reuse</span></div>
+<div class="line">    timer.<a id="a7" name="a7"></a><a class="code hl_function" href="../../dc/d31/a01892.html#a702f4bcc03c1b60bcb212b5276fa13fb">reset</a>();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa02000_html"><div class="ttname"><a href="../../da/d51/a02000.html">RTOS::Mutex</a></div><div class="ttdoc">Priority-inheriting mutual exclusion lock.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:35</div></div>
-<div class="ttc" id="aa02000_html_a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051"><div class="ttname"><a href="../../da/d51/a02000.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051">RTOS::Mutex::Type::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Standard non-recursive priority-inheritance mutex.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:47</div></div>
-<div class="ttc" id="aa02000_html_a9f2abf5c8b3442dd741bac7c15e5726a"><div class="ttname"><a href="../../da/d51/a02000.html#a9f2abf5c8b3442dd741bac7c15e5726a">RTOS::Mutex::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the underlying FreeRTOS mutex handle, if not already open.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:110</div></div>
-<div class="ttc" id="aa02000_html_acae6fb03115a857672d114638e6da0cb"><div class="ttname"><a href="../../da/d51/a02000.html#acae6fb03115a857672d114638e6da0cb">RTOS::Mutex::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the underlying FreeRTOS handle and marks the mutex closed.</div><div class="ttdef"><b>Definition</b> Mutex.hpp:135</div></div>
-<div class="ttc" id="aa02004_html"><div class="ttname"><a href="../../d3/dbb/a02004.html">RTOS::MutexGuard</a></div><div class="ttdoc">Scope-based lock guard for &#39;Mutex&#39;, in the style of &#39;std::lock_guard&#39;.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:37</div></div>
-<div class="ttc" id="aa02004_html_a3f156fd8fcb57426c142acbd54ddb267"><div class="ttname"><a href="../../d3/dbb/a02004.html#a3f156fd8fcb57426c142acbd54ddb267">RTOS::MutexGuard::isLocked</a></div><div class="ttdeci">bool isLocked() const noexcept</div><div class="ttdoc">Checks if the mutex acquisition was successful.</div><div class="ttdef"><b>Definition</b> MutexGuard.hpp:103</div></div>
+<div class="ttc" id="aa00563_html"><div class="ttname"><a href="../../dc/dae/a00563.html">TimePeriod.hpp</a></div><div class="ttdoc">Lightweight stopwatch measuring intervals with the FreeRTOS scheduler tick counter.</div></div>
+<div class="ttc" id="aa00647_html"><div class="ttname"><a href="../../d3/d8e/a00647.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
+<div class="ttc" id="aa01892_html"><div class="ttname"><a href="../../dc/d31/a01892.html">Lib::Helper::TimePeriod</a></div><div class="ttdoc">Stopwatch based on the RTOS tick counter.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:29</div></div>
+<div class="ttc" id="aa01892_html_a12059cd59e97f3575d46ed98120763a2"><div class="ttname"><a href="../../dc/d31/a01892.html#a12059cd59e97f3575d46ed98120763a2">Lib::Helper::TimePeriod::stop</a></div><div class="ttdeci">bool stop(uint32_t &amp;ticks) noexcept</div><div class="ttdoc">Stops the stopwatch and reports the elapsed ticks, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:66</div></div>
+<div class="ttc" id="aa01892_html_a702f4bcc03c1b60bcb212b5276fa13fb"><div class="ttname"><a href="../../dc/d31/a01892.html#a702f4bcc03c1b60bcb212b5276fa13fb">Lib::Helper::TimePeriod::reset</a></div><div class="ttdeci">constexpr void reset() noexcept</div><div class="ttdoc">Stops the stopwatch without reading the elapsed time.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:95</div></div>
+<div class="ttc" id="aa01892_html_ada4c0a6cd0114194a6667e555b90a36a"><div class="ttname"><a href="../../dc/d31/a01892.html#ada4c0a6cd0114194a6667e555b90a36a">Lib::Helper::TimePeriod::elapsed</a></div><div class="ttdeci">uint32_t elapsed() const noexcept</div><div class="ttdoc">Returns the ticks elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:113</div></div>
+<div class="ttc" id="aa01892_html_aea37e1feea05928a3dfd98f79e82c449"><div class="ttname"><a href="../../dc/d31/a01892.html#aea37e1feea05928a3dfd98f79e82c449">Lib::Helper::TimePeriod::elapsedTime</a></div><div class="ttdeci">std::chrono::milliseconds elapsedTime() const noexcept</div><div class="ttdoc">Returns the time elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:131</div></div>
+<div class="ttc" id="aa01892_html_afc371b1b7ae3ad092d6048dc93bca6d5"><div class="ttname"><a href="../../dc/d31/a01892.html#afc371b1b7ae3ad092d6048dc93bca6d5">Lib::Helper::TimePeriod::start</a></div><div class="ttdeci">void start() noexcept</div><div class="ttdoc">Starts or restarts the stopwatch from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:47</div></div>
+<div class="ttc" id="aa02036_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../d7/db2/a02036.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:532</div></div>
+<div class="ttc" id="aa02064_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../de/def/a02064.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a std::chrono duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:156</div></div>
 </div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

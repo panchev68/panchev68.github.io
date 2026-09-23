@@ -1,4 +1,4 @@
 var a00287 =
 [
-    [ "mbx_cfg_t", "df/df3/a01468.html", "df/df3/a01468" ]
+    [ "Lib::Errors::Observer", "d7/d1d/a01475.html", "d7/d1d/a01475" ]
 ];

@@ -1,9 +1,20 @@
 var a00928 =
 [
-    [ "chipManufacturer", "dd/d38/a00928.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
-    [ "memoryCapacity", "dd/d38/a00928.html#a0ce044d51923185dc77297ec3845620b", null ],
-    [ "pagePerSector", "dd/d38/a00928.html#a768e74e894621cf3033a1f4e06661b66", null ],
-    [ "pageSize", "dd/d38/a00928.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
-    [ "sectorCount", "dd/d38/a00928.html#ae152c07a2eeb80c6525857160e04126b", null ],
-    [ "sectorSize", "dd/d38/a00928.html#a453d47437845007dcb1caa1889d1ec2b", null ]
+    [ "Register", "d8/dbb/a00932.html", "d8/dbb/a00932" ],
+    [ "Config", "dd/d38/a00928.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
+    [ "Info", "dd/d38/a00928.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
+    [ "W25Q128JVSIQ", "dd/d38/a00928.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
+    [ "~W25Q128JVSIQ", "dd/d38/a00928.html#ab9c5bae7857e7012ad972a143a2f6061", null ],
+    [ "W25Q128JVSIQ", "dd/d38/a00928.html#a8e63f6957e7d3835c28850539c92b803", null ],
+    [ "W25Q128JVSIQ", "dd/d38/a00928.html#ab86a72c21a4af20d878b815237041775", null ],
+    [ "close", "dd/d38/a00928.html#a55035a929afd299ffa29fd2189dacfba", null ],
+    [ "eraseChip", "dd/d38/a00928.html#ab026a3f275557a196219bc938bb5910b", null ],
+    [ "eraseSector", "dd/d38/a00928.html#a021f11ec22078f7a52e6da5be4ff22e2", null ],
+    [ "getInfo", "dd/d38/a00928.html#ae3127d396d2331ea31ce306210743056", null ],
+    [ "isPresent", "dd/d38/a00928.html#af9ea4290ba97a3a8e05bed9662359a4c", null ],
+    [ "open", "dd/d38/a00928.html#ab6f313ee4be72fb388d2a31f2bf60135", null ],
+    [ "operator=", "dd/d38/a00928.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
+    [ "operator=", "dd/d38/a00928.html#a042aafe50feeb5ffe960d362458e460e", null ],
+    [ "read", "dd/d38/a00928.html#aafd7900347abf238546c4c203dbc0ce5", null ],
+    [ "write", "dd/d38/a00928.html#ab01e7dde91a521608ccd9ab3f8bcfbda", null ]
 ];

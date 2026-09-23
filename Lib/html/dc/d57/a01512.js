@@ -1,7 +1,21 @@
 var a01512 =
 [
-    [ "Protocol", "dc/d57/a01512.html#ada015233fb11865b5f6fb1630168cdf3", null ],
-    [ "Protocol", "dc/d57/a01512.html#a7def75a06b10034c9bb3f3c3d12af6f7", null ],
-    [ "operator uint8_t", "dc/d57/a01512.html#a8eed760a643cef252fec650376850862", null ],
-    [ "operator=", "dc/d57/a01512.html#a55b5fc9af36900d859f8ff16a9ef893e", null ]
+    [ "Flag", "db/dbf/a01516.html", "db/dbf/a01516" ],
+    [ "Protocol", "d4/d51/a01520.html", "d4/d51/a01520" ],
+    [ "Error", "d9/d34/a01524.html", "d9/d34/a01524" ],
+    [ "SocketControl", "dc/d57/a01512.html#af1065c16299d3c1a2d9169e4877e6cc2", null ],
+    [ "SocketOption", "dc/d57/a01512.html#a404d6ea71b094ff81c88588fd104aedc", null ],
+    [ "close", "dc/d57/a01512.html#aa2bec6062131bda01409f9e65c4bc3a3", null ],
+    [ "connect", "dc/d57/a01512.html#a83b8a9c0567d6521b07de4dd16be5ca0", null ],
+    [ "disconnect", "dc/d57/a01512.html#a7eea42d895b1af93cec20af8796520fc", null ],
+    [ "getReceivedSize", "dc/d57/a01512.html#a5e0d49cdfd2b5c8b143cacd641bc6f73", null ],
+    [ "isClosed", "dc/d57/a01512.html#afd0d5df17668db6e6952a61fca224977", null ],
+    [ "isConnect", "dc/d57/a01512.html#ab533558f008bebbf991c11f7683b89cf", null ],
+    [ "listen", "dc/d57/a01512.html#a910fa2c8d217e66b7c96f88f39d6faa8", null ],
+    [ "open", "dc/d57/a01512.html#ac1340cd2cbae6e806c5712e05e325aa2", null ],
+    [ "receive", "dc/d57/a01512.html#aaf355e4c0c1f6f66b98a952776ce9306", null ],
+    [ "receiveFrom", "dc/d57/a01512.html#a5a965f965696244088ee4cf6c1980512", null ],
+    [ "send", "dc/d57/a01512.html#a01d5249f026c24186175b2a0a0613da8", null ],
+    [ "sendTo", "dc/d57/a01512.html#acbb953105a97c32e89678da9e46e01cf", null ],
+    [ "Sockets", "dc/d57/a01512.html#adf6639d046f29568f3db637dbbdd334f", null ]
 ];

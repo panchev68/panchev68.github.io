@@ -1,4 +1,4 @@
 var a00479 =
 [
-    [ "Lib::Helper::Convert::Bcd", "d4/d77/a01788.html", "d4/d77/a01788" ]
+    [ "Lib::Helper::Convert::Ascii", "d1/df0/a01795.html", null ]
 ];

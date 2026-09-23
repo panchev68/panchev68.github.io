@@ -1,6 +1,7 @@
 var a02688 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Base", "d0/daf/a00970.html", "d0/daf/a00970" ],
-    [ "Lib::BSP::Thermometer::DTH::Base::TimerHandle", "df/dce/a00974.html", "df/dce/a00974" ],
-    [ "Lib::BSP::Thermometer::DTH::Base::Config", "d2/ddd/a00978.html", "d2/ddd/a00978" ]
+    [ "Lib::BSP::FMEM::OSPI::Config", "de/d62/a00924.html", "de/d62/a00924" ],
+    [ "Lib::BSP::FMEM::OSPI::Info", "dd/d38/a00928.html", "dd/d38/a00928" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ", "d8/dbb/a00932.html", "d8/dbb/a00932" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register", "dc/d2b/a00936.html", "dc/d2b/a00936" ]
 ];

@@ -1,5 +1,4 @@
 var a00191 =
 [
-    [ "Lib::Digi::Core::ComDriver&lt; Derived &gt;", "df/dec/a01320.html", "df/dec/a01320" ],
-    [ "Lib::Digi::Core::ComDriver&lt; Derived &gt;::Config", "d5/d53/a01324.html", "d5/d53/a01324" ]
+    [ "Lib::Digi::Core::Checksum", "d4/d2c/a01327.html", "d4/d2c/a01327" ]
 ];

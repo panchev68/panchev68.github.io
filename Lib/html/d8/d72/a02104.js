@@ -1,9 +1,14 @@
 var a02104 =
 [
-    [ "VersionString", "d8/d72/a02104.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d8/d72/a02104.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getValue", "d8/d72/a02104.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d8/d72/a02104.html#ad1c5ce07617ff0071e53bb42cbbed61f", null ],
-    [ "operator VersionString", "d8/d72/a02104.html#a47d24e64045badec8d551641860d4088", null ],
-    [ "toString", "d8/d72/a02104.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "Bitset", "d8/d72/a02104.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
+    [ "Status", "d8/d72/a02104.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
+      [ "OK", "d8/d72/a02104.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d8/d72/a02104.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Configuration", "d8/d72/a02104.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
+    [ "isEmpty", "d8/d72/a02104.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
+    [ "isValid", "d8/d72/a02104.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
+    [ "read", "d8/d72/a02104.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
+    [ "write", "d8/d72/a02104.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
+    [ "flashAddress", "d8/d72/a02104.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

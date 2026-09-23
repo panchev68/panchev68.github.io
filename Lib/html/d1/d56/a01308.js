@@ -1,9 +1,17 @@
 var a01308 =
 [
-    [ "close", "d1/d56/a01308.html#a3e169678b4f6fece6aae3467d91cd7fc", null ],
-    [ "enqueueResponse", "d1/d56/a01308.html#a3bd0372f8985fc42665a6c1efb72cee8", null ],
-    [ "isOpenState", "d1/d56/a01308.html#ae316d4a5b99df7076981ba1a8c9e6635", null ],
-    [ "open", "d1/d56/a01308.html#af577da7d46a9ddc966549c724bc6f2c0", null ],
-    [ "receive", "d1/d56/a01308.html#a4b7f3d0774fd90dc00e85f7a9525d63d", null ],
-    [ "reset", "d1/d56/a01308.html#af7cd06dfbba187b496630270dd030425", null ]
+    [ "Command", "d1/d56/a01308.html#aeec1806cc51651aec7c65df97f20824f", [
+      [ "INPUTS", "d1/d56/a01308.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
+      [ "GET_PARAMETERS", "d1/d56/a01308.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
+      [ "OUTPUTS", "d1/d56/a01308.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
+      [ "SET_PARAMETERS", "d1/d56/a01308.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
+    ] ],
+    [ "UserProtocol", "d1/d56/a01308.html#a2c269949020f7b26dc12cf29f12d347d", null ],
+    [ "~UserProtocol", "d1/d56/a01308.html#a5f836cccf9dcbbcb7812013c28f1ef3a", null ],
+    [ "build", "d1/d56/a01308.html#aa1e61741d47d8b099913c96c35aad8d8", null ],
+    [ "handleGetParameters", "d1/d56/a01308.html#a9c77bbaf1341133af531df056551c43a", null ],
+    [ "handleInputsUpdate", "d1/d56/a01308.html#a36840d5bffb6ea2e120079a1c3a22af5", null ],
+    [ "handleOutputsUpdate", "d1/d56/a01308.html#a7dd1fdcff1a5060b9b20367b3e82351e", null ],
+    [ "handleSetParameters", "d1/d56/a01308.html#aab53c609ec54ede8b785388cd8b61e72", null ],
+    [ "parse", "d1/d56/a01308.html#a27bb212253aa2168d701106ada024b99", null ]
 ];

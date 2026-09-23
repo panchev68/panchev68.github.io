@@ -1,4 +1,5 @@
 var a00425 =
 [
-    [ "Lib::HAL::SPIPortBase&lt; Derived &gt;", "dc/d3e/a01712.html", "dc/d3e/a01712" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;", "df/d9a/a01715.html", "df/d9a/a01715" ],
+    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;::Event", "d6/d56/a01719.html", null ]
 ];

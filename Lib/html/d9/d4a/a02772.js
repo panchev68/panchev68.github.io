@@ -1,4 +1,6 @@
 var a02772 =
 [
-    [ "Lib::HAL::OSPI::Port&lt; DriverMode::DMA &gt;", "d2/d2f/a01586.html", "d2/d2f/a01586" ]
+    [ "Lib::BSP::W25Q128JVSIQ", "dc/da0/a00951.html", "dc/da0/a00951" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Register", "dc/db6/a00955.html", "dc/db6/a00955" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Info", "db/d40/a00959.html", "db/d40/a00959" ]
 ];

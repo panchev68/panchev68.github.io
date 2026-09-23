@@ -1,19 +1,16 @@
 var a01472 =
 [
-    [ "AddressString", "d2/d48/a01472.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
-    [ "IpAddress", "d2/d48/a01472.html#a14871d2fd0997a7192dbfa9efb391866", null ],
-    [ "IpAddress", "d2/d48/a01472.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
-    [ "IpAddress", "d2/d48/a01472.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
-    [ "IpAddress", "d2/d48/a01472.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
-    [ "~IpAddress", "d2/d48/a01472.html#a91c1c230613abcd87e0e6e643231cdac", null ],
-    [ "IpAddress", "d2/d48/a01472.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
-    [ "data", "d2/d48/a01472.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
-    [ "fromString", "d2/d48/a01472.html#aa8258817877631b9f96b9e16451a4027", null ],
-    [ "get", "d2/d48/a01472.html#a5407112eb57277910f2696486f34d87b", null ],
-    [ "operator[]", "d2/d48/a01472.html#a008326accb852006dc00f15e9ea5fb02", null ],
-    [ "set", "d2/d48/a01472.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
-    [ "set", "d2/d48/a01472.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
-    [ "set", "d2/d48/a01472.html#ac055a400e34b3e1927421c0243ba509d", null ],
-    [ "size", "d2/d48/a01472.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
-    [ "toString", "d2/d48/a01472.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
+    [ "Observer", "d2/d48/a01472.html#abdcd46d6d928709efb45c4092a509ad3", null ],
+    [ "Observer", "d2/d48/a01472.html#aa436fb0ebbb0f79e6116041dd8b326d2", null ],
+    [ "Observer", "d2/d48/a01472.html#a285dcb5567493b45b23d25b24004e9b9", null ],
+    [ "~Observer", "d2/d48/a01472.html#a0a4834e6487d627c825ce3f6448677e8", null ],
+    [ "Observer", "d2/d48/a01472.html#a14fb19abdf88d54276cef83b500d3d1b", null ],
+    [ "Observer", "d2/d48/a01472.html#a9900c13173227d2aea4e9ddd9f720364", null ],
+    [ "check", "d2/d48/a01472.html#ad9b49bd939ee8436beba16d0c5807d2d", null ],
+    [ "getGroup", "d2/d48/a01472.html#a30603f0f58acdeb52a34b2cb29ba7f84", null ],
+    [ "number", "d2/d48/a01472.html#a62150fc8a09bbca2eb47616fad11247b", null ],
+    [ "operator const Group *", "d2/d48/a01472.html#aaa34e1e2c219d6ad3ed651a34e1e9930", null ],
+    [ "operator=", "d2/d48/a01472.html#a97b0b95d99e1a1a71e60d4e26cd88880", null ],
+    [ "operator=", "d2/d48/a01472.html#adb79d64af57f5d98b699d3a1f82932dc", null ],
+    [ "read", "d2/d48/a01472.html#a73843ca5299557e42043f9da9871a5d3", null ]
 ];

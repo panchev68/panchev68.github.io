@@ -1,4 +1,5 @@
 var a02763 =
 [
-    [ "Lib::HAL::OSPI::Port&lt; DriverMode::IT &gt;", "d4/d49/a01590.html", "d4/d49/a01590" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface", "d7/d12/a00911.html", "d7/d12/a00911" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Interface::Config", "d2/d5e/a00915.html", "d2/d5e/a00915" ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RTOS::TickCounter</title>
+<title>Library: RTOS::EventGroup</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,7 +27,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,39 +111,57 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/dd6/a02221.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::TickCounter</div></div>
+  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example demonstrating common TickCounter utilities: reading the tick count, computing elapsed ticks, and converting between milliseconds and ticks.</p>
-<p>Example demonstrating common TickCounter utilities: reading the tick count, computing elapsed ticks, and converting between milliseconds and ticks. The example shows a simple timing measurement performed inside a task context using RTOS::Task::delay for portability.</p>
-<p>The example assumes the FreeRTOS scheduler is running. Use the provided conversion helpers to avoid manual arithmetic errors when working with timeouts and delays.</p>
-<dl class="section note"><dt>Note</dt><dd>All APIs are static; TickCounter is non-instantiable.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/dd6/a02221.html" title="RTOS::TickCounter">RTOS::TickCounter</a>, <a class="el" href="../../db/d68/a02028.html#a1c0c1a0a57ee9332e741c8422eebbffe" title="RTOS::Task::delay">RTOS::Task::delay</a></dd></dl>
+<p>Demonstrates opening an <b>RTOS::EventGroup</b>, setting bits from a task and from an ISR, waiting for them, and clearing them on exit.</p>
+<p>Demonstrates opening an <b>RTOS::EventGroup</b>, setting bits from a task and from an ISR, waiting for them, and clearing them on exit.The task waits for two event bits with a <b>std::chrono</b> timeout; one bit is set by the task itself and the other by an interrupt through <b>setBitsFromISR()</b>, which is deferred to the timer daemon task and therefore needs <b>configUSE_TIMERS</b> and <b>INCLUDE_xTimerPendFunctionCall</b>. Only the low 24 bits are usable (8 bits with <b>configUSE_16_BIT_TICKS</b>); FreeRTOS reserves the rest.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../dd/dd6/a02221.html" title="RTOS::EventGroup">RTOS::EventGroup</a></dd></dl>
 <dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Lib/RTOS/TickCounter.hpp&quot;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;Lib/RTOS/Task.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/da3/a00593.html">Lib/RTOS/FreeRTOS/EventGroup.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timingTask() {</div>
-<div class="line">    <span class="comment">// Record start tick</span></div>
-<div class="line">    <span class="keyword">const</span> <a id="_a0" name="_a0"></a><a class="code hl_typedef" href="../../d9/db6/a02056.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> start = <a id="a1" name="a1"></a><a class="code hl_function" href="../../d9/db6/a02056.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a>();</div>
+<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Do some work and delay 150 ms</span></div>
-<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d68/a02028.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(<a id="_a3" name="_a3"></a><a class="code hl_function" href="../../d9/db6/a02056.html#ab989c78c9372d3a77abe63135650fd14">RTOS::TickCounter::msToTicks</a>(150U));</div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Compute elapsed ticks since start and convert to milliseconds</span></div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> elapsedTicks = <a id="a4" name="a4"></a><a class="code hl_function" href="../../d9/db6/a02056.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a>(start);</div>
-<div class="line">    <span class="keyword">const</span> uint32_t elapsedMs = <a id="a5" name="a5"></a><a class="code hl_function" href="../../d9/db6/a02056.html#ac56249d4802c3597d13fb0534586e09c">RTOS::TickCounter::ticksToMs</a>(elapsedTicks);</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d9d/a01972.html">RTOS::EventGroup</a> events;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Use elapsedMs for logging, checks or timeout adjustments</span></div>
-<div class="line">    (void)elapsedMs; <span class="comment">// suppress unused-variable warnings in example</span></div>
+<div class="line"><span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../db/d9d/a01972.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> TASK_READY{1U &lt;&lt; 0U};</div>
+<div class="line"><span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../db/d9d/a01972.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> DATA_READY{1U &lt;&lt; 3U};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> EXTI0_IRQHandler() {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../db/d9d/a01972.html#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a>(DATA_READY)); <span class="comment">// Yields to the daemon task if needed.</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa02028_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../db/d68/a02028.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the current task for specified ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:413</div></div>
-<div class="ttc" id="aa02056_html_a3bd8941116778102907c08b9b5184316"><div class="ttname"><a href="../../d9/db6/a02056.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a></div><div class="ttdeci">static TickType get() noexcept</div><div class="ttdoc">Returns the current scheduler tick count.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:67</div></div>
-<div class="ttc" id="aa02056_html_a97f0500abd250ef6ac60226faa35ccfa"><div class="ttname"><a href="../../d9/db6/a02056.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a></div><div class="ttdeci">static TickType getElapsedTicksSince(TickType startTick) noexcept</div><div class="ttdoc">Computes ticks elapsed since a previously captured tick value.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:88</div></div>
-<div class="ttc" id="aa02056_html_ab989c78c9372d3a77abe63135650fd14"><div class="ttname"><a href="../../d9/db6/a02056.html#ab989c78c9372d3a77abe63135650fd14">RTOS::TickCounter::msToTicks</a></div><div class="ttdeci">static constexpr TickType msToTicks(uint32_t ms) noexcept</div><div class="ttdoc">Converts a millisecond duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:108</div></div>
-<div class="ttc" id="aa02056_html_ac56249d4802c3597d13fb0534586e09c"><div class="ttname"><a href="../../d9/db6/a02056.html#ac56249d4802c3597d13fb0534586e09c">RTOS::TickCounter::ticksToMs</a></div><div class="ttdeci">static constexpr uint32_t ticksToMs(TickType ticks) noexcept</div><div class="ttdoc">Converts a scheduler tick count to milliseconds.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:118</div></div>
-<div class="ttc" id="aa02056_html_af8b741f7cd6bd8cefd26aae83980fbfd"><div class="ttname"><a href="../../d9/db6/a02056.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:34</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!events.<a id="a3" name="a3"></a><a class="code hl_function" href="../../db/d9d/a01972.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a4" name="a4"></a><a class="code hl_function" href="../../db/d9d/a01972.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(TASK_READY));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wait up to 1 s for both bits; they are cleared on exit only if both were set.</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = events.<a id="a5" name="a5"></a><a class="code hl_function" href="../../db/d9d/a01972.html#aee10df615252c5814a3543f8d5924ac6">waitForBits</a>(TASK_READY | DATA_READY, 1s, <span class="keyword">true</span>, <span class="keyword">true</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> ((result &amp; (TASK_READY | DATA_READY)) == (TASK_READY | DATA_READY)) {</div>
+<div class="line">        <span class="comment">// Both bits set.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timeout or only one bit set.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    events.<a id="a6" name="a6"></a><a class="code hl_function" href="../../db/d9d/a01972.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00593_html"><div class="ttname"><a href="../../d2/da3/a00593.html">EventGroup.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Event Groups.</div></div>
+<div class="ttc" id="aa01972_html"><div class="ttname"><a href="../../db/d9d/a01972.html">RTOS::EventGroup</a></div><div class="ttdoc">RAII wrapper for FreeRTOS Event Group handles.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:44</div></div>
+<div class="ttc" id="aa01972_html_a13c55cc45daa6d96a1f21460a4c71626"><div class="ttname"><a href="../../db/d9d/a01972.html#a13c55cc45daa6d96a1f21460a4c71626">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(Bits bitsToSet) noexcept</div><div class="ttdoc">Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted ta...</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:297</div></div>
+<div class="ttc" id="aa01972_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../db/d9d/a01972.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets specific bits in the group, unblocking every task whose wait condition is now met.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:254</div></div>
+<div class="ttc" id="aa01972_html_a27fe7bec268decd9b548d4ad2375ca34"><div class="ttname"><a href="../../db/d9d/a01972.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></div><div class="ttdeci">std::bitset&lt; EVENT_GROUP_BIT_WIDTH &gt; Bits</div><div class="ttdoc">Event group bits; bits above the usable width cannot exist.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:52</div></div>
+<div class="ttc" id="aa01972_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../db/d9d/a01972.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native event group and releases its resources.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:131</div></div>
+<div class="ttc" id="aa01972_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../db/d9d/a01972.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native FreeRTOS event group with all bits cleared, if not already open.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:114</div></div>
+<div class="ttc" id="aa01972_html_aee10df615252c5814a3543f8d5924ac6"><div class="ttname"><a href="../../db/d9d/a01972.html#aee10df615252c5814a3543f8d5924ac6">RTOS::EventGroup::waitForBits</a></div><div class="ttdeci">Bits waitForBits(Bits requestedBits, TickType timeout, bool clearOnExit=true, bool waitForAll=true) noexcept</div><div class="ttdoc">Blocks until the requested bits are set, or the timeout expires.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:156</div></div>
+</div><!-- fragment --><p>Results:</p><ul>
+<li><b>result</b> holds the bits as they were when the wait ended, before the clear on exit.</li>
+</ul>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

@@ -1,7 +1,12 @@
 var a01900 =
 [
-    [ "estimatedError", "d5/dcc/a01900.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "d5/dcc/a01900.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "d5/dcc/a01900.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "d5/dcc/a01900.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "getLocalTransition", "d5/dcc/a01900.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
+    [ "getOffset", "d5/dcc/a01900.html#a5b83c2cf38318866e23774caee880570", null ],
+    [ "isValid", "d5/dcc/a01900.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
+    [ "dayOfWeek", "d5/dcc/a01900.html#a71011003fee57e0e6420889a983146f2", null ],
+    [ "hour", "d5/dcc/a01900.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
+    [ "month", "d5/dcc/a01900.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
+    [ "offsetMinutes", "d5/dcc/a01900.html#ade82abb20d81fccacc264075f09a1667", null ],
+    [ "ruleName", "d5/dcc/a01900.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
+    [ "weekOfMonth", "d5/dcc/a01900.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
 ];

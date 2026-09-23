@@ -1,20 +1,18 @@
 var a00932 =
 [
-    [ "Register", "dc/d2b/a00936.html", "dc/d2b/a00936" ],
-    [ "Config", "d8/dbb/a00932.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
-    [ "Info", "d8/dbb/a00932.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
-    [ "W25Q128JVSIQ", "d8/dbb/a00932.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
-    [ "~W25Q128JVSIQ", "d8/dbb/a00932.html#ab9c5bae7857e7012ad972a143a2f6061", null ],
-    [ "W25Q128JVSIQ", "d8/dbb/a00932.html#a8e63f6957e7d3835c28850539c92b803", null ],
-    [ "W25Q128JVSIQ", "d8/dbb/a00932.html#ab86a72c21a4af20d878b815237041775", null ],
-    [ "close", "d8/dbb/a00932.html#a55035a929afd299ffa29fd2189dacfba", null ],
-    [ "eraseChip", "d8/dbb/a00932.html#ab026a3f275557a196219bc938bb5910b", null ],
-    [ "eraseSector", "d8/dbb/a00932.html#a021f11ec22078f7a52e6da5be4ff22e2", null ],
-    [ "getInfo", "d8/dbb/a00932.html#ae3127d396d2331ea31ce306210743056", null ],
-    [ "isPresent", "d8/dbb/a00932.html#af9ea4290ba97a3a8e05bed9662359a4c", null ],
-    [ "open", "d8/dbb/a00932.html#ab6f313ee4be72fb388d2a31f2bf60135", null ],
-    [ "operator=", "d8/dbb/a00932.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
-    [ "operator=", "d8/dbb/a00932.html#a042aafe50feeb5ffe960d362458e460e", null ],
-    [ "read", "d8/dbb/a00932.html#aafd7900347abf238546c4c203dbc0ce5", null ],
-    [ "write", "d8/dbb/a00932.html#ab01e7dde91a521608ccd9ab3f8bcfbda", null ]
+    [ "Command", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

@@ -1,5 +1,5 @@
 var a02733 =
 [
-    [ "Lib::XCOM::Protocol", "d5/d23/a02110.html", "d5/d23/a02110" ],
-    [ "Lib::XCOM::Protocol::Frame", "da/d4a/a02114.html", "da/d4a/a02114" ]
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;", "dc/d8c/a00859.html", "dc/d8c/a00859" ],
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;::Config", "d7/d49/a00863.html", "d7/d49/a00863" ]
 ];

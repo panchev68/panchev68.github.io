@@ -1,5 +1,5 @@
 var a01248 =
 [
-    [ "ascFailures", "da/de0/a01248.html#a8bae64705c8642cdf1eb57ffe9e9a20b", null ],
-    [ "ccaFailures", "da/de0/a01248.html#a07993942950089e2eb10fa52686b1e9c", null ]
+    [ "firmware", "da/de0/a01248.html#af298449f4cf690b7391a6b02a5e9bfd8", null ],
+    [ "hardware", "da/de0/a01248.html#a8163b4f45dcbc970c7402dbb4cf2ffa8", null ]
 ];

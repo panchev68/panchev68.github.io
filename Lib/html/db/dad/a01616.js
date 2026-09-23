@@ -1,10 +1,10 @@
 var a01616 =
 [
-    [ "Config", "db/dad/a01616.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "db/dad/a01616.html#a920eeea7fe1327ab84d49110d2c203c0", null ],
-    [ "~Port", "db/dad/a01616.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "read", "db/dad/a01616.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "db/dad/a01616.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "db/dad/a01616.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "db/dad/a01616.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "Input", "db/dad/a01616.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "db/dad/a01616.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "isHigh", "db/dad/a01616.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "db/dad/a01616.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "db/dad/a01616.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "read", "db/dad/a01616.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "db/dad/a01616.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

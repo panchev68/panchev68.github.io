@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['taskcount_0',['TaskCount',['../d9/d4f/a01968.html#ae3ed269064d8e8dec76f8cde64bcc7ab',1,'RTOS::Kernel']]],
-  ['terminatehandler_1',['TerminateHandler',['../dc/d06/a01832.html#a0e35d785dbe7d351b99d22035ed1b718',1,'Lib::Helper::Exception']]],
-  ['ticktype_2',['TickType',['../dc/d7f/a01884.html#a0b47d84cbdd58474013fe3b38dce4974',1,'Lib::Helper::TimePeriod::TickType'],['../d9/d4f/a01968.html#a260567a10ac6eb7ace680c816c02c72c',1,'RTOS::Kernel::TickType'],['../d3/dcc/a01996.html#a74349e8aa0172b4a9f4763e24b7c10a6',1,'RTOS::MessageBuffer::TickType'],['../da/d51/a02000.html#adc2e1b449462bfc5e02a4ee323b012e5',1,'RTOS::Mutex::TickType'],['../df/df0/a02016.html#a052c7fc009c89fd8f8542c6014405b43',1,'RTOS::SemaphoreBase::TickType'],['../d7/dbe/a02024.html#aa8e929031667848dffb73aef396842ee',1,'RTOS::StreamBuffer::TickType'],['../db/d68/a02028.html#ae8e5ffc65178ca37479e618247718ca9',1,'RTOS::Task::TickType'],['../d3/df9/a02052.html#adc76fba01b70e91209e1f25d9dd7f1ce',1,'RTOS::TickClient::TickType'],['../d9/db6/a02056.html#af8b741f7cd6bd8cefd26aae83980fbfd',1,'RTOS::TickCounter::TickType'],['../de/def/a02064.html#ad723310c96803c284ff978231bdcdb67',1,'RTOS::Timer::TickType']]]
+  ['serialstring_0',['SerialString',['../d3/da9/a02131.html#aa6020b729e0f58cedf044dc7ff97b00b',1,'Lib::System::SerialNumber']]],
+  ['serverbase_1',['ServerBase',['../dc/ddc/a00727.html#ab5bb4cbc53b78fbe35d7058920026275',1,'Lib::Canbus']]],
+  ['slice_2',['Slice',['../db/daf/a01019.html#a029fda2bec067f1632bb4c002c0cc4d7',1,'Lib::BSP::SK6812']]],
+  ['socketcontrol_3',['SocketControl',['../d2/de0/a01515.html#af1065c16299d3c1a2d9169e4877e6cc2',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['socketoption_4',['SocketOption',['../d2/de0/a01515.html#a404d6ea71b094ff81c88588fd104aedc',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['spiport_5',['SpiPort',['../d0/d7d/a00799.html#a8e662cafaa683ac82c0b60d7b4da8fdc',1,'Lib::BSP::DigitalPeripheralBase']]],
+  ['st7789_6',['ST7789',['../d3/dda/a00712.html#a65945dd063f1bdba63771905189c1761',1,'Lib::BSP::Display']]]
 ];

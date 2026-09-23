@@ -1,8 +1,8 @@
 var a00812 =
 [
-    [ "~PortBase", "d8/db7/a00812.html#a2ba3e98ffcb5aeb7a0772c4bc26cf0b3", null ],
-    [ "getSpiHandle", "d8/db7/a00812.html#a0f1716a3b2c1c4c25fb74cc3b31b5651", null ],
-    [ "preUpdateCallback", "d8/db7/a00812.html#a272f56d313f1f815e350de24b1e5ee37", null ],
-    [ "setup", "d8/db7/a00812.html#a151478864c2f0f67d2c08f163c9cfb86", null ],
-    [ "update", "d8/db7/a00812.html#a647f5701366b004030c6be8bbc28add4", null ]
+    [ "mappingFields", "d8/db7/a00812.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "d8/db7/a00812.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "d8/db7/a00812.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "d8/db7/a00812.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "d8/db7/a00812.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

@@ -1,6 +1,6 @@
 var a02712 =
 [
-    [ "Lib::Canbus::Service&lt; Mode::SERVER &gt;", "d4/d56/a01042.html", "d4/d56/a01042" ],
-    [ "NUM_OF_CANBUS_CLIENT_NODES", "df/dc7/a02712.html#a11d7d7b28667bcb585fa645eb27f1da3", null ],
-    [ "Lib::Canbus::ServerBase", "df/d46/a00664.html#ab5bb4cbc53b78fbe35d7058920026275", null ]
+    [ "Lib::Canbus::ServiceBase", "d4/dc5/a01116.html", "d4/dc5/a01116" ],
+    [ "Lib::Canbus::ServiceBase::Node", "dc/d51/a01120.html", "dc/d51/a01120" ],
+    [ "Lib::Canbus::ServiceBase::Diagnostic", "d0/dc8/a01124.html", "d0/dc8/a01124" ]
 ];

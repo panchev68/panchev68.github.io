@@ -1,4 +1,5 @@
 var a02679 =
 [
-    [ "Lib::BSP::RFID::MFRC522::Interface", "d5/d54/a00938.html", "d5/d54/a00938" ]
+    [ "Lib::Digi::Core::Frame::Helper", "d7/d57/a01348.html", "d7/d57/a01348" ],
+    [ "Lib::Digi::Core::Frame::Helper::Convert", "d0/d85/a01352.html", null ]
 ];

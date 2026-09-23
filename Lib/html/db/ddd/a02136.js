@@ -1,10 +1,7 @@
 var a02136 =
 [
-    [ "Base", "de/d81/a02140.html", "de/d81/a02140" ],
-    [ "Hardware", "dc/d29/a02144.html", "dc/d29/a02144" ],
-    [ "Firmware", "d2/d08/a02148.html", "d2/d08/a02148" ],
-    [ "Status", "db/ddd/a02136.html#addb7dbc1750ccb62882fc130f2bc07fa", [
-      [ "OK", "db/ddd/a02136.html#addb7dbc1750ccb62882fc130f2bc07faae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "db/ddd/a02136.html#addb7dbc1750ccb62882fc130f2bc07faabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "firmwareSubversion", "db/ddd/a02136.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
+    [ "firmwareVersionString", "db/ddd/a02136.html#a6b83c53d998379f08471d89aead2818e", null ],
+    [ "hardwareSubversion", "db/ddd/a02136.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
+    [ "hardwareVersionString", "db/ddd/a02136.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
 ];

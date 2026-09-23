@@ -1,5 +1,5 @@
 var a00110 =
 [
-    [ "BSP::TMP102", "d6/d6a/a01072.html", "d6/d6a/a01072" ],
-    [ "BSP::TMP102::Config", "d6/d80/a01076.html", "d6/d80/a01076" ]
+    [ "BSP::TMP102", "d0/d90/a01059.html", "d0/d90/a01059" ],
+    [ "BSP::TMP102::Config", "de/de6/a01063.html", "de/de6/a01063" ]
 ];

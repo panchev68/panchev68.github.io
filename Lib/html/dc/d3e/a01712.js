@@ -1,13 +1,11 @@
 var a01712 =
 [
-    [ "SPIPortBase", "dc/d3e/a01712.html#a83f1dc9bb74386be3366bc9ace08d37a", null ],
-    [ "~SPIPortBase", "dc/d3e/a01712.html#a4be58d0b35e698200c87605b58657617", null ],
-    [ "bindBeginTransactionFunc", "dc/d3e/a01712.html#a337a836c5de402d2e701a94771084d55", null ],
-    [ "bindEndTransactionFunc", "dc/d3e/a01712.html#ae0fe61ddca238956c991a5095765f516", null ],
-    [ "close", "dc/d3e/a01712.html#a21acdaea84d35a04b8fad0a16342d338", null ],
-    [ "isBusy", "dc/d3e/a01712.html#a2f165758e51e620c32bd33e9a1bea33f", null ],
-    [ "open", "dc/d3e/a01712.html#a74fd6cb722bd0813d0e8e9bbd7381181", null ],
-    [ "receive", "dc/d3e/a01712.html#a7507c2d2f2db1a783ba8615ad04f3a22", null ],
-    [ "send", "dc/d3e/a01712.html#ad0458e286c30874a4cfcc4daecbe4b80", null ],
-    [ "sendReceive", "dc/d3e/a01712.html#a10394e1e760fc79fb3b6daef2e36238e", null ]
+    [ "Event", "d4/df6/a01716.html", null ],
+    [ "SPIPort", "dc/d3e/a01712.html#a6887b333ef818d3bd80112c8ce57998d", null ],
+    [ "~SPIPort", "dc/d3e/a01712.html#a3c1c2c8c35984e9252444214a82cb580", null ],
+    [ "abort", "dc/d3e/a01712.html#a6cb270a1c943f01441c7e1e2ce162152", null ],
+    [ "close", "dc/d3e/a01712.html#a3d92d38cf9aaad4c5b993319ea841937", null ],
+    [ "open", "dc/d3e/a01712.html#a3d8b450a6c14d306d599129878b516aa", null ],
+    [ "waitForEvent", "dc/d3e/a01712.html#a4223a8d192aa444f52e1c3ef5d123cec", null ],
+    [ "SPIPortBase< SPIPort< DriverMode::IT > >", "dc/d3e/a01712.html#a8818b3819068e3558f2ee4768a0b6669", null ]
 ];

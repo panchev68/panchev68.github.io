@@ -1,5 +1,4 @@
 var a02714 =
 [
-    [ "Lib::XCOM::ServiceBase", "d5/ddd/a02184.html", "d5/ddd/a02184" ],
-    [ "Lib::XCOM::ServiceBase::Value64Handle", "dc/d3c/a02188.html", "dc/d3c/a02188" ]
+    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "db/dfd/a01576.html", "db/dfd/a01576" ]
 ];
