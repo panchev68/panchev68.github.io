@@ -1,7 +1,14 @@
 var a00768 =
 [
-    [ "Config", "d9/d9c/a00772.html", "d9/d9c/a00772" ],
-    [ "Beep", "d8/d20/a00768.html#a4884dabff2586fbf4eb9e94bbd9b5209", null ],
-    [ "~Beep", "d8/d20/a00768.html#a7f893c863429547b0110c95ccace9ed1", null ],
-    [ "play", "d8/d20/a00768.html#a91230657d298b3d328d739321eef8bdf", null ]
+    [ "Configuration", "db/d6c/a02130.html", "db/d6c/a02130" ],
+    [ "FirmwareVersion", "da/d42/a02134.html", "da/d42/a02134" ],
+    [ "HardwareVersion", "db/df6/a02138.html", "db/df6/a02138" ],
+    [ "Parameters", "d8/de7/a02146.html", "d8/de7/a02146" ],
+    [ "ProduceDate", "d4/d5d/a02150.html", "d4/d5d/a02150" ],
+    [ "SerialNumber", "d9/d8d/a02154.html", "d9/d8d/a02154" ],
+    [ "Storage", "df/de7/a02142.html", "df/de7/a02142" ],
+    [ "System", "dc/dae/a02158.html", "dc/dae/a02158" ],
+    [ "Version", "d9/d86/a02170.html", "d9/d86/a02170" ],
+    [ "VersionBase", "d5/d4d/a02186.html", "d5/d4d/a02186" ],
+    [ "StorageLike", "d2/d9a/a02227.html", null ]
 ];

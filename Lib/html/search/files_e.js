@@ -1,12 +1,13 @@
 var searchData=
 [
   ['observer_2ehpp_0',['Observer.hpp',['../d2/d04/a00281.html',1,'']]],
-  ['ospi_2ehpp_1',['OSPI.hpp',['../d1/d98/a00407.html',1,'']]],
-  ['ospi_2fw25q128jvsiq_2ehpp_2',['W25Q128JVSIQ.hpp',['../df/d91/a02774.html',1,'']]],
-  ['ospiport_2dblock_2ehpp_3',['OSPIPort-Block.hpp',['../db/dbc/a00395.html',1,'']]],
-  ['ospiport_2ddma_2ehpp_4',['OSPIPort-DMA.hpp',['../d9/dd1/a00398.html',1,'']]],
-  ['ospiport_2dit_2ehpp_5',['OSPIPort-IT.hpp',['../d7/d00/a00401.html',1,'']]],
-  ['ospiportbase_2ehpp_6',['OSPIPortBase.hpp',['../d9/de6/a00404.html',1,'']]],
-  ['otp_2ehpp_7',['OTP.hpp',['../d8/d91/a00410.html',1,'']]],
-  ['output_2ehpp_8',['Output.hpp',['../d6/d80/a00371.html',1,'']]]
+  ['ospi_2ehpp_1',['OSPI.hpp',['../d3/d29/a00419.html',1,'']]],
+  ['ospi_2fw25q128jvsiq_2ehpp_2',['W25Q128JVSIQ.hpp',['../d7/de8/a02858.html',1,'']]],
+  ['ospiport_2dblock_2ehpp_3',['OSPIPort-Block.hpp',['../d9/de6/a00404.html',1,'']]],
+  ['ospiport_2ddma_2ehpp_4',['OSPIPort-DMA.hpp',['../d1/d98/a00407.html',1,'']]],
+  ['ospiport_2dit_2ehpp_5',['OSPIPort-IT.hpp',['../d8/d91/a00410.html',1,'']]],
+  ['ospiportasync_2ehpp_6',['OSPIPortAsync.hpp',['../da/d9c/a00413.html',1,'']]],
+  ['ospiportbase_2ehpp_7',['OSPIPortBase.hpp',['../df/d15/a00416.html',1,'']]],
+  ['otp_2ehpp_8',['OTP.hpp',['../db/d43/a00422.html',1,'']]],
+  ['output_2ehpp_9',['Output.hpp',['../d4/d13/a00377.html',1,'']]]
 ];

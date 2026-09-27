@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RTOS::StreamBuffer Class Reference</title>
+<title>Library: RTOS::MutexGuard Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,168 +111,53 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/de7/a02030.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::StreamBuffer Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">RTOS::MutexGuard Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>FreeRTOS stream buffers are lock-free only for a single writer and a single reader: two tasks blocked in <b>send()</b>, or two blocked in <b>receive()</b>, trip a kernel assertion. Several writers or readers must serialize their calls themselves, e.g. with a <b>RTOS::Mutex</b>, and then use a zero timeout. A reader blocked in <b>receive()</b> wakes up once at least the trigger level is buffered or its timeout expires, and then returns whatever is available.</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../df/d50/a02725.html" title="StreamBuffer examples">StreamBuffer examples</a> </dd></dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::StreamBuffer:</div>
+<div class="textblock"><p>Task context only.</p>
+<p>The guarded mutex must already be open via <b>Mutex::open()</b>; if it is not, or if the lock times out, construction still succeeds but the critical section is left unprotected and the destructor does not unlock. Callers relying on the lock must check <b>isLocked()</b>.</p>
+<p>The class is <b>nodiscard:</b> a guard constructed as an unnamed temporary is destroyed at the end of that statement instead of holding the lock for the following code, silently defeating the RAII protection; the attribute turns that mistake into a compiler warning. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d0c/a02251.html#_a3">RTOS::MutexGuard</a>.</dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::MutexGuard:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d68/a02028.svg" width="228" height="486"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d68/a02028.svg" width="243" height="539"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a791e88c32f0ce5dd1d02d0f7abe03bab" id="r_a791e88c32f0ce5dd1d02d0f7abe03bab"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> () noexcept=default</td></tr>
-<tr class="memdesc:a791e88c32f0ce5dd1d02d0f7abe03bab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty, closed stream buffer.  <br /></td></tr>
-<tr class="memitem:abd83536e084fb1aeaa70e8d85cf29525" id="r_abd83536e084fb1aeaa70e8d85cf29525"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abd83536e084fb1aeaa70e8d85cf29525">~StreamBuffer</a> () noexcept</td></tr>
-<tr class="memdesc:abd83536e084fb1aeaa70e8d85cf29525"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native stream buffer, if open.  <br /></td></tr>
-<tr class="memitem:a935040ce16ea4f9dae2f5596b21516d6" id="r_a935040ce16ea4f9dae2f5596b21516d6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a935040ce16ea4f9dae2f5596b21516d6">StreamBuffer</a> (StreamBuffer &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a935040ce16ea4f9dae2f5596b21516d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes ownership of another stream buffer's native handle.  <br /></td></tr>
-<tr class="memitem:a60c80251d968c318350f7db4b26781a7" id="r_a60c80251d968c318350f7db4b26781a7"><td class="memItemLeft"><a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a60c80251d968c318350f7db4b26781a7">operator=</a> (<a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a60c80251d968c318350f7db4b26781a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this stream buffer, then takes ownership of another stream buffer's native handle.  <br /></td></tr>
-<tr class="memitem:adcb8b228bfa619f6f7a9c75ac77515df" id="r_adcb8b228bfa619f6f7a9c75ac77515df"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adcb8b228bfa619f6f7a9c75ac77515df">StreamBuffer</a> (const StreamBuffer &amp;)=delete</td></tr>
-<tr class="memdesc:adcb8b228bfa619f6f7a9c75ac77515df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:ac8eab9e88742bbcce6a00ce27225ddad" id="r_ac8eab9e88742bbcce6a00ce27225ddad"><td class="memItemLeft"><a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac8eab9e88742bbcce6a00ce27225ddad">operator=</a> (const <a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp;)=delete</td></tr>
-<tr class="memdesc:ac8eab9e88742bbcce6a00ce27225ddad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:aa09e180a4dce804bb789ba9c2a6b58d9" id="r_aa09e180a4dce804bb789ba9c2a6b58d9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa09e180a4dce804bb789ba9c2a6b58d9">close</a> () noexcept</td></tr>
-<tr class="memdesc:aa09e180a4dce804bb789ba9c2a6b58d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native stream buffer; does nothing if already closed.  <br /></td></tr>
-<tr class="memitem:a7f884411ea5c6b895b81aa33e6c7f1da" id="r_a7f884411ea5c6b895b81aa33e6c7f1da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7f884411ea5c6b895b81aa33e6c7f1da">reset</a> () noexcept</td></tr>
-<tr class="memdesc:a7f884411ea5c6b895b81aa33e6c7f1da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards every buffered byte.  <br /></td></tr>
-<tr class="memitem:a6655d15afb7a4123dc01349f5f444287" id="r_a6655d15afb7a4123dc01349f5f444287"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a6655d15afb7a4123dc01349f5f444287">send</a> (const void *source, size_t length, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> timeout=0U) noexcept</td></tr>
-<tr class="memdesc:a6655d15afb7a4123dc01349f5f444287"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer, blocking up to a timeout until all of them fit.  <br /></td></tr>
-<tr class="memitem:a90fd7e18b6942f386c8bd21d6b58fda9" id="r_a90fd7e18b6942f386c8bd21d6b58fda9"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a90fd7e18b6942f386c8bd21d6b58fda9 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a90fd7e18b6942f386c8bd21d6b58fda9">send</a> (const void *source, size_t length, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a90fd7e18b6942f386c8bd21d6b58fda9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer, blocking up to a <b>std::chrono</b> timeout until all of them fit.  <br /></td></tr>
-<tr class="memitem:a184b20d2e5c08e1d26f98c05a465c6f3" id="r_a184b20d2e5c08e1d26f98c05a465c6f3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a184b20d2e5c08e1d26f98c05a465c6f3">send</a> (std::string_view sv, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> timeout=0U) noexcept</td></tr>
-<tr class="memdesc:a184b20d2e5c08e1d26f98c05a465c6f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the characters of a string view, without a terminating NUL, to the buffer.  <br /></td></tr>
-<tr class="memitem:ad3a704d6aa37e9556bb5976cb2aef264" id="r_ad3a704d6aa37e9556bb5976cb2aef264"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; !std::is_array_v&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- std::is_trivially_copyable_v&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:ad3a704d6aa37e9556bb5976cb2aef264 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ad3a704d6aa37e9556bb5976cb2aef264">send</a> (const T_RANGE &amp;range, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> timeout=0U) noexcept</td></tr>
-<tr class="memdesc:ad3a704d6aa37e9556bb5976cb2aef264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container (e.g.  <br /></td></tr>
-<tr class="memitem:ac075893a2ae54de669ab71b07609f8a1" id="r_ac075893a2ae54de669ab71b07609f8a1"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac075893a2ae54de669ab71b07609f8a1">sendFromISR</a> (const void *source, size_t length, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:ac075893a2ae54de669ab71b07609f8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer from an interrupt, without blocking.  <br /></td></tr>
-<tr class="memitem:a763df13de8b80bb510f7a64f2f7bbb48" id="r_a763df13de8b80bb510f7a64f2f7bbb48"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a763df13de8b80bb510f7a64f2f7bbb48">sendFromISR</a> (const void *source, size_t length) noexcept</td></tr>
-<tr class="memdesc:a763df13de8b80bb510f7a64f2f7bbb48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes to the buffer from an interrupt and requests the context switch itself if the reader was unblocked.  <br /></td></tr>
-<tr class="memitem:ac42eaa4c5ee7fd155d738c5aed68b04f" id="r_ac42eaa4c5ee7fd155d738c5aed68b04f"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; !std::is_array_v&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- std::is_trivially_copyable_v&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:ac42eaa4c5ee7fd155d738c5aed68b04f template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac42eaa4c5ee7fd155d738c5aed68b04f">sendFromISR</a> (const T_RANGE &amp;range, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:ac42eaa4c5ee7fd155d738c5aed68b04f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container to the buffer from an interrupt, without blocking.  <br /></td></tr>
-<tr class="memitem:a0395a389b2611ca514780b2068950ff2" id="r_a0395a389b2611ca514780b2068950ff2"><td class="memTemplParams" colspan="2">template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; !std::is_array_v&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- std::is_trivially_copyable_v&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</td></tr>
-<tr class="memitem:a0395a389b2611ca514780b2068950ff2 template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0395a389b2611ca514780b2068950ff2">sendFromISR</a> (const T_RANGE &amp;range) noexcept</td></tr>
-<tr class="memdesc:a0395a389b2611ca514780b2068950ff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the bytes of a contiguous container to the buffer from an interrupt and requests the context switch itself if the reader was unblocked.  <br /></td></tr>
-<tr class="memitem:a4af8c6d51d2855e838887e2944b1c7d1" id="r_a4af8c6d51d2855e838887e2944b1c7d1"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a4af8c6d51d2855e838887e2944b1c7d1">receive</a> (void *dest, size_t maxLen, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> timeout=0U) noexcept</td></tr>
-<tr class="memdesc:a4af8c6d51d2855e838887e2944b1c7d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <b>maxLen</b> bytes, blocking up to a timeout until the trigger level is reached.  <br /></td></tr>
-<tr class="memitem:a03310c8bafaaa99ad0088c133c2d64ea" id="r_a03310c8bafaaa99ad0088c133c2d64ea"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a03310c8bafaaa99ad0088c133c2d64ea template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a03310c8bafaaa99ad0088c133c2d64ea">receive</a> (void *dest, size_t maxLen, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a03310c8bafaaa99ad0088c133c2d64ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <b>maxLen</b> bytes, blocking up to a <b>std::chrono</b> timeout until the trigger level is reached.  <br /></td></tr>
-<tr class="memitem:a5a5eb44d67446bcfaef1afff607277e6" id="r_a5a5eb44d67446bcfaef1afff607277e6"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5a5eb44d67446bcfaef1afff607277e6">receive</a> (std::span&lt; uint8_t &gt; dest, <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a> timeout=0U) noexcept</td></tr>
-<tr class="memdesc:a5a5eb44d67446bcfaef1afff607277e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a byte span, blocking up to a timeout until the trigger level is reached.  <br /></td></tr>
-<tr class="memitem:a97854f9de8be9d323e9fd10fa9b8189d" id="r_a97854f9de8be9d323e9fd10fa9b8189d"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a97854f9de8be9d323e9fd10fa9b8189d">receiveFromISR</a> (void *dest, size_t maxLen, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a97854f9de8be9d323e9fd10fa9b8189d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <b>maxLen</b> bytes from an interrupt, without blocking.  <br /></td></tr>
-<tr class="memitem:adf2c923f7d9b6abf2adc4271b59cbc4e" id="r_adf2c923f7d9b6abf2adc4271b59cbc4e"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#adf2c923f7d9b6abf2adc4271b59cbc4e">receiveFromISR</a> (void *dest, size_t maxLen) noexcept</td></tr>
-<tr class="memdesc:adf2c923f7d9b6abf2adc4271b59cbc4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads up to <b>maxLen</b> bytes from an interrupt and requests the context switch itself if the writer was unblocked.  <br /></td></tr>
-<tr class="memitem:a8c8cbecaeb206a4aa81064deaa0f865a" id="r_a8c8cbecaeb206a4aa81064deaa0f865a"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8c8cbecaeb206a4aa81064deaa0f865a">receiveFromISR</a> (std::span&lt; uint8_t &gt; dest, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a8c8cbecaeb206a4aa81064deaa0f865a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a byte span from an interrupt, without blocking.  <br /></td></tr>
-<tr class="memitem:a51e149ff75fdafa3903d0acc6dddcb24" id="r_a51e149ff75fdafa3903d0acc6dddcb24"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a51e149ff75fdafa3903d0acc6dddcb24">receiveFromISR</a> (std::span&lt; uint8_t &gt; dest) noexcept</td></tr>
-<tr class="memdesc:a51e149ff75fdafa3903d0acc6dddcb24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads into a byte span from an interrupt and requests the context switch itself if the writer was unblocked.  <br /></td></tr>
-<tr class="memitem:a6edc805a48a7692fb9c542f8db3f188b" id="r_a6edc805a48a7692fb9c542f8db3f188b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6edc805a48a7692fb9c542f8db3f188b">sendCompletedFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a6edc805a48a7692fb9c542f8db3f188b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unblocks a task waiting to receive, for a writer that filled the buffer by other means, e.g.  <br /></td></tr>
-<tr class="memitem:aaa933b920801befac566c8674038ad79" id="r_aaa933b920801befac566c8674038ad79"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aaa933b920801befac566c8674038ad79">receiveCompletedFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:aaa933b920801befac566c8674038ad79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unblocks a task waiting to send, for a reader that drained the buffer by other means, e.g.  <br /></td></tr>
-<tr class="memitem:aa5ac1e409b4369f454af973ddb5c7426" id="r_aa5ac1e409b4369f454af973ddb5c7426"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa5ac1e409b4369f454af973ddb5c7426">setTriggerLevel</a> (size_t level) noexcept</td></tr>
-<tr class="memdesc:aa5ac1e409b4369f454af973ddb5c7426"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the number of bytes that must be buffered to wake a blocked reader.  <br /></td></tr>
-<tr class="memitem:aca144ddaa56a23cc87168343d27cd515" id="r_aca144ddaa56a23cc87168343d27cd515"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aca144ddaa56a23cc87168343d27cd515">getBytesAvailable</a> () const noexcept</td></tr>
-<tr class="memdesc:aca144ddaa56a23cc87168343d27cd515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes ready to be read.  <br /></td></tr>
-<tr class="memitem:a7b2b0bd7bcc2d727ccd57f3a84cf9383" id="r_a7b2b0bd7bcc2d727ccd57f3a84cf9383"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a7b2b0bd7bcc2d727ccd57f3a84cf9383">getSpacesAvailable</a> () const noexcept</td></tr>
-<tr class="memdesc:a7b2b0bd7bcc2d727ccd57f3a84cf9383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of bytes that can be written without blocking.  <br /></td></tr>
-<tr class="memitem:a176079270ddb33f374241586fe5996c7" id="r_a176079270ddb33f374241586fe5996c7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a176079270ddb33f374241586fe5996c7">isEmpty</a> () const noexcept</td></tr>
-<tr class="memdesc:a176079270ddb33f374241586fe5996c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether no bytes are buffered.  <br /></td></tr>
-<tr class="memitem:aac6fea7283a53695897f243410f88c20" id="r_aac6fea7283a53695897f243410f88c20"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aac6fea7283a53695897f243410f88c20">isFull</a> () const noexcept</td></tr>
-<tr class="memdesc:aac6fea7283a53695897f243410f88c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether no byte can be written without blocking.  <br /></td></tr>
-<tr class="memitem:aee40f8d6ee707eb02ba219943b88b3f6" id="r_aee40f8d6ee707eb02ba219943b88b3f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aee40f8d6ee707eb02ba219943b88b3f6">isOpen</a> () const noexcept</td></tr>
-<tr class="memdesc:aee40f8d6ee707eb02ba219943b88b3f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the native stream buffer exists.  <br /></td></tr>
-<tr class="memitem:a725f06f4f04e9a088083224f52ddc777" id="r_a725f06f4f04e9a088083224f52ddc777"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a725f06f4f04e9a088083224f52ddc777">getCapacity</a> () const noexcept</td></tr>
-<tr class="memdesc:a725f06f4f04e9a088083224f52ddc777"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum number of bytes the buffer can hold.  <br /></td></tr>
-<tr class="memitem:a686ba54e0101dfceb25069210888b515" id="r_a686ba54e0101dfceb25069210888b515"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a686ba54e0101dfceb25069210888b515">getUtilizationPercent</a> () const noexcept</td></tr>
-<tr class="memdesc:a686ba54e0101dfceb25069210888b515"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the buffered bytes as a percentage of the capacity.  <br /></td></tr>
-<tr class="memitem:a9af2458f6d36e9bf855dbf3d83190201" id="r_a9af2458f6d36e9bf855dbf3d83190201"><td class="memItemLeft"><a class="el" href="#ac43f2585fb807014368f17cd4dd8bc9e">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9af2458f6d36e9bf855dbf3d83190201">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a9af2458f6d36e9bf855dbf3d83190201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the native handle.  <br /></td></tr>
+<tr class="memitem:a61b8b1a0414884098d80ddf7a5ce0a68" id="r_a61b8b1a0414884098d80ddf7a5ce0a68"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> ()=delete</td></tr>
+<tr class="memdesc:a61b8b1a0414884098d80ddf7a5ce0a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor: the guard must be bound to a specific mutex for its entire lifetime.  <br /></td></tr>
+<tr class="memitem:a06d66e08a55ebf1440edb711e6886307" id="r_a06d66e08a55ebf1440edb711e6886307"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a06d66e08a55ebf1440edb711e6886307">MutexGuard</a> (<a class="el" href="../../d9/dd6/a02026.html">Mutex</a> &amp;targetMutex, <a class="el" href="../../d9/dd6/a02026.html#adc2e1b449462bfc5e02a4ee323b012e5">Mutex::TickType</a> timeout=<a class="el" href="../../d9/dd6/a02026.html#acb650bbb5d2ae6ae2bab2490d29712be">Mutex::WAIT_FOREVER</a>) noexcept</td></tr>
+<tr class="memdesc:a06d66e08a55ebf1440edb711e6886307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires the lock on the provided mutex, waiting for at most the given number of ticks.  <br /></td></tr>
+<tr class="memitem:a8a8469451b606ba9c2030f5ac422e7d7" id="r_a8a8469451b606ba9c2030f5ac422e7d7"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a8a8469451b606ba9c2030f5ac422e7d7 template"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8a8469451b606ba9c2030f5ac422e7d7">MutexGuard</a> (<a class="el" href="../../d9/dd6/a02026.html">Mutex</a> &amp;targetMutex, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a8a8469451b606ba9c2030f5ac422e7d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires the lock on the provided mutex, waiting for at most the given duration.  <br /></td></tr>
+<tr class="memitem:a21aba9e001a6afec8742ff355b845ede" id="r_a21aba9e001a6afec8742ff355b845ede"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a21aba9e001a6afec8742ff355b845ede">MutexGuard</a> (<a class="el" href="../../d9/dd6/a02026.html">Mutex</a> &amp;targetMutex, const <a class="el" href="../../d6/db3/a02094.html">Timeout</a> &amp;timeout) noexcept</td></tr>
+<tr class="memdesc:a21aba9e001a6afec8742ff355b845ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Acquires the lock on the provided mutex, waiting for at most the time remaining on a shared <b>Timeout</b> budget.  <br /></td></tr>
+<tr class="memitem:a35526aab46b7a21b967df7060f8d6747" id="r_a35526aab46b7a21b967df7060f8d6747"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a35526aab46b7a21b967df7060f8d6747">~MutexGuard</a> () noexcept</td></tr>
+<tr class="memdesc:a35526aab46b7a21b967df7060f8d6747"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the lock on the guarded mutex, unless the constructor failed to acquire it or <b>unlock()</b> already released it.  <br /></td></tr>
+<tr class="memitem:a271282f741f6a7c1dcebff1616c9916e" id="r_a271282f741f6a7c1dcebff1616c9916e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a271282f741f6a7c1dcebff1616c9916e">MutexGuard</a> (const MutexGuard &amp;)=delete</td></tr>
+<tr class="memdesc:a271282f741f6a7c1dcebff1616c9916e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:ada341f5a3644025a9b57e448e023d88b" id="r_ada341f5a3644025a9b57e448e023d88b"><td class="memItemLeft"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ada341f5a3644025a9b57e448e023d88b">operator=</a> (const <a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ada341f5a3644025a9b57e448e023d88b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:a66f7b610af22e97faef98e233dbd46d5" id="r_a66f7b610af22e97faef98e233dbd46d5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a66f7b610af22e97faef98e233dbd46d5">MutexGuard</a> (MutexGuard &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a66f7b610af22e97faef98e233dbd46d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:ab3ecbdac4533bf5b0bc98c2b855d335b" id="r_ab3ecbdac4533bf5b0bc98c2b855d335b"><td class="memItemLeft"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab3ecbdac4533bf5b0bc98c2b855d335b">operator=</a> (<a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:ab3ecbdac4533bf5b0bc98c2b855d335b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the guard owns the lock of one scope.  <br /></td></tr>
+<tr class="memitem:aac958a4a6fa41d74c55c0a3de3e817af" id="r_aac958a4a6fa41d74c55c0a3de3e817af"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aac958a4a6fa41d74c55c0a3de3e817af">unlock</a> () noexcept</td></tr>
+<tr class="memdesc:aac958a4a6fa41d74c55c0a3de3e817af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the lock before the end of the scope; the destructor then does nothing.  <br /></td></tr>
+<tr class="memitem:a3f156fd8fcb57426c142acbd54ddb267" id="r_a3f156fd8fcb57426c142acbd54ddb267"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3f156fd8fcb57426c142acbd54ddb267">isLocked</a> () const noexcept</td></tr>
+<tr class="memdesc:a3f156fd8fcb57426c142acbd54ddb267"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the guard currently holds the lock.  <br /></td></tr>
+<tr class="memitem:af9126f464f900d7777d9bb069a13265b" id="r_af9126f464f900d7777d9bb069a13265b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af9126f464f900d7777d9bb069a13265b">operator bool</a> () const noexcept</td></tr>
+<tr class="memdesc:af9126f464f900d7777d9bb069a13265b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the mutex acquisition was successful, so the guard can be tested directly in an <b>if</b> statement.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ac43f2585fb807014368f17cd4dd8bc9e" name="ac43f2585fb807014368f17cd4dd8bc9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac43f2585fb807014368f17cd4dd8bc9e">&#9670;&#160;</a></span>Handle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ac43f2585fb807014368f17cd4dd8bc9e">RTOS::StreamBuffer::Handle</a> = StreamBufferHandle_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac90ba1f2e3fc8ceddbefcc9e56c50407" name="ac90ba1f2e3fc8ceddbefcc9e56c50407"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">&#9670;&#160;</a></span>TickType</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">RTOS::StreamBuffer::TickType</a> = TickType_t</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="ae40918e60c2277acebaa9cba5209ca7a" name="ae40918e60c2277acebaa9cba5209ca7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae40918e60c2277acebaa9cba5209ca7a">&#9670;&#160;</a></span>Status</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#ae40918e60c2277acebaa9cba5209ca7a">RTOS::StreamBuffer::Status</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae40918e60c2277acebaa9cba5209ca7aad0749aaba8b833466dfcbb0428e4f89c" name="ae40918e60c2277acebaa9cba5209ca7aad0749aaba8b833466dfcbb0428e4f89c"></a>SUCCESS&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ae40918e60c2277acebaa9cba5209ca7aa070a0fb40f6c308ab544b227660aadff" name="ae40918e60c2277acebaa9cba5209ca7aa070a0fb40f6c308ab544b227660aadff"></a>TIMEOUT&#160;</td><td class="fielddoc"><p>Operation timed out. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ae40918e60c2277acebaa9cba5209ca7aaccc0377a8afbf50e7094f5c23a8af223" name="ae40918e60c2277acebaa9cba5209ca7aaccc0377a8afbf50e7094f5c23a8af223"></a>INVALID&#160;</td><td class="fielddoc"><p>Buffer is not open or parameter is invalid. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ae40918e60c2277acebaa9cba5209ca7aaba7de5bc6888294e5884b024a4c894f1" name="ae40918e60c2277acebaa9cba5209ca7aaba7de5bc6888294e5884b024a4c894f1"></a>FULL&#160;</td><td class="fielddoc"><p>Buffer is full. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="ae40918e60c2277acebaa9cba5209ca7aaba2b45bdc11e2a4a6e86aab2ac693cbb" name="ae40918e60c2277acebaa9cba5209ca7aaba2b45bdc11e2a4a6e86aab2ac693cbb"></a>EMPTY&#160;</td><td class="fielddoc"><p>Buffer is empty. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a791e88c32f0ce5dd1d02d0f7abe03bab" name="a791e88c32f0ce5dd1d02d0f7abe03bab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a791e88c32f0ce5dd1d02d0f7abe03bab">&#9670;&#160;</a></span>StreamBuffer() <span class="overload">[1/3]</span></h2>
+<a id="a61b8b1a0414884098d80ddf7a5ce0a68" name="a61b8b1a0414884098d80ddf7a5ce0a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61b8b1a0414884098d80ddf7a5ce0a68">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,7 +166,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::StreamBuffer::StreamBuffer </td>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -289,22 +174,21 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Call <b>open()</b> or <b>createStatic()</b> before use. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a791e88c32f0ce5dd1d02d0f7abe03bab_icgraph.svg" width="342" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a61b8b1a0414884098d80ddf7a5ce0a68_icgraph.svg" width="490" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="abd83536e084fb1aeaa70e8d85cf29525" name="abd83536e084fb1aeaa70e8d85cf29525"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abd83536e084fb1aeaa70e8d85cf29525">&#9670;&#160;</a></span>~StreamBuffer()</h2>
+<a id="a06d66e08a55ebf1440edb711e6886307" name="a06d66e08a55ebf1440edb711e6886307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06d66e08a55ebf1440edb711e6886307">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -313,7 +197,124 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::StreamBuffer::~StreamBuffer </td>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dd6/a02026.html">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetMutex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d9/dd6/a02026.html#adc2e1b449462bfc5e02a4ee323b012e5">Mutex::TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d9/dd6/a02026.html#acb650bbb5d2ae6ae2bab2490d29712be">Mutex::WAIT_FOREVER</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetMutex</td><td>The mutex instance to guard; must outlive the guard. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the mutex lock, in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8a8469451b606ba9c2030f5ac422e7d7" name="a8a8469451b606ba9c2030f5ac422e7d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a8469451b606ba9c2030f5ac422e7d7">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[3/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dd6/a02026.html">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetMutex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetMutex</td><td>The mutex instance to guard; must outlive the guard. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait for the mutex lock, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a21aba9e001a6afec8742ff355b845ede" name="a21aba9e001a6afec8742ff355b845ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21aba9e001a6afec8742ff355b845ede">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[4/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d9/dd6/a02026.html">Mutex</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>targetMutex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../d6/db3/a02094.html">Timeout</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">targetMutex</td><td>The mutex instance to guard; must outlive the guard. </td></tr>
+    <tr><td class="paramname">timeout</td><td>The shared timeout budget; an expired one makes the attempt non-blocking. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a35526aab46b7a21b967df7060f8d6747" name="a35526aab46b7a21b967df7060f8d6747"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35526aab46b7a21b967df7060f8d6747">&#9670;&#160;</a></span>~MutexGuard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::~MutexGuard </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -322,6 +323,31 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a271282f741f6a7c1dcebff1616c9916e" name="a271282f741f6a7c1dcebff1616c9916e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a271282f741f6a7c1dcebff1616c9916e">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[5/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
+          <td>(</td>
+          <td class="paramtype">const MutexGuard &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -329,50 +355,13 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_abd83536e084fb1aeaa70e8d85cf29525_cgraph.svg" width="534" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a271282f741f6a7c1dcebff1616c9916e_cgraph.svg" width="490" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a935040ce16ea4f9dae2f5596b21516d6" name="a935040ce16ea4f9dae2f5596b21516d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a935040ce16ea4f9dae2f5596b21516d6">&#9670;&#160;</a></span>StreamBuffer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">RTOS::StreamBuffer::StreamBuffer </td>
-          <td>(</td>
-          <td class="paramtype">StreamBuffer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a935040ce16ea4f9dae2f5596b21516d6_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="adcb8b228bfa619f6f7a9c75ac77515df" name="adcb8b228bfa619f6f7a9c75ac77515df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adcb8b228bfa619f6f7a9c75ac77515df">&#9670;&#160;</a></span>StreamBuffer() <span class="overload">[3/3]</span></h2>
+<a id="a66f7b610af22e97faef98e233dbd46d5" name="a66f7b610af22e97faef98e233dbd46d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f7b610af22e97faef98e233dbd46d5">&#9670;&#160;</a></span>MutexGuard() <span class="overload">[6/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -381,9 +370,9 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::StreamBuffer::StreamBuffer </td>
+          <td class="memname">RTOS::MutexGuard::MutexGuard </td>
           <td>(</td>
-          <td class="paramtype">const StreamBuffer &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">MutexGuard &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -393,18 +382,18 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_adcb8b228bfa619f6f7a9c75ac77515df_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a66f7b610af22e97faef98e233dbd46d5_cgraph.svg" width="490" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aa09e180a4dce804bb789ba9c2a6b58d9" name="aa09e180a4dce804bb789ba9c2a6b58d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa09e180a4dce804bb789ba9c2a6b58d9">&#9670;&#160;</a></span>close()</h2>
+<a id="a3f156fd8fcb57426c142acbd54ddb267" name="a3f156fd8fcb57426c142acbd54ddb267"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f156fd8fcb57426c142acbd54ddb267">&#9670;&#160;</a></span>isLocked()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -413,45 +402,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void RTOS::StreamBuffer::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>No task may be blocked on the buffer at this point. </p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_aa09e180a4dce804bb789ba9c2a6b58d9_cgraph.svg" width="344" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_aa09e180a4dce804bb789ba9c2a6b58d9_icgraph.svg" width="342" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aca144ddaa56a23cc87168343d27cd515" name="aca144ddaa56a23cc87168343d27cd515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca144ddaa56a23cc87168343d27cd515">&#9670;&#160;</a></span>getBytesAvailable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::getBytesAvailable </td>
+          <td class="memname">bool RTOS::MutexGuard::isLocked </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -463,12 +414,20 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Buffered bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the lock was acquired and not released by <b>unlock()</b>, <b>false</b> otherwise (including if the mutex was never opened via <b>Mutex::open()</b>). </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d1/d0c/a02251.html#a4">RTOS::MutexGuard</a>.</dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a3f156fd8fcb57426c142acbd54ddb267_icgraph.svg" width="634" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a725f06f4f04e9a088083224f52ddc777" name="a725f06f4f04e9a088083224f52ddc777"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a725f06f4f04e9a088083224f52ddc777">&#9670;&#160;</a></span>getCapacity()</h2>
+<a id="af9126f464f900d7777d9bb069a13265b" name="af9126f464f900d7777d9bb069a13265b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9126f464f900d7777d9bb069a13265b">&#9670;&#160;</a></span>operator bool()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,7 +436,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::getCapacity </td>
+          <td class="memname">RTOS::MutexGuard::operator bool </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -485,17 +444,16 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>FreeRTOS does not expose this value, so it is cached at creation time.</p>
-<dl class="section return"><dt>Returns</dt><dd>Capacity in bytes, or 0 if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Same value as <b>isLocked()</b>. </dd></dl>
 
 </div>
 </div>
-<a id="a9af2458f6d36e9bf855dbf3d83190201" name="a9af2458f6d36e9bf855dbf3d83190201"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9af2458f6d36e9bf855dbf3d83190201">&#9670;&#160;</a></span>getHandle()</h2>
+<a id="ada341f5a3644025a9b57e448e023d88b" name="ada341f5a3644025a9b57e448e023d88b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada341f5a3644025a9b57e448e023d88b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -504,165 +462,9 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ac43f2585fb807014368f17cd4dd8bc9e">Handle</a> RTOS::StreamBuffer::getHandle </td>
+          <td class="memname"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp; RTOS::MutexGuard::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Native stream buffer handle, or <b>nullptr</b> if closed. </dd></dl>
-
-</div>
-</div>
-<a id="a7b2b0bd7bcc2d727ccd57f3a84cf9383" name="a7b2b0bd7bcc2d727ccd57f3a84cf9383"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b2b0bd7bcc2d727ccd57f3a84cf9383">&#9670;&#160;</a></span>getSpacesAvailable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::getSpacesAvailable </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Free bytes, or 0 if closed. </dd></dl>
-
-</div>
-</div>
-<a id="a686ba54e0101dfceb25069210888b515" name="a686ba54e0101dfceb25069210888b515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a686ba54e0101dfceb25069210888b515">&#9670;&#160;</a></span>getUtilizationPercent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t RTOS::StreamBuffer::getUtilizationPercent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Utilization in the range 0 to 100, or 0 if closed. </dd></dl>
-
-</div>
-</div>
-<a id="a176079270ddb33f374241586fe5996c7" name="a176079270ddb33f374241586fe5996c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a176079270ddb33f374241586fe5996c7">&#9670;&#160;</a></span>isEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::isEmpty </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if empty or closed. </dd></dl>
-
-</div>
-</div>
-<a id="aac6fea7283a53695897f243410f88c20" name="aac6fea7283a53695897f243410f88c20"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac6fea7283a53695897f243410f88c20">&#9670;&#160;</a></span>isFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::isFull </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if full, <b>false</b> if there is space or the buffer is closed. </dd></dl>
-
-</div>
-</div>
-<a id="aee40f8d6ee707eb02ba219943b88b3f6" name="aee40f8d6ee707eb02ba219943b88b3f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee40f8d6ee707eb02ba219943b88b3f6">&#9670;&#160;</a></span>isOpen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::isOpen </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if open. </dd></dl>
-
-</div>
-</div>
-<a id="ac8eab9e88742bbcce6a00ce27225ddad" name="ac8eab9e88742bbcce6a00ce27225ddad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8eab9e88742bbcce6a00ce27225ddad">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp; RTOS::StreamBuffer::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -673,17 +475,17 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 </table>
 </div><div class="memdoc">
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_ac8eab9e88742bbcce6a00ce27225ddad_cgraph.svg" width="344" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_ada341f5a3644025a9b57e448e023d88b_cgraph.svg" width="474" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a60c80251d968c318350f7db4b26781a7" name="a60c80251d968c318350f7db4b26781a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60c80251d968c318350f7db4b26781a7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="ab3ecbdac4533bf5b0bc98c2b855d335b" name="ab3ecbdac4533bf5b0bc98c2b855d335b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ecbdac4533bf5b0bc98c2b855d335b">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -692,9 +494,41 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp; RTOS::StreamBuffer::operator= </td>
+          <td class="memname"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp; RTOS::MutexGuard::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a791e88c32f0ce5dd1d02d0f7abe03bab">StreamBuffer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a61b8b1a0414884098d80ddf7a5ce0a68">MutexGuard</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_ab3ecbdac4533bf5b0bc98c2b855d335b_cgraph.svg" width="474" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aac958a4a6fa41d74c55c0a3de3e817af" name="aac958a4a6fa41d74c55c0a3de3e817af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac958a4a6fa41d74c55c0a3de3e817af">&#9670;&#160;</a></span>unlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::MutexGuard::unlock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -704,896 +538,12 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a60c80251d968c318350f7db4b26781a7_cgraph.svg" width="534" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a5a5eb44d67446bcfaef1afff607277e6" name="a5a5eb44d67446bcfaef1afff607277e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a5eb44d67446bcfaef1afff607277e6">&#9670;&#160;</a></span>receive() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receive </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the bytes; must not be empty. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">timeout</td><td>Maximum number of ticks to block; <b>portMAX_DELAY</b> waits indefinitely. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <b>dest</b>. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a5a5eb44d67446bcfaef1afff607277e6_cgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a03310c8bafaaa99ad0088c133c2d64ea" name="a03310c8bafaaa99ad0088c133c2d64ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03310c8bafaaa99ad0088c133c2d64ea">&#9670;&#160;</a></span>receive() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receive </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>maxLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
-    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramname">maxLen</td><td>Capacity of <b>dest</b> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; 0 on timeout with an empty buffer or if the buffer is closed. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a03310c8bafaaa99ad0088c133c2d64ea_cgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4af8c6d51d2855e838887e2944b1c7d1" name="a4af8c6d51d2855e838887e2944b1c7d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4af8c6d51d2855e838887e2944b1c7d1">&#9670;&#160;</a></span>receive() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receive </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>maxLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramname">maxLen</td><td>Capacity of <b>dest</b> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum number of ticks to block; <b>portMAX_DELAY</b> waits indefinitely. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read; 0 on timeout with an empty buffer or if the buffer is closed. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a4af8c6d51d2855e838887e2944b1c7d1_cgraph.svg" width="344" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a4af8c6d51d2855e838887e2944b1c7d1_icgraph.svg" width="342" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aaa933b920801befac566c8674038ad79" name="aaa933b920801befac566c8674038ad79"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa933b920801befac566c8674038ad79">&#9670;&#160;</a></span>receiveCompletedFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::receiveCompletedFromISR </td>
-          <td>(</td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>by DMA.</p>
-<p>Only needed when the kernel's own <b>sbRECEIVE_COMPLETED()</b> hook is replaced; a regular <b>receive()</b> already does this.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <b>pdTRUE</b> if the writer was unblocked; initialize it to <b>pdFALSE</b> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a blocked writer was unblocked, <b>false</b> if none was waiting or the buffer is closed. </dd></dl>
-
-</div>
-</div>
-<a id="a51e149ff75fdafa3903d0acc6dddcb24" name="a51e149ff75fdafa3903d0acc6dddcb24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51e149ff75fdafa3903d0acc6dddcb24">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the bytes; must not be empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <b>dest</b>. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a51e149ff75fdafa3903d0acc6dddcb24_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8c8cbecaeb206a4aa81064deaa0f865a" name="a8c8cbecaeb206a4aa81064deaa0f865a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c8cbecaeb206a4aa81064deaa0f865a">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">dest</td><td>Destination for the bytes; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <b>pdTRUE</b> if the writer was unblocked; initialize it to <b>pdFALSE</b> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read into the front of <b>dest</b>. </dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a8c8cbecaeb206a4aa81064deaa0f865a_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="adf2c923f7d9b6abf2adc4271b59cbc4e" name="adf2c923f7d9b6abf2adc4271b59cbc4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf2c923f7d9b6abf2adc4271b59cbc4e">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>maxLen</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramname">maxLen</td><td>Capacity of <b>dest</b> in bytes; must be greater than zero. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_adf2c923f7d9b6abf2adc4271b59cbc4e_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a97854f9de8be9d323e9fd10fa9b8189d" name="a97854f9de8be9d323e9fd10fa9b8189d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97854f9de8be9d323e9fd10fa9b8189d">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::receiveFromISR </td>
-          <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>dest</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>maxLen</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">dest</td><td>Destination for the bytes; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">maxLen</td><td>Capacity of <b>dest</b> in bytes; must be greater than zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <b>pdTRUE</b> if the writer was unblocked; initialize it to <b>pdFALSE</b> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes read. </dd></dl>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
-</div>
-<div id="dynsection-16-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a97854f9de8be9d323e9fd10fa9b8189d_icgraph.svg" width="342" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a7f884411ea5c6b895b81aa33e6c7f1da" name="a7f884411ea5c6b895b81aa33e6c7f1da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f884411ea5c6b895b81aa33e6c7f1da">&#9670;&#160;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::reset </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>FreeRTOS refuses the reset while a task is blocked sending to or receiving from the buffer.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the buffer was reset, <b>false</b> if it is closed or a task is blocked on it. </dd></dl>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary">
-</div>
-<div id="dynsection-17-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a7f884411ea5c6b895b81aa33e6c7f1da_cgraph.svg" width="344" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad3a704d6aa37e9556bb5976cb2aef264" name="ad3a704d6aa37e9556bb5976cb2aef264"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3a704d6aa37e9556bb5976cb2aef264">&#9670;&#160;</a></span>send() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; !std::is_array_v&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- std::is_trivially_copyable_v&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p><b>std::array</b>, <b>std::span</b>, <b>std::vector</b>) to the buffer.</p>
-<p>Built-in arrays are excluded so that a string literal keeps binding to the <b>std::string_view</b> overload instead of also sending its terminating NUL.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>Elements to write; must not be empty. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum number of ticks to block; <b>portMAX_DELAY</b> waits indefinitely. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written. </dd></dl>
-<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary">
-</div>
-<div id="dynsection-18-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_ad3a704d6aa37e9556bb5976cb2aef264_cgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a90fd7e18b6942f386c8bd21d6b58fda9" name="a90fd7e18b6942f386c8bd21d6b58fda9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90fd7e18b6942f386c8bd21d6b58fda9">&#9670;&#160;</a></span>send() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
-    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Bytes to write; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Number of bytes to write; must be greater than zero. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <b>length</b> if the timeout expired first. </dd></dl>
-<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary">
-</div>
-<div id="dynsection-19-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a90fd7e18b6942f386c8bd21d6b58fda9_cgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a6655d15afb7a4123dc01349f5f444287" name="a6655d15afb7a4123dc01349f5f444287"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6655d15afb7a4123dc01349f5f444287">&#9670;&#160;</a></span>send() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Bytes to write; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Number of bytes to write; must be greater than zero. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum number of ticks to block; <b>portMAX_DELAY</b> waits indefinitely. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <b>length</b> if the timeout expired first. </dd></dl>
-<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary">
-</div>
-<div id="dynsection-20-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a6655d15afb7a4123dc01349f5f444287_cgraph.svg" width="344" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary">
-</div>
-<div id="dynsection-21-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a6655d15afb7a4123dc01349f5f444287_icgraph.svg" width="342" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a184b20d2e5c08e1d26f98c05a465c6f3" name="a184b20d2e5c08e1d26f98c05a465c6f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a184b20d2e5c08e1d26f98c05a465c6f3">&#9670;&#160;</a></span>send() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::send </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>sv</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#ac90ba1f2e3fc8ceddbefcc9e56c50407">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">sv</td><td>Characters to write; must not be empty. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum number of ticks to block; <b>portMAX_DELAY</b> waits indefinitely. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written. </dd></dl>
-<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary">
-</div>
-<div id="dynsection-22-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a184b20d2e5c08e1d26f98c05a465c6f3_cgraph.svg" width="534" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a6edc805a48a7692fb9c542f8db3f188b" name="a6edc805a48a7692fb9c542f8db3f188b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6edc805a48a7692fb9c542f8db3f188b">&#9670;&#160;</a></span>sendCompletedFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::sendCompletedFromISR </td>
-          <td>(</td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p>by DMA.</p>
-<p>Only needed when the kernel's own <b>sbSEND_COMPLETED()</b> hook is replaced; a regular <b>send()</b> already does this.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <b>pdTRUE</b> if the reader was unblocked; initialize it to <b>pdFALSE</b> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a blocked reader was unblocked, <b>false</b> if none was waiting or the buffer is closed. </dd></dl>
-
-</div>
-</div>
-<a id="a0395a389b2611ca514780b2068950ff2" name="a0395a389b2611ca514780b2068950ff2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0395a389b2611ca514780b2068950ff2">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; !std::is_array_v&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- std::is_trivially_copyable_v&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">range</td><td>Elements to write; must not be empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written. </dd></dl>
-<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary">
-</div>
-<div id="dynsection-23-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a0395a389b2611ca514780b2068950ff2_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac42eaa4c5ee7fd155d738c5aed68b04f" name="ac42eaa4c5ee7fd155d738c5aed68b04f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac42eaa4c5ee7fd155d738c5aed68b04f">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_RANGE&gt; <br />
-requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ranges::sized_range&lt;const T_RANGE&gt; &amp;&amp; !std::is_array_v&lt;T_RANGE&gt; &amp;&amp;<br class="typebreak" />
- std::is_trivially_copyable_v&lt;std::ranges::range_value_t&lt;const T_RANGE&gt;&gt;)</div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const T_RANGE &amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_RANGE</td><td>Contiguous, sized range of trivially copyable elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">range</td><td>Elements to write; must not be empty. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <b>pdTRUE</b> if the reader was unblocked; initialize it to <b>pdFALSE</b> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written. </dd></dl>
-<div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary">
-</div>
-<div id="dynsection-24-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_ac42eaa4c5ee7fd155d738c5aed68b04f_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a763df13de8b80bb510f7a64f2f7bbb48" name="a763df13de8b80bb510f7a64f2f7bbb48"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a763df13de8b80bb510f7a64f2f7bbb48">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Bytes to write; must be non-null. </td></tr>
-    <tr><td class="paramname">length</td><td>Number of bytes to write; must be greater than zero. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <b>length</b> if the buffer ran out of space. </dd></dl>
-<div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-25-summary" class="dynsummary">
-</div>
-<div id="dynsection-25-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_a763df13de8b80bb510f7a64f2f7bbb48_cgraph.svg" width="342" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac075893a2ae54de669ab71b07609f8a1" name="ac075893a2ae54de669ab71b07609f8a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac075893a2ae54de669ab71b07609f8a1">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t RTOS::StreamBuffer::sendFromISR </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">source</td><td>Bytes to write; must be non-null. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">length</td><td>Number of bytes to write; must be greater than zero. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to <b>pdTRUE</b> if the reader was unblocked; initialize it to <b>pdFALSE</b> and pass it to <b>portYIELD_FROM_ISR()</b> before leaving the interrupt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of bytes written, which is less than <b>length</b> if the buffer ran out of space. </dd></dl>
-<div id="dynsection-26" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-26-summary" class="dynsummary">
-</div>
-<div id="dynsection-26-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_ac075893a2ae54de669ab71b07609f8a1_icgraph.svg" width="342" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa5ac1e409b4369f454af973ddb5c7426" name="aa5ac1e409b4369f454af973ddb5c7426"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5ac1e409b4369f454af973ddb5c7426">&#9670;&#160;</a></span>setTriggerLevel()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::StreamBuffer::setTriggerLevel </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">level</td><td>New trigger level; must be in the range 1 to <b>getCapacity()</b>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the level was applied, <b>false</b> if the buffer is closed or the level is out of range. </dd></dl>
-<div id="dynsection-27" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-27-summary" class="dynsummary">
-</div>
-<div id="dynsection-27-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/de7/a02030_aa5ac1e409b4369f454af973ddb5c7426_cgraph.svg" width="344" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Does nothing if the lock is not held. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d9/d0f/a00644.html">StreamBuffer.hpp</a></li>
+<li><a class="el" href="../../d3/d8e/a00647.html">MutexGuard.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -1608,7 +558,7 @@ requires (std::ranges::contiguous_range&lt;const T_RANGE&gt; &amp;&amp; std::ran
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d4/d8f/a00742.html">RTOS</a></li><li class="navelem"><a href="../../d8/de7/a02030.html">StreamBuffer</a></li>
+    <li class="navelem"><a href="../../d4/d13/a00766.html">RTOS</a></li><li class="navelem"><a href="../../d8/de7/a02030.html">MutexGuard</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

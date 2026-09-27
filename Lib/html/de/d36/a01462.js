@@ -1,16 +1,9 @@
 var a01462 =
 [
-    [ "Observer", "de/d36/a01462.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "de/d36/a01462.html#aa436fb0ebbb0f79e6116041dd8b326d2", null ],
-    [ "Observer", "de/d36/a01462.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "~Observer", "de/d36/a01462.html#a0a4834e6487d627c825ce3f6448677e8", null ],
-    [ "Observer", "de/d36/a01462.html#a14fb19abdf88d54276cef83b500d3d1b", null ],
-    [ "Observer", "de/d36/a01462.html#a9900c13173227d2aea4e9ddd9f720364", null ],
-    [ "check", "de/d36/a01462.html#ad9b49bd939ee8436beba16d0c5807d2d", null ],
-    [ "getGroup", "de/d36/a01462.html#a30603f0f58acdeb52a34b2cb29ba7f84", null ],
-    [ "number", "de/d36/a01462.html#a62150fc8a09bbca2eb47616fad11247b", null ],
-    [ "operator const Group *", "de/d36/a01462.html#aaa34e1e2c219d6ad3ed651a34e1e9930", null ],
-    [ "operator=", "de/d36/a01462.html#a97b0b95d99e1a1a71e60d4e26cd88880", null ],
-    [ "operator=", "de/d36/a01462.html#adb79d64af57f5d98b699d3a1f82932dc", null ],
-    [ "read", "de/d36/a01462.html#a73843ca5299557e42043f9da9871a5d3", null ]
+    [ "Frame0x8b", "de/d36/a01462.html#abcc6d3244285552f4058f0ed6eb4d2e5", null ],
+    [ "deliveryStatus", "de/d36/a01462.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
+    [ "discoveryStatus", "de/d36/a01462.html#a7b5c383aff55a80124e65ff4565eb114", null ],
+    [ "frameId", "de/d36/a01462.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
+    [ "srcAddr16", "de/d36/a01462.html#a664a688b154503cfcc1b025049d43046", null ],
+    [ "transmitRetryCount", "de/d36/a01462.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
 ];

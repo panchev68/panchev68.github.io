@@ -1,8 +1,7 @@
 var a01418 =
 [
-    [ "Frame0x80", "d4/d3c/a01418.html#a0ff648972da16fac1c8c93d56f4d3081", null ],
-    [ "option", "d4/d3c/a01418.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
-    [ "rfData", "d4/d3c/a01418.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
-    [ "rssi", "d4/d3c/a01418.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
-    [ "srcAddr64", "d4/d3c/a01418.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
+    [ "operator Frame::Data", "d4/d3c/a01418.html#aab8d6f4ea5f482ba1f9433244e211b65", null ],
+    [ "atCommand", "d4/d3c/a01418.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "d4/d3c/a01418.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameters", "d4/d3c/a01418.html#a23a8d96719db8eab9fd754c07d0123a5", null ]
 ];

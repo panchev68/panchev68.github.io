@@ -1,8 +1,12 @@
 var a01386 =
 [
-    [ "operator Frame::Data", "d3/deb/a01386.html#a17b184b443db4543afc48f73f2b2cb1e", null ],
-    [ "dstAddress", "d3/deb/a01386.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "d3/deb/a01386.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "d3/deb/a01386.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "d3/deb/a01386.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "Command", "d3/deb/a01386.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "d3/deb/a01386.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "~LocalAtCommand", "d3/deb/a01386.html#a7342ebde08b2926419d08b5e464f6d84", null ],
+    [ "close", "d3/deb/a01386.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpenState", "d3/deb/a01386.html#add59b902d8519406c376e4d1363fd51d", null ],
+    [ "open", "d3/deb/a01386.html#a22221c7778dbe7cfb61112e57837d9d3", null ],
+    [ "receive", "d3/deb/a01386.html#a07623b40020016955fde1acfe07ca322", null ],
+    [ "send", "d3/deb/a01386.html#a48ae33c43e30b1273cb2f0e6b709ffc2", null ],
+    [ "send", "d3/deb/a01386.html#a031935c10edd7ee210a9d66f1aafa843", null ]
 ];

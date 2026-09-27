@@ -1,8 +1,6 @@
 var a00994 =
 [
-    [ "operator==", "d4/dd0/a00994.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "d4/dd0/a00994.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "d4/dd0/a00994.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "d4/dd0/a00994.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "d4/dd0/a00994.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "sak", "d4/dd0/a00994.html#a0a660971905a4d13ec801be99827ad26", null ],
+    [ "size", "d4/dd0/a00994.html#ae19abed0f3be0cc580838b351a256404", null ],
+    [ "uidByte", "d4/dd0/a00994.html#a8daf36157ed2f3632e9be6ec8b278293", null ]
 ];

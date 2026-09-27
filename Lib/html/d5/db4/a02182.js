@@ -1,8 +1,7 @@
 var a02182 =
 [
-    [ "Frame", "d5/d4d/a02186.html", "d5/d4d/a02186" ],
-    [ "Status", "d5/db4/a02182.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d5/db4/a02182.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d5/db4/a02182.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "FirmwareString", "d5/db4/a02182.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
+    [ "Firmware", "d5/db4/a02182.html#af62d830e6120addddf7a108aef4c37d1", null ],
+    [ "operator FirmwareString", "d5/db4/a02182.html#a0ddef4aded98c6307b972786bb6e5268", null ],
+    [ "operator uint32_t", "d5/db4/a02182.html#a7dcca38967251869c5bf305173fc13ee", null ]
 ];

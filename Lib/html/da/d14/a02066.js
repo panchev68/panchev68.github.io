@@ -1,25 +1,14 @@
 var a02066 =
 [
-    [ "TickType", "da/d14/a02066.html#a0285ec57b08218404301d71335490923", null ],
-    [ "Timeout", "da/d14/a02066.html#a605a58d31953c1321b0571cfbf7809d8", null ],
-    [ "Timeout", "da/d14/a02066.html#a4bdabd8b8a9e4ea1e571c8736f24e26a", null ],
-    [ "Timeout", "da/d14/a02066.html#ae6b31491258f8ac7db42a85c8a6410e3", null ],
-    [ "Timeout", "da/d14/a02066.html#a3f457e44fdcf7ebe8be8e8c9f6281949", null ],
-    [ "disable", "da/d14/a02066.html#a9f4c1790b62b338de5ee47cad756a53e", null ],
-    [ "getDuration", "da/d14/a02066.html#a85e43c452da3cf989678de34991ee053", null ],
-    [ "getElapsedTicks", "da/d14/a02066.html#a5f8d5867e82587afc81dd27cee598a81", null ],
-    [ "getElapsedTime", "da/d14/a02066.html#a5093d0c2c7d1f0fc3e6085c212a4f042", null ],
-    [ "getRemaining", "da/d14/a02066.html#ab0740e27e7ef4e9e54410d06e32581d2", null ],
-    [ "getRemainingTicks", "da/d14/a02066.html#ab26fc2212775781d394337d57e0cf886", null ],
-    [ "isDisabled", "da/d14/a02066.html#a1262697a55934e1758ed633db12ff84b", null ],
-    [ "isExpired", "da/d14/a02066.html#a4264c550073d457fa8f6ca89e591a0e6", null ],
-    [ "operator uint32_t", "da/d14/a02066.html#adf5079f60a718b33a2f82e15846997d9", null ],
-    [ "operator+=", "da/d14/a02066.html#aa6d90200c25a608b87dc960f8364cde5", null ],
-    [ "operator-=", "da/d14/a02066.html#a6cac78e1931c411981403f6513799924", null ],
-    [ "operator=", "da/d14/a02066.html#a572bb22f958387f0e5ef0f331553278a", null ],
-    [ "operator=", "da/d14/a02066.html#a88cceab5124d1adad944132d69f52c5e", null ],
-    [ "operator==", "da/d14/a02066.html#a2823f4f34a13bb76fb12f52f16521b4e", null ],
-    [ "reset", "da/d14/a02066.html#a4f719fdc728f4b1e2a6a3b33c747c32e", null ],
-    [ "set", "da/d14/a02066.html#a776dc5dd77cf73624f452e0be0e32b8f", null ],
-    [ "set", "da/d14/a02066.html#a05b2676d35a3782b19fab4a5c8bb246c", null ]
+    [ "Level", "da/d14/a02066.html#a47d1302bb72530432eb0072fc7286e69", [
+      [ "IDLE", "da/d14/a02066.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
+      [ "LOW", "da/d14/a02066.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
+      [ "NORMAL", "da/d14/a02066.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
+      [ "HIGH", "da/d14/a02066.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
+      [ "REALTIME", "da/d14/a02066.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    ] ],
+    [ "Priority", "da/d14/a02066.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
+    [ "get", "da/d14/a02066.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
+    [ "getFromISR", "da/d14/a02066.html#a077686e91e7ea468ac484026c09fe001", null ],
+    [ "set", "da/d14/a02066.html#a458e98cafe1842d218c9640b76bde004", null ]
 ];

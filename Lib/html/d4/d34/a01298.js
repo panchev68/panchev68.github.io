@@ -1,17 +1,10 @@
 var a01298 =
 [
-    [ "Command", "d4/d34/a01298.html#aeec1806cc51651aec7c65df97f20824f", [
-      [ "INPUTS", "d4/d34/a01298.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
-      [ "GET_PARAMETERS", "d4/d34/a01298.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
-      [ "OUTPUTS", "d4/d34/a01298.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
-      [ "SET_PARAMETERS", "d4/d34/a01298.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
-    ] ],
-    [ "UserProtocol", "d4/d34/a01298.html#a2c269949020f7b26dc12cf29f12d347d", null ],
-    [ "~UserProtocol", "d4/d34/a01298.html#a5f836cccf9dcbbcb7812013c28f1ef3a", null ],
-    [ "build", "d4/d34/a01298.html#aa1e61741d47d8b099913c96c35aad8d8", null ],
-    [ "handleGetParameters", "d4/d34/a01298.html#a9c77bbaf1341133af531df056551c43a", null ],
-    [ "handleInputsUpdate", "d4/d34/a01298.html#a36840d5bffb6ea2e120079a1c3a22af5", null ],
-    [ "handleOutputsUpdate", "d4/d34/a01298.html#a7dd1fdcff1a5060b9b20367b3e82351e", null ],
-    [ "handleSetParameters", "d4/d34/a01298.html#aab53c609ec54ede8b785388cd8b61e72", null ],
-    [ "parse", "d4/d34/a01298.html#a27bb212253aa2168d701106ada024b99", null ]
+    [ "Data", "dc/de0/a01302.html", "dc/de0/a01302" ],
+    [ "Parameters", "d4/d34/a01298.html#afb57b8312b95b17a75d606d852ac304f", null ],
+    [ "getData", "d4/d34/a01298.html#a4e81ca7d5853167635034bf88a36a9c1", null ],
+    [ "open", "d4/d34/a01298.html#af97b2ac5df6ea26c048b9cc8f06f5a29", null ],
+    [ "read", "d4/d34/a01298.html#adff97c9bde0c44d18c3c4c161825c881", null ],
+    [ "writeChannel", "d4/d34/a01298.html#a81246bbf42dbfbbb99067870f048a8bd", null ],
+    [ "writeRemotePanId", "d4/d34/a01298.html#a239200c61e208e97db767774ffae01b7", null ]
 ];

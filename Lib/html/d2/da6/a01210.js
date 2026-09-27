@@ -1,14 +1,29 @@
 var a01210 =
 [
-    [ "Counter", "d5/d32/a01214.html", "d5/d32/a01214" ],
-    [ "Period", "d8/d15/a01218.html", "d8/d15/a01218" ],
-    [ "SignalStrength", "de/d7e/a01222.html", "de/d7e/a01222" ],
-    [ "deletedMessages", "d2/da6/a01210.html#af628e5c20d43a21697a20298e3850d62", null ],
-    [ "deletedTransmitStatus", "d2/da6/a01210.html#a5cb11ade89e22561cb697360e6f647d0", null ],
-    [ "noTransmitStatus", "d2/da6/a01210.html#aec698012d20e26bb10d4bea26c010985", null ],
-    [ "reconnectionCounter", "d2/da6/a01210.html#ac7f62868a289abb2450f79aa885bb423", null ],
-    [ "retriesCounter", "d2/da6/a01210.html#ac6e666ea8ac5731fdd252b8dc813485b", null ],
-    [ "signalStrength", "d2/da6/a01210.html#ae57e34d0254c73139d0015fc39e498dd", null ],
-    [ "transmitPeriod", "d2/da6/a01210.html#afa5724d63b364d43fb031cc4682d2de3", null ],
-    [ "unsuccessTransmitStatus", "d2/da6/a01210.html#ac67e8232f97db31ebd0f825093b661fa", null ]
+    [ "Config", "d2/da6/a01210.html#ae1da3d38612f99e58ef00aeee0031a70", null ],
+    [ "State", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816e", [
+      [ "NO_INIT", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d", null ],
+      [ "INIT", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498", null ],
+      [ "RUNNING", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "PAUSE", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891", null ],
+      [ "ERROR", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "ApplicationBase", "d2/da6/a01210.html#a441e8d4c01f19d64f498f2dc51f3e28b", null ],
+    [ "~ApplicationBase", "d2/da6/a01210.html#aab09711e635886a1ad499ac455466abc", null ],
+    [ "beginUpdate", "d2/da6/a01210.html#a548122020c08dde7f6af4cc710447daa", null ],
+    [ "getModule", "d2/da6/a01210.html#ad7e4c92fde5b763d99ff892a131f8503", null ],
+    [ "getModulePresent", "d2/da6/a01210.html#a88ebc34ce435936eb3887febc431d1ee", null ],
+    [ "handleIncomingMessage", "d2/da6/a01210.html#a3fed1f59187dee0511af0d0a54ca97f6", null ],
+    [ "handleOutgoingMessage", "d2/da6/a01210.html#ae026078d6fbd9ac208ddf936355659aa", null ],
+    [ "handleTaskTickEvent", "d2/da6/a01210.html#ad55022492c805e834d8309af22121495", null ],
+    [ "pause", "d2/da6/a01210.html#a20f5f42bded5c200b41a59cf0517a1ed", null ],
+    [ "resume", "d2/da6/a01210.html#a066cbabfddf2945ab340f457dd3ad862", null ],
+    [ "sendHandler", "d2/da6/a01210.html#a1869c64aaa443f3d606e15aac31f35c0", null ],
+    [ "start", "d2/da6/a01210.html#a2cacfcaa5af0c0ee989dfd3fc665796a", null ],
+    [ "update", "d2/da6/a01210.html#a541fb1ee1677c63b1b3eb403b9743b67", null ],
+    [ "connection", "d2/da6/a01210.html#aeef129f6673307b01cf2cba5a92bf845", null ],
+    [ "diagnostic", "d2/da6/a01210.html#a15c0bf063a67a2088045e9fcdb9833ad", null ],
+    [ "messageFrameId", "d2/da6/a01210.html#a3e9dae687eb3e296684ae4e6fe868741", null ],
+    [ "queueRxMessage", "d2/da6/a01210.html#a16ea56fe1b04e47f29e814535d13850a", null ],
+    [ "queueTransmitDeliveryStatus", "d2/da6/a01210.html#ac31d75ff0f90d6dd3535ba8b01579c0a", null ]
 ];

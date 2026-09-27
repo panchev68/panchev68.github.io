@@ -1,9 +1,9 @@
 var a00762 =
 [
-    [ "dimmerMaxValue", "df/d5f/a00762.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
-    [ "dimmerMinValue", "df/d5f/a00762.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
-    [ "fadeStep", "df/d5f/a00762.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
-    [ "sleepTimeout", "df/d5f/a00762.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
-    [ "timChannel", "df/d5f/a00762.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
-    [ "timHandle", "df/d5f/a00762.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
+    [ "Ascii", "d4/d56/a01818.html", null ],
+    [ "Bcd", "d1/dba/a01822.html", "d1/dba/a01822" ],
+    [ "dBM", "d2/d45/a01826.html", null ],
+    [ "Hex", "d0/d4f/a01830.html", "d0/d4f/a01830" ],
+    [ "HexHelper", "d6/dbe/a01834.html", null ],
+    [ "Percent", "db/d09/a01838.html", null ]
 ];

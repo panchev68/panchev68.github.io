@@ -1,12 +1,22 @@
 var a01890 =
 [
-    [ "getLocalTransition", "d0/d45/a01890.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "d0/d45/a01890.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "d0/d45/a01890.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "d0/d45/a01890.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "d0/d45/a01890.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "d0/d45/a01890.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "d0/d45/a01890.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "d0/d45/a01890.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "d0/d45/a01890.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "Date", "d0/d45/a01890.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "d0/d45/a01890.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
+    ] ],
+    [ "MoonPhase", "d0/d45/a01890.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "d0/d45/a01890.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "d0/d45/a01890.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "d0/d45/a01890.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "d0/d45/a01890.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "d0/d45/a01890.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "d0/d45/a01890.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "d0/d45/a01890.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

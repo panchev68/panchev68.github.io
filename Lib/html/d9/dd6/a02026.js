@@ -1,24 +1,29 @@
 var a02026 =
 [
-    [ "Status", "d9/dd6/a02026.html#a61fa958b085e13c4001ceaf6fbd855fd", [
-      [ "SUCCESS", "d9/dd6/a02026.html#a61fa958b085e13c4001ceaf6fbd855fdad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "TIMEOUT", "d9/dd6/a02026.html#a61fa958b085e13c4001ceaf6fbd855fda070a0fb40f6c308ab544b227660aadff", null ],
-      [ "INVALID", "d9/dd6/a02026.html#a61fa958b085e13c4001ceaf6fbd855fdaccc0377a8afbf50e7094f5c23a8af223", null ],
-      [ "AT_MAX", "d9/dd6/a02026.html#a61fa958b085e13c4001ceaf6fbd855fdaab06979c91ba49479340319f0b3a18d6", null ],
-      [ "EMPTY", "d9/dd6/a02026.html#a61fa958b085e13c4001ceaf6fbd855fdaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
+    [ "TickType", "d9/dd6/a02026.html#adc2e1b449462bfc5e02a4ee323b012e5", null ],
+    [ "Type", "d9/dd6/a02026.html#a32944cdf5acfc817c79a3b60e03bbc38", [
+      [ "NORMAL", "d9/dd6/a02026.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "RECURSIVE", "d9/dd6/a02026.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638", null ]
     ] ],
-    [ "SemaphoreCounting", "d9/dd6/a02026.html#a72c92d8675a54a53b4ec5c4de47e3155", null ],
-    [ "SemaphoreCounting", "d9/dd6/a02026.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
-    [ "SemaphoreCounting", "d9/dd6/a02026.html#a7e497551b91db5e404470925688a3ea2", null ],
-    [ "createStatic", "d9/dd6/a02026.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
-    [ "getAvailableCount", "d9/dd6/a02026.html#a6de0f97e06346126824127e37caf592b", null ],
-    [ "getCount", "d9/dd6/a02026.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
-    [ "getInitialCount", "d9/dd6/a02026.html#abe4488af469ef47e32e09e2d38a602b1", null ],
-    [ "getMaxCount", "d9/dd6/a02026.html#addd31c2ffd410bd866e7365497d65280", null ],
-    [ "getRemainingCapacity", "d9/dd6/a02026.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
-    [ "isAtMaxCount", "d9/dd6/a02026.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
-    [ "isEmpty", "d9/dd6/a02026.html#a7d8026113d6006885360edd9ff77068d", null ],
-    [ "open", "d9/dd6/a02026.html#abc57684576686004799b4afa06460768", null ],
-    [ "operator=", "d9/dd6/a02026.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
-    [ "operator=", "d9/dd6/a02026.html#ac13d24083bc909c7813fb3367712fe95", null ]
+    [ "Mutex", "d9/dd6/a02026.html#a85140f0dfb31c3d5a8a27ce01e98fdc6", null ],
+    [ "Mutex", "d9/dd6/a02026.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
+    [ "~Mutex", "d9/dd6/a02026.html#a032031894c38dfb5861f1be4a7e247dd", null ],
+    [ "Mutex", "d9/dd6/a02026.html#acce47428aedbea4c3597ab4b07a0dc16", null ],
+    [ "close", "d9/dd6/a02026.html#acae6fb03115a857672d114638e6da0cb", null ],
+    [ "createStatic", "d9/dd6/a02026.html#a4a72a94370a00b530eb26b466ed373bc", null ],
+    [ "getHolder", "d9/dd6/a02026.html#a616ca3c51747ccb7932dab4363b40ef5", null ],
+    [ "getHolderFromISR", "d9/dd6/a02026.html#a4442eb3b200cdfba2f9780f45b293ee4", null ],
+    [ "getNativeHandle", "d9/dd6/a02026.html#a38014af85379eee8f59569c75f075995", null ],
+    [ "getType", "d9/dd6/a02026.html#a4625bbff147fffc8861b3478c8430f94", null ],
+    [ "isLocked", "d9/dd6/a02026.html#a7797096bb17dedbd7f2dc83952a87ad0", null ],
+    [ "isOwnedByCurrentTask", "d9/dd6/a02026.html#a0fe980766d5bb3fb9f27336981430a6f", null ],
+    [ "isValid", "d9/dd6/a02026.html#a2a35fb03473deda78f602d516fb9b09c", null ],
+    [ "lock", "d9/dd6/a02026.html#a80b2989f05e4378994f3eb8e811d9a2b", null ],
+    [ "lock", "d9/dd6/a02026.html#a9249f5e17ed3dc3621afb504a94f51c4", null ],
+    [ "lock", "d9/dd6/a02026.html#a2b2c30777cc3c44739df34e98fc05d0f", null ],
+    [ "open", "d9/dd6/a02026.html#a9f2abf5c8b3442dd741bac7c15e5726a", null ],
+    [ "operator=", "d9/dd6/a02026.html#a1e606324a490dacaed78d56b0f2e463f", null ],
+    [ "operator=", "d9/dd6/a02026.html#aa0480ec896a8ce6959a8fe0069fc4a0f", null ],
+    [ "tryLock", "d9/dd6/a02026.html#a18a279e5ed19c174389ad7be7fb2264d", null ],
+    [ "unlock", "d9/dd6/a02026.html#a55031b1cdaf584950893279ceac8ff93", null ]
 ];

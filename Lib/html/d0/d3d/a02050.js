@@ -1,5 +1,27 @@
 var a02050 =
 [
-    [ "previousValue", "d0/d3d/a02050.html#a18bbde03afa6705ff2164f33a694f539", null ],
-    [ "success", "d0/d3d/a02050.html#aaef68ed1b6e5e9f438c5faedf6306ca3", null ]
+    [ "Handle", "d0/d3d/a02050.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "d0/d3d/a02050.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreBase", "d0/d3d/a02050.html#a7717ea389a92a9878d51dfde3869dd64", null ],
+    [ "SemaphoreBase", "d0/d3d/a02050.html#ae0c09f0d483b3959297f30bd3909de83", null ],
+    [ "SemaphoreBase", "d0/d3d/a02050.html#aa8eb9e59c8d7eea278876d3a562dd4f0", null ],
+    [ "~SemaphoreBase", "d0/d3d/a02050.html#a15508562779df713e9be104d41d7664d", null ],
+    [ "close", "d0/d3d/a02050.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "getCountFromISR", "d0/d3d/a02050.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "d0/d3d/a02050.html#a2cd2d582d5bec19cc64612f8c4c5cd8c", null ],
+    [ "getDerived", "d0/d3d/a02050.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "d0/d3d/a02050.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "give", "d0/d3d/a02050.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "d0/d3d/a02050.html#aa210564f44d72420fb519ca27f12d9a1", null ],
+    [ "giveFromISR", "d0/d3d/a02050.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isOpen", "d0/d3d/a02050.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "operator=", "d0/d3d/a02050.html#aaba790805ac420c6d1b347ab01b9550a", null ],
+    [ "operator=", "d0/d3d/a02050.html#aaa0c4d93b7bd73160f68f700b6d86e26", null ],
+    [ "take", "d0/d3d/a02050.html#adba0e9091ed738abab54ed798d53a7ca", null ],
+    [ "take", "d0/d3d/a02050.html#a320bbbf470cde849ac2b5405273ff10d", null ],
+    [ "take", "d0/d3d/a02050.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "d0/d3d/a02050.html#a64003ee333dc11bd7ed7dff2d14e4145", null ],
+    [ "takeFromISR", "d0/d3d/a02050.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "d0/d3d/a02050.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "d0/d3d/a02050.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

@@ -1,15 +1,14 @@
 var a02130 =
 [
-    [ "Config", "da/d42/a02134.html", "da/d42/a02134" ],
-    [ "DataMap", "db/df6/a02138.html", "db/df6/a02138" ],
-    [ "LastResetState", "db/d6c/a02130.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "db/d6c/a02130.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "restart", "db/d6c/a02130.html#aec53baa0c5c2edf70b8752ab8a3a26a8", null ],
-    [ "configuration", "db/d6c/a02130.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "db/d6c/a02130.html#ab2cee70f45a9983819db3e9230ceeb95", null ],
-    [ "hardwareVersion", "db/d6c/a02130.html#a8cc92326b4a8214960afddcd1b18c7d9", null ],
-    [ "lastResetState", "db/d6c/a02130.html#a5d94ced782a1dd1b72fe8fb7027a4d49", null ],
-    [ "produceDate", "db/d6c/a02130.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "db/d6c/a02130.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "db/d6c/a02130.html#aa9fcd27cc60406665aec3f3db9d5a5d6", null ]
+    [ "Bitset", "db/d6c/a02130.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
+    [ "Status", "db/d6c/a02130.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
+      [ "OK", "db/d6c/a02130.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "db/d6c/a02130.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Configuration", "db/d6c/a02130.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
+    [ "isEmpty", "db/d6c/a02130.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
+    [ "isValid", "db/d6c/a02130.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
+    [ "read", "db/d6c/a02130.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
+    [ "write", "db/d6c/a02130.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
+    [ "flashAddress", "db/d6c/a02130.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

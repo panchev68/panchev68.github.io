@@ -1,4 +1,5 @@
 var a01034 =
 [
-    [ "pin", "de/d91/a01034.html#a41948546fdb93612c9914e22c070296d", null ]
+    [ "channel", "de/d91/a01034.html#aa0967939bfb313185c18cc470150b853", null ],
+    [ "handle", "de/d91/a01034.html#a373f87e5f5c75c7a49f16724225066b1", null ]
 ];

@@ -1,5 +1,5 @@
 var a01726 =
 [
-    [ "DecimalDigits", "df/dba/a01726.html#a86afad54ff7f55b0d1b3afe696fa6158", null ],
-    [ "HexDigits", "df/dba/a01726.html#aec7e5251614a547298585ae2a0da3ab1", null ]
+    [ "SPIPort", "df/dba/a01726.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "df/dba/a01726.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ]
 ];

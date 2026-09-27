@@ -1,4 +1,4 @@
 var a00533 =
 [
-    [ "Lib::Helper::Exception", "db/d09/a01838.html", "db/d09/a01838" ]
+    [ "Lib::Helper::Convert::HexHelper", "d6/dbe/a01834.html", null ]
 ];

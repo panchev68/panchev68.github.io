@@ -1,4 +1,4 @@
 var a00548 =
 [
-    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d3/d7e/a01866.html", "d3/d7e/a01866" ]
+    [ "Lib::Helper::Delay", "d0/d4a/a01862.html", "d0/d4a/a01862" ]
 ];

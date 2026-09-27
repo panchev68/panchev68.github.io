@@ -1,4 +1,4 @@
 var a00557 =
 [
-    [ "Lib::Helper::SwapBytes", "dc/d33/a01878.html", null ]
+    [ "Lib::Helper::Exception", "d3/d7e/a01866.html", "d3/d7e/a01866" ]
 ];

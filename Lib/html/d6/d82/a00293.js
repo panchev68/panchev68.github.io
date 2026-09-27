@@ -1,4 +1,4 @@
 var a00293 =
 [
-    [ "Lib::Ethernet::Node", "d8/d7b/a01478.html", "d8/d7b/a01478" ]
+    [ "Lib::Ethernet::Node", "de/dc6/a01502.html", "de/dc6/a01502" ]
 ];

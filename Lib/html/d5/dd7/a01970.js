@@ -1,9 +1,9 @@
 var a01970 =
 [
-    [ "CriticalSectionFromISR", "d5/dd7/a01970.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "d5/dd7/a01970.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "d5/dd7/a01970.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "d5/dd7/a01970.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "d5/dd7/a01970.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "d5/dd7/a01970.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "name", "d5/dd7/a01970.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "d5/dd7/a01970.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "d5/dd7/a01970.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "d5/dd7/a01970.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "d5/dd7/a01970.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "d5/dd7/a01970.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

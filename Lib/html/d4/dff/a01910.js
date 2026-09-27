@@ -1,7 +1,15 @@
 var a01910 =
 [
-    [ "Point", "d4/dff/a01910.html#a0a1b67f20f66f9eaa908ee2d2919bbd2", null ],
-    [ "Point", "d4/dff/a01910.html#aa74828bb7e6c3f161133c0e12513f322", null ],
-    [ "x", "d4/dff/a01910.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
-    [ "y", "d4/dff/a01910.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
+    [ "TickType", "d4/dff/a01910.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
+    [ "TimePeriod", "d4/dff/a01910.html#a096466d88bfa78ef18f074937a43f63f", null ],
+    [ "elapsed", "d4/dff/a01910.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
+    [ "elapsedFromISR", "d4/dff/a01910.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
+    [ "elapsedTime", "d4/dff/a01910.html#aea37e1feea05928a3dfd98f79e82c449", null ],
+    [ "elapsedTimeFromISR", "d4/dff/a01910.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
+    [ "isRunning", "d4/dff/a01910.html#aa4477fa15b16c620396b69b2935bf2de", null ],
+    [ "reset", "d4/dff/a01910.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
+    [ "start", "d4/dff/a01910.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
+    [ "startFromISR", "d4/dff/a01910.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
+    [ "stop", "d4/dff/a01910.html#a12059cd59e97f3575d46ed98120763a2", null ],
+    [ "stopFromISR", "d4/dff/a01910.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
 ];

@@ -1,4 +1,4 @@
 var a00638 =
 [
-    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "db/dc2/a02022.html", "db/dc2/a02022" ]
+    [ "RTOS::MemoryManager", "da/d2d/a02018.html", "da/d2d/a02018" ]
 ];

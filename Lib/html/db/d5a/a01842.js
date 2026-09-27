@@ -1,10 +1,8 @@
 var a01842 =
 [
-    [ "PeakInfo", "d4/df4/a01846.html", "d4/df4/a01846" ],
-    [ "FindPeaks", "db/d5a/a01842.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "db/d5a/a01842.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "db/d5a/a01842.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "db/d5a/a01842.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "db/d5a/a01842.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "db/d5a/a01842.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "crc16", "db/d5a/a01842.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "db/d5a/a01842.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "db/d5a/a01842.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "db/d5a/a01842.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "db/d5a/a01842.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

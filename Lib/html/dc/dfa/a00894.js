@@ -1,9 +1,8 @@
 var a00894 =
 [
-    [ "chipManufacturer", "dc/dfa/a00894.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "dc/dfa/a00894.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "dc/dfa/a00894.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "dc/dfa/a00894.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "dc/dfa/a00894.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "dc/dfa/a00894.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "button", "dc/dfa/a00894.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
+    [ "channel1", "dc/dfa/a00894.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
+    [ "channel2", "dc/dfa/a00894.html#a360d21f775c66781831db2507e7a73fc", null ],
+    [ "divider", "dc/dfa/a00894.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
+    [ "reversePolarity", "dc/dfa/a00894.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
 ];

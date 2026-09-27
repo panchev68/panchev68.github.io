@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['findpeaks_2ehpp_0',['FindPeaks.hpp',['../d4/d33/a00536.html',1,'']]],
-  ['firmwareversion_2ehpp_1',['FirmwareVersion.hpp',['../d8/d13/a00671.html',1,'']]],
-  ['flashinterface_2ehpp_2',['FlashInterface.hpp',['../d4/def/a00359.html',1,'']]],
-  ['flashmemory_2fspi_2fdriverbase_2ehpp_3',['DriverBase.hpp',['../d6/df4/a02735.html',1,'']]],
+  ['findpeaks_2ehpp_0',['FindPeaks.hpp',['../d9/d19/a00560.html',1,'']]],
+  ['firmwareversion_2ehpp_1',['FirmwareVersion.hpp',['../d5/d5b/a00695.html',1,'']]],
+  ['flashinterface_2ehpp_2',['FlashInterface.hpp',['../dd/db5/a00365.html',1,'']]],
+  ['flashmemory_2fspi_2fdriverbase_2ehpp_3',['DriverBase.hpp',['../d6/d6c/a02819.html',1,'']]],
   ['frame0x00_2ehpp_4',['Frame0x00.hpp',['../dd/d52/a00221.html',1,'']]],
   ['frame0x01_2ehpp_5',['Frame0x01.hpp',['../d5/ddf/a00224.html',1,'']]],
   ['frame0x08_2ehpp_6',['Frame0x08.hpp',['../d9/d01/a00227.html',1,'']]],

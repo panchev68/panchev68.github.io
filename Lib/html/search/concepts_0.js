@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['appendableinteger_0',['AppendableInteger',['../de/df6/a02197.html',1,'Lib::Digi::Core::Frame']]]
+  ['appendableinteger_0',['AppendableInteger',['../d4/dc0/a02225.html',1,'Lib::Digi::Core::Frame']]]
 ];

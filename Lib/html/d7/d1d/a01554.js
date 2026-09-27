@@ -1,12 +1,12 @@
 var a01554 =
 [
     [ "Event", "da/dcf/a01558.html", null ],
-    [ "I2CPort", "d7/d1d/a01554.html#a40611840c6465c83718b07135ffd6505", null ],
-    [ "~I2CPort", "d7/d1d/a01554.html#a615afa9173b081285b7039a91ad6f52c", null ],
-    [ "abort", "d7/d1d/a01554.html#a5f141ee19d64a4945bb5351f14b83ab8", null ],
-    [ "close", "d7/d1d/a01554.html#a1b706b87f43092a8d6cb419370ea94d6", null ],
-    [ "masterReceive", "d7/d1d/a01554.html#aa009b69de090fc8996486efe52ba20d5", null ],
-    [ "masterTransmit", "d7/d1d/a01554.html#ac7a6fd08598fb913b7b39830d2dd947e", null ],
-    [ "open", "d7/d1d/a01554.html#ab3e1a68adbf83f6f27a25737cedaaf4c", null ],
-    [ "waitForEvent", "d7/d1d/a01554.html#a6fc4b7301aefc15319b9eb5095f49d77", null ]
+    [ "ADCPort", "d7/d1d/a01554.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d7/d1d/a01554.html#a3b2d65c049b35eeeae2d4e9cad4a7a1f", null ],
+    [ "close", "d7/d1d/a01554.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "d7/d1d/a01554.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "read", "d7/d1d/a01554.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d7/d1d/a01554.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d7/d1d/a01554.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d7/d1d/a01554.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

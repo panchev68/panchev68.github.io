@@ -1,8 +1,9 @@
 var a00756 =
 [
-    [ "Backlight", "d9/d77/a00756.html#ae1576365076fd9cb0802723cef651d0a", null ],
-    [ "~Backlight", "d9/d77/a00756.html#a02a775fbc033eea218493a833283f8fd", null ],
-    [ "get", "d9/d77/a00756.html#a50a810c2a297031558286c9c20bb51ea", null ],
-    [ "operator=", "d9/d77/a00756.html#a35d88896d3418c046ae20c6978f39a9a", null ],
-    [ "set", "d9/d77/a00756.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
+    [ "Wiznet", "d3/d95/a00757.html", "d3/d95/a00757" ],
+    [ "IpAddress", "d6/d51/a01494.html", "d6/d51/a01494" ],
+    [ "MacAddress", "d6/dc9/a01498.html", "d6/dc9/a01498" ],
+    [ "Node", "de/dc6/a01502.html", "de/dc6/a01502" ],
+    [ "Port", "db/d57/a01506.html", "db/d57/a01506" ],
+    [ "UserProtocol", "dc/d47/a01510.html", "dc/d47/a01510" ]
 ];

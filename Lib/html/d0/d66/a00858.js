@@ -1,7 +1,7 @@
 var a00858 =
 [
-    [ "Config", "d0/d66/a00858.html#a71f90ba5852d744d364d627c9200231e", null ],
-    [ "M24C16", "d0/d66/a00858.html#aae7396e5f8ca899dc70ff7c0033dc7b0", null ],
-    [ "~M24C16", "d0/d66/a00858.html#afba7ed293354d2140d53c27e9da67788", null ],
-    [ "Driver< M24C16 >", "d0/d66/a00858.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
+    [ "diPinHandle", "d0/d66/a00858.html#ac1b56409fb324181fdf949402d46b876", null ],
+    [ "nrstPinHandle", "d0/d66/a00858.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
+    [ "nssPinHandle", "d0/d66/a00858.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
+    [ "spiHandle", "d0/d66/a00858.html#ab178d2536db34733af537ae7bec2353c", null ]
 ];

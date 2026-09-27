@@ -1,23 +1,14 @@
 var a01206 =
 [
-    [ "Mode", "dc/d9e/a01206.html#a1fa3d5a5e7307d0b5620518c07332406", [
-      [ "RUNTIME", "dc/d9e/a01206.html#a1fa3d5a5e7307d0b5620518c07332406ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
-      [ "SCANNER", "dc/d9e/a01206.html#a1fa3d5a5e7307d0b5620518c07332406aa1323822e71d19091075dd86a90ee35d", null ]
-    ] ],
-    [ "State", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8", [
-      [ "DISCONNECTED", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8a99c8ce56e7ab246445d3b134724428f3", null ],
-      [ "UNUSABLE", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8a22b311bc8cac928de4f019e7672bb154", null ],
-      [ "NOT_GOOD", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8a57a61c4494fc7176bda36f964b413e91", null ],
-      [ "OKAY", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8a74eb855e4de6fe58228f03006c02fd8a", null ],
-      [ "VERY_GOOD", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8a57e657071a4b2bdd078dc2de63037b3a", null ],
-      [ "AMAZING", "dc/d9e/a01206.html#a2894ee50dc5996ed2f18b07b95eac6e8a50d3a20a2a39b495b6bec36ca77287e9", null ]
-    ] ],
-    [ "Quality", "dc/d9e/a01206.html#ac8b7cad9c67eac45b83424fc09cfcff8", null ],
-    [ "clear", "dc/d9e/a01206.html#a9f83d384f7ac11104d7797f317a07abe", null ],
-    [ "getPercent", "dc/d9e/a01206.html#abdc935b5e4e162b6c98b3fe97c134901", null ],
-    [ "getState", "dc/d9e/a01206.html#ac0ce3488e55e61cb6a016e5037e89822", null ],
-    [ "setMode", "dc/d9e/a01206.html#aaf2759f8b73b8569418f26d46af5865e", null ],
-    [ "start", "dc/d9e/a01206.html#a97e20d9aa5d1ccb636cd2f19696a0c09", null ],
-    [ "update", "dc/d9e/a01206.html#a3c087691136285dc63a4cd1ff03f2459", null ],
-    [ "onUpdate", "dc/d9e/a01206.html#a981c4d76b66480b0a86fca4fd7b89963", null ]
+    [ "Subscriber", "dc/d9e/a01206.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "dc/d9e/a01206.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "dc/d9e/a01206.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "dc/d9e/a01206.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "dc/d9e/a01206.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "dc/d9e/a01206.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "dc/d9e/a01206.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "dc/d9e/a01206.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "dc/d9e/a01206.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "dc/d9e/a01206.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "dc/d9e/a01206.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

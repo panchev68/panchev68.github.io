@@ -1,12 +1,20 @@
 var a00818 =
 [
-    [ "Inputs", "d3/d60/a00818.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "d3/d60/a00818.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "d3/d60/a00818.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "d3/d60/a00818.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "d3/d60/a00818.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "d3/d60/a00818.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "d3/d60/a00818.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "d3/d60/a00818.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "d3/d60/a00818.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "MapField", "d6/da7/a00822.html", "d6/da7/a00822" ],
+    [ "Config", "da/d90/a00826.html", "da/d90/a00826" ],
+    [ "PortBase", "d2/dc7/a00838.html", "d2/dc7/a00838" ],
+    [ "Inputs", "d0/d11/a00842.html", "d0/d11/a00842" ],
+    [ "Outputs", "d9/d87/a00846.html", "d9/d87/a00846" ],
+    [ "SpiPort", "d3/d60/a00818.html#a8e662cafaa683ac82c0b60d7b4da8fdc", null ],
+    [ "UpdateMode", "d3/d60/a00818.html#a50419179ec3a60e3ac3b5036b3b284eb", [
+      [ "SEQUENTIAL", "d3/d60/a00818.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
+      [ "PARALLEL", "d3/d60/a00818.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "DigitalPeripheralBase", "d3/d60/a00818.html#ace067a52b4d9576bd3ade495aa11e352", null ],
+    [ "~DigitalPeripheralBase", "d3/d60/a00818.html#a9d019d0d0be1f110d76abf5f5ab11e4e", null ],
+    [ "getInputs", "d3/d60/a00818.html#ae1add73078ebd967252d4864e16de016", null ],
+    [ "getOutputs", "d3/d60/a00818.html#ad664d141e8c0b66fbd109f6397914af6", null ],
+    [ "handlePostUpdateEvent", "d3/d60/a00818.html#a9b56e97a372ad140ce2ef0b8b348a7c5", null ],
+    [ "handlePreUpdateEvent", "d3/d60/a00818.html#a2953eba2059d60debecac4c3d1d3e1d2", null ],
+    [ "setup", "d3/d60/a00818.html#ae9523074ebe5ad81c27aacd0f7c38c7f", null ]
 ];

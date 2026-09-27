@@ -1,4 +1,4 @@
 var a00284 =
 [
-    [ "mbx_cfg_t", "d5/d67/a01466.html", "d5/d67/a01466" ]
+    [ "mbx_cfg_t", "de/d3c/a01490.html", "de/d3c/a01490" ]
 ];

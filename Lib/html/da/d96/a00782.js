@@ -1,7 +1,9 @@
 var a00782 =
 [
-    [ "calibrator", "da/d96/a00782.html#a9c056b86c408c311487969b136cbcbc9", null ],
-    [ "i2cAddr", "da/d96/a00782.html#ae3266da82296416f02f68de0c610a2f9", null ],
-    [ "i2cPort", "da/d96/a00782.html#a291c0d12b4135c9110789a09d7acd7c8", null ],
-    [ "shuntResistorOhms", "da/d96/a00782.html#a9808e99c30c4516f65cdae3a889ec038", null ]
+    [ "Config", "d0/d7d/a00786.html", "d0/d7d/a00786" ],
+    [ "Backlight", "da/d96/a00782.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
+    [ "~Backlight", "da/d96/a00782.html#a5516d16616d30b6214626e963873f08a", null ],
+    [ "get", "da/d96/a00782.html#a50a810c2a297031558286c9c20bb51ea", null ],
+    [ "operator=", "da/d96/a00782.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
+    [ "set", "da/d96/a00782.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
 ];

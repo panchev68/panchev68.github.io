@@ -1,12 +1,11 @@
 var a01602 =
 [
-    [ "Date", "d3/d2d/a01606.html", "d3/d2d/a01606" ],
-    [ "Time", "d9/dfd/a01610.html", "d9/dfd/a01610" ],
-    [ "Rtc", "d5/dcf/a01602.html#ac93d69e578a833f560691edf311adc75", null ],
-    [ "~Rtc", "d5/dcf/a01602.html#a23209406294b942e2e3d575f8f926a38", null ],
-    [ "getDateTime", "d5/dcf/a01602.html#a2c1b973d0e84f81aec52803846d9fd93", null ],
-    [ "setDateTime", "d5/dcf/a01602.html#a5a31ce31ba760f4fe6f42eb97aa9a6a8", null ],
-    [ "startTickService", "d5/dcf/a01602.html#a4c358fd3fb6f1c3706b14e9fb81f6ae0", null ],
-    [ "stopTickService", "d5/dcf/a01602.html#ae4b282e27b9a5347f1c43b4463391da4", null ],
-    [ "void::HAL_RTC_AlarmAEventCallback", "d5/dcf/a01602.html#a292bc50e5b612af91527952bbffe57e9", null ]
+    [ "DACPort", "d5/dcf/a01602.html#a430af54970be9f050913a2587b44af8c", null ],
+    [ "~DACPort", "d5/dcf/a01602.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
+    [ "close", "d5/dcf/a01602.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
+    [ "getChannel", "d5/dcf/a01602.html#a668e6706e47926674d5df3daad36276c", null ],
+    [ "open", "d5/dcf/a01602.html#a972d40716f11cc01e220bc488d2fb281", null ],
+    [ "start", "d5/dcf/a01602.html#a99aa0c249bf50a455acd99a243d63c67", null ],
+    [ "stop", "d5/dcf/a01602.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
+    [ "waitForEvent", "d5/dcf/a01602.html#adbdb4f63aa33260310f312a82d61124a", null ]
 ];

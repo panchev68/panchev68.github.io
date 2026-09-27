@@ -1,10 +1,8 @@
 var a02142 =
 [
-    [ "Base", "d8/de7/a02146.html", "d8/de7/a02146" ],
-    [ "Hardware", "d4/d5d/a02150.html", "d4/d5d/a02150" ],
-    [ "Firmware", "d9/d8d/a02154.html", "d9/d8d/a02154" ],
-    [ "Status", "df/de7/a02142.html#a370a653bced85832b45cd4b8ada37bfa", [
-      [ "OK", "df/de7/a02142.html#a370a653bced85832b45cd4b8ada37bfaae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "df/de7/a02142.html#a370a653bced85832b45cd4b8ada37bfaabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "Storage", "df/de7/a02142.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
+    [ "close", "df/de7/a02142.html#aa684e568a90f586209178bf82321e7eb", null ],
+    [ "open", "df/de7/a02142.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
+    [ "read", "df/de7/a02142.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
+    [ "write", "df/de7/a02142.html#a7d3edbeec88b0807daece2241bb79d92", null ]
 ];

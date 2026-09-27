@@ -1,4 +1,4 @@
 var a00482 =
 [
-    [ "Lib::Helper::Convert::Bcd", "d5/dec/a01794.html", "d5/dec/a01794" ]
+    [ "Lib::HAL::UARTPort&lt; DriverMode::IT &gt;", "d2/d20/a01790.html", "d2/d20/a01790" ]
 ];

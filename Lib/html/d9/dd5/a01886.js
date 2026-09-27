@@ -1,14 +1,14 @@
 var a01886 =
 [
-    [ "TimeChangeRule", "d0/d45/a01890.html", "d0/d45/a01890" ],
-    [ "TimeZone", "d9/dd5/a01886.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "d9/dd5/a01886.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "d9/dd5/a01886.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "d9/dd5/a01886.html#a270472d6bfa8411d48b6edceebec7c25", null ],
-    [ "getName", "d9/dd5/a01886.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "d9/dd5/a01886.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "d9/dd5/a01886.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "d9/dd5/a01886.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "d9/dd5/a01886.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "d9/dd5/a01886.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "JaggedArrayBase", "d9/dd5/a01886.html#ae79ec88b260154126e7ec280a136c14a", null ],
+    [ "addItem", "d9/dd5/a01886.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
+    [ "addItems", "d9/dd5/a01886.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
+    [ "clearItems", "d9/dd5/a01886.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
+    [ "getElements", "d9/dd5/a01886.html#a428409a8385b8547bfa65d04a71565b1", null ],
+    [ "getElements", "d9/dd5/a01886.html#a718f7db994c254bce01246ea32b1d653", null ],
+    [ "getSize", "d9/dd5/a01886.html#afca6ed09d7865e2bac45430fda768aae", null ],
+    [ "operator[]", "d9/dd5/a01886.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
+    [ "operator[]", "d9/dd5/a01886.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
+    [ "removeItem", "d9/dd5/a01886.html#a819041f4264ebfce07665c548d5dd7bc", null ],
+    [ "elementList", "d9/dd5/a01886.html#a319cd6aae084f711db14582ed55929a5", null ]
 ];

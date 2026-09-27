@@ -1,4 +1,4 @@
 var a00470 =
 [
-    [ "Lib::HAL::WindowWatchdog", "df/d21/a01778.html", "df/d21/a01778" ]
+    [ "Lib::HAL::Timer::TimPwmOutput", "d9/d02/a01774.html", "d9/d02/a01774" ]
 ];

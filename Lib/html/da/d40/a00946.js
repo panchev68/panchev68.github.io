@@ -1,19 +1,20 @@
 var a00946 =
 [
-    [ "Command", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Register", "df/d39/a00950.html", "df/d39/a00950" ],
+    [ "Config", "da/d40/a00946.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
+    [ "Info", "da/d40/a00946.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
+    [ "W25Q128JVSIQ", "da/d40/a00946.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
+    [ "~W25Q128JVSIQ", "da/d40/a00946.html#aeb4e3658c1a50d80811bddb4e5794788", null ],
+    [ "W25Q128JVSIQ", "da/d40/a00946.html#a8e63f6957e7d3835c28850539c92b803", null ],
+    [ "W25Q128JVSIQ", "da/d40/a00946.html#ab86a72c21a4af20d878b815237041775", null ],
+    [ "close", "da/d40/a00946.html#ab84d3fc2e1e49b6feddd226fdc925ae6", null ],
+    [ "eraseChip", "da/d40/a00946.html#a0b3b683afc77b0c0ee69e757c581a722", null ],
+    [ "eraseSector", "da/d40/a00946.html#aff869cb6bde4f4f94493097c4c7e2da6", null ],
+    [ "getInfo", "da/d40/a00946.html#a3f7a3b245b2a704b45e6a638a2c9c971", null ],
+    [ "isPresent", "da/d40/a00946.html#a40a9ef783ecafece7202ae4ec39d4939", null ],
+    [ "open", "da/d40/a00946.html#acc5fbed9faca7400c7d70130fbb74131", null ],
+    [ "operator=", "da/d40/a00946.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
+    [ "operator=", "da/d40/a00946.html#a042aafe50feeb5ffe960d362458e460e", null ],
+    [ "read", "da/d40/a00946.html#abb4813e3ca50641c3bc3d1a367927ab8", null ],
+    [ "write", "da/d40/a00946.html#a48fee6a63474b5ad43a51157fcd0129a", null ]
 ];

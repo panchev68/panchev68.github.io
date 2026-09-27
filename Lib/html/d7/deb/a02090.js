@@ -1,14 +1,9 @@
 var a02090 =
 [
-    [ "Config", "d6/db3/a02094.html", "d6/db3/a02094" ],
-    [ "Measurement", "d9/d6e/a02098.html", "d9/d6e/a02098" ],
-    [ "Direction", "d7/deb/a02090.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "d7/deb/a02090.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "d7/deb/a02090.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
-    ] ],
-    [ "PerturbAndObserve", "d7/deb/a02090.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "d7/deb/a02090.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "d7/deb/a02090.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "d7/deb/a02090.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "d7/deb/a02090.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "Tick", "d7/deb/a02090.html#a74b9cc5d87c4355efd3342b70c3bdab4", null ],
+    [ "TickType", "d7/deb/a02090.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
+    [ "TickCounter", "d7/deb/a02090.html#a2e4f16891a303abf7194b28efe452c4b", null ],
+    [ "~TickCounter", "d7/deb/a02090.html#a82caaf97a995139e4dc974230659be08", null ],
+    [ "TickCounter", "d7/deb/a02090.html#a06b8da334970d2eee58bc03a57c34687", null ],
+    [ "operator=", "d7/deb/a02090.html#ab51f397146bf8a3184476a1b302318e4", null ]
 ];

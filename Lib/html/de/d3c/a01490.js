@@ -1,9 +1,5 @@
 var a01490 =
 [
-    [ "command", "de/d3c/a01490.html#ac39c4790de9b586883fe6f756ddacedb", null ],
-    [ "delimiter", "de/d3c/a01490.html#afe55e623eebacaace36b8d1e9844d39d", null ],
-    [ "id", "de/d3c/a01490.html#a8347df958bae7c76cebdbb5c432b0050", null ],
-    [ "length", "de/d3c/a01490.html#afe72ea272518d059f1bf808d9f29af53", null ],
-    [ "option", "de/d3c/a01490.html#a5ef8d332a47ac6474f29bd47994ec554", null ],
-    [ "timestamp", "de/d3c/a01490.html#a0997b1a261a5779f789463642f1b0e65", null ]
+    [ "address", "de/d3c/a01490.html#a8edc20ff700b12e30b9160d3d9ef739b", null ],
+    [ "length", "de/d3c/a01490.html#a445d398b2d8c0b0bdcf47d8fb2b284c1", null ]
 ];

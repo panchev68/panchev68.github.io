@@ -1,14 +1,9 @@
 var a02042 =
 [
-    [ "Label", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "d1/dc4/a02042.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "d1/dc4/a02042.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "d1/dc4/a02042.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "d1/dc4/a02042.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "DeepSleepLock", "d1/dc4/a02042.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
+    [ "~DeepSleepLock", "d1/dc4/a02042.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
+    [ "DeepSleepLock", "d1/dc4/a02042.html#a40925e50ac0805b094e04973ed61f50b", null ],
+    [ "DeepSleepLock", "d1/dc4/a02042.html#a653104e321c6b159eb7b5e5385d286ac", null ],
+    [ "operator=", "d1/dc4/a02042.html#a3523f9fd591310866af37223de2c32d3", null ],
+    [ "operator=", "d1/dc4/a02042.html#a10ab5d18c8a969841a27a2688604c55c", null ]
 ];

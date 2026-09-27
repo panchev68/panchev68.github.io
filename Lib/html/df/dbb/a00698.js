@@ -1,4 +1,4 @@
 var a00698 =
 [
-    [ "vscode", "d3/d8d/a02178.html", "d3/d8d/a02178" ]
+    [ "Lib::System::HardwareVersion", "db/df6/a02138.html", "db/df6/a02138" ]
 ];

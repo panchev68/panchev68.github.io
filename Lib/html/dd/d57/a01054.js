@@ -1,12 +1,10 @@
 var a01054 =
 [
-    [ "debounceDuration", "dd/d57/a01054.html#a645398d022257454438fc47ce15fcdb9", null ],
-    [ "height", "dd/d57/a01054.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
-    [ "rotationFlipped", "dd/d57/a01054.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
-    [ "rotationNormal", "dd/d57/a01054.html#aa5b75686141869dfbbfb78febc4822aa", null ],
-    [ "width", "dd/d57/a01054.html#a36fe0a7ac1def2933216417d9c50860b", null ],
-    [ "xMax", "dd/d57/a01054.html#ad7faa3502a791114bf456c98c0dbf644", null ],
-    [ "xMin", "dd/d57/a01054.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
-    [ "yMax", "dd/d57/a01054.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
-    [ "yMin", "dd/d57/a01054.html#acda2f52d642f3f712c72b8046d83fa30", null ]
+    [ "Config", "d5/d4c/a01058.html", "d5/d4c/a01058" ],
+    [ "DS18B20", "dd/d57/a01054.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "dd/d57/a01054.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "dd/d57/a01054.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "isPresent", "dd/d57/a01054.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "dd/d57/a01054.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readTemperatureCelsius", "dd/d57/a01054.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

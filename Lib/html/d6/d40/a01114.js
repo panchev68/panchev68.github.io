@@ -1,10 +1,9 @@
 var a01114 =
 [
-    [ "FunctionRef", "d6/d40/a01114.html#aa2a49974c49a33c31bf76585b4e2b845", null ],
-    [ "invoke", "d6/d40/a01114.html#acd1e842112de9812e62dd17975aeb1dd", null ],
-    [ "isBound", "d6/d40/a01114.html#a9f91e9de3c8fea21279c1e67ca1a3255", null ],
-    [ "operator bool", "d6/d40/a01114.html#a67e9bc93131ea7ab9bdea2857f65f7a2", null ],
-    [ "operator()", "d6/d40/a01114.html#afad0afdeab252dced23e9361ff8b37c2", null ],
-    [ "operator==", "d6/d40/a01114.html#adbf375ce838e807cdd72a92c9ae85115", null ],
-    [ "reset", "d6/d40/a01114.html#a3bb73fa9fbeec6162ac302d70a63d54d", null ]
+    [ "errorCode", "d6/d40/a01114.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "d6/d40/a01114.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "d6/d40/a01114.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "d6/d40/a01114.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "d6/d40/a01114.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "d6/d40/a01114.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

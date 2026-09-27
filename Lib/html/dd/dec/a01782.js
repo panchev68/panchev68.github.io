@@ -1,12 +1,14 @@
 var a01782 =
 [
-    [ "BitSet", "dd/dec/a01782.html#a16d91d28edc897acf8833de8df82699f", null ],
-    [ "BitSet", "dd/dec/a01782.html#addc6ad14e596e534eb7fd2a018719985", null ],
-    [ "getBit", "dd/dec/a01782.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
-    [ "getValue", "dd/dec/a01782.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
-    [ "operator uint32_t", "dd/dec/a01782.html#ab085297affb7e2df90201d7e6cdd1172", null ],
-    [ "operator=", "dd/dec/a01782.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
-    [ "operator[]", "dd/dec/a01782.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
-    [ "setBit", "dd/dec/a01782.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
-    [ "setValue", "dd/dec/a01782.html#a2505d1f74074939a87d45d3343d8bea3", null ]
+    [ "UARTPort", "dd/dec/a01782.html#a066a22aae400d51f9a8552f6b1757c30", null ],
+    [ "~UARTPort", "dd/dec/a01782.html#ae57a4a21992efbdd20a759373b79c5de", null ],
+    [ "UARTPort", "dd/dec/a01782.html#ae6f0e62a4656b536fe56074ab56f908d", null ],
+    [ "UARTPort", "dd/dec/a01782.html#a4270eb9592874eab89553824805f442c", null ],
+    [ "getDirection", "dd/dec/a01782.html#abc3c117eef840882dd94aee07d684a11", null ],
+    [ "getHandle", "dd/dec/a01782.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
+    [ "getHandle", "dd/dec/a01782.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
+    [ "operator=", "dd/dec/a01782.html#a46266c46a3361fed6ada2111d72b5d85", null ],
+    [ "operator=", "dd/dec/a01782.html#a37f22186366e4535a8f4bedfeda85f55", null ],
+    [ "receive", "dd/dec/a01782.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
+    [ "send", "dd/dec/a01782.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ]
 ];

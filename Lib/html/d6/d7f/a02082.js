@@ -1,10 +1,7 @@
 var a02082 =
 [
-    [ "maxPowerRef", "d6/d7f/a02082.html#a03f700e990948fcfe6c82de9a3e21657", null ],
-    [ "mppCurrentRef", "d6/d7f/a02082.html#a7208d815760253f067e40908fdf5b2b1", null ],
-    [ "mppVoltageRef", "d6/d7f/a02082.html#ad14a294ad527e4103971eddc9f39e1af", null ],
-    [ "referenceIrradiance", "d6/d7f/a02082.html#abb7c80f88a2007497312ca7b74f5e216", null ],
-    [ "temperatureCoefficient", "d6/d7f/a02082.html#aad0b3f3e89dee953a5ad229531788752", null ],
-    [ "toleranceFactor", "d6/d7f/a02082.html#a5da34d5f09a437a775c5639065d1fcde", null ],
-    [ "updateInterval", "d6/d7f/a02082.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
+    [ "Config", "d6/d7f/a02082.html#aa61c6d1302b314f60627c2cf9ac37d04", null ],
+    [ "name", "d6/d7f/a02082.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "d6/d7f/a02082.html#a274584bafb133fa51a23c4c52e77f64f", null ],
+    [ "stackSize", "d6/d7f/a02082.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

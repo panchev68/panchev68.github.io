@@ -1,7 +1,16 @@
 var a00802 =
 [
-    [ "Inputs", "d0/dad/a00806.html", "d0/dad/a00806" ],
-    [ "Outputs", "d4/dfd/a00810.html", "d4/dfd/a00810" ],
-    [ "inputs", "d5/dcd/a00802.html#a83f591b4be154cb08f68588d557cfc3e", null ],
-    [ "outputs", "d5/dcd/a00802.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
+    [ "Config", "d0/dad/a00806.html", "d0/dad/a00806" ],
+    [ "CurrentCalibrator", "d5/dcd/a00802.html#a75484b800b33d6f1e579ee78ae4fd646", null ],
+    [ "INA219", "d5/dcd/a00802.html#a46c4a6d79eb2edf43b8b0e8625771020", null ],
+    [ "INA219", "d5/dcd/a00802.html#ac55a74a1a8fe3544f1f4df51dbae5d07", null ],
+    [ "INA219", "d5/dcd/a00802.html#ae35991ea99aed69c1d8e50c315eccb0f", null ],
+    [ "enterSleepMode", "d5/dcd/a00802.html#a203ec10d5e73d42a8a5a6a3878012e61", null ],
+    [ "exitSleepMode", "d5/dcd/a00802.html#aa45a5bc29c59cb3057f7384cc2a96e64", null ],
+    [ "init", "d5/dcd/a00802.html#a1b96174980d4785dbabfcaa110656cbe", null ],
+    [ "operator=", "d5/dcd/a00802.html#a2b39cffcccaa479fe1c92078e0b9ba10", null ],
+    [ "operator=", "d5/dcd/a00802.html#af97cdd50eb11dfd094357a230546d816", null ],
+    [ "readCurrent", "d5/dcd/a00802.html#abfb624a865921d613add6d70608cf2ff", null ],
+    [ "readShuntVoltage", "d5/dcd/a00802.html#a32981ed3593892966c196bed22c51fdc", null ],
+    [ "readVoltage", "d5/dcd/a00802.html#acdaa2a6162499d2cd4445c6599f0c1df", null ]
 ];

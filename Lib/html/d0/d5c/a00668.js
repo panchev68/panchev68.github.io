@@ -1,4 +1,4 @@
 var a00668 =
 [
-    [ "Lib::System::Configuration", "d0/dfe/a02102.html", "d0/dfe/a02102" ]
+    [ "RTOS::StreamBuffer", "df/d03/a02058.html", "df/d03/a02058" ]
 ];

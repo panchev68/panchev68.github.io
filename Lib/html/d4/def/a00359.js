@@ -1,4 +1,4 @@
 var a00359 =
 [
-    [ "Lib::HAL::FlashInterface", "dc/def/a01594.html", "dc/def/a01594" ]
+    [ "Lib::HAL::DACPortBase&lt; Derived &gt;", "db/d7c/a01614.html", "db/d7c/a01614" ]
 ];

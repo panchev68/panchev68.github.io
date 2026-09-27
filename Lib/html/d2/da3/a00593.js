@@ -1,4 +1,4 @@
 var a00593 =
 [
-    [ "RTOS::EventGroup", "dd/d4e/a01975.html", "dd/d4e/a01975" ]
+    [ "Lib::Math::HammingCode", "d3/d33/a01930.html", null ]
 ];

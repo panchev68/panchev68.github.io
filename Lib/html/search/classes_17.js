@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xpt2046_0',['XPT2046',['../da/d17/a01046.html',1,'Lib::BSP']]]
+  ['xpt2046_0',['XPT2046',['../d5/d67/a01070.html',1,'Lib::BSP']]]
 ];

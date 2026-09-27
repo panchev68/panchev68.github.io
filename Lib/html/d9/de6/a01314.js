@@ -1,6 +1,12 @@
 var a01314 =
 [
-    [ "Checksum", "d9/de6/a01314.html#a975d7b7bec66de9f37566e22707b1666", null ],
-    [ "Checksum", "d9/de6/a01314.html#a74fc3e3e51f71adc0089bc8af4153d40", null ],
-    [ "operator uint8_t", "d9/de6/a01314.html#a427a9cf140bde300d7f8662f529b1840", null ]
+    [ "ResponseData", "d6/dfa/a01318.html", "d6/dfa/a01318" ],
+    [ "SpectrumAnalyzer", "d9/de6/a01314.html#a029d5ca785f56bfc7ca8ff6bda1b772d", null ],
+    [ "beginUpdate", "d9/de6/a01314.html#a1231ab75357c3b807b793cbf2ea82d24", null ],
+    [ "checkNewData", "d9/de6/a01314.html#a4773638228894b21b9360cd7723c46ca", null ],
+    [ "close", "d9/de6/a01314.html#acd1558e98317932c402b59b037346306", null ],
+    [ "endUpdate", "d9/de6/a01314.html#a024d7473fcc421e0a741ff49bbe8dde3", null ],
+    [ "getData", "d9/de6/a01314.html#a840417ace53cffda7a58f4a48961a125", null ],
+    [ "open", "d9/de6/a01314.html#a4c4e10495e5a41c00f890f39b3440bdc", null ],
+    [ "update", "d9/de6/a01314.html#af68fb8ada608860caedb0c8220337ff2", null ]
 ];

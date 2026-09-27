@@ -1,13 +1,7 @@
 var a01482 =
 [
-    [ "PortString", "da/d36/a01482.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "da/d36/a01482.html#aad4167f0040c4a42546ff0c27d4b5c56", null ],
-    [ "Port", "da/d36/a01482.html#a4f1b0e6bdc323223a63e42c730f935ab", null ],
-    [ "fromString", "da/d36/a01482.html#aebf851d4105553f8d7a419399670e706", null ],
-    [ "get", "da/d36/a01482.html#a2555da5052290271fef80ea0c44cdd81", null ],
-    [ "get", "da/d36/a01482.html#a787a09d5e0d962e341052f259a78c984", null ],
-    [ "operator uint16_t", "da/d36/a01482.html#a2609657b2d98052d6ce9badaf181d234", null ],
-    [ "operator=", "da/d36/a01482.html#a17eb9d56ec5a24404f0a8a529326ad7c", null ],
-    [ "set", "da/d36/a01482.html#a595046f66ee8bc37dd42ab7606b60aae", null ],
-    [ "toString", "da/d36/a01482.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "Group", "da/d36/a01482.html#a3c72f1f32621d0644086f7ec6212250d", null ],
+    [ "~Group", "da/d36/a01482.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
+    [ "getCaption", "da/d36/a01482.html#aebe4704dc58d73d649461459bd3d290c", null ],
+    [ "tag", "da/d36/a01482.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
 ];

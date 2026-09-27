@@ -1,4 +1,4 @@
 var a00431 =
 [
-    [ "Lib::HAL::LPTimer", "d4/df6/a01716.html", "d4/df6/a01716" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::BLOCKING &gt;", "d5/d29/a01722.html", "d5/d29/a01722" ]
 ];

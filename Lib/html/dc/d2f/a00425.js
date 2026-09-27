@@ -1,5 +1,5 @@
 var a00425 =
 [
-    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;", "d6/d9a/a01710.html", "d6/d9a/a01710" ],
-    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;::Event", "d8/dce/a01714.html", null ]
+    [ "Lib::HAL::Reset", "db/dbe/a01706.html", "db/dbe/a01706" ],
+    [ "NVIC_SystemReset", "dc/d2f/a00425.html#a6e0b05b8a10d1939b1820fd9f07e9cb9", null ]
 ];

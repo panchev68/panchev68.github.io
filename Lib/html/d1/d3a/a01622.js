@@ -1,10 +1,10 @@
 var a01622 =
 [
-    [ "Config", "d1/d3a/a01622.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "d1/d3a/a01622.html#a920eeea7fe1327ab84d49110d2c203c0", null ],
-    [ "~Port", "d1/d3a/a01622.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "read", "d1/d3a/a01622.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "d1/d3a/a01622.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "d1/d3a/a01622.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "d1/d3a/a01622.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "ExtInterrupt", "d1/d3a/a01622.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
+    [ "~ExtInterrupt", "d1/d3a/a01622.html#a0500efb3e0dbde6f95fd02948060723b", null ],
+    [ "bindCallback", "d1/d3a/a01622.html#a6aa51188146ed22a2159a1d5b097bfb1", null ],
+    [ "unbindCallback", "d1/d3a/a01622.html#a696771a086aa9256e841b7221aeaf2f7", null ],
+    [ "void::HAL_GPIO_EXTI_Callback", "d1/d3a/a01622.html#a1cf02148ce65009ef1fd8698386429c4", null ],
+    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d1/d3a/a01622.html#a608244a38c1095888d60a17b77ae5ed4", null ],
+    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d1/d3a/a01622.html#aa8068c433729122f23f40e6bfa77659f", null ]
 ];

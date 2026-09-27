@@ -1,5 +1,7 @@
 var a00748 =
 [
-    [ "MPPT", "d3/d79/a02083.html", "d3/d79/a02083" ],
-    [ "PerturbAndObserve", "d0/d0c/a02095.html", "d0/d0c/a02095" ]
+    [ "Master", "db/d32/a01122.html", "db/d32/a01122" ],
+    [ "Protocol", "db/d1e/a01126.html", "db/d1e/a01126" ],
+    [ "SerialPortBase", "d4/d13/a01162.html", "d4/d13/a01162" ],
+    [ "Slave", "dc/dee/a01166.html", "dc/dee/a01166" ]
 ];

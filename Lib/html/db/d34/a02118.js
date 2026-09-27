@@ -1,13 +1,14 @@
 var a02118 =
 [
-    [ "Status", "db/d34/a02118.html#a335a74b2beee583b06c1cc6a0c928957", [
-      [ "OK", "db/d34/a02118.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "db/d34/a02118.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Config", "d8/d23/a02122.html", "d8/d23/a02122" ],
+    [ "Measurement", "da/da0/a02126.html", "da/da0/a02126" ],
+    [ "Direction", "db/d34/a02118.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "db/d34/a02118.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "db/d34/a02118.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
     ] ],
-    [ "Parameters", "db/d34/a02118.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
-    [ "Parameters", "db/d34/a02118.html#a401c8f010740c371697fba3fa25b559c", null ],
-    [ "isValid", "db/d34/a02118.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
-    [ "operator=", "db/d34/a02118.html#ab7707d467c6b510fc640db358633fd8b", null ],
-    [ "setup", "db/d34/a02118.html#a6c93bc540f4ca328949b18b8364730fc", null ],
-    [ "write", "db/d34/a02118.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
+    [ "PerturbAndObserve", "db/d34/a02118.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "db/d34/a02118.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "db/d34/a02118.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "db/d34/a02118.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "db/d34/a02118.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

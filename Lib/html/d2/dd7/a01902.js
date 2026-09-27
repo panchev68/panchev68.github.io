@@ -1,8 +1,12 @@
 var a01902 =
 [
-    [ "allocations", "d2/dd7/a01902.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d2/dd7/a01902.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d2/dd7/a01902.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d2/dd7/a01902.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d2/dd7/a01902.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Sunset", "d2/dd7/a01902.html#a402a1203f51a88c0d732a65d431084b2", null ],
+    [ "Sunset", "d2/dd7/a01902.html#a42531fed77574b86050e9ba0e0811d14", null ],
+    [ "calculateSunTime", "d2/dd7/a01902.html#af874cf0cb247baf5def62fdd6572ea74", null ],
+    [ "computeHourAngle", "d2/dd7/a01902.html#acbe7640878254c1d5cfa08f610fc60e2", null ],
+    [ "setCurrentDate", "d2/dd7/a01902.html#a0a3c49fdc6de441a34d2a51005093056", null ],
+    [ "setCurrentDate", "d2/dd7/a01902.html#a29094e288d78ced6c06c9652828bb343", null ],
+    [ "setPosition", "d2/dd7/a01902.html#ad6b4fdc20b36ebe6dfa7191d9c3a1667", null ],
+    [ "sunrise", "d2/dd7/a01902.html#a81eecc80b8d195da6dca16eaeb3fc321", null ],
+    [ "sunset", "d2/dd7/a01902.html#a2bef194d2dd5c84153c2dabcb94971bb", null ]
 ];

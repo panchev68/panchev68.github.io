@@ -1,10 +1,7 @@
 var a00814 =
 [
-    [ "PortBase", "da/d71/a00814.html#a5350d276e1d3d6505501c1a194798ee1", null ],
-    [ "~PortBase", "da/d71/a00814.html#ae97ed92776c4c9fec031848b9d223290", null ],
-    [ "getSpiHandle", "da/d71/a00814.html#a1677aa107627ab40c3a7a3a495722c77", null ],
-    [ "postUpdateCallback", "da/d71/a00814.html#af0d8329309d89f85d0432a205da0410c", null ],
-    [ "preUpdateCallback", "da/d71/a00814.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
-    [ "setup", "da/d71/a00814.html#a819a0deaed30808011035c3403fbf93c", null ],
-    [ "update", "da/d71/a00814.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
+    [ "DeviceBase", "da/d71/a00814.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
+    [ "~DeviceBase", "da/d71/a00814.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
+    [ "handleTickEvent", "da/d71/a00814.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
+    [ "setup", "da/d71/a00814.html#af06fe39cba15bd187e05a7593e41d35a", null ]
 ];

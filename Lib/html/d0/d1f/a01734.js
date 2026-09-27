@@ -1,10 +1,13 @@
 var a01734 =
 [
-    [ "TimInputCapture", "d0/d1f/a01734.html#a653c667cf3354c62c4d187aa86e54851", null ],
-    [ "~TimInputCapture", "d0/d1f/a01734.html#a83efa5a35cbbdc44760006ba3c28eaf3", null ],
-    [ "getCapture", "d0/d1f/a01734.html#a3316965385b5a33fd8ce487b6b177ef3", null ],
-    [ "start", "d0/d1f/a01734.html#a6cca65c2a894e22b5533fc003a71802e", null ],
-    [ "stop", "d0/d1f/a01734.html#a2cf0cce398f5583e9fe970e1cd6f3f52", null ],
-    [ "waitCapture", "d0/d1f/a01734.html#aa9b901cafcb5e7cf806a06c15b6e8044", null ],
-    [ "void::HAL_TIM_IC_CaptureCallback", "d0/d1f/a01734.html#a4e452b46ec2394148f37767c37e5b374", null ]
+    [ "SPIPortAsync", "d0/d1f/a01734.html#a27554843c870175eff78aea2946c1403", null ],
+    [ "SPIPortAsync", "d0/d1f/a01734.html#a8ed5dfcfe3bf49f6177fa1e705564392", null ],
+    [ "SPIPortAsync", "d0/d1f/a01734.html#abce1f805b84c4710a11d7e558b87de55", null ],
+    [ "~SPIPortAsync", "d0/d1f/a01734.html#a9b9d841777e8d6866e5aea6dada6fa07", null ],
+    [ "abort", "d0/d1f/a01734.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "close", "d0/d1f/a01734.html#a9c1df328358eca75a9bde2a0b14a0c31", null ],
+    [ "isOpened", "d0/d1f/a01734.html#ab44424039817d1136b98cd72bfea4d4f", null ],
+    [ "open", "d0/d1f/a01734.html#a515394917b0e30ad39a0a0f7544a8819", null ],
+    [ "operator=", "d0/d1f/a01734.html#a52039601d92a3104018f25a24534479d", null ],
+    [ "operator=", "d0/d1f/a01734.html#ade3cdebddef1702e7976980ec680c95d", null ]
 ];

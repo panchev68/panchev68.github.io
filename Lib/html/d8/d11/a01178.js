@@ -1,5 +1,5 @@
 var a01178 =
 [
-    [ "ascFailures", "d8/d11/a01178.html#a8bae64705c8642cdf1eb57ffe9e9a20b", null ],
-    [ "ccaFailures", "d8/d11/a01178.html#a07993942950089e2eb10fa52686b1e9c", null ]
+    [ "function", "d8/d11/a01178.html#aff0c3dca100d278e3da27425e0eda593", null ],
+    [ "object", "d8/d11/a01178.html#aab9c6938c500fb9ab189884c52b57486", null ]
 ];

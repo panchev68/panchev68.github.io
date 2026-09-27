@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ownership_0',['Moving ownership',['../df/d50/a02725.html#streambuffer_move',1,'']]]
+  ['ownership_0',['Moving ownership',['../d5/d34/a02809.html#streambuffer_move',1,'']]]
 ];

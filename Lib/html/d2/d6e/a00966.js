@@ -1,24 +1,16 @@
 var a00966 =
 [
-    [ "Uid", "d0/daf/a00970.html", "d0/daf/a00970" ],
-    [ "Type", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7a", [
-      [ "UNKNOWN", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "ISO_14443_4", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7", null ],
-      [ "ISO_18092", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd", null ],
-      [ "MIFARE_MINI", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb", null ],
-      [ "MIFARE_1K", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc", null ],
-      [ "MIFARE_4K", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b", null ],
-      [ "MIFARE_UL", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7", null ],
-      [ "MIFARE_PLUS", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b", null ],
-      [ "TNP3XXX", "d2/d6e/a00966.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0", null ]
-    ] ],
-    [ "Card", "d2/d6e/a00966.html#afe55bac777579392a2341966d599b1aa", null ],
-    [ "~Card", "d2/d6e/a00966.html#a9b462a8f8d521dee2be275ece0ea5096", null ],
-    [ "authenticate", "d2/d6e/a00966.html#a08fa94e57f56bdd7964dd70e267fd718", null ],
-    [ "detectCard", "d2/d6e/a00966.html#a4cdc1e802bc109d771789db15c6830d9", null ],
-    [ "getCardType", "d2/d6e/a00966.html#aaf3cc939cb0c768c7a554db036cdb6ad", null ],
-    [ "getUid", "d2/d6e/a00966.html#a33cc183859688cd28572af600ed743f6", null ],
-    [ "halt", "d2/d6e/a00966.html#a8ee80419a4d19b05e8e0e5451837de29", null ],
-    [ "selectCard", "d2/d6e/a00966.html#a9375b5228d52a37d16ba4e2b6ad19b34", null ],
-    [ "stopCrypto", "d2/d6e/a00966.html#a7b0e6aeddeb25fcaf7c23cf7070117e0", null ]
+    [ "Register", "d0/daf/a00970.html", "d0/daf/a00970" ],
+    [ "Info", "df/dce/a00974.html", "df/dce/a00974" ],
+    [ "Config", "d2/d6e/a00966.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "d2/d6e/a00966.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "d2/d6e/a00966.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "d2/d6e/a00966.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChipImpl", "d2/d6e/a00966.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSectorImpl", "d2/d6e/a00966.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "d2/d6e/a00966.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "isPresent", "d2/d6e/a00966.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "d2/d6e/a00966.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "readImpl", "d2/d6e/a00966.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "writeImpl", "d2/d6e/a00966.html#a00a39954e6187f8b4b393ed390f97239", null ]
 ];

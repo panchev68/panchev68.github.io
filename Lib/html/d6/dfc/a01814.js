@@ -1,8 +1,9 @@
 var a01814 =
 [
-    [ "crc16", "d6/dfc/a01814.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "d6/dfc/a01814.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "d6/dfc/a01814.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "d6/dfc/a01814.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "d6/dfc/a01814.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "CityHash", "d6/dfc/a01814.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
+    [ "CityHash", "d6/dfc/a01814.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
+    [ "CityHash", "d6/dfc/a01814.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
+    [ "operator uint32_t", "d6/dfc/a01814.html#a59dabbcd8725156de559846906b1d2d2", null ],
+    [ "operator=", "d6/dfc/a01814.html#a9686208520746297f398d6e4c46879ec", null ],
+    [ "operator=", "d6/dfc/a01814.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
 ];

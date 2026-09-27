@@ -1,12 +1,14 @@
 var a01758 =
 [
-    [ "Event", "dd/d40/a01762.html", null ],
-    [ "UARTPort", "d9/de3/a01758.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "d9/de3/a01758.html#ab985c5973b26e43201ed568d3e4b67e4", null ],
-    [ "abort", "d9/de3/a01758.html#ab5621cfd00b219d945b0580d1ee80bdf", null ],
-    [ "close", "d9/de3/a01758.html#a9039d60ffc825b4c518a38f0a95bafd1", null ],
-    [ "open", "d9/de3/a01758.html#adca99095d7af4615d88a5a7c6ad56e30", null ],
-    [ "receive", "d9/de3/a01758.html#a03993df86116ad7c2f28487bbf9bdbbf", null ],
-    [ "send", "d9/de3/a01758.html#aa8c11d6c2933cb567647f02c197d7f56", null ],
-    [ "waitForEvent", "d9/de3/a01758.html#a01f51b709363485e008d83e88b3b78e7", null ]
+    [ "Manager", "d9/de3/a01758.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d9/de3/a01758.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimEventBase", "d9/de3/a01758.html#a849fd2dd7e8cbeeb9ba32c820cd37a72", null ],
+    [ "TimEventBase", "d9/de3/a01758.html#a1b427fa2bc1dff869d56fd3589859a29", null ],
+    [ "TimEventBase", "d9/de3/a01758.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
+    [ "~TimEventBase", "d9/de3/a01758.html#a5005179511e8564eef47bc3da1d74925", null ],
+    [ "bindWorker", "d9/de3/a01758.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "notifyWorkerFromISR", "d9/de3/a01758.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "operator=", "d9/de3/a01758.html#a72196bcd590b3519077b4e66127e8641", null ],
+    [ "operator=", "d9/de3/a01758.html#a8f7cdff0caec4bfac77d4725212978de", null ],
+    [ "waitEvent", "d9/de3/a01758.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
 ];

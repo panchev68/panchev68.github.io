@@ -1,18 +1,14 @@
 var a01946 =
 [
-    [ "Config", "d5/d28/a01950.html", "d5/d28/a01950" ],
-    [ "Command", "d0/dce/a01946.html#acbc2ca16986f83e5d6bb2430ee060054", [
-      [ "OFF", "d0/dce/a01946.html#acbc2ca16986f83e5d6bb2430ee060054a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d0/dce/a01946.html#acbc2ca16986f83e5d6bb2430ee060054a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210", [
-      [ "IS_OFF", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210a5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210a93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210a229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "d0/dce/a01946.html#a83fb79c67ed4243d5a7c61d98a8f4dd8", null ],
-    [ "command", "d0/dce/a01946.html#a525672c618ae0d44504714f41e4bee19", null ],
-    [ "getName", "d0/dce/a01946.html#aa7d463ba3f7a884964fe2d84e9bf681a", null ],
-    [ "setup", "d0/dce/a01946.html#a241021b4b72a49dce63c445ad2eb8f25", null ],
-    [ "update", "d0/dce/a01946.html#aeb1d219d970f95a09af386b9edc688fd", null ]
+    [ "Point", "d5/d28/a01950.html", "d5/d28/a01950" ],
+    [ "LinearInterpolation", "d0/dce/a01946.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
+    [ "LinearInterpolation", "d0/dce/a01946.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
+    [ "addPoint", "d0/dce/a01946.html#afdd4b894d0803bc604d379fa4629d483", null ],
+    [ "addPoint", "d0/dce/a01946.html#a74376103d2a68f503d4edeac77bcb80c", null ],
+    [ "clear", "d0/dce/a01946.html#aab5168233071bba85d5f5119cecdc12f", null ],
+    [ "getPoint", "d0/dce/a01946.html#a96708d1e4a7701724f4770d48a1b4661", null ],
+    [ "getPointCount", "d0/dce/a01946.html#aff35d714c8d5e1859adca0de1f902a34", null ],
+    [ "interpolate", "d0/dce/a01946.html#a15ad2325a927ddfead159579c0d375aa", null ],
+    [ "isEmpty", "d0/dce/a01946.html#a297a3b5b4a94c75ad444983025829924", null ],
+    [ "sortPoints", "d0/dce/a01946.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
 ];

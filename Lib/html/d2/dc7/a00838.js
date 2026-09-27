@@ -1,9 +1,10 @@
 var a00838 =
 [
-    [ "pinIRQ", "d2/dc7/a00838.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
-    [ "pinNSS", "d2/dc7/a00838.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
-    [ "pinReset", "d2/dc7/a00838.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
-    [ "pinSync0", "d2/dc7/a00838.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
-    [ "pinSync1", "d2/dc7/a00838.html#a3358fa1b35628a6d324f9be9d4624338", null ],
-    [ "spiHandle", "d2/dc7/a00838.html#aed57b8892979041579d2eb130d453151", null ]
+    [ "PortBase", "d2/dc7/a00838.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "d2/dc7/a00838.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "d2/dc7/a00838.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "d2/dc7/a00838.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "d2/dc7/a00838.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "d2/dc7/a00838.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "d2/dc7/a00838.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

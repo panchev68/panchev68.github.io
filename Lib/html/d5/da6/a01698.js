@@ -1,8 +1,8 @@
 var a01698 =
 [
-    [ "SPIPort", "d5/da6/a01698.html#a903be3f889b13683ab1e357df5e48ddb", null ],
-    [ "~SPIPort", "d5/da6/a01698.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
-    [ "getHandle", "d5/da6/a01698.html#a177a320faf7a48d1692b081641399447", null ],
-    [ "getHandle", "d5/da6/a01698.html#a88e71252a873f0d8d5051292a08b1336", null ],
-    [ "SPIPortBase< SPIPort< DriverMode::BLOCKING > >", "d5/da6/a01698.html#a3cc7fe674d4d490be664ef3d7112e2fb", null ]
+    [ "OSPIPortBase", "d5/da6/a01698.html#ac05a29358dcdde97974ddd31f28dc635", null ],
+    [ "~OSPIPortBase", "d5/da6/a01698.html#ac8c21cfe9451fb4942c67787a526f6b1", null ],
+    [ "close", "d5/da6/a01698.html#ac6420efeda802e0bdff8257093ac436d", null ],
+    [ "isBusy", "d5/da6/a01698.html#adb3abf52a002913fd34cc8177c751953", null ],
+    [ "open", "d5/da6/a01698.html#a1bb257c87fcdd324e2611da4dfd6565b", null ]
 ];

@@ -1,4 +1,4 @@
 var a00479 =
 [
-    [ "Lib::Helper::Convert::Ascii", "d2/d20/a01790.html", null ]
+    [ "Lib::HAL::UARTPort&lt; DriverMode::DMA &gt;", "db/d4b/a01786.html", "db/d4b/a01786" ]
 ];

@@ -1,8 +1,9 @@
 var a01570 =
 [
-    [ "Device", "d5/d75/a01570.html#acdeffbad9eb409804cbc72fa86794a97", null ],
-    [ "~Device", "d5/d75/a01570.html#a231e1d150464ec12c66e5578ff0c3128", null ],
-    [ "getHandle", "d5/d75/a01570.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d5/d75/a01570.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "DeviceManager< T_DEVICE, T_HANDLE >", "d5/d75/a01570.html#ad317e84715f53c3ea50d6b4113c92403", null ]
+    [ "CANPort", "d5/d75/a01570.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "d5/d75/a01570.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "getHandle", "d5/d75/a01570.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "d5/d75/a01570.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "readBlocking", "d5/d75/a01570.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "writeBlocking", "d5/d75/a01570.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

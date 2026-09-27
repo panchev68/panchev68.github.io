@@ -1,8 +1,10 @@
 var a01378 =
 [
-    [ "Frame0x90", "db/d74/a01378.html#add208fe72fdba09d23cb8bca901d691b", null ],
-    [ "options", "db/d74/a01378.html#a5c602af5052ef25f33461908061ad07f", null ],
-    [ "rfData", "db/d74/a01378.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
-    [ "srcAddr16", "db/d74/a01378.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
-    [ "srcAddr64", "db/d74/a01378.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
+    [ "Payload", "db/d74/a01378.html#a097ff109525c26888e9a0e3671643975", null ],
+    [ "append", "db/d74/a01378.html#ae8ece66119e8e11d5464fa8b41b34889", null ],
+    [ "assign", "db/d74/a01378.html#a88bb1aed79d37b427989cfbff4048a0d", null ],
+    [ "clear", "db/d74/a01378.html#ac696981b4d124bf89d6a30c113ec50dc", null ],
+    [ "data", "db/d74/a01378.html#ab8c1fe17ee51caf803630bfda32a31fd", null ],
+    [ "operator[]", "db/d74/a01378.html#a6e6a89d99c44a8a64238818f6445e47c", null ],
+    [ "size", "db/d74/a01378.html#aaaf8e0dbdbf274d492d816656c15540c", null ]
 ];

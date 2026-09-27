@@ -1,26 +1,16 @@
 var a02018 =
 [
-    [ "State", "da/d2d/a02018.html#a7ad1b7a849143d5692507f7dddbcfde8", [
-      [ "AVAILABLE", "da/d2d/a02018.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
-      [ "TAKEN", "da/d2d/a02018.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
-      [ "INVALID", "da/d2d/a02018.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
+    [ "Status", "da/d2d/a02018.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "da/d2d/a02018.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "da/d2d/a02018.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "da/d2d/a02018.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "NULL_POINTER", "da/d2d/a02018.html#a12545d9824f6613ee89191861f120584ab0944ab2f24069b66f78e66edde810a0", null ],
+      [ "SIZE_TOO_LARGE", "da/d2d/a02018.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
     ] ],
-    [ "Semaphore", "da/d2d/a02018.html#a05660cc9a7ec8aed6d962e4574ff41fd", null ],
-    [ "Semaphore", "da/d2d/a02018.html#a81c2289b5095339fc9301c72fae88487", null ],
-    [ "Semaphore", "da/d2d/a02018.html#a70791f9cd23a68a9bd9e6c2ff7067ab5", null ],
-    [ "Semaphore", "da/d2d/a02018.html#a87fa949b382d64e96b2d93f381032500", null ],
-    [ "createStatic", "da/d2d/a02018.html#a4f5da52c7ee3efdf3cb229e205149ba5", null ],
-    [ "getCount", "da/d2d/a02018.html#a08742d5c4dd86e38a1efccfa47dd01af", null ],
-    [ "getState", "da/d2d/a02018.html#a4dc6f42d28351e57274eb7e45aa62248", null ],
-    [ "isAvailable", "da/d2d/a02018.html#a58227dfaddfa5a315561f0619d791a45", null ],
-    [ "isTaken", "da/d2d/a02018.html#ad88c6e815967329927ac73939fb3361d", null ],
-    [ "isValid", "da/d2d/a02018.html#a2f764c53c71ab97a0a98162a07ed0120", null ],
-    [ "open", "da/d2d/a02018.html#a4f3a14ce62c98f7ce5520ce3e91b2322", null ],
-    [ "operator=", "da/d2d/a02018.html#abe1f7c1fff0d8632a0e3f7dda8ed9b0b", null ],
-    [ "operator=", "da/d2d/a02018.html#ab0c39e4bed96c5f7e874b3ecf89d8a63", null ],
-    [ "overwrite", "da/d2d/a02018.html#a70748ace923762624068ff43a0438e8b", null ],
-    [ "overwriteFromISR", "da/d2d/a02018.html#ae17808587d941f6cdf076edfc7f50a69", null ],
-    [ "overwriteFromISR", "da/d2d/a02018.html#ac4fa91c7638ef0a1811557de4ff2709a", null ],
-    [ "takeMs", "da/d2d/a02018.html#a4a7b4e66593bcbcf465ddf9458cee540", null ],
-    [ "takeSeconds", "da/d2d/a02018.html#a154ec0be77fe01c345872f7420174929", null ]
+    [ "MemoryManager", "da/d2d/a02018.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "da/d2d/a02018.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "da/d2d/a02018.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "da/d2d/a02018.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "da/d2d/a02018.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "da/d2d/a02018.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

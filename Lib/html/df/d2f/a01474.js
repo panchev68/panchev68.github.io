@@ -1,10 +1,14 @@
 var a01474 =
 [
-    [ "MacString", "df/d2f/a01474.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
-    [ "MacAddress", "df/d2f/a01474.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
-    [ "MacAddress", "df/d2f/a01474.html#aa300b2a042efd76f66f61db709b5b736", null ],
-    [ "data", "df/d2f/a01474.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
-    [ "operator[]", "df/d2f/a01474.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
-    [ "size", "df/d2f/a01474.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
-    [ "toString", "df/d2f/a01474.html#a83b7f1a52401d479dea270cbe112b88c", null ]
+    [ "Status", "df/d2f/a01474.html#a577acdd119b66063413debe6a438470f", [
+      [ "STATUS_CHANGED", "df/d2f/a01474.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "df/d2f/a01474.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "Dispatcher", "df/d2f/a01474.html#a1a68a3ecc8ce85f9f1b5d4f77c78bd45", null ],
+    [ "Dispatcher", "df/d2f/a01474.html#a26aefbcc8e66b5d3918ab12b3a127762", null ],
+    [ "createError", "df/d2f/a01474.html#a11635cec08a65c210b1e95beb3f7cac7", null ],
+    [ "operator=", "df/d2f/a01474.html#a746dc88b2dbe86bd302dfaf139ff52b0", null ],
+    [ "operator=", "df/d2f/a01474.html#ac07b5c3a0787f115c024715d330b6971", null ],
+    [ "start", "df/d2f/a01474.html#a0dea9c515fd6a0ec071f86548f913907", null ],
+    [ "statusChangedHook", "df/d2f/a01474.html#a440515f7e1ffdabc843bccb96ec779b1", null ]
 ];

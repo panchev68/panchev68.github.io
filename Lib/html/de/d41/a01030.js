@@ -1,10 +1,15 @@
 var a01030 =
 [
-    [ "Config", "de/d91/a01034.html", "de/d91/a01034" ],
-    [ "DS18B20", "de/d41/a01030.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "de/d41/a01030.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "de/d41/a01030.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "isPresent", "de/d41/a01030.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "de/d41/a01030.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readTemperatureCelsius", "de/d41/a01030.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "TimerHandler", "de/d91/a01034.html", "de/d91/a01034" ],
+    [ "Config", "d4/dbc/a01038.html", "d4/dbc/a01038" ],
+    [ "PinHandle", "de/d41/a01030.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Base", "de/d41/a01030.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
+    [ "~Base", "de/d41/a01030.html#a1e239dacccfb4d56b62c3f04c33c163e", null ],
+    [ "beginReceiveData", "de/d41/a01030.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "de/d41/a01030.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "start", "de/d41/a01030.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
+    [ "startupImpulse", "de/d41/a01030.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "de/d41/a01030.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "de/d41/a01030.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "config", "de/d41/a01030.html#a3b31347dab82ede045f6e076046e5762", null ]
 ];

@@ -1,5 +1,4 @@
 var a00692 =
 [
-    [ "Lib::USB::SerialPort", "d7/d26/a02162.html", "d7/d26/a02162" ],
-    [ "Lib::USB::SerialPort::Config", "de/d38/a02166.html", "de/d38/a02166" ]
+    [ "Lib::System::Configuration", "db/d6c/a02130.html", "db/d6c/a02130" ]
 ];

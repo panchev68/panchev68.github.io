@@ -1,5 +1,5 @@
 var a00014 =
 [
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "d6/d17/a00778.html", "d6/d17/a00778" ],
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "da/d96/a00782.html", "da/d96/a00782" ]
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "d5/dcd/a00802.html", "d5/dcd/a00802" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "d0/dad/a00806.html", "d0/dad/a00806" ]
 ];

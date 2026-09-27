@@ -1,9 +1,11 @@
 var a01546 =
 [
-    [ "CANPort", "d9/da1/a01546.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "d9/da1/a01546.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "getHandle", "d9/da1/a01546.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "d9/da1/a01546.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "readBlocking", "d9/da1/a01546.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "writeBlocking", "d9/da1/a01546.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "Event", "d8/daf/a01550.html", null ],
+    [ "ADCPort", "d9/da1/a01546.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d9/da1/a01546.html#a6c6ab80ba3c35fabdd2847c36081d92a", null ],
+    [ "close", "d9/da1/a01546.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "open", "d9/da1/a01546.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "start", "d9/da1/a01546.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d9/da1/a01546.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d9/da1/a01546.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

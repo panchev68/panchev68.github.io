@@ -1,14 +1,10 @@
 var a01302 =
 [
-    [ "ApiFrameBuffer", "dc/de0/a01302.html#a3b3674e333a946b6da57569ec9703a85", null ],
-    [ "~ApiFrameBuffer", "dc/de0/a01302.html#a5c72d2af7cd98b91654724e8edae76ca", null ],
-    [ "append", "dc/de0/a01302.html#a67b0d16ac4e2077bed10dfe096e3f240", null ],
-    [ "append", "dc/de0/a01302.html#a8e0c809c178df02cc620c38ad073e4a5", null ],
-    [ "append", "dc/de0/a01302.html#aa29da9051562fe6a234aeda879afaed5", null ],
-    [ "assign", "dc/de0/a01302.html#aed160e1113397275fa78cd16cfdc9a8f", null ],
-    [ "assign", "dc/de0/a01302.html#adba4fc58aa8f722022b0a180a244fba3", null ],
-    [ "clear", "dc/de0/a01302.html#a5b7bf12667a1163e217aa9776f2be792", null ],
-    [ "getData", "dc/de0/a01302.html#af330a9ce26933f4495d1e727a6394423", null ],
-    [ "getData", "dc/de0/a01302.html#a3a2c07618514a2fe959b0e7dacd5ea3b", null ],
-    [ "getSize", "dc/de0/a01302.html#aee12a2741eeba5e11e1fa84b36d86842", null ]
+    [ "SerialNumber", "d7/d8c/a01306.html", "d7/d8c/a01306" ],
+    [ "channel", "dc/de0/a01302.html#a910133d925087a409f8f8357447b9e3a", null ],
+    [ "firmwareVersion", "dc/de0/a01302.html#a919225b632587966d3cdbd15ca30f0d3", null ],
+    [ "hardwareVersion", "dc/de0/a01302.html#a2efd702c930d16f10c2672244503d676", null ],
+    [ "nodeIdentifier", "dc/de0/a01302.html#affd5522c28ef6e30376120f868f275fe", null ],
+    [ "panId", "dc/de0/a01302.html#ad1515643697ad647030e33ba97d79968", null ],
+    [ "serialNumber", "dc/de0/a01302.html#a5e4e85516315320363b69f902c64a5b7", null ]
 ];

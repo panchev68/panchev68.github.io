@@ -1,7 +1,6 @@
 var a00686 =
 [
-    [ "Lib::System::Version", "df/de7/a02142.html", "df/de7/a02142" ],
-    [ "Lib::System::Version::Base&lt; Derived &gt;", "d8/de7/a02146.html", "d8/de7/a02146" ],
-    [ "Lib::System::Version::Hardware", "d4/d5d/a02150.html", "d4/d5d/a02150" ],
-    [ "Lib::System::Version::Firmware", "d9/d8d/a02154.html", "d9/d8d/a02154" ]
+    [ "Lib::SolarControl::MPPT", "d4/d18/a02106.html", "d4/d18/a02106" ],
+    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d5/d23/a02110.html", "d5/d23/a02110" ],
+    [ "Lib::SolarControl::MPPT::Measurement", "da/d4a/a02114.html", "da/d4a/a02114" ]
 ];

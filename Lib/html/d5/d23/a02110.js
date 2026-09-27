@@ -1,9 +1,10 @@
 var a02110 =
 [
-    [ "VersionString", "d5/d23/a02110.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d5/d23/a02110.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getValue", "d5/d23/a02110.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d5/d23/a02110.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d5/d23/a02110.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d5/d23/a02110.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "maxPowerRef", "d5/d23/a02110.html#a03f700e990948fcfe6c82de9a3e21657", null ],
+    [ "mppCurrentRef", "d5/d23/a02110.html#a7208d815760253f067e40908fdf5b2b1", null ],
+    [ "mppVoltageRef", "d5/d23/a02110.html#ad14a294ad527e4103971eddc9f39e1af", null ],
+    [ "referenceIrradiance", "d5/d23/a02110.html#abb7c80f88a2007497312ca7b74f5e216", null ],
+    [ "temperatureCoefficient", "d5/d23/a02110.html#aad0b3f3e89dee953a5ad229531788752", null ],
+    [ "toleranceFactor", "d5/d23/a02110.html#a5da34d5f09a437a775c5639065d1fcde", null ],
+    [ "updateInterval", "d5/d23/a02110.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
 ];

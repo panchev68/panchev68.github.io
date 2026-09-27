@@ -1,9 +1,15 @@
 var a01022 =
 [
-    [ "calculatedChecksum", "d1/dd8/a01022.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "d1/dd8/a01022.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "d1/dd8/a01022.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "d1/dd8/a01022.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "d1/dd8/a01022.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "d1/dd8/a01022.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "Ring", "de/d02/a01026.html", "de/d02/a01026" ],
+    [ "Slice", "d1/dd8/a01022.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "d1/dd8/a01022.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "d1/dd8/a01022.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "d1/dd8/a01022.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "d1/dd8/a01022.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "d1/dd8/a01022.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "d1/dd8/a01022.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "d1/dd8/a01022.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "d1/dd8/a01022.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "d1/dd8/a01022.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "d1/dd8/a01022.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

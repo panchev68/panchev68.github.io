@@ -1,16 +1,9 @@
 var a00942 =
 [
-    [ "Register", "da/d40/a00946.html", "da/d40/a00946" ],
-    [ "Info", "df/d39/a00950.html", "df/d39/a00950" ],
-    [ "Config", "df/d12/a00942.html#a91b48bf59f61c3580e5ead3149d91443", null ],
-    [ "W25Q128JVSIQ", "df/d12/a00942.html#af1b755c474085a41e554dcb38ad9056a", null ],
-    [ "~W25Q128JVSIQ", "df/d12/a00942.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
-    [ "close", "df/d12/a00942.html#a949717933a1c298041adcf500a7d8f9d", null ],
-    [ "eraseChipImpl", "df/d12/a00942.html#a9cfe72e525626e2236219608c53725d8", null ],
-    [ "eraseSectorImpl", "df/d12/a00942.html#ac379792562904225e5deb12f3820112b", null ],
-    [ "getInfo", "df/d12/a00942.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
-    [ "isPresent", "df/d12/a00942.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
-    [ "open", "df/d12/a00942.html#a419e720a0a366e322b172d234eccd202", null ],
-    [ "readImpl", "df/d12/a00942.html#ac37211819c0d5e4f3072dae655065868", null ],
-    [ "writeImpl", "df/d12/a00942.html#a00a39954e6187f8b4b393ed390f97239", null ]
+    [ "chipManufacturer", "df/d12/a00942.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "df/d12/a00942.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "df/d12/a00942.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "df/d12/a00942.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "df/d12/a00942.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "df/d12/a00942.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

@@ -1,5 +1,5 @@
 var dir_85c91813488a76134f3fa3be141ab59e =
 [
-    [ "DriverBase.hpp", "d6/df4/a02735.html", "d6/df4/a02735" ],
-    [ "W25Q128JVSIQ.hpp", "d5/db0/a02777.html", "d5/db0/a02777" ]
+    [ "DriverBase.hpp", "d6/d6c/a02819.html", "d6/d6c/a02819" ],
+    [ "W25Q128JVSIQ.hpp", "de/d09/a02861.html", "de/d09/a02861" ]
 ];

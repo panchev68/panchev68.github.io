@@ -1,10 +1,9 @@
 var a01598 =
 [
-    [ "ExtInterrupt", "d3/da5/a01598.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
-    [ "~ExtInterrupt", "d3/da5/a01598.html#a0500efb3e0dbde6f95fd02948060723b", null ],
-    [ "bindCallback", "d3/da5/a01598.html#a6aa51188146ed22a2159a1d5b097bfb1", null ],
-    [ "unbindCallback", "d3/da5/a01598.html#a696771a086aa9256e841b7221aeaf2f7", null ],
-    [ "void::HAL_GPIO_EXTI_Callback", "d3/da5/a01598.html#a1cf02148ce65009ef1fd8698386429c4", null ],
-    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d3/da5/a01598.html#a608244a38c1095888d60a17b77ae5ed4", null ],
-    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d3/da5/a01598.html#aa8068c433729122f23f40e6bfa77659f", null ]
+    [ "DACPort", "d3/da5/a01598.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d3/da5/a01598.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "getChannel", "d3/da5/a01598.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d3/da5/a01598.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "start", "d3/da5/a01598.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d3/da5/a01598.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

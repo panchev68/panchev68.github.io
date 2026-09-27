@@ -1,6 +1,6 @@
 var a00080 =
 [
-    [ "Color", "dd/d7a/a00990.html", "dd/d7a/a00990" ],
-    [ "Color::Data", "d4/dd0/a00994.html", "d4/dd0/a00994" ],
-    [ "ColorDetail::pack", "d3/d82/a00717.html#ad8d403e5fc6766109d53890ca071caf2", null ]
+    [ "Color", "d0/d56/a01014.html", "d0/d56/a01014" ],
+    [ "Color::Data", "d3/d08/a01018.html", "d3/d08/a01018" ],
+    [ "ColorDetail::pack", "da/da3/a00741.html#ad8d403e5fc6766109d53890ca071caf2", null ]
 ];

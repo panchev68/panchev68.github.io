@@ -1,11 +1,8 @@
 var a01562 =
 [
-    [ "CANPortBase", "d2/dc1/a01562.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
-    [ "~CANPortBase", "d2/dc1/a01562.html#afe0c3c29da222264a12b2ade136c866c", null ],
-    [ "close", "d2/dc1/a01562.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d2/dc1/a01562.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getRxFifoFillLevel", "d2/dc1/a01562.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d2/dc1/a01562.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "read", "d2/dc1/a01562.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "write", "d2/dc1/a01562.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "ADCPortBase", "d2/dc1/a01562.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "d2/dc1/a01562.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "d2/dc1/a01562.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "d2/dc1/a01562.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d2/dc1/a01562.html#aed764265c454323ee0b2d718d2f447cb", null ]
 ];

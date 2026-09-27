@@ -1,13 +1,13 @@
 var a02106 =
 [
-    [ "VersionString", "d4/d18/a02106.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "Status", "d4/d18/a02106.html#a60c218a030e3eee1206d03bd1196910e", [
-      [ "OK", "d4/d18/a02106.html#a60c218a030e3eee1206d03bd1196910eae0aa021e21dddbd6d8cecec71e9cf564", null ]
-    ] ],
-    [ "FirmwareVersion", "d4/d18/a02106.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "d4/d18/a02106.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "d4/d18/a02106.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "d4/d18/a02106.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "d4/d18/a02106.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "d4/d18/a02106.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "ReferenceParameters", "d5/d23/a02110.html", "d5/d23/a02110" ],
+    [ "Measurement", "da/d4a/a02114.html", "da/d4a/a02114" ],
+    [ "MaxPowerEstimator", "d4/d18/a02106.html#ab6d38b8c1754c759596d660976369a94", null ],
+    [ "MPPT", "d4/d18/a02106.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getEfficiencyCoefficient", "d4/d18/a02106.html#aadda3ac3f51b12bc5b27a4332e2fa48d", null ],
+    [ "getIrradianceCoefficient", "d4/d18/a02106.html#a72b3be464f95151a7b2e4eb351b6009e", null ],
+    [ "getTolerance", "d4/d18/a02106.html#ac344a17d9e2da8cc55e89d0fb61e5fe3", null ],
+    [ "getVoltageSetpoint", "d4/d18/a02106.html#ac983a74b1107de2f1eb1dceb3e92c899", null ],
+    [ "setMaxPowerEstimationFunction", "d4/d18/a02106.html#abc619561c7180e6c69b8282c58157857", null ],
+    [ "update", "d4/d18/a02106.html#aec001faa8257027e3f674aeddfc33d41", null ]
 ];

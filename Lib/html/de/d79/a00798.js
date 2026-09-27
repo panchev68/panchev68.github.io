@@ -1,5 +1,5 @@
 var a00798 =
 [
-    [ "mask", "de/d79/a00798.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-    [ "port", "de/d79/a00798.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "timerChannel", "de/d79/a00798.html#acf47a2c6d6854305f3aa60f818d44f03", null ],
+    [ "timerHandle", "de/d79/a00798.html#a968302dd20489e07471fff8d662ed3d7", null ]
 ];

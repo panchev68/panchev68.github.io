@@ -1,10 +1,10 @@
 var a01618 =
 [
-    [ "Output", "d9/d6a/a01618.html#ac87482bcb66dccdcdc890593055dc033", null ],
-    [ "~Output", "d9/d6a/a01618.html#aa9c1a46117aa84b973279d61e591a610", null ],
-    [ "operator=", "d9/d6a/a01618.html#a8ee7e17225987004c3c73099e78d8b78", null ],
-    [ "setHigh", "d9/d6a/a01618.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
-    [ "setLow", "d9/d6a/a01618.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
-    [ "toggle", "d9/d6a/a01618.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
-    [ "write", "d9/d6a/a01618.html#a52416b95040bffe9915b005b33bc3600", null ]
+    [ "FlashInterface", "d9/d6a/a01618.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "d9/d6a/a01618.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "eraseSector", "d9/d6a/a01618.html#af08d9ff8192f0066af73392f27d84136", null ],
+    [ "lock", "d9/d6a/a01618.html#adc29740e07df07068f8bdb0964150a66", null ],
+    [ "unlock", "d9/d6a/a01618.html#ae2768a3892704f8fbbe0c848360cafb3", null ],
+    [ "writeBuffer", "d9/d6a/a01618.html#ac538ae44fbfc46d7facce38d5e6f0aa8", null ],
+    [ "writeWord", "d9/d6a/a01618.html#a23927049bc46b9909d20722e969b2c11", null ]
 ];
