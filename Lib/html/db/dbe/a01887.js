@@ -1,12 +1,17 @@
 var a01887 =
 [
-    [ "Sunset", "db/dbe/a01887.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "db/dbe/a01887.html#a42531fed77574b86050e9ba0e0811d14", null ],
-    [ "calculateSunTime", "db/dbe/a01887.html#af874cf0cb247baf5def62fdd6572ea74", null ],
-    [ "computeHourAngle", "db/dbe/a01887.html#acbe7640878254c1d5cfa08f610fc60e2", null ],
-    [ "setCurrentDate", "db/dbe/a01887.html#a0a3c49fdc6de441a34d2a51005093056", null ],
-    [ "setCurrentDate", "db/dbe/a01887.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "db/dbe/a01887.html#ad6b4fdc20b36ebe6dfa7191d9c3a1667", null ],
-    [ "sunrise", "db/dbe/a01887.html#a81eecc80b8d195da6dca16eaeb3fc321", null ],
-    [ "sunset", "db/dbe/a01887.html#a2bef194d2dd5c84153c2dabcb94971bb", null ]
+    [ "RingBuffer", "db/dbe/a01887.html#a90e56f1bb6c70b02947f83ebf3123417", null ],
+    [ "RingBuffer", "db/dbe/a01887.html#ad1cdbedc5516901d8c9139809a3fbef7", null ],
+    [ "RingBuffer", "db/dbe/a01887.html#a1d9fb75c4c8143ec1b6fe200253b8197", null ],
+    [ "available", "db/dbe/a01887.html#a8ab973e4fda57588b6a238c8d7537b60", null ],
+    [ "clear", "db/dbe/a01887.html#aecba3227be66614ad5db50f238e8970f", null ],
+    [ "front", "db/dbe/a01887.html#a6b6348d736c026af7bfe86e8f178c5dd", null ],
+    [ "front", "db/dbe/a01887.html#abee3c56eacd254c643cb51f9cd4a7839", null ],
+    [ "isEmpty", "db/dbe/a01887.html#ae898513d6e4fff77f261633e9d739da7", null ],
+    [ "isFull", "db/dbe/a01887.html#acbbdeea50582b8f5ecdae7259746e571", null ],
+    [ "operator=", "db/dbe/a01887.html#ab2ab8845bd1a8a943917d668efa8ff90", null ],
+    [ "operator=", "db/dbe/a01887.html#a005ffd7b8657f70cb1ed18f0c1488e8e", null ],
+    [ "pop", "db/dbe/a01887.html#a8355cafc3456b4a8c5f5122ea38ca0d8", null ],
+    [ "push", "db/dbe/a01887.html#a15a0e34223bfa6bb69410c75ff946f0c", null ],
+    [ "push", "db/dbe/a01887.html#a99986517429df0512c8d2ecb01411fc0", null ]
 ];

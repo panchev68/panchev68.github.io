@@ -1,7 +1,7 @@
 var a02159 =
 [
-    [ "FirmwareString", "d4/d9b/a02159.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "Firmware", "d4/d9b/a02159.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "operator FirmwareString", "d4/d9b/a02159.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d4/d9b/a02159.html#a7dcca38967251869c5bf305173fc13ee", null ]
+    [ "firmwareSubversion", "d4/d9b/a02159.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
+    [ "firmwareVersionString", "d4/d9b/a02159.html#a6b83c53d998379f08471d89aead2818e", null ],
+    [ "hardwareSubversion", "d4/d9b/a02159.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
+    [ "hardwareVersionString", "d4/d9b/a02159.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
 ];

@@ -1,13 +1,9 @@
 var a01231 =
 [
-    [ "Period", "d0/d88/a01231.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
-    [ "beginMeasurement", "d0/d88/a01231.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
-    [ "clearMinMax", "d0/d88/a01231.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
-    [ "endMeasurement", "d0/d88/a01231.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
-    [ "getMaximum", "d0/d88/a01231.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
-    [ "getMinimum", "d0/d88/a01231.html#a74fe067b228e91e888527cde922af4ab", null ],
-    [ "getRawValue", "d0/d88/a01231.html#a8e9a5702067740cae617ad3e800557cd", null ],
-    [ "getValue", "d0/d88/a01231.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
-    [ "operator uint32_t", "d0/d88/a01231.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ],
-    [ "reset", "d0/d88/a01231.html#a6d75c29880edb434a8c6cba3f2c3718f", null ]
+    [ "Counter", "d0/d88/a01231.html#a979dd53107c70679957a49b352e309e4", null ],
+    [ "Counter", "d0/d88/a01231.html#aa0fcdac4118821433a18e704d608605d", null ],
+    [ "clear", "d0/d88/a01231.html#a5f4c68779359a4681b48228f57296c09", null ],
+    [ "operator uint32_t", "d0/d88/a01231.html#a32d48ad9be69d1fb44852223025c4efe", null ],
+    [ "operator++", "d0/d88/a01231.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
+    [ "operator=", "d0/d88/a01231.html#aebee6561b906ea1271070b47c2610fe2", null ]
 ];

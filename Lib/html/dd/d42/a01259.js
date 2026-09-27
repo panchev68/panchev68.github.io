@@ -1,5 +1,5 @@
 var a01259 =
 [
-    [ "ascFailures", "dd/d42/a01259.html#a8bae64705c8642cdf1eb57ffe9e9a20b", null ],
-    [ "ccaFailures", "dd/d42/a01259.html#a07993942950089e2eb10fa52686b1e9c", null ]
+    [ "firmwareVersion", "dd/d42/a01259.html#a8a213038d3ef462ae46b408da218a1eb", null ],
+    [ "hardwareVersion", "dd/d42/a01259.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
 ];

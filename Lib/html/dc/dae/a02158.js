@@ -1,15 +1,9 @@
 var a02158 =
 [
-    [ "Config", "d7/d26/a02162.html", "d7/d26/a02162" ],
-    [ "DataMap", "de/d38/a02166.html", "de/d38/a02166" ],
-    [ "LastResetState", "dc/dae/a02158.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "dc/dae/a02158.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "restart", "dc/dae/a02158.html#aec53baa0c5c2edf70b8752ab8a3a26a8", null ],
-    [ "configuration", "dc/dae/a02158.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "dc/dae/a02158.html#ab2cee70f45a9983819db3e9230ceeb95", null ],
-    [ "hardwareVersion", "dc/dae/a02158.html#a8cc92326b4a8214960afddcd1b18c7d9", null ],
-    [ "lastResetState", "dc/dae/a02158.html#a5d94ced782a1dd1b72fe8fb7027a4d49", null ],
-    [ "produceDate", "dc/dae/a02158.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "dc/dae/a02158.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "dc/dae/a02158.html#aa9fcd27cc60406665aec3f3db9d5a5d6", null ]
+    [ "SerialString", "dc/dae/a02158.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
+    [ "SerialNumber", "dc/dae/a02158.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
+    [ "operator SerialString", "dc/dae/a02158.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
+    [ "operator uint32_t", "dc/dae/a02158.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
+    [ "toString", "dc/dae/a02158.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
+    [ "result", "dc/dae/a02158.html#af3d33382ba6c5d600113f549fad5b91d", null ]
 ];

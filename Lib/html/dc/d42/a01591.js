@@ -1,11 +1,9 @@
 var a01591 =
 [
-    [ "DACPort", "dc/d42/a01591.html#a430af54970be9f050913a2587b44af8c", null ],
-    [ "~DACPort", "dc/d42/a01591.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
-    [ "close", "dc/d42/a01591.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
-    [ "getChannel", "dc/d42/a01591.html#a668e6706e47926674d5df3daad36276c", null ],
-    [ "open", "dc/d42/a01591.html#a972d40716f11cc01e220bc488d2fb281", null ],
-    [ "start", "dc/d42/a01591.html#a99aa0c249bf50a455acd99a243d63c67", null ],
-    [ "stop", "dc/d42/a01591.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
-    [ "waitForEvent", "dc/d42/a01591.html#adbdb4f63aa33260310f312a82d61124a", null ]
+    [ "DACPort", "dc/d42/a01591.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "dc/d42/a01591.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "getChannel", "dc/d42/a01591.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "dc/d42/a01591.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "start", "dc/d42/a01591.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "dc/d42/a01591.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

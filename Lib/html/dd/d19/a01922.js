@@ -1,9 +1,12 @@
 var a01922 =
 [
-    [ "Config", "d2/db9/a01926.html", "d2/db9/a01926" ],
-    [ "Kalman", "dd/d19/a01922.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "dd/d19/a01922.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "dd/d19/a01922.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "dd/d19/a01922.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "dd/d19/a01922.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "getLocalTransition", "dd/d19/a01922.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
+    [ "getOffset", "dd/d19/a01922.html#a5b83c2cf38318866e23774caee880570", null ],
+    [ "isValid", "dd/d19/a01922.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
+    [ "dayOfWeek", "dd/d19/a01922.html#a71011003fee57e0e6420889a983146f2", null ],
+    [ "hour", "dd/d19/a01922.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
+    [ "month", "dd/d19/a01922.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
+    [ "offsetMinutes", "dd/d19/a01922.html#ade82abb20d81fccacc264075f09a1667", null ],
+    [ "ruleName", "dd/d19/a01922.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
+    [ "weekOfMonth", "dd/d19/a01922.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
 ];

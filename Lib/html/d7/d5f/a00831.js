@@ -1,11 +1,8 @@
 var a00831 =
 [
-    [ "DriverBase", "d7/d5f/a00831.html#a3e1b32d5719a8f888610f4e002c7f961", null ],
-    [ "~DriverBase", "d7/d5f/a00831.html#a59f968aba25598436eb1def357c56d59", null ],
-    [ "canTransferBlock", "d7/d5f/a00831.html#aaf8ca4464ee8b2534f560af30882a4ec", null ],
-    [ "getTransferActive", "d7/d5f/a00831.html#af43aefd21599105369f473c78ec94929", null ],
-    [ "handleTransferCompleteEvent", "d7/d5f/a00831.html#a50d19e0792a7a08a81b9f29f968dffed", null ],
-    [ "setTransferActive", "d7/d5f/a00831.html#afd66b7e1d6f23ead84bcbfd1aaad8eca", null ],
-    [ "setup", "d7/d5f/a00831.html#af894d75b93c4254eaea83f198cec4030", null ],
-    [ "transmitBlock", "d7/d5f/a00831.html#afc3031bad325bc90d8a5ec4c866427fe", null ]
+    [ "mappingFields", "d7/d5f/a00831.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "d7/d5f/a00831.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "d7/d5f/a00831.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "d7/d5f/a00831.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "d7/d5f/a00831.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

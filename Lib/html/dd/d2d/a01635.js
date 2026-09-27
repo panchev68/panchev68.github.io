@@ -1,12 +1,10 @@
 var a01635 =
 [
-    [ "Event", "db/dca/a01639.html", null ],
-    [ "I2CPort", "dd/d2d/a01635.html#af4e61478b6fe744c0eaad9891aabcfa5", null ],
-    [ "~I2CPort", "dd/d2d/a01635.html#a2513122aabca9f7cdc7435b08d39eaa9", null ],
-    [ "abort", "dd/d2d/a01635.html#a45c429eafe9ebc7625e137ccc7ee56af", null ],
-    [ "close", "dd/d2d/a01635.html#a51bdd4618e9bd9c8963a2996b23df634", null ],
-    [ "masterReceive", "dd/d2d/a01635.html#a55d47449fd9871757b624d9e82b890e0", null ],
-    [ "masterTransmit", "dd/d2d/a01635.html#afdb78479d9a48b3fc0fa377a1577f9cd", null ],
-    [ "open", "dd/d2d/a01635.html#afcdc4eaa357b3f5082b4a9e7f36aef19", null ],
-    [ "waitForEvent", "dd/d2d/a01635.html#a3635a49bc9b9b9d9a942fa19c8eca3fb", null ]
+    [ "Output", "dd/d2d/a01635.html#ac87482bcb66dccdcdc890593055dc033", null ],
+    [ "~Output", "dd/d2d/a01635.html#aa9c1a46117aa84b973279d61e591a610", null ],
+    [ "operator=", "dd/d2d/a01635.html#a8ee7e17225987004c3c73099e78d8b78", null ],
+    [ "setHigh", "dd/d2d/a01635.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
+    [ "setLow", "dd/d2d/a01635.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
+    [ "toggle", "dd/d2d/a01635.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
+    [ "write", "dd/d2d/a01635.html#a52416b95040bffe9915b005b33bc3600", null ]
 ];

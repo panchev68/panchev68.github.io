@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Member List</title>
+<title>Library: Lib::Digi::API::Connection::Quality Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d9e/a01226.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/ddd/a01223.html','../../','db/d42/a01220'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,29 +111,429 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d9e/a01226.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Digi::API::Connection::State Member List</div></div>
+  <div class="headertitle"><div class="title">Lib::Digi::API::Connection::Quality Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Every request/response cycle is one bit in a sliding window of the last <b>WINDOW_SIZE</b> cycles; the PDR over that window is the primary score. The filtered RSSI, mapped linearly from <b>RSSI_STRONG</b> (100 %) to <b>RSSI_SENSITIVITY</b> (0 %), scales the PDR score down by up to <b>RSSI_WEIGHT</b> percent, so a weakening signal lowers the result before packets get lost. The state follows the percent with hysteresis: down at once, up only after the better grade has held for <b>STATE_UPGRADE_DELAY</b>.</p>
+<p>In scanner mode every reset starts a <b>SCANNER_SETTLE_TIME</b> period whose samples are ignored, and <b>onUpdate</b> fires once, when the window is filled with fresh samples.</p>
+<p>Thread safety: <b>onExchange()</b> and <b>update()</b> run in the application task, <b>onRssi()</b> in the receiver task; <b>clear()</b>, the mode setters and the getters are safe from any task. Cross-task data goes only through atomics and is applied inside <b>update()</b>. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::API::Connection::Quality:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d3f/a01221.svg" width="254" height="736"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:addae8d177e3be6cf88efd4277f317ef7" id="r_addae8d177e3be6cf88efd4277f317ef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> (<a class="el" href="../../da/d3f/a01215.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *connection) noexcept</td></tr>
+<tr class="memdesc:addae8d177e3be6cf88efd4277f317ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the evaluator in runtime mode with a pending statistics reset.  <br /></td></tr>
+<tr class="memitem:ad5e27604826fa9613e36ac6186b344bb" id="r_ad5e27604826fa9613e36ac6186b344bb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad5e27604826fa9613e36ac6186b344bb">start</a> () noexcept</td></tr>
+<tr class="memdesc:ad5e27604826fa9613e36ac6186b344bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches to runtime mode and resets the statistics; same as <b>setRuntimeMode()</b>.  <br /></td></tr>
+<tr class="memitem:a609bf11d7132e415fcbb42bdb189c438" id="r_a609bf11d7132e415fcbb42bdb189c438"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a609bf11d7132e415fcbb42bdb189c438">clear</a> () noexcept</td></tr>
+<tr class="memdesc:a609bf11d7132e415fcbb42bdb189c438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a reset of the collected statistics, applied by the next <b>update()</b>.  <br /></td></tr>
+<tr class="memitem:a55bae7d188caa41cd85b5960bc80b4c9" id="r_a55bae7d188caa41cd85b5960bc80b4c9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55bae7d188caa41cd85b5960bc80b4c9">setRuntimeMode</a> () noexcept</td></tr>
+<tr class="memdesc:a55bae7d188caa41cd85b5960bc80b4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets runtime mode (continuous assessment) and resets the statistics.  <br /></td></tr>
+<tr class="memitem:a94bf3ed338180ddd04fe888b204907c7" id="r_a94bf3ed338180ddd04fe888b204907c7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94bf3ed338180ddd04fe888b204907c7">setScannerMode</a> () noexcept</td></tr>
+<tr class="memdesc:a94bf3ed338180ddd04fe888b204907c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets scanner mode (settle, then one result per full window) and resets the statistics.  <br /></td></tr>
+<tr class="memitem:a58d1f865ff5385df9120089b3b9be020" id="r_a58d1f865ff5385df9120089b3b9be020"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a58d1f865ff5385df9120089b3b9be020">getPercent</a> () const noexcept</td></tr>
+<tr class="memdesc:a58d1f865ff5385df9120089b3b9be020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed quality.  <br /></td></tr>
+<tr class="memitem:acc0dd49fae439b6a503f21d2c2296569" id="r_acc0dd49fae439b6a503f21d2c2296569"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#acc0dd49fae439b6a503f21d2c2296569">getState</a> () const noexcept</td></tr>
+<tr class="memdesc:acc0dd49fae439b6a503f21d2c2296569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last published qualitative state.  <br /></td></tr>
+<tr class="memitem:a889bc1271f7b0cf758338c7ee2514554" id="r_a889bc1271f7b0cf758338c7ee2514554"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a889bc1271f7b0cf758338c7ee2514554">onExchange</a> (bool isSuccessful) noexcept</td></tr>
+<tr class="memdesc:a889bc1271f7b0cf758338c7ee2514554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the outcome of one request/response cycle.  <br /></td></tr>
+<tr class="memitem:acd7a4f8340c849e6247997e1fff9b177" id="r_acd7a4f8340c849e6247997e1fff9b177"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd7a4f8340c849e6247997e1fff9b177">onRssi</a> (uint8_t rssi) noexcept</td></tr>
+<tr class="memdesc:acd7a4f8340c849e6247997e1fff9b177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a raw RSSI sample, filtered by the next <b>update()</b>.  <br /></td></tr>
+<tr class="memitem:a74c56a3babe14b32b8d4362d4e3ace1f" id="r_a74c56a3babe14b32b8d4362d4e3ace1f"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f">update</a> () noexcept</td></tr>
+<tr class="memdesc:a74c56a3babe14b32b8d4362d4e3ace1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies pending requests and samples, then recomputes percent and state.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6f2e37a3261d7339927cb06d1b32fa02" id="r_a6f2e37a3261d7339927cb06d1b32fa02"><td class="memItemLeft"><a class="el" href="../../d7/dd6/a01167.html">FunctionRef</a>&lt; void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6f2e37a3261d7339927cb06d1b32fa02">onUpdate</a></td></tr>
+<tr class="memdesc:a6f2e37a3261d7339927cb06d1b32fa02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scanner-mode result callback, fired from <b>update()</b> in the application task.  <br /></td></tr>
+</table>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a46b4913da28daeccef03e456b1d3a101" name="a46b4913da28daeccef03e456b1d3a101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b4913da28daeccef03e456b1d3a101">&#9670;&#160;</a></span>Mode</h2>
 
-<p>This is the complete list of members for <a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0a579710f202d95345d2555010d4cbc29f">CONNECTED</a> enum value</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0ae46b7f4649cda77c1145dc0f77259acf">DISCONNECTED</a> enum value</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0aaa7542dc13ab91223fcf190b28846d98">INIT</a> enum value</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a65815696748e22f0a55e4ac329b6c0d1">isConnected</a>() const</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#af678900015fb6460c22371a41baecf46">onConnectionChanged</a></td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a9b994b0a748f87f74f1297ef9aed5b1b">operator uint32_t</a>() const</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a14595d3e685bb58c80b00a821f6e2a54">operator=</a>(uint32_t val)</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0ae1d7fd9328c3a404f8d7886da7a2f1a8">READY</a> enum value</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a3007a4a510f248533d6430b451c6b00a">State</a>()=default</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a95ebe78d3b35e550284d27bc67ff6c7e">State</a>(uint32_t val)</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0">Value</a> enum name</td><td class="entry"><a class="el" href="../../dd/d9e/a01226.html">Lib::Digi::API::Connection::State</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a46b4913da28daeccef03e456b1d3a101">Lib::Digi::API::Connection::Quality::Mode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8" name="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8"></a>RUNTIME&#160;</td><td class="fielddoc"><p>Continuous assessment. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d" name="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d"></a>SCANNER&#160;</td><td class="fielddoc"><p>Settle, then one result per full window. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af7ac77ba20da5be346e1d3948da5de72" name="af7ac77ba20da5be346e1d3948da5de72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ac77ba20da5be346e1d3948da5de72">&#9670;&#160;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">Lib::Digi::API::Connection::Quality::State</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785" name="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785"></a>DISCONNECTED&#160;</td><td class="fielddoc"><p>Link down. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e" name="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e"></a>UNUSABLE&#160;</td><td class="fielddoc"><p>Up to 30 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4" name="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4"></a>NOT_GOOD&#160;</td><td class="fielddoc"><p>Above 30 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734" name="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734"></a>OKAY&#160;</td><td class="fielddoc"><p>Above 50 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347" name="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347"></a>VERY_GOOD&#160;</td><td class="fielddoc"><p>Above 75 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9" name="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9"></a>AMAZING&#160;</td><td class="fielddoc"><p>Above 90 %. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="addae8d177e3be6cf88efd4277f317ef7" name="addae8d177e3be6cf88efd4277f317ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addae8d177e3be6cf88efd4277f317ef7">&#9670;&#160;</a></span>Quality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Digi::API::Connection::Quality::Quality </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d3f/a01215.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *</td>          <td class="paramname"><span class="paramname"><em>connection</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">connection</td><td>Owning connection; must not be <b>nullptr</b>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/ddd/a01223_addae8d177e3be6cf88efd4277f317ef7_cgraph.svg" width="406" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a609bf11d7132e415fcbb42bdb189c438" name="a609bf11d7132e415fcbb42bdb189c438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609bf11d7132e415fcbb42bdb189c438">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Safe from any task. </p>
+
+</div>
+</div>
+<a id="a58d1f865ff5385df9120089b3b9be020" name="a58d1f865ff5385df9120089b3b9be020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d1f865ff5385df9120089b3b9be020">&#9670;&#160;</a></span>getPercent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Digi::API::Connection::Quality::getPercent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Quality in percent (0-100). </dd></dl>
+
+</div>
+</div>
+<a id="acc0dd49fae439b6a503f21d2c2296569" name="acc0dd49fae439b6a503f21d2c2296569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0dd49fae439b6a503f21d2c2296569">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::getState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Qualitative state. </dd></dl>
+
+</div>
+</div>
+<a id="a889bc1271f7b0cf758338c7ee2514554" name="a889bc1271f7b0cf758338c7ee2514554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889bc1271f7b0cf758338c7ee2514554">&#9670;&#160;</a></span>onExchange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::onExchange </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSuccessful</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Application task only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">isSuccessful</td><td><b>true</b> if the response arrived in time and was accepted, <b>false</b> if it was lost. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd7a4f8340c849e6247997e1fff9b177" name="acd7a4f8340c849e6247997e1fff9b177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7a4f8340c849e6247997e1fff9b177">&#9670;&#160;</a></span>onRssi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::onRssi </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rssi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Safe from the receiver task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rssi</td><td>RSSI magnitude as reported by the module (-dBm, larger means weaker). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55bae7d188caa41cd85b5960bc80b4c9" name="a55bae7d188caa41cd85b5960bc80b4c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55bae7d188caa41cd85b5960bc80b4c9">&#9670;&#160;</a></span>setRuntimeMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::setRuntimeMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Safe from any task. </p>
+
+</div>
+</div>
+<a id="a94bf3ed338180ddd04fe888b204907c7" name="a94bf3ed338180ddd04fe888b204907c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bf3ed338180ddd04fe888b204907c7">&#9670;&#160;</a></span>setScannerMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::setScannerMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Safe from any task. </p>
+
+</div>
+</div>
+<a id="ad5e27604826fa9613e36ac6186b344bb" name="ad5e27604826fa9613e36ac6186b344bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e27604826fa9613e36ac6186b344bb">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a74c56a3babe14b32b8d4362d4e3ace1f" name="a74c56a3babe14b32b8d4362d4e3ace1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c56a3babe14b32b8d4362d4e3ace1f">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Application task only.</p>
+<dl class="section return"><dt>Returns</dt><dd>New qualitative state. </dd></dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/ddd/a01223_a74c56a3babe14b32b8d4362d4e3ace1f_cgraph.svg" width="403" height="70"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a6f2e37a3261d7339927cb06d1b32fa02" name="a6f2e37a3261d7339927cb06d1b32fa02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2e37a3261d7339927cb06d1b32fa02">&#9670;&#160;</a></span>onUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/dd6/a01167.html">FunctionRef</a>&lt;void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt; Lib::Digi::API::Connection::Quality::onUpdate</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Non-owning: bound and cleared by the owning scanner in its <b>open()/<b>close()</b>.</b> </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d9/db6/a00146.html">Connection.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d6/d59/a00726.html">Lib</a></li><li class="navelem"><a href="../../d5/d68/a00747.html">Digi</a></li><li class="navelem"><a href="../../de/d3d/a00748.html">API</a></li><li class="navelem"><a href="../../da/d3f/a01215.html">Connection</a></li><li class="navelem"><a href="../../d7/ddd/a01223.html">Quality</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

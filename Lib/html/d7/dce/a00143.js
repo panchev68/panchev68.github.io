@@ -1,4 +1,4 @@
 var a00143 =
 [
-    [ "Lib::Digi::API::ApplicationBase", "d2/da6/a01210.html", "d2/da6/a01210" ]
+    [ "Lib::Digi::API::ApplicationBase&lt; Derived &gt;", "d5/dad/a01207.html", "d5/dad/a01207" ]
 ];

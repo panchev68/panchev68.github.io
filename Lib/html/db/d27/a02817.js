@@ -1,4 +1,5 @@
 var a02817 =
 [
-    [ "Lib::Digi::API::UserProtocol", "de/d69/a01311.html", "de/d69/a01311" ]
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;", "dd/de1/a00871.html", "dd/de1/a00871" ],
+    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;::Config", "d1/d93/a00875.html", "d1/d93/a00875" ]
 ];

@@ -1,17 +1,18 @@
 var a00947 =
 [
-    [ "DriverBase", "d3/d29/a00947.html#a4865b730e5861bd7bb40b39ee4800bd1", null ],
-    [ "~DriverBase", "d3/d29/a00947.html#aea8e2f217977e88d7a0d171e32c8b565", null ],
-    [ "close", "d3/d29/a00947.html#a937232820c635f6a093714b6f33c1a85", null ],
-    [ "eraseChip", "d3/d29/a00947.html#a134ef5841b0a6e85976fa6d4ef3fd8cf", null ],
-    [ "eraseSector", "d3/d29/a00947.html#a74b2d44aa53af2fd1e7574d8657dc145", null ],
-    [ "getInfo", "d3/d29/a00947.html#ad53917a64ab539376be5b829bcc299f0", null ],
-    [ "getStatus", "d3/d29/a00947.html#abe4e9df23fb7e04bbf831254a236a357", null ],
-    [ "open", "d3/d29/a00947.html#a39c94e7d96d1fff02de7193b8142c923", null ],
-    [ "read", "d3/d29/a00947.html#af7a12304d4b17d0ab0c20002f4b6cd53", null ],
-    [ "write", "d3/d29/a00947.html#a7936cf92037932401201a3f7217786b4", null ],
-    [ "info", "d3/d29/a00947.html#a46253bfde5c017262e48ba58e7343818", null ],
-    [ "nss", "d3/d29/a00947.html#a87049c630e3c3935144941f749c11166", null ],
-    [ "spiPort", "d3/d29/a00947.html#a595a4e7dae6b992eb9f1194bc60250c6", null ],
-    [ "status", "d3/d29/a00947.html#a22db85ba35d1118e4cbc4fa7ca1287e3", null ]
+    [ "Command", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d3/d29/a00947.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

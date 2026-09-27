@@ -1,9 +1,7 @@
 var a01942 =
 [
-    [ "name", "d3/df9/a01942.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d3/df9/a01942.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d3/df9/a01942.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d3/df9/a01942.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d3/df9/a01942.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d3/df9/a01942.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "Point", "d3/df9/a01942.html#a0a1b67f20f66f9eaa908ee2d2919bbd2", null ],
+    [ "Point", "d3/df9/a01942.html#aa74828bb7e6c3f161133c0e12513f322", null ],
+    [ "x", "d3/df9/a01942.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
+    [ "y", "d3/df9/a01942.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
 ];

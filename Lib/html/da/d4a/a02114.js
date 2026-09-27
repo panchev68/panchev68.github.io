@@ -1,7 +1,10 @@
 var a02114 =
 [
-    [ "current", "da/d4a/a02114.html#a3c52e2d0bbe89862c14148ebf02d6463", null ],
-    [ "irradiance", "da/d4a/a02114.html#a6d28fdf32a94b2134434e00c0fef4894", null ],
-    [ "temperature", "da/d4a/a02114.html#a2f7e9f752645a3cbee0fd950bfc2c255", null ],
-    [ "voltage", "da/d4a/a02114.html#a1c339469529ee402dcc9e7bb37113566", null ]
+    [ "maxPowerRef", "da/d4a/a02114.html#a03f700e990948fcfe6c82de9a3e21657", null ],
+    [ "mppCurrentRef", "da/d4a/a02114.html#a7208d815760253f067e40908fdf5b2b1", null ],
+    [ "mppVoltageRef", "da/d4a/a02114.html#ad14a294ad527e4103971eddc9f39e1af", null ],
+    [ "referenceIrradiance", "da/d4a/a02114.html#abb7c80f88a2007497312ca7b74f5e216", null ],
+    [ "temperatureCoefficient", "da/d4a/a02114.html#aad0b3f3e89dee953a5ad229531788752", null ],
+    [ "toleranceFactor", "da/d4a/a02114.html#a5da34d5f09a437a775c5639065d1fcde", null ],
+    [ "updateInterval", "da/d4a/a02114.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
 ];

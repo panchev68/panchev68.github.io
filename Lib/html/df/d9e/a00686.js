@@ -1,6 +1,6 @@
 var a00686 =
 [
-    [ "Lib::SolarControl::MPPT", "d4/d18/a02106.html", "d4/d18/a02106" ],
-    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d5/d23/a02110.html", "d5/d23/a02110" ],
-    [ "Lib::SolarControl::MPPT::Measurement", "da/d4a/a02114.html", "da/d4a/a02114" ]
+    [ "Lib::SolarControl::PerturbAndObserve", "d6/df4/a02115.html", "d6/df4/a02115" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Config", "dd/d54/a02119.html", "dd/d54/a02119" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d5/d63/a02123.html", "d5/d63/a02123" ]
 ];

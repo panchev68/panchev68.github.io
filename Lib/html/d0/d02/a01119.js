@@ -5,5 +5,5 @@ var a01119 =
     [ "close", "d0/d02/a01119.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
     [ "open", "d0/d02/a01119.html#a60baa47faf417d3e58c9da926ba26d49", null ],
     [ "sendFrame", "d0/d02/a01119.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d0/d02/a01119.html#ab6b1c90677bb528c4aba0dbf476aa7c7", null ]
+    [ "setup", "d0/d02/a01119.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
 ];

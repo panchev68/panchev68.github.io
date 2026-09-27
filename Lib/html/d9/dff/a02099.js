@@ -1,7 +1,8 @@
 var a02099 =
 [
-    [ "maxVoltage", "d9/dff/a02099.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d9/dff/a02099.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d9/dff/a02099.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d9/dff/a02099.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "Config", "d9/dff/a02099.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
+    [ "callback", "d9/dff/a02099.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
+    [ "mode", "d9/dff/a02099.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
+    [ "name", "d9/dff/a02099.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
+    [ "period", "d9/dff/a02099.html#ae81cad8de025f71497b5b241c41da1eb", null ]
 ];

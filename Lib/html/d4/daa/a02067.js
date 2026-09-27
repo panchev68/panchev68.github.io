@@ -1,9 +1,14 @@
 var a02067 =
 [
-    [ "Tick", "d4/daa/a02067.html#a74b9cc5d87c4355efd3342b70c3bdab4", null ],
-    [ "TickType", "d4/daa/a02067.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "d4/daa/a02067.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "d4/daa/a02067.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "d4/daa/a02067.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "d4/daa/a02067.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "Label", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821e", [
+      [ "RUNNING", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "READY", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "BLOCKED", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
+      [ "SUSPENDED", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
+      [ "DELETED", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
+      [ "INVALID", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "State", "d4/daa/a02067.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
+    [ "get", "d4/daa/a02067.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
+    [ "operator Label", "d4/daa/a02067.html#a3c30086da2d01872c5cdccdba1874c74", null ]
 ];

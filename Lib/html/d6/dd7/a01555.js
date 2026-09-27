@@ -1,9 +1,8 @@
 var a01555 =
 [
-    [ "BackupRamDomain", "d6/dd7/a01555.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d6/dd7/a01555.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "close", "d6/dd7/a01555.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d6/dd7/a01555.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "readRegister", "d6/dd7/a01555.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d6/dd7/a01555.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "ADCPortBase", "d6/dd7/a01555.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "d6/dd7/a01555.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "d6/dd7/a01555.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "d6/dd7/a01555.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d6/dd7/a01555.html#aed764265c454323ee0b2d718d2f447cb", null ]
 ];

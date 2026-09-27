@@ -1,10 +1,19 @@
 var a01739 =
 [
-    [ "TimInputCapture", "d1/d46/a01739.html#a653c667cf3354c62c4d187aa86e54851", null ],
-    [ "~TimInputCapture", "d1/d46/a01739.html#a83efa5a35cbbdc44760006ba3c28eaf3", null ],
-    [ "getCapture", "d1/d46/a01739.html#a3316965385b5a33fd8ce487b6b177ef3", null ],
-    [ "start", "d1/d46/a01739.html#a6cca65c2a894e22b5533fc003a71802e", null ],
-    [ "stop", "d1/d46/a01739.html#a2cf0cce398f5583e9fe970e1cd6f3f52", null ],
-    [ "waitCapture", "d1/d46/a01739.html#aa9b901cafcb5e7cf806a06c15b6e8044", null ],
-    [ "void::HAL_TIM_IC_CaptureCallback", "d1/d46/a01739.html#a4e452b46ec2394148f37767c37e5b374", null ]
+    [ "CallbackID", "d1/d46/a01739.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
+    [ "Handle", "d1/d46/a01739.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
+    [ "LPTimer", "d1/d46/a01739.html#a45b3bd4325053ab1288efbf00fd9aebf", null ],
+    [ "~LPTimer", "d1/d46/a01739.html#ac0a0979d18daec450ad8dd24a632edb7", null ],
+    [ "LPTimer", "d1/d46/a01739.html#a694916ba4b3b845dc40a55807a3c010a", null ],
+    [ "LPTimer", "d1/d46/a01739.html#a0151830764f6149bcd064718e12efa9d", null ],
+    [ "close", "d1/d46/a01739.html#a357c712f4c1c66b71a22a354a9571feb", null ],
+    [ "getElapsedRtosTicks", "d1/d46/a01739.html#ade60ec18a6ce100aac3a56fba850f1fe", null ],
+    [ "getHandle", "d1/d46/a01739.html#add82be5171e6f5f28baaba0aea38a0de", null ],
+    [ "hasExpired", "d1/d46/a01739.html#a87e699c7a70e9f1f1ce386fdc8962a39", null ],
+    [ "open", "d1/d46/a01739.html#a2f36ad08fc13700be16a20d5e2f2585d", null ],
+    [ "operator=", "d1/d46/a01739.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
+    [ "operator=", "d1/d46/a01739.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
+    [ "startTimeoutInterrupt", "d1/d46/a01739.html#abd3a3fca5eec4e4dba5d553fde0672aa", null ],
+    [ "stopInterrupt", "d1/d46/a01739.html#a39d708f6ee189e8b6262c0b6e31a4687", null ],
+    [ "waitForEvent", "d1/d46/a01739.html#a109ec96e19acb53cc44eccd3ff2452a0", null ]
 ];

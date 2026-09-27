@@ -1,12 +1,12 @@
 var a01902 =
 [
     [ "Sunset", "d2/dd7/a01902.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "d2/dd7/a01902.html#a42531fed77574b86050e9ba0e0811d14", null ],
-    [ "calculateSunTime", "d2/dd7/a01902.html#af874cf0cb247baf5def62fdd6572ea74", null ],
-    [ "computeHourAngle", "d2/dd7/a01902.html#acbe7640878254c1d5cfa08f610fc60e2", null ],
-    [ "setCurrentDate", "d2/dd7/a01902.html#a0a3c49fdc6de441a34d2a51005093056", null ],
+    [ "Sunset", "d2/dd7/a01902.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
+    [ "calculateSunTime", "d2/dd7/a01902.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
+    [ "computeHourAngle", "d2/dd7/a01902.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
+    [ "setCurrentDate", "d2/dd7/a01902.html#a5c6deabfb7071836dede5e4bec4152f3", null ],
     [ "setCurrentDate", "d2/dd7/a01902.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "d2/dd7/a01902.html#ad6b4fdc20b36ebe6dfa7191d9c3a1667", null ],
-    [ "sunrise", "d2/dd7/a01902.html#a81eecc80b8d195da6dca16eaeb3fc321", null ],
-    [ "sunset", "d2/dd7/a01902.html#a2bef194d2dd5c84153c2dabcb94971bb", null ]
+    [ "setPosition", "d2/dd7/a01902.html#afbc858a5944c47609616f459b657339b", null ],
+    [ "sunrise", "d2/dd7/a01902.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
+    [ "sunset", "d2/dd7/a01902.html#a3bea9bb96761c55203633434195d87c4", null ]
 ];

@@ -1,10 +1,12 @@
 var a01599 =
 [
-    [ "FlashInterface", "d9/d13/a01599.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
-    [ "~FlashInterface", "d9/d13/a01599.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
-    [ "eraseSector", "d9/d13/a01599.html#af08d9ff8192f0066af73392f27d84136", null ],
-    [ "lock", "d9/d13/a01599.html#adc29740e07df07068f8bdb0964150a66", null ],
-    [ "unlock", "d9/d13/a01599.html#ae2768a3892704f8fbbe0c848360cafb3", null ],
-    [ "writeBuffer", "d9/d13/a01599.html#ac538ae44fbfc46d7facce38d5e6f0aa8", null ],
-    [ "writeWord", "d9/d13/a01599.html#a23927049bc46b9909d20722e969b2c11", null ]
+    [ "Event", "db/d51/a01603.html", null ],
+    [ "DACPort", "d9/d13/a01599.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "d9/d13/a01599.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "close", "d9/d13/a01599.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "d9/d13/a01599.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "open", "d9/d13/a01599.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "start", "d9/d13/a01599.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "d9/d13/a01599.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "d9/d13/a01599.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

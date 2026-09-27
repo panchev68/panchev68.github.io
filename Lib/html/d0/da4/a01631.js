@@ -1,9 +1,10 @@
 var a01631 =
 [
-    [ "I2CPort", "d0/da4/a01631.html#a0f28c8a7e8fd6e9436d1833fddb05369", null ],
-    [ "~I2CPort", "d0/da4/a01631.html#afd974c470637c78170576087414cde53", null ],
-    [ "getHandle", "d0/da4/a01631.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "d0/da4/a01631.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "masterReceive", "d0/da4/a01631.html#ab8d6c7b50db1e521d4e8b06df30107b5", null ],
-    [ "masterTransmit", "d0/da4/a01631.html#a93204dac38465fc724005fbac9caf32b", null ]
+    [ "Input", "d0/da4/a01631.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "d0/da4/a01631.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "isHigh", "d0/da4/a01631.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d0/da4/a01631.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d0/da4/a01631.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "read", "d0/da4/a01631.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "d0/da4/a01631.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

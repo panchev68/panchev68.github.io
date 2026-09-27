@@ -1,4 +1,5 @@
 var a00764 =
 [
-    [ "Kalman", "dd/d19/a01922.html", "dd/d19/a01922" ]
+    [ "MPPT", "d2/dbe/a02103.html", "d2/dbe/a02103" ],
+    [ "PerturbAndObserve", "d6/df4/a02115.html", "d6/df4/a02115" ]
 ];

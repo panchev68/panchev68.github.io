@@ -1,5 +1,5 @@
 var a02814 =
 [
-    [ "Lib::System::Storage&lt; T_DERIVED &gt;", "dd/d54/a02119.html", "dd/d54/a02119" ],
-    [ "Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;", "d5/d63/a02123.html", "d5/d63/a02123" ]
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;", "d7/d49/a00863.html", "d7/d49/a00863" ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Config", "d2/db8/a00867.html", "d2/db8/a00867" ]
 ];

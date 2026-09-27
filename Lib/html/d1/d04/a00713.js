@@ -1,4 +1,5 @@
 var a00713 =
 [
-    [ "Lib::System::VersionBase&lt; Derived &gt;", "d5/d4d/a02186.html", "d5/d4d/a02186" ]
+    [ "Lib::USB::SerialPort", "de/d1b/a02187.html", "de/d1b/a02187" ],
+    [ "Lib::USB::SerialPort::Config", "dd/daf/a02191.html", "dd/daf/a02191" ]
 ];

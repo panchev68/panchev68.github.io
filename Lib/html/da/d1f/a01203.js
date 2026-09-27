@@ -1,12 +1,14 @@
 var a01203 =
 [
-    [ "Config", "da/d1f/a01203.html#a604074b8d923be3f29323943f4ca4fa7", null ],
-    [ "ClientBase", "da/d1f/a01203.html#a6086fdfa141fbe95ad777b706551a8bd", null ],
-    [ "~ClientBase", "da/d1f/a01203.html#ac2e73538ecf44e223ccf5f8735da65f1", null ],
-    [ "getModulePresent", "da/d1f/a01203.html#af9f8b689c8b6efe88b8e35a20f9511ac", null ],
-    [ "handleIncomingMessage", "da/d1f/a01203.html#ae7c49b6fc8392a38aa223ae1fe25a8b7", null ],
-    [ "handleOutgoingMessage", "da/d1f/a01203.html#a5b55beb328054c05dc4588469f7baba6", null ],
-    [ "handleTaskTickEvent", "da/d1f/a01203.html#a3e3a8cc9f81943c909c4fe0167afd134", null ],
-    [ "sendHandler", "da/d1f/a01203.html#a5a2e5256ea4fd8ce52bddb8b1bbde39e", null ],
-    [ "start", "da/d1f/a01203.html#ae609787472f2f8403885de04b134df17", null ]
+    [ "Subscriber", "da/d1f/a01203.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "da/d1f/a01203.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "da/d1f/a01203.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "da/d1f/a01203.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "da/d1f/a01203.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "da/d1f/a01203.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "da/d1f/a01203.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "da/d1f/a01203.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "da/d1f/a01203.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "da/d1f/a01203.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "da/d1f/a01203.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

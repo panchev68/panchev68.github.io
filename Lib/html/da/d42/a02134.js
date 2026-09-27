@@ -1,13 +1,14 @@
 var a02134 =
 [
-    [ "VersionString", "da/d42/a02134.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "Status", "da/d42/a02134.html#a60c218a030e3eee1206d03bd1196910e", [
-      [ "OK", "da/d42/a02134.html#a60c218a030e3eee1206d03bd1196910eae0aa021e21dddbd6d8cecec71e9cf564", null ]
+    [ "Bitset", "da/d42/a02134.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
+    [ "Status", "da/d42/a02134.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
+      [ "OK", "da/d42/a02134.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "da/d42/a02134.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "FirmwareVersion", "da/d42/a02134.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "da/d42/a02134.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "da/d42/a02134.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "da/d42/a02134.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "da/d42/a02134.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "da/d42/a02134.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "Configuration", "da/d42/a02134.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
+    [ "isEmpty", "da/d42/a02134.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
+    [ "isValid", "da/d42/a02134.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
+    [ "read", "da/d42/a02134.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
+    [ "write", "da/d42/a02134.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
+    [ "flashAddress", "da/d42/a02134.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

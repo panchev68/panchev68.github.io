@@ -1,13 +1,10 @@
 var a00835 =
 [
-    [ "Config", "df/de8/a00839.html", "df/de8/a00839" ],
-    [ "Driver", "dd/d70/a00835.html#a65952de4e38e509a97dd99f78c802bbc", null ],
-    [ "~Driver", "dd/d70/a00835.html#afa99883d4f135ab7948a880e6dd5988e", null ],
-    [ "canTransferBlock", "dd/d70/a00835.html#a5c67b9345f7aff521f40e68214ffa4f8", null ],
-    [ "getTransferActive", "dd/d70/a00835.html#a32a251ba3d5021680df3b34806463d0f", null ],
-    [ "handleTransferCompleteEvent", "dd/d70/a00835.html#a858d07de1fd56306f65c35ddf2ad80e3", null ],
-    [ "setBacklight", "dd/d70/a00835.html#ab6f4caa496e248948ff63620ec4affb1", null ],
-    [ "setRotation", "dd/d70/a00835.html#ad4d3a5595e08957065a59e53a3803db3", null ],
-    [ "setup", "dd/d70/a00835.html#af9668e38c174f3f8c2c09f1a73ab487f", null ],
-    [ "transmitBlock", "dd/d70/a00835.html#a0e054281d819ad4068bf5a165e8a49e6", null ]
+    [ "PortBase", "dd/d70/a00835.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "dd/d70/a00835.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "dd/d70/a00835.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "dd/d70/a00835.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "dd/d70/a00835.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "dd/d70/a00835.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "dd/d70/a00835.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

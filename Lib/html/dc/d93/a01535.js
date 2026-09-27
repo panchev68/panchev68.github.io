@@ -1,11 +1,10 @@
 var a01535 =
 [
-    [ "Event", "d9/d80/a01539.html", null ],
-    [ "ADCPort", "dc/d93/a01535.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
-    [ "~ADCPort", "dc/d93/a01535.html#a6c6ab80ba3c35fabdd2847c36081d92a", null ],
-    [ "close", "dc/d93/a01535.html#a91651451878e1931de2457be52f68c92", null ],
-    [ "open", "dc/d93/a01535.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
-    [ "start", "dc/d93/a01535.html#a97c4921b9e22a517072028d001c86ef1", null ],
-    [ "stop", "dc/d93/a01535.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
-    [ "waitForEvent", "dc/d93/a01535.html#af0c975bbd0a66ffabc210d52ec971714", null ]
+    [ "ADCPort", "dc/d93/a01535.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "dc/d93/a01535.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "getHandle", "dc/d93/a01535.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "dc/d93/a01535.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "poll", "dc/d93/a01535.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "dc/d93/a01535.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "dc/d93/a01535.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

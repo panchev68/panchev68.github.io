@@ -1,10 +1,14 @@
 var a01843 =
 [
-    [ "TerminateHandler", "d9/d75/a01843.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "d9/d75/a01843.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "d9/d75/a01843.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "d9/d75/a01843.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "d9/d75/a01843.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "d9/d75/a01843.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "d9/d75/a01843.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "Time", "d3/d19/a01847.html", "d3/d19/a01847" ],
+    [ "Date", "d2/d3e/a01851.html", "d2/d3e/a01851" ],
+    [ "DateTime", "d9/d75/a01843.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "d9/d75/a01843.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "d9/d75/a01843.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "d9/d75/a01843.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "d9/d75/a01843.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "d9/d75/a01843.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "d9/d75/a01843.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "d9/d75/a01843.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "d9/d75/a01843.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

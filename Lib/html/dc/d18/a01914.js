@@ -1,14 +1,15 @@
 var a01914 =
 [
-    [ "TimeChangeRule", "dc/d63/a01918.html", "dc/d63/a01918" ],
-    [ "TimeZone", "dc/d18/a01914.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "dc/d18/a01914.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "dc/d18/a01914.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "dc/d18/a01914.html#a270472d6bfa8411d48b6edceebec7c25", null ],
-    [ "getName", "dc/d18/a01914.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "dc/d18/a01914.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "dc/d18/a01914.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "dc/d18/a01914.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "dc/d18/a01914.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "dc/d18/a01914.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "TickType", "dc/d18/a01914.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
+    [ "TimePeriod", "dc/d18/a01914.html#a096466d88bfa78ef18f074937a43f63f", null ],
+    [ "elapsed", "dc/d18/a01914.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
+    [ "elapsedFromISR", "dc/d18/a01914.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
+    [ "elapsedTime", "dc/d18/a01914.html#aea37e1feea05928a3dfd98f79e82c449", null ],
+    [ "elapsedTimeFromISR", "dc/d18/a01914.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
+    [ "isRunning", "dc/d18/a01914.html#aa4477fa15b16c620396b69b2935bf2de", null ],
+    [ "reset", "dc/d18/a01914.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
+    [ "start", "dc/d18/a01914.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
+    [ "startFromISR", "dc/d18/a01914.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
+    [ "stop", "dc/d18/a01914.html#a12059cd59e97f3575d46ed98120763a2", null ],
+    [ "stopFromISR", "dc/d18/a01914.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
 ];

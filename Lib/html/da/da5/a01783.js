@@ -1,8 +1,5 @@
 var a01783 =
 [
-    [ "WindowWatchdog", "da/da5/a01783.html#a4269e423b68f2d61333e301a3b6cc8bf", null ],
-    [ "~WindowWatchdog", "da/da5/a01783.html#a120687aedbe3cc087b3350b04973fa79", null ],
-    [ "open", "da/da5/a01783.html#a4f15ce0728ef0544cf98f71cebd357ef", null ],
-    [ "refresh", "da/da5/a01783.html#ab875b70b2b7787a0743e18f4db6f9f19", null ],
-    [ "setWindow", "da/da5/a01783.html#aef3daa68ec0bc3512e9c5fc3914caac4", null ]
+    [ "UARTPort", "da/da5/a01783.html#a074ec6b19b1073304ca2513d11d43247", null ],
+    [ "~UARTPort", "da/da5/a01783.html#a864254902b1d7b3afa27a66ccd465c69", null ]
 ];

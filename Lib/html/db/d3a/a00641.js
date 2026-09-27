@@ -1,4 +1,4 @@
 var a00641 =
 [
-    [ "RTOS::MessageBuffer", "db/dc2/a02022.html", "db/dc2/a02022" ]
+    [ "RTOS::Mutex", "d6/d5d/a02023.html", "d6/d5d/a02023" ]
 ];

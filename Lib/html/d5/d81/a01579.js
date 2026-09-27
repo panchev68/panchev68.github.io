@@ -1,6 +1,11 @@
 var a01579 =
 [
-    [ "getDevice", "d5/d81/a01579.html#a44399c0b88c31ab172615c8522506511", null ],
-    [ "registerDevice", "d5/d81/a01579.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
-    [ "unregisterDevice", "d5/d81/a01579.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
+    [ "CANPortBase", "d5/d81/a01579.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
+    [ "~CANPortBase", "d5/d81/a01579.html#afe0c3c29da222264a12b2ade136c866c", null ],
+    [ "close", "d5/d81/a01579.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
+    [ "getFreeTxMailboxCount", "d5/d81/a01579.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getRxFifoFillLevel", "d5/d81/a01579.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "d5/d81/a01579.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
+    [ "read", "d5/d81/a01579.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "write", "d5/d81/a01579.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

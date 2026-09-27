@@ -1,6 +1,17 @@
 var a02194 =
 [
-    [ "pinNRST", "d0/db2/a02194.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "d0/db2/a02194.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "d0/db2/a02194.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
+    [ "Config", "d7/db7/a02198.html", "d7/db7/a02198" ],
+    [ "Status", "d0/db2/a02194.html#a69d5fbac0f2c325b3f576b76a1db1204", [
+      [ "OK", "d0/db2/a02194.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d0/db2/a02194.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "SerialPort", "d0/db2/a02194.html#a598e18433429c3e9aa74a063852aaccd", null ],
+    [ "~SerialPort", "d0/db2/a02194.html#afded1dc48b51225406bff4ec53c93689", null ],
+    [ "close", "d0/db2/a02194.html#a833dd7b50ed3c60c51a1f2e6dc8b8647", null ],
+    [ "handlePostReceivedEvent", "d0/db2/a02194.html#a75314779b791b1fba08ecb13324d3caa", null ],
+    [ "handlePostTransmitEvent", "d0/db2/a02194.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
+    [ "open", "d0/db2/a02194.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
+    [ "send", "d0/db2/a02194.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
+    [ "setBaudRate", "d0/db2/a02194.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
+    [ "setResetPin", "d0/db2/a02194.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
 ];

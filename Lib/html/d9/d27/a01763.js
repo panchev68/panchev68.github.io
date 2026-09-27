@@ -1,12 +1,12 @@
 var a01763 =
 [
-    [ "Event", "d1/dab/a01767.html", null ],
-    [ "UARTPort", "d9/d27/a01763.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "d9/d27/a01763.html#ab985c5973b26e43201ed568d3e4b67e4", null ],
-    [ "abort", "d9/d27/a01763.html#ab5621cfd00b219d945b0580d1ee80bdf", null ],
-    [ "close", "d9/d27/a01763.html#a9039d60ffc825b4c518a38f0a95bafd1", null ],
-    [ "open", "d9/d27/a01763.html#adca99095d7af4615d88a5a7c6ad56e30", null ],
-    [ "receive", "d9/d27/a01763.html#a03993df86116ad7c2f28487bbf9bdbbf", null ],
-    [ "send", "d9/d27/a01763.html#aa8c11d6c2933cb567647f02c197d7f56", null ],
-    [ "waitForEvent", "d9/d27/a01763.html#a01f51b709363485e008d83e88b3b78e7", null ]
+    [ "TimOutputCompare", "d9/d27/a01763.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "d9/d27/a01763.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "getCounter", "d9/d27/a01763.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "setCompare", "d9/d27/a01763.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "d9/d27/a01763.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "d9/d27/a01763.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "d9/d27/a01763.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "d9/d27/a01763.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d9/d27/a01763.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

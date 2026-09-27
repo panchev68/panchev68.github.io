@@ -1,9 +1,13 @@
 var a02138 =
 [
-    [ "VersionString", "db/df6/a02138.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "db/df6/a02138.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getValue", "db/df6/a02138.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "db/df6/a02138.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "db/df6/a02138.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "db/df6/a02138.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "VersionString", "db/df6/a02138.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
+    [ "Status", "db/df6/a02138.html#a60c218a030e3eee1206d03bd1196910e", [
+      [ "OK", "db/df6/a02138.html#a60c218a030e3eee1206d03bd1196910eae0aa021e21dddbd6d8cecec71e9cf564", null ]
+    ] ],
+    [ "FirmwareVersion", "db/df6/a02138.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
+    [ "getSubVersion", "db/df6/a02138.html#a74bafacd182d3ccff4da47e5aac54408", null ],
+    [ "getValue", "db/df6/a02138.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
+    [ "operator uint32_t", "db/df6/a02138.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
+    [ "operator VersionString", "db/df6/a02138.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
+    [ "toString", "db/df6/a02138.html#ac82dd7d67829e33f61b3625626f44742", null ]
 ];

@@ -1,6 +1,5 @@
 var a01307 =
 [
-    [ "average", "d2/d4c/a01307.html#ab4fa2bcc0bec940e745fb7be637aebd6", null ],
-    [ "current", "d2/d4c/a01307.html#afb1d3ab66b7d545ad64678211e1916f3", null ],
-    [ "max", "d2/d4c/a01307.html#a9ad9c18e962514b6e21e59820bccecdd", null ]
+    [ "high", "d2/d4c/a01307.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
+    [ "low", "d2/d4c/a01307.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
 ];

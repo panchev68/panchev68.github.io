@@ -1,5 +1,39 @@
 var a00750 =
 [
-    [ "API", "da/df2/a00751.html", "da/df2/a00751" ],
-    [ "Core", "dc/dd0/a00753.html", "dc/dd0/a00753" ]
+    [ "Frame", "da/df2/a00751.html", "da/df2/a00751" ],
+    [ "AtCommandString", "dc/d8e/a01331.html", "dc/d8e/a01331" ],
+    [ "Checksum", "d4/d04/a01335.html", "d4/d04/a01335" ],
+    [ "ComDriver", "dd/d6e/a01339.html", "dd/d6e/a01339" ],
+    [ "Diagnostic", "d1/dcd/a01351.html", "d1/dcd/a01351" ],
+    [ "DigiApiFrameBuffer", "d8/d4e/a01355.html", "d8/d4e/a01355" ],
+    [ "EscapedCode", "dc/d4b/a01359.html", "dc/d4b/a01359" ],
+    [ "Frame0x00", "d6/d64/a01399.html", "d6/d64/a01399" ],
+    [ "Frame0x01", "da/d06/a01403.html", "da/d06/a01403" ],
+    [ "Frame0x08", "d8/d31/a01407.html", "d8/d31/a01407" ],
+    [ "Frame0x09", "db/d99/a01411.html", "db/d99/a01411" ],
+    [ "Frame0x17", "de/d70/a01415.html", "de/d70/a01415" ],
+    [ "Frame0x80", "d3/d95/a01435.html", "d3/d95/a01435" ],
+    [ "Frame0x81", "d7/dfd/a01439.html", "d7/dfd/a01439" ],
+    [ "Frame0x88", "d6/d65/a01443.html", "d6/d65/a01443" ],
+    [ "Frame0x89", "df/d75/a01447.html", "df/d75/a01447" ],
+    [ "Frame0x8a", "d3/dbc/a01451.html", "d3/dbc/a01451" ],
+    [ "Frame0x8b", "df/dc5/a01455.html", "df/dc5/a01455" ],
+    [ "Frame0x90", "d6/d3b/a01459.html", "d6/d3b/a01459" ],
+    [ "Frame0x97", "d7/d42/a01463.html", "d7/d42/a01463" ],
+    [ "FrameWriter", "d0/d7d/a01419.html", "d0/d7d/a01419" ],
+    [ "LocalAtCommand", "d0/d9b/a01379.html", "d0/d9b/a01379" ],
+    [ "Message", "de/dfe/a01383.html", "de/dfe/a01383" ],
+    [ "ModemStatus", "d9/d40/a01387.html", "d9/d40/a01387" ],
+    [ "Module", "dc/dbc/a01391.html", "dc/dbc/a01391" ],
+    [ "Protocol", "d2/df5/a01395.html", null ],
+    [ "QueueMessage", "d9/ddc/a01423.html", "d9/ddc/a01423" ],
+    [ "RemoteAtCommand", "db/d78/a01427.html", "db/d78/a01427" ],
+    [ "ResponseEvents", "d7/d8b/a01431.html", "d7/d8b/a01431" ],
+    [ "Query", "dd/d51/a02223.html", null ],
+    [ "ApiMode", "d9/db0/a00750.html#a90113324d5ba519fcc76387893bb17ed", [
+      [ "TRANSPARENT", "d9/db0/a00750.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
+      [ "API1", "d9/db0/a00750.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
+      [ "API2", "d9/db0/a00750.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
+    ] ],
+    [ "isElapsed", "d9/db0/a00750.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
 ];

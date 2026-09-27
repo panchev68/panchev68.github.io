@@ -1,14 +1,27 @@
 var a02047 =
 [
-    [ "Label", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "dc/d92/a02047.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "dc/d92/a02047.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "dc/d92/a02047.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "dc/d92/a02047.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "Handle", "dc/d92/a02047.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "dc/d92/a02047.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreBase", "dc/d92/a02047.html#a7717ea389a92a9878d51dfde3869dd64", null ],
+    [ "SemaphoreBase", "dc/d92/a02047.html#ae0c09f0d483b3959297f30bd3909de83", null ],
+    [ "SemaphoreBase", "dc/d92/a02047.html#aa8eb9e59c8d7eea278876d3a562dd4f0", null ],
+    [ "~SemaphoreBase", "dc/d92/a02047.html#a15508562779df713e9be104d41d7664d", null ],
+    [ "close", "dc/d92/a02047.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "getCountFromISR", "dc/d92/a02047.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "dc/d92/a02047.html#a2cd2d582d5bec19cc64612f8c4c5cd8c", null ],
+    [ "getDerived", "dc/d92/a02047.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "dc/d92/a02047.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "give", "dc/d92/a02047.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "dc/d92/a02047.html#aa210564f44d72420fb519ca27f12d9a1", null ],
+    [ "giveFromISR", "dc/d92/a02047.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isOpen", "dc/d92/a02047.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "operator=", "dc/d92/a02047.html#aaba790805ac420c6d1b347ab01b9550a", null ],
+    [ "operator=", "dc/d92/a02047.html#aaa0c4d93b7bd73160f68f700b6d86e26", null ],
+    [ "take", "dc/d92/a02047.html#adba0e9091ed738abab54ed798d53a7ca", null ],
+    [ "take", "dc/d92/a02047.html#a320bbbf470cde849ac2b5405273ff10d", null ],
+    [ "take", "dc/d92/a02047.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "dc/d92/a02047.html#a64003ee333dc11bd7ed7dff2d14e4145", null ],
+    [ "takeFromISR", "dc/d92/a02047.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "dc/d92/a02047.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "dc/d92/a02047.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

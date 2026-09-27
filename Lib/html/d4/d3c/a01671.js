@@ -1,13 +1,14 @@
 var a01671 =
 [
-    [ "Event", "db/d98/a01675.html", null ],
-    [ "OSPIPort", "d4/d3c/a01671.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
-    [ "~OSPIPort", "d4/d3c/a01671.html#a75c002e669d06d7de1e78e5e48686797", null ],
-    [ "abort", "d4/d3c/a01671.html#ae607a85a501b0bbf6cd780dac3349a01", null ],
-    [ "close", "d4/d3c/a01671.html#a6ec95ca0884508cd5d0adbed61d3e230", null ],
-    [ "command", "d4/d3c/a01671.html#a54ec0889f4608331fa061c0c3292069b", null ],
-    [ "open", "d4/d3c/a01671.html#a5dd53939332ed5b10c743ffbcaea68e7", null ],
-    [ "receive", "d4/d3c/a01671.html#ab9cc9ba95182f1da35658a30766c925b", null ],
-    [ "transmit", "d4/d3c/a01671.html#a29fc23b9a2bc046d9b8a3112e104d07a", null ],
-    [ "waitForEvent", "d4/d3c/a01671.html#a270e0d617d8dd62513fbdff91296e244", null ]
+    [ "OSPIPort", "d4/d3c/a01671.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "d4/d3c/a01671.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "OSPIPort", "d4/d3c/a01671.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
+    [ "OSPIPort", "d4/d3c/a01671.html#a50425950532682614be81eb8bb5216b7", null ],
+    [ "command", "d4/d3c/a01671.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
+    [ "getHandle", "d4/d3c/a01671.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "d4/d3c/a01671.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "operator=", "d4/d3c/a01671.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
+    [ "operator=", "d4/d3c/a01671.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
+    [ "receive", "d4/d3c/a01671.html#aef7cf93602718e2d14816e122f15f3be", null ],
+    [ "transmit", "d4/d3c/a01671.html#a10d2dc1da9553992110c3752aa39e058", null ]
 ];

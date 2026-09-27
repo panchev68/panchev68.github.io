@@ -1,5 +1,7 @@
 var a02126 =
 [
-    [ "current", "da/da0/a02126.html#a2e9a3fd94c50f6eec80b37bc5f23f415", null ],
-    [ "voltage", "da/da0/a02126.html#a1e7c41cc6f1e458a928298f16e3913df", null ]
+    [ "maxVoltage", "da/da0/a02126.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "da/da0/a02126.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "da/da0/a02126.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "da/da0/a02126.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

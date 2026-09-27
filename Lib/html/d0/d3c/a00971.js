@@ -1,8 +1,9 @@
 var a00971 =
 [
-    [ "~UARTPort", "d0/d3c/a00971.html#a18fcbbf5a352bb81140e70c5e61dda48", null ],
-    [ "close", "d0/d3c/a00971.html#a394658189567299790e47db221b2389a", null ],
-    [ "open", "d0/d3c/a00971.html#a0462a01d6a7f0f2347fc621553638bd5", null ],
-    [ "receive", "d0/d3c/a00971.html#a7940eceaebb00f6729b68d6d598d3414", null ],
-    [ "send", "d0/d3c/a00971.html#a51a96444d95fadff20fa4599fdbd9f48", null ]
+    [ "chipManufacturer", "d0/d3c/a00971.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "d0/d3c/a00971.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "d0/d3c/a00971.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "d0/d3c/a00971.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "d0/d3c/a00971.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "d0/d3c/a00971.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

@@ -1,8 +1,9 @@
 var a02142 =
 [
-    [ "Storage", "df/de7/a02142.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "df/de7/a02142.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "df/de7/a02142.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "df/de7/a02142.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "df/de7/a02142.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "VersionString", "df/de7/a02142.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
+    [ "HardwareVersion", "df/de7/a02142.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
+    [ "getValue", "df/de7/a02142.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
+    [ "operator uint32_t", "df/de7/a02142.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
+    [ "operator VersionString", "df/de7/a02142.html#aa3df38606e4bae3745c893ccbffb030c", null ],
+    [ "toString", "df/de7/a02142.html#a318575bc9f5967d830a1cb350b1e8061", null ]
 ];

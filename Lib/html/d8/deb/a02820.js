@@ -1,5 +1,5 @@
 var a02820 =
 [
-    [ "Lib::Ethernet::UserProtocol", "d5/d06/a01499.html", "d5/d06/a01499" ],
-    [ "Lib::Ethernet::UserProtocol::MessageHeader", "d6/df5/a01503.html", "d6/df5/a01503" ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "d5/d89/a00907.html", "d5/d89/a00907" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "d7/d12/a00911.html", "d7/d12/a00911" ]
 ];

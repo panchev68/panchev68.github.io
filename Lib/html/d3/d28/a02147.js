@@ -1,10 +1,13 @@
 var a02147 =
 [
-    [ "Base", "dd/d99/a02151.html", "dd/d99/a02151" ],
-    [ "Hardware", "d0/d89/a02155.html", "d0/d89/a02155" ],
-    [ "Firmware", "d4/d9b/a02159.html", "d4/d9b/a02159" ],
-    [ "Status", "d3/d28/a02147.html#a370a653bced85832b45cd4b8ada37bfa", [
-      [ "OK", "d3/d28/a02147.html#a370a653bced85832b45cd4b8ada37bfaae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d3/d28/a02147.html#a370a653bced85832b45cd4b8ada37bfaabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "Date", "d3/d28/a02147.html#af06cc8ba2f87935c0445acf20bda3349", null ],
+    [ "DateTime", "d3/d28/a02147.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
+    [ "Status", "d3/d28/a02147.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
+      [ "OK", "d3/d28/a02147.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d3/d28/a02147.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "ProduceDate", "d3/d28/a02147.html#a35243148dd7247b4f7926b4aed02485a", null ],
+    [ "isEmpty", "d3/d28/a02147.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
+    [ "read", "d3/d28/a02147.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
+    [ "write", "d3/d28/a02147.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
 ];

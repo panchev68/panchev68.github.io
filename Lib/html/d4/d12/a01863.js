@@ -1,14 +1,10 @@
 var a01863 =
 [
-    [ "JaggedArrayBase", "d4/d12/a01863.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d4/d12/a01863.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d4/d12/a01863.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d4/d12/a01863.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d4/d12/a01863.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d4/d12/a01863.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d4/d12/a01863.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d4/d12/a01863.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d4/d12/a01863.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d4/d12/a01863.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d4/d12/a01863.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "PeakInfo", "d1/de6/a01867.html", "d1/de6/a01867" ],
+    [ "FindPeaks", "d4/d12/a01863.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
+    [ "addSample", "d4/d12/a01863.html#af68c408bdc213c13c758fceb90fdf51e", null ],
+    [ "getCount", "d4/d12/a01863.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
+    [ "getFallingPeak", "d4/d12/a01863.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
+    [ "getRisingPeak", "d4/d12/a01863.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
+    [ "reset", "d4/d12/a01863.html#a176df2aab4c0e044fe550ca813f88168", null ]
 ];

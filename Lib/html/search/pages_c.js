@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['writers_0',['Several writers',['../d5/d34/a02809.html#streambuffer_multiwriter',1,'']]]
+  ['writers_0',['Several writers',['../d9/da4/a02798.html#streambuffer_multiwriter',1,'']]]
 ];

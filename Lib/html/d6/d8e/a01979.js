@@ -1,13 +1,14 @@
 var a01979 =
 [
-    [ "CriticalSection", "d6/dd6/a01983.html", "d6/dd6/a01983" ],
-    [ "CriticalSectionFromISR", "d2/d8a/a01987.html", "d2/d8a/a01987" ],
-    [ "Scheduler", "d3/d4e/a01991.html", "d3/d4e/a01991" ],
-    [ "MemoryInfo", "de/d25/a01999.html", "de/d25/a01999" ],
-    [ "InterruptMask", "d6/d8e/a01979.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "d6/d8e/a01979.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "d6/d8e/a01979.html#ae46a64cb84bb37574896f522306a66d8", null ],
-    [ "TickType", "d6/d8e/a01979.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "d6/d8e/a01979.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "d6/d8e/a01979.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "Config", "d6/dd6/a01983.html", "d6/dd6/a01983" ],
+    [ "State", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d6/d8e/a01979.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "d6/d8e/a01979.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "d6/d8e/a01979.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "d6/d8e/a01979.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "d6/d8e/a01979.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

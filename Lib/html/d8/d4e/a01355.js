@@ -1,6 +1,13 @@
 var a01355 =
 [
-    [ "lengthLSB", "d8/d4e/a01355.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
-    [ "lengthMSB", "d8/d4e/a01355.html#a975df99244301d7a71b2c326555ba6fd", null ],
-    [ "startDelimiter", "d8/d4e/a01355.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
+    [ "append", "d8/d4e/a01355.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d8/d4e/a01355.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d8/d4e/a01355.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d8/d4e/a01355.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d8/d4e/a01355.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d8/d4e/a01355.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d8/d4e/a01355.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d8/d4e/a01355.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d8/d4e/a01355.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d8/d4e/a01355.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

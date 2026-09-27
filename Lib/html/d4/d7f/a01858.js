@@ -11,6 +11,7 @@ var a01858 =
     [ "toString", "d4/d7f/a01858.html#a70ecfff686d88d444a44393965b296e5", null ],
     [ "toSysDays", "d4/d7f/a01858.html#a59f67718a1b057bca29012a393547479", null ],
     [ "toYearMonthDay", "d4/d7f/a01858.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "d4/d7f/a01858.html#ae3d4a8787eced68c65a23f5906c11add", null ],
     [ "day", "d4/d7f/a01858.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
     [ "month", "d4/d7f/a01858.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
     [ "year", "d4/d7f/a01858.html#a1026d89f27e48fd23eccde7a9850b302", null ]

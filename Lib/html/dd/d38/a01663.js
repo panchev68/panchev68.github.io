@@ -1,13 +1,13 @@
 var a01663 =
 [
-    [ "Event", "dd/d8d/a01667.html", null ],
-    [ "OSPIPort", "dd/d38/a01663.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
-    [ "~OSPIPort", "dd/d38/a01663.html#a1bfbad124ecbfdf6cba7511cef023187", null ],
-    [ "abort", "dd/d38/a01663.html#acf222af5af1a03ba61fc7523a837bbb6", null ],
-    [ "close", "dd/d38/a01663.html#a4b5ceddbe8a65edd29e7817bb737da62", null ],
-    [ "command", "dd/d38/a01663.html#a7cfbf2ab6c1f14db0836fc60e109a24b", null ],
-    [ "open", "dd/d38/a01663.html#a9a0d6d16d71b098e1bf00f62cf9bacf9", null ],
-    [ "receive", "dd/d38/a01663.html#a790b46529d6d57833eaa696697f33db5", null ],
-    [ "transmit", "dd/d38/a01663.html#a76b97e2eee2a40b819ca3f2b9d10283b", null ],
-    [ "waitForEvent", "dd/d38/a01663.html#ace5a1e3c2ab40cc44478fcc7810f8b43", null ]
+    [ "I2CPortBase", "dd/d38/a01663.html#ac5cfd51b611b9848e49c7a3d345de6d4", null ],
+    [ "I2CPortBase", "dd/d38/a01663.html#a6483c18a19db1550cd6c10ab8fc46f1d", null ],
+    [ "I2CPortBase", "dd/d38/a01663.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "dd/d38/a01663.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "dd/d38/a01663.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "dd/d38/a01663.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "dd/d38/a01663.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "dd/d38/a01663.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "dd/d38/a01663.html#a3ca3a98752b410bf62ea34d0e160e75f", null ],
+    [ "operator=", "dd/d38/a01663.html#a7f0e8ed82c2c559477b990aefe98218d", null ]
 ];

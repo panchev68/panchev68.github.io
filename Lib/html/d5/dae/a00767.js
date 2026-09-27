@@ -1,5 +1,5 @@
 var a00767 =
 [
-    [ "MPPT", "d4/d18/a02106.html", "d4/d18/a02106" ],
-    [ "PerturbAndObserve", "db/d34/a02118.html", "db/d34/a02118" ]
+    [ "Protocol", "dd/d6f/a02207.html", "dd/d6f/a02207" ],
+    [ "ServiceBase", "dd/d31/a02215.html", "dd/d31/a02215" ]
 ];

@@ -1,10 +1,11 @@
 var a01755 =
 [
-    [ "TimTimebase", "d2/d7d/a01755.html#a0bb4306a16c766d8c959a727166c26ac", null ],
-    [ "~TimTimebase", "d2/d7d/a01755.html#af090b1031082ebdc6568705b21be0ab6", null ],
-    [ "setPeriod", "d2/d7d/a01755.html#af417fe67a3fd9eff98b179dc5d82a3d7", null ],
-    [ "start", "d2/d7d/a01755.html#a944142aa0dd655cd9b919a0e06fafa81", null ],
-    [ "stop", "d2/d7d/a01755.html#aa399a05c619bdd1b74c251a7ec730399", null ],
-    [ "waitPeriod", "d2/d7d/a01755.html#ab5769aea74b7d30265ee14935f53b551", null ],
-    [ "void::HAL_TIM_PeriodElapsedCallback", "d2/d7d/a01755.html#a34308d96882870b9e8698d92c2f5eedc", null ]
+    [ "TimInputCapture", "d2/d7d/a01755.html#abfe70b316d617c0b779207aebafd9fb9", null ],
+    [ "~TimInputCapture", "d2/d7d/a01755.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
+    [ "getCapture", "d2/d7d/a01755.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
+    [ "start", "d2/d7d/a01755.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
+    [ "stop", "d2/d7d/a01755.html#a6d1e0aa45356b048a97c7390802d142a", null ],
+    [ "waitCapture", "d2/d7d/a01755.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
+    [ "waitCapture", "d2/d7d/a01755.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "d2/d7d/a01755.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

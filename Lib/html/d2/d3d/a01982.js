@@ -1,14 +1,6 @@
 var a01982 =
 [
-    [ "Config", "d4/d10/a01986.html", "d4/d10/a01986" ],
-    [ "State", "d2/d3d/a01982.html#a9011b5c87c37ce3e390d0a9c63d7e133", [
-      [ "ACTIVE", "d2/d3d/a01982.html#a9011b5c87c37ce3e390d0a9c63d7e133a18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "d2/d3d/a01982.html#a9011b5c87c37ce3e390d0a9c63d7e133a6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "d2/d3d/a01982.html#a9011b5c87c37ce3e390d0a9c63d7e133a055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "d2/d3d/a01982.html#a0d927c7ffb1baca913c9d1717ad0e069", null ],
-    [ "~Sensor", "d2/d3d/a01982.html#a80bba12622a8196b342bd4b7465853e0", null ],
-    [ "getName", "d2/d3d/a01982.html#ad92690781548258693391186b91d48f9", null ],
-    [ "isPresent", "d2/d3d/a01982.html#a22368bf53b8093672474b75f55b0f73c", null ],
-    [ "read", "d2/d3d/a01982.html#ac96bd14f6b3953869c4d63c379542315", null ]
+    [ "name", "d2/d3d/a01982.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
+    [ "output", "d2/d3d/a01982.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
+    [ "rotateTime", "d2/d3d/a01982.html#aad96d287e9891431e5a7c99935482563", null ]
 ];

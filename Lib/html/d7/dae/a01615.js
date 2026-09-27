@@ -1,9 +1,10 @@
 var a01615 =
 [
-    [ "Handle", "d7/dae/a01615.html#a31060b74a9dca40bf3d8950b8db4981f", null ],
-    [ "Handle", "d7/dae/a01615.html#a0fad1e6f6de3fa5c36b0ceddbd626dec", null ],
-    [ "getPinNumber", "d7/dae/a01615.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d7/dae/a01615.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d7/dae/a01615.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d7/dae/a01615.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "ExtInterrupt", "d7/dae/a01615.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
+    [ "~ExtInterrupt", "d7/dae/a01615.html#a0500efb3e0dbde6f95fd02948060723b", null ],
+    [ "bindCallback", "d7/dae/a01615.html#a6aa51188146ed22a2159a1d5b097bfb1", null ],
+    [ "unbindCallback", "d7/dae/a01615.html#a696771a086aa9256e841b7221aeaf2f7", null ],
+    [ "void::HAL_GPIO_EXTI_Callback", "d7/dae/a01615.html#a1cf02148ce65009ef1fd8698386429c4", null ],
+    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d7/dae/a01615.html#a608244a38c1095888d60a17b77ae5ed4", null ],
+    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d7/dae/a01615.html#aa8068c433729122f23f40e6bfa77659f", null ]
 ];

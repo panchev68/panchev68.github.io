@@ -1,8 +1,9 @@
 var a02014 =
 [
-    [ "allocations", "d0/d48/a02014.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d0/d48/a02014.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d0/d48/a02014.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d0/d48/a02014.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d0/d48/a02014.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Lock", "d0/d48/a02014.html#a79915981fe481334533677f3c4691e1f", null ],
+    [ "~Lock", "d0/d48/a02014.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
+    [ "Lock", "d0/d48/a02014.html#a7da060988728f2b1731d04e7b4465ffb", null ],
+    [ "Lock", "d0/d48/a02014.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
+    [ "operator=", "d0/d48/a02014.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
+    [ "operator=", "d0/d48/a02014.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
 ];

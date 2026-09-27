@@ -1,4 +1,5 @@
 var a00584 =
 [
-    [ "Lib::Helper::TimePeriod", "d4/dff/a01910.html", "d4/dff/a01910" ]
+    [ "Lib::Helper::TimeZone", "d3/d3b/a01911.html", "d3/d3b/a01911" ],
+    [ "Lib::Helper::TimeZone::TimeChangeRule", "df/d11/a01915.html", "df/d11/a01915" ]
 ];

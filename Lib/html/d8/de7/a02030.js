@@ -1,15 +1,29 @@
 var a02030 =
 [
-    [ "MutexGuard", "d8/de7/a02030.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "d8/de7/a02030.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "d8/de7/a02030.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "d8/de7/a02030.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "d8/de7/a02030.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "d8/de7/a02030.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "d8/de7/a02030.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "d8/de7/a02030.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "d8/de7/a02030.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "d8/de7/a02030.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "d8/de7/a02030.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "d8/de7/a02030.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "TickType", "d8/de7/a02030.html#adc2e1b449462bfc5e02a4ee323b012e5", null ],
+    [ "Type", "d8/de7/a02030.html#a32944cdf5acfc817c79a3b60e03bbc38", [
+      [ "NORMAL", "d8/de7/a02030.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051", null ],
+      [ "RECURSIVE", "d8/de7/a02030.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638", null ]
+    ] ],
+    [ "Mutex", "d8/de7/a02030.html#a85140f0dfb31c3d5a8a27ce01e98fdc6", null ],
+    [ "Mutex", "d8/de7/a02030.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
+    [ "~Mutex", "d8/de7/a02030.html#a032031894c38dfb5861f1be4a7e247dd", null ],
+    [ "Mutex", "d8/de7/a02030.html#acce47428aedbea4c3597ab4b07a0dc16", null ],
+    [ "close", "d8/de7/a02030.html#acae6fb03115a857672d114638e6da0cb", null ],
+    [ "createStatic", "d8/de7/a02030.html#a4a72a94370a00b530eb26b466ed373bc", null ],
+    [ "getHolder", "d8/de7/a02030.html#a616ca3c51747ccb7932dab4363b40ef5", null ],
+    [ "getHolderFromISR", "d8/de7/a02030.html#a4442eb3b200cdfba2f9780f45b293ee4", null ],
+    [ "getNativeHandle", "d8/de7/a02030.html#a38014af85379eee8f59569c75f075995", null ],
+    [ "getType", "d8/de7/a02030.html#a4625bbff147fffc8861b3478c8430f94", null ],
+    [ "isLocked", "d8/de7/a02030.html#a7797096bb17dedbd7f2dc83952a87ad0", null ],
+    [ "isOwnedByCurrentTask", "d8/de7/a02030.html#a0fe980766d5bb3fb9f27336981430a6f", null ],
+    [ "isValid", "d8/de7/a02030.html#a2a35fb03473deda78f602d516fb9b09c", null ],
+    [ "lock", "d8/de7/a02030.html#a80b2989f05e4378994f3eb8e811d9a2b", null ],
+    [ "lock", "d8/de7/a02030.html#a9249f5e17ed3dc3621afb504a94f51c4", null ],
+    [ "lock", "d8/de7/a02030.html#a2b2c30777cc3c44739df34e98fc05d0f", null ],
+    [ "open", "d8/de7/a02030.html#a9f2abf5c8b3442dd741bac7c15e5726a", null ],
+    [ "operator=", "d8/de7/a02030.html#a1e606324a490dacaed78d56b0f2e463f", null ],
+    [ "operator=", "d8/de7/a02030.html#aa0480ec896a8ce6959a8fe0069fc4a0f", null ],
+    [ "tryLock", "d8/de7/a02030.html#a18a279e5ed19c174389ad7be7fb2264d", null ],
+    [ "unlock", "d8/de7/a02030.html#a55031b1cdaf584950893279ceac8ff93", null ]
 ];

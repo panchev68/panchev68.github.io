@@ -1,12 +1,14 @@
 var a01918 =
 [
-    [ "getLocalTransition", "dc/d63/a01918.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "dc/d63/a01918.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "dc/d63/a01918.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "dc/d63/a01918.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "dc/d63/a01918.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "dc/d63/a01918.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "dc/d63/a01918.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "dc/d63/a01918.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "dc/d63/a01918.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "TimeChangeRule", "dd/d19/a01922.html", "dd/d19/a01922" ],
+    [ "TimeZone", "dc/d63/a01918.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
+    [ "TimeZone", "dc/d63/a01918.html#a0edb02c779df5ea86747377d1413c3d8", null ],
+    [ "TimeZone", "dc/d63/a01918.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
+    [ "convertLocalToUtcMinutes", "dc/d63/a01918.html#a479ec4792a22a5b314a497bb01be2047", null ],
+    [ "getName", "dc/d63/a01918.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
+    [ "getOffset", "dc/d63/a01918.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
+    [ "getOffsetMinutes", "dc/d63/a01918.html#a85aeda7715611b5af76b28bdc266c545", null ],
+    [ "setName", "dc/d63/a01918.html#a46b717d157e7f9b012a459cf78b723b5", null ],
+    [ "setOffset", "dc/d63/a01918.html#aedb03e610f976aba921183f41dd10501", null ],
+    [ "setOffsetMinutes", "dc/d63/a01918.html#a57128a66ae77de2e6d60521056cb33db", null ]
 ];

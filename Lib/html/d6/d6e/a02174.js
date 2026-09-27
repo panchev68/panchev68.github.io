@@ -1,9 +1,10 @@
 var a02174 =
 [
-    [ "VersionString", "d6/d6e/a02174.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "d6/d6e/a02174.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "d6/d6e/a02174.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d6/d6e/a02174.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "d6/d6e/a02174.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d6/d6e/a02174.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Base", "d3/d8d/a02178.html", "d3/d8d/a02178" ],
+    [ "Hardware", "d5/db4/a02182.html", "d5/db4/a02182" ],
+    [ "Firmware", "d5/d4d/a02186.html", "d5/d4d/a02186" ],
+    [ "Status", "d6/d6e/a02174.html#a370a653bced85832b45cd4b8ada37bfa", [
+      [ "OK", "d6/d6e/a02174.html#a370a653bced85832b45cd4b8ada37bfaae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d6/d6e/a02174.html#a370a653bced85832b45cd4b8ada37bfaabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ]
 ];

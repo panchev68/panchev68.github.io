@@ -1,4 +1,4 @@
 var a00272 =
 [
-    [ "Lib::Errors::Dispatcher", "df/d2f/a01474.html", "df/d2f/a01474" ]
+    [ "Lib::Errors::Error", "dd/d15/a01471.html", "dd/d15/a01471" ]
 ];

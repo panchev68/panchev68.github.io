@@ -1,8 +1,7 @@
 var a02119 =
 [
-    [ "Storage", "dd/d54/a02119.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "dd/d54/a02119.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "dd/d54/a02119.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "dd/d54/a02119.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "dd/d54/a02119.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "maxVoltage", "dd/d54/a02119.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "dd/d54/a02119.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "dd/d54/a02119.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "dd/d54/a02119.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

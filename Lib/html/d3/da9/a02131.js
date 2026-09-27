@@ -1,9 +1,13 @@
 var a02131 =
 [
-    [ "SerialString", "d3/da9/a02131.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
-    [ "SerialNumber", "d3/da9/a02131.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
-    [ "operator SerialString", "d3/da9/a02131.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
-    [ "operator uint32_t", "d3/da9/a02131.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
-    [ "toString", "d3/da9/a02131.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
-    [ "result", "d3/da9/a02131.html#af3d33382ba6c5d600113f549fad5b91d", null ]
+    [ "VersionString", "d3/da9/a02131.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
+    [ "Status", "d3/da9/a02131.html#a60c218a030e3eee1206d03bd1196910e", [
+      [ "OK", "d3/da9/a02131.html#a60c218a030e3eee1206d03bd1196910eae0aa021e21dddbd6d8cecec71e9cf564", null ]
+    ] ],
+    [ "FirmwareVersion", "d3/da9/a02131.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
+    [ "getSubVersion", "d3/da9/a02131.html#a74bafacd182d3ccff4da47e5aac54408", null ],
+    [ "getValue", "d3/da9/a02131.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
+    [ "operator uint32_t", "d3/da9/a02131.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
+    [ "operator VersionString", "d3/da9/a02131.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
+    [ "toString", "d3/da9/a02131.html#ac82dd7d67829e33f61b3625626f44742", null ]
 ];

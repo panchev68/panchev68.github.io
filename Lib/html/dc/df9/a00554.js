@@ -1,4 +1,4 @@
 var a00554 =
 [
-    [ "Lib::Helper::Sunset", "de/dfb/a01874.html", "de/dfb/a01874" ]
+    [ "Lib::Helper::Exception", "d3/dce/a01859.html", "d3/dce/a01859" ]
 ];

@@ -1,10 +1,19 @@
 var a01487 =
 [
-    [ "MacString", "dc/d47/a01487.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
-    [ "MacAddress", "dc/d47/a01487.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
-    [ "MacAddress", "dc/d47/a01487.html#aa300b2a042efd76f66f61db709b5b736", null ],
-    [ "data", "dc/d47/a01487.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
-    [ "operator[]", "dc/d47/a01487.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
-    [ "size", "dc/d47/a01487.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
-    [ "toString", "dc/d47/a01487.html#a83b7f1a52401d479dea270cbe112b88c", null ]
+    [ "AddressString", "dc/d47/a01487.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
+    [ "IpAddress", "dc/d47/a01487.html#a14871d2fd0997a7192dbfa9efb391866", null ],
+    [ "IpAddress", "dc/d47/a01487.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
+    [ "IpAddress", "dc/d47/a01487.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
+    [ "IpAddress", "dc/d47/a01487.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
+    [ "~IpAddress", "dc/d47/a01487.html#a91c1c230613abcd87e0e6e643231cdac", null ],
+    [ "IpAddress", "dc/d47/a01487.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
+    [ "data", "dc/d47/a01487.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
+    [ "fromString", "dc/d47/a01487.html#aa8258817877631b9f96b9e16451a4027", null ],
+    [ "get", "dc/d47/a01487.html#a5407112eb57277910f2696486f34d87b", null ],
+    [ "operator[]", "dc/d47/a01487.html#a008326accb852006dc00f15e9ea5fb02", null ],
+    [ "set", "dc/d47/a01487.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
+    [ "set", "dc/d47/a01487.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
+    [ "set", "dc/d47/a01487.html#ac055a400e34b3e1927421c0243ba509d", null ],
+    [ "size", "dc/d47/a01487.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
+    [ "toString", "dc/d47/a01487.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
 ];

@@ -1,4 +1,4 @@
 var a00209 =
 [
-    [ "Lib::Digi::Core::LocalAtCommand", "d3/deb/a01386.html", "d3/deb/a01386" ]
+    [ "Lib::Digi::Core::ModemStatus", "d9/d40/a01387.html", "d9/d40/a01387" ]
 ];

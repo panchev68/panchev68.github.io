@@ -1,7 +1,9 @@
 var a01926 =
 [
-    [ "estimatedError", "d2/db9/a01926.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "d2/db9/a01926.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "d2/db9/a01926.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "d2/db9/a01926.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "Config", "d3/d33/a01930.html", "d3/d33/a01930" ],
+    [ "Kalman", "d2/db9/a01926.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
+    [ "~Kalman", "d2/db9/a01926.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
+    [ "operator()", "d2/db9/a01926.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
+    [ "reset", "d2/db9/a01926.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
+    [ "setParam", "d2/db9/a01926.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
 ];

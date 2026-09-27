@@ -1,6 +1,5 @@
 var a02811 =
 [
-    [ "Lib::Digi::API::Service::Parameters", "d7/da4/a01287.html", "d7/da4/a01287" ],
-    [ "Lib::Digi::API::Service::Parameters::Data", "d4/da0/a01291.html", "d4/da0/a01291" ],
-    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "d2/d68/a01295.html", "d2/d68/a01295" ]
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;", "df/d4c/a00851.html", "df/d4c/a00851" ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config", "da/de6/a00855.html", "da/de6/a00855" ]
 ];

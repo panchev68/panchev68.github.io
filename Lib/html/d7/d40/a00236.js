@@ -1,4 +1,4 @@
 var a00236 =
 [
-    [ "Lib::Digi::Core::QueryBase&lt; Derived &gt;", "dc/de6/a01426.html", "dc/de6/a01426" ]
+    [ "Lib::Digi::Core::RemoteAtCommand", "db/d78/a01427.html", "db/d78/a01427" ]
 ];

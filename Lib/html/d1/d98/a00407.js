@@ -1,4 +1,4 @@
 var a00407 =
 [
-    [ "Lib::HAL::OSPIPort&lt; DriverMode::DMA &gt;", "dd/d08/a01682.html", "dd/d08/a01682" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;", "d2/d34/a01679.html", "d2/d34/a01679" ]
 ];

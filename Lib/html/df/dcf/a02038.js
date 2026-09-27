@@ -1,6 +1,30 @@
 var a02038 =
 [
-    [ "deepSleepCount", "df/dcf/a02038.html#ae80981e088a11d9e03983df5989a0c57", null ],
-    [ "deepSleepTicks", "df/dcf/a02038.html#a1db12ec46a399abd96da0e8362daeb40", null ],
-    [ "lightSleepCount", "df/dcf/a02038.html#a01c394457f049509658022904e7ace56", null ]
+    [ "Statistics", "d1/dc4/a02042.html", "d1/dc4/a02042" ],
+    [ "DeepSleepLock", "d2/dd9/a02046.html", "d2/dd9/a02046" ],
+    [ "PeripheralCallback", "df/dcf/a02038.html#a46a6e13b2c9d45b36d2e8b1fda1cbef1", null ],
+    [ "PowerManager", "df/dcf/a02038.html#af37259063989766044b7fa592bd44085", null ],
+    [ "PowerManager", "df/dcf/a02038.html#a580afc3532ffd30c47cab5a645b5bc7b", null ],
+    [ "acquireDeepSleepLock", "df/dcf/a02038.html#a6bdd9dff8463762161a8fa3636a21ff0", null ],
+    [ "canEnterDeepSleep", "df/dcf/a02038.html#a1de32d80fc39ad10a50ba03c986f2bd2", null ],
+    [ "clearCallbacks", "df/dcf/a02038.html#a88eb68fa07a4c301b92b1494aa38c658", null ],
+    [ "disableDeepSleep", "df/dcf/a02038.html#aeee3f51a408ab40cc51936aa0e0961c3", null ],
+    [ "enableDeepSleep", "df/dcf/a02038.html#a124c901bc289619cbe95244c4dc76065", null ],
+    [ "getDeepSleepLockCount", "df/dcf/a02038.html#a6064262d8555aa361dfb6ee449ae72d3", null ],
+    [ "getPostSleepCallbackCount", "df/dcf/a02038.html#a6fcb72ffb29a6bc5a81299278ef7acc0", null ],
+    [ "getPreSleepCallbackCount", "df/dcf/a02038.html#a4e74d968320f127efe98419a466dae4b", null ],
+    [ "getStatistics", "df/dcf/a02038.html#a0bae4d059d5136a3f1a01b190a524c37", null ],
+    [ "getTimer", "df/dcf/a02038.html#a413f529cd450843d1925ae6e9672272a", null ],
+    [ "isDeepSleepEnabled", "df/dcf/a02038.html#a0226d6db41a58b3363a92fc42b5bc696", null ],
+    [ "isSetUp", "df/dcf/a02038.html#aab0d26e47777719ed4cbb5abfa3ff18c", null ],
+    [ "operator=", "df/dcf/a02038.html#ac049ef91e07bc905499cb228bbc97d39", null ],
+    [ "operator=", "df/dcf/a02038.html#a7eaa1f8fd4c5fddd0d6d9aa4202913fe", null ],
+    [ "registerPostSleepCallback", "df/dcf/a02038.html#a13f32f2b1abeed9410f521ffcfaf1e6e", null ],
+    [ "registerPreSleepCallback", "df/dcf/a02038.html#ab5e43097d2f7efc26d1ac3b6eecdd7b8", null ],
+    [ "releaseDeepSleepLock", "df/dcf/a02038.html#a33d9c1c345d706331d8b150dfaf5f883", null ],
+    [ "resetStatistics", "df/dcf/a02038.html#a36783c702ecbb0cfe158745ca64fcaec", null ],
+    [ "setup", "df/dcf/a02038.html#a53ad5d94b8b8661830e7aef2fa9125cc", null ],
+    [ "unregisterPostSleepCallback", "df/dcf/a02038.html#a8c9e36018627ddcbae93c6f3279a54bc", null ],
+    [ "unregisterPreSleepCallback", "df/dcf/a02038.html#a9faada79167d302ec78497a7a882e1b9", null ],
+    [ "void::vPortSuppressTicksAndSleep", "df/dcf/a02038.html#a98ee80183ed645629084a482c158afd1", null ]
 ];

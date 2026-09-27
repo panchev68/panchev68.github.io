@@ -1,9 +1,9 @@
 var a01563 =
 [
-    [ "Event", "d7/d57/a01567.html", null ],
-    [ "CANPort", "d8/d6c/a01563.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
-    [ "~CANPort", "d8/d6c/a01563.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
-    [ "close", "d8/d6c/a01563.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
-    [ "open", "d8/d6c/a01563.html#a591e40ed78afa5d73704475e00c55060", null ],
-    [ "waitForEvent", "d8/d6c/a01563.html#a1c4fcd17767b405bdecda984747567ed", null ]
+    [ "CANPort", "d8/d6c/a01563.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "d8/d6c/a01563.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "getHandle", "d8/d6c/a01563.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "d8/d6c/a01563.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "readBlocking", "d8/d6c/a01563.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "writeBlocking", "d8/d6c/a01563.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

@@ -25,16 +25,16 @@
 var NAVTREE =
 [
   [ "Library", "index.html", [
-    [ "StreamBuffer examples", "d5/d34/a02809.html", [
-      [ "Dynamic creation", "d5/d34/a02809.html#streambuffer_dynamic", null ],
-      [ "Static creation", "d5/d34/a02809.html#streambuffer_static", null ],
-      [ "Task to task", "d5/d34/a02809.html#streambuffer_task", null ],
-      [ "ISR to task (UART receive)", "d5/d34/a02809.html#streambuffer_isr", null ],
-      [ "Several writers", "d5/d34/a02809.html#streambuffer_multiwriter", null ],
-      [ "Monitoring and control", "d5/d34/a02809.html#streambuffer_monitor", null ],
-      [ "Moving ownership", "d5/d34/a02809.html#streambuffer_move", null ]
+    [ "StreamBuffer examples", "d9/da4/a02798.html", [
+      [ "Dynamic creation", "d9/da4/a02798.html#streambuffer_dynamic", null ],
+      [ "Static creation", "d9/da4/a02798.html#streambuffer_static", null ],
+      [ "Task to task", "d9/da4/a02798.html#streambuffer_task", null ],
+      [ "ISR to task (UART receive)", "d9/da4/a02798.html#streambuffer_isr", null ],
+      [ "Several writers", "d9/da4/a02798.html#streambuffer_multiwriter", null ],
+      [ "Monitoring and control", "d9/da4/a02798.html#streambuffer_monitor", null ],
+      [ "Moving ownership", "d9/da4/a02798.html#streambuffer_move", null ]
     ] ],
-    [ "Deprecated List", "df/d3b/a00728.html", null ],
+    [ "Deprecated List", "d8/db9/a00725.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -69,33 +69,34 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d3d/a02050.html#a351bf0854e0c48d82c1a078a39e02879",
-"d0/daf/a00970.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501",
-"d1/d98/a00407.html",
-"d2/da6/a01210.html#a441e8d4c01f19d64f498f2dc51f3e28b",
-"d3/d50/a00882.html",
-"d3/dc4/a01990.html#af83107349f5abc463a7f77aeecb20a20",
-"d4/d54/a02218.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5",
-"d4/dff/a01910.html#a0b47d84cbdd58474013fe3b38dce4974",
-"d5/d8e/a01390.html#a35415de7cf962f29402cef32af19c8cb",
-"d5/dfa/a01746.html#a45b3bd4325053ab1288efbf00fd9aebf",
-"d6/d51/a01494.html#a14871d2fd0997a7192dbfa9efb391866",
-"d7/d1d/a01554.html#ada05318e458485bb7ae8564156216202",
-"d7/db7/a02198.html#acdc6aba10abfdf39b35e51b9654d779b",
-"d7/dfb/a01966.html#adf02fbd43f1b7d0e8bbd5222bf46f8a7",
-"d8/de7/a02030.html#a66f7b610af22e97faef98e233dbd46d5",
-"d9/d6e/a02098.html#ab6a8fe4454bba5eff3b40da86531c9c4",
-"d9/d9a/a00998.html#ae4ff26d8e2b68bd7157659eaaddd1c91af92e8d24815f45ab685295b8d4d0a442",
-"da/d0a/a01526.html#aaf355e4c0c1f6f66b98a952776ce9306",
-"da/d79/a01310.html#a753d77f8396c4b45cd0e949461468fa6",
-"db/d34/a02118.html#ad0977e4dba5c7109b4b046bcf505862b",
-"db/dc2/a02022.html#ad16d5ca2a80de79ba48343d0bfccee65",
-"dc/d47/a01510.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409",
-"dc/def/a01594.html#acdeffbad9eb409804cbc72fa86794a97",
-"de/d02/a01026.html#a1b86238c581aff7462e775d7fe6d20a8",
-"df/d03/a02058.html#aa5ac1e409b4369f454af973ddb5c7426",
-"df/d88/a00962.html#a5d093e457b6ea6877ea0bfccc4007122",
-"df/df7/a00731.html#aa079b641f0d5c91c7219aa446879acf2ae3a9e7e16bad82464ec869341753459c"
+"d0/d7d/a00799.html#aa45a5bc29c59cb3057f7384cc2a96e64",
+"d1/d6b/a01775.html#a4d6a362058e35bbfc0c72a9c5f1a46a5",
+"d2/d34/a01679.html#a14ccf4bafc49e1e7c3810bc249cc5748",
+"d2/dc4/a01483.html#a8edc20ff700b12e30b9160d3d9ef739b",
+"d3/d79/a02083.html#a7c3baef45d5c6e812ec90241dd97ff6c",
+"d3/dce/a01963.html#a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412",
+"d4/d2e/a02051.html#aa49210c40edb460f5b64e0a7db0d87e8",
+"d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59",
+"d5/d89/a00907.html#a8a9b2c1a0824c7603b223ce93be6b268",
+"d5/de9/a01651.html#a28d64cb04bd2cd5f1648ac33b94bf4ec",
+"d6/d82/a01607.html#a18b5de83aaec561a43dc24a80e15bd46",
+"d7/d03/a01491.html",
+"d7/da4/a01287.html#ae77243ef5154f0127b188cb07ee7b730",
+"d8/d4e/a00754.html",
+"d9/d40/a01387.html#a0bf6d00010fed77722f4023c7bec36c3",
+"d9/de7/a01279.html#a5e50f722347f9ed9f0522656753bf4c9",
+"da/dcd/a01835.html",
+"db/d40/a00959.html#a5d093e457b6ea6877ea0bfccc4007122",
+"db/dd4/a02107.html#a5da34d5f09a437a775c5639065d1fcde",
+"dc/d92/a02047.html",
+"dd/d2d/a01635.html#a52416b95040bffe9915b005b33bc3600",
+"dd/d4e/a01975.html#aad96d287e9891431e5a7c99935482563",
+"dd/dfd/a01027.html#a1e239dacccfb4d56b62c3f04c33c163e",
+"de/d92/a02175.html#a9e770d09f97bafa86fcc361a02339e2b",
+"df/d14/a02183.html",
+"df/d52/a02027.html#ada341f5a3644025a9b57e448e023d88b",
+"df/dd5/a01115.html",
+"functions_vars_g.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

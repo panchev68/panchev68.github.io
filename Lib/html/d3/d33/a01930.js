@@ -1,11 +1,7 @@
 var a01930 =
 [
-    [ "Parameters", "d3/d33/a01930.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d3/d33/a01930.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d3/d33/a01930.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d3/d33/a01930.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d3/d33/a01930.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d3/d33/a01930.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d3/d33/a01930.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d3/d33/a01930.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "estimatedError", "d3/d33/a01930.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "d3/d33/a01930.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "d3/d33/a01930.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "d3/d33/a01930.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

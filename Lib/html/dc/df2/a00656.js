@@ -1,4 +1,4 @@
 var a00656 =
 [
-    [ "RTOS::Timeout", "da/d14/a02066.html", "da/d14/a02066" ]
+    [ "RTOS::Semaphore", "dc/d05/a02043.html", "dc/d05/a02043" ]
 ];

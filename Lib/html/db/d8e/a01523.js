@@ -1,7 +1,7 @@
 var a01523 =
 [
-    [ "Protocol", "db/d8e/a01523.html#ada015233fb11865b5f6fb1630168cdf3", null ],
-    [ "Protocol", "db/d8e/a01523.html#a7def75a06b10034c9bb3f3c3d12af6f7", null ],
-    [ "operator uint8_t", "db/d8e/a01523.html#a8eed760a643cef252fec650376850862", null ],
-    [ "operator=", "db/d8e/a01523.html#a55b5fc9af36900d859f8ff16a9ef893e", null ]
+    [ "Flag", "db/d8e/a01523.html#a663aa4ae8d4e0535093ac80ac6238d9d", null ],
+    [ "Flag", "db/d8e/a01523.html#a39ebf258a016e3e56fb00af62766390d", null ],
+    [ "operator uint8_t", "db/d8e/a01523.html#a02f3b6dd695e9276fa4993fa5549aa5b", null ],
+    [ "operator=", "db/d8e/a01523.html#a8add6e22444d802fab80bf1d487aebd7", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Helper::Convert::Percent</title>
+<title>Library: Lib::Helper::Convert::Hex</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,33 +111,57 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/de4/a02241.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Convert::Percent</div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Convert::Hex</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Example showing usage of Lib::Helper::Convert::Percent to convert between percentage and dBm.</p>
-<p>Example showing usage of Lib::Helper::Convert::Percent to convert between percentage and dBm.</p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<p>Example demonstrating conversions provided by Lib::Helper::Convert::Hex for uint8_t, uint16_t, uint32_t and uint64_t.</p>
+<p>Example demonstrating conversions provided by Lib::Helper::Convert::Hex for uint8_t, uint16_t, uint32_t and uint64_t. Shows hex string, packed BCD value and decimal string output. Every string result is a fixed, NUL-terminated std::array, so it is printed through data().</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d33/a00536.html">Lib/Helper/Convert/Percent.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d7e/a00530.html">Lib/Helper/Convert/Hex.hpp</a>&quot;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using </span><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/d09/a01838.html">Lib::Helper::Convert::Percent</a>;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../df/d5f/a00762.html">Lib::Helper::Convert</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> example_Percent_usage() {</div>
+<div class="line"><span class="keywordtype">void</span> example_Hex_usage() {</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Convert 80% -&gt; -60 dBm</span></div>
-<div class="line">    <span class="keyword">const</span> int8_t dbm = Percent::toDBm(80U);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;80% -&gt; &quot;</span> &lt;&lt; int(dbm) &lt;&lt; <span class="stringliteral">&quot; dBm\n&quot;</span>; <span class="comment">// Expected: 80% -&gt; -60 dBm</span></div>
+<div class="line">    <span class="comment">// uint8_t: hex string, packed BCD and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t v8 = 0xAB; <span class="comment">// 171 decimal</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toString(0xAB) = &quot;</span> &lt;&lt; <a id="_a0" name="_a0"></a><a class="code hl_function" href="../../d0/d4f/a01830.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint8_t&gt;::toString</a>(v8).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toBcd(171) = 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; Hex&lt;uint8_t&gt;::toBcd(171) &lt;&lt; std::dec &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toBcdString(5, true) = &quot;</span> &lt;&lt; <a id="_a1" name="_a1"></a><a class="code hl_function" href="../../d0/d4f/a01830.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint8_t&gt;::toBcdString</a>(5, <span class="keyword">true</span>).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Convert -100 dBm -&gt; 0%</span></div>
-<div class="line">    <span class="keyword">const</span> uint8_t percentage = Percent::fromDBm(-100);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;-100 dBm -&gt; &quot;</span> &lt;&lt; int(percentage) &lt;&lt; <span class="stringliteral">&quot;%\n&quot;</span>; <span class="comment">// Expected: -100 dBm -&gt; 0%</span></div>
+<div class="line">    <span class="comment">// uint16_t: 4-char hex and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint16_t v16 = 0x1234;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint16_t&gt;::toString(0x1234) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d0/d4f/a01830.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint16_t&gt;::toString</a>(v16).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint16_t&gt;::toBcdString(1023) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d0/d4f/a01830.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint16_t&gt;::toBcdString</a>(1023).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line"> </div>
-<div class="line">    <span class="comment">// Clamp behaviour: 150% -&gt; clamp to 100 -&gt; -50 dBm</span></div>
-<div class="line">    <span class="keyword">const</span> int8_t clampedDbm = Percent::toDBm(150U);</div>
-<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;150% -&gt; &quot;</span> &lt;&lt; int(clampedDbm) &lt;&lt; <span class="stringliteral">&quot; dBm\n&quot;</span>; <span class="comment">// Expected: 150% -&gt; -50 dBm</span></div>
+<div class="line">    <span class="comment">// uint32_t: 8-char hex and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint32_t v32 = 0xDEADBEEF;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint32_t&gt;::toString(0xDEADBEEF) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d0/d4f/a01830.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint32_t&gt;::toString</a>(v32).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint32_t&gt;::toBcdString(1234567890) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d0/d4f/a01830.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint32_t&gt;::toBcdString</a>(1234567890).data()</div>
+<div class="line">              &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// uint64_t: 16-char hex and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint64_t v64 = 0x0123456789ABCDEFULL;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint64_t&gt;::toString(0x0123456789ABCDEF) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d0/d4f/a01830.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint64_t&gt;::toString</a>(v64).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d0/d4f/a01830.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint64_t&gt;::toBcdString</a>(UINT64_MAX).data()</div>
+<div class="line">              &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00536_html"><div class="ttname"><a href="../../d4/d33/a00536.html">Percent.hpp</a></div><div class="ttdoc">Conversion between a 0..100 percentage and an approximate dBm scale.</div></div>
-<div class="ttc" id="aa01838_html"><div class="ttname"><a href="../../db/d09/a01838.html">Lib::Helper::Convert::Percent</a></div><div class="ttdoc">Linear mapping between a 0..100 percentage and the dBm range [-100, -50].</div><div class="ttdef"><b>Definition</b> Percent.hpp:24</div></div>
-</div><!-- fragment --><p>Expected behaviour: prints three lines demonstrating conversion and clamping as shown in the comments.</p>
+<div class="ttc" id="aa00530_html"><div class="ttname"><a href="../../da/d7e/a00530.html">Hex.hpp</a></div><div class="ttdoc">Hex conversion utilities for the fixed-width unsigned integer types.</div></div>
+<div class="ttc" id="aa00762_html"><div class="ttname"><a href="../../df/d5f/a00762.html">Lib::Helper::Convert</a></div><div class="ttdoc">Helpers for converting between signal units and presentation scales.</div><div class="ttdef"><b>Definition</b> Ascii.hpp:24</div></div>
+<div class="ttc" id="aa01830_html_a98805ed7f4ff56f55a56ddafc8d775bc"><div class="ttname"><a href="../../d0/d4f/a01830.html#a98805ed7f4ff56f55a56ddafc8d775bc">Lib::Helper::Convert::Hex::toBcdString</a></div><div class="ttdeci">static constexpr DecimalDigits toBcdString(T number, bool showZero=false) noexcept</div><div class="ttdoc">Format a value as a decimal ASCII string.</div><div class="ttdef"><b>Definition</b> Hex.hpp:96</div></div>
+<div class="ttc" id="aa01830_html_aa11e21c762f6832c11a370a8f15b516c"><div class="ttname"><a href="../../d0/d4f/a01830.html#aa11e21c762f6832c11a370a8f15b516c">Lib::Helper::Convert::Hex::toString</a></div><div class="ttdeci">static constexpr HexDigits toString(T number) noexcept</div><div class="ttdoc">Convert a value to its fixed-width uppercase hexadecimal digits.</div><div class="ttdef"><b>Definition</b> Hex.hpp:75</div></div>
+</div><!-- fragment --><p>Expected output:</p><ul>
+<li>Hex&lt;uint8_t&gt;::toString(0xAB) = "AB"</li>
+<li>Hex&lt;uint8_t&gt;::toBcd(171) = 0x171</li>
+<li>Hex&lt;uint8_t&gt;::toBcdString(5, true) = "005" (padded to DECIMAL_DIGIT_COUNT digits)</li>
+<li>Hex&lt;uint16_t&gt;::toString(0x1234) = "1234"</li>
+<li>Hex&lt;uint16_t&gt;::toBcdString(1023) = "1023"</li>
+<li>Hex&lt;uint32_t&gt;::toString(0xDEADBEEF) = "DEADBEEF"</li>
+<li>Hex&lt;uint32_t&gt;::toBcdString(1234567890) = "1234567890"</li>
+<li>Hex&lt;uint64_t&gt;::toString(0x0123456789ABCDEF) = "0123456789ABCDEF"</li>
+<li>Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX) = "18446744073709551615"</li>
+</ul>
 <div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

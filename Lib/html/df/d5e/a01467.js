@@ -1,24 +1,14 @@
 var a01467 =
 [
-    [ "State", "df/d5e/a01467.html#ac97d949e755c3b10315681da95176f7b", [
-      [ "DISABLE", "df/d5e/a01467.html#ac97d949e755c3b10315681da95176f7bafc93ea58f6d27ffed2b6518ffecf3e4e", null ],
-      [ "NO_INIT", "df/d5e/a01467.html#ac97d949e755c3b10315681da95176f7ba72144f138e8a9f73854d58b59deca26d", null ],
-      [ "NO_ERROR", "df/d5e/a01467.html#ac97d949e755c3b10315681da95176f7bad306b6fdee05fe87455110ddf6501e6c", null ],
-      [ "ACTIVE", "df/d5e/a01467.html#ac97d949e755c3b10315681da95176f7ba18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "CLEARED", "df/d5e/a01467.html#ac97d949e755c3b10315681da95176f7ba62574ee27e6c5f985a6bc1dc344e7438", null ]
+    [ "Status", "df/d5e/a01467.html#a577acdd119b66063413debe6a438470f", [
+      [ "STATUS_CHANGED", "df/d5e/a01467.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "df/d5e/a01467.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
     ] ],
-    [ "~Error", "df/d5e/a01467.html#af4fbfbea3a1dfe9fb486cd3343bab11f", null ],
-    [ "clear", "df/d5e/a01467.html#ae1f2fd7117f7fdd767433e0a767007bb", null ],
-    [ "disable", "df/d5e/a01467.html#aaaa8db986104e355fc42c9b074a9e886", null ],
-    [ "enable", "df/d5e/a01467.html#a10bb60a59682cd90aa4dee0426454967", null ],
-    [ "getCaption", "df/d5e/a01467.html#a196a809e3fb79ffb70a9d9913c4a9207", null ],
-    [ "getGroup", "df/d5e/a01467.html#aeb30abcdb560179a3ad251230b60f367", null ],
-    [ "getId", "df/d5e/a01467.html#a5b3cd5f7ee5106e1e72ef41beb5a1026", null ],
-    [ "getState", "df/d5e/a01467.html#a7d2ec1d2709e4753e69723e45458910c", null ],
-    [ "operator bool", "df/d5e/a01467.html#ac0d6d30d86f58472dc60c418c48b0442", null ],
-    [ "operator=", "df/d5e/a01467.html#aa4711b5dfc99ffcbff5c84d0db1b0579", null ],
-    [ "reset", "df/d5e/a01467.html#a2d8621d38d2537a40d9d88a1e49fcf51", null ],
-    [ "set", "df/d5e/a01467.html#a2362ab99ab92aaf59826bd75724bc13f", null ],
-    [ "setGroup", "df/d5e/a01467.html#a97e848c7690f0f3f5e16f0fa508ba348", null ],
-    [ "Dispatcher", "df/d5e/a01467.html#ad90424f003fc2afb836709cbffa47e2c", null ]
+    [ "Dispatcher", "df/d5e/a01467.html#a1a68a3ecc8ce85f9f1b5d4f77c78bd45", null ],
+    [ "Dispatcher", "df/d5e/a01467.html#a26aefbcc8e66b5d3918ab12b3a127762", null ],
+    [ "createError", "df/d5e/a01467.html#a11635cec08a65c210b1e95beb3f7cac7", null ],
+    [ "operator=", "df/d5e/a01467.html#a746dc88b2dbe86bd302dfaf139ff52b0", null ],
+    [ "operator=", "df/d5e/a01467.html#ac07b5c3a0787f115c024715d330b6971", null ],
+    [ "start", "df/d5e/a01467.html#a0dea9c515fd6a0ec071f86548f913907", null ],
+    [ "statusChangedHook", "df/d5e/a01467.html#a440515f7e1ffdabc843bccb96ec779b1", null ]
 ];

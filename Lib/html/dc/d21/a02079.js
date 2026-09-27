@@ -1,8 +1,7 @@
 var a02079 =
 [
-    [ "Config", "dc/d21/a02079.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
-    [ "callback", "dc/d21/a02079.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "dc/d21/a02079.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "dc/d21/a02079.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "dc/d21/a02079.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "Config", "dc/d21/a02079.html#aa61c6d1302b314f60627c2cf9ac37d04", null ],
+    [ "name", "dc/d21/a02079.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "dc/d21/a02079.html#a274584bafb133fa51a23c4c52e77f64f", null ],
+    [ "stackSize", "dc/d21/a02079.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

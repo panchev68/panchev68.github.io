@@ -1,11 +1,14 @@
 var a01747 =
 [
-    [ "TimOutputCompare", "d7/db4/a01747.html#a27066a81329ea9e611121c1ad38b47e4", null ],
-    [ "~TimOutputCompare", "d7/db4/a01747.html#ab46d4d7df11b6cb9ce3cf7b65f91e2aa", null ],
-    [ "getCounter", "d7/db4/a01747.html#a448826975488c9824e1dc65028f638db", null ],
-    [ "setCompare", "d7/db4/a01747.html#a4f2f5df6bed1ac53c53f6e101f0ec897", null ],
-    [ "start", "d7/db4/a01747.html#a357822e008e2e85ba5c70d2ea8dd50b7", null ],
-    [ "stop", "d7/db4/a01747.html#a3dab9388a5182d25f65dca0a88b663ec", null ],
-    [ "waitCompare", "d7/db4/a01747.html#a80f97b34bd0bebdf83733b7fe49a5197", null ],
-    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d7/db4/a01747.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
+    [ "TimEncoder", "d7/db4/a01747.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "d7/db4/a01747.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "d7/db4/a01747.html#a6b3108e61d2d695e29e1a5c554a04f3b", null ],
+    [ "TimEncoder", "d7/db4/a01747.html#aa673bd8ad5c6d52a3702fd9d7eb948e2", null ],
+    [ "close", "d7/db4/a01747.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "d7/db4/a01747.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "d7/db4/a01747.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "d7/db4/a01747.html#aa439222a6f10a897a67e0c35f786915a", null ],
+    [ "operator=", "d7/db4/a01747.html#a32dc1ed6976e813bbbd1de12ad860f48", null ],
+    [ "read", "d7/db4/a01747.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "d7/db4/a01747.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

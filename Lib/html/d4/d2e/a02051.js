@@ -1,28 +1,24 @@
 var a02051 =
 [
-    [ "Result", "d5/dd6/a02055.html", "d5/dd6/a02055" ],
-    [ "Bits", "d4/d2e/a02051.html#a8731f71234f11c506310e4889f47b218", null ],
-    [ "Action", "d4/d2e/a02051.html#a2e9af9f97a3c22576f3f0e8fe98b88c0", [
-      [ "NO_ACTION", "d4/d2e/a02051.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a24ce802dad4f363a652f77ce888c9b91", null ],
-      [ "SET_BITS", "d4/d2e/a02051.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a584142dc5514c9123172a12e9f7f150f", null ],
-      [ "INCREMENT", "d4/d2e/a02051.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a90cf1f5206b348a822cc1a453a587534", null ],
-      [ "SET_VALUE_WITH_OVERWRITE", "d4/d2e/a02051.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f", null ],
-      [ "SET_VALUE_WITHOUT_OVERWRITE", "d4/d2e/a02051.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a07e53fb05649b7d8f7020183075a9afb", null ]
+    [ "Status", "d4/d2e/a02051.html#a61fa958b085e13c4001ceaf6fbd855fd", [
+      [ "SUCCESS", "d4/d2e/a02051.html#a61fa958b085e13c4001ceaf6fbd855fdad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "TIMEOUT", "d4/d2e/a02051.html#a61fa958b085e13c4001ceaf6fbd855fda070a0fb40f6c308ab544b227660aadff", null ],
+      [ "INVALID", "d4/d2e/a02051.html#a61fa958b085e13c4001ceaf6fbd855fdaccc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "AT_MAX", "d4/d2e/a02051.html#a61fa958b085e13c4001ceaf6fbd855fdaab06979c91ba49479340319f0b3a18d6", null ],
+      [ "EMPTY", "d4/d2e/a02051.html#a61fa958b085e13c4001ceaf6fbd855fdaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
     ] ],
-    [ "Notify", "d4/d2e/a02051.html#af4a648aef0b1204911e4f0b57ca2d90b", null ],
-    [ "clearBits", "d4/d2e/a02051.html#adfd929a14d86953a749caecb186a493b", null ],
-    [ "clearState", "d4/d2e/a02051.html#a4a968ee53740cc429b232c80589b748a", null ],
-    [ "fireEvent", "d4/d2e/a02051.html#a4732602e81ec507a9370a1dd41be78f8", null ],
-    [ "give", "d4/d2e/a02051.html#a1fb17f69e367f23f6497932cc17e4630", null ],
-    [ "giveFromISR", "d4/d2e/a02051.html#a38804fffd180e5a0cfd4488727e7521a", null ],
-    [ "notify", "d4/d2e/a02051.html#ac28b1bcc68bd40c199a5e504d7cd696c", null ],
-    [ "notifyAndQuery", "d4/d2e/a02051.html#ae4d92ef7755e1231a03356b8e9ff8ecc", null ],
-    [ "notifyAndQueryFromISR", "d4/d2e/a02051.html#a01a8186691b5ea2d9884997612955204", null ],
-    [ "notifyFromISR", "d4/d2e/a02051.html#a90999910ff7124119e0143b6281ebeac", null ],
-    [ "take", "d4/d2e/a02051.html#affe9d15dcc3438ccb68a264744683f96", null ],
-    [ "take", "d4/d2e/a02051.html#ab2c154d06ce722fcc5d10141ea9971dc", null ],
-    [ "wait", "d4/d2e/a02051.html#a9b7ec0e3945a5a2e59f89abc12c995ac", null ],
-    [ "wait", "d4/d2e/a02051.html#a05ffffc3617eb293c579a9e12885057b", null ],
-    [ "waitForBits", "d4/d2e/a02051.html#acd94a5ede593ed6ae5571c18903e030b", null ],
-    [ "waitForBits", "d4/d2e/a02051.html#a1eafe4fed845fcf63255a0cd6b71e5a1", null ]
+    [ "SemaphoreCounting", "d4/d2e/a02051.html#a72c92d8675a54a53b4ec5c4de47e3155", null ],
+    [ "SemaphoreCounting", "d4/d2e/a02051.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
+    [ "SemaphoreCounting", "d4/d2e/a02051.html#a7e497551b91db5e404470925688a3ea2", null ],
+    [ "createStatic", "d4/d2e/a02051.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
+    [ "getAvailableCount", "d4/d2e/a02051.html#a6de0f97e06346126824127e37caf592b", null ],
+    [ "getCount", "d4/d2e/a02051.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
+    [ "getInitialCount", "d4/d2e/a02051.html#abe4488af469ef47e32e09e2d38a602b1", null ],
+    [ "getMaxCount", "d4/d2e/a02051.html#addd31c2ffd410bd866e7365497d65280", null ],
+    [ "getRemainingCapacity", "d4/d2e/a02051.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
+    [ "isAtMaxCount", "d4/d2e/a02051.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
+    [ "isEmpty", "d4/d2e/a02051.html#a7d8026113d6006885360edd9ff77068d", null ],
+    [ "open", "d4/d2e/a02051.html#abc57684576686004799b4afa06460768", null ],
+    [ "operator=", "d4/d2e/a02051.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
+    [ "operator=", "d4/d2e/a02051.html#ac13d24083bc909c7813fb3367712fe95", null ]
 ];

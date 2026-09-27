@@ -1,8 +1,12 @@
 var a01698 =
 [
-    [ "OSPIPortBase", "d5/da6/a01698.html#ac05a29358dcdde97974ddd31f28dc635", null ],
-    [ "~OSPIPortBase", "d5/da6/a01698.html#ac8c21cfe9451fb4942c67787a526f6b1", null ],
-    [ "close", "d5/da6/a01698.html#ac6420efeda802e0bdff8257093ac436d", null ],
-    [ "isBusy", "d5/da6/a01698.html#adb3abf52a002913fd34cc8177c751953", null ],
-    [ "open", "d5/da6/a01698.html#a1bb257c87fcdd324e2611da4dfd6565b", null ]
+    [ "OSPIPortBase", "d5/da6/a01698.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d5/da6/a01698.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d5/da6/a01698.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d5/da6/a01698.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d5/da6/a01698.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d5/da6/a01698.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d5/da6/a01698.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d5/da6/a01698.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d5/da6/a01698.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

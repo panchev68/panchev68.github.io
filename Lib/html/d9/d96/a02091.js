@@ -1,7 +1,25 @@
 var a02091 =
 [
-    [ "current", "d9/d96/a02091.html#a3c52e2d0bbe89862c14148ebf02d6463", null ],
-    [ "irradiance", "d9/d96/a02091.html#a6d28fdf32a94b2134434e00c0fef4894", null ],
-    [ "temperature", "d9/d96/a02091.html#a2f7e9f752645a3cbee0fd950bfc2c255", null ],
-    [ "voltage", "d9/d96/a02091.html#a1c339469529ee402dcc9e7bb37113566", null ]
+    [ "TickType", "d9/d96/a02091.html#a0285ec57b08218404301d71335490923", null ],
+    [ "Timeout", "d9/d96/a02091.html#a605a58d31953c1321b0571cfbf7809d8", null ],
+    [ "Timeout", "d9/d96/a02091.html#a4bdabd8b8a9e4ea1e571c8736f24e26a", null ],
+    [ "Timeout", "d9/d96/a02091.html#ae6b31491258f8ac7db42a85c8a6410e3", null ],
+    [ "Timeout", "d9/d96/a02091.html#a3f457e44fdcf7ebe8be8e8c9f6281949", null ],
+    [ "disable", "d9/d96/a02091.html#a9f4c1790b62b338de5ee47cad756a53e", null ],
+    [ "getDuration", "d9/d96/a02091.html#a85e43c452da3cf989678de34991ee053", null ],
+    [ "getElapsedTicks", "d9/d96/a02091.html#a5f8d5867e82587afc81dd27cee598a81", null ],
+    [ "getElapsedTime", "d9/d96/a02091.html#a5093d0c2c7d1f0fc3e6085c212a4f042", null ],
+    [ "getRemaining", "d9/d96/a02091.html#ab0740e27e7ef4e9e54410d06e32581d2", null ],
+    [ "getRemainingTicks", "d9/d96/a02091.html#ab26fc2212775781d394337d57e0cf886", null ],
+    [ "isDisabled", "d9/d96/a02091.html#a1262697a55934e1758ed633db12ff84b", null ],
+    [ "isExpired", "d9/d96/a02091.html#a4264c550073d457fa8f6ca89e591a0e6", null ],
+    [ "operator uint32_t", "d9/d96/a02091.html#adf5079f60a718b33a2f82e15846997d9", null ],
+    [ "operator+=", "d9/d96/a02091.html#aa6d90200c25a608b87dc960f8364cde5", null ],
+    [ "operator-=", "d9/d96/a02091.html#a6cac78e1931c411981403f6513799924", null ],
+    [ "operator=", "d9/d96/a02091.html#a572bb22f958387f0e5ef0f331553278a", null ],
+    [ "operator=", "d9/d96/a02091.html#a88cceab5124d1adad944132d69f52c5e", null ],
+    [ "operator==", "d9/d96/a02091.html#a2823f4f34a13bb76fb12f52f16521b4e", null ],
+    [ "reset", "d9/d96/a02091.html#a4f719fdc728f4b1e2a6a3b33c747c32e", null ],
+    [ "set", "d9/d96/a02091.html#a776dc5dd77cf73624f452e0be0e32b8f", null ],
+    [ "set", "d9/d96/a02091.html#a05b2676d35a3782b19fab4a5c8bb246c", null ]
 ];

@@ -1,4 +1,4 @@
 var a00401 =
 [
-    [ "Lib::HAL::Iwdg", "dc/d42/a01674.html", "dc/d42/a01674" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;", "d4/d3c/a01671.html", "d4/d3c/a01671" ]
 ];

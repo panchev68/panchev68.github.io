@@ -1,5 +1,5 @@
 var a00769 =
 [
-    [ "SerialPort", "dc/dc3/a02190.html", "dc/dc3/a02190" ],
-    [ "SerialPortRepeaterBase", "d7/db7/a02198.html", "d7/db7/a02198" ]
+    [ "SerialPort", "d0/db2/a02194.html", "d0/db2/a02194" ],
+    [ "SerialPortRepeaterBase", "d0/d9d/a02202.html", "d0/d9d/a02202" ]
 ];

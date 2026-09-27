@@ -1,8 +1,11 @@
 var a01962 =
 [
-    [ "State", "d1/d0f/a01962.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "d1/d0f/a01962.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "d1/d0f/a01962.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "d1/d0f/a01962.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "d1/d0f/a01962.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "Parameters", "d1/d0f/a01962.html#a1755515e60fdfe10aafe099283f9d593", null ],
+    [ "Parameters", "d1/d0f/a01962.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
+    [ "kd", "d1/d0f/a01962.html#a6fd341537b6f12074478402b53dea8f1", null ],
+    [ "ki", "d1/d0f/a01962.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
+    [ "kp", "d1/d0f/a01962.html#af4932c40d48d9c972bd4f448a37388bc", null ],
+    [ "outputMax", "d1/d0f/a01962.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
+    [ "outputMin", "d1/d0f/a01962.html#a23515cb5c24f985549f55404aee2928a", null ],
+    [ "sampleTime", "d1/d0f/a01962.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
 ];

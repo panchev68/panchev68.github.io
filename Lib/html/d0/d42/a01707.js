@@ -1,11 +1,7 @@
 var a01707 =
 [
-    [ "Event", "d8/df7/a01711.html", null ],
-    [ "SPIPort", "d0/d42/a01707.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
-    [ "~SPIPort", "d0/d42/a01707.html#aad48fe1825d2bf1b2b4cea5f8c26030b", null ],
-    [ "abort", "d0/d42/a01707.html#ae180af1f6ae30d2a0ee98e532605dbf3", null ],
-    [ "close", "d0/d42/a01707.html#a56ca43f98051f8fde337d3e035f2468b", null ],
-    [ "open", "d0/d42/a01707.html#a5a036816cc1e68b6a7f148ca3530699b", null ],
-    [ "waitForEvent", "d0/d42/a01707.html#a70402dc255b9c614bb229e2702bfe9bb", null ],
-    [ "SPIPortBase< SPIPort< DriverMode::DMA > >", "d0/d42/a01707.html#a43d375fc7c88f2003ab23dd3833a2cd8", null ]
+    [ "day", "d0/d42/a01707.html#af54e7aa46dd3a0dc57af99dfb6b66965", null ],
+    [ "month", "d0/d42/a01707.html#a2d49ed735c88262066c3cfa239903f39", null ],
+    [ "weekDay", "d0/d42/a01707.html#ad2815b9bb6a73fc188896f7355750f05", null ],
+    [ "year", "d0/d42/a01707.html#a0efec1dd55759d679693cd0544aa3bc4", null ]
 ];

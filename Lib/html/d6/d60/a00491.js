@@ -1,4 +1,4 @@
 var a00491 =
 [
-    [ "MulticastDelegate&lt; Ret(Args...), Capacity &gt;", "d5/dec/a01794.html", "d5/dec/a01794" ]
+    [ "Lib::HAL::WindowWatchdog", "d5/d12/a01799.html", "d5/d12/a01799" ]
 ];

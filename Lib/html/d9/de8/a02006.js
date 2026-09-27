@@ -1,9 +1,9 @@
 var a02006 =
 [
-    [ "Lock", "d3/d59/a02010.html", "d3/d59/a02010" ],
-    [ "State", "d9/de8/a02006.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "d9/de8/a02006.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "d9/de8/a02006.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "d9/de8/a02006.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "CriticalSection", "d9/de8/a02006.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
+    [ "~CriticalSection", "d9/de8/a02006.html#a4a507b226238920b8fae903a5bd87776", null ],
+    [ "CriticalSection", "d9/de8/a02006.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
+    [ "CriticalSection", "d9/de8/a02006.html#a9de7a81409af7b28d1da974ded4a7688", null ],
+    [ "operator=", "d9/de8/a02006.html#aabac4732503c72da02f8e49754bbc736", null ],
+    [ "operator=", "d9/de8/a02006.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
 ];

@@ -1,12 +1,12 @@
 var a01691 =
 [
-    [ "Date", "dc/dc8/a01695.html", "dc/dc8/a01695" ],
-    [ "Time", "d9/df7/a01699.html", "d9/df7/a01699" ],
-    [ "Rtc", "d0/d54/a01691.html#ac93d69e578a833f560691edf311adc75", null ],
-    [ "~Rtc", "d0/d54/a01691.html#a23209406294b942e2e3d575f8f926a38", null ],
-    [ "getDateTime", "d0/d54/a01691.html#a2c1b973d0e84f81aec52803846d9fd93", null ],
-    [ "setDateTime", "d0/d54/a01691.html#a5a31ce31ba760f4fe6f42eb97aa9a6a8", null ],
-    [ "startTickService", "d0/d54/a01691.html#a4c358fd3fb6f1c3706b14e9fb81f6ae0", null ],
-    [ "stopTickService", "d0/d54/a01691.html#ae4b282e27b9a5347f1c43b4463391da4", null ],
-    [ "void::HAL_RTC_AlarmAEventCallback", "d0/d54/a01691.html#a292bc50e5b612af91527952bbffe57e9", null ]
+    [ "OSPIPortBase", "d0/d54/a01691.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d0/d54/a01691.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d0/d54/a01691.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d0/d54/a01691.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d0/d54/a01691.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d0/d54/a01691.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d0/d54/a01691.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d0/d54/a01691.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d0/d54/a01691.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

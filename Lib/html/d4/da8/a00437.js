@@ -1,4 +1,4 @@
 var a00437 =
 [
-    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;", "de/db5/a01730.html", "de/db5/a01730" ]
+    [ "Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;", "de/d0f/a01727.html", "de/d0f/a01727" ]
 ];
