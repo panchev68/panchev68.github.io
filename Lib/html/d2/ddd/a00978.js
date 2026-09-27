@@ -1,6 +1,8 @@
 var a00978 =
 [
-    [ "pinHandle", "d2/ddd/a00978.html#af01e4501f12101092bd10ab49068b803", null ],
-    [ "timHandle", "d2/ddd/a00978.html#a871f1b0c45c57a540e8fd4047e2cc314", null ],
-    [ "updatePeriod", "d2/ddd/a00978.html#aafea2c74b2c127b3717c4f0fdf3c9d74", null ]
+    [ "chipSelectPin", "d2/ddd/a00978.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "d2/ddd/a00978.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "d2/ddd/a00978.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "d2/ddd/a00978.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "d2/ddd/a00978.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

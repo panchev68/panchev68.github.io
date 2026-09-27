@@ -1,4 +1,4 @@
 var a00140 =
 [
-    [ "Lib::Digi::API::ApplicationBase", "dd/d09/a01118.html", "dd/d09/a01118" ]
+    [ "MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;", "dd/de9/a01182.html", "dd/de9/a01182" ]
 ];

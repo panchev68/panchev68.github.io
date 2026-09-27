@@ -1,10 +1,11 @@
 var a01626 =
 [
-    [ "SpiPort", "dd/d90/a01626.html#ac99bfb05498b1793e9639cf291deeb9b", null ],
-    [ "~SpiPort", "dd/d90/a01626.html#a2f21904cc815973e832848883273ddaa", null ],
-    [ "onRxComplete", "dd/d90/a01626.html#a49fb8d1627a35357d1e9e70813027cfe", null ],
-    [ "onTxComplete", "dd/d90/a01626.html#ae0649d6fb61268f59f9513fdd9278959", null ],
-    [ "receiveHandler", "dd/d90/a01626.html#aec0e7e068a54cdee32ee32a89618220b", null ],
-    [ "sendHandler", "dd/d90/a01626.html#a4e4e6f46b546b45441a6299096dd315e", null ],
-    [ "sendReceiveHandler", "dd/d90/a01626.html#aa2c36397081a8d8b92fe50fdf6dd5109", null ]
+    [ "I2CPort", "dd/d90/a01626.html#a0f28c8a7e8fd6e9436d1833fddb05369", null ],
+    [ "~I2CPort", "dd/d90/a01626.html#afd974c470637c78170576087414cde53", null ],
+    [ "getHandle", "dd/d90/a01626.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "dd/d90/a01626.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "masterMemRead", "dd/d90/a01626.html#a6310b1f0ec69a2f1a3f3e78749f7e518", null ],
+    [ "masterMemWrite", "dd/d90/a01626.html#a8403f848af16a24051f4d95c5ccca761", null ],
+    [ "masterReceive", "dd/d90/a01626.html#ab8d6c7b50db1e521d4e8b06df30107b5", null ],
+    [ "masterTransmit", "dd/d90/a01626.html#a93204dac38465fc724005fbac9caf32b", null ]
 ];

@@ -1,5 +1,4 @@
 var a00077 =
 [
-    [ "Lib::BSP::RFID::Card", "d4/d21/a00987.html", "d4/d21/a00987" ],
-    [ "Lib::BSP::RFID::Card::Uid", "df/d2f/a00991.html", "df/d2f/a00991" ]
+    [ "Lib::BSP::RFID::MFRC522&lt; T_DERIVED &gt;", "df/d88/a00962.html", "df/d88/a00962" ]
 ];

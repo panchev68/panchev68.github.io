@@ -1,12 +1,9 @@
 var a01222 =
 [
-    [ "ResponseData", "dd/d9e/a01226.html", "dd/d9e/a01226" ],
-    [ "SpectrumAnalyzer", "de/d7e/a01222.html#a029d5ca785f56bfc7ca8ff6bda1b772d", null ],
-    [ "beginUpdate", "de/d7e/a01222.html#a1231ab75357c3b807b793cbf2ea82d24", null ],
-    [ "checkNewData", "de/d7e/a01222.html#a4773638228894b21b9360cd7723c46ca", null ],
-    [ "close", "de/d7e/a01222.html#acd1558e98317932c402b59b037346306", null ],
-    [ "endUpdate", "de/d7e/a01222.html#a024d7473fcc421e0a741ff49bbe8dde3", null ],
-    [ "getData", "de/d7e/a01222.html#a840417ace53cffda7a58f4a48961a125", null ],
-    [ "open", "de/d7e/a01222.html#a4c4e10495e5a41c00f890f39b3440bdc", null ],
-    [ "update", "de/d7e/a01222.html#af68fb8ada608860caedb0c8220337ff2", null ]
+    [ "SignalStrength", "de/d7e/a01222.html#ab96a886c6cc9c65c31b38f94592a875f", null ],
+    [ "SignalStrength", "de/d7e/a01222.html#aa5a2138a63d05400bf85826de3c79933", null ],
+    [ "operator uint8_t", "de/d7e/a01222.html#a2a29f3413f5ae8de889836d4d0485ee8", null ],
+    [ "operator=", "de/d7e/a01222.html#ac85c0070b5a1c9e6a8c6c40f4888eb56", null ],
+    [ "toPercent", "de/d7e/a01222.html#a5ec770669c292926c5ab2e21d470d647", null ],
+    [ "value", "de/d7e/a01222.html#a80d7a48e4a4c5e6ba82bc7832affd3d7", null ]
 ];

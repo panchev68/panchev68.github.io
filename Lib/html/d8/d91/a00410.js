@@ -1,4 +1,4 @@
 var a00410 =
 [
-    [ "Lib::HAL::OTP", "d2/dca/a01683.html", "d2/dca/a01683" ]
+    [ "Lib::HAL::OTP", "d6/d26/a01678.html", "d6/d26/a01678" ]
 ];

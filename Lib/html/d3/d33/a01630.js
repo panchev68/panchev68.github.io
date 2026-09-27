@@ -1,10 +1,14 @@
 var a01630 =
 [
-    [ "SpiPort", "d3/d33/a01630.html#aad628ef9fc59fe2c42863c2af79942f2", null ],
-    [ "~SpiPort", "d3/d33/a01630.html#a1d9854e6116ca15fc0fcd9b59bb65ce2", null ],
-    [ "onRxComplete", "d3/d33/a01630.html#a72a88aef8936584d8cc658a9f4fe4b14", null ],
-    [ "onTxComplete", "d3/d33/a01630.html#a27c7f17066c3985078ffc6a441bd6490", null ],
-    [ "receiveHandler", "d3/d33/a01630.html#a77e6b1003ca986388e7715eb9d928a97", null ],
-    [ "sendHandler", "d3/d33/a01630.html#a5e5c80deb6caf9ce07d9e0dfcc3e4f01", null ],
-    [ "sendReceiveHandler", "d3/d33/a01630.html#a56f7bae0436e1f780f81e70a2a7b838a", null ]
+    [ "Event", "d4/d99/a01634.html", null ],
+    [ "I2CPort", "d3/d33/a01630.html#af4e61478b6fe744c0eaad9891aabcfa5", null ],
+    [ "~I2CPort", "d3/d33/a01630.html#a2513122aabca9f7cdc7435b08d39eaa9", null ],
+    [ "abort", "d3/d33/a01630.html#a45c429eafe9ebc7625e137ccc7ee56af", null ],
+    [ "close", "d3/d33/a01630.html#a51bdd4618e9bd9c8963a2996b23df634", null ],
+    [ "masterMemRead", "d3/d33/a01630.html#a097bef7ed340c015a70a765efdf0e1ed", null ],
+    [ "masterMemWrite", "d3/d33/a01630.html#a92ff1fa32bb6d0de0757c4d2eee5179f", null ],
+    [ "masterReceive", "d3/d33/a01630.html#a55d47449fd9871757b624d9e82b890e0", null ],
+    [ "masterTransmit", "d3/d33/a01630.html#afdb78479d9a48b3fc0fa377a1577f9cd", null ],
+    [ "open", "d3/d33/a01630.html#afcdc4eaa357b3f5082b4a9e7f36aef19", null ],
+    [ "waitForEvent", "d3/d33/a01630.html#a3635a49bc9b9b9d9a942fa19c8eca3fb", null ]
 ];

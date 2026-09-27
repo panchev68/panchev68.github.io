@@ -1,7 +1,9 @@
 var a00950 =
 [
-    [ "blue", "df/d39/a00950.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "df/d39/a00950.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "df/d39/a00950.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "df/d39/a00950.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "chipManufacturer", "df/d39/a00950.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "df/d39/a00950.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "df/d39/a00950.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "df/d39/a00950.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "df/d39/a00950.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "df/d39/a00950.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

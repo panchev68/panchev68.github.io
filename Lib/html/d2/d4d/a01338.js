@@ -1,6 +1,8 @@
 var a01338 =
 [
-    [ "QueryBase", "d2/d4d/a01338.html#a008033823ae58ff3d565c4da6af8c683", null ],
-    [ "~QueryBase", "d2/d4d/a01338.html#a26855efdb87426560af01e96a4b755b5", null ],
-    [ "operator Frame::Data", "d2/d4d/a01338.html#a46d6a25dfd03552cd9de85a1a664572e", null ]
+    [ "append", "d2/d4d/a01338.html#a6584548573a21567151784636df136cd", null ],
+    [ "append", "d2/d4d/a01338.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "d2/d4d/a01338.html#a98c90e40b1c75fb6ab2796c2c1b19611", null ],
+    [ "type", "d2/d4d/a01338.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ],
+    [ "vector", "d2/d4d/a01338.html#a75f0ffd076b45c90ef06327ac622c32e", null ]
 ];

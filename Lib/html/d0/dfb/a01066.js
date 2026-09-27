@@ -1,5 +1,9 @@
 var a01066 =
 [
-    [ "Master", "d0/dfb/a01066.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d0/dfb/a01066.html#af2d503cce06191d01441adbba146c9f5", null ]
+    [ "Voltmeter", "d0/dfb/a01066.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "d0/dfb/a01066.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "d0/dfb/a01066.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "setup", "d0/dfb/a01066.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "d0/dfb/a01066.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "d0/dfb/a01066.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

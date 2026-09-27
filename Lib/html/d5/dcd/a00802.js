@@ -1,5 +1,7 @@
 var a00802 =
 [
-    [ "addr", "d5/dcd/a00802.html#a52b4f081e411d6f6b400f02e266252f3", null ],
-    [ "port", "d5/dcd/a00802.html#a6bbbf5bbcc0ec5d426cceafeb97ff9a8", null ]
+    [ "Inputs", "d0/dad/a00806.html", "d0/dad/a00806" ],
+    [ "Outputs", "d4/dfd/a00810.html", "d4/dfd/a00810" ],
+    [ "inputs", "d5/dcd/a00802.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d5/dcd/a00802.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

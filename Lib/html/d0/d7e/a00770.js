@@ -1,11 +1,8 @@
 var a00770 =
 [
-    [ "DriverBase", "d0/d7e/a00770.html#a3e1b32d5719a8f888610f4e002c7f961", null ],
-    [ "~DriverBase", "d0/d7e/a00770.html#a59f968aba25598436eb1def357c56d59", null ],
-    [ "canTransferBlock", "d0/d7e/a00770.html#aaf8ca4464ee8b2534f560af30882a4ec", null ],
-    [ "getTransferActive", "d0/d7e/a00770.html#af43aefd21599105369f473c78ec94929", null ],
-    [ "handleTransferCompleteEvent", "d0/d7e/a00770.html#a50d19e0792a7a08a81b9f29f968dffed", null ],
-    [ "setTransferActive", "d0/d7e/a00770.html#afd66b7e1d6f23ead84bcbfd1aaad8eca", null ],
-    [ "setup", "d0/d7e/a00770.html#af894d75b93c4254eaea83f198cec4030", null ],
-    [ "transmitBlock", "d0/d7e/a00770.html#afc3031bad325bc90d8a5ec4c866427fe", null ]
+    [ "Config", "d3/dee/a00774.html", "d3/dee/a00774" ],
+    [ "Beep", "d0/d7e/a00770.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "isPlaying", "d0/d7e/a00770.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "play", "d0/d7e/a00770.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
+    [ "RTOS::TickClient< Beep >", "d0/d7e/a00770.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

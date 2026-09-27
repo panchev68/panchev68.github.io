@@ -1,9 +1,10 @@
 var a02082 =
 [
-    [ "FirmwareString", "d6/d7f/a02082.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "Firmware", "d6/d7f/a02082.html#aea1a959ff6df2c3ac4fdce8049e6c648", null ],
-    [ "~Firmware", "d6/d7f/a02082.html#a98f7f93c4dd838cc33f4615cb3b5930a", null ],
-    [ "operator FirmwareString", "d6/d7f/a02082.html#acfd71eac3030b2d131db4bd935df3d07", null ],
-    [ "operator uint32_t", "d6/d7f/a02082.html#a6e75a61bc4d772864cf04cade78ca873", null ],
-    [ "subVersion", "d6/d7f/a02082.html#a34cf388039d345671fb8bab548e1b844", null ]
+    [ "maxPowerRef", "d6/d7f/a02082.html#a03f700e990948fcfe6c82de9a3e21657", null ],
+    [ "mppCurrentRef", "d6/d7f/a02082.html#a7208d815760253f067e40908fdf5b2b1", null ],
+    [ "mppVoltageRef", "d6/d7f/a02082.html#ad14a294ad527e4103971eddc9f39e1af", null ],
+    [ "referenceIrradiance", "d6/d7f/a02082.html#abb7c80f88a2007497312ca7b74f5e216", null ],
+    [ "temperatureCoefficient", "d6/d7f/a02082.html#aad0b3f3e89dee953a5ad229531788752", null ],
+    [ "toleranceFactor", "d6/d7f/a02082.html#a5da34d5f09a437a775c5639065d1fcde", null ],
+    [ "updateInterval", "d6/d7f/a02082.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
 ];

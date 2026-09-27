@@ -1,18 +1,13 @@
 var a01666 =
 [
     [ "Event", "de/df6/a01670.html", null ],
-    [ "Base", "d8/d75/a01666.html#ac86b5618627a1ef81cddebbcc07fc0cb", null ],
-    [ "~Base", "d8/d75/a01666.html#a0518eda7fbbf389038c3cf3de4dc584c", null ],
-    [ "abort", "d8/d75/a01666.html#a75c585ed5ceed0f6bc723bcda1d597ea", null ],
-    [ "close", "d8/d75/a01666.html#a6322b4d7e1e4a6bf45ce8a44d202a69e", null ],
-    [ "handleErrorInterrupt", "d8/d75/a01666.html#a13bdd7ed54233af85509bfa24e47a06b", null ],
-    [ "handleRxInterrupt", "d8/d75/a01666.html#a8284a1282f4f93241bf7ddd4d01a83c9", null ],
-    [ "handleTxInterrupt", "d8/d75/a01666.html#acc2b445986ae61a69c7797f353f35f62", null ],
-    [ "isBusy", "d8/d75/a01666.html#aae1a5f1ca469b110f632312a70d313ef", null ],
-    [ "open", "d8/d75/a01666.html#a945b534e836c63ee16a8efb17e2ae719", null ],
-    [ "receive", "d8/d75/a01666.html#a73eda7660db185aaf3d38acec8c8c606", null ],
-    [ "receive", "d8/d75/a01666.html#a7254ef5b8ee239137f97e34a71e34563", null ],
-    [ "send", "d8/d75/a01666.html#a664557a1e99389158139f1c987abe5ff", null ],
-    [ "send", "d8/d75/a01666.html#a996d41fe75f50249861ef94b35d8fda9", null ],
-    [ "waitForEvent", "d8/d75/a01666.html#ac16f32f04ddf910bcb140942a2d86387", null ]
+    [ "OSPIPort", "d8/d75/a01666.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
+    [ "~OSPIPort", "d8/d75/a01666.html#a75c002e669d06d7de1e78e5e48686797", null ],
+    [ "abort", "d8/d75/a01666.html#ae607a85a501b0bbf6cd780dac3349a01", null ],
+    [ "close", "d8/d75/a01666.html#a6ec95ca0884508cd5d0adbed61d3e230", null ],
+    [ "command", "d8/d75/a01666.html#a54ec0889f4608331fa061c0c3292069b", null ],
+    [ "open", "d8/d75/a01666.html#a5dd53939332ed5b10c743ffbcaea68e7", null ],
+    [ "receive", "d8/d75/a01666.html#ab9cc9ba95182f1da35658a30766c925b", null ],
+    [ "transmit", "d8/d75/a01666.html#a29fc23b9a2bc046d9b8a3112e104d07a", null ],
+    [ "waitForEvent", "d8/d75/a01666.html#a270e0d617d8dd62513fbdff91296e244", null ]
 ];

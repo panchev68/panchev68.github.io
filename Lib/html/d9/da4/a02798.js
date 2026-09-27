@@ -1,5 +1,5 @@
 var a02798 =
 [
-    [ "Lib::XCOM::Protocol", "d5/ddd/a02184.html", "d5/ddd/a02184" ],
-    [ "Lib::XCOM::Protocol::Frame", "dc/d3c/a02188.html", "dc/d3c/a02188" ]
+    [ "Lib::XCOM::ServiceBase", "dc/dc3/a02190.html", "dc/dc3/a02190" ],
+    [ "Lib::XCOM::ServiceBase::Value64Handle", "d0/db2/a02194.html", "d0/db2/a02194" ]
 ];

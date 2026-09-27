@@ -1,20 +1,20 @@
 var a00866 =
 [
-    [ "Register", "da/d98/a00870.html", "da/d98/a00870" ],
-    [ "Config", "dd/db2/a00866.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
-    [ "Info", "dd/db2/a00866.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
-    [ "W25Q128JVSIQ", "dd/db2/a00866.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
-    [ "~W25Q128JVSIQ", "dd/db2/a00866.html#ab9c5bae7857e7012ad972a143a2f6061", null ],
-    [ "W25Q128JVSIQ", "dd/db2/a00866.html#a8e63f6957e7d3835c28850539c92b803", null ],
-    [ "W25Q128JVSIQ", "dd/db2/a00866.html#ab86a72c21a4af20d878b815237041775", null ],
-    [ "close", "dd/db2/a00866.html#a55035a929afd299ffa29fd2189dacfba", null ],
-    [ "eraseChip", "dd/db2/a00866.html#ab026a3f275557a196219bc938bb5910b", null ],
-    [ "eraseSector", "dd/db2/a00866.html#a021f11ec22078f7a52e6da5be4ff22e2", null ],
-    [ "getInfo", "dd/db2/a00866.html#ae3127d396d2331ea31ce306210743056", null ],
-    [ "isPresent", "dd/db2/a00866.html#af9ea4290ba97a3a8e05bed9662359a4c", null ],
-    [ "open", "dd/db2/a00866.html#ab6f313ee4be72fb388d2a31f2bf60135", null ],
-    [ "operator=", "dd/db2/a00866.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
-    [ "operator=", "dd/db2/a00866.html#a042aafe50feeb5ffe960d362458e460e", null ],
-    [ "read", "dd/db2/a00866.html#aafd7900347abf238546c4c203dbc0ce5", null ],
-    [ "write", "dd/db2/a00866.html#ab01e7dde91a521608ccd9ab3f8bcfbda", null ]
+    [ "Config", "da/d98/a00870.html", "da/d98/a00870" ],
+    [ "EventState", "dd/db2/a00866.html#a04b234ac50c12b687cfe292d1aaae8e9", [
+      [ "NONE", "dd/db2/a00866.html#a04b234ac50c12b687cfe292d1aaae8e9ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "CW", "dd/db2/a00866.html#a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed", null ],
+      [ "CCW", "dd/db2/a00866.html#a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf", null ],
+      [ "BUT_PUSH", "dd/db2/a00866.html#a04b234ac50c12b687cfe292d1aaae8e9aec99b17e69f307181424c4145f5f6490", null ],
+      [ "BUT_PULL", "dd/db2/a00866.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4", null ]
+    ] ],
+    [ "EncoderPins", "dd/db2/a00866.html#ad6c68a3e1bd1f553c1fcb54fa3264d62", null ],
+    [ "~EncoderPins", "dd/db2/a00866.html#af5e2c516da5d21ab53c82f28c41fd92f", null ],
+    [ "close", "dd/db2/a00866.html#a89671c8fae2abdaedc8c96d60935e791", null ],
+    [ "getButtonHoldPeriod", "dd/db2/a00866.html#a09d0b1187e255228fc21b499d1ee668a", null ],
+    [ "getButtonState", "dd/db2/a00866.html#ac0e4e401e9d00ed25f0305cd6c0c21f8", null ],
+    [ "handlePinChangedEvent", "dd/db2/a00866.html#a047860123929a9515669e40b213c76e4", null ],
+    [ "kbdhit", "dd/db2/a00866.html#a3a75893922e01a65d6b352880db68bde", null ],
+    [ "open", "dd/db2/a00866.html#a2a3bbe4007278e92eca193886d2dfe9a", null ],
+    [ "setPulseDivider", "dd/db2/a00866.html#ac508391f6dc11f623beea181f2f6dd95", null ]
 ];

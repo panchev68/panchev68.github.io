@@ -1,15 +1,13 @@
 var a01218 =
 [
-    [ "ServiceBase", "d8/d15/a01218.html#a5d5292043ede73815797ce2f72dd2080", null ],
-    [ "~ServiceBase", "d8/d15/a01218.html#a91434b8f87f12857c2adf19625bab6df", null ],
-    [ "beginUpdate", "d8/d15/a01218.html#a8051541c82e38b791f21273141bef9fd", null ],
-    [ "close", "d8/d15/a01218.html#a8f20bdbe323cc495f08db5b342701b7a", null ],
-    [ "endUpdate", "d8/d15/a01218.html#a77f6985bc7ef2b9feac65ee75a3018cb", null ],
-    [ "isServiceOpen", "d8/d15/a01218.html#af159dfd9b7e8717cd4c869fbfce36b7a", null ],
-    [ "open", "d8/d15/a01218.html#a753d77f8396c4b45cd0e949461468fa6", null ],
-    [ "update", "d8/d15/a01218.html#a610e6e46a790eedb578757121e442829", null ],
-    [ "Manager", "d8/d15/a01218.html#adddd5c43ff870a047aa66db4edf82a7e", null ],
-    [ "hasClosed", "d8/d15/a01218.html#a51768b13e712166035290776966fbc71", null ],
-    [ "isFirstUpdate", "d8/d15/a01218.html#a5a0cda26ec20daa96b3a724a8e98b8fa", null ],
-    [ "isOpen", "d8/d15/a01218.html#a00192d010ee063714d16a33b4ed7d64a", null ]
+    [ "Period", "d8/d15/a01218.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
+    [ "beginMeasurement", "d8/d15/a01218.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
+    [ "clearMinMax", "d8/d15/a01218.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
+    [ "endMeasurement", "d8/d15/a01218.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
+    [ "getMaximum", "d8/d15/a01218.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
+    [ "getMinimum", "d8/d15/a01218.html#a74fe067b228e91e888527cde922af4ab", null ],
+    [ "getRawValue", "d8/d15/a01218.html#a8e9a5702067740cae617ad3e800557cd", null ],
+    [ "getValue", "d8/d15/a01218.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
+    [ "operator uint32_t", "d8/d15/a01218.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ],
+    [ "reset", "d8/d15/a01218.html#a6d75c29880edb434a8c6cba3f2c3718f", null ]
 ];

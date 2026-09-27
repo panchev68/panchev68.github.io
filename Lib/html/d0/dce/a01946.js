@@ -1,35 +1,18 @@
 var a01946 =
 [
-    [ "Handle", "d0/dce/a01946.html#ab6421331ba2f810ca117af37f7da747a", null ],
-    [ "TickType", "d0/dce/a01946.html#a4d9c4e73eda7ebc5e0f263310bd4e11c", null ],
-    [ "State", "d0/dce/a01946.html#a7ad1b7a849143d5692507f7dddbcfde8", [
-      [ "AVAILABLE", "d0/dce/a01946.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
-      [ "TAKEN", "d0/dce/a01946.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
-      [ "INVALID", "d0/dce/a01946.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
+    [ "Config", "d5/d28/a01950.html", "d5/d28/a01950" ],
+    [ "Command", "d0/dce/a01946.html#acbc2ca16986f83e5d6bb2430ee060054", [
+      [ "OFF", "d0/dce/a01946.html#acbc2ca16986f83e5d6bb2430ee060054a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "d0/dce/a01946.html#acbc2ca16986f83e5d6bb2430ee060054a90651ebea9a35ec4e018c8157492e17c", null ]
     ] ],
-    [ "Semaphore", "d0/dce/a01946.html#ac18bbf45d7ea4f13cf097651078f372d", null ],
-    [ "Semaphore", "d0/dce/a01946.html#a81c2289b5095339fc9301c72fae88487", null ],
-    [ "Semaphore", "d0/dce/a01946.html#a95f891886a3122df28f63cf1abae74c3", null ],
-    [ "~Semaphore", "d0/dce/a01946.html#aa5e35a44d5786139f77a3a57a483c021", null ],
-    [ "Semaphore", "d0/dce/a01946.html#a87fa949b382d64e96b2d93f381032500", null ],
-    [ "close", "d0/dce/a01946.html#a88cca8922a10665d965481833160a8e6", null ],
-    [ "getCount", "d0/dce/a01946.html#a08742d5c4dd86e38a1efccfa47dd01af", null ],
-    [ "getState", "d0/dce/a01946.html#a4dc6f42d28351e57274eb7e45aa62248", null ],
-    [ "give", "d0/dce/a01946.html#a2c3aa70b05fa4a66775a0227d626af7c", null ],
-    [ "giveFromISR", "d0/dce/a01946.html#a8f3fa6ba6cea7933abbb4ee221091d11", null ],
-    [ "isAvailable", "d0/dce/a01946.html#a58227dfaddfa5a315561f0619d791a45", null ],
-    [ "isOpen", "d0/dce/a01946.html#a63815102d5707754fcc45ba719ee7cd8", null ],
-    [ "isTaken", "d0/dce/a01946.html#ad88c6e815967329927ac73939fb3361d", null ],
-    [ "isValid", "d0/dce/a01946.html#a2f764c53c71ab97a0a98162a07ed0120", null ],
-    [ "open", "d0/dce/a01946.html#a4f3a14ce62c98f7ce5520ce3e91b2322", null ],
-    [ "operator=", "d0/dce/a01946.html#abe1f7c1fff0d8632a0e3f7dda8ed9b0b", null ],
-    [ "operator=", "d0/dce/a01946.html#aca5634e72d5efa546fc5ce5ddea7b3a2", null ],
-    [ "overwrite", "d0/dce/a01946.html#a70748ace923762624068ff43a0438e8b", null ],
-    [ "overwriteFromISR", "d0/dce/a01946.html#ac4fa91c7638ef0a1811557de4ff2709a", null ],
-    [ "take", "d0/dce/a01946.html#a77c57fc8a48f4cbc15e4fb729c9eafd9", null ],
-    [ "take", "d0/dce/a01946.html#a006d09521e03ac71a892ca11da4b3183", null ],
-    [ "takeFromISR", "d0/dce/a01946.html#ad98e64079a472c36597e54ba779af242", null ],
-    [ "takeMs", "d0/dce/a01946.html#a4a7b4e66593bcbcf465ddf9458cee540", null ],
-    [ "takeSeconds", "d0/dce/a01946.html#a154ec0be77fe01c345872f7420174929", null ],
-    [ "tryTake", "d0/dce/a01946.html#afd8aabbb465bbf28880b4f31c3955ecf", null ]
+    [ "Status", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210", [
+      [ "IS_OFF", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210a5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210a93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "d0/dce/a01946.html#ad2c322178ccaa1ca3b66179e0e128210a229051669055140f5d0bbafd5ea64412", null ]
+    ] ],
+    [ "RotationCylinder", "d0/dce/a01946.html#a83fb79c67ed4243d5a7c61d98a8f4dd8", null ],
+    [ "command", "d0/dce/a01946.html#a525672c618ae0d44504714f41e4bee19", null ],
+    [ "getName", "d0/dce/a01946.html#aa7d463ba3f7a884964fe2d84e9bf681a", null ],
+    [ "setup", "d0/dce/a01946.html#a241021b4b72a49dce63c445ad2eb8f25", null ],
+    [ "update", "d0/dce/a01946.html#aeb1d219d970f95a09af386b9edc688fd", null ]
 ];

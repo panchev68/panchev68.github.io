@@ -1,12 +1,11 @@
 var a01742 =
 [
-    [ "crc16", "d1/dd5/a01742.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "d1/dd5/a01742.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "d1/dd5/a01742.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "~crc16", "d1/dd5/a01742.html#a73cf92efd71d9a5375dcff418f8d5544", null ],
-    [ "crc16", "d1/dd5/a01742.html#af2a5773edb93ec71394d09cc0e658827", null ],
-    [ "crc16", "d1/dd5/a01742.html#ad7ed32d28b4824c76671e2065c045ce3", null ],
-    [ "operator uint16_t", "d1/dd5/a01742.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ],
-    [ "operator=", "d1/dd5/a01742.html#a5c773c493739f8dc22407dc84007e97d", null ],
-    [ "operator=", "d1/dd5/a01742.html#a774c78e1c97661fae6fc626bbf694285", null ]
+    [ "TimOutputCompare", "d1/dd5/a01742.html#a27066a81329ea9e611121c1ad38b47e4", null ],
+    [ "~TimOutputCompare", "d1/dd5/a01742.html#ab46d4d7df11b6cb9ce3cf7b65f91e2aa", null ],
+    [ "getCounter", "d1/dd5/a01742.html#a448826975488c9824e1dc65028f638db", null ],
+    [ "setCompare", "d1/dd5/a01742.html#a4f2f5df6bed1ac53c53f6e101f0ec897", null ],
+    [ "start", "d1/dd5/a01742.html#a357822e008e2e85ba5c70d2ea8dd50b7", null ],
+    [ "stop", "d1/dd5/a01742.html#a3dab9388a5182d25f65dca0a88b663ec", null ],
+    [ "waitCompare", "d1/dd5/a01742.html#a80f97b34bd0bebdf83733b7fe49a5197", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d1/dd5/a01742.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

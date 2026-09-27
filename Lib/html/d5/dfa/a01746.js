@@ -1,10 +1,9 @@
 var a01746 =
 [
-    [ "crc8", "d5/dfa/a01746.html#a87fca5efe929df4c34a235144e62d916", null ],
-    [ "~crc8", "d5/dfa/a01746.html#a4c6cd1219bc1531226108b9cc65a5c38", null ],
-    [ "crc8", "d5/dfa/a01746.html#a5311b017f30a8b077e7e89862b53be7d", null ],
-    [ "crc8", "d5/dfa/a01746.html#a8d2bef379f0a482539fd1ad6719c0776", null ],
-    [ "operator uint8_t", "d5/dfa/a01746.html#ae8af18c43adfda687028c04578472b61", null ],
-    [ "operator=", "d5/dfa/a01746.html#a8f6ca76ed55910f2c6963fe178cd0681", null ],
-    [ "operator=", "d5/dfa/a01746.html#a0fb66d9f07ec8ba1760e850efd802c73", null ]
+    [ "TimPwmOutput", "d5/dfa/a01746.html#a47b87f7a58364829413da8553167cb9c", null ],
+    [ "~TimPwmOutput", "d5/dfa/a01746.html#a0cbdb1ff03a11b37a4b54a4e534ed3ea", null ],
+    [ "close", "d5/dfa/a01746.html#a99461b28a3b7f53dfad3bfddbe803aa5", null ],
+    [ "open", "d5/dfa/a01746.html#a1a006a75e86e8a5fd62b69b862f41184", null ],
+    [ "setPeriod", "d5/dfa/a01746.html#a356c01c6a41c8b106242fed7d597d40b", null ],
+    [ "setPulse", "d5/dfa/a01746.html#a721247e0e729cbd77d8d34cbfb29719a", null ]
 ];

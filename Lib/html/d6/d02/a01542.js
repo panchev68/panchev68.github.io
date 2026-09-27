@@ -1,9 +1,9 @@
 var a01542 =
 [
-    [ "I2CPort", "d6/d02/a01542.html#a0f28c8a7e8fd6e9436d1833fddb05369", null ],
-    [ "~I2CPort", "d6/d02/a01542.html#afd974c470637c78170576087414cde53", null ],
-    [ "getHandle", "d6/d02/a01542.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "d6/d02/a01542.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "masterReceive", "d6/d02/a01542.html#ab8d6c7b50db1e521d4e8b06df30107b5", null ],
-    [ "masterTransmit", "d6/d02/a01542.html#a93204dac38465fc724005fbac9caf32b", null ]
+    [ "BackupRamDomain", "d6/d02/a01542.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d6/d02/a01542.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "close", "d6/d02/a01542.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d6/d02/a01542.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "readRegister", "d6/d02/a01542.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d6/d02/a01542.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

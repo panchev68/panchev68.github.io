@@ -1,6 +1,13 @@
 var a01590 =
 [
-    [ "Port", "d4/d49/a01590.html#a02cfbb5bb5cb11358cb392a9abf8d755", null ],
-    [ "~Port", "d4/d49/a01590.html#a412e68aa9981b264b4da61670c1477e9", null ],
-    [ "Base< Port< DriverMode::IT > >", "d4/d49/a01590.html#a62b7829af38074fe6f56a12ee0e65385", null ]
+    [ "DataAlignment", "d4/d49/a01590.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "d4/d49/a01590.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "d4/d49/a01590.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "d4/d49/a01590.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "d4/d49/a01590.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "d4/d49/a01590.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "d4/d49/a01590.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "d4/d49/a01590.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "setValue", "d4/d49/a01590.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

@@ -1,13 +1,19 @@
 var a01150 =
 [
-    [ "Period", "d2/d7b/a01150.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
-    [ "beginMeasurement", "d2/d7b/a01150.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
-    [ "clearMinMax", "d2/d7b/a01150.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
-    [ "endMeasurement", "d2/d7b/a01150.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
-    [ "getMaximum", "d2/d7b/a01150.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
-    [ "getMinimum", "d2/d7b/a01150.html#a74fe067b228e91e888527cde922af4ab", null ],
-    [ "getRawValue", "d2/d7b/a01150.html#a8e9a5702067740cae617ad3e800557cd", null ],
-    [ "getValue", "d2/d7b/a01150.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
-    [ "operator uint32_t", "d2/d7b/a01150.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ],
-    [ "reset", "d2/d7b/a01150.html#a6d75c29880edb434a8c6cba3f2c3718f", null ]
+    [ "Target", "d5/d16/a01154.html", "d5/d16/a01154" ],
+    [ "Key", "df/db5/a01158.html", null ],
+    [ "FreeFunctionPointer", "d2/d7b/a01150.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d2/d7b/a01150.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d2/d7b/a01150.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "Base", "d2/d7b/a01150.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
+    [ "Base", "d2/d7b/a01150.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
+    [ "Base", "d2/d7b/a01150.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
+    [ "Base", "d2/d7b/a01150.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
+    [ "Base", "d2/d7b/a01150.html#a49a4e79ff99eb03351fd7a280f276905", null ],
+    [ "invoke", "d2/d7b/a01150.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d2/d7b/a01150.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d2/d7b/a01150.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d2/d7b/a01150.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d2/d7b/a01150.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d2/d7b/a01150.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

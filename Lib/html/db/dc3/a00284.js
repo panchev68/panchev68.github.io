@@ -1,4 +1,4 @@
 var a00284 =
 [
-    [ "Lib::Errors::Group", "dd/d15/a01471.html", "dd/d15/a01471" ]
+    [ "mbx_cfg_t", "d5/d67/a01466.html", "d5/d67/a01466" ]
 ];

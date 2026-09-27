@@ -1,8 +1,9 @@
 var a02110 =
 [
-    [ "Frame", "da/d4a/a02114.html", "da/d4a/a02114" ],
-    [ "Status", "d5/d23/a02110.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d5/d23/a02110.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d5/d23/a02110.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "VersionString", "d5/d23/a02110.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
+    [ "HardwareVersion", "d5/d23/a02110.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
+    [ "getValue", "d5/d23/a02110.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
+    [ "operator uint32_t", "d5/d23/a02110.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
+    [ "operator VersionString", "d5/d23/a02110.html#aa3df38606e4bae3745c893ccbffb030c", null ],
+    [ "toString", "d5/d23/a02110.html#a318575bc9f5967d830a1cb350b1e8061", null ]
 ];

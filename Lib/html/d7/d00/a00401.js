@@ -1,5 +1,5 @@
 var a00401 =
 [
-    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;", "d4/d3c/a01671.html", "d4/d3c/a01671" ],
-    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;::Event", "db/d98/a01675.html", null ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;", "d8/d75/a01666.html", "d8/d75/a01666" ],
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;::Event", "de/df6/a01670.html", null ]
 ];

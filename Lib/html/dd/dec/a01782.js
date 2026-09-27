@@ -1,19 +1,12 @@
 var a01782 =
 [
-    [ "JaggedArrayBase", "dd/dec/a01782.html#a0f518918193bba4f57841ad74cb3d998", null ],
-    [ "~JaggedArrayBase", "dd/dec/a01782.html#adef392eae8acb3d65fdc550fe2549ac0", null ],
-    [ "JaggedArrayBase", "dd/dec/a01782.html#a46fe449f30f42c02caed495f9bcc0c7d", null ],
-    [ "JaggedArrayBase", "dd/dec/a01782.html#affd072bf4ee99479680cbf709b44b7cf", null ],
-    [ "addItem", "dd/dec/a01782.html#aa889b33f3f6ba6756c245ac84049cffc", null ],
-    [ "addItems", "dd/dec/a01782.html#ae1c06948697906035f3ad49338b498e5", null ],
-    [ "clearItems", "dd/dec/a01782.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "dd/dec/a01782.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "dd/dec/a01782.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "dd/dec/a01782.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator=", "dd/dec/a01782.html#a635233633e8f919a071b3c793c62f94c", null ],
-    [ "operator=", "dd/dec/a01782.html#aa723723b3e4083e8bd17641bfebc2d50", null ],
-    [ "operator[]", "dd/dec/a01782.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "dd/dec/a01782.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "dd/dec/a01782.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "dd/dec/a01782.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "BitSet", "dd/dec/a01782.html#a16d91d28edc897acf8833de8df82699f", null ],
+    [ "BitSet", "dd/dec/a01782.html#addc6ad14e596e534eb7fd2a018719985", null ],
+    [ "getBit", "dd/dec/a01782.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
+    [ "getValue", "dd/dec/a01782.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
+    [ "operator uint32_t", "dd/dec/a01782.html#ab085297affb7e2df90201d7e6cdd1172", null ],
+    [ "operator=", "dd/dec/a01782.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
+    [ "operator[]", "dd/dec/a01782.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
+    [ "setBit", "dd/dec/a01782.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
+    [ "setValue", "dd/dec/a01782.html#a2505d1f74074939a87d45d3343d8bea3", null ]
 ];

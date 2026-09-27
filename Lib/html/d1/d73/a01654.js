@@ -1,11 +1,10 @@
 var a01654 =
 [
-    [ "TimOutputCompare", "d1/d73/a01654.html#a27066a81329ea9e611121c1ad38b47e4", null ],
-    [ "~TimOutputCompare", "d1/d73/a01654.html#ab46d4d7df11b6cb9ce3cf7b65f91e2aa", null ],
-    [ "getCounter", "d1/d73/a01654.html#a448826975488c9824e1dc65028f638db", null ],
-    [ "setCompare", "d1/d73/a01654.html#a4f2f5df6bed1ac53c53f6e101f0ec897", null ],
-    [ "start", "d1/d73/a01654.html#a357822e008e2e85ba5c70d2ea8dd50b7", null ],
-    [ "stop", "d1/d73/a01654.html#a3dab9388a5182d25f65dca0a88b663ec", null ],
-    [ "waitCompare", "d1/d73/a01654.html#a80f97b34bd0bebdf83733b7fe49a5197", null ],
-    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d1/d73/a01654.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
+    [ "OSPIPort", "d1/d73/a01654.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "d1/d73/a01654.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "command", "d1/d73/a01654.html#aeed66720e71ab96fdcea2352bfd82166", null ],
+    [ "getHandle", "d1/d73/a01654.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "d1/d73/a01654.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "receive", "d1/d73/a01654.html#aebb9d95a8217a6a40ca5bc510164224c", null ],
+    [ "transmit", "d1/d73/a01654.html#a83db53e747787225e59280eff7be7642", null ]
 ];

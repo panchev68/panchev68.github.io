@@ -1,6 +1,5 @@
 var a01242 =
 [
-    [ "AtCommandString", "d7/dc5/a01242.html#ac42ef6f80fda3c8465b7ca39dd27d64b", null ],
-    [ "AtCommandString", "d7/dc5/a01242.html#a2211ec7f8df3ea7a56b5eba86aa9af69", null ],
-    [ "operator uint16_t", "d7/dc5/a01242.html#afc71cef7970dda73f6782ba0b4d5ae21", null ]
+    [ "temperature", "d7/dc5/a01242.html#ae29736f4417a2debdf70b9707d209670", null ],
+    [ "voltage", "d7/dc5/a01242.html#af9fba569ee04ec30fccf615d3128d879", null ]
 ];

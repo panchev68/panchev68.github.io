@@ -1,5 +1,8 @@
 var a01774 =
 [
-    [ "position", "d9/d02/a01774.html#ad3567821834e07fd2cd6c051914c0e80", null ],
-    [ "value", "d9/d02/a01774.html#a9ef6ab138a851a588142af4d011ef06a", null ]
+    [ "UARTPortBase", "d9/d02/a01774.html#a669dd1b001fb13b162cffa21298bcc56", null ],
+    [ "~UARTPortBase", "d9/d02/a01774.html#ad42b095b6ad74e5711f75569f4a83da8", null ],
+    [ "close", "d9/d02/a01774.html#a2e482399a93f56729758c71dd82f739a", null ],
+    [ "isBusy", "d9/d02/a01774.html#aca570c1ecc192d3bdd7cc6be41926f2c", null ],
+    [ "open", "d9/d02/a01774.html#aabd9661c7fc7584649914ebbe33f1458", null ]
 ];

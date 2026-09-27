@@ -1,7 +1,38 @@
 var a00729 =
 [
-    [ "Master", "d0/d02/a01119.html", "d0/d02/a01119" ],
-    [ "Protocol", "de/de5/a01123.html", "de/de5/a01123" ],
-    [ "SerialPortBase", "d7/de8/a01159.html", "d7/de8/a01159" ],
-    [ "Slave", "d6/d27/a01163.html", "d6/d27/a01163" ]
+    [ "Frame", "d2/db1/a00730.html", "d2/db1/a00730" ],
+    [ "ApiFrameBuffer", "dc/de0/a01302.html", "dc/de0/a01302" ],
+    [ "AtCommandChannel", "d7/d8c/a01306.html", "d7/d8c/a01306" ],
+    [ "AtCommandString", "da/d79/a01310.html", "da/d79/a01310" ],
+    [ "Checksum", "d9/de6/a01314.html", "d9/de6/a01314" ],
+    [ "ComDriver", "d6/dfa/a01318.html", "d6/dfa/a01318" ],
+    [ "Diagnostic", "d5/d78/a01330.html", "d5/d78/a01330" ],
+    [ "EscapedCode", "d4/dd1/a01334.html", "d4/dd1/a01334" ],
+    [ "Frame0x00", "de/d9d/a01382.html", "de/d9d/a01382" ],
+    [ "Frame0x01", "d3/deb/a01386.html", "d3/deb/a01386" ],
+    [ "Frame0x08", "d5/d8e/a01390.html", "d5/d8e/a01390" ],
+    [ "Frame0x09", "d6/d2f/a01394.html", "d6/d2f/a01394" ],
+    [ "Frame0x17", "da/de3/a01398.html", "da/de3/a01398" ],
+    [ "Frame0x80", "d4/d3c/a01418.html", "d4/d3c/a01418" ],
+    [ "Frame0x81", "d1/df4/a01422.html", "d1/df4/a01422" ],
+    [ "Frame0x88", "dc/de6/a01426.html", "dc/de6/a01426" ],
+    [ "Frame0x89", "d8/dd0/a01430.html", "d8/dd0/a01430" ],
+    [ "Frame0x8a", "d1/de7/a01434.html", "d1/de7/a01434" ],
+    [ "Frame0x8b", "d5/dd0/a01438.html", "d5/dd0/a01438" ],
+    [ "Frame0x90", "d0/de2/a01442.html", "d0/de2/a01442" ],
+    [ "Frame0x97", "d8/d22/a01446.html", "d8/d22/a01446" ],
+    [ "LocalAtCommand", "da/dab/a01362.html", "da/dab/a01362" ],
+    [ "Message", "d6/dfe/a01366.html", "d6/dfe/a01366" ],
+    [ "ModemStatus", "d8/dbe/a01370.html", "d8/dbe/a01370" ],
+    [ "Module", "d2/dff/a01374.html", "d2/dff/a01374" ],
+    [ "Protocol", "db/d74/a01378.html", null ],
+    [ "QueryBase", "d0/dc7/a01402.html", "d0/dc7/a01402" ],
+    [ "QueueMessage", "dc/d25/a01406.html", "dc/d25/a01406" ],
+    [ "RemoteAtCommand", "d8/d01/a01410.html", "d8/d01/a01410" ],
+    [ "ResponseEvents", "d8/df1/a01414.html", "d8/df1/a01414" ],
+    [ "ApiMode", "d8/d52/a00729.html#ac00e3258c1e2d55846ad6f50ddfebbdc", [
+      [ "TRANSPARENT", "d8/d52/a00729.html#ac00e3258c1e2d55846ad6f50ddfebbdca6dbf1b8bc39b4ed513395a18b554979f", null ],
+      [ "API1", "d8/d52/a00729.html#ac00e3258c1e2d55846ad6f50ddfebbdca7e8d092d9c015707dedc7a3b8173f6b5", null ],
+      [ "API2", "d8/d52/a00729.html#ac00e3258c1e2d55846ad6f50ddfebbdca51dfa65dc2042cfa662ff3a4cd76c968", null ]
+    ] ]
 ];

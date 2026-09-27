@@ -1,7 +1,4 @@
 var a00344 =
 [
-    [ "Lib::HAL::DriverDataDirection", "da/df7/a00739.html#a82754326f2fd3bd32ea447c756ec2825", [
-      [ "Lib::HAL::DriverDataDirection::RX", "da/df7/a00739.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
-      [ "Lib::HAL::DriverDataDirection::TX", "da/df7/a00739.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ]
-    ] ]
+    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "d9/df5/a01574.html", "d9/df5/a01574" ]
 ];

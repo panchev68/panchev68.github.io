@@ -1,6 +1,9 @@
 var a01610 =
 [
-    [ "hours", "d9/dfd/a01610.html#af450d47b434e0da1a6f360ee10f11827", null ],
-    [ "minutes", "d9/dfd/a01610.html#aa9a8d14bf1f392aefa341b315aaa99bf", null ],
-    [ "seconds", "d9/dfd/a01610.html#a2f52dd5e98a90c7f09bade45499142c6", null ]
+    [ "Handle", "d9/dfd/a01610.html#a31060b74a9dca40bf3d8950b8db4981f", null ],
+    [ "Handle", "d9/dfd/a01610.html#a0fad1e6f6de3fa5c36b0ceddbd626dec", null ],
+    [ "getPinNumber", "d9/dfd/a01610.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "d9/dfd/a01610.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "d9/dfd/a01610.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "d9/dfd/a01610.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

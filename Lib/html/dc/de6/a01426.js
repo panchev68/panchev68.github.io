@@ -1,9 +1,8 @@
 var a01426 =
 [
-    [ "command", "dc/de6/a01426.html#ac39c4790de9b586883fe6f756ddacedb", null ],
-    [ "delimiter", "dc/de6/a01426.html#afe55e623eebacaace36b8d1e9844d39d", null ],
-    [ "id", "dc/de6/a01426.html#a8347df958bae7c76cebdbb5c432b0050", null ],
-    [ "length", "dc/de6/a01426.html#afe72ea272518d059f1bf808d9f29af53", null ],
-    [ "option", "dc/de6/a01426.html#a5ef8d332a47ac6474f29bd47994ec554", null ],
-    [ "timestamp", "dc/de6/a01426.html#a0997b1a261a5779f789463642f1b0e65", null ]
+    [ "Frame0x88", "dc/de6/a01426.html#a0f33e04d3ad28dabd1bf0c1d0bad3d81", null ],
+    [ "atCommand", "dc/de6/a01426.html#aba3a41028c41109166efaf024c9dca74", null ],
+    [ "data", "dc/de6/a01426.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
+    [ "frameId", "dc/de6/a01426.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
+    [ "status", "dc/de6/a01426.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
 ];

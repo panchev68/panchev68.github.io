@@ -1,9 +1,13 @@
 var a01658 =
 [
-    [ "TimPwmOutput", "d9/d79/a01658.html#a47b87f7a58364829413da8553167cb9c", null ],
-    [ "~TimPwmOutput", "d9/d79/a01658.html#a0cbdb1ff03a11b37a4b54a4e534ed3ea", null ],
-    [ "close", "d9/d79/a01658.html#a99461b28a3b7f53dfad3bfddbe803aa5", null ],
-    [ "open", "d9/d79/a01658.html#a1a006a75e86e8a5fd62b69b862f41184", null ],
-    [ "setPeriod", "d9/d79/a01658.html#a356c01c6a41c8b106242fed7d597d40b", null ],
-    [ "setPulse", "d9/d79/a01658.html#a721247e0e729cbd77d8d34cbfb29719a", null ]
+    [ "Event", "d9/dbc/a01662.html", null ],
+    [ "OSPIPort", "d9/d79/a01658.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
+    [ "~OSPIPort", "d9/d79/a01658.html#a1bfbad124ecbfdf6cba7511cef023187", null ],
+    [ "abort", "d9/d79/a01658.html#acf222af5af1a03ba61fc7523a837bbb6", null ],
+    [ "close", "d9/d79/a01658.html#a4b5ceddbe8a65edd29e7817bb737da62", null ],
+    [ "command", "d9/d79/a01658.html#a7cfbf2ab6c1f14db0836fc60e109a24b", null ],
+    [ "open", "d9/d79/a01658.html#a9a0d6d16d71b098e1bf00f62cf9bacf9", null ],
+    [ "receive", "d9/d79/a01658.html#a790b46529d6d57833eaa696697f33db5", null ],
+    [ "transmit", "d9/d79/a01658.html#a76b97e2eee2a40b819ca3f2b9d10283b", null ],
+    [ "waitForEvent", "d9/d79/a01658.html#ace5a1e3c2ab40cc44478fcc7810f8b43", null ]
 ];

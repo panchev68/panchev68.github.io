@@ -1,18 +1,8 @@
 var a00870 =
 [
-    [ "Command", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726", [
-      [ "WRITE_ENABLE", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "READ_STATUS_REGISTER1", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "QUAD_PAGE_PROGRAM", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
-      [ "FAST_READ_QUAD_IO", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
-      [ "SECTOR_ERASE", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "da/d98/a00870.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "button", "da/d98/a00870.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
+    [ "channel1", "da/d98/a00870.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
+    [ "channel2", "da/d98/a00870.html#a360d21f775c66781831db2507e7a73fc", null ],
+    [ "divider", "da/d98/a00870.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
+    [ "reversePolarity", "da/d98/a00870.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
 ];

@@ -1,4 +1,4 @@
 var a00143 =
 [
-    [ "FunctionRef&lt; Ret(Args...)&gt;", "d1/d35/a01184.html", "d1/d35/a01184" ]
+    [ "Lib::Digi::API::ApplicationBase", "d9/dbb/a01186.html", "d9/dbb/a01186" ]
 ];

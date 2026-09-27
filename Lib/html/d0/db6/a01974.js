@@ -1,13 +1,9 @@
 var a01974 =
 [
-    [ "Label", "d0/db6/a01974.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "d0/db6/a01974.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "d0/db6/a01974.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "d0/db6/a01974.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "d0/db6/a01974.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "d0/db6/a01974.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ]
-    ] ],
-    [ "State", "d0/db6/a01974.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "d0/db6/a01974.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "d0/db6/a01974.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "CriticalSection", "d0/db6/a01974.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
+    [ "~CriticalSection", "d0/db6/a01974.html#a4a507b226238920b8fae903a5bd87776", null ],
+    [ "CriticalSection", "d0/db6/a01974.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
+    [ "CriticalSection", "d0/db6/a01974.html#a9de7a81409af7b28d1da974ded4a7688", null ],
+    [ "operator=", "d0/db6/a01974.html#aabac4732503c72da02f8e49754bbc736", null ],
+    [ "operator=", "d0/db6/a01974.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
 ];

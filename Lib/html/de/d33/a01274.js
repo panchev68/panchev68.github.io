@@ -1,8 +1,10 @@
 var a01274 =
 [
-    [ "append", "de/d33/a01274.html#a6584548573a21567151784636df136cd", null ],
-    [ "append", "de/d33/a01274.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
-    [ "assign", "de/d33/a01274.html#a98c90e40b1c75fb6ab2796c2c1b19611", null ],
-    [ "type", "de/d33/a01274.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ],
-    [ "vector", "de/d33/a01274.html#a75f0ffd076b45c90ef06327ac622c32e", null ]
+    [ "Data", "d4/d10/a01278.html", "d4/d10/a01278" ],
+    [ "Parameters", "de/d33/a01274.html#afb57b8312b95b17a75d606d852ac304f", null ],
+    [ "getData", "de/d33/a01274.html#a4e81ca7d5853167635034bf88a36a9c1", null ],
+    [ "open", "de/d33/a01274.html#af97b2ac5df6ea26c048b9cc8f06f5a29", null ],
+    [ "read", "de/d33/a01274.html#adff97c9bde0c44d18c3c4c161825c881", null ],
+    [ "writeChannel", "de/d33/a01274.html#a81246bbf42dbfbbb99067870f048a8bd", null ],
+    [ "writeRemotePanId", "de/d33/a01274.html#a239200c61e208e97db767774ffae01b7", null ]
 ];

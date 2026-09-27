@@ -1,11 +1,11 @@
 var a01754 =
 [
-    [ "Time", "d9/d37/a01754.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d9/d37/a01754.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d9/d37/a01754.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d9/d37/a01754.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d9/d37/a01754.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "hours", "d9/d37/a01754.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d9/d37/a01754.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d9/d37/a01754.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "UARTPort", "d9/d37/a01754.html#a066a22aae400d51f9a8552f6b1757c30", null ],
+    [ "~UARTPort", "d9/d37/a01754.html#ae57a4a21992efbdd20a759373b79c5de", null ],
+    [ "getDirection", "d9/d37/a01754.html#abc3c117eef840882dd94aee07d684a11", null ],
+    [ "getHandle", "d9/d37/a01754.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
+    [ "getHandle", "d9/d37/a01754.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
+    [ "receive", "d9/d37/a01754.html#adf7447d2e28e1d6b899c50f7f74b70d7", null ],
+    [ "send", "d9/d37/a01754.html#a2441e8d8f7395c3077f9c8c4cd40af74", null ],
+    [ "setBaudRate", "d9/d37/a01754.html#a7c3e00483c2892d1ec425a3679df7fc9", null ]
 ];

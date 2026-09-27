@@ -1,10 +1,10 @@
 var a00146 =
 [
-    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;", "d2/d22/a01171.html", "d2/d22/a01171" ],
-    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;::Target", "d6/df2/a01175.html", "d6/df2/a01175" ],
-    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;::Key", "de/d1a/a01179.html", null ],
-    [ "FunctionRef&lt; Ret(Args...)&gt;", "dc/d2d/a01183.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) const &gt;", "dc/d70/a01187.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) noexcept &gt;", "d1/d0d/a01191.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) const noexcept &gt;", "d8/df3/a01195.html", null ]
+    [ "Lib::Digi::API::Connection", "d0/d32/a01198.html", "d0/d32/a01198" ],
+    [ "Lib::Digi::API::Connection::State", "d4/d5d/a01202.html", "d4/d5d/a01202" ],
+    [ "Lib::Digi::API::Connection::Quality", "dc/d9e/a01206.html", "dc/d9e/a01206" ],
+    [ "Lib::Digi::API::Connection::Info", "d2/da6/a01210.html", "d2/da6/a01210" ],
+    [ "Lib::Digi::API::Connection::Info::Counter", "d5/d32/a01214.html", "d5/d32/a01214" ],
+    [ "Lib::Digi::API::Connection::Info::Period", "d8/d15/a01218.html", "d8/d15/a01218" ],
+    [ "Lib::Digi::API::Connection::Info::SignalStrength", "de/d7e/a01222.html", "de/d7e/a01222" ]
 ];

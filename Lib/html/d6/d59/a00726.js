@@ -1,4 +1,5 @@
 var a00726 =
 [
-    [ "TMP102", "d0/d90/a01059.html", "d0/d90/a01059" ]
+    [ "API", "dc/ddc/a00727.html", "dc/ddc/a00727" ],
+    [ "Core", "d8/d52/a00729.html", "d8/d52/a00729" ]
 ];

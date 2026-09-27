@@ -1,13 +1,12 @@
 var a01758 =
 [
-    [ "DateString", "d9/de3/a01758.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "d9/de3/a01758.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "d9/de3/a01758.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "isValid", "d9/de3/a01758.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "d9/de3/a01758.html#a7d113d5038ad211626b33316aada4fb0", null ],
-    [ "operator==", "d9/de3/a01758.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "d9/de3/a01758.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "day", "d9/de3/a01758.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "d9/de3/a01758.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "d9/de3/a01758.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "Event", "dd/d40/a01762.html", null ],
+    [ "UARTPort", "d9/de3/a01758.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
+    [ "~UARTPort", "d9/de3/a01758.html#ab985c5973b26e43201ed568d3e4b67e4", null ],
+    [ "abort", "d9/de3/a01758.html#ab5621cfd00b219d945b0580d1ee80bdf", null ],
+    [ "close", "d9/de3/a01758.html#a9039d60ffc825b4c518a38f0a95bafd1", null ],
+    [ "open", "d9/de3/a01758.html#adca99095d7af4615d88a5a7c6ad56e30", null ],
+    [ "receive", "d9/de3/a01758.html#a03993df86116ad7c2f28487bbf9bdbbf", null ],
+    [ "send", "d9/de3/a01758.html#aa8c11d6c2933cb567647f02c197d7f56", null ],
+    [ "waitForEvent", "d9/de3/a01758.html#a01f51b709363485e008d83e88b3b78e7", null ]
 ];

@@ -1,11 +1,8 @@
 var a01934 =
 [
-    [ "MutexGuard", "de/da9/a01934.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "~MutexGuard", "de/da9/a01934.html#ab698f6033bb4699d8322c4b0af51eb88", null ],
-    [ "MutexGuard", "de/da9/a01934.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "de/da9/a01934.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "de/da9/a01934.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "de/da9/a01934.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator=", "de/da9/a01934.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "de/da9/a01934.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ]
+    [ "State", "de/da9/a01934.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
+    [ "firstRun", "de/da9/a01934.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
+    [ "integralSum", "de/da9/a01934.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
+    [ "lastInput", "de/da9/a01934.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
+    [ "lastOutput", "de/da9/a01934.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
 ];

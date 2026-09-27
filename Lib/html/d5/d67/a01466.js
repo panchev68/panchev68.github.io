@@ -1,8 +1,5 @@
 var a01466 =
 [
-    [ "AdcPort", "d5/d67/a01466.html#a401b482232165c2d9d0bb0eb605c05f3", null ],
-    [ "~AdcPort", "d5/d67/a01466.html#a3885c442975ef20ec832f0b23ddfa4c3", null ],
-    [ "getHandle", "d5/d67/a01466.html#a17e96fc71d093b208b525fd61abd7ba5", null ],
-    [ "start", "d5/d67/a01466.html#a891e69491d21ec0514a9eae621156c10", null ],
-    [ "AdcPortBase< AdcPort< DriverMode::DMA > >", "d5/d67/a01466.html#a43e9e8153c978efd72528e760feac583", null ]
+    [ "address", "d5/d67/a01466.html#a8edc20ff700b12e30b9160d3d9ef739b", null ],
+    [ "length", "d5/d67/a01466.html#a445d398b2d8c0b0bdcf47d8fb2b284c1", null ]
 ];

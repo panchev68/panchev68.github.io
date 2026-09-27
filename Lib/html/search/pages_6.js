@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ownership_0',['Moving ownership',['../d1/d3c/a02714.html#streambuffer_move',1,'']]]
+  ['monitoring_20and_20control_0',['Monitoring and control',['../df/d50/a02725.html#streambuffer_monitor',1,'']]],
+  ['moving_20ownership_1',['Moving ownership',['../df/d50/a02725.html#streambuffer_move',1,'']]]
 ];

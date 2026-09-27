@@ -1,11 +1,9 @@
 var a00732 =
 [
-    [ "Service", "d4/d91/a00733.html", "d4/d91/a00733" ],
-    [ "ApplicationBase", "d0/d5a/a01199.html", "d0/d5a/a01199" ],
-    [ "ClientBase", "da/d1f/a01203.html", "da/d1f/a01203" ],
-    [ "Connection", "d1/d34/a01211.html", "d1/d34/a01211" ],
-    [ "NodeInfo", "d7/dbf/a01239.html", "d7/dbf/a01239" ],
-    [ "Pause", "de/dcb/a01263.html", "de/dcb/a01263" ],
-    [ "ServerBase", "d4/d41/a01267.html", "d4/d41/a01267" ],
-    [ "UserProtocol", "de/d69/a01311.html", "de/d69/a01311" ]
+    [ "Wiznet", "d4/d91/a00733.html", "d4/d91/a00733" ],
+    [ "IpAddress", "d0/da4/a01470.html", "d0/da4/a01470" ],
+    [ "MacAddress", "df/d2f/a01474.html", "df/d2f/a01474" ],
+    [ "Node", "d8/d7b/a01478.html", "d8/d7b/a01478" ],
+    [ "Port", "da/d36/a01482.html", "da/d36/a01482" ],
+    [ "UserProtocol", "d0/d34/a01486.html", "d0/d34/a01486" ]
 ];

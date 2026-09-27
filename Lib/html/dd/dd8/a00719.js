@@ -1,6 +1,7 @@
 var a00719 =
 [
-    [ "Config", "df/de9/a00923.html", "df/de9/a00923" ],
-    [ "Info", "dd/d98/a00927.html", "dd/d98/a00927" ],
-    [ "W25Q128JVSIQ", "df/dbc/a00931.html", "df/dbc/a00931" ]
+    [ "Base", "dc/d81/a01006.html", "dc/d81/a01006" ],
+    [ "Driver&lt; Type::DTH22 &gt;", "d3/d08/a01018.html", "d3/d08/a01018" ],
+    [ "Parm", "de/d02/a01026.html", null ],
+    [ "DTH22", "dd/dd8/a00719.html#ac925b6863b7c23b83aa215b6588e2487", null ]
 ];

@@ -1,16 +1,18 @@
 var a01038 =
 [
-    [ "Diagnostic", "d4/dbc/a01038.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
-    [ "RxMessage", "d4/dbc/a01038.html#ad6366c42bd2d756cd488c454da514276", null ],
-    [ "Service", "d4/dbc/a01038.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
-    [ "~Service", "d4/dbc/a01038.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
-    [ "errorCallback", "d4/dbc/a01038.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
-    [ "getDiagnostic", "d4/dbc/a01038.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
-    [ "messageReceivedCallback", "d4/dbc/a01038.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
-    [ "send", "d4/dbc/a01038.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
-    [ "send", "d4/dbc/a01038.html#aad0ab4b3fc67332597a346d30271a53b", null ],
-    [ "send", "d4/dbc/a01038.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
-    [ "start", "d4/dbc/a01038.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
-    [ "stop", "d4/dbc/a01038.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
-    [ "taskFn", "d4/dbc/a01038.html#a375bb14705ce8117ed4e147179680854", null ]
+    [ "Config", "d4/d56/a01042.html", "d4/d56/a01042" ],
+    [ "TMP102", "d4/dbc/a01038.html#a25292f249a6a8607b205789ca39ca889", null ],
+    [ "~TMP102", "d4/dbc/a01038.html#acce6c93cc231859314e8155a64d18976", null ],
+    [ "TMP102", "d4/dbc/a01038.html#ad1b106c8f7c7251cefcb1d4290be2dae", null ],
+    [ "TMP102", "d4/dbc/a01038.html#ad8c03c932bf47e30e3f956445cd86d69", null ],
+    [ "configureAlert", "d4/dbc/a01038.html#ae093a978b93fe3a47f7ca546a078e749", null ],
+    [ "enterSleepMode", "d4/dbc/a01038.html#a77672c24cdf7613a7c42725a76b059b7", null ],
+    [ "exitSleepMode", "d4/dbc/a01038.html#a9615a95c96a36caed8310d176f26d849", null ],
+    [ "init", "d4/dbc/a01038.html#ac001567db05b41416557f43309902fc0", null ],
+    [ "operator=", "d4/dbc/a01038.html#aca4a5dff1ab4aea364d691a027454b3e", null ],
+    [ "operator=", "d4/dbc/a01038.html#a74a76b7b9283cd1513790eea203584c5", null ],
+    [ "readTemperature", "d4/dbc/a01038.html#aadf39fe0733289a27b7d71280085142a", null ],
+    [ "setTHigh", "d4/dbc/a01038.html#ac5abef78d298278279e8df7180dce3fc", null ],
+    [ "setTLow", "d4/dbc/a01038.html#ac9ec040ac8d409ecca78a7d9e0bcd160", null ],
+    [ "triggerOneShot", "d4/dbc/a01038.html#a2ebda9d1355cde58ca0a0bdb41dc6956", null ]
 ];

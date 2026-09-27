@@ -1,8 +1,8 @@
 var a02074 =
 [
-    [ "VersionString", "d1/d7d/a02074.html#a14d622b42b339cf88d44c2e454048c87", null ],
-    [ "Base", "d1/d7d/a02074.html#ac609c4ab5dced66ee401a85d7fb44701", null ],
-    [ "operator uint32_t", "d1/d7d/a02074.html#a42cfef011018a9752d1ec4eb4e0c9fc9", null ],
-    [ "operator VersionString", "d1/d7d/a02074.html#a2463f3f86d8c6e59c72b5e36371ea12e", null ],
-    [ "subVersion", "d1/d7d/a02074.html#aaacdd9a41a2a4210b2c9ab071dff5b0b", null ]
+    [ "Config", "d1/d7d/a02074.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
+    [ "callback", "d1/d7d/a02074.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
+    [ "mode", "d1/d7d/a02074.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
+    [ "name", "d1/d7d/a02074.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
+    [ "period", "d1/d7d/a02074.html#ae81cad8de025f71497b5b241c41da1eb", null ]
 ];

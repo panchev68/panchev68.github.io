@@ -1,7 +1,5 @@
 var a02747 =
 [
-    [ "Lib::BSP::Display::Controller", "d7/d7e/a00709.html#abce278c9e48f7f4b0be0c20c7c142d73", [
-      [ "Lib::BSP::Display::Controller::ILI9341", "d7/d7e/a00709.html#abce278c9e48f7f4b0be0c20c7c142d73a56132a4ec9a1880f4963a4b9d8d7bfca", null ],
-      [ "Lib::BSP::Display::Controller::ST7789", "d7/d7e/a00709.html#abce278c9e48f7f4b0be0c20c7c142d73a1cc1665c0a5f49bc89d8e57f3bc71199", null ]
-    ] ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base", "d2/dab/a00886.html", "d2/dab/a00886" ],
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Base::Config", "d7/d46/a00890.html", "d7/d46/a00890" ]
 ];

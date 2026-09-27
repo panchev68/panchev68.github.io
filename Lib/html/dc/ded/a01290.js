@@ -1,10 +1,12 @@
 var a01290 =
 [
-    [ "Payload", "dc/ded/a01290.html#a097ff109525c26888e9a0e3671643975", null ],
-    [ "append", "dc/ded/a01290.html#ae8ece66119e8e11d5464fa8b41b34889", null ],
-    [ "assign", "dc/ded/a01290.html#a88bb1aed79d37b427989cfbff4048a0d", null ],
-    [ "clear", "dc/ded/a01290.html#ac696981b4d124bf89d6a30c113ec50dc", null ],
-    [ "data", "dc/ded/a01290.html#ab8c1fe17ee51caf803630bfda32a31fd", null ],
-    [ "operator[]", "dc/ded/a01290.html#a6e6a89d99c44a8a64238818f6445e47c", null ],
-    [ "size", "dc/ded/a01290.html#aaaf8e0dbdbf274d492d816656c15540c", null ]
+    [ "ResponseData", "d7/d88/a01294.html", "d7/d88/a01294" ],
+    [ "SpectrumAnalyzer", "dc/ded/a01290.html#a029d5ca785f56bfc7ca8ff6bda1b772d", null ],
+    [ "beginUpdate", "dc/ded/a01290.html#a1231ab75357c3b807b793cbf2ea82d24", null ],
+    [ "checkNewData", "dc/ded/a01290.html#a4773638228894b21b9360cd7723c46ca", null ],
+    [ "close", "dc/ded/a01290.html#acd1558e98317932c402b59b037346306", null ],
+    [ "endUpdate", "dc/ded/a01290.html#a024d7473fcc421e0a741ff49bbe8dde3", null ],
+    [ "getData", "dc/ded/a01290.html#a840417ace53cffda7a58f4a48961a125", null ],
+    [ "open", "dc/ded/a01290.html#a4c4e10495e5a41c00f890f39b3440bdc", null ],
+    [ "update", "dc/ded/a01290.html#af68fb8ada608860caedb0c8220337ff2", null ]
 ];

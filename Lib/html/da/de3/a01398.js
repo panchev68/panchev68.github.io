@@ -1,16 +1,10 @@
 var a01398 =
 [
-    [ "Observer", "da/de3/a01398.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "da/de3/a01398.html#aa436fb0ebbb0f79e6116041dd8b326d2", null ],
-    [ "Observer", "da/de3/a01398.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "~Observer", "da/de3/a01398.html#a0a4834e6487d627c825ce3f6448677e8", null ],
-    [ "Observer", "da/de3/a01398.html#a14fb19abdf88d54276cef83b500d3d1b", null ],
-    [ "Observer", "da/de3/a01398.html#a9900c13173227d2aea4e9ddd9f720364", null ],
-    [ "check", "da/de3/a01398.html#ad9b49bd939ee8436beba16d0c5807d2d", null ],
-    [ "getGroup", "da/de3/a01398.html#a30603f0f58acdeb52a34b2cb29ba7f84", null ],
-    [ "number", "da/de3/a01398.html#a62150fc8a09bbca2eb47616fad11247b", null ],
-    [ "operator const Group *", "da/de3/a01398.html#aaa34e1e2c219d6ad3ed651a34e1e9930", null ],
-    [ "operator=", "da/de3/a01398.html#a97b0b95d99e1a1a71e60d4e26cd88880", null ],
-    [ "operator=", "da/de3/a01398.html#adb79d64af57f5d98b699d3a1f82932dc", null ],
-    [ "read", "da/de3/a01398.html#a73843ca5299557e42043f9da9871a5d3", null ]
+    [ "DstAddress", "da/de3/a01398.html#a08442ca9839fbd669e6a803ab2bbb5fc", null ],
+    [ "operator Frame::Data", "da/de3/a01398.html#aa1e4cdd0f75ad2b29678b0d9b3df74bb", null ],
+    [ "atCommand", "da/de3/a01398.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddress", "da/de3/a01398.html#a961f721cb79f4d93e1516b992c16e4fe", null ],
+    [ "frameId", "da/de3/a01398.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "da/de3/a01398.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "da/de3/a01398.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

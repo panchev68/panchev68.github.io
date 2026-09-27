@@ -1,17 +1,14 @@
 var a02090 =
 [
     [ "Config", "d6/db3/a02094.html", "d6/db3/a02094" ],
-    [ "Status", "d7/deb/a02090.html#a69d5fbac0f2c325b3f576b76a1db1204", [
-      [ "OK", "d7/deb/a02090.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d7/deb/a02090.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Measurement", "d9/d6e/a02098.html", "d9/d6e/a02098" ],
+    [ "Direction", "d7/deb/a02090.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "d7/deb/a02090.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "d7/deb/a02090.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
     ] ],
-    [ "SerialPort", "d7/deb/a02090.html#a598e18433429c3e9aa74a063852aaccd", null ],
-    [ "~SerialPort", "d7/deb/a02090.html#afded1dc48b51225406bff4ec53c93689", null ],
-    [ "close", "d7/deb/a02090.html#a833dd7b50ed3c60c51a1f2e6dc8b8647", null ],
-    [ "handlePostReceivedEvent", "d7/deb/a02090.html#a75314779b791b1fba08ecb13324d3caa", null ],
-    [ "handlePostTransmitEvent", "d7/deb/a02090.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
-    [ "open", "d7/deb/a02090.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
-    [ "send", "d7/deb/a02090.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
-    [ "setBaudRate", "d7/deb/a02090.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
-    [ "setResetPin", "d7/deb/a02090.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
+    [ "PerturbAndObserve", "d7/deb/a02090.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "d7/deb/a02090.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "d7/deb/a02090.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "d7/deb/a02090.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "d7/deb/a02090.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

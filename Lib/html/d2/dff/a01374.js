@@ -1,9 +1,12 @@
 var a01374 =
 [
-    [ "Frame0x8b", "d2/dff/a01374.html#abcc6d3244285552f4058f0ed6eb4d2e5", null ],
-    [ "deliveryStatus", "d2/dff/a01374.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "d2/dff/a01374.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "d2/dff/a01374.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "srcAddr16", "d2/dff/a01374.html#a664a688b154503cfcc1b025049d43046", null ],
-    [ "transmitRetryCount", "d2/dff/a01374.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "Config", "d2/dff/a01374.html#a112d0645246a20f0196de68b17f844e3", null ],
+    [ "Module", "d2/dff/a01374.html#a9a7eefcf7b0ca8a399ea243393a2d98c", null ],
+    [ "~Module", "d2/dff/a01374.html#a7db0dbed38c158186672ee098cff9d89", null ],
+    [ "ComDriver< Module >", "d2/dff/a01374.html#a4de00d2aae0cebeb53defb15b31647ee", null ],
+    [ "onBeginMessageReceive", "d2/dff/a01374.html#a4697d22b01f645ba00ef0b136feed426", null ],
+    [ "onBeginMessageSend", "d2/dff/a01374.html#a0aba8b3adfbd2eb1b8069dc9057f6cdb", null ],
+    [ "onEndMessageReceived", "d2/dff/a01374.html#ab7bb27e9ac529e3e399d4e79d8a295e3", null ],
+    [ "onEndMessageSend", "d2/dff/a01374.html#a2278ca80cde85e784fba739b3267e025", null ],
+    [ "responseEvents", "d2/dff/a01374.html#ac2585942261cabaa51522f461c64816b", null ]
 ];

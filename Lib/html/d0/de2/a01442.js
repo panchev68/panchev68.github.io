@@ -1,7 +1,8 @@
 var a01442 =
 [
-    [ "Flag", "d0/de2/a01442.html#a663aa4ae8d4e0535093ac80ac6238d9d", null ],
-    [ "Flag", "d0/de2/a01442.html#a39ebf258a016e3e56fb00af62766390d", null ],
-    [ "operator uint8_t", "d0/de2/a01442.html#a02f3b6dd695e9276fa4993fa5549aa5b", null ],
-    [ "operator=", "d0/de2/a01442.html#a8add6e22444d802fab80bf1d487aebd7", null ]
+    [ "Frame0x90", "d0/de2/a01442.html#add208fe72fdba09d23cb8bca901d691b", null ],
+    [ "options", "d0/de2/a01442.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d0/de2/a01442.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d0/de2/a01442.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d0/de2/a01442.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

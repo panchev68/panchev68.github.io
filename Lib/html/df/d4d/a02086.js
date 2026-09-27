@@ -1,10 +1,7 @@
 var a02086 =
 [
-    [ "VersionString", "df/d4d/a02086.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "df/d4d/a02086.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "df/d4d/a02086.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "df/d4d/a02086.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "df/d4d/a02086.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "df/d4d/a02086.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "df/d4d/a02086.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "current", "df/d4d/a02086.html#a3c52e2d0bbe89862c14148ebf02d6463", null ],
+    [ "irradiance", "df/d4d/a02086.html#a6d28fdf32a94b2134434e00c0fef4894", null ],
+    [ "temperature", "df/d4d/a02086.html#a2f7e9f752645a3cbee0fd950bfc2c255", null ],
+    [ "voltage", "df/d4d/a02086.html#a1c339469529ee402dcc9e7bb37113566", null ]
 ];

@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['task_0',['Task to task',['../d1/d3c/a02714.html#streambuffer_task',1,'']]],
-  ['task_20to_20task_1',['Task to task',['../d1/d3c/a02714.html#streambuffer_task',1,'']]],
-  ['task_20uart_20receive_2',['ISR to task (UART receive)',['../d1/d3c/a02714.html#streambuffer_isr',1,'']]],
-  ['to_20task_3',['Task to task',['../d1/d3c/a02714.html#streambuffer_task',1,'']]],
-  ['to_20task_20uart_20receive_4',['ISR to task (UART receive)',['../d1/d3c/a02714.html#streambuffer_isr',1,'']]]
+  ['several_20writers_0',['Several writers',['../df/d50/a02725.html#streambuffer_multiwriter',1,'']]],
+  ['static_20creation_1',['Static creation',['../df/d50/a02725.html#streambuffer_static',1,'']]],
+  ['streambuffer_20examples_2',['StreamBuffer examples',['../df/d50/a02725.html',1,'']]]
 ];

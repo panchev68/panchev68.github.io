@@ -1,7 +1,7 @@
 var a01394 =
 [
-    [ "Group", "d6/d2f/a01394.html#a3c72f1f32621d0644086f7ec6212250d", null ],
-    [ "~Group", "d6/d2f/a01394.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "d6/d2f/a01394.html#aebe4704dc58d73d649461459bd3d290c", null ],
-    [ "tag", "d6/d2f/a01394.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "operator Frame::Data", "d6/d2f/a01394.html#aab8d6f4ea5f482ba1f9433244e211b65", null ],
+    [ "atCommand", "d6/d2f/a01394.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "d6/d2f/a01394.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameters", "d6/d2f/a01394.html#a23a8d96719db8eab9fd754c07d0123a5", null ]
 ];

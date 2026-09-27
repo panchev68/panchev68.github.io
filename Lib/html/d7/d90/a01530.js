@@ -1,10 +1,12 @@
 var a01530 =
 [
-    [ "Input", "d7/d90/a01530.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d7/d90/a01530.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "isHigh", "d7/d90/a01530.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d7/d90/a01530.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d7/d90/a01530.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "read", "d7/d90/a01530.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d7/d90/a01530.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "Event", "dc/d2d/a01534.html", null ],
+    [ "ADCPort", "d7/d90/a01530.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d7/d90/a01530.html#a3b2d65c049b35eeeae2d4e9cad4a7a1f", null ],
+    [ "close", "d7/d90/a01530.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "d7/d90/a01530.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "read", "d7/d90/a01530.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d7/d90/a01530.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d7/d90/a01530.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d7/d90/a01530.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

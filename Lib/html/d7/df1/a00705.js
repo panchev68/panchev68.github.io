@@ -1,24 +1,20 @@
 var a00705 =
 [
-    [ "Display", "d8/dcb/a00706.html", "d8/dcb/a00706" ],
-    [ "EEPROM", "d1/d56/a00707.html", "d1/d56/a00707" ],
-    [ "Ethercat", "d7/d7e/a00709.html", "d7/d7e/a00709" ],
-    [ "FMEM", "d3/dda/a00712.html", "d3/dda/a00712" ],
-    [ "RFID", "d3/d3b/a00715.html", "d3/d3b/a00715" ],
-    [ "Thermometer", "d3/d82/a00717.html", "d3/d82/a00717" ],
-    [ "Voltmeter", "dd/dc1/a00721.html", "dd/dc1/a00721" ],
-    [ "Backlight", "d9/d77/a00756.html", "d9/d77/a00756" ],
-    [ "Beep", "d8/d20/a00768.html", "d8/d20/a00768" ],
-    [ "DeviceManager", "d9/d00/a00784.html", "d9/d00/a00784" ],
-    [ "DigitalPeripheralBase", "d2/d5a/a00792.html", "d2/d5a/a00792" ],
-    [ "EncoderPins", "d1/d8f/a00880.html", "d1/d8f/a00880" ],
-    [ "EncoderTimer", "d0/de2/a00892.html", "d0/de2/a00892" ],
-    [ "I2CPort", "da/d17/a00964.html", "da/d17/a00964" ],
-    [ "INA219", "d9/dd4/a00776.html", "d9/dd4/a00776" ],
-    [ "IS62WV51216", "d0/d85/a00976.html", "d0/d85/a00976" ],
-    [ "SK6812", "d0/d43/a01020.html", "d0/d43/a01020" ],
-    [ "SPIPort", "d7/dd4/a00968.html", "d7/dd4/a00968" ],
-    [ "UARTPort", "de/d4e/a00972.html", "de/d4e/a00972" ],
-    [ "W25Q128JVSIQ", "de/d49/a00952.html", "de/d49/a00952" ],
-    [ "XPT2046", "d9/d67/a01080.html", "d9/d67/a01080" ]
+    [ "BSP", "d8/dcb/a00706.html", "d8/dcb/a00706" ],
+    [ "Canbus", "db/d7c/a00722.html", "db/d7c/a00722" ],
+    [ "Communication", "de/de6/a00723.html", "de/de6/a00723" ],
+    [ "Digi", "d6/d59/a00726.html", "d6/d59/a00726" ],
+    [ "Errors", "df/df7/a00731.html", "df/df7/a00731" ],
+    [ "Ethercat", null, [
+      [ "SOES", "dc/dd0/a00753.html", null ]
+    ] ],
+    [ "Ethernet", "d4/db8/a00732.html", "d4/db8/a00732" ],
+    [ "HAL", "d6/dc0/a00734.html", "d6/dc0/a00734" ],
+    [ "Helper", "dd/db2/a00737.html", "dd/db2/a00737" ],
+    [ "Math", "da/df7/a00739.html", "da/df7/a00739" ],
+    [ "Pneumatics", "da/da3/a00741.html", "da/da3/a00741" ],
+    [ "SolarControl", "d0/d0a/a00743.html", "d0/d0a/a00743" ],
+    [ "System", "d5/db3/a00744.html", "d5/db3/a00744" ],
+    [ "USB", "d1/d79/a00745.html", "d1/d79/a00745" ],
+    [ "XCOM", "d4/dfa/a00746.html", "d4/dfa/a00746" ]
 ];

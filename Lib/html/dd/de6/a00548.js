@@ -1,4 +1,4 @@
 var a00548 =
 [
-    [ "MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;", "dc/d1e/a01875.html", "dc/d1e/a01875" ]
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d3/d7e/a01866.html", "d3/d7e/a01866" ]
 ];

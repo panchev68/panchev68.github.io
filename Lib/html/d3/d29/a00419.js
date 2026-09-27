@@ -1,4 +1,4 @@
 var a00419 =
 [
-    [ "Lib::HAL::SPIPort&lt; DriverMode::BLOCKING &gt;", "df/d12/a01703.html", "df/d12/a01703" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::BLOCKING &gt;", "d5/da6/a01698.html", "d5/da6/a01698" ]
 ];

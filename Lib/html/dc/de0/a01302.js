@@ -1,8 +1,14 @@
 var a01302 =
 [
-    [ "Message", "dc/de0/a01302.html#ac0559573583ad141a19e0fdcd6b5fb31", null ],
-    [ "Message", "dc/de0/a01302.html#a798f2ada4b0d67484dd425ecfc0843ff", null ],
-    [ "Message", "dc/de0/a01302.html#a69c2d00f7a4fbbf3ef56e807681c9b84", null ],
-    [ "~Message", "dc/de0/a01302.html#a5bb6f5ee00d81a52d45f8a835527e944", null ],
-    [ "operator std::vector< uint8_t >", "dc/de0/a01302.html#a35415de7cf962f29402cef32af19c8cb", null ]
+    [ "ApiFrameBuffer", "dc/de0/a01302.html#a3b3674e333a946b6da57569ec9703a85", null ],
+    [ "~ApiFrameBuffer", "dc/de0/a01302.html#a5c72d2af7cd98b91654724e8edae76ca", null ],
+    [ "append", "dc/de0/a01302.html#a67b0d16ac4e2077bed10dfe096e3f240", null ],
+    [ "append", "dc/de0/a01302.html#a8e0c809c178df02cc620c38ad073e4a5", null ],
+    [ "append", "dc/de0/a01302.html#aa29da9051562fe6a234aeda879afaed5", null ],
+    [ "assign", "dc/de0/a01302.html#aed160e1113397275fa78cd16cfdc9a8f", null ],
+    [ "assign", "dc/de0/a01302.html#adba4fc58aa8f722022b0a180a244fba3", null ],
+    [ "clear", "dc/de0/a01302.html#a5b7bf12667a1163e217aa9776f2be792", null ],
+    [ "getData", "dc/de0/a01302.html#af330a9ce26933f4495d1e727a6394423", null ],
+    [ "getData", "dc/de0/a01302.html#a3a2c07618514a2fe959b0e7dacd5ea3b", null ],
+    [ "getSize", "dc/de0/a01302.html#aee12a2741eeba5e11e1fa84b36d86842", null ]
 ];

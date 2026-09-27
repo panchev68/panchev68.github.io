@@ -1,8 +1,15 @@
 var a02002 =
 [
-    [ "Config", "df/d37/a02002.html#ae45c3a6bbe2636bfd70fbfd162e23c4e", null ],
-    [ "callback", "df/d37/a02002.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "df/d37/a02002.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "df/d37/a02002.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "df/d37/a02002.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "MutexGuard", "df/d37/a02002.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
+    [ "MutexGuard", "df/d37/a02002.html#a06d66e08a55ebf1440edb711e6886307", null ],
+    [ "MutexGuard", "df/d37/a02002.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
+    [ "MutexGuard", "df/d37/a02002.html#a21aba9e001a6afec8742ff355b845ede", null ],
+    [ "~MutexGuard", "df/d37/a02002.html#a35526aab46b7a21b967df7060f8d6747", null ],
+    [ "MutexGuard", "df/d37/a02002.html#a271282f741f6a7c1dcebff1616c9916e", null ],
+    [ "MutexGuard", "df/d37/a02002.html#a66f7b610af22e97faef98e233dbd46d5", null ],
+    [ "isLocked", "df/d37/a02002.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
+    [ "operator bool", "df/d37/a02002.html#af9126f464f900d7777d9bb069a13265b", null ],
+    [ "operator=", "df/d37/a02002.html#ada341f5a3644025a9b57e448e023d88b", null ],
+    [ "operator=", "df/d37/a02002.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
+    [ "unlock", "df/d37/a02002.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
 ];

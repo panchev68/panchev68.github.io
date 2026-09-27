@@ -1,7 +1,8 @@
 var a00810 =
 [
-    [ "Config", "d4/dfd/a00810.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
-    [ "M24C64W", "d4/dfd/a00810.html#ad36362e96082dbe6c13067c41fa1736b", null ],
-    [ "~M24C64W", "d4/dfd/a00810.html#a847c124f9564ab5f671ab8abe946983f", null ],
-    [ "Driver< M24C64W >", "d4/dfd/a00810.html#a389c035ca7d606c8426542af2e4b7d70", null ]
+    [ "mappingFields", "d4/dfd/a00810.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "d4/dfd/a00810.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "d4/dfd/a00810.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "d4/dfd/a00810.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "d4/dfd/a00810.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

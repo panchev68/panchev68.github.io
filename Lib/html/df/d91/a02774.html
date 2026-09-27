@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: ClientBase.hpp File Reference</title>
+<title>Library: W25Q128JVSIQ.hpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,35 +111,44 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d91/a02774.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ClientBase.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">W25Q128JVSIQ.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Base class for Digi applications acting as the initiating (client) side of a message exchange.  
+<p>Quad-SPI (OCTOSPI) driver for the Winbond W25Q128JVSIQ 128 Mbit device.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>ClientBase drives an incoming-message-triggered exchange: whenever a message arrives it is handed to handleIncomingMessage(), a reply is built via handleOutgoingMessage() and sent back, and the Connection state is derived from whether messages keep arriving within CONNECTION_TIMEOUT.</p>
-<dl class="section version"><dt>Version</dt><dd>1.00.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-16 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Digi/API/ClientBase.hpp:</div>
+<div class="textblock"><p>The <b></b>...SIQ ordering option ties the Quad Enable bit permanently to 1 in hardware (IO2/IO3 always enabled, <b>/HOLD</b> disabled), so unlike the generic Winbond quad-capable parts this driver never touches Status Register-2 to enable Quad mode. Provides read/write/erase with page programming and sector/block erasure over OCTOSPI in regular command mode (1-1-4 program, 1-4-4 read); device discovery via JEDEC ID happens during initialization. See also <b>Lib::BSP::W25Q128JVSIQ</b> (FlashMemory/SPI/) for the same device driven over a plain 4-wire SPI bus instead.</p>
+<p><b>HAL_OSPI_MODULE_ENABLED</b> is not defined anywhere in this project's <b>EWARM/Core/Inc/stm32f4xx_hal_conf.h</b> (which only carries a commented-out <b>HAL_QSPI_MODULE_ENABLED</b>), and the target part, <b>STM32F407xx</b>, has no OCTOSPI peripheral at all - that HAL module belongs to the F7/H7/L4+ family. This header is currently dead code on this target; it compiles only when built against a HAL package/MCU that actually defines the macro.</p>
+<dl class="section version"><dt>Version</dt><dd>1.04.2 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-09-25 </dd></dl>
+</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for OSPI/W25Q128JVSIQ.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d72/a02775.svg" width="4680" height="907"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d72/a02775.svg" width="1527" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI_3A_3AClientBase" id="r_Lib_3A_3ADigi_3A_3AAPI_3A_3AClientBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/dcc/a01200.html">Lib::Digi::API::ClientBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client-side Digi application base: reacts to incoming messages and replies to each one.  <a href="../../dc/dcc/a01200.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AConfig" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd1/a00914.html">Lib::BSP::FMEM::OSPI::Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime configuration for a W25Q128JVSIQ Quad-SPI driver instance.  <a href="../../d3/dd1/a00914.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AInfo" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AInfo"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d0/ddf/a00918.html">Lib::BSP::FMEM::OSPI::Info</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device information obtained from JEDEC ID.  <a href="../../d0/ddf/a00918.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AW25Q128JVSIQ" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AW25Q128JVSIQ"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dd/dcf/a00922.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.  <a href="../../dd/dcf/a00922.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AW25Q128JVSIQ_3A_3ARegister" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI_3A_3AW25Q128JVSIQ_3A_3ARegister"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d38/a00926.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-level instruction opcodes used to communicate with the device over OCTOSPI.  <a href="../../d8/d38/a00926.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d56/a00707.html">Lib</a></td></tr>
-<tr class="memdesc:d1/d56/a00707"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ADigi" id="r_Lib_3A_3ADigi"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../df/d3b/a00728.html">Lib::Digi</a></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI" id="r_Lib_3A_3ADigi_3A_3AAPI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d52/a00729.html">Lib::Digi::API</a></td></tr>
-<tr class="memdesc:d8/d52/a00729"><td class="mdescLeft">&#160;</td><td class="mdescRight">High-level Digi radio module application framework. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d7/df1/a00705.html">Lib</a></td></tr>
+<tr class="memdesc:d7/df1/a00705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP" id="r_Lib_3A_3ABSP"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dcb/a00706.html">Lib::BSP</a></td></tr>
+<tr class="memdesc:d8/dcb/a00706"><td class="mdescLeft">&#160;</td><td class="mdescRight">Board support package: hardware-agnostic device drivers built on top of 'Lib::HAL'. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM" id="r_Lib_3A_3ABSP_3A_3AFMEM"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d04/a00713.html">Lib::BSP::FMEM</a></td></tr>
+<tr class="memitem:Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI" id="r_Lib_3A_3ABSP_3A_3AFMEM_3A_3AOSPI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../df/d96/a00714.html">Lib::BSP::FMEM::OSPI</a></td></tr>
+<tr class="memdesc:df/d96/a00714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quad-SPI (OCTOSPI) serial flash memory drivers. <br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -154,7 +163,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_67df2c65d6bc148cc049a48bf38d4002.html">Digi</a></li><li class="navelem"><a href="../../dir_c24010df05eaccdf81dd52006b9a47df.html">API</a></li><li class="navelem"><a href="../../df/d91/a02774.html">ClientBase.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4f517acdbe9bc35e0af7a62669e9b8b9.html">BSP</a></li><li class="navelem"><a href="../../dir_5508e5af08ded39ca1c62077553f925e.html">FlashMemory</a></li><li class="navelem"><a href="../../dir_c33560c208fd3ee2ded28da10a364615.html">OSPI</a></li><li class="navelem"><a href="../../df/d91/a02774.html">W25Q128JVSIQ.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

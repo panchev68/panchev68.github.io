@@ -13,11 +13,10 @@ var dir_1e782c96d6d1ca848bfd4a9f48d74d58 =
     [ "Integrator.hpp", "d3/d87/a00539.html", "d3/d87/a00539" ],
     [ "JaggedArray.hpp", "d0/ddb/a00542.html", "d0/ddb/a00542" ],
     [ "MoonPhase.hpp", "d8/deb/a00545.html", "d8/deb/a00545" ],
-    [ "MulticastDelegate.hpp", "dd/de6/a00548.html", "dd/de6/a00548" ],
-    [ "RingBuffer.hpp", "d9/d87/a00551.html", "d9/d87/a00551" ],
-    [ "StringHelper.hpp", "dc/df9/a00554.html", "dc/df9/a00554" ],
-    [ "Sunset.hpp", "d8/df0/a00557.html", "d8/df0/a00557" ],
-    [ "SwapBytes.hpp", "d9/d19/a00560.html", "d9/d19/a00560" ],
-    [ "TimePeriod.hpp", "dc/dae/a00563.html", "dc/dae/a00563" ],
-    [ "TimeZone.hpp", "d0/d3e/a00566.html", "d0/d3e/a00566" ]
+    [ "RingBuffer.hpp", "dd/de6/a00548.html", "dd/de6/a00548" ],
+    [ "StringHelper.hpp", "d9/d87/a00551.html", "d9/d87/a00551" ],
+    [ "Sunset.hpp", "dc/df9/a00554.html", "dc/df9/a00554" ],
+    [ "SwapBytes.hpp", "d8/df0/a00557.html", "d8/df0/a00557" ],
+    [ "TimePeriod.hpp", "d9/d19/a00560.html", "d9/d19/a00560" ],
+    [ "TimeZone.hpp", "dc/dae/a00563.html", "dc/dae/a00563" ]
 ];

@@ -1,14 +1,16 @@
 var a00942 =
 [
-    [ "Mifare", "df/d12/a00942.html#aef5ceb02194768e323519e146a3f9372", null ],
-    [ "~Mifare", "df/d12/a00942.html#a5c517fb29c16a718dd67821a8f8f4e11", null ],
-    [ "adjustValue", "df/d12/a00942.html#ac8eb4c03b4067024c77e9b804f89534c", null ],
-    [ "authenticate", "df/d12/a00942.html#af3a8954f0220d3e5a6536790486a74d0", null ],
-    [ "decrement", "df/d12/a00942.html#a9678fb3665a380616b7629d979c1eadc", null ],
-    [ "formatValueBlock", "df/d12/a00942.html#a300a74963bf60ca2473e9828d9a7e387", null ],
-    [ "increment", "df/d12/a00942.html#a1be462ee739e4180e887af3529c28e6d", null ],
-    [ "readBlock", "df/d12/a00942.html#ac82181db204325e0845666fde25395b8", null ],
-    [ "restore", "df/d12/a00942.html#a4ca98958510a9ddbc46f5ffab512e15b", null ],
-    [ "transfer", "df/d12/a00942.html#ad604997b9bef761107d0df78d46ca2c1", null ],
-    [ "writeBlock", "df/d12/a00942.html#a68fa396eee3800b8e42a8dff1c7142b9", null ]
+    [ "Register", "da/d40/a00946.html", "da/d40/a00946" ],
+    [ "Info", "df/d39/a00950.html", "df/d39/a00950" ],
+    [ "Config", "df/d12/a00942.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "df/d12/a00942.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "df/d12/a00942.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "df/d12/a00942.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChipImpl", "df/d12/a00942.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSectorImpl", "df/d12/a00942.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "df/d12/a00942.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "isPresent", "df/d12/a00942.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "df/d12/a00942.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "readImpl", "df/d12/a00942.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "writeImpl", "df/d12/a00942.html#a00a39954e6187f8b4b393ed390f97239", null ]
 ];

@@ -1,16 +1,28 @@
 var a00886 =
 [
-    [ "Register", "d7/d46/a00890.html", "d7/d46/a00890" ],
-    [ "Info", "dc/dfa/a00894.html", "dc/dfa/a00894" ],
-    [ "Config", "d2/dab/a00886.html#a91b48bf59f61c3580e5ead3149d91443", null ],
-    [ "W25Q128JVSIQ", "d2/dab/a00886.html#af1b755c474085a41e554dcb38ad9056a", null ],
-    [ "~W25Q128JVSIQ", "d2/dab/a00886.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
-    [ "close", "d2/dab/a00886.html#a949717933a1c298041adcf500a7d8f9d", null ],
-    [ "eraseChipImpl", "d2/dab/a00886.html#a9cfe72e525626e2236219608c53725d8", null ],
-    [ "eraseSectorImpl", "d2/dab/a00886.html#ac379792562904225e5deb12f3820112b", null ],
-    [ "getInfo", "d2/dab/a00886.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
-    [ "isPresent", "d2/dab/a00886.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
-    [ "open", "d2/dab/a00886.html#a419e720a0a366e322b172d234eccd202", null ],
-    [ "readImpl", "d2/dab/a00886.html#ac37211819c0d5e4f3072dae655065868", null ],
-    [ "writeImpl", "d2/dab/a00886.html#a00a39954e6187f8b4b393ed390f97239", null ]
+    [ "Config", "d7/d46/a00890.html", "d7/d46/a00890" ],
+    [ "State", "d2/dab/a00886.html#a9fd0a76196b2eb1e21013c1f0379cd08", [
+      [ "NO_INIT", "d2/dab/a00886.html#a9fd0a76196b2eb1e21013c1f0379cd08a72144f138e8a9f73854d58b59deca26d", null ],
+      [ "READY", "d2/dab/a00886.html#a9fd0a76196b2eb1e21013c1f0379cd08a2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "DISABLE", "d2/dab/a00886.html#a9fd0a76196b2eb1e21013c1f0379cd08afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "ERROR", "d2/dab/a00886.html#a9fd0a76196b2eb1e21013c1f0379cd08abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Base", "d2/dab/a00886.html#a12aecbfda8834bf3a667148d765a5131", null ],
+    [ "close", "d2/dab/a00886.html#a661ff278a48b8dba19a2a054bc21a7cd", null ],
+    [ "getState", "d2/dab/a00886.html#adb79d7f488b262bfdc58c114a3ac6f33", null ],
+    [ "open", "d2/dab/a00886.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
+    [ "readAlEventReg", "d2/dab/a00886.html#aec3fa0792cf0cda4f5d91244b599d804", null ],
+    [ "readCSR", "d2/dab/a00886.html#a6872fa6c05dea9476d20434f28b40b99", null ],
+    [ "readDLStatus", "d2/dab/a00886.html#acae5d3c1c2b5679addbccc5506d2de0e", null ],
+    [ "readPDIRegister", "d2/dab/a00886.html#ac2aaa9d194b1af38aa02bc21b97e4b79", null ],
+    [ "readPRAM", "d2/dab/a00886.html#a3d2a55bfbcbe4193a6f9c88a6853c9e4", null ],
+    [ "readReg", "d2/dab/a00886.html#a5dcebd0d4f0135e2133880e9671892c6", null ],
+    [ "readU32", "d2/dab/a00886.html#a044adc74263d0844a30a59541c3162a6", null ],
+    [ "resetChip", "d2/dab/a00886.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
+    [ "resetPin", "d2/dab/a00886.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
+    [ "verifyChipId", "d2/dab/a00886.html#a92fb14a44d98ad85c15d007798f188d4", null ],
+    [ "writeCSR", "d2/dab/a00886.html#a6856933af0bd9892be77168a4e2dcdcf", null ],
+    [ "writePRAM", "d2/dab/a00886.html#a8a9b2c1a0824c7603b223ce93be6b268", null ],
+    [ "writeReg", "d2/dab/a00886.html#ab886f5f4a7c67fc4e763676ee25c8440", null ],
+    [ "writeU32", "d2/dab/a00886.html#af18c7df8aeade40e9137a8e803825144", null ]
 ];

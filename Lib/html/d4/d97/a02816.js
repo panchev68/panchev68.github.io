@@ -1,5 +1,6 @@
 var a02816 =
 [
-    [ "Lib::Ethernet::UserProtocol", "d1/dde/a01496.html", "d1/dde/a01496" ],
-    [ "Lib::Ethernet::UserProtocol::MessageHeader", "de/d65/a01500.html", "de/d65/a01500" ]
+    [ "Lib::Digi::API::Service::Parameters", "de/d33/a01274.html", "de/d33/a01274" ],
+    [ "Lib::Digi::API::Service::Parameters::Data", "d4/d10/a01278.html", "d4/d10/a01278" ],
+    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "d8/d17/a01282.html", "d8/d17/a01282" ]
 ];

@@ -1,10 +1,19 @@
 var a00946 =
 [
-    [ "Data", "df/d39/a00950.html", "df/d39/a00950" ],
-    [ "Color", "da/d40/a00946.html#a6fae8aa8b75d27cb134234e75b41caf2", null ],
-    [ "~Color", "da/d40/a00946.html#a2a84d3b91f2999a11b6728a4b8f85ae4", null ],
-    [ "clear", "da/d40/a00946.html#ab0c6950a93608622d4250bb91c59d149", null ],
-    [ "get", "da/d40/a00946.html#a9f85142cb936ab5a0981b03d2189ebfe", null ],
-    [ "set", "da/d40/a00946.html#a2898d717acd948cc318cd13a3096e9cb", null ],
-    [ "set", "da/d40/a00946.html#a139c3584ac129bd3dbf4aa6fcdd31821", null ]
+    [ "Command", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "da/d40/a00946.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

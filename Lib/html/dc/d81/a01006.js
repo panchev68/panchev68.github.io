@@ -1,19 +1,15 @@
 var a01006 =
 [
-    [ "Config", "d0/d2b/a01010.html", "d0/d2b/a01010" ],
-    [ "Parameters", "d0/d56/a01014.html", "d0/d56/a01014" ],
-    [ "Rotation", "dc/d81/a01006.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
-      [ "DEFAULT", "dc/d81/a01006.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
-      [ "FLIP_X", "dc/d81/a01006.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
-      [ "FLIP_XY", "dc/d81/a01006.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
-      [ "FLIP_Y", "dc/d81/a01006.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
-    ] ],
-    [ "XPT2046", "dc/d81/a01006.html#a1193ac656cebc627f10d4788fd1d059f", null ],
-    [ "~XPT2046", "dc/d81/a01006.html#ad869e5ab70e4fb24a55efabbae0c2776", null ],
-    [ "XPT2046", "dc/d81/a01006.html#a608869a823a063ebf02f943d7e2fa2fa", null ],
-    [ "XPT2046", "dc/d81/a01006.html#af3688a8793e97a5bb570a3737a3d104a", null ],
-    [ "operator=", "dc/d81/a01006.html#a01e78a7587c33c91fd2f330e7fe7e98b", null ],
-    [ "operator=", "dc/d81/a01006.html#a01dc394350cbb98e6cd3aa1881afc28d", null ],
-    [ "read", "dc/d81/a01006.html#a3f81737516eb2315573601efce97eb6e", null ],
-    [ "setRotation", "dc/d81/a01006.html#ad7d7d31ef9a74f0cade4ce0b740e8d73", null ]
+    [ "TimerHandler", "d0/d2b/a01010.html", "d0/d2b/a01010" ],
+    [ "Config", "d0/d56/a01014.html", "d0/d56/a01014" ],
+    [ "PinHandle", "dc/d81/a01006.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Base", "dc/d81/a01006.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
+    [ "~Base", "dc/d81/a01006.html#a1e239dacccfb4d56b62c3f04c33c163e", null ],
+    [ "beginReceiveData", "dc/d81/a01006.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "dc/d81/a01006.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "start", "dc/d81/a01006.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
+    [ "startupImpulse", "dc/d81/a01006.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "dc/d81/a01006.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "dc/d81/a01006.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "config", "dc/d81/a01006.html#a3b31347dab82ede045f6e076046e5762", null ]
 ];

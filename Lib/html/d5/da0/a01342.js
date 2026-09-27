@@ -1,7 +1,6 @@
 var a01342 =
 [
-    [ "QueueMessage", "d5/da0/a01342.html#a952db32db043dc9f1c5ab8759073f69e", null ],
-    [ "operator std::vector< uint8_t >", "d5/da0/a01342.html#a6f0fb65c4aa440a3cb94da0609b310d5", null ],
-    [ "data", "d5/da0/a01342.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "d5/da0/a01342.html#aaee26da93dbbc44199d1b892f97f53ad", null ]
+    [ "lengthLSB", "d5/da0/a01342.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "d5/da0/a01342.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "d5/da0/a01342.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

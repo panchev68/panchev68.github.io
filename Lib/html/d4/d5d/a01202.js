@@ -1,10 +1,15 @@
 var a01202 =
 [
-    [ "NetworkDiscovery", "d4/d5d/a01202.html#aa19ca20753bf0d04fd252fbb3c1414da", null ],
-    [ "close", "d4/d5d/a01202.html#a22a976a5466278b39ea3188adc32351a", null ],
-    [ "getNodes", "d4/d5d/a01202.html#a334e98172fca9208d45b0c0e56465aef", null ],
-    [ "isDiscoveryRunning", "d4/d5d/a01202.html#a571d72fcc38ebbd2e41a23ba6d959422", null ],
-    [ "open", "d4/d5d/a01202.html#adc0158a501c9ba158fc2637068b8ba9c", null ],
-    [ "start", "d4/d5d/a01202.html#aff92fd49196787f02172bfe434c77eeb", null ],
-    [ "update", "d4/d5d/a01202.html#acbec0e1ae97ed5eab94bc1433f2b5756", null ]
+    [ "Value", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0", [
+      [ "INIT", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0aaa7542dc13ab91223fcf190b28846d98", null ],
+      [ "READY", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0ae1d7fd9328c3a404f8d7886da7a2f1a8", null ],
+      [ "CONNECTED", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0a579710f202d95345d2555010d4cbc29f", null ],
+      [ "DISCONNECTED", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0ae46b7f4649cda77c1145dc0f77259acf", null ]
+    ] ],
+    [ "State", "d4/d5d/a01202.html#a3007a4a510f248533d6430b451c6b00a", null ],
+    [ "State", "d4/d5d/a01202.html#a95ebe78d3b35e550284d27bc67ff6c7e", null ],
+    [ "isConnected", "d4/d5d/a01202.html#a65815696748e22f0a55e4ac329b6c0d1", null ],
+    [ "operator uint32_t", "d4/d5d/a01202.html#a9b994b0a748f87f74f1297ef9aed5b1b", null ],
+    [ "operator=", "d4/d5d/a01202.html#a14595d3e685bb58c80b00a821f6e2a54", null ],
+    [ "onConnectionChanged", "d4/d5d/a01202.html#af678900015fb6460c22371a41baecf46", null ]
 ];

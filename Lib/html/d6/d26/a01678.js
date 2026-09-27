@@ -1,6 +1,7 @@
 var a01678 =
 [
-    [ "Port", "d6/d26/a01678.html#aa7009b4528a13c2088ac110ea6416dbf", null ],
-    [ "~Port", "d6/d26/a01678.html#a336d86bcda90ed88fa7f5ad79f9dc377", null ],
-    [ "Base< Port< DriverMode::DMA > >", "d6/d26/a01678.html#ab3c0b388139e3fa805cce08d65f87ca2", null ]
+    [ "lock", "d6/d26/a01678.html#ab4c2e78575458526b83be6e259aa1f93", null ],
+    [ "read", "d6/d26/a01678.html#acff397156950347f6f452dec2c94af43", null ],
+    [ "unlock", "d6/d26/a01678.html#a220a07c58647557d8a81402260eacfb5", null ],
+    [ "write", "d6/d26/a01678.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
 ];

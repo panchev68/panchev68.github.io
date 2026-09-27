@@ -1,8 +1,12 @@
 var a01766 =
 [
-    [ "TerminateHandler", "d0/d79/a01766.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "d0/d79/a01766.html#a5c3e2823b11ffba803779acf28e3933f", null ],
-    [ "Exception", "d0/d79/a01766.html#ad95c68e61e596a7bb98680bf0e607638", null ],
-    [ "~Exception", "d0/d79/a01766.html#a931afa98770e0bf47ee7c6517ec6d461", null ],
-    [ "what", "d0/d79/a01766.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "Event", "d4/dfe/a01770.html", null ],
+    [ "UARTPort", "d0/d79/a01766.html#a074ec6b19b1073304ca2513d11d43247", null ],
+    [ "~UARTPort", "d0/d79/a01766.html#a63dcc055b6bdb5ff425d9d3de6b85d0e", null ],
+    [ "abort", "d0/d79/a01766.html#a6338474d55762abe068a9a4ae7a52004", null ],
+    [ "close", "d0/d79/a01766.html#aee354dfcdcef889e747eb1f370c78099", null ],
+    [ "open", "d0/d79/a01766.html#ae5ca2cdd6a1267747986b8abc4005844", null ],
+    [ "receive", "d0/d79/a01766.html#a6f1621aced0fc72730788607d38f4a4c", null ],
+    [ "send", "d0/d79/a01766.html#a0d6d405f2bafa475388de1fca3295a51", null ],
+    [ "waitForEvent", "d0/d79/a01766.html#a12c61ca185bbe79d198fe4261be4403c", null ]
 ];

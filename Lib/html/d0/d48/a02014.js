@@ -1,7 +1,9 @@
 var a02014 =
 [
-    [ "current", "d0/d48/a02014.html#a3c52e2d0bbe89862c14148ebf02d6463", null ],
-    [ "irradiance", "d0/d48/a02014.html#a6d28fdf32a94b2134434e00c0fef4894", null ],
-    [ "temperature", "d0/d48/a02014.html#a2f7e9f752645a3cbee0fd950bfc2c255", null ],
-    [ "voltage", "d0/d48/a02014.html#a1c339469529ee402dcc9e7bb37113566", null ]
+    [ "DeepSleepLock", "d0/d48/a02014.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
+    [ "~DeepSleepLock", "d0/d48/a02014.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
+    [ "DeepSleepLock", "d0/d48/a02014.html#a40925e50ac0805b094e04973ed61f50b", null ],
+    [ "DeepSleepLock", "d0/d48/a02014.html#a653104e321c6b159eb7b5e5385d286ac", null ],
+    [ "operator=", "d0/d48/a02014.html#a3523f9fd591310866af37223de2c32d3", null ],
+    [ "operator=", "d0/d48/a02014.html#a10ab5d18c8a969841a27a2688604c55c", null ]
 ];

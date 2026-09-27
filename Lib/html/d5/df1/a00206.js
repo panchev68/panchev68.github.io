@@ -1,4 +1,4 @@
 var a00206 =
 [
-    [ "Lib::Digi::Core::Frame::Header", "d8/d4e/a01355.html", "d8/d4e/a01355" ]
+    [ "Lib::Digi::Core::Frame::Type", "de/d5c/a01358.html", null ]
 ];

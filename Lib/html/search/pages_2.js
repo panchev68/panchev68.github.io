@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['dynamic_20creation_0',['Dynamic creation',['../d1/d3c/a02714.html#streambuffer_dynamic',1,'']]]
+  ['deprecated_20list_0',['Deprecated List',['../d4/d6a/a00704.html',1,'']]],
+  ['dynamic_20creation_1',['Dynamic creation',['../df/d50/a02725.html#streambuffer_dynamic',1,'']]]
 ];

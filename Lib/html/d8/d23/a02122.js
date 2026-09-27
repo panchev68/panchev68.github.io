@@ -1,17 +1,13 @@
 var a02122 =
 [
-    [ "Status", "d8/d23/a02122.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d8/d23/a02122.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d8/d23/a02122.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d8/d23/a02122.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d8/d23/a02122.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
+    [ "Date", "d8/d23/a02122.html#af06cc8ba2f87935c0445acf20bda3349", null ],
+    [ "DateTime", "d8/d23/a02122.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
+    [ "Status", "d8/d23/a02122.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
+      [ "OK", "d8/d23/a02122.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d8/d23/a02122.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "Value64Handle", "d8/d23/a02122.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d8/d23/a02122.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d8/d23/a02122.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d8/d23/a02122.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d8/d23/a02122.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d8/d23/a02122.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d8/d23/a02122.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d8/d23/a02122.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "ProduceDate", "d8/d23/a02122.html#a35243148dd7247b4f7926b4aed02485a", null ],
+    [ "isEmpty", "d8/d23/a02122.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
+    [ "read", "d8/d23/a02122.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
+    [ "write", "d8/d23/a02122.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
 ];

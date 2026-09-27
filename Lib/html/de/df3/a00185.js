@@ -1,4 +1,4 @@
 var a00185 =
 [
-    [ "Lib::Digi::Core::AtCommandChannel", "d1/d72/a01319.html", "d1/d72/a01319" ]
+    [ "Lib::Digi::Core::Checksum", "d9/de6/a01314.html", "d9/de6/a01314" ]
 ];
