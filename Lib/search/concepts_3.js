@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['storagelike_0',['StorageLike',['../df/d5b/a01807.html',1,'Lib::System']]]
+  ['query_0',['Query',['../d0/dc1/a01993.html',1,'Lib::Digi::Core']]]
 ];

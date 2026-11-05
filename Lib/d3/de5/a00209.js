@@ -1,4 +1,4 @@
 var a00209 =
 [
-    [ "Lib::Digi::Core::Frame::Payload&lt; N &gt;", "d7/d88/a01255.html", "d7/d88/a01255" ]
+    [ "Lib::Digi::Core::DigiApiFrameBuffer", "d2/dff/a01374.html", "d2/dff/a01374" ]
 ];

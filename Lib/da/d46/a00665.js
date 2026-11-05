@@ -1,6 +1,7 @@
 var a00665 =
 [
-    [ "Lib::SolarControl::PerturbAndObserve", "d9/df7/a01699.html", "d9/df7/a01699" ],
-    [ "Lib::SolarControl::PerturbAndObserve::Config", "df/d12/a01703.html", "df/d12/a01703" ],
-    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d0/d42/a01707.html", "d0/d42/a01707" ]
+    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;", "df/d21/a01778.html", "df/d21/a01778" ],
+    [ "Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;::Point", "dd/dec/a01782.html", "dd/dec/a01782" ],
+    [ "Lib::Math::LinearInterpolationD", "dd/d70/a00835.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e", null ],
+    [ "Lib::Math::LinearInterpolationF", "dd/d70/a00835.html#a8e491be310ee384e098186699963cc0e", null ]
 ];

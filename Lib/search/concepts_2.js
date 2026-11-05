@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['driverimpl_0',['DriverImpl',['../dc/dec/a01804.html',1,'Lib::BSP::FMEM::SPI']]]
+  ['pausable_0',['Pausable',['../d6/d33/a01992.html',1,'Lib::Digi::API']]]
 ];

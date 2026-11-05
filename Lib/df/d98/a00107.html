@@ -114,13 +114,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d98/a00107.
 </div><!--header-->
 <div class="contents">
 
-<p>1-Wire driver for the Maxim/Dallas DS18B20 digital temperature sensor.  
+<p>1-Wire driver for the Maxim/Dallas DS18B20 digital temperature sensor on a single open-drain GPIO pin.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>1-Wire driver for the Maxim/Dallas DS18B20 digital temperature sensor. </p>
-<p>Bit-bangs the Dallas 1-Wire protocol (reset/presence, bit write/read time slots) directly on a single GPIO pin configured as open-drain, using '<a class="el" href="../../d2/dc4/a01483.html#a592daf57dd9e14add5de04bb3af7a5b7" title="Delays execution for the specified number of microseconds.">Lib::Helper::Delay::microseconds()</a>' for the sub-millisecond slot timing and '<a class="el" href="../../df/d5e/a01467.html" title="Helper type that computes the Dallas/Maxim 8-bit CRC for a provided byte view.">Lib::Helper::crc8</a>' to validate the scratchpad readback. The pin stays in output-open-drain mode for the whole transaction: driving it low pulls the bus low, and writing it high simply releases it, letting the bus's pull-up bring it back high, without ever switching to input mode &ndash; so no per-bit 'HAL_GPIO_Init' call sits inside the timing-critical path. The bus itself is level-shifted (DS18B20 runs at 5V, the MCU pin at 3.3V) through a BSS138 with a 4.7 kOhm pull-up to each rail on its respective side, which preserves open-drain behaviour symmetrically across both sides, so this driver's low/release logic needs no adjustment for it. Assumes a single device on the bus (uses the 'Skip ROM' command), which matches this driver's typical single-sensor wiring; multi-drop ROM search/match is out of scope.</p>
-<dl class="section version"><dt>Version</dt><dd>1.00.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-18 </dd></dl>
+<div class="textblock"><p>1-Wire driver for the Maxim/Dallas DS18B20 digital temperature sensor on a single open-drain GPIO pin. </p>
+<p>Bus timing is bit-banged in the driver itself. Its shape is documented at the 'DS18B20' class.</p>
+<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-09-29 </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

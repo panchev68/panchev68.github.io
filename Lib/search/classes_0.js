@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['apiframebuffer_0',['ApiFrameBuffer',['../da/d1f/a01203.html',1,'Lib::Digi::Core']]],
-  ['applicationbase_1',['ApplicationBase',['../d0/d1f/a01087.html',1,'Lib::Digi::API']]],
-  ['ascii_2',['Ascii',['../d7/dfd/a01439.html',1,'Lib::Helper::Convert']]],
-  ['atcommandchannel_3',['AtCommandChannel',['../d5/dad/a01207.html',1,'Lib::Digi::Core']]],
-  ['atcommandstring_4',['AtCommandString',['../d1/d34/a01211.html',1,'Lib::Digi::Core']]]
+  ['adcrange_0',['ADCRange',['../d1/dd8/a01022.html',1,'Lib::BSP::RFID::ST25R100']]],
+  ['applicationbase_1',['ApplicationBase',['../dd/d9e/a01226.html',1,'Lib::Digi::API']]],
+  ['ascii_2',['Ascii',['../d9/d3b/a01650.html',1,'Lib::Helper::Convert']]],
+  ['asyncportcore_3',['AsyncPortCore',['../dd/d90/a01626.html',1,'Lib::HAL']]],
+  ['atcommandstring_4',['AtCommandString',['../da/d61/a01350.html',1,'Lib::Digi::Core']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['examples_0',['StreamBuffer examples',['../d0/d79/a02117.html',1,'']]]
+  ['examples_0',['StreamBuffer examples',['../dd/d6b/a02397.html',1,'']]]
 ];

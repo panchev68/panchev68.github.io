@@ -1,13 +1,9 @@
 var searchData=
 [
-  ['unsuccesstransmitstatus_0',['unsuccessTransmitStatus',['../d3/de1/a01111.html#ac67e8232f97db31ebd0f825093b661fa',1,'Lib::Digi::API::Connection::Info']]],
-  ['update_5ftimeout_5fms_1',['UPDATE_TIMEOUT_MS',['../d5/d72/a00803.html#a213b32b04af680c72f92d11a3c9716d9',1,'Lib::BSP::DigitalPeripheralBase']]],
-  ['updateinterval_2',['updateInterval',['../d0/d54/a01691.html#ae116f4b82ed5e5e47ef629cd133ee0de',1,'Lib::SolarControl::MPPT::ReferenceParameters']]],
-  ['updateperiod_3',['updatePeriod',['../dd/d20/a00939.html#a08c430ab4ab176b490c190835f89b3b0',1,'Lib::BSP::Thermometer::DTH::Base::Config']]],
-  ['usbdetectpin_4',['usbDetectPin',['../da/da5/a01783.html#a7821371ae14cff05383049657f3dd8d6',1,'Lib::USB::SerialPortRepeaterBase::Config']]],
-  ['usbdisablepin_5',['usbDisablePin',['../da/da5/a01783.html#aeafd4713f3249500c2a871623ffc4e6c',1,'Lib::USB::SerialPortRepeaterBase::Config']]],
-  ['user_5fdata_5frelay_5finput_6',['USER_DATA_RELAY_INPUT',['../dd/d42/a01259.html#a9ba4227828949a11ad1345bcf71284ed',1,'Lib::Digi::Core::Frame::Type']]],
-  ['user_5fdata_5frelay_5foutput_7',['USER_DATA_RELAY_OUTPUT',['../dd/d42/a01259.html#a98476cde6ac200b66782c18cd0c0be5d',1,'Lib::Digi::Core::Frame::Type']]],
-  ['userrxbufferfs_8',['UserRxBufferFS',['../d5/d5b/a00695.html#a1e37e6616e6affe5acf9c0befd063f6a',1,'SerialPortRepeaterBase.hpp']]],
-  ['usertxbufferfs_9',['UserTxBufferFS',['../d5/d5b/a00695.html#ad48fea85cdb7aed49bf62140a52f23e0',1,'SerialPortRepeaterBase.hpp']]]
+  ['unknown_5fnetwork_5faddress_0',['UNKNOWN_NETWORK_ADDRESS',['../d1/de7/a01434.html#ab5c3f16365291466ed2e260e4505a097',1,'Lib::Digi::Core::Frame0x17']]],
+  ['unsuccesstransmitstatus_1',['unsuccessTransmitStatus',['../d7/d04/a01246.html#ac67e8232f97db31ebd0f825093b661fa',1,'Lib::Digi::API::Connection::Info']]],
+  ['unsupporteduidcount_2',['unsupportedUidCount',['../dc/d81/a01006.html#a6e9a133ac2b92dc90de4a93eee54e810',1,'Lib::BSP::RFID::NfcManager::Diagnostics']]],
+  ['update_5ftimeout_5fms_3',['UPDATE_TIMEOUT_MS',['../d5/dd3/a00902.html#a213b32b04af680c72f92d11a3c9716d9',1,'Lib::BSP::DigitalPeripheralBase']]],
+  ['updateinterval_4',['updateInterval',['../d8/dd1/a01894.html#a9a72ac9a78c42013979d67300e60de6d',1,'Lib::SolarControl::MPPT::ReferenceParameters']]],
+  ['updateperiod_5',['updatePeriod',['../d4/d8a/a01062.html#a08c430ab4ab176b490c190835f89b3b0',1,'Lib::BSP::Thermometer::DTH::Base::Config']]]
 ];

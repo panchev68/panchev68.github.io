@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['namespace_2edox_0',['namespace.dox',['../d4/d6a/a00704.html',1,'']]],
-  ['networkdiscovery_2ehpp_1',['NetworkDiscovery.hpp',['../dc/de6/a00167.html',1,'']]],
-  ['node_2ehpp_2',['Node.hpp',['../df/d95/a00299.html',1,'']]],
-  ['nodeinfo_2ehpp_3',['NodeInfo.hpp',['../d3/df8/a00155.html',1,'']]]
+  ['namespace_2edox_0',['namespace.dox',['../df/d0e/a00800.html',1,'']]],
+  ['networkdiscovery_2ehpp_1',['NetworkDiscovery.hpp',['../db/dd9/a00179.html',1,'']]],
+  ['nfcmanager_2ehpp_2',['NfcManager.hpp',['../da/dec/a00080.html',1,'']]],
+  ['node_2ehpp_3',['Node.hpp',['../de/d55/a00323.html',1,'']]],
+  ['nodeinfo_2ehpp_4',['NodeInfo.hpp',['../d5/dcb/a00170.html',1,'']]]
 ];

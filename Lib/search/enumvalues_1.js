@@ -1,13 +1,20 @@
 var searchData=
 [
-  ['bandmask_5fconfiguration_5ffailed_0',['BANDMASK_CONFIGURATION_FAILED',['../d4/d04/a01335.html#a1ca3b1d6d0209c50bd947bfccb88bb66a22d48f412577f387714ef93f7da484db',1,'Lib::Digi::Core::Frame0x8a']]],
-  ['ble_5fconnect_1',['BLE_CONNECT',['../d4/d04/a01335.html#a1ca3b1d6d0209c50bd947bfccb88bb66ac0772455e76024e94186291c6f4ba453',1,'Lib::Digi::Core::Frame0x8a']]],
-  ['ble_5fdisconnect_2',['BLE_DISCONNECT',['../d4/d04/a01335.html#a1ca3b1d6d0209c50bd947bfccb88bb66a8ea39dff8822b2319506f783bcaec692',1,'Lib::Digi::Core::Frame0x8a']]],
-  ['block_5ferase_5f32k_3',['BLOCK_ERASE_32K',['../d7/d92/a00887.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['block_5ferase_5f64k_4',['BLOCK_ERASE_64K',['../d7/d92/a00887.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['blocked_5',['BLOCKED',['../dd/d38/a01663.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14',1,'RTOS::Task::State']]],
-  ['blocking_6',['BLOCKING',['../d6/dc0/a00734.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415',1,'Lib::HAL']]],
-  ['broad_5fblock_7',['BROAD_BLOCK',['../d8/d31/a01407.html#a140f3f34e721c8b68f57edee9dc3b0c8adb2e2979094ff771492f84281f208db6',1,'Lib::Ethernet::Wiznet::Socket::Flag']]],
-  ['brownout_8',['BROWNOUT',['../db/d78/a01427.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e',1,'Lib::HAL::Reset']]],
-  ['busy_9',['BUSY',['../de/d70/a01415.html#a808d60302fc6b07ea1d66c88a4052b73ab123b7fba05fa55c543d509c4ba2c6ac',1,'Lib::Ethernet::Wiznet::Socket::Error']]]
+  ['backup_0',['BACKUP',['../d1/dea/a00829.html#a0a85aabfc74e31864de76e3f26f1b197abfdf97ae01c73d83a58ec41f78a4291f',1,'Lib::Ethercat::SOES']]],
+  ['bandmask_5fconfiguration_5ffailed_1',['BANDMASK_CONFIGURATION_FAILED',['../d0/da4/a01470.html#a1ca3b1d6d0209c50bd947bfccb88bb66a22d48f412577f387714ef93f7da484db',1,'Lib::Digi::Core::Frame0x8a']]],
+  ['ble_5fconnect_2',['BLE_CONNECT',['../d0/da4/a01470.html#a1ca3b1d6d0209c50bd947bfccb88bb66ac0772455e76024e94186291c6f4ba453',1,'Lib::Digi::Core::Frame0x8a']]],
+  ['ble_5fdisconnect_3',['BLE_DISCONNECT',['../d0/da4/a01470.html#a1ca3b1d6d0209c50bd947bfccb88bb66a8ea39dff8822b2319506f783bcaec692',1,'Lib::Digi::Core::Frame0x8a']]],
+  ['ble_5funlock_5frequest_4',['BLE_UNLOCK_REQUEST',['../dd/d5f/a00825.html#a28e123f246098db8d8570511c8c739f4a9212ccf8bc772579006a4011adf958a2',1,'Lib::Digi::Core::Frame']]],
+  ['ble_5funlock_5fresponse_5',['BLE_UNLOCK_RESPONSE',['../dd/d5f/a00825.html#a28e123f246098db8d8570511c8c739f4af0380f025c94a21739192b273df7cd7a',1,'Lib::Digi::Core::Frame']]],
+  ['block_5ferase_5f32k_6',['BLOCK_ERASE_32K',['../d1/d7a/a00982.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['block_5ferase_5f64k_7',['BLOCK_ERASE_64K',['../d1/d7a/a00982.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
+  ['blocked_8',['BLOCKED',['../d3/d7e/a01866.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14',1,'RTOS::Task::State']]],
+  ['blocking_9',['BLOCKING',['../d0/d08/a00832.html#a031c16cd1ba2f466615bbfa2b2832ed0a72323e5457d8fb855145bfee934aa415',1,'Lib::HAL']]],
+  ['boolean_10',['BOOLEAN',['../d1/dea/a00829.html#aa94d94e23996717a0fb95db4ee93bba5ac48d5da12d702e73d6966069f2687376',1,'Lib::Ethercat::SOES']]],
+  ['bootstrap_11',['BOOTSTRAP',['../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279a82cbe14b76947cbd0fa3e2523c66b267',1,'Lib::Ethercat::SOES']]],
+  ['bootstrap_5fnot_5fsupported_12',['BOOTSTRAP_NOT_SUPPORTED',['../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcac8628a40f8cc37e00058f812e8f4ba39',1,'Lib::Ethercat::SOES']]],
+  ['bootstrap_5fonly_13',['BOOTSTRAP_ONLY',['../d1/dea/a00829.html#a058e47e5398a583fd14a446b7b2dbdb4a84d8c754faa2099140260a5169b1ab2f',1,'Lib::Ethercat::SOES']]],
+  ['broad_5fblock_14',['BROAD_BLOCK',['../d9/dfd/a01610.html#a0d014768676f3aad8b6fb7f3fc1390c1a9394dd73709262e8dec6b9078966d5a3',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['bulk_15',['BULK',['../d0/d08/a00832.html#ae1783f3c88baf78f222c313659cf4a98a6d5b457ed4205e7f1144ef21b944e552',1,'Lib::HAL']]],
+  ['busy_16',['BUSY',['../d9/dfd/a01610.html#a380dcfcd5533c4e9ef6de2ff096e001ca802706a9238e2928077f97736854bad4',1,'Lib::Ethernet::Wiznet::Socket']]]
 ];

@@ -1,4 +1,4 @@
 var a00287 =
 [
-    [ "Lib::Errors::Observer", "dd/d8b/a01363.html", "dd/d8b/a01363" ]
+    [ "Lib::Digi::Core::isElapsed", "d8/d1c/a00824.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
 ];

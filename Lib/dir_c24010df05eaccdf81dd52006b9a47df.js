@@ -1,11 +1,11 @@
 var dir_c24010df05eaccdf81dd52006b9a47df =
 [
     [ "Services", "dir_36ed21a84838a7c472fb170fec5d516d.html", "dir_36ed21a84838a7c472fb170fec5d516d" ],
-    [ "ApplicationBase.hpp", "da/d1e/a00149.html", "da/d1e/a00149" ],
-    [ "ClientBase.hpp", "d5/ddd/a02184.html", "d5/ddd/a02184" ],
-    [ "Connection.hpp", "d7/d9a/a00152.html", "d7/d9a/a00152" ],
-    [ "NodeInfo.hpp", "d3/df8/a00155.html", "d3/df8/a00155" ],
-    [ "Pause.hpp", "d6/db8/a00158.html", "d6/db8/a00158" ],
-    [ "ServerBase.hpp", "dc/dc3/a02190.html", "dc/dc3/a02190" ],
-    [ "UserProtocol.hpp", "dd/d51/a02223.html", "dd/d51/a02223" ]
+    [ "ApplicationBase.hpp", "db/ddf/a00164.html", "db/ddf/a00164" ],
+    [ "ClientBase.hpp", "de/d91/a02458.html", "de/d91/a02458" ],
+    [ "Connection.hpp", "dc/de6/a00167.html", "dc/de6/a00167" ],
+    [ "NodeInfo.hpp", "d5/dcb/a00170.html", "d5/dcb/a00170" ],
+    [ "Pause.hpp", "d7/d3f/a00173.html", null ],
+    [ "ServerBase.hpp", "da/dae/a02467.html", "da/dae/a02467" ],
+    [ "UserProtocol.hpp", "d4/dad/a02500.html", "d4/dad/a02500" ]
 ];

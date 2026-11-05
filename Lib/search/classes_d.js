@@ -1,8 +1,9 @@
 var searchData=
 [
-  ['networkdiscovery_0',['NetworkDiscovery',['../d2/d22/a01171.html',1,'Lib::Digi::API::Service']]],
-  ['networkinfo_1',['NetworkInfo',['../de/de4/a01135.html',1,'Lib::Digi::API::NodeInfo']]],
-  ['node_2',['Node',['../dd/d48/a00995.html',1,'Lib::Canbus::ServiceBase::Node'],['../d0/d9b/a01379.html',1,'Lib::Ethernet::Node']]],
-  ['nodeinfo_3',['NodeInfo',['../d9/d5b/a01127.html',1,'Lib::Digi::API']]],
-  ['notify_4',['Notify',['../dd/d8d/a01667.html',1,'RTOS::Task']]]
+  ['networkdiscovery_0',['NetworkDiscovery',['../dc/de0/a01302.html',1,'Lib::Digi::API::Service']]],
+  ['networkinfo_1',['NetworkInfo',['../da/d00/a01270.html',1,'Lib::Digi::API::NodeInfo']]],
+  ['nfcmanager_2',['NfcManager',['../d9/d9a/a00998.html',1,'Lib::BSP::RFID']]],
+  ['node_3',['Node',['../dd/d09/a01118.html',1,'Lib::Canbus::ServiceBase::Node'],['../d7/d8c/a01306.html',1,'Lib::Digi::API::Service::NetworkDiscovery::Node'],['../d2/d2f/a01586.html',1,'Lib::Ethernet::Node']]],
+  ['nodeinfo_4',['NodeInfo',['../d3/d53/a01262.html',1,'Lib::Digi::API']]],
+  ['notify_5',['Notify',['../d3/d77/a01870.html',1,'RTOS::Task']]]
 ];

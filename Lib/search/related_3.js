@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['manager_0',['Manager',['../dc/d70/a01187.html#adddd5c43ff870a047aa66db4edf82a7e',1,'Lib::Digi::API::Service::ServiceBase']]],
-  ['master_1',['Master',['../d6/d36/a01011.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::Protocol::Master()'],['../db/dbb/a01047.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::SerialPortBase::Master()']]]
+  ['rtos_3a_3atickclient_3c_20basicdispatcher_3c_20t_5ferror_20_3e_20_3e_0',['TickClient&lt; BasicDispatcher&lt; T_ERROR &gt; &gt;',['../d0/d34/a01486.html#a650ea0ef5048343da33f94d14c44e548',1,'Lib::Errors::BasicDispatcher']]],
+  ['rtos_3a_3atickclient_3c_20beep_20_3e_1',['TickClient&lt; Beep &gt;',['../df/d2a/a00874.html#a021b081c55c843fa9b7ba25effa04637',1,'Lib::BSP::Beep']]]
 ];

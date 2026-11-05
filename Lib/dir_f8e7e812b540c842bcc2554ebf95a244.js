@@ -2,6 +2,5 @@ var dir_f8e7e812b540c842bcc2554ebf95a244 =
 [
     [ "ILI9341", "dir_bde873b4aad234ca3c11d8afeb732e93.html", "dir_bde873b4aad234ca3c11d8afeb732e93" ],
     [ "ST7789", "dir_d10fe2c389a15fc38a8d2eee4da0ead4.html", "dir_d10fe2c389a15fc38a8d2eee4da0ead4" ],
-    [ "DriverBase.hpp", "d1/d90/a02127.html", "d1/d90/a02127" ],
-    [ "Template.hpp", "db/dcf/a02157.html", "db/dcf/a02157" ]
+    [ "DriverBase.hpp", "d4/dad/a02407.html", "d4/dad/a02407" ]
 ];

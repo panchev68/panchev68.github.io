@@ -1,4 +1,4 @@
 var a00650 =
 [
-    [ "RTOS::TickCounter", "d2/d34/a01679.html", "d2/d34/a01679" ]
+    [ "Lib::Helper::TimePeriod", "d1/dd5/a01742.html", "d1/dd5/a01742" ]
 ];

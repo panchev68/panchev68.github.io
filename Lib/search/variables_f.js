@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['quality_0',['quality',['../d6/dbc/a01099.html#a2f83b837e560618fd6d59cdb1aa8cbe3',1,'Lib::Digi::API::Connection']]],
-  ['queue_5flocal_5fat_5fcommand_5frequest_1',['QUEUE_LOCAL_AT_COMMAND_REQUEST',['../dd/d42/a01259.html#a6ed6f04c8688e57b73ff764e61ede812',1,'Lib::Digi::Core::Frame::Type']]],
-  ['queuerxmessage_2',['queueRxMessage',['../d0/d1f/a01087.html#a16ea56fe1b04e47f29e814535d13850a',1,'Lib::Digi::API::ApplicationBase']]],
-  ['queuetransmitdeliverystatus_3',['queueTransmitDeliveryStatus',['../d0/d1f/a01087.html#ac31d75ff0f90d6dd3535ba8b01579c0a',1,'Lib::Digi::API::ApplicationBase']]]
+  ['quadratureadc_0',['quadratureAdc',['../de/d02/a01026.html#a17b30f12146f08fd5831a0df67e9ff5c',1,'Lib::BSP::RFID::ST25R100::WakeupDiagnostics::quadratureAdc'],['../de/d41/a01030.html#ad47ff67b3f90ab4180e577fa6d842ec9',1,'Lib::BSP::RFID::ST25R100::WuComparatorSnapshot::quadratureAdc']]],
+  ['quadraturecalibration_1',['quadratureCalibration',['../de/d02/a01026.html#addbb57cc85ad0a60cde2f7760a61425c',1,'Lib::BSP::RFID::ST25R100::WakeupDiagnostics']]],
+  ['quadraturemax_2',['quadratureMax',['../d1/dd8/a01022.html#ab677a45b5cc11de6a0ed44a8bd31ada6',1,'Lib::BSP::RFID::ST25R100::ADCRange']]],
+  ['quadraturemin_3',['quadratureMin',['../d1/dd8/a01022.html#ae6e3818b88b409e124c2a8ade03c4189',1,'Lib::BSP::RFID::ST25R100::ADCRange']]],
+  ['quadraturereference_4',['quadratureReference',['../de/d02/a01026.html#a7a7dcfdea56a9d66f562fa291a1cefcb',1,'Lib::BSP::RFID::ST25R100::WakeupDiagnostics']]],
+  ['quality_5',['quality',['../d6/d1e/a01234.html#a2f83b837e560618fd6d59cdb1aa8cbe3',1,'Lib::Digi::API::Connection']]]
 ];

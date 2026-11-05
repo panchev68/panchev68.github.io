@@ -1,6 +1,6 @@
 var a00113 =
 [
-    [ "Lib::BSP::XPT2046", "de/dad/a00963.html", "de/dad/a00963" ],
-    [ "Lib::BSP::XPT2046::Config", "d4/d94/a00967.html", "d4/d94/a00967" ],
-    [ "Lib::BSP::XPT2046::Parameters", "d0/d3c/a00971.html", "d0/d3c/a00971" ]
+    [ "Lib::BSP::XPT2046", "d9/df5/a01086.html", "d9/df5/a01086" ],
+    [ "Lib::BSP::XPT2046::Config", "da/d73/a01090.html", "da/d73/a01090" ],
+    [ "Lib::BSP::XPT2046::Parameters", "d6/dea/a01094.html", "d6/dea/a01094" ]
 ];

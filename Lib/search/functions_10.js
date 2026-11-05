@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['quality_0',['Quality',['../de/d4a/a01107.html#ac8b7cad9c67eac45b83424fc09cfcff8',1,'Lib::Digi::API::Connection::Quality']]],
-  ['querybase_1',['QueryBase',['../d6/d07/a01303.html#a008033823ae58ff3d565c4da6af8c683',1,'Lib::Digi::Core::QueryBase']]],
-  ['queuemessage_2',['QueueMessage',['../d2/d4c/a01307.html#a952db32db043dc9f1c5ab8759073f69e',1,'Lib::Digi::Core::QueueMessage']]]
+  ['quality_0',['Quality',['../d7/dc5/a01242.html#addae8d177e3be6cf88efd4277f317ef7',1,'Lib::Digi::API::Connection::Quality']]],
+  ['queueframe_1',['queueFrame',['../d6/d02/a01542.html#a2afc345b5bcd9326d015eb678e620201',1,'Lib::Ethercat::SOES::EoE']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['devicemanager_3c_20t_5fdevice_2c_20t_5fhandle_20_3e_0',['DeviceManager&lt; T_DEVICE, T_HANDLE &gt;',['../d9/ddc/a01423.html#ad317e84715f53c3ea50d6b4113c92403',1,'Lib::HAL::Device']]],
-  ['dispatcher_1',['Dispatcher',['../d8/d4e/a01355.html#ad90424f003fc2afb836709cbffa47e2c',1,'Lib::Errors::Error']]]
+  ['master_0',['Master',['../dd/de2/a01134.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::Protocol::Master()'],['../d3/dc7/a01170.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::SerialPortBase::Master()']]]
 ];
