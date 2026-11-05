@@ -1,3 +1,3 @@
-Main page
+Boyan Panchev page
 
 [Library Documentation](Lib/index.html)
