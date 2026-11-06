@@ -1,4 +1,4 @@
 var a00650 =
 [
-    [ "Lib::Helper::TimePeriod", "d1/dd5/a01742.html", "d1/dd5/a01742" ]
+    [ "Lib::Helper::Sunset", "df/d8f/a01740.html", "df/d8f/a01740" ]
 ];

@@ -1,4 +1,4 @@
 var a00374 =
 [
-    [ "Lib::HAL::isDmaReachable", "d0/d08/a00832.html#a6d025716096ef0a5098ff9db2688b2da", null ]
+    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "dd/d40/a01636.html", "dd/d40/a01636" ]
 ];

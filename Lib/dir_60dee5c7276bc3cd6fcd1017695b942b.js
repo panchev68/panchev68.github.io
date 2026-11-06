@@ -11,6 +11,7 @@ var dir_60dee5c7276bc3cd6fcd1017695b942b =
     [ "Ethernet", "dir_c7240d7295280eb9592be0a257cd939d.html", "dir_c7240d7295280eb9592be0a257cd939d" ],
     [ "HAL", "dir_4ad11338be6ed64801f932656637dcad.html", "dir_4ad11338be6ed64801f932656637dcad" ],
     [ "Helper", "dir_1e782c96d6d1ca848bfd4a9f48d74d58.html", "dir_1e782c96d6d1ca848bfd4a9f48d74d58" ],
+    [ "HTTP", "dir_f3b92422084dc4c8a9ca4c063b5069ff.html", "dir_f3b92422084dc4c8a9ca4c063b5069ff" ],
     [ "Math", "dir_d7b902938708671190894d621f68a9dd.html", "dir_d7b902938708671190894d621f68a9dd" ],
     [ "Pneumatics", "dir_292e37ec661f02231b496186033f378f.html", "dir_292e37ec661f02231b496186033f378f" ],
     [ "RTOS", "dir_3fba853156281524a1d2ff8b1fb19351.html", "dir_3fba853156281524a1d2ff8b1fb19351" ],
@@ -18,5 +19,5 @@ var dir_60dee5c7276bc3cd6fcd1017695b942b =
     [ "System", "dir_5c17e5f690e92284d42df705067145f0.html", "dir_5c17e5f690e92284d42df705067145f0" ],
     [ "USB", "dir_faeb283bf437ec86682d826ccb2ce3ea.html", "dir_faeb283bf437ec86682d826ccb2ce3ea" ],
     [ "XCOM", "dir_f15e15be8a771e0bd42be81332eec275.html", "dir_f15e15be8a771e0bd42be81332eec275" ],
-    [ "vscode.hpp", "d5/d12/a00794.html", "d5/d12/a00794" ]
+    [ "vscode.hpp", "d5/d72/a00803.html", "d5/d72/a00803" ]
 ];

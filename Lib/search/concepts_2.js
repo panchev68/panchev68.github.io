@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pausable_0',['Pausable',['../d6/d33/a01992.html',1,'Lib::Digi::API']]]
+  ['httptransport_0',['HttpTransport',['../d7/dfb/a01966.html',1,'Lib::HTTP']]]
 ];

@@ -1,4 +1,5 @@
 var a00341 =
 [
-    [ "Lib::HAL::Device&lt; T_DEVICE, T_HANDLE &gt;", "d9/ddc/a01423.html", "d9/ddc/a01423" ]
+    [ "Lib::Ethernet::Wiznet::W5500", "dd/deb/a01628.html", "dd/deb/a01628" ],
+    [ "Lib::Ethernet::Wiznet::W5500::Config", "d6/daf/a01632.html", "d6/daf/a01632" ]
 ];

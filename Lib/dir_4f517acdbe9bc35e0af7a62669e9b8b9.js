@@ -16,5 +16,5 @@ var dir_4f517acdbe9bc35e0af7a62669e9b8b9 =
     [ "TouchScreen", "dir_d9b2e0683852a0625c6bcd646761efe8.html", "dir_d9b2e0683852a0625c6bcd646761efe8" ],
     [ "Ultrasonic", "dir_cddae9e8cc2f227143d0f0fed39892d6.html", "dir_cddae9e8cc2f227143d0f0fed39892d6" ],
     [ "Voltmeter", "dir_7cdb38f29c48374a5bf21d6ca474c36d.html", "dir_7cdb38f29c48374a5bf21d6ca474c36d" ],
-    [ "DeviceManager.hpp", "d2/d62/a02401.html", "d2/d62/a02401" ]
+    [ "DeviceManager.hpp", "df/d46/a02376.html", "df/d46/a02376" ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Mailbox.hpp</title>
+<title>IAR Library: EoE.hpp</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -110,90 +110,59 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d39/a00314.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Mailbox.hpp</div></div>
+  <div class="headertitle"><div class="title">EoE.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>EtherCAT slave mailbox transport, written directly on the ESC registers.  
+<p>Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>EtherCAT slave mailbox transport, written directly on the ESC registers. </p>
-<p>The mailbox is the asynchronous channel between master and slave (CoE, FoE, EoE, AoE, SoE and VoE ride on it). It is two sync managers of the EtherCAT slave controller: SM0 carries messages from the master to the slave, SM1 from the slave to the master. This class enables both through the PDI control registers, reads the configuration the master wrote, receives one message at a time, sends messages and mailbox errors, and answers the master's repeat requests by writing the last message the master read again. It does not interpret the protocols themselves: it hands the protocol type and payload to the caller.</p>
-<p>The chip is reached through a type that provides <b>readReg()</b> and <b>writeReg()</b> (the LAN9252 driver does), so no vendor stack is needed. One task at a time may use a mailbox.</p>
+<div class="textblock"><p>Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave. </p>
+<p>Carries Ethernet frames between the master and a network stack on the slave over the mailbox. A frame is cut into fragments that fit a mailbox message; this class puts the fragments of a received frame together and hands the frame to the application, and cuts a frame the application queues into fragments and sends them. It also answers the requests that set and get the IP parameters of the slave. It does not contain a network stack: the application passes received frames to its stack and queues the frames the stack wants to send.</p>
+<p>Use it from the mailbox handler of a <b>Slave:</b> pass every message to <b>handle()</b> and call <b>service()</b> in the idle hook, which sends the fragments.</p>
 <dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Mailbox.hpp:</div>
+</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for EoE.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d6f/a00315.svg" width="595" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/db8/a00316.svg" width="550" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d6f/a00315.svg" width="1124" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3AMailboxHeader" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3AMailboxHeader"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d1d/a01554.html">Lib::Ethercat::SOES::MailboxHeader</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header of a mailbox message.  <a href="../../d7/d1d/a01554.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3AMailbox_3C_20T_5FESC_2C_20T_5FMAX_5FSIZE_20_3E" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3AMailbox_3C_20T_5FESC_2C_20T_5FMAX_5FSIZE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/dcf/a01558.html">Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">EtherCAT slave mailbox.  <a href="../../da/dcf/a01558.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3AEoEParameters" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3AEoEParameters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d83/a01544.html">Lib::Ethercat::SOES::EoEParameters</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Network parameters of an <a class="el" href="../../d0/db9/a01552.html" title="EoE tunnel over the mailbox.">EoE</a> port.  <a href="../../d6/d83/a01544.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3AEoEHandlers" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3AEoEHandlers"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../da/dc7/a01548.html">Lib::Ethercat::SOES::EoEHandlers</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network stack of the slave, as the <a class="el" href="../../d0/db9/a01552.html" title="EoE tunnel over the mailbox.">EoE</a> tunnel talks to it.  <a href="../../da/dc7/a01548.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3AEoE" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3AEoE"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/db9/a01552.html">Lib::Ethercat::SOES::EoE</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d0/db9/a01552.html" title="EoE tunnel over the mailbox.">EoE</a> tunnel over the mailbox.  <a href="../../d0/db9/a01552.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dd1/a00804.html">Lib</a></td></tr>
-<tr class="memdesc:d1/dd1/a00804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat" id="r_Lib_3A_3AEthercat"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d64/a00828.html">Lib::Ethercat</a></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES" id="r_Lib_3A_3AEthercat_3A_3ASOES"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html">Lib::Ethercat::SOES</a></td></tr>
-<tr class="memdesc:d1/dea/a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple Open EtherCAT <a class="el" href="../../d5/d75/a01570.html" title="EtherCAT slave.">Slave</a> (<a class="el" href="../../d1/dea/a00829.html" title="Simple Open EtherCAT Slave (SOES) stack integration.">SOES</a>) stack integration. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../de/d9d/a00813.html">Lib</a></td></tr>
+<tr class="memdesc:de/d9d/a00813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3AEthercat" id="r_Lib_3A_3AEthercat"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/de6/a00837.html">Lib::Ethercat</a></td></tr>
+<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES" id="r_Lib_3A_3AEthercat_3A_3ASOES"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dc7/a00838.html">Lib::Ethercat::SOES</a></td></tr>
+<tr class="memdesc:d2/dc7/a00838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple Open EtherCAT <a class="el" href="../../da/dd5/a01580.html" title="EtherCAT slave.">Slave</a> (<a class="el" href="../../d2/dc7/a00838.html" title="Simple Open EtherCAT Slave (SOES) stack integration.">SOES</a>) stack integration. <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aec1c5f98acbef86d50b04a081702ff10" id="r_aec1c5f98acbef86d50b04a081702ff10"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10">Lib::Ethercat::SOES::MailboxProtocol</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10abb1ca97ec761fc37101737ba0aa2e7c5">Lib::Ethercat::SOES::ERROR</a> = 0x00U
+<tr class="memitem:a4955423819d7bf676954f73daa32972b" id="r_a4955423819d7bf676954f73daa32972b"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972b">Lib::Ethercat::SOES::EoEResult</a> : uint16_t { <br />
+&#160;&#160;<a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972bad0749aaba8b833466dfcbb0428e4f89c">Lib::Ethercat::SOES::SUCCESS</a> = 0x0000U
 , <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10a95d1f66a657d5e79ada6e54c0b6f8de2">Lib::Ethercat::SOES::AOE</a> = 0x01U
+&#160;&#160;<a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972ba7a17d42e6fcc83c751f782541e0f154d">Lib::Ethercat::SOES::UNSPECIFIED_ERROR</a> = 0x0001U
 , <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10abbbdde2289802b78dae96b36ea1d6607">Lib::Ethercat::SOES::EOE</a> = 0x02U
+&#160;&#160;<a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972ba518aca26bc9a4e6feeac609023684898">Lib::Ethercat::SOES::UNSUPPORTED_FRAME_TYPE</a> = 0x0002U
 , <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10af10a915e958de33deceb8525ce3338b7">Lib::Ethercat::SOES::COE</a> = 0x03U
+&#160;&#160;<a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972bad9b55c8a668b83ed87ef9e3cbb1818b2">Lib::Ethercat::SOES::NO_IP_SUPPORT</a> = 0x0201U
 , <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10a47c87faef0716aa58d432391eca9d820">Lib::Ethercat::SOES::FOE</a> = 0x04U
+&#160;&#160;<a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972ba1aebf6a7b843eb8cd6721dd429ebb14b">Lib::Ethercat::SOES::NO_DHCP_SUPPORT</a> = 0x0202U
 , <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10a346d7fee0cdcc32a9f6e4f70ba312dc8">Lib::Ethercat::SOES::SOE</a> = 0x05U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10abbff4fb3d7b89a39387f214d0ba1ee10">Lib::Ethercat::SOES::VOE</a> = 0x0FU
+&#160;&#160;<a class="el" href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972ba9f33dee7768e14a29b53b8dc6792a58c">Lib::Ethercat::SOES::NO_FILTER_SUPPORT</a> = 0x0401U
 <br />
  }</td></tr>
-<tr class="memdesc:aec1c5f98acbef86d50b04a081702ff10"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../da/dcf/a01558.html" title="EtherCAT slave mailbox.">Mailbox</a> protocol types, as the mailbox header encodes them (ETG.1000.4).  <a href="../../d1/dea/a00829.html#aec1c5f98acbef86d50b04a081702ff10">More...</a><br /></td></tr>
-<tr class="memitem:a0d1dbf6c78ae1aa2d11b57cab65a26d8" id="r_a0d1dbf6c78ae1aa2d11b57cab65a26d8"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8">Lib::Ethercat::SOES::MailboxError</a> : uint16_t { <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a3dee5c76b66ffa6cc917386bdfaeb2b5">Lib::Ethercat::SOES::SYNTAX</a> = 0x0001U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a735c3d53d46c84c25dc772162b02ca6c">Lib::Ethercat::SOES::UNSUPPORTED_PROTOCOL</a> = 0x0002U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a141b94509ad9973b5ff2f08830956e07">Lib::Ethercat::SOES::INVALID_CHANNEL</a> = 0x0003U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8aaa40839b27fc41b0df06c99e92eac699">Lib::Ethercat::SOES::SERVICE_NOT_SUPPORTED</a> = 0x0004U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a5d0b2a5c7e6da1e3192112f4590ba199">Lib::Ethercat::SOES::INVALID_HEADER</a> = 0x0005U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a33673aed0ec13dc7f6916f55f26eb274">Lib::Ethercat::SOES::SIZE_TOO_SHORT</a> = 0x0006U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a4f7ea67a3b4d3318968a6ade72dccb50">Lib::Ethercat::SOES::NO_MORE_MEMORY</a> = 0x0007U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a51a0660230eb5c4b9f49430f9c2c0f05">Lib::Ethercat::SOES::INVALID_SIZE</a> = 0x0008U
-<br />
- }</td></tr>
-<tr class="memdesc:a0d1dbf6c78ae1aa2d11b57cab65a26d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes of a mailbox error response (ETG.1000.4).  <a href="../../d1/dea/a00829.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a98fb913e58940911741bebbe221d9af8" id="r_a98fb913e58940911741bebbe221d9af8"><td class="memTemplParams" colspan="2">template&lt;EscAccess T_ESC&gt; </td></tr>
-<tr class="memitem:a98fb913e58940911741bebbe221d9af8 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html#a98fb913e58940911741bebbe221d9af8">Lib::Ethercat::SOES::setSyncManagerEnabled</a> (T_ESC &amp;esc, uint8_t index, bool isEnabled) noexcept</td></tr>
-<tr class="memdesc:a98fb913e58940911741bebbe221d9af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables or disables a sync manager from the PDI side.  <br /></td></tr>
+<tr class="memdesc:a4955423819d7bf676954f73daa32972b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Results of an <a class="el" href="../../d0/db9/a01552.html" title="EoE tunnel over the mailbox.">EoE</a> request (ETG.1000.6).  <a href="../../d2/dc7/a00838.html#a4955423819d7bf676954f73daa32972b">More...</a><br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -208,7 +177,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_ab080a3daff6b74c2c7f4ef6a80e99c9.html">Ethercat</a></li><li class="navelem"><a href="../../dir_c7c96065d50f18644c67d832de179f2c.html">SOES</a></li><li class="navelem"><a href="../../dir_2c007b286cf01a5c911ee8232ee2ba1a.html">class</a></li><li class="navelem"><a href="../../d0/d39/a00314.html">Mailbox.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_ab080a3daff6b74c2c7f4ef6a80e99c9.html">Ethercat</a></li><li class="navelem"><a href="../../dir_c7c96065d50f18644c67d832de179f2c.html">SOES</a></li><li class="navelem"><a href="../../dir_2c007b286cf01a5c911ee8232ee2ba1a.html">class</a></li><li class="navelem"><a href="../../d0/d39/a00314.html">EoE.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

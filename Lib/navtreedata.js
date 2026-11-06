@@ -25,22 +25,22 @@
 var NAVTREE =
 [
   [ "IAR Library", "index.html", [
-    [ "PGA460TPWRQ1 usage", "d5/d10/a02396.html", [
-      [ "Hardware assumptions", "d5/d10/a02396.html#pga460_usage_hw", null ],
-      [ "Single measurement", "d5/d10/a02396.html#pga460_usage_basic", null ],
-      [ "Periodic measurement task", "d5/d10/a02396.html#pga460_usage_task", null ],
-      [ "Non-default UART address", "d5/d10/a02396.html#pga460_usage_address", null ]
+    [ "PGA460TPWRQ1 usage", "d4/dcc/a02371.html", [
+      [ "Hardware assumptions", "d4/dcc/a02371.html#pga460_usage_hw", null ],
+      [ "Single measurement", "d4/dcc/a02371.html#pga460_usage_basic", null ],
+      [ "Periodic measurement task", "d4/dcc/a02371.html#pga460_usage_task", null ],
+      [ "Non-default UART address", "d4/dcc/a02371.html#pga460_usage_address", null ]
     ] ],
-    [ "StreamBuffer examples", "dd/d6b/a02397.html", [
-      [ "Dynamic creation", "dd/d6b/a02397.html#streambuffer_dynamic", null ],
-      [ "Static creation", "dd/d6b/a02397.html#streambuffer_static", null ],
-      [ "Task to task", "dd/d6b/a02397.html#streambuffer_task", null ],
-      [ "ISR to task (UART receive)", "dd/d6b/a02397.html#streambuffer_isr", null ],
-      [ "Several writers", "dd/d6b/a02397.html#streambuffer_multiwriter", null ],
-      [ "Monitoring and control", "dd/d6b/a02397.html#streambuffer_monitor", null ],
-      [ "Moving ownership", "dd/d6b/a02397.html#streambuffer_move", null ]
+    [ "StreamBuffer examples", "da/d75/a02372.html", [
+      [ "Dynamic creation", "da/d75/a02372.html#streambuffer_dynamic", null ],
+      [ "Static creation", "da/d75/a02372.html#streambuffer_static", null ],
+      [ "Task to task", "da/d75/a02372.html#streambuffer_task", null ],
+      [ "ISR to task (UART receive)", "da/d75/a02372.html#streambuffer_isr", null ],
+      [ "Several writers", "da/d75/a02372.html#streambuffer_multiwriter", null ],
+      [ "Monitoring and control", "da/d75/a02372.html#streambuffer_monitor", null ],
+      [ "Moving ownership", "da/d75/a02372.html#streambuffer_move", null ]
     ] ],
-    [ "Deprecated List", "d5/d72/a00803.html", null ],
+    [ "Deprecated List", "d8/db7/a00812.html", null ],
     [ "Namespace Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", "namespacemembers_dup" ],
       [ "Functions", "namespacemembers_func.html", null ],
@@ -73,18 +73,17 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/d89/a00071.html",
-"d2/d45/a01826.html#ad56353eb9df7f2e778f6e42f12b62fb8",
-"d3/da5/a01598.html#a8d832b6579b4ecbc8f9555ab3e14aa21",
-"d5/d10/a02396.html#pga460_usage_basic",
-"d6/d01/a01690.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6",
-"d7/d97/a01854.html#abd83536e084fb1aeaa70e8d85cf29525",
-"d9/d6a/a01618.html#ab7afde2f80e2040610c4336405be99da",
-"da/d4e/a01106.html#a2e0c631d402e3175044158dded2de545",
-"db/dbc/a00395.html",
-"dd/d08/a01682.html#aa3c4d9ba3ecc6f999203752275fc0013",
-"de/d7e/a01222.html#a495e4d841b6752aecbcdaa9d1c805420",
-"functions_f.html"
+"d0/db9/a01552.html#a4d41465f94d62fdbab816ab8d8ebd674",
+"d2/d4c/a00984.html#aca8a7487175e31060363fe99270e69a3",
+"d4/d51/a01520.html#a2497e7c2ce49cc0f0fe4601dd78aba7b",
+"d5/dec/a01416.html#af49d430ae34056a991e6c7b4ccc0ba83",
+"d7/d5f/a01888.html#a965c76e6ed7795afd0a8d85f955223ad",
+"d9/d31/a01208.html#a154e2605e5586c699d9c48b4f7231ebe",
+"da/ddc/a01492.html#a146e6de04eded1ed1426630c73a3ad17",
+"dc/d51/a01120.html#acbfceb92cefef5281785b7d5db81df5d",
+"dd/d6d/a01380.html#a8cf4081a00bf0b7c76f0409c632e0f2f",
+"de/d65/a01500.html#af1685a17adc3751bc34f0f22ff53ddba",
+"dir_a524be6d79df1655d2da58f3c245b20d.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

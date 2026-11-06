@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::FMEM::SPI::DriverImpl</title>
+<title>IAR Library: RTOS::MutexGuard</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -110,16 +110,51 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d4e/a01991.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::FMEM::SPI::DriverImpl</div></div>
+  <div class="headertitle"><div class="title">RTOS::MutexGuard</div></div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<p>Demonstrates scope-based mutex locking with <b>RTOS::MutexGuard</b> to ensure automatic unlock.</p>
+<p>Demonstrates scope-based mutex locking with <b>RTOS::MutexGuard</b> to ensure automatic unlock.Shows creating and opening a <b>Mutex</b>, using <b>MutexGuard</b> to protect a critical section, both with an infinite and with a <b>std::chrono</b> timeout, and checking the guard state after construction. The example runs in a task context and expects the FreeRTOS scheduler to be running; a mutex must never be locked or unlocked from an ISR.</p>
+<dl class="section note"><dt>Note</dt><dd>The first guard blocks indefinitely, since it uses the default <b>Mutex::WAIT_FOREVER</b> timeout.</dd></dl>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dd8/a00719.html">Lib/RTOS/FreeRTOS/Mutex.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d7c/a00722.html">Lib/RTOS/FreeRTOS/MutexGuard.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> exampleTask(<span class="keywordtype">void</span> * parameters) {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(parameters);</div>
+<div class="line"> </div>
+<div class="line">    RTOS::Mutex mutex(RTOS::Mutex::Type::NORMAL);</div>
+<div class="line">    <span class="keywordflow">if</span> (!mutex.open()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    {</div>
+<div class="line">        <span class="keyword">const</span> RTOS::MutexGuard guard(mutex); <span class="comment">// Locks on construction, waits forever.</span></div>
+<div class="line">        <span class="keywordflow">if</span> (guard.isLocked()) {</div>
+<div class="line">            <span class="comment">// Critical section protected by &#39;mutex&#39;.</span></div>
+<div class="line">        }</div>
+<div class="line">    } <span class="comment">// Guard destroyed here; the mutex is unlocked only if it was locked.</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> RTOS::MutexGuard guard(mutex, 10ms); guard) {</div>
+<div class="line">        <span class="comment">// Lock acquired within 10 ms.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timed out: the critical section is not protected and nothing is unlocked.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    mutex.close();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00719_html"><div class="ttname"><a href="../../dd/dd8/a00719.html">Mutex.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS mutex and recursive mutex synchronization primitives.</div></div>
+<div class="ttc" id="aa00722_html"><div class="ttname"><a href="../../db/d7c/a00722.html">MutexGuard.hpp</a></div><div class="ttdoc">RAII wrapper for safe, exception-free mutex acquisition and release.</div></div>
+</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d1/dd1/a00804.html">Lib</a></li><li class="navelem"><a href="../../d7/dff/a00805.html">BSP</a></li><li class="navelem"><a href="../../d4/dfd/a00810.html">FMEM</a></li><li class="navelem"><a href="../../dd/d07/a00811.html">SPI</a></li><li class="navelem"><a href="../../d3/d4e/a01991.html">DriverImpl</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -1,5 +1,5 @@
 var a00305 =
 [
-    [ "Lib::Ethercat::SOES::EepromHandlers", "da/d0a/a01526.html", "da/d0a/a01526" ],
-    [ "Lib::Ethercat::SOES::EepromEmulation", "d7/d90/a01530.html", "d7/d90/a01530" ]
+    [ "Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;", "dc/d57/a01512.html", "dc/d57/a01512" ],
+    [ "Lib::Errors::Observer", "db/dbf/a01516.html", "db/dbf/a01516" ]
 ];

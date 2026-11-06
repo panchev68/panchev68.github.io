@@ -1,5 +1,6 @@
 var a00299 =
 [
-    [ "Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;", "de/dc6/a01502.html", "de/dc6/a01502" ],
-    [ "Lib::Errors::Observer", "db/d57/a01506.html", "db/d57/a01506" ]
+    [ "Lib::Errors::ErrorBase&lt; Derived &gt;", "de/d65/a01500.html", "de/d65/a01500" ],
+    [ "Lib::Errors::Error", "dd/d05/a01504.html", "dd/d05/a01504" ],
+    [ "Lib::Errors::Detail::errorIdCounter", "d3/d13/a00836.html#a4aa716a71feabe9eb092678479bdfa78", null ]
 ];
