@@ -1,4 +1,4 @@
 var a00398 =
 [
-    [ "Lib::HAL::Iwdg", "dd/d8d/a01667.html", "dd/d8d/a01667" ]
+    [ "Lib::HAL::DACPort&lt; DriverMode::DMA &gt;", "de/dfb/a01874.html", "de/dfb/a01874" ]
 ];

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::Exception</title>
+<title>IAR Library: Lib::Ethercat::SOES::CoE</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,67 +112,132 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/dbc/a01704.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Exception</div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::CoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Lightweight exception that stores a C-string message without allocating. </p>
-<p>The message pointer is stored as is, so it must reference storage that outlives the exception, typically a string literal. Copying is cheap and always succeeds, as required for an object that is thrown. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::Helper::Exception:</div>
+<div class="textblock"><p>CANopen over EtherCAT (<a class="el" href="../../d0/dbc/a01704.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>): the SDO server and the SDO information service of an EtherCAT slave. </p>
+<p>Serves the object dictionary of the slave to the master over the mailbox. It handles the SDO upload (read) and download (write) of an object, expedited (up to 4 bytes), normal (the whole value in one mailbox message) and segmented (a value split over several messages), checks the access rights of the object against the AL state, lets the application validate and react to a transfer, and answers a failed request with an SDO abort. The SDO information service lists the objects (also over several fragments) and describes an object and its entries, from the names, data types and sizes in the dictionary.</p>
+<p>Not covered: complete access (answered with the abort for "complete access not supported") and the object lists other than "all objects".</p>
+<p>The dictionary is a table given by the application, ordered by index and then subindex, with the entries of one object next to each other; this class owns no data. Use it from the mailbox handler of a "Slave": pass every message to "handle()", call "service()" in the idle hook of the slave, and "reset()" when the mailbox stops. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Ethercat::SOES::CoE:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d12/a01703.svg" width="163" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::Exception:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d05/a01702.svg" width="163" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d05/a01702.svg" width="175" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9ec6a52da77a9ac45862f54ddef1c72d" id="r_a9ec6a52da77a9ac45862f54ddef1c72d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9ec6a52da77a9ac45862f54ddef1c72d">Exception</a> () noexcept=default</td></tr>
-<tr class="memdesc:a9ec6a52da77a9ac45862f54ddef1c72d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an exception with a default message indicating an unspecified error.  <br /></td></tr>
-<tr class="memitem:a25551a21318cf9b33efd57e954f91490" id="r_a25551a21318cf9b33efd57e954f91490"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a25551a21318cf9b33efd57e954f91490">Exception</a> (const char *message) noexcept</td></tr>
-<tr class="memdesc:a25551a21318cf9b33efd57e954f91490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct from a C-string message.  <br /></td></tr>
-<tr class="memitem:a7accdf6a46f45f923cd7502830b0a1a8" id="r_a7accdf6a46f45f923cd7502830b0a1a8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7accdf6a46f45f923cd7502830b0a1a8">Exception</a> (const Exception &amp;)=default</td></tr>
-<tr class="memdesc:a7accdf6a46f45f923cd7502830b0a1a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaulted copy constructor; required because a thrown object must be copy-constructible.  <br /></td></tr>
-<tr class="memitem:ac48124bc1bd301a1f09cf95be8fcf851" id="r_ac48124bc1bd301a1f09cf95be8fcf851"><td class="memItemLeft"><a class="el" href="#a9ec6a52da77a9ac45862f54ddef1c72d">Exception</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac48124bc1bd301a1f09cf95be8fcf851">operator=</a> (const <a class="el" href="#a9ec6a52da77a9ac45862f54ddef1c72d">Exception</a> &amp;)=default</td></tr>
-<tr class="memdesc:ac48124bc1bd301a1f09cf95be8fcf851"><td class="mdescLeft">&#160;</td><td class="mdescRight">Defaulted copy assignment operator.  <br /></td></tr>
-<tr class="memitem:aab05c0efba4581a5739c344c1d848c87" id="r_aab05c0efba4581a5739c344c1d848c87"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aab05c0efba4581a5739c344c1d848c87">~Exception</a> () override=default</td></tr>
-<tr class="memdesc:aab05c0efba4581a5739c344c1d848c87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the exception; the message is not owned and is left untouched.  <br /></td></tr>
-<tr class="memitem:ad1278467b92ab31659263c92c3c292e1" id="r_ad1278467b92ab31659263c92c3c292e1"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#ad1278467b92ab31659263c92c3c292e1">what</a> () const noexcept override</td></tr>
-<tr class="memdesc:ad1278467b92ab31659263c92c3c292e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the stored exception description message.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8803b234100fe8e98fb21aa01083805" id="r_ae8803b234100fe8e98fb21aa01083805"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ae8803b234100fe8e98fb21aa01083805">setTerminateHandler</a> (<a class="el" href="#a0e35d785dbe7d351b99d22035ed1b718">TerminateHandler</a> handler) noexcept</td></tr>
-<tr class="memdesc:ae8803b234100fe8e98fb21aa01083805"><td class="mdescLeft">&#160;</td><td class="mdescRight">Install a new global terminate handler.  <br /></td></tr>
-<tr class="memitem:ab631975b55d83bcd0cad9ad9e1d0c9da" id="r_ab631975b55d83bcd0cad9ad9e1d0c9da"><td class="memItemLeft">static <a class="el" href="#a0e35d785dbe7d351b99d22035ed1b718">TerminateHandler</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab631975b55d83bcd0cad9ad9e1d0c9da">getTerminateHandler</a> () noexcept</td></tr>
-<tr class="memdesc:ab631975b55d83bcd0cad9ad9e1d0c9da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the currently installed terminate handler.  <br /></td></tr>
+<tr class="memitem:aaf9d8025b89e7899d8cb2c83ae135e45" id="r_aaf9d8025b89e7899d8cb2c83ae135e45"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> (std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt; objects, std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt; descriptions={}) noexcept</td></tr>
+<tr class="memdesc:aaf9d8025b89e7899d8cb2c83ae135e45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the server for an object dictionary.  <br /></td></tr>
+<tr class="memitem:ac46699d9659c29b73d7c01ca84cbfb5f" id="r_ac46699d9659c29b73d7c01ca84cbfb5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac46699d9659c29b73d7c01ca84cbfb5f">~CoE</a> ()=default</td></tr>
+<tr class="memdesc:ac46699d9659c29b73d7c01ca84cbfb5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the server.  <br /></td></tr>
+<tr class="memitem:a71024e33a92eff3dd5b442e02f0b9425" id="r_a71024e33a92eff3dd5b442e02f0b9425"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a71024e33a92eff3dd5b442e02f0b9425">CoE</a> (const CoE &amp;other)=delete</td></tr>
+<tr class="memdesc:a71024e33a92eff3dd5b442e02f0b9425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:a7b986f95ef2d9b17a078924eddf7d17c" id="r_a7b986f95ef2d9b17a078924eddf7d17c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7b986f95ef2d9b17a078924eddf7d17c">CoE</a> (CoE &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a7b986f95ef2d9b17a078924eddf7d17c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:aaa3b4bee41d8960bb544d7299a183270" id="r_aaa3b4bee41d8960bb544d7299a183270"><td class="memItemLeft"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aaa3b4bee41d8960bb544d7299a183270">operator=</a> (const <a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:aaa3b4bee41d8960bb544d7299a183270"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:ac45513fde48737f49471c84707ec42fa" id="r_ac45513fde48737f49471c84707ec42fa"><td class="memItemLeft"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac45513fde48737f49471c84707ec42fa">operator=</a> (<a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ac45513fde48737f49471c84707ec42fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the server serves one dictionary.  <br /></td></tr>
+<tr class="memitem:abfa900feff906b9e829ef4ac5da55711" id="r_abfa900feff906b9e829ef4ac5da55711"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abfa900feff906b9e829ef4ac5da55711">setHandlers</a> (const <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> &amp;newHandlers) noexcept</td></tr>
+<tr class="memdesc:abfa900feff906b9e829ef4ac5da55711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the application hooks.  <br /></td></tr>
+<tr class="memitem:ab2c195af5b9a058b13b9b6cca0f9159f" id="r_ab2c195af5b9a058b13b9b6cca0f9159f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab2c195af5b9a058b13b9b6cca0f9159f">reset</a> () noexcept</td></tr>
+<tr class="memdesc:ab2c195af5b9a058b13b9b6cca0f9159f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops a segmented transfer and an object list that is being sent.  <br /></td></tr>
+<tr class="memitem:afdb20681a34fcdfcb78cf75a78ce0347" id="r_afdb20681a34fcdfcb78cf75a78ce0347"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:afdb20681a34fcdfcb78cf75a78ce0347 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afdb20681a34fcdfcb78cf75a78ce0347">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../de/daf/a01736.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload, uint8_t state) noexcept</td></tr>
+<tr class="memdesc:afdb20681a34fcdfcb78cf75a78ce0347"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
+<tr class="memitem:aaa57403f24de4e0bd9670919c80376ac" id="r_aaa57403f24de4e0bd9670919c80376ac"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:aaa57403f24de4e0bd9670919c80376ac template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaa57403f24de4e0bd9670919c80376ac">service</a> (T_MAILBOX &amp;mailbox) noexcept</td></tr>
+<tr class="memdesc:aaa57403f24de4e0bd9670919c80376ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the next fragment of an object list that is being sent.  <br /></td></tr>
+<tr class="memitem:afca119caf11fde38cdab46d3d4205107" id="r_afca119caf11fde38cdab46d3d4205107"><td class="memItemLeft">constexpr const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> *&#160;</td><td class="memItemRight"><a class="el" href="#afca119caf11fde38cdab46d3d4205107">find</a> (uint16_t index, uint8_t subIndex) const noexcept</td></tr>
+<tr class="memdesc:afca119caf11fde38cdab46d3d4205107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Looks an entry up in the dictionary.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a0e35d785dbe7d351b99d22035ed1b718" name="a0e35d785dbe7d351b99d22035ed1b718"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e35d785dbe7d351b99d22035ed1b718">&#9670;&#160;</a></span>TerminateHandler</h2>
+<a id="a34422d4477e1d28e96ff0a570ccb0832" name="a34422d4477e1d28e96ff0a570ccb0832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34422d4477e1d28e96ff0a570ccb0832">&#9670;&#160;</a></span>Abort</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a0e35d785dbe7d351b99d22035ed1b718">Lib::Helper::Exception::TerminateHandler</a> = std::terminate_handler</td>
+          <td class="memname">using <a class="el" href="../../d3/d69/a00844.html#ab9edefd3f6cea3cfc71c65cdd01019de">Lib::Ethercat::SOES::CoE::Abort</a> = <a class="el" href="../../d3/d69/a00844.html#ab9edefd3f6cea3cfc71c65cdd01019de">SdoAbort</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Alias for the C++ terminate handler type installed through <b>std::set_terminate()</b>. </p>
+<p>SDO abort codes. </p>
+
+</div>
+</div>
+<a id="a19c1714c2af7e709205e93053af6fee9" name="a19c1714c2af7e709205e93053af6fee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19c1714c2af7e709205e93053af6fee9">&#9670;&#160;</a></span>Access</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d3/d69/a00844.html#a0a85aabfc74e31864de76e3f26f1b197">Lib::Ethercat::SOES::CoE::Access</a> = <a class="el" href="../../d3/d69/a00844.html#a0a85aabfc74e31864de76e3f26f1b197">ObjectAccess</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#a19c1714c2af7e709205e93053af6fee9" title="Access rights of an object.">Access</a> rights of an object. </p>
+
+</div>
+</div>
+<a id="a4dfbb7a5575c7ee9e62bfeab0e6aca45" name="a4dfbb7a5575c7ee9e62bfeab0e6aca45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">&#9670;&#160;</a></span>Handlers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Lib::Ethercat::SOES::CoE::Handlers</a> = <a class="el" href="../../d4/d26/a01700.html">CoEHandlers</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Application hooks. </p>
+
+</div>
+</div>
+<a id="a827cdba5edb655bcc4f5784b4a4e893d" name="a827cdba5edb655bcc4f5784b4a4e893d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a827cdba5edb655bcc4f5784b4a4e893d">&#9670;&#160;</a></span>Object</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Lib::Ethercat::SOES::CoE::Object</a> = <a class="el" href="../../da/dc4/a01692.html">CoEObject</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>An entry of the object dictionary. </p>
+
+</div>
+</div>
+<a id="a35b9281b5d29eae7fab95112ba1e5115" name="a35b9281b5d29eae7fab95112ba1e5115"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35b9281b5d29eae7fab95112ba1e5115">&#9670;&#160;</a></span>ObjectInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">Lib::Ethercat::SOES::CoE::ObjectInfo</a> = <a class="el" href="../../d9/d49/a01696.html">CoEObjectInfo</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The description of an object. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9ec6a52da77a9ac45862f54ddef1c72d" name="a9ec6a52da77a9ac45862f54ddef1c72d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ec6a52da77a9ac45862f54ddef1c72d">&#9670;&#160;</a></span>Exception() <span class="overload">[1/3]</span></h2>
+<a id="aaf9d8025b89e7899d8cb2c83ae135e45" name="aaf9d8025b89e7899d8cb2c83ae135e45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf9d8025b89e7899d8cb2c83ae135e45">&#9670;&#160;</a></span>CoE() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +246,51 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::Exception::Exception </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>objects</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const <a class="el" href="#a35b9281b5d29eae7fab95112ba1e5115">ObjectInfo</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>descriptions</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the server for an object dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">objects</td><td>The dictionary, ordered by index and subindex; the table and the values it points to must outlive the server. </td></tr>
+    <tr><td class="paramname">descriptions</td><td>Optional descriptions of whole objects, for the SDO information service. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_aaf9d8025b89e7899d8cb2c83ae135e45_icgraph.svg" width="504" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac46699d9659c29b73d7c01ca84cbfb5f" name="ac46699d9659c29b73d7c01ca84cbfb5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac46699d9659c29b73d7c01ca84cbfb5f">&#9670;&#160;</a></span>~CoE()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::CoE::~CoE </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -187,23 +298,17 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct an exception with a default message indicating an unspecified error. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_a9ec6a52da77a9ac45862f54ddef1c72d_icgraph.svg" width="492" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Destroys the server. </p>
 
 </div>
 </div>
-<a id="a25551a21318cf9b33efd57e954f91490" name="a25551a21318cf9b33efd57e954f91490"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25551a21318cf9b33efd57e954f91490">&#9670;&#160;</a></span>Exception() <span class="overload">[2/3]</span></h2>
+<a id="a71024e33a92eff3dd5b442e02f0b9425" name="a71024e33a92eff3dd5b442e02f0b9425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71024e33a92eff3dd5b442e02f0b9425">&#9670;&#160;</a></span>CoE() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,23 +317,62 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::Exception::Exception </td>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td class="paramtype">const CoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct from a C-string message. </p>
+<p>Copying is deleted: the server serves one dictionary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">message</td><td>Null-terminated message with static storage duration; a <b>nullptr</b> is replaced by <b>NULL_MESSAGE</b>. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_a71024e33a92eff3dd5b442e02f0b9425_cgraph.svg" width="476" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7b986f95ef2d9b17a078924eddf7d17c" name="a7b986f95ef2d9b17a078924eddf7d17c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b986f95ef2d9b17a078924eddf7d17c">&#9670;&#160;</a></span>CoE() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::CoE::CoE </td>
+          <td>(</td>
+          <td class="paramtype">CoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,74 +380,14 @@ Static Public Member Functions</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_a25551a21318cf9b33efd57e954f91490_cgraph.svg" width="492" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_a7b986f95ef2d9b17a078924eddf7d17c_cgraph.svg" width="476" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="a7accdf6a46f45f923cd7502830b0a1a8" name="a7accdf6a46f45f923cd7502830b0a1a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7accdf6a46f45f923cd7502830b0a1a8">&#9670;&#160;</a></span>Exception() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::Exception::Exception </td>
-          <td>(</td>
-          <td class="paramtype">const Exception &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Defaulted copy constructor; required because a thrown object must be copy-constructible. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_a7accdf6a46f45f923cd7502830b0a1a8_cgraph.svg" width="492" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aab05c0efba4581a5739c344c1d848c87" name="aab05c0efba4581a5739c344c1d848c87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab05c0efba4581a5739c344c1d848c87">&#9670;&#160;</a></span>~Exception()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::Helper::Exception::~Exception </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel override">override</span><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroy the exception; the message is not owned and is left untouched. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ab631975b55d83bcd0cad9ad9e1d0c9da" name="ab631975b55d83bcd0cad9ad9e1d0c9da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab631975b55d83bcd0cad9ad9e1d0c9da">&#9670;&#160;</a></span>getTerminateHandler()</h2>
+<a id="afca119caf11fde38cdab46d3d4205107" name="afca119caf11fde38cdab46d3d4205107"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afca119caf11fde38cdab46d3d4205107">&#9670;&#160;</a></span>find()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -312,26 +396,103 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a0e35d785dbe7d351b99d22035ed1b718">TerminateHandler</a> Lib::Helper::Exception::getTerminateHandler </td>
+          <td class="memname">const <a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d">Object</a> * Lib::Ethercat::SOES::CoE::find </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>subIndex</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieve the currently installed terminate handler. </p>
-<dl class="section return"><dt>Returns</dt><dd>Currently installed terminate handler. </dd></dl>
+<p>Looks an entry up in the dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td><a class="el" href="#a827cdba5edb655bcc4f5784b4a4e893d" title="An entry of the object dictionary.">Object</a> index. </td></tr>
+    <tr><td class="paramname">subIndex</td><td>Subindex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The entry, or nothing if the dictionary has none. </dd></dl>
 
 </div>
 </div>
-<a id="ac48124bc1bd301a1f09cf95be8fcf851" name="ac48124bc1bd301a1f09cf95be8fcf851"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac48124bc1bd301a1f09cf95be8fcf851">&#9670;&#160;</a></span>operator=()</h2>
+<a id="afdb20681a34fcdfcb78cf75a78ce0347" name="afdb20681a34fcdfcb78cf75a78ce0347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb20681a34fcdfcb78cf75a78ce0347">&#9670;&#160;</a></span>handle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_MAILBOX&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Ethercat::SOES::CoE::handle </td>
+          <td>(</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/daf/a01736.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles a mailbox message. </p>
+<p>Does nothing for a protocol other than <a class="el" href="../../d0/dbc/a01704.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>. For <a class="el" href="../../d0/dbc/a01704.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> it answers through "mailbox": an SDO response, an SDO abort, an SDO information response or error, or a mailbox error.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A "Mailbox" type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mailbox</td><td>The mailbox the message came from; the answer is sent through it. </td></tr>
+    <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload of the message. </td></tr>
+    <tr><td class="paramname">state</td><td>AL state of the slave, as the "SlaveState" values encode it. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the message was a <a class="el" href="../../d0/dbc/a01704.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a> message. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_afdb20681a34fcdfcb78cf75a78ce0347_cgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac45513fde48737f49471c84707ec42fa" name="ac45513fde48737f49471c84707ec42fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac45513fde48737f49471c84707ec42fa">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -340,32 +501,38 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a9ec6a52da77a9ac45862f54ddef1c72d">Exception</a> &amp; Lib::Helper::Exception::operator= </td>
+          <td class="memname"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp; Lib::Ethercat::SOES::CoE::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a9ec6a52da77a9ac45862f54ddef1c72d">Exception</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Defaulted copy assignment operator. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Move assignment is deleted: the server serves one dictionary. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_ac48124bc1bd301a1f09cf95be8fcf851_cgraph.svg" width="488" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_ac45513fde48737f49471c84707ec42fa_cgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ae8803b234100fe8e98fb21aa01083805" name="ae8803b234100fe8e98fb21aa01083805"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8803b234100fe8e98fb21aa01083805">&#9670;&#160;</a></span>setTerminateHandler()</h2>
+<a id="aaa3b4bee41d8960bb544d7299a183270" name="aaa3b4bee41d8960bb544d7299a183270"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa3b4bee41d8960bb544d7299a183270">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -374,31 +541,38 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Helper::Exception::setTerminateHandler </td>
+          <td class="memname"><a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp; Lib::Ethercat::SOES::CoE::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a0e35d785dbe7d351b99d22035ed1b718">TerminateHandler</a></td>          <td class="paramname"><span class="paramname"><em>handler</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#aaf9d8025b89e7899d8cb2c83ae135e45">CoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Install a new global terminate handler. </p>
+<p>Copy assignment is deleted: the server serves one dictionary. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handler</td><td>Handler to install; <b>nullptr</b> restores the implementation default. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_aaa3b4bee41d8960bb544d7299a183270_cgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="ad1278467b92ab31659263c92c3c292e1" name="ad1278467b92ab31659263c92c3c292e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1278467b92ab31659263c92c3c292e1">&#9670;&#160;</a></span>what()</h2>
+<a id="ab2c195af5b9a058b13b9b6cca0f9159f" name="ab2c195af5b9a058b13b9b6cca0f9159f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c195af5b9a058b13b9b6cca0f9159f">&#9670;&#160;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -407,21 +581,102 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const char * Lib::Helper::Exception::what </td>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::reset </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel override">override</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return the stored exception description message. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to a null-terminated C-string describing the error; never <b>nullptr</b>. </dd></dl>
+<p>Drops a segmented transfer and an object list that is being sent. </p>
+<p>Call it when the mailbox stops. </p>
+
+</div>
+</div>
+<a id="aaa57403f24de4e0bd9670919c80376ac" name="aaa57403f24de4e0bd9670919c80376ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa57403f24de4e0bd9670919c80376ac">&#9670;&#160;</a></span>service()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_MAILBOX&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::service </td>
+          <td>(</td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends the next fragment of an object list that is being sent. </p>
+<p>Call it periodically, for example from the idle hook of the slave; it does nothing while the master has not read the previous message.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A "Mailbox" type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mailbox</td><td>The mailbox to send through. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dbc/a01704_aaa57403f24de4e0bd9670919c80376ac_icgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abfa900feff906b9e829ef4ac5da55711" name="abfa900feff906b9e829ef4ac5da55711"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfa900feff906b9e829ef4ac5da55711">&#9670;&#160;</a></span>setHandlers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Ethercat::SOES::CoE::setHandlers </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a4dfbb7a5575c7ee9e62bfeab0e6aca45">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the application hooks. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">newHandlers</td><td>The hooks; an empty one is not called. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -438,7 +693,7 @@ Static Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d0/d11/a00842.html">Helper</a></li><li class="navelem"><a href="../../d0/dbc/a01704.html">Exception</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../dc/d22/a00843.html">Ethercat</a></li><li class="navelem"><a href="../../d3/d69/a00844.html">SOES</a></li><li class="navelem"><a href="../../d0/dbc/a01704.html">CoE</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

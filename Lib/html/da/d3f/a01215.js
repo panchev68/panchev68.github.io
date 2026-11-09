@@ -1,12 +1,12 @@
 var a01215 =
 [
-    [ "State", "d5/d39/a01219.html", "d5/d39/a01219" ],
-    [ "Quality", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
-    [ "Info", "d9/da8/a01227.html", "d9/da8/a01227" ],
-    [ "Connection", "da/d3f/a01215.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
-    [ "Connection", "da/d3f/a01215.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
-    [ "operator=", "da/d3f/a01215.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
-    [ "info", "da/d3f/a01215.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "da/d3f/a01215.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "da/d3f/a01215.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "debounceDuration", "da/d3f/a01215.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "da/d3f/a01215.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "da/d3f/a01215.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "da/d3f/a01215.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "da/d3f/a01215.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "da/d3f/a01215.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "da/d3f/a01215.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "da/d3f/a01215.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "da/d3f/a01215.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

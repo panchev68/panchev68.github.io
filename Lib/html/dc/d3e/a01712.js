@@ -1,11 +1,15 @@
 var a01712 =
 [
-    [ "Event", "d4/df6/a01716.html", null ],
-    [ "SPIPort", "dc/d3e/a01712.html#a6887b333ef818d3bd80112c8ce57998d", null ],
-    [ "~SPIPort", "dc/d3e/a01712.html#a3c1c2c8c35984e9252444214a82cb580", null ],
-    [ "abort", "dc/d3e/a01712.html#a6cb270a1c943f01441c7e1e2ce162152", null ],
-    [ "close", "dc/d3e/a01712.html#a3d92d38cf9aaad4c5b993319ea841937", null ],
-    [ "open", "dc/d3e/a01712.html#a3d8b450a6c14d306d599129878b516aa", null ],
-    [ "waitForEvent", "dc/d3e/a01712.html#a4223a8d192aa444f52e1c3ef5d123cec", null ],
-    [ "SPIPortBase< SPIPort< DriverMode::IT > >", "dc/d3e/a01712.html#a8818b3819068e3558f2ee4768a0b6669", null ]
+    [ "dnsIp", "dc/d3e/a01712.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "dc/d3e/a01712.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "dc/d3e/a01712.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "dc/d3e/a01712.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "dc/d3e/a01712.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "dc/d3e/a01712.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "dc/d3e/a01712.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "dc/d3e/a01712.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "dc/d3e/a01712.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "dc/d3e/a01712.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "dc/d3e/a01712.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "dc/d3e/a01712.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

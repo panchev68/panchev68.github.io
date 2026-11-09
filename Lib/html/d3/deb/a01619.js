@@ -1,10 +1,7 @@
 var a01619 =
 [
-    [ "Input", "d3/deb/a01619.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d3/deb/a01619.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "isHigh", "d3/deb/a01619.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d3/deb/a01619.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d3/deb/a01619.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "read", "d3/deb/a01619.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d3/deb/a01619.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "FrameWriter", "d3/deb/a01619.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
+    [ "put", "d3/deb/a01619.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
+    [ "put", "d3/deb/a01619.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
+    [ "put", "d3/deb/a01619.html#abb5db27849ce33eefe7c66d078a1372b", null ]
 ];

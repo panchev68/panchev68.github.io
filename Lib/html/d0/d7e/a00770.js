@@ -1,5 +1,6 @@
 var a00770 =
 [
-    [ "Protocol", "d6/deb/a02214.html", "d6/deb/a02214" ],
-    [ "ServiceBase", "d6/d41/a02222.html", "d6/d41/a02222" ]
+    [ "Lib::SolarControl::PerturbAndObserve", "d5/d61/a02474.html", "d5/d61/a02474" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Config", "d4/deb/a02478.html", "d4/deb/a02478" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d2/df5/a02482.html", "d2/df5/a02482" ]
 ];

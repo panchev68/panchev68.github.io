@@ -1,8 +1,17 @@
 var a01018 =
 [
-    [ "operator==", "d3/d08/a01018.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "d3/d08/a01018.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "d3/d08/a01018.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "d3/d08/a01018.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "d3/d08/a01018.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "Config", "d1/dd8/a01022.html", "d1/dd8/a01022" ],
+    [ "Interface", "d3/d08/a01018.html#a381267cd26262085628dc52296d42a8c", null ],
+    [ "~Interface", "d3/d08/a01018.html#aef76c4d4ab040fbe9b344444f1ca1f25", null ],
+    [ "close", "d3/d08/a01018.html#a4a3a734f32c1aa4414ad9067d7cb157f", null ],
+    [ "deselect", "d3/d08/a01018.html#a0b87868f20232885a5b0a2ef5c8d1bcf", null ],
+    [ "lock", "d3/d08/a01018.html#a1e411e237b03ed440a7c1b468aefd254", null ],
+    [ "open", "d3/d08/a01018.html#ae082eeea2b4df228729740f9945df189", null ],
+    [ "read", "d3/d08/a01018.html#a59f57dc88e37b6d81e93ccffd01ee9ed", null ],
+    [ "read", "d3/d08/a01018.html#a50584766a7982887fc9dec5defbeb2b6", null ],
+    [ "readWrite", "d3/d08/a01018.html#ae591bbd92b46b72f8129af300a672a5a", null ],
+    [ "select", "d3/d08/a01018.html#ab62e9728d2b5fca07cb024578f579484", null ],
+    [ "unlock", "d3/d08/a01018.html#a731e79a38afda2e92585da34cbf9b7ea", null ],
+    [ "write", "d3/d08/a01018.html#af4430f4b29907dbbc81a1c4df8783b4d", null ],
+    [ "write", "d3/d08/a01018.html#adfad30fd3c2f39252488033eab8522f4", null ]
 ];

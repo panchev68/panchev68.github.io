@@ -1,6 +1,8 @@
 var a02168 =
 [
-    [ "pinNRST", "d1/dce/a02168.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "d1/dce/a02168.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "d1/dce/a02168.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
+    [ "crc16", "d1/dce/a02168.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "d1/dce/a02168.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "d1/dce/a02168.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "d1/dce/a02168.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "d1/dce/a02168.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

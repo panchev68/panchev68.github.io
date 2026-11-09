@@ -1,7 +1,5 @@
 var a02079 =
 [
-    [ "Config", "dc/d21/a02079.html#aa61c6d1302b314f60627c2cf9ac37d04", null ],
-    [ "name", "dc/d21/a02079.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "dc/d21/a02079.html#a274584bafb133fa51a23c4c52e77f64f", null ],
-    [ "stackSize", "dc/d21/a02079.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "USBDevicePort", "dc/d21/a02079.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
+    [ "~USBDevicePort", "dc/d21/a02079.html#a380acfe834fbf265a2fdfe8e26550867", null ]
 ];

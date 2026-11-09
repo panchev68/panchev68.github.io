@@ -1,12 +1,11 @@
 var a01554 =
 [
-    [ "Event", "da/dcf/a01558.html", null ],
-    [ "ADCPort", "d7/d1d/a01554.html#a4367ca9803f69b785980f81032d2b4e5", null ],
-    [ "~ADCPort", "d7/d1d/a01554.html#a3b2d65c049b35eeeae2d4e9cad4a7a1f", null ],
-    [ "close", "d7/d1d/a01554.html#a5701c9da4db47e937bec19f3d29c9855", null ],
-    [ "open", "d7/d1d/a01554.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
-    [ "read", "d7/d1d/a01554.html#ada05318e458485bb7ae8564156216202", null ],
-    [ "start", "d7/d1d/a01554.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
-    [ "stop", "d7/d1d/a01554.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
-    [ "waitForEvent", "d7/d1d/a01554.html#a780888659faa909e3e3228c427e5969e", null ]
+    [ "ignoredMessagesByTimeout", "d7/d1d/a01554.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d7/d1d/a01554.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "d7/d1d/a01554.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "d7/d1d/a01554.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "d7/d1d/a01554.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "d7/d1d/a01554.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "d7/d1d/a01554.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "d7/d1d/a01554.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

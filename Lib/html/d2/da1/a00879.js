@@ -1,7 +1,8 @@
 var a00879 =
 [
-    [ "Config", "d2/da1/a00879.html#a71f90ba5852d744d364d627c9200231e", null ],
-    [ "M24C16", "d2/da1/a00879.html#aae7396e5f8ca899dc70ff7c0033dc7b0", null ],
-    [ "~M24C16", "d2/da1/a00879.html#afba7ed293354d2140d53c27e9da67788", null ],
-    [ "Driver< M24C16 >", "d2/da1/a00879.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
+    [ "Config", "d7/d34/a00883.html", "d7/d34/a00883" ],
+    [ "Beep", "d2/da1/a00879.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "isPlaying", "d2/da1/a00879.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "play", "d2/da1/a00879.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
+    [ "RTOS::TickClient< Beep >", "d2/da1/a00879.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

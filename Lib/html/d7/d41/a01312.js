@@ -1,14 +1,12 @@
 var a01312 =
 [
-    [ "ApiFrameBuffer", "d7/d41/a01312.html#a3b3674e333a946b6da57569ec9703a85", null ],
-    [ "~ApiFrameBuffer", "d7/d41/a01312.html#a5c72d2af7cd98b91654724e8edae76ca", null ],
-    [ "append", "d7/d41/a01312.html#a67b0d16ac4e2077bed10dfe096e3f240", null ],
-    [ "append", "d7/d41/a01312.html#a8e0c809c178df02cc620c38ad073e4a5", null ],
-    [ "append", "d7/d41/a01312.html#aa29da9051562fe6a234aeda879afaed5", null ],
-    [ "assign", "d7/d41/a01312.html#aed160e1113397275fa78cd16cfdc9a8f", null ],
-    [ "assign", "d7/d41/a01312.html#adba4fc58aa8f722022b0a180a244fba3", null ],
-    [ "clear", "d7/d41/a01312.html#a5b7bf12667a1163e217aa9776f2be792", null ],
-    [ "getData", "d7/d41/a01312.html#af330a9ce26933f4495d1e727a6394423", null ],
-    [ "getData", "d7/d41/a01312.html#a3a2c07618514a2fe959b0e7dacd5ea3b", null ],
-    [ "getSize", "d7/d41/a01312.html#aee12a2741eeba5e11e1fa84b36d86842", null ]
+    [ "SerialPortBase", "d7/d41/a01312.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "d7/d41/a01312.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "d7/d41/a01312.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "d7/d41/a01312.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "d7/d41/a01312.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "d7/d41/a01312.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "d7/d41/a01312.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "d7/d41/a01312.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "d7/d41/a01312.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

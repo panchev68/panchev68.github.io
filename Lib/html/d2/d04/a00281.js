@@ -1,4 +1,4 @@
 var a00281 =
 [
-    [ "mbx_cfg_t", "d2/dc4/a01483.html", "d2/dc4/a01483" ]
+    [ "Lib::Digi::Core::Frame0x89", "d9/d3b/a01650.html", "d9/d3b/a01650" ]
 ];

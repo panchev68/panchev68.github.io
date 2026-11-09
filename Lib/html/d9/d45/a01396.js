@@ -1,8 +1,13 @@
 var a01396 =
 [
-    [ "operator Frame::Data", "d9/d45/a01396.html#a17b184b443db4543afc48f73f2b2cb1e", null ],
-    [ "dstAddress", "d9/d45/a01396.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "d9/d45/a01396.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "d9/d45/a01396.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "d9/d45/a01396.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "Config", "dc/d35/a01400.html", "dc/d35/a01400" ],
+    [ "WolfSSLDh", "d9/d45/a01396.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
+    [ "~WolfSSLDh", "d9/d45/a01396.html#a6d03ea454eff6ec49352184b945a04e2", null ],
+    [ "WolfSSLDh", "d9/d45/a01396.html#aabb6311ca11dc1faceab33055d97c824", null ],
+    [ "WolfSSLDh", "d9/d45/a01396.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
+    [ "agree", "d9/d45/a01396.html#a76b96df40bf320de9d7254054ad2ab18", null ],
+    [ "generateKeyPair", "d9/d45/a01396.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
+    [ "open", "d9/d45/a01396.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
+    [ "operator=", "d9/d45/a01396.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
+    [ "operator=", "d9/d45/a01396.html#a050501c01119e2aa82565a060075ee61", null ]
 ];

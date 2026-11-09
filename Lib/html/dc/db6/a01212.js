@@ -1,15 +1,12 @@
 var a01212 =
 [
-    [ "Value", "dc/db6/a01212.html#a59c8aeef51295445b21b24d4c535d6e0", [
-      [ "INIT", "dc/db6/a01212.html#a59c8aeef51295445b21b24d4c535d6e0aaa7542dc13ab91223fcf190b28846d98", null ],
-      [ "READY", "dc/db6/a01212.html#a59c8aeef51295445b21b24d4c535d6e0ae1d7fd9328c3a404f8d7886da7a2f1a8", null ],
-      [ "CONNECTED", "dc/db6/a01212.html#a59c8aeef51295445b21b24d4c535d6e0a579710f202d95345d2555010d4cbc29f", null ],
-      [ "DISCONNECTED", "dc/db6/a01212.html#a59c8aeef51295445b21b24d4c535d6e0ae46b7f4649cda77c1145dc0f77259acf", null ]
-    ] ],
-    [ "State", "dc/db6/a01212.html#a3007a4a510f248533d6430b451c6b00a", null ],
-    [ "State", "dc/db6/a01212.html#a95ebe78d3b35e550284d27bc67ff6c7e", null ],
-    [ "isConnected", "dc/db6/a01212.html#a65815696748e22f0a55e4ac329b6c0d1", null ],
-    [ "operator uint32_t", "dc/db6/a01212.html#a9b994b0a748f87f74f1297ef9aed5b1b", null ],
-    [ "operator=", "dc/db6/a01212.html#a14595d3e685bb58c80b00a821f6e2a54", null ],
-    [ "onConnectionChanged", "dc/db6/a01212.html#af678900015fb6460c22371a41baecf46", null ]
+    [ "debounceDuration", "dc/db6/a01212.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "dc/db6/a01212.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "dc/db6/a01212.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "dc/db6/a01212.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "dc/db6/a01212.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "dc/db6/a01212.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "dc/db6/a01212.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "dc/db6/a01212.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "dc/db6/a01212.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

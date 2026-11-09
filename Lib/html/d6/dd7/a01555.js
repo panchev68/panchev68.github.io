@@ -1,8 +1,13 @@
 var a01555 =
 [
-    [ "ADCPortBase", "d6/dd7/a01555.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
-    [ "~ADCPortBase", "d6/dd7/a01555.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
-    [ "close", "d6/dd7/a01555.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getValue", "d6/dd7/a01555.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d6/dd7/a01555.html#aed764265c454323ee0b2d718d2f447cb", null ]
+    [ "append", "d6/dd7/a01555.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d6/dd7/a01555.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d6/dd7/a01555.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d6/dd7/a01555.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d6/dd7/a01555.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d6/dd7/a01555.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d6/dd7/a01555.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d6/dd7/a01555.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d6/dd7/a01555.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d6/dd7/a01555.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

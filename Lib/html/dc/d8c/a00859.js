@@ -1,15 +1,14 @@
 var a00859 =
 [
-    [ "Config", "d7/d49/a00863.html", "d7/d49/a00863" ],
-    [ "Driver", "dc/d8c/a00859.html#a6079501622ae0bc933f70e2087ec0f95", null ],
-    [ "~Driver", "dc/d8c/a00859.html#a1856e7f65081afd7b3cbc41999750309", null ],
-    [ "close", "dc/d8c/a00859.html#a213d595e62a901eee9a101af4c01eddc", null ],
-    [ "getChipSize", "dc/d8c/a00859.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
-    [ "open", "dc/d8c/a00859.html#acadf7880ad0ed0875bfc341eee248801", null ],
-    [ "read", "dc/d8c/a00859.html#a07efb9f05404251744d1b54e7c38af93", null ],
-    [ "read16", "dc/d8c/a00859.html#a78f97c52dec3d28a97fe90ff5f071079", null ],
-    [ "read8", "dc/d8c/a00859.html#a6d620f86e8f90f321974d30eb2a989b0", null ],
-    [ "write", "dc/d8c/a00859.html#a363da991b201d1da7d04124e404eaa45", null ],
-    [ "write16", "dc/d8c/a00859.html#a261c47a18fbac1ce71421417a27c95a9", null ],
-    [ "write8", "dc/d8c/a00859.html#a9d5e500a308a94aff33a67f2d23c3b77", null ]
+    [ "Filter", "d2/d5e/a00860.html", "d2/d5e/a00860" ],
+    [ "CubicInterpolation", "d5/d49/a02282.html", "d5/d49/a02282" ],
+    [ "HammingCode", "d9/dba/a02278.html", null ],
+    [ "LinearInterpolation", "dd/dae/a02294.html", "dd/dae/a02294" ],
+    [ "Pid", "d3/d58/a02302.html", "d3/d58/a02302" ],
+    [ "CubicInterpolationD", "dc/d8c/a00859.html#ad4addb27687a1c6accb56c4e27269048", null ],
+    [ "CubicInterpolationF", "dc/d8c/a00859.html#a95e75623bdeeebff3be6c024135bfea2", null ],
+    [ "LinearInterpolationD", "dc/d8c/a00859.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e", null ],
+    [ "LinearInterpolationF", "dc/d8c/a00859.html#a8e491be310ee384e098186699963cc0e", null ],
+    [ "PidD", "dc/d8c/a00859.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9", null ],
+    [ "PidF", "dc/d8c/a00859.html#a948fc056c1100dd929fbdca345047060", null ]
 ];

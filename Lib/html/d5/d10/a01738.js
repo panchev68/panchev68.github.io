@@ -1,11 +1,9 @@
 var a01738 =
 [
-    [ "TimOnePulse", "d5/d10/a01738.html#a6f2dfcc2daac5133790309480af76845", null ],
-    [ "~TimOnePulse", "d5/d10/a01738.html#a7baee98037611fb20edb29e72726c789", null ],
-    [ "setDelay", "d5/d10/a01738.html#a5d165adb78126c4c3847e9a00293af2c", null ],
-    [ "setPulseWidth", "d5/d10/a01738.html#a0c3c0479babba1ebc0fb776e3238f350", null ],
-    [ "start", "d5/d10/a01738.html#aea5379a13d387a1d14dbc1b7c68cedf4", null ],
-    [ "stop", "d5/d10/a01738.html#a10ae4c0c45eecf6f48ff2c986ecb0f34", null ],
-    [ "waitPulseComplete", "d5/d10/a01738.html#a79a7628947754a9bde98dd77e742e5c6", null ],
-    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "d5/d10/a01738.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
+    [ "address", "d5/d10/a01738.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d5/d10/a01738.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d5/d10/a01738.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d5/d10/a01738.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d5/d10/a01738.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d5/d10/a01738.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

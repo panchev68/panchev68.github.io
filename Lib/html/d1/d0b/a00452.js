@@ -1,4 +1,4 @@
 var a00452 =
 [
-    [ "Lib::HAL::Timer::TimEncoder", "d7/db4/a01747.html", "d7/db4/a01747" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::DMA &gt;", "d7/d34/a01954.html", "d7/d34/a01954" ]
 ];

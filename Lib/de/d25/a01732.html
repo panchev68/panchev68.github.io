@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</title>
+<title>IAR Library: Lib::Ethercat::SOES::FoE</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,133 +112,89 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d25/a01732.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::FoE<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t T_SIZE&gt;<br />
-requires (std::default_initializable&lt;T&gt; &amp;&amp; (T_SIZE &gt; 0U) &amp;&amp; (T_SIZE &lt;= std::numeric_limits&lt;size_t&gt;::max() / 2U))<br />
-class Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</div><p>Fixed-capacity FIFO container with lock-free single-producer/single-consumer semantics. </p>
-<p>Exactly one execution context may act as producer (<span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span>, bulk <span class="tt"><a class="el" href="#a4eb0599938edcdc26882c4a3b9ba7d98" title="Copies as many elements of data as fit into the buffer (producer side).">write()</a></span>, the linear write block / <span class="tt"><a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2" title="Publishes elements already written into the span from getLinearWriteBlock() (producer side).">advance()</a></span> pair) and exactly one (possibly different) context may act as consumer (<span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span>, <span class="tt"><a class="el" href="#abee3c56eacd254c643cb51f9cd4a7839" title="Accesses the oldest element without removing it (consumer side).">front()</a></span>, bulk <span class="tt"><a class="el" href="#a03a48e3cd8a1b0b70db7a640e62a3bd7" title="Copies as many stored elements into data as fit, removing them from the buffer (consumer side).">read()</a></span>, <span class="tt"><a class="el" href="#ac8f19fd1bbb63ee4460be1de5658cdf3" title="Copies up to data.size() stored elements without removing them (consumer side).">peek()</a></span>, the linear read block / <span class="tt"><a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db" title="Releases elements already consumed from the span returned by getLinearReadBlock() (consumer side).">skip()</a></span> pair). <span class="tt"><a class="el" href="#ab0835299e7ff3714143b1196743a174f" title="Copies data in, discarding the oldest elements to make room if needed (producer side).">overwrite()</a></span> runs in the producer context but also advances the read side, so it needs exclusive access to both. <span class="tt"><a class="el" href="#aecba3227be66614ad5db50f238e8970f" title="Discards all stored elements by resetting both indices.">clear()</a></span>, copy and move are not concurrency-safe.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Element type stored in the buffer; must be default-constructible. </td></tr>
-    <tr><td class="paramname">T_SIZE</td><td>Maximum number of stored elements; must be greater than 0 and at most half of <span class="tt">SIZE_MAX</span>. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;:</div>
+<div class="textblock"><p>File access over EtherCAT (<a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>): the file server of an EtherCAT slave. </p>
+<p>Lets the master write a file to the slave (a firmware image, a configuration) and read a file from it, over the mailbox, in packets of the size the mailbox allows. The class runs the protocol (request, data packets with their numbers, acknowledgements, errors, busy) and leaves the files to the application: it asks a handler to open a file by name and password, to take the data of a write, to give the data of a read and to finish a write.</p>
+<p>Use it from the mailbox handler of a "Slave": pass every message to "handle()". <a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a> is allowed in PRE-OP, SAFE-OP, OP and BOOTSTRAP; the AL state is passed to the open handler, which can refuse a file in a state (a firmware image is usually accepted only in BOOTSTRAP). </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Ethercat::SOES::FoE:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/db5/a01730.svg" width="236" height="294"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/db5/a01730.svg" width="172" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a90e56f1bb6c70b02947f83ebf3123417" id="r_a90e56f1bb6c70b02947f83ebf3123417"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> () noexcept=default</td></tr>
-<tr class="memdesc:a90e56f1bb6c70b02947f83ebf3123417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an empty buffer.  <br /></td></tr>
-<tr class="memitem:ad1cdbedc5516901d8c9139809a3fbef7" id="r_ad1cdbedc5516901d8c9139809a3fbef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad1cdbedc5516901d8c9139809a3fbef7">RingBuffer</a> (const RingBuffer &amp;other) noexcept</td></tr>
-<tr class="memdesc:ad1cdbedc5516901d8c9139809a3fbef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the content and indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on it.  <br /></td></tr>
-<tr class="memitem:a1d9fb75c4c8143ec1b6fe200253b8197" id="r_a1d9fb75c4c8143ec1b6fe200253b8197"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1d9fb75c4c8143ec1b6fe200253b8197">RingBuffer</a> (RingBuffer &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a1d9fb75c4c8143ec1b6fe200253b8197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content and copies the indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on it.  <br /></td></tr>
-<tr class="memitem:ab2ab8845bd1a8a943917d668efa8ff90" id="r_ab2ab8845bd1a8a943917d668efa8ff90"><td class="memItemLeft"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab2ab8845bd1a8a943917d668efa8ff90">operator=</a> (const <a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;other) noexcept</td></tr>
-<tr class="memdesc:ab2ab8845bd1a8a943917d668efa8ff90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the content and indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on either.  <br /></td></tr>
-<tr class="memitem:a005ffd7b8657f70cb1ed18f0c1488e8e" id="r_a005ffd7b8657f70cb1ed18f0c1488e8e"><td class="memItemLeft"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a005ffd7b8657f70cb1ed18f0c1488e8e">operator=</a> (<a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a005ffd7b8657f70cb1ed18f0c1488e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content and copies the indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on either.  <br /></td></tr>
-<tr class="memitem:a15a0e34223bfa6bb69410c75ff946f0c" id="r_a15a0e34223bfa6bb69410c75ff946f0c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c">push</a> (const T &amp;value) noexcept</td></tr>
-<tr class="memdesc:a15a0e34223bfa6bb69410c75ff946f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of <span class="tt">value</span> if space is available (producer side).  <br /></td></tr>
-<tr class="memitem:a99986517429df0512c8d2ecb01411fc0" id="r_a99986517429df0512c8d2ecb01411fc0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a99986517429df0512c8d2ecb01411fc0">push</a> (T &amp;&amp;value) noexcept</td></tr>
-<tr class="memdesc:a99986517429df0512c8d2ecb01411fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends <span class="tt">value</span> by move if space is available (producer side).  <br /></td></tr>
-<tr class="memitem:a8355cafc3456b4a8c5f5122ea38ca0d8" id="r_a8355cafc3456b4a8c5f5122ea38ca0d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8">pop</a> (T &amp;value) noexcept</td></tr>
-<tr class="memdesc:a8355cafc3456b4a8c5f5122ea38ca0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest element and moves it into <span class="tt">value</span> (consumer side).  <br /></td></tr>
-<tr class="memitem:a4eb0599938edcdc26882c4a3b9ba7d98" id="r_a4eb0599938edcdc26882c4a3b9ba7d98"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a4eb0599938edcdc26882c4a3b9ba7d98">write</a> (std::span&lt; const T &gt; data, <a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a> mode=<a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a>) noexcept</td></tr>
-<tr class="memdesc:a4eb0599938edcdc26882c4a3b9ba7d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies as many elements of <span class="tt">data</span> as fit into the buffer (producer side).  <br /></td></tr>
-<tr class="memitem:a03a48e3cd8a1b0b70db7a640e62a3bd7" id="r_a03a48e3cd8a1b0b70db7a640e62a3bd7"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a03a48e3cd8a1b0b70db7a640e62a3bd7">read</a> (std::span&lt; T &gt; data, <a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a> mode=<a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a>) noexcept</td></tr>
-<tr class="memdesc:a03a48e3cd8a1b0b70db7a640e62a3bd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies as many stored elements into <span class="tt">data</span> as fit, removing them from the buffer (consumer side).  <br /></td></tr>
-<tr class="memitem:ab0835299e7ff3714143b1196743a174f" id="r_ab0835299e7ff3714143b1196743a174f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ab0835299e7ff3714143b1196743a174f">overwrite</a> (std::span&lt; const T &gt; data) noexcept</td></tr>
-<tr class="memdesc:ab0835299e7ff3714143b1196743a174f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies <span class="tt">data</span> in, discarding the oldest elements to make room if needed (producer side).  <br /></td></tr>
-<tr class="memitem:a7c67da9354083f337c51e4e0c60c3938" id="r_a7c67da9354083f337c51e4e0c60c3938"><td class="memItemLeft">std::span&lt; T &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7c67da9354083f337c51e4e0c60c3938">getLinearWriteBlock</a> () noexcept</td></tr>
-<tr class="memdesc:a7c67da9354083f337c51e4e0c60c3938"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the longest contiguous free span starting at the write position (producer side).  <br /></td></tr>
-<tr class="memitem:a18fc2b9e414d300e7fba07ffb189c7e2" id="r_a18fc2b9e414d300e7fba07ffb189c7e2"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2">advance</a> (size_t count) noexcept</td></tr>
-<tr class="memdesc:a18fc2b9e414d300e7fba07ffb189c7e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publishes elements already written into the span from <span class="tt"><a class="el" href="#a7c67da9354083f337c51e4e0c60c3938" title="Returns the longest contiguous free span starting at the write position (producer side).">getLinearWriteBlock()</a></span> (producer side).  <br /></td></tr>
-<tr class="memitem:ad539c026bf02e5545168b2182f0a89f3" id="r_ad539c026bf02e5545168b2182f0a89f3"><td class="memItemLeft">std::span&lt; const T &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad539c026bf02e5545168b2182f0a89f3">getLinearReadBlock</a> () const noexcept</td></tr>
-<tr class="memdesc:ad539c026bf02e5545168b2182f0a89f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the longest contiguous stored span starting at the read position (consumer side).  <br /></td></tr>
-<tr class="memitem:a5c9a29852441fa6ed23a28ce0ec0c8db" id="r_a5c9a29852441fa6ed23a28ce0ec0c8db"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db">skip</a> (size_t count) noexcept</td></tr>
-<tr class="memdesc:a5c9a29852441fa6ed23a28ce0ec0c8db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases elements already consumed from the span returned by <span class="tt"><a class="el" href="#ad539c026bf02e5545168b2182f0a89f3" title="Returns the longest contiguous stored span starting at the read position (consumer side).">getLinearReadBlock()</a></span> (consumer side).  <br /></td></tr>
-<tr class="memitem:abee3c56eacd254c643cb51f9cd4a7839" id="r_abee3c56eacd254c643cb51f9cd4a7839"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abee3c56eacd254c643cb51f9cd4a7839">front</a> () noexcept</td></tr>
-<tr class="memdesc:abee3c56eacd254c643cb51f9cd4a7839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the oldest element without removing it (consumer side).  <br /></td></tr>
-<tr class="memitem:a6b6348d736c026af7bfe86e8f178c5dd" id="r_a6b6348d736c026af7bfe86e8f178c5dd"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b6348d736c026af7bfe86e8f178c5dd">front</a> () const noexcept</td></tr>
-<tr class="memdesc:a6b6348d736c026af7bfe86e8f178c5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the oldest element without removing it (consumer side).  <br /></td></tr>
-<tr class="memitem:ac8f19fd1bbb63ee4460be1de5658cdf3" id="r_ac8f19fd1bbb63ee4460be1de5658cdf3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac8f19fd1bbb63ee4460be1de5658cdf3">peek</a> (size_t skipCount, std::span&lt; T &gt; data) const noexcept</td></tr>
-<tr class="memdesc:ac8f19fd1bbb63ee4460be1de5658cdf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies up to <span class="tt">data.size()</span> stored elements without removing them (consumer side).  <br /></td></tr>
-<tr class="memitem:a8ab973e4fda57588b6a238c8d7537b60" id="r_a8ab973e4fda57588b6a238c8d7537b60"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8ab973e4fda57588b6a238c8d7537b60">available</a> () const noexcept</td></tr>
-<tr class="memdesc:a8ab973e4fda57588b6a238c8d7537b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored elements.  <br /></td></tr>
-<tr class="memitem:ae898513d6e4fff77f261633e9d739da7" id="r_ae898513d6e4fff77f261633e9d739da7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae898513d6e4fff77f261633e9d739da7">isEmpty</a> () const noexcept</td></tr>
-<tr class="memdesc:ae898513d6e4fff77f261633e9d739da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the buffer holds no element.  <br /></td></tr>
-<tr class="memitem:acbbdeea50582b8f5ecdae7259746e571" id="r_acbbdeea50582b8f5ecdae7259746e571"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acbbdeea50582b8f5ecdae7259746e571">isFull</a> () const noexcept</td></tr>
-<tr class="memdesc:acbbdeea50582b8f5ecdae7259746e571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the buffer reached its capacity.  <br /></td></tr>
-<tr class="memitem:aecba3227be66614ad5db50f238e8970f" id="r_aecba3227be66614ad5db50f238e8970f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aecba3227be66614ad5db50f238e8970f">clear</a> () noexcept</td></tr>
-<tr class="memdesc:aecba3227be66614ad5db50f238e8970f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards all stored elements by resetting both indices.  <br /></td></tr>
-<tr class="memitem:a487f0704a4c18ab43bc1ca7b17207604" id="r_a487f0704a4c18ab43bc1ca7b17207604"><td class="memItemLeft">std::optional&lt; size_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a487f0704a4c18ab43bc1ca7b17207604">find</a> (std::span&lt; const T &gt; pattern, size_t startOffset=0U) const noexcept</td></tr>
-<tr class="memdesc:a487f0704a4c18ab43bc1ca7b17207604"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the first occurrence of <span class="tt">pattern</span> among the stored elements (consumer side).  <br /></td></tr>
-<tr class="memitem:ae57e9627fe4a5aba889a59c0a7d0ecdc" id="r_ae57e9627fe4a5aba889a59c0a7d0ecdc"><td class="memTemplParams" colspan="2">template&lt;size_t SOURCE_CAPACITY&gt; </td></tr>
-<tr class="memitem:ae57e9627fe4a5aba889a59c0a7d0ecdc template"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae57e9627fe4a5aba889a59c0a7d0ecdc">moveFrom</a> (<a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, SOURCE_CAPACITY &gt; &amp;source) noexcept</td></tr>
-<tr class="memdesc:ae57e9627fe4a5aba889a59c0a7d0ecdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves as many stored elements of <span class="tt">source</span> into this buffer as fit, without an intermediate copy.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ae0f1f8ce0127b345fb8300195fdab62e" id="r_ae0f1f8ce0127b345fb8300195fdab62e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e">CAPACITY</a> = T_SIZE</td></tr>
-<tr class="memdesc:ae0f1f8ce0127b345fb8300195fdab62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usable capacity of the buffer, in elements.  <br /></td></tr>
+<tr class="memitem:ad7dd21bafde30794cef6a653baacc862" id="r_ad7dd21bafde30794cef6a653baacc862"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> () noexcept=default</td></tr>
+<tr class="memdesc:ad7dd21bafde30794cef6a653baacc862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the server.  <br /></td></tr>
+<tr class="memitem:a2b79ec9ea18a8e18adac7ce48a7e5463" id="r_a2b79ec9ea18a8e18adac7ce48a7e5463"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2b79ec9ea18a8e18adac7ce48a7e5463">~FoE</a> ()=default</td></tr>
+<tr class="memdesc:a2b79ec9ea18a8e18adac7ce48a7e5463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the server.  <br /></td></tr>
+<tr class="memitem:a62eae3fa84fd6deb7d3bdb96b4b8386d" id="r_a62eae3fa84fd6deb7d3bdb96b4b8386d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a62eae3fa84fd6deb7d3bdb96b4b8386d">FoE</a> (const FoE &amp;other)=delete</td></tr>
+<tr class="memdesc:a62eae3fa84fd6deb7d3bdb96b4b8386d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the server holds the state of one transfer.  <br /></td></tr>
+<tr class="memitem:a4c9554c1e4ac15ef4c1fa1fa81e0be9b" id="r_a4c9554c1e4ac15ef4c1fa1fa81e0be9b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4c9554c1e4ac15ef4c1fa1fa81e0be9b">FoE</a> (FoE &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a4c9554c1e4ac15ef4c1fa1fa81e0be9b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the server holds the state of one transfer.  <br /></td></tr>
+<tr class="memitem:ad4ee1458ee523b0108e1a4ab32655e4e" id="r_ad4ee1458ee523b0108e1a4ab32655e4e"><td class="memItemLeft"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad4ee1458ee523b0108e1a4ab32655e4e">operator=</a> (const <a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:ad4ee1458ee523b0108e1a4ab32655e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the server holds the state of one transfer.  <br /></td></tr>
+<tr class="memitem:a2e66c6e267a7bf4dfa07d74ee5fb7b46" id="r_a2e66c6e267a7bf4dfa07d74ee5fb7b46"><td class="memItemLeft"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e66c6e267a7bf4dfa07d74ee5fb7b46">operator=</a> (<a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a2e66c6e267a7bf4dfa07d74ee5fb7b46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the server holds the state of one transfer.  <br /></td></tr>
+<tr class="memitem:a39b767747ef43947171f73021ee9dd76" id="r_a39b767747ef43947171f73021ee9dd76"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a39b767747ef43947171f73021ee9dd76">setHandlers</a> (const <a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Handlers</a> &amp;newHandlers) noexcept</td></tr>
+<tr class="memdesc:a39b767747ef43947171f73021ee9dd76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the files of the slave.  <br /></td></tr>
+<tr class="memitem:a33f80a76d8f7d890ff15f88f6567e7a8" id="r_a33f80a76d8f7d890ff15f88f6567e7a8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a33f80a76d8f7d890ff15f88f6567e7a8">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a33f80a76d8f7d890ff15f88f6567e7a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drops the transfer in progress.  <br /></td></tr>
+<tr class="memitem:a4463e44a62dae7598614225dc069e03c" id="r_a4463e44a62dae7598614225dc069e03c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4463e44a62dae7598614225dc069e03c">isBusy</a> () const noexcept</td></tr>
+<tr class="memdesc:a4463e44a62dae7598614225dc069e03c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a transfer is in progress.  <br /></td></tr>
+<tr class="memitem:a89eda74e421aaa19c4a146f169dee6d6" id="r_a89eda74e421aaa19c4a146f169dee6d6"><td class="memTemplParams" colspan="2">template&lt;typename T_MAILBOX&gt; </td></tr>
+<tr class="memitem:a89eda74e421aaa19c4a146f169dee6d6 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a89eda74e421aaa19c4a146f169dee6d6">handle</a> (T_MAILBOX &amp;mailbox, const <a class="el" href="../../de/daf/a01736.html">MailboxHeader</a> &amp;header, std::span&lt; const uint8_t &gt; payload, uint8_t state) noexcept</td></tr>
+<tr class="memdesc:a89eda74e421aaa19c4a146f169dee6d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a mailbox message.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="aa23cc1803af6341d29a2fd130530914c" name="aa23cc1803af6341d29a2fd130530914c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa23cc1803af6341d29a2fd130530914c">&#9670;&#160;</a></span>TransferMode</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a9d7546738e259f57d9e431d88a39ac23" name="a9d7546738e259f57d9e431d88a39ac23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d7546738e259f57d9e431d88a39ac23">&#9670;&#160;</a></span>Error</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#aa23cc1803af6341d29a2fd130530914c">Lib::Helper::RingBuffer::TransferMode</a> : uint8_t</td>
+          <td class="memname">using <a class="el" href="../../d3/d69/a00844.html#a058e47e5398a583fd14a446b7b2dbdb4">Lib::Ethercat::SOES::FoE::Error</a> = <a class="el" href="../../d3/d69/a00844.html#a058e47e5398a583fd14a446b7b2dbdb4">FoEError</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Selects all-or-nothing vs. </p>
-<p>best-effort semantics for a bulk transfer. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19" name="aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19"></a>PARTIAL&#160;</td><td class="fielddoc"><p>Transfers as many elements as fit/are available. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" name="aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d"></a>ALL&#160;</td><td class="fielddoc"><p>Transfers nothing unless the whole request fits/is available. </p>
-</td></tr>
-</table>
+<p><a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a> error codes. </p>
+
+</div>
+</div>
+<a id="a0cc369eea636a2b7334c4fcb151bacdb" name="a0cc369eea636a2b7334c4fcb151bacdb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0cc369eea636a2b7334c4fcb151bacdb">&#9670;&#160;</a></span>Handlers</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Lib::Ethercat::SOES::FoE::Handlers</a> = <a class="el" href="../../df/de0/a01728.html">FoEHandlers</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The files of the slave. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a90e56f1bb6c70b02947f83ebf3123417" name="a90e56f1bb6c70b02947f83ebf3123417"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90e56f1bb6c70b02947f83ebf3123417">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[1/3]</span></h2>
+<a id="ad7dd21bafde30794cef6a653baacc862" name="ad7dd21bafde30794cef6a653baacc862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7dd21bafde30794cef6a653baacc862">&#9670;&#160;</a></span>FoE() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td class="memname">Lib::Ethercat::SOES::FoE::FoE </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -244,91 +202,81 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs an empty buffer. </p>
+<p>Creates the server. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a90e56f1bb6c70b02947f83ebf3123417_icgraph.svg" width="504" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ad7dd21bafde30794cef6a653baacc862_icgraph.svg" width="499" height="240"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ad1cdbedc5516901d8c9139809a3fbef7" name="ad1cdbedc5516901d8c9139809a3fbef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1cdbedc5516901d8c9139809a3fbef7">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[2/3]</span></h2>
+<a id="a2b79ec9ea18a8e18adac7ce48a7e5463" name="a2b79ec9ea18a8e18adac7ce48a7e5463"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b79ec9ea18a8e18adac7ce48a7e5463">&#9670;&#160;</a></span>~FoE()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td class="memname">Lib::Ethercat::SOES::FoE::~FoE </td>
           <td>(</td>
-          <td class="paramtype">const RingBuffer&lt; T, T_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Copies the content and indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on it. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Destroys the server. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ad1cdbedc5516901d8c9139809a3fbef7_cgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a2b79ec9ea18a8e18adac7ce48a7e5463_cgraph.svg" width="476" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a1d9fb75c4c8143ec1b6fe200253b8197" name="a1d9fb75c4c8143ec1b6fe200253b8197"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d9fb75c4c8143ec1b6fe200253b8197">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[3/3]</span></h2>
+<a id="a62eae3fa84fd6deb7d3bdb96b4b8386d" name="a62eae3fa84fd6deb7d3bdb96b4b8386d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62eae3fa84fd6deb7d3bdb96b4b8386d">&#9670;&#160;</a></span>FoE() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td class="memname">Lib::Ethercat::SOES::FoE::FoE </td>
           <td>(</td>
-          <td class="paramtype">RingBuffer&lt; T, T_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">const FoE &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Moves the content and copies the indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on it. </p>
+<p>Copying is deleted: the server holds the state of one transfer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to move from; its elements are left moved-from, its indices unchanged. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -336,70 +284,81 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a1d9fb75c4c8143ec1b6fe200253b8197_cgraph.svg" width="504" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a62eae3fa84fd6deb7d3bdb96b4b8386d_cgraph.svg" width="468" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4c9554c1e4ac15ef4c1fa1fa81e0be9b" name="a4c9554c1e4ac15ef4c1fa1fa81e0be9b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c9554c1e4ac15ef4c1fa1fa81e0be9b">&#9670;&#160;</a></span>FoE() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Ethercat::SOES::FoE::FoE </td>
+          <td>(</td>
+          <td class="paramtype">FoE &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the server holds the state of one transfer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a4c9554c1e4ac15ef4c1fa1fa81e0be9b_cgraph.svg" width="468" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a18fc2b9e414d300e7fba07ffb189c7e2" name="a18fc2b9e414d300e7fba07ffb189c7e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18fc2b9e414d300e7fba07ffb189c7e2">&#9670;&#160;</a></span>advance()</h2>
+<a id="a89eda74e421aaa19c4a146f169dee6d6" name="a89eda74e421aaa19c4a146f169dee6d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89eda74e421aaa19c4a146f169dee6d6">&#9670;&#160;</a></span>handle()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
+template&lt;typename T_MAILBOX&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::advance </td>
+          <td class="memname">bool Lib::Ethercat::SOES::FoE::handle </td>
           <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">T_MAILBOX &amp;</td>          <td class="paramname"><span class="paramname"><em>mailbox</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Publishes elements already written into the span from <span class="tt"><a class="el" href="#a7c67da9354083f337c51e4e0c60c3938" title="Returns the longest contiguous free span starting at the write position (producer side).">getLinearWriteBlock()</a></span> (producer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of elements to publish; clamped to the current free space. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements actually published. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a18fc2b9e414d300e7fba07ffb189c7e2_cgraph.svg" width="459" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8ab973e4fda57588b6a238c8d7537b60" name="a8ab973e4fda57588b6a238c8d7537b60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ab973e4fda57588b6a238c8d7537b60">&#9670;&#160;</a></span>available()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::available </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../de/daf/a01736.html">MailboxHeader</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>header</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>state</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -409,343 +368,188 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the number of stored elements. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements available to pop, in [0, CAPACITY]; a snapshot across contexts. </dd></dl>
+<p>Handles a mailbox message. </p>
+<p>Does nothing for a protocol other than <a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>. For <a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a> it answers through "mailbox": an acknowledgement, a data packet or an error.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_MAILBOX</td><td>A "Mailbox" type. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mailbox</td><td>The mailbox the message came from; the answer is sent through it. </td></tr>
+    <tr><td class="paramname">header</td><td>Header of the message. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload of the message. </td></tr>
+    <tr><td class="paramname">state</td><td>AL state of the slave, as the state registers encode it. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the message was an <a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a> message. </dd></dl>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a8ab973e4fda57588b6a238c8d7537b60_cgraph.svg" width="458" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a89eda74e421aaa19c4a146f169dee6d6_cgraph.svg" width="487" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+
+</div>
+</div>
+<a id="a4463e44a62dae7598614225dc069e03c" name="a4463e44a62dae7598614225dc069e03c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4463e44a62dae7598614225dc069e03c">&#9670;&#160;</a></span>isBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Ethercat::SOES::FoE::isBusy </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether a transfer is in progress. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" between the request and the last acknowledgement. </dd></dl>
+
+</div>
+</div>
+<a id="ad4ee1458ee523b0108e1a4ab32655e4e" name="ad4ee1458ee523b0108e1a4ab32655e4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ee1458ee523b0108e1a4ab32655e4e">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp; Lib::Ethercat::SOES::FoE::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the server holds the state of one transfer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a8ab973e4fda57588b6a238c8d7537b60_icgraph.svg" width="486" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ad4ee1458ee523b0108e1a4ab32655e4e_cgraph.svg" width="499" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="aecba3227be66614ad5db50f238e8970f" name="aecba3227be66614ad5db50f238e8970f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecba3227be66614ad5db50f238e8970f">&#9670;&#160;</a></span>clear()</h2>
+<a id="a2e66c6e267a7bf4dfa07d74ee5fb7b46" name="a2e66c6e267a7bf4dfa07d74ee5fb7b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e66c6e267a7bf4dfa07d74ee5fb7b46">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::clear </td>
+          <td class="memname"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp; Lib::Ethercat::SOES::FoE::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ad7dd21bafde30794cef6a653baacc862">FoE</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Discards all stored elements by resetting both indices. </p>
-<dl class="section pre"><dt>Precondition</dt><dd>No <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> or <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> runs concurrently in another context. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p>Move assignment is deleted: the server holds the state of one transfer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_aecba3227be66614ad5db50f238e8970f_icgraph.svg" width="463" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a2e66c6e267a7bf4dfa07d74ee5fb7b46_cgraph.svg" width="499" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a487f0704a4c18ab43bc1ca7b17207604" name="a487f0704a4c18ab43bc1ca7b17207604"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a487f0704a4c18ab43bc1ca7b17207604">&#9670;&#160;</a></span>find()</h2>
+<a id="a33f80a76d8f7d890ff15f88f6567e7a8" name="a33f80a76d8f7d890ff15f88f6567e7a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33f80a76d8f7d890ff15f88f6567e7a8">&#9670;&#160;</a></span>reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; size_t &gt; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::find </td>
+          <td class="memname">void Lib::Ethercat::SOES::FoE::reset </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const T &gt;</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>startOffset</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;) const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Finds the first occurrence of <span class="tt">pattern</span> among the stored elements (consumer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pattern</td><td>Sequence to search for; matched against stored elements in order, oldest first. </td></tr>
-    <tr><td class="paramname">startOffset</td><td>Number of oldest stored elements to skip before the search starts. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Offset of the match from the oldest stored element, or <span class="tt">std::nullopt</span> if not found. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<p>Drops the transfer in progress. </p>
+<p>Call it when the mailbox stops. </p>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
 <div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a487f0704a4c18ab43bc1ca7b17207604_cgraph.svg" width="688" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a33f80a76d8f7d890ff15f88f6567e7a8_icgraph.svg" width="487" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a6b6348d736c026af7bfe86e8f178c5dd" name="a6b6348d736c026af7bfe86e8f178c5dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b6348d736c026af7bfe86e8f178c5dd">&#9670;&#160;</a></span>front() <span class="overload">[1/2]</span></h2>
+<a id="a39b767747ef43947171f73021ee9dd76" name="a39b767747ef43947171f73021ee9dd76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39b767747ef43947171f73021ee9dd76">&#9670;&#160;</a></span>setHandlers()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T &amp; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
+          <td class="memname">void Lib::Ethercat::SOES::FoE::setHandlers </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Accesses the oldest element without removing it (consumer side). </p>
-<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the oldest element. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a6b6348d736c026af7bfe86e8f178c5dd_cgraph.svg" width="456" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abee3c56eacd254c643cb51f9cd4a7839" name="abee3c56eacd254c643cb51f9cd4a7839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abee3c56eacd254c643cb51f9cd4a7839">&#9670;&#160;</a></span>front() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Accesses the oldest element without removing it (consumer side). </p>
-<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the oldest element. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_abee3c56eacd254c643cb51f9cd4a7839_cgraph.svg" width="456" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad539c026bf02e5545168b2182f0a89f3" name="ad539c026bf02e5545168b2182f0a89f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad539c026bf02e5545168b2182f0a89f3">&#9670;&#160;</a></span>getLinearReadBlock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::span&lt; const T &gt; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::getLinearReadBlock </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the longest contiguous stored span starting at the read position (consumer side). </p>
-<p>The caller may read directly from the returned span (e.g. via DMA) and then release the consumed elements with <span class="tt"><a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db" title="Releases elements already consumed from the span returned by getLinearReadBlock() (consumer side).">skip()</a></span>. The span may be shorter than <span class="tt"><a class="el" href="#a8ab973e4fda57588b6a238c8d7537b60" title="Returns the number of stored elements.">available()</a></span> when the stored data wraps past the end of the backing storage; call again after <span class="tt"><a class="el" href="#a5c9a29852441fa6ed23a28ce0ec0c8db" title="Releases elements already consumed from the span returned by getLinearReadBlock() (consumer side).">skip()</a></span> to reach the remainder.</p>
-<dl class="section return"><dt>Returns</dt><dd>Readable span of stored elements; empty when the buffer is empty. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ad539c026bf02e5545168b2182f0a89f3_cgraph.svg" width="524" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a7c67da9354083f337c51e4e0c60c3938" name="a7c67da9354083f337c51e4e0c60c3938"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7c67da9354083f337c51e4e0c60c3938">&#9670;&#160;</a></span>getLinearWriteBlock()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::span&lt; T &gt; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::getLinearWriteBlock </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the longest contiguous free span starting at the write position (producer side). </p>
-<p>The caller may write directly into the returned span (e.g. via DMA) and then publish the written elements with <span class="tt"><a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2" title="Publishes elements already written into the span from getLinearWriteBlock() (producer side).">advance()</a></span>. The span may be shorter than the total free space when the free space wraps past the end of the backing storage; call again after <span class="tt"><a class="el" href="#a18fc2b9e414d300e7fba07ffb189c7e2" title="Publishes elements already written into the span from getLinearWriteBlock() (producer side).">advance()</a></span> to reach the remainder.</p>
-<dl class="section return"><dt>Returns</dt><dd>Writable span of free slots; empty when the buffer is full. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a7c67da9354083f337c51e4e0c60c3938_cgraph.svg" width="526" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae898513d6e4fff77f261633e9d739da7" name="ae898513d6e4fff77f261633e9d739da7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae898513d6e4fff77f261633e9d739da7">&#9670;&#160;</a></span>isEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isEmpty </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Queries whether the buffer holds no element. </p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> when the buffer is empty, otherwise <span class="tt">false</span>; a snapshot across contexts. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ae898513d6e4fff77f261633e9d739da7_icgraph.svg" width="456" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="acbbdeea50582b8f5ecdae7259746e571" name="acbbdeea50582b8f5ecdae7259746e571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbbdeea50582b8f5ecdae7259746e571">&#9670;&#160;</a></span>isFull()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isFull </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Queries whether the buffer reached its capacity. </p>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> when <span class="tt"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="Usable capacity of the buffer, in elements.">CAPACITY</a></span> elements are stored, otherwise <span class="tt">false</span>; a snapshot across contexts. </dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_acbbdeea50582b8f5ecdae7259746e571_cgraph.svg" width="698" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ae57e9627fe4a5aba889a59c0a7d0ecdc" name="ae57e9627fe4a5aba889a59c0a7d0ecdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae57e9627fe4a5aba889a59c0a7d0ecdc">&#9670;&#160;</a></span>moveFrom()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<div class="memtemplate">
-template&lt;size_t SOURCE_CAPACITY&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::moveFrom </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, SOURCE_CAPACITY &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a0cc369eea636a2b7334c4fcb151bacdb">Handlers</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>newHandlers</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -756,495 +560,13 @@ template&lt;size_t SOURCE_CAPACITY&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Moves as many stored elements of <span class="tt">source</span> into this buffer as fit, without an intermediate copy. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">SOURCE_CAPACITY</td><td>Capacity of <span class="tt">source</span>; may differ from this buffer's <span class="tt"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="Usable capacity of the buffer, in elements.">CAPACITY</a></span>. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Sets the files of the slave. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Buffer to move elements from; only its consumer-side API is used. </td></tr>
+    <tr><td class="paramname">newHandlers</td><td>The hooks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements moved. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ae57e9627fe4a5aba889a59c0a7d0ecdc_cgraph.svg" width="504" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab2ab8845bd1a8a943917d668efa8ff90" name="ab2ab8845bd1a8a943917d668efa8ff90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ab8845bd1a8a943917d668efa8ff90">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, T_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies the content and indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on either. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
-</div>
-<div id="dynsection-16-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ab2ab8845bd1a8a943917d668efa8ff90_cgraph.svg" width="498" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a005ffd7b8657f70cb1ed18f0c1488e8e" name="a005ffd7b8657f70cb1ed18f0c1488e8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a005ffd7b8657f70cb1ed18f0c1488e8e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp; <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, T_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moves the content and copies the indices of <span class="tt">other</span>; must not race with <span class="tt"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c" title="Appends a copy of value if space is available (producer side).">push()</a></span> / <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span> on either. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to move from; its elements are left moved-from, its indices unchanged. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-17-summary" class="dynsummary">
-</div>
-<div id="dynsection-17-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a005ffd7b8657f70cb1ed18f0c1488e8e_cgraph.svg" width="498" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab0835299e7ff3714143b1196743a174f" name="ab0835299e7ff3714143b1196743a174f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0835299e7ff3714143b1196743a174f">&#9670;&#160;</a></span>overwrite()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::overwrite </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies <span class="tt">data</span> in, discarding the oldest elements to make room if needed (producer side). </p>
-<dl class="section pre"><dt>Precondition</dt><dd>No <span class="tt"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8" title="Removes the oldest element and moves it into value (consumer side).">pop()</a></span>/consumer-side read runs concurrently with this call. </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Elements to copy in; only its last <span class="tt"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="Usable capacity of the buffer, in elements.">CAPACITY</a></span> elements are kept if it exceeds <span class="tt"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="Usable capacity of the buffer, in elements.">CAPACITY</a></span>. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements accepted from <span class="tt">data</span> (equals <span class="tt">data.size()</span>, or <span class="tt"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e" title="Usable capacity of the buffer, in elements.">CAPACITY</a></span> if it was clipped). </dd></dl>
-<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary">
-</div>
-<div id="dynsection-18-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ab0835299e7ff3714143b1196743a174f_cgraph.svg" width="720" height="214"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac8f19fd1bbb63ee4460be1de5658cdf3" name="ac8f19fd1bbb63ee4460be1de5658cdf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8f19fd1bbb63ee4460be1de5658cdf3">&#9670;&#160;</a></span>peek()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::peek </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>skipCount</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;) const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies up to <span class="tt">data.size()</span> stored elements without removing them (consumer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">skipCount</td><td>Number of oldest stored elements to skip before copying starts. </td></tr>
-    <tr><td class="paramname">data</td><td>Destination for the copied elements. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements copied; <span class="tt">0</span> when <span class="tt">skipCount</span> reaches or exceeds <span class="tt"><a class="el" href="#a8ab973e4fda57588b6a238c8d7537b60" title="Returns the number of stored elements.">available()</a></span>. </dd></dl>
-<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary">
-</div>
-<div id="dynsection-19-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_ac8f19fd1bbb63ee4460be1de5658cdf3_cgraph.svg" width="435" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a8355cafc3456b4a8c5f5122ea38ca0d8" name="a8355cafc3456b4a8c5f5122ea38ca0d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8355cafc3456b4a8c5f5122ea38ca0d8">&#9670;&#160;</a></span>pop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::pop </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Removes the oldest element and moves it into <span class="tt">value</span> (consumer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Receives the removed element; left untouched when the buffer is empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if an element was removed, <span class="tt">false</span> if the buffer was empty. </dd></dl>
-<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary">
-</div>
-<div id="dynsection-20-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a8355cafc3456b4a8c5f5122ea38ca0d8_cgraph.svg" width="428" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a15a0e34223bfa6bb69410c75ff946f0c" name="a15a0e34223bfa6bb69410c75ff946f0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a0e34223bfa6bb69410c75ff946f0c">&#9670;&#160;</a></span>push() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends a copy of <span class="tt">value</span> if space is available (producer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Value to copy into the buffer. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the value was inserted, <span class="tt">false</span> if the buffer is full. </dd></dl>
-
-</div>
-</div>
-<a id="a99986517429df0512c8d2ecb01411fc0" name="a99986517429df0512c8d2ecb01411fc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99986517429df0512c8d2ecb01411fc0">&#9670;&#160;</a></span>push() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Appends <span class="tt">value</span> by move if space is available (producer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Value to move into the buffer; left untouched when the buffer is full. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><span class="tt">true</span> if the value was inserted, <span class="tt">false</span> if the buffer is full. </dd></dl>
-
-</div>
-</div>
-<a id="a03a48e3cd8a1b0b70db7a640e62a3bd7" name="a03a48e3cd8a1b0b70db7a640e62a3bd7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03a48e3cd8a1b0b70db7a640e62a3bd7">&#9670;&#160;</a></span>read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::read </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies as many stored elements into <span class="tt">data</span> as fit, removing them from the buffer (consumer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Destination for the copied elements. </td></tr>
-    <tr><td class="paramname">mode</td><td><span class="tt">PARTIAL</span> copies as many as are available; <span class="tt">ALL</span> copies nothing unless <span class="tt">data</span> can be filled. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements copied; always <span class="tt">0</span> or <span class="tt">data.size()</span> under <span class="tt"><a class="el" href="#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" title="Transfers nothing unless the whole request fits/is available.">TransferMode::ALL</a></span>. </dd></dl>
-<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-21-summary" class="dynsummary">
-</div>
-<div id="dynsection-21-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a03a48e3cd8a1b0b70db7a640e62a3bd7_cgraph.svg" width="198" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-22-summary" class="dynsummary">
-</div>
-<div id="dynsection-22-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a03a48e3cd8a1b0b70db7a640e62a3bd7_icgraph.svg" width="786" height="266"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a5c9a29852441fa6ed23a28ce0ec0c8db" name="a5c9a29852441fa6ed23a28ce0ec0c8db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c9a29852441fa6ed23a28ce0ec0c8db">&#9670;&#160;</a></span>skip()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::skip </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Releases elements already consumed from the span returned by <span class="tt"><a class="el" href="#ad539c026bf02e5545168b2182f0a89f3" title="Returns the longest contiguous stored span starting at the read position (consumer side).">getLinearReadBlock()</a></span> (consumer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">count</td><td>Number of elements to release; clamped to the current stored count. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements actually released. </dd></dl>
-<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-23-summary" class="dynsummary">
-</div>
-<div id="dynsection-23-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a5c9a29852441fa6ed23a28ce0ec0c8db_cgraph.svg" width="431" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-24-summary" class="dynsummary">
-</div>
-<div id="dynsection-24-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a5c9a29852441fa6ed23a28ce0ec0c8db_icgraph.svg" width="459" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4eb0599938edcdc26882c4a3b9ba7d98" name="a4eb0599938edcdc26882c4a3b9ba7d98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4eb0599938edcdc26882c4a3b9ba7d98">&#9670;&#160;</a></span>write()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const T &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#aa23cc1803af6341d29a2fd130530914c">TransferMode</a></td>          <td class="paramname"><span class="paramname"><em>mode</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19">TransferMode::PARTIAL</a></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copies as many elements of <span class="tt">data</span> as fit into the buffer (producer side). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>Elements to copy in. </td></tr>
-    <tr><td class="paramname">mode</td><td><span class="tt">PARTIAL</span> copies as many as fit; <span class="tt">ALL</span> copies nothing unless all of <span class="tt">data</span> fits. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of elements copied; always <span class="tt">0</span> or <span class="tt">data.size()</span> under <span class="tt"><a class="el" href="#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d" title="Transfers nothing unless the whole request fits/is available.">TransferMode::ALL</a></span>. </dd></dl>
-<div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-25-summary" class="dynsummary">
-</div>
-<div id="dynsection-25-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a4eb0599938edcdc26882c4a3b9ba7d98_cgraph.svg" width="200" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-26" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-26-summary" class="dynsummary">
-</div>
-<div id="dynsection-26-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d25/a01732_a4eb0599938edcdc26882c4a3b9ba7d98_icgraph.svg" width="526" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ae0f1f8ce0127b345fb8300195fdab62e" name="ae0f1f8ce0127b345fb8300195fdab62e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0f1f8ce0127b345fb8300195fdab62e">&#9670;&#160;</a></span>CAPACITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../de/d25/a01732.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::CAPACITY = T_SIZE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Usable capacity of the buffer, in elements. </p>
 
 </div>
 </div>
@@ -1261,7 +583,7 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d0/d11/a00842.html">Helper</a></li><li class="navelem"><a href="../../de/d25/a01732.html">RingBuffer</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../dc/d22/a00843.html">Ethercat</a></li><li class="navelem"><a href="../../d3/d69/a00844.html">SOES</a></li><li class="navelem"><a href="../../de/d25/a01732.html">FoE</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

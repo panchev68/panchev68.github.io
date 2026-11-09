@@ -1,12 +1,11 @@
 var a01048 =
 [
-    [ "Data", "d9/dce/a01052.html", "d9/dce/a01052" ],
-    [ "Color", "d5/de7/a01048.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "d5/de7/a01048.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "d5/de7/a01048.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "d5/de7/a01048.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "d5/de7/a01048.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "d5/de7/a01048.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "d5/de7/a01048.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "d5/de7/a01048.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "capacityBytes", "d5/de7/a01048.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d5/de7/a01048.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d5/de7/a01048.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d5/de7/a01048.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d5/de7/a01048.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d5/de7/a01048.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d5/de7/a01048.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d5/de7/a01048.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

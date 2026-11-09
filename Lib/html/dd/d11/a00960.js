@@ -1,11 +1,19 @@
 var a00960 =
 [
-    [ "~I2CPort", "dd/d11/a00960.html#a79d501d729d1a73e76d100e570c3b5c4", null ],
-    [ "close", "dd/d11/a00960.html#a3bd1d3c1e7eb76875a09e29cf5080a84", null ],
-    [ "isReady", "dd/d11/a00960.html#aadb8cd4306fa1423e693892b4cd029b2", null ],
-    [ "open", "dd/d11/a00960.html#a6f1df1db44f6d865854b30574830faaf", null ],
-    [ "receive", "dd/d11/a00960.html#a03a7a948a03869108c3dbcf5e94bb3cb", null ],
-    [ "receive", "dd/d11/a00960.html#ac04ceaf3b4ca4d1779dfc89246c2ef54", null ],
-    [ "send", "dd/d11/a00960.html#a0fb8d14c10fb4711ccd6be27938cb3b0", null ],
-    [ "send", "dd/d11/a00960.html#a6d5d9e3ebac7873a98249d745dff26fc", null ]
+    [ "Config", "da/d17/a00964.html", "da/d17/a00964" ],
+    [ "Driver", "dd/d11/a00960.html#ad08435e7ab04b1447660c851f626b703", null ],
+    [ "~Driver", "dd/d11/a00960.html#aa6102b0396341784835c07a1ce9a127a", null ],
+    [ "Driver", "dd/d11/a00960.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
+    [ "Driver", "dd/d11/a00960.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
+    [ "close", "dd/d11/a00960.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "dd/d11/a00960.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "dd/d11/a00960.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "operator=", "dd/d11/a00960.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
+    [ "operator=", "dd/d11/a00960.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
+    [ "read", "dd/d11/a00960.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "dd/d11/a00960.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "dd/d11/a00960.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "dd/d11/a00960.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "dd/d11/a00960.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "dd/d11/a00960.html#a299a926321f0db8d9eac8527198f28fc", null ]
 ];

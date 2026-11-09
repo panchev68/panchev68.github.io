@@ -1,20 +1,21 @@
 var a00890 =
 [
-    [ "Config", "dc/dfa/a00894.html", "dc/dfa/a00894" ],
-    [ "EventState", "d7/d46/a00890.html#a04b234ac50c12b687cfe292d1aaae8e9", [
-      [ "NONE", "d7/d46/a00890.html#a04b234ac50c12b687cfe292d1aaae8e9ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "CW", "d7/d46/a00890.html#a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed", null ],
-      [ "CCW", "d7/d46/a00890.html#a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf", null ],
-      [ "BUT_PUSH", "d7/d46/a00890.html#a04b234ac50c12b687cfe292d1aaae8e9aec99b17e69f307181424c4145f5f6490", null ],
-      [ "BUT_PULL", "d7/d46/a00890.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4", null ]
+    [ "CurrentCorrection", "dc/dfa/a00894.html", "dc/dfa/a00894" ],
+    [ "Config", "d2/d79/a00898.html", "d2/d79/a00898" ],
+    [ "Polarity", "d7/d46/a00890.html#a12dbe47287cc8ea3e6057097e7679d5b", [
+      [ "SIGNED", "d7/d46/a00890.html#a12dbe47287cc8ea3e6057097e7679d5ba6898b46a1cde8a1572e2722c44c5ab07", null ],
+      [ "POSITIVE", "d7/d46/a00890.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58", null ],
+      [ "NEGATIVE", "d7/d46/a00890.html#a12dbe47287cc8ea3e6057097e7679d5ba50546bf973283065b6ccf09faf7a580a", null ]
     ] ],
-    [ "EncoderPins", "d7/d46/a00890.html#ad6c68a3e1bd1f553c1fcb54fa3264d62", null ],
-    [ "~EncoderPins", "d7/d46/a00890.html#af5e2c516da5d21ab53c82f28c41fd92f", null ],
-    [ "close", "d7/d46/a00890.html#a89671c8fae2abdaedc8c96d60935e791", null ],
-    [ "getButtonHoldPeriod", "d7/d46/a00890.html#a09d0b1187e255228fc21b499d1ee668a", null ],
-    [ "getButtonState", "d7/d46/a00890.html#ac0e4e401e9d00ed25f0305cd6c0c21f8", null ],
-    [ "handlePinChangedEvent", "d7/d46/a00890.html#a047860123929a9515669e40b213c76e4", null ],
-    [ "kbdhit", "d7/d46/a00890.html#a3a75893922e01a65d6b352880db68bde", null ],
-    [ "open", "d7/d46/a00890.html#a2a3bbe4007278e92eca193886d2dfe9a", null ],
-    [ "setPulseDivider", "d7/d46/a00890.html#ac508391f6dc11f623beea181f2f6dd95", null ]
+    [ "INA219", "d7/d46/a00890.html#a46c4a6d79eb2edf43b8b0e8625771020", null ],
+    [ "INA219", "d7/d46/a00890.html#ac55a74a1a8fe3544f1f4df51dbae5d07", null ],
+    [ "INA219", "d7/d46/a00890.html#ae35991ea99aed69c1d8e50c315eccb0f", null ],
+    [ "enterSleepMode", "d7/d46/a00890.html#a203ec10d5e73d42a8a5a6a3878012e61", null ],
+    [ "exitSleepMode", "d7/d46/a00890.html#aa45a5bc29c59cb3057f7384cc2a96e64", null ],
+    [ "init", "d7/d46/a00890.html#a1b96174980d4785dbabfcaa110656cbe", null ],
+    [ "operator=", "d7/d46/a00890.html#a2b39cffcccaa479fe1c92078e0b9ba10", null ],
+    [ "operator=", "d7/d46/a00890.html#af97cdd50eb11dfd094357a230546d816", null ],
+    [ "readCurrent", "d7/d46/a00890.html#abb224ceec2374ac08e8ea58d3c898ab6", null ],
+    [ "readShuntVoltage", "d7/d46/a00890.html#a444400cf9229b85d7ea05bfd48ec5a7c", null ],
+    [ "readVoltage", "d7/d46/a00890.html#a1aa8cad61e1ccdb3899c6929726963fd", null ]
 ];

@@ -1,8 +1,9 @@
 var a01032 =
 [
-    [ "operator==", "df/d89/a01032.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "df/d89/a01032.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "df/d89/a01032.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "df/d89/a01032.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "df/d89/a01032.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "chipManufacturer", "df/d89/a01032.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "df/d89/a01032.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "df/d89/a01032.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "df/d89/a01032.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "df/d89/a01032.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "df/d89/a01032.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

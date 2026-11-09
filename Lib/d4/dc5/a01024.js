@@ -1,5 +1,6 @@
 var a01024 =
 [
-    [ "onCardDetect", "d4/dc5/a01024.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
-    [ "spiPort", "d4/dc5/a01024.html#a67ad4df5e15c12584fe20e638078eab3", null ]
+    [ "operator==", "d4/dc5/a01024.html#aaffc1273857ce092dc8ef57f2f569797", null ],
+    [ "address", "d4/dc5/a01024.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
+    [ "value", "d4/dc5/a01024.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
 ];

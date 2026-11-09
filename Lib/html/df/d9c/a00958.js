@@ -1,11 +1,9 @@
 var a00958 =
 [
-    [ "capacityBytes", "df/d9c/a00958.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
-    [ "chipId", "df/d9c/a00958.html#a51f97ba3d60d343706487241e08e252e", null ],
-    [ "manufacturerId", "df/d9c/a00958.html#a5c3278897e2a6732479c70a4efed141c", null ],
-    [ "pageCount", "df/d9c/a00958.html#af9ad76ca92b33af38466c11344584476", null ],
-    [ "pageSize", "df/d9c/a00958.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
-    [ "pagesPerSector", "df/d9c/a00958.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
-    [ "sectorCount", "df/d9c/a00958.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
-    [ "sectorSize", "df/d9c/a00958.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
+    [ "Config", "df/d88/a00962.html", "df/d88/a00962" ],
+    [ "Driver", "df/d9c/a00958.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "df/d9c/a00958.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "df/d9c/a00958.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "df/d9c/a00958.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "df/d9c/a00958.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

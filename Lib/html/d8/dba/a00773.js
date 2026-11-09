@@ -1,4 +1,4 @@
 var a00773 =
 [
-    [ "Config", "d6/d0d/a01091.html", "d6/d0d/a01091" ]
+    [ "Lib::System::Configuration", "dc/d2b/a02486.html", "dc/d2b/a02486" ]
 ];

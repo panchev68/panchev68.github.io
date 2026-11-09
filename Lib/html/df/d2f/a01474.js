@@ -1,14 +1,11 @@
 var a01474 =
 [
-    [ "Status", "df/d2f/a01474.html#a577acdd119b66063413debe6a438470f", [
-      [ "STATUS_CHANGED", "df/d2f/a01474.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "df/d2f/a01474.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "Dispatcher", "df/d2f/a01474.html#a1a68a3ecc8ce85f9f1b5d4f77c78bd45", null ],
-    [ "Dispatcher", "df/d2f/a01474.html#a26aefbcc8e66b5d3918ab12b3a127762", null ],
-    [ "createError", "df/d2f/a01474.html#a11635cec08a65c210b1e95beb3f7cac7", null ],
-    [ "operator=", "df/d2f/a01474.html#a746dc88b2dbe86bd302dfaf139ff52b0", null ],
-    [ "operator=", "df/d2f/a01474.html#ac07b5c3a0787f115c024715d330b6971", null ],
-    [ "start", "df/d2f/a01474.html#a0dea9c515fd6a0ec071f86548f913907", null ],
-    [ "statusChangedHook", "df/d2f/a01474.html#a440515f7e1ffdabc843bccb96ec779b1", null ]
+    [ "Config", "df/d2f/a01474.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "df/d2f/a01474.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ServerBase", "df/d2f/a01474.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
+    [ "~ServerBase", "df/d2f/a01474.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
+    [ "getModulePresent", "df/d2f/a01474.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "df/d2f/a01474.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "start", "df/d2f/a01474.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "connection", "df/d2f/a01474.html#a6cc363b4c00520c96b5d228aab8301b8", null ]
 ];

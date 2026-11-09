@@ -1,13 +1,9 @@
 var a01278 =
 [
-    [ "Config", "d4/d10/a01278.html#a636c2697a2b7b88bf663270d24489697", null ],
-    [ "ServerBase", "d4/d10/a01278.html#ab1fd57c0eb5302e8c66261a0c7cbbebc", null ],
-    [ "~ServerBase", "d4/d10/a01278.html#af8ebda6890db18f7954abd045c586776", null ],
-    [ "getModulePresent", "d4/d10/a01278.html#a0a1ccdf550740d29d0887b726e21abdf", null ],
-    [ "handleIncomingMessage", "d4/d10/a01278.html#a35f8d7b2edbdad51683af3f7a8d86cab", null ],
-    [ "handleOutgoingMessage", "d4/d10/a01278.html#a9bd15051b3c554e9bea651eb74669deb", null ],
-    [ "handleTaskTickEvent", "d4/d10/a01278.html#ae4f50f5844df74b98d136f6c2eea8af2", null ],
-    [ "outputsUpdatedSucceessfulCallback", "d4/d10/a01278.html#a85322b8e3dec44093e187003f935795f", null ],
-    [ "sendHandler", "d4/d10/a01278.html#a96685f3c54df586eab70919dd365c92f", null ],
-    [ "start", "d4/d10/a01278.html#ab9dd2a4950166d6e0411a4276563e5fe", null ]
+    [ "Address", "d4/d10/a01278.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "d4/d10/a01278.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "d4/d10/a01278.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "d4/d10/a01278.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "d4/d10/a01278.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "d4/d10/a01278.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
 ];

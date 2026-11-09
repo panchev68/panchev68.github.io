@@ -1,8 +1,14 @@
 var a01382 =
 [
-    [ "operator Frame::Data", "de/d9d/a01382.html#a1529aabd04d9f7d2e5657c17d93ee5e2", null ],
-    [ "dstAddress", "de/d9d/a01382.html#a9969bce892ba39508a48daebcde56b75", null ],
-    [ "frameId", "de/d9d/a01382.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
-    [ "options", "de/d9d/a01382.html#a61fadbd6372692084aabcea329f5f1ab", null ],
-    [ "rfData", "de/d9d/a01382.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
+    [ "PasswordAuthHandler", "de/d9d/a01382.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "de/d9d/a01382.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "de/d9d/a01382.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "de/d9d/a01382.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "de/d9d/a01382.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "de/d9d/a01382.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "de/d9d/a01382.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "de/d9d/a01382.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "de/d9d/a01382.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "de/d9d/a01382.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "de/d9d/a01382.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

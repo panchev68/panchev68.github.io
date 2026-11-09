@@ -1,17 +1,15 @@
 var a01868 =
 [
-    [ "RingBuffer", "dd/de7/a01868.html#a90e56f1bb6c70b02947f83ebf3123417", null ],
-    [ "RingBuffer", "dd/de7/a01868.html#ad1cdbedc5516901d8c9139809a3fbef7", null ],
-    [ "RingBuffer", "dd/de7/a01868.html#a1d9fb75c4c8143ec1b6fe200253b8197", null ],
-    [ "available", "dd/de7/a01868.html#a8ab973e4fda57588b6a238c8d7537b60", null ],
-    [ "clear", "dd/de7/a01868.html#aecba3227be66614ad5db50f238e8970f", null ],
-    [ "front", "dd/de7/a01868.html#a6b6348d736c026af7bfe86e8f178c5dd", null ],
-    [ "front", "dd/de7/a01868.html#abee3c56eacd254c643cb51f9cd4a7839", null ],
-    [ "isEmpty", "dd/de7/a01868.html#ae898513d6e4fff77f261633e9d739da7", null ],
-    [ "isFull", "dd/de7/a01868.html#acbbdeea50582b8f5ecdae7259746e571", null ],
-    [ "operator=", "dd/de7/a01868.html#ab2ab8845bd1a8a943917d668efa8ff90", null ],
-    [ "operator=", "dd/de7/a01868.html#a005ffd7b8657f70cb1ed18f0c1488e8e", null ],
-    [ "pop", "dd/de7/a01868.html#a8355cafc3456b4a8c5f5122ea38ca0d8", null ],
-    [ "push", "dd/de7/a01868.html#a15a0e34223bfa6bb69410c75ff946f0c", null ],
-    [ "push", "dd/de7/a01868.html#a99986517429df0512c8d2ecb01411fc0", null ]
+    [ "DACPort", "dd/de7/a01868.html#a430af54970be9f050913a2587b44af8c", null ],
+    [ "~DACPort", "dd/de7/a01868.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
+    [ "DACPort", "dd/de7/a01868.html#a74ca3aad257be30051d7eaf469296f7d", null ],
+    [ "DACPort", "dd/de7/a01868.html#a3baeea2036cc1c8db31042f17b2ace75", null ],
+    [ "close", "dd/de7/a01868.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
+    [ "getChannel", "dd/de7/a01868.html#a668e6706e47926674d5df3daad36276c", null ],
+    [ "open", "dd/de7/a01868.html#a972d40716f11cc01e220bc488d2fb281", null ],
+    [ "operator=", "dd/de7/a01868.html#a3de9f7904a1682b503e927cd7557360c", null ],
+    [ "operator=", "dd/de7/a01868.html#a935c4325ea0cf9f2079b66affe1e46a1", null ],
+    [ "start", "dd/de7/a01868.html#a99aa0c249bf50a455acd99a243d63c67", null ],
+    [ "stop", "dd/de7/a01868.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
+    [ "waitForEvent", "dd/de7/a01868.html#a9327549838d3f5ba4298452dabb5e443", null ]
 ];

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Digi::API::Connection::Quality</title>
+<title>IAR Library: Lib::Canbus::Service&lt; Mode::SERVER &gt;</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,52 +112,73 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d33/a01252.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Digi::API::Connection::Quality<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Canbus::Service&lt; Mode::SERVER &gt;<span class="mlabels"><span class="mlabel abstract">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin. </p>
-<p>Every request/response cycle is one bit in a sliding window of the last 'WINDOW_SIZE' cycles; the PDR over that window is the primary score. The filtered RSSI, mapped linearly from 'RSSI_STRONG' (100 %) to 'RSSI_SENSITIVITY' (0 %), scales the PDR score down by up to 'RSSI_WEIGHT' percent, so a weakening signal lowers the result before packets get lost. The state follows the percent with hysteresis: down at once, up only after the better grade has held for 'STATE_UPGRADE_DELAY'.</p>
-<p>In scanner mode every reset starts a 'SCANNER_SETTLE_TIME' period whose samples are ignored, and 'onUpdate' fires once, when the window is filled with fresh samples.</p>
-<p>Thread safety: '<a class="el" href="#a889bc1271f7b0cf758338c7ee2514554" title="Records the outcome of one request/response cycle.">onExchange()</a>' and '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>' run in the application task, '<a class="el" href="#acd7a4f8340c849e6247997e1fff9b177" title="Stores a raw RSSI sample, filtered by the next &#39;update()&#39;.">onRssi()</a>' in the receiver task; '<a class="el" href="#a609bf11d7132e415fcbb42bdb189c438" title="Requests a reset of the collected statistics, applied by the next &#39;update()&#39;.">clear()</a>', the mode setters and the getters are safe from any task. Cross-task data goes only through atomics and is applied inside '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>'. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::API::Connection::Quality:</div>
+<div class="textblock"><p>CAN bus server: discovers client nodes by scanning and answers their requests. </p>
+<p>Every method is "protected" by design — a consumer subclasses it and drives "start()"/"send()"/ "stop()" from within its own methods, never externally. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::Canbus::Service&lt; Mode::SERVER &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d22/a01250.svg" width="223" height="430"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/dc2/a01251.svg" width="263" height="667"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Canbus::Service&lt; Mode::SERVER &gt;:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d22/a01250.svg" width="263" height="667"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:addae8d177e3be6cf88efd4277f317ef7" id="r_addae8d177e3be6cf88efd4277f317ef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> (<a class="el" href="../../d4/dd5/a01244.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *connection) noexcept</td></tr>
-<tr class="memdesc:addae8d177e3be6cf88efd4277f317ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the evaluator in runtime mode with a pending statistics reset.  <br /></td></tr>
-<tr class="memitem:ad5e27604826fa9613e36ac6186b344bb" id="r_ad5e27604826fa9613e36ac6186b344bb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad5e27604826fa9613e36ac6186b344bb">start</a> () noexcept</td></tr>
-<tr class="memdesc:ad5e27604826fa9613e36ac6186b344bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches to runtime mode and resets the statistics; same as '<a class="el" href="#a55bae7d188caa41cd85b5960bc80b4c9" title="Sets runtime mode (continuous assessment) and resets the statistics.">setRuntimeMode()</a>'.  <br /></td></tr>
-<tr class="memitem:a609bf11d7132e415fcbb42bdb189c438" id="r_a609bf11d7132e415fcbb42bdb189c438"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a609bf11d7132e415fcbb42bdb189c438">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a609bf11d7132e415fcbb42bdb189c438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a reset of the collected statistics, applied by the next '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>'.  <br /></td></tr>
-<tr class="memitem:a55bae7d188caa41cd85b5960bc80b4c9" id="r_a55bae7d188caa41cd85b5960bc80b4c9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55bae7d188caa41cd85b5960bc80b4c9">setRuntimeMode</a> () noexcept</td></tr>
-<tr class="memdesc:a55bae7d188caa41cd85b5960bc80b4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets runtime mode (continuous assessment) and resets the statistics.  <br /></td></tr>
-<tr class="memitem:a94bf3ed338180ddd04fe888b204907c7" id="r_a94bf3ed338180ddd04fe888b204907c7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94bf3ed338180ddd04fe888b204907c7">setScannerMode</a> () noexcept</td></tr>
-<tr class="memdesc:a94bf3ed338180ddd04fe888b204907c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets scanner mode (settle, then one result per full window) and resets the statistics.  <br /></td></tr>
-<tr class="memitem:a58d1f865ff5385df9120089b3b9be020" id="r_a58d1f865ff5385df9120089b3b9be020"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a58d1f865ff5385df9120089b3b9be020">getPercent</a> () const noexcept</td></tr>
-<tr class="memdesc:a58d1f865ff5385df9120089b3b9be020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed quality.  <br /></td></tr>
-<tr class="memitem:acc0dd49fae439b6a503f21d2c2296569" id="r_acc0dd49fae439b6a503f21d2c2296569"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#acc0dd49fae439b6a503f21d2c2296569">getState</a> () const noexcept</td></tr>
-<tr class="memdesc:acc0dd49fae439b6a503f21d2c2296569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last published qualitative state.  <br /></td></tr>
-<tr class="memitem:a889bc1271f7b0cf758338c7ee2514554" id="r_a889bc1271f7b0cf758338c7ee2514554"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a889bc1271f7b0cf758338c7ee2514554">onExchange</a> (bool isSuccessful) noexcept</td></tr>
-<tr class="memdesc:a889bc1271f7b0cf758338c7ee2514554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the outcome of one request/response cycle.  <br /></td></tr>
-<tr class="memitem:acd7a4f8340c849e6247997e1fff9b177" id="r_acd7a4f8340c849e6247997e1fff9b177"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd7a4f8340c849e6247997e1fff9b177">onRssi</a> (uint8_t rssi) noexcept</td></tr>
-<tr class="memdesc:acd7a4f8340c849e6247997e1fff9b177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a raw RSSI sample, filtered by the next '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>'.  <br /></td></tr>
-<tr class="memitem:a74c56a3babe14b32b8d4362d4e3ace1f" id="r_a74c56a3babe14b32b8d4362d4e3ace1f"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f">update</a> () noexcept</td></tr>
-<tr class="memdesc:a74c56a3babe14b32b8d4362d4e3ace1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies pending requests and samples, then recomputes percent and state.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a74fdde35a787cd13d6069871c0ff8976" id="r_a74fdde35a787cd13d6069871c0ff8976"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a74fdde35a787cd13d6069871c0ff8976">Diagnostic</a> = <a class="el" href="../../dc/dd9/a01268.html">ServiceBase::Diagnostic</a></td></tr>
+<tr class="memdesc:a74fdde35a787cd13d6069871c0ff8976"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a74fdde35a787cd13d6069871c0ff8976" title="Diagnostic counters inherited from &quot;ServiceBase&quot;.">Diagnostic</a> counters inherited from "ServiceBase".  <br /></td></tr>
+<tr class="memitem:aee877c41a31b08b00ee86c56bdd9cd28" id="r_aee877c41a31b08b00ee86c56bdd9cd28"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#aee877c41a31b08b00ee86c56bdd9cd28">RxMessage</a> = <a class="el" href="../../d7/da3/a01260.html">ServiceBase::RxMessage</a></td></tr>
+<tr class="memdesc:aee877c41a31b08b00ee86c56bdd9cd28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Received-message type inherited from "ServiceBase".  <br /></td></tr>
+<tr class="memitem:ab091b12fa34f220a5e75b16695a26a92" id="r_ab091b12fa34f220a5e75b16695a26a92"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab091b12fa34f220a5e75b16695a26a92">Node</a> = <a class="el" href="../../d3/d51/a01264.html">ServiceBase::Node</a></td></tr>
+<tr class="memdesc:ab091b12fa34f220a5e75b16695a26a92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Client node info inherited from "ServiceBase".  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
-Public Attributes</h2></td></tr>
-<tr class="memitem:a6f2e37a3261d7339927cb06d1b32fa02" id="r_a6f2e37a3261d7339927cb06d1b32fa02"><td class="memItemLeft"><a class="el" href="../../d6/d97/a01188.html">FunctionRef</a>&lt; void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6f2e37a3261d7339927cb06d1b32fa02">onUpdate</a></td></tr>
-<tr class="memdesc:a6f2e37a3261d7339927cb06d1b32fa02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scanner-mode result callback, fired from '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>' in the application task.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a34d4fbaded08b287de47655b7713556a" id="r_a34d4fbaded08b287de47655b7713556a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a34d4fbaded08b287de47655b7713556a">Service</a> (CAN_HandleTypeDef *handle)</td></tr>
+<tr class="memdesc:a34d4fbaded08b287de47655b7713556a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the server to a CAN hardware handle without opening the port yet.  <br /></td></tr>
+<tr class="memitem:aa70d5f9fd723805cc64c383864a55d17" id="r_aa70d5f9fd723805cc64c383864a55d17"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#aa70d5f9fd723805cc64c383864a55d17">~Service</a> ()=default</td></tr>
+<tr class="memitem:a93223c3fff4c00dc1af2fb2189a857ee" id="r_a93223c3fff4c00dc1af2fb2189a857ee"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a93223c3fff4c00dc1af2fb2189a857ee">start</a> ()</td></tr>
+<tr class="memdesc:a93223c3fff4c00dc1af2fb2189a857ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the server service and discovers connected clients.  <br /></td></tr>
+<tr class="memitem:a7ddbb1abfc9d0f93b2d9e809819651cb" id="r_a7ddbb1abfc9d0f93b2d9e809819651cb"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a7ddbb1abfc9d0f93b2d9e809819651cb">stop</a> ()</td></tr>
+<tr class="memdesc:a7ddbb1abfc9d0f93b2d9e809819651cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the server service.  <br /></td></tr>
+<tr class="memitem:a58523c22bcfd875e9c77077eb5f3e24c" id="r_a58523c22bcfd875e9c77077eb5f3e24c"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a58523c22bcfd875e9c77077eb5f3e24c">send</a> (uint8_t nodeId, uint32_t timeout=<a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a>)</td></tr>
+<tr class="memdesc:a58523c22bcfd875e9c77077eb5f3e24c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends an empty response to a specific client node.  <br /></td></tr>
+<tr class="memitem:a2e0c631d402e3175044158dded2de545" id="r_a2e0c631d402e3175044158dded2de545"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a2e0c631d402e3175044158dded2de545">send</a> (uint8_t nodeId, const void *buffer, size_t bufferSize, uint32_t timeout=<a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a>)</td></tr>
+<tr class="memdesc:a2e0c631d402e3175044158dded2de545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a raw data response to a specific client node.  <br /></td></tr>
+<tr class="memitem:a5249db04ea2b2e64223f6656ddd774dc" id="r_a5249db04ea2b2e64223f6656ddd774dc"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="#a5249db04ea2b2e64223f6656ddd774dc">send</a> (uint8_t nodeId, uint64_t value, uint32_t timeout=<a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a>)</td></tr>
+<tr class="memdesc:a5249db04ea2b2e64223f6656ddd774dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a 64-bit value response to a specific client node.  <br /></td></tr>
+<tr class="memitem:a568458f9461115a1ea8f443f2dfde355" id="r_a568458f9461115a1ea8f443f2dfde355"><td class="memItemLeft">virtual const <a class="el" href="#a74fdde35a787cd13d6069871c0ff8976">Diagnostic</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a568458f9461115a1ea8f443f2dfde355">getDiagnostic</a> () const</td></tr>
+<tr class="memitem:a42b0a1623b22a41e003e2abafd67c9f2" id="r_a42b0a1623b22a41e003e2abafd67c9f2"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a42b0a1623b22a41e003e2abafd67c9f2">messageReceivedCallback</a> (const <a class="el" href="#aee877c41a31b08b00ee86c56bdd9cd28">RxMessage</a> &amp;message)</td></tr>
+<tr class="memdesc:a42b0a1623b22a41e003e2abafd67c9f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when a request message is received from a client.  <br /></td></tr>
+<tr class="memitem:a41b59ad5c5b3ad1f6a7220fbbb325c88" id="r_a41b59ad5c5b3ad1f6a7220fbbb325c88"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a41b59ad5c5b3ad1f6a7220fbbb325c88">postScanCallback</a> (const std::array&lt; <a class="el" href="#ab091b12fa34f220a5e75b16695a26a92">Node</a>, <a class="el" href="../../d0/d17/a03491.html#a11d7d7b28667bcb585fa645eb27f1da3">NUM_OF_CANBUS_CLIENT_NODES</a> &gt; &amp;scannedNodes)=0</td></tr>
+<tr class="memdesc:a41b59ad5c5b3ad1f6a7220fbbb325c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked once client discovery scanning completes.  <br /></td></tr>
+<tr class="memitem:ada9602bb96ff9a1d8ef9d91580113505" id="r_ada9602bb96ff9a1d8ef9d91580113505"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ada9602bb96ff9a1d8ef9d91580113505">taskFn</a> ()=0</td></tr>
+<tr class="memdesc:ada9602bb96ff9a1d8ef9d91580113505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task body implemented by the derived server; drives its periodic/event-driven behavior.  <br /></td></tr>
+<tr class="memitem:a8d6e7286a93e0c3ef9d72b187747aaf5" id="r_a8d6e7286a93e0c3ef9d72b187747aaf5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d0f/a01256.html#a8d6e7286a93e0c3ef9d72b187747aaf5">start</a> (uint8_t nodeId)</td></tr>
+<tr class="memdesc:a8d6e7286a93e0c3ef9d72b187747aaf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the service.  <br /></td></tr>
+<tr class="memitem:a24358bc730156fbe1517606352fbf513" id="r_a24358bc730156fbe1517606352fbf513"><td class="memItemLeft">virtual bool&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d0f/a01256.html#a24358bc730156fbe1517606352fbf513">receive</a> (<a class="el" href="#aee877c41a31b08b00ee86c56bdd9cd28">RxMessage</a> &amp;message, uint32_t timeout)</td></tr>
+<tr class="memdesc:a24358bc730156fbe1517606352fbf513"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive a CAN message.  <br /></td></tr>
+<tr class="memitem:aae6dd52724c824bca7f3a535ba9449d0" id="r_aae6dd52724c824bca7f3a535ba9449d0"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d0f/a01256.html#aae6dd52724c824bca7f3a535ba9449d0">errorCallback</a> (uint32_t errorCode)</td></tr>
+<tr class="memdesc:aae6dd52724c824bca7f3a535ba9449d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback invoked when a CAN error occurs.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
+Static Protected Attributes</h2></td></tr>
+<tr class="memitem:ab0f726297aa192065e4552a8878e523d" id="r_ab0f726297aa192065e4552a8878e523d"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a> = 50</td></tr>
+<tr class="memdesc:ab0f726297aa192065e4552a8878e523d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for sending messages in milliseconds.  <br /></td></tr>
+<tr class="memitem:aac1dd9a1186c50991c6f08887440d4e8" id="r_aac1dd9a1186c50991c6f08887440d4e8"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="../../d6/d0f/a01256.html#aac1dd9a1186c50991c6f08887440d4e8">RECEIVE_TIMEOUT</a> = 50</td></tr>
+<tr class="memdesc:aac1dd9a1186c50991c6f08887440d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timeout for receiving messages in milliseconds.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a46b4913da28daeccef03e456b1d3a101" name="a46b4913da28daeccef03e456b1d3a101"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46b4913da28daeccef03e456b1d3a101">&#9670;&#160;</a></span>Mode</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a74fdde35a787cd13d6069871c0ff8976" name="a74fdde35a787cd13d6069871c0ff8976"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74fdde35a787cd13d6069871c0ff8976">&#9670;&#160;</a></span>Diagnostic</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,59 +187,71 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum class <a class="el" href="#a46b4913da28daeccef03e456b1d3a101">Lib::Digi::API::Connection::Quality::Mode</a> : uint8_t</td>
+          <td class="memname">using <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::Diagnostic = <a class="el" href="../../dc/dd9/a01268.html">ServiceBase::Diagnostic</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Assessment mode. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8" name="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8"></a>RUNTIME&#160;</td><td class="fielddoc"><p>Continuous assessment. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d" name="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d"></a>SCANNER&#160;</td><td class="fielddoc"><p>Settle, then one result per full window. </p>
-</td></tr>
-</table>
+<p><a class="el" href="#a74fdde35a787cd13d6069871c0ff8976" title="Diagnostic counters inherited from &quot;ServiceBase&quot;.">Diagnostic</a> counters inherited from "ServiceBase". </p>
 
 </div>
 </div>
-<a id="af7ac77ba20da5be346e1d3948da5de72" name="af7ac77ba20da5be346e1d3948da5de72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7ac77ba20da5be346e1d3948da5de72">&#9670;&#160;</a></span>State</h2>
+<a id="ab091b12fa34f220a5e75b16695a26a92" name="ab091b12fa34f220a5e75b16695a26a92"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab091b12fa34f220a5e75b16695a26a92">&#9670;&#160;</a></span>Node</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">Lib::Digi::API::Connection::Quality::State</a> : uint8_t</td>
+          <td class="memname">using <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::Node = <a class="el" href="../../d3/d51/a01264.html">ServiceBase::Node</a></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Qualitative states ordered by increasing quality. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785" name="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785"></a>DISCONNECTED&#160;</td><td class="fielddoc"><p>Link down. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e" name="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e"></a>UNUSABLE&#160;</td><td class="fielddoc"><p>Up to 30 %. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4" name="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4"></a>NOT_GOOD&#160;</td><td class="fielddoc"><p>Above 30 %. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734" name="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734"></a>OKAY&#160;</td><td class="fielddoc"><p>Above 50 %. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347" name="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347"></a>VERY_GOOD&#160;</td><td class="fielddoc"><p>Above 75 %. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9" name="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9"></a>AMAZING&#160;</td><td class="fielddoc"><p>Above 90 %. </p>
-</td></tr>
+<p>Client node info inherited from "ServiceBase". </p>
+
+</div>
+</div>
+<a id="aee877c41a31b08b00ee86c56bdd9cd28" name="aee877c41a31b08b00ee86c56bdd9cd28"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee877c41a31b08b00ee86c56bdd9cd28">&#9670;&#160;</a></span>RxMessage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::RxMessage = <a class="el" href="../../d7/da3/a01260.html">ServiceBase::RxMessage</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+
+<p>Received-message type inherited from "ServiceBase". </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="addae8d177e3be6cf88efd4277f317ef7" name="addae8d177e3be6cf88efd4277f317ef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addae8d177e3be6cf88efd4277f317ef7">&#9670;&#160;</a></span>Quality()</h2>
+<a id="a34d4fbaded08b287de47655b7713556a" name="a34d4fbaded08b287de47655b7713556a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34d4fbaded08b287de47655b7713556a">&#9670;&#160;</a></span>Service()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -225,321 +260,613 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Digi::API::Connection::Quality::Quality </td>
+          <td class="memname"><a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::Service </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/dd5/a01244.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *</td>          <td class="paramname"><span class="paramname"><em>connection</em></span></td><td>)</td>
+          <td class="paramtype">CAN_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates the evaluator in runtime mode with a pending statistics reset. </p>
+<p>Binds the server to a CAN hardware handle without opening the port yet. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">connection</td><td>Owning connection; must not be 'nullptr'. </td></tr>
+    <tr><td class="paramname">handle</td><td>Native CAN peripheral handle. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_addae8d177e3be6cf88efd4277f317ef7_cgraph.svg" width="578" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a609bf11d7132e415fcbb42bdb189c438" name="a609bf11d7132e415fcbb42bdb189c438"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a609bf11d7132e415fcbb42bdb189c438">&#9670;&#160;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Quality::clear </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Requests a reset of the collected statistics, applied by the next '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>'. </p>
-<p>Safe from any task. </p>
-
-</div>
-</div>
-<a id="a58d1f865ff5385df9120089b3b9be020" name="a58d1f865ff5385df9120089b3b9be020"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58d1f865ff5385df9120089b3b9be020">&#9670;&#160;</a></span>getPercent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t Lib::Digi::API::Connection::Quality::getPercent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last computed quality. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d0/d33/a01252.html" title="Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin.">Quality</a> in percent (0-100). </dd></dl>
-
-</div>
-</div>
-<a id="acc0dd49fae439b6a503f21d2c2296569" name="acc0dd49fae439b6a503f21d2c2296569"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc0dd49fae439b6a503f21d2c2296569">&#9670;&#160;</a></span>getState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::getState </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the last published qualitative state. </p>
-<dl class="section return"><dt>Returns</dt><dd>Qualitative state. </dd></dl>
-
-</div>
-</div>
-<a id="a889bc1271f7b0cf758338c7ee2514554" name="a889bc1271f7b0cf758338c7ee2514554"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a889bc1271f7b0cf758338c7ee2514554">&#9670;&#160;</a></span>onExchange()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Quality::onExchange </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSuccessful</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Records the outcome of one request/response cycle. </p>
-<p>Application task only.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">isSuccessful</td><td>'true' if the response arrived in time and was accepted, 'false' if it was lost. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acd7a4f8340c849e6247997e1fff9b177" name="acd7a4f8340c849e6247997e1fff9b177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd7a4f8340c849e6247997e1fff9b177">&#9670;&#160;</a></span>onRssi()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Quality::onRssi </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rssi</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stores a raw RSSI sample, filtered by the next '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>'. </p>
-<p>Safe from the receiver task.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">rssi</td><td>RSSI magnitude as reported by the module (-dBm, larger means weaker). </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="a55bae7d188caa41cd85b5960bc80b4c9" name="a55bae7d188caa41cd85b5960bc80b4c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55bae7d188caa41cd85b5960bc80b4c9">&#9670;&#160;</a></span>setRuntimeMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Quality::setRuntimeMode </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets runtime mode (continuous assessment) and resets the statistics. </p>
-<p>Safe from any task. </p>
-
-</div>
-</div>
-<a id="a94bf3ed338180ddd04fe888b204907c7" name="a94bf3ed338180ddd04fe888b204907c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94bf3ed338180ddd04fe888b204907c7">&#9670;&#160;</a></span>setScannerMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Quality::setScannerMode </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets scanner mode (settle, then one result per full window) and resets the statistics. </p>
-<p>Safe from any task. </p>
-
-</div>
-</div>
-<a id="ad5e27604826fa9613e36ac6186b344bb" name="ad5e27604826fa9613e36ac6186b344bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5e27604826fa9613e36ac6186b344bb">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::API::Connection::Quality::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Switches to runtime mode and resets the statistics; same as '<a class="el" href="#a55bae7d188caa41cd85b5960bc80b4c9" title="Sets runtime mode (continuous assessment) and resets the statistics.">setRuntimeMode()</a>'. </p>
-
-</div>
-</div>
-<a id="a74c56a3babe14b32b8d4362d4e3ace1f" name="a74c56a3babe14b32b8d4362d4e3ace1f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74c56a3babe14b32b8d4362d4e3ace1f">&#9670;&#160;</a></span>update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::update </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Applies pending requests and samples, then recomputes percent and state. </p>
-<p>Application task only.</p>
-<dl class="section return"><dt>Returns</dt><dd>New qualitative state. </dd></dl>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a74c56a3babe14b32b8d4362d4e3ace1f_cgraph.svg" width="499" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a34d4fbaded08b287de47655b7713556a_cgraph.svg" width="564" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa70d5f9fd723805cc64c383864a55d17" name="aa70d5f9fd723805cc64c383864a55d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa70d5f9fd723805cc64c383864a55d17">&#9670;&#160;</a></span>~Service()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::~<a class="el" href="#a34d4fbaded08b287de47655b7713556a">Service</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aae6dd52724c824bca7f3a535ba9449d0" name="aae6dd52724c824bca7f3a535ba9449d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae6dd52724c824bca7f3a535ba9449d0">&#9670;&#160;</a></span>errorCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Lib::Canbus::ServiceBase::errorCallback </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>errorCode</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback invoked when a CAN error occurs. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">errorCode</td><td>error code from the CAN peripheral. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="../../da/de0/a01248.html#ad74f33fcf92667fa655a8cef606c84d9">Lib::Canbus::Service&lt; Mode::CLIENT &gt;</a>.</p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d0f/a01256_aae6dd52724c824bca7f3a535ba9449d0_icgraph.svg" width="560" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a568458f9461115a1ea8f443f2dfde355" name="a568458f9461115a1ea8f443f2dfde355"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a568458f9461115a1ea8f443f2dfde355">&#9670;&#160;</a></span>getDiagnostic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual const <a class="el" href="#a74fdde35a787cd13d6069871c0ff8976">Diagnostic</a> &amp; <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::getDiagnostic </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a74fdde35a787cd13d6069871c0ff8976" title="Diagnostic counters inherited from &quot;ServiceBase&quot;.">Diagnostic</a> counters for the server connection. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d6/d0f/a01256.html#aa6e2069cd0ca82608d533788d367dddf">Lib::Canbus::ServiceBase</a>.</p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a568458f9461115a1ea8f443f2dfde355_cgraph.svg" width="571" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a42b0a1623b22a41e003e2abafd67c9f2" name="a42b0a1623b22a41e003e2abafd67c9f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42b0a1623b22a41e003e2abafd67c9f2">&#9670;&#160;</a></span>messageReceivedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::messageReceivedCallback </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aee877c41a31b08b00ee86c56bdd9cd28">RxMessage</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback invoked when a request message is received from a client. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>Received CAN message. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="../../d6/d0f/a01256.html#abe37221a89d42b0ec836894d481128b4">Lib::Canbus::ServiceBase</a>.</p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a42b0a1623b22a41e003e2abafd67c9f2_cgraph.svg" width="650" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a41b59ad5c5b3ad1f6a7220fbbb325c88" name="a41b59ad5c5b3ad1f6a7220fbbb325c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b59ad5c5b3ad1f6a7220fbbb325c88">&#9670;&#160;</a></span>postScanCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::postScanCallback </td>
+          <td>(</td>
+          <td class="paramtype">const std::array&lt; <a class="el" href="#ab091b12fa34f220a5e75b16695a26a92">Node</a>, <a class="el" href="../../d0/d17/a03491.html#a11d7d7b28667bcb585fa645eb27f1da3">NUM_OF_CANBUS_CLIENT_NODES</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>scannedNodes</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Callback invoked once client discovery scanning completes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">scannedNodes</td><td>Activity status of each scanned client node, indexed by scan order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a41b59ad5c5b3ad1f6a7220fbbb325c88_icgraph.svg" width="620" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a24358bc730156fbe1517606352fbf513" name="a24358bc730156fbe1517606352fbf513"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24358bc730156fbe1517606352fbf513">&#9670;&#160;</a></span>receive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Lib::Canbus::ServiceBase::receive </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d7/da3/a01260.html">RxMessage</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>message</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Receive a CAN message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>reference to the received message. </td></tr>
+    <tr><td class="paramname">timeout</td><td>timeout in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if successful, "false" otherwise. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d0f/a01256_a24358bc730156fbe1517606352fbf513_icgraph.svg" width="592" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2e0c631d402e3175044158dded2de545" name="a2e0c631d402e3175044158dded2de545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e0c631d402e3175044158dded2de545">&#9670;&#160;</a></span>send() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nodeId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bufferSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a raw data response to a specific client node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>Client node to send to. </td></tr>
+    <tr><td class="paramname">buffer</td><td>Pointer to the data buffer to send. </td></tr>
+    <tr><td class="paramname">bufferSize</td><td>Size of the data buffer in bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout in milliseconds for the send operation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the data was sent successfully; "false" on timeout or error. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a2e0c631d402e3175044158dded2de545_cgraph.svg" width="567" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a58523c22bcfd875e9c77077eb5f3e24c" name="a58523c22bcfd875e9c77077eb5f3e24c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58523c22bcfd875e9c77077eb5f3e24c">&#9670;&#160;</a></span>send() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nodeId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends an empty response to a specific client node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>Client node to send to. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout in milliseconds for the send operation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the message was sent successfully; "false" on timeout or error. </dd></dl>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a58523c22bcfd875e9c77077eb5f3e24c_cgraph.svg" width="567" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a58523c22bcfd875e9c77077eb5f3e24c_icgraph.svg" width="668" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5249db04ea2b2e64223f6656ddd774dc" name="a5249db04ea2b2e64223f6656ddd774dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5249db04ea2b2e64223f6656ddd774dc">&#9670;&#160;</a></span>send() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nodeId</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../d6/d0f/a01256.html#ab0f726297aa192065e4552a8878e523d">SEND_TIMEOUT</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a 64-bit value response to a specific client node. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>Client node to send to. </td></tr>
+    <tr><td class="paramname">value</td><td>64-bit value to send. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Timeout in milliseconds for the send operation. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the value was sent successfully; "false" on timeout or error. </dd></dl>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a5249db04ea2b2e64223f6656ddd774dc_cgraph.svg" width="567" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a93223c3fff4c00dc1af2fb2189a857ee" name="a93223c3fff4c00dc1af2fb2189a857ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93223c3fff4c00dc1af2fb2189a857ee">&#9670;&#160;</a></span>start() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the server service and discovers connected clients. </p>
+<p>Registers with node ID 0, then scans every configured client ID and reports the result through "postScanCallback()".</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the server was successfully started and scanning completed; "false" otherwise. </dd></dl>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a93223c3fff4c00dc1af2fb2189a857ee_cgraph.svg" width="563" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8d6e7286a93e0c3ef9d72b187747aaf5" name="a8d6e7286a93e0c3ef9d72b187747aaf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6e7286a93e0c3ef9d72b187747aaf5">&#9670;&#160;</a></span>start() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Canbus::ServiceBase::start </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>nodeId</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Start the service. </p>
+<p>Configures the hardware to accept every frame (this module addresses nodes by arbitration identifier in software, not by hardware filtering), opens the CAN port, and starts the RX pump and <a class="el" href="../../da/de3/a00856.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nodeId</td><td>unique node ID in the CAN network. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if successful, "false" otherwise. </dd></dl>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
+</div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d0f/a01256_a8d6e7286a93e0c3ef9d72b187747aaf5_icgraph.svg" width="563" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a7ddbb1abfc9d0f93b2d9e809819651cb" name="a7ddbb1abfc9d0f93b2d9e809819651cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ddbb1abfc9d0f93b2d9e809819651cb">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the server service. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the service was successfully stopped; "false" otherwise. </dd></dl>
+
+<p>Reimplemented from <a class="el" href="../../d6/d0f/a01256.html#a3d0252842f197249fff9649618458fee">Lib::Canbus::ServiceBase</a>.</p>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
+</div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_a7ddbb1abfc9d0f93b2d9e809819651cb_cgraph.svg" width="560" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ada9602bb96ff9a1d8ef9d91580113505" name="ada9602bb96ff9a1d8ef9d91580113505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada9602bb96ff9a1d8ef9d91580113505">&#9670;&#160;</a></span>taskFn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void <a class="el" href="../../d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt; <a class="el" href="../../d7/d5f/a00831.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844">Mode::SERVER</a> &gt;::taskFn </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel pure-virtual">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Task body implemented by the derived server; drives its periodic/event-driven behavior. </p>
+
+<p>Implements <a class="el" href="../../d6/d0f/a01256.html#a3f461c3e0f637c2be89463249c736b46">Lib::Canbus::ServiceBase</a>.</p>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d33/a01252_ada9602bb96ff9a1d8ef9d91580113505_cgraph.svg" width="926" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a6f2e37a3261d7339927cb06d1b32fa02" name="a6f2e37a3261d7339927cb06d1b32fa02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f2e37a3261d7339927cb06d1b32fa02">&#9670;&#160;</a></span>onUpdate</h2>
+<a id="aac1dd9a1186c50991c6f08887440d4e8" name="aac1dd9a1186c50991c6f08887440d4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac1dd9a1186c50991c6f08887440d4e8">&#9670;&#160;</a></span>RECEIVE_TIMEOUT</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/d97/a01188.html">FunctionRef</a>&lt;void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt; Lib::Digi::API::Connection::Quality::onUpdate</td>
+          <td class="memname">uint32_t Lib::Canbus::ServiceBase::RECEIVE_TIMEOUT = 50</td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Scanner-mode result callback, fired from '<a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f" title="Applies pending requests and samples, then recomputes percent and state.">update()</a>' in the application task. </p>
-<p>Non-owning: bound and cleared by the owning scanner in its 'open()'/'close()'. </p>
+<p>Timeout for receiving messages in milliseconds. </p>
+
+</div>
+</div>
+<a id="ab0f726297aa192065e4552a8878e523d" name="ab0f726297aa192065e4552a8878e523d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0f726297aa192065e4552a8878e523d">&#9670;&#160;</a></span>SEND_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::Canbus::ServiceBase::SEND_TIMEOUT = 50</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Timeout for sending messages in milliseconds. </p>
 
 </div>
 </div>
@@ -556,7 +883,7 @@ Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d9/daf/a00830.html">Digi</a></li><li class="navelem"><a href="../../d7/d5f/a00831.html">API</a></li><li class="navelem"><a href="../../d4/dd5/a01244.html">Connection</a></li><li class="navelem"><a href="../../d0/d33/a01252.html">Quality</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d7/d5f/a00831.html">Canbus</a></li><li class="navelem"><a href="../../d0/d33/a01252.html">Service&lt; Mode::SERVER &gt;</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

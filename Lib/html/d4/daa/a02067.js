@@ -1,14 +1,7 @@
 var a02067 =
 [
-    [ "Label", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "d4/daa/a02067.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "d4/daa/a02067.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "d4/daa/a02067.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "d4/daa/a02067.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "UARTPortAsync", "d4/daa/a02067.html#ae3dfd1d49bf2eb3ae572e5482852a106", null ],
+    [ "abort", "d4/daa/a02067.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "receive", "d4/daa/a02067.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "d4/daa/a02067.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
 ];

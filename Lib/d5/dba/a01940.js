@@ -1,10 +1,13 @@
 var a01940 =
 [
-    [ "VersionString", "d5/dba/a01940.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "d5/dba/a01940.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "d5/dba/a01940.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d5/dba/a01940.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "d5/dba/a01940.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "d5/dba/a01940.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "d5/dba/a01940.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "I2CPortBase", "d5/dba/a01940.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
+    [ "I2CPortBase", "d5/dba/a01940.html#abb555787d1c67ffeb59851d309d7e32f", null ],
+    [ "I2CPortBase", "d5/dba/a01940.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "d5/dba/a01940.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "d5/dba/a01940.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "d5/dba/a01940.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d5/dba/a01940.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "d5/dba/a01940.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d5/dba/a01940.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
+    [ "operator=", "d5/dba/a01940.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
 ];

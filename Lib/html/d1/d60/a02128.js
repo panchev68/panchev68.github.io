@@ -1,9 +1,11 @@
 var a02128 =
 [
-    [ "SerialString", "d1/d60/a02128.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
-    [ "SerialNumber", "d1/d60/a02128.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
-    [ "operator SerialString", "d1/d60/a02128.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
-    [ "operator uint32_t", "d1/d60/a02128.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
-    [ "toString", "d1/d60/a02128.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
-    [ "result", "d1/d60/a02128.html#af3d33382ba6c5d600113f549fad5b91d", null ]
+    [ "getDirection", "d1/d60/a02128.html#a68335ce20908e5937884bf601bb4b90e", null ],
+    [ "getRecipient", "d1/d60/a02128.html#ae7283011b9493caacbbe6081ca48b217", null ],
+    [ "getType", "d1/d60/a02128.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
+    [ "index", "d1/d60/a02128.html#a042e36be625640c409835eeb4ca30c8a", null ],
+    [ "length", "d1/d60/a02128.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
+    [ "request", "d1/d60/a02128.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
+    [ "requestType", "d1/d60/a02128.html#a87ecd5c19387a9761e2548aba162728d", null ],
+    [ "value", "d1/d60/a02128.html#aeb95036baf576efe55bbdca1daf8c864", null ]
 ];

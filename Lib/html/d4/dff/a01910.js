@@ -1,15 +1,14 @@
 var a01910 =
 [
-    [ "TickType", "d4/dff/a01910.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "d4/dff/a01910.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "d4/dff/a01910.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "d4/dff/a01910.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "d4/dff/a01910.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "d4/dff/a01910.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "d4/dff/a01910.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "d4/dff/a01910.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "d4/dff/a01910.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "d4/dff/a01910.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "d4/dff/a01910.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "d4/dff/a01910.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "Input", "d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "d4/dff/a01910.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "Input", "d4/dff/a01910.html#aba23478206e067c578a2081a0ba4d1ee", null ],
+    [ "Input", "d4/dff/a01910.html#a01d95887913602ed10325b5b07f8cef5", null ],
+    [ "isHigh", "d4/dff/a01910.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d4/dff/a01910.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d4/dff/a01910.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d4/dff/a01910.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
+    [ "operator=", "d4/dff/a01910.html#aac4da8195bb51d393df961046635bfc0", null ],
+    [ "read", "d4/dff/a01910.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "d4/dff/a01910.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

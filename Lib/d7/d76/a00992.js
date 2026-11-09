@@ -1,19 +1,21 @@
 var a00992 =
 [
-    [ "Command", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d7/d76/a00992.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Config", "d3/daa/a00996.html", "d3/daa/a00996" ],
+    [ "EventCode", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7", [
+      [ "BUTTON_PUSH", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
+      [ "BUTTON_PULL", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972", null ],
+      [ "BUTTON_HOLD", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e", null ],
+      [ "ENCODER_CW", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404", null ],
+      [ "ENCODER_CCW", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b", null ],
+      [ "NONE", "d7/d76/a00992.html#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693", null ]
+    ] ],
+    [ "EncoderTimer", "d7/d76/a00992.html#aaf07b62dc5be29307f86fc985c41c7ab", null ],
+    [ "~EncoderTimer", "d7/d76/a00992.html#a449279e87494b389cfa1adba8e7f6b37", null ],
+    [ "EncoderTimer", "d7/d76/a00992.html#a99753bd300ae9ecf9544bf7ba709e3f5", null ],
+    [ "EncoderTimer", "d7/d76/a00992.html#a7d21c22284a66c9cbf8d4260a84aef01", null ],
+    [ "close", "d7/d76/a00992.html#a9e37bcbed278df67dad753953c0e0505", null ],
+    [ "open", "d7/d76/a00992.html#a332145ce828a12688d8de9aea070c328", null ],
+    [ "operator=", "d7/d76/a00992.html#a6e4f9be3709b642fa4507cda01d85fc1", null ],
+    [ "operator=", "d7/d76/a00992.html#a8f9bc205f553a774c7a25beff08602ac", null ],
+    [ "read", "d7/d76/a00992.html#afa10c44ad4eee7779caf46410cac1255", null ]
 ];

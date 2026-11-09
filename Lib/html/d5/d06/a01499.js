@@ -1,13 +1,17 @@
 var a01499 =
 [
-    [ "PortString", "d5/d06/a01499.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "d5/d06/a01499.html#aad4167f0040c4a42546ff0c27d4b5c56", null ],
-    [ "Port", "d5/d06/a01499.html#a4f1b0e6bdc323223a63e42c730f935ab", null ],
-    [ "fromString", "d5/d06/a01499.html#aebf851d4105553f8d7a419399670e706", null ],
-    [ "get", "d5/d06/a01499.html#a2555da5052290271fef80ea0c44cdd81", null ],
-    [ "get", "d5/d06/a01499.html#a787a09d5e0d962e341052f259a78c984", null ],
-    [ "operator uint16_t", "d5/d06/a01499.html#a2609657b2d98052d6ce9badaf181d234", null ],
-    [ "operator=", "d5/d06/a01499.html#a17eb9d56ec5a24404f0a8a529326ad7c", null ],
-    [ "set", "d5/d06/a01499.html#a595046f66ee8bc37dd42ab7606b60aae", null ],
-    [ "toString", "d5/d06/a01499.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "Data", "d6/df5/a01503.html", "d6/df5/a01503" ],
+    [ "Parameters", "d5/d06/a01499.html#ae9b1083d9afe5ce37684ee479065c08d", null ],
+    [ "Parameters", "d5/d06/a01499.html#a751f186c85cc8d58f16fc12d907ebe1f", null ],
+    [ "close", "d5/d06/a01499.html#a1a7e321a9bac36794a93524ee2265f1e", null ],
+    [ "getChannel", "d5/d06/a01499.html#abb0d4e0ff08a92ff38e3627964f0c50f", null ],
+    [ "getData", "d5/d06/a01499.html#ac793ef8a47bb6b900a9b96ef741286fc", null ],
+    [ "getPanId", "d5/d06/a01499.html#a002de6a62eca987fb68d0134d291d7a3", null ],
+    [ "isWritePending", "d5/d06/a01499.html#a2444246733f1cf2dfb8d6fb114e10f9e", null ],
+    [ "operator=", "d5/d06/a01499.html#a0036b61cadf6ca50a98425c13efd17e9", null ],
+    [ "pauseReadDynamicParameters", "d5/d06/a01499.html#a5ceaf511d2672fa9d60b960c563e6a47", null ],
+    [ "read", "d5/d06/a01499.html#a0b95648ab79c354ae5ed07e87775a4e4", null ],
+    [ "setChannel", "d5/d06/a01499.html#a1a9c64e3e6603a03c17294851fc407a5", null ],
+    [ "setPanId", "d5/d06/a01499.html#a2f50f7e3fb88c475ffbc15f2c0203698", null ],
+    [ "writeChanges", "d5/d06/a01499.html#aab4960dbba120dcbeddf25b42f53d85a", null ]
 ];

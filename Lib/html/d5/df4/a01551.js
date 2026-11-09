@@ -1,8 +1,11 @@
 var a01551 =
 [
-    [ "ADCPortBase", "d5/df4/a01551.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
-    [ "~ADCPortBase", "d5/df4/a01551.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
-    [ "close", "d5/df4/a01551.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getValue", "d5/df4/a01551.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d5/df4/a01551.html#aed764265c454323ee0b2d718d2f447cb", null ]
+    [ "ignoredMessagesByTimeout", "d5/df4/a01551.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d5/df4/a01551.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "d5/df4/a01551.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "d5/df4/a01551.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "d5/df4/a01551.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "d5/df4/a01551.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "d5/df4/a01551.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "d5/df4/a01551.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

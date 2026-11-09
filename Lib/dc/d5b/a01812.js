@@ -1,8 +1,18 @@
 var a01812 =
 [
-    [ "State", "dc/d5b/a01812.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "dc/d5b/a01812.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "dc/d5b/a01812.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "dc/d5b/a01812.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "dc/d5b/a01812.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "Event", "d6/dc4/a01816.html", null ],
+    [ "ADCPort", "dc/d5b/a01812.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "dc/d5b/a01812.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "dc/d5b/a01812.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "dc/d5b/a01812.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "dc/d5b/a01812.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "getHandle", "dc/d5b/a01812.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dc/d5b/a01812.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "dc/d5b/a01812.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dc/d5b/a01812.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "dc/d5b/a01812.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "dc/d5b/a01812.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "dc/d5b/a01812.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "dc/d5b/a01812.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "dc/d5b/a01812.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

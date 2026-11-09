@@ -1,4 +1,6 @@
 var a00788 =
 [
-    [ "Lib::System::VersionBase&lt; Derived &gt;", "d5/dba/a01940.html", "d5/dba/a01940" ]
+    [ "Lib::USB::CDCDevice", "d1/df6/a02544.html", "d1/df6/a02544" ],
+    [ "Lib::USB::CDCDevice::Config", "da/dc4/a02548.html", "da/dc4/a02548" ],
+    [ "Lib::USB::CDCDevice::LineCoding", "de/d48/a02552.html", "de/d48/a02552" ]
 ];

@@ -1,8 +1,25 @@
 var a02099 =
 [
-    [ "Config", "d9/dff/a02099.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
-    [ "callback", "d9/dff/a02099.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
-    [ "mode", "d9/dff/a02099.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
-    [ "name", "d9/dff/a02099.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
-    [ "period", "d9/dff/a02099.html#ae81cad8de025f71497b5b241c41da1eb", null ]
+    [ "USBDevicePortBase", "d9/dff/a02099.html#a10cff571345e912dd5e479bcb022425b", null ],
+    [ "USBDevicePortBase", "d9/dff/a02099.html#aeaf1da4a57b4c99a4ef7f4ad797515bc", null ],
+    [ "USBDevicePortBase", "d9/dff/a02099.html#a02b2cedb47ee415e471fdc2ad69a8fd9", null ],
+    [ "~USBDevicePortBase", "d9/dff/a02099.html#ae2ed4b2a4a2f0bc75d1224ee7ff9129f", null ],
+    [ "clearStall", "d9/dff/a02099.html#a50fbc4a2665b215a95effd62660a0ac2", null ],
+    [ "close", "d9/dff/a02099.html#a70556d7766ff4f275a730a0cfb515505", null ],
+    [ "closeEndpoint", "d9/dff/a02099.html#a6ba2ed0453c274b531cb8b9d33a80db6", null ],
+    [ "connect", "d9/dff/a02099.html#aefd6500600303402511786eeaaf2b8fe", null ],
+    [ "disconnect", "d9/dff/a02099.html#a60749424c147e3347e02018c72910511", null ],
+    [ "flushEndpoint", "d9/dff/a02099.html#adb7c8a870ff66d6b2e5ba779b536c22c", null ],
+    [ "getReceivedCount", "d9/dff/a02099.html#a39ec41ba413955481a2c57a076e433de", null ],
+    [ "getSetupPacket", "d9/dff/a02099.html#a1d83533b43ad863b76211ee532686a9b", null ],
+    [ "open", "d9/dff/a02099.html#afc2ac672b83340d54497b6ebc58299e0", null ],
+    [ "openEndpoint", "d9/dff/a02099.html#a514cb29eb2bdba3f9de5ad8685671285", null ],
+    [ "operator=", "d9/dff/a02099.html#a3e1f1a0c646bd223fef467533055fe6e", null ],
+    [ "operator=", "d9/dff/a02099.html#a348e2a3d03d95db75c367dedbe49844c", null ],
+    [ "setAddress", "d9/dff/a02099.html#a13f6d0f8f8693765b9e38b93a9316b7c", null ],
+    [ "setRxFifo", "d9/dff/a02099.html#a8243db6e1f57194b390dc675419a65ae", null ],
+    [ "setTxFifo", "d9/dff/a02099.html#abbe2ea9718784caab5c210d61c582e87", null ],
+    [ "stallEndpoint", "d9/dff/a02099.html#a6af92c35c4cfa77a15f20a4bf55698ea", null ],
+    [ "start", "d9/dff/a02099.html#a1f538f3e7aec739023c189ee6fe3550b", null ],
+    [ "stop", "d9/dff/a02099.html#a920b0e6cfe3123e61804850a3420975e", null ]
 ];

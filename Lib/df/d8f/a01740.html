@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::Sunset</title>
+<title>IAR Library: Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,112 +112,156 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d8f/a01740.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::Sunset<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Computes solar events (sunrise and sunset) for a stored location, UTC offset and date. </p>
-<p>Results are expressed in minutes since local midnight of the set date. A value below 0 or at or above 1440 means that the event falls on the previous or next local day. During polar day or polar night the hour angle is clamped, so sunrise and sunset collapse to solar midnight or solar noon respectively.</p>
-<p>The solar model runs in single precision, which the Cortex-M4F FPU executes in hardware; it differs from a double-precision evaluation by well under a second. Only the Julian date stays double, since a float cannot hold it to better than a quarter of a day. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::Sunset:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt;<br />
+class Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;</div><p>EtherCAT slave mailbox transport, written directly on the ESC registers. </p>
+<p>The mailbox is the asynchronous channel between master and slave (<a class="el" href="../../d0/dbc/a01704.html" title="CANopen over EtherCAT (CoE): the SDO server and the SDO information service of an EtherCAT slave.">CoE</a>, <a class="el" href="../../de/d25/a01732.html" title="File access over EtherCAT (FoE): the file server of an EtherCAT slave.">FoE</a>, <a class="el" href="../../d3/d4c/a01724.html" title="Ethernet over EtherCAT (EoE): the Ethernet frame tunnel of an EtherCAT slave.">EoE</a>, AoE, SoE and VoE ride on it). It is two sync managers of the EtherCAT slave controller: SM0 carries messages from the master to the slave, SM1 from the slave to the master. This class enables both through the PDI control registers, reads the configuration the master wrote, receives one message at a time, sends messages and mailbox errors, and answers the master's repeat requests by writing the last message the master read again. It does not interpret the protocols themselves: it hands the protocol type and payload to the caller.</p>
+<p>The chip is reached through a type that provides "readReg()" and "writeReg()" (the LAN9252 driver does), so no vendor stack is needed. One task at a time may use a mailbox.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_ESC</td><td>Register access of the slave controller, see "EscAccess". </td></tr>
+    <tr><td class="paramname">T_MAX_SIZE</td><td>Largest mailbox, in bytes, that the object can handle; the master's sync manager configuration must fit it. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d10/a01738.svg" width="194" height="379"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d10/a01738.svg" width="212" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a402a1203f51a88c0d732a65d431084b2" id="r_a402a1203f51a88c0d732a65d431084b2"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a402a1203f51a88c0d732a65d431084b2">Sunset</a> ()=default</td></tr>
-<tr class="memdesc:a402a1203f51a88c0d732a65d431084b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the helper at latitude and longitude 0, UTC, without a date.  <br /></td></tr>
-<tr class="memitem:a2c1f6f04de77d5868feb1fa1a6039fd0" id="r_a2c1f6f04de77d5868feb1fa1a6039fd0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2c1f6f04de77d5868feb1fa1a6039fd0">Sunset</a> (float lat, float lon, float tz) noexcept</td></tr>
-<tr class="memdesc:a2c1f6f04de77d5868feb1fa1a6039fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the helper and sets the geographic position immediately.  <br /></td></tr>
-<tr class="memitem:afbc858a5944c47609616f459b657339b" id="r_afbc858a5944c47609616f459b657339b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#afbc858a5944c47609616f459b657339b">setPosition</a> (float lat, float lon, float tz) noexcept</td></tr>
-<tr class="memdesc:afbc858a5944c47609616f459b657339b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the geographic position and UTC offset used for calculations.  <br /></td></tr>
-<tr class="memitem:a29094e288d78ced6c06c9652828bb343" id="r_a29094e288d78ced6c06c9652828bb343"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a29094e288d78ced6c06c9652828bb343">setCurrentDate</a> (int y, int m, int d) noexcept</td></tr>
-<tr class="memdesc:a29094e288d78ced6c06c9652828bb343"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the date used for calculations from its year, month and day.  <br /></td></tr>
-<tr class="memitem:a5c6deabfb7071836dede5e4bec4152f3" id="r_a5c6deabfb7071836dede5e4bec4152f3"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#a5c6deabfb7071836dede5e4bec4152f3">setCurrentDate</a> (const ::Lib::DateTime::Date &amp;date) noexcept</td></tr>
-<tr class="memdesc:a5c6deabfb7071836dede5e4bec4152f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the date used for calculations.  <br /></td></tr>
-<tr class="memitem:ac18d69149ba7a8ed86b70ce314aa7d0a" id="r_ac18d69149ba7a8ed86b70ce314aa7d0a"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac18d69149ba7a8ed86b70ce314aa7d0a">sunrise</a> (float angle=<a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a>) const noexcept</td></tr>
-<tr class="memdesc:ac18d69149ba7a8ed86b70ce314aa7d0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sunrise time for the set date and position.  <br /></td></tr>
-<tr class="memitem:a3bea9bb96761c55203633434195d87c4" id="r_a3bea9bb96761c55203633434195d87c4"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a3bea9bb96761c55203633434195d87c4">sunset</a> (float angle=<a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a>) const noexcept</td></tr>
-<tr class="memdesc:a3bea9bb96761c55203633434195d87c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the sunset time for the set date and position.  <br /></td></tr>
-<tr class="memitem:ac1f5e5819f84b104cb7a80ac1bf582e0" id="r_ac1f5e5819f84b104cb7a80ac1bf582e0"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#ac1f5e5819f84b104cb7a80ac1bf582e0">calculateSunTime</a> (float angle, bool isSunrise) const noexcept</td></tr>
-<tr class="memdesc:ac1f5e5819f84b104cb7a80ac1bf582e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the time of a solar event in minutes since UTC midnight of the set date.  <br /></td></tr>
-<tr class="memitem:aef3e93cf3eecbb7ea862c973e2a27740" id="r_aef3e93cf3eecbb7ea862c973e2a27740"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#aef3e93cf3eecbb7ea862c973e2a27740">computeHourAngle</a> (float dec, float angle) const noexcept</td></tr>
-<tr class="memdesc:aef3e93cf3eecbb7ea862c973e2a27740"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the hour angle of the sun at the given horizon angle for the stored latitude.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a34270fa1445d0c51cb686a4c51cd4c44" id="r_a34270fa1445d0c51cb686a4c51cd4c44"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a34270fa1445d0c51cb686a4c51cd4c44">calculateEquationOfTime</a> (float t) noexcept</td></tr>
-<tr class="memdesc:a34270fa1445d0c51cb686a4c51cd4c44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the equation of time, the difference between apparent and mean solar time.  <br /></td></tr>
-<tr class="memitem:a8b62813b9c952c41af6189fed8317650" id="r_a8b62813b9c952c41af6189fed8317650"><td class="memItemLeft">static float&#160;</td><td class="memItemRight"><a class="el" href="#a8b62813b9c952c41af6189fed8317650">calculateSunDeclination</a> (float t) noexcept</td></tr>
-<tr class="memdesc:a8b62813b9c952c41af6189fed8317650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the apparent declination of the sun.  <br /></td></tr>
+<tr class="memitem:a1debe96138e08d6ccb16868333feb2bf" id="r_a1debe96138e08d6ccb16868333feb2bf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> (T_ESC &amp;controller) noexcept</td></tr>
+<tr class="memdesc:a1debe96138e08d6ccb16868333feb2bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the mailbox to the slave controller.  <br /></td></tr>
+<tr class="memitem:a11d50ad6b758157d23c8d9afd1f9da50" id="r_a11d50ad6b758157d23c8d9afd1f9da50"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a11d50ad6b758157d23c8d9afd1f9da50">~Mailbox</a> ()=default</td></tr>
+<tr class="memdesc:a11d50ad6b758157d23c8d9afd1f9da50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the mailbox.  <br /></td></tr>
+<tr class="memitem:a237ac941b481e7903f53c72e3a84c37d" id="r_a237ac941b481e7903f53c72e3a84c37d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a237ac941b481e7903f53c72e3a84c37d">Mailbox</a> (const Mailbox &amp;other)=delete</td></tr>
+<tr class="memdesc:a237ac941b481e7903f53c72e3a84c37d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the mailbox stands for the hardware sync managers.  <br /></td></tr>
+<tr class="memitem:ae1f42eb47014d50f8a22229504f9f812" id="r_ae1f42eb47014d50f8a22229504f9f812"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae1f42eb47014d50f8a22229504f9f812">Mailbox</a> (Mailbox &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:ae1f42eb47014d50f8a22229504f9f812"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the mailbox stands for the hardware sync managers.  <br /></td></tr>
+<tr class="memitem:abae1162408c4bf8b2325a6f9bd12422b" id="r_abae1162408c4bf8b2325a6f9bd12422b"><td class="memItemLeft"><a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abae1162408c4bf8b2325a6f9bd12422b">operator=</a> (const <a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:abae1162408c4bf8b2325a6f9bd12422b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the mailbox stands for the hardware sync managers.  <br /></td></tr>
+<tr class="memitem:aac7d5d69054aa75c6c65ab7278e2136a" id="r_aac7d5d69054aa75c6c65ab7278e2136a"><td class="memItemLeft"><a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aac7d5d69054aa75c6c65ab7278e2136a">operator=</a> (<a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:aac7d5d69054aa75c6c65ab7278e2136a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the mailbox stands for the hardware sync managers.  <br /></td></tr>
+<tr class="memitem:abf50b8069f4ceb92d29414e4c378b96a" id="r_abf50b8069f4ceb92d29414e4c378b96a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abf50b8069f4ceb92d29414e4c378b96a">start</a> () noexcept</td></tr>
+<tr class="memdesc:abf50b8069f4ceb92d29414e4c378b96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables SM0 and SM1, reads the configuration the master wrote and starts the mailbox.  <br /></td></tr>
+<tr class="memitem:a931f26c5e93d20514fbea7d2d011fe6a" id="r_a931f26c5e93d20514fbea7d2d011fe6a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a931f26c5e93d20514fbea7d2d011fe6a">stop</a> () noexcept</td></tr>
+<tr class="memdesc:a931f26c5e93d20514fbea7d2d011fe6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the mailbox: deactivates SM0 and SM1 and drops the message that is held and those kept for a repeat.  <br /></td></tr>
+<tr class="memitem:a6ae0df748e2b7e0163d2d0e576c60e67" id="r_a6ae0df748e2b7e0163d2d0e576c60e67"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6ae0df748e2b7e0163d2d0e576c60e67">process</a> () noexcept</td></tr>
+<tr class="memdesc:a6ae0df748e2b7e0163d2d0e576c60e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Services the mailbox: follows the send mailbox (a message the master read becomes the one a repeat request resends), answers a repeat request, then takes the next message from the master if none is held.  <br /></td></tr>
+<tr class="memitem:aedee8505e9fc71d9b8ee1f861aed18bd" id="r_aedee8505e9fc71d9b8ee1f861aed18bd"><td class="memItemLeft">std::optional&lt; <a class="el" href="#ad7428bbb83ea5af8171eee7e864fdda4">Header</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aedee8505e9fc71d9b8ee1f861aed18bd">getHeader</a> () const noexcept</td></tr>
+<tr class="memdesc:aedee8505e9fc71d9b8ee1f861aed18bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the header of the message that is held.  <br /></td></tr>
+<tr class="memitem:a9872acce7c2cf2223766fcf44e1bab1b" id="r_a9872acce7c2cf2223766fcf44e1bab1b"><td class="memItemLeft">std::span&lt; const uint8_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a9872acce7c2cf2223766fcf44e1bab1b">getPayload</a> () const noexcept</td></tr>
+<tr class="memdesc:a9872acce7c2cf2223766fcf44e1bab1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the payload of the message that is held.  <br /></td></tr>
+<tr class="memitem:a24ecfe28e44d01a0ef7402c9dd2b1929" id="r_a24ecfe28e44d01a0ef7402c9dd2b1929"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a24ecfe28e44d01a0ef7402c9dd2b1929">release</a> () noexcept</td></tr>
+<tr class="memdesc:a24ecfe28e44d01a0ef7402c9dd2b1929"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the message that is held, so the next one can be taken.  <br /></td></tr>
+<tr class="memitem:a1841296b5aeb9919b19eacf34f6f8c29" id="r_a1841296b5aeb9919b19eacf34f6f8c29"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1841296b5aeb9919b19eacf34f6f8c29">isSendFree</a> () noexcept</td></tr>
+<tr class="memdesc:a1841296b5aeb9919b19eacf34f6f8c29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the master has taken the last message, so the next one can be sent.  <br /></td></tr>
+<tr class="memitem:a307441f14d9e3120190624e16e92e238" id="r_a307441f14d9e3120190624e16e92e238"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a307441f14d9e3120190624e16e92e238">sendMessage</a> (<a class="el" href="../../d3/d69/a00844.html#aec1c5f98acbef86d50b04a081702ff10">Protocol</a> protocol, std::span&lt; const uint8_t &gt; payload, uint16_t address=0U, uint8_t channel=0U, uint8_t priority=0U) noexcept</td></tr>
+<tr class="memdesc:a307441f14d9e3120190624e16e92e238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a message to the master.  <br /></td></tr>
+<tr class="memitem:aa8e763a2fb2fb167a2fb8507743e6a8c" id="r_aa8e763a2fb2fb167a2fb8507743e6a8c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa8e763a2fb2fb167a2fb8507743e6a8c">reply</a> (<a class="el" href="../../d3/d69/a00844.html#aec1c5f98acbef86d50b04a081702ff10">Protocol</a> protocol, std::span&lt; const uint8_t &gt; payload) noexcept</td></tr>
+<tr class="memdesc:aa8e763a2fb2fb167a2fb8507743e6a8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Answers the message that is held: same station address, channel and priority.  <br /></td></tr>
+<tr class="memitem:af16f83230223a0cfc670c79022e90a1b" id="r_af16f83230223a0cfc670c79022e90a1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af16f83230223a0cfc670c79022e90a1b">sendError</a> (<a class="el" href="../../d3/d69/a00844.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8">Error</a> error) noexcept</td></tr>
+<tr class="memdesc:af16f83230223a0cfc670c79022e90a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a mailbox error response to the master.  <br /></td></tr>
+<tr class="memitem:adde97f5c848352eeba6b208c92a29e67" id="r_adde97f5c848352eeba6b208c92a29e67"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#adde97f5c848352eeba6b208c92a29e67">getMaxSendPayload</a> () const noexcept</td></tr>
+<tr class="memdesc:adde97f5c848352eeba6b208c92a29e67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest payload a message to the master can carry.  <br /></td></tr>
+<tr class="memitem:ac7ab98301c17e070b6dc163a3c8cced5" id="r_ac7ab98301c17e070b6dc163a3c8cced5"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac7ab98301c17e070b6dc163a3c8cced5">getMaxReceivePayload</a> () const noexcept</td></tr>
+<tr class="memdesc:ac7ab98301c17e070b6dc163a3c8cced5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the largest payload a message from the master can carry.  <br /></td></tr>
+<tr class="memitem:ab1bcb7c3a74502f21370427c1e31753c" id="r_ab1bcb7c3a74502f21370427c1e31753c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab1bcb7c3a74502f21370427c1e31753c">isStarted</a> () const noexcept</td></tr>
+<tr class="memdesc:ab1bcb7c3a74502f21370427c1e31753c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the mailbox is started.  <br /></td></tr>
+<tr class="memitem:a42da399e1c4912a51547721ecd747034" id="r_a42da399e1c4912a51547721ecd747034"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a42da399e1c4912a51547721ecd747034">hasIncomingMessage</a> () const noexcept</td></tr>
+<tr class="memdesc:a42da399e1c4912a51547721ecd747034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether a received message is held.  <br /></td></tr>
+<tr class="memitem:a35431f80931e480938c96b76a926692d" id="r_a35431f80931e480938c96b76a926692d"><td class="memItemLeft">std::optional&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a35431f80931e480938c96b76a926692d">getAlStatus</a> () noexcept</td></tr>
+<tr class="memdesc:a35431f80931e480938c96b76a926692d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the application layer status.  <br /></td></tr>
+<tr class="memitem:a38924c6c0bb5575f566f139a7fbd83be" id="r_a38924c6c0bb5575f566f139a7fbd83be"><td class="memItemLeft">std::optional&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a38924c6c0bb5575f566f139a7fbd83be">getAlStatusCode</a> () noexcept</td></tr>
+<tr class="memdesc:a38924c6c0bb5575f566f139a7fbd83be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the application layer status code.  <br /></td></tr>
+<tr class="memitem:aa53136056fbab6f9ab30f59ecf2e1ede" id="r_aa53136056fbab6f9ab30f59ecf2e1ede"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa53136056fbab6f9ab30f59ecf2e1ede">isWatchdogExpired</a> () noexcept</td></tr>
+<tr class="memdesc:aa53136056fbab6f9ab30f59ecf2e1ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the process data watchdog has expired.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a65e2891761a8080adda2e2a21a0375ad" id="r_a65e2891761a8080adda2e2a21a0375ad"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a> {90.833F}</td></tr>
-<tr class="memdesc:a65e2891761a8080adda2e2a21a0375ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Official sunrise/sunset zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:a3265faa6de55d95a489cfc20db5ca87d" id="r_a3265faa6de55d95a489cfc20db5ca87d"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a3265faa6de55d95a489cfc20db5ca87d">NAUTICAL_ANGLE</a> {102.0F}</td></tr>
-<tr class="memdesc:a3265faa6de55d95a489cfc20db5ca87d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Nautical twilight zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:ab925b27b1ad112678ec1f7f76ad8f6ea" id="r_ab925b27b1ad112678ec1f7f76ad8f6ea"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#ab925b27b1ad112678ec1f7f76ad8f6ea">CIVIL_ANGLE</a> {96.0F}</td></tr>
-<tr class="memdesc:ab925b27b1ad112678ec1f7f76ad8f6ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Civil twilight zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:a28a29a705a78047330cbebb0be7d4189" id="r_a28a29a705a78047330cbebb0be7d4189"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a28a29a705a78047330cbebb0be7d4189">ASTRONOMICAL_ANGLE</a> {108.0F}</td></tr>
-<tr class="memdesc:a28a29a705a78047330cbebb0be7d4189"><td class="mdescLeft">&#160;</td><td class="mdescRight">Astronomical twilight zenith angle in degrees.  <br /></td></tr>
-<tr class="memitem:a7cff9440a46a7f27f318477280787fd6" id="r_a7cff9440a46a7f27f318477280787fd6"><td class="memItemLeft">static constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a7cff9440a46a7f27f318477280787fd6">PI</a> {std::numbers::pi_v&lt;float&gt;}</td></tr>
-<tr class="memdesc:a7cff9440a46a7f27f318477280787fd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pi constant.  <br /></td></tr>
+<tr class="memitem:a0bcee16ee08dea59baa9a21b755a935d" id="r_a0bcee16ee08dea59baa9a21b755a935d"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a0bcee16ee08dea59baa9a21b755a935d">HEADER_SIZE</a> = 6U</td></tr>
+<tr class="memdesc:a0bcee16ee08dea59baa9a21b755a935d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the mailbox header.  <br /></td></tr>
+<tr class="memitem:afb54737a07802ba426f45732192c2017" id="r_afb54737a07802ba426f45732192c2017"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#afb54737a07802ba426f45732192c2017">MAX_SIZE</a> = T_MAX_SIZE</td></tr>
+<tr class="memdesc:afb54737a07802ba426f45732192c2017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest mailbox handled, header included.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a402a1203f51a88c0d732a65d431084b2" name="a402a1203f51a88c0d732a65d431084b2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a402a1203f51a88c0d732a65d431084b2">&#9670;&#160;</a></span>Sunset() <span class="overload">[1/2]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a200281c0172b3a65057b86c77b175586" name="a200281c0172b3a65057b86c77b175586"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a200281c0172b3a65057b86c77b175586">&#9670;&#160;</a></span>Error</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::Sunset::Sunset </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="memname">using <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::Error = <a class="el" href="../../d3/d69/a00844.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8">MailboxError</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Constructs the helper at latitude and longitude 0, UTC, without a date. </p>
+<p><a class="el" href="../../df/d8f/a01740.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a> error codes. </p>
 
 </div>
 </div>
-<a id="a2c1f6f04de77d5868feb1fa1a6039fd0" name="a2c1f6f04de77d5868feb1fa1a6039fd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c1f6f04de77d5868feb1fa1a6039fd0">&#9670;&#160;</a></span>Sunset() <span class="overload">[2/2]</span></h2>
+<a id="ad7428bbb83ea5af8171eee7e864fdda4" name="ad7428bbb83ea5af8171eee7e864fdda4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7428bbb83ea5af8171eee7e864fdda4">&#9670;&#160;</a></span>Header</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::Header = <a class="el" href="../../de/daf/a01736.html">MailboxHeader</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="#ad7428bbb83ea5af8171eee7e864fdda4" title="Header of a mailbox message.">Header</a> of a mailbox message. </p>
+
+</div>
+</div>
+<a id="a03e55875290d9ac400cdac8cb14a858e" name="a03e55875290d9ac400cdac8cb14a858e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03e55875290d9ac400cdac8cb14a858e">&#9670;&#160;</a></span>Protocol</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::Protocol = <a class="el" href="../../d3/d69/a00844.html#aec1c5f98acbef86d50b04a081702ff10">MailboxProtocol</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../df/d8f/a01740.html" title="EtherCAT slave mailbox transport, written directly on the ESC registers.">Mailbox</a> protocol types. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1debe96138e08d6ccb16868333feb2bf" name="a1debe96138e08d6ccb16868333feb2bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1debe96138e08d6ccb16868333feb2bf">&#9670;&#160;</a></span>Mailbox() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Helper::Sunset::Sunset </td>
+          <td class="memname"><a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::Mailbox </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">T_ESC &amp;</td>          <td class="paramname"><span class="paramname"><em>controller</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tz</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -225,111 +271,132 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the helper and sets the geographic position immediately. </p>
+<p>Binds the mailbox to the slave controller. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">lat</td><td>Geographic latitude in degrees, positive north. </td></tr>
-    <tr><td class="paramname">lon</td><td>Geographic longitude in degrees, positive east. </td></tr>
-    <tr><td class="paramname">tz</td><td>UTC offset of local time in hours, may be fractional. </td></tr>
+    <tr><td class="paramname">controller</td><td>Register access of the slave controller; it must outlive the mailbox. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d8f/a01740_a2c1f6f04de77d5868feb1fa1a6039fd0_cgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="a11d50ad6b758157d23c8d9afd1f9da50" name="a11d50ad6b758157d23c8d9afd1f9da50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11d50ad6b758157d23c8d9afd1f9da50">&#9670;&#160;</a></span>~Mailbox()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::~<a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the mailbox. </p>
+
+</div>
+</div>
+<a id="a237ac941b481e7903f53c72e3a84c37d" name="a237ac941b481e7903f53c72e3a84c37d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a237ac941b481e7903f53c72e3a84c37d">&#9670;&#160;</a></span>Mailbox() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::Mailbox </td>
+          <td>(</td>
+          <td class="paramtype">const Mailbox&lt; T_ESC, T_MAX_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the mailbox stands for the hardware sync managers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae1f42eb47014d50f8a22229504f9f812" name="ae1f42eb47014d50f8a22229504f9f812"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f42eb47014d50f8a22229504f9f812">&#9670;&#160;</a></span>Mailbox() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::Mailbox </td>
+          <td>(</td>
+          <td class="paramtype">Mailbox&lt; T_ESC, T_MAX_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the mailbox stands for the hardware sync managers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a34270fa1445d0c51cb686a4c51cd4c44" name="a34270fa1445d0c51cb686a4c51cd4c44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34270fa1445d0c51cb686a4c51cd4c44">&#9670;&#160;</a></span>calculateEquationOfTime()</h2>
+<a id="a35431f80931e480938c96b76a926692d" name="a35431f80931e480938c96b76a926692d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35431f80931e480938c96b76a926692d">&#9670;&#160;</a></span>getAlStatus()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::calculateEquationOfTime </td>
+          <td class="memname">std::optional&lt; uint16_t &gt; <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::getAlStatus </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the equation of time, the difference between apparent and mean solar time. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>Julian centuries since J2000.0. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Equation of time in minutes. </dd></dl>
-
-</div>
-</div>
-<a id="a8b62813b9c952c41af6189fed8317650" name="a8b62813b9c952c41af6189fed8317650"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b62813b9c952c41af6189fed8317650">&#9670;&#160;</a></span>calculateSunDeclination()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::calculateSunDeclination </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>t</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Computes the apparent declination of the sun. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>Julian centuries since J2000.0. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Solar declination in degrees. </dd></dl>
-
-</div>
-</div>
-<a id="ac1f5e5819f84b104cb7a80ac1bf582e0" name="ac1f5e5819f84b104cb7a80ac1bf582e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1f5e5819f84b104cb7a80ac1bf582e0">&#9670;&#160;</a></span>calculateSunTime()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::calculateSunTime </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSunrise</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -339,43 +406,27 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the time of a solar event in minutes since UTC midnight of the set date. </p>
-<p>A first pass at 0h UT estimates the event; a second pass re-evaluates the solar position at that estimate.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
-    <tr><td class="paramname">isSunrise</td><td><b>true</b> for the morning event, <b>false</b> for the evening event. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Event time in minutes since UTC midnight. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d8f/a01740_ac1f5e5819f84b104cb7a80ac1bf582e0_icgraph.svg" width="488" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Reads the application layer status. </p>
+<dl class="section return"><dt>Returns</dt><dd>AL status (state in bits 0 to 3, error indication in bit 4), or nothing if the read failed. </dd></dl>
 
 </div>
 </div>
-<a id="aef3e93cf3eecbb7ea862c973e2a27740" name="aef3e93cf3eecbb7ea862c973e2a27740"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef3e93cf3eecbb7ea862c973e2a27740">&#9670;&#160;</a></span>computeHourAngle()</h2>
+<a id="a38924c6c0bb5575f566f139a7fbd83be" name="a38924c6c0bb5575f566f139a7fbd83be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38924c6c0bb5575f566f139a7fbd83be">&#9670;&#160;</a></span>getAlStatusCode()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::computeHourAngle </td>
+          <td class="memname">std::optional&lt; uint16_t &gt; <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::getAlStatusCode </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>dec</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span>&#160;) const</td>
         </tr>
       </table>
   </td>
@@ -385,160 +436,26 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the hour angle of the sun at the given horizon angle for the stored latitude. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">dec</td><td>Solar declination in degrees. </td></tr>
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Hour angle in radians in range [0,pi]; clamped during polar day or night. </dd></dl>
+<p>Reads the application layer status code. </p>
+<dl class="section return"><dt>Returns</dt><dd>AL status code (0 means no error), or nothing if the read failed. </dd></dl>
 
 </div>
 </div>
-<a id="a5c6deabfb7071836dede5e4bec4152f3" name="a5c6deabfb7071836dede5e4bec4152f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c6deabfb7071836dede5e4bec4152f3">&#9670;&#160;</a></span>setCurrentDate() <span class="overload">[1/2]</span></h2>
+<a id="aedee8505e9fc71d9b8ee1f861aed18bd" name="aedee8505e9fc71d9b8ee1f861aed18bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aedee8505e9fc71d9b8ee1f861aed18bd">&#9670;&#160;</a></span>getHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">double Lib::Helper::Sunset::setCurrentDate </td>
+          <td class="memname">std::optional&lt; <a class="el" href="#ad7428bbb83ea5af8171eee7e864fdda4">Header</a> &gt; <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::getHeader </td>
           <td>(</td>
-          <td class="paramtype">const ::Lib::DateTime::Date &amp;</td>          <td class="paramname"><span class="paramname"><em>date</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the date used for calculations. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">date</td><td>Calendar date; must be valid. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Julian date of 0h UT of the set date. </dd></dl>
-
-</div>
-</div>
-<a id="a29094e288d78ced6c06c9652828bb343" name="a29094e288d78ced6c06c9652828bb343"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29094e288d78ced6c06c9652828bb343">&#9670;&#160;</a></span>setCurrentDate() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double Lib::Helper::Sunset::setCurrentDate </td>
-          <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>m</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the date used for calculations from its year, month and day. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">y</td><td>Calendar year. </td></tr>
-    <tr><td class="paramname">m</td><td>Month in range [1,12]. </td></tr>
-    <tr><td class="paramname">d</td><td>Day of month, valid for the given month and year. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Julian date of 0h UT of the set date. </dd></dl>
-
-</div>
-</div>
-<a id="afbc858a5944c47609616f459b657339b" name="afbc858a5944c47609616f459b657339b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbc858a5944c47609616f459b657339b">&#9670;&#160;</a></span>setPosition()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Helper::Sunset::setPosition </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lat</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>lon</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>tz</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the geographic position and UTC offset used for calculations. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">lat</td><td>Geographic latitude in degrees, positive north. </td></tr>
-    <tr><td class="paramname">lon</td><td>Geographic longitude in degrees, positive east. </td></tr>
-    <tr><td class="paramname">tz</td><td>UTC offset of local time in hours, may be fractional. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d8f/a01740_afbc858a5944c47609616f459b657339b_icgraph.svg" width="448" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac18d69149ba7a8ed86b70ce314aa7d0a" name="ac18d69149ba7a8ed86b70ce314aa7d0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac18d69149ba7a8ed86b70ce314aa7d0a">&#9670;&#160;</a></span>sunrise()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::sunrise </td>
-          <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -549,36 +466,26 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the sunrise time for the set date and position. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Sunrise time in minutes since local midnight. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d8f/a01740_ac18d69149ba7a8ed86b70ce314aa7d0a_cgraph.svg" width="488" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Gets the header of the message that is held. </p>
+<dl class="section return"><dt>Returns</dt><dd>The header, or nothing if no message is held. </dd></dl>
 
 </div>
 </div>
-<a id="a3bea9bb96761c55203633434195d87c4" name="a3bea9bb96761c55203633434195d87c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bea9bb96761c55203633434195d87c4">&#9670;&#160;</a></span>sunset()</h2>
+<a id="ac7ab98301c17e070b6dc163a3c8cced5" name="ac7ab98301c17e070b6dc163a3c8cced5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7ab98301c17e070b6dc163a3c8cced5">&#9670;&#160;</a></span>getMaxReceivePayload()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::sunset </td>
+          <td class="memname">size_t <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::getMaxReceivePayload </td>
           <td>(</td>
-          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>angle</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a65e2891761a8080adda2e2a21a0375ad">OFFICIAL_ANGLE</a></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
@@ -589,35 +496,533 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the sunset time for the set date and position. </p>
+<p>Gets the largest payload a message from the master can carry. </p>
+<dl class="section return"><dt>Returns</dt><dd>Length of the receive sync manager minus the header; 0 before "start()". </dd></dl>
+
+</div>
+</div>
+<a id="adde97f5c848352eeba6b208c92a29e67" name="adde97f5c848352eeba6b208c92a29e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adde97f5c848352eeba6b208c92a29e67">&#9670;&#160;</a></span>getMaxSendPayload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::getMaxSendPayload </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the largest payload a message to the master can carry. </p>
+<dl class="section return"><dt>Returns</dt><dd>Length of the send sync manager minus the header; 0 before "start()". </dd></dl>
+
+</div>
+</div>
+<a id="a9872acce7c2cf2223766fcf44e1bab1b" name="a9872acce7c2cf2223766fcf44e1bab1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9872acce7c2cf2223766fcf44e1bab1b">&#9670;&#160;</a></span>getPayload()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::span&lt; const uint8_t &gt; <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::getPayload </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the payload of the message that is held. </p>
+<dl class="section return"><dt>Returns</dt><dd>The payload bytes (empty if no message is held); valid until "release()". </dd></dl>
+
+</div>
+</div>
+<a id="a42da399e1c4912a51547721ecd747034" name="a42da399e1c4912a51547721ecd747034"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42da399e1c4912a51547721ecd747034">&#9670;&#160;</a></span>hasIncomingMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::hasIncomingMessage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether a received message is held. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if "getHeader()" has a message. </dd></dl>
+
+</div>
+</div>
+<a id="a1841296b5aeb9919b19eacf34f6f8c29" name="a1841296b5aeb9919b19eacf34f6f8c29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1841296b5aeb9919b19eacf34f6f8c29">&#9670;&#160;</a></span>isSendFree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::isSendFree </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the master has taken the last message, so the next one can be sent. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the send mailbox is empty. </dd></dl>
+
+</div>
+</div>
+<a id="ab1bcb7c3a74502f21370427c1e31753c" name="ab1bcb7c3a74502f21370427c1e31753c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1bcb7c3a74502f21370427c1e31753c">&#9670;&#160;</a></span>isStarted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::isStarted </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the mailbox is started. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" between a successful "start()" and "stop()". </dd></dl>
+
+</div>
+</div>
+<a id="aa53136056fbab6f9ab30f59ecf2e1ede" name="aa53136056fbab6f9ab30f59ecf2e1ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa53136056fbab6f9ab30f59ecf2e1ede">&#9670;&#160;</a></span>isWatchdogExpired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::isWatchdogExpired </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the process data watchdog has expired. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if it expired; "false" if it is active or disabled or the read failed. </dd></dl>
+
+</div>
+</div>
+<a id="abae1162408c4bf8b2325a6f9bd12422b" name="abae1162408c4bf8b2325a6f9bd12422b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae1162408c4bf8b2325a6f9bd12422b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> &amp; <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the mailbox stands for the hardware sync managers. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">angle</td><td>Zenith angle of the horizon definition in degrees. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../df/d8f/a01740.html" title="Computes solar events (sunrise and sunset) for a stored location, UTC offset and date.">Sunset</a> time in minutes since local midnight. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d8f/a01740_a3bea9bb96761c55203633434195d87c4_cgraph.svg" width="484" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+<a id="aac7d5d69054aa75c6c65ab7278e2136a" name="aac7d5d69054aa75c6c65ab7278e2136a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac7d5d69054aa75c6c65ab7278e2136a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a> &amp; <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a1debe96138e08d6ccb16868333feb2bf">Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: the mailbox stands for the hardware sync managers. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+
+</div>
+</div>
+<a id="a6ae0df748e2b7e0163d2d0e576c60e67" name="a6ae0df748e2b7e0163d2d0e576c60e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae0df748e2b7e0163d2d0e576c60e67">&#9670;&#160;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::process </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Services the mailbox: follows the send mailbox (a message the master read becomes the one a repeat request resends), answers a repeat request, then takes the next message from the master if none is held. </p>
+<p>Call it periodically. A message that is held stays until "release()" is called.</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if a message is held and ready for "getHeader()" and "getPayload()". </dd></dl>
+
+</div>
+</div>
+<a id="a24ecfe28e44d01a0ef7402c9dd2b1929" name="a24ecfe28e44d01a0ef7402c9dd2b1929"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24ecfe28e44d01a0ef7402c9dd2b1929">&#9670;&#160;</a></span>release()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::release </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Releases the message that is held, so the next one can be taken. </p>
+
+</div>
+</div>
+<a id="aa8e763a2fb2fb167a2fb8507743e6a8c" name="aa8e763a2fb2fb167a2fb8507743e6a8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8e763a2fb2fb167a2fb8507743e6a8c">&#9670;&#160;</a></span>reply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::reply </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d69/a00844.html#aec1c5f98acbef86d50b04a081702ff10">Protocol</a></td>          <td class="paramname"><span class="paramname"><em>protocol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Answers the message that is held: same station address, channel and priority. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">protocol</td><td><a class="el" href="#a03e55875290d9ac400cdac8cb14a858e" title="Mailbox protocol types.">Protocol</a> type of the answer. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the answer was written, see "sendMessage()". </dd></dl>
+
+</div>
+</div>
+<a id="af16f83230223a0cfc670c79022e90a1b" name="af16f83230223a0cfc670c79022e90a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af16f83230223a0cfc670c79022e90a1b">&#9670;&#160;</a></span>sendError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::sendError </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d69/a00844.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8">Error</a></td>          <td class="paramname"><span class="paramname"><em>error</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a mailbox error response to the master. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">error</td><td>The error. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the response was written, see "sendMessage()". </dd></dl>
+
+</div>
+</div>
+<a id="a307441f14d9e3120190624e16e92e238" name="a307441f14d9e3120190624e16e92e238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a307441f14d9e3120190624e16e92e238">&#9670;&#160;</a></span>sendMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::sendMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d3/d69/a00844.html#aec1c5f98acbef86d50b04a081702ff10">Protocol</a></td>          <td class="paramname"><span class="paramname"><em>protocol</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>priority</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sends a message to the master. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">protocol</td><td><a class="el" href="#a03e55875290d9ac400cdac8cb14a858e" title="Mailbox protocol types.">Protocol</a> type. </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload bytes; header and payload must fit the send mailbox. </td></tr>
+    <tr><td class="paramname">address</td><td>Station address to put in the header (the originator). </td></tr>
+    <tr><td class="paramname">channel</td><td>Channel field. </td></tr>
+    <tr><td class="paramname">priority</td><td>Priority field. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the message was written; "false" if the mailbox is not running, is still full, or the message is too long. </dd></dl>
+
+</div>
+</div>
+<a id="abf50b8069f4ceb92d29414e4c378b96a" name="abf50b8069f4ceb92d29414e4c378b96a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf50b8069f4ceb92d29414e4c378b96a">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Enables SM0 and SM1, reads the configuration the master wrote and starts the mailbox. </p>
+<p>Call it when the slave leaves INIT, once the master has configured SM0 and SM1. Any earlier message state is dropped. On a bad configuration both sync managers are deactivated again.</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if both sync managers are enabled by the master and their sizes fit the mailbox. </dd></dl>
+
+</div>
+</div>
+<a id="a931f26c5e93d20514fbea7d2d011fe6a" name="a931f26c5e93d20514fbea7d2d011fe6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a931f26c5e93d20514fbea7d2d011fe6a">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the mailbox: deactivates SM0 and SM1 and drops the message that is held and those kept for a repeat. </p>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a28a29a705a78047330cbebb0be7d4189" name="a28a29a705a78047330cbebb0be7d4189"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28a29a705a78047330cbebb0be7d4189">&#9670;&#160;</a></span>ASTRONOMICAL_ANGLE</h2>
+<a id="a0bcee16ee08dea59baa9a21b755a935d" name="a0bcee16ee08dea59baa9a21b755a935d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcee16ee08dea59baa9a21b755a935d">&#9670;&#160;</a></span>HEADER_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::ASTRONOMICAL_ANGLE {108.0F}</td>
+          <td class="memname">size_t <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::HEADER_SIZE = 6U</td>
         </tr>
       </table>
   </td>
@@ -627,21 +1032,23 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Astronomical twilight zenith angle in degrees. </p>
+<p>Size of the mailbox header. </p>
 
 </div>
 </div>
-<a id="ab925b27b1ad112678ec1f7f76ad8f6ea" name="ab925b27b1ad112678ec1f7f76ad8f6ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab925b27b1ad112678ec1f7f76ad8f6ea">&#9670;&#160;</a></span>CIVIL_ANGLE</h2>
+<a id="afb54737a07802ba426f45732192c2017" name="afb54737a07802ba426f45732192c2017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb54737a07802ba426f45732192c2017">&#9670;&#160;</a></span>MAX_SIZE</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;EscAccess T_ESC, size_t T_MAX_SIZE = 256U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::Helper::Sunset::CIVIL_ANGLE {96.0F}</td>
+          <td class="memname">size_t <a class="el" href="../../df/d8f/a01740.html">Lib::Ethercat::SOES::Mailbox</a>&lt; T_ESC, T_MAX_SIZE &gt;::MAX_SIZE = T_MAX_SIZE</td>
         </tr>
       </table>
   </td>
@@ -651,79 +1058,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Civil twilight zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="a3265faa6de55d95a489cfc20db5ca87d" name="a3265faa6de55d95a489cfc20db5ca87d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3265faa6de55d95a489cfc20db5ca87d">&#9670;&#160;</a></span>NAUTICAL_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::NAUTICAL_ANGLE {102.0F}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Nautical twilight zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="a65e2891761a8080adda2e2a21a0375ad" name="a65e2891761a8080adda2e2a21a0375ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65e2891761a8080adda2e2a21a0375ad">&#9670;&#160;</a></span>OFFICIAL_ANGLE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::OFFICIAL_ANGLE {90.833F}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Official sunrise/sunset zenith angle in degrees. </p>
-
-</div>
-</div>
-<a id="a7cff9440a46a7f27f318477280787fd6" name="a7cff9440a46a7f27f318477280787fd6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cff9440a46a7f27f318477280787fd6">&#9670;&#160;</a></span>PI</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::Helper::Sunset::PI {std::numbers::pi_v&lt;float&gt;}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pi constant. </p>
+<p>Largest mailbox handled, header included. </p>
 
 </div>
 </div>
@@ -740,7 +1075,7 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d0/d11/a00842.html">Helper</a></li><li class="navelem"><a href="../../df/d8f/a01740.html">Sunset</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../dc/d22/a00843.html">Ethercat</a></li><li class="navelem"><a href="../../d3/d69/a00844.html">SOES</a></li><li class="navelem"><a href="../../df/d8f/a01740.html">Mailbox</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

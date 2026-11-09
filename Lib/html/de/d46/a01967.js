@@ -1,9 +1,12 @@
 var a01967 =
 [
-    [ "name", "de/d46/a01967.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "de/d46/a01967.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "de/d46/a01967.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "de/d46/a01967.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "de/d46/a01967.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "de/d46/a01967.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "OSPIPortBase", "de/d46/a01967.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "de/d46/a01967.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "de/d46/a01967.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "de/d46/a01967.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "de/d46/a01967.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "de/d46/a01967.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "de/d46/a01967.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "de/d46/a01967.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "de/d46/a01967.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

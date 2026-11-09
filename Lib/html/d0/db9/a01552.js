@@ -1,9 +1,13 @@
 var a01552 =
 [
-    [ "BackupRamDomain", "d0/db9/a01552.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d0/db9/a01552.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "close", "d0/db9/a01552.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d0/db9/a01552.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "readRegister", "d0/db9/a01552.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d0/db9/a01552.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "append", "d0/db9/a01552.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d0/db9/a01552.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d0/db9/a01552.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d0/db9/a01552.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d0/db9/a01552.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d0/db9/a01552.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d0/db9/a01552.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d0/db9/a01552.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d0/db9/a01552.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d0/db9/a01552.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

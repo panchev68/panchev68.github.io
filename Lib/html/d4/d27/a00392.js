@@ -1,4 +1,4 @@
 var a00392 =
 [
-    [ "Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;", "dd/d38/a01663.html", "dd/d38/a01663" ]
+    [ "Lib::HAL::toHalTimeout", "db/deb/a00853.html#a55be7e95dba53e09a7b9b5e29bcc3840", null ]
 ];

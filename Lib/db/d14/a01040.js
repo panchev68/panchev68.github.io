@@ -1,8 +1,18 @@
 var a01040 =
 [
-    [ "operator==", "db/d14/a01040.html#ada8e55f2f00e1f0256475c584eb863d5", null ],
-    [ "display4", "db/d14/a01040.html#a190805124006c5599e92dd544db486f4", null ],
-    [ "inPhaseAdc", "db/d14/a01040.html#a4dc0e13ddf52631bc23c4bf09f726650", null ],
-    [ "quadratureAdc", "db/d14/a01040.html#ad47ff67b3f90ab4180e577fa6d842ec9", null ],
-    [ "status", "db/d14/a01040.html#af495ab17ed6e1a39e137c8fd834ac9f3", null ]
+    [ "Command", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "db/d14/a01040.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

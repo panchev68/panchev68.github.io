@@ -1,14 +1,20 @@
 var a01876 =
 [
-    [ "Config", "d9/d7d/a01880.html", "d9/d7d/a01880" ],
-    [ "Measurement", "dc/d7f/a01884.html", "dc/d7f/a01884" ],
-    [ "Direction", "de/d23/a01876.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "de/d23/a01876.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "de/d23/a01876.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
-    ] ],
-    [ "PerturbAndObserve", "de/d23/a01876.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "de/d23/a01876.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "de/d23/a01876.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "de/d23/a01876.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "de/d23/a01876.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "Event", "d9/d7d/a01880.html", null ],
+    [ "DataAlignment", "de/d23/a01876.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "de/d23/a01876.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "de/d23/a01876.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "de/d23/a01876.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "de/d23/a01876.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "de/d23/a01876.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "de/d23/a01876.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "getHandle", "de/d23/a01876.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "de/d23/a01876.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "de/d23/a01876.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "de/d23/a01876.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "de/d23/a01876.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "setValue", "de/d23/a01876.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "de/d23/a01876.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "de/d23/a01876.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "de/d23/a01876.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

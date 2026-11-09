@@ -1,13 +1,12 @@
 var a01218 =
 [
-    [ "Period", "d8/d15/a01218.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
-    [ "beginMeasurement", "d8/d15/a01218.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
-    [ "clearMinMax", "d8/d15/a01218.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
-    [ "endMeasurement", "d8/d15/a01218.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
-    [ "getMaximum", "d8/d15/a01218.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
-    [ "getMinimum", "d8/d15/a01218.html#a74fe067b228e91e888527cde922af4ab", null ],
-    [ "getRawValue", "d8/d15/a01218.html#a8e9a5702067740cae617ad3e800557cd", null ],
-    [ "getValue", "d8/d15/a01218.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
-    [ "operator uint32_t", "d8/d15/a01218.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ],
-    [ "reset", "d8/d15/a01218.html#a6d75c29880edb434a8c6cba3f2c3718f", null ]
+    [ "debounceDuration", "d8/d15/a01218.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d8/d15/a01218.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d8/d15/a01218.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d8/d15/a01218.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d8/d15/a01218.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d8/d15/a01218.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d8/d15/a01218.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d8/d15/a01218.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d8/d15/a01218.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

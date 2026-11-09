@@ -1,10 +1,12 @@
 var a02084 =
 [
-    [ "maxPowerRef", "da/dbe/a02084.html#a03f700e990948fcfe6c82de9a3e21657", null ],
-    [ "mppCurrentRef", "da/dbe/a02084.html#a7208d815760253f067e40908fdf5b2b1", null ],
-    [ "mppVoltageRef", "da/dbe/a02084.html#ad14a294ad527e4103971eddc9f39e1af", null ],
-    [ "referenceIrradiance", "da/dbe/a02084.html#abb7c80f88a2007497312ca7b74f5e216", null ],
-    [ "temperatureCoefficient", "da/dbe/a02084.html#aad0b3f3e89dee953a5ad229531788752", null ],
-    [ "toleranceFactor", "da/dbe/a02084.html#a5da34d5f09a437a775c5639065d1fcde", null ],
-    [ "updateInterval", "da/dbe/a02084.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
+    [ "EventHandler", "da/dbe/a02084.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePortAsync", "da/dbe/a02084.html#a7465ed7b476e55cd6f1554dacb53e15f", null ],
+    [ "abort", "da/dbe/a02084.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "receive", "da/dbe/a02084.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "da/dbe/a02084.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "da/dbe/a02084.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "da/dbe/a02084.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "da/dbe/a02084.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "da/dbe/a02084.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

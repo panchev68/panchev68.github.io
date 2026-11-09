@@ -1,10 +1,10 @@
 var a01378 =
 [
-    [ "Payload", "db/d74/a01378.html#a097ff109525c26888e9a0e3671643975", null ],
-    [ "append", "db/d74/a01378.html#ae8ece66119e8e11d5464fa8b41b34889", null ],
-    [ "assign", "db/d74/a01378.html#a88bb1aed79d37b427989cfbff4048a0d", null ],
-    [ "clear", "db/d74/a01378.html#ac696981b4d124bf89d6a30c113ec50dc", null ],
-    [ "data", "db/d74/a01378.html#ab8c1fe17ee51caf803630bfda32a31fd", null ],
-    [ "operator[]", "db/d74/a01378.html#a6e6a89d99c44a8a64238818f6445e47c", null ],
-    [ "size", "db/d74/a01378.html#aaaf8e0dbdbf274d492d816656c15540c", null ]
+    [ "WolfSSH", "db/d74/a01378.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "db/d74/a01378.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "db/d74/a01378.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "db/d74/a01378.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "db/d74/a01378.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "db/d74/a01378.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "db/d74/a01378.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

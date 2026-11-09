@@ -1,9 +1,5 @@
 var a02178 =
 [
-    [ "VersionString", "d3/d8d/a02178.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "d3/d8d/a02178.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "d3/d8d/a02178.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d3/d8d/a02178.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "d3/d8d/a02178.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d3/d8d/a02178.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "crc8", "d3/d8d/a02178.html#a6eb0c9200532e08815584e5b040283f9", null ],
+    [ "operator uint8_t", "d3/d8d/a02178.html#a17512f695eb94c12c81163d5335f3ef2", null ]
 ];

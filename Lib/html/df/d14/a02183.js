@@ -1,10 +1,12 @@
 var a02183 =
 [
-    [ "VersionString", "df/d14/a02183.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "df/d14/a02183.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "df/d14/a02183.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "df/d14/a02183.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "df/d14/a02183.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "df/d14/a02183.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "df/d14/a02183.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "Time", "df/d14/a02183.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "df/d14/a02183.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "df/d14/a02183.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "df/d14/a02183.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "df/d14/a02183.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "df/d14/a02183.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "df/d14/a02183.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "df/d14/a02183.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "df/d14/a02183.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

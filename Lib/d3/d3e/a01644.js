@@ -1,8 +1,8 @@
 var a01644 =
 [
-    [ "Device", "d3/d3e/a01644.html#acdeffbad9eb409804cbc72fa86794a97", null ],
-    [ "~Device", "d3/d3e/a01644.html#a231e1d150464ec12c66e5578ff0c3128", null ],
-    [ "getHandle", "d3/d3e/a01644.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d3/d3e/a01644.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "DeviceManager< T_DEVICE, T_HANDLE >", "d3/d3e/a01644.html#ad317e84715f53c3ea50d6b4113c92403", null ]
+    [ "Frame0x88", "d3/d3e/a01644.html#a8cdabdda134adaf1796641f68581f1c8", null ],
+    [ "atCommand", "d3/d3e/a01644.html#aba3a41028c41109166efaf024c9dca74", null ],
+    [ "data", "d3/d3e/a01644.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
+    [ "frameId", "d3/d3e/a01644.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
+    [ "status", "d3/d3e/a01644.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
 ];

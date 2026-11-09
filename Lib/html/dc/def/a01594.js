@@ -1,8 +1,12 @@
 var a01594 =
 [
-    [ "Device", "dc/def/a01594.html#acdeffbad9eb409804cbc72fa86794a97", null ],
-    [ "~Device", "dc/def/a01594.html#a231e1d150464ec12c66e5578ff0c3128", null ],
-    [ "getHandle", "dc/def/a01594.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dc/def/a01594.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "DeviceManager< T_DEVICE, T_HANDLE >", "dc/def/a01594.html#ad317e84715f53c3ea50d6b4113c92403", null ]
+    [ "Config", "dc/def/a01594.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
+    [ "Module", "dc/def/a01594.html#a254c8c718d7faf592b274708db07db8d", null ],
+    [ "~Module", "dc/def/a01594.html#a3e8be6962f855fba474c3c0e0366a256", null ],
+    [ "init", "dc/def/a01594.html#a45140156f7c70b779d773237bed74b50", null ],
+    [ "reset", "dc/def/a01594.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
+    [ "send", "dc/def/a01594.html#adb8dd809dcd7a22dee2718819616b947", null ],
+    [ "onMessageReceive", "dc/def/a01594.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
+    [ "onMessageSend", "dc/def/a01594.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
+    [ "responseEvents", "dc/def/a01594.html#ac2585942261cabaa51522f461c64816b", null ]
 ];

@@ -1,15 +1,14 @@
 var a02027 =
 [
-    [ "MutexGuard", "df/d52/a02027.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "df/d52/a02027.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "df/d52/a02027.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "df/d52/a02027.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "df/d52/a02027.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "df/d52/a02027.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "df/d52/a02027.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "df/d52/a02027.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "df/d52/a02027.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "df/d52/a02027.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "df/d52/a02027.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "df/d52/a02027.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "TimEncoder", "df/d52/a02027.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "df/d52/a02027.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "df/d52/a02027.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "df/d52/a02027.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "df/d52/a02027.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "df/d52/a02027.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "df/d52/a02027.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "df/d52/a02027.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "df/d52/a02027.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "df/d52/a02027.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "df/d52/a02027.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

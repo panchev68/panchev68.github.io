@@ -1,8 +1,13 @@
 var a01835 =
 [
-    [ "crc16", "da/dcd/a01835.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "da/dcd/a01835.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "da/dcd/a01835.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "da/dcd/a01835.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "da/dcd/a01835.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "CANPort", "da/dcd/a01835.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "da/dcd/a01835.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "da/dcd/a01835.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "da/dcd/a01835.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "getHandle", "da/dcd/a01835.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "da/dcd/a01835.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "operator=", "da/dcd/a01835.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "da/dcd/a01835.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
+    [ "readBlocking", "da/dcd/a01835.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "writeBlocking", "da/dcd/a01835.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

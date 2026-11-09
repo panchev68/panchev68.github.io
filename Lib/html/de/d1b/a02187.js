@@ -1,17 +1,18 @@
 var a02187 =
 [
-    [ "Config", "dd/daf/a02191.html", "dd/daf/a02191" ],
-    [ "Status", "de/d1b/a02187.html#a69d5fbac0f2c325b3f576b76a1db1204", [
-      [ "OK", "de/d1b/a02187.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "de/d1b/a02187.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "SerialPort", "de/d1b/a02187.html#a598e18433429c3e9aa74a063852aaccd", null ],
-    [ "~SerialPort", "de/d1b/a02187.html#afded1dc48b51225406bff4ec53c93689", null ],
-    [ "close", "de/d1b/a02187.html#a833dd7b50ed3c60c51a1f2e6dc8b8647", null ],
-    [ "handlePostReceivedEvent", "de/d1b/a02187.html#a75314779b791b1fba08ecb13324d3caa", null ],
-    [ "handlePostTransmitEvent", "de/d1b/a02187.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
-    [ "open", "de/d1b/a02187.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
-    [ "send", "de/d1b/a02187.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
-    [ "setBaudRate", "de/d1b/a02187.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
-    [ "setResetPin", "de/d1b/a02187.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
+    [ "DateString", "de/d1b/a02187.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "de/d1b/a02187.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "de/d1b/a02187.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "de/d1b/a02187.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "de/d1b/a02187.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "de/d1b/a02187.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "de/d1b/a02187.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "de/d1b/a02187.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "de/d1b/a02187.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "de/d1b/a02187.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "de/d1b/a02187.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "de/d1b/a02187.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "de/d1b/a02187.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "de/d1b/a02187.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "de/d1b/a02187.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

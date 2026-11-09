@@ -1,9 +1,18 @@
 var a01980 =
 [
-    [ "CriticalSection", "d5/d70/a01980.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "d5/d70/a01980.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "d5/d70/a01980.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "d5/d70/a01980.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "d5/d70/a01980.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "d5/d70/a01980.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "Date", "d0/d38/a01984.html", "d0/d38/a01984" ],
+    [ "Time", "d5/da1/a01988.html", "d5/da1/a01988" ],
+    [ "Callback", "d5/d70/a01980.html#aa65bc239da01d8925270ee88a5cfd754", null ],
+    [ "RTCDevice", "d5/d70/a01980.html#aef59f39cbffc698a357982cd0194a7f9", null ],
+    [ "~RTCDevice", "d5/d70/a01980.html#a892362d24be775443627005ea8724b38", null ],
+    [ "RTCDevice", "d5/d70/a01980.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
+    [ "RTCDevice", "d5/d70/a01980.html#a6c8a82665278c72edbd09c517d929e67", null ],
+    [ "getDateTime", "d5/d70/a01980.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
+    [ "isTickServiceRunning", "d5/d70/a01980.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
+    [ "operator=", "d5/d70/a01980.html#a97370a531742ca95f9bbb03daefd9919", null ],
+    [ "operator=", "d5/d70/a01980.html#a9b9f7c009be9bbae886ca7082a302099", null ],
+    [ "setDateTime", "d5/d70/a01980.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
+    [ "startTickService", "d5/d70/a01980.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
+    [ "stopTickService", "d5/d70/a01980.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
+    [ "void::HAL_RTC_AlarmAEventCallback", "d5/d70/a01980.html#a292bc50e5b612af91527952bbffe57e9", null ]
 ];

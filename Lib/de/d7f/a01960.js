@@ -1,17 +1,14 @@
 var a01960 =
 [
-    [ "Status", "de/d7f/a01960.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "de/d7f/a01960.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "de/d7f/a01960.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "de/d7f/a01960.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "de/d7f/a01960.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "de/d7f/a01960.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "de/d7f/a01960.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "de/d7f/a01960.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "de/d7f/a01960.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "de/d7f/a01960.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "de/d7f/a01960.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "de/d7f/a01960.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "de/d7f/a01960.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "OSPIPortAsync", "de/d7f/a01960.html#a51c7bf376cb7e3701de6391b213701a9", null ],
+    [ "abort", "de/d7f/a01960.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "close", "de/d7f/a01960.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "de/d7f/a01960.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "getHandle", "de/d7f/a01960.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "de/d7f/a01960.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isBusy", "de/d7f/a01960.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "isOpened", "de/d7f/a01960.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "de/d7f/a01960.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "de/d7f/a01960.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "de/d7f/a01960.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

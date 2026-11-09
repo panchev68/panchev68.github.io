@@ -1,29 +1,17 @@
 var a01188 =
 [
-    [ "Config", "d6/d97/a01188.html#ae1da3d38612f99e58ef00aeee0031a70", null ],
-    [ "State", "d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816e", [
-      [ "NO_INIT", "d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d", null ],
-      [ "INIT", "d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498", null ],
-      [ "RUNNING", "d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "PAUSE", "d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891", null ],
-      [ "ERROR", "d6/d97/a01188.html#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Config", "d2/db4/a01192.html", "d2/db4/a01192" ],
+    [ "Resolution", "d6/d97/a01188.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
+      [ "BITS_9", "d6/d97/a01188.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
+      [ "BITS_10", "d6/d97/a01188.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
+      [ "BITS_11", "d6/d97/a01188.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
+      [ "BITS_12", "d6/d97/a01188.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
     ] ],
-    [ "ApplicationBase", "d6/d97/a01188.html#a441e8d4c01f19d64f498f2dc51f3e28b", null ],
-    [ "~ApplicationBase", "d6/d97/a01188.html#aab09711e635886a1ad499ac455466abc", null ],
-    [ "beginUpdate", "d6/d97/a01188.html#a548122020c08dde7f6af4cc710447daa", null ],
-    [ "getModule", "d6/d97/a01188.html#ad7e4c92fde5b763d99ff892a131f8503", null ],
-    [ "getModulePresent", "d6/d97/a01188.html#a88ebc34ce435936eb3887febc431d1ee", null ],
-    [ "handleIncomingMessage", "d6/d97/a01188.html#a3fed1f59187dee0511af0d0a54ca97f6", null ],
-    [ "handleOutgoingMessage", "d6/d97/a01188.html#ae026078d6fbd9ac208ddf936355659aa", null ],
-    [ "handleTaskTickEvent", "d6/d97/a01188.html#ad55022492c805e834d8309af22121495", null ],
-    [ "pause", "d6/d97/a01188.html#a20f5f42bded5c200b41a59cf0517a1ed", null ],
-    [ "resume", "d6/d97/a01188.html#a066cbabfddf2945ab340f457dd3ad862", null ],
-    [ "sendHandler", "d6/d97/a01188.html#a1869c64aaa443f3d606e15aac31f35c0", null ],
-    [ "start", "d6/d97/a01188.html#a2cacfcaa5af0c0ee989dfd3fc665796a", null ],
-    [ "update", "d6/d97/a01188.html#a541fb1ee1677c63b1b3eb403b9743b67", null ],
-    [ "connection", "d6/d97/a01188.html#aeef129f6673307b01cf2cba5a92bf845", null ],
-    [ "diagnostic", "d6/d97/a01188.html#a15c0bf063a67a2088045e9fcdb9833ad", null ],
-    [ "messageFrameId", "d6/d97/a01188.html#a3e9dae687eb3e296684ae4e6fe868741", null ],
-    [ "queueRxMessage", "d6/d97/a01188.html#a16ea56fe1b04e47f29e814535d13850a", null ],
-    [ "queueTransmitDeliveryStatus", "d6/d97/a01188.html#ac31d75ff0f90d6dd3535ba8b01579c0a", null ]
+    [ "DS18B20", "d6/d97/a01188.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "d6/d97/a01188.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "d6/d97/a01188.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "getResolution", "d6/d97/a01188.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
+    [ "isPresent", "d6/d97/a01188.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "d6/d97/a01188.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readTemperatureCelsius", "d6/d97/a01188.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

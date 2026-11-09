@@ -1,11 +1,7 @@
 var a01626 =
 [
-    [ "I2CPort", "dd/d90/a01626.html#a0f28c8a7e8fd6e9436d1833fddb05369", null ],
-    [ "~I2CPort", "dd/d90/a01626.html#afd974c470637c78170576087414cde53", null ],
-    [ "getHandle", "dd/d90/a01626.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "dd/d90/a01626.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "masterMemRead", "dd/d90/a01626.html#a6310b1f0ec69a2f1a3f3e78749f7e518", null ],
-    [ "masterMemWrite", "dd/d90/a01626.html#a8403f848af16a24051f4d95c5ccca761", null ],
-    [ "masterReceive", "dd/d90/a01626.html#ab8d6c7b50db1e521d4e8b06df30107b5", null ],
-    [ "masterTransmit", "dd/d90/a01626.html#a93204dac38465fc724005fbac9caf32b", null ]
+    [ "operator std::vector< uint8_t >", "dd/d90/a01626.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
+    [ "view", "dd/d90/a01626.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
+    [ "data", "dd/d90/a01626.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
+    [ "size", "dd/d90/a01626.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
 ];

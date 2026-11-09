@@ -1,13 +1,6 @@
 var a01699 =
 [
-    [ "State", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "d9/df7/a01699.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "afterWrite", "d9/df7/a01699.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
+    [ "beforeRead", "d9/df7/a01699.html#a214b45de3b2b1b03564e40ad91392018", null ],
+    [ "beforeWrite", "d9/df7/a01699.html#a19848fcaef19f48fd52d8d89e26be851", null ]
 ];

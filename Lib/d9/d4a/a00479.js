@@ -1,4 +1,4 @@
 var a00479 =
 [
-    [ "Lib::Helper::Convert::Ascii", "d7/dfd/a01439.html", null ]
+    [ "Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;", "d5/d6e/a02008.html", "d5/d6e/a02008" ]
 ];

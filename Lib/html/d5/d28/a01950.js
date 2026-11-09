@@ -1,14 +1,14 @@
 var a01950 =
 [
-    [ "Point", "d7/d34/a01954.html", "d7/d34/a01954" ],
-    [ "LinearInterpolation", "d5/d28/a01950.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d5/d28/a01950.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d5/d28/a01950.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d5/d28/a01950.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d5/d28/a01950.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d5/d28/a01950.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d5/d28/a01950.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d5/d28/a01950.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d5/d28/a01950.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d5/d28/a01950.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "OSPIPort", "d5/d28/a01950.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "d5/d28/a01950.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "OSPIPort", "d5/d28/a01950.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
+    [ "OSPIPort", "d5/d28/a01950.html#a50425950532682614be81eb8bb5216b7", null ],
+    [ "command", "d5/d28/a01950.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
+    [ "getHandle", "d5/d28/a01950.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "d5/d28/a01950.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "operator=", "d5/d28/a01950.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
+    [ "operator=", "d5/d28/a01950.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
+    [ "receive", "d5/d28/a01950.html#aef7cf93602718e2d14816e122f15f3be", null ],
+    [ "transmit", "d5/d28/a01950.html#a10d2dc1da9553992110c3752aa39e058", null ]
 ];

@@ -1,17 +1,14 @@
 var a01102 =
 [
-    [ "Diagnostic", "d4/da7/a01102.html#a74fdde35a787cd13d6069871c0ff8976", null ],
-    [ "Node", "d4/da7/a01102.html#ab091b12fa34f220a5e75b16695a26a92", null ],
-    [ "RxMessage", "d4/da7/a01102.html#a8a484107ff6af1af77dbb3091967f65e", null ],
-    [ "Service", "d4/da7/a01102.html#a34d4fbaded08b287de47655b7713556a", null ],
-    [ "~Service", "d4/da7/a01102.html#aa70d5f9fd723805cc64c383864a55d17", null ],
-    [ "getDiagnostic", "d4/da7/a01102.html#a568458f9461115a1ea8f443f2dfde355", null ],
-    [ "messageReceivedCallback", "d4/da7/a01102.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
-    [ "postScanCallback", "d4/da7/a01102.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
-    [ "send", "d4/da7/a01102.html#a2e0c631d402e3175044158dded2de545", null ],
-    [ "send", "d4/da7/a01102.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
-    [ "send", "d4/da7/a01102.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
-    [ "start", "d4/da7/a01102.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
-    [ "stop", "d4/da7/a01102.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
-    [ "taskFn", "d4/da7/a01102.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
+    [ "Mifare", "d4/da7/a01102.html#a32c5c26548db5a62c135d462408f7eb8", null ],
+    [ "~Mifare", "d4/da7/a01102.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
+    [ "adjustValue", "d4/da7/a01102.html#ae63c40816081c83b32237540fa351d20", null ],
+    [ "authenticate", "d4/da7/a01102.html#a646ed2b83f740acca2902cf2bd94584a", null ],
+    [ "decrement", "d4/da7/a01102.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
+    [ "formatValueBlock", "d4/da7/a01102.html#ae321e9f7437818d3481f77afa3da63ec", null ],
+    [ "increment", "d4/da7/a01102.html#a419ae2e457e93dfb3ad77a301758f796", null ],
+    [ "readBlock", "d4/da7/a01102.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
+    [ "restore", "d4/da7/a01102.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
+    [ "transfer", "d4/da7/a01102.html#a7eac216ac4049cd65471896003a0d925", null ],
+    [ "writeBlock", "d4/da7/a01102.html#a602509a99b488ae6354b4c75e9335610", null ]
 ];

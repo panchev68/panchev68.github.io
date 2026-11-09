@@ -1,9 +1,9 @@
 var a01612 =
 [
-    [ "Handle", "d5/d84/a01612.html#a31060b74a9dca40bf3d8950b8db4981f", null ],
-    [ "Handle", "d5/d84/a01612.html#a0fad1e6f6de3fa5c36b0ceddbd626dec", null ],
-    [ "getPinNumber", "d5/d84/a01612.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d5/d84/a01612.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d5/d84/a01612.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d5/d84/a01612.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "writeTo", "d5/d84/a01612.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d5/d84/a01612.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d5/d84/a01612.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d5/d84/a01612.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d5/d84/a01612.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d5/d84/a01612.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

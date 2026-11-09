@@ -1,10 +1,8 @@
 var a01638 =
 [
-    [ "Input", "dd/d55/a01638.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "dd/d55/a01638.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "isHigh", "dd/d55/a01638.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "dd/d55/a01638.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "dd/d55/a01638.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "read", "dd/d55/a01638.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "dd/d55/a01638.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "Frame0x80", "dd/d55/a01638.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
+    [ "option", "dd/d55/a01638.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
+    [ "rfData", "dd/d55/a01638.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
+    [ "rssi", "dd/d55/a01638.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
+    [ "srcAddr64", "dd/d55/a01638.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
 ];

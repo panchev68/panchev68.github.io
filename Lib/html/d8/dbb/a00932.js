@@ -1,18 +1,17 @@
 var a00932 =
 [
-    [ "Command", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726", [
-      [ "WRITE_ENABLE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "READ_STATUS_REGISTER1", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "QUAD_PAGE_PROGRAM", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
-      [ "FAST_READ_QUAD_IO", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
-      [ "SECTOR_ERASE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d8/dbb/a00932.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Outputs", "d8/dbb/a00932.html#a247cd7c1b9224f24326b3776838b272f", null ],
+    [ "getChangesCounter", "d8/dbb/a00932.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
+    [ "getSpiHandle", "d8/dbb/a00932.html#a95099752d786b9afd12743cfed8e8f39", null ],
+    [ "getStatus", "d8/dbb/a00932.html#a5390728a76821a9b72e0bf604b09462e", null ],
+    [ "getValue", "d8/dbb/a00932.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
+    [ "hasSpiError", "d8/dbb/a00932.html#a577114566b65889dd42c95c3e3350b1a", null ],
+    [ "postUpdateCallback", "d8/dbb/a00932.html#a369ec8b311dd4871503593f3fd91e103", null ],
+    [ "preUpdateCallback", "d8/dbb/a00932.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
+    [ "setup", "d8/dbb/a00932.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
+    [ "setValue", "d8/dbb/a00932.html#a6a6877af80563061eddc23c9bb71746d", null ],
+    [ "update", "d8/dbb/a00932.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
+    [ "onSpiError", "d8/dbb/a00932.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
+    [ "onStatusChanged", "d8/dbb/a00932.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
+    [ "onValueChanged", "d8/dbb/a00932.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
 ];

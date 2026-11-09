@@ -1,9 +1,14 @@
 var searchData=
 [
-  ['taskcount_0',['TaskCount',['../d3/d4e/a01991.html#ae3ed269064d8e8dec76f8cde64bcc7ab',1,'RTOS::Kernel']]],
-  ['terminatehandler_1',['TerminateHandler',['../d3/dce/a01859.html#a0e35d785dbe7d351b99d22035ed1b718',1,'Lib::Helper::Exception']]],
-  ['tick_2',['Tick',['../d2/d31/a02087.html#a74b9cc5d87c4355efd3342b70c3bdab4',1,'RTOS::TickCounter']]],
-  ['tickduration_3',['TickDuration',['../d3/d4e/a01991.html#a1ef9c4bec95909ba77fcd9fe950696fa',1,'RTOS::Kernel']]],
-  ['ticktype_4',['TickType',['../d5/db3/a01751.html#ad8ef8d64da7b2fb93cca36bca48241bc',1,'Lib::HAL::Timer::TimEventBase::TickType'],['../de/dca/a01907.html#a0b47d84cbdd58474013fe3b38dce4974',1,'Lib::Helper::TimePeriod::TickType'],['../d2/d8a/a01987.html#ad148e5ad55c065d22eaa6d5c10ce0768',1,'RTOS::EventGroup::TickType'],['../d3/d4e/a01991.html#ab3a21cca75c9a9c61acc1cb12a3cc132',1,'RTOS::Kernel::TickType'],['../df/d78/a02019.html#a74349e8aa0172b4a9f4763e24b7c10a6',1,'RTOS::MessageBuffer::TickType'],['../d6/d5d/a02023.html#adc2e1b449462bfc5e02a4ee323b012e5',1,'RTOS::Mutex::TickType'],['../dc/d92/a02047.html#a052c7fc009c89fd8f8542c6014405b43',1,'RTOS::SemaphoreBase::TickType'],['../d5/dd6/a02055.html#ac90ba1f2e3fc8ceddbefcc9e56c50407',1,'RTOS::StreamBuffer::TickType'],['../da/df3/a02059.html#ae8e5ffc65178ca37479e618247718ca9',1,'RTOS::Task::TickType'],['../d3/d79/a02083.html#adc76fba01b70e91209e1f25d9dd7f1ce',1,'RTOS::TickClient::TickType'],['../d2/d31/a02087.html#af8b741f7cd6bd8cefd26aae83980fbfd',1,'RTOS::TickCounter::TickType'],['../d9/d96/a02091.html#a0285ec57b08218404301d71335490923',1,'RTOS::Timeout::TickType'],['../d0/d0c/a02095.html#ad723310c96803c284ff978231bdcdb67',1,'RTOS::Timer::TickType']]],
-  ['timeout_5',['Timeout',['../d6/d2e/a01735.html#a03b1d8751fc952fa93668bd1d0e48aca',1,'Lib::HAL::SPIPortBase']]]
+  ['serialstring_0',['SerialString',['../dd/df4/a02510.html#aa6020b729e0f58cedf044dc7ff97b00b',1,'Lib::System::SerialNumber']]],
+  ['serverbase_1',['ServerBase',['../d1/de6/a00837.html#ab5bb4cbc53b78fbe35d7058920026275',1,'Lib::Canbus']]],
+  ['signaturebuffer_2',['SignatureBuffer',['../da/d4e/a01106.html#afea6f0e2a71e2700aba290c8c12dcbcc',1,'Lib::BSP::RFID::NfcManager']]],
+  ['slavemailbox_3',['SlaveMailbox',['../d9/d37/a01754.html#a186483b3bfbc3199f52b2081e591cb83',1,'Lib::Ethercat::SOES::Slave']]],
+  ['slice_4',['Slice',['../d4/d13/a01162.html#a029fda2bec067f1632bb4c002c0cc4d7',1,'Lib::BSP::SK6812']]],
+  ['spiport_5',['SpiPort',['../d4/d12/a00910.html#a8e662cafaa683ac82c0b60d7b4da8fdc',1,'Lib::BSP::DigitalPeripheralBase::SpiPort'],['../dd/ddc/a01802.html#adca286013ca6500d4efec12c1f60ae9c',1,'Lib::Ethernet::Wiznet::W5500::SpiPort']]],
+  ['st7789_6',['ST7789',['../d6/d8b/a00821.html#a65945dd063f1bdba63771905189c1761',1,'Lib::BSP::Display']]],
+  ['state_7',['State',['../d9/d37/a01754.html#a511a0b0fbb34c264baf4c6cd796a1923',1,'Lib::Ethercat::SOES::Slave']]],
+  ['status_8',['Status',['../d9/dfb/a02578.html#a02700dee6676fa9bcb527b7187e2813e',1,'Lib::USB::SerialPortRepeaterBase']]],
+  ['storage_9',['Storage',['../dd/d4f/a02394.html#a2e005eeef82edd981b9d0cac15b7f677',1,'RTOS::Queue']]],
+  ['subscriber_10',['Subscriber',['../da/dab/a01362.html#a3f40221ae5736ac688a612345a14a8e4',1,'MulticastDelegate&lt; Ret(Args...), T_CAPACITY &gt;']]]
 ];

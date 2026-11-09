@@ -1,12 +1,19 @@
 var a00716 =
 [
-    [ "Lib::USB::SerialPortRepeaterBase", "df/d0e/a02195.html", "df/d0e/a02195" ],
-    [ "Lib::USB::SerialPortRepeaterBase::Config", "db/dd5/a02199.html", "db/dd5/a02199" ],
-    [ "CDC_Transmit_FS", "d2/d94/a00716.html#a9f54b31ad23bbe32b693bdeef89303f4", null ],
-    [ "MX_USB_DEVICE_Init", "d2/d94/a00716.html#adab4f7fc1db4ce2be073d3913209d2af", null ],
-    [ "USBD_CDC_ReceivePacket", "d2/d94/a00716.html#a7c4014397838b40b7716d800fd90ebcf", null ],
-    [ "hpcd_USB_OTG_FS", "d2/d94/a00716.html#a3ec0d70a6cb9406d997fb3d006cc940d", null ],
-    [ "hUsbDeviceFS", "d2/d94/a00716.html#afe8a2d9e10b33d5e7906f9f04f95358e", null ],
-    [ "UserRxBufferFS", "d2/d94/a00716.html#a1e37e6616e6affe5acf9c0befd063f6a", null ],
-    [ "UserTxBufferFS", "d2/d94/a00716.html#ad48fea85cdb7aed49bf62140a52f23e0", null ]
+    [ "RTOS::Kernel", "d7/d54/a02342.html", "d7/d54/a02342" ],
+    [ "RTOS::Kernel::CriticalSectionFromISR", "df/d1b/a02346.html", "df/d1b/a02346" ],
+    [ "RTOS::Kernel::CriticalSection", "d9/d61/a02350.html", "d9/d61/a02350" ],
+    [ "RTOS::Kernel::Scheduler", "d3/d12/a02354.html", "d3/d12/a02354" ],
+    [ "RTOS::Kernel::Scheduler::Lock", "d9/d94/a02358.html", "d9/d94/a02358" ],
+    [ "RTOS::Kernel::MemoryInfo", "d2/d3d/a02362.html", "d2/d3d/a02362" ],
+    [ "RTOS_HEAP_HAS_STATS", "d2/d94/a00716.html#aea3f5304a2ee9e9c830027b6035472ae", null ],
+    [ "RTOS::delay", "dc/d41/a00862.html#a0960b26725ee8ac0c2798f5d3036b37a", null ],
+    [ "RTOS::delay", "dc/d41/a00862.html#a9457a17b234e2e6b6336f69c9f756021", null ],
+    [ "RTOS::delayUntil", "dc/d41/a00862.html#a071ed92c20109dd07c3785eb87914136", null ],
+    [ "RTOS::delayUntil", "dc/d41/a00862.html#aeaddd65089a8190241b5922399d6168c", null ],
+    [ "RTOS::durationToTicks", "dc/d41/a00862.html#ab892d206cb79c31e373b3631e023b644", null ],
+    [ "RTOS::getTickCount", "dc/d41/a00862.html#aa54eb7aeffc794961e60ade51c195480", null ],
+    [ "RTOS::getTickCountFromISR", "dc/d41/a00862.html#a80d033e9ce70fec78bacaa61cc1221bf", null ],
+    [ "RTOS::inISR", "dc/d41/a00862.html#a974867cff953c89df2c50da604d4b606", null ],
+    [ "RTOS::millisecondsToTicks", "dc/d41/a00862.html#a5c21e23f0bba6fde645ac808660b30f8", null ]
 ];

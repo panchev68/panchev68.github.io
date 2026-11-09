@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Digi::Core::Protocol</title>
+<title>IAR Library: Lib::Digi::API::Connection::Quality</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,78 +112,138 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/da5/a01424.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Digi::Core::Protocol<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Digi::API::Connection::Quality<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Static helpers for the <a class="el" href="../../d9/daf/a00830.html">Digi</a> API1 frame format: start delimiter, 16-bit length, frame data, checksum. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::Core::Protocol:</div>
+<div class="textblock"><p>Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin. </p>
+<p>Every request/response cycle is one bit in a sliding window of the last "WINDOW_SIZE" cycles; the PDR over that window is the primary score. The filtered RSSI, mapped linearly from "RSSI_STRONG" (100 %) to "RSSI_SENSITIVITY" (0 %), scales the PDR score down by up to "RSSI_WEIGHT" percent, so a weakening signal lowers the result before packets get lost. The state follows the percent with hysteresis: down at once, up only after the better grade has held for "STATE_UPGRADE_DELAY".</p>
+<p>In scanner mode every reset starts a "SCANNER_SETTLE_TIME" period whose samples are ignored, and "onUpdate" fires once, when the window is filled with fresh samples.</p>
+<p>Thread safety: "onExchange()" and "update()" run in the application task, "onRssi()" in the receiver task; "clear()", the mode setters and the getters are safe from any task. Cross-task data goes only through atomics and is applied inside "update()". </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::API::Connection::Quality:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/df4/a01422.svg" width="187" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/df4/a01422.svg" width="223" height="430"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a77ea9ca08e96f0d590c86620346542ef" id="r_a77ea9ca08e96f0d590c86620346542ef"><td class="memTemplParams" colspan="2">template&lt;Query T&gt; </td></tr>
-<tr class="memitem:a77ea9ca08e96f0d590c86620346542ef template"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a77ea9ca08e96f0d590c86620346542ef">build</a> (const T &amp;query, <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;frame) noexcept</td></tr>
-<tr class="memdesc:a77ea9ca08e96f0d590c86620346542ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Serializes a query into a complete <a class="el" href="../../d7/d5f/a00831.html" title="High-level Digi radio module application framework.">API</a> frame.  <br /></td></tr>
-<tr class="memitem:ab05a20ab3a95d37847fb1c5bb684f454" id="r_ab05a20ab3a95d37847fb1c5bb684f454"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ab05a20ab3a95d37847fb1c5bb684f454">validate</a> (const <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;apiFrame) noexcept</td></tr>
-<tr class="memdesc:ab05a20ab3a95d37847fb1c5bb684f454"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates a received frame's delimiter, length and checksum.  <br /></td></tr>
-<tr class="memitem:aa3bbece73100567be8a597e93e9df5b9" id="r_aa3bbece73100567be8a597e93e9df5b9"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#aa3bbece73100567be8a597e93e9df5b9">parse</a> (const <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;apiFrame, <a class="el" href="../../d1/dcc/a01392.html">Frame::Data</a> &amp;frameData) noexcept</td></tr>
-<tr class="memdesc:aa3bbece73100567be8a597e93e9df5b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extracts the frame type and frame data of a received frame.  <br /></td></tr>
-<tr class="memitem:afdf2eb794bffd50ec42a76adef326fa8" id="r_afdf2eb794bffd50ec42a76adef326fa8"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#afdf2eb794bffd50ec42a76adef326fa8">handleIncomingMessage</a> (const <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;apiFrame, <a class="el" href="../../d1/dcc/a01392.html">Frame::Data</a> &amp;frameData) noexcept</td></tr>
-<tr class="memdesc:afdf2eb794bffd50ec42a76adef326fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses a received frame and dispatches it to the matching response event.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:addae8d177e3be6cf88efd4277f317ef7" id="r_addae8d177e3be6cf88efd4277f317ef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> (<a class="el" href="../../d5/dec/a01416.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *connection) noexcept</td></tr>
+<tr class="memdesc:addae8d177e3be6cf88efd4277f317ef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the evaluator in runtime mode with a pending statistics reset.  <br /></td></tr>
+<tr class="memitem:ad5e27604826fa9613e36ac6186b344bb" id="r_ad5e27604826fa9613e36ac6186b344bb"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ad5e27604826fa9613e36ac6186b344bb">start</a> () noexcept</td></tr>
+<tr class="memdesc:ad5e27604826fa9613e36ac6186b344bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Switches to runtime mode and resets the statistics; same as "setRuntimeMode()".  <br /></td></tr>
+<tr class="memitem:a609bf11d7132e415fcbb42bdb189c438" id="r_a609bf11d7132e415fcbb42bdb189c438"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a609bf11d7132e415fcbb42bdb189c438">clear</a> () noexcept</td></tr>
+<tr class="memdesc:a609bf11d7132e415fcbb42bdb189c438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests a reset of the collected statistics, applied by the next "update()".  <br /></td></tr>
+<tr class="memitem:a55bae7d188caa41cd85b5960bc80b4c9" id="r_a55bae7d188caa41cd85b5960bc80b4c9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55bae7d188caa41cd85b5960bc80b4c9">setRuntimeMode</a> () noexcept</td></tr>
+<tr class="memdesc:a55bae7d188caa41cd85b5960bc80b4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets runtime mode (continuous assessment) and resets the statistics.  <br /></td></tr>
+<tr class="memitem:a94bf3ed338180ddd04fe888b204907c7" id="r_a94bf3ed338180ddd04fe888b204907c7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a94bf3ed338180ddd04fe888b204907c7">setScannerMode</a> () noexcept</td></tr>
+<tr class="memdesc:a94bf3ed338180ddd04fe888b204907c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets scanner mode (settle, then one result per full window) and resets the statistics.  <br /></td></tr>
+<tr class="memitem:a58d1f865ff5385df9120089b3b9be020" id="r_a58d1f865ff5385df9120089b3b9be020"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a58d1f865ff5385df9120089b3b9be020">getPercent</a> () const noexcept</td></tr>
+<tr class="memdesc:a58d1f865ff5385df9120089b3b9be020"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last computed quality.  <br /></td></tr>
+<tr class="memitem:acc0dd49fae439b6a503f21d2c2296569" id="r_acc0dd49fae439b6a503f21d2c2296569"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#acc0dd49fae439b6a503f21d2c2296569">getState</a> () const noexcept</td></tr>
+<tr class="memdesc:acc0dd49fae439b6a503f21d2c2296569"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last published qualitative state.  <br /></td></tr>
+<tr class="memitem:a889bc1271f7b0cf758338c7ee2514554" id="r_a889bc1271f7b0cf758338c7ee2514554"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a889bc1271f7b0cf758338c7ee2514554">onExchange</a> (bool isSuccessful) noexcept</td></tr>
+<tr class="memdesc:a889bc1271f7b0cf758338c7ee2514554"><td class="mdescLeft">&#160;</td><td class="mdescRight">Records the outcome of one request/response cycle.  <br /></td></tr>
+<tr class="memitem:acd7a4f8340c849e6247997e1fff9b177" id="r_acd7a4f8340c849e6247997e1fff9b177"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acd7a4f8340c849e6247997e1fff9b177">onRssi</a> (uint8_t rssi) noexcept</td></tr>
+<tr class="memdesc:acd7a4f8340c849e6247997e1fff9b177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores a raw RSSI sample, filtered by the next "update()".  <br /></td></tr>
+<tr class="memitem:a74c56a3babe14b32b8d4362d4e3ace1f" id="r_a74c56a3babe14b32b8d4362d4e3ace1f"><td class="memItemLeft"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a74c56a3babe14b32b8d4362d4e3ace1f">update</a> () noexcept</td></tr>
+<tr class="memdesc:a74c56a3babe14b32b8d4362d4e3ace1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applies pending requests and samples, then recomputes percent and state.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aec409d3ce1ed08e87191e0224a703504" id="r_aec409d3ce1ed08e87191e0224a703504"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aec409d3ce1ed08e87191e0224a703504">START_DELIMITER</a> = 0x7E</td></tr>
-<tr class="memdesc:aec409d3ce1ed08e87191e0224a703504"><td class="mdescLeft">&#160;</td><td class="mdescRight">First byte of every <a class="el" href="../../d7/d5f/a00831.html" title="High-level Digi radio module application framework.">API</a> frame.  <br /></td></tr>
-<tr class="memitem:a454ba26ec9f737b8a135a3254d686107" id="r_a454ba26ec9f737b8a135a3254d686107"><td class="memItemLeft">static constexpr <a class="el" href="../../dc/d6e/a00833.html#a90113324d5ba519fcc76387893bb17ed">ApiMode</a>&#160;</td><td class="memItemRight"><a class="el" href="#a454ba26ec9f737b8a135a3254d686107">API_MODE</a> = <a class="el" href="../../dc/d6e/a00833.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5">ApiMode::API1</a></td></tr>
-<tr class="memdesc:a454ba26ec9f737b8a135a3254d686107"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escaping mode; only API1 (unescaped) is supported.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a6f2e37a3261d7339927cb06d1b32fa02" id="r_a6f2e37a3261d7339927cb06d1b32fa02"><td class="memItemLeft"><a class="el" href="../../d5/d53/a01324.html">FunctionRef</a>&lt; void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6f2e37a3261d7339927cb06d1b32fa02">onUpdate</a></td></tr>
+<tr class="memdesc:a6f2e37a3261d7339927cb06d1b32fa02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scanner-mode result callback, fired from "update()" in the application task.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a77ea9ca08e96f0d590c86620346542ef" name="a77ea9ca08e96f0d590c86620346542ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77ea9ca08e96f0d590c86620346542ef">&#9670;&#160;</a></span>build()</h2>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a46b4913da28daeccef03e456b1d3a101" name="a46b4913da28daeccef03e456b1d3a101"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b4913da28daeccef03e456b1d3a101">&#9670;&#160;</a></span>Mode</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;Query T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::Core::Protocol::build </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>query</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+          <td class="memname">enum class <a class="el" href="#a46b4913da28daeccef03e456b1d3a101">Lib::Digi::API::Connection::Quality::Mode</a> : uint8_t</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Serializes a query into a complete <a class="el" href="../../d7/d5f/a00831.html" title="High-level Digi radio module application framework.">API</a> frame. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td><a class="el" href="../../d3/dce/a01963.html" title="Outgoing request frame: writes its frame type and payload through a FrameWriter.">Query</a> type. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Assessment mode. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8" name="a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8"></a>RUNTIME&#160;</td><td class="fielddoc"><p>Continuous assessment. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d" name="a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d"></a>SCANNER&#160;</td><td class="fielddoc"><p>Settle, then one result per full window. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="af7ac77ba20da5be346e1d3948da5de72" name="af7ac77ba20da5be346e1d3948da5de72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7ac77ba20da5be346e1d3948da5de72">&#9670;&#160;</a></span>State</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">Lib::Digi::API::Connection::Quality::State</a> : uint8_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Qualitative states ordered by increasing quality. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785" name="af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785"></a>DISCONNECTED&#160;</td><td class="fielddoc"><p>Link down. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e" name="af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e"></a>UNUSABLE&#160;</td><td class="fielddoc"><p>Up to 30 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4" name="af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4"></a>NOT_GOOD&#160;</td><td class="fielddoc"><p>Above 30 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734" name="af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734"></a>OKAY&#160;</td><td class="fielddoc"><p>Above 50 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347" name="af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347"></a>VERY_GOOD&#160;</td><td class="fielddoc"><p>Above 75 %. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9" name="af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9"></a>AMAZING&#160;</td><td class="fielddoc"><p>Above 90 %. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="addae8d177e3be6cf88efd4277f317ef7" name="addae8d177e3be6cf88efd4277f317ef7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addae8d177e3be6cf88efd4277f317ef7">&#9670;&#160;</a></span>Quality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Digi::API::Connection::Quality::Quality </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d5/dec/a01416.html#ac3f7cec3bac26ebbbdfd93dc9d339f48">Connection</a> *</td>          <td class="paramname"><span class="paramname"><em>connection</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the evaluator in runtime mode with a pending statistics reset. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">query</td><td>Request to serialize. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Receives the frame; cleared first. </td></tr>
+    <tr><td class="paramname">connection</td><td>Owning connection; must not be "nullptr". </td></tr>
   </table>
   </dd>
 </dl>
@@ -189,205 +251,297 @@ template&lt;Query T&gt; </div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_a77ea9ca08e96f0d590c86620346542ef_cgraph.svg" width="503" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_addae8d177e3be6cf88efd4277f317ef7_cgraph.svg" width="578" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a609bf11d7132e415fcbb42bdb189c438" name="a609bf11d7132e415fcbb42bdb189c438"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a609bf11d7132e415fcbb42bdb189c438">&#9670;&#160;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::clear </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Requests a reset of the collected statistics, applied by the next "update()". </p>
+<p>Safe from any task. </p>
+
+</div>
+</div>
+<a id="a58d1f865ff5385df9120089b3b9be020" name="a58d1f865ff5385df9120089b3b9be020"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d1f865ff5385df9120089b3b9be020">&#9670;&#160;</a></span>getPercent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::Digi::API::Connection::Quality::getPercent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the last computed quality. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="../../d5/da5/a01424.html" title="Computes link quality from the packet delivery ratio (PDR) and the RSSI link margin.">Quality</a> in percent (0-100). </dd></dl>
+
+</div>
+</div>
+<a id="acc0dd49fae439b6a503f21d2c2296569" name="acc0dd49fae439b6a503f21d2c2296569"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc0dd49fae439b6a503f21d2c2296569">&#9670;&#160;</a></span>getState()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::getState </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the last published qualitative state. </p>
+<dl class="section return"><dt>Returns</dt><dd>Qualitative state. </dd></dl>
+
+</div>
+</div>
+<a id="a889bc1271f7b0cf758338c7ee2514554" name="a889bc1271f7b0cf758338c7ee2514554"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889bc1271f7b0cf758338c7ee2514554">&#9670;&#160;</a></span>onExchange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::onExchange </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isSuccessful</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Records the outcome of one request/response cycle. </p>
+<p>Application task only.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">isSuccessful</td><td>"true" if the response arrived in time and was accepted, "false" if it was lost. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acd7a4f8340c849e6247997e1fff9b177" name="acd7a4f8340c849e6247997e1fff9b177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd7a4f8340c849e6247997e1fff9b177">&#9670;&#160;</a></span>onRssi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::onRssi </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>rssi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores a raw RSSI sample, filtered by the next "update()". </p>
+<p>Safe from the receiver task.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">rssi</td><td>RSSI magnitude as reported by the module (-dBm, larger means weaker). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a55bae7d188caa41cd85b5960bc80b4c9" name="a55bae7d188caa41cd85b5960bc80b4c9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55bae7d188caa41cd85b5960bc80b4c9">&#9670;&#160;</a></span>setRuntimeMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::setRuntimeMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets runtime mode (continuous assessment) and resets the statistics. </p>
+<p>Safe from any task. </p>
+
+</div>
+</div>
+<a id="a94bf3ed338180ddd04fe888b204907c7" name="a94bf3ed338180ddd04fe888b204907c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94bf3ed338180ddd04fe888b204907c7">&#9670;&#160;</a></span>setScannerMode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::setScannerMode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets scanner mode (settle, then one result per full window) and resets the statistics. </p>
+<p>Safe from any task. </p>
+
+</div>
+</div>
+<a id="ad5e27604826fa9613e36ac6186b344bb" name="ad5e27604826fa9613e36ac6186b344bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5e27604826fa9613e36ac6186b344bb">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::Digi::API::Connection::Quality::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Switches to runtime mode and resets the statistics; same as "setRuntimeMode()". </p>
+
+</div>
+</div>
+<a id="a74c56a3babe14b32b8d4362d4e3ace1f" name="a74c56a3babe14b32b8d4362d4e3ace1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74c56a3babe14b32b8d4362d4e3ace1f">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#af7ac77ba20da5be346e1d3948da5de72">State</a> Lib::Digi::API::Connection::Quality::update </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applies pending requests and samples, then recomputes percent and state. </p>
+<p>Application task only.</p>
+<dl class="section return"><dt>Returns</dt><dd>New qualitative state. </dd></dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_a77ea9ca08e96f0d590c86620346542ef_icgraph.svg" width="774" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="afdf2eb794bffd50ec42a76adef326fa8" name="afdf2eb794bffd50ec42a76adef326fa8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdf2eb794bffd50ec42a76adef326fa8">&#9670;&#160;</a></span>handleIncomingMessage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Digi::Core::Protocol::handleIncomingMessage </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>apiFrame</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d1/dcc/a01392.html">Frame::Data</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frameData</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Parses a received frame and dispatches it to the matching response event. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">apiFrame</td><td>Received frame. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">frameData</td><td>Scratch buffer for the parsed payload, owned by the receiving task. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the frame was valid; an unhandled frame type is still reported as valid. </dd></dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_afdf2eb794bffd50ec42a76adef326fa8_cgraph.svg" width="1200" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa3bbece73100567be8a597e93e9df5b9" name="aa3bbece73100567be8a597e93e9df5b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3bbece73100567be8a597e93e9df5b9">&#9670;&#160;</a></span>parse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Digi::Core::Protocol::parse </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>apiFrame</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="../../d1/dcc/a01392.html">Frame::Data</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frameData</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Extracts the frame type and frame data of a received frame. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">apiFrame</td><td>Received frame. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">frameData</td><td>Receives the type and payload; reused across calls to avoid reallocation. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the frame is valid and carries at least its type byte. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_aa3bbece73100567be8a597e93e9df5b9_cgraph.svg" width="770" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_aa3bbece73100567be8a597e93e9df5b9_icgraph.svg" width="574" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab05a20ab3a95d37847fb1c5bb684f454" name="ab05a20ab3a95d37847fb1c5bb684f454"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab05a20ab3a95d37847fb1c5bb684f454">&#9670;&#160;</a></span>validate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Digi::Core::Protocol::validate </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>apiFrame</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Validates a received frame's delimiter, length and checksum. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">apiFrame</td><td>Received frame. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the frame is complete and its checksum matches. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_ab05a20ab3a95d37847fb1c5bb684f454_cgraph.svg" width="520" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_ab05a20ab3a95d37847fb1c5bb684f454_icgraph.svg" width="836" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da5/a01424_a74c56a3babe14b32b8d4362d4e3ace1f_cgraph.svg" width="499" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a454ba26ec9f737b8a135a3254d686107" name="a454ba26ec9f737b8a135a3254d686107"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a454ba26ec9f737b8a135a3254d686107">&#9670;&#160;</a></span>API_MODE</h2>
+<a id="a6f2e37a3261d7339927cb06d1b32fa02" name="a6f2e37a3261d7339927cb06d1b32fa02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f2e37a3261d7339927cb06d1b32fa02">&#9670;&#160;</a></span>onUpdate</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dc/d6e/a00833.html#a90113324d5ba519fcc76387893bb17ed">ApiMode</a> Lib::Digi::Core::Protocol::API_MODE = <a class="el" href="../../dc/d6e/a00833.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5">ApiMode::API1</a></td>
+          <td class="memname"><a class="el" href="../../d5/d53/a01324.html">FunctionRef</a>&lt;void(<a class="el" href="#addae8d177e3be6cf88efd4277f317ef7">Quality</a> *)&gt; Lib::Digi::API::Connection::Quality::onUpdate</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Escaping mode; only API1 (unescaped) is supported. </p>
-
-</div>
-</div>
-<a id="aec409d3ce1ed08e87191e0224a703504" name="aec409d3ce1ed08e87191e0224a703504"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec409d3ce1ed08e87191e0224a703504">&#9670;&#160;</a></span>START_DELIMITER</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t Lib::Digi::Core::Protocol::START_DELIMITER = 0x7E</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>First byte of every <a class="el" href="../../d7/d5f/a00831.html" title="High-level Digi radio module application framework.">API</a> frame. </p>
+<p>Scanner-mode result callback, fired from "update()" in the application task. </p>
+<p>Non-owning: bound and cleared by the owning scanner in its "open()"/"close()". </p>
 
 </div>
 </div>
@@ -404,7 +558,7 @@ template&lt;Query T&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d9/daf/a00830.html">Digi</a></li><li class="navelem"><a href="../../dc/d6e/a00833.html">Core</a></li><li class="navelem"><a href="../../d5/da5/a01424.html">Protocol</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d3/d13/a00836.html">Digi</a></li><li class="navelem"><a href="../../d1/de6/a00837.html">API</a></li><li class="navelem"><a href="../../d5/dec/a01416.html">Connection</a></li><li class="navelem"><a href="../../d5/da5/a01424.html">Quality</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

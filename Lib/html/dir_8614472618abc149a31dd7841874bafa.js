@@ -1,9 +1,10 @@
 var dir_8614472618abc149a31dd7841874bafa =
 [
-    [ "Device.hpp", "dc/d50/a00332.html", "dc/d50/a00332" ],
-    [ "DeviceManager.hpp", "d5/dd8/a02802.html", "d5/dd8/a02802" ],
-    [ "DmaMemory.hpp", "df/d91/a00335.html", "df/d91/a00335" ],
-    [ "DriverDataDirection.hpp", "dc/d84/a00338.html", "dc/d84/a00338" ],
-    [ "DriverMode.hpp", "d3/d93/a00341.html", "d3/d93/a00341" ],
-    [ "HalTimeout.hpp", "d8/d8e/a00344.html", "d8/d8e/a00344" ]
+    [ "AsyncPortCore.hpp", "d4/d13/a00377.html", "d4/d13/a00377" ],
+    [ "Device.hpp", "d8/ddd/a00380.html", "d8/ddd/a00380" ],
+    [ "DeviceManager.hpp", "d7/d46/a03430.html", "d7/d46/a03430" ],
+    [ "DmaMemory.hpp", "da/dee/a00383.html", "da/dee/a00383" ],
+    [ "DriverDataDirection.hpp", "dd/df5/a00386.html", "dd/df5/a00386" ],
+    [ "DriverMode.hpp", "dc/dc9/a00389.html", "dc/dc9/a00389" ],
+    [ "HalTimeout.hpp", "d4/d27/a00392.html", "d4/d27/a00392" ]
 ];

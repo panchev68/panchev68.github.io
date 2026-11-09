@@ -1,4 +1,4 @@
 var a00032 =
 [
-    [ "Lib::BSP::Display::ILI9341", "d8/d2d/a00815.html#a62bc20ecfb713696b3f744fc5833d417", null ]
+    [ "Lib::BSP::Display::ST7789", "d8/d2d/a00815.html#a65945dd063f1bdba63771905189c1761", null ]
 ];

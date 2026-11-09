@@ -1,7 +1,8 @@
 var a02111 =
 [
-    [ "current", "d4/d64/a02111.html#a3c52e2d0bbe89862c14148ebf02d6463", null ],
-    [ "irradiance", "d4/d64/a02111.html#a6d28fdf32a94b2134434e00c0fef4894", null ],
-    [ "temperature", "d4/d64/a02111.html#a2f7e9f752645a3cbee0fd950bfc2c255", null ],
-    [ "voltage", "d4/d64/a02111.html#a1c339469529ee402dcc9e7bb37113566", null ]
+    [ "EventHandler", "d4/d64/a02111.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPortAsync", "d4/d64/a02111.html#a0eb76333730406f2b4eb1c25a840e786", null ],
+    [ "setEventHandler", "d4/d64/a02111.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "d4/d64/a02111.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "d4/d64/a02111.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

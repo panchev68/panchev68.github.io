@@ -1,11 +1,10 @@
 var a01940 =
 [
-    [ "Parameters", "d5/dba/a01940.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d5/dba/a01940.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d5/dba/a01940.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d5/dba/a01940.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d5/dba/a01940.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d5/dba/a01940.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d5/dba/a01940.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d5/dba/a01940.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "IndependentWatchdog", "d5/dba/a01940.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "d5/dba/a01940.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "d5/dba/a01940.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "d5/dba/a01940.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "d5/dba/a01940.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "d5/dba/a01940.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "d5/dba/a01940.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

@@ -1,14 +1,9 @@
 var a01782 =
 [
-    [ "UARTPort", "dd/dec/a01782.html#a066a22aae400d51f9a8552f6b1757c30", null ],
-    [ "~UARTPort", "dd/dec/a01782.html#ae57a4a21992efbdd20a759373b79c5de", null ],
-    [ "UARTPort", "dd/dec/a01782.html#ae6f0e62a4656b536fe56074ab56f908d", null ],
-    [ "UARTPort", "dd/dec/a01782.html#a4270eb9592874eab89553824805f442c", null ],
-    [ "getDirection", "dd/dec/a01782.html#abc3c117eef840882dd94aee07d684a11", null ],
-    [ "getHandle", "dd/dec/a01782.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
-    [ "getHandle", "dd/dec/a01782.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
-    [ "operator=", "dd/dec/a01782.html#a46266c46a3361fed6ada2111d72b5d85", null ],
-    [ "operator=", "dd/dec/a01782.html#a37f22186366e4535a8f4bedfeda85f55", null ],
-    [ "receive", "dd/dec/a01782.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
-    [ "send", "dd/dec/a01782.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ]
+    [ "command", "dd/dec/a01782.html#af08112845cd66edc31d068ebd37b83ca", null ],
+    [ "delimiter", "dd/dec/a01782.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
+    [ "id", "dd/dec/a01782.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
+    [ "length", "dd/dec/a01782.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
+    [ "option", "dd/dec/a01782.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
+    [ "timestamp", "dd/dec/a01782.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
 ];

@@ -1,19 +1,11 @@
 var a01150 =
 [
-    [ "Target", "d5/d16/a01154.html", "d5/d16/a01154" ],
-    [ "Key", "df/db5/a01158.html", null ],
-    [ "FreeFunctionPointer", "d2/d7b/a01150.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d2/d7b/a01150.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d2/d7b/a01150.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "Base", "d2/d7b/a01150.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
-    [ "Base", "d2/d7b/a01150.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
-    [ "Base", "d2/d7b/a01150.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
-    [ "Base", "d2/d7b/a01150.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
-    [ "Base", "d2/d7b/a01150.html#a49a4e79ff99eb03351fd7a280f276905", null ],
-    [ "invoke", "d2/d7b/a01150.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d2/d7b/a01150.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d2/d7b/a01150.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d2/d7b/a01150.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d2/d7b/a01150.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d2/d7b/a01150.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "operator==", "d2/d7b/a01150.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "d2/d7b/a01150.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "d2/d7b/a01150.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "d2/d7b/a01150.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "d2/d7b/a01150.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "d2/d7b/a01150.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "d2/d7b/a01150.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "d2/d7b/a01150.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

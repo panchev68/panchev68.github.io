@@ -1,12 +1,15 @@
 var a01398 =
 [
-    [ "Config", "da/de3/a01398.html#a112d0645246a20f0196de68b17f844e3", null ],
-    [ "Module", "da/de3/a01398.html#a9a7eefcf7b0ca8a399ea243393a2d98c", null ],
-    [ "~Module", "da/de3/a01398.html#a7db0dbed38c158186672ee098cff9d89", null ],
-    [ "ComDriver< Module >", "da/de3/a01398.html#a4de00d2aae0cebeb53defb15b31647ee", null ],
-    [ "onBeginMessageReceive", "da/de3/a01398.html#a4697d22b01f645ba00ef0b136feed426", null ],
-    [ "onBeginMessageSend", "da/de3/a01398.html#a0aba8b3adfbd2eb1b8069dc9057f6cdb", null ],
-    [ "onEndMessageReceived", "da/de3/a01398.html#ab7bb27e9ac529e3e399d4e79d8a295e3", null ],
-    [ "onEndMessageSend", "da/de3/a01398.html#a2278ca80cde85e784fba739b3267e025", null ],
-    [ "responseEvents", "da/de3/a01398.html#ac2585942261cabaa51522f461c64816b", null ]
+    [ "WolfSSLRsa", "da/de3/a01398.html#a1308729d8ff35f469e9f9b371d525d28", null ],
+    [ "~WolfSSLRsa", "da/de3/a01398.html#ab6ae34e7912a123c6835ee6840762239", null ],
+    [ "WolfSSLRsa", "da/de3/a01398.html#acc7f398f326414a4d2f5bea6b308a0b0", null ],
+    [ "WolfSSLRsa", "da/de3/a01398.html#a3814f988249760683546ddc093b8ba4e", null ],
+    [ "decrypt", "da/de3/a01398.html#a690ac94f5fdb51b1a82a680b427e80f6", null ],
+    [ "encrypt", "da/de3/a01398.html#a5e86c36f992625c03945c115ab436f54", null ],
+    [ "encryptedSize", "da/de3/a01398.html#a8886d49ea9dc962dd7e5dfded3314703", null ],
+    [ "generateKey", "da/de3/a01398.html#a43de0d37ba0f47417c537dba6ce37ad4", null ],
+    [ "operator=", "da/de3/a01398.html#a0767271bfdf8f54002f922c2ee09944a", null ],
+    [ "operator=", "da/de3/a01398.html#a09d6b1e65a5e85ce8c839c0001917c96", null ],
+    [ "sign", "da/de3/a01398.html#aaa7fa629597c530db9a29c108a50c076", null ],
+    [ "verify", "da/de3/a01398.html#a8efa778b2f9627a75054ee625e3a5c2e", null ]
 ];

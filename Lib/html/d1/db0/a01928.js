@@ -1,14 +1,9 @@
 var a01928 =
 [
-    [ "Point", "d8/d22/a01932.html", "d8/d22/a01932" ],
-    [ "LinearInterpolation", "d1/db0/a01928.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d1/db0/a01928.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d1/db0/a01928.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d1/db0/a01928.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d1/db0/a01928.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d1/db0/a01928.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d1/db0/a01928.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d1/db0/a01928.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d1/db0/a01928.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d1/db0/a01928.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "I2CPortAsync", "d1/db0/a01928.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d1/db0/a01928.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "masterMemRead", "d1/db0/a01928.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d1/db0/a01928.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d1/db0/a01928.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d1/db0/a01928.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ]
 ];

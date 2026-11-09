@@ -1,5 +1,6 @@
 var a01175 =
 [
-    [ "function", "d6/df2/a01175.html#aff0c3dca100d278e3da27425e0eda593", null ],
-    [ "object", "d6/df2/a01175.html#aab9c6938c500fb9ab189884c52b57486", null ]
+    [ "pinHandle", "d6/df2/a01175.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "d6/df2/a01175.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "d6/df2/a01175.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

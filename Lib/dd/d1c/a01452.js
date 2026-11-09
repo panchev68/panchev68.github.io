@@ -1,7 +1,5 @@
 var a01452 =
 [
-    [ "operator std::vector< uint8_t >", "dd/d1c/a01452.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
-    [ "view", "dd/d1c/a01452.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
-    [ "data", "dd/d1c/a01452.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "dd/d1c/a01452.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
+    [ "channel", "dd/d1c/a01452.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
+    [ "id", "dd/d1c/a01452.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
 ];

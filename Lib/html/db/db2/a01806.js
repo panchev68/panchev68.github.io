@@ -1,8 +1,5 @@
 var a01806 =
 [
-    [ "WindowWatchdog", "db/db2/a01806.html#a4269e423b68f2d61333e301a3b6cc8bf", null ],
-    [ "~WindowWatchdog", "db/db2/a01806.html#a120687aedbe3cc087b3350b04973fa79", null ],
-    [ "open", "db/db2/a01806.html#a4f15ce0728ef0544cf98f71cebd357ef", null ],
-    [ "refresh", "db/db2/a01806.html#ab875b70b2b7787a0743e18f4db6f9f19", null ],
-    [ "setWindow", "db/db2/a01806.html#aef3daa68ec0bc3512e9c5fc3914caac4", null ]
+    [ "nssPin", "db/db2/a01806.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
+    [ "spiPort", "db/db2/a01806.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
 ];

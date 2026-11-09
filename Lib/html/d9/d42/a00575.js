@@ -1,4 +1,4 @@
 var a00575 =
 [
-    [ "Lib::Helper::Sunset", "db/d29/a01895.html", "db/d29/a01895" ]
+    [ "Lib::Helper::BitSet&lt; N_BITS &gt;", "df/de7/a02142.html", "df/de7/a02142" ]
 ];

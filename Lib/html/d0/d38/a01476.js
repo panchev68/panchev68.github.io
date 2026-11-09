@@ -1,5 +1,9 @@
 var a01476 =
 [
-    [ "address", "d0/d38/a01476.html#a8edc20ff700b12e30b9160d3d9ef739b", null ],
-    [ "length", "d0/d38/a01476.html#a445d398b2d8c0b0bdcf47d8fb2b284c1", null ]
+    [ "Channel", "d0/d38/a01476.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
+    [ "Channel", "d0/d38/a01476.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
+    [ "getConnectionQuality", "d0/d38/a01476.html#a9c351291c3bb7c963270eae54a16597d", null ],
+    [ "operator uint8_t", "d0/d38/a01476.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
+    [ "operator=", "d0/d38/a01476.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
+    [ "setConnectionQuality", "d0/d38/a01476.html#af7e5e84d1697e43122a6e086007d9789", null ]
 ];

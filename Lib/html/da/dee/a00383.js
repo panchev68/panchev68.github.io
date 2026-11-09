@@ -1,4 +1,4 @@
 var a00383 =
 [
-    [ "Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;", "d6/df0/a01647.html", "d6/df0/a01647" ]
+    [ "Lib::HAL::isDmaReachable", "db/deb/a00853.html#a6d025716096ef0a5098ff9db2688b2da", null ]
 ];

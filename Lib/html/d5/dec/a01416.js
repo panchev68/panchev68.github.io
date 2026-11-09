@@ -1,7 +1,9 @@
 var a01416 =
 [
-    [ "QueueMessage", "d5/dec/a01416.html#a952db32db043dc9f1c5ab8759073f69e", null ],
-    [ "operator std::vector< uint8_t >", "d5/dec/a01416.html#a6f0fb65c4aa440a3cb94da0609b310d5", null ],
-    [ "data", "d5/dec/a01416.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "d5/dec/a01416.html#aaee26da93dbbc44199d1b892f97f53ad", null ]
+    [ "State", "d5/dec/a01416.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "d5/dec/a01416.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "d5/dec/a01416.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "d5/dec/a01416.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "d5/dec/a01416.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "d5/dec/a01416.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

@@ -1,5 +1,5 @@
 var a02082 =
 [
-    [ "previousValue", "d6/d7f/a02082.html#a18bbde03afa6705ff2164f33a694f539", null ],
-    [ "success", "d6/d7f/a02082.html#aaef68ed1b6e5e9f438c5faedf6306ca3", null ]
+    [ "USBDevicePort", "d6/d7f/a02082.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
+    [ "~USBDevicePort", "d6/d7f/a02082.html#a380acfe834fbf265a2fdfe8e26550867", null ]
 ];

@@ -1,10 +1,13 @@
 var a01870 =
 [
-    [ "PeakInfo", "de/dfb/a01874.html", "de/dfb/a01874" ],
-    [ "FindPeaks", "d3/d77/a01870.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "d3/d77/a01870.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "d3/d77/a01870.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "d3/d77/a01870.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "d3/d77/a01870.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "d3/d77/a01870.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "DACPort", "d3/d77/a01870.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d3/d77/a01870.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "d3/d77/a01870.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "d3/d77/a01870.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "getChannel", "d3/d77/a01870.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d3/d77/a01870.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "operator=", "d3/d77/a01870.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "d3/d77/a01870.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "start", "d3/d77/a01870.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d3/d77/a01870.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

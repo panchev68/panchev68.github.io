@@ -1,15 +1,6 @@
 var a01134 =
 [
-    [ "Value", "dd/de2/a01134.html#a59c8aeef51295445b21b24d4c535d6e0", [
-      [ "INIT", "dd/de2/a01134.html#a59c8aeef51295445b21b24d4c535d6e0aaa7542dc13ab91223fcf190b28846d98", null ],
-      [ "READY", "dd/de2/a01134.html#a59c8aeef51295445b21b24d4c535d6e0ae1d7fd9328c3a404f8d7886da7a2f1a8", null ],
-      [ "CONNECTED", "dd/de2/a01134.html#a59c8aeef51295445b21b24d4c535d6e0a579710f202d95345d2555010d4cbc29f", null ],
-      [ "DISCONNECTED", "dd/de2/a01134.html#a59c8aeef51295445b21b24d4c535d6e0ae46b7f4649cda77c1145dc0f77259acf", null ]
-    ] ],
-    [ "State", "dd/de2/a01134.html#a3007a4a510f248533d6430b451c6b00a", null ],
-    [ "State", "dd/de2/a01134.html#a95ebe78d3b35e550284d27bc67ff6c7e", null ],
-    [ "isConnected", "dd/de2/a01134.html#a65815696748e22f0a55e4ac329b6c0d1", null ],
-    [ "operator uint32_t", "dd/de2/a01134.html#a9b994b0a748f87f74f1297ef9aed5b1b", null ],
-    [ "operator=", "dd/de2/a01134.html#a14595d3e685bb58c80b00a821f6e2a54", null ],
-    [ "onConnectionChanged", "dd/de2/a01134.html#af678900015fb6460c22371a41baecf46", null ]
+    [ "operator==", "dd/de2/a01134.html#aaffc1273857ce092dc8ef57f2f569797", null ],
+    [ "address", "dd/de2/a01134.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
+    [ "value", "dd/de2/a01134.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
 ];

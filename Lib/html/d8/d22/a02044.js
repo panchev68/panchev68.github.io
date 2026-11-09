@@ -1,14 +1,14 @@
 var a02044 =
 [
-    [ "Label", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "d8/d22/a02044.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "d8/d22/a02044.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "d8/d22/a02044.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "d8/d22/a02044.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "TimPwmOutput", "d8/d22/a02044.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "d8/d22/a02044.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "d8/d22/a02044.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "d8/d22/a02044.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "d8/d22/a02044.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "d8/d22/a02044.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "d8/d22/a02044.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "d8/d22/a02044.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "d8/d22/a02044.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "d8/d22/a02044.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "d8/d22/a02044.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

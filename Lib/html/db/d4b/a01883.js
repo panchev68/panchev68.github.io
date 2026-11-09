@@ -1,22 +1,17 @@
 var a01883 =
 [
-    [ "Date", "db/d4b/a01883.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
-    [ "Phase", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5", [
-      [ "NEW_MOON", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
-      [ "WAXING_CRESCENT", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
-      [ "FIRST_QUARTER", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
-      [ "WAXING_GIBBOUS", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
-      [ "FULL_MOON", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
-      [ "WANING_GIBBOUS", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
-      [ "LAST_QUARTER", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
-      [ "WANING_CRESCENT", "db/d4b/a01883.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
+    [ "DataAlignment", "db/d4b/a01883.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "db/d4b/a01883.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "db/d4b/a01883.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "db/d4b/a01883.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
     ] ],
-    [ "MoonPhase", "db/d4b/a01883.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
-    [ "MoonPhase", "db/d4b/a01883.html#acd603bf923907f139f3479a3fe0c6723", null ],
-    [ "calculate", "db/d4b/a01883.html#a47ac4868563998363835de249a5814a9", null ],
-    [ "index", "db/d4b/a01883.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
-    [ "name", "db/d4b/a01883.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
-    [ "operator std::string_view", "db/d4b/a01883.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
-    [ "operator uint32_t", "db/d4b/a01883.html#a64022e97a09da5fcaa242d39634aafbf", null ],
-    [ "phase", "db/d4b/a01883.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
+    [ "DACPortBase", "db/d4b/a01883.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "db/d4b/a01883.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "db/d4b/a01883.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "db/d4b/a01883.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "db/d4b/a01883.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "db/d4b/a01883.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "db/d4b/a01883.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "db/d4b/a01883.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "db/d4b/a01883.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

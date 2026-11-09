@@ -1,14 +1,9 @@
 var a01796 =
 [
-    [ "Point", "d1/d42/a01800.html", "d1/d42/a01800" ],
-    [ "LinearInterpolation", "d3/d92/a01796.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d3/d92/a01796.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d3/d92/a01796.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d3/d92/a01796.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d3/d92/a01796.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d3/d92/a01796.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d3/d92/a01796.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d3/d92/a01796.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d3/d92/a01796.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d3/d92/a01796.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "Sockets", "d3/d92/a01796.html#a83aca7ca920c948cf9f775922c19247a", null ],
+    [ "Sockets", "d3/d92/a01796.html#adf14b2bb687d762d0832d140cfd7c348", null ],
+    [ "Sockets", "d3/d92/a01796.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
+    [ "operator=", "d3/d92/a01796.html#a27fe979c8f56a4d202689793724794b7", null ],
+    [ "operator=", "d3/d92/a01796.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
+    [ "operator[]", "d3/d92/a01796.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
 ];

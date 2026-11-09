@@ -1,6 +1,11 @@
 var a01364 =
 [
-    [ "Checksum", "de/d1f/a01364.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
-    [ "Checksum", "de/d1f/a01364.html#a804971de0300d66401e3f2ed94f306dc", null ],
-    [ "operator uint8_t", "de/d1f/a01364.html#add4f353a37e719b8e2439c490fa552b8", null ]
+    [ "ignoredMessagesByTimeout", "de/d1f/a01364.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "de/d1f/a01364.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "de/d1f/a01364.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "de/d1f/a01364.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "de/d1f/a01364.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "de/d1f/a01364.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "de/d1f/a01364.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "de/d1f/a01364.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

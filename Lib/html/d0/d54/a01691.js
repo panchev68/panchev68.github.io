@@ -1,12 +1,12 @@
 var a01691 =
 [
-    [ "OSPIPortBase", "d0/d54/a01691.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
-    [ "OSPIPortBase", "d0/d54/a01691.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
-    [ "OSPIPortBase", "d0/d54/a01691.html#a18048dab4e848ea5529076be672ccc7c", null ],
-    [ "~OSPIPortBase", "d0/d54/a01691.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
-    [ "close", "d0/d54/a01691.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "isBusy", "d0/d54/a01691.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d0/d54/a01691.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d0/d54/a01691.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
-    [ "operator=", "d0/d54/a01691.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
+    [ "size", "d0/d54/a01691.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
+    [ "access", "d0/d54/a01691.html#a689087c28b07b550c6eae081e7594f72", null ],
+    [ "bitLength", "d0/d54/a01691.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
+    [ "dataType", "d0/d54/a01691.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
+    [ "index", "d0/d54/a01691.html#ab2f3134366cf4e85eb20119de70393e3", null ],
+    [ "name", "d0/d54/a01691.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
+    [ "readData", "d0/d54/a01691.html#abb1278c8d325465c3e21817c2e559f7f", null ],
+    [ "subIndex", "d0/d54/a01691.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
+    [ "writeData", "d0/d54/a01691.html#ac54a16495fbb3e297360ce4281c1420f", null ]
 ];

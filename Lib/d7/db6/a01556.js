@@ -1,7 +1,13 @@
 var a01556 =
 [
-    [ "close", "d7/db6/a01556.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
-    [ "open", "d7/db6/a01556.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
-    [ "read", "d7/db6/a01556.html#a53a2f54f254565a80c92924936564fb0", null ],
-    [ "write", "d7/db6/a01556.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
+    [ "append", "d7/db6/a01556.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d7/db6/a01556.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d7/db6/a01556.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d7/db6/a01556.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d7/db6/a01556.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d7/db6/a01556.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d7/db6/a01556.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d7/db6/a01556.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d7/db6/a01556.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d7/db6/a01556.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

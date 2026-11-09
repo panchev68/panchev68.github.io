@@ -1,5 +1,7 @@
 var a01623 =
 [
-    [ "pin", "d2/dcc/a01623.html#a9f0aedb5f20c40ce4048a6a1b863ae63", null ],
-    [ "port", "d2/dcc/a01623.html#a331d935a90423faf4580a7e95c531ba6", null ]
+    [ "operator std::vector< uint8_t >", "d2/dcc/a01623.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
+    [ "view", "d2/dcc/a01623.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
+    [ "data", "d2/dcc/a01623.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
+    [ "size", "d2/dcc/a01623.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
 ];

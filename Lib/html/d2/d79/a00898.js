@@ -1,11 +1,7 @@
 var a00898 =
 [
-    [ "~I2CPort", "d2/d79/a00898.html#a79d501d729d1a73e76d100e570c3b5c4", null ],
-    [ "close", "d2/d79/a00898.html#a3bd1d3c1e7eb76875a09e29cf5080a84", null ],
-    [ "isReady", "d2/d79/a00898.html#aadb8cd4306fa1423e693892b4cd029b2", null ],
-    [ "open", "d2/d79/a00898.html#a6f1df1db44f6d865854b30574830faaf", null ],
-    [ "receive", "d2/d79/a00898.html#a03a7a948a03869108c3dbcf5e94bb3cb", null ],
-    [ "receive", "d2/d79/a00898.html#ac04ceaf3b4ca4d1779dfc89246c2ef54", null ],
-    [ "send", "d2/d79/a00898.html#a0fb8d14c10fb4711ccd6be27938cb3b0", null ],
-    [ "send", "d2/d79/a00898.html#a6d5d9e3ebac7873a98249d745dff26fc", null ]
+    [ "correction", "d2/d79/a00898.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "d2/d79/a00898.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "d2/d79/a00898.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "d2/d79/a00898.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

@@ -1,10 +1,15 @@
 var a01716 =
 [
-    [ "Integrator", "d4/df6/a01716.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
-    [ "addValue", "d4/df6/a01716.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
-    [ "computeResult", "d4/df6/a01716.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
-    [ "isWindowFull", "d4/df6/a01716.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
-    [ "operator()", "d4/df6/a01716.html#a97085ec2f9a9f65920181fffae409662", null ],
-    [ "processValue", "d4/df6/a01716.html#ab31a92d828aeae207fd9641101c217f5", null ],
-    [ "resetWindow", "d4/df6/a01716.html#a78e088ee416a676679fe227ceb71b1b0", null ]
+    [ "dnsIp", "d4/df6/a01716.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "d4/df6/a01716.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "d4/df6/a01716.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "d4/df6/a01716.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "d4/df6/a01716.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "d4/df6/a01716.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "d4/df6/a01716.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "d4/df6/a01716.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "d4/df6/a01716.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "d4/df6/a01716.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "d4/df6/a01716.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "d4/df6/a01716.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

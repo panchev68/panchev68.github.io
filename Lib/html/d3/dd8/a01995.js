@@ -1,9 +1,11 @@
 var a01995 =
 [
-    [ "CriticalSectionFromISR", "d3/dd8/a01995.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "d3/dd8/a01995.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "d3/dd8/a01995.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "d3/dd8/a01995.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "d3/dd8/a01995.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "d3/dd8/a01995.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "SPIPort", "d3/dd8/a01995.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d3/dd8/a01995.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d3/dd8/a01995.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d3/dd8/a01995.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "getHandle", "d3/dd8/a01995.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d3/dd8/a01995.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "operator=", "d3/dd8/a01995.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d3/dd8/a01995.html#ae10f073f8753cb6161429d0e321dfd92", null ]
 ];

@@ -1,7 +1,10 @@
 var a01880 =
 [
-    [ "maxVoltage", "d9/d7d/a01880.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d9/d7d/a01880.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d9/d7d/a01880.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d9/d7d/a01880.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "VersionString", "d9/d7d/a01880.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
+    [ "HardwareVersion", "d9/d7d/a01880.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
+    [ "getSubVersion", "d9/d7d/a01880.html#ae5c57f2bce8b985f8190894328141480", null ],
+    [ "getValue", "d9/d7d/a01880.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
+    [ "operator uint32_t", "d9/d7d/a01880.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
+    [ "operator VersionString", "d9/d7d/a01880.html#aa3df38606e4bae3745c893ccbffb030c", null ],
+    [ "toString", "d9/d7d/a01880.html#a318575bc9f5967d830a1cb350b1e8061", null ]
 ];

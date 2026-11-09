@@ -1,15 +1,18 @@
 var a01042 =
 [
-    [ "Diagnostic", "da/d17/a01046.html", "da/d17/a01046" ],
-    [ "Driver", "d4/d56/a01042.html#ab07845254f409b109812886c271c23fd", null ],
-    [ "~Driver", "d4/d56/a01042.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
-    [ "getHumidity", "d4/d56/a01042.html#af1b0389aae714142b8a606106d0a4a56", null ],
-    [ "getRawHumidity", "d4/d56/a01042.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
-    [ "getRawTemperature", "d4/d56/a01042.html#ab776af450b94ccff9151de29e820c940", null ],
-    [ "getTemperature", "d4/d56/a01042.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
-    [ "hasNewData", "d4/d56/a01042.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
-    [ "isValidData", "d4/d56/a01042.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
-    [ "start", "d4/d56/a01042.html#a7bb2909673708c9ad956bc98034da91d", null ],
-    [ "Base< Driver< Type::DTH22 > >", "d4/d56/a01042.html#a563861f233361c18a30fd9049d7abd7a", null ],
-    [ "diagnostic", "d4/d56/a01042.html#a641741551ee87f815b7ca238c2fce09c", null ]
+    [ "Command", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d4/d56/a01042.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

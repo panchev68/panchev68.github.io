@@ -1,6 +1,15 @@
 var a01718 =
 [
-    [ "hours", "db/d7f/a01718.html#af450d47b434e0da1a6f360ee10f11827", null ],
-    [ "minutes", "db/d7f/a01718.html#aa9a8d14bf1f392aefa341b315aaa99bf", null ],
-    [ "seconds", "db/d7f/a01718.html#a2f52dd5e98a90c7f09bade45499142c6", null ]
+    [ "dnsIp", "db/d7f/a01718.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "db/d7f/a01718.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "db/d7f/a01718.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "db/d7f/a01718.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "db/d7f/a01718.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "db/d7f/a01718.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "db/d7f/a01718.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "db/d7f/a01718.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "db/d7f/a01718.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "db/d7f/a01718.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "db/d7f/a01718.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "db/d7f/a01718.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

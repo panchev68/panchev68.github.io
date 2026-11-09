@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::System::VersionBase&lt; Derived &gt;</title>
+<title>IAR Library: Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,153 +112,265 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/dba/a01940.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::System::VersionBase&lt; Derived &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
-class Lib::System::VersionBase&lt; Derived &gt;</div><p>Base class providing common version parsing, formatting, and conversion functionality. </p>
-<p>Implements core version string parsing for "X.Y" format strings, numeric representation with separate major and minor components, and formatted string output in "X.YY.ZZ" format that includes an optional sub-version component. Customization points - <a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e" title="Gets the major and minor version as a 32-bit value.">getValue()</a>, <a class="el" href="#ae5c57f2bce8b985f8190894328141480" title="Gets the sub-version number component.">getSubVersion()</a> and <a class="el" href="#a1288aa2ce9764268fe7751f879f27a00" title="Formats the version as a string in &quot;X.YY.ZZ&quot; format.">toString()</a> - are resolved through the CRTP pattern instead of virtual dispatch: a derived class overrides them by hiding the base members with its own, identically named ones.</p>
-<p>Everything here is constexpr and allocation-free, so a version can be parsed and formatted entirely at compile time. No destructor is declared on purpose: IAR EWARM treats an explicitly defaulted destructor as making the class non-literal, which would forbid a 'constexpr' version object.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;</div><p>CRTP foundation implementing the handle-lifecycle policy shared by every I2C transfer mode, blocking included. </p>
+<p>Owns no state of its own, not even the native handle: it reaches the handle through 'derived()-&gt;getHandle()' instead of inheriting "Device&lt;&gt;". "Device&lt;&gt;" brings an intrusive <a class="el" href="../../d2/d38/a01860.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> list link ("nextDevice") that only an interrupt-driven mode uses, and a blocking specialization never registers with the <a class="el" href="../../d2/d38/a01860.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a>. Each mode therefore owns its own handle storage: "IT" and "DMA" get it from "Device&lt;&gt;", which the <a class="el" href="../../d2/d38/a01860.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> also needs, while the blocking specialization stores it directly.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">Derived</td><td>Concrete version class deriving from this base (CRTP). </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle and the transfer mechanism. </td></tr>
   </table>
   </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::System::VersionBase&lt; Derived &gt;:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dd0/a01938.svg" width="242" height="336"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d25/a01939.svg" width="303" height="923"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dd0/a01938.svg" width="255" height="315"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
-Protected Types</h2></td></tr>
-<tr class="memitem:a86d520da943edfbb98a592e47cd30177" id="r_a86d520da943edfbb98a592e47cd30177"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> = std::array&lt;char, <a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> + 1U&gt;</td></tr>
-<tr class="memdesc:a86d520da943edfbb98a592e47cd30177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed, NUL-terminated buffer holding a formatted version string.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aa4e4d14ed487d0a4f07d43f83937e8cf" id="r_aa4e4d14ed487d0a4f07d43f83937e8cf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> (const I2CPortBase &amp;other)=delete</td></tr>
+<tr class="memdesc:aa4e4d14ed487d0a4f07d43f83937e8cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:abb555787d1c67ffeb59851d309d7e32f" id="r_abb555787d1c67ffeb59851d309d7e32f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abb555787d1c67ffeb59851d309d7e32f">I2CPortBase</a> (I2CPortBase &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:abb555787d1c67ffeb59851d309d7e32f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a31bad4fe08fe0a3ffbb5585f42ab9b69" id="r_a31bad4fe08fe0a3ffbb5585f42ab9b69"><td class="memItemLeft"><a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a31bad4fe08fe0a3ffbb5585f42ab9b69">operator=</a> (const <a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a31bad4fe08fe0a3ffbb5585f42ab9b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a847aa761811d4ff5a26e8ccaaef3bffe" id="r_a847aa761811d4ff5a26e8ccaaef3bffe"><td class="memItemLeft"><a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a847aa761811d4ff5a26e8ccaaef3bffe">operator=</a> (<a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a847aa761811d4ff5a26e8ccaaef3bffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:ae5b5ff9d68d55b14be794ede22903816" id="r_ae5b5ff9d68d55b14be794ede22903816"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae5b5ff9d68d55b14be794ede22903816">open</a> () noexcept</td></tr>
+<tr class="memdesc:ae5b5ff9d68d55b14be794ede22903816"><td class="mdescLeft">&#160;</td><td class="mdescRight">Powers up the hardware channel and configures initial peripheral parameters.  <br /></td></tr>
+<tr class="memitem:aae0ad19378c79d7c9d3f47f6255ad4e7" id="r_aae0ad19378c79d7c9d3f47f6255ad4e7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aae0ad19378c79d7c9d3f47f6255ad4e7">close</a> () noexcept</td></tr>
+<tr class="memdesc:aae0ad19378c79d7c9d3f47f6255ad4e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the physical peripheral bus and releases system resources safely.  <br /></td></tr>
+<tr class="memitem:ac30aad5121ca16fa7c3b185ed73d4104" id="r_ac30aad5121ca16fa7c3b185ed73d4104"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac30aad5121ca16fa7c3b185ed73d4104">isBusy</a> () const noexcept</td></tr>
+<tr class="memdesc:ac30aad5121ca16fa7c3b185ed73d4104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether the underlying peripheral is actively locked in a transfer loop.  <br /></td></tr>
+<tr class="memitem:a14c943a270b82f4b76faffc2822e1408" id="r_a14c943a270b82f4b76faffc2822e1408"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a14c943a270b82f4b76faffc2822e1408 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a14c943a270b82f4b76faffc2822e1408">isReady</a> (uint16_t devAddress, uint32_t trials, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a14c943a270b82f4b76faffc2822e1408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Probes whether a slave device acknowledges its address on the bus.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a32eb651df51eadc6dc6cca08bcd82ee5" id="r_a32eb651df51eadc6dc6cca08bcd82ee5"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a32eb651df51eadc6dc6cca08bcd82ee5">VersionBase</a> (std::string_view versionString, uint32_t subVersion=0U) noexcept</td></tr>
-<tr class="memdesc:a32eb651df51eadc6dc6cca08bcd82ee5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initializing version from version string and optional sub-version.  <br /></td></tr>
-<tr class="memitem:ae1d6a7f355d536c916fe355c09825a3e" id="r_ae1d6a7f355d536c916fe355c09825a3e"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e">getValue</a> () const noexcept</td></tr>
-<tr class="memdesc:ae1d6a7f355d536c916fe355c09825a3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the major and minor version as a 32-bit value.  <br /></td></tr>
-<tr class="memitem:ae5c57f2bce8b985f8190894328141480" id="r_ae5c57f2bce8b985f8190894328141480"><td class="memItemLeft">constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae5c57f2bce8b985f8190894328141480">getSubVersion</a> () const noexcept</td></tr>
-<tr class="memdesc:ae5c57f2bce8b985f8190894328141480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the sub-version number component.  <br /></td></tr>
-<tr class="memitem:a1288aa2ce9764268fe7751f879f27a00" id="r_a1288aa2ce9764268fe7751f879f27a00"><td class="memItemLeft">constexpr <a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1288aa2ce9764268fe7751f879f27a00">toString</a> () const noexcept</td></tr>
-<tr class="memdesc:a1288aa2ce9764268fe7751f879f27a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Formats the version as a string in "X.YY.ZZ" format.  <br /></td></tr>
-<tr class="memitem:afca34523d727d800376b4959573f80bf" id="r_afca34523d727d800376b4959573f80bf"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#afca34523d727d800376b4959573f80bf">operator uint32_t</a> () const noexcept</td></tr>
-<tr class="memdesc:afca34523d727d800376b4959573f80bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type conversion operator to uint32_t.  <br /></td></tr>
-<tr class="memitem:a3e56152954887db7681501c597507ae4" id="r_a3e56152954887db7681501c597507ae4"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a3e56152954887db7681501c597507ae4">operator VersionString</a> () const noexcept</td></tr>
-<tr class="memdesc:a3e56152954887db7681501c597507ae4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type conversion operator to a version string buffer.  <br /></td></tr>
+<tr class="memitem:ad9dd4358cc01cee75cd8f731f9f0fe5e" id="r_ad9dd4358cc01cee75cd8f731f9f0fe5e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad9dd4358cc01cee75cd8f731f9f0fe5e">I2CPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:ad9dd4358cc01cee75cd8f731f9f0fe5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
+<tr class="memitem:a4d69d746f11c95220372f8f0a62397b1" id="r_a4d69d746f11c95220372f8f0a62397b1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4d69d746f11c95220372f8f0a62397b1">~I2CPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a4d69d746f11c95220372f8f0a62397b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no state of its own, so there is nothing to release here.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:aa2038f86376506bdea4bbb41dc8dc61e" id="r_aa2038f86376506bdea4bbb41dc8dc61e"><td class="memItemLeft">static constexpr std::optional&lt; uint32_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aa2038f86376506bdea4bbb41dc8dc61e">stringToU32</a> (std::string_view versionString) noexcept</td></tr>
-<tr class="memdesc:aa2038f86376506bdea4bbb41dc8dc61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parses version string in "X.Y" format into 32-bit numeric representation.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-attribs" class="groupheader"><a id="pro-static-attribs" name="pro-static-attribs"></a>
-Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a58b66b7d52679884443e0ebaa85c01bd" id="r_a58b66b7d52679884443e0ebaa85c01bd"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> = 3U</td></tr>
-<tr class="memdesc:a58b66b7d52679884443e0ebaa85c01bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fields in a formatted version: major, minor and sub.  <br /></td></tr>
-<tr class="memitem:a70c824756c3e86f77c02e06122f0ad46" id="r_a70c824756c3e86f77c02e06122f0ad46"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a> = 3U</td></tr>
-<tr class="memdesc:a70c824756c3e86f77c02e06122f0ad46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digits needed for the largest byte-sized field (255).  <br /></td></tr>
-<tr class="memitem:ac0ebb37eac0806342054eaaaa603d157" id="r_ac0ebb37eac0806342054eaaaa603d157"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ac0ebb37eac0806342054eaaaa603d157">MIN_FIELD_DIGITS</a> = 2U</td></tr>
-<tr class="memdesc:ac0ebb37eac0806342054eaaaa603d157"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width the minor and sub-version fields are padded to.  <br /></td></tr>
-<tr class="memitem:af062b487d10986a6d626e6701d5427af" id="r_af062b487d10986a6d626e6701d5427af"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af062b487d10986a6d626e6701d5427af">MAX_FIELD_VALUE</a> = 255U</td></tr>
-<tr class="memdesc:af062b487d10986a6d626e6701d5427af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest value a single version field may hold.  <br /></td></tr>
-<tr class="memitem:a1b67aa8fc20f4a1e70af10991699e8e7" id="r_a1b67aa8fc20f4a1e70af10991699e8e7"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a1b67aa8fc20f4a1e70af10991699e8e7">FIELD_SHIFT</a> = 8U</td></tr>
-<tr class="memdesc:a1b67aa8fc20f4a1e70af10991699e8e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bit distance between two packed version fields.  <br /></td></tr>
-<tr class="memitem:a9ee763a5c6623f11ce070d70c29f8856" id="r_a9ee763a5c6623f11ce070d70c29f8856"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a9ee763a5c6623f11ce070d70c29f8856">FIELD_MASK</a> = 0xFFU</td></tr>
-<tr class="memdesc:a9ee763a5c6623f11ce070d70c29f8856"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mask isolating one packed version field.  <br /></td></tr>
-<tr class="memitem:a8857bb6b5507b0e3c3f3a1579feb0168" id="r_a8857bb6b5507b0e3c3f3a1579feb0168"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> = (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> * <a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a>) + (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> - 1U)</td></tr>
-<tr class="memdesc:a8857bb6b5507b0e3c3f3a1579feb0168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest formatted version, "255.255.255", without the terminator.  <br /></td></tr>
+<tr class="memitem:a7e4533f8c7ce274ac9ab1c252eb98246" id="r_a7e4533f8c7ce274ac9ab1c252eb98246"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a7e4533f8c7ce274ac9ab1c252eb98246">isValidTransferSize</a> (size_t size) noexcept</td></tr>
+<tr class="memdesc:a7e4533f8c7ce274ac9ab1c252eb98246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a transfer buffer is non-empty and fits the 16-bit length every <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> I2C call takes.  <br /></td></tr>
+<tr class="memitem:a4e866ea67cc0cb9eed0f1214dc5aa032" id="r_a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e866ea67cc0cb9eed0f1214dc5aa032">isValidMemAddSize</a> (uint16_t memAddSize) noexcept</td></tr>
+<tr class="memdesc:a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a memory address size is one the <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepts.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a86d520da943edfbb98a592e47cd30177" name="a86d520da943edfbb98a592e47cd30177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86d520da943edfbb98a592e47cd30177">&#9670;&#160;</a></span>VersionString</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::VersionString = std::array&lt;char, <a class="el" href="#a8857bb6b5507b0e3c3f3a1579feb0168">MAX_VERSION_LENGTH</a> + 1U&gt;</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Fixed, NUL-terminated buffer holding a formatted version string. </p>
-<p>Use 'data()' where a C string is expected. </p>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a32eb651df51eadc6dc6cca08bcd82ee5" name="a32eb651df51eadc6dc6cca08bcd82ee5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32eb651df51eadc6dc6cca08bcd82ee5">&#9670;&#160;</a></span>VersionBase()</h2>
+<a id="aa4e4d14ed487d0a4f07d43f83937e8cf" name="aa4e4d14ed487d0a4f07d43f83937e8cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4e4d14ed487d0a4f07d43f83937e8cf">&#9670;&#160;</a></span>I2CPortBase() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::VersionBase </td>
+          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::I2CPortBase </td>
           <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>versionString</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const I2CPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>subVersion</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructor initializing version from version string and optional sub-version. </p>
-<p>A version string that does not parse leaves the numeric version at zero; use <a class="el" href="#aa2038f86376506bdea4bbb41dc8dc61e" title="Parses version string in &quot;X.Y&quot; format into 32-bit numeric representation.">stringToU32()</a> beforehand when the caller needs to tell a malformed string from a genuine "0.0".</p>
+<p>Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">versionString</td><td><a class="el" href="../../d0/dde/a01924.html" title="Container of the legacy version classes.">Version</a> string in "X.Y" format (e.g., "1.23"). </td></tr>
-    <tr><td class="paramname">subVersion</td><td>Optional sub-version number appended to formatted output; must not exceed 255. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_aa4e4d14ed487d0a4f07d43f83937e8cf_cgraph.svg" width="250" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_aa4e4d14ed487d0a4f07d43f83937e8cf_icgraph.svg" width="544" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abb555787d1c67ffeb59851d309d7e32f" name="abb555787d1c67ffeb59851d309d7e32f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb555787d1c67ffeb59851d309d7e32f">&#9670;&#160;</a></span>I2CPortBase() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::I2CPortBase </td>
+          <td>(</td>
+          <td class="paramtype">I2CPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_abb555787d1c67ffeb59851d309d7e32f_cgraph.svg" width="536" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad9dd4358cc01cee75cd8f731f9f0fe5e" name="ad9dd4358cc01cee75cd8f731f9f0fe5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9dd4358cc01cee75cd8f731f9f0fe5e">&#9670;&#160;</a></span>I2CPortBase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::I2CPortBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the CRTP foundation. </p>
+<p>Carries no state; the native handle lives on "T_DERIVED".</p>
+<p>Protected, so the base can neither be instantiated on its own nor deleted through a base pointer. </p>
+
+</div>
+</div>
+<a id="a4d69d746f11c95220372f8f0a62397b1" name="a4d69d746f11c95220372f8f0a62397b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d69d746f11c95220372f8f0a62397b1">&#9670;&#160;</a></span>~I2CPortBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the object; owns no state of its own, so there is nothing to release here. </p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_a4d69d746f11c95220372f8f0a62397b1_cgraph.svg" width="544" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ae5c57f2bce8b985f8190894328141480" name="ae5c57f2bce8b985f8190894328141480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5c57f2bce8b985f8190894328141480">&#9670;&#160;</a></span>getSubVersion()</h2>
+<a id="aae0ad19378c79d7c9d3f47f6255ad4e7" name="aae0ad19378c79d7c9d3f47f6255ad4e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae0ad19378c79d7c9d3f47f6255ad4e7">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::getSubVersion </td>
+          <td class="memname">bool <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Disables the physical peripheral bus and releases system resources safely. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the shutdown sequence was fully committed. </dd></dl>
+
+</div>
+</div>
+<a id="ac30aad5121ca16fa7c3b185ed73d4104" name="ac30aad5121ca16fa7c3b185ed73d4104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac30aad5121ca16fa7c3b185ed73d4104">&#9670;&#160;</a></span>isBusy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -264,125 +378,94 @@ template&lt;typename Derived&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the sub-version number component. </p>
-<p>Returns the sub-version which is typically appended to the formatted version string and can be customized by derived classes.</p>
-<dl class="section return"><dt>Returns</dt><dd>Sub-version number. </dd></dl>
+<p>Evaluates whether the underlying peripheral is actively locked in a transfer loop. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the bus lines are currently transmitting or receiving data. </dd></dl>
 
 </div>
 </div>
-<a id="ae1d6a7f355d536c916fe355c09825a3e" name="ae1d6a7f355d536c916fe355c09825a3e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1d6a7f355d536c916fe355c09825a3e">&#9670;&#160;</a></span>getValue()</h2>
+<a id="a14c943a270b82f4b76faffc2822e1408" name="a14c943a270b82f4b76faffc2822e1408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c943a270b82f4b76faffc2822e1408">&#9670;&#160;</a></span>isReady()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::getValue </td>
+          <td class="memname">bool <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isReady </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>trials</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the major and minor version as a 32-bit value. </p>
-<p>Returns the version number with major version in the upper 8 bits and minor version in the lower 8 bits. Sub-version is not included in this value.</p>
-<dl class="section return"><dt>Returns</dt><dd>Packed version value: major in bits 15..8, minor in bits 7..0. </dd></dl>
+<p>Probes whether a slave device acknowledges its address on the bus. </p>
+<p>"HAL_I2C_IsDeviceReady()" is always a blocking poll in the <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a>, regardless of the transfer mode this port otherwise uses for "masterTransmit()" and "masterReceive()", so this lives once in the shared base.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave device address to probe. </td></tr>
+    <tr><td class="paramname">trials</td><td>Number of probe attempts before giving up. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Duration to wait for each probe attempt, rounded up to whole milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the device acknowledged within the given trials. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_a14c943a270b82f4b76faffc2822e1408_cgraph.svg" width="428" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="afca34523d727d800376b4959573f80bf" name="afca34523d727d800376b4959573f80bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afca34523d727d800376b4959573f80bf">&#9670;&#160;</a></span>operator uint32_t()</h2>
+<a id="a4e866ea67cc0cb9eed0f1214dc5aa032" name="a4e866ea67cc0cb9eed0f1214dc5aa032"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e866ea67cc0cb9eed0f1214dc5aa032">&#9670;&#160;</a></span>isValidMemAddSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::operator uint32_t </td>
+          <td class="memname">constexpr bool <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isValidMemAddSize </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Type conversion operator to uint32_t. </p>
-<p>Returns the complete version as a 32-bit value: the packed major and minor pair shifted up by one field, with the sub-version in the lowest field. Dispatches to the derived class's <a class="el" href="#ae1d6a7f355d536c916fe355c09825a3e" title="Gets the major and minor version as a 32-bit value.">getValue()</a> and <a class="el" href="#ae5c57f2bce8b985f8190894328141480" title="Gets the sub-version number component.">getSubVersion()</a> via CRTP.</p>
-<dl class="section return"><dt>Returns</dt><dd>Packed value: major in bits 23..16, minor in bits 15..8, sub-version in bits 7..0. </dd></dl>
-
-</div>
-</div>
-<a id="a3e56152954887db7681501c597507ae4" name="a3e56152954887db7681501c597507ae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e56152954887db7681501c597507ae4">&#9670;&#160;</a></span>operator VersionString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::operator <a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Type conversion operator to a version string buffer. </p>
-<p>Dispatches to the derived class's <a class="el" href="#a1288aa2ce9764268fe7751f879f27a00" title="Formats the version as a string in &quot;X.YY.ZZ&quot; format.">toString()</a> via CRTP.</p>
-<dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
-
-</div>
-</div>
-<a id="aa2038f86376506bdea4bbb41dc8dc61e" name="aa2038f86376506bdea4bbb41dc8dc61e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2038f86376506bdea4bbb41dc8dc61e">&#9670;&#160;</a></span>stringToU32()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::optional&lt; uint32_t &gt; <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::stringToU32 </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>versionString</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddSize</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -393,229 +476,170 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Parses version string in "X.Y" format into 32-bit numeric representation. </p>
-<p>Returns an empty optional rather than a zero on failure, so a malformed string is distinguishable from the perfectly valid version "0.0". A field is rejected when it holds a non-digit or exceeds 255.</p>
+<p>Checks that a memory address size is one the <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepts. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">versionString</td><td><a class="el" href="../../d0/dde/a01924.html" title="Container of the legacy version classes.">Version</a> string to parse (e.g., "1.23"). </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Value to check. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Packed version value, or an empty optional when the string is not a valid "X.Y" pair. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" for "I2C_MEMADD_SIZE_8BIT" or "I2C_MEMADD_SIZE_16BIT". </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_a4e866ea67cc0cb9eed0f1214dc5aa032_icgraph.svg" width="608" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a1288aa2ce9764268fe7751f879f27a00" name="a1288aa2ce9764268fe7751f879f27a00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1288aa2ce9764268fe7751f879f27a00">&#9670;&#160;</a></span>toString()</h2>
+<a id="a7e4533f8c7ce274ac9ab1c252eb98246" name="a7e4533f8c7ce274ac9ab1c252eb98246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e4533f8c7ce274ac9ab1c252eb98246">&#9670;&#160;</a></span>isValidTransferSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a86d520da943edfbb98a592e47cd30177">VersionString</a> <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::toString </td>
+          <td class="memname">constexpr bool <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isValidTransferSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks that a transfer buffer is non-empty and fits the 16-bit length every <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> I2C call takes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">size</td><td>Buffer size in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the size is usable. </dd></dl>
+
+</div>
+</div>
+<a id="ae5b5ff9d68d55b14be794ede22903816" name="ae5b5ff9d68d55b14be794ede22903816"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b5ff9d68d55b14be794ede22903816">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Formats the version as a string in "X.YY.ZZ" format. </p>
-<p>The major field is unpadded and the minor and sub-version fields are zero-padded to two digits, widening to three when the value needs them. Digits are produced by hand rather than through printf, which would pull in formatting machinery this target has no use for.</p>
-<dl class="section return"><dt>Returns</dt><dd>Formatted version string. </dd></dl>
+<p>Powers up the hardware channel and configures initial peripheral parameters. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware open sequence succeeded. </dd></dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a58b66b7d52679884443e0ebaa85c01bd" name="a58b66b7d52679884443e0ebaa85c01bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58b66b7d52679884443e0ebaa85c01bd">&#9670;&#160;</a></span>FIELD_COUNT</h2>
+<a id="a31bad4fe08fe0a3ffbb5585f42ab9b69" name="a31bad4fe08fe0a3ffbb5585f42ab9b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31bad4fe08fe0a3ffbb5585f42ab9b69">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_COUNT = 3U</td>
+          <td class="memname"><a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> &amp; <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Fields in a formatted version: major, minor and sub. </p>
+<p>Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_a31bad4fe08fe0a3ffbb5585f42ab9b69_cgraph.svg" width="516" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a9ee763a5c6623f11ce070d70c29f8856" name="a9ee763a5c6623f11ce070d70c29f8856"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ee763a5c6623f11ce070d70c29f8856">&#9670;&#160;</a></span>FIELD_MASK</h2>
+<a id="a847aa761811d4ff5a26e8ccaaef3bffe" name="a847aa761811d4ff5a26e8ccaaef3bffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a847aa761811d4ff5a26e8ccaaef3bffe">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Derived&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_MASK = 0xFFU</td>
+          <td class="memname"><a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a> &amp; <a class="el" href="../../d5/dba/a01940.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#aa4e4d14ed487d0a4f07d43f83937e8cf">I2CPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Mask isolating one packed version field. </p>
-
+<p>Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dba/a01940_a847aa761811d4ff5a26e8ccaaef3bffe_cgraph.svg" width="516" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="a1b67aa8fc20f4a1e70af10991699e8e7" name="a1b67aa8fc20f4a1e70af10991699e8e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b67aa8fc20f4a1e70af10991699e8e7">&#9670;&#160;</a></span>FIELD_SHIFT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::FIELD_SHIFT = 8U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Bit distance between two packed version fields. </p>
-
-</div>
-</div>
-<a id="a70c824756c3e86f77c02e06122f0ad46" name="a70c824756c3e86f77c02e06122f0ad46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70c824756c3e86f77c02e06122f0ad46">&#9670;&#160;</a></span>MAX_FIELD_DIGITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_FIELD_DIGITS = 3U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Digits needed for the largest byte-sized field (255). </p>
-
-</div>
-</div>
-<a id="af062b487d10986a6d626e6701d5427af" name="af062b487d10986a6d626e6701d5427af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af062b487d10986a6d626e6701d5427af">&#9670;&#160;</a></span>MAX_FIELD_VALUE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_FIELD_VALUE = 255U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largest value a single version field may hold. </p>
-
-</div>
-</div>
-<a id="a8857bb6b5507b0e3c3f3a1579feb0168" name="a8857bb6b5507b0e3c3f3a1579feb0168"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8857bb6b5507b0e3c3f3a1579feb0168">&#9670;&#160;</a></span>MAX_VERSION_LENGTH</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MAX_VERSION_LENGTH = (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> * <a class="el" href="#a70c824756c3e86f77c02e06122f0ad46">MAX_FIELD_DIGITS</a>) + (<a class="el" href="#a58b66b7d52679884443e0ebaa85c01bd">FIELD_COUNT</a> - 1U)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Longest formatted version, "255.255.255", without the terminator. </p>
-
-</div>
-</div>
-<a id="ac0ebb37eac0806342054eaaaa603d157" name="ac0ebb37eac0806342054eaaaa603d157"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac0ebb37eac0806342054eaaaa603d157">&#9670;&#160;</a></span>MIN_FIELD_DIGITS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Derived&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d5/dba/a01940.html">Lib::System::VersionBase</a>&lt; Derived &gt;::MIN_FIELD_DIGITS = 2U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Width the minor and sub-version fields are padded to. </p>
 
 </div>
 </div>
@@ -632,7 +656,7 @@ template&lt;typename Derived&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../dc/d0a/a00850.html">System</a></li><li class="navelem"><a href="../../d5/dba/a01940.html">VersionBase</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d4/d60/a00847.html">HAL</a></li><li class="navelem"><a href="../../d5/dba/a01940.html">I2CPortBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

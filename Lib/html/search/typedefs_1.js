@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['bits_0',['Bits',['../d2/d8a/a01987.html#a27fe7bec268decd9b548d4ad2375ca34',1,'RTOS::EventGroup::Bits'],['../d5/d14/a02071.html#a8731f71234f11c506310e4889f47b218',1,'RTOS::Task::Notify::Bits']]],
-  ['bitset_1',['Bitset',['../d1/d90/a02127.html#aff31793f5ea1b7c28e0c30290a41bc2b',1,'Lib::System::Configuration']]]
+  ['bits_0',['Bits',['../de/dd4/a02338.html#a27fe7bec268decd9b548d4ad2375ca34',1,'RTOS::EventGroup::Bits'],['../d0/d1e/a02426.html#a76db1b2abff36d5013ab969b3b149834',1,'RTOS::Task::Notify::Bits']]],
+  ['bitset_1',['Bitset',['../dc/d2b/a02486.html#aff31793f5ea1b7c28e0c30290a41bc2b',1,'Lib::System::Configuration']]],
+  ['bytes_2',['Bytes',['../dd/d09/a01118.html#aaa924b52936a11a36f991b92270eb1b6',1,'Lib::BSP::RFID::NTAG21x::CardRecord::Bytes'],['../db/d32/a01122.html#acf64c338747cbf1779eff24fba71054c',1,'Lib::BSP::RFID::NTAG21x::OriginalitySignature::Bytes']]]
 ];

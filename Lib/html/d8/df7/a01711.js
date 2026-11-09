@@ -1,6 +1,13 @@
 var a01711 =
 [
-    [ "hours", "d8/df7/a01711.html#af450d47b434e0da1a6f360ee10f11827", null ],
-    [ "minutes", "d8/df7/a01711.html#aa9a8d14bf1f392aefa341b315aaa99bf", null ],
-    [ "seconds", "d8/df7/a01711.html#a2f52dd5e98a90c7f09bade45499142c6", null ]
+    [ "Handlers", "d8/df7/a01711.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
+    [ "EepromEmulation", "d8/df7/a01711.html#a1146daff507a230799851b6c5f9ee835", null ],
+    [ "~EepromEmulation", "d8/df7/a01711.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
+    [ "EepromEmulation", "d8/df7/a01711.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
+    [ "EepromEmulation", "d8/df7/a01711.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
+    [ "operator=", "d8/df7/a01711.html#ac18054ff925ab9ff88d05d79a8674626", null ],
+    [ "operator=", "d8/df7/a01711.html#a8a0057afb82e294f720a93b50ad87908", null ],
+    [ "process", "d8/df7/a01711.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
+    [ "setHandlers", "d8/df7/a01711.html#a070225a3de178cf14fb35d7a18f183e0", null ],
+    [ "setReadSize", "d8/df7/a01711.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
 ];

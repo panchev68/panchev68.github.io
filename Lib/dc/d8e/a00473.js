@@ -1,4 +1,4 @@
 var a00473 =
 [
-    [ "Lib::Helper::BitSet&lt; N_BITS &gt;", "d7/d8b/a01431.html", "d7/d8b/a01431" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;", "da/d51/a02000.html", "da/d51/a02000" ]
 ];

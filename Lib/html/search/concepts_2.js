@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['query_0',['Query',['../dd/d51/a02223.html',1,'Lib::Digi::Core']]]
+  ['httptransport_0',['HttpTransport',['../dc/dd5/a02614.html',1,'Lib::HTTP']]]
 ];

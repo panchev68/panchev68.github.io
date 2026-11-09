@@ -1,4 +1,4 @@
 var a00551 =
 [
-    [ "Lib::Helper::StringHelper", "d8/d8c/a01527.html", null ]
+    [ "Lib::HAL::USBHostPortAsync&lt; T_DERIVED &gt;", "d8/d84/a02112.html", "d8/d84/a02112" ]
 ];

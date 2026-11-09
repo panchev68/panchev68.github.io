@@ -1,7 +1,9 @@
 var a00868 =
 [
-    [ "Config", "da/d5b/a00868.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
-    [ "M24C64W", "da/d5b/a00868.html#ad36362e96082dbe6c13067c41fa1736b", null ],
-    [ "~M24C64W", "da/d5b/a00868.html#a847c124f9564ab5f671ab8abe946983f", null ],
-    [ "Driver< M24C64W >", "da/d5b/a00868.html#a389c035ca7d606c8426542af2e4b7d70", null ]
+    [ "dimmerMaxValue", "da/d5b/a00868.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
+    [ "dimmerMinValue", "da/d5b/a00868.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
+    [ "fadeStep", "da/d5b/a00868.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTimeout", "da/d5b/a00868.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
+    [ "timChannel", "da/d5b/a00868.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "da/d5b/a00868.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

@@ -1,7 +1,5 @@
 var a01923 =
 [
-    [ "estimatedError", "d9/de1/a01923.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "d9/de1/a01923.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "d9/de1/a01923.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "d9/de1/a01923.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "I2CPort", "d9/de1/a01923.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d9/de1/a01923.html#aa13047282a809658f54818a9b352d7bf", null ]
 ];

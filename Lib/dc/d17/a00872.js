@@ -1,9 +1,9 @@
 var a00872 =
 [
-    [ "Config", "d2/dac/a00876.html", "d2/dac/a00876" ],
-    [ "Backlight", "dc/d17/a00872.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
-    [ "~Backlight", "dc/d17/a00872.html#a5516d16616d30b6214626e963873f08a", null ],
-    [ "get", "dc/d17/a00872.html#a50a810c2a297031558286c9c20bb51ea", null ],
-    [ "operator=", "dc/d17/a00872.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
-    [ "set", "dc/d17/a00872.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
+    [ "dimmerMaxValue", "dc/d17/a00872.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
+    [ "dimmerMinValue", "dc/d17/a00872.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
+    [ "fadeStep", "dc/d17/a00872.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTimeout", "dc/d17/a00872.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
+    [ "timChannel", "dc/d17/a00872.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "dc/d17/a00872.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

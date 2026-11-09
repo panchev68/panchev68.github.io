@@ -1,7 +1,5 @@
 var a02086 =
 [
-    [ "Config", "df/d4d/a02086.html#aa61c6d1302b314f60627c2cf9ac37d04", null ],
-    [ "name", "df/d4d/a02086.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "df/d4d/a02086.html#a274584bafb133fa51a23c4c52e77f64f", null ],
-    [ "stackSize", "df/d4d/a02086.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "USBDevicePort", "df/d4d/a02086.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
+    [ "~USBDevicePort", "df/d4d/a02086.html#a0a313f5efd10221e16714eece65dda0f", null ]
 ];

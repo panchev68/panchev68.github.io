@@ -1,4 +1,4 @@
 var a00434 =
 [
-    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;", "dc/de8/a01723.html", "dc/de8/a01723" ]
+    [ "Lib::HAL::I2CPort&lt; DriverMode::IT &gt;", "d3/d33/a01930.html", "d3/d33/a01930" ]
 ];

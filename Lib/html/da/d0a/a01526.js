@@ -1,21 +1,12 @@
 var a01526 =
 [
-    [ "Flag", "d7/d90/a01530.html", "d7/d90/a01530" ],
-    [ "Protocol", "dc/d2d/a01534.html", "dc/d2d/a01534" ],
-    [ "Error", "d7/def/a01538.html", "d7/def/a01538" ],
-    [ "SocketControl", "da/d0a/a01526.html#af1065c16299d3c1a2d9169e4877e6cc2", null ],
-    [ "SocketOption", "da/d0a/a01526.html#a404d6ea71b094ff81c88588fd104aedc", null ],
-    [ "close", "da/d0a/a01526.html#aa2bec6062131bda01409f9e65c4bc3a3", null ],
-    [ "connect", "da/d0a/a01526.html#a83b8a9c0567d6521b07de4dd16be5ca0", null ],
-    [ "disconnect", "da/d0a/a01526.html#a7eea42d895b1af93cec20af8796520fc", null ],
-    [ "getReceivedSize", "da/d0a/a01526.html#a5e0d49cdfd2b5c8b143cacd641bc6f73", null ],
-    [ "isClosed", "da/d0a/a01526.html#afd0d5df17668db6e6952a61fca224977", null ],
-    [ "isConnect", "da/d0a/a01526.html#ab533558f008bebbf991c11f7683b89cf", null ],
-    [ "listen", "da/d0a/a01526.html#a910fa2c8d217e66b7c96f88f39d6faa8", null ],
-    [ "open", "da/d0a/a01526.html#ac1340cd2cbae6e806c5712e05e325aa2", null ],
-    [ "receive", "da/d0a/a01526.html#aaf355e4c0c1f6f66b98a952776ce9306", null ],
-    [ "receiveFrom", "da/d0a/a01526.html#a5a965f965696244088ee4cf6c1980512", null ],
-    [ "send", "da/d0a/a01526.html#a01d5249f026c24186175b2a0a0613da8", null ],
-    [ "sendTo", "da/d0a/a01526.html#acbb953105a97c32e89678da9e46e01cf", null ],
-    [ "Sockets", "da/d0a/a01526.html#adf6639d046f29568f3db637dbbdd334f", null ]
+    [ "ChannelArray", "da/d0a/a01526.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
+    [ "SpectrumAnalyzer", "da/d0a/a01526.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
+    [ "SpectrumAnalyzer", "da/d0a/a01526.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
+    [ "getAverageArray", "da/d0a/a01526.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
+    [ "getCurrentArray", "da/d0a/a01526.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
+    [ "getMaxArray", "da/d0a/a01526.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
+    [ "isNewData", "da/d0a/a01526.html#a2788be420fbb2acb1168d7aa21759804", null ],
+    [ "operator=", "da/d0a/a01526.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
+    [ "resetData", "da/d0a/a01526.html#a219916036b1120cc272129041d937770", null ]
 ];

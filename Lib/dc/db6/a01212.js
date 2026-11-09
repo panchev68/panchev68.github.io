@@ -1,12 +1,8 @@
 var a01212 =
 [
-    [ "FreeFunctionPointer", "dc/db6/a01212.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "dc/db6/a01212.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "dc/db6/a01212.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "dc/db6/a01212.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "dc/db6/a01212.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "dc/db6/a01212.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "dc/db6/a01212.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "dc/db6/a01212.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "dc/db6/a01212.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "miso", "dc/db6/a01212.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
+    [ "mosi", "dc/db6/a01212.html#a25f143d2f7674576d969696bb116ccd0", null ],
+    [ "nirq", "dc/db6/a01212.html#a910a59f08ad5274a68776e743dbaedee", null ],
+    [ "nss", "dc/db6/a01212.html#ab28458323220459a7d7310bc64b538a2", null ],
+    [ "sck", "dc/db6/a01212.html#a2bddcf040cbe86554ab6027c20f10236", null ]
 ];

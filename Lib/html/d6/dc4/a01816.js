@@ -1,8 +1,16 @@
 var a01816 =
 [
-    [ "crc16", "d6/dc4/a01816.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "d6/dc4/a01816.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "d6/dc4/a01816.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "d6/dc4/a01816.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "d6/dc4/a01816.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "Event", "d5/dd6/a01820.html", null ],
+    [ "ADCPort", "d6/dc4/a01816.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d6/dc4/a01816.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d6/dc4/a01816.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d6/dc4/a01816.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d6/dc4/a01816.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "d6/dc4/a01816.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d6/dc4/a01816.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d6/dc4/a01816.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d6/dc4/a01816.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d6/dc4/a01816.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d6/dc4/a01816.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d6/dc4/a01816.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

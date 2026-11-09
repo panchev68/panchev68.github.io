@@ -1,5 +1,6 @@
 var a00083 =
 [
-    [ "Lib::BSP::SK6812", "db/daf/a01019.html", "db/daf/a01019" ],
-    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "d6/dcd/a01023.html", "d6/dcd/a01023" ]
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;", "da/d4e/a01106.html", "da/d4e/a01106" ],
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Config", "d1/d3d/a01110.html", "d1/d3d/a01110" ],
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics", "d6/d40/a01114.html", "d6/d40/a01114" ]
 ];

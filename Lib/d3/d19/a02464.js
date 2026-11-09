@@ -1,6 +1,10 @@
 var a02464 =
 [
-    [ "Lib::Canbus::Service&lt; Mode::SERVER &gt;", "da/d4e/a01106.html", "da/d4e/a01106" ],
-    [ "NUM_OF_CANBUS_CLIENT_NODES", "d3/d19/a02464.html#a11d7d7b28667bcb585fa645eb27f1da3", null ],
-    [ "Lib::Canbus::ServerBase", "d7/d60/a00816.html#ab5bb4cbc53b78fbe35d7058920026275", null ]
+    [ "maxPowerRef", "d3/d19/a02464.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d3/d19/a02464.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d3/d19/a02464.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d3/d19/a02464.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d3/d19/a02464.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d3/d19/a02464.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d3/d19/a02464.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

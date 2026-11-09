@@ -1,12 +1,13 @@
 var a01386 =
 [
-    [ "Command", "d3/deb/a01386.html#ad7de9040ab35a62c524e02edb5857497", null ],
-    [ "LocalAtCommand", "d3/deb/a01386.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
-    [ "~LocalAtCommand", "d3/deb/a01386.html#a7342ebde08b2926419d08b5e464f6d84", null ],
-    [ "close", "d3/deb/a01386.html#a5c97cd2a002f63083302783169a633fb", null ],
-    [ "isOpenState", "d3/deb/a01386.html#add59b902d8519406c376e4d1363fd51d", null ],
-    [ "open", "d3/deb/a01386.html#a22221c7778dbe7cfb61112e57837d9d3", null ],
-    [ "receive", "d3/deb/a01386.html#a07623b40020016955fde1acfe07ca322", null ],
-    [ "send", "d3/deb/a01386.html#a48ae33c43e30b1273cb2f0e6b709ffc2", null ],
-    [ "send", "d3/deb/a01386.html#a031935c10edd7ee210a9d66f1aafa843", null ]
+    [ "WolfSSHServer", "d3/deb/a01386.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "d3/deb/a01386.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "d3/deb/a01386.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "d3/deb/a01386.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "d3/deb/a01386.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "d3/deb/a01386.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "d3/deb/a01386.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "d3/deb/a01386.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "d3/deb/a01386.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "d3/deb/a01386.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

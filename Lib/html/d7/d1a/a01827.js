@@ -1,14 +1,12 @@
 var a01827 =
 [
-    [ "Time", "d0/db3/a01831.html", "d0/db3/a01831" ],
-    [ "Date", "da/dcd/a01835.html", "da/dcd/a01835" ],
-    [ "DateTime", "d7/d1a/a01827.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "d7/d1a/a01827.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "d7/d1a/a01827.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "d7/d1a/a01827.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "d7/d1a/a01827.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "d7/d1a/a01827.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "d7/d1a/a01827.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "d7/d1a/a01827.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "d7/d1a/a01827.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "ADCPortBase", "d7/d1a/a01827.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "d7/d1a/a01827.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "d7/d1a/a01827.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "d7/d1a/a01827.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "d7/d1a/a01827.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "d7/d1a/a01827.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d7/d1a/a01827.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "d7/d1a/a01827.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "d7/d1a/a01827.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

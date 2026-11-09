@@ -1,6 +1,11 @@
 var a01583 =
 [
-    [ "getDevice", "d9/d1b/a01583.html#a44399c0b88c31ab172615c8522506511", null ],
-    [ "registerDevice", "d9/d1b/a01583.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
-    [ "unregisterDevice", "d9/d1b/a01583.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
+    [ "Message", "d9/d1b/a01583.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "d9/d1b/a01583.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "d9/d1b/a01583.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "d9/d1b/a01583.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "d9/d1b/a01583.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "d9/d1b/a01583.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "d9/d1b/a01583.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "d9/d1b/a01583.html#a99d9247c3097add390da201d0083e524", null ]
 ];

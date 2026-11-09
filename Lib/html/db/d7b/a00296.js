@@ -1,4 +1,4 @@
 var a00296 =
 [
-    [ "Lib::Ethernet::Wiznet::ClientBase", "da/d50/a01511.html", "da/d50/a01511" ]
+    [ "Lib::Digi::Core::isElapsed", "d7/dcf/a00845.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
 ];

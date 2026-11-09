@@ -1,10 +1,5 @@
 var a01708 =
 [
-    [ "PeakInfo", "dc/d3e/a01712.html", "dc/d3e/a01712" ],
-    [ "FindPeaks", "de/d5c/a01708.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "de/d5c/a01708.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "de/d5c/a01708.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "de/d5c/a01708.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "de/d5c/a01708.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "de/d5c/a01708.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "read", "de/d5c/a01708.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
+    [ "write", "de/d5c/a01708.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
 ];

@@ -1,18 +1,19 @@
 var a01059 =
 [
-    [ "Config", "de/de6/a01063.html", "de/de6/a01063" ],
-    [ "TMP102", "d0/d90/a01059.html#a25292f249a6a8607b205789ca39ca889", null ],
-    [ "~TMP102", "d0/d90/a01059.html#acce6c93cc231859314e8155a64d18976", null ],
-    [ "TMP102", "d0/d90/a01059.html#ad1b106c8f7c7251cefcb1d4290be2dae", null ],
-    [ "TMP102", "d0/d90/a01059.html#ad8c03c932bf47e30e3f956445cd86d69", null ],
-    [ "configureAlert", "d0/d90/a01059.html#ae093a978b93fe3a47f7ca546a078e749", null ],
-    [ "enterSleepMode", "d0/d90/a01059.html#a77672c24cdf7613a7c42725a76b059b7", null ],
-    [ "exitSleepMode", "d0/d90/a01059.html#a9615a95c96a36caed8310d176f26d849", null ],
-    [ "init", "d0/d90/a01059.html#ac001567db05b41416557f43309902fc0", null ],
-    [ "operator=", "d0/d90/a01059.html#aca4a5dff1ab4aea364d691a027454b3e", null ],
-    [ "operator=", "d0/d90/a01059.html#a74a76b7b9283cd1513790eea203584c5", null ],
-    [ "readTemperature", "d0/d90/a01059.html#aadf39fe0733289a27b7d71280085142a", null ],
-    [ "setTHigh", "d0/d90/a01059.html#ac5abef78d298278279e8df7180dce3fc", null ],
-    [ "setTLow", "d0/d90/a01059.html#ac9ec040ac8d409ecca78a7d9e0bcd160", null ],
-    [ "triggerOneShot", "d0/d90/a01059.html#a2ebda9d1355cde58ca0a0bdb41dc6956", null ]
+    [ "Command", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d0/d90/a01059.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

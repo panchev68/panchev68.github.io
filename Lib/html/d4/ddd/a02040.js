@@ -1,13 +1,12 @@
 var a02040 =
 [
-    [ "Level", "d4/ddd/a02040.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "d4/ddd/a02040.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "d4/ddd/a02040.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "d4/ddd/a02040.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "d4/ddd/a02040.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "d4/ddd/a02040.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
-    ] ],
-    [ "Priority", "d4/ddd/a02040.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "d4/ddd/a02040.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "set", "d4/ddd/a02040.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "TimOutputCompare", "d4/ddd/a02040.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "d4/ddd/a02040.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "getCounter", "d4/ddd/a02040.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "setCompare", "d4/ddd/a02040.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "d4/ddd/a02040.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "d4/ddd/a02040.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "d4/ddd/a02040.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "d4/ddd/a02040.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d4/ddd/a02040.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

@@ -1,9 +1,5 @@
 var a01507 =
 [
-    [ "command", "d8/dd9/a01507.html#ac39c4790de9b586883fe6f756ddacedb", null ],
-    [ "delimiter", "d8/dd9/a01507.html#afe55e623eebacaace36b8d1e9844d39d", null ],
-    [ "id", "d8/dd9/a01507.html#a8347df958bae7c76cebdbb5c432b0050", null ],
-    [ "length", "d8/dd9/a01507.html#afe72ea272518d059f1bf808d9f29af53", null ],
-    [ "option", "d8/dd9/a01507.html#a5ef8d332a47ac6474f29bd47994ec554", null ],
-    [ "timestamp", "d8/dd9/a01507.html#a0997b1a261a5779f789463642f1b0e65", null ]
+    [ "high", "d8/dd9/a01507.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
+    [ "low", "d8/dd9/a01507.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
 ];

@@ -1,13 +1,29 @@
 var a01668 =
 [
-    [ "Event", "d2/d7b/a01672.html", null ],
-    [ "OSPIPort", "d7/d47/a01668.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
-    [ "~OSPIPort", "d7/d47/a01668.html#a75c002e669d06d7de1e78e5e48686797", null ],
-    [ "abort", "d7/d47/a01668.html#ae607a85a501b0bbf6cd780dac3349a01", null ],
-    [ "close", "d7/d47/a01668.html#a6ec95ca0884508cd5d0adbed61d3e230", null ],
-    [ "command", "d7/d47/a01668.html#a54ec0889f4608331fa061c0c3292069b", null ],
-    [ "open", "d7/d47/a01668.html#a5dd53939332ed5b10c743ffbcaea68e7", null ],
-    [ "receive", "d7/d47/a01668.html#ab9cc9ba95182f1da35658a30766c925b", null ],
-    [ "transmit", "d7/d47/a01668.html#a29fc23b9a2bc046d9b8a3112e104d07a", null ],
-    [ "waitForEvent", "d7/d47/a01668.html#a270e0d617d8dd62513fbdff91296e244", null ]
+    [ "State", "d7/d47/a01668.html#acba02689f37ee7af40ec736d996ed858", [
+      [ "DISABLE", "d7/d47/a01668.html#acba02689f37ee7af40ec736d996ed858afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "NO_INIT", "d7/d47/a01668.html#acba02689f37ee7af40ec736d996ed858a72144f138e8a9f73854d58b59deca26d", null ],
+      [ "NO_ERROR", "d7/d47/a01668.html#acba02689f37ee7af40ec736d996ed858ad306b6fdee05fe87455110ddf6501e6c", null ],
+      [ "ACTIVE", "d7/d47/a01668.html#acba02689f37ee7af40ec736d996ed858a18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "CLEARED", "d7/d47/a01668.html#acba02689f37ee7af40ec736d996ed858a62574ee27e6c5f985a6bc1dc344e7438", null ]
+    ] ],
+    [ "ErrorBase", "d7/d47/a01668.html#abdf93e8f5f32fa9b729cc71b9523c14f", null ],
+    [ "ErrorBase", "d7/d47/a01668.html#a5f30c8f5d578b776ab5e16ad57b228a3", null ],
+    [ "ErrorBase", "d7/d47/a01668.html#a3a70d75a9dcb7b18c3f1f954f161401d", null ],
+    [ "ErrorBase", "d7/d47/a01668.html#aec1f3f7b342750d0cebbd3a693408410", null ],
+    [ "~ErrorBase", "d7/d47/a01668.html#a252258e08d1386fbf80757f0e8ad5da6", null ],
+    [ "clear", "d7/d47/a01668.html#a1aac17dcab7e7de289d1190bd6c4cb80", null ],
+    [ "disable", "d7/d47/a01668.html#a6535402a86612bd7117d0383414f5a01", null ],
+    [ "enable", "d7/d47/a01668.html#a3b5c2f67fac7cbb39994045f7de8863b", null ],
+    [ "getCaption", "d7/d47/a01668.html#af1685a17adc3751bc34f0f22ff53ddba", null ],
+    [ "getGroup", "d7/d47/a01668.html#a566049e949c9212023d51dfa7fb70b7f", null ],
+    [ "getId", "d7/d47/a01668.html#afa412b5b49489692123f5dc185407e34", null ],
+    [ "getState", "d7/d47/a01668.html#af79e723798e9e9755726cf1fbca0d106", null ],
+    [ "operator bool", "d7/d47/a01668.html#a095c4c29588c57c181f2267c655a4598", null ],
+    [ "operator=", "d7/d47/a01668.html#a9168a73abd4e665ad013370c9b4fa544", null ],
+    [ "operator=", "d7/d47/a01668.html#a8ca5c212c74ca32c10e44ea15eb466f7", null ],
+    [ "reset", "d7/d47/a01668.html#ac98111e75aa81293363c0c065d7ea081", null ],
+    [ "set", "d7/d47/a01668.html#aee7745fbda0bc6847c210fb9f4fe41f1", null ],
+    [ "setGroup", "d7/d47/a01668.html#aba45829de28bb9571253018340fa606b", null ],
+    [ "BasicDispatcher", "d7/d47/a01668.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
 ];

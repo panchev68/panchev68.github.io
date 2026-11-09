@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uart_20receive_0',['ISR to task (UART receive)',['../d9/da4/a02798.html#streambuffer_isr',1,'']]]
+  ['non_20default_20uart_20address_0',['Non-default UART address',['../d0/dc8/a03409.html#pga460_usage_address',1,'']]]
 ];

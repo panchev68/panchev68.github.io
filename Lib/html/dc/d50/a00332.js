@@ -1,4 +1,4 @@
 var a00332 =
 [
-    [ "Lib::HAL::Device&lt; T_DEVICE, T_HANDLE &gt;", "d6/d91/a01587.html", "d6/d91/a01587" ]
+    [ "Lib::Ethernet::Node", "d4/dfe/a01770.html", "d4/dfe/a01770" ]
 ];

@@ -1,4 +1,4 @@
 var a00551 =
 [
-    [ "Lib::Helper::StringHelper", "d3/d77/a01870.html", null ]
+    [ "Lib::HAL::USBHostPort&lt; DriverMode::DMA &gt;", "d4/d18/a02106.html", "d4/d18/a02106" ]
 ];

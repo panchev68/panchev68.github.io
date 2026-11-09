@@ -1,11 +1,12 @@
 var a00934 =
 [
-    [ "capacityBytes", "d0/df0/a00934.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
-    [ "chipId", "d0/df0/a00934.html#a51f97ba3d60d343706487241e08e252e", null ],
-    [ "manufacturerId", "d0/df0/a00934.html#a5c3278897e2a6732479c70a4efed141c", null ],
-    [ "pageCount", "d0/df0/a00934.html#af9ad76ca92b33af38466c11344584476", null ],
-    [ "pageSize", "d0/df0/a00934.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
-    [ "pagesPerSector", "d0/df0/a00934.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
-    [ "sectorCount", "d0/df0/a00934.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
-    [ "sectorSize", "d0/df0/a00934.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
+    [ "Inputs", "d0/df0/a00934.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "d0/df0/a00934.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "d0/df0/a00934.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "d0/df0/a00934.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "d0/df0/a00934.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "d0/df0/a00934.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "d0/df0/a00934.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "d0/df0/a00934.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "d0/df0/a00934.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

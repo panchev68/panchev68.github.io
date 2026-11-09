@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: RTOS</title>
+<title>IAR Library: Lib::HAL::GPIO</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,462 +112,31 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/d30/a00848.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::GPIO</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>C++20 RAII wrappers over FreeRTOS primitives.  
+<p><a class="el" href="../../d9/d30/a00848.html" title="GPIO pin abstractions, including externally-triggered interrupt (EXTI) input pins.">GPIO</a> pin abstractions, including externally-triggered interrupt (EXTI) input pins.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>C++20 RAII wrappers over FreeRTOS primitives. </p>
-<p>Provides type-safe, non-copyable classes for tasks, queues, semaphores, mutexes, timers, event groups and tick helpers, so application code reaches for these wrappers instead of raw FreeRTOS calls. </p>
+<div class="textblock"><p><a class="el" href="../../d9/d30/a00848.html" title="GPIO pin abstractions, including externally-triggered interrupt (EXTI) input pins.">GPIO</a> pin abstractions, including externally-triggered interrupt (EXTI) input pins. </p>
+<p>Provides input/output pin wrappers and a centralized, O(1) interrupt-routing worker task for EXTI-driven pins. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Kernel" id="r_Kernel"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d8e/a01840.html">Kernel</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Static utility class providing kernel-level control and diagnostics.  <a href="../../d4/d8e/a01840.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ab892d206cb79c31e373b3631e023b644" id="r_ab892d206cb79c31e373b3631e023b644"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:ab892d206cb79c31e373b3631e023b644 template"><td class="memItemLeft">constexpr <a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab892d206cb79c31e373b3631e023b644">durationToTicks</a> (std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</td></tr>
-<tr class="memdesc:ab892d206cb79c31e373b3631e023b644"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than requested.  <br /></td></tr>
-<tr class="memitem:a5c21e23f0bba6fde645ac808660b30f8" id="r_a5c21e23f0bba6fde645ac808660b30f8"><td class="memItemLeft">constexpr <a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a5c21e23f0bba6fde645ac808660b30f8">millisecondsToTicks</a> (int64_t milliseconds) noexcept</td></tr>
-<tr class="memdesc:a5c21e23f0bba6fde645ac808660b30f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a raw millisecond count to the equivalent FreeRTOS tick count, rounding up to the nearest whole tick.  <br /></td></tr>
-<tr class="memitem:a974867cff953c89df2c50da604d4b606" id="r_a974867cff953c89df2c50da604d4b606"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a974867cff953c89df2c50da604d4b606">inISR</a> () noexcept</td></tr>
-<tr class="memdesc:a974867cff953c89df2c50da604d4b606"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if current context is an ISR.  <br /></td></tr>
-<tr class="memitem:a9457a17b234e2e6b6336f69c9f756021" id="r_a9457a17b234e2e6b6336f69c9f756021"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a9457a17b234e2e6b6336f69c9f756021 template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9457a17b234e2e6b6336f69c9f756021">delay</a> (std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</td></tr>
-<tr class="memdesc:a9457a17b234e2e6b6336f69c9f756021"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for a specific duration, rounded up to whole ticks.  <br /></td></tr>
-<tr class="memitem:a0960b26725ee8ac0c2798f5d3036b37a" id="r_a0960b26725ee8ac0c2798f5d3036b37a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a0960b26725ee8ac0c2798f5d3036b37a">delay</a> (<a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> duration) noexcept</td></tr>
-<tr class="memdesc:a0960b26725ee8ac0c2798f5d3036b37a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for a specific tick count.  <br /></td></tr>
-<tr class="memitem:a071ed92c20109dd07c3785eb87914136" id="r_a071ed92c20109dd07c3785eb87914136"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a071ed92c20109dd07c3785eb87914136">delayUntil</a> (<a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> targetTick) noexcept</td></tr>
-<tr class="memdesc:a071ed92c20109dd07c3785eb87914136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution until a target system tick is reached.  <br /></td></tr>
-<tr class="memitem:aeaddd65089a8190241b5922399d6168c" id="r_aeaddd65089a8190241b5922399d6168c"><td class="memTemplParams" colspan="2">template&lt;typename Clock, typename Duration&gt; </td></tr>
-<tr class="memitem:aeaddd65089a8190241b5922399d6168c template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aeaddd65089a8190241b5922399d6168c">delayUntil</a> (std::chrono::time_point&lt; Clock, Duration &gt; target) noexcept</td></tr>
-<tr class="memdesc:aeaddd65089a8190241b5922399d6168c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution until a target time point.  <br /></td></tr>
-<tr class="memitem:aa54eb7aeffc794961e60ade51c195480" id="r_aa54eb7aeffc794961e60ade51c195480"><td class="memItemLeft"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa54eb7aeffc794961e60ade51c195480">getTickCount</a> () noexcept</td></tr>
-<tr class="memdesc:aa54eb7aeffc794961e60ade51c195480"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves current system tick count.  <br /></td></tr>
-<tr class="memitem:a80d033e9ce70fec78bacaa61cc1221bf" id="r_a80d033e9ce70fec78bacaa61cc1221bf"><td class="memItemLeft"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a80d033e9ce70fec78bacaa61cc1221bf">getTickCountFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:a80d033e9ce70fec78bacaa61cc1221bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves current system tick count from an ISR context.  <br /></td></tr>
+<tr class="memitem:ExtInterrupt" id="r_ExtInterrupt"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d31/a01892.html">ExtInterrupt</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles hardware external line interrupts with centralized notification-driven dispatching.  <a href="../../dc/d31/a01892.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Handle" id="r_Handle"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d0d/a01904.html">Handle</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lightweight wrapper for <a class="el" href="../../d9/d30/a00848.html" title="GPIO pin abstractions, including externally-triggered interrupt (EXTI) input pins.">GPIO</a> pin configuration providing typed access.  <a href="../../d4/d0d/a01904.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Input" id="r_Input"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d45/a01908.html">Input</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a discrete hardware input pin mapped to a specific microcontroller port.  <a href="../../d8/d45/a01908.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Output" id="r_Output"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../df/dd0/a01912.html">Output</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a discrete hardware output pin capable of state driving and active reading.  <a href="../../df/dd0/a01912.html#details">More...</a><br /></td></tr>
+<tr class="memitem:PinConfig" id="r_PinConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dcc/a01900.html">PinConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a <a class="el" href="../../d9/d30/a00848.html" title="GPIO pin abstractions, including externally-triggered interrupt (EXTI) input pins.">GPIO</a> pin, consisting of a port and pin number.  <a href="../../d5/dcc/a01900.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Port" id="r_Port"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d36/a01916.html">Port</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discrete hardware port controller wrapping peripheral register blocks.  <a href="../../d0/d36/a01916.html#details">More...</a><br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a0960b26725ee8ac0c2798f5d3036b37a" name="a0960b26725ee8ac0c2798f5d3036b37a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0960b26725ee8ac0c2798f5d3036b37a">&#9670;&#160;</a></span>delay() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delay </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a></td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution for a specific tick count. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>Duration in ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a0960b26725ee8ac0c2798f5d3036b37a_cgraph.svg" width="648" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a9457a17b234e2e6b6336f69c9f756021" name="a9457a17b234e2e6b6336f69c9f756021"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9457a17b234e2e6b6336f69c9f756021">&#9670;&#160;</a></span>delay() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delay </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution for a specific duration, rounded up to whole ticks. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Duration representation. </td></tr>
-    <tr><td class="paramname">Period</td><td>Duration period ratio. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>Time duration to block. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../d0/d2b/a01997.html#a0">Lib::USB::CDCDevice</a>.</dd>
-</dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a9457a17b234e2e6b6336f69c9f756021_cgraph.svg" width="504" height="136"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a9457a17b234e2e6b6336f69c9f756021_icgraph.svg" width="722" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a071ed92c20109dd07c3785eb87914136" name="a071ed92c20109dd07c3785eb87914136"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a071ed92c20109dd07c3785eb87914136">&#9670;&#160;</a></span>delayUntil() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delayUntil </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a></td>          <td class="paramname"><span class="paramname"><em>targetTick</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution until a target system tick is reached. </p>
-<p>Safe across tick counter wraparound.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">targetTick</td><td>Target tick value; if already in the past, returns immediately without delaying. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a071ed92c20109dd07c3785eb87914136_cgraph.svg" width="472" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a071ed92c20109dd07c3785eb87914136_icgraph.svg" width="306" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aeaddd65089a8190241b5922399d6168c" name="aeaddd65089a8190241b5922399d6168c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeaddd65089a8190241b5922399d6168c">&#9670;&#160;</a></span>delayUntil() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Clock, typename Duration&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RTOS::delayUntil </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::time_point&lt; Clock, Duration &gt;</td>          <td class="paramname"><span class="paramname"><em>target</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Delays execution until a target time point. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Clock</td><td>Chrono clock type. </td></tr>
-    <tr><td class="paramname">Duration</td><td>Chrono duration type. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">target</td><td>Target time point; if already in the past, returns immediately without delaying. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_aeaddd65089a8190241b5922399d6168c_cgraph.svg" width="678" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab892d206cb79c31e373b3631e023b644" name="ab892d206cb79c31e373b3631e023b644"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab892d206cb79c31e373b3631e023b644">&#9670;&#160;</a></span>durationToTicks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::durationToTicks </td>
-          <td>(</td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than requested. </p>
-<p>The single conversion every wrapper uses for its 'std::chrono' overloads. Non-positive durations yield zero; durations beyond the tick range saturate at the largest tick value, which equals 'portMAX_DELAY' (wait forever). The duration must be representable as a 64-bit tick count.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Duration representation. </td></tr>
-    <tr><td class="paramname">Period</td><td>Duration period ratio. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">duration</td><td>Duration to convert. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Equivalent tick count. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_ab892d206cb79c31e373b3631e023b644_cgraph.svg" width="168" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_ab892d206cb79c31e373b3631e023b644_icgraph.svg" width="1015" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aa54eb7aeffc794961e60ade51c195480" name="aa54eb7aeffc794961e60ade51c195480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa54eb7aeffc794961e60ade51c195480">&#9670;&#160;</a></span>getTickCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::getTickCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves current system tick count. </p>
-<p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd>Tick count. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_aa54eb7aeffc794961e60ade51c195480_cgraph.svg" width="492" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_aa54eb7aeffc794961e60ade51c195480_icgraph.svg" width="155" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a80d033e9ce70fec78bacaa61cc1221bf" name="a80d033e9ce70fec78bacaa61cc1221bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a80d033e9ce70fec78bacaa61cc1221bf">&#9670;&#160;</a></span>getTickCountFromISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::getTickCountFromISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves current system tick count from an ISR context. </p>
-<dl class="section return"><dt>Returns</dt><dd>Tick count. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a80d033e9ce70fec78bacaa61cc1221bf_cgraph.svg" width="207" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a80d033e9ce70fec78bacaa61cc1221bf_icgraph.svg" width="207" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a974867cff953c89df2c50da604d4b606" name="a974867cff953c89df2c50da604d4b606"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a974867cff953c89df2c50da604d4b606">&#9670;&#160;</a></span>inISR()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool RTOS::inISR </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if current context is an ISR. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' if in ISR. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a974867cff953c89df2c50da604d4b606_cgraph.svg" width="300" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a974867cff953c89df2c50da604d4b606_icgraph.svg" width="915" height="447"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a5c21e23f0bba6fde645ac808660b30f8" name="a5c21e23f0bba6fde645ac808660b30f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c21e23f0bba6fde645ac808660b30f8">&#9670;&#160;</a></span>millisecondsToTicks()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132">Kernel::TickType</a> RTOS::millisecondsToTicks </td>
-          <td>(</td>
-          <td class="paramtype">int64_t</td>          <td class="paramname"><span class="paramname"><em>milliseconds</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Converts a raw millisecond count to the equivalent FreeRTOS tick count, rounding up to the nearest whole tick. </p>
-<p>Kept for legacy call sites only; pass the 'std::chrono' duration itself to '<a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than reque...">durationToTicks()</a>' or to the duration overload of the consuming API instead of unwrapping it with 'count()'.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">milliseconds</td><td>Duration in milliseconds; must be non-negative. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Equivalent tick count, saturated at 'portMAX_DELAY'.</dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d8/db7/a00812.html#_deprecated000001">Deprecated</a></b></dt><dd>Pass a 'std::chrono' duration to '<a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than reque...">durationToTicks()</a>' instead. </dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d8/db7/a00812.html#_deprecated000002">Deprecated</a></b></dt><dd>pass a std::chrono duration to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than reque...">durationToTicks()</a> instead</dd></dl>
-<dl class="deprecated"><dt><b><a class="el" href="../../d8/db7/a00812.html#_deprecated000003">Deprecated</a></b></dt><dd>pass a std::chrono duration to <a class="el" href="#ab892d206cb79c31e373b3631e023b644" title="Converts a duration to scheduler ticks, rounding up so the resulting wait is never shorter than reque...">durationToTicks()</a> instead</dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a5c21e23f0bba6fde645ac808660b30f8_cgraph.svg" width="400" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d30/a00848_a5c21e23f0bba6fde645ac808660b30f8_icgraph.svg" width="195" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -579,7 +150,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/d30/a00848.html">RTOS</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d4/d60/a00847.html">HAL</a></li><li class="navelem"><a href="../../d9/d30/a00848.html">GPIO</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

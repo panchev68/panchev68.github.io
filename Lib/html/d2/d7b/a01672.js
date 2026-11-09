@@ -1,7 +1,7 @@
 var a01672 =
 [
-    [ "lock", "d2/d7b/a01672.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "read", "d2/d7b/a01672.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "d2/d7b/a01672.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "d2/d7b/a01672.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "~Error", "d2/d7b/a01672.html#a45c9bdf2555503aba370ceb9e3be4472", null ],
+    [ "operator=", "d2/d7b/a01672.html#a0bcba893ea1d1c8fc398d17f7064fb4e", null ],
+    [ "operator=", "d2/d7b/a01672.html#a64f8853fd9017d3b184b94ce5d32d416", null ],
+    [ "BasicDispatcher", "d2/d7b/a01672.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
 ];

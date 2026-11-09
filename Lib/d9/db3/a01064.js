@@ -1,15 +1,9 @@
 var a01064 =
 [
-    [ "TimerHandler", "d1/de6/a01068.html", "d1/de6/a01068" ],
-    [ "Config", "d6/d6a/a01072.html", "d6/d6a/a01072" ],
-    [ "PinHandle", "d9/db3/a01064.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
-    [ "Base", "d9/db3/a01064.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
-    [ "~Base", "d9/db3/a01064.html#a07a6568f25502674c91a864497867548", null ],
-    [ "beginReceiveData", "d9/db3/a01064.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
-    [ "endReceivedData", "d9/db3/a01064.html#a63785a9b88d7556f54e1e71118a760d4", null ],
-    [ "start", "d9/db3/a01064.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
-    [ "startupImpulse", "d9/db3/a01064.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
-    [ "waitForComplete", "d9/db3/a01064.html#a9b5b96a6106c15c974463750529471d0", null ],
-    [ "writePinState", "d9/db3/a01064.html#a049430e063b46db8f7e7401c0af75df7", null ],
-    [ "config", "d9/db3/a01064.html#a3b31347dab82ede045f6e076046e5762", null ]
+    [ "chipManufacturer", "d9/db3/a01064.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "d9/db3/a01064.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "d9/db3/a01064.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "d9/db3/a01064.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "d9/db3/a01064.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "d9/db3/a01064.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

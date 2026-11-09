@@ -1,20 +1,9 @@
 var a01931 =
 [
-    [ "Point", "d0/d43/a01935.html", "d0/d43/a01935" ],
-    [ "BoundaryType", "d5/d31/a01931.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d5/d31/a01931.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d5/d31/a01931.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d5/d31/a01931.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d5/d31/a01931.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d5/d31/a01931.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d5/d31/a01931.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d5/d31/a01931.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d5/d31/a01931.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d5/d31/a01931.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d5/d31/a01931.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d5/d31/a01931.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d5/d31/a01931.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d5/d31/a01931.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d5/d31/a01931.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "I2CPortAsync", "d5/d31/a01931.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d5/d31/a01931.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "masterMemRead", "d5/d31/a01931.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d5/d31/a01931.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d5/d31/a01931.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d5/d31/a01931.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ]
 ];

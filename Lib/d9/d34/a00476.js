@@ -1,4 +1,4 @@
 var a00476 =
 [
-    [ "Lib::Helper::CityHash", "d3/d95/a01435.html", "d3/d95/a01435" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::IT &gt;", "d3/dbb/a02004.html", "d3/dbb/a02004" ]
 ];

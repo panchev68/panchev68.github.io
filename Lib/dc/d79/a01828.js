@@ -1,6 +1,12 @@
 var a01828 =
 [
-    [ "name", "dc/d79/a01828.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
-    [ "output", "dc/d79/a01828.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
-    [ "rotateTime", "dc/d79/a01828.html#aad96d287e9891431e5a7c99935482563", null ]
+    [ "ADCPortBase", "dc/d79/a01828.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "dc/d79/a01828.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "dc/d79/a01828.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "dc/d79/a01828.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "dc/d79/a01828.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "dc/d79/a01828.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dc/d79/a01828.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "dc/d79/a01828.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "dc/d79/a01828.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

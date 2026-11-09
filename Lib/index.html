@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Main Page</title>
+<title>IAR Library: IAR EWARM Library</title>
+<link rel="icon" href="IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="dynsections.js"></script>
 <script type="text/javascript" src="codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -109,10 +111,256 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">IAR Library Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">IAR EWARM Library </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__x_1_2_lib_2_i_a_r_2_readme"></a></p>
+<p><img src="https://img.shields.io/badge/version-3.08.0-darkblue" alt="Version" class="inline"/> <img src="https://img.shields.io/badge/updated-2026--11--06-darkgreen" alt="Updated" class="inline"/></p>
+<p>Header-only C++20 embedded systems library for IAR Embedded Workbench with STM32F4xx MCUs, providing hardware abstraction, <a class="el" href="da/de3/a00856.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> integration, and communication protocols.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-overview"></a>
+📖 Overview</h1>
+<p>The IAR EWARM Library is a header-only C++20 library for embedded systems development on STM32F4xx microcontrollers using IAR Embedded Workbench 10.10.2. It provides a type-safe interface to hardware peripherals, FreeRTOS abstractions, communication protocols, and board-support drivers. The library abstracts low-level HAL details while maintaining direct access to hardware capabilities through multiple transfer modes (blocking, interrupt-driven, DMA) and supports CAN bus communication, EtherCAT slave operation, Modbus, and the Digi/XBEE and XCOM protocol stacks.</p>
+<p>It is almost entirely header-only (<span class="tt">inc/Lib/**/*.hpp</span>) and is not built or tested standalone — it's consumed by an IAR project such as the sample one under <span class="tt">EWARM/</span>.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-features"></a>
+🚀 Features</h1>
+<ul>
+<li><b>Hardware Abstraction Layer (HAL)</b>: Type-safe wrappers for STM32 peripherals (SPI, UART, I2C, CAN, ADC, DAC, timers, GPIO, RTC, watchdogs, USB, OSPI/Quad-SPI)</li>
+<li><b>FreeRTOS C++ Wrappers</b>: Tasks, queues (incl. queue sets), semaphores, mutexes, event groups, software timers, message/stream buffers, tickless low-power support</li>
+<li><b>Communication Protocols</b>: CAN bus client/server, EtherCAT slave (direct ESC-register implementation), Modbus master/slave (incomplete), Digi XBEE API, XCOM data protocol</li>
+<li><b>Multiple Transfer Modes</b>: Blocking, interrupt-driven, and DMA I/O for SPI, UART, I2C, and ADC</li>
+<li><b>Board Support Package (BSP)</b>: Ready-to-use drivers for displays (ILI9341, ST7789), touchscreens, EEPROMs, flash memory, RFID (MFRC522, ST25R100, NTAG21x), thermometers, voltmeters, RGBW LEDs, encoders, and more</li>
+<li><b>Error Handling</b>: Centralized error state machine with dispatcher/observer pattern</li>
+<li><b>USB Support</b>: Host/device port wrappers over the STM32 USB OTG HAL</li>
+<li><b>Doxygen Documentation</b>: API documentation generated from inline comments</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="️-architecture"></a>
+🏗️ Architecture</h1>
+<p>The library is organized in a modular, layered architecture:</p>
+<div class="fragment"><div class="line">┌─────────────────────────────────────────────────────┐</div>
+<div class="line">│ Application Layer (User Code)                       │</div>
+<div class="line">├─────────────────────────┬───────────────────────────┤</div>
+<div class="line">│ BSP Device Drivers      │ Communication Protocols   │</div>
+<div class="line">│ (Display, RFID, ...)    │ (CAN, EtherCAT, Modbus,   │</div>
+<div class="line">│                         │ Digi/XCOM)                │</div>
+<div class="line">├─────────────────────────┴───────────────────────────┤</div>
+<div class="line">│ C++ RTOS Wrapper Layer (FreeRTOS)                   │</div>
+<div class="line">│ Tasks, Queues, Semaphores, Timers, Events           │</div>
+<div class="line">├─────────────────────────────────────────────────────┤</div>
+<div class="line">│ Hardware Abstraction Layer (HAL)                    │</div>
+<div class="line">│ SPI, UART, I2C, CAN, ADC, DAC, TIM, GPIO, USB       │</div>
+<div class="line">├─────────────────────────────────────────────────────┤</div>
+<div class="line">│ STM32F4xx HAL (C) &amp; Hardware Registers              │</div>
+<div class="line">└─────────────────────────────────────────────────────┘</div>
+</div><!-- fragment --><p><b>Core Components:</b></p>
+<ul>
+<li><b>HAL</b> (<a class="el" href="dir_4ad11338be6ed64801f932656637dcad.html" title="X:/Lib/IAR/inc/Lib/HAL/Readme.md"><span class="tt">Lib::HAL</span></a>): Peripheral drivers templated on transfer mode (<span class="tt">DriverMode::BLOCKING</span>/<span class="tt">IT</span>/<span class="tt">DMA</span>), CRTP over a shared <span class="tt">*PortBase</span>/<span class="tt">*PortAsync</span> policy class per peripheral</li>
+<li><b><a class="el" href="da/de3/a00856.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a></b> (<a class="el" href="dir_3fba853156281524a1d2ff8b1fb19351.html" title="X:/Lib/IAR/inc/Lib/RTOS/Readme.md"><span class="tt">RTOS::</span></a>, top-level namespace, not <span class="tt">Lib::RTOS</span>): FreeRTOS C++ wrappers for real-time task management</li>
+<li><b>Communication</b>: <a class="el" href="dir_fb01d9b9c9ac08aef2bf3e651d6aac8a.html" title="X:/Lib/IAR/inc/Lib/Canbus/Readme.md"><span class="tt">Lib::Canbus</span></a> (client/server), <a class="el" href="dir_ab080a3daff6b74c2c7f4ef6a80e99c9.html" title="X:/Lib/IAR/inc/Lib/Ethercat/Readme.md"><span class="tt">Lib::Ethercat</span></a> (SOES slave stack), <a class="el" href="dir_260f4157cc546599b110418e99a31b5e.html" title="X:/Lib/IAR/inc/Lib/Communication/Readme.md"><span class="tt">Lib::Communication::Modbus</span></a>, <a class="el" href="dir_67df2c65d6bc148cc049a48bf38d4002.html" title="X:/Lib/IAR/inc/Lib/Digi/Readme.md"><span class="tt">Lib::Digi</span></a>, <a class="el" href="dir_f15e15be8a771e0bd42be81332eec275.html" title="X:/Lib/IAR/inc/Lib/XCOM/Readme.md"><span class="tt">Lib::XCOM</span></a></li>
+<li><b>BSP</b> (<a class="el" href="dir_4f517acdbe9bc35e0af7a62669e9b8b9.html" title="X:/Lib/IAR/inc/Lib/BSP/Readme.md"><span class="tt">Lib::BSP</span></a>): Board-specific device drivers, each taking its transport as an injected <span class="tt"><a class="el" href="d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">Lib::HAL</a>::*Port</span> reference</li>
+<li><b>Errors</b> (<a class="el" href="dir_57ee1fa90f429b35abda931e1ac98628.html" title="X:/Lib/IAR/inc/Lib/Errors/Readme.md"><span class="tt">Lib::Errors</span></a>): Centralized error handling and diagnostics</li>
+<li><b>System</b> (<a class="el" href="dir_5c17e5f690e92284d42df705067145f0.html" title="X:/Lib/IAR/inc/Lib/System/Readme.md"><span class="tt">Lib::System</span></a>): Platform initialization, versioning, and configuration utilities</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-requirements"></a>
+📋 Requirements</h1>
+<ul>
+<li><b>Compiler</b>: IAR Embedded Workbench 10.10.2 (<span class="tt">iccarm.exe</span>), Libc++20</li>
+<li><b>Platform</b>: STM32F4xx microcontroller series (developed against STM32F407xx)</li>
+<li><b><a class="el" href="da/de3/a00856.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a></b>: FreeRTOS (via STM32Cube middleware)</li>
+<li><b>Optional</b>: TouchGFX (for UI/graphics support, via the TouchGFX project connector)</li>
+<li><b>Build System</b>: IAR Embedded Workbench project files (<span class="tt">.ewp</span>/<span class="tt">.eww</span>)</li>
+<li><b>C++ Standard</b>: C++20 with Libc++, no exceptions, no RTTI</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-installation"></a>
+🔧 Installation</h1>
+<h2 class="doxsection"><a class="anchor" id="integration-with-iar-embedded-workbench"></a>
+Integration with IAR Embedded Workbench</h2>
+<p>The library integrates into a <b>new, separate</b> IAR project via <b>IAR Project Connectors</b> (<span class="tt">.ipcf</span> files) under <span class="tt">ProjectConnectors/</span> (right-click the project → "Add Project Connection..."). Apply in numbered order:</p>
+<ol type="1">
+<li><b><span class="tt">1.Project-startup.ipcf</span></b> — wires up include paths and a starter <span class="tt">Project/Startup.cpp</span> entry point</li>
+<li><b><span class="tt">2.FreeRTOS_Support C++.ipcf</span></b> — adds the FreeRTOS kernel and <a class="el" href="da/de3/a00856.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> C++ wrapper support</li>
+<li><b><span class="tt">3.Doxygen.ipcf</span></b> — integrates Doxygen documentation generation</li>
+<li><b><span class="tt">4.TouchGFX Support.ipcf</span></b> (optional) — adds TouchGFX UI framework support, including display drivers (ILI9341, XPT2046)</li>
+</ol>
+<p>See <span class="tt">ProjectConnectors/CLAUDE.md</span> for details on what each connector copies and known stale references to watch for.</p>
+<h1 class="doxsection"><a class="anchor" id="️-usage--quick-start"></a>
+▶️ Usage / Quick Start</h1>
+<h2 class="doxsection"><a class="anchor" id="basic-peripheral-access-spi-example"></a>
+Basic Peripheral Access (SPI Example)</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="d6/d1a/a00485.html">Lib/HAL/SPI.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Create a blocking-mode SPI port bound to a CubeMX-generated handle</span></div>
+<div class="line">Lib::HAL::SPIPort&lt;Lib::HAL::DriverMode::BLOCKING&gt; spiPort(&amp;hspi1);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (!spiPort.open()) {</div>
+<div class="line">    <span class="comment">// Handle initialization error</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">std::array&lt;uint8_t, 2&gt; txBuffer{0xAA, 0xBB};</div>
+<div class="line">std::array&lt;uint8_t, 2&gt; rxBuffer{};</div>
+<div class="line"><span class="keywordflow">if</span> (spiPort.sendReceive(txBuffer, rxBuffer, std::chrono::milliseconds(1000))) {</div>
+<div class="line">    <span class="comment">// Transfer successful</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">spiPort.close();</div>
+<div class="ttc" id="aa00485_html"><div class="ttname"><a href="d6/d1a/a00485.html">SPI.hpp</a></div><div class="ttdoc">Public umbrella include for the SPI subsystem, exposing &quot;SPIPort&lt;DriverMode&gt;&quot; in all three modes.</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="freertos-task-creation"></a>
+FreeRTOS Task Creation</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="d5/d72/a00803.html">RTOS.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="d0/da6/a02412.html">RTOS::Task</a> myTask;</div>
+<div class="line"><span class="keyword">const</span> <a class="code hl_struct" href="da/d5c/a02432.html">RTOS::Task::Config</a> config{<span class="stringliteral">&quot;MyTask&quot;</span>, 256 <span class="comment">/* stack words */</span>, <a class="code hl_enumvalue" href="d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a>};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (myTask.<a class="code hl_function" href="d0/da6/a02412.html#af2754047ab9e43ad9bed91c038aa6019">start</a>(config, [] {</div>
+<div class="line">        while (true) {</div>
+<div class="line">            <span class="comment">// Task logic</span></div>
+<div class="line">            RTOS::delay(std::chrono::seconds(1));</div>
+<div class="line">        }</div>
+<div class="line">    }) != <span class="keyword">nullptr</span>) {</div>
+<div class="line">    <span class="comment">// Task started successfully</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa00803_html"><div class="ttname"><a href="d5/d72/a00803.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
+<div class="ttc" id="aa02412_html"><div class="ttname"><a href="d0/da6/a02412.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
+<div class="ttc" id="aa02412_html_af2754047ab9e43ad9bed91c038aa6019"><div class="ttname"><a href="d0/da6/a02412.html#af2754047ab9e43ad9bed91c038aa6019">RTOS::Task::start</a></div><div class="ttdeci">Handle start(F &amp;&amp;function) noexcept</div><div class="ttdoc">Binds the entry function and creates and starts the task, stopping a previously created one first.</div><div class="ttdef"><b>Definition</b> Task.hpp:909</div></div>
+<div class="ttc" id="aa02416_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:84</div></div>
+<div class="ttc" id="aa02432_html"><div class="ttname"><a href="da/d5c/a02432.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:625</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="can-bus-communication"></a>
+CAN Bus Communication</h2>
+<p><a class="el" href="d0/d17/a03491.html" title="Lib/Canbus/ServerBase.hpp">`Lib::Canbus::Service&lt;Mode::SERVER&gt;`</a>/<a class="el" href="d1/d07/a03482.html" title="Lib/Canbus/ClientBase.hpp">`Service&lt;Mode::CLIENT&gt;`</a> have protected constructors — derive your own class:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="de/d76/a00134.html">Lib/Canbus/Template.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MyCanServer final : <span class="keyword">public</span> <a class="code hl_class" href="d4/d0e/a01272.html">Lib::Canbus::Service</a>&lt;Lib::Canbus::Mode::SERVER&gt; {</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">    <span class="keyword">explicit</span> MyCanServer(CAN_HandleTypeDef * handle) :</div>
+<div class="line">        Service(handle) {</div>
+<div class="line">    }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">MyCanServer canServer(&amp;hcan1);</div>
+<div class="line"><span class="keywordflow">if</span> (!canServer.start()) {</div>
+<div class="line">    <span class="comment">// Handle error</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordflow">if</span> (!canServer.send(<span class="comment">/* nodeId */</span> 1)) {</div>
+<div class="line">    <span class="comment">// Handle transmission error</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aa00134_html"><div class="ttname"><a href="de/d76/a00134.html">Template.hpp</a></div><div class="ttdoc">Forward-declares &quot;Lib::Canbus::Service&quot; so a pointer/reference to it can be used without pulling in a...</div></div>
+<div class="ttc" id="aa01272_html"><div class="ttname"><a href="d4/d0e/a01272.html">Lib::Canbus::Service</a></div><div class="ttdoc">CAN bus client/server service, specialized per &quot;Mode&quot; in &quot;ClientBase.hpp&quot;/&quot;ServerBase....</div><div class="ttdef"><b>Definition</b> Template.hpp:24</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="️-configuration"></a>
+⚙️ Configuration</h1>
+<h2 class="doxsection"><a class="anchor" id="key-configuration-files"></a>
+Key Configuration Files</h2>
+<ul>
+<li><b><span class="tt"><a class="el" href="da/dee/a00383.html" title="Defines the transfer mechanism a HAL peripheral port uses for its transfers.">inc/Lib/HAL/core/DriverMode.hpp</a></span></b>: Defines the transfer-mode enum (<span class="tt">BLOCKING</span>, <span class="tt">IT</span>, <span class="tt">DMA</span>)</li>
+<li><b><span class="tt">EWARM/Core/Inc/FreeRTOSConfig.h</span></b>: FreeRTOS configuration parameters</li>
+<li><b><span class="tt">EWARM/Core/Inc/stm32f4xx_hal_conf.h</span></b>: STM32 HAL module enablement (e.g. <span class="tt">HAL_SPI_MODULE_ENABLED</span>) — a peripheral driver guarded by a macro not defined here compiles to nothing</li>
+<li><b><span class="tt">inc/Lib/System/</span></b>: Platform-specific initialization, versioning, and configuration storage</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="common-configuration-options"></a>
+Common Configuration Options</h2>
+<ol type="1">
+<li><b>Transfer Modes</b>: Select blocking, interrupt-driven, or DMA I/O per peripheral instantiation</li>
+<li><b>Task Priorities</b>: Configure FreeRTOS task scheduling via <span class="tt"><a class="el" href="da/d5c/a02432.html" title="Configuration parameters for task creation.">RTOS::Task::Config</a></span></li>
+<li><b>Queue Sizes</b>: Adjust <span class="tt"><a class="el" href="d5/df1/a02392.html" title="Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.">RTOS::Queue</a>&lt;T, N&gt;</span> capacities</li>
+<li><b>Peripheral Clocking</b>: HAL clock configuration (via STM32CubeMX, <span class="tt">EWARM/Core/</span>)</li>
+<li><b>Memory Layout</b>: Stack/heap allocation in the linker script (<span class="tt">EWARM/EWARM/stm32f407xx_flash.icf</span>)</li>
+</ol>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-testing"></a>
+🧪 Testing</h1>
+<p>There is no automated test suite or CI for this repository — verification is manual, on real STM32F4 hardware, using IAR's debugger. See <span class="tt">EWARM/README.md</span> for the general approach:</p>
+<div class="fragment"><div class="line"><span class="comment">// Example: verify SPI communication on target</span></div>
+<div class="line"><span class="keywordflow">if</span> (spiPort.open() &amp;&amp; spiPort.sendReceive(tx, rx, std::chrono::milliseconds(1000))) {</div>
+<div class="line">    <span class="comment">// Verify received data against expected values in the debugger</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md-documentation"></a>
+📚 Documentation</h1>
+<ul>
+<li><b>API Reference</b>: Generated by Doxygen from <span class="tt">docs/Lib.doxyfile</span> (outputs to <span class="tt">docs/doxygen/</span>) or <span class="tt">EWARM/.doxygen/.doxyfile</span></li>
+<li><b>HAL Guide</b>: <span class="tt">docs/HAL/md/*.md</span></li>
+<li><b>Inline Code Comments</b>: Doxygen-formatted comments in all header files; each namespace documented in a dedicated <span class="tt"><a class="el" href="d0/dad/a00806.html">namespace.dox</a></span> file</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-architecture-components"></a>
+🎯 Architecture Components</h1>
+<h2 class="doxsection"><a class="anchor" id="hardware-abstraction-layer-libhalinclibhalreadmemd"></a>
+Hardware Abstraction Layer (<a class="el" href="dir_4ad11338be6ed64801f932656637dcad.html" title="X:/Lib/IAR/inc/Lib/HAL/Readme.md"><span class="tt">Lib::HAL</span></a>)</h2>
+<ul>
+<li><b>SPI / UART / I2C</b>: Blocking, interrupt-driven, and DMA modes</li>
+<li><b>CAN</b>: CAN controller integration (<a class="el" href="dd/db5/a00365.html" title="Lib/HAL/CAN/CANPortBase.hpp">`CANPort`</a>)</li>
+<li><b>ADC / DAC</b>: Analog I/O, with blocking/IT/DMA ADC modes</li>
+<li><b>GPIO</b>: Digital I/O, input/output handles, external interrupts</li>
+<li><b>TIM</b>: Timebase, PWM output, input capture, encoder, one-pulse, low-power timer</li>
+<li><b>RTC / IWDG / WWDG</b>: Real-time clock and independent/window watchdogs</li>
+<li><b>USB</b>: Host and device OTG port wrappers</li>
+<li><b>OSPI</b>: Quad-SPI/OCTOSPI (not available on STM32F407 — F7/H7/L4+ only)</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="rtos-abstractions-rtosinclibrtosreadmemd"></a>
+RTOS Abstractions (<a class="el" href="dir_3fba853156281524a1d2ff8b1fb19351.html" title="X:/Lib/IAR/inc/Lib/RTOS/Readme.md"><span class="tt">RTOS::</span></a>)</h2>
+<p>See the FreeRTOS wrapper index in <span class="tt">CLAUDE.md</span> for the full list — <a class="el" href="d0/d0a/a00743.html" title="Lib/RTOS/FreeRTOS/Task.hpp">`Task`</a>, <a class="el" href="d8/db9/a00725.html" title="Lib/RTOS/FreeRTOS/Queue.hpp">`Queue`</a>, <a class="el" href="df/d3b/a00728.html" title="Lib/RTOS/FreeRTOS/QueueSet.hpp">`QueueSet`</a>, <a class="el" href="df/df7/a00731.html" title="Lib/RTOS/FreeRTOS/Semaphore.hpp">`Semaphore`</a>/<a class="el" href="dd/db2/a00737.html" title="Lib/RTOS/FreeRTOS/SemaphoreCounting.hpp">`SemaphoreCounting`</a>, <a class="el" href="d2/d94/a00716.html" title="Lib/RTOS/FreeRTOS/Mutex.hpp">`Mutex`</a>, <a class="el" href="df/d9e/a00686.html" title="Lib/RTOS/FreeRTOS/EventGroup.hpp">`EventGroup`</a>, <a class="el" href="d2/ddd/a00755.html" title="Lib/RTOS/FreeRTOS/Timer.hpp">`Timer`</a>, <a class="el" href="d1/d04/a00713.html" title="Lib/RTOS/FreeRTOS/MessageBuffer.hpp">`MessageBuffer`</a>, <a class="el" href="dc/dce/a00740.html" title="Lib/RTOS/FreeRTOS/StreamBuffer.hpp">`StreamBuffer`</a>, <a class="el" href="d4/dfa/a00746.html" title="Lib/RTOS/FreeRTOS/TickClient.hpp">`TickClient`</a>, <a class="el" href="db/d7c/a00722.html" title="Lib/RTOS/FreeRTOS/PowerManager.hpp">`PowerManager`</a>, and more.</p>
+<h2 class="doxsection"><a class="anchor" id="communication-protocols"></a>
+Communication Protocols</h2>
+<ul>
+<li><b>CAN Bus</b> (<a class="el" href="dir_fb01d9b9c9ac08aef2bf3e651d6aac8a.html" title="X:/Lib/IAR/inc/Lib/Canbus/Readme.md"><span class="tt">Lib::Canbus</span></a>): Client/server service pattern over <a class="el" href="de/dd7/a00362.html" title="Lib/HAL/CAN/CANPort-IT.hpp">`Lib::HAL::CANPort&lt;DriverMode::IT&gt;`</a></li>
+<li><b>EtherCAT</b> (<a class="el" href="dir_ab080a3daff6b74c2c7f4ef6a80e99c9.html" title="X:/Lib/IAR/inc/Lib/Ethercat/Readme.md"><span class="tt">Lib::Ethercat</span></a>): Slave implementation written directly against ESC registers; the vendored SOES C stack under <span class="tt">native/</span> sits unused</li>
+<li><b>Modbus</b> (<a class="el" href="dir_260f4157cc546599b110418e99a31b5e.html" title="X:/Lib/IAR/inc/Lib/Communication/Readme.md"><span class="tt">Lib::Communication::Modbus</span></a>): Master/slave over a serial transport — ⚠️ incomplete</li>
+<li><b>Digi/XBEE</b> (<a class="el" href="dir_67df2c65d6bc148cc049a48bf38d4002.html" title="X:/Lib/IAR/inc/Lib/Digi/Readme.md"><span class="tt">Lib::Digi</span></a>): XBEE API-mode frame protocol</li>
+<li><b>XCOM</b> (<a class="el" href="dir_f15e15be8a771e0bd42be81332eec275.html" title="X:/Lib/IAR/inc/Lib/XCOM/Readme.md"><span class="tt">Lib::XCOM</span></a>): Custom data transfer protocol</li>
+<li><b>HTTP</b> (<a class="el" href="dir_f3b92422084dc4c8a9ca4c063b5069ff.html" title="X:/Lib/IAR/inc/Lib/HTTP/Readme.md"><span class="tt">Lib::HTTP</span></a>): Transport-agnostic HTTP/1.1 client, with a wolfSSL-backed TLS wrapper for HTTPS, over any raw byte-stream link (Ethernet socket, GSM module, ...)</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="️-module-documentation"></a>
+🗂️ Module Documentation</h1>
+<p>Each <span class="tt">inc/Lib/</span> module has its own <span class="tt"><a class="el" href="dd/d7e/a00809.html">Readme.md</a></span> with a detailed, code-verified index of its classes and usage — this top-level README only gives the overview:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Module  </th><th class="markdownTableHeadNone">Namespace  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">HAL  </td><td class="markdownTableBodyNone"><a class="el" href="dir_4ad11338be6ed64801f932656637dcad.html" title="X:/Lib/IAR/inc/Lib/HAL/Readme.md"><span class="tt">Lib::HAL</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">BSP  </td><td class="markdownTableBodyNone"><a class="el" href="dir_4f517acdbe9bc35e0af7a62669e9b8b9.html" title="X:/Lib/IAR/inc/Lib/BSP/Readme.md"><span class="tt">Lib::BSP</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="da/de3/a00856.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a>  </td><td class="markdownTableBodyNone"><a class="el" href="dir_3fba853156281524a1d2ff8b1fb19351.html" title="X:/Lib/IAR/inc/Lib/RTOS/Readme.md"><span class="tt">RTOS::</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Helper  </td><td class="markdownTableBodyNone"><a class="el" href="dir_1e782c96d6d1ca848bfd4a9f48d74d58.html" title="X:/Lib/IAR/inc/Lib/Helper/Readme.md"><span class="tt">Lib::Helper</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Core  </td><td class="markdownTableBodyNone"><a class="el" href="dir_f3023c1530049393cf873deb7da07554.html" title="X:/Lib/IAR/inc/Lib/Core/Readme.md"><span class="tt">Lib::Core</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Errors  </td><td class="markdownTableBodyNone"><a class="el" href="dir_57ee1fa90f429b35abda931e1ac98628.html" title="X:/Lib/IAR/inc/Lib/Errors/Readme.md"><span class="tt">Lib::Errors</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">System  </td><td class="markdownTableBodyNone"><a class="el" href="dir_5c17e5f690e92284d42df705067145f0.html" title="X:/Lib/IAR/inc/Lib/System/Readme.md"><span class="tt">Lib::System</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Canbus  </td><td class="markdownTableBodyNone"><a class="el" href="dir_fb01d9b9c9ac08aef2bf3e651d6aac8a.html" title="X:/Lib/IAR/inc/Lib/Canbus/Readme.md"><span class="tt">Lib::Canbus</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Communication (Modbus) ⚠️  </td><td class="markdownTableBodyNone"><a class="el" href="dir_260f4157cc546599b110418e99a31b5e.html" title="X:/Lib/IAR/inc/Lib/Communication/Readme.md"><span class="tt">Lib::Communication::Modbus</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Ethercat  </td><td class="markdownTableBodyNone"><a class="el" href="dir_ab080a3daff6b74c2c7f4ef6a80e99c9.html" title="X:/Lib/IAR/inc/Lib/Ethercat/Readme.md"><span class="tt">Lib::Ethercat</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Ethernet  </td><td class="markdownTableBodyNone"><a class="el" href="dir_c7240d7295280eb9592be0a257cd939d.html" title="X:/Lib/IAR/inc/Lib/Ethernet/Readme.md"><span class="tt">Lib::Ethernet</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">HTTP  </td><td class="markdownTableBodyNone"><a class="el" href="dir_f3b92422084dc4c8a9ca4c063b5069ff.html" title="X:/Lib/IAR/inc/Lib/HTTP/Readme.md"><span class="tt">Lib::HTTP</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Digi  </td><td class="markdownTableBodyNone"><a class="el" href="dir_67df2c65d6bc148cc049a48bf38d4002.html" title="X:/Lib/IAR/inc/Lib/Digi/Readme.md"><span class="tt">Lib::Digi</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">XCOM  </td><td class="markdownTableBodyNone"><a class="el" href="dir_f15e15be8a771e0bd42be81332eec275.html" title="X:/Lib/IAR/inc/Lib/XCOM/Readme.md"><span class="tt">Lib::XCOM</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">USB  </td><td class="markdownTableBodyNone"><a class="el" href="dir_faeb283bf437ec86682d826ccb2ce3ea.html" title="X:/Lib/IAR/inc/Lib/USB/Readme.md"><span class="tt">Lib::USB</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Crypto  </td><td class="markdownTableBodyNone"><a class="el" href="dir_538b34c2c7ede017174dadf8df9491b3.html" title="X:/Lib/IAR/inc/Lib/Crypto/Readme.md"><span class="tt">Lib::Crypto</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Math  </td><td class="markdownTableBodyNone"><a class="el" href="dir_d7b902938708671190894d621f68a9dd.html" title="X:/Lib/IAR/inc/Lib/Math/Readme.md"><span class="tt">Lib::Math</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Pneumatics  </td><td class="markdownTableBodyNone"><a class="el" href="dir_292e37ec661f02231b496186033f378f.html" title="X:/Lib/IAR/inc/Lib/Pneumatics/Readme.md"><span class="tt">Lib::Pneumatics</span></a>  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">SolarControl  </td><td class="markdownTableBodyNone"><a class="el" href="dir_eedd53edf1417b8f9bca7922241a9bda.html" title="X:/Lib/IAR/inc/Lib/SolarControl/Readme.md"><span class="tt">Lib::SolarControl</span></a>  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">std (archived shims)  </td><td class="markdownTableBodyNone"><a href="inc/Lib/std/Readme.md"><span class="tt">inc/Lib/std</span></a>  </td></tr>
+</table>
+<p>⚠️ = the module Readme documents a known defect or gap found while writing it (see its own file for specifics).</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md-further-reading"></a>
+📖 Further Reading</h1>
+<p>See <span class="tt">CLAUDE.md</span> at the repo root for the full architecture reference (toolchain details, per-module library index, cross-cutting design patterns, and naming conventions) — it is kept current with the codebase; this README gives the overview. </p>
+</div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

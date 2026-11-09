@@ -1,10 +1,9 @@
 var a01618 =
 [
-    [ "FlashInterface", "d9/d6a/a01618.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
-    [ "~FlashInterface", "d9/d6a/a01618.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
-    [ "eraseSector", "d9/d6a/a01618.html#af08d9ff8192f0066af73392f27d84136", null ],
-    [ "lock", "d9/d6a/a01618.html#adc29740e07df07068f8bdb0964150a66", null ],
-    [ "unlock", "d9/d6a/a01618.html#ae2768a3892704f8fbbe0c848360cafb3", null ],
-    [ "writeBuffer", "d9/d6a/a01618.html#ac538ae44fbfc46d7facce38d5e6f0aa8", null ],
-    [ "writeWord", "d9/d6a/a01618.html#a23927049bc46b9909d20722e969b2c11", null ]
+    [ "writeTo", "d9/d6a/a01618.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d9/d6a/a01618.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d9/d6a/a01618.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d9/d6a/a01618.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d9/d6a/a01618.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d9/d6a/a01618.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

@@ -1,10 +1,8 @@
 var a01656 =
 [
-    [ "OSPIPort", "d5/d8d/a01656.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d5/d8d/a01656.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "command", "d5/d8d/a01656.html#aeed66720e71ab96fdcea2352bfd82166", null ],
-    [ "getHandle", "d5/d8d/a01656.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d5/d8d/a01656.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "receive", "d5/d8d/a01656.html#aebb9d95a8217a6a40ca5bc510164224c", null ],
-    [ "transmit", "d5/d8d/a01656.html#a83db53e747787225e59280eff7be7642", null ]
+    [ "Frame0x90", "d5/d8d/a01656.html#a22052cd3212328570ef5c6d06ef34390", null ],
+    [ "options", "d5/d8d/a01656.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d5/d8d/a01656.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d5/d8d/a01656.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d5/d8d/a01656.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

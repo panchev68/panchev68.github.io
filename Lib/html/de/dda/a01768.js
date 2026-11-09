@@ -1,12 +1,14 @@
 var a01768 =
 [
-    [ "Event", "dd/d20/a01772.html", null ],
-    [ "UARTPort", "de/dda/a01768.html#a074ec6b19b1073304ca2513d11d43247", null ],
-    [ "~UARTPort", "de/dda/a01768.html#a63dcc055b6bdb5ff425d9d3de6b85d0e", null ],
-    [ "abort", "de/dda/a01768.html#a6338474d55762abe068a9a4ae7a52004", null ],
-    [ "close", "de/dda/a01768.html#aee354dfcdcef889e747eb1f370c78099", null ],
-    [ "open", "de/dda/a01768.html#ae5ca2cdd6a1267747986b8abc4005844", null ],
-    [ "receive", "de/dda/a01768.html#a6f1621aced0fc72730788607d38f4a4c", null ],
-    [ "send", "de/dda/a01768.html#a0d6d405f2bafa475388de1fca3295a51", null ],
-    [ "waitForEvent", "de/dda/a01768.html#a12c61ca185bbe79d198fe4261be4403c", null ]
+    [ "PortString", "de/dda/a01768.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "de/dda/a01768.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "de/dda/a01768.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "de/dda/a01768.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "de/dda/a01768.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "de/dda/a01768.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "de/dda/a01768.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "de/dda/a01768.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "de/dda/a01768.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "de/dda/a01768.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "de/dda/a01768.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

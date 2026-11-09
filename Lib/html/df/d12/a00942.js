@@ -1,9 +1,9 @@
 var a00942 =
 [
-    [ "chipManufacturer", "df/d12/a00942.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
-    [ "memoryCapacity", "df/d12/a00942.html#a0ce044d51923185dc77297ec3845620b", null ],
-    [ "pagePerSector", "df/d12/a00942.html#a768e74e894621cf3033a1f4e06661b66", null ],
-    [ "pageSize", "df/d12/a00942.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
-    [ "sectorCount", "df/d12/a00942.html#ae152c07a2eeb80c6525857160e04126b", null ],
-    [ "sectorSize", "df/d12/a00942.html#a453d47437845007dcb1caa1889d1ec2b", null ]
+    [ "DriverBase", "df/d12/a00942.html#a329188c9f70a21a0f421598a6fa4aea6", null ],
+    [ "~DriverBase", "df/d12/a00942.html#a485ac6dbe46e3f7568c6ef46aeb78939", null ],
+    [ "canTransferBlock", "df/d12/a00942.html#ad55213b27726f017dcbc465586c2b468", null ],
+    [ "getTransferActive", "df/d12/a00942.html#abee35beb9e71effa911fc8fc30b2fbf7", null ],
+    [ "handleTransferCompleteEvent", "df/d12/a00942.html#aee5a5b357b886ee353e04fb06a4c0ada", null ],
+    [ "setTransferActive", "df/d12/a00942.html#af67616fc7d8d9dd4e3c92389d14bc58f", null ]
 ];

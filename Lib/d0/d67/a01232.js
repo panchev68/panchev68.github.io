@@ -1,7 +1,8 @@
 var a01232 =
 [
-    [ "Digest", "d0/d67/a01232.html#a177e084473b0593a7a7d9bf1e0dce133", null ],
-    [ "SHA256", "d0/d67/a01232.html#a495e4d841b6752aecbcdaa9d1c805420", null ],
-    [ "finish", "d0/d67/a01232.html#abcfe6df3f9c2f8197fd365f99e07551f", null ],
-    [ "update", "d0/d67/a01232.html#a79e12cbf01846349b78a18c75338c38e", null ]
+    [ "ambientTemperatureCelsius", "d0/d67/a01232.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "d0/d67/a01232.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "d0/d67/a01232.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "d0/d67/a01232.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "d0/d67/a01232.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

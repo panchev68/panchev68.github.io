@@ -1,5 +1,11 @@
 var a01632 =
 [
-    [ "nssPin", "d6/daf/a01632.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
-    [ "spiPort", "d6/daf/a01632.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
+    [ "onExtendedTransmitStatusChanged", "d6/daf/a01632.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "d6/daf/a01632.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "d6/daf/a01632.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "d6/daf/a01632.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "d6/daf/a01632.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "d6/daf/a01632.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "d6/daf/a01632.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "d6/daf/a01632.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

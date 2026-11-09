@@ -1,12 +1,8 @@
 var a01640 =
 [
-    [ "Event", "d3/d3e/a01644.html", null ],
-    [ "I2CPort", "de/d14/a01640.html#a40611840c6465c83718b07135ffd6505", null ],
-    [ "~I2CPort", "de/d14/a01640.html#a615afa9173b081285b7039a91ad6f52c", null ],
-    [ "abort", "de/d14/a01640.html#a5f141ee19d64a4945bb5351f14b83ab8", null ],
-    [ "close", "de/d14/a01640.html#a1b706b87f43092a8d6cb419370ea94d6", null ],
-    [ "masterReceive", "de/d14/a01640.html#aa009b69de090fc8996486efe52ba20d5", null ],
-    [ "masterTransmit", "de/d14/a01640.html#ac7a6fd08598fb913b7b39830d2dd947e", null ],
-    [ "open", "de/d14/a01640.html#ab3e1a68adbf83f6f27a25737cedaaf4c", null ],
-    [ "waitForEvent", "de/d14/a01640.html#a6fc4b7301aefc15319b9eb5095f49d77", null ]
+    [ "Frame0x88", "de/d14/a01640.html#a8cdabdda134adaf1796641f68581f1c8", null ],
+    [ "atCommand", "de/d14/a01640.html#aba3a41028c41109166efaf024c9dca74", null ],
+    [ "data", "de/d14/a01640.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
+    [ "frameId", "de/d14/a01640.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
+    [ "status", "de/d14/a01640.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
 ];

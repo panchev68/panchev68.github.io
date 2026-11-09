@@ -1,5 +1,5 @@
 var a00608 =
 [
-    [ "Lib::Pneumatics::Sensor", "d6/d8e/a01979.html", "d6/d8e/a01979" ],
-    [ "Lib::Pneumatics::Sensor::Config", "d6/dd6/a01983.html", "d6/dd6/a01983" ]
+    [ "Lib::Helper::Convert::Hex&lt; T &gt;", "d7/d26/a02162.html", "d7/d26/a02162" ],
+    [ "hex", "d4/d14/a00608.html#a60e614729279abe20d7718c969b604bb", null ]
 ];

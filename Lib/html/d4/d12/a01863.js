@@ -1,10 +1,8 @@
 var a01863 =
 [
-    [ "PeakInfo", "d1/de6/a01867.html", "d1/de6/a01867" ],
-    [ "FindPeaks", "d4/d12/a01863.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "d4/d12/a01863.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "d4/d12/a01863.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "d4/d12/a01863.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "d4/d12/a01863.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "d4/d12/a01863.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "Device", "d4/d12/a01863.html#acdeffbad9eb409804cbc72fa86794a97", null ],
+    [ "~Device", "d4/d12/a01863.html#a231e1d150464ec12c66e5578ff0c3128", null ],
+    [ "getHandle", "d4/d12/a01863.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d4/d12/a01863.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "DeviceManager< T_DEVICE, T_HANDLE >", "d4/d12/a01863.html#ad317e84715f53c3ea50d6b4113c92403", null ]
 ];

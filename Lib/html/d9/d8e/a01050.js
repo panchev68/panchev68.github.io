@@ -1,8 +1,11 @@
 var a01050 =
 [
-    [ "miso", "d9/d8e/a01050.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "d9/d8e/a01050.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "d9/d8e/a01050.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "d9/d8e/a01050.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "d9/d8e/a01050.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "capacityBytes", "d9/d8e/a01050.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d9/d8e/a01050.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d9/d8e/a01050.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d9/d8e/a01050.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d9/d8e/a01050.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d9/d8e/a01050.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d9/d8e/a01050.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d9/d8e/a01050.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

@@ -1,10 +1,19 @@
 var a01060 =
 [
-    [ "Ring", "d5/d16/a01060.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "d5/d16/a01060.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "d5/d16/a01060.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "d5/d16/a01060.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "d5/d16/a01060.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "d5/d16/a01060.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "d5/d16/a01060.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "Command", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d5/d16/a01060.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

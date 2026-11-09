@@ -1,7 +1,13 @@
 var a00855 =
 [
-    [ "diPinHandle", "da/de6/a00855.html#ac1b56409fb324181fdf949402d46b876", null ],
-    [ "nrstPinHandle", "da/de6/a00855.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
-    [ "nssPinHandle", "da/de6/a00855.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
-    [ "spiHandle", "da/de6/a00855.html#ab178d2536db34733af537ae7bec2353c", null ]
+    [ "TimEncoder", "d8/de7/a02030.html", "d8/de7/a02030" ],
+    [ "TimEventBase", "dc/ddb/a02034.html", "dc/ddb/a02034" ],
+    [ "TimInputCapture", "df/dcf/a02038.html", "df/dcf/a02038" ],
+    [ "TimOnePulse", "d1/dc4/a02042.html", "d1/dc4/a02042" ],
+    [ "TimOutputCompare", "d2/dd9/a02046.html", "d2/dd9/a02046" ],
+    [ "TimPwmOutput", "d0/d3d/a02050.html", "d0/d3d/a02050" ],
+    [ "TimTimebase", "d7/d38/a02054.html", "d7/d38/a02054" ],
+    [ "compareRegister", "da/de6/a00855.html#afb4fb6e73aa0198e451581196e258e12", null ],
+    [ "isValidChannel", "da/de6/a00855.html#ab75a39e4c4d2e24306f9d60322937e4a", null ],
+    [ "toActiveChannel", "da/de6/a00855.html#a7308e7f3aee34a139db6fc9cc68a0876", null ]
 ];

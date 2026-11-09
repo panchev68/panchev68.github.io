@@ -1,7 +1,5 @@
 var a02156 =
 [
-    [ "FirmwareString", "dd/d3f/a02156.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "Firmware", "dd/d3f/a02156.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "operator FirmwareString", "dd/d3f/a02156.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "dd/d3f/a02156.html#a7dcca38967251869c5bf305173fc13ee", null ]
+    [ "DecimalDigits", "dd/d3f/a02156.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "dd/d3f/a02156.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

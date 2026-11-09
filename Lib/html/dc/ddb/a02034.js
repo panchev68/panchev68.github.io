@@ -1,15 +1,14 @@
 var a02034 =
 [
-    [ "MutexGuard", "dc/ddb/a02034.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "dc/ddb/a02034.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "dc/ddb/a02034.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "dc/ddb/a02034.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "dc/ddb/a02034.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "dc/ddb/a02034.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "dc/ddb/a02034.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "dc/ddb/a02034.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "dc/ddb/a02034.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "dc/ddb/a02034.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "dc/ddb/a02034.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "dc/ddb/a02034.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "Manager", "dc/ddb/a02034.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "dc/ddb/a02034.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimEventBase", "dc/ddb/a02034.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
+    [ "TimEventBase", "dc/ddb/a02034.html#a5bc4465b338b0255addd68424099b237", null ],
+    [ "TimEventBase", "dc/ddb/a02034.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
+    [ "~TimEventBase", "dc/ddb/a02034.html#a5005179511e8564eef47bc3da1d74925", null ],
+    [ "bindWorker", "dc/ddb/a02034.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "notifyWorkerFromISR", "dc/ddb/a02034.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "operator=", "dc/ddb/a02034.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
+    [ "operator=", "dc/ddb/a02034.html#a252859ce5916b5a86188c2929fc271a4", null ],
+    [ "waitEvent", "dc/ddb/a02034.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
 ];

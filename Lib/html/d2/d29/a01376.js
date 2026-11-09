@@ -1,8 +1,14 @@
 var a01376 =
 [
-    [ "Message", "d2/d29/a01376.html#ac0559573583ad141a19e0fdcd6b5fb31", null ],
-    [ "Message", "d2/d29/a01376.html#a798f2ada4b0d67484dd425ecfc0843ff", null ],
-    [ "Message", "d2/d29/a01376.html#a69c2d00f7a4fbbf3ef56e807681c9b84", null ],
-    [ "~Message", "d2/d29/a01376.html#a5bb6f5ee00d81a52d45f8a835527e944", null ],
-    [ "operator std::vector< uint8_t >", "d2/d29/a01376.html#a35415de7cf962f29402cef32af19c8cb", null ]
+    [ "PasswordAuthHandler", "d2/d29/a01376.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "d2/d29/a01376.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "d2/d29/a01376.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "d2/d29/a01376.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "d2/d29/a01376.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "d2/d29/a01376.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "d2/d29/a01376.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "d2/d29/a01376.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "d2/d29/a01376.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "d2/d29/a01376.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "d2/d29/a01376.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

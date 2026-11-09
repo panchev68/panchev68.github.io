@@ -1,9 +1,14 @@
 var a01560 =
 [
-    [ "Event", "de/dd5/a01564.html", null ],
-    [ "CANPort", "de/d89/a01560.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
-    [ "~CANPort", "de/d89/a01560.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
-    [ "close", "de/d89/a01560.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
-    [ "open", "de/d89/a01560.html#a591e40ed78afa5d73704475e00c55060", null ],
-    [ "waitForEvent", "de/d89/a01560.html#a1c4fcd17767b405bdecda984747567ed", null ]
+    [ "append", "de/d89/a01560.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "de/d89/a01560.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "de/d89/a01560.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "de/d89/a01560.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "de/d89/a01560.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "de/d89/a01560.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "de/d89/a01560.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "de/d89/a01560.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "de/d89/a01560.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "de/d89/a01560.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "de/d89/a01560.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

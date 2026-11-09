@@ -1,9 +1,14 @@
 var a01566 =
 [
-    [ "BackupRamDomain", "d1/d9b/a01566.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "d1/d9b/a01566.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "close", "d1/d9b/a01566.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "d1/d9b/a01566.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "readRegister", "d1/d9b/a01566.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "d1/d9b/a01566.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "append", "d1/d9b/a01566.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "d1/d9b/a01566.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "d1/d9b/a01566.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "d1/d9b/a01566.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "d1/d9b/a01566.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "d1/d9b/a01566.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "d1/d9b/a01566.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "d1/d9b/a01566.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "d1/d9b/a01566.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "d1/d9b/a01566.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "d1/d9b/a01566.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

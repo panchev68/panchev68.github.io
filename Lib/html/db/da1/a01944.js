@@ -1,8 +1,14 @@
 var a01944 =
 [
-    [ "State", "db/da1/a01944.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "db/da1/a01944.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "db/da1/a01944.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "db/da1/a01944.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "db/da1/a01944.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "OSPIPort", "db/da1/a01944.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "db/da1/a01944.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "OSPIPort", "db/da1/a01944.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
+    [ "OSPIPort", "db/da1/a01944.html#a50425950532682614be81eb8bb5216b7", null ],
+    [ "command", "db/da1/a01944.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
+    [ "getHandle", "db/da1/a01944.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "db/da1/a01944.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "operator=", "db/da1/a01944.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
+    [ "operator=", "db/da1/a01944.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
+    [ "receive", "db/da1/a01944.html#aef7cf93602718e2d14816e122f15f3be", null ],
+    [ "transmit", "db/da1/a01944.html#a10d2dc1da9553992110c3752aa39e058", null ]
 ];

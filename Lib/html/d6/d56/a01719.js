@@ -1,5 +1,6 @@
 var a01719 =
 [
-    [ "SPIPort", "d6/d56/a01719.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
-    [ "~SPIPort", "d6/d56/a01719.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ]
+    [ "frameReceived", "d6/d56/a01719.html#ac8bfe015a954f64ad27486a7f7b82059", null ],
+    [ "getParameters", "d6/d56/a01719.html#af5c689938685464a5e8331e943afbf47", null ],
+    [ "setParameters", "d6/d56/a01719.html#a4dbee9575ed5dc6f641f59c022b6b4d3", null ]
 ];

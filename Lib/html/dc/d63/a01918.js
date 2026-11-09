@@ -1,14 +1,15 @@
 var a01918 =
 [
-    [ "TimeChangeRule", "dd/d19/a01922.html", "dd/d19/a01922" ],
-    [ "TimeZone", "dc/d63/a01918.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "dc/d63/a01918.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "dc/d63/a01918.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "dc/d63/a01918.html#a479ec4792a22a5b314a497bb01be2047", null ],
-    [ "getName", "dc/d63/a01918.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "dc/d63/a01918.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "dc/d63/a01918.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "dc/d63/a01918.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "dc/d63/a01918.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "dc/d63/a01918.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "Config", "dc/d63/a01918.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Handle", "dc/d63/a01918.html#ade0f87f7318848ef033a913d2442a32e", null ],
+    [ "Port", "dc/d63/a01918.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
+    [ "~Port", "dc/d63/a01918.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "Port", "dc/d63/a01918.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
+    [ "Port", "dc/d63/a01918.html#af0271c4483ea3f5cebaa37054062a428", null ],
+    [ "operator=", "dc/d63/a01918.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
+    [ "operator=", "dc/d63/a01918.html#a8e39b404c71b26364658b90ae25a398d", null ],
+    [ "read", "dc/d63/a01918.html#adce8df0019ea415a350cf833ac481fc2", null ],
+    [ "setPullupPulldown", "dc/d63/a01918.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "dc/d63/a01918.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
+    [ "write", "dc/d63/a01918.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
 ];

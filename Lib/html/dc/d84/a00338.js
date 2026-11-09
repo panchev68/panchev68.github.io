@@ -1,7 +1,6 @@
 var a00338 =
 [
-    [ "Lib::HAL::DriverDataDirection", "d2/ddd/a00755.html#a82754326f2fd3bd32ea447c756ec2825", [
-      [ "Lib::HAL::DriverDataDirection::RX", "d2/ddd/a00755.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
-      [ "Lib::HAL::DriverDataDirection::TX", "d2/ddd/a00755.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ]
-    ] ]
+    [ "Lib::Ethernet::Wiznet::Socket", "d5/dec/a01794.html", "d5/dec/a01794" ],
+    [ "Lib::Ethernet::Wiznet::operator&", "d9/dbb/a00852.html#acb74339821d97e8e11b2409c1dd2a413", null ],
+    [ "Lib::Ethernet::Wiznet::operator|", "d9/dbb/a00852.html#aa7f2f28683a1a310a51a07e5e63cde01", null ]
 ];

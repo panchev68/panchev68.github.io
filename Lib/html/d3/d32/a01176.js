@@ -1,9 +1,15 @@
 var a01176 =
 [
-    [ "Address", "d3/d32/a01176.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "d3/d32/a01176.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "d3/d32/a01176.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "d3/d32/a01176.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "d3/d32/a01176.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "d3/d32/a01176.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "Diagnostic", "dd/d75/a01180.html", "dd/d75/a01180" ],
+    [ "Driver", "d3/d32/a01176.html#ab07845254f409b109812886c271c23fd", null ],
+    [ "~Driver", "d3/d32/a01176.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
+    [ "getHumidity", "d3/d32/a01176.html#af1b0389aae714142b8a606106d0a4a56", null ],
+    [ "getRawHumidity", "d3/d32/a01176.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
+    [ "getRawTemperature", "d3/d32/a01176.html#ab776af450b94ccff9151de29e820c940", null ],
+    [ "getTemperature", "d3/d32/a01176.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
+    [ "hasNewData", "d3/d32/a01176.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
+    [ "isValidData", "d3/d32/a01176.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
+    [ "start", "d3/d32/a01176.html#a7bb2909673708c9ad956bc98034da91d", null ],
+    [ "Base< Driver< Type::DTH22 > >", "d3/d32/a01176.html#a563861f233361c18a30fd9049d7abd7a", null ],
+    [ "diagnostic", "d3/d32/a01176.html#a641741551ee87f815b7ca238c2fce09c", null ]
 ];

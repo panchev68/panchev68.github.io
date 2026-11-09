@@ -1,17 +1,8 @@
 var a01655 =
 [
-    [ "I2CPortAsync", "df/ddd/a01655.html#ad6f096b9040045e38ab5e4e86819079f", null ],
-    [ "I2CPortAsync", "df/ddd/a01655.html#aa109faa83d7e4ecefcb271facf623bfa", null ],
-    [ "I2CPortAsync", "df/ddd/a01655.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "~I2CPortAsync", "df/ddd/a01655.html#ab99c1740ad5035d4255814d36087a895", null ],
-    [ "abort", "df/ddd/a01655.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "df/ddd/a01655.html#a779b4da47e3e78c2a075909c0f4b27b7", null ],
-    [ "isOpened", "df/ddd/a01655.html#a09e330aa16441ed5498a6819fdfaa964", null ],
-    [ "masterMemRead", "df/ddd/a01655.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "df/ddd/a01655.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "df/ddd/a01655.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "df/ddd/a01655.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "df/ddd/a01655.html#ae89b27849413f3912f2bae77dcf75e0b", null ],
-    [ "operator=", "df/ddd/a01655.html#a9797b46ab71c59c252ed0c1a83268642", null ],
-    [ "operator=", "df/ddd/a01655.html#aaba7ac7de86030ef31d39e89c040656f", null ]
+    [ "Frame0x8b", "df/ddd/a01655.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
+    [ "deliveryStatus", "df/ddd/a01655.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
+    [ "discoveryStatus", "df/ddd/a01655.html#a7b5c383aff55a80124e65ff4565eb114", null ],
+    [ "frameId", "df/ddd/a01655.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
+    [ "transmitRetryCount", "df/ddd/a01655.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
 ];

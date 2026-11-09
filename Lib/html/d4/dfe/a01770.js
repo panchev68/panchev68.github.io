@@ -1,12 +1,8 @@
 var a01770 =
 [
-    [ "TimOutputCompare", "d4/dfe/a01770.html#a147e928fad995991b23e7d01fe3858fd", null ],
-    [ "~TimOutputCompare", "d4/dfe/a01770.html#ad51108ace6896dca15950c5bbfd3002b", null ],
-    [ "getCounter", "d4/dfe/a01770.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
-    [ "setCompare", "d4/dfe/a01770.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
-    [ "start", "d4/dfe/a01770.html#a63482b7958cd7171218c959b2b5df044", null ],
-    [ "stop", "d4/dfe/a01770.html#aac2ec3db8ef26406c23bea924b96997b", null ],
-    [ "waitCompare", "d4/dfe/a01770.html#a040290a0bf889a08fc0248b637b69e71", null ],
-    [ "waitCompare", "d4/dfe/a01770.html#a18804c13963fca99f8037034a6d4e7ec", null ],
-    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d4/dfe/a01770.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
+    [ "Node", "d4/dfe/a01770.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "d4/dfe/a01770.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "d4/dfe/a01770.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "d4/dfe/a01770.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "d4/dfe/a01770.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

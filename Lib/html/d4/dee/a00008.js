@@ -1,5 +1,5 @@
 var a00008 =
 [
-    [ "Lib::BSP::Backlight", "d3/d95/a00779.html", "d3/d95/a00779" ],
-    [ "Lib::BSP::Backlight::Config", "dc/d0c/a00783.html", "dc/d0c/a00783" ]
+    [ "Lib::BSP::Backlight", "d2/db8/a00867.html", "d2/db8/a00867" ],
+    [ "Lib::BSP::Backlight::Config", "dd/de1/a00871.html", "dd/de1/a00871" ]
 ];

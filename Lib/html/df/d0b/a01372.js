@@ -1,12 +1,10 @@
 var a01372 =
 [
-    [ "Command", "df/d0b/a01372.html#ad7de9040ab35a62c524e02edb5857497", null ],
-    [ "LocalAtCommand", "df/d0b/a01372.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
-    [ "~LocalAtCommand", "df/d0b/a01372.html#a7342ebde08b2926419d08b5e464f6d84", null ],
-    [ "close", "df/d0b/a01372.html#a5c97cd2a002f63083302783169a633fb", null ],
-    [ "isOpenState", "df/d0b/a01372.html#add59b902d8519406c376e4d1363fd51d", null ],
-    [ "open", "df/d0b/a01372.html#a22221c7778dbe7cfb61112e57837d9d3", null ],
-    [ "receive", "df/d0b/a01372.html#a07623b40020016955fde1acfe07ca322", null ],
-    [ "send", "df/d0b/a01372.html#a48ae33c43e30b1273cb2f0e6b709ffc2", null ],
-    [ "send", "df/d0b/a01372.html#a031935c10edd7ee210a9d66f1aafa843", null ]
+    [ "WolfSSH", "df/d0b/a01372.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "df/d0b/a01372.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "df/d0b/a01372.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "df/d0b/a01372.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "df/d0b/a01372.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "df/d0b/a01372.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "df/d0b/a01372.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

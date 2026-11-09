@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::USB::CDCDevice</title>
+<title>IAR Library: Member List</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -87,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d2b/a01997.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d51/a02000.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -110,74 +112,32 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d2b/a01997.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::USB::CDCDevice</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::SPIPort&lt; DriverMode::DMA &gt; Member List</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Demonstrates a USB virtual COM port that echoes every received byte back to the host.</p>
-<p>Demonstrates a USB virtual COM port that echoes every received byte back to the host.The device answers the enumeration and the CDC class requests in the USB interrupt, so the host sees the port as soon as <b>start()</b> returns. Clock, pins and the USB interrupt stay in the CubeMX code (<b>HAL_PCD_MspInit()</b> and the interrupt calling <b>HAL_PCD_IRQHandler()</b>). <b>read()</b> and <b>write()</b> are for task context only. <b>write()</b> fails early until the host has selected the configuration, so a task should wait for <b>getIsConfigured()</b> first.</p>
-<dl class="section see"><dt>See also</dt><dd>Lib::USB::CDCDevice::Config, Lib::USB::CDCDevice::LineCoding</dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d45/a00791.html">Lib/USB/CDCDevice.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/dad/a00806.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> PCD_HandleTypeDef hpcd_USB_OTG_FS; <span class="comment">// CubeMX handle of the USB controller.</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>UsbEcho {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> begin() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keywordflow">if</span> (!device.start()) {</div>
-<div class="line">            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">        }</div>
-<div class="line">        task.setup({<span class="stringliteral">&quot;UsbEcho&quot;</span>, 256, RTOS::Task::Priority::NORMAL});</div>
-<div class="line">        <span class="keywordflow">return</span> task.start([<span class="keyword">this</span>] { taskEntry(); }) != <span class="keyword">nullptr</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">bool</span> end() <span class="keyword">noexcept</span> {</div>
-<div class="line">        <span class="keyword">const</span> <span class="keywordtype">bool</span> isStopped = task.stop();</div>
-<div class="line">        device.stop();</div>
-<div class="line">        <span class="keywordflow">return</span> isStopped;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::IT&gt; port{&amp;hpcd_USB_OTG_FS};</div>
-<div class="line"> </div>
-<div class="line">    Lib::USB::CDCDevice device{{</div>
-<div class="line">        .port = port,</div>
-<div class="line">        .vendorId = 0x0483U,</div>
-<div class="line">        .productId = 0x5740U,</div>
-<div class="line">        .releaseNumber = 0x0100U,</div>
-<div class="line">        .manufacturer = <span class="stringliteral">&quot;Senstate&quot;</span>,</div>
-<div class="line">        .product = <span class="stringliteral">&quot;Virtual COM Port&quot;</span>,</div>
-<div class="line">        .serialNumber = <span class="stringliteral">&quot;0001&quot;</span>,</div>
-<div class="line">    }};</div>
-<div class="line"> </div>
-<div class="line">    RTOS::Task task;</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> taskEntry() <span class="keyword">noexcept</span> {</div>
-<div class="line">        std::array&lt;uint8_t, 64&gt; buffer;</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (!device.getIsConfigured()) {</div>
-<div class="line">                <a id="a0" name="a0"></a><a class="code hl_function" href="../../d9/d30/a00848.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(100ms);</div>
-<div class="line">                <span class="keywordflow">continue</span>;</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keyword">const</span> <span class="keywordtype">size_t</span> count = device.read(buffer, 500ms);</div>
-<div class="line">            <span class="keywordflow">if</span> (count &gt; 0U) {</div>
-<div class="line">                <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(device.write(std::span&lt;const uint8_t&gt;(buffer.data(), count), 100ms));</div>
-<div class="line">            }</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00791_html"><div class="ttname"><a href="../../d4/d45/a00791.html">CDCDevice.hpp</a></div><div class="ttdoc">USB CDC-ACM device (virtual COM port) on top of Lib::HAL::USBDevicePort&lt;IT&gt;.</div></div>
-<div class="ttc" id="aa00806_html"><div class="ttname"><a href="../../d0/dad/a00806.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa00848_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d9/d30/a00848.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:601</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+
+<p>This is the complete list of members for <a class="el" href="../../da/d51/a02000.html">Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="../../d5/d6e/a02008.html#a3d63fe443c0e1bd35bd8cd870a0435f6">abort</a>() noexcept</td><td class="entry"><a class="el" href="../../d5/d6e/a02008.html">Lib::HAL::SPIPortAsync&lt; SPIPort&lt; DriverMode::DMA &gt; &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a>(const AsyncPortCore &amp;other)=delete</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d66/a01856.html#ae4c323f8431fa6f03e914d953c4306c2">AsyncPortCore</a>(AsyncPortCore &amp;&amp;other)=delete</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a3fea82834797dbd505ac308e4ebe58a2">AsyncPortCore</a>(T_HANDLE *handle) noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a03c62c024b148a264f9a6a0077198302">close</a>() noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d87/a01864.html#acdeffbad9eb409804cbc72fa86794a97">Device</a>(T_HANDLE *handle) noexcept</td><td class="entry"><a class="el" href="../../dd/d87/a01864.html">Lib::HAL::Device&lt; T_DERIVED, T_HANDLE &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a66f47e9670feddc6fb679436b07a1680">findPort</a>(T_HANDLE *handle) noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d87/a01864.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a>() noexcept</td><td class="entry"><a class="el" href="../../dd/d87/a01864.html">Lib::HAL::Device&lt; T_DERIVED, T_HANDLE &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../dd/d87/a01864.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a>() const noexcept</td><td class="entry"><a class="el" href="../../dd/d87/a01864.html">Lib::HAL::Device&lt; T_DERIVED, T_HANDLE &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a>() const noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a3822bc9b87b9e299982b230e2c029f35">open</a>() noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/d66/a01856.html#a83e0efb939206ab305b7b0c0b80a27e5">operator=</a>(const AsyncPortCore &amp;other)=delete</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d66/a01856.html#af7a0ea878376b289ff08600fa9477026">operator=</a>(AsyncPortCore &amp;&amp;other)=delete</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../da/d66/a01856.html#ac1e436d02537a9e4b651277ba21762f9">Lib::HAL::AsyncPortCore::signalFromISR</a>(T_HANDLE *handle, uint32_t bits) noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d51/a02000.html#a03f718bf6ee85b54598a241b6c353fd4">SPIPort</a>(SPI_HandleTypeDef *handle) noexcept</td><td class="entry"><a class="el" href="../../da/d51/a02000.html">Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../d5/d6e/a02008.html#abce1f805b84c4710a11d7e558b87de55">SPIPortAsync</a>(SPI_HandleTypeDef *handle) noexcept</td><td class="entry"><a class="el" href="../../d5/d6e/a02008.html">Lib::HAL::SPIPortAsync&lt; SPIPort&lt; DriverMode::DMA &gt; &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d66/a01856.html#aa73910a82d1814199dbe1ec58c46f450">~AsyncPortCore</a>() noexcept</td><td class="entry"><a class="el" href="../../da/d66/a01856.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="../../dd/d87/a01864.html#a231e1d150464ec12c66e5578ff0c3128">~Device</a>()=default</td><td class="entry"><a class="el" href="../../dd/d87/a01864.html">Lib::HAL::Device&lt; T_DERIVED, T_HANDLE &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="../../da/d51/a02000.html#a088ac9f0d2efa3ad16fe29126f2fb931">~SPIPort</a>() noexcept</td><td class="entry"><a class="el" href="../../da/d51/a02000.html">Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

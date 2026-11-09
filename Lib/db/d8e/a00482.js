@@ -1,4 +1,4 @@
 var a00482 =
 [
-    [ "Lib::Helper::Convert::Bcd", "d6/d65/a01443.html", "d6/d65/a01443" ]
+    [ "Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;", "df/df0/a02016.html", "df/df0/a02016" ]
 ];

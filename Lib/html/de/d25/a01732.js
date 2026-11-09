@@ -1,10 +1,9 @@
 var a01732 =
 [
-    [ "TimEncoder", "de/d25/a01732.html#a865f1c850a27e5a21c65997eddc230e6", null ],
-    [ "~TimEncoder", "de/d25/a01732.html#a2415e4ad133c300085f3e692a307ee57", null ],
-    [ "close", "de/d25/a01732.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
-    [ "isClockwise", "de/d25/a01732.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
-    [ "open", "de/d25/a01732.html#a0332945ce02a55fb6e624309d4613697", null ],
-    [ "read", "de/d25/a01732.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
-    [ "write", "de/d25/a01732.html#aa31e675a06e5e104834e47423daa2b5f", null ]
+    [ "address", "de/d25/a01732.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "de/d25/a01732.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "de/d25/a01732.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "de/d25/a01732.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "de/d25/a01732.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "de/d25/a01732.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

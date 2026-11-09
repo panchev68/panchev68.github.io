@@ -1,9 +1,5 @@
 var a00911 =
 [
-    [ "pinIRQ", "d7/d12/a00911.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
-    [ "pinNSS", "d7/d12/a00911.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
-    [ "pinReset", "d7/d12/a00911.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
-    [ "pinSync0", "d7/d12/a00911.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
-    [ "pinSync1", "d7/d12/a00911.html#a3358fa1b35628a6d324f9be9d4624338", null ],
-    [ "spiHandle", "d7/d12/a00911.html#aed57b8892979041579d2eb130d453151", null ]
+    [ "mask", "d7/d12/a00911.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
+    [ "port", "d7/d12/a00911.html#aeba565c07ca364748f572902aba40f3a", null ]
 ];

@@ -1,20 +1,15 @@
 var a01916 =
 [
-    [ "Point", "d6/da2/a01920.html", "d6/da2/a01920" ],
-    [ "BoundaryType", "d0/d36/a01916.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d0/d36/a01916.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d0/d36/a01916.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d0/d36/a01916.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d0/d36/a01916.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d0/d36/a01916.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d0/d36/a01916.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d0/d36/a01916.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d0/d36/a01916.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d0/d36/a01916.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d0/d36/a01916.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d0/d36/a01916.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d0/d36/a01916.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d0/d36/a01916.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d0/d36/a01916.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "I2CPort", "d0/d36/a01916.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "d0/d36/a01916.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "d0/d36/a01916.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "d0/d36/a01916.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "getHandle", "d0/d36/a01916.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "d0/d36/a01916.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "masterMemRead", "d0/d36/a01916.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "d0/d36/a01916.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "d0/d36/a01916.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "d0/d36/a01916.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "operator=", "d0/d36/a01916.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "d0/d36/a01916.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

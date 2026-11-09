@@ -1,8 +1,7 @@
 var a01676 =
 [
-    [ "OSPIPortBase", "de/d3e/a01676.html#ac05a29358dcdde97974ddd31f28dc635", null ],
-    [ "~OSPIPortBase", "de/d3e/a01676.html#ac8c21cfe9451fb4942c67787a526f6b1", null ],
-    [ "close", "de/d3e/a01676.html#ac6420efeda802e0bdff8257093ac436d", null ],
-    [ "isBusy", "de/d3e/a01676.html#adb3abf52a002913fd34cc8177c751953", null ],
-    [ "open", "de/d3e/a01676.html#a1bb257c87fcdd324e2611da4dfd6565b", null ]
+    [ "Group", "de/d3e/a01676.html#a48b74757679d549dd7d08383435d59b5", null ],
+    [ "~Group", "de/d3e/a01676.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
+    [ "getCaption", "de/d3e/a01676.html#a6b28a1279997058ac197a0579f4c818d", null ],
+    [ "tag", "de/d3e/a01676.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
 ];

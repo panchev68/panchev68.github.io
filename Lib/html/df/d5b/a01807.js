@@ -1,9 +1,14 @@
 var a01807 =
 [
-    [ "CityHash", "df/d5b/a01807.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "df/d5b/a01807.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "df/d5b/a01807.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "df/d5b/a01807.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "df/d5b/a01807.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "df/d5b/a01807.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "ADCPort", "df/d5b/a01807.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "df/d5b/a01807.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "df/d5b/a01807.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "df/d5b/a01807.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "getHandle", "df/d5b/a01807.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "df/d5b/a01807.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "operator=", "df/d5b/a01807.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "df/d5b/a01807.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "df/d5b/a01807.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "df/d5b/a01807.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "df/d5b/a01807.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

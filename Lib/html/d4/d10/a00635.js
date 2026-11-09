@@ -1,4 +1,4 @@
 var a00635 =
 [
-    [ "RTOS::MemoryManager", "de/d0a/a02015.html", "de/d0a/a02015" ]
+    [ "Lib::Helper::Exception", "d7/db7/a02198.html", "d7/db7/a02198" ]
 ];

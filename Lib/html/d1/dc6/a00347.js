@@ -1,4 +1,4 @@
 var a00347 =
 [
-    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "dc/d42/a01591.html", "dc/d42/a01591" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;", "df/d5b/a01807.html", "df/d5b/a01807" ]
 ];

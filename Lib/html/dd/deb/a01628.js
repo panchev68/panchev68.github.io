@@ -1,9 +1,11 @@
 var a01628 =
 [
-    [ "I2CPort", "dd/deb/a01628.html#a0f28c8a7e8fd6e9436d1833fddb05369", null ],
-    [ "~I2CPort", "dd/deb/a01628.html#afd974c470637c78170576087414cde53", null ],
-    [ "getHandle", "dd/deb/a01628.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "dd/deb/a01628.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "masterReceive", "dd/deb/a01628.html#ab8d6c7b50db1e521d4e8b06df30107b5", null ],
-    [ "masterTransmit", "dd/deb/a01628.html#a93204dac38465fc724005fbac9caf32b", null ]
+    [ "onExtendedTransmitStatusChanged", "dd/deb/a01628.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "dd/deb/a01628.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "dd/deb/a01628.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "dd/deb/a01628.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "dd/deb/a01628.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "dd/deb/a01628.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "dd/deb/a01628.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "dd/deb/a01628.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

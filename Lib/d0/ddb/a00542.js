@@ -1,4 +1,4 @@
 var a00542 =
 [
-    [ "Lib::Helper::MoonPhase", "da/d50/a01511.html", "da/d50/a01511" ]
+    [ "Lib::HAL::USBDevicePortBase&lt; T_DERIVED &gt;", "de/dd1/a02100.html", "de/dd1/a02100" ]
 ];

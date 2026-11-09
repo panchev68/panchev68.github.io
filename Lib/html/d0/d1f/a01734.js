@@ -1,13 +1,15 @@
 var a01734 =
 [
-    [ "SPIPortAsync", "d0/d1f/a01734.html#a27554843c870175eff78aea2946c1403", null ],
-    [ "SPIPortAsync", "d0/d1f/a01734.html#a8ed5dfcfe3bf49f6177fa1e705564392", null ],
-    [ "SPIPortAsync", "d0/d1f/a01734.html#abce1f805b84c4710a11d7e558b87de55", null ],
-    [ "~SPIPortAsync", "d0/d1f/a01734.html#a9b9d841777e8d6866e5aea6dada6fa07", null ],
-    [ "abort", "d0/d1f/a01734.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
-    [ "close", "d0/d1f/a01734.html#a9c1df328358eca75a9bde2a0b14a0c31", null ],
-    [ "isOpened", "d0/d1f/a01734.html#ab44424039817d1136b98cd72bfea4d4f", null ],
-    [ "open", "d0/d1f/a01734.html#a515394917b0e30ad39a0a0f7544a8819", null ],
-    [ "operator=", "d0/d1f/a01734.html#a52039601d92a3104018f25a24534479d", null ],
-    [ "operator=", "d0/d1f/a01734.html#ade3cdebddef1702e7976980ec680c95d", null ]
+    [ "Error", "d0/d1f/a01734.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d0/d1f/a01734.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d0/d1f/a01734.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d0/d1f/a01734.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d0/d1f/a01734.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d0/d1f/a01734.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d0/d1f/a01734.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d0/d1f/a01734.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d0/d1f/a01734.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d0/d1f/a01734.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d0/d1f/a01734.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d0/d1f/a01734.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

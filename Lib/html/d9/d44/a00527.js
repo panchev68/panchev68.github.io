@@ -1,5 +1,4 @@
 var a00527 =
 [
-    [ "Lib::Helper::Convert::Hex&lt; T &gt;", "d9/d88/a01823.html", "d9/d88/a01823" ],
-    [ "hex", "d9/d44/a00527.html#a60e614729279abe20d7718c969b604bb", null ]
+    [ "Lib::HAL::UARTPort&lt; DriverMode::IT &gt;", "da/d14/a02066.html", "da/d14/a02066" ]
 ];

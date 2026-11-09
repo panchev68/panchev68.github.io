@@ -1,13 +1,10 @@
 var a01242 =
 [
-    [ "Period", "d7/dc5/a01242.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
-    [ "beginMeasurement", "d7/dc5/a01242.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
-    [ "clearMinMax", "d7/dc5/a01242.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
-    [ "endMeasurement", "d7/dc5/a01242.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
-    [ "getMaximum", "d7/dc5/a01242.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
-    [ "getMinimum", "d7/dc5/a01242.html#a74fe067b228e91e888527cde922af4ab", null ],
-    [ "getRawValue", "d7/dc5/a01242.html#a8e9a5702067740cae617ad3e800557cd", null ],
-    [ "getValue", "d7/dc5/a01242.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
-    [ "operator uint32_t", "d7/dc5/a01242.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ],
-    [ "reset", "d7/dc5/a01242.html#a6d75c29880edb434a8c6cba3f2c3718f", null ]
+    [ "Config", "d7/d04/a01246.html", "d7/d04/a01246" ],
+    [ "Voltmeter", "d7/dc5/a01242.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "d7/dc5/a01242.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "d7/dc5/a01242.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "setup", "d7/dc5/a01242.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "d7/dc5/a01242.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "d7/dc5/a01242.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

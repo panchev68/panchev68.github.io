@@ -1,8 +1,13 @@
 var a01582 =
 [
-    [ "data", "d0/d21/a01582.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "d0/d21/a01582.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "d0/d21/a01582.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "d0/d21/a01582.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "d0/d21/a01582.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "Command", "d0/d21/a01582.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "d0/d21/a01582.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "d0/d21/a01582.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "d0/d21/a01582.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "d0/d21/a01582.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "d0/d21/a01582.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "d0/d21/a01582.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "d0/d21/a01582.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "d0/d21/a01582.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "d0/d21/a01582.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

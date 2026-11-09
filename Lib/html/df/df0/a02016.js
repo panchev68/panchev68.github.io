@@ -1,15 +1,19 @@
 var a02016 =
 [
-    [ "PeripheralCallback", "df/df0/a02016.html#a46a6e13b2c9d45b36d2e8b1fda1cbef1", null ],
-    [ "PowerManager", "df/df0/a02016.html#af37259063989766044b7fa592bd44085", null ],
-    [ "PowerManager", "df/df0/a02016.html#a580afc3532ffd30c47cab5a645b5bc7b", null ],
-    [ "canEnterDeepSleep", "df/df0/a02016.html#a1de32d80fc39ad10a50ba03c986f2bd2", null ],
-    [ "disableDeepSleep", "df/df0/a02016.html#aeee3f51a408ab40cc51936aa0e0961c3", null ],
-    [ "enableDeepSleep", "df/df0/a02016.html#a124c901bc289619cbe95244c4dc76065", null ],
-    [ "operator=", "df/df0/a02016.html#ac049ef91e07bc905499cb228bbc97d39", null ],
-    [ "operator=", "df/df0/a02016.html#a7eaa1f8fd4c5fddd0d6d9aa4202913fe", null ],
-    [ "registerPostSleepCallback", "df/df0/a02016.html#a13f32f2b1abeed9410f521ffcfaf1e6e", null ],
-    [ "registerPreSleepCallback", "df/df0/a02016.html#ab5e43097d2f7efc26d1ac3b6eecdd7b8", null ],
-    [ "setup", "df/df0/a02016.html#a53ad5d94b8b8661830e7aef2fa9125cc", null ],
-    [ "void::vPortSuppressTicksAndSleep", "df/df0/a02016.html#a98ee80183ed645629084a482c158afd1", null ]
+    [ "CallbackID", "df/df0/a02016.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
+    [ "Handle", "df/df0/a02016.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
+    [ "LPTimer", "df/df0/a02016.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
+    [ "~LPTimer", "df/df0/a02016.html#add3250c704445e43eb5798c76d514cd0", null ],
+    [ "LPTimer", "df/df0/a02016.html#a694916ba4b3b845dc40a55807a3c010a", null ],
+    [ "LPTimer", "df/df0/a02016.html#a0151830764f6149bcd064718e12efa9d", null ],
+    [ "close", "df/df0/a02016.html#a6295b01535aa1df83366d83b9426ff7d", null ],
+    [ "getElapsedRtosTicks", "df/df0/a02016.html#a4fc71247da21a5d02602615eb66c4256", null ],
+    [ "getHandle", "df/df0/a02016.html#add82be5171e6f5f28baaba0aea38a0de", null ],
+    [ "hasExpired", "df/df0/a02016.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
+    [ "open", "df/df0/a02016.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
+    [ "operator=", "df/df0/a02016.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
+    [ "operator=", "df/df0/a02016.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
+    [ "startTimeoutInterrupt", "df/df0/a02016.html#af87c45b091cb7b10192ce86953eba07a", null ],
+    [ "stopInterrupt", "df/df0/a02016.html#a524f65747a660c2243dfe55d318bb083", null ],
+    [ "waitForEvent", "df/df0/a02016.html#a8f6329f1b312d263381f3738aacd64b8", null ]
 ];

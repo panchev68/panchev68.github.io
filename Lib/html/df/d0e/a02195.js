@@ -1,22 +1,10 @@
 var a02195 =
 [
-    [ "Config", "db/dd5/a02199.html", "db/dd5/a02199" ],
-    [ "Status", "df/d0e/a02195.html#a021fe9f03d3cc3627cdff9bad92dcd02", [
-      [ "OK", "df/d0e/a02195.html#a021fe9f03d3cc3627cdff9bad92dcd02ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "df/d0e/a02195.html#a021fe9f03d3cc3627cdff9bad92dcd02abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "SerialPortRepeaterBase", "df/d0e/a02195.html#abc48d5df5532ace88e0b869d74c9402d", null ],
-    [ "~SerialPortRepeaterBase", "df/d0e/a02195.html#adb72c914f39526ada23221f2e38ccc1c", null ],
-    [ "close", "df/d0e/a02195.html#a50fc1c495e8188dc2f514ca3d814cbaa", null ],
-    [ "enableUSBPort", "df/d0e/a02195.html#adc7fac7fb29a13eea289322a26425397", null ],
-    [ "handlePostReceivedEvent", "df/d0e/a02195.html#a47d8af2fd14b5423926ccc8be626f9e9", null ],
-    [ "handlePostTransmitEvent", "df/d0e/a02195.html#ad6ef51bd1c8018d7ee0e8576d7f51b06", null ],
-    [ "isPoweredByUSB", "df/d0e/a02195.html#ad681efdf3e8eaee1fa0f7f44c1352481", null ],
-    [ "open", "df/d0e/a02195.html#ae38fe18dcb0229c8cbbf914d71acb4b5", null ],
-    [ "setModuleResetPin", "df/d0e/a02195.html#acf3b15d8b0fe17fd8341b16e38284202", null ],
-    [ "signalReceivedBegin", "df/d0e/a02195.html#a6bbbdcd4be7e1c161148e5a4064f799c", null ],
-    [ "signalReceivedEnd", "df/d0e/a02195.html#ae7e6f9868883bcb06e6f214b24192c10", null ],
-    [ "signalTransmitBegin", "df/d0e/a02195.html#acdc6aba10abfdf39b35e51b9654d779b", null ],
-    [ "signalTransmitEnd", "df/d0e/a02195.html#ac5a426dc66dbabe1f6884132060811c7", null ],
-    [ "onConnected", "df/d0e/a02195.html#a5c5fac474d3b59741c72bc7982c64c09", null ]
+    [ "TerminateHandler", "df/d0e/a02195.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "df/d0e/a02195.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "df/d0e/a02195.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "df/d0e/a02195.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
+    [ "~Exception", "df/d0e/a02195.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "df/d0e/a02195.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
+    [ "what", "df/d0e/a02195.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

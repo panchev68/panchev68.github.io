@@ -1,7 +1,17 @@
 var a01194 =
 [
-    [ "ChannelScanner", "d9/d2e/a01194.html#a7be945183e9af7339e4fb490da779cae", null ],
-    [ "close", "d9/d2e/a01194.html#a1baa0259aef16bf6bf9659d8cffd8205", null ],
-    [ "open", "d9/d2e/a01194.html#a6227fe53411863d0796ae32216cc624e", null ],
-    [ "update", "d9/d2e/a01194.html#a256676088070b2d7eae144667955ab00", null ]
+    [ "Config", "d0/d32/a01198.html", "d0/d32/a01198" ],
+    [ "Resolution", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
+      [ "BITS_9", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
+      [ "BITS_10", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
+      [ "BITS_11", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
+      [ "BITS_12", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
+    ] ],
+    [ "DS18B20", "d9/d2e/a01194.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "d9/d2e/a01194.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "d9/d2e/a01194.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "getResolution", "d9/d2e/a01194.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
+    [ "isPresent", "d9/d2e/a01194.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "d9/d2e/a01194.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readTemperatureCelsius", "d9/d2e/a01194.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

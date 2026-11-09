@@ -1,8 +1,10 @@
 var a01442 =
 [
-    [ "Frame0x80", "d0/de2/a01442.html#a0ff648972da16fac1c8c93d56f4d3081", null ],
-    [ "option", "d0/de2/a01442.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
-    [ "rfData", "d0/de2/a01442.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
-    [ "rssi", "d0/de2/a01442.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
-    [ "srcAddr64", "d0/de2/a01442.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
+    [ "SignalStrength", "d0/de2/a01442.html#a7221c00a8ff27a3bd355928f960897d4", null ],
+    [ "SignalStrength", "d0/de2/a01442.html#ae5207184fca8fed0cc906620b9f017a1", null ],
+    [ "SignalStrength", "d0/de2/a01442.html#a759f37108d2a33d860169ffd300b57ed", null ],
+    [ "operator uint8_t", "d0/de2/a01442.html#a9d673263c2b74c5aefc860e9f9d03a15", null ],
+    [ "operator=", "d0/de2/a01442.html#ae69aec5c67c3620921f8b4dcbcf52bcd", null ],
+    [ "operator=", "d0/de2/a01442.html#a849d26f03c86e035d3c4c257ff25e136", null ],
+    [ "toPercent", "d0/de2/a01442.html#adf558805c6630d02cef0e3d45d936b9c", null ]
 ];

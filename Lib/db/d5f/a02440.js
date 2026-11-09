@@ -1,5 +1,6 @@
 var a02440 =
 [
-    [ "Lib::Digi::Core::Frame::Helper", "d5/d8e/a01390.html", "d5/d8e/a01390" ],
-    [ "Lib::Digi::Core::Frame::Helper::Convert", "d6/d2f/a01394.html", null ]
+    [ "autoStart", "db/d5f/a02440.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "db/d5f/a02440.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "db/d5f/a02440.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

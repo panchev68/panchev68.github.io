@@ -1,10 +1,13 @@
 var a01838 =
 [
-    [ "TerminateHandler", "db/d09/a01838.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "db/d09/a01838.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "db/d09/a01838.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "db/d09/a01838.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "db/d09/a01838.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "db/d09/a01838.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "db/d09/a01838.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "CANPort", "db/d09/a01838.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "db/d09/a01838.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "db/d09/a01838.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "db/d09/a01838.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "getHandle", "db/d09/a01838.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "db/d09/a01838.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "operator=", "db/d09/a01838.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "db/d09/a01838.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
+    [ "readBlocking", "db/d09/a01838.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "writeBlocking", "db/d09/a01838.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

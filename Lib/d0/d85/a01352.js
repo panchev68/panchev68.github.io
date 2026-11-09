@@ -1,16 +1,12 @@
 var a01352 =
 [
-    [ "ChannelArray", "d0/d85/a01352.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
-    [ "SpectrumAnalyzer", "d0/d85/a01352.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
-    [ "SpectrumAnalyzer", "d0/d85/a01352.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
-    [ "close", "d0/d85/a01352.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "getAverageArray", "d0/d85/a01352.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
-    [ "getCurrentArray", "d0/d85/a01352.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
-    [ "getMaxArray", "d0/d85/a01352.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
-    [ "isNewData", "d0/d85/a01352.html#a2788be420fbb2acb1168d7aa21759804", null ],
-    [ "isRunning", "d0/d85/a01352.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d0/d85/a01352.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d0/d85/a01352.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
-    [ "resetData", "d0/d85/a01352.html#a219916036b1120cc272129041d937770", null ],
-    [ "update", "d0/d85/a01352.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "FreeFunctionPointer", "d0/d85/a01352.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d0/d85/a01352.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d0/d85/a01352.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "d0/d85/a01352.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d0/d85/a01352.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d0/d85/a01352.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d0/d85/a01352.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d0/d85/a01352.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d0/d85/a01352.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

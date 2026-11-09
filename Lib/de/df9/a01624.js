@@ -1,9 +1,7 @@
 var a01624 =
 [
-    [ "Sockets", "de/df9/a01624.html#a83aca7ca920c948cf9f775922c19247a", null ],
-    [ "Sockets", "de/df9/a01624.html#adf14b2bb687d762d0832d140cfd7c348", null ],
-    [ "Sockets", "de/df9/a01624.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
-    [ "operator=", "de/df9/a01624.html#a27fe979c8f56a4d202689793724794b7", null ],
-    [ "operator=", "de/df9/a01624.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
-    [ "operator[]", "de/df9/a01624.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
+    [ "operator std::vector< uint8_t >", "de/df9/a01624.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
+    [ "view", "de/df9/a01624.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
+    [ "data", "de/df9/a01624.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
+    [ "size", "de/df9/a01624.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
 ];

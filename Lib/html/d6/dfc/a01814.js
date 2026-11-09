@@ -1,9 +1,15 @@
 var a01814 =
 [
-    [ "CityHash", "d6/dfc/a01814.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "d6/dfc/a01814.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "d6/dfc/a01814.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "d6/dfc/a01814.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "d6/dfc/a01814.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "d6/dfc/a01814.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "Event", "d4/d56/a01818.html", null ],
+    [ "ADCPort", "d6/dfc/a01814.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d6/dfc/a01814.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "d6/dfc/a01814.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "d6/dfc/a01814.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "d6/dfc/a01814.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "open", "d6/dfc/a01814.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "d6/dfc/a01814.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "d6/dfc/a01814.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "d6/dfc/a01814.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d6/dfc/a01814.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d6/dfc/a01814.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

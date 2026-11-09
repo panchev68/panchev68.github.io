@@ -1,4 +1,4 @@
 var a00485 =
 [
-    [ "Lib::HAL::UARTPortBase&lt; T_DERIVED &gt;", "d1/df0/a01795.html", "d1/df0/a01795" ]
+    [ "Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;", "d3/d59/a02010.html", "d3/d59/a02010" ]
 ];

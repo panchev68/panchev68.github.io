@@ -1,10 +1,11 @@
 var a01408 =
 [
-    [ "DstAddress", "df/d84/a01408.html#a08442ca9839fbd669e6a803ab2bbb5fc", null ],
-    [ "operator Frame::Data", "df/d84/a01408.html#aa1e4cdd0f75ad2b29678b0d9b3df74bb", null ],
-    [ "atCommand", "df/d84/a01408.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
-    [ "dstAddress", "df/d84/a01408.html#a961f721cb79f4d93e1516b992c16e4fe", null ],
-    [ "frameId", "df/d84/a01408.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
-    [ "parameters", "df/d84/a01408.html#a69a8b0f293677febe578417b21dbba6b", null ],
-    [ "remoteCommandOption", "df/d84/a01408.html#ae4922577edd7679e2964fb14f35bc919", null ]
+    [ "Config", "df/d84/a01408.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "df/d84/a01408.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ClientBase", "df/d84/a01408.html#ab66c6aedfa1a9361e96ba2a3e11af2b2", null ],
+    [ "~ClientBase", "df/d84/a01408.html#a3ec52c83a6ed8e15bca3f6ff2bb92e22", null ],
+    [ "getModulePresent", "df/d84/a01408.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "df/d84/a01408.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "start", "df/d84/a01408.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "connection", "df/d84/a01408.html#a6cc363b4c00520c96b5d228aab8301b8", null ]
 ];

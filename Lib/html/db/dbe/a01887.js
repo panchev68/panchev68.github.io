@@ -1,17 +1,14 @@
 var a01887 =
 [
-    [ "RingBuffer", "db/dbe/a01887.html#a90e56f1bb6c70b02947f83ebf3123417", null ],
-    [ "RingBuffer", "db/dbe/a01887.html#ad1cdbedc5516901d8c9139809a3fbef7", null ],
-    [ "RingBuffer", "db/dbe/a01887.html#a1d9fb75c4c8143ec1b6fe200253b8197", null ],
-    [ "available", "db/dbe/a01887.html#a8ab973e4fda57588b6a238c8d7537b60", null ],
-    [ "clear", "db/dbe/a01887.html#aecba3227be66614ad5db50f238e8970f", null ],
-    [ "front", "db/dbe/a01887.html#a6b6348d736c026af7bfe86e8f178c5dd", null ],
-    [ "front", "db/dbe/a01887.html#abee3c56eacd254c643cb51f9cd4a7839", null ],
-    [ "isEmpty", "db/dbe/a01887.html#ae898513d6e4fff77f261633e9d739da7", null ],
-    [ "isFull", "db/dbe/a01887.html#acbbdeea50582b8f5ecdae7259746e571", null ],
-    [ "operator=", "db/dbe/a01887.html#ab2ab8845bd1a8a943917d668efa8ff90", null ],
-    [ "operator=", "db/dbe/a01887.html#a005ffd7b8657f70cb1ed18f0c1488e8e", null ],
-    [ "pop", "db/dbe/a01887.html#a8355cafc3456b4a8c5f5122ea38ca0d8", null ],
-    [ "push", "db/dbe/a01887.html#a15a0e34223bfa6bb69410c75ff946f0c", null ],
-    [ "push", "db/dbe/a01887.html#a99986517429df0512c8d2ecb01411fc0", null ]
+    [ "FlashInterface", "db/dbe/a01887.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "db/dbe/a01887.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "db/dbe/a01887.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "db/dbe/a01887.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "db/dbe/a01887.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "db/dbe/a01887.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "db/dbe/a01887.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "db/dbe/a01887.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "db/dbe/a01887.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "db/dbe/a01887.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "db/dbe/a01887.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

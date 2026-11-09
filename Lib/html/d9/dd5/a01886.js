@@ -1,14 +1,17 @@
 var a01886 =
 [
-    [ "JaggedArrayBase", "d9/dd5/a01886.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d9/dd5/a01886.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d9/dd5/a01886.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d9/dd5/a01886.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d9/dd5/a01886.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d9/dd5/a01886.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d9/dd5/a01886.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d9/dd5/a01886.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d9/dd5/a01886.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d9/dd5/a01886.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d9/dd5/a01886.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "DataAlignment", "d9/dd5/a01886.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "d9/dd5/a01886.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "d9/dd5/a01886.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "d9/dd5/a01886.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "d9/dd5/a01886.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "d9/dd5/a01886.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "d9/dd5/a01886.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "d9/dd5/a01886.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "d9/dd5/a01886.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "d9/dd5/a01886.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d9/dd5/a01886.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "d9/dd5/a01886.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "d9/dd5/a01886.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

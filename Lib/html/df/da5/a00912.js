@@ -1,5 +1,7 @@
 var a00912 =
 [
-    [ "nssPin", "df/da5/a00912.html#a17d403b44dd249cb67c2cc77a8734e78", null ],
-    [ "spiHandle", "df/da5/a00912.html#a64f95c007499d4922e5fbf9abcf0eb31", null ]
+    [ "Inputs", "d6/d66/a00916.html", "d6/d66/a00916" ],
+    [ "Outputs", "d6/d82/a00920.html", "d6/d82/a00920" ],
+    [ "inputs", "df/da5/a00912.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "df/da5/a00912.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

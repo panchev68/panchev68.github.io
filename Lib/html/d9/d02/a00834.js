@@ -1,8 +1,7 @@
 var a00834 =
 [
-    [ "mappingFields", "d9/d02/a00834.html#a11dd2076fb88f533f185c4b3036c605c", null ],
-    [ "nssPin", "d9/d02/a00834.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
-    [ "oePin", "d9/d02/a00834.html#ad65334adb3ad809e06b272cedcb59224", null ],
-    [ "pinCount", "d9/d02/a00834.html#a85d8e563810275243c4b75899e92dab3", null ],
-    [ "spiPort", "d9/d02/a00834.html#aff796faea898891c8271e1b1dba76858", null ]
+    [ "Base", "d3/dc7/a01170.html", "d3/dc7/a01170" ],
+    [ "Driver&lt; Type::DTH22 &gt;", "dd/de9/a01182.html", "dd/de9/a01182" ],
+    [ "Parm", "dc/d19/a01190.html", null ],
+    [ "DTH22", "d9/d02/a00834.html#ac925b6863b7c23b83aa215b6588e2487", null ]
 ];

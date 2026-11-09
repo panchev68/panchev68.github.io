@@ -1,8 +1,15 @@
 var a01808 =
 [
-    [ "crc16", "d7/d02/a01808.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "d7/d02/a01808.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "d7/d02/a01808.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "d7/d02/a01808.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "d7/d02/a01808.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "Event", "dc/d5b/a01812.html", null ],
+    [ "ADCPort", "d7/d02/a01808.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d7/d02/a01808.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "d7/d02/a01808.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "d7/d02/a01808.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "d7/d02/a01808.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "open", "d7/d02/a01808.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "d7/d02/a01808.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "d7/d02/a01808.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "d7/d02/a01808.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d7/d02/a01808.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d7/d02/a01808.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

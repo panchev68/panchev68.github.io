@@ -1,14 +1,8 @@
 var a01850 =
 [
-    [ "Time", "d7/d97/a01854.html", "d7/d97/a01854" ],
-    [ "Date", "d4/d7f/a01858.html", "d4/d7f/a01858" ],
-    [ "DateTime", "da/d18/a01850.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "da/d18/a01850.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "da/d18/a01850.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "da/d18/a01850.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "da/d18/a01850.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "da/d18/a01850.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "da/d18/a01850.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "da/d18/a01850.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "da/d18/a01850.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "data", "da/d18/a01850.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "da/d18/a01850.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "da/d18/a01850.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "da/d18/a01850.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "da/d18/a01850.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

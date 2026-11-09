@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['control_0',['Monitoring and control',['../da/d75/a02372.html#streambuffer_monitor',1,'']]],
-  ['creation_1',['creation',['../da/d75/a02372.html#streambuffer_dynamic',1,'Dynamic creation'],['../da/d75/a02372.html#streambuffer_static',1,'Static creation']]]
+  ['basic_20peripheral_20access_20spi_20example_0',['Basic Peripheral Access (SPI Example)',['../index.html#basic-peripheral-access-spi-example',1,'']]],
+  ['bcd_20example_1',['Bcd example',['../df/de2/a03410.html',1,'']]],
+  ['bus_20communication_2',['CAN Bus Communication',['../index.html#can-bus-communication',1,'']]]
 ];

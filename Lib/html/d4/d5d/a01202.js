@@ -1,15 +1,13 @@
 var a01202 =
 [
-    [ "Value", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0", [
-      [ "INIT", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0aaa7542dc13ab91223fcf190b28846d98", null ],
-      [ "READY", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0ae1d7fd9328c3a404f8d7886da7a2f1a8", null ],
-      [ "CONNECTED", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0a579710f202d95345d2555010d4cbc29f", null ],
-      [ "DISCONNECTED", "d4/d5d/a01202.html#a59c8aeef51295445b21b24d4c535d6e0ae46b7f4649cda77c1145dc0f77259acf", null ]
-    ] ],
-    [ "State", "d4/d5d/a01202.html#a3007a4a510f248533d6430b451c6b00a", null ],
-    [ "State", "d4/d5d/a01202.html#a95ebe78d3b35e550284d27bc67ff6c7e", null ],
-    [ "isConnected", "d4/d5d/a01202.html#a65815696748e22f0a55e4ac329b6c0d1", null ],
-    [ "operator uint32_t", "d4/d5d/a01202.html#a9b994b0a748f87f74f1297ef9aed5b1b", null ],
-    [ "operator=", "d4/d5d/a01202.html#a14595d3e685bb58c80b00a821f6e2a54", null ],
-    [ "onConnectionChanged", "d4/d5d/a01202.html#af678900015fb6460c22371a41baecf46", null ]
+    [ "Config", "dc/d9e/a01206.html", "dc/d9e/a01206" ],
+    [ "TMP102", "d4/d5d/a01202.html#a949aef107b50c3194360a1211fc77380", null ],
+    [ "configureAlert", "d4/d5d/a01202.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
+    [ "enterSleepMode", "d4/d5d/a01202.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
+    [ "exitSleepMode", "d4/d5d/a01202.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
+    [ "init", "d4/d5d/a01202.html#aad208b4242276623b58c7e690d0be566", null ],
+    [ "readTemperature", "d4/d5d/a01202.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
+    [ "setTHigh", "d4/d5d/a01202.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
+    [ "setTLow", "d4/d5d/a01202.html#abe3ff96789b3357515f28158f06aa714", null ],
+    [ "triggerOneShot", "d4/d5d/a01202.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
 ];

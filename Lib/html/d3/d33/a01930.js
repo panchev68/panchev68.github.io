@@ -1,7 +1,5 @@
 var a01930 =
 [
-    [ "estimatedError", "d3/d33/a01930.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "d3/d33/a01930.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "d3/d33/a01930.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "d3/d33/a01930.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "I2CPort", "d3/d33/a01930.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
+    [ "~I2CPort", "d3/d33/a01930.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ]
 ];

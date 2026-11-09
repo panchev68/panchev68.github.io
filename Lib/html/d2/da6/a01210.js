@@ -1,29 +1,19 @@
 var a01210 =
 [
-    [ "Config", "d2/da6/a01210.html#ae1da3d38612f99e58ef00aeee0031a70", null ],
-    [ "State", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816e", [
-      [ "NO_INIT", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816ea72144f138e8a9f73854d58b59deca26d", null ],
-      [ "INIT", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816eafaee4ca3c30ee18148ce3ada37466498", null ],
-      [ "RUNNING", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "PAUSE", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816ea291554596c183e837f0a6bec3767c891", null ],
-      [ "ERROR", "d2/da6/a01210.html#a71f91e486ebbe685b8ef04a85df9816eabb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Config", "d5/d32/a01214.html", "d5/d32/a01214" ],
+    [ "Parameters", "d8/d15/a01218.html", "d8/d15/a01218" ],
+    [ "Rotation", "d2/da6/a01210.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
+      [ "DEFAULT", "d2/da6/a01210.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
+      [ "FLIP_X", "d2/da6/a01210.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
+      [ "FLIP_XY", "d2/da6/a01210.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
+      [ "FLIP_Y", "d2/da6/a01210.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
     ] ],
-    [ "ApplicationBase", "d2/da6/a01210.html#a441e8d4c01f19d64f498f2dc51f3e28b", null ],
-    [ "~ApplicationBase", "d2/da6/a01210.html#aab09711e635886a1ad499ac455466abc", null ],
-    [ "beginUpdate", "d2/da6/a01210.html#a548122020c08dde7f6af4cc710447daa", null ],
-    [ "getModule", "d2/da6/a01210.html#ad7e4c92fde5b763d99ff892a131f8503", null ],
-    [ "getModulePresent", "d2/da6/a01210.html#a88ebc34ce435936eb3887febc431d1ee", null ],
-    [ "handleIncomingMessage", "d2/da6/a01210.html#a3fed1f59187dee0511af0d0a54ca97f6", null ],
-    [ "handleOutgoingMessage", "d2/da6/a01210.html#ae026078d6fbd9ac208ddf936355659aa", null ],
-    [ "handleTaskTickEvent", "d2/da6/a01210.html#ad55022492c805e834d8309af22121495", null ],
-    [ "pause", "d2/da6/a01210.html#a20f5f42bded5c200b41a59cf0517a1ed", null ],
-    [ "resume", "d2/da6/a01210.html#a066cbabfddf2945ab340f457dd3ad862", null ],
-    [ "sendHandler", "d2/da6/a01210.html#a1869c64aaa443f3d606e15aac31f35c0", null ],
-    [ "start", "d2/da6/a01210.html#a2cacfcaa5af0c0ee989dfd3fc665796a", null ],
-    [ "update", "d2/da6/a01210.html#a541fb1ee1677c63b1b3eb403b9743b67", null ],
-    [ "connection", "d2/da6/a01210.html#aeef129f6673307b01cf2cba5a92bf845", null ],
-    [ "diagnostic", "d2/da6/a01210.html#a15c0bf063a67a2088045e9fcdb9833ad", null ],
-    [ "messageFrameId", "d2/da6/a01210.html#a3e9dae687eb3e296684ae4e6fe868741", null ],
-    [ "queueRxMessage", "d2/da6/a01210.html#a16ea56fe1b04e47f29e814535d13850a", null ],
-    [ "queueTransmitDeliveryStatus", "d2/da6/a01210.html#ac31d75ff0f90d6dd3535ba8b01579c0a", null ]
+    [ "XPT2046", "d2/da6/a01210.html#a0dda6dc35a85166d57bd689d629e6846", null ],
+    [ "~XPT2046", "d2/da6/a01210.html#a9edd1a086623e54cbb23781f0d989d53", null ],
+    [ "XPT2046", "d2/da6/a01210.html#aa40395fe163fa53055c2381264eee169", null ],
+    [ "XPT2046", "d2/da6/a01210.html#a0b37858e0ef9dc2bc3c8a2494e0d30d0", null ],
+    [ "operator=", "d2/da6/a01210.html#a187bc2ba23928588fb3e435ff1a0ffab", null ],
+    [ "operator=", "d2/da6/a01210.html#a0a0bca74a5312b24895a6b947c35e11a", null ],
+    [ "read", "d2/da6/a01210.html#adbf7069f002f1074ffe599970a15c399", null ],
+    [ "setRotation", "d2/da6/a01210.html#ada371f317a4f0551dc84dcf51749ee60", null ]
 ];

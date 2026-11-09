@@ -1,4 +1,4 @@
 var a00362 =
 [
-    [ "Lib::HAL::FlashInterface", "d3/d79/a01611.html", "d3/d79/a01611" ]
+    [ "Lib::HAL::BackupRamDomain", "d6/dbe/a01834.html", "d6/dbe/a01834" ]
 ];

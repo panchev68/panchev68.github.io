@@ -1,5 +1,7 @@
 var a00916 =
 [
-    [ "mask", "d6/d66/a00916.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-    [ "port", "d6/d66/a00916.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "Inputs", "d6/d82/a00920.html", "d6/d82/a00920" ],
+    [ "Outputs", "de/d62/a00924.html", "de/d62/a00924" ],
+    [ "inputs", "d6/d66/a00916.html#a83f591b4be154cb08f68588d557cfc3e", null ],
+    [ "outputs", "d6/d66/a00916.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
 ];

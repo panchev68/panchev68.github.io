@@ -1,5 +1,5 @@
 var a00888 =
 [
-    [ "button", "dd/d94/a00888.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-    [ "timHandle", "dd/d94/a00888.html#a742631ff7bb7073d1d41a82b29487dee", null ]
+    [ "offsetAmperes", "dd/d94/a00888.html#abbabcd239f7f7e8cd62d810f7ddf34ee", null ],
+    [ "polarity", "dd/d94/a00888.html#a331117dc379889237a688a73fb86504d", null ]
 ];

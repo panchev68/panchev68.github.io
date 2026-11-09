@@ -1,7 +1,11 @@
 var a01411 =
 [
-    [ "writeTo", "db/d99/a01411.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
-    [ "atCommand", "db/d99/a01411.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "db/d99/a01411.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameterValue", "db/d99/a01411.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
+    [ "Config", "db/d99/a01411.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "db/d99/a01411.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ClientBase", "db/d99/a01411.html#ab66c6aedfa1a9361e96ba2a3e11af2b2", null ],
+    [ "~ClientBase", "db/d99/a01411.html#a3ec52c83a6ed8e15bca3f6ff2bb92e22", null ],
+    [ "getModulePresent", "db/d99/a01411.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "db/d99/a01411.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "start", "db/d99/a01411.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "connection", "db/d99/a01411.html#a6cc363b4c00520c96b5d228aab8301b8", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: DeviceManager.hpp File Reference</title>
+<title>Library: RTOS::EventGroup</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,57 +111,61 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/d70/a02629.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">DeviceManager.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::EventGroup</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Device manager for managing registered BSP devices and tick events.  
-<a href="#details">More...</a></p>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>This header file implements a singleton device manager that maintains a registry of devices and coordinates their initialization and periodic tick event handling through FreeRTOS timers. The manager automatically registers and unregisters devices through the DeviceBase class and provides centralized setup and periodic execution control.</p>
-<dl class="section version"><dt>Version</dt><dd>3.05.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-02-17 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for BSP/DeviceManager.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d3f/a02630.svg" width="272" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9a/a02631.svg" width="148" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3ABSP_3A_3ADeviceManager" id="r_Lib_3A_3ABSP_3A_3ADeviceManager"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d8f/a00718.html">Lib::BSP::DeviceManager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Central device manager for coordinating BSP device lifecycle and periodic events.  <a href="../../dc/d8f/a00718.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3ABSP_3A_3ADeviceManager_3A_3ADeviceBase" id="r_Lib_3A_3ABSP_3A_3ADeviceManager_3A_3ADeviceBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/d7c/a00722.html">Lib::BSP::DeviceManager::DeviceBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for devices managed by the DeviceManager.  <a href="../../db/d7c/a00722.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d3/d8e/a00647.html">Lib</a></td></tr>
-<tr class="memdesc:d3/d8e/a00647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ABSP" id="r_Lib_3A_3ABSP"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d1f/a00648.html">Lib::BSP</a></td></tr>
-<tr class="memdesc:dd/d1f/a00648"><td class="mdescLeft">&#160;</td><td class="mdescRight">Board support package: hardware-agnostic device drivers built on top of 'Lib::HAL'. <br /></td></tr>
-</table>
-</div><!-- contents -->
+<p>Demonstrates opening an <b>RTOS::EventGroup</b>, setting bits from a task and from an ISR, waiting for them, and clearing them on exit.</p>
+<p>Demonstrates opening an <b>RTOS::EventGroup</b>, setting bits from a task and from an ISR, waiting for them, and clearing them on exit.The task waits for two event bits with a <b>std::chrono</b> timeout; one bit is set by the task itself and the other by an interrupt through <b>setBitsFromISR()</b>, which is deferred to the timer daemon task and therefore needs <b>configUSE_TIMERS</b> and <b>INCLUDE_xTimerPendFunctionCall</b>. Only the low 24 bits are usable (8 bits with <b>configUSE_16_BIT_TICKS</b>); FreeRTOS reserves the rest.</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d8/d70/a02629.html" title="RTOS::EventGroup">RTOS::EventGroup</a></dd></dl>
+<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/db6/a00692.html">Lib/RTOS/FreeRTOS/EventGroup.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"> </div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d1/d03/a02332.html">RTOS::EventGroup</a> events;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">constexpr</span> <a id="_a1" name="_a1"></a><a class="code hl_typedef" href="../../d1/d03/a02332.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> TASK_READY{1U &lt;&lt; 0U};</div>
+<div class="line"><span class="keyword">constexpr</span> <a class="code hl_typedef" href="../../d1/d03/a02332.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a> DATA_READY{1U &lt;&lt; 3U};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> <span class="keywordtype">void</span> EXTI0_IRQHandler() {</div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d1/d03/a02332.html#a13c55cc45daa6d96a1f21460a4c71626">setBitsFromISR</a>(DATA_READY)); <span class="comment">// Yields to the daemon task if needed.</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> exampleTask() {</div>
+<div class="line">    <span class="keywordflow">if</span> (!events.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d1/d03/a02332.html#ae966e8d3efe519e3138fedaa3108a300">open</a>()) {</div>
+<div class="line">        <span class="keywordflow">return</span>; <span class="comment">// Creation failed: out of heap.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(events.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d1/d03/a02332.html#a154c164a4617cf8553683bb42f04ff11">setBits</a>(TASK_READY));</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Wait up to 1 s for both bits; they are cleared on exit only if both were set.</span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = events.waitForBits(TASK_READY | DATA_READY, 1s, <span class="keyword">true</span>, <span class="keyword">true</span>);</div>
+<div class="line">    <span class="keywordflow">if</span> ((result &amp; (TASK_READY | DATA_READY)) == (TASK_READY | DATA_READY)) {</div>
+<div class="line">        <span class="comment">// Both bits set.</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// Timeout or only one bit set.</span></div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    events.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d1/d03/a02332.html#a86f5d90cf8de78fe435b35460bef5edd">close</a>();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00692_html"><div class="ttname"><a href="../../d0/db6/a00692.html">EventGroup.hpp</a></div><div class="ttdoc">C++20 RAII wrapper for FreeRTOS Event Groups.</div></div>
+<div class="ttc" id="aa02332_html"><div class="ttname"><a href="../../d1/d03/a02332.html">RTOS::EventGroup</a></div><div class="ttdoc">RAII wrapper for FreeRTOS Event Group handles.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:46</div></div>
+<div class="ttc" id="aa02332_html_a13c55cc45daa6d96a1f21460a4c71626"><div class="ttname"><a href="../../d1/d03/a02332.html#a13c55cc45daa6d96a1f21460a4c71626">RTOS::EventGroup::setBitsFromISR</a></div><div class="ttdeci">bool setBitsFromISR(Bits bitsToSet) noexcept</div><div class="ttdoc">Requests the timer daemon to set bits from an ISR, and yields to it if it outranks the interrupted ta...</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:372</div></div>
+<div class="ttc" id="aa02332_html_a154c164a4617cf8553683bb42f04ff11"><div class="ttname"><a href="../../d1/d03/a02332.html#a154c164a4617cf8553683bb42f04ff11">RTOS::EventGroup::setBits</a></div><div class="ttdeci">Bits setBits(Bits bitsToSet) noexcept</div><div class="ttdoc">Sets specific bits in the group, unblocking every task whose wait condition is now met.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:323</div></div>
+<div class="ttc" id="aa02332_html_a27fe7bec268decd9b548d4ad2375ca34"><div class="ttname"><a href="../../d1/d03/a02332.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></div><div class="ttdeci">std::bitset&lt; EVENT_GROUP_BIT_WIDTH &gt; Bits</div><div class="ttdoc">Event group bits; bits above the usable width cannot exist.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:52</div></div>
+<div class="ttc" id="aa02332_html_a86f5d90cf8de78fe435b35460bef5edd"><div class="ttname"><a href="../../d1/d03/a02332.html#a86f5d90cf8de78fe435b35460bef5edd">RTOS::EventGroup::close</a></div><div class="ttdeci">void close() noexcept</div><div class="ttdoc">Deletes the native event group and releases its resources.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:166</div></div>
+<div class="ttc" id="aa02332_html_ae966e8d3efe519e3138fedaa3108a300"><div class="ttname"><a href="../../d1/d03/a02332.html#ae966e8d3efe519e3138fedaa3108a300">RTOS::EventGroup::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Creates the native FreeRTOS event group with all bits cleared, if not already open.</div><div class="ttdef"><b>Definition</b> EventGroup.hpp:124</div></div>
+</div><!-- fragment --><p>Results:</p><ul>
+<li><b>result</b> holds the bits as they were when the wait ended, before the clear on exit.</li>
+</ul>
+<div class="fragment"></div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4f517acdbe9bc35e0af7a62669e9b8b9.html">BSP</a></li><li class="navelem"><a href="../../d8/d70/a02629.html">DeviceManager.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -1,9 +1,8 @@
 var a01848 =
 [
-    [ "CriticalSection", "da/d4b/a01848.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "da/d4b/a01848.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "da/d4b/a01848.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "da/d4b/a01848.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "da/d4b/a01848.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "da/d4b/a01848.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "data", "da/d4b/a01848.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "da/d4b/a01848.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "da/d4b/a01848.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "da/d4b/a01848.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "da/d4b/a01848.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

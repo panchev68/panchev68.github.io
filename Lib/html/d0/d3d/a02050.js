@@ -1,26 +1,14 @@
 var a02050 =
 [
-    [ "State", "d0/d3d/a02050.html#a7ad1b7a849143d5692507f7dddbcfde8", [
-      [ "AVAILABLE", "d0/d3d/a02050.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
-      [ "TAKEN", "d0/d3d/a02050.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
-      [ "INVALID", "d0/d3d/a02050.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "Semaphore", "d0/d3d/a02050.html#a05660cc9a7ec8aed6d962e4574ff41fd", null ],
-    [ "Semaphore", "d0/d3d/a02050.html#a81c2289b5095339fc9301c72fae88487", null ],
-    [ "Semaphore", "d0/d3d/a02050.html#a70791f9cd23a68a9bd9e6c2ff7067ab5", null ],
-    [ "Semaphore", "d0/d3d/a02050.html#a87fa949b382d64e96b2d93f381032500", null ],
-    [ "createStatic", "d0/d3d/a02050.html#a4f5da52c7ee3efdf3cb229e205149ba5", null ],
-    [ "getCount", "d0/d3d/a02050.html#a08742d5c4dd86e38a1efccfa47dd01af", null ],
-    [ "getState", "d0/d3d/a02050.html#a4dc6f42d28351e57274eb7e45aa62248", null ],
-    [ "isAvailable", "d0/d3d/a02050.html#a58227dfaddfa5a315561f0619d791a45", null ],
-    [ "isTaken", "d0/d3d/a02050.html#ad88c6e815967329927ac73939fb3361d", null ],
-    [ "isValid", "d0/d3d/a02050.html#a2f764c53c71ab97a0a98162a07ed0120", null ],
-    [ "open", "d0/d3d/a02050.html#a4f3a14ce62c98f7ce5520ce3e91b2322", null ],
-    [ "operator=", "d0/d3d/a02050.html#abe1f7c1fff0d8632a0e3f7dda8ed9b0b", null ],
-    [ "operator=", "d0/d3d/a02050.html#ab0c39e4bed96c5f7e874b3ecf89d8a63", null ],
-    [ "overwrite", "d0/d3d/a02050.html#a70748ace923762624068ff43a0438e8b", null ],
-    [ "overwriteFromISR", "d0/d3d/a02050.html#ae17808587d941f6cdf076edfc7f50a69", null ],
-    [ "overwriteFromISR", "d0/d3d/a02050.html#ac4fa91c7638ef0a1811557de4ff2709a", null ],
-    [ "takeMs", "d0/d3d/a02050.html#a4a7b4e66593bcbcf465ddf9458cee540", null ],
-    [ "takeSeconds", "d0/d3d/a02050.html#a154ec0be77fe01c345872f7420174929", null ]
+    [ "TimPwmOutput", "d0/d3d/a02050.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "d0/d3d/a02050.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "d0/d3d/a02050.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "d0/d3d/a02050.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "d0/d3d/a02050.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "d0/d3d/a02050.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "d0/d3d/a02050.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "d0/d3d/a02050.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "d0/d3d/a02050.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "d0/d3d/a02050.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "d0/d3d/a02050.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

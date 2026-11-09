@@ -1,9 +1,10 @@
 var a01142 =
 [
-    [ "Address", "d3/ddc/a01142.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "d3/ddc/a01142.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "d3/ddc/a01142.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "d3/ddc/a01142.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "d3/ddc/a01142.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "d3/ddc/a01142.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "operator==", "d3/ddc/a01142.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d3/ddc/a01142.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d3/ddc/a01142.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d3/ddc/a01142.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d3/ddc/a01142.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d3/ddc/a01142.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d3/ddc/a01142.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

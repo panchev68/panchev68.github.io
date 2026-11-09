@@ -1,13 +1,16 @@
 var a01670 =
 [
-    [ "I2CPortBase", "de/df6/a01670.html#ac5cfd51b611b9848e49c7a3d345de6d4", null ],
-    [ "I2CPortBase", "de/df6/a01670.html#a6483c18a19db1550cd6c10ab8fc46f1d", null ],
-    [ "I2CPortBase", "de/df6/a01670.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
-    [ "~I2CPortBase", "de/df6/a01670.html#a4d69d746f11c95220372f8f0a62397b1", null ],
-    [ "close", "de/df6/a01670.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
-    [ "isBusy", "de/df6/a01670.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isReady", "de/df6/a01670.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "open", "de/df6/a01670.html#ae5b5ff9d68d55b14be794ede22903816", null ],
-    [ "operator=", "de/df6/a01670.html#a3ca3a98752b410bf62ea34d0e160e75f", null ],
-    [ "operator=", "de/df6/a01670.html#a7f0e8ed82c2c559477b990aefe98218d", null ]
+    [ "Container", "de/df6/a01670.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "de/df6/a01670.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "de/df6/a01670.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "de/df6/a01670.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "de/df6/a01670.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "de/df6/a01670.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "de/df6/a01670.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "de/df6/a01670.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "de/df6/a01670.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "de/df6/a01670.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "de/df6/a01670.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "de/df6/a01670.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

@@ -1,4 +1,5 @@
 var a00794 =
 [
-    [ "vscode", "d0/db6/a01974.html", "d0/db6/a01974" ]
+    [ "Lib::USB::SerialPort", "dc/d81/a02568.html", "dc/d81/a02568" ],
+    [ "Lib::USB::SerialPort::Config", "d9/de7/a02572.html", "d9/de7/a02572" ]
 ];

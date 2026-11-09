@@ -1,13 +1,11 @@
 var a02131 =
 [
-    [ "VersionString", "d3/da9/a02131.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "Status", "d3/da9/a02131.html#a60c218a030e3eee1206d03bd1196910e", [
-      [ "OK", "d3/da9/a02131.html#a60c218a030e3eee1206d03bd1196910eae0aa021e21dddbd6d8cecec71e9cf564", null ]
-    ] ],
-    [ "FirmwareVersion", "d3/da9/a02131.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "d3/da9/a02131.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "d3/da9/a02131.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "d3/da9/a02131.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "d3/da9/a02131.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "d3/da9/a02131.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "getDirection", "d3/da9/a02131.html#a68335ce20908e5937884bf601bb4b90e", null ],
+    [ "getRecipient", "d3/da9/a02131.html#ae7283011b9493caacbbe6081ca48b217", null ],
+    [ "getType", "d3/da9/a02131.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
+    [ "index", "d3/da9/a02131.html#a042e36be625640c409835eeb4ca30c8a", null ],
+    [ "length", "d3/da9/a02131.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
+    [ "request", "d3/da9/a02131.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
+    [ "requestType", "d3/da9/a02131.html#a87ecd5c19387a9761e2548aba162728d", null ],
+    [ "value", "d3/da9/a02131.html#aeb95036baf576efe55bbdca1daf8c864", null ]
 ];

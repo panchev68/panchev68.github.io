@@ -1,14 +1,14 @@
 var a01774 =
 [
-    [ "TimPwmOutput", "d9/d02/a01774.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
-    [ "~TimPwmOutput", "d9/d02/a01774.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
-    [ "TimPwmOutput", "d9/d02/a01774.html#ad3f05607578a665946a6eb6299de5b04", null ],
-    [ "TimPwmOutput", "d9/d02/a01774.html#a8d07643fa9180b1ad5cc39190ee29fec", null ],
-    [ "close", "d9/d02/a01774.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
-    [ "getPeriod", "d9/d02/a01774.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
-    [ "open", "d9/d02/a01774.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
-    [ "operator=", "d9/d02/a01774.html#a2e29013033b24999e691c5b37fa3680a", null ],
-    [ "operator=", "d9/d02/a01774.html#a74e93016ca3ce76a40d385c01114a963", null ],
-    [ "setPeriod", "d9/d02/a01774.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
-    [ "setPulse", "d9/d02/a01774.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
+    [ "PortString", "d9/d02/a01774.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "d9/d02/a01774.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "d9/d02/a01774.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "d9/d02/a01774.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "d9/d02/a01774.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "d9/d02/a01774.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "d9/d02/a01774.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "d9/d02/a01774.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "d9/d02/a01774.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "d9/d02/a01774.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "d9/d02/a01774.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

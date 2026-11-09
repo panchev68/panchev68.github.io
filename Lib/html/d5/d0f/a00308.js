@@ -1,5 +1,5 @@
 var a00308 =
 [
-    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;", "d9/d80/a01539.html", "d9/d80/a01539" ],
-    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;::Event", "db/d08/a01543.html", null ]
+    [ "Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;", "d0/d31/a01686.html", "d0/d31/a01686" ],
+    [ "Lib::Errors::Observer", "d6/d01/a01690.html", "d6/d01/a01690" ]
 ];

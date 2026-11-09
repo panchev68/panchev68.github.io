@@ -1,8 +1,8 @@
 var a00876 =
 [
-    [ "button", "d2/dac/a00876.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
-    [ "channel1", "d2/dac/a00876.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
-    [ "channel2", "d2/dac/a00876.html#a360d21f775c66781831db2507e7a73fc", null ],
-    [ "divider", "d2/dac/a00876.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
-    [ "reversePolarity", "d2/dac/a00876.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
+    [ "Config", "d1/d8f/a00880.html", "d1/d8f/a00880" ],
+    [ "Beep", "d2/dac/a00876.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "isPlaying", "d2/dac/a00876.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "play", "d2/dac/a00876.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
+    [ "RTOS::TickClient< Beep >", "d2/dac/a00876.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

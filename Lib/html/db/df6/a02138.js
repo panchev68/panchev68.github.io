@@ -1,13 +1,12 @@
 var a02138 =
 [
-    [ "VersionString", "db/df6/a02138.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "Status", "db/df6/a02138.html#a60c218a030e3eee1206d03bd1196910e", [
-      [ "OK", "db/df6/a02138.html#a60c218a030e3eee1206d03bd1196910eae0aa021e21dddbd6d8cecec71e9cf564", null ]
-    ] ],
-    [ "FirmwareVersion", "db/df6/a02138.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "db/df6/a02138.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "db/df6/a02138.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "db/df6/a02138.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "db/df6/a02138.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "db/df6/a02138.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "WindowWatchdog", "db/df6/a02138.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "db/df6/a02138.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "db/df6/a02138.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "db/df6/a02138.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "db/df6/a02138.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "db/df6/a02138.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "db/df6/a02138.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "db/df6/a02138.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "db/df6/a02138.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

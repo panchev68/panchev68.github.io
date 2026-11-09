@@ -1,9 +1,14 @@
 var a01500 =
 [
-    [ "command", "de/d65/a01500.html#ac39c4790de9b586883fe6f756ddacedb", null ],
-    [ "delimiter", "de/d65/a01500.html#afe55e623eebacaace36b8d1e9844d39d", null ],
-    [ "id", "de/d65/a01500.html#a8347df958bae7c76cebdbb5c432b0050", null ],
-    [ "length", "de/d65/a01500.html#afe72ea272518d059f1bf808d9f29af53", null ],
-    [ "option", "de/d65/a01500.html#a5ef8d332a47ac6474f29bd47994ec554", null ],
-    [ "timestamp", "de/d65/a01500.html#a0997b1a261a5779f789463642f1b0e65", null ]
+    [ "SerialNumber", "dd/d05/a01504.html", "dd/d05/a01504" ],
+    [ "ackFailures", "de/d65/a01500.html#aa36464587f33788505f069d1c46ec004", null ],
+    [ "ccaFailures", "de/d65/a01500.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
+    [ "channel", "de/d65/a01500.html#a910133d925087a409f8f8357447b9e3a", null ],
+    [ "firmwareVersion", "de/d65/a01500.html#a919225b632587966d3cdbd15ca30f0d3", null ],
+    [ "hardwareVersion", "de/d65/a01500.html#a2efd702c930d16f10c2672244503d676", null ],
+    [ "nodeIdentifier", "de/d65/a01500.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
+    [ "panId", "de/d65/a01500.html#ad1515643697ad647030e33ba97d79968", null ],
+    [ "serialNumber", "de/d65/a01500.html#a5e4e85516315320363b69f902c64a5b7", null ],
+    [ "temperature", "de/d65/a01500.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
+    [ "voltage", "de/d65/a01500.html#a9ee4423766190b01b3381ae41455bf2d", null ]
 ];

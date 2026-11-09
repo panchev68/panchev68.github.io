@@ -1,9 +1,14 @@
 var a01904 =
 [
-    [ "Config", "d8/d45/a01908.html", "d8/d45/a01908" ],
-    [ "Kalman", "d4/d0d/a01904.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "d4/d0d/a01904.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "d4/d0d/a01904.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "d4/d0d/a01904.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "d4/d0d/a01904.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "Input", "d4/d0d/a01904.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "d4/d0d/a01904.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "Input", "d4/d0d/a01904.html#aba23478206e067c578a2081a0ba4d1ee", null ],
+    [ "Input", "d4/d0d/a01904.html#a01d95887913602ed10325b5b07f8cef5", null ],
+    [ "isHigh", "d4/d0d/a01904.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d4/d0d/a01904.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d4/d0d/a01904.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d4/d0d/a01904.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
+    [ "operator=", "d4/d0d/a01904.html#aac4da8195bb51d393df961046635bfc0", null ],
+    [ "read", "d4/d0d/a01904.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "d4/d0d/a01904.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

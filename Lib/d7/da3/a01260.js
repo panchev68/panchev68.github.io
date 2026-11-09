@@ -1,9 +1,10 @@
 var a01260 =
 [
-    [ "Counter", "d7/da3/a01260.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d7/da3/a01260.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d7/da3/a01260.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d7/da3/a01260.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d7/da3/a01260.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d7/da3/a01260.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "RxMessage", "d7/da3/a01260.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
+    [ "RxMessage", "d7/da3/a01260.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
+    [ "getData", "d7/da3/a01260.html#a211378ed57e780728a164371a88e9913", null ],
+    [ "getId", "d7/da3/a01260.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
+    [ "data", "d7/da3/a01260.html#ad7fd7612128273e1c546b6344e7410b3", null ],
+    [ "id", "d7/da3/a01260.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
+    [ "length", "d7/da3/a01260.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
 ];

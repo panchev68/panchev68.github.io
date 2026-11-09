@@ -1,9 +1,6 @@
 var a01570 =
 [
-    [ "CANPort", "d5/d75/a01570.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "d5/d75/a01570.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "getHandle", "d5/d75/a01570.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "d5/d75/a01570.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "readBlocking", "d5/d75/a01570.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "writeBlocking", "d5/d75/a01570.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "lengthLSB", "d5/d75/a01570.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "d5/d75/a01570.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "d5/d75/a01570.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

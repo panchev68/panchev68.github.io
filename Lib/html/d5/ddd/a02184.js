@@ -1,8 +1,18 @@
 var a02184 =
 [
-    [ "Frame", "dc/d3c/a02188.html", "dc/d3c/a02188" ],
-    [ "Status", "d5/ddd/a02184.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d5/ddd/a02184.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d5/ddd/a02184.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "DateString", "d5/ddd/a02184.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "d5/ddd/a02184.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "d5/ddd/a02184.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "d5/ddd/a02184.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "d5/ddd/a02184.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "d5/ddd/a02184.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "d5/ddd/a02184.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "d5/ddd/a02184.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "d5/ddd/a02184.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "d5/ddd/a02184.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "d5/ddd/a02184.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "d5/ddd/a02184.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "d5/ddd/a02184.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "d5/ddd/a02184.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "d5/ddd/a02184.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

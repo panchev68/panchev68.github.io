@@ -1,12 +1,15 @@
 var a01159 =
 [
-    [ "SerialPortBase", "d7/de8/a01159.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "d7/de8/a01159.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "d7/de8/a01159.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "d7/de8/a01159.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "d7/de8/a01159.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "d7/de8/a01159.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "d7/de8/a01159.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d7/de8/a01159.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "d7/de8/a01159.html#a22242f9b587ab6f048bcc4e16ed2e3b3", null ]
+    [ "Ring", "d6/d27/a01163.html", "d6/d27/a01163" ],
+    [ "Slice", "d7/de8/a01159.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "d7/de8/a01159.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "d7/de8/a01159.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "d7/de8/a01159.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "d7/de8/a01159.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "d7/de8/a01159.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "d7/de8/a01159.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "d7/de8/a01159.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "d7/de8/a01159.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "d7/de8/a01159.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "d7/de8/a01159.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

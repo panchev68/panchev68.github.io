@@ -1,10 +1,5 @@
 var a02107 =
 [
-    [ "maxPowerRef", "db/dd4/a02107.html#a03f700e990948fcfe6c82de9a3e21657", null ],
-    [ "mppCurrentRef", "db/dd4/a02107.html#a7208d815760253f067e40908fdf5b2b1", null ],
-    [ "mppVoltageRef", "db/dd4/a02107.html#ad14a294ad527e4103971eddc9f39e1af", null ],
-    [ "referenceIrradiance", "db/dd4/a02107.html#abb7c80f88a2007497312ca7b74f5e216", null ],
-    [ "temperatureCoefficient", "db/dd4/a02107.html#aad0b3f3e89dee953a5ad229531788752", null ],
-    [ "toleranceFactor", "db/dd4/a02107.html#a5da34d5f09a437a775c5639065d1fcde", null ],
-    [ "updateInterval", "db/dd4/a02107.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
+    [ "USBHostPort", "db/dd4/a02107.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "db/dd4/a02107.html#a4c01d7a9aa859df6f11e05b804af766d", null ]
 ];

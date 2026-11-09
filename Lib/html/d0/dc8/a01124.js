@@ -1,9 +1,5 @@
 var a01124 =
 [
-    [ "errorCode", "d0/dc8/a01124.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "d0/dc8/a01124.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "d0/dc8/a01124.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "d0/dc8/a01124.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "d0/dc8/a01124.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "d0/dc8/a01124.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "onCardDetect", "d0/dc8/a01124.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
+    [ "spiPort", "d0/dc8/a01124.html#a67ad4df5e15c12584fe20e638078eab3", null ]
 ];

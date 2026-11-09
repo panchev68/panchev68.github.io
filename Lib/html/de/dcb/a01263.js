@@ -1,5 +1,4 @@
 var a01263 =
 [
-    [ "temperatureValue", "de/dcb/a01263.html#ad352c7bba31cc229e106eea4aef94299", null ],
-    [ "voltageValue", "de/dcb/a01263.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
+    [ "activity", "de/dcb/a01263.html#a18868bb97d02dec73fd63f7c1977762e", null ]
 ];

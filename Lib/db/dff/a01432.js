@@ -1,8 +1,9 @@
 var a01432 =
 [
-    [ "writeTo", "db/dff/a01432.html#a46342f730043bd2cb721cafd68faf502", null ],
-    [ "dstAddress", "db/dff/a01432.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "db/dff/a01432.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "db/dff/a01432.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "db/dff/a01432.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "Counter", "db/dff/a01432.html#a979dd53107c70679957a49b352e309e4", null ],
+    [ "Counter", "db/dff/a01432.html#aa0fcdac4118821433a18e704d608605d", null ],
+    [ "clear", "db/dff/a01432.html#a5f4c68779359a4681b48228f57296c09", null ],
+    [ "operator uint32_t", "db/dff/a01432.html#a32d48ad9be69d1fb44852223025c4efe", null ],
+    [ "operator++", "db/dff/a01432.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
+    [ "operator=", "db/dff/a01432.html#aebee6561b906ea1271070b47c2610fe2", null ]
 ];

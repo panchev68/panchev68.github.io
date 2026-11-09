@@ -1,9 +1,12 @@
 var a02135 =
 [
-    [ "VersionString", "df/daa/a02135.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "df/daa/a02135.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getValue", "df/daa/a02135.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "df/daa/a02135.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "df/daa/a02135.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "df/daa/a02135.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "WindowWatchdog", "df/daa/a02135.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "df/daa/a02135.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "df/daa/a02135.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "df/daa/a02135.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "df/daa/a02135.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "df/daa/a02135.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "df/daa/a02135.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "df/daa/a02135.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "df/daa/a02135.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

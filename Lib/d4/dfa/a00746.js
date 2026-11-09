@@ -1,4 +1,5 @@
 var a00746 =
 [
-    [ "RTOS::Timeout", "d9/dd5/a01886.html", "d9/dd5/a01886" ]
+    [ "RTOS::TickClient&lt; Derived &gt;", "dd/d0a/a02436.html", "dd/d0a/a02436" ],
+    [ "RTOS::TickClient&lt; Derived &gt;::Config", "db/d5f/a02440.html", "db/d5f/a02440" ]
 ];

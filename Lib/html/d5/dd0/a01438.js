@@ -1,11 +1,16 @@
 var a01438 =
 [
-    [ "onExtendedTransmitStatusChanged", "d5/dd0/a01438.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "d5/dd0/a01438.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "d5/dd0/a01438.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "d5/dd0/a01438.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "d5/dd0/a01438.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "d5/dd0/a01438.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "d5/dd0/a01438.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "d5/dd0/a01438.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Period", "d5/dd0/a01438.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
+    [ "Period", "d5/dd0/a01438.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
+    [ "beginMeasurement", "d5/dd0/a01438.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
+    [ "clearMinMax", "d5/dd0/a01438.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
+    [ "endMeasurement", "d5/dd0/a01438.html#a764b89843884696c66a1e499e466bb51", null ],
+    [ "getMaximum", "d5/dd0/a01438.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
+    [ "getMinimum", "d5/dd0/a01438.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
+    [ "getRawValue", "d5/dd0/a01438.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
+    [ "getValue", "d5/dd0/a01438.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
+    [ "operator uint32_t", "d5/dd0/a01438.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
+    [ "operator=", "d5/dd0/a01438.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
+    [ "reset", "d5/dd0/a01438.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
+    [ "stopMeasurement", "d5/dd0/a01438.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
 ];

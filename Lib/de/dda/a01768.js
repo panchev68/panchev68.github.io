@@ -1,11 +1,8 @@
 var a01768 =
 [
-    [ "Client", "de/dda/a01768.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
-    [ "Client", "de/dda/a01768.html#a893ac5643ef917f5ca701fabbe75a429", null ],
-    [ "Client", "de/dda/a01768.html#a207055b9f6a7daac509985f971a0e14f", null ],
-    [ "get", "de/dda/a01768.html#aabf7e35c74111468fdd296e6931b047f", null ],
-    [ "operator=", "de/dda/a01768.html#a19375415236ef7e6b214f897791eeb09", null ],
-    [ "operator=", "de/dda/a01768.html#a3b9c27f75842a31365c97eaaa607d452", null ],
-    [ "post", "de/dda/a01768.html#aee5955fa4ffad931d4418d2f59af2880", null ],
-    [ "request", "de/dda/a01768.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
+    [ "Node", "de/dda/a01768.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "de/dda/a01768.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "de/dda/a01768.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "de/dda/a01768.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "de/dda/a01768.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

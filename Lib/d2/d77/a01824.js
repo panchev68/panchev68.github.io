@@ -1,23 +1,13 @@
 var a01824 =
 [
-    [ "Config", "dc/d79/a01828.html", "dc/d79/a01828" ],
-    [ "Command", "d2/d77/a01824.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "d2/d77/a01824.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d2/d77/a01824.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "d2/d77/a01824.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "d2/d77/a01824.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d2/d77/a01824.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d2/d77/a01824.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "d2/d77/a01824.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "d2/d77/a01824.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "d2/d77/a01824.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "d2/d77/a01824.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "d2/d77/a01824.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "d2/d77/a01824.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "d2/d77/a01824.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "d2/d77/a01824.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "d2/d77/a01824.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "d2/d77/a01824.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "CriticalSectionFromISR", "dc/d79/a01828.html", "dc/d79/a01828" ],
+    [ "CriticalSection", "dc/d06/a01832.html", "dc/d06/a01832" ],
+    [ "Scheduler", "db/df3/a01836.html", "db/df3/a01836" ],
+    [ "MemoryInfo", "d2/dbd/a01844.html", "d2/dbd/a01844" ],
+    [ "InterruptMask", "d2/d77/a01824.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
+    [ "TaskCount", "d2/d77/a01824.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
+    [ "TickDuration", "d2/d77/a01824.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
+    [ "TickType", "d2/d77/a01824.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
+    [ "Kernel", "d2/d77/a01824.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
+    [ "~Kernel", "d2/d77/a01824.html#a002477130b9e5bd7adc19142c1516c08", null ]
 ];

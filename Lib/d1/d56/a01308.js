@@ -1,9 +1,5 @@
 var a01308 =
 [
-    [ "Channel", "d1/d56/a01308.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
-    [ "Channel", "d1/d56/a01308.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
-    [ "getConnectionQuality", "d1/d56/a01308.html#a9c351291c3bb7c963270eae54a16597d", null ],
-    [ "operator uint8_t", "d1/d56/a01308.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
-    [ "operator=", "d1/d56/a01308.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
-    [ "setConnectionQuality", "d1/d56/a01308.html#af7e5e84d1697e43122a6e086007d9789", null ]
+    [ "localAtCommand", "d1/d56/a01308.html#a62c4d2c354626705c34bc850c039b5f7", null ],
+    [ "remoteAtCommand", "d1/d56/a01308.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
 ];

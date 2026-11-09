@@ -1,14 +1,16 @@
 var a01227 =
 [
-    [ "Counter", "d0/d88/a01231.html", "d0/d88/a01231" ],
-    [ "Period", "dd/dad/a01235.html", "dd/dad/a01235" ],
-    [ "SignalStrength", "d7/dbf/a01239.html", "d7/dbf/a01239" ],
-    [ "deletedMessages", "d9/da8/a01227.html#af628e5c20d43a21697a20298e3850d62", null ],
-    [ "deletedTransmitStatus", "d9/da8/a01227.html#a5cb11ade89e22561cb697360e6f647d0", null ],
-    [ "noTransmitStatus", "d9/da8/a01227.html#aec698012d20e26bb10d4bea26c010985", null ],
-    [ "reconnectionCounter", "d9/da8/a01227.html#ac7f62868a289abb2450f79aa885bb423", null ],
-    [ "retriesCounter", "d9/da8/a01227.html#ac6e666ea8ac5731fdd252b8dc813485b", null ],
-    [ "signalStrength", "d9/da8/a01227.html#ae57e34d0254c73139d0015fc39e498dd", null ],
-    [ "transmitPeriod", "d9/da8/a01227.html#afa5724d63b364d43fb031cc4682d2de3", null ],
-    [ "unsuccessTransmitStatus", "d9/da8/a01227.html#ac67e8232f97db31ebd0f825093b661fa", null ]
+    [ "Config", "d0/d88/a01231.html", "d0/d88/a01231" ],
+    [ "TransducerDiagnostics", "dd/dad/a01235.html", "dd/dad/a01235" ],
+    [ "PGA460TPWRQ1", "d9/da8/a01227.html#af23eb94dd6b27d2f4b97126ec7c3ff6e", null ],
+    [ "PGA460TPWRQ1", "d9/da8/a01227.html#ab0901e6176d41517bb48f19722c9721b", null ],
+    [ "PGA460TPWRQ1", "d9/da8/a01227.html#ab58650dd060801861ed9ffdd08be491b", null ],
+    [ "close", "d9/da8/a01227.html#a52d6efacbe935389fa51f1f75670476f", null ],
+    [ "open", "d9/da8/a01227.html#a50accfabb3897779a4b26e4c6b8e7566", null ],
+    [ "operator=", "d9/da8/a01227.html#a3e3603ffff316bc5f0bfd3fbfa8f3ac9", null ],
+    [ "operator=", "d9/da8/a01227.html#a8e49edb5b10188a09823c4a7c0c3bba7", null ],
+    [ "readDistance", "d9/da8/a01227.html#ab5b14fe14cfea3451683b86f1cc54952", null ],
+    [ "readRegister", "d9/da8/a01227.html#a2d489995d894aaeddbace0f34825674e", null ],
+    [ "readTransducerDiagnostics", "d9/da8/a01227.html#ad06b5c6df4a4916a991419d66d6cf3f4", null ],
+    [ "writeRegister", "d9/da8/a01227.html#a393f06f504869258b353566ff562f476", null ]
 ];

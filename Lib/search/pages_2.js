@@ -1,6 +1,15 @@
 var searchData=
 [
-  ['default_20uart_20address_0',['Non-default UART address',['../d4/dcc/a02371.html#pga460_usage_address',1,'']]],
-  ['deprecated_20list_1',['Deprecated List',['../d8/db7/a00812.html',1,'']]],
-  ['dynamic_20creation_2',['Dynamic creation',['../da/d75/a02372.html#streambuffer_dynamic',1,'']]]
+  ['can_20bus_20communication_0',['CAN Bus Communication',['../index.html#can-bus-communication',1,'']]],
+  ['cdcdevice_20example_1',['CDCDevice example',['../d3/d65/a03423.html',1,'']]],
+  ['common_20configuration_20options_2',['Common Configuration Options',['../index.html#common-configuration-options',1,'']]],
+  ['communication_3',['CAN Bus Communication',['../index.html#can-bus-communication',1,'']]],
+  ['communication_20protocols_4',['Communication Protocols',['../index.html#communication-protocols',1,'']]],
+  ['components_5',['🎯 Architecture Components',['../index.html#autotoc_md-architecture-components',1,'']]],
+  ['configuration_6',['⚙️ Configuration',['../index.html#️-configuration',1,'']]],
+  ['configuration_20files_7',['Key Configuration Files',['../index.html#key-configuration-files',1,'']]],
+  ['configuration_20options_8',['Common Configuration Options',['../index.html#common-configuration-options',1,'']]],
+  ['control_9',['Monitoring and control',['../d1/d8b/a03420.html#streambuffer_monitor',1,'']]],
+  ['creation_10',['FreeRTOS Task Creation',['../index.html#freertos-task-creation',1,'']]],
+  ['creation_11',['creation',['../d1/d8b/a03420.html#streambuffer_dynamic',1,'Dynamic creation'],['../d1/d8b/a03420.html#streambuffer_static',1,'Static creation']]]
 ];

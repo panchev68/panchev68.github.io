@@ -1,19 +1,27 @@
 var a01100 =
 [
-    [ "Node", "dd/dcb/a01104.html", "dd/dcb/a01104" ],
-    [ "Diagnostic", "d2/dd7/a01108.html", "d2/dd7/a01108" ],
-    [ "Filter", "d3/dbd/a01100.html#aba2543fcfb2d0bfb529f5b29a749d9f5", null ],
-    [ "RxMessage", "d3/dbd/a01100.html#a4037831aea825654d7dbddde75b316c7", null ],
-    [ "ServiceBase", "d3/dbd/a01100.html#acbfceb92cefef5281785b7d5db81df5d", null ],
-    [ "~ServiceBase", "d3/dbd/a01100.html#a6594894f460fcebe7b8705a3ebca6938", null ],
-    [ "errorCallback", "d3/dbd/a01100.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "d3/dbd/a01100.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "d3/dbd/a01100.html#abe37221a89d42b0ec836894d481128b4", null ],
-    [ "receive", "d3/dbd/a01100.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "d3/dbd/a01100.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "d3/dbd/a01100.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "d3/dbd/a01100.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "d3/dbd/a01100.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "d3/dbd/a01100.html#a3d0252842f197249fff9649618458fee", null ],
-    [ "taskFn", "d3/dbd/a01100.html#a3f461c3e0f637c2be89463249c736b46", null ]
+    [ "Config", "dd/dcb/a01104.html", "dd/dcb/a01104" ],
+    [ "Diagnostics", "d2/dd7/a01108.html", "d2/dd7/a01108" ],
+    [ "CardActivatedCallback", "d3/dbd/a01100.html#aaa9dd3ae634e7a69d4f917e7bd454305", null ],
+    [ "ReadBuffer", "d3/dbd/a01100.html#a5f65acf300f17deb99c963ab374432b3", null ],
+    [ "Reader", "d3/dbd/a01100.html#a6701c6a8809d64b58d6f2572a5d5e3db", null ],
+    [ "SignatureBuffer", "d3/dbd/a01100.html#afea6f0e2a71e2700aba290c8c12dcbcc", null ],
+    [ "State", "d3/dbd/a01100.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9c", [
+      [ "IDLE", "d3/dbd/a01100.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5daf7f2ebbba4975d61dab1c40188c7", null ],
+      [ "POLL_REQA", "d3/dbd/a01100.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca85c5b813825733ffaddba38ff01013d9", null ],
+      [ "POLL_ANTICOL", "d3/dbd/a01100.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9cad5dc3be53612bd06503c0bbfad204df3", null ],
+      [ "POLL_SELECT", "d3/dbd/a01100.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9caa5bfdbb0b28fcf69a9bd38a2028515c4", null ],
+      [ "CARD_ACTIVATED", "d3/dbd/a01100.html#a4b1ad1aa4900bec7f1e8c0f90d7c5b9ca21a340b7ffede2c753ae9fa6e5e4ed11", null ]
+    ] ],
+    [ "NfcManager", "d3/dbd/a01100.html#a4e43b591f0d6680b5fdacd85a2858caf", null ],
+    [ "~NfcManager", "d3/dbd/a01100.html#a99dc2c6cf10e46e8158d7e15504f0cc5", null ],
+    [ "getDiagnostics", "d3/dbd/a01100.html#a0fc17fc5e17c79eac24ad7d9d6fb72ab", null ],
+    [ "getState", "d3/dbd/a01100.html#a3b2d0421ba5761b21a2c806ae6480bbf", null ],
+    [ "getWakeupADCRange", "d3/dbd/a01100.html#a2c7d71eee5f6187585aba0f69b39c3f6", null ],
+    [ "readPages", "d3/dbd/a01100.html#a4c81d15f935d8e1c2dd13d993975f940", null ],
+    [ "readSignature", "d3/dbd/a01100.html#abdbd4ef43ac6798f86fb0f05d695d011", null ],
+    [ "resetWakeupADCRange", "d3/dbd/a01100.html#aca5c8406388ff9e1c1f7808fd7c5b4c4", null ],
+    [ "start", "d3/dbd/a01100.html#a347e0188a1c8207e8d11268d607aa763", null ],
+    [ "stop", "d3/dbd/a01100.html#ae7bf77d346d29fc8a4da4226fc32e640", null ],
+    [ "writePage", "d3/dbd/a01100.html#aa61c13d6b4df75e3243f862a1e8af3d5", null ]
 ];

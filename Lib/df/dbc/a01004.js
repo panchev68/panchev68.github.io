@@ -1,5 +1,9 @@
 var a01004 =
 [
-    [ "baseAddress", "df/dbc/a01004.html#ab922219fc16e46857f76b5a34c05ea47", null ],
-    [ "sizeBytes", "df/dbc/a01004.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
+    [ "pinIRQ", "df/dbc/a01004.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "df/dbc/a01004.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "df/dbc/a01004.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "df/dbc/a01004.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "df/dbc/a01004.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "df/dbc/a01004.html#aed57b8892979041579d2eb130d453151", null ]
 ];

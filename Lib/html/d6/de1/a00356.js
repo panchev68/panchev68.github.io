@@ -1,4 +1,5 @@
 var a00356 =
 [
-    [ "Lib::HAL::DACPortBase&lt; Derived &gt;", "d6/d82/a01607.html", "d6/d82/a01607" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::IT &gt;", "d1/dba/a01822.html", "d1/dba/a01822" ],
+    [ "Lib::HAL::ADCPort&lt; DriverMode::IT &gt;::Event", "d2/d45/a01826.html", null ]
 ];

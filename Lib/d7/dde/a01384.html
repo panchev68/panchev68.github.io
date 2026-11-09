@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Digi::Core::DigiApiFrameBuffer</title>
+<title>IAR Library: Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,224 +112,303 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/dde/a01384.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Digi::Core::DigiApiFrameBuffer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Fixed-capacity storage for one raw <a class="el" href="../../d9/daf/a00830.html">Digi</a> <a class="el" href="../../d7/d5f/a00831.html" title="High-level Digi radio module application framework.">API</a> frame: header, frame data and checksum. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Digi::Core::DigiApiFrameBuffer:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;</div><p>CRTP base for a single server-side SSH session (CubeMX: wolfSSH Core). </p>
+<p>A derived class implements the byte transport the session runs over: 'ioReceive(std::span&lt;uint8_t&gt;)' and 'ioSend(std::span&lt;const uint8_t&gt;)', each returning the number of bytes transferred, 0 when none are available yet, or a negative 'WS_CBIO_ERR_*' code. wolfSSH reaches them through a 'void*' context dispatched back to this instance, not through a virtual table, so CRTP replaces the vtable a transport-agnostic design would otherwise need.</p>
+<p>One instance is one connection: construct it after accepting a connection on the underlying transport (e.g. a TCP socket or a UART link), destroy it when the connection ends. Not thread-safe: service one session from one task.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete session type implementing "ioReceive()"/"ioSend()"; publicly inherits from this class. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9d/a01382.svg" width="227" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/d9d/a01382.svg" width="284" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2bd908cbd334615b4ec6e8076279e1ea" id="r_a2bd908cbd334615b4ec6e8076279e1ea"><td class="memItemLeft">uint8_t *&#160;</td><td class="memItemRight"><a class="el" href="#a2bd908cbd334615b4ec6e8076279e1ea">getData</a> () noexcept</td></tr>
-<tr class="memdesc:a2bd908cbd334615b4ec6e8076279e1ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a pointer to the first byte of the buffer.  <br /></td></tr>
-<tr class="memitem:ac5d7ba3eee68da0a19848f8026a3f600" id="r_ac5d7ba3eee68da0a19848f8026a3f600"><td class="memItemLeft">const uint8_t *&#160;</td><td class="memItemRight"><a class="el" href="#ac5d7ba3eee68da0a19848f8026a3f600">getData</a> () const noexcept</td></tr>
-<tr class="memdesc:ac5d7ba3eee68da0a19848f8026a3f600"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a read-only pointer to the first byte of the buffer.  <br /></td></tr>
-<tr class="memitem:a391a31513797286c540adbbc99195704" id="r_a391a31513797286c540adbbc99195704"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a391a31513797286c540adbbc99195704">getSize</a> () const noexcept</td></tr>
-<tr class="memdesc:a391a31513797286c540adbbc99195704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bytes currently stored.  <br /></td></tr>
-<tr class="memitem:a55130d108aa3f8d6235341814cfd4c23" id="r_a55130d108aa3f8d6235341814cfd4c23"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a55130d108aa3f8d6235341814cfd4c23">setSize</a> (size_t size) noexcept</td></tr>
-<tr class="memdesc:a55130d108aa3f8d6235341814cfd4c23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the number of valid bytes after the storage was written through <b><a class="el" href="#a2bd908cbd334615b4ec6e8076279e1ea" title="Returns a pointer to the first byte of the buffer.">getData()</a></b>.  <br /></td></tr>
-<tr class="memitem:a4e9638e82e027739671827a11a48a211" id="r_a4e9638e82e027739671827a11a48a211"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4e9638e82e027739671827a11a48a211">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a4e9638e82e027739671827a11a48a211"><td class="mdescLeft">&#160;</td><td class="mdescRight">Empties the buffer; stale bytes are overwritten before they are read again.  <br /></td></tr>
-<tr class="memitem:ae796119895d95296e7fe754347df07d7" id="r_ae796119895d95296e7fe754347df07d7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae796119895d95296e7fe754347df07d7">assign</a> (const uint8_t *source, size_t length) noexcept</td></tr>
-<tr class="memdesc:ae796119895d95296e7fe754347df07d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the contents with a copy of a raw byte block.  <br /></td></tr>
-<tr class="memitem:a056342d102635bded069d9f153268884" id="r_a056342d102635bded069d9f153268884"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a056342d102635bded069d9f153268884">assign</a> (const std::vector&lt; uint8_t &gt; &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:a056342d102635bded069d9f153268884"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replaces the contents with a copy of a byte vector.  <br /></td></tr>
-<tr class="memitem:a04412e1fc3a07248441dc288c99867f6" id="r_a04412e1fc3a07248441dc288c99867f6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a04412e1fc3a07248441dc288c99867f6">append</a> (uint8_t value) noexcept</td></tr>
-<tr class="memdesc:a04412e1fc3a07248441dc288c99867f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends one byte.  <br /></td></tr>
-<tr class="memitem:adc3f34b3aa1e106403a5ce36930d2e4b" id="r_adc3f34b3aa1e106403a5ce36930d2e4b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adc3f34b3aa1e106403a5ce36930d2e4b">append</a> (const void *source, size_t length) noexcept</td></tr>
-<tr class="memdesc:adc3f34b3aa1e106403a5ce36930d2e4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of a raw byte block.  <br /></td></tr>
-<tr class="memitem:ad8e9930946b066f26cbf08f6de2e84f9" id="r_ad8e9930946b066f26cbf08f6de2e84f9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad8e9930946b066f26cbf08f6de2e84f9">append</a> (const std::vector&lt; uint8_t &gt; &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:ad8e9930946b066f26cbf08f6de2e84f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of a byte vector.  <br /></td></tr>
+<tr class="memitem:a0bcf921f4ac87d3d5ec8ed5bad282b6c" id="r_a0bcf921f4ac87d3d5ec8ed5bad282b6c"><td class="memItemLeft"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c">accept</a> () noexcept</td></tr>
+<tr class="memdesc:a0bcf921f4ac87d3d5ec8ed5bad282b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs (or resumes) the SSH handshake and authentication.  <br /></td></tr>
+<tr class="memitem:ac07508d68f41b64e463fdd58db57558b" id="r_ac07508d68f41b64e463fdd58db57558b"><td class="memItemLeft"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#ac07508d68f41b64e463fdd58db57558b">read</a> (std::span&lt; uint8_t &gt; buffer, size_t &amp;bytesRead) noexcept</td></tr>
+<tr class="memdesc:ac07508d68f41b64e463fdd58db57558b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the session's shell channel.  <br /></td></tr>
+<tr class="memitem:a034957692d48053e848ee6d77605fe2f" id="r_a034957692d48053e848ee6d77605fe2f"><td class="memItemLeft"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a034957692d48053e848ee6d77605fe2f">send</a> (std::span&lt; const uint8_t &gt; buffer, size_t &amp;bytesSent) noexcept</td></tr>
+<tr class="memdesc:a034957692d48053e848ee6d77605fe2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends data over the session's shell channel.  <br /></td></tr>
+<tr class="memitem:a47906cc0c3be3035aefe35c6b6ca9c36" id="r_a47906cc0c3be3035aefe35c6b6ca9c36"><td class="memItemLeft"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a>&#160;</td><td class="memItemRight"><a class="el" href="#a47906cc0c3be3035aefe35c6b6ca9c36">shutdown</a> () noexcept</td></tr>
+<tr class="memdesc:a47906cc0c3be3035aefe35c6b6ca9c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends the SSH disconnect message, ending the session gracefully.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a807b8d2119d659fa32a5cf11c0762be1" id="r_a807b8d2119d659fa32a5cf11c0762be1"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a807b8d2119d659fa32a5cf11c0762be1">BUFFER_SIZE</a> = 255U</td></tr>
-<tr class="memdesc:a807b8d2119d659fa32a5cf11c0762be1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capacity in bytes.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a41bf7bcd105beca0973ac47f04d4e3ff" id="r_a41bf7bcd105beca0973ac47f04d4e3ff"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> (<a class="el" href="../../dd/d6d/a01380.html">WolfSSHServerContext</a> &amp;context) noexcept</td></tr>
+<tr class="memdesc:a41bf7bcd105beca0973ac47f04d4e3ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a session from a server context and binds its I/O and authentication dispatch to this instance.  <br /></td></tr>
+<tr class="memitem:a54cb791a164ecc14c00ccdb1f935d00e" id="r_a54cb791a164ecc14c00ccdb1f935d00e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a54cb791a164ecc14c00ccdb1f935d00e">~WolfSSHServer</a> () noexcept</td></tr>
+<tr class="memdesc:a54cb791a164ecc14c00ccdb1f935d00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfSSH session.  <br /></td></tr>
+<tr class="memitem:ad8f53deb42abb7890bd933f530e30e99" id="r_ad8f53deb42abb7890bd933f530e30e99"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad8f53deb42abb7890bd933f530e30e99">WolfSSHServer</a> (const WolfSSHServer &amp;)=delete</td></tr>
+<tr class="memitem:a70a5a24b9fc9dd898d62c01766f9ba85" id="r_a70a5a24b9fc9dd898d62c01766f9ba85"><td class="memItemLeft"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a70a5a24b9fc9dd898d62c01766f9ba85">operator=</a> (const <a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;)=delete</td></tr>
+<tr class="memitem:ab4aaf2c785967e67853db50c9501bfc3" id="r_ab4aaf2c785967e67853db50c9501bfc3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab4aaf2c785967e67853db50c9501bfc3">WolfSSHServer</a> (WolfSSHServer &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a68435d90ada80b3d688783d3a0a20ab5" id="r_a68435d90ada80b3d688783d3a0a20ab5"><td class="memItemLeft"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a68435d90ada80b3d688783d3a0a20ab5">operator=</a> (<a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp;&amp;)=delete</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ad8e9930946b066f26cbf08f6de2e84f9" name="ad8e9930946b066f26cbf08f6de2e84f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8e9930946b066f26cbf08f6de2e84f9">&#9670;&#160;</a></span>append() <span class="overload">[1/3]</span></h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a41bf7bcd105beca0973ac47f04d4e3ff" name="a41bf7bcd105beca0973ac47f04d4e3ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41bf7bcd105beca0973ac47f04d4e3ff">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::Core::DigiApiFrameBuffer::append </td>
+          <td class="memname"><a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../dd/d6d/a01380.html">WolfSSHServerContext</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>context</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a copy of a byte vector. </p>
+<p>Creates a session from a server context and binds its I/O and authentication dispatch to this instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">buffer</td><td>Source bytes. </td></tr>
+    <tr><td class="paramname">context</td><td>Server context to create the session from; must outlive this session. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the vector does not fit (contents unchanged). </dd></dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_ad8e9930946b066f26cbf08f6de2e84f9_cgraph.svg" width="612" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_a41bf7bcd105beca0973ac47f04d4e3ff_icgraph.svg" width="630" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="adc3f34b3aa1e106403a5ce36930d2e4b" name="adc3f34b3aa1e106403a5ce36930d2e4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc3f34b3aa1e106403a5ce36930d2e4b">&#9670;&#160;</a></span>append() <span class="overload">[2/3]</span></h2>
+<a id="a54cb791a164ecc14c00ccdb1f935d00e" name="a54cb791a164ecc14c00ccdb1f935d00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a54cb791a164ecc14c00ccdb1f935d00e">&#9670;&#160;</a></span>~WolfSSHServer()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::Core::DigiApiFrameBuffer::append </td>
+          <td class="memname"><a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> </td>
           <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a copy of a raw byte block. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">source</td><td>Source bytes; may be null only when <b>length</b> is zero. </td></tr>
-    <tr><td class="paramname">length</td><td>Number of bytes to append. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the block does not fit (contents unchanged). </dd></dl>
+<p>Releases the wolfSSH session. </p>
 
 </div>
 </div>
-<a id="a04412e1fc3a07248441dc288c99867f6" name="a04412e1fc3a07248441dc288c99867f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a04412e1fc3a07248441dc288c99867f6">&#9670;&#160;</a></span>append() <span class="overload">[3/3]</span></h2>
+<a id="ad8f53deb42abb7890bd933f530e30e99" name="ad8f53deb42abb7890bd933f530e30e99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8f53deb42abb7890bd933f530e30e99">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::Core::DigiApiFrameBuffer::append </td>
+          <td class="memname"><a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
           <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramtype">const WolfSSHServer&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Appends one byte. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Byte to append. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the buffer is full. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_a04412e1fc3a07248441dc288c99867f6_icgraph.svg" width="612" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_ad8f53deb42abb7890bd933f530e30e99_cgraph.svg" width="630" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a056342d102635bded069d9f153268884" name="a056342d102635bded069d9f153268884"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a056342d102635bded069d9f153268884">&#9670;&#160;</a></span>assign() <span class="overload">[1/2]</span></h2>
+<a id="ab4aaf2c785967e67853db50c9501bfc3" name="ab4aaf2c785967e67853db50c9501bfc3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4aaf2c785967e67853db50c9501bfc3">&#9670;&#160;</a></span>WolfSSHServer() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::Core::DigiApiFrameBuffer::assign </td>
+          <td class="memname"><a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::WolfSSHServer </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; uint8_t &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
+          <td class="paramtype">WolfSSHServer&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Replaces the contents with a copy of a byte vector. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Source bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if the vector exceeds <b>BUFFER_SIZE</b> (contents unchanged). </dd></dl>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_a056342d102635bded069d9f153268884_cgraph.svg" width="604" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_ab4aaf2c785967e67853db50c9501bfc3_cgraph.svg" width="630" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ae796119895d95296e7fe754347df07d7" name="ae796119895d95296e7fe754347df07d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae796119895d95296e7fe754347df07d7">&#9670;&#160;</a></span>assign() <span class="overload">[2/2]</span></h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0bcf921f4ac87d3d5ec8ed5bad282b6c" name="a0bcf921f4ac87d3d5ec8ed5bad282b6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bcf921f4ac87d3d5ec8ed5bad282b6c">&#9670;&#160;</a></span>accept()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Digi::Core::DigiApiFrameBuffer::assign </td>
+          <td class="memname"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::accept </td>
           <td>(</td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Runs (or resumes) the SSH handshake and authentication. </p>
+<dl class="section return"><dt>Returns</dt><dd>"WolfSSHStatus::SUCCESS" once the session is ready for "read()"/"send()", "WolfSSHStatus::WOULD_BLOCK" if the transport needs to be retried, "WolfSSHStatus::ERROR" otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a70a5a24b9fc9dd898d62c01766f9ba85" name="a70a5a24b9fc9dd898d62c01766f9ba85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70a5a24b9fc9dd898d62c01766f9ba85">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp; <a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_a70a5a24b9fc9dd898d62c01766f9ba85_cgraph.svg" width="592" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a68435d90ada80b3d688783d3a0a20ab5" name="a68435d90ada80b3d688783d3a0a20ab5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68435d90ada80b3d688783d3a0a20ab5">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a> &amp; <a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a41bf7bcd105beca0973ac47f04d4e3ff">WolfSSHServer</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_a68435d90ada80b3d688783d3a0a20ab5_cgraph.svg" width="592" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac07508d68f41b64e463fdd58db57558b" name="ac07508d68f41b64e463fdd58db57558b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac07508d68f41b64e463fdd58db57558b">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>bytesRead</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -337,65 +418,38 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Replaces the contents with a copy of a raw byte block. </p>
+<p>Reads data from the session's shell channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">source</td><td>Source bytes; may be null only when <b>length</b> is zero. </td></tr>
-    <tr><td class="paramname">length</td><td>Number of bytes to copy. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>Destination buffer. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bytesRead</td><td>Bytes actually read; valid only when this method returns "WolfSSHStatus::SUCCESS". </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> on success, <b>false</b> if <b>length</b> exceeds <b>BUFFER_SIZE</b> (contents unchanged). </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/dde/a01384_ae796119895d95296e7fe754347df07d7_icgraph.svg" width="604" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>Status of the read; see "accept()". </dd></dl>
 
 </div>
 </div>
-<a id="a4e9638e82e027739671827a11a48a211" name="a4e9638e82e027739671827a11a48a211"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e9638e82e027739671827a11a48a211">&#9670;&#160;</a></span>clear()</h2>
+<a id="a034957692d48053e848ee6d77605fe2f" name="a034957692d48053e848ee6d77605fe2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034957692d48053e848ee6d77605fe2f">&#9670;&#160;</a></span>send()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::Digi::Core::DigiApiFrameBuffer::clear </td>
+          <td class="memname"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::send </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Empties the buffer; stale bytes are overwritten before they are read again. </p>
-
-</div>
-</div>
-<a id="ac5d7ba3eee68da0a19848f8026a3f600" name="ac5d7ba3eee68da0a19848f8026a3f600"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5d7ba3eee68da0a19848f8026a3f600">&#9670;&#160;</a></span>getData() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">const uint8_t * Lib::Digi::Core::DigiApiFrameBuffer::getData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>bytesSent</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -405,122 +459,45 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a read-only pointer to the first byte of the buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the storage; <b>BUFFER_SIZE</b> bytes are addressable. </dd></dl>
-
-</div>
-</div>
-<a id="a2bd908cbd334615b4ec6e8076279e1ea" name="a2bd908cbd334615b4ec6e8076279e1ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bd908cbd334615b4ec6e8076279e1ea">&#9670;&#160;</a></span>getData() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint8_t * Lib::Digi::Core::DigiApiFrameBuffer::getData </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a pointer to the first byte of the buffer. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the storage; <b>BUFFER_SIZE</b> bytes are addressable. </dd></dl>
-
-</div>
-</div>
-<a id="a391a31513797286c540adbbc99195704" name="a391a31513797286c540adbbc99195704"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a391a31513797286c540adbbc99195704">&#9670;&#160;</a></span>getSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::Digi::Core::DigiApiFrameBuffer::getSize </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of bytes currently stored. </p>
-<dl class="section return"><dt>Returns</dt><dd>Stored byte count, at most <b>BUFFER_SIZE</b>. </dd></dl>
-
-</div>
-</div>
-<a id="a55130d108aa3f8d6235341814cfd4c23" name="a55130d108aa3f8d6235341814cfd4c23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55130d108aa3f8d6235341814cfd4c23">&#9670;&#160;</a></span>setSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::Digi::Core::DigiApiFrameBuffer::setSize </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets the number of valid bytes after the storage was written through <b><a class="el" href="#a2bd908cbd334615b4ec6e8076279e1ea" title="Returns a pointer to the first byte of the buffer.">getData()</a></b>. </p>
+<p>Sends data over the session's shell channel. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>New byte count; a value above <b>BUFFER_SIZE</b> is rejected. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">buffer</td><td>Data to send. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">bytesSent</td><td>Bytes actually sent; valid only when this method returns "WolfSSHStatus::SUCCESS". </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Status of the send; see "accept()". </dd></dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a807b8d2119d659fa32a5cf11c0762be1" name="a807b8d2119d659fa32a5cf11c0762be1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a807b8d2119d659fa32a5cf11c0762be1">&#9670;&#160;</a></span>BUFFER_SIZE</h2>
+<a id="a47906cc0c3be3035aefe35c6b6ca9c36" name="a47906cc0c3be3035aefe35c6b6ca9c36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47906cc0c3be3035aefe35c6b6ca9c36">&#9670;&#160;</a></span>shutdown()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t Lib::Digi::Core::DigiApiFrameBuffer::BUFFER_SIZE = 255U</td>
+          <td class="memname"><a class="el" href="../../dd/d70/a00835.html#a173e4abd0ef87e757ea6dfe73552a7c3">WolfSSHStatus</a> <a class="el" href="../../d7/dde/a01384.html">Lib::Crypto::WolfSSHServer</a>&lt; T_DERIVED &gt;::shutdown </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Capacity in bytes. </p>
+<p>Sends the SSH disconnect message, ending the session gracefully. </p>
+<dl class="section return"><dt>Returns</dt><dd>Status of the shutdown; see "accept()". </dd></dl>
 
 </div>
 </div>
@@ -537,7 +514,7 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d9/daf/a00830.html">Digi</a></li><li class="navelem"><a href="../../dc/d6e/a00833.html">Core</a></li><li class="navelem"><a href="../../d7/dde/a01384.html">DigiApiFrameBuffer</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../dd/d70/a00835.html">Crypto</a></li><li class="navelem"><a href="../../d7/dde/a01384.html">WolfSSHServer</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

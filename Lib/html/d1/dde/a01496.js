@@ -1,28 +1,17 @@
 var a01496 =
 [
-    [ "MessageHeader", "de/d65/a01500.html", "de/d65/a01500" ],
-    [ "Command", "d1/dde/a01496.html#af1bf58d46a2365d039aa946466c931e4", [
-      [ "ECHO", "d1/dde/a01496.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
-      [ "INPUTS", "d1/dde/a01496.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
-      [ "OUTPUTS", "d1/dde/a01496.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
-    ] ],
-    [ "Error", "d1/dde/a01496.html#af7acfca02d188807a9c220d5c0bfeda6", [
-      [ "OK", "d1/dde/a01496.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "COMMAND_NOT_SUPPORT", "d1/dde/a01496.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
-      [ "EMPTY_MESSAGE", "d1/dde/a01496.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
-      [ "INVALID_PAYLOAD_LENGTH", "d1/dde/a01496.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
-      [ "INVALID_START_DELIMITER", "d1/dde/a01496.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
-    ] ],
-    [ "UserProtocol", "d1/dde/a01496.html#a26bd091672abe4590d5e98f68b185f5b", null ],
-    [ "~UserProtocol", "d1/dde/a01496.html#a24d727deb7ea5446e8549a576e6d5b3f", null ],
-    [ "build", "d1/dde/a01496.html#a3be116838c1bf5044ab2ea1bd37d83b7", null ],
-    [ "echoCallback", "d1/dde/a01496.html#ab1bac861412dff00ff1a803a81d86f86", null ],
-    [ "getLastSentTimeStamp", "d1/dde/a01496.html#a214eade10a664fdb01ade38674777f2e", null ],
-    [ "handleIncomingMessageHeader", "d1/dde/a01496.html#a77a0ba9440c3525ca8d03074a653c98a", null ],
-    [ "handleOutputsUpdate", "d1/dde/a01496.html#a7bae731d5240ce2c35af5ec183c461cc", null ],
-    [ "inputsUpdateCallback", "d1/dde/a01496.html#a4f20ce9eb60eefa03a530e7980259290", null ],
-    [ "parse", "d1/dde/a01496.html#a868128b38a1236e8585047b9e6a3efd9", null ],
-    [ "processCommand", "d1/dde/a01496.html#a6df00cf3025f2bb32239b42652ae20b8", null ],
-    [ "processNodeData", "d1/dde/a01496.html#af1e587832b675133116a5c6480f60a4f", null ],
-    [ "updateNodeActivityCallback", "d1/dde/a01496.html#a640250065dbf3b447ed7723dce56dc9c", null ]
+    [ "Data", "de/d65/a01500.html", "de/d65/a01500" ],
+    [ "Parameters", "d1/dde/a01496.html#ae9b1083d9afe5ce37684ee479065c08d", null ],
+    [ "Parameters", "d1/dde/a01496.html#a751f186c85cc8d58f16fc12d907ebe1f", null ],
+    [ "close", "d1/dde/a01496.html#a1a7e321a9bac36794a93524ee2265f1e", null ],
+    [ "getChannel", "d1/dde/a01496.html#abb0d4e0ff08a92ff38e3627964f0c50f", null ],
+    [ "getData", "d1/dde/a01496.html#ac793ef8a47bb6b900a9b96ef741286fc", null ],
+    [ "getPanId", "d1/dde/a01496.html#a002de6a62eca987fb68d0134d291d7a3", null ],
+    [ "isWritePending", "d1/dde/a01496.html#a2444246733f1cf2dfb8d6fb114e10f9e", null ],
+    [ "operator=", "d1/dde/a01496.html#a0036b61cadf6ca50a98425c13efd17e9", null ],
+    [ "pauseReadDynamicParameters", "d1/dde/a01496.html#a5ceaf511d2672fa9d60b960c563e6a47", null ],
+    [ "read", "d1/dde/a01496.html#a0b95648ab79c354ae5ed07e87775a4e4", null ],
+    [ "setChannel", "d1/dde/a01496.html#a1a9c64e3e6603a03c17294851fc407a5", null ],
+    [ "setPanId", "d1/dde/a01496.html#a2f50f7e3fb88c475ffbc15f2c0203698", null ],
+    [ "writeChanges", "d1/dde/a01496.html#aab4960dbba120dcbeddf25b42f53d85a", null ]
 ];

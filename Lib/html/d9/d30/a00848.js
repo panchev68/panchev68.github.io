@@ -1,8 +1,9 @@
 var a00848 =
 [
-    [ "bl", "d9/d30/a00848.html#a93656f94c882ca996c98bd294a4f268f", null ],
-    [ "dc", "d9/d30/a00848.html#a0a1a1de131448f5f9259510a9df8905e", null ],
-    [ "nrst", "d9/d30/a00848.html#a5f67207441de783f78571e1d72e2ad0e", null ],
-    [ "nss", "d9/d30/a00848.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
-    [ "spi", "d9/d30/a00848.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
+    [ "Wiznet", "de/d37/a00849.html", "de/d37/a00849" ],
+    [ "IpAddress", "db/de5/a01759.html", "db/de5/a01759" ],
+    [ "MacAddress", "d9/d27/a01763.html", "d9/d27/a01763" ],
+    [ "Node", "d1/dab/a01767.html", "d1/dab/a01767" ],
+    [ "Port", "d7/d02/a01771.html", "d7/d02/a01771" ],
+    [ "UserProtocol", "d1/d6b/a01775.html", "d1/d6b/a01775" ]
 ];

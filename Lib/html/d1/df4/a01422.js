@@ -1,10 +1,9 @@
 var a01422 =
 [
-    [ "DstAddress", "d1/df4/a01422.html#a08442ca9839fbd669e6a803ab2bbb5fc", null ],
-    [ "operator Frame::Data", "d1/df4/a01422.html#aa1e4cdd0f75ad2b29678b0d9b3df74bb", null ],
-    [ "atCommand", "d1/df4/a01422.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
-    [ "dstAddress", "d1/df4/a01422.html#a961f721cb79f4d93e1516b992c16e4fe", null ],
-    [ "frameId", "d1/df4/a01422.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
-    [ "parameters", "d1/df4/a01422.html#a69a8b0f293677febe578417b21dbba6b", null ],
-    [ "remoteCommandOption", "d1/df4/a01422.html#ae4922577edd7679e2964fb14f35bc919", null ]
+    [ "State", "d1/df4/a01422.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "d1/df4/a01422.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "d1/df4/a01422.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "d1/df4/a01422.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "d1/df4/a01422.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "d1/df4/a01422.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

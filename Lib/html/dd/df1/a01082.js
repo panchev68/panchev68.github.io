@@ -1,19 +1,24 @@
 var a01082 =
 [
-    [ "Node", "d9/df5/a01086.html", "d9/df5/a01086" ],
-    [ "Diagnostic", "da/d73/a01090.html", "da/d73/a01090" ],
-    [ "Filter", "dd/df1/a01082.html#aba2543fcfb2d0bfb529f5b29a749d9f5", null ],
-    [ "RxMessage", "dd/df1/a01082.html#a4037831aea825654d7dbddde75b316c7", null ],
-    [ "ServiceBase", "dd/df1/a01082.html#acbfceb92cefef5281785b7d5db81df5d", null ],
-    [ "~ServiceBase", "dd/df1/a01082.html#a6594894f460fcebe7b8705a3ebca6938", null ],
-    [ "errorCallback", "dd/df1/a01082.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "dd/df1/a01082.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "dd/df1/a01082.html#abe37221a89d42b0ec836894d481128b4", null ],
-    [ "receive", "dd/df1/a01082.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "dd/df1/a01082.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "dd/df1/a01082.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "dd/df1/a01082.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "dd/df1/a01082.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "dd/df1/a01082.html#a3d0252842f197249fff9649618458fee", null ],
-    [ "taskFn", "dd/df1/a01082.html#a3f461c3e0f637c2be89463249c736b46", null ]
+    [ "Uid", "d9/df5/a01086.html", "d9/df5/a01086" ],
+    [ "Type", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7a", [
+      [ "UNKNOWN", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "ISO_14443_4", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7", null ],
+      [ "ISO_18092", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd", null ],
+      [ "MIFARE_MINI", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb", null ],
+      [ "MIFARE_1K", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc", null ],
+      [ "MIFARE_4K", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b", null ],
+      [ "MIFARE_UL", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7", null ],
+      [ "MIFARE_PLUS", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b", null ],
+      [ "TNP3XXX", "dd/df1/a01082.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0", null ]
+    ] ],
+    [ "Card", "dd/df1/a01082.html#afe55bac777579392a2341966d599b1aa", null ],
+    [ "~Card", "dd/df1/a01082.html#a9b462a8f8d521dee2be275ece0ea5096", null ],
+    [ "authenticate", "dd/df1/a01082.html#a08fa94e57f56bdd7964dd70e267fd718", null ],
+    [ "detectCard", "dd/df1/a01082.html#a4cdc1e802bc109d771789db15c6830d9", null ],
+    [ "getCardType", "dd/df1/a01082.html#aaf3cc939cb0c768c7a554db036cdb6ad", null ],
+    [ "getUid", "dd/df1/a01082.html#a33cc183859688cd28572af600ed743f6", null ],
+    [ "halt", "dd/df1/a01082.html#a8ee80419a4d19b05e8e0e5451837de29", null ],
+    [ "selectCard", "dd/df1/a01082.html#a9375b5228d52a37d16ba4e2b6ad19b34", null ],
+    [ "stopCrypto", "dd/df1/a01082.html#a7b0e6aeddeb25fcaf7c23cf7070117e0", null ]
 ];

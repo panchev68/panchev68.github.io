@@ -1,13 +1,9 @@
 var a01904 =
 [
-    [ "Status", "d4/d0d/a01904.html#a335a74b2beee583b06c1cc6a0c928957", [
-      [ "OK", "d4/d0d/a01904.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d4/d0d/a01904.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Parameters", "d4/d0d/a01904.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
-    [ "Parameters", "d4/d0d/a01904.html#a401c8f010740c371697fba3fa25b559c", null ],
-    [ "isValid", "d4/d0d/a01904.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
-    [ "operator=", "d4/d0d/a01904.html#ab7707d467c6b510fc640db358633fd8b", null ],
-    [ "setup", "d4/d0d/a01904.html#a6c93bc540f4ca328949b18b8364730fc", null ],
-    [ "write", "d4/d0d/a01904.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
+    [ "Handle", "d4/d0d/a01904.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "d4/d0d/a01904.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "d4/d0d/a01904.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "d4/d0d/a01904.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "d4/d0d/a01904.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "d4/d0d/a01904.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

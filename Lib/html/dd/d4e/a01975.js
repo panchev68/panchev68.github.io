@@ -1,6 +1,13 @@
 var a01975 =
 [
-    [ "name", "dd/d4e/a01975.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
-    [ "output", "dd/d4e/a01975.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
-    [ "rotateTime", "dd/d4e/a01975.html#aad96d287e9891431e5a7c99935482563", null ]
+    [ "State", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "dd/d4e/a01975.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

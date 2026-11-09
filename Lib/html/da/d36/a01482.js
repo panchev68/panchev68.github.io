@@ -1,7 +1,9 @@
 var a01482 =
 [
-    [ "Group", "da/d36/a01482.html#a3c72f1f32621d0644086f7ec6212250d", null ],
-    [ "~Group", "da/d36/a01482.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "da/d36/a01482.html#aebe4704dc58d73d649461459bd3d290c", null ],
-    [ "tag", "da/d36/a01482.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "Channel", "da/d36/a01482.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
+    [ "Channel", "da/d36/a01482.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
+    [ "getConnectionQuality", "da/d36/a01482.html#a9c351291c3bb7c963270eae54a16597d", null ],
+    [ "operator uint8_t", "da/d36/a01482.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
+    [ "operator=", "da/d36/a01482.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
+    [ "setConnectionQuality", "da/d36/a01482.html#af7e5e84d1697e43122a6e086007d9789", null ]
 ];

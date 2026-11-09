@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['ili9341registers_0',['ILI9341Registers',['../df/d3b/a00728.html#aa079b641f0d5c91c7219aa446879acf2',1,'Lib::BSP::Display']]]
+  ['flag_0',['Flag',['../d5/dec/a01794.html#a0d014768676f3aad8b6fb7f3fc1390c1',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['foeerror_1',['FoEError',['../dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4',1,'Lib::Ethercat::SOES']]]
 ];

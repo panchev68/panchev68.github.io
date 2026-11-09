@@ -1,10 +1,12 @@
 var a01624 =
 [
-    [ "Config", "de/df9/a01624.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "de/df9/a01624.html#a920eeea7fe1327ab84d49110d2c203c0", null ],
-    [ "~Port", "de/df9/a01624.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "read", "de/df9/a01624.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "de/df9/a01624.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "de/df9/a01624.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "de/df9/a01624.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "Command", "de/df9/a01624.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "de/df9/a01624.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "de/df9/a01624.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "de/df9/a01624.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "de/df9/a01624.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "de/df9/a01624.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "de/df9/a01624.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "de/df9/a01624.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "de/df9/a01624.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

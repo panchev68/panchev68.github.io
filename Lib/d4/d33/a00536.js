@@ -1,4 +1,4 @@
 var a00536 =
 [
-    [ "Lib::Helper::Integrator&lt; T_VALUE, N_WINDOW_SIZE &gt;", "d5/d06/a01499.html", "d5/d06/a01499" ]
+    [ "Lib::HAL::USBDevicePort&lt; DriverMode::IT &gt;", "da/dbe/a02084.html", "da/dbe/a02084" ]
 ];

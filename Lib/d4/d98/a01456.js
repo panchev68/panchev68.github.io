@@ -1,12 +1,6 @@
 var a01456 =
 [
-    [ "Command", "d4/d98/a01456.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
-    [ "RemoteAtCommand", "d4/d98/a01456.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
-    [ "RemoteAtCommand", "d4/d98/a01456.html#a772786f4856c6806756c33743f038855", null ],
-    [ "close", "d4/d98/a01456.html#acfc9182b712685cd72276c7c645330ec", null ],
-    [ "open", "d4/d98/a01456.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
-    [ "operator=", "d4/d98/a01456.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
-    [ "receive", "d4/d98/a01456.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
-    [ "send", "d4/d98/a01456.html#a68565e1939553aa4b73a44d4c6adf059", null ],
-    [ "send", "d4/d98/a01456.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
+    [ "getIdentifier", "d4/d98/a01456.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
+    [ "setIdentifier", "d4/d98/a01456.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
+    [ "identifier", "d4/d98/a01456.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
 ];

@@ -1,7 +1,7 @@
 var a01990 =
 [
-    [ "isInverted", "d3/dc4/a01990.html#a527ce99ad9135c5ee638b478e35031de", null ],
-    [ "isPresent", "d3/dc4/a01990.html#adeb1badd28d6911fa7c0422e5278feef", null ],
-    [ "name", "d3/dc4/a01990.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
-    [ "source", "d3/dc4/a01990.html#a13e98c772a216681f6a95506ba77144a", null ]
+    [ "day", "d3/dc4/a01990.html#a4e0afef93919b9d81fb11880e985faf7", null ],
+    [ "month", "d3/dc4/a01990.html#a81707050dd28eeb1de5e1bf17bc64ca0", null ],
+    [ "weekDay", "d3/dc4/a01990.html#a30dfc2209d0abdafbba3e90c6a5c24c8", null ],
+    [ "year", "d3/dc4/a01990.html#aacc37a4b6ca5a085f338d84b26cf1595", null ]
 ];

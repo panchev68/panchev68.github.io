@@ -1,9 +1,7 @@
 var a01610 =
 [
-    [ "Handle", "d9/dfd/a01610.html#a31060b74a9dca40bf3d8950b8db4981f", null ],
-    [ "Handle", "d9/dfd/a01610.html#a0fad1e6f6de3fa5c36b0ceddbd626dec", null ],
-    [ "getPinNumber", "d9/dfd/a01610.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d9/dfd/a01610.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d9/dfd/a01610.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d9/dfd/a01610.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "writeTo", "d9/dfd/a01610.html#a0fbf65ec7ca7d7ad1b75517bab647edd", null ],
+    [ "atCommand", "d9/dfd/a01610.html#a270978a96cccd4b3ef127d536cde4a6d", null ],
+    [ "frameId", "d9/dfd/a01610.html#a714c8902b6e8cc0a5f0265f4f1af9c84", null ],
+    [ "parameters", "d9/dfd/a01610.html#aaf51e64f47cc8a54064df71903a793bb", null ]
 ];

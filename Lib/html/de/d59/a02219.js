@@ -1,17 +1,22 @@
 var a02219 =
 [
-    [ "Status", "de/d59/a02219.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "de/d59/a02219.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "de/d59/a02219.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "de/d59/a02219.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "de/d59/a02219.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
+    [ "Date", "de/d59/a02219.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "de/d59/a02219.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
     ] ],
-    [ "Value64Handle", "de/d59/a02219.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "de/d59/a02219.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "de/d59/a02219.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "de/d59/a02219.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "de/d59/a02219.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "de/d59/a02219.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "de/d59/a02219.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "de/d59/a02219.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "MoonPhase", "de/d59/a02219.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "de/d59/a02219.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "de/d59/a02219.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "de/d59/a02219.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "de/d59/a02219.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "de/d59/a02219.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "de/d59/a02219.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "de/d59/a02219.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

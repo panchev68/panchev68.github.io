@@ -1,8 +1,8 @@
 var a01488 =
 [
-    [ "Frame0x90", "d2/daa/a01488.html#a22052cd3212328570ef5c6d06ef34390", null ],
-    [ "options", "d2/daa/a01488.html#a5c602af5052ef25f33461908061ad07f", null ],
-    [ "rfData", "d2/daa/a01488.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
-    [ "srcAddr16", "d2/daa/a01488.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
-    [ "srcAddr64", "d2/daa/a01488.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
+    [ "Node", "d2/daa/a01488.html#ae77243ef5154f0127b188cb07ee7b730", null ],
+    [ "Node", "d2/daa/a01488.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
+    [ "macAddress", "d2/daa/a01488.html#ab4f01a998762165160e1c5f287e33b36", null ],
+    [ "nodeAddr16", "d2/daa/a01488.html#a047c25d839ad49f40c973b610050fa18", null ],
+    [ "nodeIdentifier", "d2/daa/a01488.html#a66f046134b60cff03864ca23d0ff54fa", null ]
 ];

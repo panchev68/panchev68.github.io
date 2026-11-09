@@ -1,28 +1,20 @@
 var a00910 =
 [
-    [ "Config", "d3/dd1/a00914.html", "d3/dd1/a00914" ],
-    [ "State", "d4/d12/a00910.html#a9fd0a76196b2eb1e21013c1f0379cd08", [
-      [ "NO_INIT", "d4/d12/a00910.html#a9fd0a76196b2eb1e21013c1f0379cd08a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "READY", "d4/d12/a00910.html#a9fd0a76196b2eb1e21013c1f0379cd08a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "DISABLE", "d4/d12/a00910.html#a9fd0a76196b2eb1e21013c1f0379cd08afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
-      [ "ERROR", "d4/d12/a00910.html#a9fd0a76196b2eb1e21013c1f0379cd08abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "MapField", "d3/dd1/a00914.html", "d3/dd1/a00914" ],
+    [ "Config", "d0/ddf/a00918.html", "d0/ddf/a00918" ],
+    [ "PortBase", "d7/d16/a00930.html", "d7/d16/a00930" ],
+    [ "Inputs", "d0/df0/a00934.html", "d0/df0/a00934" ],
+    [ "Outputs", "d5/d54/a00938.html", "d5/d54/a00938" ],
+    [ "SpiPort", "d4/d12/a00910.html#a8e662cafaa683ac82c0b60d7b4da8fdc", null ],
+    [ "UpdateMode", "d4/d12/a00910.html#a50419179ec3a60e3ac3b5036b3b284eb", [
+      [ "SEQUENTIAL", "d4/d12/a00910.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
+      [ "PARALLEL", "d4/d12/a00910.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]
     ] ],
-    [ "Base", "d4/d12/a00910.html#a12aecbfda8834bf3a667148d765a5131", null ],
-    [ "close", "d4/d12/a00910.html#a661ff278a48b8dba19a2a054bc21a7cd", null ],
-    [ "getState", "d4/d12/a00910.html#adb79d7f488b262bfdc58c114a3ac6f33", null ],
-    [ "open", "d4/d12/a00910.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
-    [ "readAlEventReg", "d4/d12/a00910.html#aec3fa0792cf0cda4f5d91244b599d804", null ],
-    [ "readCSR", "d4/d12/a00910.html#a6872fa6c05dea9476d20434f28b40b99", null ],
-    [ "readDLStatus", "d4/d12/a00910.html#acae5d3c1c2b5679addbccc5506d2de0e", null ],
-    [ "readPDIRegister", "d4/d12/a00910.html#ac2aaa9d194b1af38aa02bc21b97e4b79", null ],
-    [ "readPRAM", "d4/d12/a00910.html#a3d2a55bfbcbe4193a6f9c88a6853c9e4", null ],
-    [ "readReg", "d4/d12/a00910.html#a5dcebd0d4f0135e2133880e9671892c6", null ],
-    [ "readU32", "d4/d12/a00910.html#a044adc74263d0844a30a59541c3162a6", null ],
-    [ "resetChip", "d4/d12/a00910.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
-    [ "resetPin", "d4/d12/a00910.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
-    [ "verifyChipId", "d4/d12/a00910.html#a92fb14a44d98ad85c15d007798f188d4", null ],
-    [ "writeCSR", "d4/d12/a00910.html#a6856933af0bd9892be77168a4e2dcdcf", null ],
-    [ "writePRAM", "d4/d12/a00910.html#a8a9b2c1a0824c7603b223ce93be6b268", null ],
-    [ "writeReg", "d4/d12/a00910.html#ab886f5f4a7c67fc4e763676ee25c8440", null ],
-    [ "writeU32", "d4/d12/a00910.html#af18c7df8aeade40e9137a8e803825144", null ]
+    [ "DigitalPeripheralBase", "d4/d12/a00910.html#ace067a52b4d9576bd3ade495aa11e352", null ],
+    [ "~DigitalPeripheralBase", "d4/d12/a00910.html#a9d019d0d0be1f110d76abf5f5ab11e4e", null ],
+    [ "getInputs", "d4/d12/a00910.html#ae1add73078ebd967252d4864e16de016", null ],
+    [ "getOutputs", "d4/d12/a00910.html#ad664d141e8c0b66fbd109f6397914af6", null ],
+    [ "handlePostUpdateEvent", "d4/d12/a00910.html#a9b56e97a372ad140ce2ef0b8b348a7c5", null ],
+    [ "handlePreUpdateEvent", "d4/d12/a00910.html#a2953eba2059d60debecac4c3d1d3e1d2", null ],
+    [ "setup", "d4/d12/a00910.html#ae9523074ebe5ad81c27aacd0f7c38c7f", null ]
 ];

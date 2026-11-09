@@ -1,9 +1,8 @@
 var a01132 =
 [
-    [ "Address", "d6/de6/a01132.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d6/de6/a01132.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d6/de6/a01132.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d6/de6/a01132.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d6/de6/a01132.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d6/de6/a01132.html#ab6b1c90677bb528c4aba0dbf476aa7c7", null ]
+    [ "operator==", "d6/de6/a01132.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
+    [ "inPhaseMax", "d6/de6/a01132.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
+    [ "inPhaseMin", "d6/de6/a01132.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
+    [ "quadratureMax", "d6/de6/a01132.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
+    [ "quadratureMin", "d6/de6/a01132.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
 ];

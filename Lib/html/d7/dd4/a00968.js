@@ -1,8 +1,7 @@
 var a00968 =
 [
-    [ "~UARTPort", "d7/dd4/a00968.html#a18fcbbf5a352bb81140e70c5e61dda48", null ],
-    [ "close", "d7/dd4/a00968.html#a394658189567299790e47db221b2389a", null ],
-    [ "open", "d7/dd4/a00968.html#a0462a01d6a7f0f2347fc621553638bd5", null ],
-    [ "receive", "d7/dd4/a00968.html#a7940eceaebb00f6729b68d6d598d3414", null ],
-    [ "send", "d7/dd4/a00968.html#a51a96444d95fadff20fa4599fdbd9f48", null ]
+    [ "Config", "d7/dd4/a00968.html#a71f90ba5852d744d364d627c9200231e", null ],
+    [ "M24C16", "d7/dd4/a00968.html#a82d789de030a0346864f88543d0512e5", null ],
+    [ "~M24C16", "d7/dd4/a00968.html#a0db0fe864ae86e17a1406e2180d119af", null ],
+    [ "Driver< M24C16 >", "d7/dd4/a00968.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
 ];

@@ -1,20 +1,22 @@
 var a01784 =
 [
-    [ "Point", "d4/d77/a01788.html", "d4/d77/a01788" ],
-    [ "BoundaryType", "d6/d3d/a01784.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d6/d3d/a01784.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d6/d3d/a01784.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d6/d3d/a01784.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d6/d3d/a01784.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d6/d3d/a01784.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d6/d3d/a01784.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d6/d3d/a01784.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d6/d3d/a01784.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d6/d3d/a01784.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d6/d3d/a01784.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d6/d3d/a01784.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d6/d3d/a01784.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d6/d3d/a01784.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d6/d3d/a01784.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "Diagnostic", "d4/d77/a01788.html", "d4/d77/a01788" ],
+    [ "ConnectionState", "d6/d3d/a01784.html#a56cd12ff82e971645f7a23734b80bbf0", null ],
+    [ "ClientBase", "d6/d3d/a01784.html#a2ee9814fe7b1bdf67ee96cc783454230", null ],
+    [ "~ClientBase", "d6/d3d/a01784.html#aa64fe42414f52a9ddcf73265f7aaa32e", null ],
+    [ "ClientBase", "d6/d3d/a01784.html#a171d0ee214534d948c4d955355ab7bf3", null ],
+    [ "ClientBase", "d6/d3d/a01784.html#a9ad742e1649a2f2423837da9974e4140", null ],
+    [ "getConnectionState", "d6/d3d/a01784.html#a0ba4737991369ec358f11bf82c4392df", null ],
+    [ "getDiagnostic", "d6/d3d/a01784.html#acddaa0b3fe21bf41d5c49971e4833fb8", null ],
+    [ "getRemoteNode", "d6/d3d/a01784.html#a0d9ed09b6ed483d84196c3617fdd854d", null ],
+    [ "handleApplicationProcess", "d6/d3d/a01784.html#a00422437a5ab35fa114a370d21d55678", null ],
+    [ "operator=", "d6/d3d/a01784.html#a878f98b5d415e7a8e2821d7c2b7c398e", null ],
+    [ "operator=", "d6/d3d/a01784.html#ae1ba6598652355c62f04b855d15e0ee4", null ],
+    [ "readLinkState", "d6/d3d/a01784.html#a1509f9ad6bf5e3766269bbdec6103779", null ],
+    [ "send", "d6/d3d/a01784.html#a75056b314ce6ce19807888e9fd56cb2c", null ],
+    [ "setConnectionState", "d6/d3d/a01784.html#a7936da086b583d8438bc492bd1423181", null ],
+    [ "setRemoteNode", "d6/d3d/a01784.html#aca3bfc7a7ae808b71533018ec7f30382", null ],
+    [ "start", "d6/d3d/a01784.html#a590e03d72003060be01839884fdd0b26", null ],
+    [ "updateRxLedCallback", "d6/d3d/a01784.html#af2915b8806cc5b5c86f344d441dc28c2", null ],
+    [ "updateTxLedCallback", "d6/d3d/a01784.html#ac2aebcf3601efce658d06d2be4f7f06c", null ]
 ];

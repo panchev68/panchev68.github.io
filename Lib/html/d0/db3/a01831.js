@@ -1,12 +1,13 @@
 var a01831 =
 [
-    [ "Time", "d0/db3/a01831.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d0/db3/a01831.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d0/db3/a01831.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d0/db3/a01831.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d0/db3/a01831.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d0/db3/a01831.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d0/db3/a01831.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d0/db3/a01831.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d0/db3/a01831.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "BackupRamDomain", "d0/db3/a01831.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d0/db3/a01831.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d0/db3/a01831.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d0/db3/a01831.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d0/db3/a01831.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d0/db3/a01831.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d0/db3/a01831.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d0/db3/a01831.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d0/db3/a01831.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d0/db3/a01831.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

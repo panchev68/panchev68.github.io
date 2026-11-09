@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['phase_0',['Phase',['../df/de0/a01728.html#a5567988b4297dec26d3237506884f6a5',1,'Lib::Helper::MoonPhase']]],
-  ['polarity_1',['Polarity',['../d0/de2/a00892.html#a12dbe47287cc8ea3e6057097e7679d5b',1,'Lib::BSP::INA219']]],
-  ['protocol_2',['Protocol',['../da/df2/a01620.html#ae8736b16f707b5eab4e3b478d387e876',1,'Lib::Ethernet::Wiznet::Socket']]]
+  ['objectaccess_0',['ObjectAccess',['../d3/d69/a00844.html#a0a85aabfc74e31864de76e3f26f1b197',1,'Lib::Ethercat::SOES']]]
 ];

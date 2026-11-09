@@ -1,8 +1,13 @@
 var a01558 =
 [
-    [ "data", "da/dcf/a01558.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "da/dcf/a01558.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "da/dcf/a01558.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "da/dcf/a01558.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "da/dcf/a01558.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "append", "da/dcf/a01558.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "da/dcf/a01558.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "da/dcf/a01558.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "da/dcf/a01558.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "da/dcf/a01558.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "da/dcf/a01558.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "da/dcf/a01558.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "da/dcf/a01558.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "da/dcf/a01558.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "da/dcf/a01558.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

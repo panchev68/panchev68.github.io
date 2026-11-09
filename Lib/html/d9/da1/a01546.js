@@ -1,11 +1,6 @@
 var a01546 =
 [
-    [ "Event", "d8/daf/a01550.html", null ],
-    [ "ADCPort", "d9/da1/a01546.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
-    [ "~ADCPort", "d9/da1/a01546.html#a6c6ab80ba3c35fabdd2847c36081d92a", null ],
-    [ "close", "d9/da1/a01546.html#a91651451878e1931de2457be52f68c92", null ],
-    [ "open", "d9/da1/a01546.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
-    [ "start", "d9/da1/a01546.html#a97c4921b9e22a517072028d001c86ef1", null ],
-    [ "stop", "d9/da1/a01546.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
-    [ "waitForEvent", "d9/da1/a01546.html#af0c975bbd0a66ffabc210d52ec971714", null ]
+    [ "resetPin", "d9/da1/a01546.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
+    [ "rxHandle", "d9/da1/a01546.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
+    [ "txHandle", "d9/da1/a01546.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
 ];

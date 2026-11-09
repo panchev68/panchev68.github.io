@@ -1,11 +1,14 @@
 var a01771 =
 [
-    [ "TimTimebase", "d7/d02/a01771.html#aab95f739775e5fa2bfee11540651de22", null ],
-    [ "~TimTimebase", "d7/d02/a01771.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
-    [ "setPeriod", "d7/d02/a01771.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
-    [ "start", "d7/d02/a01771.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
-    [ "stop", "d7/d02/a01771.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
-    [ "waitPeriod", "d7/d02/a01771.html#a2b19392b62c66b845538ec09abd31354", null ],
-    [ "waitPeriod", "d7/d02/a01771.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
-    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d7/d02/a01771.html#ae72687d02451939bdec7c3aaba269a45", null ]
+    [ "PortString", "d7/d02/a01771.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "d7/d02/a01771.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "d7/d02/a01771.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "d7/d02/a01771.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "d7/d02/a01771.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "d7/d02/a01771.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "d7/d02/a01771.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "d7/d02/a01771.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "d7/d02/a01771.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "d7/d02/a01771.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "d7/d02/a01771.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

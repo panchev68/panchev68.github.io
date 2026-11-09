@@ -1,7 +1,25 @@
 var a00814 =
 [
-    [ "DeviceBase", "da/d71/a00814.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "da/d71/a00814.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "da/d71/a00814.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "setup", "da/d71/a00814.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "Display", "d8/d2d/a00815.html", "d8/d2d/a00815" ],
+    [ "EEPROM", "d7/d60/a00816.html", "d7/d60/a00816" ],
+    [ "Ethercat", "d3/d60/a00818.html", "d3/d60/a00818" ],
+    [ "FMEM", "d6/d8b/a00821.html", "d6/d8b/a00821" ],
+    [ "RFID", "d8/d1c/a00824.html", "d8/d1c/a00824" ],
+    [ "Thermometer", "dc/d1b/a00827.html", "dc/d1b/a00827" ],
+    [ "Ultrasonic", "d9/daf/a00830.html", "d9/daf/a00830" ],
+    [ "Backlight", "d7/d1b/a00864.html", "d7/d1b/a00864" ],
+    [ "Beep", "d2/dac/a00876.html", "d2/dac/a00876" ],
+    [ "DeviceManager", "da/dd6/a00896.html", "da/dd6/a00896" ],
+    [ "DigitalPeripheralBase", "d8/d0a/a00904.html", "d8/d0a/a00904" ],
+    [ "EncoderPins", "d0/d85/a00976.html", "d0/d85/a00976" ],
+    [ "EncoderTimer", "d6/d48/a00988.html", "d6/d48/a00988" ],
+    [ "INA219", "dd/d08/a00884.html", "dd/d08/a00884" ],
+    [ "IS62WV51216", "d9/db3/a01064.html", "d9/db3/a01064" ],
+    [ "SK6812", "d9/d42/a01156.html", "d9/d42/a01156" ],
+    [ "Voltmeter", "d8/d2b/a01236.html", "d8/d2b/a01236" ],
+    [ "W25Q128JVSIQ", "d9/dce/a01052.html", "d9/dce/a01052" ],
+    [ "XPT2046", "d7/d5a/a01204.html", "d7/d5a/a01204" ],
+    [ "AdcPort", "da/d71/a00814.html#a85b379ca2a4d7d2956ae5317961081ba", null ],
+    [ "Integrator", "da/d71/a00814.html#a345fa3420ca34ddf02b2c56c8705554b", null ],
+    [ "Interpolator", "da/d71/a00814.html#a2cacda540ff04115fe891c00364a43a6", null ]
 ];

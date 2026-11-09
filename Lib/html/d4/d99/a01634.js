@@ -1,9 +1,11 @@
 var a01634 =
 [
-    [ "Handle", "d4/d99/a01634.html#a31060b74a9dca40bf3d8950b8db4981f", null ],
-    [ "Handle", "d4/d99/a01634.html#a0fad1e6f6de3fa5c36b0ceddbd626dec", null ],
-    [ "getPinNumber", "d4/d99/a01634.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d4/d99/a01634.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d4/d99/a01634.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d4/d99/a01634.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "onExtendedTransmitStatusChanged", "d4/d99/a01634.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "d4/d99/a01634.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "d4/d99/a01634.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "d4/d99/a01634.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "d4/d99/a01634.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "d4/d99/a01634.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "d4/d99/a01634.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "d4/d99/a01634.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

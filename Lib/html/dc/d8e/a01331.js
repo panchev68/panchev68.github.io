@@ -1,6 +1,5 @@
 var a01331 =
 [
-    [ "AtCommandString", "dc/d8e/a01331.html#aececd161348c75d93c06ea6da2f4cd23", null ],
-    [ "AtCommandString", "dc/d8e/a01331.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
-    [ "operator uint16_t", "dc/d8e/a01331.html#a5bfb355d92f981a786da2146384333c5", null ]
+    [ "function", "dc/d8e/a01331.html#aff0c3dca100d278e3da27425e0eda593", null ],
+    [ "object", "dc/d8e/a01331.html#aab9c6938c500fb9ab189884c52b57486", null ]
 ];

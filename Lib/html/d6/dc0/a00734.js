@@ -1,5 +1,4 @@
 var a00734 =
 [
-    [ "OSPI", "d0/dab/a00735.html", "d0/dab/a00735" ],
-    [ "SPI", "dc/d85/a00736.html", "dc/d85/a00736" ]
+    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;", "dd/d4f/a02394.html", "dd/d4f/a02394" ]
 ];

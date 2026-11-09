@@ -1,9 +1,8 @@
 var a00956 =
 [
-    [ "chipManufacturer", "d3/de5/a00956.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "d3/de5/a00956.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "d3/de5/a00956.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "d3/de5/a00956.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "d3/de5/a00956.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "d3/de5/a00956.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "bl", "d3/de5/a00956.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "d3/de5/a00956.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "d3/de5/a00956.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "d3/de5/a00956.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "d3/de5/a00956.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

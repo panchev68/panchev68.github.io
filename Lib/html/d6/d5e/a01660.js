@@ -1,13 +1,10 @@
 var a01660 =
 [
-    [ "Event", "dc/d71/a01664.html", null ],
-    [ "OSPIPort", "d6/d5e/a01660.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
-    [ "~OSPIPort", "d6/d5e/a01660.html#a1bfbad124ecbfdf6cba7511cef023187", null ],
-    [ "abort", "d6/d5e/a01660.html#acf222af5af1a03ba61fc7523a837bbb6", null ],
-    [ "close", "d6/d5e/a01660.html#a4b5ceddbe8a65edd29e7817bb737da62", null ],
-    [ "command", "d6/d5e/a01660.html#a7cfbf2ab6c1f14db0836fc60e109a24b", null ],
-    [ "open", "d6/d5e/a01660.html#a9a0d6d16d71b098e1bf00f62cf9bacf9", null ],
-    [ "receive", "d6/d5e/a01660.html#a790b46529d6d57833eaa696697f33db5", null ],
-    [ "transmit", "d6/d5e/a01660.html#a76b97e2eee2a40b819ca3f2b9d10283b", null ],
-    [ "waitForEvent", "d6/d5e/a01660.html#ace5a1e3c2ab40cc44478fcc7810f8b43", null ]
+    [ "Frame0x97", "d6/d5e/a01660.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
+    [ "atCommand", "d6/d5e/a01660.html#a965406599165a7744ecbe01f6054fc9d", null ],
+    [ "commandStatus", "d6/d5e/a01660.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
+    [ "frameId", "d6/d5e/a01660.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
+    [ "parameters", "d6/d5e/a01660.html#a0716b11170a5695a6ff94920635fb32f", null ],
+    [ "srcAddr16", "d6/d5e/a01660.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
+    [ "srcAddr64", "d6/d5e/a01660.html#a146e6de04eded1ed1426630c73a3ad17", null ]
 ];

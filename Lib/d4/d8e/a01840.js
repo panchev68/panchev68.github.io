@@ -1,13 +1,19 @@
 var a01840 =
 [
-    [ "CriticalSectionFromISR", "d2/dbd/a01844.html", "d2/dbd/a01844" ],
-    [ "CriticalSection", "da/d4b/a01848.html", "da/d4b/a01848" ],
-    [ "Scheduler", "da/d5e/a01852.html", "da/d5e/a01852" ],
-    [ "MemoryInfo", "d2/d38/a01860.html", "d2/d38/a01860" ],
-    [ "InterruptMask", "d4/d8e/a01840.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "d4/d8e/a01840.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "d4/d8e/a01840.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
-    [ "TickType", "d4/d8e/a01840.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "d4/d8e/a01840.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "d4/d8e/a01840.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "Event", "d2/dbd/a01844.html", null ],
+    [ "CANPort", "d4/d8e/a01840.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
+    [ "~CANPort", "d4/d8e/a01840.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
+    [ "CANPort", "d4/d8e/a01840.html#abe29825ceeac4153d36a08a6cb3adf7f", null ],
+    [ "CANPort", "d4/d8e/a01840.html#af568e7e4043e0b195db174dab37c5dc9", null ],
+    [ "close", "d4/d8e/a01840.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "getFreeTxMailboxCount", "d4/d8e/a01840.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getHandle", "d4/d8e/a01840.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d4/d8e/a01840.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getRxFifoFillLevel", "d4/d8e/a01840.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "d4/d8e/a01840.html#a591e40ed78afa5d73704475e00c55060", null ],
+    [ "operator=", "d4/d8e/a01840.html#aa58c9c3ab70cdf4e842716686aaa8c40", null ],
+    [ "operator=", "d4/d8e/a01840.html#a8edeb615d6ad0c65bcf55d3d8f8fdce0", null ],
+    [ "read", "d4/d8e/a01840.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "waitForEvent", "d4/d8e/a01840.html#a1c4fcd17767b405bdecda984747567ed", null ],
+    [ "write", "d4/d8e/a01840.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

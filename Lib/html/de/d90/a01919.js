@@ -1,9 +1,15 @@
 var a01919 =
 [
-    [ "Config", "d9/de1/a01923.html", "d9/de1/a01923" ],
-    [ "Kalman", "de/d90/a01919.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "de/d90/a01919.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "de/d90/a01919.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "de/d90/a01919.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "de/d90/a01919.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "I2CPort", "de/d90/a01919.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "de/d90/a01919.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "de/d90/a01919.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "de/d90/a01919.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "getHandle", "de/d90/a01919.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "de/d90/a01919.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "masterMemRead", "de/d90/a01919.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "de/d90/a01919.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "de/d90/a01919.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "de/d90/a01919.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "operator=", "de/d90/a01919.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "de/d90/a01919.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

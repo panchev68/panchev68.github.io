@@ -1,7 +1,6 @@
 var a01695 =
 [
-    [ "lock", "dc/dc8/a01695.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "read", "dc/dc8/a01695.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "dc/dc8/a01695.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "dc/dc8/a01695.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "code", "dc/dc8/a01695.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
+    [ "index", "dc/dc8/a01695.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
+    [ "name", "dc/dc8/a01695.html#adb71631f3f01cfe4b407c729d606608c", null ]
 ];

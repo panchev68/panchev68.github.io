@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Pneumatics::Sensor</title>
+<title>IAR Library: Lib::HAL::BackupRamDomain</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,73 +112,45 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d06/a01832.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Pneumatics::Sensor<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::BackupRamDomain<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring. </p>
-<p>The sensor reads its input through a reference on every call, so the owner keeps updating the bound flag, e.g. from a GPIO polling task. An absent sensor always reads as <b><a class="el" href="#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" title="Sensor is physically absent; its state is not meaningful.">State::DISABLED</a></b>. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Pneumatics::Sensor:</div>
+<div class="textblock"><p>Stateless facade over the backup domain write gate and the backup data registers. </p>
+<p>The registers are accessed directly, so neither an RTC handle nor the RTC <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> module is needed. Writes take effect only between <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...">open()</a> and <a class="el" href="#a0e38a00a0e42d1e9718b0e5ab46c9223" title="Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup dom...">close()</a>; reads are always allowed. The backup data registers belong to the TAMP block, or to the RTC block on families without TAMP. They keep their content across low-power modes and, with a backup supply, across a power loss. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::BackupRamDomain:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4f/a01830.svg" width="164" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d4f/a01830.svg" width="198" height="272"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../db/df3/a01836.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wiring and presence parameters for the sensor input.  <a href="../../db/df3/a01836.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a710e69df2dee7bfc8aa209f4f6cc8d1c" id="r_a710e69df2dee7bfc8aa209f4f6cc8d1c"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a710e69df2dee7bfc8aa209f4f6cc8d1c">Sensor</a> (const <a class="el" href="../../db/df3/a01836.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:a710e69df2dee7bfc8aa209f4f6cc8d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the sensor name and input source, and configures its presence and inversion.  <br /></td></tr>
-<tr class="memitem:a2a1b8d661f06dff4eccff343ce7772bd" id="r_a2a1b8d661f06dff4eccff343ce7772bd"><td class="memItemLeft"><a class="el" href="#a7063555b30fb75832750a0361328040e">State</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2a1b8d661f06dff4eccff343ce7772bd">read</a> () const noexcept</td></tr>
-<tr class="memdesc:a2a1b8d661f06dff4eccff343ce7772bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the current sensor state, accounting for presence and inversion.  <br /></td></tr>
-<tr class="memitem:af197d2b1d06755fc83c2fca16e9c02e5" id="r_af197d2b1d06755fc83c2fca16e9c02e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af197d2b1d06755fc83c2fca16e9c02e5">isActive</a> () const noexcept</td></tr>
-<tr class="memdesc:af197d2b1d06755fc83c2fca16e9c02e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the sensor is present and currently active.  <br /></td></tr>
-<tr class="memitem:aed9398c1217d23a7d2cd9e94a09f3722" id="r_aed9398c1217d23a7d2cd9e94a09f3722"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aed9398c1217d23a7d2cd9e94a09f3722">isPresent</a> () const noexcept</td></tr>
-<tr class="memdesc:aed9398c1217d23a7d2cd9e94a09f3722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates whether the sensor is physically present.  <br /></td></tr>
-<tr class="memitem:a132f01180c3998d6e6d751330a9b4b6d" id="r_a132f01180c3998d6e6d751330a9b4b6d"><td class="memItemLeft">constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#a132f01180c3998d6e6d751330a9b4b6d">getName</a> () const noexcept</td></tr>
-<tr class="memdesc:a132f01180c3998d6e6d751330a9b4b6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the configured name of the sensor.  <br /></td></tr>
+<tr class="memitem:a1cb02fe127fbd828d79a74dc4d4ebcb3" id="r_a1cb02fe127fbd828d79a74dc4d4ebcb3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> ()=default</td></tr>
+<tr class="memdesc:a1cb02fe127fbd828d79a74dc4d4ebcb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the facade.  <br /></td></tr>
+<tr class="memitem:a3b301936cae87db14bef527c0a5629af" id="r_a3b301936cae87db14bef527c0a5629af"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b301936cae87db14bef527c0a5629af">~BackupRamDomain</a> ()=default</td></tr>
+<tr class="memdesc:a3b301936cae87db14bef527c0a5629af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the facade.  <br /></td></tr>
+<tr class="memitem:abf039272ad85b43415d4df28c8c0a051" id="r_abf039272ad85b43415d4df28c8c0a051"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abf039272ad85b43415d4df28c8c0a051">BackupRamDomain</a> (const BackupRamDomain &amp;other)=delete</td></tr>
+<tr class="memdesc:abf039272ad85b43415d4df28c8c0a051"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:af604f32af7890cccdb80c4f97e2b6eb9" id="r_af604f32af7890cccdb80c4f97e2b6eb9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af604f32af7890cccdb80c4f97e2b6eb9">BackupRamDomain</a> (BackupRamDomain &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:af604f32af7890cccdb80c4f97e2b6eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:a8e1d5f45dba88392d588bac17ef3ee9c" id="r_a8e1d5f45dba88392d588bac17ef3ee9c"><td class="memItemLeft"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8e1d5f45dba88392d588bac17ef3ee9c">operator=</a> (const <a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a8e1d5f45dba88392d588bac17ef3ee9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:a675d9fc47e5f2315cdc7199d34015dc6" id="r_a675d9fc47e5f2315cdc7199d34015dc6"><td class="memItemLeft"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a675d9fc47e5f2315cdc7199d34015dc6">operator=</a> (<a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a675d9fc47e5f2315cdc7199d34015dc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the facade stands for the single process-wide backup domain.  <br /></td></tr>
+<tr class="memitem:a75eda4bb9a1e9d88118cacebbb8992a3" id="r_a75eda4bb9a1e9d88118cacebbb8992a3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3">open</a> ()</td></tr>
+<tr class="memdesc:a75eda4bb9a1e9d88118cacebbb8992a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one.  <br /></td></tr>
+<tr class="memitem:a0e38a00a0e42d1e9718b0e5ab46c9223" id="r_a0e38a00a0e42d1e9718b0e5ab46c9223"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0e38a00a0e42d1e9718b0e5ab46c9223">close</a> ()</td></tr>
+<tr class="memdesc:a0e38a00a0e42d1e9718b0e5ab46c9223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup domain.  <br /></td></tr>
+<tr class="memitem:a90b19ee3b4f06e4874a36f9f25b22ce6" id="r_a90b19ee3b4f06e4874a36f9f25b22ce6"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a90b19ee3b4f06e4874a36f9f25b22ce6">readRegister</a> (uint32_t backupRegisterIndex) const</td></tr>
+<tr class="memdesc:a90b19ee3b4f06e4874a36f9f25b22ce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads a backup data register.  <br /></td></tr>
+<tr class="memitem:acc5002942f221da40872cb7be92706a9" id="r_acc5002942f221da40872cb7be92706a9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc5002942f221da40872cb7be92706a9">writeRegister</a> (uint32_t backupRegisterIndex, uint32_t value)</td></tr>
+<tr class="memdesc:acc5002942f221da40872cb7be92706a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a backup data register.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a7063555b30fb75832750a0361328040e" name="a7063555b30fb75832750a0361328040e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7063555b30fb75832750a0361328040e">&#9670;&#160;</a></span>State</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a7063555b30fb75832750a0361328040e">Lib::Pneumatics::Sensor::State</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Possible states of the sensor. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115" name="a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115"></a>ACTIVE&#160;</td><td class="fielddoc"><p><a class="el" href="../../dc/d06/a01832.html" title="Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring.">Sensor</a> is active. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2" name="a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2"></a>INACTIVE&#160;</td><td class="fielddoc"><p><a class="el" href="../../dc/d06/a01832.html" title="Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring.">Sensor</a> is inactive. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" name="a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b"></a>DISABLED&#160;</td><td class="fielddoc"><p><a class="el" href="../../dc/d06/a01832.html" title="Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring.">Sensor</a> is physically absent; its state is not meaningful. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a710e69df2dee7bfc8aa209f4f6cc8d1c" name="a710e69df2dee7bfc8aa209f4f6cc8d1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a710e69df2dee7bfc8aa209f4f6cc8d1c">&#9670;&#160;</a></span>Sensor()</h2>
+<a id="a1cb02fe127fbd828d79a74dc4d4ebcb3" name="a1cb02fe127fbd828d79a74dc4d4ebcb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">&#9670;&#160;</a></span>BackupRamDomain() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,32 +159,139 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Pneumatics::Sensor::Sensor </td>
+          <td class="memname">Lib::HAL::BackupRamDomain::BackupRamDomain </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../db/df3/a01836.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the sensor name and input source, and configures its presence and inversion. </p>
+<p>Creates the facade. </p>
+<p>No hardware is touched until <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...">open()</a> is called. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d06/a01832_a1cb02fe127fbd828d79a74dc4d4ebcb3_icgraph.svg" width="704" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3b301936cae87db14bef527c0a5629af" name="a3b301936cae87db14bef527c0a5629af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b301936cae87db14bef527c0a5629af">&#9670;&#160;</a></span>~BackupRamDomain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::BackupRamDomain::~BackupRamDomain </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the facade. </p>
+<p>The write gate is left as it is, <a class="el" href="#a0e38a00a0e42d1e9718b0e5ab46c9223" title="Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup dom...">close()</a> is not called. </p>
+
+</div>
+</div>
+<a id="abf039272ad85b43415d4df28c8c0a051" name="abf039272ad85b43415d4df28c8c0a051"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf039272ad85b43415d4df28c8c0a051">&#9670;&#160;</a></span>BackupRamDomain() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::BackupRamDomain::BackupRamDomain </td>
+          <td>(</td>
+          <td class="paramtype">const BackupRamDomain &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the facade stands for the single process-wide backup domain. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Name, wiring source, presence flag, and inversion flag. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d06/a01832_abf039272ad85b43415d4df28c8c0a051_cgraph.svg" width="704" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af604f32af7890cccdb80c4f97e2b6eb9" name="af604f32af7890cccdb80c4f97e2b6eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af604f32af7890cccdb80c4f97e2b6eb9">&#9670;&#160;</a></span>BackupRamDomain() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::BackupRamDomain::BackupRamDomain </td>
+          <td>(</td>
+          <td class="paramtype">BackupRamDomain &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the facade stands for the single process-wide backup domain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d06/a01832_af604f32af7890cccdb80c4f97e2b6eb9_cgraph.svg" width="704" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a132f01180c3998d6e6d751330a9b4b6d" name="a132f01180c3998d6e6d751330a9b4b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a132f01180c3998d6e6d751330a9b4b6d">&#9670;&#160;</a></span>getName()</h2>
+<a id="a0e38a00a0e42d1e9718b0e5ab46c9223" name="a0e38a00a0e42d1e9718b0e5ab46c9223"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e38a00a0e42d1e9718b0e5ab46c9223">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -219,26 +300,26 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view Lib::Pneumatics::Sensor::getName </td>
+          <td class="memname">bool Lib::HAL::BackupRamDomain::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Retrieves the configured name of the sensor. </p>
-<dl class="section return"><dt>Returns</dt><dd>Name of the sensor. </dd></dl>
+<p>Disables the Backup SRAM clock, where the device has one, and closes the write gate to the backup domain. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" once the gate is closed. The <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> reports no failure here, so it is always "true". </dd></dl>
 
 </div>
 </div>
-<a id="af197d2b1d06755fc83c2fca16e9c02e5" name="af197d2b1d06755fc83c2fca16e9c02e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af197d2b1d06755fc83c2fca16e9c02e5">&#9670;&#160;</a></span>isActive()</h2>
+<a id="a75eda4bb9a1e9d88118cacebbb8992a3" name="a75eda4bb9a1e9d88118cacebbb8992a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75eda4bb9a1e9d88118cacebbb8992a3">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -247,26 +328,26 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::Sensor::isActive </td>
+          <td class="memname">bool Lib::HAL::BackupRamDomain::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks whether the sensor is present and currently active. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> only for a present sensor whose effective input is active. </dd></dl>
+<p>Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" once the gate is open. The <a class="el" href="../../d4/d60/a00847.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> reports no failure here, so it is always "true". </dd></dl>
 
 </div>
 </div>
-<a id="aed9398c1217d23a7d2cd9e94a09f3722" name="aed9398c1217d23a7d2cd9e94a09f3722"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed9398c1217d23a7d2cd9e94a09f3722">&#9670;&#160;</a></span>isPresent()</h2>
+<a id="a675d9fc47e5f2315cdc7199d34015dc6" name="a675d9fc47e5f2315cdc7199d34015dc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a675d9fc47e5f2315cdc7199d34015dc6">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -275,26 +356,38 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Pneumatics::Sensor::isPresent </td>
+          <td class="memname"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp; Lib::HAL::BackupRamDomain::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Indicates whether the sensor is physically present. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the sensor is present, <b>false</b> if absent. </dd></dl>
+<p>Move assignment is deleted: the facade stands for the single process-wide backup domain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d06/a01832_a675d9fc47e5f2315cdc7199d34015dc6_cgraph.svg" width="642" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a2a1b8d661f06dff4eccff343ce7772bd" name="a2a1b8d661f06dff4eccff343ce7772bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a1b8d661f06dff4eccff343ce7772bd">&#9670;&#160;</a></span>read()</h2>
+<a id="a8e1d5f45dba88392d588bac17ef3ee9c" name="a8e1d5f45dba88392d588bac17ef3ee9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e1d5f45dba88392d588bac17ef3ee9c">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,21 +396,106 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a7063555b30fb75832750a0361328040e">State</a> Lib::Pneumatics::Sensor::read </td>
+          <td class="memname"><a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp; Lib::HAL::BackupRamDomain::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a1cb02fe127fbd828d79a74dc4d4ebcb3">BackupRamDomain</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: the facade stands for the single process-wide backup domain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d06/a01832_a8e1d5f45dba88392d588bac17ef3ee9c_cgraph.svg" width="642" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a90b19ee3b4f06e4874a36f9f25b22ce6" name="a90b19ee3b4f06e4874a36f9f25b22ce6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90b19ee3b4f06e4874a36f9f25b22ce6">&#9670;&#160;</a></span>readRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t Lib::HAL::BackupRamDomain::readRegister </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>backupRegisterIndex</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads the current sensor state, accounting for presence and inversion. </p>
-<dl class="section return"><dt>Returns</dt><dd><b><a class="el" href="#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b" title="Sensor is physically absent; its state is not meaningful.">State::DISABLED</a></b> if the sensor is absent, otherwise <b><a class="el" href="#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115" title="Sensor is active.">State::ACTIVE</a></b> or <b><a class="el" href="#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2" title="Sensor is inactive.">State::INACTIVE</a></b>. </dd></dl>
+<p>Reads a backup data register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">backupRegisterIndex</td><td>Zero-based register number (0 is BKP0R, e.g. "RTC_BKP_DR0"). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Content of the register. </dd></dl>
+
+</div>
+</div>
+<a id="acc5002942f221da40872cb7be92706a9" name="acc5002942f221da40872cb7be92706a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc5002942f221da40872cb7be92706a9">&#9670;&#160;</a></span>writeRegister()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::BackupRamDomain::writeRegister </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>backupRegisterIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes a backup data register. </p>
+<p>The write gate must be open, see <a class="el" href="#a75eda4bb9a1e9d88118cacebbb8992a3" title="Opens the write gate to the backup domain and enables the Backup SRAM clock, where the device has one...">open()</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">backupRegisterIndex</td><td>Zero-based register number (0 is BKP0R, e.g. "RTC_BKP_DR0"). </td></tr>
+    <tr><td class="paramname">value</td><td>Value to store. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -334,7 +512,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d4/d60/a00847.html">Pneumatics</a></li><li class="navelem"><a href="../../dc/d06/a01832.html">Sensor</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../d4/d60/a00847.html">HAL</a></li><li class="navelem"><a href="../../dc/d06/a01832.html">BackupRamDomain</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

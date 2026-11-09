@@ -1,7 +1,5 @@
 var a00886 =
 [
-    [ "Config", "d2/dab/a00886.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
-    [ "M24C64W", "d2/dab/a00886.html#ad36362e96082dbe6c13067c41fa1736b", null ],
-    [ "~M24C64W", "d2/dab/a00886.html#a847c124f9564ab5f671ab8abe946983f", null ],
-    [ "Driver< M24C64W >", "d2/dab/a00886.html#a389c035ca7d606c8426542af2e4b7d70", null ]
+    [ "timerChannel", "d2/dab/a00886.html#acf47a2c6d6854305f3aa60f818d44f03", null ],
+    [ "timerHandle", "d2/dab/a00886.html#a968302dd20489e07471fff8d662ed3d7", null ]
 ];

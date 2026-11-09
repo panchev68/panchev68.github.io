@@ -1,9 +1,5 @@
 var a01448 =
 [
-    [ "Frame0x8b", "dd/d08/a01448.html#abcc6d3244285552f4058f0ed6eb4d2e5", null ],
-    [ "deliveryStatus", "dd/d08/a01448.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "dd/d08/a01448.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "dd/d08/a01448.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "srcAddr16", "dd/d08/a01448.html#a664a688b154503cfcc1b025049d43046", null ],
-    [ "transmitRetryCount", "dd/d08/a01448.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "channel", "dd/d08/a01448.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
+    [ "id", "dd/d08/a01448.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
 ];

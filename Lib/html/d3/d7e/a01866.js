@@ -1,10 +1,8 @@
 var a01866 =
 [
-    [ "TerminateHandler", "d3/d7e/a01866.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "d3/d7e/a01866.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "d3/d7e/a01866.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "d3/d7e/a01866.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "d3/d7e/a01866.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "d3/d7e/a01866.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "d3/d7e/a01866.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "Device", "d3/d7e/a01866.html#acdeffbad9eb409804cbc72fa86794a97", null ],
+    [ "~Device", "d3/d7e/a01866.html#a231e1d150464ec12c66e5578ff0c3128", null ],
+    [ "getHandle", "d3/d7e/a01866.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/d7e/a01866.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "DeviceManager< T_DEVICE, T_HANDLE >", "d3/d7e/a01866.html#ad317e84715f53c3ea50d6b4113c92403", null ]
 ];

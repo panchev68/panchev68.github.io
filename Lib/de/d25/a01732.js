@@ -1,31 +1,15 @@
 var a01732 =
 [
-    [ "TransferMode", "de/d25/a01732.html#aa23cc1803af6341d29a2fd130530914c", [
-      [ "PARTIAL", "de/d25/a01732.html#aa23cc1803af6341d29a2fd130530914cafba5cdfa4bcb408f641c743519a0fe19", null ],
-      [ "ALL", "de/d25/a01732.html#aa23cc1803af6341d29a2fd130530914ca5fb1f955b45e38e31789286a1790398d", null ]
-    ] ],
-    [ "RingBuffer", "de/d25/a01732.html#a90e56f1bb6c70b02947f83ebf3123417", null ],
-    [ "RingBuffer", "de/d25/a01732.html#ad1cdbedc5516901d8c9139809a3fbef7", null ],
-    [ "RingBuffer", "de/d25/a01732.html#a1d9fb75c4c8143ec1b6fe200253b8197", null ],
-    [ "advance", "de/d25/a01732.html#a18fc2b9e414d300e7fba07ffb189c7e2", null ],
-    [ "available", "de/d25/a01732.html#a8ab973e4fda57588b6a238c8d7537b60", null ],
-    [ "clear", "de/d25/a01732.html#aecba3227be66614ad5db50f238e8970f", null ],
-    [ "find", "de/d25/a01732.html#a487f0704a4c18ab43bc1ca7b17207604", null ],
-    [ "front", "de/d25/a01732.html#a6b6348d736c026af7bfe86e8f178c5dd", null ],
-    [ "front", "de/d25/a01732.html#abee3c56eacd254c643cb51f9cd4a7839", null ],
-    [ "getLinearReadBlock", "de/d25/a01732.html#ad539c026bf02e5545168b2182f0a89f3", null ],
-    [ "getLinearWriteBlock", "de/d25/a01732.html#a7c67da9354083f337c51e4e0c60c3938", null ],
-    [ "isEmpty", "de/d25/a01732.html#ae898513d6e4fff77f261633e9d739da7", null ],
-    [ "isFull", "de/d25/a01732.html#acbbdeea50582b8f5ecdae7259746e571", null ],
-    [ "moveFrom", "de/d25/a01732.html#ae57e9627fe4a5aba889a59c0a7d0ecdc", null ],
-    [ "operator=", "de/d25/a01732.html#ab2ab8845bd1a8a943917d668efa8ff90", null ],
-    [ "operator=", "de/d25/a01732.html#a005ffd7b8657f70cb1ed18f0c1488e8e", null ],
-    [ "overwrite", "de/d25/a01732.html#ab0835299e7ff3714143b1196743a174f", null ],
-    [ "peek", "de/d25/a01732.html#ac8f19fd1bbb63ee4460be1de5658cdf3", null ],
-    [ "pop", "de/d25/a01732.html#a8355cafc3456b4a8c5f5122ea38ca0d8", null ],
-    [ "push", "de/d25/a01732.html#a15a0e34223bfa6bb69410c75ff946f0c", null ],
-    [ "push", "de/d25/a01732.html#a99986517429df0512c8d2ecb01411fc0", null ],
-    [ "read", "de/d25/a01732.html#a03a48e3cd8a1b0b70db7a640e62a3bd7", null ],
-    [ "skip", "de/d25/a01732.html#a5c9a29852441fa6ed23a28ce0ec0c8db", null ],
-    [ "write", "de/d25/a01732.html#a4eb0599938edcdc26882c4a3b9ba7d98", null ]
+    [ "Error", "de/d25/a01732.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "de/d25/a01732.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "de/d25/a01732.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "de/d25/a01732.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "de/d25/a01732.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "de/d25/a01732.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "de/d25/a01732.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "de/d25/a01732.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "de/d25/a01732.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "de/d25/a01732.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "de/d25/a01732.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "de/d25/a01732.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

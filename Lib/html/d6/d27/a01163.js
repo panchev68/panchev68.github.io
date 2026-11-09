@@ -1,9 +1,10 @@
 var a01163 =
 [
-    [ "Address", "d6/d27/a01163.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "d6/d27/a01163.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "d6/d27/a01163.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "d6/d27/a01163.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "d6/d27/a01163.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "d6/d27/a01163.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "Ring", "d6/d27/a01163.html#a162946918a210436d07b8649948e2939", null ],
+    [ "Ring", "d6/d27/a01163.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
+    [ "Ring", "d6/d27/a01163.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
+    [ "getData", "d6/d27/a01163.html#a897e123e376e08a2741c3498d764166d", null ],
+    [ "operator=", "d6/d27/a01163.html#a3b42427dd22bff92b102320fdf83a671", null ],
+    [ "operator=", "d6/d27/a01163.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
+    [ "operator[]", "d6/d27/a01163.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
 ];

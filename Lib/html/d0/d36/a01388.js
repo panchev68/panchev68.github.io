@@ -1,8 +1,11 @@
 var a01388 =
 [
-    [ "operator Frame::Data", "d0/d36/a01388.html#a17b184b443db4543afc48f73f2b2cb1e", null ],
-    [ "dstAddress", "d0/d36/a01388.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "d0/d36/a01388.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "d0/d36/a01388.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "d0/d36/a01388.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "WolfSSLRandom", "d0/d36/a01388.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
+    [ "~WolfSSLRandom", "d0/d36/a01388.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
+    [ "WolfSSLRandom", "d0/d36/a01388.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
+    [ "WolfSSLRandom", "d0/d36/a01388.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
+    [ "generate", "d0/d36/a01388.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
+    [ "native", "d0/d36/a01388.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
+    [ "operator=", "d0/d36/a01388.html#a2b57fbc329feeb209aa7f41b29608488", null ],
+    [ "operator=", "d0/d36/a01388.html#a61facc5365a377d384371cb51442e897", null ]
 ];

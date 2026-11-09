@@ -1,9 +1,19 @@
 var a01820 =
 [
-    [ "name", "d5/dd6/a01820.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d5/dd6/a01820.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d5/dd6/a01820.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d5/dd6/a01820.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d5/dd6/a01820.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d5/dd6/a01820.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "Event", "d2/d77/a01824.html", null ],
+    [ "ADCPort", "d5/dd6/a01820.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d5/dd6/a01820.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d5/dd6/a01820.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d5/dd6/a01820.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d5/dd6/a01820.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "getHandle", "d5/dd6/a01820.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d5/dd6/a01820.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "d5/dd6/a01820.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d5/dd6/a01820.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d5/dd6/a01820.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d5/dd6/a01820.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d5/dd6/a01820.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d5/dd6/a01820.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d5/dd6/a01820.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d5/dd6/a01820.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

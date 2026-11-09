@@ -1,11 +1,13 @@
 var a01383 =
 [
-    [ "Message", "de/dfe/a01383.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "de/dfe/a01383.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "de/dfe/a01383.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "de/dfe/a01383.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "de/dfe/a01383.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "de/dfe/a01383.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "de/dfe/a01383.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "de/dfe/a01383.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "WolfSSHServer", "de/dfe/a01383.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "de/dfe/a01383.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "de/dfe/a01383.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "de/dfe/a01383.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "de/dfe/a01383.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "de/dfe/a01383.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "de/dfe/a01383.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "de/dfe/a01383.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "de/dfe/a01383.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "de/dfe/a01383.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

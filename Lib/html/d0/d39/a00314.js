@@ -1,4 +1,5 @@
 var a00314 =
 [
-    [ "Lib::HAL::ADCPortBase&lt; Derived &gt;", "d6/dd7/a01555.html", "d6/dd7/a01555" ]
+    [ "Lib::Ethercat::SOES::EepromHandlers", "d6/d9a/a01710.html", "d6/d9a/a01710" ],
+    [ "Lib::Ethercat::SOES::EepromEmulation", "d8/dce/a01714.html", "d8/dce/a01714" ]
 ];

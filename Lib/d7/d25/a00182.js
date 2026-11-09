@@ -1,5 +1,5 @@
 var a00182 =
 [
-    [ "Lib::Digi::API::Service::ChannelScanner", "d6/dae/a01304.html", "d6/dae/a01304" ],
-    [ "Lib::Digi::API::Service::ChannelScanner::Channel", "d1/d56/a01308.html", "d1/d56/a01308" ]
+    [ "Lib::Digi::API::Service::NetworkDiscovery", "d2/d21/a01484.html", "d2/d21/a01484" ],
+    [ "Lib::Digi::API::Service::NetworkDiscovery::Node", "d2/daa/a01488.html", "d2/daa/a01488" ]
 ];

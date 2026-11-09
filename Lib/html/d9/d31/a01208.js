@@ -1,10 +1,8 @@
 var a01208 =
 [
-    [ "State", "dc/db6/a01212.html", "dc/db6/a01212" ],
-    [ "Quality", "d8/df3/a01216.html", "d8/df3/a01216" ],
-    [ "Info", "db/d42/a01220.html", "db/d42/a01220" ],
-    [ "Connection", "d9/d31/a01208.html#ac4ae5d78fb394db2bd4c3e233711b44b", null ],
-    [ "info", "d9/d31/a01208.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "d9/d31/a01208.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "d9/d31/a01208.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "miso", "d9/d31/a01208.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
+    [ "mosi", "d9/d31/a01208.html#a25f143d2f7674576d969696bb116ccd0", null ],
+    [ "nirq", "d9/d31/a01208.html#a910a59f08ad5274a68776e743dbaedee", null ],
+    [ "nss", "d9/d31/a01208.html#ab28458323220459a7d7310bc64b538a2", null ],
+    [ "sck", "d9/d31/a01208.html#a2bddcf040cbe86554ab6027c20f10236", null ]
 ];

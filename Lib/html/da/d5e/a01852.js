@@ -1,10 +1,16 @@
 var a01852 =
 [
-    [ "Integrator", "da/d5e/a01852.html#a26b6c856f31eb3f18b69a2c558877bb6", null ],
-    [ "addValue", "da/d5e/a01852.html#ab8c5213f20bd01067aeac88ead9940b7", null ],
-    [ "computeResult", "da/d5e/a01852.html#ae6a79a15ffceb467a5f0bae907528b41", null ],
-    [ "isWindowFull", "da/d5e/a01852.html#aed1f08cf04d78f152ae3952e006ca13c", null ],
-    [ "operator()", "da/d5e/a01852.html#a2bcca45dcea0f22ba259c5f84b6e96fd", null ],
-    [ "processValue", "da/d5e/a01852.html#ac523e64f661ec063c92f060d3ef75380", null ],
-    [ "resetWindow", "da/d5e/a01852.html#ade38a975d156689907c7327b45504fd3", null ]
+    [ "EventBits", "da/d5e/a01852.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
+    [ "AsyncPortCore", "da/d5e/a01852.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
+    [ "AsyncPortCore", "da/d5e/a01852.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
+    [ "AsyncPortCore", "da/d5e/a01852.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
+    [ "~AsyncPortCore", "da/d5e/a01852.html#aa73910a82d1814199dbe1ec58c46f450", null ],
+    [ "close", "da/d5e/a01852.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "derived", "da/d5e/a01852.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "isOpened", "da/d5e/a01852.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "da/d5e/a01852.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "operator=", "da/d5e/a01852.html#af7a0ea878376b289ff08600fa9477026", null ],
+    [ "operator=", "da/d5e/a01852.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
+    [ "events", "da/d5e/a01852.html#abb56ddd8ed19246084e1242e9075982f", null ],
+    [ "isOpen", "da/d5e/a01852.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
 ];

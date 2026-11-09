@@ -1,7 +1,6 @@
 var a01702 =
 [
-    [ "lock", "de/d05/a01702.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "read", "de/d05/a01702.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "de/d05/a01702.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "de/d05/a01702.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "afterWrite", "de/d05/a01702.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
+    [ "beforeRead", "de/d05/a01702.html#a214b45de3b2b1b03564e40ad91392018", null ],
+    [ "beforeWrite", "de/d05/a01702.html#a19848fcaef19f48fd52d8d89e26be851", null ]
 ];

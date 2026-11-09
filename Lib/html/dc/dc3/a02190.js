@@ -1,10 +1,18 @@
 var a02190 =
 [
-    [ "VersionString", "dc/dc3/a02190.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "dc/dc3/a02190.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "dc/dc3/a02190.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "dc/dc3/a02190.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "dc/dc3/a02190.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "dc/dc3/a02190.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "dc/dc3/a02190.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "DateString", "dc/dc3/a02190.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "dc/dc3/a02190.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "dc/dc3/a02190.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "dc/dc3/a02190.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "dc/dc3/a02190.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "dc/dc3/a02190.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "dc/dc3/a02190.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "dc/dc3/a02190.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "dc/dc3/a02190.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "dc/dc3/a02190.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "dc/dc3/a02190.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "dc/dc3/a02190.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "dc/dc3/a02190.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "dc/dc3/a02190.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "dc/dc3/a02190.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

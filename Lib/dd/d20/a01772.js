@@ -1,9 +1,14 @@
 var a01772 =
 [
-    [ "Config", "dd/d00/a01776.html", "dd/d00/a01776" ],
-    [ "Kalman", "dd/d20/a01772.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "dd/d20/a01772.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "dd/d20/a01772.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "dd/d20/a01772.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "dd/d20/a01772.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "PortString", "dd/d20/a01772.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "dd/d20/a01772.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "dd/d20/a01772.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "dd/d20/a01772.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "dd/d20/a01772.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "dd/d20/a01772.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "dd/d20/a01772.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "dd/d20/a01772.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "dd/d20/a01772.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "dd/d20/a01772.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "dd/d20/a01772.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

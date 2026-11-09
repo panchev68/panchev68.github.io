@@ -1,9 +1,10 @@
 var a00924 =
 [
-    [ "chipManufacturer", "de/d62/a00924.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
-    [ "memoryCapacity", "de/d62/a00924.html#a0ce044d51923185dc77297ec3845620b", null ],
-    [ "pagePerSector", "de/d62/a00924.html#a768e74e894621cf3033a1f4e06661b66", null ],
-    [ "pageSize", "de/d62/a00924.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
-    [ "sectorCount", "de/d62/a00924.html#ae152c07a2eeb80c6525857160e04126b", null ],
-    [ "sectorSize", "de/d62/a00924.html#a453d47437845007dcb1caa1889d1ec2b", null ]
+    [ "PortBase", "de/d62/a00924.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "de/d62/a00924.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "de/d62/a00924.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "de/d62/a00924.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "de/d62/a00924.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "de/d62/a00924.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "de/d62/a00924.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

@@ -1,16 +1,16 @@
 var a01472 =
 [
-    [ "Observer", "d2/d48/a01472.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "d2/d48/a01472.html#aa436fb0ebbb0f79e6116041dd8b326d2", null ],
-    [ "Observer", "d2/d48/a01472.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "~Observer", "d2/d48/a01472.html#a0a4834e6487d627c825ce3f6448677e8", null ],
-    [ "Observer", "d2/d48/a01472.html#a14fb19abdf88d54276cef83b500d3d1b", null ],
-    [ "Observer", "d2/d48/a01472.html#a9900c13173227d2aea4e9ddd9f720364", null ],
-    [ "check", "d2/d48/a01472.html#ad9b49bd939ee8436beba16d0c5807d2d", null ],
-    [ "getGroup", "d2/d48/a01472.html#a30603f0f58acdeb52a34b2cb29ba7f84", null ],
-    [ "number", "d2/d48/a01472.html#a62150fc8a09bbca2eb47616fad11247b", null ],
-    [ "operator const Group *", "d2/d48/a01472.html#aaa34e1e2c219d6ad3ed651a34e1e9930", null ],
-    [ "operator=", "d2/d48/a01472.html#a97b0b95d99e1a1a71e60d4e26cd88880", null ],
-    [ "operator=", "d2/d48/a01472.html#adb79d64af57f5d98b699d3a1f82932dc", null ],
-    [ "read", "d2/d48/a01472.html#a73843ca5299557e42043f9da9871a5d3", null ]
+    [ "Channel", "d0/d38/a01476.html", "d0/d38/a01476" ],
+    [ "ChannelArray", "d2/d48/a01472.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
+    [ "QualityMode", "d2/d48/a01472.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
+    [ "Error", "d2/d48/a01472.html#acb54f9ec6751a18eda393e2c5bd0675c", [
+      [ "NONE", "d2/d48/a01472.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "d2/d48/a01472.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d2/d48/a01472.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "d2/d48/a01472.html#a4e65a2b73399e5ba18d5090993f64487", null ],
+    [ "ChannelScanner", "d2/d48/a01472.html#a1b11f5df668c4629836c71101e686990", null ],
+    [ "getChannels", "d2/d48/a01472.html#a124a962ad28c0688ab38329f7a7b034e", null ],
+    [ "operator=", "d2/d48/a01472.html#aed5af8462cac9a996e73489e369434d3", null ],
+    [ "onError", "d2/d48/a01472.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
 ];

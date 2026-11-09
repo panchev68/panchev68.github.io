@@ -1,16 +1,19 @@
 var a01327 =
 [
-    [ "Command", "d4/d2c/a01327.html#aeec1806cc51651aec7c65df97f20824f", [
-      [ "INPUTS", "d4/d2c/a01327.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
-      [ "GET_PARAMETERS", "d4/d2c/a01327.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
-      [ "OUTPUTS", "d4/d2c/a01327.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
-      [ "SET_PARAMETERS", "d4/d2c/a01327.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
-    ] ],
-    [ "UserProtocol", "d4/d2c/a01327.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
-    [ "~UserProtocol", "d4/d2c/a01327.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
-    [ "handleGetParameters", "d4/d2c/a01327.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
-    [ "handleInputsUpdate", "d4/d2c/a01327.html#a667d3ff5b042410546dc2212f46897b3", null ],
-    [ "handleOutputsUpdate", "d4/d2c/a01327.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
-    [ "handleSetParameters", "d4/d2c/a01327.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
-    [ "parse", "d4/d2c/a01327.html#a4d3b6c9250019cb601e8256f0167da64", null ]
+    [ "Target", "dc/d8e/a01331.html", "dc/d8e/a01331" ],
+    [ "Key", "d4/d04/a01335.html", null ],
+    [ "FreeFunctionPointer", "d4/d2c/a01327.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d4/d2c/a01327.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d4/d2c/a01327.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "Base", "d4/d2c/a01327.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
+    [ "Base", "d4/d2c/a01327.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
+    [ "Base", "d4/d2c/a01327.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
+    [ "Base", "d4/d2c/a01327.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
+    [ "Base", "d4/d2c/a01327.html#a49a4e79ff99eb03351fd7a280f276905", null ],
+    [ "invoke", "d4/d2c/a01327.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d4/d2c/a01327.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d4/d2c/a01327.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d4/d2c/a01327.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d4/d2c/a01327.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d4/d2c/a01327.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

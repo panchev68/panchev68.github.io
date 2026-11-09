@@ -1,4 +1,4 @@
 var a00533 =
 [
-    [ "Lib::Helper::Convert::Percent", "d0/db3/a01831.html", null ]
+    [ "Lib::HAL::UARTPortBase&lt; T_DERIVED &gt;", "d6/d5b/a02078.html", "d6/d5b/a02078" ]
 ];

@@ -1,12 +1,6 @@
 var a01696 =
 [
-    [ "Time", "d9/d49/a01696.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d9/d49/a01696.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d9/d49/a01696.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d9/d49/a01696.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d9/d49/a01696.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d9/d49/a01696.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d9/d49/a01696.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d9/d49/a01696.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d9/d49/a01696.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "code", "d9/d49/a01696.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
+    [ "index", "d9/d49/a01696.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
+    [ "name", "d9/d49/a01696.html#adb71631f3f01cfe4b407c729d606608c", null ]
 ];

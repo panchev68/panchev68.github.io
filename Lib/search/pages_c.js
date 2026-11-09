@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['several_20writers_0',['Several writers',['../da/d75/a02372.html#streambuffer_multiwriter',1,'']]],
-  ['single_20measurement_1',['Single measurement',['../d4/dcc/a02371.html#pga460_usage_basic',1,'']]],
-  ['static_20creation_2',['Static creation',['../da/d75/a02372.html#streambuffer_static',1,'']]],
-  ['streambuffer_20examples_3',['StreamBuffer examples',['../da/d75/a02372.html',1,'']]]
+  ['options_0',['Common Configuration Options',['../index.html#common-configuration-options',1,'']]],
+  ['overview_1',['📖 Overview',['../index.html#autotoc_md-overview',1,'']]],
+  ['ownership_2',['Moving ownership',['../d1/d8b/a03420.html#streambuffer_move',1,'']]]
 ];

@@ -1,11 +1,16 @@
 var a01667 =
 [
-    [ "Iwdg", "dd/d8d/a01667.html#ae0d6dd551db90d449b2dc8d31d7dc580", null ],
-    [ "~Iwdg", "dd/d8d/a01667.html#ab42b916219dabd840b4047f0184bd6a6", null ],
-    [ "Iwdg", "dd/d8d/a01667.html#a8facca453e4fe27fccf2e6ac05f1a44d", null ],
-    [ "Iwdg", "dd/d8d/a01667.html#aef6b716f94cc82a124541f77dc6b5d18", null ],
-    [ "open", "dd/d8d/a01667.html#ae91c40e54491986654d2968cf4623ea1", null ],
-    [ "operator=", "dd/d8d/a01667.html#a3f0cbba7da571184e6ffb619aa6c0c66", null ],
-    [ "operator=", "dd/d8d/a01667.html#a3c0a9dbea0138804b44c0f52ce6e8d16", null ],
-    [ "refresh", "dd/d8d/a01667.html#a85fafcf02b6e9031da18e918950a0098", null ]
+    [ "Container", "dd/d8d/a01667.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "dd/d8d/a01667.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "dd/d8d/a01667.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "dd/d8d/a01667.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "dd/d8d/a01667.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "dd/d8d/a01667.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "dd/d8d/a01667.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "dd/d8d/a01667.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "dd/d8d/a01667.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "dd/d8d/a01667.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "dd/d8d/a01667.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "dd/d8d/a01667.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rtos_5fheap_5fhas_5fstats_0',['RTOS_HEAP_HAS_STATS',['../d4/deb/a00710.html#aea3f5304a2ee9e9c830027b6035472ae',1,'Kernel.hpp']]]
+  ['pin_0',['PIN',['../d8/d91/a00410.html#a45dbeff58bd7e046067745552ea8044c',1,'Handle.hpp']]]
 ];

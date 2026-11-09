@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Manager.hpp File Reference</title>
+<title>Library: SHA256.hpp File Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -27,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08.1</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,44 +112,60 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/ddf/a00164.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Manager.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">SHA256.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Central registry and lifecycle manager for ServiceBase-derived services.  
+<p>SHA-256 message digest (FIPS 180-4), selectable between two implementations through "SHA256Engine".  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Provides a singleton interface to register and unregister services and to perform bulk lifecycle operations (update, open, close) on all registered services.</p>
-<p>Registration is intrusive: each ServiceBase carries its own next-pointer (see ServiceBase::next), so the registry needs no dynamic allocation and no fixed capacity limit, regardless of how many services are registered.</p>
-<dl class="section version"><dt>Version</dt><dd>4.00.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-16 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Manager.hpp:</div>
+<div class="textblock"><p>SHA-256 message digest (FIPS 180-4), selectable between two implementations through "SHA256Engine". </p>
+<p>"SOFTWARE" is the portable compression in plain C++: no hardware dependency, available in every project. "HARDWARE" drives the STM32 HASH peripheral in SHA-256 mode and needs "HAL_HASH_MODULE_ENABLED" plus a caller-owned "HASH_HandleTypeDef". There is no reliable way to tell, from this header, whether a project that happens to enable the HASH module actually wants it used for this digest (the module may be enabled for an unrelated feature, or the peripheral may be shared with other code), so the engine is always an explicit template argument, never auto-selected from "HAL_HASH_MODULE_ENABLED". "Lib::Crypto::SHA256&lt;&gt;" (empty angle brackets) keeps meaning "SOFTWARE"; this is a breaking change from the previous non-template "Lib::Crypto::SHA256" class, so every existing caller needs the explicit "&lt;&gt;" added at its declaration (C++ only substitutes a template's default argument where an argument list, even an empty one, is actually written).</p>
+<p>Streaming interface for both engines: construct, feed data with "update()" any number of times, then call "finish()". The "SOFTWARE" engine owns no tables beyond the 64 round constants; the whole state is 104 bytes, no heap.</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="code hl_class" href="../../d6/dfe/a01366.html">Lib::Crypto::SHA256&lt;&gt;::Digest</a> digest = <a class="code hl_class" href="../../d6/dfe/a01366.html">Lib::Crypto::SHA256&lt;&gt;::hash</a>(message); <span class="comment">// SOFTWARE, as before</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="../../d6/dfe/a01366.html">Lib::Crypto::SHA256&lt;Lib::Crypto::SHA256Engine::HARDWARE&gt;</a> hasher(&amp;hhash); <span class="keywordflow">if</span> (hasher.update(message)) { <span class="keyword">const</span></div>
+<div class="line">std::optional&lt;Lib::Crypto::SHA256&lt;Lib::Crypto::SHA256Engine::HARDWARE&gt;::Digest&gt; digest = hasher.finish();</div>
+<div class="line">}</div>
+<div class="ttc" id="aa01366_html"><div class="ttname"><a href="../../d6/dfe/a01366.html">Lib::Crypto::SHA256</a></div><div class="ttdoc">SHA-256 hasher; see &quot;SHA256Engine&quot; for the available implementations.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:54</div></div>
+</div><!-- fragment --><dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-10-15 </dd></dl>
+</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for SHA256.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d48/a00165.svg" width="131" height="112"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d48/a00165.svg" width="736" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d38/a00166.svg" width="259" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d38/a00166.svg" width="172" height="124"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI_3A_3AService_3A_3AManager" id="r_Lib_3A_3ADigi_3A_3AAPI_3A_3AService_3A_3AManager"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d9/de7/a01279.html">Lib::Digi::API::Service::Manager</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry and lifecycle manager for ServiceBase instances.  <a href="../../d9/de7/a01279.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ACrypto_3A_3ASHA256_3C_20SHA256Engine_3A_3ASOFTWARE_20_3E" id="r_Lib_3A_3ACrypto_3A_3ASHA256_3C_20SHA256Engine_3A_3ASOFTWARE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dbe/a01370.html">Lib::Crypto::SHA256&lt; SHA256Engine::SOFTWARE &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streaming SHA-256 hasher, portable C++ compression.  <a href="../../d8/dbe/a01370.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Lib_3A_3ACrypto_3A_3ASHA256_3C_20SHA256Engine_3A_3AHARDWARE_20_3E" id="r_Lib_3A_3ACrypto_3A_3ASHA256_3C_20SHA256Engine_3A_3AHARDWARE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dff/a01374.html">Lib::Crypto::SHA256&lt; SHA256Engine::HARDWARE &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Streaming SHA-256 hasher driving the STM32 HASH peripheral in SHA-256 mode.  <a href="../../d2/dff/a01374.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/deb/a00710.html">Lib</a></td></tr>
-<tr class="memdesc:d4/deb/a00710"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ADigi" id="r_Lib_3A_3ADigi"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../df/df7/a00731.html">Lib::Digi</a></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI" id="r_Lib_3A_3ADigi_3A_3AAPI"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/db8/a00732.html">Lib::Digi::API</a></td></tr>
-<tr class="memdesc:d4/db8/a00732"><td class="mdescLeft">&#160;</td><td class="mdescRight">High-level Digi radio module application framework. <br /></td></tr>
-<tr class="memitem:Lib_3A_3ADigi_3A_3AAPI_3A_3AService" id="r_Lib_3A_3ADigi_3A_3AAPI_3A_3AService"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d91/a00733.html">Lib::Digi::API::Service</a></td></tr>
-<tr class="memdesc:d4/d91/a00733"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic services running on top of a Digi application. <br /></td></tr>
+<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d4f/a00819.html">Lib</a></td></tr>
+<tr class="memdesc:d7/d4f/a00819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
+<tr class="memitem:Lib_3A_3ACrypto" id="r_Lib_3A_3ACrypto"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dac/a00841.html">Lib::Crypto</a></td></tr>
+<tr class="memdesc:d5/dac/a00841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cryptographic primitives and optional TLS/SSH client wrappers. <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a9f3539ae201a7873d936d653c9bd56bb" id="r_a9f3539ae201a7873d936d653c9bd56bb"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/dac/a00841.html#a9f3539ae201a7873d936d653c9bd56bb">Lib::Crypto::SHA256Engine</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="../../d5/dac/a00841.html#a9f3539ae201a7873d936d653c9bd56bbaaea541d7f9574587656dc5125116e548">Lib::Crypto::SOFTWARE</a>
+, <br />
+&#160;&#160;<a class="el" href="../../d5/dac/a00841.html#a9f3539ae201a7873d936d653c9bd56bba39e0e6e3d8f3580dbec023e0a9d76f96">Lib::Crypto::HARDWARE</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a9f3539ae201a7873d936d653c9bd56bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Selects which SHA256 implementation a given instantiation uses.  <a href="../../d5/dac/a00841.html#a9f3539ae201a7873d936d653c9bd56bb">More...</a><br /></td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -163,7 +180,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_67df2c65d6bc148cc049a48bf38d4002.html">Digi</a></li><li class="navelem"><a href="../../dir_c24010df05eaccdf81dd52006b9a47df.html">API</a></li><li class="navelem"><a href="../../dir_36ed21a84838a7c472fb170fec5d516d.html">Services</a></li><li class="navelem"><a href="../../db/ddf/a00164.html">Manager.hpp</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_538b34c2c7ede017174dadf8df9491b3.html">Crypto</a></li><li class="navelem"><a href="../../db/ddf/a00164.html">SHA256.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

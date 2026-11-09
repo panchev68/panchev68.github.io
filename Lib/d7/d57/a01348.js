@@ -1,12 +1,12 @@
 var a01348 =
 [
-    [ "ServiceBase", "d7/d57/a01348.html#a9fe2fc0c11059c42c16470a0ee18f1b1", null ],
-    [ "~ServiceBase", "d7/d57/a01348.html#aaffb2619b9b150dd2c5970ef8b4e11e1", null ],
-    [ "close", "d7/d57/a01348.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "initialize", "d7/d57/a01348.html#a6329c58c641c134db59a8f37a9637dea", null ],
-    [ "isRunning", "d7/d57/a01348.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d7/d57/a01348.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "process", "d7/d57/a01348.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "tearDown", "d7/d57/a01348.html#a433b1176b2ec86cafe98bb73425d401b", null ],
-    [ "update", "d7/d57/a01348.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "FreeFunctionPointer", "d7/d57/a01348.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d7/d57/a01348.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d7/d57/a01348.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "d7/d57/a01348.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d7/d57/a01348.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d7/d57/a01348.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d7/d57/a01348.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d7/d57/a01348.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d7/d57/a01348.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

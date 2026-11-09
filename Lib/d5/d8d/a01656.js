@@ -1,9 +1,8 @@
 var a01656 =
 [
-    [ "CityHash", "d5/d8d/a01656.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "d5/d8d/a01656.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "d5/d8d/a01656.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "d5/d8d/a01656.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "d5/d8d/a01656.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "d5/d8d/a01656.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "Frame0x8b", "d5/d8d/a01656.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
+    [ "deliveryStatus", "d5/d8d/a01656.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
+    [ "discoveryStatus", "d5/d8d/a01656.html#a7b5c383aff55a80124e65ff4565eb114", null ],
+    [ "frameId", "d5/d8d/a01656.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
+    [ "transmitRetryCount", "d5/d8d/a01656.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
 ];

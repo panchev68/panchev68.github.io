@@ -1,23 +1,16 @@
 var a01230 =
 [
-    [ "Mode", "d0/d58/a01230.html#a1fa3d5a5e7307d0b5620518c07332406", [
-      [ "RUNTIME", "d0/d58/a01230.html#a1fa3d5a5e7307d0b5620518c07332406ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
-      [ "SCANNER", "d0/d58/a01230.html#a1fa3d5a5e7307d0b5620518c07332406aa1323822e71d19091075dd86a90ee35d", null ]
-    ] ],
-    [ "State", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8", [
-      [ "DISCONNECTED", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8a99c8ce56e7ab246445d3b134724428f3", null ],
-      [ "UNUSABLE", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8a22b311bc8cac928de4f019e7672bb154", null ],
-      [ "NOT_GOOD", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8a57a61c4494fc7176bda36f964b413e91", null ],
-      [ "OKAY", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8a74eb855e4de6fe58228f03006c02fd8a", null ],
-      [ "VERY_GOOD", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8a57e657071a4b2bdd078dc2de63037b3a", null ],
-      [ "AMAZING", "d0/d58/a01230.html#a2894ee50dc5996ed2f18b07b95eac6e8a50d3a20a2a39b495b6bec36ca77287e9", null ]
-    ] ],
-    [ "Quality", "d0/d58/a01230.html#ac8b7cad9c67eac45b83424fc09cfcff8", null ],
-    [ "clear", "d0/d58/a01230.html#a9f83d384f7ac11104d7797f317a07abe", null ],
-    [ "getPercent", "d0/d58/a01230.html#abdc935b5e4e162b6c98b3fe97c134901", null ],
-    [ "getState", "d0/d58/a01230.html#ac0ce3488e55e61cb6a016e5037e89822", null ],
-    [ "setMode", "d0/d58/a01230.html#aaf2759f8b73b8569418f26d46af5865e", null ],
-    [ "start", "d0/d58/a01230.html#a97e20d9aa5d1ccb636cd2f19696a0c09", null ],
-    [ "update", "d0/d58/a01230.html#a3c087691136285dc63a4cd1ff03f2459", null ],
-    [ "onUpdate", "d0/d58/a01230.html#a981c4d76b66480b0a86fca4fd7b89963", null ]
+    [ "Config", "d6/d1e/a01234.html", "d6/d1e/a01234" ],
+    [ "TransducerDiagnostics", "d8/ddf/a01238.html", "d8/ddf/a01238" ],
+    [ "PGA460TPWRQ1", "d0/d58/a01230.html#af23eb94dd6b27d2f4b97126ec7c3ff6e", null ],
+    [ "PGA460TPWRQ1", "d0/d58/a01230.html#ab0901e6176d41517bb48f19722c9721b", null ],
+    [ "PGA460TPWRQ1", "d0/d58/a01230.html#ab58650dd060801861ed9ffdd08be491b", null ],
+    [ "close", "d0/d58/a01230.html#a52d6efacbe935389fa51f1f75670476f", null ],
+    [ "open", "d0/d58/a01230.html#a50accfabb3897779a4b26e4c6b8e7566", null ],
+    [ "operator=", "d0/d58/a01230.html#a3e3603ffff316bc5f0bfd3fbfa8f3ac9", null ],
+    [ "operator=", "d0/d58/a01230.html#a8e49edb5b10188a09823c4a7c0c3bba7", null ],
+    [ "readDistance", "d0/d58/a01230.html#ab5b14fe14cfea3451683b86f1cc54952", null ],
+    [ "readRegister", "d0/d58/a01230.html#a2d489995d894aaeddbace0f34825674e", null ],
+    [ "readTransducerDiagnostics", "d0/d58/a01230.html#ad06b5c6df4a4916a991419d66d6cf3f4", null ],
+    [ "writeRegister", "d0/d58/a01230.html#a393f06f504869258b353566ff562f476", null ]
 ];

@@ -1,9 +1,5 @@
 var a01040 =
 [
-    [ "calculatedChecksum", "db/d14/a01040.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "db/d14/a01040.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "db/d14/a01040.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "db/d14/a01040.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "db/d14/a01040.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "db/d14/a01040.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "nssPin", "db/d14/a01040.html#a65bf81169260bf8d81ed02d291ba716a", null ],
+    [ "spiPort", "db/d14/a01040.html#abb22f6a233a42f24a3ab3c7d873aae99", null ]
 ];

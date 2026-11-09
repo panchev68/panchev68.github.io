@@ -1,8 +1,6 @@
 var a01450 =
 [
-    [ "Frame0x88", "d3/da3/a01450.html#a0f33e04d3ad28dabd1bf0c1d0bad3d81", null ],
-    [ "atCommand", "d3/da3/a01450.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d3/da3/a01450.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d3/da3/a01450.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d3/da3/a01450.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "operator uint64_t", "d3/da3/a01450.html#aebc72338217669721612422f138da4e6", null ],
+    [ "leastSignificant", "d3/da3/a01450.html#af020cae181d7b432faf85061911c84dd", null ],
+    [ "mostSignificant", "d3/da3/a01450.html#abd19bd98e154f92791c281037281c222", null ]
 ];

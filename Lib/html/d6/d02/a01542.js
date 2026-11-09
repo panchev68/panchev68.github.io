@@ -1,10 +1,13 @@
 var a01542 =
 [
-    [ "ADCPort", "d6/d02/a01542.html#ad3590b6cb223a01016ad98732fcce676", null ],
-    [ "~ADCPort", "d6/d02/a01542.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
-    [ "getHandle", "d6/d02/a01542.html#a5614da14358698185ca50bab6f0ffb90", null ],
-    [ "getHandle", "d6/d02/a01542.html#a67ec812f689c32e443b0f0b0693c358a", null ],
-    [ "poll", "d6/d02/a01542.html#a7f4263cc22040a8ca759022ba6097646", null ],
-    [ "start", "d6/d02/a01542.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
-    [ "stop", "d6/d02/a01542.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
+    [ "Config", "d9/da1/a01546.html", "d9/da1/a01546" ],
+    [ "ComDriver", "d6/d02/a01542.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "d6/d02/a01542.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "d6/d02/a01542.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "d6/d02/a01542.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "d6/d02/a01542.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "d6/d02/a01542.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "d6/d02/a01542.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "d6/d02/a01542.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "d6/d02/a01542.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

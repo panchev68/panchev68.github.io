@@ -1,7 +1,6 @@
 var a01534 =
 [
-    [ "Protocol", "dc/d2d/a01534.html#ada015233fb11865b5f6fb1630168cdf3", null ],
-    [ "Protocol", "dc/d2d/a01534.html#a7def75a06b10034c9bb3f3c3d12af6f7", null ],
-    [ "operator uint8_t", "dc/d2d/a01534.html#a8eed760a643cef252fec650376850862", null ],
-    [ "operator=", "dc/d2d/a01534.html#a55b5fc9af36900d859f8ff16a9ef893e", null ]
+    [ "AtCommandString", "dc/d2d/a01534.html#aececd161348c75d93c06ea6da2f4cd23", null ],
+    [ "AtCommandString", "dc/d2d/a01534.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
+    [ "operator uint16_t", "dc/d2d/a01534.html#a5bfb355d92f981a786da2146384333c5", null ]
 ];

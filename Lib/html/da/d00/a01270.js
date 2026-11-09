@@ -1,5 +1,9 @@
 var a01270 =
 [
-    [ "ascFailures", "da/d00/a01270.html#a8bae64705c8642cdf1eb57ffe9e9a20b", null ],
-    [ "ccaFailures", "da/d00/a01270.html#a07993942950089e2eb10fa52686b1e9c", null ]
+    [ "errorCode", "da/d00/a01270.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "da/d00/a01270.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "da/d00/a01270.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "da/d00/a01270.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "da/d00/a01270.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "da/d00/a01270.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

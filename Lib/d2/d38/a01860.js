@@ -1,8 +1,6 @@
 var a01860 =
 [
-    [ "allocations", "d2/d38/a01860.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d2/d38/a01860.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d2/d38/a01860.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d2/d38/a01860.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d2/d38/a01860.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "getDevice", "d2/d38/a01860.html#a44399c0b88c31ab172615c8522506511", null ],
+    [ "registerDevice", "d2/d38/a01860.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
+    [ "unregisterDevice", "d2/d38/a01860.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
 ];

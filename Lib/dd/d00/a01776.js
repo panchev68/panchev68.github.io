@@ -1,7 +1,26 @@
 var a01776 =
 [
-    [ "estimatedError", "dd/d00/a01776.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "dd/d00/a01776.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "dd/d00/a01776.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "dd/d00/a01776.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "MessageHeader", "d0/dce/a01780.html", "d0/dce/a01780" ],
+    [ "Command", "dd/d00/a01776.html#af1bf58d46a2365d039aa946466c931e4", [
+      [ "ECHO", "dd/d00/a01776.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
+      [ "INPUTS", "dd/d00/a01776.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
+      [ "OUTPUTS", "dd/d00/a01776.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
+    ] ],
+    [ "Error", "dd/d00/a01776.html#af7acfca02d188807a9c220d5c0bfeda6", [
+      [ "OK", "dd/d00/a01776.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "COMMAND_NOT_SUPPORT", "dd/d00/a01776.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
+      [ "EMPTY_MESSAGE", "dd/d00/a01776.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
+      [ "INVALID_PAYLOAD_LENGTH", "dd/d00/a01776.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
+      [ "INVALID_START_DELIMITER", "dd/d00/a01776.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
+    ] ],
+    [ "UserProtocol", "dd/d00/a01776.html#ab11ca2634a103484248a6d8ea24a5407", null ],
+    [ "~UserProtocol", "dd/d00/a01776.html#ad2bb639951ce599fce10adfb65668d02", null ],
+    [ "build", "dd/d00/a01776.html#ae9170839094fc83686dd4af2244027fb", null ],
+    [ "echoCallback", "dd/d00/a01776.html#a3061aa5da161fa13a28466c38e0f725f", null ],
+    [ "getLastSentTimeStamp", "dd/d00/a01776.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
+    [ "handleIncomingMessageHeader", "dd/d00/a01776.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
+    [ "handleOutputsUpdate", "dd/d00/a01776.html#a78c96c1519356f5ea3948970fff30d5c", null ],
+    [ "inputsUpdateCallback", "dd/d00/a01776.html#a26f74b072f3f808ae2a3374051efa833", null ],
+    [ "parse", "dd/d00/a01776.html#a5693bd9519902713725ab87ae72a635d", null ],
+    [ "updateNodeActivityCallback", "dd/d00/a01776.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
 ];

@@ -1,9 +1,7 @@
 var a00974 =
 [
-    [ "chipManufacturer", "df/dce/a00974.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "df/dce/a00974.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "df/dce/a00974.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "df/dce/a00974.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "df/dce/a00974.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "df/dce/a00974.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "Config", "df/dce/a00974.html#a71f90ba5852d744d364d627c9200231e", null ],
+    [ "M24C16", "df/dce/a00974.html#a82d789de030a0346864f88543d0512e5", null ],
+    [ "~M24C16", "df/dce/a00974.html#a0db0fe864ae86e17a1406e2180d119af", null ],
+    [ "Driver< M24C16 >", "df/dce/a00974.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
 ];

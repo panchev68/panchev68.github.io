@@ -1,7 +1,6 @@
 var a01722 =
 [
-    [ "SPIPort", "d5/d29/a01722.html#a903be3f889b13683ab1e357df5e48ddb", null ],
-    [ "~SPIPort", "d5/d29/a01722.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
-    [ "getHandle", "d5/d29/a01722.html#a177a320faf7a48d1692b081641399447", null ],
-    [ "getHandle", "d5/d29/a01722.html#a88e71252a873f0d8d5051292a08b1336", null ]
+    [ "frameReceived", "d5/d29/a01722.html#ac8bfe015a954f64ad27486a7f7b82059", null ],
+    [ "getParameters", "d5/d29/a01722.html#af5c689938685464a5e8331e943afbf47", null ],
+    [ "setParameters", "d5/d29/a01722.html#a4dbee9575ed5dc6f641f59c022b6b4d3", null ]
 ];

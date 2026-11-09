@@ -1,16 +1,13 @@
 var a01486 =
 [
-    [ "Observer", "d0/d34/a01486.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "d0/d34/a01486.html#aa436fb0ebbb0f79e6116041dd8b326d2", null ],
-    [ "Observer", "d0/d34/a01486.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "~Observer", "d0/d34/a01486.html#a0a4834e6487d627c825ce3f6448677e8", null ],
-    [ "Observer", "d0/d34/a01486.html#a14fb19abdf88d54276cef83b500d3d1b", null ],
-    [ "Observer", "d0/d34/a01486.html#a9900c13173227d2aea4e9ddd9f720364", null ],
-    [ "check", "d0/d34/a01486.html#ad9b49bd939ee8436beba16d0c5807d2d", null ],
-    [ "getGroup", "d0/d34/a01486.html#a30603f0f58acdeb52a34b2cb29ba7f84", null ],
-    [ "number", "d0/d34/a01486.html#a62150fc8a09bbca2eb47616fad11247b", null ],
-    [ "operator const Group *", "d0/d34/a01486.html#aaa34e1e2c219d6ad3ed651a34e1e9930", null ],
-    [ "operator=", "d0/d34/a01486.html#a97b0b95d99e1a1a71e60d4e26cd88880", null ],
-    [ "operator=", "d0/d34/a01486.html#adb79d64af57f5d98b699d3a1f82932dc", null ],
-    [ "read", "d0/d34/a01486.html#a73843ca5299557e42043f9da9871a5d3", null ]
+    [ "Node", "de/d3c/a01490.html", "de/d3c/a01490" ],
+    [ "NetworkDiscovery", "d0/d34/a01486.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
+    [ "NetworkDiscovery", "d0/d34/a01486.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
+    [ "close", "d0/d34/a01486.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
+    [ "getNodeCount", "d0/d34/a01486.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
+    [ "getNodes", "d0/d34/a01486.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
+    [ "hasNodes", "d0/d34/a01486.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
+    [ "open", "d0/d34/a01486.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
+    [ "operator=", "d0/d34/a01486.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
+    [ "start", "d0/d34/a01486.html#a959b5480dd22f8a82c83f45f689a5f47", null ]
 ];

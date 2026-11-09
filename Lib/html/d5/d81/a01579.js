@@ -1,11 +1,13 @@
 var a01579 =
 [
-    [ "CANPortBase", "d5/d81/a01579.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
-    [ "~CANPortBase", "d5/d81/a01579.html#afe0c3c29da222264a12b2ade136c866c", null ],
-    [ "close", "d5/d81/a01579.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d5/d81/a01579.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getRxFifoFillLevel", "d5/d81/a01579.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d5/d81/a01579.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "read", "d5/d81/a01579.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "write", "d5/d81/a01579.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "Command", "d5/d81/a01579.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "d5/d81/a01579.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "d5/d81/a01579.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "d5/d81/a01579.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "d5/d81/a01579.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "d5/d81/a01579.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "d5/d81/a01579.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "d5/d81/a01579.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "d5/d81/a01579.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "d5/d81/a01579.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

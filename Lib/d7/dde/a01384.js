@@ -1,13 +1,13 @@
 var a01384 =
 [
-    [ "append", "d7/dde/a01384.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
-    [ "append", "d7/dde/a01384.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
-    [ "append", "d7/dde/a01384.html#a04412e1fc3a07248441dc288c99867f6", null ],
-    [ "assign", "d7/dde/a01384.html#a056342d102635bded069d9f153268884", null ],
-    [ "assign", "d7/dde/a01384.html#ae796119895d95296e7fe754347df07d7", null ],
-    [ "clear", "d7/dde/a01384.html#a4e9638e82e027739671827a11a48a211", null ],
-    [ "getData", "d7/dde/a01384.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
-    [ "getData", "d7/dde/a01384.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
-    [ "getSize", "d7/dde/a01384.html#a391a31513797286c540adbbc99195704", null ],
-    [ "setSize", "d7/dde/a01384.html#a55130d108aa3f8d6235341814cfd4c23", null ]
+    [ "WolfSSHServer", "d7/dde/a01384.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "d7/dde/a01384.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "d7/dde/a01384.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "d7/dde/a01384.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "d7/dde/a01384.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "d7/dde/a01384.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "d7/dde/a01384.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "d7/dde/a01384.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "d7/dde/a01384.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "d7/dde/a01384.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

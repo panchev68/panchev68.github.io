@@ -1,4 +1,29 @@
 var a02404 =
 [
-    [ "Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;", "d3/d33/a01630.html", "d3/d33/a01630" ]
+    [ "Handle", "db/db1/a02404.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "db/db1/a02404.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "SemaphoreCounting", "db/db1/a02404.html#a34360dc9fc24d07df2ef16080a21c61e", null ],
+    [ "SemaphoreCounting", "db/db1/a02404.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
+    [ "SemaphoreCounting", "db/db1/a02404.html#a7e497551b91db5e404470925688a3ea2", null ],
+    [ "close", "db/db1/a02404.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "createStatic", "db/db1/a02404.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
+    [ "getCount", "db/db1/a02404.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
+    [ "getCountFromISR", "db/db1/a02404.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "db/db1/a02404.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "db/db1/a02404.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "getInitialCount", "db/db1/a02404.html#abe4488af469ef47e32e09e2d38a602b1", null ],
+    [ "getMaxCount", "db/db1/a02404.html#addd31c2ffd410bd866e7365497d65280", null ],
+    [ "getRemainingCapacity", "db/db1/a02404.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
+    [ "give", "db/db1/a02404.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "db/db1/a02404.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isAtMaxCount", "db/db1/a02404.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
+    [ "isEmpty", "db/db1/a02404.html#a7d8026113d6006885360edd9ff77068d", null ],
+    [ "isOpen", "db/db1/a02404.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "open", "db/db1/a02404.html#abc57684576686004799b4afa06460768", null ],
+    [ "operator=", "db/db1/a02404.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
+    [ "operator=", "db/db1/a02404.html#ac13d24083bc909c7813fb3367712fe95", null ],
+    [ "take", "db/db1/a02404.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "db/db1/a02404.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "tryTake", "db/db1/a02404.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "db/db1/a02404.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

@@ -1,8 +1,8 @@
 var a00831 =
 [
-    [ "mappingFields", "d7/d5f/a00831.html#a11dd2076fb88f533f185c4b3036c605c", null ],
-    [ "nssPin", "d7/d5f/a00831.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
-    [ "oePin", "d7/d5f/a00831.html#ad65334adb3ad809e06b272cedcb59224", null ],
-    [ "pinCount", "d7/d5f/a00831.html#a85d8e563810275243c4b75899e92dab3", null ],
-    [ "spiPort", "d7/d5f/a00831.html#aff796faea898891c8271e1b1dba76858", null ]
+    [ "CardRecord", "dd/d09/a01118.html", "dd/d09/a01118" ],
+    [ "OriginalitySignature", "db/d32/a01122.html", "db/d32/a01122" ],
+    [ "IssuerKey", "df/d40/a02609.html", null ],
+    [ "Uid", "d7/d5f/a00831.html#a435a19683e1fb32e426add14e68d0076", null ],
+    [ "UID_SIZE", "d7/d5f/a00831.html#aafd94c6505eb4a0544cc89a0caee007d", null ]
 ];

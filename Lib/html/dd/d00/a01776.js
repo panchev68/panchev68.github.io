@@ -1,8 +1,9 @@
 var a01776 =
 [
-    [ "UARTPortBase", "dd/d00/a01776.html#a669dd1b001fb13b162cffa21298bcc56", null ],
-    [ "~UARTPortBase", "dd/d00/a01776.html#ad42b095b6ad74e5711f75569f4a83da8", null ],
-    [ "close", "dd/d00/a01776.html#a2e482399a93f56729758c71dd82f739a", null ],
-    [ "isBusy", "dd/d00/a01776.html#aca570c1ecc192d3bdd7cc6be41926f2c", null ],
-    [ "open", "dd/d00/a01776.html#aabd9661c7fc7584649914ebbe33f1458", null ]
+    [ "command", "dd/d00/a01776.html#af08112845cd66edc31d068ebd37b83ca", null ],
+    [ "delimiter", "dd/d00/a01776.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
+    [ "id", "dd/d00/a01776.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
+    [ "length", "dd/d00/a01776.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
+    [ "option", "dd/d00/a01776.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
+    [ "timestamp", "dd/d00/a01776.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
 ];

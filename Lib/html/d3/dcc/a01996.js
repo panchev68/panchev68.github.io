@@ -1,8 +1,5 @@
 var a01996 =
 [
-    [ "allocations", "d3/dcc/a01996.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d3/dcc/a01996.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d3/dcc/a01996.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d3/dcc/a01996.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d3/dcc/a01996.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "SPIPort", "d3/dcc/a01996.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "d3/dcc/a01996.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ]
 ];

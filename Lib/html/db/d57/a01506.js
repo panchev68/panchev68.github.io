@@ -1,13 +1,14 @@
 var a01506 =
 [
-    [ "PortString", "db/d57/a01506.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "db/d57/a01506.html#aad4167f0040c4a42546ff0c27d4b5c56", null ],
-    [ "Port", "db/d57/a01506.html#a4f1b0e6bdc323223a63e42c730f935ab", null ],
-    [ "fromString", "db/d57/a01506.html#aebf851d4105553f8d7a419399670e706", null ],
-    [ "get", "db/d57/a01506.html#a2555da5052290271fef80ea0c44cdd81", null ],
-    [ "get", "db/d57/a01506.html#a787a09d5e0d962e341052f259a78c984", null ],
-    [ "operator uint16_t", "db/d57/a01506.html#a2609657b2d98052d6ce9badaf181d234", null ],
-    [ "operator=", "db/d57/a01506.html#a17eb9d56ec5a24404f0a8a529326ad7c", null ],
-    [ "set", "db/d57/a01506.html#a595046f66ee8bc37dd42ab7606b60aae", null ],
-    [ "toString", "db/d57/a01506.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "SerialNumber", "dc/d47/a01510.html", "dc/d47/a01510" ],
+    [ "ackFailures", "db/d57/a01506.html#aa36464587f33788505f069d1c46ec004", null ],
+    [ "ccaFailures", "db/d57/a01506.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
+    [ "channel", "db/d57/a01506.html#a910133d925087a409f8f8357447b9e3a", null ],
+    [ "firmwareVersion", "db/d57/a01506.html#a919225b632587966d3cdbd15ca30f0d3", null ],
+    [ "hardwareVersion", "db/d57/a01506.html#a2efd702c930d16f10c2672244503d676", null ],
+    [ "nodeIdentifier", "db/d57/a01506.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
+    [ "panId", "db/d57/a01506.html#ad1515643697ad647030e33ba97d79968", null ],
+    [ "serialNumber", "db/d57/a01506.html#a5e4e85516315320363b69f902c64a5b7", null ],
+    [ "temperature", "db/d57/a01506.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
+    [ "voltage", "db/d57/a01506.html#a9ee4423766190b01b3381ae41455bf2d", null ]
 ];

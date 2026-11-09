@@ -1,23 +1,13 @@
 var a01978 =
 [
-    [ "Config", "d2/d3d/a01982.html", "d2/d3d/a01982" ],
-    [ "Command", "d3/d4e/a01978.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "d3/d4e/a01978.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d3/d4e/a01978.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "d3/d4e/a01978.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "d3/d4e/a01978.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d3/d4e/a01978.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d3/d4e/a01978.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "d3/d4e/a01978.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "d3/d4e/a01978.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "d3/d4e/a01978.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "d3/d4e/a01978.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "d3/d4e/a01978.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "d3/d4e/a01978.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "d3/d4e/a01978.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "d3/d4e/a01978.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "d3/d4e/a01978.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "d3/d4e/a01978.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "State", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

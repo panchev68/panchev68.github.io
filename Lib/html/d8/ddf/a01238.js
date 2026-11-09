@@ -1,7 +1,5 @@
 var a01238 =
 [
-    [ "Counter", "d8/ddf/a01238.html#a5c98677201181050aae18bb6da22336f", null ],
-    [ "clear", "d8/ddf/a01238.html#a3c818424e51052dbdcbe8a03eda86103", null ],
-    [ "operator uint32_t", "d8/ddf/a01238.html#ad493a54dd2c47ca56b77f1b9a3587195", null ],
-    [ "operator++", "d8/ddf/a01238.html#aadcc0a3a56b96d5daca9dee6c2d0b918", null ]
+    [ "decayPeriodMicroseconds", "d8/ddf/a01238.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
+    [ "frequencyHz", "d8/ddf/a01238.html#a50257a628ef439fb965df1ee908f3e5e", null ]
 ];

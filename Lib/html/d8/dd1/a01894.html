@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Helper::RingBuffer&lt; T, T_SIZE &gt; Class Template Reference</title>
+<title>Library: Lib::HAL::GPIO::ExtInterrupt Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -27,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08.1</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,124 +112,105 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/dd1/a01894.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::RingBuffer&lt; T, T_SIZE &gt; Class Template Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::GPIO::ExtInterrupt Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, size_t T_SIZE&gt;<br />
-requires (std::default_initializable&lt;T&gt; &amp;&amp; (T_SIZE &gt; 0U) &amp;&amp; (T_SIZE &lt;= std::numeric_limits&lt;size_t&gt;::max() / 2U))<br />
-class Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;</div><p>Exactly one execution context may call <b>push()</b> and exactly one (possibly different) context may call <b>pop()</b> / <b>front()</b>. <b>clear()</b>, copy and move are not concurrency-safe.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Element type stored in the buffer; must be default-constructible. </td></tr>
-    <tr><td class="paramname">T_SIZE</td><td>Maximum number of stored elements; must be greater than 0 and at most half of <b>SIZE_MAX</b>. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;:</div>
+<div class="textblock"><p>Handles hardware external line interrupts with centralized notification-driven dispatching. </p>
+<p>A single shared worker task services every registered pin instance; the interrupt path only ORs a bitmask task notification, keeping ISR execution time minimal. The private nested "DeviceManager" maps each pin number to its instance through a direct index lookup, so dispatch never sweeps the full registry inside the interrupt path. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::GPIO::ExtInterrupt:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d31/a01892.svg" width="198" height="614"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d80/a01893.svg" width="318" height="1090"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::GPIO::ExtInterrupt:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d31/a01892.svg" width="318" height="1591"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a90e56f1bb6c70b02947f83ebf3123417" id="r_a90e56f1bb6c70b02947f83ebf3123417"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> () noexcept=default</td></tr>
-<tr class="memdesc:a90e56f1bb6c70b02947f83ebf3123417"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leaves the buffer in the empty state.  <br /></td></tr>
-<tr class="memitem:ad1cdbedc5516901d8c9139809a3fbef7" id="r_ad1cdbedc5516901d8c9139809a3fbef7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad1cdbedc5516901d8c9139809a3fbef7">RingBuffer</a> (const RingBuffer &amp;other) noexcept</td></tr>
-<tr class="memdesc:ad1cdbedc5516901d8c9139809a3fbef7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the content and indices of <b>other</b>; must not race with <b>push()</b> / <b>pop()</b> on it.  <br /></td></tr>
-<tr class="memitem:a1d9fb75c4c8143ec1b6fe200253b8197" id="r_a1d9fb75c4c8143ec1b6fe200253b8197"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1d9fb75c4c8143ec1b6fe200253b8197">RingBuffer</a> (RingBuffer &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a1d9fb75c4c8143ec1b6fe200253b8197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content and copies the indices of <b>other</b>; must not race with <b>push()</b> / <b>pop()</b>.  <br /></td></tr>
-<tr class="memitem:ab2ab8845bd1a8a943917d668efa8ff90" id="r_ab2ab8845bd1a8a943917d668efa8ff90"><td class="memItemLeft"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab2ab8845bd1a8a943917d668efa8ff90">operator=</a> (const <a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;other) noexcept</td></tr>
-<tr class="memdesc:ab2ab8845bd1a8a943917d668efa8ff90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the content and indices of <b>other</b>; must not race with <b>push()</b> / <b>pop()</b> on either.  <br /></td></tr>
-<tr class="memitem:a005ffd7b8657f70cb1ed18f0c1488e8e" id="r_a005ffd7b8657f70cb1ed18f0c1488e8e"><td class="memItemLeft"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a005ffd7b8657f70cb1ed18f0c1488e8e">operator=</a> (<a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:a005ffd7b8657f70cb1ed18f0c1488e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moves the content and copies the indices of <b>other</b>; must not race with <b>push()</b> / <b>pop()</b>.  <br /></td></tr>
-<tr class="memitem:a15a0e34223bfa6bb69410c75ff946f0c" id="r_a15a0e34223bfa6bb69410c75ff946f0c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a15a0e34223bfa6bb69410c75ff946f0c">push</a> (const T &amp;value) noexcept</td></tr>
-<tr class="memdesc:a15a0e34223bfa6bb69410c75ff946f0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a copy of <b>value</b> if space is available (producer side).  <br /></td></tr>
-<tr class="memitem:a99986517429df0512c8d2ecb01411fc0" id="r_a99986517429df0512c8d2ecb01411fc0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a99986517429df0512c8d2ecb01411fc0">push</a> (T &amp;&amp;value) noexcept</td></tr>
-<tr class="memdesc:a99986517429df0512c8d2ecb01411fc0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends <b>value</b> by move if space is available (producer side).  <br /></td></tr>
-<tr class="memitem:a8355cafc3456b4a8c5f5122ea38ca0d8" id="r_a8355cafc3456b4a8c5f5122ea38ca0d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8355cafc3456b4a8c5f5122ea38ca0d8">pop</a> (T &amp;value) noexcept</td></tr>
-<tr class="memdesc:a8355cafc3456b4a8c5f5122ea38ca0d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest element and moves it into <b>value</b> (consumer side).  <br /></td></tr>
-<tr class="memitem:abee3c56eacd254c643cb51f9cd4a7839" id="r_abee3c56eacd254c643cb51f9cd4a7839"><td class="memItemLeft">T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#abee3c56eacd254c643cb51f9cd4a7839">front</a> () noexcept</td></tr>
-<tr class="memdesc:abee3c56eacd254c643cb51f9cd4a7839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the oldest element without removing it (consumer side).  <br /></td></tr>
-<tr class="memitem:a6b6348d736c026af7bfe86e8f178c5dd" id="r_a6b6348d736c026af7bfe86e8f178c5dd"><td class="memItemLeft">const T &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6b6348d736c026af7bfe86e8f178c5dd">front</a> () const noexcept</td></tr>
-<tr class="memdesc:a6b6348d736c026af7bfe86e8f178c5dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the oldest element without removing it (consumer side).  <br /></td></tr>
-<tr class="memitem:a8ab973e4fda57588b6a238c8d7537b60" id="r_a8ab973e4fda57588b6a238c8d7537b60"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8ab973e4fda57588b6a238c8d7537b60">available</a> () const noexcept</td></tr>
-<tr class="memdesc:a8ab973e4fda57588b6a238c8d7537b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of stored elements.  <br /></td></tr>
-<tr class="memitem:ae898513d6e4fff77f261633e9d739da7" id="r_ae898513d6e4fff77f261633e9d739da7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae898513d6e4fff77f261633e9d739da7">isEmpty</a> () const noexcept</td></tr>
-<tr class="memdesc:ae898513d6e4fff77f261633e9d739da7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the buffer holds no element.  <br /></td></tr>
-<tr class="memitem:acbbdeea50582b8f5ecdae7259746e571" id="r_acbbdeea50582b8f5ecdae7259746e571"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acbbdeea50582b8f5ecdae7259746e571">isFull</a> () const noexcept</td></tr>
-<tr class="memdesc:acbbdeea50582b8f5ecdae7259746e571"><td class="mdescLeft">&#160;</td><td class="mdescRight">Queries whether the buffer reached its capacity.  <br /></td></tr>
-<tr class="memitem:aecba3227be66614ad5db50f238e8970f" id="r_aecba3227be66614ad5db50f238e8970f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aecba3227be66614ad5db50f238e8970f">clear</a> () noexcept</td></tr>
-<tr class="memdesc:aecba3227be66614ad5db50f238e8970f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards all stored elements by resetting both indices.  <br /></td></tr>
+<tr class="memitem:a8bd01aa06ef31a0168b4238b709bd8b1" id="r_a8bd01aa06ef31a0168b4238b709bd8b1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> (const <a class="el" href="../../d3/d1b/a01906.html">Handle</a> &amp;handle)</td></tr>
+<tr class="memdesc:a8bd01aa06ef31a0168b4238b709bd8b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the interrupt wrapper to a specific physical pin and ensures the central worker is running.  <br /></td></tr>
+<tr class="memitem:a0500efb3e0dbde6f95fd02948060723b" id="r_a0500efb3e0dbde6f95fd02948060723b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0500efb3e0dbde6f95fd02948060723b">~ExtInterrupt</a> ()</td></tr>
+<tr class="memdesc:a0500efb3e0dbde6f95fd02948060723b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters this instance from the shared manager prior to destruction.  <br /></td></tr>
+<tr class="memitem:a0896646faa35c4149a6fb3f8360da15b" id="r_a0896646faa35c4149a6fb3f8360da15b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0896646faa35c4149a6fb3f8360da15b">ExtInterrupt</a> (const ExtInterrupt &amp;other)=delete</td></tr>
+<tr class="memdesc:a0896646faa35c4149a6fb3f8360da15b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the wrapper owns a registration slot for one hardware line.  <br /></td></tr>
+<tr class="memitem:af65b4789b35500d9539e56a75d90c71c" id="r_af65b4789b35500d9539e56a75d90c71c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af65b4789b35500d9539e56a75d90c71c">ExtInterrupt</a> (ExtInterrupt &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:af65b4789b35500d9539e56a75d90c71c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the wrapper owns a registration slot for one hardware line.  <br /></td></tr>
+<tr class="memitem:a89f184dfbf150b77ab08f3bf7a9078ca" id="r_a89f184dfbf150b77ab08f3bf7a9078ca"><td class="memItemLeft"><a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a89f184dfbf150b77ab08f3bf7a9078ca">operator=</a> (const <a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a89f184dfbf150b77ab08f3bf7a9078ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the wrapper owns a registration slot for one hardware line.  <br /></td></tr>
+<tr class="memitem:a29b2dfe4158fc5f27e352ab72f1a11fe" id="r_a29b2dfe4158fc5f27e352ab72f1a11fe"><td class="memItemLeft"><a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a29b2dfe4158fc5f27e352ab72f1a11fe">operator=</a> (<a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a29b2dfe4158fc5f27e352ab72f1a11fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the wrapper owns a registration slot for one hardware line.  <br /></td></tr>
+<tr class="memitem:a716641ce172d66ad1226056de77e00f3" id="r_a716641ce172d66ad1226056de77e00f3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a716641ce172d66ad1226056de77e00f3">bindCallback</a> (<a class="el" href="../../d1/d54/a01326.html">FunctionRef</a>&lt; void()&gt; callback) noexcept</td></tr>
+<tr class="memdesc:a716641ce172d66ad1226056de77e00f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the callback invoked from the shared worker task when this pin's interrupt fires.  <br /></td></tr>
+<tr class="memitem:a436fbfef93e09cd205ebb36284da5374" id="r_a436fbfef93e09cd205ebb36284da5374"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a436fbfef93e09cd205ebb36284da5374">unbindCallback</a> () noexcept</td></tr>
+<tr class="memdesc:a436fbfef93e09cd205ebb36284da5374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the currently bound callback so a subsequent interrupt is silently ignored.  <br /></td></tr>
+<tr class="inherit_header pub_methods_a01910"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d4/dff/a01910.html">Lib::HAL::GPIO::Input</a></td></tr>
+<tr class="memitem:a2abfa039a43677df3c61e12530f2ecc3 inherit pub_methods_a01910" id="r_a2abfa039a43677df3c61e12530f2ecc3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3">Input</a> (const <a class="el" href="../../d3/d1b/a01906.html">Handle</a> &amp;handle) noexcept</td></tr>
+<tr class="memdesc:a2abfa039a43677df3c61e12530f2ecc3 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an Input wrapper bound to a concrete hardware handle.  <br /></td></tr>
+<tr class="memitem:a95f707a268014333f78d7378dd579ea4 inherit pub_methods_a01910" id="r_a95f707a268014333f78d7378dd579ea4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#a95f707a268014333f78d7378dd579ea4">~Input</a> ()=default</td></tr>
+<tr class="memdesc:a95f707a268014333f78d7378dd579ea4 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Input object.  <br /></td></tr>
+<tr class="memitem:aba23478206e067c578a2081a0ba4d1ee inherit pub_methods_a01910" id="r_aba23478206e067c578a2081a0ba4d1ee"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#aba23478206e067c578a2081a0ba4d1ee">Input</a> (const Input &amp;other)=delete</td></tr>
+<tr class="memdesc:aba23478206e067c578a2081a0ba4d1ee inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the wrapper is bound to one hardware line.  <br /></td></tr>
+<tr class="memitem:a01d95887913602ed10325b5b07f8cef5 inherit pub_methods_a01910" id="r_a01d95887913602ed10325b5b07f8cef5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#a01d95887913602ed10325b5b07f8cef5">Input</a> (Input &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a01d95887913602ed10325b5b07f8cef5 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the wrapper is bound to one hardware line.  <br /></td></tr>
+<tr class="memitem:a88354381ff4d3b9ddb9b102e49a96003 inherit pub_methods_a01910" id="r_a88354381ff4d3b9ddb9b102e49a96003"><td class="memItemLeft"><a class="el" href="../../d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3">Input</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#a88354381ff4d3b9ddb9b102e49a96003">operator=</a> (const <a class="el" href="../../d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3">Input</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a88354381ff4d3b9ddb9b102e49a96003 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the wrapper is bound to one hardware line.  <br /></td></tr>
+<tr class="memitem:aac4da8195bb51d393df961046635bfc0 inherit pub_methods_a01910" id="r_aac4da8195bb51d393df961046635bfc0"><td class="memItemLeft"><a class="el" href="../../d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3">Input</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#aac4da8195bb51d393df961046635bfc0">operator=</a> (<a class="el" href="../../d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3">Input</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:aac4da8195bb51d393df961046635bfc0 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the wrapper is bound to one hardware line.  <br /></td></tr>
+<tr class="memitem:acf9a806f75242814c40947cdc229ed24 inherit pub_methods_a01910" id="r_acf9a806f75242814c40947cdc229ed24"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#acf9a806f75242814c40947cdc229ed24">read</a> () const noexcept</td></tr>
+<tr class="memdesc:acf9a806f75242814c40947cdc229ed24 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the instantaneous logical state of the physical input line.  <br /></td></tr>
+<tr class="memitem:ac4819ceaa799d09422b2441ab37d1bf3 inherit pub_methods_a01910" id="r_ac4819ceaa799d09422b2441ab37d1bf3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#ac4819ceaa799d09422b2441ab37d1bf3">isHigh</a> () const noexcept</td></tr>
+<tr class="memdesc:ac4819ceaa799d09422b2441ab37d1bf3 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the input line is logically high.  <br /></td></tr>
+<tr class="memitem:aac45963cf0777027622bcfbd5773ad89 inherit pub_methods_a01910" id="r_aac45963cf0777027622bcfbd5773ad89"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#aac45963cf0777027622bcfbd5773ad89">isLow</a> () const noexcept</td></tr>
+<tr class="memdesc:aac45963cf0777027622bcfbd5773ad89 inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the input line is logically low.  <br /></td></tr>
+<tr class="memitem:ace264d0a7f70d722e7b10b4d43c851ad inherit pub_methods_a01910" id="r_ace264d0a7f70d722e7b10b4d43c851ad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#ace264d0a7f70d722e7b10b4d43c851ad">operator bool</a> () const noexcept</td></tr>
+<tr class="memdesc:ace264d0a7f70d722e7b10b4d43c851ad inherit pub_methods_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Explicit boolean conversion that reflects the current input state.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ae0f1f8ce0127b345fb8300195fdab62e" id="r_ae0f1f8ce0127b345fb8300195fdab62e"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#ae0f1f8ce0127b345fb8300195fdab62e">CAPACITY</a> = T_SIZE</td></tr>
-<tr class="memdesc:ae0f1f8ce0127b345fb8300195fdab62e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usable capacity of the buffer, in elements.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a7b34f0451fb5f0d0f5077ea7594eb5bb" id="r_a7b34f0451fb5f0d0f5077ea7594eb5bb"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a7b34f0451fb5f0d0f5077ea7594eb5bb">void::HAL_GPIO_EXTI_Callback</a> (uint16_t pin)</td></tr>
+<tr class="memitem:aa8068c433729122f23f40e6bfa77659f" id="r_aa8068c433729122f23f40e6bfa77659f"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#aa8068c433729122f23f40e6bfa77659f">void::HAL_GPIO_EXTI_Rising_Callback</a> (uint16_t pin)</td></tr>
+<tr class="memitem:a608244a38c1095888d60a17b77ae5ed4" id="r_a608244a38c1095888d60a17b77ae5ed4"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a608244a38c1095888d60a17b77ae5ed4">void::HAL_GPIO_EXTI_Falling_Callback</a> (uint16_t pin)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_a01910"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="../../d4/dff/a01910.html">Lib::HAL::GPIO::Input</a></td></tr>
+<tr class="memitem:abdaf238c7d26a6f26b8e73aae6c1ebff inherit pro_attribs_a01910" id="r_abdaf238c7d26a6f26b8e73aae6c1ebff"><td class="memItemLeft"><a class="el" href="../../d3/d1b/a01906.html">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d4/dff/a01910.html#abdaf238c7d26a6f26b8e73aae6c1ebff">handle</a></td></tr>
+<tr class="memdesc:abdaf238c7d26a6f26b8e73aae6c1ebff inherit pro_attribs_a01910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encapsulates the hardware port and pin mapping for this input.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a90e56f1bb6c70b02947f83ebf3123417" name="a90e56f1bb6c70b02947f83ebf3123417"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90e56f1bb6c70b02947f83ebf3123417">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[1/3]</span></h2>
+<a id="a8bd01aa06ef31a0168b4238b709bd8b1" name="a8bd01aa06ef31a0168b4238b709bd8b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bd01aa06ef31a0168b4238b709bd8b1">&#9670;&#160;</a></span>ExtInterrupt() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td class="memname">Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d3/d1b/a01906.html">Handle</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a90e56f1bb6c70b02947f83ebf3123417_icgraph.svg" width="366" height="254"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
-</div>
-</div>
-<a id="ad1cdbedc5516901d8c9139809a3fbef7" name="ad1cdbedc5516901d8c9139809a3fbef7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1cdbedc5516901d8c9139809a3fbef7">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
-          <td>(</td>
-          <td class="paramtype">const RingBuffer&lt; T, T_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
+<p>Binds the interrupt wrapper to a specific physical pin and ensures the central worker is running. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to copy from. </td></tr>
+    <tr><td class="paramname">handle</td><td>Hardware pin handle identifying the target GPIO port and pin. </td></tr>
   </table>
   </dd>
 </dl>
@@ -236,100 +218,142 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_ad1cdbedc5516901d8c9139809a3fbef7_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a8bd01aa06ef31a0168b4238b709bd8b1_cgraph.svg" width="902" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a8bd01aa06ef31a0168b4238b709bd8b1_icgraph.svg" width="922" height="380"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a1d9fb75c4c8143ec1b6fe200253b8197" name="a1d9fb75c4c8143ec1b6fe200253b8197"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1d9fb75c4c8143ec1b6fe200253b8197">&#9670;&#160;</a></span>RingBuffer() <span class="overload">[3/3]</span></h2>
+<a id="a0500efb3e0dbde6f95fd02948060723b" name="a0500efb3e0dbde6f95fd02948060723b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0500efb3e0dbde6f95fd02948060723b">&#9670;&#160;</a></span>~ExtInterrupt()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::RingBuffer </td>
+          <td class="memname">Lib::HAL::GPIO::ExtInterrupt::~ExtInterrupt </td>
           <td>(</td>
-          <td class="paramtype">RingBuffer&lt; T, T_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Unregisters this instance from the shared manager prior to destruction. </p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a0500efb3e0dbde6f95fd02948060723b_cgraph.svg" width="612" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0896646faa35c4149a6fb3f8360da15b" name="a0896646faa35c4149a6fb3f8360da15b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0896646faa35c4149a6fb3f8360da15b">&#9670;&#160;</a></span>ExtInterrupt() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">const ExtInterrupt &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: the wrapper owns a registration slot for one hardware line. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to move from; its elements are left moved-from, its indices unchanged. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a1d9fb75c4c8143ec1b6fe200253b8197_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a0896646faa35c4149a6fb3f8360da15b_cgraph.svg" width="1251" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af65b4789b35500d9539e56a75d90c71c" name="af65b4789b35500d9539e56a75d90c71c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af65b4789b35500d9539e56a75d90c71c">&#9670;&#160;</a></span>ExtInterrupt() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt </td>
+          <td>(</td>
+          <td class="paramtype">ExtInterrupt &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: the wrapper owns a registration slot for one hardware line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_af65b4789b35500d9539e56a75d90c71c_cgraph.svg" width="1251" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a8ab973e4fda57588b6a238c8d7537b60" name="a8ab973e4fda57588b6a238c8d7537b60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ab973e4fda57588b6a238c8d7537b60">&#9670;&#160;</a></span>available()</h2>
+<a id="a716641ce172d66ad1226056de77e00f3" name="a716641ce172d66ad1226056de77e00f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a716641ce172d66ad1226056de77e00f3">&#9670;&#160;</a></span>bindCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::available </td>
+          <td class="memname">void Lib::HAL::GPIO::ExtInterrupt::bindCallback </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Number of elements available to pop, in [0, CAPACITY]; a snapshot across contexts. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a8ab973e4fda57588b6a238c8d7537b60_icgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aecba3227be66614ad5db50f238e8970f" name="aecba3227be66614ad5db50f238e8970f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aecba3227be66614ad5db50f238e8970f">&#9670;&#160;</a></span>clear()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::clear </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="../../d1/d54/a01326.html">FunctionRef</a>&lt; void()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -339,163 +363,111 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>No <b>push()</b> or <b>pop()</b> runs concurrently in another context. </dd></dl>
+
+<p>Binds the callback invoked from the shared worker task when this pin's interrupt fires. </p>
+<p>Replaces any previously bound callback. The callback runs in the worker task, never in the ISR. It is only referenced, not copied: a capturing lambda must be an lvalue that outlives the binding, while a capture-less lambda or a function pointer may be passed directly.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">callback</td><td>Callable invoked with no arguments on each interrupt; must be bound. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a id="a6b6348d736c026af7bfe86e8f178c5dd" name="a6b6348d736c026af7bfe86e8f178c5dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b6348d736c026af7bfe86e8f178c5dd">&#9670;&#160;</a></span>front() <span class="overload">[1/2]</span></h2>
+<a id="a89f184dfbf150b77ab08f3bf7a9078ca" name="a89f184dfbf150b77ab08f3bf7a9078ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f184dfbf150b77ab08f3bf7a9078ca">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const T &amp; <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
+          <td class="memname"><a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp; Lib::HAL::GPIO::ExtInterrupt::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the oldest element. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a6b6348d736c026af7bfe86e8f178c5dd_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abee3c56eacd254c643cb51f9cd4a7839" name="abee3c56eacd254c643cb51f9cd4a7839"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abee3c56eacd254c643cb51f9cd4a7839">&#9670;&#160;</a></span>front() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T &amp; <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::front </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section pre"><dt>Precondition</dt><dd>The buffer is not empty. </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the oldest element. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_abee3c56eacd254c643cb51f9cd4a7839_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
-</div>
-</div>
-<a id="ae898513d6e4fff77f261633e9d739da7" name="ae898513d6e4fff77f261633e9d739da7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae898513d6e4fff77f261633e9d739da7">&#9670;&#160;</a></span>isEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isEmpty </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> when the buffer is empty, otherwise <b>false</b>; a snapshot across contexts. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<p>Copy assignment is deleted: the wrapper owns a registration slot for one hardware line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_ae898513d6e4fff77f261633e9d739da7_icgraph.svg" width="366" height="120"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a89f184dfbf150b77ab08f3bf7a9078ca_cgraph.svg" width="1251" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="acbbdeea50582b8f5ecdae7259746e571" name="acbbdeea50582b8f5ecdae7259746e571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbbdeea50582b8f5ecdae7259746e571">&#9670;&#160;</a></span>isFull()</h2>
+<a id="a29b2dfe4158fc5f27e352ab72f1a11fe" name="a29b2dfe4158fc5f27e352ab72f1a11fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b2dfe4158fc5f27e352ab72f1a11fe">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::isFull </td>
+          <td class="memname"><a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp; Lib::HAL::GPIO::ExtInterrupt::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype"><a class="el" href="#a8bd01aa06ef31a0168b4238b709bd8b1">ExtInterrupt</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> when <b>CAPACITY</b> elements are stored, otherwise <b>false</b>; a snapshot. </dd></dl>
+
+<p>Move assignment is deleted: the wrapper owns a registration slot for one hardware line. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
 <div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_acbbdeea50582b8f5ecdae7259746e571_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a29b2dfe4158fc5f27e352ab72f1a11fe_cgraph.svg" width="1251" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ab2ab8845bd1a8a943917d668efa8ff90" name="ab2ab8845bd1a8a943917d668efa8ff90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2ab8845bd1a8a943917d668efa8ff90">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a436fbfef93e09cd205ebb36284da5374" name="a436fbfef93e09cd205ebb36284da5374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a436fbfef93e09cd205ebb36284da5374">&#9670;&#160;</a></span>unbindCallback()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp; <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::operator= </td>
+          <td class="memname">void Lib::HAL::GPIO::ExtInterrupt::unbindCallback </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, T_SIZE &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -505,183 +477,81 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to copy from. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_ab2ab8845bd1a8a943917d668efa8ff90_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+
+<p>Removes the currently bound callback so a subsequent interrupt is silently ignored. </p>
 
 </div>
 </div>
-<a id="a005ffd7b8657f70cb1ed18f0c1488e8e" name="a005ffd7b8657f70cb1ed18f0c1488e8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a005ffd7b8657f70cb1ed18f0c1488e8e">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a7b34f0451fb5f0d0f5077ea7594eb5bb" name="a7b34f0451fb5f0d0f5077ea7594eb5bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b34f0451fb5f0d0f5077ea7594eb5bb">&#9670;&#160;</a></span>void::HAL_GPIO_EXTI_Callback</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a> &amp; <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::operator= </td>
+          <td class="memname">void::HAL_GPIO_EXTI_Callback </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a90e56f1bb6c70b02947f83ebf3123417">RingBuffer</a>&lt; T, T_SIZE &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Ring buffer to move from; its elements are left moved-from, its indices unchanged. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dd1/a01894_a005ffd7b8657f70cb1ed18f0c1488e8e_cgraph.svg" width="366" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="a8355cafc3456b4a8c5f5122ea38ca0d8" name="a8355cafc3456b4a8c5f5122ea38ca0d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8355cafc3456b4a8c5f5122ea38ca0d8">&#9670;&#160;</a></span>pop()</h2>
+<a id="a608244a38c1095888d60a17b77ae5ed4" name="a608244a38c1095888d60a17b77ae5ed4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a608244a38c1095888d60a17b77ae5ed4">&#9670;&#160;</a></span>void::HAL_GPIO_EXTI_Falling_Callback</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::pop </td>
+          <td class="memname">void::HAL_GPIO_EXTI_Falling_Callback </td>
           <td>(</td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Receives the removed element; left untouched when the buffer is empty. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if an element was removed, <b>false</b> if the buffer was empty. </dd></dl>
 
 </div>
 </div>
-<a id="a15a0e34223bfa6bb69410c75ff946f0c" name="a15a0e34223bfa6bb69410c75ff946f0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15a0e34223bfa6bb69410c75ff946f0c">&#9670;&#160;</a></span>push() <span class="overload">[1/2]</span></h2>
+<a id="aa8068c433729122f23f40e6bfa77659f" name="aa8068c433729122f23f40e6bfa77659f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8068c433729122f23f40e6bfa77659f">&#9670;&#160;</a></span>void::HAL_GPIO_EXTI_Rising_Callback</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
+          <td class="memname">void::HAL_GPIO_EXTI_Rising_Callback </td>
           <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>pin</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Value to copy into the buffer. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value was inserted, <b>false</b> if the buffer is full. </dd></dl>
-
-</div>
-</div>
-<a id="a99986517429df0512c8d2ecb01411fc0" name="a99986517429df0512c8d2ecb01411fc0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99986517429df0512c8d2ecb01411fc0">&#9670;&#160;</a></span>push() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::push </td>
-          <td>(</td>
-          <td class="paramtype">T &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">value</td><td>Value to move into the buffer; left untouched when the buffer is full. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the value was inserted, <b>false</b> if the buffer is full. </dd></dl>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="ae0f1f8ce0127b345fb8300195fdab62e" name="ae0f1f8ce0127b345fb8300195fdab62e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0f1f8ce0127b345fb8300195fdab62e">&#9670;&#160;</a></span>CAPACITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T, size_t T_SIZE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t <a class="el" href="../../d8/dd1/a01894.html">Lib::Helper::RingBuffer</a>&lt; T, T_SIZE &gt;::CAPACITY = T_SIZE</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -689,7 +559,7 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d6/d06/a00572.html">RingBuffer.hpp</a></li>
+<li><a class="el" href="../../da/d9c/a00413.html">ExtInterrupt.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -704,7 +574,7 @@ template&lt;typename T, size_t T_SIZE&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d8/d52/a00729.html">Lib</a></li><li class="navelem"><a href="../../d3/d4f/a00761.html">Helper</a></li><li class="navelem"><a href="../../d8/dd1/a01894.html">RingBuffer</a></li>
+    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../db/deb/a00853.html">HAL</a></li><li class="navelem"><a href="../../d6/d2f/a00854.html">GPIO</a></li><li class="navelem"><a href="../../d8/dd1/a01894.html">ExtInterrupt</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

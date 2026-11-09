@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::DeviceManager</title>
+<title>IAR Library: Lib::BSP::DeviceManager::DeviceBase</title>
+<link rel="icon" href="../../IAR_Logo_RGB_Pos.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -25,6 +26,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
    <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
@@ -110,72 +112,86 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/d0a/a00904.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::DeviceManager</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::DeviceManager::DeviceBase</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Singleton registry that drives periodic tick events for every registered <a class="el" href="../../da/d71/a00814.html" title="Board support package: hardware-agnostic device drivers built on top of &#39;Lib::HAL&#39;.">BSP</a> device. </p>
-<p>Devices register and unregister themselves automatically through '<a class="el" href="../../d0/d85/a00908.html" title="Base class for a device managed by the &#39;DeviceManager&#39;, dispatched through CRTP instead of virtual ca...">DeviceBase</a>'. '<a class="el" href="#a38ac04455caa48c44920c4fea381147d" title="Initializes every registered device and starts the shared periodic tick timer.">setup()</a>' calls every registered device's own '<a class="el" href="#a38ac04455caa48c44920c4fea381147d" title="Initializes every registered device and starts the shared periodic tick timer.">setup()</a>' once and then starts the single shared FreeRTOS timer that dispatches 'handleTickEvent()' to all of them at regular intervals. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::DeviceManager:</div>
+<div class="textblock"><p>Base class for a device managed by the "DeviceManager", dispatched through CRTP instead of virtual calls. </p>
+<p>A derived device is added to the registry on construction and removed from it on destruction, so it never has to manage its own registration. Dispatch to the concrete device is resolved once, at construction, into two "FunctionRef" callbacks bound to the derived type's own "setup()" and "handleTickEvent()"; this keeps the registry's 'std::vector&lt;DeviceBase *&gt;' homogeneous without a vtable. The derived type must grant "DeviceBase" friendship when either method is not public. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::BSP::DeviceManager::DeviceBase:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dd3/a00902.svg" width="172" height="80"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d1c/a00903.svg" width="252" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::DeviceManager::DeviceBase:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/dd3/a00902.svg" width="252" height="166"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:DeviceBase" id="r_DeviceBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d85/a00908.html">DeviceBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base class for a device managed by the '<a class="el" href="../../d8/d0a/a00904.html" title="Singleton registry that drives periodic tick events for every registered BSP device.">DeviceManager</a>', dispatched through CRTP instead of virtual calls.  <a href="../../d0/d85/a00908.html#details">More...</a><br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a4608b4a9c0c8bf914b4d42b2f91da4db" id="r_a4608b4a9c0c8bf914b4d42b2f91da4db"><td class="memTemplParams" colspan="2">template&lt;typename T_DERIVED&gt; </td></tr>
+<tr class="memitem:a4608b4a9c0c8bf914b4d42b2f91da4db template"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4608b4a9c0c8bf914b4d42b2f91da4db">DeviceBase</a> (T_DERIVED *self) noexcept</td></tr>
+<tr class="memdesc:a4608b4a9c0c8bf914b4d42b2f91da4db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the dispatch callbacks to the concrete device; the device is not registered until "registerDevice()".  <br /></td></tr>
+<tr class="memitem:ad118d56861bbb2fd093bb2ff40ca82a8" id="r_ad118d56861bbb2fd093bb2ff40ca82a8"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad118d56861bbb2fd093bb2ff40ca82a8">~DeviceBase</a> () noexcept</td></tr>
+<tr class="memdesc:ad118d56861bbb2fd093bb2ff40ca82a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unregisters this device from the "DeviceManager" registry.  <br /></td></tr>
+<tr class="memitem:af06fe39cba15bd187e05a7593e41d35a" id="r_af06fe39cba15bd187e05a7593e41d35a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af06fe39cba15bd187e05a7593e41d35a">setup</a> () noexcept</td></tr>
+<tr class="memdesc:af06fe39cba15bd187e05a7593e41d35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs device-specific initialization by forwarding to "T_DERIVED::setup()".  <br /></td></tr>
+<tr class="memitem:a3a024a69ffe1d880ec5fedbf8428726a" id="r_a3a024a69ffe1d880ec5fedbf8428726a"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3a024a69ffe1d880ec5fedbf8428726a">handleTickEvent</a> () noexcept</td></tr>
+<tr class="memdesc:a3a024a69ffe1d880ec5fedbf8428726a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles a periodic tick by forwarding to "T_DERIVED::handleTickEvent()".  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a38ac04455caa48c44920c4fea381147d" id="r_a38ac04455caa48c44920c4fea381147d"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a38ac04455caa48c44920c4fea381147d">setup</a> (RTOS::Timer::TickType period=<a class="el" href="#a5c379749d676f4a60fdc91a50ff5dd34">DEFAULT_PERIOD</a>) noexcept</td></tr>
-<tr class="memdesc:a38ac04455caa48c44920c4fea381147d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes every registered device and starts the shared periodic tick timer.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a5c379749d676f4a60fdc91a50ff5dd34" id="r_a5c379749d676f4a60fdc91a50ff5dd34"><td class="memItemLeft">static constexpr RTOS::Timer::TickType&#160;</td><td class="memItemRight"><a class="el" href="#a5c379749d676f4a60fdc91a50ff5dd34">DEFAULT_PERIOD</a> = 1U</td></tr>
-<tr class="memdesc:a5c379749d676f4a60fdc91a50ff5dd34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default tick period, in <a class="el" href="../../d9/d30/a00848.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> ticks.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a299662c9e9bdb346771579418056dccf" id="r_a299662c9e9bdb346771579418056dccf"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a299662c9e9bdb346771579418056dccf">registerDevice</a> () noexcept</td></tr>
+<tr class="memdesc:a299662c9e9bdb346771579418056dccf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds this device to the "DeviceManager" registry.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a38ac04455caa48c44920c4fea381147d" name="a38ac04455caa48c44920c4fea381147d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a38ac04455caa48c44920c4fea381147d">&#9670;&#160;</a></span>setup()</h2>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a4608b4a9c0c8bf914b4d42b2f91da4db" name="a4608b4a9c0c8bf914b4d42b2f91da4db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4608b4a9c0c8bf914b4d42b2f91da4db">&#9670;&#160;</a></span>DeviceBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::DeviceManager::setup </td>
+          <td class="memname">Lib::BSP::DeviceManager::DeviceBase::DeviceBase </td>
           <td>(</td>
-          <td class="paramtype">RTOS::Timer::TickType</td>          <td class="paramname"><span class="paramname"><em>period</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a5c379749d676f4a60fdc91a50ff5dd34">DEFAULT_PERIOD</a></span></td><td>)</td>
+          <td class="paramtype">T_DERIVED *</td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Initializes every registered device and starts the shared periodic tick timer. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">period</td><td>Interval between two ticks. </td></tr>
+<p>Binds the dispatch callbacks to the concrete device; the device is not registered until "registerDevice()". </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete device providing <a class="el" href="#af06fe39cba15bd187e05a7593e41d35a" title="Performs device-specific initialization by forwarding to &quot;T_DERIVED::setup()&quot;.">setup()</a> and <a class="el" href="#a3a024a69ffe1d880ec5fedbf8428726a" title="Handles a periodic tick by forwarding to &quot;T_DERIVED::handleTickEvent()&quot;.">handleTickEvent()</a>. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if every device was initialized and the tick timer was created and started; 'false' otherwise. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">self</td><td>Concrete device instance; always the object under construction, passed as "this". </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a5c379749d676f4a60fdc91a50ff5dd34" name="a5c379749d676f4a60fdc91a50ff5dd34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5c379749d676f4a60fdc91a50ff5dd34">&#9670;&#160;</a></span>DEFAULT_PERIOD</h2>
+<a id="ad118d56861bbb2fd093bb2ff40ca82a8" name="ad118d56861bbb2fd093bb2ff40ca82a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad118d56861bbb2fd093bb2ff40ca82a8">&#9670;&#160;</a></span>~DeviceBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -184,17 +200,110 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::Timer::TickType Lib::BSP::DeviceManager::DEFAULT_PERIOD = 1U</td>
+          <td class="memname">Lib::BSP::DeviceManager::DeviceBase::~DeviceBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default tick period, in <a class="el" href="../../d9/d30/a00848.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> ticks. </p>
+<p>Unregisters this device from the "DeviceManager" registry. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3a024a69ffe1d880ec5fedbf8428726a" name="a3a024a69ffe1d880ec5fedbf8428726a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a024a69ffe1d880ec5fedbf8428726a">&#9670;&#160;</a></span>handleTickEvent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DeviceManager::DeviceBase::handleTickEvent </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handles a periodic tick by forwarding to "T_DERIVED::handleTickEvent()". </p>
+
+</div>
+</div>
+<a id="a299662c9e9bdb346771579418056dccf" name="a299662c9e9bdb346771579418056dccf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a299662c9e9bdb346771579418056dccf">&#9670;&#160;</a></span>registerDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DeviceManager::DeviceBase::registerDevice </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Adds this device to the "DeviceManager" registry. </p>
+<p>Derived devices call it last in their constructor, once their own members are built, so the shared tick cannot reach a partly constructed object. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d0a/a00904_a299662c9e9bdb346771579418056dccf_icgraph.svg" width="774" height="54"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af06fe39cba15bd187e05a7593e41d35a" name="af06fe39cba15bd187e05a7593e41d35a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af06fe39cba15bd187e05a7593e41d35a">&#9670;&#160;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::BSP::DeviceManager::DeviceBase::setup </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs device-specific initialization by forwarding to "T_DERIVED::setup()". </p>
+<p>Called once by "DeviceManager::setup()". </p>
 
 </div>
 </div>
@@ -211,7 +320,7 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../da/d71/a00814.html">BSP</a></li><li class="navelem"><a href="../../d8/d0a/a00904.html">DeviceManager</a></li>
+    <li class="navelem"><a href="../../de/d9d/a00813.html">Lib</a></li><li class="navelem"><a href="../../da/d71/a00814.html">BSP</a></li><li class="navelem"><a href="../../d9/db0/a00900.html">DeviceManager</a></li><li class="navelem"><a href="../../d8/d0a/a00904.html">DeviceBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

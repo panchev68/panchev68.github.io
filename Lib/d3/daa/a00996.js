@@ -1,9 +1,5 @@
 var a00996 =
 [
-    [ "chipManufacturer", "d3/daa/a00996.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "d3/daa/a00996.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "d3/daa/a00996.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "d3/daa/a00996.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "d3/daa/a00996.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "d3/daa/a00996.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "button", "d3/daa/a00996.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
+    [ "handle", "d3/daa/a00996.html#a75774bfc0a226b392ad051cc0514697c", null ]
 ];

@@ -1,9 +1,27 @@
 var a01748 =
 [
-    [ "TimPwmOutput", "d9/d0d/a01748.html#a47b87f7a58364829413da8553167cb9c", null ],
-    [ "~TimPwmOutput", "d9/d0d/a01748.html#a0cbdb1ff03a11b37a4b54a4e534ed3ea", null ],
-    [ "close", "d9/d0d/a01748.html#a99461b28a3b7f53dfad3bfddbe803aa5", null ],
-    [ "open", "d9/d0d/a01748.html#a1a006a75e86e8a5fd62b69b862f41184", null ],
-    [ "setPeriod", "d9/d0d/a01748.html#a356c01c6a41c8b106242fed7d597d40b", null ],
-    [ "setPulse", "d9/d0d/a01748.html#a721247e0e729cbd77d8d34cbfb29719a", null ]
+    [ "Error", "d9/d0d/a01748.html#ac47f19d90fa852a20c9401bb0a28d971", null ],
+    [ "SlaveMailbox", "d9/d0d/a01748.html#a186483b3bfbc3199f52b2081e591cb83", null ],
+    [ "State", "d9/d0d/a01748.html#a511a0b0fbb34c264baf4c6cd796a1923", null ],
+    [ "Slave", "d9/d0d/a01748.html#a40fe2ce2a9a0c83f329f4d57beaa9f4b", null ],
+    [ "~Slave", "d9/d0d/a01748.html#a30f4b4d98758403d0c59df05000b9170", null ],
+    [ "Slave", "d9/d0d/a01748.html#a1b34ce396cbdf85bf7f8b25ce76b4491", null ],
+    [ "Slave", "d9/d0d/a01748.html#aca9087f0bb6c11b99f5bb29a7cab5d2c", null ],
+    [ "areOutputsValid", "d9/d0d/a01748.html#aba721979d3b3f7d15cfa48c584e87182", null ],
+    [ "checkDistributedClock", "d9/d0d/a01748.html#a7e7721361c828febdd00cb2be71940c7", null ],
+    [ "getError", "d9/d0d/a01748.html#a2944b7e04f26a7786ee0042d429ead54", null ],
+    [ "getMailbox", "d9/d0d/a01748.html#a65f05684a824724062151ac2fdc257d0", null ],
+    [ "getState", "d9/d0d/a01748.html#a488cf78d1e9512af19de30969c6f1d52", null ],
+    [ "handleMailboxIdle", "d9/d0d/a01748.html#af9c8b2d649246374776bf22b633106a1", null ],
+    [ "handleMailboxMessage", "d9/d0d/a01748.html#a5276f808524352e6c6df3a118ee9077c", null ],
+    [ "handleStateChange", "d9/d0d/a01748.html#ac39266e5345996d9607fc9174ef47fc1", null ],
+    [ "hasError", "d9/d0d/a01748.html#a3a39f586f68b1ee07853a6bdff7fbdf7", null ],
+    [ "isBootstrapSupported", "d9/d0d/a01748.html#a3d61cb1f7f2e035ec2c0f6636a81355c", null ],
+    [ "operator=", "d9/d0d/a01748.html#a802e630e4a9fa2528af9b1176a841322", null ],
+    [ "operator=", "d9/d0d/a01748.html#af66a6530fe5cdde6fa1a989a5f84eeb6", null ],
+    [ "process", "d9/d0d/a01748.html#ad379452d18db66bb7ba544fd1539e0ce", null ],
+    [ "readOutputs", "d9/d0d/a01748.html#a391eb22011819a165c89b893c7c0449c", null ],
+    [ "setError", "d9/d0d/a01748.html#a3a1200c4fbb64c5e7c0dab76fb9d2023", null ],
+    [ "start", "d9/d0d/a01748.html#acc49b31f1582074322945e578143555c", null ],
+    [ "writeInputs", "d9/d0d/a01748.html#a012edf8137afeda7183b0d4464897074", null ]
 ];

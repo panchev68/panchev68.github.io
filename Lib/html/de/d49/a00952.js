@@ -1,19 +1,9 @@
 var a00952 =
 [
-    [ "Command", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "de/d49/a00952.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Config", "d3/de5/a00956.html", "d3/de5/a00956" ],
+    [ "Driver", "de/d49/a00952.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "de/d49/a00952.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "de/d49/a00952.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "de/d49/a00952.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "de/d49/a00952.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

@@ -1,10 +1,8 @@
 var a01639 =
 [
-    [ "Config", "db/dca/a01639.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Port", "db/dca/a01639.html#a920eeea7fe1327ab84d49110d2c203c0", null ],
-    [ "~Port", "db/dca/a01639.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "read", "db/dca/a01639.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "db/dca/a01639.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "db/dca/a01639.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "db/dca/a01639.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "Frame0x81", "db/dca/a01639.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
+    [ "option", "db/dca/a01639.html#a9514d0309e3844c8659d92c660c71a2b", null ],
+    [ "rfData", "db/dca/a01639.html#a17639b9161591eee69ff2916356f4f5f", null ],
+    [ "rssi", "db/dca/a01639.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
+    [ "srcAddr16", "db/dca/a01639.html#a44c2e0a72745be88823b58901a37b73b", null ]
 ];

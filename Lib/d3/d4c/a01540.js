@@ -1,13 +1,13 @@
 var a01540 =
 [
-    [ "Handlers", "d3/d4c/a01540.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "d3/d4c/a01540.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "d3/d4c/a01540.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "d3/d4c/a01540.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "d3/d4c/a01540.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "d3/d4c/a01540.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "d3/d4c/a01540.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "d3/d4c/a01540.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "d3/d4c/a01540.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "d3/d4c/a01540.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "Config", "d6/d83/a01544.html", "d6/d83/a01544" ],
+    [ "ComDriver", "d3/d4c/a01540.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "d3/d4c/a01540.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "d3/d4c/a01540.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "d3/d4c/a01540.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "d3/d4c/a01540.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "d3/d4c/a01540.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "d3/d4c/a01540.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "d3/d4c/a01540.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "d3/d4c/a01540.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

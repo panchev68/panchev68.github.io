@@ -1,13 +1,11 @@
 var a01998 =
 [
-    [ "CriticalSectionFromISR", "df/d37/a02002.html", "df/d37/a02002" ],
-    [ "CriticalSection", "d9/de8/a02006.html", "d9/de8/a02006" ],
-    [ "Scheduler", "d3/d59/a02010.html", "d3/d59/a02010" ],
-    [ "MemoryInfo", "da/d2d/a02018.html", "da/d2d/a02018" ],
-    [ "InterruptMask", "d5/d2e/a01998.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "d5/d2e/a01998.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "d5/d2e/a01998.html#a1ef9c4bec95909ba77fcd9fe950696fa", null ],
-    [ "TickType", "d5/d2e/a01998.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "d5/d2e/a01998.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "d5/d2e/a01998.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "SPIPort", "d5/d2e/a01998.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d5/d2e/a01998.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d5/d2e/a01998.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d5/d2e/a01998.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "getHandle", "d5/d2e/a01998.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d5/d2e/a01998.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "operator=", "d5/d2e/a01998.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d5/d2e/a01998.html#ae10f073f8753cb6161429d0e321dfd92", null ]
 ];

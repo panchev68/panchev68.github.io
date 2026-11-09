@@ -1,4 +1,4 @@
 var a00695 =
 [
-    [ "Lib::System::HardwareVersion", "df/daa/a02135.html", "df/daa/a02135" ]
+    [ "RTOS::EventGroup", "de/dd4/a02338.html", "de/dd4/a02338" ]
 ];

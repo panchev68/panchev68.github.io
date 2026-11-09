@@ -1,8 +1,6 @@
 var a01455 =
 [
-    [ "Frame0x8b", "df/dc5/a01455.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
-    [ "deliveryStatus", "df/dc5/a01455.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "df/dc5/a01455.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "df/dc5/a01455.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "transmitRetryCount", "df/dc5/a01455.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "getIdentifier", "df/dc5/a01455.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
+    [ "setIdentifier", "df/dc5/a01455.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
+    [ "identifier", "df/dc5/a01455.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
 ];

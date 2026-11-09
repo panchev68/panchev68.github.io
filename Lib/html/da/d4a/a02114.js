@@ -1,10 +1,8 @@
 var a02114 =
 [
-    [ "maxPowerRef", "da/d4a/a02114.html#a03f700e990948fcfe6c82de9a3e21657", null ],
-    [ "mppCurrentRef", "da/d4a/a02114.html#a7208d815760253f067e40908fdf5b2b1", null ],
-    [ "mppVoltageRef", "da/d4a/a02114.html#ad14a294ad527e4103971eddc9f39e1af", null ],
-    [ "referenceIrradiance", "da/d4a/a02114.html#abb7c80f88a2007497312ca7b74f5e216", null ],
-    [ "temperatureCoefficient", "da/d4a/a02114.html#aad0b3f3e89dee953a5ad229531788752", null ],
-    [ "toleranceFactor", "da/d4a/a02114.html#a5da34d5f09a437a775c5639065d1fcde", null ],
-    [ "updateInterval", "da/d4a/a02114.html#ae116f4b82ed5e5e47ef629cd133ee0de", null ]
+    [ "EventHandler", "da/d4a/a02114.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPortAsync", "da/d4a/a02114.html#a0eb76333730406f2b4eb1c25a840e786", null ],
+    [ "setEventHandler", "da/d4a/a02114.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "da/d4a/a02114.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "da/d4a/a02114.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

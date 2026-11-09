@@ -1,9 +1,5 @@
 var a01999 =
 [
-    [ "CriticalSection", "de/d25/a01999.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "de/d25/a01999.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "de/d25/a01999.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "de/d25/a01999.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "de/d25/a01999.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "de/d25/a01999.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "SPIPort", "de/d25/a01999.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "de/d25/a01999.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ]
 ];

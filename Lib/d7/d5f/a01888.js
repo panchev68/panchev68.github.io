@@ -1,14 +1,14 @@
 var a01888 =
 [
-    [ "Bitset", "d7/d5f/a01888.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "d7/d5f/a01888.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "d7/d5f/a01888.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d7/d5f/a01888.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "d7/d5f/a01888.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "d7/d5f/a01888.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "d7/d5f/a01888.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "d7/d5f/a01888.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "d7/d5f/a01888.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "d7/d5f/a01888.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "FlashInterface", "d7/d5f/a01888.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "d7/d5f/a01888.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "d7/d5f/a01888.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "d7/d5f/a01888.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "d7/d5f/a01888.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "d7/d5f/a01888.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "d7/d5f/a01888.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "d7/d5f/a01888.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "d7/d5f/a01888.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "d7/d5f/a01888.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "d7/d5f/a01888.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

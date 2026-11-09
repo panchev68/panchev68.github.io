@@ -1,10 +1,11 @@
 var a01631 =
 [
-    [ "Input", "d0/da4/a01631.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d0/da4/a01631.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "isHigh", "d0/da4/a01631.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d0/da4/a01631.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d0/da4/a01631.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "read", "d0/da4/a01631.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d0/da4/a01631.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "onExtendedTransmitStatusChanged", "d0/da4/a01631.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "d0/da4/a01631.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "d0/da4/a01631.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "d0/da4/a01631.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "d0/da4/a01631.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "d0/da4/a01631.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "d0/da4/a01631.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "d0/da4/a01631.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

@@ -1,12 +1,9 @@
 var a01319 =
 [
-    [ "ServiceBase", "d1/d72/a01319.html#a9fe2fc0c11059c42c16470a0ee18f1b1", null ],
-    [ "~ServiceBase", "d1/d72/a01319.html#aaffb2619b9b150dd2c5970ef8b4e11e1", null ],
-    [ "close", "d1/d72/a01319.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "initialize", "d1/d72/a01319.html#a6329c58c641c134db59a8f37a9637dea", null ],
-    [ "isRunning", "d1/d72/a01319.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d1/d72/a01319.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "process", "d1/d72/a01319.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "tearDown", "d1/d72/a01319.html#a433b1176b2ec86cafe98bb73425d401b", null ],
-    [ "update", "d1/d72/a01319.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "Address", "d1/d72/a01319.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "d1/d72/a01319.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "d1/d72/a01319.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "d1/d72/a01319.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "d1/d72/a01319.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "d1/d72/a01319.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
 ];

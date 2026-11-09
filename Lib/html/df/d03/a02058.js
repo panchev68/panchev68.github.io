@@ -1,24 +1,14 @@
 var a02058 =
 [
-    [ "Status", "df/d03/a02058.html#a61fa958b085e13c4001ceaf6fbd855fd", [
-      [ "SUCCESS", "df/d03/a02058.html#a61fa958b085e13c4001ceaf6fbd855fdad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "TIMEOUT", "df/d03/a02058.html#a61fa958b085e13c4001ceaf6fbd855fda070a0fb40f6c308ab544b227660aadff", null ],
-      [ "INVALID", "df/d03/a02058.html#a61fa958b085e13c4001ceaf6fbd855fdaccc0377a8afbf50e7094f5c23a8af223", null ],
-      [ "AT_MAX", "df/d03/a02058.html#a61fa958b085e13c4001ceaf6fbd855fdaab06979c91ba49479340319f0b3a18d6", null ],
-      [ "EMPTY", "df/d03/a02058.html#a61fa958b085e13c4001ceaf6fbd855fdaba2b45bdc11e2a4a6e86aab2ac693cbb", null ]
-    ] ],
-    [ "SemaphoreCounting", "df/d03/a02058.html#a72c92d8675a54a53b4ec5c4de47e3155", null ],
-    [ "SemaphoreCounting", "df/d03/a02058.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
-    [ "SemaphoreCounting", "df/d03/a02058.html#a7e497551b91db5e404470925688a3ea2", null ],
-    [ "createStatic", "df/d03/a02058.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
-    [ "getAvailableCount", "df/d03/a02058.html#a6de0f97e06346126824127e37caf592b", null ],
-    [ "getCount", "df/d03/a02058.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
-    [ "getInitialCount", "df/d03/a02058.html#abe4488af469ef47e32e09e2d38a602b1", null ],
-    [ "getMaxCount", "df/d03/a02058.html#addd31c2ffd410bd866e7365497d65280", null ],
-    [ "getRemainingCapacity", "df/d03/a02058.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
-    [ "isAtMaxCount", "df/d03/a02058.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
-    [ "isEmpty", "df/d03/a02058.html#a7d8026113d6006885360edd9ff77068d", null ],
-    [ "open", "df/d03/a02058.html#abc57684576686004799b4afa06460768", null ],
-    [ "operator=", "df/d03/a02058.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
-    [ "operator=", "df/d03/a02058.html#ac13d24083bc909c7813fb3367712fe95", null ]
+    [ "UARTPort", "df/d03/a02058.html#a066a22aae400d51f9a8552f6b1757c30", null ],
+    [ "~UARTPort", "df/d03/a02058.html#ae57a4a21992efbdd20a759373b79c5de", null ],
+    [ "UARTPort", "df/d03/a02058.html#a727c4f59d0a03dd2884faf4f6a36928f", null ],
+    [ "UARTPort", "df/d03/a02058.html#a3356806008458666dc1ede53fc85db70", null ],
+    [ "getDirection", "df/d03/a02058.html#abc3c117eef840882dd94aee07d684a11", null ],
+    [ "getHandle", "df/d03/a02058.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
+    [ "getHandle", "df/d03/a02058.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
+    [ "operator=", "df/d03/a02058.html#aebdaa74531eaac591e9bc7c474cdb302", null ],
+    [ "operator=", "df/d03/a02058.html#a700d1ad959852be2e5140408dbde5ab4", null ],
+    [ "receive", "df/d03/a02058.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
+    [ "send", "df/d03/a02058.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ]
 ];

@@ -1,9 +1,12 @@
 var a02046 =
 [
-    [ "DeepSleepLock", "d2/dd9/a02046.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "d2/dd9/a02046.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "d2/dd9/a02046.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "d2/dd9/a02046.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "d2/dd9/a02046.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "d2/dd9/a02046.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "TimOutputCompare", "d2/dd9/a02046.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "d2/dd9/a02046.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "getCounter", "d2/dd9/a02046.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "setCompare", "d2/dd9/a02046.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "d2/dd9/a02046.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "d2/dd9/a02046.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "d2/dd9/a02046.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "d2/dd9/a02046.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d2/dd9/a02046.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];
