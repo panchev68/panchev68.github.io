@@ -1,0 +1,18 @@
+var class_a_p_p_1_1_blocklist =
+[
+    [ "Status", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0", [
+      [ "OK", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ALREADY_PRESENT", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0ae2acab845d328d706912d37050a463c5", null ],
+      [ "NOT_FOUND", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0a8c02547a8a3b02382bac3557bcb2280d", null ],
+      [ "FULL", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0aba7de5bc6888294e5884b024a4c894f1", null ],
+      [ "STORAGE_ERROR", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0a7ae7f2a13f0d5a18b0db91af9c5aef34", null ],
+      [ "INVALID_REQUEST", "db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0ab8c9d7ce4c399c56136475f36309020f", null ]
+    ] ],
+    [ "add", "db/da7/class_a_p_p_1_1_blocklist.html#adf2afa3b063bf43ae5596641fe1eb799", null ],
+    [ "clear", "db/da7/class_a_p_p_1_1_blocklist.html#aa0728beab8a6e8fa5db984b45aa21a7e", null ],
+    [ "contains", "db/da7/class_a_p_p_1_1_blocklist.html#ab5bee847e25d9f4179f8ccb9c4c7954a", null ],
+    [ "getCount", "db/da7/class_a_p_p_1_1_blocklist.html#a0b3dfc0f1bd678146706c5f730ffc851", null ],
+    [ "getFreeSlots", "db/da7/class_a_p_p_1_1_blocklist.html#ade313435fb14f61734b8af425d06ce1a", null ],
+    [ "open", "db/da7/class_a_p_p_1_1_blocklist.html#a24514e9e781fcce6136b21ee067d94f6", null ],
+    [ "remove", "db/da7/class_a_p_p_1_1_blocklist.html#ae247c763edcda6351a57ec9ea1e900d7", null ]
+];
