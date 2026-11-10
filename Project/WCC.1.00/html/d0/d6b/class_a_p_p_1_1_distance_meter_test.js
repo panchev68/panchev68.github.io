@@ -8,8 +8,15 @@ var class_a_p_p_1_1_distance_meter_test =
       [ "OUT_OF_RANGE", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547a6feaf66704b269610cff9431d5519cad", null ],
       [ "UNSTABLE", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547ad3582680e9ce6bdf2e9791926bd99d5f", null ]
     ] ],
+    [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a09cd69de7928e7691a293c8bb23ef5c2", null ],
+    [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a6b85e20f9c158621e2c380849957065a", null ],
+    [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a96330b809687ea2c78efa92c9d31f4d7", null ],
     [ "getFirstDistance", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a27cebcbd534e3397d7942da5a6b28ac4", null ],
     [ "getResult", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a5a74762c562f1abda8a172007bb6749d", null ],
     [ "getSecondDistance", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a64fba9342de1264d79267dc9d0a08430", null ],
+    [ "impl", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a8aed61f917e3affc96ee5836f5d5b97c", null ],
+    [ "instance", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a47f424696b9af5ac7a240cbddfc50410", null ],
+    [ "operator=", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#ad5c3e7d9e58564acd2dbee48322709bd", null ],
+    [ "operator=", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#af2ce90b1b6b6291182747c6640991d68", null ],
     [ "start", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a65d25a1faf8d2f367595ad72a4c82477", null ]
 ];

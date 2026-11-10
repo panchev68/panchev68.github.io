@@ -57,7 +57,7 @@ var searchData=
   ['_7emfrc522_54',['~MFRC522',['d6/d80/a01076.html#a73dbf6cc73bf71b562399e9e4faa6f75',1,'Lib::BSP::RFID::MFRC522']]],
   ['_7emifare_55',['~Mifare',['d3/dbd/a01100.html#ab9292dbd07d2f2f0a579729beadce81a',1,'Lib::BSP::RFID::Mifare']]],
   ['_7emodule_56',['~Module',['de/d40/a01592.html#a3e8be6962f855fba474c3c0e0366a256',1,'Lib::Digi::Core::Module']]],
-  ['_7emppt_57',['~MPPT',['../d2/db7/class_m_p_p_t.html#a7ea5fdb8d4e8aa25c72f82b9cc790ef4',1,'MPPT']]],
+  ['_7emppt_57',['~MPPT',['../d2/db7/class_m_p_p_t_a7ea5fdb8d4e8aa25c72f82b9cc790ef4.html#a7ea5fdb8d4e8aa25c72f82b9cc790ef4',1,'MPPT']]],
   ['_7emutex_58',['~Mutex',['da/d75/a02372.html#a032031894c38dfb5861f1be4a7e247dd',1,'RTOS::Mutex']]],
   ['_7emutexguard_59',['~MutexGuard',['df/d46/a02376.html#a35526aab46b7a21b967df7060f8d6747',1,'RTOS::MutexGuard']]],
   ['_7enfcmanager_60',['~NfcManager',['dd/dcb/a01104.html#a99dc2c6cf10e46e8158d7e15504f0cc5',1,'Lib::BSP::RFID::NfcManager']]],

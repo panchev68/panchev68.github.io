@@ -28,23 +28,6 @@ var NAVTREE =
     [ "Hardware overview", "index.html#hardware-overview", null ],
     [ "Layers", "index.html#layers", null ],
     [ "Building", "index.html#building", null ],
-    [ "PGA460TPWRQ1 usage", "da/dc7/a03407.html", null ],
-    [ "FunctionRef example", "d2/d2e/a03408.html", null ],
-    [ "Ascii example", "d0/dc8/a03409.html", null ],
-    [ "Bcd example", "df/de2/a03410.html", null ],
-    [ "dBM example", "d3/d74/a03411.html", null ],
-    [ "Hex example", "d4/d57/a03412.html", null ],
-    [ "HexHelper example", "d6/daa/a03413.html", null ],
-    [ "Percent example", "d2/dd6/a03414.html", null ],
-    [ "TimePeriod example", "d0/d4b/a03415.html", null ],
-    [ "TimeZone example", "df/df7/a03416.html", null ],
-    [ "EventGroup example", "d9/d9d/a03417.html", null ],
-    [ "MessageBuffer example", "d1/deb/a03418.html", null ],
-    [ "MutexGuard example", "d1/d42/a03419.html", null ],
-    [ "StreamBuffer examples", "d1/d8b/a03420.html", null ],
-    [ "Task example", "d9/d2c/a03421.html", null ],
-    [ "TickCounter example", "d3/dff/a03422.html", null ],
-    [ "CDCDevice example", "d3/d65/a03423.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -63,7 +46,8 @@ var NAVTREE =
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ]
+        [ "Enumerations", "functions_enum.html", null ],
+        [ "Events", "functions_evnt.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -75,9 +59,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#afbb33cc14bf4429514008b4fa3241838",
-"d7/dc4/class_a_p_p_1_1_distance_meter.html#ac4314c69612d4e9c3e034ac799e5e320",
-"db/da7/class_a_p_p_1_1_blocklist.html"
+"d3/d72/class_b_s_p_1_1_rgb_led.html#a1a0525e4e3b5d570440085bad8e7d0f0",
+"d5/d21/class_b_s_p_1_1_outputs.html#ad5112c00648cbe59f92478773f03072eaafc40ef118b5f47c2c04ffb62d574b3e",
+"d7/d70/class_a_p_p_1_1_blocklist_removal_buffer.html#a0a43476195ad54d4d41c44fdb979a28e",
+"da/da8/class_a_p_p_1_1_diagnostics.html#a73b1020cd6db0c089423ce9718c9d383",
+"db/d8b/class_a_p_p_1_1_outputs_test.html#a895a3d494ed2d8e96195584027d78e07",
+"dir_ffd1f789ec7bd0a45fc6ad92579c5070.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

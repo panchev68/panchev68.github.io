@@ -1,6 +1,9 @@
 var class_a_p_p_1_1_com_module =
 [
     [ "Counters", "dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html", "dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters" ],
+    [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#a86c8c4cf1a7c73773a2c1fa8038a140a", null ],
+    [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#a43f29f92e60bb6e2e5db78952a00def3", null ],
+    [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#afce2838cafc9d95b78a5c45104ed2884", null ],
     [ "getCounters", "d6/dcf/class_a_p_p_1_1_com_module.html#aa6370a8036b0fb8d01916caf5e0c6d95", null ],
     [ "getIsEsp32Powered", "d6/dcf/class_a_p_p_1_1_com_module.html#a1b9f6e3180d66b9f8f45c047a4751f71", null ],
     [ "getIsLocationSet", "d6/dcf/class_a_p_p_1_1_com_module.html#a3873bb65c9b82c1e54b4b8d93bdab358", null ],
@@ -10,8 +13,25 @@ var class_a_p_p_1_1_com_module =
     [ "getPendingRecordCount", "d6/dcf/class_a_p_p_1_1_com_module.html#a94cb807663c71d75c3a6598658922027", null ],
     [ "getPowerCycleCount", "d6/dcf/class_a_p_p_1_1_com_module.html#a8f3487c6ec946483346f5239bc073d62", null ],
     [ "getSession", "d6/dcf/class_a_p_p_1_1_com_module.html#aae674dfa3e44b4868e698d07158cc20a", null ],
+    [ "impl", "d6/dcf/class_a_p_p_1_1_com_module.html#a90b2d6af132d732673d82763871ae42d", null ],
+    [ "instance", "d6/dcf/class_a_p_p_1_1_com_module.html#a3294b1eb839c0d377a3c73612b39c035", null ],
     [ "notifyActivity", "d6/dcf/class_a_p_p_1_1_com_module.html#a69ed1d167f03e2435d416caede18bb24", null ],
+    [ "operator=", "d6/dcf/class_a_p_p_1_1_com_module.html#a498e7350a1547c871776cc57fd8b8bd8", null ],
+    [ "operator=", "d6/dcf/class_a_p_p_1_1_com_module.html#af7258a0897dd012c198212fe949f7ff5", null ],
     [ "queueBlocklistRemoval", "d6/dcf/class_a_p_p_1_1_com_module.html#af43e41fb6733a4213eeb769087133f04", null ],
     [ "queueDisposalRecord", "d6/dcf/class_a_p_p_1_1_com_module.html#a0e8c7e4d6edda845b4c9ac151a19b0ed", null ],
-    [ "start", "d6/dcf/class_a_p_p_1_1_com_module.html#a991610dcc331c6b50af4d1098012187f", null ]
+    [ "start", "d6/dcf/class_a_p_p_1_1_com_module.html#a991610dcc331c6b50af4d1098012187f", null ],
+    [ "AWAKE_WINDOW", "d6/dcf/class_a_p_p_1_1_com_module.html#a80db1230e6a88db34e6d9c3b67b999a8", null ],
+    [ "BOOT_TIME", "d6/dcf/class_a_p_p_1_1_com_module.html#abbd3632e82f751451c78fa51c4bab319", null ],
+    [ "ESP32_POWER_ON_LEVEL", "d6/dcf/class_a_p_p_1_1_com_module.html#a922d7cebb841edfb5e8820a5131181fb", null ],
+    [ "ESP32_WAKEUP_LEVEL", "d6/dcf/class_a_p_p_1_1_com_module.html#ac64da79639456e5b029affdfc65e7a96", null ],
+    [ "LOW_BATTERY_VOLTAGE", "d6/dcf/class_a_p_p_1_1_com_module.html#a2ad0289ad5618e54088b601106df24b7", null ],
+    [ "MAX_OFF_TIME", "d6/dcf/class_a_p_p_1_1_com_module.html#a255d1ed89b9e5bc6eb59a61b3ae3c68c", null ],
+    [ "MAX_RESTARTS", "d6/dcf/class_a_p_p_1_1_com_module.html#a6d064953cfc07fd33a2884fa4017aa7a", null ],
+    [ "MIN_VALID_UNIX_TIME", "d6/dcf/class_a_p_p_1_1_com_module.html#a4c1db40a2070f0de36045310a186ec80", null ],
+    [ "POWER_OFF_TIME", "d6/dcf/class_a_p_p_1_1_com_module.html#a432c4d54d23b1b56cef8f021a05a30cf", null ],
+    [ "RESPONSE_TIMEOUT", "d6/dcf/class_a_p_p_1_1_com_module.html#af0825bec6dad612f6a6bc7e8a949e8af", null ],
+    [ "TIME_SYNC_PERIOD", "d6/dcf/class_a_p_p_1_1_com_module.html#a7291bdb36bcd118121a38805e6ce1a0b", null ],
+    [ "WAKE_PULSE", "d6/dcf/class_a_p_p_1_1_com_module.html#a45924e75257b90d079e0f7c6a40e5609", null ],
+    [ "WAKE_TIMEOUT", "d6/dcf/class_a_p_p_1_1_com_module.html#a95304907f5e7b541fbb7790005a82330", null ]
 ];

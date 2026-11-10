@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ascii_20example_0',['Ascii example',['d0/dc8/a03409.html',1,'']]]
+  ['building_0',['Building',['../index.html#building',1,'']]]
 ];

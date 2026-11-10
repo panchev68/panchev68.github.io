@@ -7,7 +7,7 @@ var searchData=
   ['verify_4',['verify',['d4/dc5/a01116.html#a3ad68838496c556048480c98296ca7c7',1,'Lib::BSP::RFID::NTAG21x::CardRecord::verify()'],['dc/d51/a01120.html#af56142d138ec3896ba8dcfc8373b93d0',1,'Lib::BSP::RFID::NTAG21x::OriginalitySignature::verify()'],['d9/d45/a01396.html#a8efa778b2f9627a75054ee625e3a5c2e',1,'Lib::Crypto::WolfSSLRsa::verify()']]],
   ['verifychipid_5',['verifyChipId',['d7/df2/a01000.html#a92fb14a44d98ad85c15d007798f188d4',1,'Lib::BSP::Ethercat::PDI::LAN9252::Base']]],
   ['versionbase_6',['VersionBase',['d4/db0/a02540.html#a32eb651df51eadc6dc6cca08bcd82ee5',1,'Lib::System::VersionBase']]],
-  ['view_7',['view',['d8/d22/a01584.html#a99d9247c3097add390da201d0083e524',1,'Lib::Digi::Core::Message::view()'],['de/df9/a01624.html#a5b6240ac3f756b4d29a1009db83fe5a1',1,'Lib::Digi::Core::QueueMessage::view()'],['../d7/dec/class_protocol_1_1_buffer.html#a1b735621cf92cf2215675b5796a14d6f',1,'Protocol::Buffer::view()']]],
+  ['view_7',['view',['d8/d22/a01584.html#a99d9247c3097add390da201d0083e524',1,'Lib::Digi::Core::Message::view()'],['de/df9/a01624.html#a5b6240ac3f756b4d29a1009db83fe5a1',1,'Lib::Digi::Core::QueueMessage::view()'],['../d7/dec/class_protocol_1_1_buffer_a1b735621cf92cf2215675b5796a14d6f.html#a1b735621cf92cf2215675b5796a14d6f',1,'Protocol::Buffer::view()']]],
   ['voltmeter_8',['Voltmeter',['d5/d6e/a01240.html#a0f038c75a30b2d6cd8382c776fddd2bb',1,'Lib::BSP::Voltmeter']]],
   ['vscode_9',['vscode',['d4/d61/a02588.html#adb04031689a0f1b2303e9ca5974b2ae4',1,'vscode']]]
 ];

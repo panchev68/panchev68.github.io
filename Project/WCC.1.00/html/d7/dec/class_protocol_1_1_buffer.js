@@ -12,5 +12,7 @@ var class_protocol_1_1_buffer =
     [ "size", "d7/dec/class_protocol_1_1_buffer.html#ac4678a8d829ed13bbb5b93eb4f380d17", null ],
     [ "tryAppend", "d7/dec/class_protocol_1_1_buffer.html#aec233469ac12b989f1f8ef8c2872bcab", null ],
     [ "tryPushBack", "d7/dec/class_protocol_1_1_buffer.html#a01ae0244593378ab170a2e086c1fede7", null ],
-    [ "view", "d7/dec/class_protocol_1_1_buffer.html#a1b735621cf92cf2215675b5796a14d6f", null ]
+    [ "view", "d7/dec/class_protocol_1_1_buffer.html#a1b735621cf92cf2215675b5796a14d6f", null ],
+    [ "bytes", "d7/dec/class_protocol_1_1_buffer.html#a0984f0b381990b43ebc4c42a23ffd89f", null ],
+    [ "count", "d7/dec/class_protocol_1_1_buffer.html#a8d7063d2dd3b552935cb60e057fe1a42", null ]
 ];

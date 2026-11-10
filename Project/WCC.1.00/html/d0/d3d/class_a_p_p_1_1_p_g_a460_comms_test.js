@@ -10,6 +10,9 @@ var class_a_p_p_1_1_p_g_a460_comms_test =
       [ "BAD_CHECKSUM", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a7a672c8926fbead872ad3731aaac28d8", null ],
       [ "BAD_DIAGNOSTIC", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a0cb6453271d2966289686a3c62ceb624", null ]
     ] ],
+    [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afd1618da1a3b3df72d8b2758b06e0caf", null ],
+    [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a3cc0384c8e08918b53a46f6e8ca4b867", null ],
+    [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a3f049cb7edc74197113c5605b865a6e0", null ],
     [ "getAttempts", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a223538b81c44ed8655d28b26fa4d3460", null ],
     [ "getBaudRate", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#aafc9dc4ae2aef975153e73315da721eb", null ],
     [ "getLastResponse", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a9bd95c5c9137db51596937f67e91ddee", null ],
@@ -18,5 +21,9 @@ var class_a_p_p_1_1_p_g_a460_comms_test =
     [ "getRxIdleHigh", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a175babff95b99b55c5d004ba5a2c6f53", null ],
     [ "getSuccesses", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a613e1357494a7036910b1087258fd6fc", null ],
     [ "getUartFlags", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a81e4db2181dd68ba09a07d3bc071ae1d", null ],
+    [ "impl", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a260d485fd044992eab29c0940168d65e", null ],
+    [ "instance", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#ae9eafcecb74e7e083f6d01cae30960a3", null ],
+    [ "operator=", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a2f043a829a11c5515c2796fc720543df", null ],
+    [ "operator=", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a9d435280633008031421c7593b4ed7a4", null ],
     [ "start", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#aece5342ba7f7c87bbe1b04c00cf2924f", null ]
 ];

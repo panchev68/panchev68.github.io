@@ -69,5 +69,23 @@ var _commands_8hpp =
       [ "APP::Commands::StatusFlag::UI_BUSY", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60a74c17331f711db8ef503ce33d6b5d8b7", null ],
       [ "APP::Commands::StatusFlag::DOOR_ALARM", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aed84085e0d1655bb49e7bc1611324634", null ],
       [ "APP::Commands::StatusFlag::FIRE_ALARM", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aec1df7bfed0c3bbe90c1e1274b678170", null ]
-    ] ]
+    ] ],
+    [ "APP::Commands::BLOCKLIST_REMOVAL_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#ae681fd25c0817c75bd6581dabb5c22db", null ],
+    [ "APP::Commands::BLOCKLIST_RESPONSE_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#adc8aca7305c74f0a20faf7be631ae2af", null ],
+    [ "APP::Commands::CARD_NUMBER_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a322191953ea645ecc37744fc621d67f1", null ],
+    [ "APP::Commands::DISPOSAL_RECORD_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a2a25ed328b8967768282076135095b7a", null ],
+    [ "APP::Commands::DISPOSAL_RECORD_UID_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a26f9e004933a24fa7225b887864cef70", null ],
+    [ "APP::Commands::LOCATION_SCALE", "d4/dab/namespace_a_p_p_1_1_commands.html#ae51e1af7bb45b776b4b613657e8db026", null ],
+    [ "APP::Commands::MAX_BLOCKLIST_REMOVALS_PER_FRAME", "d4/dab/namespace_a_p_p_1_1_commands.html#a1f1dac6d2cd680b94f32eceff0f7f85e", null ],
+    [ "APP::Commands::MAX_NUMBERS_PER_FRAME", "d4/dab/namespace_a_p_p_1_1_commands.html#a8c32c216d5efe720863efd9ecf8edd53", null ],
+    [ "APP::Commands::MAX_RECORDS_PER_FRAME", "d4/dab/namespace_a_p_p_1_1_commands.html#ad5ed895918e5ccd05298add1fbab5160", null ],
+    [ "APP::Commands::MEASUREMENTS_RESPONSE_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a14e8ca6dab95301800e025f8a256731a", null ],
+    [ "APP::Commands::POWER_OFF_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#adaba4e202e6b57955da1470e5d38c6c2", null ],
+    [ "APP::Commands::READ_HEADER_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a7c250fdd706bba6d081021e35802c9d0", null ],
+    [ "APP::Commands::READ_REQUEST_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a4dfb5c3625d61c9465cadcc7b03fc919", null ],
+    [ "APP::Commands::SERVICE_LIST_RESPONSE_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#ae7e4ca27b8f6cf593e72903c74e1b7c7", null ],
+    [ "APP::Commands::SET_LOCATION_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a9280decb5482fe8cc8c0b27a9cfb02ee", null ],
+    [ "APP::Commands::SET_TIME_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a86fedb4b123da418dc2c4ad2b3fe9d72", null ],
+    [ "APP::Commands::STATUS_RESPONSE_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a69ee9706b990f59a7a97eedc4f7fd915", null ],
+    [ "APP::Commands::TIME_RESPONSE_SIZE", "d4/dab/namespace_a_p_p_1_1_commands.html#a946094df560485b1bd5bf4d45c06a33a", null ]
 ];

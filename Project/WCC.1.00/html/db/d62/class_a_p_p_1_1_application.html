@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('db/d62/class_a
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Startup sequencer. </p>
-<p>"startup()" ("Project/startup.cpp") only calls "Application::start()". Each "APP/"/"Project/Tests/" module is a singleton with its own "start()"; this class holds no state of its own beyond the compile-time switches below, so it needs no "Impl" (see "ClassStructure.md": no private state, no private dependencies). </p>
+<p>"startup()" ("Project/startup.cpp") only calls "Application::start()". Each "APP/"/"Project/Tests/" module is a singleton with its own "start()"; this class holds no state of its own beyond the compile-time switches below, so it needs no <em>Impl</em> (see "ClassStructure.md": no private state, no private dependencies). </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -166,7 +166,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memdesc:ae7d1926f14ea9e4754068ab2244e08b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">"DS18B20CommsTest"; needs "ENABLE_EXTERNAL_THERMOMETER" off (shares the 1-Wire pin).  <br /></td></tr>
 <tr class="memitem:a2d207c42bb27130963db5abe468da539" id="r_a2d207c42bb27130963db5abe468da539"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a2d207c42bb27130963db5abe468da539">ENABLE_STARTUP_DIAGNOSTICS</a> = true</td></tr>
 <tr class="memdesc:a2d207c42bb27130963db5abe468da539"><td class="mdescLeft">&#160;</td><td class="mdescRight">"APP::Diagnostics::run()": one-time hardware check before any module starts.  <br /></td></tr>
-<tr class="memitem:ac8aaa5e820b063c819fb8a96a42dc064" id="r_ac8aaa5e820b063c819fb8a96a42dc064"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ac8aaa5e820b063c819fb8a96a42dc064">ENABLE_RUNTIME_DIAGNOSTICS</a> = true</td></tr>
+<tr class="memitem:ac8aaa5e820b063c819fb8a96a42dc064" id="r_ac8aaa5e820b063c819fb8a96a42dc064"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ac8aaa5e820b063c819fb8a96a42dc064">ENABLE_RUNTIME_DIAGNOSTICS</a></td></tr>
 <tr class="memdesc:ac8aaa5e820b063c819fb8a96a42dc064"><td class="mdescLeft">&#160;</td><td class="mdescRight">"APP::Diagnostics::startRuntimeDiagnostics()": keeps the check fresh every 5 min; independent of "ENABLE_STARTUP_DIAGNOSTICS".  <br /></td></tr>
 <tr class="memitem:aef04c9913a367e1104cf66af1d876f64" id="r_aef04c9913a367e1104cf66af1d876f64"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aef04c9913a367e1104cf66af1d876f64">ENABLE_POWER_ON_LED_FLASH</a> = true</td></tr>
 <tr class="memdesc:aef04c9913a367e1104cf66af1d876f64"><td class="mdescLeft">&#160;</td><td class="mdescRight">White RGB LED flash alongside "POWER_ON_BEEPS" at the start.  <br /></td></tr>
@@ -207,7 +207,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Starts the firmware, in the fixed order above. </p>
 <p>Beeps/flashes the power-on indication, runs "APP::Diagnostics" if enabled, then starts every other enabled module/test. The order matters in a few places: diagnostics run first so a device that never answers is caught and reported before anything tries to use it; "Blocklist::open()"/"ServiceList::open()" only run once "StorageManager" is up, since they need the flash; a test that only reads another module's published value ("DistanceMeterTest"/"DistanceIndicatorTest") is only started when that module is also enabled.</p>
-<dl class="section return"><dt>Returns</dt><dd>Which modules/tests started; a switch left "false" above leaves its flag "false" too. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Which modules/tests started; a switch left <em>false</em> above leaves its flag <em>false</em> too. </dd></dl>
 
 </div>
 </div>
@@ -630,7 +630,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool APP::Application::ENABLE_RUNTIME_DIAGNOSTICS = true</td>
+          <td class="memname">bool APP::Application::ENABLE_RUNTIME_DIAGNOSTICS</td>
         </tr>
       </table>
   </td>
@@ -639,7 +639,9 @@ Static Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
+<b>Initial value:</b><div class="fragment"><div class="line">                                             =</div>
+<div class="line"><span class="keyword">true</span></div>
+</div><!-- fragment -->
 <p>"APP::Diagnostics::startRuntimeDiagnostics()": keeps the check fresh every 5 min; independent of "ENABLE_STARTUP_DIAGNOSTICS". </p>
 
 </div>

@@ -14,12 +14,12 @@ var annotated_dup =
       [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html", "d0/d6b/class_a_p_p_1_1_distance_meter_test" ],
       [ "DS18B20CommsTest", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test" ],
       [ "ExternalThermometer", "d6/d63/class_a_p_p_1_1_external_thermometer.html", "d6/d63/class_a_p_p_1_1_external_thermometer" ],
-      [ "IssuerKey", "dc/dfb/struct_a_p_p_1_1_issuer_key.html", null ],
+      [ "IssuerKey", "dc/dfb/struct_a_p_p_1_1_issuer_key.html", "dc/dfb/struct_a_p_p_1_1_issuer_key" ],
       [ "LowPower", "d6/d7e/class_a_p_p_1_1_low_power.html", "d6/d7e/class_a_p_p_1_1_low_power" ],
       [ "MPPTChargeTest", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test" ],
       [ "OutputsTest", "db/d8b/class_a_p_p_1_1_outputs_test.html", "db/d8b/class_a_p_p_1_1_outputs_test" ],
       [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test" ],
-      [ "Pga460Polled", "d2/d54/class_a_p_p_1_1_pga460_polled.html", null ],
+      [ "Pga460Polled", "d2/d54/class_a_p_p_1_1_pga460_polled.html", "d2/d54/class_a_p_p_1_1_pga460_polled" ],
       [ "PowerProbeTest", "d0/db3/class_a_p_p_1_1_power_probe_test.html", "d0/db3/class_a_p_p_1_1_power_probe_test" ],
       [ "PowerSupply", "d2/db0/class_a_p_p_1_1_power_supply.html", "d2/db0/class_a_p_p_1_1_power_supply" ],
       [ "RecordBuffer", "d6/d5d/class_a_p_p_1_1_record_buffer.html", "d6/d5d/class_a_p_p_1_1_record_buffer" ],
@@ -46,9 +46,16 @@ var annotated_dup =
       [ "W25Q128JVSIQ", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q" ]
     ] ],
     [ "HAL", "df/da1/namespace_h_a_l.html", [
-      [ "I2CPort1", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html", null ]
+      [ "I2CPort1", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html", "d8/d8e/class_h_a_l_1_1_i2_c_port1" ]
     ] ],
     [ "ComService", "dd/df7/class_com_service.html", "dd/df7/class_com_service" ],
+    [ "DAC1Port", "d3/dd6/class_h_a_l_1_1_d_a_c1_port.html", null ],
+    [ "I2C1Port", "d4/dc0/class_h_a_l_1_1_i2_c1_port.html", null ],
     [ "MPPT", "d2/db7/class_m_p_p_t.html", "d2/db7/class_m_p_p_t" ],
-    [ "Protocol", "d6/dcc/class_protocol.html", "d6/dcc/class_protocol" ]
+    [ "OSPI1Port", "dc/d54/class_h_a_l_1_1_o_s_p_i1_port.html", null ],
+    [ "Protocol", "d6/dcc/class_protocol.html", "d6/dcc/class_protocol" ],
+    [ "RTCPort", "de/d8f/class_h_a_l_1_1_r_t_c_port.html", null ],
+    [ "SPI3Port", "da/d1a/class_h_a_l_1_1_s_p_i3_port.html", null ],
+    [ "Usart1Port", "da/d5b/class_h_a_l_1_1_usart1_port.html", null ],
+    [ "Usart3Port", "d3/deb/class_h_a_l_1_1_usart3_port.html", null ]
 ];

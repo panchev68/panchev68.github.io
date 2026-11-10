@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dba/class_a
 <p>After "RFID" accepts a card, both button LEDs blink for up to "SELECTION_TIMEOUT"; a press selects the amount (BUT1 = 5 l, BUT2 = 20 l) and pulses the matching lock (OUT1 / OUT2) for "LOCK_PULSE". A card is refused while a selection runs, a door is open or "RecordBuffer" is full, so a long communication outage stops new disposals instead of losing old records.</p>
 <p>The door sensors (SW_INP1 / SW_INP2) decide the record: "DoorEvent::NOT_OPENED" if the door is not open within "OPEN_CHECK_TIME", otherwise "OPENED". A door still open after "OPEN_GRACE_TIME" queues "LEFT_OPEN" and sounds the buzzer for "ALARM_DURATION"; "CLOSED" follows once it closes. Every record carries its RTC time and goes to the ESP32 through "ComModule".</p>
 <p>A service card skips the selection: "requestServiceOpen()" pulses "OUT1", "OUT2" and "OUT3" in turn and queues one record with "DoorEvent::OPENED" and "litres" 0, since "OUT3" has no door sensor to verify it.</p>
-<p>The state, the task and the private methods live in an "Impl" defined in "UserInterface.cpp". </p>
+<p>The state, the task and the private methods live in an <em>Impl</em> defined in "UserInterface.cpp". </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -140,7 +140,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6ef421bb13bfa403adb62319df4b3deb" id="r_a6ef421bb13bfa403adb62319df4b3deb"><td class="memItemLeft">static UserInterface &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6ef421bb13bfa403adb62319df4b3deb">instance</a> () noexcept</td></tr>
+<tr class="memitem:a6ef421bb13bfa403adb62319df4b3deb" id="r_a6ef421bb13bfa403adb62319df4b3deb"><td class="memItemLeft">static <a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6ef421bb13bfa403adb62319df4b3deb">instance</a> () noexcept</td></tr>
 <tr class="memdesc:a6ef421bb13bfa403adb62319df4b3deb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique module instance.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -165,7 +165,114 @@ Static Public Attributes</h2></td></tr>
 <tr class="memdesc:a774707a757de2b83e589f16b0bba9d3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Level of "SW_INP1" / "SW_INP2" while the door is open.  <br /></td></tr>
 <tr class="memitem:a5d9f0b2e8e79bcda0f6869f0f44a550a" id="r_a5d9f0b2e8e79bcda0f6869f0f44a550a"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a5d9f0b2e8e79bcda0f6869f0f44a550a">BUTTON_PRESSED_LEVEL</a> = true</td></tr>
 <tr class="memdesc:a5d9f0b2e8e79bcda0f6869f0f44a550a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Level of "BUT1_SW" / "BUT2_SW" while the button is pressed.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:ae40af677ae8df7c43e1ab41536408007" id="r_ae40af677ae8df7c43e1ab41536408007"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> () noexcept=default</td></tr>
+<tr class="memitem:ac2511a8c58fd3bfe56d674987fd8dfe9" id="r_ac2511a8c58fd3bfe56d674987fd8dfe9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac2511a8c58fd3bfe56d674987fd8dfe9">UserInterface</a> (const UserInterface &amp;)=delete</td></tr>
+<tr class="memitem:ac4a71d91d4e5ef00bb8a840e28bc645b" id="r_ac4a71d91d4e5ef00bb8a840e28bc645b"><td class="memItemLeft"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac4a71d91d4e5ef00bb8a840e28bc645b">operator=</a> (const <a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;)=delete</td></tr>
+<tr class="memitem:a31f3a9dd3cfe4af80ed4e3170a2842da" id="r_a31f3a9dd3cfe4af80ed4e3170a2842da"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a31f3a9dd3cfe4af80ed4e3170a2842da">UserInterface</a> (UserInterface &amp;&amp;)=delete</td></tr>
+<tr class="memitem:aab0a72f4f1e59e4178d547d1566e3e64" id="r_aab0a72f4f1e59e4178d547d1566e3e64"><td class="memItemLeft"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aab0a72f4f1e59e4178d547d1566e3e64">operator=</a> (<a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;&amp;)=delete</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:afddd0377b5e0b978604f588e21a41024" id="r_afddd0377b5e0b978604f588e21a41024"><td class="memItemLeft">static Impl &amp;&#160;</td><td class="memItemRight"><a class="el" href="#afddd0377b5e0b978604f588e21a41024">impl</a> () noexcept</td></tr>
+<tr class="memdesc:afddd0377b5e0b978604f588e21a41024"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the module state, constructing it on first use.  <br /></td></tr>
 </table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae40af677ae8df7c43e1ab41536408007" name="ae40af677ae8df7c43e1ab41536408007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae40af677ae8df7c43e1ab41536408007">&#9670;&#160;</a></span>UserInterface() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APP::UserInterface::UserInterface </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_ae40af677ae8df7c43e1ab41536408007_icgraph.svg" width="462" height="380"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac2511a8c58fd3bfe56d674987fd8dfe9" name="ac2511a8c58fd3bfe56d674987fd8dfe9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2511a8c58fd3bfe56d674987fd8dfe9">&#9670;&#160;</a></span>UserInterface() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APP::UserInterface::UserInterface </td>
+          <td>(</td>
+          <td class="paramtype">const UserInterface &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_ac2511a8c58fd3bfe56d674987fd8dfe9_cgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a31f3a9dd3cfe4af80ed4e3170a2842da" name="a31f3a9dd3cfe4af80ed4e3170a2842da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31f3a9dd3cfe4af80ed4e3170a2842da">&#9670;&#160;</a></span>UserInterface() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">APP::UserInterface::UserInterface </td>
+          <td>(</td>
+          <td class="paramtype">UserInterface &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a31f3a9dd3cfe4af80ed4e3170a2842da_cgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="abe16c3efb9a19cbe8cc314ee42741774" name="abe16c3efb9a19cbe8cc314ee42741774"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abe16c3efb9a19cbe8cc314ee42741774">&#9670;&#160;</a></span>getIsAlarmOn()</h2>
@@ -191,17 +298,17 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether the left-open door alarm is on. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" while the buzzer alarm runs. </dd></dl>
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd><em>true</em> while the buzzer alarm runs. </dd></dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-0-content" class="dyncontent hidden">
+<div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_abe16c3efb9a19cbe8cc314ee42741774_cgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_abe16c3efb9a19cbe8cc314ee42741774_icgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -231,7 +338,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether a selection, lock pulse or open door is being handled. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" from "requestSelection()" until the selection ended or the opened door was closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><em>true</em> from "requestSelection()" until the selection ended or the opened door was closed. </dd></dl>
 
 </div>
 </div>
@@ -265,19 +372,47 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" while the door is open; "false" for a closed door or an unknown lock. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd><em>true</em> while the door is open; <em>false</em> for a closed door or an unknown lock. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
+<div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a87eecd7ba683c69d993382045b5b44d2_cgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a87eecd7ba683c69d993382045b5b44d2_icgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="afddd0377b5e0b978604f588e21a41024" name="afddd0377b5e0b978604f588e21a41024"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afddd0377b5e0b978604f588e21a41024">&#9670;&#160;</a></span>impl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Impl &amp; APP::UserInterface::impl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel private">private</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the module state, constructing it on first use. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the state. </dd></dl>
 
 </div>
 </div>
@@ -291,7 +426,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">UserInterface &amp; APP::UserInterface::instance </td>
+          <td class="memname"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp; APP::UserInterface::instance </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -306,6 +441,74 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the unique module instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the disposal module. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a6ef421bb13bfa403adb62319df4b3deb_cgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac4a71d91d4e5ef00bb8a840e28bc645b" name="ac4a71d91d4e5ef00bb8a840e28bc645b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4a71d91d4e5ef00bb8a840e28bc645b">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp; APP::UserInterface::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_ac4a71d91d4e5ef00bb8a840e28bc645b_cgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aab0a72f4f1e59e4178d547d1566e3e64" name="aab0a72f4f1e59e4178d547d1566e3e64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab0a72f4f1e59e4178d547d1566e3e64">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp; APP::UserInterface::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ae40af677ae8df7c43e1ab41536408007">UserInterface</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_aab0a72f4f1e59e4178d547d1566e3e64_cgraph.svg" width="462" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -345,17 +548,17 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the selection started. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the selection started. </dd></dl>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_aaee089d282f46969324086c323c26244_cgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_aaee089d282f46969324086c323c26244_icgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -397,17 +600,17 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the opening started. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the opening started. </dd></dl>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-12-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a38e2c6c65ce3e12848af7a75efcba9cb_cgraph.svg" width="232" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-13-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a38e2c6c65ce3e12848af7a75efcba9cb_icgraph.svg" width="232" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -437,17 +640,17 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Starts the selection task. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the task is running. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the task is running. </dd></dl>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-14-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a6c606ac92ba37f0ac6b192b83d56a7a7_cgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
+<div id="dynsection-15-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/dba/class_a_p_p_1_1_user_interface_a6c606ac92ba37f0ac6b192b83d56a7a7_icgraph.svg" width="212" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 

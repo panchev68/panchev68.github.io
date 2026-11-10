@@ -1,25 +1,4 @@
 var searchData=
 [
-  ['gainsboro_0',['GAINSBORO',['d9/d97/a01152.html#a05da0f6d53c577dee69bb3f1118b118b',1,'Color']]],
-  ['gamma_5fen_1',['GAMMA_EN',['d8/d2d/a00815.html#aa079b641f0d5c91c7219aa446879acf2a7e51f4cfa2245f4b16c69b84b86761a4',1,'Lib::BSP::Display']]],
-  ['gammaset_2',['GAMMASET',['d8/d2d/a00815.html#aa079b641f0d5c91c7219aa446879acf2a5f22f7828950e4cdeb530525000b6000',1,'Lib::BSP::Display']]],
-  ['gamset_3',['GAMSET',['d8/d2d/a00815.html#a4a5baa065e1f33f03e2af5cb8e96abbaafd139fffd5cc195fea9626226d86000d',1,'Lib::BSP::Display::GAMSET'],['d8/d2d/a00815.html#a4a5baa065e1f33f03e2af5cb8e96abbaafd139fffd5cc195fea9626226d86000d',1,'Lib::BSP::Display::GAMSET']]],
-  ['gatectrl_4',['GATECTRL',['d8/d2d/a00815.html#a4a5baa065e1f33f03e2af5cb8e96abbaa85994676eb5c6f8dcf3fa6031ebfebff',1,'Lib::BSP::Display']]],
-  ['gateway_5',['gateway',['d4/df6/a01716.html#ae526dc3391066f8447e665e962d7f3e1',1,'Lib::Ethercat::SOES::EoEParameters']]],
-  ['gctrl_6',['GCTRL',['d8/d2d/a00815.html#a4a5baa065e1f33f03e2af5cb8e96abbaa45f6c1b09b52d4fa3648aed2d9c48b14',1,'Lib::BSP::Display']]],
-  ['generator_7',['generator',['d2/d82/a01404.html#a809af770c796f423098ad30eb9953eb3',1,'Lib::Crypto::WolfSSLDh::Config']]],
-  ['genuine_5ffamily_5fcode_8',['GENUINE_FAMILY_CODE',['d2/db4/a01192.html#acda4b1ad64e7f70334f8222f464670a7',1,'Lib::BSP::Thermometer::OneWire::DS18B20']]],
-  ['getparameters_9',['getParameters',['da/d0e/a01720.html#af5c689938685464a5e8331e943afbf47',1,'Lib::Ethercat::SOES::EoEHandlers']]],
-  ['ghostwhite_10',['GHOSTWHITE',['d9/d97/a01152.html#a0bfe83c121571ed8bc77aadd3e289516',1,'Color']]],
-  ['gmctrn1_11',['GMCTRN1',['d8/d2d/a00815.html#aa079b641f0d5c91c7219aa446879acf2a7a386eb73381bb52d79e38fa0757ac5d',1,'Lib::BSP::Display']]],
-  ['gmctrp1_12',['GMCTRP1',['d8/d2d/a00815.html#aa079b641f0d5c91c7219aa446879acf2a1bba1ce44deaca0bad07d8fb803a8318',1,'Lib::BSP::Display']]],
-  ['gold_13',['GOLD',['d9/d97/a01152.html#a2618b605697862b26823348276cf4f04',1,'Color']]],
-  ['goldenrod_14',['GOLDENROD',['d9/d97/a01152.html#a673d291b9ee313471df5af785957e2c6',1,'Color']]],
-  ['gray_15',['GRAY',['d9/d97/a01152.html#a1992f6db98c06edd14a18ea23a686500',1,'Color']]],
-  ['green_16',['GREEN',['d9/d97/a01152.html#ae4545c475722999ab57df0ef8666c163',1,'Color']]],
-  ['green_17',['green',['d9/d42/a01156.html#aaac4b49f8ced6f8a10842162f110217d',1,'Color::Data']]],
-  ['greenyellow_18',['GREENYELLOW',['d9/d97/a01152.html#af83fd5a3499eeacb73f4951fe3815e11',1,'Color']]],
-  ['gscan_19',['GSCAN',['d8/d2d/a00815.html#a4a5baa065e1f33f03e2af5cb8e96abbaa1e5a2cc8551ecbf2263fae3b4d4b3507',1,'Lib::BSP::Display']]],
-  ['gtadj_20',['GTADJ',['d8/d2d/a00815.html#a4a5baa065e1f33f03e2af5cb8e96abbaa0bdffa0340125b6a5dbef9fea3a76883',1,'Lib::BSP::Display']]],
-  ['guardtime_21',['guardTime',['d2/dd7/a01108.html#a6d08fcfd56cd70a165431b4ffca3ec42',1,'Lib::BSP::RFID::NfcManager::Config']]]
+  ['hi2c1_0',['hi2c1',['../dd/dca/_i2_c1_port_8hpp.html#af7b2c26e44dadaaa798a5c3d82914ba7',1,'I2C1Port.hpp']]]
 ];
