@@ -44,6 +44,7 @@ var _commands_8hpp =
       [ "APP::Commands::FrameType::SERVICE_LIST_ADD", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a030b20f7d38a8558c0f23e7ac3fe4473", null ],
       [ "APP::Commands::FrameType::SERVICE_LIST_REMOVE", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203ace7e5276801ddd5429e2e86506a4f05c", null ],
       [ "APP::Commands::FrameType::SERVICE_LIST_STATUS", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a4c8f43c165341cadcfdba972591bec6f", null ],
+      [ "APP::Commands::FrameType::SET_LOCATION", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a25c012010b8bb7f976d71f4e0dc13300", null ],
       [ "APP::Commands::FrameType::BLOCKLIST_RESPONSE", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203aa9526e0a8974cde28b67612ecd1eee9e", null ],
       [ "APP::Commands::FrameType::STATUS_RESPONSE", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a5d08acaca72d5126921d2c3ad63f864a", null ],
       [ "APP::Commands::FrameType::DISPOSAL_RECORDS_RESPONSE", "d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a36318b25899b83eb4d16765ec24501c3", null ],
@@ -66,6 +67,7 @@ var _commands_8hpp =
       [ "APP::Commands::StatusFlag::DOOR_5_OPEN", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aafa9ed62267848b9d426776973521627", null ],
       [ "APP::Commands::StatusFlag::DOOR_20_OPEN", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60a02fbba8dc85e0b00b7a18834d4a8280f", null ],
       [ "APP::Commands::StatusFlag::UI_BUSY", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60a74c17331f711db8ef503ce33d6b5d8b7", null ],
-      [ "APP::Commands::StatusFlag::DOOR_ALARM", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aed84085e0d1655bb49e7bc1611324634", null ]
+      [ "APP::Commands::StatusFlag::DOOR_ALARM", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aed84085e0d1655bb49e7bc1611324634", null ],
+      [ "APP::Commands::StatusFlag::FIRE_ALARM", "d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aec1df7bfed0c3bbe90c1e1274b678170", null ]
     ] ]
 ];

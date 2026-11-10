@@ -28,6 +28,23 @@ var NAVTREE =
     [ "Hardware overview", "index.html#hardware-overview", null ],
     [ "Layers", "index.html#layers", null ],
     [ "Building", "index.html#building", null ],
+    [ "PGA460TPWRQ1 usage", "da/dc7/a03407.html", null ],
+    [ "FunctionRef example", "d2/d2e/a03408.html", null ],
+    [ "Ascii example", "d0/dc8/a03409.html", null ],
+    [ "Bcd example", "df/de2/a03410.html", null ],
+    [ "dBM example", "d3/d74/a03411.html", null ],
+    [ "Hex example", "d4/d57/a03412.html", null ],
+    [ "HexHelper example", "d6/daa/a03413.html", null ],
+    [ "Percent example", "d2/dd6/a03414.html", null ],
+    [ "TimePeriod example", "d0/d4b/a03415.html", null ],
+    [ "TimeZone example", "df/df7/a03416.html", null ],
+    [ "EventGroup example", "d9/d9d/a03417.html", null ],
+    [ "MessageBuffer example", "d1/deb/a03418.html", null ],
+    [ "MutexGuard example", "d1/d42/a03419.html", null ],
+    [ "StreamBuffer examples", "d1/d8b/a03420.html", null ],
+    [ "Task example", "d9/d2c/a03421.html", null ],
+    [ "TickCounter example", "d3/dff/a03422.html", null ],
+    [ "CDCDevice example", "d3/d65/a03423.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
@@ -58,9 +75,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a3ca7840c9bad71f8aa4187cf380d5d40",
-"d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html#a890530176d6a46bd9131014625dfae1c",
-"dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099a2e0ee01e0807b586c11744580712274f"
+"d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#afbb33cc14bf4429514008b4fa3241838",
+"d7/dc4/class_a_p_p_1_1_distance_meter.html#ac4314c69612d4e9c3e034ac799e5e320",
+"db/da7/class_a_p_p_1_1_blocklist.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

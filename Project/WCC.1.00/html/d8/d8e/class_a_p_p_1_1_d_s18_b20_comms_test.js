@@ -14,6 +14,7 @@ var class_a_p_p_1_1_d_s18_b20_comms_test =
     [ "getPresenceFailures", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a1c36c1d61891407b9212fe4581fd79e2", null ],
     [ "getReadFailures", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a60d278262782e3c3408466bcdbb07da3", null ],
     [ "getResult", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a49b2e14f72ff25b32613d4877b1257f8", null ],
+    [ "getRomCheckValid", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a13f8d337a128f74237c25413c12c19fe", null ],
     [ "getSuccesses", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a82d3f5996ff5d7ee603e89ee13e4a325", null ],
     [ "start", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a788a535000e666c6c43ce9a1ed4bfe2d", null ]
 ];

@@ -114,11 +114,14 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/db7/class_m
 </div><!--header-->
 <div class="contents">
 
-<p>Cascaded MPPT controller of the solar accumulator charger.  
+<p>Cascaded MPPT controller of the solar accumulator charger, driving the LMR14030 buck charger.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Cascaded MPPT controller of the solar accumulator charger. </p>
-<p>Not thread-safe by design: "init()", "step()" and "disable()" must all be called from the single power supply task. </p>
+<div class="textblock"><p>Cascaded MPPT controller of the solar accumulator charger, driving the LMR14030 buck charger. </p>
+<p>The outer loop (library MPPT, every "OUTER_LOOP_DIVIDER" steps) computes the panel voltage setpoint; the inner loop (every "step()") moves the DAC_OUT voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
+<p>The DAC current is summed into the FB node through R30, so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current.</p>
+<div class="fragment"><div class="line">Vout = Vfb * (1 + R28 / R31 + R28 / R30) - Vdac * (R28 / R30)</div>
+</div><!-- fragment --><p>The state, the hardware constants and the private helpers live in an "Impl" defined in "MPPT.cpp", owned through a pointer created in the constructor. Not thread-safe by design: "init()", "step()" and "disable()" must all be called from the single power supply task. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>

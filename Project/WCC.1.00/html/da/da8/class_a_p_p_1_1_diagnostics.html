@@ -119,6 +119,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/da8/class_a
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Startup hardware check singleton. </p>
 <p>Checks flash, both INA219 power monitors, TMP102, DS18B20, ST25R100 and PGA460. A device that does not answer does not stop the boot; it is beeped once (see "indicate()") and reported to the ESP32 as a bit of "Commands::DeviceFault" in "STATUS_RESPONSE".</p>
+<p>"startRuntimeDiagnostics()" re-checks every "Impl::RUNTIME_CHECK_PERIOD" (5 min) after that, without disturbing the modules that now own most of the hardware: the flash is re-probed directly (the only check that is mutex-serialized against concurrent callers), while the INA219/TMP102, the ST25R100 and the PGA460 instead mirror the already-published health of "APP::PowerSupply", "APP::RFID" and "APP::DistanceMeter" (and the DS18B20 that of "APP::ExternalThermometer"), so no second, independent transaction races the one already running on that bus. A device whose owning module is disabled (see "APP::Application::ENABLE_*") simply keeps its last known status instead of being re-evaluated.</p>
+<p>The controller normally stays powered continuously, so the one-time "run()" at start-up only happens again after an actual reset/power cycle; "APP::Application::ENABLE_RUNTIME_DIAGNOSTICS" (independent of "ENABLE_STARTUP_DIAGNOSTICS") is what keeps "getFaultMask()" an up-to-date, ongoing signal in between.</p>
 <p>The state and the private checks live in an "Impl" defined in "Diagnostics.cpp". </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
@@ -130,6 +132,8 @@ Classes</h2></td></tr>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a7a5356423fdf2fbe9e447492babaee54" id="r_a7a5356423fdf2fbe9e447492babaee54"><td class="memItemLeft"><a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html">Report</a>&#160;</td><td class="memItemRight"><a class="el" href="#a7a5356423fdf2fbe9e447492babaee54">run</a> () noexcept</td></tr>
 <tr class="memdesc:a7a5356423fdf2fbe9e447492babaee54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs every device check once and publishes the result.  <br /></td></tr>
+<tr class="memitem:a3ba0b420dcad65fef592b6bc8a6e06a0" id="r_a3ba0b420dcad65fef592b6bc8a6e06a0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3ba0b420dcad65fef592b6bc8a6e06a0">startRuntimeDiagnostics</a> () noexcept</td></tr>
+<tr class="memdesc:a3ba0b420dcad65fef592b6bc8a6e06a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the runtime diagnostic task (first poll after "Impl::RUNTIME_CHECK_PERIOD").  <br /></td></tr>
 <tr class="memitem:a00455713f07c107a3164202e277298ab" id="r_a00455713f07c107a3164202e277298ab"><td class="memItemLeft"><a class="el" href="../../d8/d1d/struct_a_p_p_1_1_diagnostics_1_1_report.html">Report</a>&#160;</td><td class="memItemRight"><a class="el" href="#a00455713f07c107a3164202e277298ab">getReport</a> () const noexcept</td></tr>
 <tr class="memdesc:a00455713f07c107a3164202e277298ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the last "run()".  <br /></td></tr>
 <tr class="memitem:ac1f67f20b561e873a1956a9c2385b1b9" id="r_ac1f67f20b561e873a1956a9c2385b1b9"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ac1f67f20b561e873a1956a9c2385b1b9">getFaultMask</a> () const noexcept</td></tr>
@@ -326,6 +330,47 @@ Static Public Member Functions</h2></td></tr>
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/da8/class_a_p_p_1_1_diagnostics_a7a5356423fdf2fbe9e447492babaee54_icgraph.svg" width="163" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3ba0b420dcad65fef592b6bc8a6e06a0" name="a3ba0b420dcad65fef592b6bc8a6e06a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ba0b420dcad65fef592b6bc8a6e06a0">&#9670;&#160;</a></span>startRuntimeDiagnostics()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool APP::Diagnostics::startRuntimeDiagnostics </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the runtime diagnostic task (first poll after "Impl::RUNTIME_CHECK_PERIOD"). </p>
+<p>Safe to call whether or not the owning modules it reads from ("APP::PowerSupply", "APP::RFID", "APP::DistanceMeter", "APP::ExternalThermometer") have started yet or are enabled at all; a disabled one just leaves its bits as the last "run()"/re-check found them.</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the task is running. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/da8/class_a_p_p_1_1_diagnostics_a3ba0b420dcad65fef592b6bc8a6e06a0_cgraph.svg" width="219" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/da8/class_a_p_p_1_1_diagnostics_a3ba0b420dcad65fef592b6bc8a6e06a0_icgraph.svg" width="219" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>

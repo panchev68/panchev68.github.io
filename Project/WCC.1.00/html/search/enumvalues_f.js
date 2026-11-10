@@ -7,13 +7,14 @@ var searchData=
   ['service_5flist_5fremove_4',['SERVICE_LIST_REMOVE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203ace7e5276801ddd5429e2e86506a4f05c',1,'APP::Commands']]],
   ['service_5flist_5fresponse_5',['SERVICE_LIST_RESPONSE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203ae9f5ee558962b4e2216b106a9540f92c',1,'APP::Commands']]],
   ['service_5flist_5fstatus_6',['SERVICE_LIST_STATUS',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a4c8f43c165341cadcfdba972591bec6f',1,'APP::Commands']]],
-  ['set_5ftime_7',['SET_TIME',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a7169c86fc007c60a3e7b485524b6ade5',1,'APP::Commands']]],
-  ['short_5fresponse_8',['SHORT_RESPONSE',['../d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a39eda3b78f2f606388fe364659288133',1,'APP::PGA460CommsTest']]],
-  ['single_5f4_9',['SINGLE_4',['../d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a779f894f7d441c83f09558afa303b57dae5f20057b9f3597896af968d55d0d85c',1,'APP::RFIDCardTest']]],
-  ['solar_5fmonitor_10',['SOLAR_MONITOR',['../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43aa4687d079e3905e8707998e18219fef57',1,'APP::Commands']]],
-  ['start_5ffailed_11',['START_FAILED',['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a65a8079dabea48dfdc47743a60eee6d2',1,'APP::StorageTest']]],
-  ['status_5fresponse_12',['STATUS_RESPONSE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a5d08acaca72d5126921d2c3ad63f864a',1,'APP::Commands']]],
-  ['storage_5ferror_13',['STORAGE_ERROR',['../db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0a7ae7f2a13f0d5a18b0db91af9c5aef34',1,'APP::Blocklist::STORAGE_ERROR'],['../d0/d9b/class_a_p_p_1_1_service_list.html#a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34',1,'APP::ServiceList::STORAGE_ERROR']]],
-  ['sw_5finp1_14',['SW_INP1',['../df/df2/class_b_s_p_1_1_inputs.html#afe5301d1da1f28e3ebb9a3d547fce65faa51d935e7f19e476e6884b2e8a75bc68',1,'BSP::Inputs']]],
-  ['sw_5finp2_15',['SW_INP2',['../df/df2/class_b_s_p_1_1_inputs.html#afe5301d1da1f28e3ebb9a3d547fce65fac685a258aa035f3d0b7752ba95ce2e24',1,'BSP::Inputs']]]
+  ['set_5flocation_7',['SET_LOCATION',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a25c012010b8bb7f976d71f4e0dc13300',1,'APP::Commands']]],
+  ['set_5ftime_8',['SET_TIME',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a7169c86fc007c60a3e7b485524b6ade5',1,'APP::Commands']]],
+  ['short_5fresponse_9',['SHORT_RESPONSE',['../d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a39eda3b78f2f606388fe364659288133',1,'APP::PGA460CommsTest']]],
+  ['single_5f4_10',['SINGLE_4',['../d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a779f894f7d441c83f09558afa303b57dae5f20057b9f3597896af968d55d0d85c',1,'APP::RFIDCardTest']]],
+  ['solar_5fmonitor_11',['SOLAR_MONITOR',['../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43aa4687d079e3905e8707998e18219fef57',1,'APP::Commands']]],
+  ['start_5ffailed_12',['START_FAILED',['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a65a8079dabea48dfdc47743a60eee6d2',1,'APP::StorageTest']]],
+  ['status_5fresponse_13',['STATUS_RESPONSE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a5d08acaca72d5126921d2c3ad63f864a',1,'APP::Commands']]],
+  ['storage_5ferror_14',['STORAGE_ERROR',['../db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0a7ae7f2a13f0d5a18b0db91af9c5aef34',1,'APP::Blocklist::STORAGE_ERROR'],['../d0/d9b/class_a_p_p_1_1_service_list.html#a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34',1,'APP::ServiceList::STORAGE_ERROR']]],
+  ['sw_5finp1_15',['SW_INP1',['../df/df2/class_b_s_p_1_1_inputs.html#afe5301d1da1f28e3ebb9a3d547fce65faa51d935e7f19e476e6884b2e8a75bc68',1,'BSP::Inputs']]],
+  ['sw_5finp2_16',['SW_INP2',['../df/df2/class_b_s_p_1_1_inputs.html#afe5301d1da1f28e3ebb9a3d547fce65fac685a258aa035f3d0b7752ba95ce2e24',1,'BSP::Inputs']]]
 ];

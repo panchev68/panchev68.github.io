@@ -1,12 +1,15 @@
 var searchData=
 [
-  ['layer_0',['Layer',['../d6/dc5/group___a_p_p.html',1,'Application Layer'],['../de/df8/group___h_a_l.html',1,'Hardware Abstraction Layer']]],
-  ['layers_1',['Layers',['../index.html#layers',1,'']]],
-  ['left_5fopen_2',['LEFT_OPEN',['../d4/dab/namespace_a_p_p_1_1_commands.html#a5186e98dedb05c54d817d2063a204812a7cfff19934e7f73fb44b171b4141718e',1,'APP::Commands']]],
-  ['litres_3',['litres',['../d5/d8d/struct_a_p_p_1_1_disposal_record.html#a1d800984baed10d7c523f2c50fc7b8ba',1,'APP::DisposalRecord']]],
-  ['lock_5fpulse_4',['LOCK_PULSE',['../d4/dba/class_a_p_p_1_1_user_interface.html#ada5bcf09cf0713e2c1fd1907a5a4cf4a',1,'APP::UserInterface']]],
-  ['low_5fbattery_5',['LOW_BATTERY',['../d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60a36d76a2d86f6dbf2035366b3572f025c',1,'APP::Commands']]],
-  ['low_5fbattery_5fvoltage_6',['LOW_BATTERY_VOLTAGE',['../d6/dcf/class_a_p_p_1_1_com_module.html#a2ad0289ad5618e54088b601106df24b7',1,'APP::ComModule']]],
-  ['lowpower_7',['LowPower',['../d6/d7e/class_a_p_p_1_1_low_power.html',1,'APP']]],
-  ['lowpower_2ehpp_8',['LowPower.hpp',['../df/d36/_low_power_8hpp.html',1,'']]]
+  ['kalman_0',['Kalman',['dd/d76/a02268.html',1,'Lib::Math::Filter::Kalman&lt; typename T_TYPE &gt;'],['dd/d76/a02268.html#aa1d2d569c178bee69ecdf55d472c9b50',1,'Lib::Math::Filter::Kalman::Kalman()']]],
+  ['kalman_2ehpp_1',['Kalman.hpp',['dc/df1/a00662.html',1,'']]],
+  ['kbdhit_2',['kbdhit',['db/d20/a00980.html#a7173287d816b57b6541368dfbe743659',1,'Lib::BSP::EncoderPins']]],
+  ['kd_3',['kd',['db/d77/a02304.html#a6fd341537b6f12074478402b53dea8f1',1,'Lib::Math::Pid::Parameters']]],
+  ['kernel_4',['Kernel',['df/d49/a02340.html',1,'RTOS::Kernel'],['df/d49/a02340.html#abbc417c1dbe0eb579cf07e6568e6f922',1,'RTOS::Kernel::Kernel()']]],
+  ['kernel_2ehpp_5',['Kernel.hpp',['d1/d56/a00707.html',1,'']]],
+  ['key_6',['Key',['df/d93/a01336.html',1,'FunctionRefDetail::Base']]],
+  ['key_5fid_7',['KEY_ID',['../dc/dfb/struct_a_p_p_1_1_issuer_key.html#a351fe47831abbd0e9383ffc68843fb93',1,'APP::IssuerKey']]],
+  ['key_5fsize_8',['KEY_SIZE',['d3/dbd/a01100.html#a980b716db4c2a569de88ee08e724300b',1,'Lib::BSP::RFID::Mifare']]],
+  ['khaki_9',['KHAKI',['d9/d97/a01152.html#a48b82b65f1fad4d9822cc288cd4f6c1a',1,'Color']]],
+  ['ki_10',['ki',['db/d77/a02304.html#ac30cd8786ec60c8114bc21b7f63145d4',1,'Lib::Math::Pid::Parameters']]],
+  ['kp_11',['kp',['db/d77/a02304.html#af4932c40d48d9c972bd4f448a37388bc',1,'Lib::Math::Pid::Parameters']]]
 ];

@@ -123,7 +123,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/dcf/class_a
 <p>A powered ESP32 may sleep. It is assumed awake for "AWAKE_WINDOW" after power-on or its last frame. When items are pending and it is not assumed awake, a "WAKE_PULSE" on "ESP32_WAKEUP" wakes it and the module waits up to "WAKE_TIMEOUT" for its ready frame (HEARTBEAT). Items pending with no frame for "RESPONSE_TIMEOUT" power-cycle the ESP32.</p>
 <p>Disposal records wait in a "RecordBuffer". Below "LOW_BATTERY_VOLTAGE" on the accumulator, or after "MAX_RESTARTS" ESP32 restarts in a row with records pending, they move to the flash ("RecordStore"). They are not loaded back; GET_DISPOSAL_RECORDS returns the flash records first, oldest first, then the RAM records.</p>
 <p>Requests from the ESP32 run in the "ComService" receiver task. Its frame counters arrive through the model hooks in ComModel.cpp.</p>
-<p>The service card list ("ServiceList") is managed from the ESP32 exactly like the "Blocklist", through its own SERVICE_LIST_* commands and SERVICE_LIST_RESPONSE. </p>
+<p>The service card list ("ServiceList") is managed from the ESP32 exactly like the "Blocklist", through its own SERVICE_LIST_* commands and SERVICE_LIST_RESPONSE.</p>
+<p>SET_LOCATION reports the site's approximate coordinates (e.g. GSM cell-ID based, from the ESP32's LTE modem) once known; "APP::PowerSupply" reads them through "getLatitude()"/"getLongitude()" for its sunrise/sunset night window, falling back to a fixed reference position until "getIsLocationSet()" is "true". </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
@@ -152,6 +153,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aae674dfa3e44b4868e698d07158cc20a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the session number, which changes at every controller start.  <br /></td></tr>
 <tr class="memitem:aa6370a8036b0fb8d01916caf5e0c6d95" id="r_aa6370a8036b0fb8d01916caf5e0c6d95"><td class="memItemLeft"><a class="el" href="../../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html">Counters</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa6370a8036b0fb8d01916caf5e0c6d95">getCounters</a> () noexcept</td></tr>
 <tr class="memdesc:aa6370a8036b0fb8d01916caf5e0c6d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the frame and error statistics.  <br /></td></tr>
+<tr class="memitem:a3873bb65c9b82c1e54b4b8d93bdab358" id="r_a3873bb65c9b82c1e54b4b8d93bdab358"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3873bb65c9b82c1e54b4b8d93bdab358">getIsLocationSet</a> () const noexcept</td></tr>
+<tr class="memdesc:a3873bb65c9b82c1e54b4b8d93bdab358"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the ESP32 has reported the site's approximate coordinates with SET_LOCATION.  <br /></td></tr>
+<tr class="memitem:a16624df3e29f9423305ad7e82d839be0" id="r_a16624df3e29f9423305ad7e82d839be0"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a16624df3e29f9423305ad7e82d839be0">getLatitude</a> () const noexcept</td></tr>
+<tr class="memdesc:a16624df3e29f9423305ad7e82d839be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the site latitude last reported by SET_LOCATION.  <br /></td></tr>
+<tr class="memitem:a80d392016b7c1d3f2fc65aa1de252c68" id="r_a80d392016b7c1d3f2fc65aa1de252c68"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a80d392016b7c1d3f2fc65aa1de252c68">getLongitude</a> () const noexcept</td></tr>
+<tr class="memdesc:a80d392016b7c1d3f2fc65aa1de252c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the site longitude last reported by SET_LOCATION.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -256,6 +263,126 @@ Static Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a3873bb65c9b82c1e54b4b8d93bdab358" name="a3873bb65c9b82c1e54b4b8d93bdab358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3873bb65c9b82c1e54b4b8d93bdab358">&#9670;&#160;</a></span>getIsLocationSet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool APP::ComModule::getIsLocationSet </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether the ESP32 has reported the site's approximate coordinates with SET_LOCATION. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" once a SET_LOCATION frame has been accepted since the start. </dd></dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a3873bb65c9b82c1e54b4b8d93bdab358_cgraph.svg" width="243" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a3873bb65c9b82c1e54b4b8d93bdab358_icgraph.svg" width="243" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a16624df3e29f9423305ad7e82d839be0" name="a16624df3e29f9423305ad7e82d839be0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16624df3e29f9423305ad7e82d839be0">&#9670;&#160;</a></span>getLatitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float APP::ComModule::getLatitude </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the site latitude last reported by SET_LOCATION. </p>
+<dl class="section return"><dt>Returns</dt><dd>Latitude in degrees, positive north; meaningless while "getIsLocationSet()" is "false". </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a16624df3e29f9423305ad7e82d839be0_cgraph.svg" width="210" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a16624df3e29f9423305ad7e82d839be0_icgraph.svg" width="210" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a80d392016b7c1d3f2fc65aa1de252c68" name="a80d392016b7c1d3f2fc65aa1de252c68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80d392016b7c1d3f2fc65aa1de252c68">&#9670;&#160;</a></span>getLongitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float APP::ComModule::getLongitude </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the site longitude last reported by SET_LOCATION. </p>
+<dl class="section return"><dt>Returns</dt><dd>Longitude in degrees, positive east; meaningless while "getIsLocationSet()" is "false". </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a80d392016b7c1d3f2fc65aa1de252c68_cgraph.svg" width="219" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a80d392016b7c1d3f2fc65aa1de252c68_icgraph.svg" width="219" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="addf8b81b15bcc0b88878cdb2a9cdd420" name="addf8b81b15bcc0b88878cdb2a9cdd420"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#addf8b81b15bcc0b88878cdb2a9cdd420">&#9670;&#160;</a></span>getPendingBlocklistRemovalCount()</h2>
 
@@ -281,16 +408,16 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the number of blocklist removal requests not yet acknowledged. </p>
 <dl class="section return"><dt>Returns</dt><dd>Requests in the RAM buffer. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_addf8b81b15bcc0b88878cdb2a9cdd420_cgraph.svg" width="211" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_addf8b81b15bcc0b88878cdb2a9cdd420_icgraph.svg" width="211" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -321,16 +448,16 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the number of disposal records not yet acknowledged. </p>
 <dl class="section return"><dt>Returns</dt><dd>Records in the RAM buffer and in the flash. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a94cb807663c71d75c3a6598658922027_cgraph.svg" width="211" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a94cb807663c71d75c3a6598658922027_icgraph.svg" width="211" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -361,16 +488,16 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the number of supply power cycles caused by a silent ESP32 since start. </p>
 <dl class="section return"><dt>Returns</dt><dd>Power cycles triggered by "RESPONSE_TIMEOUT". </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-12-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a8f3487c6ec946483346f5239bc073d62_cgraph.svg" width="200" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-13-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a8f3487c6ec946483346f5239bc073d62_icgraph.svg" width="200" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -401,16 +528,16 @@ Static Public Attributes</h2></td></tr>
 
 <p>Returns the session number, which changes at every controller start. </p>
 <dl class="section return"><dt>Returns</dt><dd>Session, 1..255. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-14-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_aae674dfa3e44b4868e698d07158cc20a_cgraph.svg" width="211" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
+<div id="dynsection-15-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_aae674dfa3e44b4868e698d07158cc20a_icgraph.svg" width="211" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -504,16 +631,16 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Sequence number of the request, or 0 if it could not be buffered. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-16-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_af43e41fb6733a4213eeb769087133f04_cgraph.svg" width="231" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-17-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_af43e41fb6733a4213eeb769087133f04_icgraph.svg" width="231" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -574,16 +701,16 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Sequence number of the record, or 0 if it could not be buffered (not open, or already full). </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
 </div>
-<div id="dynsection-12-content" class="dyncontent hidden">
+<div id="dynsection-18-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a0e8c7e4d6edda845b4c9ac151a19b0ed_cgraph.svg" width="231" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
 </div>
-<div id="dynsection-13-content" class="dyncontent hidden">
+<div id="dynsection-19-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a0e8c7e4d6edda845b4c9ac151a19b0ed_icgraph.svg" width="231" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -614,16 +741,16 @@ Static Public Attributes</h2></td></tr>
 
 <p>Starts the receiver and the "ComLink" task, which powers the ESP32. </p>
 <dl class="section return"><dt>Returns</dt><dd>"true" if both run. </dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
 </div>
-<div id="dynsection-14-content" class="dyncontent hidden">
+<div id="dynsection-20-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a991610dcc331c6b50af4d1098012187f_cgraph.svg" width="171" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary">
 </div>
-<div id="dynsection-15-content" class="dyncontent hidden">
+<div id="dynsection-21-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/dcf/class_a_p_p_1_1_com_module_a991610dcc331c6b50af4d1098012187f_icgraph.svg" width="171" height="62"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 

@@ -18,6 +18,7 @@ var struct_a_p_p_1_1_application_1_1_status =
     [ "isRfidCardTestStarted", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#a2acd4b610eaf0a2bad45562fd6e64a3d", null ],
     [ "isRfidCommsTestStarted", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#a656f66ee5086ff998e2a62598367bb3a", null ],
     [ "isRfidStarted", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#a35eb3a3cb587c789be224bc456f65103", null ],
+    [ "isRuntimeDiagnosticsStarted", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#aae0193df0401133646a295d31281e567", null ],
     [ "isServiceListOpen", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#ac41b2f0412982c7ceec7f195ee21771e", null ],
     [ "isStorageStarted", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#a300f066129d790a088501f823f0b5c4a", null ],
     [ "isStorageTestStarted", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html#ac4108bc44f0a48a79dbfa4eec29a36be", null ],

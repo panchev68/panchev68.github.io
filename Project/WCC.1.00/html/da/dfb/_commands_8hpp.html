@@ -153,6 +153,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dfb/_comman
 <td class="markdownTableBodyNone">0x20  </td><td class="markdownTableBodyNone">SERVICE_LIST_REMOVE  </td><td class="markdownTableBodyNone">1..63 card numbers, 4 bytes each  </td><td class="markdownTableBodyNone">SERVICE_LIST_RESPONSE  </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">0x21  </td><td class="markdownTableBodyNone">SERVICE_LIST_STATUS  </td><td class="markdownTableBodyNone">none  </td><td class="markdownTableBodyNone">SERVICE_LIST_RESPONSE  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">0x22  </td><td class="markdownTableBodyNone">SET_LOCATION  </td><td class="markdownTableBodyNone">latitude (4), longitude (4)  </td><td class="markdownTableBodyNone">none  </td></tr>
 </table>
 <p>Controller -&gt; ESP32 (replies only):</p>
 <table class="markdownTable">
@@ -181,11 +183,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dfb/_comman
 <p>"GET_BLOCKLIST_REMOVE_REQUESTS" queues the card numbers of presented cards that were "BLOCKED", so the ESP32 can remove them from the blocklist on its own initiative with "BLOCKLIST_REMOVE" — the controller never calls "Blocklist::remove()" by itself; a reported card stays blocked until the ESP32 actually removes it.</p>
 <p>"status" of BLOCKLIST_RESPONSE is the first failure among the numbers of the request ("Blocklist::Status"), or OK; "already present" on add and "not found" on remove count as success, and a malformed request gets INVALID_REQUEST (0x05). "processed" is the number of card numbers handled before a failure stopped the request.</p>
 <p>"GET_TIME" lets the ESP32 read the controller's RTC on its own, independent of "GET_STATUS", to correct its own clock drift against the more accurate RTC.</p>
+<p>"SET_LOCATION" reports the site's approximate coordinates (e.g. GSM cell-ID based, from the ESP32's LTE modem; no GNSS fix is wired on this hardware) as fixed-point degrees (value * 1e7, signed, positive north/east), replacing the previous value. Used in place of the fixed geographic-center-of-Bulgaria reference position ("PowerSupply::Impl::FALLBACK_LATITUDE"/"FALLBACK_LONGITUDE", 42.8747/25.3188 - a default stand-in, not necessarily where a given site is installed) once set; never sent back to the ESP32, no reply.</p>
 <p>Link: the controller powers the ESP32 after its own start-up. The ESP32 works and, when it is done, sends POWER_OFF; the controller then cuts its supply. The optional payload of POWER_OFF is the time in seconds after which the controller switches the supply on again by itself (0 or no payload: only on the next event; longer than 24 h counts as 24 h). On every new event (a presented card, a disposal record, a blocklist removal request, a due time synchronization) or after the delay of POWER_OFF the controller powers the ESP32 again if it is off and waits for it to boot. A powered ESP32 may sleep: when there is something new for it the controller wakes it with a 20 ms pulse on "ESP32_WAKEUP", and the ESP32 sends HEARTBEAT when it is ready and then asks with the GET_ commands. "lost" counts disposal requests rejected because the local buffer was already full (new requests are refused, not overwriting older ones; see "RecordBuffer"; a rejected card is reported to the RFID side as "CardResult::BUSY", the same as a concurrent selection). Unix time 0 in a record means the RTC was not readable.</p>
 <p>One lock opening produces a record with "DoorEvent::OPENED" (litres 5 or 20, whichever lock) or "NOT_OPENED" (the door sensor did not report an open door within 2 s of the lock voltage). A door still open 30 s after it opened adds a "LEFT_OPEN" record and starts the buzzer alarm; the alarm runs for 15 s (45 s total from the door opening) and then stops on its own, whether or not the door has closed, with the problem left on record. If the door later closes, a "CLOSED" record follows. Every record carries the card number, the card UID, the litres of the opening and the RTC time of the event. The UID is fixed at 7 bytes: only NTAG21x cards reach a disposal record. The client is billed by the card UID, not by the card number (an issuer-signed application number, unrelated to the physical chip). The controller only reports a presented card to the ESP32 once it either leads to a disposal record or is "BLOCKED" ("GET_BLOCKLIST_REMOVE_REQUESTS"); any other rejection is never reported.</p>
 <p>A card number also listed in the service list ("CardResult::SERVICE_ACCEPTED") opens the two client doors and the main container door together ("UserInterface::requestServiceOpen()") instead of waiting for an amount selection. This also produces a disposal record, with "litres" 0 (marking it as a service opening, not a billed disposal) and "DoorEvent::OPENED" always, since the main container door ("OUT3") has no magnetic sensor to verify it. The service list itself is managed by the ESP32 exactly like the blocklist, with its own command/response pair (SERVICE_LIST_*, SERVICE_LIST_RESPONSE) and its own flash region ("ServiceList"); it is a separate list, not another blocklist flag, so a number can be a service card and still be blocked independently.</p>
-<dl class="section version"><dt>Version</dt><dd>3.03.1 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-10-28 </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>3.04.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-11-10 </dd></dl>
 </div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Commands.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -202,7 +205,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dfb/_comman
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:APP" id="r_APP"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/deb/namespace_a_p_p.html">APP</a></td></tr>
-<tr class="memdesc:d1/deb/namespace_a_p_p"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application layer, one module per "plan.md" item. <br /></td></tr>
+<tr class="memdesc:d1/deb/namespace_a_p_p"><td class="mdescLeft">&#160;</td><td class="mdescRight">Application layer, one singleton module per functional area. <br /></td></tr>
 <tr class="memitem:APP_3A_3ACommands" id="r_APP_3A_3ACommands"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html">APP::Commands</a></td></tr>
 <tr class="memdesc:d4/dab/namespace_a_p_p_1_1_commands"><td class="mdescLeft">&#160;</td><td class="mdescRight">Frame types exchanged with the ESP32 over "ComService" ("FrameType") and their payload layouts. <br /></td></tr>
 </table><table class="memberdecls">
@@ -240,6 +243,8 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203ace7e5276801ddd5429e2e86506a4f05c">APP::Commands::SERVICE_LIST_REMOVE</a> = 0x20U
 , <br />
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a4c8f43c165341cadcfdba972591bec6f">APP::Commands::SERVICE_LIST_STATUS</a> = 0x21U
+, <br />
+&#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203a25c012010b8bb7f976d71f4e0dc13300">APP::Commands::SET_LOCATION</a> = 0x22U
 , <br />
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#a22752a16760f0f281e7971adf0c26203aa9526e0a8974cde28b67612ecd1eee9e">APP::Commands::BLOCKLIST_RESPONSE</a> = 0x90U
 , <br />
@@ -305,6 +310,8 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60a74c17331f711db8ef503ce33d6b5d8b7">APP::Commands::UI_BUSY</a> = 0x20U
 , <br />
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aed84085e0d1655bb49e7bc1611324634">APP::Commands::DOOR_ALARM</a> = 0x40U
+, <br />
+&#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60aec1df7bfed0c3bbe90c1e1274b678170">APP::Commands::FIRE_ALARM</a> = 0x80U
 <br />
  }</td></tr>
 <tr class="memdesc:ae844a7054b27d2063ebf0ce008094d60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits of the flags byte of STATUS_RESPONSE.  <a href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ae844a7054b27d2063ebf0ce008094d60">More...</a><br /></td></tr>
@@ -324,7 +331,7 @@ Enumerations</h2></td></tr>
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43aaaf756d5bf3239142dbcf2d2b0b8a21ad">APP::Commands::DISTANCE_SENSOR</a> = 0x40U
 <br />
  }</td></tr>
-<tr class="memdesc:ab7dddd440070a1dbdfec9cb40c01c43a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits of the device faults byte of STATUS_RESPONSE: a set bit is a device that did not answer the start-up diagnostics.  <a href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43a">More...</a><br /></td></tr>
+<tr class="memdesc:ab7dddd440070a1dbdfec9cb40c01c43a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Bits of the device faults byte of STATUS_RESPONSE: a set bit is a device that did not answer the diagnostics ("Diagnostics::run()" at start-up, refreshed every "Diagnostics::Impl::RUNTIME_CHECK_PERIOD" by "Diagnostics::startRuntimeDiagnostics()").  <a href="../../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43a">More...</a><br /></td></tr>
 <tr class="memitem:a16ddf6ac358413eda6b8ce33c9f9f179" id="r_a16ddf6ac358413eda6b8ce33c9f9f179"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#a16ddf6ac358413eda6b8ce33c9f9f179">APP::Commands::MeasurementFlag</a> : uint8_t { <br />
 &#160;&#160;<a class="el" href="../../d4/dab/namespace_a_p_p_1_1_commands.html#a16ddf6ac358413eda6b8ce33c9f9f179a9f478f9203714aa67cdf40c7fb249cc1">APP::Commands::DISTANCE_VALID</a> = 0x01U
 , <br />

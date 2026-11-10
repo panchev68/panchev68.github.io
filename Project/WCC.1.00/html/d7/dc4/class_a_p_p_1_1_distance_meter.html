@@ -118,7 +118,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/dc4/class_a
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Fill-level measurement module singleton. </p>
-<p>Measures every "Impl::MEASURE_PERIOD" (30 min) and once more "Impl::AFTER_DISPOSAL_DELAY" (30 s) after "notifyDisposal()" is called (by "UserInterface", once a door closes), without disturbing the periodic schedule. Each measurement pauses "APP::RFID" discovery, powers the 12 V rail through the ref-counted "APP::Supply12V" and opens USART1 only for that one reading ("Impl::measure()"), then closes both again and resumes "APP::RFID"; the actual exchange is "APP/DistanceMeter/Pga460Polled". A reading that fails "Impl::MAX_FAILURES" times in a row is published as "no distance" instead of a stale value. </p>
+<p>Measures every "Impl::MEASURE_PERIOD" (30 min; 4 h while "APP::PowerSupply::ChargeIdle" reports idle) and once more "Impl::AFTER_DISPOSAL_DELAY" (30 s) after "notifyDisposal()"; every measurement restarts the period. Each one pauses "APP::RFID" discovery, powers the 12 V rail through "APP::Supply12V" and opens USART1 only for that reading. "Impl::MAX_FAILURES" failed readings in a row publish "no distance" instead of a stale value.</p>
+<p>The state and the task live in an "Impl" defined in "DistanceMeter.cpp". </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>

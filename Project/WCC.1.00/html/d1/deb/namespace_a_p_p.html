@@ -114,8 +114,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/deb/namespa
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Application layer, one module per "plan.md" item. </p>
-<p>Each module is a singleton that owns its task, brings up its own hardware with retry inside that task, and publishes results through atomic getters: "PowerSupply" (MPPT, "Supply12V" ref-counted 12 V booster, "LowPower"), "DistanceMeter" (PGA460 ultrasonic, USART1), "ExternalThermometer" (DS18B20), "RFID" (ST25R100/SPI3, NTAG21x card-record verification), "UserInterface" (front-panel buttons, door locks and sensors), "ComModule" (ESP32 link over USART3) and "StorageManager" (W25Q128 flash). "Diagnostics" runs a one-shot hardware check at start-up; "Application" starts every module. "Tests" ("Project/Tests/", a sibling directory also under this namespace) holds the on-target self-tests, enabled one at a time through the "ENABLE_*_TEST" switches in "Application.hpp" and removed before release. </p>
+<div class="textblock"><p>Application layer, one singleton module per functional area. </p>
+<p>Each module owns its task, brings up its own hardware with retry inside that task, and publishes results through atomic getters: "PowerSupply" (MPPT, "Supply12V" ref-counted 12 V booster, "LowPower"), "DistanceMeter" (PGA460 ultrasonic, USART1), "ExternalThermometer" (DS18B20), "RFID" (ST25R100/SPI3, NTAG21x card-record verification), "UserInterface" (front-panel buttons, door locks and sensors), "ComModule" (ESP32 link over USART3) and "StorageManager" (W25Q128 flash). "Diagnostics" runs a one-shot hardware check at start-up; "Application" starts every module. "Tests" ("Project/Tests/", a sibling directory also under this namespace) holds the on-target self-tests, enabled one at a time through the "ENABLE_*_TEST" switches in "Application.hpp" and removed before release. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
 Namespaces</h2></td></tr>
@@ -151,7 +151,7 @@ Classes</h2></td></tr>
 <tr class="memitem:ExternalThermometer" id="r_ExternalThermometer"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html">ExternalThermometer</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">DS18B20 external thermometer module singleton.  <a href="../../d6/d63/class_a_p_p_1_1_external_thermometer.html#details">More...</a><br /></td></tr>
 <tr class="memitem:IssuerKey" id="r_IssuerKey"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html">IssuerKey</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">WCC issuer key policy, satisfying "Lib::BSP::RFID::NTAG21x::IssuerKey".  <a href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">WCC issuer key policy, satisfying <b>Lib::BSP::RFID::NTAG21x::IssuerKey</b>.  <a href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html#details">More...</a><br /></td></tr>
 <tr class="memitem:LowPower" id="r_LowPower"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/d7e/class_a_p_p_1_1_low_power.html">LowPower</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Low-power singleton.  <a href="../../d6/d7e/class_a_p_p_1_1_low_power.html#details">More...</a><br /></td></tr>
 <tr class="memitem:MPPTChargeTest" id="r_MPPTChargeTest"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html">MPPTChargeTest</a></td></tr>
@@ -183,7 +183,7 @@ Classes</h2></td></tr>
 <tr class="memitem:StorageTest" id="r_StorageTest"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/dff/class_a_p_p_1_1_storage_test.html">StorageTest</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flash self-test singleton.  <a href="../../da/dff/class_a_p_p_1_1_storage_test.html#details">More...</a><br /></td></tr>
 <tr class="memitem:Supply12V" id="r_Supply12V"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../de/d84/class_a_p_p_1_1_supply12_v.html">Supply12V</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference-counted 12 V supply singleton.  <a href="../../de/d84/class_a_p_p_1_1_supply12_v.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference-counted 12 V supply singleton for the MT3608 booster (enable "V12_EN" on PA5, active-high with a pull-down), shared by the lock outputs (BTS724G Vbb) and the PGA460 ultrasonic sensor (VPWR).  <a href="../../de/d84/class_a_p_p_1_1_supply12_v.html#details">More...</a><br /></td></tr>
 <tr class="memitem:UserInterface" id="r_UserInterface"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/dba/class_a_p_p_1_1_user_interface.html">UserInterface</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Front-panel disposal module singleton.  <a href="../../d4/dba/class_a_p_p_1_1_user_interface.html#details">More...</a><br /></td></tr>
 <tr class="memitem:WakeupTuningTest" id="r_WakeupTuningTest"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html">WakeupTuningTest</a></td></tr>
@@ -191,9 +191,9 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a2bf194f119a7399d53cf62fd363a483a" id="r_a2bf194f119a7399d53cf62fd363a483a"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a2bf194f119a7399d53cf62fd363a483a">CardRecord</a> = Lib::BSP::RFID::NTAG21x::CardRecord&lt;<a class="el" href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html">IssuerKey</a>&gt;</td></tr>
+<tr class="memitem:a2bf194f119a7399d53cf62fd363a483a" id="r_a2bf194f119a7399d53cf62fd363a483a"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a2bf194f119a7399d53cf62fd363a483a">CardRecord</a> = <a class="elRef" href="d4/dc5/a01116.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt;<a class="el" href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html">IssuerKey</a>&gt;</td></tr>
 <tr class="memdesc:a2bf194f119a7399d53cf62fd363a483a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed card record verifier for this product.  <br /></td></tr>
-<tr class="memitem:ab46d1135b36484762d3fbf7585924421" id="r_ab46d1135b36484762d3fbf7585924421"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab46d1135b36484762d3fbf7585924421">OriginalitySignature</a> = Lib::BSP::RFID::NTAG21x::OriginalitySignature</td></tr>
+<tr class="memitem:ab46d1135b36484762d3fbf7585924421" id="r_ab46d1135b36484762d3fbf7585924421"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ab46d1135b36484762d3fbf7585924421">OriginalitySignature</a> = <a class="elRef" href="dc/d51/a01120.html">Lib::BSP::RFID::NTAG21x::OriginalitySignature</a></td></tr>
 <tr class="memdesc:ab46d1135b36484762d3fbf7585924421"><td class="mdescLeft">&#160;</td><td class="mdescRight">NXP originality signature verifier.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
@@ -213,7 +213,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a2bf194f119a7399d53cf62fd363a483a">APP::CardRecord</a> = Lib::BSP::RFID::NTAG21x::CardRecord&lt;<a class="el" href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html">IssuerKey</a>&gt;</td>
+          <td class="memname">using <a class="el" href="#a2bf194f119a7399d53cf62fd363a483a">APP::CardRecord</a> = <a class="elRef" href="d4/dc5/a01116.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt;<a class="el" href="../../dc/dfb/struct_a_p_p_1_1_issuer_key.html">IssuerKey</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -229,7 +229,7 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#ab46d1135b36484762d3fbf7585924421">APP::OriginalitySignature</a> = Lib::BSP::RFID::NTAG21x::OriginalitySignature</td>
+          <td class="memname">using <a class="el" href="#ab46d1135b36484762d3fbf7585924421">APP::OriginalitySignature</a> = <a class="elRef" href="dc/d51/a01120.html">Lib::BSP::RFID::NTAG21x::OriginalitySignature</a></td>
         </tr>
       </table>
 </div><div class="memdoc">

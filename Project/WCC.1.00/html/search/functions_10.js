@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['updateerrorcounter_0',['updateErrorCounter',['../d3/d6c/_com_service_8hpp.html#ae82e4b19361029150037cef38e790a97',1,'ComService.hpp']]],
-  ['updaterxframecounter_1',['updateRxFrameCounter',['../d3/d6c/_com_service_8hpp.html#a5a86ef828a7c11595a57d4ea62aff212',1,'ComService.hpp']]],
-  ['updatetxframecounter_2',['updateTxFrameCounter',['../d3/d6c/_com_service_8hpp.html#a7f4cdc5f29308d9031a228fb3e26e67a',1,'ComService.hpp']]]
+  ['quality_0',['Quality',['d5/da5/a01424.html#addae8d177e3be6cf88efd4277f317ef7',1,'Lib::Digi::API::Connection::Quality']]],
+  ['queue_1',['Queue',['d5/df1/a02392.html#ae2e2d5be166083d6b7ac6bf532106e78',1,'RTOS::Queue::Queue() noexcept=default'],['d5/df1/a02392.html#a26973b6d8a64d88a5dc5fcaca14fd774',1,'RTOS::Queue::Queue(Queue &amp;&amp;other) noexcept'],['d5/df1/a02392.html#ada5fbc10473e6f81a9c1f7388129a966',1,'RTOS::Queue::Queue(const Queue &amp;)=delete']]],
+  ['queueblocklistremoval_2',['queueBlocklistRemoval',['../d6/dcf/class_a_p_p_1_1_com_module.html#af43e41fb6733a4213eeb769087133f04',1,'APP::ComModule']]],
+  ['queuedisposalrecord_3',['queueDisposalRecord',['../d6/dcf/class_a_p_p_1_1_com_module.html#a0e8c7e4d6edda845b4c9ac151a19b0ed',1,'APP::ComModule']]],
+  ['queueframe_4',['queueFrame',['d3/d4c/a01724.html#a2afc345b5bcd9326d015eb678e620201',1,'Lib::Ethercat::SOES::EoE']]]
 ];

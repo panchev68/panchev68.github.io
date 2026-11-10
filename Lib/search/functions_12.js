@@ -46,7 +46,7 @@ var searchData=
   ['setcompare_43',['setCompare',['../d8/d22/a02044.html#a14b6982f85b9be41e24886a8a1c7445d',1,'Lib::HAL::Timer::TimOutputCompare']]],
   ['setconnectionquality_44',['setConnectionQuality',['../d1/d38/a01480.html#af7e5e84d1697e43122a6e086007d9789',1,'Lib::Digi::API::Service::ChannelScanner::Channel']]],
   ['setconnectionstate_45',['setConnectionState',['../d6/d3d/a01784.html#a7936da086b583d8438bc492bd1423181',1,'Lib::Ethernet::Wiznet::ClientBase']]],
-  ['setcurrentdate_46',['setCurrentDate',['../db/d14/a02232.html#a29094e288d78ced6c06c9652828bb343',1,'Lib::Helper::Sunset::setCurrentDate(int y, int m, int d) noexcept'],['../db/d14/a02232.html#a5c6deabfb7071836dede5e4bec4152f3',1,'Lib::Helper::Sunset::setCurrentDate(const ::Lib::DateTime::Date &amp;date) noexcept']]],
+  ['setcurrentdate_46',['setCurrentDate',['../db/d14/a02232.html#a29094e288d78ced6c06c9652828bb343',1,'Lib::Helper::Sunset::setCurrentDate(int y, int m, int d) noexcept'],['../db/d14/a02232.html#a0598ea08f953291be6bd331b39254b2a',1,'Lib::Helper::Sunset::setCurrentDate(const ::Lib::Helper::DateTime::Date &amp;date) noexcept']]],
   ['setdatetime_47',['setDateTime',['../d0/d38/a01984.html#a9911cafdfc9189dd93f7eb0494ffd54a',1,'Lib::HAL::RTCDevice']]],
   ['setdirection_48',['setDirection',['../d1/d47/a02300.html#a131b9717e760441b15ff258f878c02a1',1,'Lib::Math::Pid']]],
   ['seterror_49',['setError',['../d3/dbf/a01752.html#a3a1200c4fbb64c5e7c0dab76fb9d2023',1,'Lib::Ethercat::SOES::Slave']]],

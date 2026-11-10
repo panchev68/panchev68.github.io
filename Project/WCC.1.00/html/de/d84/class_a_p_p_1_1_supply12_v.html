@@ -114,10 +114,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('de/d84/class_a
 </div><!--header-->
 <div class="contents">
 
-<p>Reference-counted 12 V supply singleton.  
+<p>Reference-counted 12 V supply singleton for the MT3608 booster (enable "V12_EN" on PA5, active-high with a pull-down), shared by the lock outputs (BTS724G Vbb) and the PGA460 ultrasonic sensor (VPWR).  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Reference-counted 12 V supply singleton. </p>
+<div class="textblock"><p>Reference-counted 12 V supply singleton for the MT3608 booster (enable "V12_EN" on PA5, active-high with a pull-down), shared by the lock outputs (BTS724G Vbb) and the PGA460 ultrasonic sensor (VPWR). </p>
+<p>Users are reference-counted: the booster runs while at least one user holds it. "acquire()" waits "SETTLE_TIME" after switching it on, so the caller may load the rail right away; a user that joins while the booster is still settling waits for the remainder.</p>
+<p>The enable pin, the user counter and the settle time stamp live in an "Impl" defined in "Supply12V.cpp". </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -163,8 +165,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds a user and switches the booster on if it was off. </p>
-<p>Task context only.</p>
-<p>Returns once the rail has settled, also when another user switched the booster on a moment earlier. </p>
+<p>Task context only. Returns once the rail has settled, also when another user switched the booster on a moment earlier. </p>
 <div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>

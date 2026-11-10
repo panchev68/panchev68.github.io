@@ -118,15 +118,17 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d63/class_a
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>DS18B20 external thermometer module singleton. </p>
-<p>Owns a task that reads the temperature every 5 minutes and publishes the last valid value. Each read blocks the task for the 12-bit conversion.</p>
-<p>Low power: between reads the DS18B20 sits in its standby state (it has no sleep command; it idles at about 1 uA whenever no conversion runs) and the DQ pin is released to analog mode by "close()", so neither side draws current. Each read opens the pin (which applies "BSP::DS18B20::RESOLUTION"), converts while the task sleeps in "RTOS::delay()", reads the scratchpad and closes the pin again. </p>
+<p>Owns two tasks sharing the one DS18B20 driver through an internal mutex: a slow one that reads the temperature every 5 minutes for the PGA460 speed-of-sound compensation ("getTemperature()"), and a fast one that samples every 15 s and raises the fire alarm when the temperature rises 5 C or more within 30 s ("getIsFireAlarmOn()"). The alarm clears on its own once the rise drops below the threshold; a single failed read keeps the published value, the alarm state and the window unchanged.</p>
+<p>The state, the tasks and the private helpers live in an "Impl" defined in "ExternalThermometer.cpp". </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ac4ff5f7d4e4c343c8e90f255e2142b80" id="r_ac4ff5f7d4e4c343c8e90f255e2142b80"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac4ff5f7d4e4c343c8e90f255e2142b80">start</a> () noexcept</td></tr>
-<tr class="memdesc:ac4ff5f7d4e4c343c8e90f255e2142b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the measurement task.  <br /></td></tr>
+<tr class="memdesc:ac4ff5f7d4e4c343c8e90f255e2142b80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts both tasks (temperature measurement and fire-alarm sampling).  <br /></td></tr>
 <tr class="memitem:aca8986ad61112f7ed0b2208582609a42" id="r_aca8986ad61112f7ed0b2208582609a42"><td class="memItemLeft">std::optional&lt; float &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aca8986ad61112f7ed0b2208582609a42">getTemperature</a> () const noexcept</td></tr>
 <tr class="memdesc:aca8986ad61112f7ed0b2208582609a42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the last valid temperature.  <br /></td></tr>
+<tr class="memitem:a3f4943575d01cc97cb12254674e74504" id="r_a3f4943575d01cc97cb12254674e74504"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3f4943575d01cc97cb12254674e74504">getIsFireAlarmOn</a> () const noexcept</td></tr>
+<tr class="memdesc:a3f4943575d01cc97cb12254674e74504"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the fire alarm is on.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -134,6 +136,46 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:aab9ece8e5c23207b12d77a212ca5056d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique module instance.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3f4943575d01cc97cb12254674e74504" name="a3f4943575d01cc97cb12254674e74504"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f4943575d01cc97cb12254674e74504">&#9670;&#160;</a></span>getIsFireAlarmOn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool APP::ExternalThermometer::getIsFireAlarmOn </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether the fire alarm is on. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" while the alarm condition holds; "false" otherwise, including before enough samples exist. </dd></dl>
+<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d63/class_a_p_p_1_1_external_thermometer_a3f4943575d01cc97cb12254674e74504_cgraph.svg" width="192" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d63/class_a_p_p_1_1_external_thermometer_a3f4943575d01cc97cb12254674e74504_icgraph.svg" width="192" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="aca8986ad61112f7ed0b2208582609a42" name="aca8986ad61112f7ed0b2208582609a42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aca8986ad61112f7ed0b2208582609a42">&#9670;&#160;</a></span>getTemperature()</h2>
 
@@ -159,16 +201,16 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Returns the last valid temperature. </p>
 <dl class="section return"><dt>Returns</dt><dd>Temperature in degrees Celsius, or "std::nullopt" if no read succeeded yet or the last several reads failed. </dd></dl>
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary">
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
 </div>
-<div id="dynsection-0-content" class="dyncontent hidden">
+<div id="dynsection-2-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d63/class_a_p_p_1_1_external_thermometer_aca8986ad61112f7ed0b2208582609a42_cgraph.svg" width="192" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
+<div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d63/class_a_p_p_1_1_external_thermometer_aca8986ad61112f7ed0b2208582609a42_icgraph.svg" width="192" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -225,18 +267,18 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the measurement task. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the task is running. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<p>Starts both tasks (temperature measurement and fire-alarm sampling). </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if both tasks are running. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d63/class_a_p_p_1_1_external_thermometer_ac4ff5f7d4e4c343c8e90f255e2142b80_cgraph.svg" width="192" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
+<div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d63/class_a_p_p_1_1_external_thermometer_ac4ff5f7d4e4c343c8e90f255e2142b80_icgraph.svg" width="192" height="78"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
