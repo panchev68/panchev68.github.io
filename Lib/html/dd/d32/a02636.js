@@ -1,12 +1,17 @@
 var a02636 =
 [
-    [ "Lib::BSP::FMEM::SPI::Config", "d7/db6/a00940.html", "d7/db6/a00940" ],
-    [ "Lib::BSP::FMEM::SPI::Info", "d9/dce/a00944.html", "d9/dce/a00944" ],
-    [ "Lib::BSP::FMEM::SPI::DriverBase&lt; Derived &gt;", "d8/d18/a00948.html", "d8/d18/a00948" ],
-    [ "Lib::BSP::FMEM::SPI::Status", "df/d96/a00714.html#a93a86005cbff0244fb1cfdaa80180a51", [
-      [ "Lib::BSP::FMEM::SPI::Status::NO_INIT", "df/d96/a00714.html#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::READY", "df/d96/a00714.html#a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::POWER_OFF", "df/d96/a00714.html#a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::ERRORS", "df/d96/a00714.html#a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57", null ]
-    ] ]
+    [ "Status", "dd/d32/a02636.html#a61454ee42b2bfba6e7e63296f6011ff2", [
+      [ "NO_INIT", "dd/d32/a02636.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
+      [ "CHANGED", "dd/d32/a02636.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
+      [ "IN_PROGRESS", "dd/d32/a02636.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
+      [ "COMPLETED", "dd/d32/a02636.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
+    ] ],
+    [ "Value64Handle", "dd/d32/a02636.html#ae91f7070344c27bb733ae287d79e858d", null ],
+    [ "~Value64Handle", "dd/d32/a02636.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
+    [ "bind", "dd/d32/a02636.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
+    [ "complete", "dd/d32/a02636.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
+    [ "inProgress", "dd/d32/a02636.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
+    [ "operator const uint64_t &", "dd/d32/a02636.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
+    [ "operator=", "dd/d32/a02636.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
+    [ "update", "dd/d32/a02636.html#a3b562544e02a39556f90e7dac8d760ca", null ]
 ];

@@ -1,5 +1,4 @@
 var a00803 =
 [
-    [ "Lib::USB::SerialPort", "d1/d0c/a02570.html", "d1/d0c/a02570" ],
-    [ "Lib::USB::SerialPort::Config", "dc/db2/a02574.html", "dc/db2/a02574" ]
+    [ "PGA460TPWRQ1", "d4/d10/a01197.html", "d4/d10/a01197" ]
 ];

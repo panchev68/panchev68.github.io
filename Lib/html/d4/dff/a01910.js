@@ -1,14 +1,13 @@
 var a01910 =
 [
-    [ "Input", "d4/dff/a01910.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "d4/dff/a01910.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "Input", "d4/dff/a01910.html#aba23478206e067c578a2081a0ba4d1ee", null ],
-    [ "Input", "d4/dff/a01910.html#a01d95887913602ed10325b5b07f8cef5", null ],
-    [ "isHigh", "d4/dff/a01910.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d4/dff/a01910.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d4/dff/a01910.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d4/dff/a01910.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
-    [ "operator=", "d4/dff/a01910.html#aac4da8195bb51d393df961046635bfc0", null ],
-    [ "read", "d4/dff/a01910.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "d4/dff/a01910.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "CANPort", "d4/dff/a01910.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "d4/dff/a01910.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "d4/dff/a01910.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "d4/dff/a01910.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "getHandle", "d4/dff/a01910.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "d4/dff/a01910.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "operator=", "d4/dff/a01910.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "d4/dff/a01910.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
+    [ "readBlocking", "d4/dff/a01910.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "writeBlocking", "d4/dff/a01910.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

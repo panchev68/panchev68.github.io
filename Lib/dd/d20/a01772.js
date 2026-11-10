@@ -1,14 +1,18 @@
 var a01772 =
 [
-    [ "PortString", "dd/d20/a01772.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "dd/d20/a01772.html#a0cdcdcee9376806af5c6778670685c80", null ],
-    [ "Port", "dd/d20/a01772.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
-    [ "fromString", "dd/d20/a01772.html#af096519c074646658fc5d42017770060", null ],
-    [ "get", "dd/d20/a01772.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
-    [ "get", "dd/d20/a01772.html#a74efeaeccbeb41630891ddb4725470a5", null ],
-    [ "operator uint16_t", "dd/d20/a01772.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
-    [ "operator<=>", "dd/d20/a01772.html#a5db32af54d9bdde977000618e7b6d476", null ],
-    [ "operator=", "dd/d20/a01772.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
-    [ "set", "dd/d20/a01772.html#a1de553c3b996aee8be2112632f45ee1b", null ],
-    [ "toString", "dd/d20/a01772.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "Handlers", "dd/d20/a01772.html#a272ea34043ce0f3bb7014fc2c4df927e", null ],
+    [ "Parameters", "dd/d20/a01772.html#a4d66198ad9a9b1a75925e1a97dbc5fb9", null ],
+    [ "Result", "dd/d20/a01772.html#a6870bc1d903b1d83b238ba51088eb134", null ],
+    [ "EoE", "dd/d20/a01772.html#a57ce3b2cab796d2623bc80be2bc75e80", null ],
+    [ "~EoE", "dd/d20/a01772.html#a5babb7f332ba38f3e2e33203e39e615d", null ],
+    [ "EoE", "dd/d20/a01772.html#a07829bbfc5250b03c81968ebd709bf4e", null ],
+    [ "EoE", "dd/d20/a01772.html#ac52aa3b6cbf2a17e467cfba61ddbf48e", null ],
+    [ "handle", "dd/d20/a01772.html#a41416e8882dd613876cb3a6bcbfc9b44", null ],
+    [ "isSendPending", "dd/d20/a01772.html#a91f842049f97f5f7055e5a7f6de7c6ac", null ],
+    [ "operator=", "dd/d20/a01772.html#a82f98b2311b36aea43517d9a31df5d08", null ],
+    [ "operator=", "dd/d20/a01772.html#ae9237ef17cddb3bf83d5e2b41580c4af", null ],
+    [ "queueFrame", "dd/d20/a01772.html#a2afc345b5bcd9326d015eb678e620201", null ],
+    [ "reset", "dd/d20/a01772.html#a85ee64bff9f15d5ace7999ebdb5643ef", null ],
+    [ "service", "dd/d20/a01772.html#a4d41465f94d62fdbab816ab8d8ebd674", null ],
+    [ "setHandlers", "dd/d20/a01772.html#a6b26ad71662f36a666db683b5755a119", null ]
 ];

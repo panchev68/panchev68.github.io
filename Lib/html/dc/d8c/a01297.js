@@ -1,16 +1,19 @@
 var a01297 =
 [
-    [ "Channel", "d3/d07/a01301.html", "d3/d07/a01301" ],
-    [ "ChannelArray", "dc/d8c/a01297.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
-    [ "QualityMode", "dc/d8c/a01297.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
-    [ "Error", "dc/d8c/a01297.html#acb54f9ec6751a18eda393e2c5bd0675c", [
-      [ "NONE", "dc/d8c/a01297.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "MODULE_IS_NOT_CONNECTED", "dc/d8c/a01297.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
-      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "dc/d8c/a01297.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
-    ] ],
-    [ "ChannelScanner", "dc/d8c/a01297.html#a4e65a2b73399e5ba18d5090993f64487", null ],
-    [ "ChannelScanner", "dc/d8c/a01297.html#a1b11f5df668c4629836c71101e686990", null ],
-    [ "getChannels", "dc/d8c/a01297.html#a124a962ad28c0688ab38329f7a7b034e", null ],
-    [ "operator=", "dc/d8c/a01297.html#aed5af8462cac9a996e73489e369434d3", null ],
-    [ "onError", "dc/d8c/a01297.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
+    [ "Target", "d3/d07/a01301.html", "d3/d07/a01301" ],
+    [ "Key", "dc/d9e/a01305.html", null ],
+    [ "FreeFunctionPointer", "dc/d8c/a01297.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "dc/d8c/a01297.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "dc/d8c/a01297.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "Base", "dc/d8c/a01297.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
+    [ "Base", "dc/d8c/a01297.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
+    [ "Base", "dc/d8c/a01297.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
+    [ "Base", "dc/d8c/a01297.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
+    [ "Base", "dc/d8c/a01297.html#a49a4e79ff99eb03351fd7a280f276905", null ],
+    [ "invoke", "dc/d8c/a01297.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "dc/d8c/a01297.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "dc/d8c/a01297.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "dc/d8c/a01297.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "dc/d8c/a01297.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "dc/d8c/a01297.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

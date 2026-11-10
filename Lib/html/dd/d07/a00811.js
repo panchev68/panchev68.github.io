@@ -1,7 +1,9 @@
 var a00811 =
 [
-    [ "DeviceBase", "dd/d07/a00811.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "dd/d07/a00811.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "dd/d07/a00811.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "setup", "dd/d07/a00811.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "ChannelScanner", "d9/d6f/a01445.html", "d9/d6f/a01445" ],
+    [ "NetworkDiscovery", "d9/dae/a01453.html", "d9/dae/a01453" ],
+    [ "PairService", "dc/d60/a01461.html", "dc/d60/a01461" ],
+    [ "Parameters", "d9/d8b/a01469.html", "d9/d8b/a01469" ],
+    [ "ServiceBase", "d2/dac/a01489.html", "d2/dac/a01489" ],
+    [ "SpectrumAnalyzer", "d2/d41/a01493.html", "d2/d41/a01493" ]
 ];

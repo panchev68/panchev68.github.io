@@ -1,9 +1,7 @@
 var a01649 =
 [
-    [ "CityHash", "dc/d87/a01649.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "dc/d87/a01649.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "dc/d87/a01649.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "dc/d87/a01649.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "dc/d87/a01649.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "dc/d87/a01649.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "Group", "dc/d87/a01649.html#a48b74757679d549dd7d08383435d59b5", null ],
+    [ "~Group", "dc/d87/a01649.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
+    [ "getCaption", "dc/d87/a01649.html#a6b28a1279997058ac197a0579f4c818d", null ],
+    [ "tag", "dc/d87/a01649.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
 ];

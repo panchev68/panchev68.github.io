@@ -1,5 +1,6 @@
 var a03524 =
 [
-    [ "Lib::System::Storage&lt; T_DERIVED &gt;", "d1/df5/a02496.html", "d1/df5/a02496" ],
-    [ "Lib::System::Parameters&lt; T_DERIVED, T_DATA, T_STORAGE &gt;", "d4/dad/a02500.html", "d4/dad/a02500" ]
+    [ "Lib::BSP::W25Q128JVSIQ", "d0/dd3/a01077.html", "d0/dd3/a01077" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Register", "dd/dee/a01081.html", "dd/dee/a01081" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Info", "d2/df3/a01085.html", "d2/df3/a01085" ]
 ];

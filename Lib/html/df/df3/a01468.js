@@ -1,11 +1,13 @@
 var a01468 =
 [
-    [ "Config", "df/df3/a01468.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "State", "df/df3/a01468.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
-    [ "ServerBase", "df/df3/a01468.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
-    [ "~ServerBase", "df/df3/a01468.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
-    [ "getModulePresent", "df/df3/a01468.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "df/df3/a01468.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "start", "df/df3/a01468.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "connection", "df/df3/a01468.html#a6cc363b4c00520c96b5d228aab8301b8", null ]
+    [ "Node", "d2/d48/a01472.html", "d2/d48/a01472" ],
+    [ "NetworkDiscovery", "df/df3/a01468.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
+    [ "NetworkDiscovery", "df/df3/a01468.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
+    [ "close", "df/df3/a01468.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
+    [ "getNodeCount", "df/df3/a01468.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
+    [ "getNodes", "df/df3/a01468.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
+    [ "hasNodes", "df/df3/a01468.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
+    [ "open", "df/df3/a01468.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
+    [ "operator=", "df/df3/a01468.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
+    [ "start", "df/df3/a01468.html#a959b5480dd22f8a82c83f45f689a5f47", null ]
 ];

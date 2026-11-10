@@ -1,5 +1,6 @@
 var a02598 =
 [
-    [ "command", "da/d37/a02598.html#ab88a17ebe65ad74bd0ad24c49f050229", null ],
-    [ "payload", "da/d37/a02598.html#a837fc81ef88a6c8c67e1982490629483", null ]
+    [ "Base", "d3/dce/a02602.html", "d3/dce/a02602" ],
+    [ "Hardware", "d2/dca/a02606.html", "d2/dca/a02606" ],
+    [ "Firmware", "de/d3b/a02610.html", "de/d3b/a02610" ]
 ];

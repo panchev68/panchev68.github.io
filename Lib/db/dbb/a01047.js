@@ -1,12 +1,9 @@
 var a01047 =
 [
-    [ "SerialPortBase", "db/dbb/a01047.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "db/dbb/a01047.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "db/dbb/a01047.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "db/dbb/a01047.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "db/dbb/a01047.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "db/dbb/a01047.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "db/dbb/a01047.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "db/dbb/a01047.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "db/dbb/a01047.html#a22242f9b587ab6f048bcc4e16ed2e3b3", null ]
+    [ "chipManufacturer", "db/dbb/a01047.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "db/dbb/a01047.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "db/dbb/a01047.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "db/dbb/a01047.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "db/dbb/a01047.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "db/dbb/a01047.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

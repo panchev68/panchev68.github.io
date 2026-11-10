@@ -1,5 +1,5 @@
 var a00875 =
 [
-    [ "addr", "d1/d93/a00875.html#a52b4f081e411d6f6b400f02e266252f3", null ],
-    [ "i2cPort", "d1/d93/a00875.html#a0f7a92fa8726a2ef6dff8cac74b5e421", null ]
+    [ "MPPT", "d5/d61/a02474.html", "d5/d61/a02474" ],
+    [ "PerturbAndObserve", "dc/d2b/a02486.html", "dc/d2b/a02486" ]
 ];

@@ -1,10 +1,14 @@
 var a01861 =
 [
-    [ "maxPowerRef", "d6/d56/a01861.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
-    [ "mppCurrentRef", "d6/d56/a01861.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
-    [ "mppVoltageRef", "d6/d56/a01861.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
-    [ "referenceIrradiance", "d6/d56/a01861.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
-    [ "temperatureCoefficient", "d6/d56/a01861.html#a199180804d52f432b3f8a4861146f827", null ],
-    [ "toleranceFactor", "d6/d56/a01861.html#a94dbf0194f1c0097467e34c0605131d4", null ],
-    [ "updateInterval", "d6/d56/a01861.html#a9a72ac9a78c42013979d67300e60de6d", null ]
+    [ "ExtInterrupt", "d6/d56/a01861.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
+    [ "~ExtInterrupt", "d6/d56/a01861.html#a0500efb3e0dbde6f95fd02948060723b", null ],
+    [ "ExtInterrupt", "d6/d56/a01861.html#a0896646faa35c4149a6fb3f8360da15b", null ],
+    [ "ExtInterrupt", "d6/d56/a01861.html#af65b4789b35500d9539e56a75d90c71c", null ],
+    [ "bindCallback", "d6/d56/a01861.html#a716641ce172d66ad1226056de77e00f3", null ],
+    [ "operator=", "d6/d56/a01861.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
+    [ "operator=", "d6/d56/a01861.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
+    [ "unbindCallback", "d6/d56/a01861.html#a436fbfef93e09cd205ebb36284da5374", null ],
+    [ "void::HAL_GPIO_EXTI_Callback", "d6/d56/a01861.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
+    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d6/d56/a01861.html#a608244a38c1095888d60a17b77ae5ed4", null ],
+    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d6/d56/a01861.html#aa8068c433729122f23f40e6bfa77659f", null ]
 ];

@@ -1,11 +1,14 @@
 var a01391 =
 [
-    [ "WolfSSLRandom", "dc/dbc/a01391.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
-    [ "~WolfSSLRandom", "dc/dbc/a01391.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
-    [ "WolfSSLRandom", "dc/dbc/a01391.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
-    [ "WolfSSLRandom", "dc/dbc/a01391.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
-    [ "generate", "dc/dbc/a01391.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
-    [ "native", "dc/dbc/a01391.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
-    [ "operator=", "dc/dbc/a01391.html#a2b57fbc329feeb209aa7f41b29608488", null ],
-    [ "operator=", "dc/dbc/a01391.html#a61facc5365a377d384371cb51442e897", null ]
+    [ "PasswordAuthHandler", "dc/dbc/a01391.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "dc/dbc/a01391.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "dc/dbc/a01391.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "dc/dbc/a01391.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "dc/dbc/a01391.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "dc/dbc/a01391.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "dc/dbc/a01391.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "dc/dbc/a01391.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "dc/dbc/a01391.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "dc/dbc/a01391.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "dc/dbc/a01391.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

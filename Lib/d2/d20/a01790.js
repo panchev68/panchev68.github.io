@@ -1,11 +1,14 @@
 var a01790 =
 [
-    [ "Parameters", "d2/d20/a01790.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d2/d20/a01790.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d2/d20/a01790.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d2/d20/a01790.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d2/d20/a01790.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d2/d20/a01790.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d2/d20/a01790.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d2/d20/a01790.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "PortString", "d2/d20/a01790.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "d2/d20/a01790.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "d2/d20/a01790.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "d2/d20/a01790.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "d2/d20/a01790.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "d2/d20/a01790.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "d2/d20/a01790.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "d2/d20/a01790.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "d2/d20/a01790.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "d2/d20/a01790.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "d2/d20/a01790.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

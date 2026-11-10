@@ -1,12 +1,12 @@
 var a01300 =
 [
-    [ "ResponseData", "d6/dae/a01304.html", "d6/dae/a01304" ],
-    [ "SpectrumAnalyzer", "d8/dc5/a01300.html#a029d5ca785f56bfc7ca8ff6bda1b772d", null ],
-    [ "beginUpdate", "d8/dc5/a01300.html#a1231ab75357c3b807b793cbf2ea82d24", null ],
-    [ "checkNewData", "d8/dc5/a01300.html#a4773638228894b21b9360cd7723c46ca", null ],
-    [ "close", "d8/dc5/a01300.html#acd1558e98317932c402b59b037346306", null ],
-    [ "endUpdate", "d8/dc5/a01300.html#a024d7473fcc421e0a741ff49bbe8dde3", null ],
-    [ "getData", "d8/dc5/a01300.html#a840417ace53cffda7a58f4a48961a125", null ],
-    [ "open", "d8/dc5/a01300.html#a4c4e10495e5a41c00f890f39b3440bdc", null ],
-    [ "update", "d8/dc5/a01300.html#af68fb8ada608860caedb0c8220337ff2", null ]
+    [ "SerialPortBase", "d8/dc5/a01300.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "d8/dc5/a01300.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "d8/dc5/a01300.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "d8/dc5/a01300.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "d8/dc5/a01300.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "d8/dc5/a01300.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "d8/dc5/a01300.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "d8/dc5/a01300.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "d8/dc5/a01300.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

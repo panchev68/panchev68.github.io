@@ -1,4 +1,4 @@
 var a00392 =
 [
-    [ "Lib::HAL::toHalTimeout", "db/deb/a00853.html#a55be7e95dba53e09a7b9b5e29bcc3840", null ]
+    [ "Lib::HAL::isDmaReachable", "dd/d7b/a00865.html#a6d025716096ef0a5098ff9db2688b2da", null ]
 ];

@@ -1,11 +1,13 @@
 var a01551 =
 [
-    [ "ignoredMessagesByTimeout", "d5/df4/a01551.html#aef5921d826333c4443495f22db6f23b2", null ],
-    [ "invalidMessages", "d5/df4/a01551.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
-    [ "maxMsgLengthErrors", "d5/df4/a01551.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
-    [ "receivedAtCommandMessages", "d5/df4/a01551.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
-    [ "receivedDataMessages", "d5/df4/a01551.html#ac128abb8594b88f0197fc4fc467d9261", null ],
-    [ "sentAtCommandMessages", "d5/df4/a01551.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
-    [ "sentDataMessages", "d5/df4/a01551.html#acdadb83db434afcb1c0147457f423064", null ],
-    [ "sentDataMessagesTimeout", "d5/df4/a01551.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
+    [ "Config", "d6/dd7/a01555.html", "d6/dd7/a01555" ],
+    [ "ComDriver", "d5/df4/a01551.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "d5/df4/a01551.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "d5/df4/a01551.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "d5/df4/a01551.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "d5/df4/a01551.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "d5/df4/a01551.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "d5/df4/a01551.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "d5/df4/a01551.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "d5/df4/a01551.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

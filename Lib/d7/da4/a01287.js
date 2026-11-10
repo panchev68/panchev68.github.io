@@ -1,8 +1,20 @@
 var a01287 =
 [
-    [ "operator Frame::Data", "d7/da4/a01287.html#a17b184b443db4543afc48f73f2b2cb1e", null ],
-    [ "dstAddress", "d7/da4/a01287.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "d7/da4/a01287.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "d7/da4/a01287.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "d7/da4/a01287.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "Diagnostic", "d7/da4/a01287.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
+    [ "RxMessage", "d7/da4/a01287.html#a932efed9da888704df63ae07522746cc", null ],
+    [ "Service", "d7/da4/a01287.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
+    [ "~Service", "d7/da4/a01287.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
+    [ "errorCallback", "d7/da4/a01287.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
+    [ "getDiagnostic", "d7/da4/a01287.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
+    [ "messageReceivedCallback", "d7/da4/a01287.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
+    [ "receive", "d7/da4/a01287.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d7/da4/a01287.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
+    [ "send", "d7/da4/a01287.html#aad0ab4b3fc67332597a346d30271a53b", null ],
+    [ "send", "d7/da4/a01287.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
+    [ "send", "d7/da4/a01287.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "d7/da4/a01287.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "d7/da4/a01287.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "d7/da4/a01287.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
+    [ "stop", "d7/da4/a01287.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
+    [ "taskFn", "d7/da4/a01287.html#a375bb14705ce8117ed4e147179680854", null ]
 ];

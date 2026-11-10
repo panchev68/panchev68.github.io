@@ -1,12 +1,8 @@
 var a02183 =
 [
-    [ "Time", "df/d14/a02183.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "df/d14/a02183.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "df/d14/a02183.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "df/d14/a02183.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "df/d14/a02183.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "df/d14/a02183.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "df/d14/a02183.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "df/d14/a02183.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "df/d14/a02183.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "crc16", "df/d14/a02183.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "df/d14/a02183.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "df/d14/a02183.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "df/d14/a02183.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "df/d14/a02183.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

@@ -1,8 +1,17 @@
 var a01853 =
 [
-    [ "allocations", "db/d6b/a01853.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "db/d6b/a01853.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "db/d6b/a01853.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "db/d6b/a01853.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "db/d6b/a01853.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "DataAlignment", "db/d6b/a01853.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "db/d6b/a01853.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "db/d6b/a01853.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "db/d6b/a01853.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "db/d6b/a01853.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "db/d6b/a01853.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "db/d6b/a01853.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "db/d6b/a01853.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "db/d6b/a01853.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "db/d6b/a01853.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "db/d6b/a01853.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "db/d6b/a01853.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "db/d6b/a01853.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

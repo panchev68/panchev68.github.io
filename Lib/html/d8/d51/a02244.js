@@ -1,14 +1,11 @@
 var a02244 =
 [
-    [ "TimeChangeRule", "dc/de2/a02248.html", "dc/de2/a02248" ],
-    [ "TimeZone", "d8/d51/a02244.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "d8/d51/a02244.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "d8/d51/a02244.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "d8/d51/a02244.html#a479ec4792a22a5b314a497bb01be2047", null ],
-    [ "getName", "d8/d51/a02244.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "d8/d51/a02244.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "d8/d51/a02244.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "d8/d51/a02244.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "d8/d51/a02244.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "d8/d51/a02244.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "Client", "d8/d51/a02244.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
+    [ "Client", "d8/d51/a02244.html#a893ac5643ef917f5ca701fabbe75a429", null ],
+    [ "Client", "d8/d51/a02244.html#a207055b9f6a7daac509985f971a0e14f", null ],
+    [ "get", "d8/d51/a02244.html#aabf7e35c74111468fdd296e6931b047f", null ],
+    [ "operator=", "d8/d51/a02244.html#a19375415236ef7e6b214f897791eeb09", null ],
+    [ "operator=", "d8/d51/a02244.html#a3b9c27f75842a31365c97eaaa607d452", null ],
+    [ "post", "d8/d51/a02244.html#aee5955fa4ffad931d4418d2f59af2880", null ],
+    [ "request", "d8/d51/a02244.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
 ];

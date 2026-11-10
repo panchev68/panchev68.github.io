@@ -1,6 +1,6 @@
 var a01543 =
 [
-    [ "resetPin", "db/d08/a01543.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "db/d08/a01543.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "db/d08/a01543.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "AtCommandString", "db/d08/a01543.html#aececd161348c75d93c06ea6da2f4cd23", null ],
+    [ "AtCommandString", "db/d08/a01543.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
+    [ "operator uint16_t", "db/d08/a01543.html#a5bfb355d92f981a786da2146384333c5", null ]
 ];

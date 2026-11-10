@@ -1,6 +1,6 @@
 var a00089 =
 [
-    [ "Color", "d9/d97/a01152.html", "d9/d97/a01152" ],
-    [ "Color::Data", "d9/d42/a01156.html", "d9/d42/a01156" ],
-    [ "ColorDetail::pack", "da/d90/a00826.html#ad8d403e5fc6766109d53890ca071caf2", null ]
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "dd/d98/a00927.html", "dd/d98/a00927" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::CurrentCorrection", "df/dbc/a00931.html", "df/dbc/a00931" ],
+    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "d8/d19/a00935.html", "d8/d19/a00935" ]
 ];

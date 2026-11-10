@@ -1,9 +1,15 @@
 var a01780 =
 [
-    [ "command", "d0/dce/a01780.html#af08112845cd66edc31d068ebd37b83ca", null ],
-    [ "delimiter", "d0/dce/a01780.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
-    [ "id", "d0/dce/a01780.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
-    [ "length", "d0/dce/a01780.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
-    [ "option", "d0/dce/a01780.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
-    [ "timestamp", "d0/dce/a01780.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
+    [ "Error", "d0/dce/a01780.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d0/dce/a01780.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d0/dce/a01780.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d0/dce/a01780.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d0/dce/a01780.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d0/dce/a01780.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d0/dce/a01780.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d0/dce/a01780.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d0/dce/a01780.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d0/dce/a01780.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d0/dce/a01780.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d0/dce/a01780.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

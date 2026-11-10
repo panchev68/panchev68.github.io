@@ -1,14 +1,19 @@
 var a01774 =
 [
-    [ "PortString", "d9/d02/a01774.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "d9/d02/a01774.html#a0cdcdcee9376806af5c6778670685c80", null ],
-    [ "Port", "d9/d02/a01774.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
-    [ "fromString", "d9/d02/a01774.html#af096519c074646658fc5d42017770060", null ],
-    [ "get", "d9/d02/a01774.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
-    [ "get", "d9/d02/a01774.html#a74efeaeccbeb41630891ddb4725470a5", null ],
-    [ "operator uint16_t", "d9/d02/a01774.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
-    [ "operator<=>", "d9/d02/a01774.html#a5db32af54d9bdde977000618e7b6d476", null ],
-    [ "operator=", "d9/d02/a01774.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
-    [ "set", "d9/d02/a01774.html#a1de553c3b996aee8be2112632f45ee1b", null ],
-    [ "toString", "d9/d02/a01774.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "AddressString", "d9/d02/a01774.html#a4bd1cdcefe0490f36b31a3dd12dbb8c9", null ],
+    [ "IpAddress", "d9/d02/a01774.html#a14871d2fd0997a7192dbfa9efb391866", null ],
+    [ "IpAddress", "d9/d02/a01774.html#ad2648b0f73ef692addbd78f8b6a89e83", null ],
+    [ "IpAddress", "d9/d02/a01774.html#a969426d705b94a3bb6a04bc46e2194e5", null ],
+    [ "IpAddress", "d9/d02/a01774.html#ac1bc670d3fdcf3a73cde02df85874f9a", null ],
+    [ "~IpAddress", "d9/d02/a01774.html#a91c1c230613abcd87e0e6e643231cdac", null ],
+    [ "IpAddress", "d9/d02/a01774.html#a121d3d9a5d1d5288d582bbf6c925f23a", null ],
+    [ "data", "d9/d02/a01774.html#a4c0fc88456d713ebc87705c39a7a5fa2", null ],
+    [ "fromString", "d9/d02/a01774.html#aa8258817877631b9f96b9e16451a4027", null ],
+    [ "get", "d9/d02/a01774.html#a5407112eb57277910f2696486f34d87b", null ],
+    [ "operator[]", "d9/d02/a01774.html#a008326accb852006dc00f15e9ea5fb02", null ],
+    [ "set", "d9/d02/a01774.html#a3b95e7ad2bf59d4967e7a741aea271a5", null ],
+    [ "set", "d9/d02/a01774.html#a95fd8cae114a9d4e9f160927f60a7880", null ],
+    [ "set", "d9/d02/a01774.html#ac055a400e34b3e1927421c0243ba509d", null ],
+    [ "size", "d9/d02/a01774.html#a18a251f6c463c27b3f0de2c9316a54c2", null ],
+    [ "toString", "d9/d02/a01774.html#adc079b389a5a25b969af193bd5c9ad4a", null ]
 ];

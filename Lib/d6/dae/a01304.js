@@ -1,13 +1,9 @@
 var a01304 =
 [
-    [ "Config", "d1/d56/a01308.html", "d1/d56/a01308" ],
-    [ "Params", "d6/dae/a01304.html#aa0a4f2bbe579882088ad1235acfe6fd9", null ],
-    [ "PairService", "d6/dae/a01304.html#a5a54bddc9780ee25cf4d3807f36e1f12", null ],
-    [ "PairService", "d6/dae/a01304.html#a469a4f643d4fa5a75c530cb6d7ec49d5", null ],
-    [ "close", "d6/dae/a01304.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "isRunning", "d6/dae/a01304.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d6/dae/a01304.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d6/dae/a01304.html#a115a3537a0189cfcd83c231d716c0bb5", null ],
-    [ "process", "d6/dae/a01304.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "update", "d6/dae/a01304.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "errorCode", "d6/dae/a01304.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "d6/dae/a01304.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "d6/dae/a01304.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "d6/dae/a01304.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "d6/dae/a01304.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "d6/dae/a01304.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

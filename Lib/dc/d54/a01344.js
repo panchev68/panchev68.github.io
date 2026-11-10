@@ -1,12 +1,9 @@
 var a01344 =
 [
-    [ "FreeFunctionPointer", "dc/d54/a01344.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "dc/d54/a01344.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "dc/d54/a01344.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "dc/d54/a01344.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "dc/d54/a01344.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "dc/d54/a01344.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "dc/d54/a01344.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "dc/d54/a01344.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "dc/d54/a01344.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "Address", "dc/d54/a01344.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "dc/d54/a01344.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "dc/d54/a01344.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "dc/d54/a01344.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "dc/d54/a01344.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "dc/d54/a01344.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
 ];

@@ -1,10 +1,12 @@
 var a01166 =
 [
-    [ "Ring", "dc/dee/a01166.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "dc/dee/a01166.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "dc/dee/a01166.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "dc/dee/a01166.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "dc/dee/a01166.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "dc/dee/a01166.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "dc/dee/a01166.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "Data", "d3/dc7/a01170.html", "d3/dc7/a01170" ],
+    [ "Color", "dc/dee/a01166.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "dc/dee/a01166.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "dc/dee/a01166.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "dc/dee/a01166.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "dc/dee/a01166.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "dc/dee/a01166.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "dc/dee/a01166.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "dc/dee/a01166.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

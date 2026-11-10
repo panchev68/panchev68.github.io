@@ -1,4 +1,4 @@
 var a00488 =
 [
-    [ "Lib::HAL::LPTimer", "dc/d62/a02020.html", "dc/d62/a02020" ]
+    [ "Lib::HAL::GPIO::Input", "dc/da8/a01959.html", "dc/da8/a01959" ]
 ];

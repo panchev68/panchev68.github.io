@@ -1,5 +1,6 @@
 var a01459 =
 [
-    [ "firmwareVersion", "d6/d3b/a01459.html#a8a213038d3ef462ae46b408da218a1eb", null ],
-    [ "hardwareVersion", "d6/d3b/a01459.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
+    [ "operator uint64_t", "d6/d3b/a01459.html#aebc72338217669721612422f138da4e6", null ],
+    [ "leastSignificant", "d6/d3b/a01459.html#af020cae181d7b432faf85061911c84dd", null ],
+    [ "mostSignificant", "d6/d3b/a01459.html#abd19bd98e154f92791c281037281c222", null ]
 ];

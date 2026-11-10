@@ -1,16 +1,17 @@
 var a00985 =
 [
-    [ "Register", "d4/d95/a00989.html", "d4/d95/a00989" ],
-    [ "Info", "da/d0a/a00993.html", "da/d0a/a00993" ],
-    [ "Config", "da/deb/a00985.html#a91b48bf59f61c3580e5ead3149d91443", null ],
-    [ "W25Q128JVSIQ", "da/deb/a00985.html#af1b755c474085a41e554dcb38ad9056a", null ],
-    [ "~W25Q128JVSIQ", "da/deb/a00985.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
-    [ "close", "da/deb/a00985.html#a949717933a1c298041adcf500a7d8f9d", null ],
-    [ "eraseChipImpl", "da/deb/a00985.html#a9cfe72e525626e2236219608c53725d8", null ],
-    [ "eraseSectorImpl", "da/deb/a00985.html#ac379792562904225e5deb12f3820112b", null ],
-    [ "getInfo", "da/deb/a00985.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
-    [ "isPresent", "da/deb/a00985.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
-    [ "open", "da/deb/a00985.html#a419e720a0a366e322b172d234eccd202", null ],
-    [ "readImpl", "da/deb/a00985.html#ac37211819c0d5e4f3072dae655065868", null ],
-    [ "writeImpl", "da/deb/a00985.html#a00a39954e6187f8b4b393ed390f97239", null ]
+    [ "Config", "d4/d95/a00989.html", "d4/d95/a00989" ],
+    [ "Interface", "da/deb/a00985.html#a381267cd26262085628dc52296d42a8c", null ],
+    [ "~Interface", "da/deb/a00985.html#aef76c4d4ab040fbe9b344444f1ca1f25", null ],
+    [ "close", "da/deb/a00985.html#a4a3a734f32c1aa4414ad9067d7cb157f", null ],
+    [ "deselect", "da/deb/a00985.html#a0b87868f20232885a5b0a2ef5c8d1bcf", null ],
+    [ "lock", "da/deb/a00985.html#a1e411e237b03ed440a7c1b468aefd254", null ],
+    [ "open", "da/deb/a00985.html#ae082eeea2b4df228729740f9945df189", null ],
+    [ "read", "da/deb/a00985.html#a59f57dc88e37b6d81e93ccffd01ee9ed", null ],
+    [ "read", "da/deb/a00985.html#a50584766a7982887fc9dec5defbeb2b6", null ],
+    [ "readWrite", "da/deb/a00985.html#ae591bbd92b46b72f8129af300a672a5a", null ],
+    [ "select", "da/deb/a00985.html#ab62e9728d2b5fca07cb024578f579484", null ],
+    [ "unlock", "da/deb/a00985.html#a731e79a38afda2e92585da34cbf9b7ea", null ],
+    [ "write", "da/deb/a00985.html#af4430f4b29907dbbc81a1c4df8783b4d", null ],
+    [ "write", "da/deb/a00985.html#adfad30fd3c2f39252488033eab8522f4", null ]
 ];

@@ -1,19 +1,11 @@
 var a02020 =
 [
-    [ "CallbackID", "dc/d62/a02020.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
-    [ "Handle", "dc/d62/a02020.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
-    [ "LPTimer", "dc/d62/a02020.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
-    [ "~LPTimer", "dc/d62/a02020.html#add3250c704445e43eb5798c76d514cd0", null ],
-    [ "LPTimer", "dc/d62/a02020.html#a694916ba4b3b845dc40a55807a3c010a", null ],
-    [ "LPTimer", "dc/d62/a02020.html#a0151830764f6149bcd064718e12efa9d", null ],
-    [ "close", "dc/d62/a02020.html#a6295b01535aa1df83366d83b9426ff7d", null ],
-    [ "getElapsedRtosTicks", "dc/d62/a02020.html#a4fc71247da21a5d02602615eb66c4256", null ],
-    [ "getHandle", "dc/d62/a02020.html#add82be5171e6f5f28baaba0aea38a0de", null ],
-    [ "hasExpired", "dc/d62/a02020.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
-    [ "open", "dc/d62/a02020.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
-    [ "operator=", "dc/d62/a02020.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
-    [ "operator=", "dc/d62/a02020.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
-    [ "startTimeoutInterrupt", "dc/d62/a02020.html#af87c45b091cb7b10192ce86953eba07a", null ],
-    [ "stopInterrupt", "dc/d62/a02020.html#a524f65747a660c2243dfe55d318bb083", null ],
-    [ "waitForEvent", "dc/d62/a02020.html#a8f6329f1b312d263381f3738aacd64b8", null ]
+    [ "OTP", "dc/d62/a02020.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
+    [ "OTP", "dc/d62/a02020.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
+    [ "lock", "dc/d62/a02020.html#ab4c2e78575458526b83be6e259aa1f93", null ],
+    [ "operator=", "dc/d62/a02020.html#ad631f9069ef7f1c2f316505e7b391885", null ],
+    [ "operator=", "dc/d62/a02020.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
+    [ "read", "dc/d62/a02020.html#acff397156950347f6f452dec2c94af43", null ],
+    [ "unlock", "dc/d62/a02020.html#a220a07c58647557d8a81402260eacfb5", null ],
+    [ "write", "dc/d62/a02020.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
 ];

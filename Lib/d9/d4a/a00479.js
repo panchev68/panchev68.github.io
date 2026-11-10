@@ -1,4 +1,4 @@
 var a00479 =
 [
-    [ "Lib::HAL::SPIPortAsync&lt; T_DERIVED &gt;", "d5/d6e/a02008.html", "d5/d6e/a02008" ]
+    [ "Lib::HAL::FlashInterface", "d4/d25/a01939.html", "d4/d25/a01939" ]
 ];

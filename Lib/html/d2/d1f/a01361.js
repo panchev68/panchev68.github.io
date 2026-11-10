@@ -1,13 +1,11 @@
 var a01361 =
 [
-    [ "Config", "d7/d81/a01365.html", "d7/d81/a01365" ],
-    [ "ComDriver", "d2/d1f/a01361.html#ababf68659e9af31a588761f3b7019ee4", null ],
-    [ "ComDriver", "d2/d1f/a01361.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
-    [ "~ComDriver", "d2/d1f/a01361.html#ac84fd480c15423c989d3f9f367f99045", null ],
-    [ "init", "d2/d1f/a01361.html#a43649d6474cd7c536e4e76c7a3374725", null ],
-    [ "operator=", "d2/d1f/a01361.html#a39956162d031d237c8741f20d1de0b4d", null ],
-    [ "reset", "d2/d1f/a01361.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
-    [ "send", "d2/d1f/a01361.html#adb3898389cd892854bac73d239b647fc", null ],
-    [ "diagnostic", "d2/d1f/a01361.html#a567a1a6ed97de4267cfec4531f60a373", null ],
-    [ "xrst", "d2/d1f/a01361.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
+    [ "WolfSSLRandom", "d2/d1f/a01361.html#a7beca81afa06c9fc16a96b9465014b3e", null ],
+    [ "~WolfSSLRandom", "d2/d1f/a01361.html#a7d5bc1233a8800b0d4bc5196996bba3d", null ],
+    [ "WolfSSLRandom", "d2/d1f/a01361.html#a8d4fd961feff1cbfeb1a7a066c6a27b3", null ],
+    [ "WolfSSLRandom", "d2/d1f/a01361.html#a2cafef2d2c95eddfb1c64d4a97e77f19", null ],
+    [ "generate", "d2/d1f/a01361.html#adff98521976ec3840b9a9a3b44e8dfad", null ],
+    [ "native", "d2/d1f/a01361.html#a11c80dbf54143ec6064d8d93ffde0ed8", null ],
+    [ "operator=", "d2/d1f/a01361.html#a2b57fbc329feeb209aa7f41b29608488", null ],
+    [ "operator=", "d2/d1f/a01361.html#a61facc5365a377d384371cb51442e897", null ]
 ];

@@ -1,11 +1,10 @@
 var a01271 =
 [
-    [ "Config", "dd/d39/a01271.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "State", "dd/d39/a01271.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
-    [ "ServerBase", "dd/d39/a01271.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
-    [ "~ServerBase", "dd/d39/a01271.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
-    [ "getModulePresent", "dd/d39/a01271.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "dd/d39/a01271.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "start", "dd/d39/a01271.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "connection", "dd/d39/a01271.html#a6cc363b4c00520c96b5d228aab8301b8", null ]
+    [ "RxMessage", "dd/d39/a01271.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
+    [ "RxMessage", "dd/d39/a01271.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
+    [ "getData", "dd/d39/a01271.html#a211378ed57e780728a164371a88e9913", null ],
+    [ "getId", "dd/d39/a01271.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
+    [ "data", "dd/d39/a01271.html#ad7fd7612128273e1c546b6344e7410b3", null ],
+    [ "id", "dd/d39/a01271.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
+    [ "length", "dd/d39/a01271.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
 ];

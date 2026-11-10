@@ -1,14 +1,19 @@
 var a02031 =
 [
-    [ "Manager", "da/df2/a02031.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "da/df2/a02031.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimEventBase", "da/df2/a02031.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
-    [ "TimEventBase", "da/df2/a02031.html#a5bc4465b338b0255addd68424099b237", null ],
-    [ "TimEventBase", "da/df2/a02031.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
-    [ "~TimEventBase", "da/df2/a02031.html#a5005179511e8564eef47bc3da1d74925", null ],
-    [ "bindWorker", "da/df2/a02031.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "notifyWorkerFromISR", "da/df2/a02031.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "operator=", "da/df2/a02031.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
-    [ "operator=", "da/df2/a02031.html#a252859ce5916b5a86188c2929fc271a4", null ],
-    [ "waitEvent", "da/df2/a02031.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
+    [ "CallbackID", "da/df2/a02031.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
+    [ "Handle", "da/df2/a02031.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
+    [ "LPTimer", "da/df2/a02031.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
+    [ "~LPTimer", "da/df2/a02031.html#add3250c704445e43eb5798c76d514cd0", null ],
+    [ "LPTimer", "da/df2/a02031.html#a694916ba4b3b845dc40a55807a3c010a", null ],
+    [ "LPTimer", "da/df2/a02031.html#a0151830764f6149bcd064718e12efa9d", null ],
+    [ "close", "da/df2/a02031.html#a6295b01535aa1df83366d83b9426ff7d", null ],
+    [ "getElapsedRtosTicks", "da/df2/a02031.html#a4fc71247da21a5d02602615eb66c4256", null ],
+    [ "getHandle", "da/df2/a02031.html#add82be5171e6f5f28baaba0aea38a0de", null ],
+    [ "hasExpired", "da/df2/a02031.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
+    [ "open", "da/df2/a02031.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
+    [ "operator=", "da/df2/a02031.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
+    [ "operator=", "da/df2/a02031.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
+    [ "startTimeoutInterrupt", "da/df2/a02031.html#af87c45b091cb7b10192ce86953eba07a", null ],
+    [ "stopInterrupt", "da/df2/a02031.html#a524f65747a660c2243dfe55d318bb083", null ],
+    [ "waitForEvent", "da/df2/a02031.html#a8f6329f1b312d263381f3738aacd64b8", null ]
 ];

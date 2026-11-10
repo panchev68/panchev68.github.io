@@ -1,10 +1,13 @@
 var a01933 =
 [
-    [ "VersionString", "dc/da7/a01933.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "dc/da7/a01933.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "dc/da7/a01933.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "dc/da7/a01933.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "dc/da7/a01933.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "dc/da7/a01933.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "dc/da7/a01933.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "BackupRamDomain", "dc/da7/a01933.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "dc/da7/a01933.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "dc/da7/a01933.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "dc/da7/a01933.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "dc/da7/a01933.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "dc/da7/a01933.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "dc/da7/a01933.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "dc/da7/a01933.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "dc/da7/a01933.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "dc/da7/a01933.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

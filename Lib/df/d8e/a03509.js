@@ -1,4 +1,4 @@
 var a03509 =
 [
-    [ "Lib::Digi::Core::Protocol", "dd/d70/a01596.html", null ]
+    [ "Lib::BSP::Ethercat::PDI::LAN9252::Helper", "d2/d57/a01033.html", null ]
 ];

@@ -1,9 +1,13 @@
 var a01420 =
 [
-    [ "State", "d0/d05/a01420.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
-    [ "State", "d0/d05/a01420.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
-    [ "isConnected", "d0/d05/a01420.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
-    [ "operator uint32_t", "d0/d05/a01420.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
-    [ "operator=", "d0/d05/a01420.html#a74040294aacf89a661c876eb5aadc081", null ],
-    [ "onConnectionChanged", "d0/d05/a01420.html#af29d5ac1eff410a6876b1be865601ca8", null ]
+    [ "WolfSSHServer", "d0/d05/a01420.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
+    [ "~WolfSSHServer", "d0/d05/a01420.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
+    [ "WolfSSHServer", "d0/d05/a01420.html#ad8f53deb42abb7890bd933f530e30e99", null ],
+    [ "WolfSSHServer", "d0/d05/a01420.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
+    [ "accept", "d0/d05/a01420.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
+    [ "operator=", "d0/d05/a01420.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
+    [ "operator=", "d0/d05/a01420.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
+    [ "read", "d0/d05/a01420.html#ac07508d68f41b64e463fdd58db57558b", null ],
+    [ "send", "d0/d05/a01420.html#a034957692d48053e848ee6d77605fe2f", null ],
+    [ "shutdown", "d0/d05/a01420.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
 ];

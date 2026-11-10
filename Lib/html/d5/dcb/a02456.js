@@ -1,12 +1,14 @@
 var a02456 =
 [
-    [ "ReferenceParameters", "d9/d04/a02460.html", "d9/d04/a02460" ],
+    [ "Config", "d9/d04/a02460.html", "d9/d04/a02460" ],
     [ "Measurement", "d3/d19/a02464.html", "d3/d19/a02464" ],
-    [ "MaxPowerEstimator", "d5/dcb/a02456.html#a434bc885ae98e175c94cc0274463e3e5", null ],
-    [ "MPPT", "d5/dcb/a02456.html#aedf986308c8dd799d4771f32d446ee01", null ],
-    [ "getIrradianceCoefficient", "d5/dcb/a02456.html#a55a3b7a18c79deb5568e627889f76b86", null ],
-    [ "getTolerance", "d5/dcb/a02456.html#a0ac8d81cbc06a7045f43424b16871253", null ],
-    [ "getVoltageSetpoint", "d5/dcb/a02456.html#a455584e52b5677fe4bce93e58e80ca38", null ],
-    [ "setMaxPowerEstimationFunction", "d5/dcb/a02456.html#abc619561c7180e6c69b8282c58157857", null ],
-    [ "update", "d5/dcb/a02456.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
+    [ "Direction", "d5/dcb/a02456.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "d5/dcb/a02456.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "d5/dcb/a02456.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
+    ] ],
+    [ "PerturbAndObserve", "d5/dcb/a02456.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "d5/dcb/a02456.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "d5/dcb/a02456.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "d5/dcb/a02456.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "d5/dcb/a02456.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

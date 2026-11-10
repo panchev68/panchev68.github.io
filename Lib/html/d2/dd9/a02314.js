@@ -1,36 +1,23 @@
 var a02314 =
 [
-    [ "Config", "db/dda/a02318.html", "db/dda/a02318" ],
-    [ "Command", "d2/dd9/a02314.html#ac6a1f18dc094880e53169a7e884cc0cf", [
-      [ "OFF", "d2/dd9/a02314.html#ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d2/dd9/a02314.html#ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Error", "d2/dd9/a02314.html#a9e4cc2264975fb90820378e04641c518", [
-      [ "NONE", "d2/dd9/a02314.html#a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "TIMEOUT_ON", "d2/dd9/a02314.html#a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a", null ],
-      [ "TIMEOUT_OFF", "d2/dd9/a02314.html#a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8", null ],
-      [ "UNCOMMANDED_ON", "d2/dd9/a02314.html#a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25", null ],
-      [ "UNCOMMANDED_OFF", "d2/dd9/a02314.html#a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff", null ]
-    ] ],
-    [ "Status", "d2/dd9/a02314.html#a7273a3341799aff5527818d9cf88b2b3", [
-      [ "UNKNOWN", "d2/dd9/a02314.html#a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "IS_OFF", "d2/dd9/a02314.html#a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d2/dd9/a02314.html#a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d2/dd9/a02314.html#a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412", null ],
-      [ "IS_ERROR", "d2/dd9/a02314.html#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232", null ]
-    ] ],
-    [ "Cylinder", "d2/dd9/a02314.html#a4a14559353a95200e26e6fdd1b2c5373", null ],
-    [ "Cylinder", "d2/dd9/a02314.html#a0cdf7a1264200218792c3ac743ebd3ee", null ],
-    [ "canClearError", "d2/dd9/a02314.html#a3380b7e3e9cd1ad5d89182f78c7c2e10", null ],
-    [ "clearError", "d2/dd9/a02314.html#aef222ad4de0b20041057d6cbb158da56", null ],
-    [ "command", "d2/dd9/a02314.html#a4da495987bbb4e5916779c867b023761", null ],
-    [ "getError", "d2/dd9/a02314.html#aabb2b9b76a6bd30cd4d5131f9590d1ea", null ],
-    [ "getName", "d2/dd9/a02314.html#ac8f6f212de3f12f2462517ec4d946aff", null ],
-    [ "getStatus", "d2/dd9/a02314.html#ae77dd637f0aa88053b8603aef39a1cd5", null ],
-    [ "isOff", "d2/dd9/a02314.html#a4f802a332f1c0e7364f5b50359abe6c0", null ],
-    [ "isOn", "d2/dd9/a02314.html#a022b42d80b8a6250e056669900b6f3c2", null ],
-    [ "operator=", "d2/dd9/a02314.html#a600ee7c6b32fb9f0609c9a4056d053c5", null ],
-    [ "setup", "d2/dd9/a02314.html#a5f7bd85024efefa8864d447204703865", null ],
-    [ "update", "d2/dd9/a02314.html#adf02fbd43f1b7d0e8bbd5222bf46f8a7", null ],
-    [ "onError", "d2/dd9/a02314.html#ac7f6d7a7759ce31dd9914dcb444cb0de", null ]
+    [ "Parameters", "db/dda/a02318.html", "db/dda/a02318" ],
+    [ "State", "d7/df2/a02322.html", "d7/df2/a02322" ],
+    [ "Pid", "d2/dd9/a02314.html#a41a37f36dc432f8e971650f9ff2e7a8e", null ],
+    [ "Pid", "d2/dd9/a02314.html#a1fabd4f5399e04107a81b4b5b8a74ddb", null ],
+    [ "Pid", "d2/dd9/a02314.html#a3545b5dac092bbf4b74a70eb0d3e21a7", null ],
+    [ "compute", "d2/dd9/a02314.html#a5ebd947fb71cac9e012eeda62346bb39", null ],
+    [ "getIntegralTerm", "d2/dd9/a02314.html#a09cf8e3d1fb8e112834bb169d4479a55", null ],
+    [ "getOutput", "d2/dd9/a02314.html#aa9cd09e31eeca872417ddc17552872f6", null ],
+    [ "getParameters", "d2/dd9/a02314.html#a99de3209865162f13cf91f085b7fdea7", null ],
+    [ "getState", "d2/dd9/a02314.html#a235d0900f482fef6b4cce1f1e5932cd4", null ],
+    [ "isAutomatic", "d2/dd9/a02314.html#ae87f395bf6f7789860ecd320c3146844", null ],
+    [ "isReverse", "d2/dd9/a02314.html#a86c187fc462eb3fbcda4c4765ca5dbef", null ],
+    [ "reset", "d2/dd9/a02314.html#aa7e0c148fa92993acc0e062e7ebd50b2", null ],
+    [ "setDirection", "d2/dd9/a02314.html#a131b9717e760441b15ff258f878c02a1", null ],
+    [ "setGains", "d2/dd9/a02314.html#a6ebec94b45c9fd0543e2d4e529ba19c1", null ],
+    [ "setManualOutput", "d2/dd9/a02314.html#aaf9fc6f5598723d89c5b53ab57d0523d", null ],
+    [ "setMode", "d2/dd9/a02314.html#af5e5b90007ad75d2739fcbd55618265c", null ],
+    [ "setOutputLimits", "d2/dd9/a02314.html#ac87b3672a759beebebc2a98ebbab8c00", null ],
+    [ "setParameters", "d2/dd9/a02314.html#a168254291d8c630ee2ebfba757491daf", null ],
+    [ "setSampleTime", "d2/dd9/a02314.html#a7eb49cd9682da72b19692d3eb28f1606", null ]
 ];

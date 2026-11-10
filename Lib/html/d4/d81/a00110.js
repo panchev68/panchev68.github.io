@@ -1,5 +1,6 @@
 var a00110 =
 [
-    [ "Lib::BSP::Thermometer::OneWire::DS18B20", "d9/d2e/a01194.html", "d9/d2e/a01194" ],
-    [ "Lib::BSP::Thermometer::OneWire::DS18B20::Config", "d0/d32/a01198.html", "d0/d32/a01198" ]
+    [ "Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;", "dd/de9/a01182.html", "dd/de9/a01182" ],
+    [ "Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;::TimerHandler", "d9/dbb/a01186.html", "d9/dbb/a01186" ],
+    [ "Lib::BSP::Thermometer::DTH::Base&lt; T_DERIVED &gt;::Config", "dc/d19/a01190.html", "dc/d19/a01190" ]
 ];

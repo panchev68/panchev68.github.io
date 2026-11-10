@@ -1,8 +1,9 @@
 var a00882 =
 [
     [ "Config", "d2/dab/a00886.html", "d2/dab/a00886" ],
-    [ "Beep", "d3/d50/a00882.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
-    [ "isPlaying", "d3/d50/a00882.html#ac6552c090b310890de41a06ba77a7e68", null ],
-    [ "play", "d3/d50/a00882.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
-    [ "RTOS::TickClient< Beep >", "d3/d50/a00882.html#a021b081c55c843fa9b7ba25effa04637", null ]
+    [ "Backlight", "d3/d50/a00882.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
+    [ "~Backlight", "d3/d50/a00882.html#a5516d16616d30b6214626e963873f08a", null ],
+    [ "get", "d3/d50/a00882.html#a50a810c2a297031558286c9c20bb51ea", null ],
+    [ "operator=", "d3/d50/a00882.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
+    [ "set", "d3/d50/a00882.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
 ];

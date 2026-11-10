@@ -1,15 +1,8 @@
 var a01061 =
 [
-    [ "Diagnostic", "d0/dc9/a01065.html", "d0/dc9/a01065" ],
-    [ "Driver", "de/d9e/a01061.html#ab07845254f409b109812886c271c23fd", null ],
-    [ "~Driver", "de/d9e/a01061.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
-    [ "getHumidity", "de/d9e/a01061.html#af1b0389aae714142b8a606106d0a4a56", null ],
-    [ "getRawHumidity", "de/d9e/a01061.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
-    [ "getRawTemperature", "de/d9e/a01061.html#ab776af450b94ccff9151de29e820c940", null ],
-    [ "getTemperature", "de/d9e/a01061.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
-    [ "hasNewData", "de/d9e/a01061.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
-    [ "isValidData", "de/d9e/a01061.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
-    [ "start", "de/d9e/a01061.html#a7bb2909673708c9ad956bc98034da91d", null ],
-    [ "Base< Driver< Type::DTH22 > >", "de/d9e/a01061.html#a563861f233361c18a30fd9049d7abd7a", null ],
-    [ "diagnostic", "de/d9e/a01061.html#a641741551ee87f815b7ca238c2fce09c", null ]
+    [ "chipSelectPin", "de/d9e/a01061.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "de/d9e/a01061.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "de/d9e/a01061.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "de/d9e/a01061.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "de/d9e/a01061.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

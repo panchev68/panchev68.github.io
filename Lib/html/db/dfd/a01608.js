@@ -1,7 +1,7 @@
 var a01608 =
 [
-    [ "writeTo", "db/dfd/a01608.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
-    [ "atCommand", "db/dfd/a01608.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "db/dfd/a01608.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameterValue", "db/dfd/a01608.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
+    [ "operator std::vector< uint8_t >", "db/dfd/a01608.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
+    [ "view", "db/dfd/a01608.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
+    [ "data", "db/dfd/a01608.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
+    [ "size", "db/dfd/a01608.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
 ];

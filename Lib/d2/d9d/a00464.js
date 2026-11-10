@@ -1,5 +1,4 @@
 var a00464 =
 [
-    [ "Lib::HAL::Reset", "d9/da1/a01976.html", "d9/da1/a01976" ],
-    [ "NVIC_SystemReset", "d2/d9d/a00464.html#a6e0b05b8a10d1939b1820fd9f07e9cb9", null ]
+    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "de/d90/a01919.html", "de/d90/a01919" ]
 ];

@@ -1,14 +1,13 @@
 var a01543 =
 [
-    [ "TimeChangeRule", "da/ded/a01547.html", "da/ded/a01547" ],
-    [ "TimeZone", "db/d08/a01543.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "db/d08/a01543.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "db/d08/a01543.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "db/d08/a01543.html#a270472d6bfa8411d48b6edceebec7c25", null ],
-    [ "getName", "db/d08/a01543.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "db/d08/a01543.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "db/d08/a01543.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "db/d08/a01543.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "db/d08/a01543.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "db/d08/a01543.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "Config", "da/ded/a01547.html", "da/ded/a01547" ],
+    [ "Params", "db/d08/a01543.html#aa0a4f2bbe579882088ad1235acfe6fd9", null ],
+    [ "PairService", "db/d08/a01543.html#a5a54bddc9780ee25cf4d3807f36e1f12", null ],
+    [ "PairService", "db/d08/a01543.html#a469a4f643d4fa5a75c530cb6d7ec49d5", null ],
+    [ "close", "db/d08/a01543.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "isRunning", "db/d08/a01543.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "db/d08/a01543.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "db/d08/a01543.html#a115a3537a0189cfcd83c231d716c0bb5", null ],
+    [ "process", "db/d08/a01543.html#a0747f885e5a9feba10647c760353f395", null ],
+    [ "update", "db/d08/a01543.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

@@ -1,7 +1,8 @@
 var a00974 =
 [
-    [ "Config", "df/dce/a00974.html#a71f90ba5852d744d364d627c9200231e", null ],
-    [ "M24C16", "df/dce/a00974.html#a82d789de030a0346864f88543d0512e5", null ],
-    [ "~M24C16", "df/dce/a00974.html#a0db0fe864ae86e17a1406e2180d119af", null ],
-    [ "Driver< M24C16 >", "df/dce/a00974.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
+    [ "bl", "df/dce/a00974.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "df/dce/a00974.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "df/dce/a00974.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "df/dce/a00974.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "df/dce/a00974.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

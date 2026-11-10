@@ -1,5 +1,5 @@
 var a01818 =
 [
-    [ "crc8", "d4/d56/a01818.html#a6eb0c9200532e08815584e5b040283f9", null ],
-    [ "operator uint8_t", "d4/d56/a01818.html#a17512f695eb94c12c81163d5335f3ef2", null ]
+    [ "nssPin", "d4/d56/a01818.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
+    [ "spiPort", "d4/d56/a01818.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
 ];

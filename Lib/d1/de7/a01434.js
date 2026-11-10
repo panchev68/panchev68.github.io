@@ -1,9 +1,12 @@
 var a01434 =
 [
-    [ "writeTo", "d1/de7/a01434.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
-    [ "atCommand", "d1/de7/a01434.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
-    [ "dstAddr", "d1/de7/a01434.html#a15159440eb1dacb4ae4b49aa36144863", null ],
-    [ "frameId", "d1/de7/a01434.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
-    [ "parameters", "d1/de7/a01434.html#a69a8b0f293677febe578417b21dbba6b", null ],
-    [ "remoteCommandOption", "d1/de7/a01434.html#ae4922577edd7679e2964fb14f35bc919", null ]
+    [ "State", "d5/dd0/a01438.html", "d5/dd0/a01438" ],
+    [ "Quality", "d0/de2/a01442.html", "d0/de2/a01442" ],
+    [ "Info", "d8/d22/a01446.html", "d8/d22/a01446" ],
+    [ "Connection", "d1/de7/a01434.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
+    [ "Connection", "d1/de7/a01434.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
+    [ "operator=", "d1/de7/a01434.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
+    [ "info", "d1/de7/a01434.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
+    [ "quality", "d1/de7/a01434.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
+    [ "state", "d1/de7/a01434.html#a79f4aecc9bd038f5938e6373412ed099", null ]
 ];

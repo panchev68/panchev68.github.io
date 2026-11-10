@@ -1,8 +1,13 @@
 var a01418 =
 [
-    [ "writeTo", "d4/d3c/a01418.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
-    [ "dstAddress", "d4/d3c/a01418.html#a9969bce892ba39508a48daebcde56b75", null ],
-    [ "frameId", "d4/d3c/a01418.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
-    [ "options", "d4/d3c/a01418.html#a61fadbd6372692084aabcea329f5f1ab", null ],
-    [ "rfData", "d4/d3c/a01418.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
+    [ "Config", "d1/df4/a01422.html", "d1/df4/a01422" ],
+    [ "WolfSSLDh", "d4/d3c/a01418.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
+    [ "~WolfSSLDh", "d4/d3c/a01418.html#a6d03ea454eff6ec49352184b945a04e2", null ],
+    [ "WolfSSLDh", "d4/d3c/a01418.html#aabb6311ca11dc1faceab33055d97c824", null ],
+    [ "WolfSSLDh", "d4/d3c/a01418.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
+    [ "agree", "d4/d3c/a01418.html#a76b96df40bf320de9d7254054ad2ab18", null ],
+    [ "generateKeyPair", "d4/d3c/a01418.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
+    [ "open", "d4/d3c/a01418.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
+    [ "operator=", "d4/d3c/a01418.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
+    [ "operator=", "d4/d3c/a01418.html#a050501c01119e2aa82565a060075ee61", null ]
 ];

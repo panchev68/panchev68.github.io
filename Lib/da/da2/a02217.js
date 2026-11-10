@@ -1,6 +1,8 @@
 var a02217 =
 [
-    [ "Lib::Digi::API::Service::Parameters", "d6/df2/a01175.html", "d6/df2/a01175" ],
-    [ "Lib::Digi::API::Service::Parameters::Data", "de/d1a/a01179.html", "de/d1a/a01179" ],
-    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "dc/d2d/a01183.html", "dc/d2d/a01183" ]
+    [ "crc16", "da/da2/a02217.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "da/da2/a02217.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "da/da2/a02217.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "da/da2/a02217.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "da/da2/a02217.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

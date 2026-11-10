@@ -1,6 +1,5 @@
 var a00017 =
 [
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;", "d7/d46/a00890.html", "d7/d46/a00890" ],
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;::CurrentCorrection", "dc/dfa/a00894.html", "dc/dfa/a00894" ],
-    [ "Lib::BSP::INA219&lt; T_MODE &gt;::Config", "d2/d79/a00898.html", "d2/d79/a00898" ]
+    [ "Lib::BSP::Backlight", "d2/da1/a00879.html", "d2/da1/a00879" ],
+    [ "Lib::BSP::Backlight::Config", "d7/d34/a00883.html", "d7/d34/a00883" ]
 ];

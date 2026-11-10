@@ -1,4 +1,5 @@
 var a00734 =
 [
-    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "d4/d41/a02400.html", "d4/d41/a02400" ]
+    [ "Lib::Pneumatics::Sensor", "db/dd4/a02383.html", "db/dd4/a02383" ],
+    [ "Lib::Pneumatics::Sensor::Config", "d8/deb/a02387.html", "d8/deb/a02387" ]
 ];

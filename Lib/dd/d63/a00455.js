@@ -1,4 +1,7 @@
 var a00455 =
 [
-    [ "Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;", "d9/d4f/a01968.html", "d9/d4f/a01968" ]
+    [ "Lib::HAL::DriverDataDirection", "d2/dab/a00886.html#a82754326f2fd3bd32ea447c756ec2825", [
+      [ "Lib::HAL::DriverDataDirection::RX", "d2/dab/a00886.html#a82754326f2fd3bd32ea447c756ec2825af9c24782c24c237d16e79f18e2fa9046", null ],
+      [ "Lib::HAL::DriverDataDirection::TX", "d2/dab/a00886.html#a82754326f2fd3bd32ea447c756ec2825a869036c9d97cf6593c6f1c2ccfd99a49", null ]
+    ] ]
 ];

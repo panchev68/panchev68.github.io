@@ -1,13 +1,15 @@
 var a01380 =
 [
-    [ "WolfSSHServer", "dd/d6d/a01380.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
-    [ "~WolfSSHServer", "dd/d6d/a01380.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
-    [ "WolfSSHServer", "dd/d6d/a01380.html#ad8f53deb42abb7890bd933f530e30e99", null ],
-    [ "WolfSSHServer", "dd/d6d/a01380.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
-    [ "accept", "dd/d6d/a01380.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
-    [ "operator=", "dd/d6d/a01380.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
-    [ "operator=", "dd/d6d/a01380.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
-    [ "read", "dd/d6d/a01380.html#ac07508d68f41b64e463fdd58db57558b", null ],
-    [ "send", "dd/d6d/a01380.html#a034957692d48053e848ee6d77605fe2f", null ],
-    [ "shutdown", "dd/d6d/a01380.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
+    [ "WolfSSLRsa", "dd/d6d/a01380.html#a1308729d8ff35f469e9f9b371d525d28", null ],
+    [ "~WolfSSLRsa", "dd/d6d/a01380.html#ab6ae34e7912a123c6835ee6840762239", null ],
+    [ "WolfSSLRsa", "dd/d6d/a01380.html#acc7f398f326414a4d2f5bea6b308a0b0", null ],
+    [ "WolfSSLRsa", "dd/d6d/a01380.html#a3814f988249760683546ddc093b8ba4e", null ],
+    [ "decrypt", "dd/d6d/a01380.html#a690ac94f5fdb51b1a82a680b427e80f6", null ],
+    [ "encrypt", "dd/d6d/a01380.html#a5e86c36f992625c03945c115ab436f54", null ],
+    [ "encryptedSize", "dd/d6d/a01380.html#a8886d49ea9dc962dd7e5dfded3314703", null ],
+    [ "generateKey", "dd/d6d/a01380.html#a43de0d37ba0f47417c537dba6ce37ad4", null ],
+    [ "operator=", "dd/d6d/a01380.html#a0767271bfdf8f54002f922c2ee09944a", null ],
+    [ "operator=", "dd/d6d/a01380.html#a09d6b1e65a5e85ce8c839c0001917c96", null ],
+    [ "sign", "dd/d6d/a01380.html#aaa7fa629597c530db9a29c108a50c076", null ],
+    [ "verify", "dd/d6d/a01380.html#a8efa778b2f9627a75054ee625e3a5c2e", null ]
 ];

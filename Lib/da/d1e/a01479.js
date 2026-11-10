@@ -1,17 +1,14 @@
 var a01479 =
 [
-    [ "DateString", "da/d1e/a01479.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "da/d1e/a01479.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "da/d1e/a01479.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "da/d1e/a01479.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "da/d1e/a01479.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "da/d1e/a01479.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "da/d1e/a01479.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "da/d1e/a01479.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "da/d1e/a01479.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "da/d1e/a01479.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "da/d1e/a01479.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "day", "da/d1e/a01479.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "da/d1e/a01479.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "da/d1e/a01479.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "Counter", "d2/dc4/a01483.html", "d2/dc4/a01483" ],
+    [ "Period", "dc/d47/a01487.html", "dc/d47/a01487" ],
+    [ "SignalStrength", "d7/d03/a01491.html", "d7/d03/a01491" ],
+    [ "deletedMessages", "da/d1e/a01479.html#af628e5c20d43a21697a20298e3850d62", null ],
+    [ "deletedTransmitStatus", "da/d1e/a01479.html#a5cb11ade89e22561cb697360e6f647d0", null ],
+    [ "noTransmitStatus", "da/d1e/a01479.html#aec698012d20e26bb10d4bea26c010985", null ],
+    [ "reconnectionCounter", "da/d1e/a01479.html#ac7f62868a289abb2450f79aa885bb423", null ],
+    [ "retriesCounter", "da/d1e/a01479.html#ac6e666ea8ac5731fdd252b8dc813485b", null ],
+    [ "signalStrength", "da/d1e/a01479.html#ae57e34d0254c73139d0015fc39e498dd", null ],
+    [ "transmitPeriod", "da/d1e/a01479.html#afa5724d63b364d43fb031cc4682d2de3", null ],
+    [ "unsuccessTransmitStatus", "da/d1e/a01479.html#ac67e8232f97db31ebd0f825093b661fa", null ]
 ];

@@ -1,9 +1,15 @@
 var a01841 =
 [
-    [ "CriticalSection", "d2/d5b/a01841.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "d2/d5b/a01841.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "d2/d5b/a01841.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "d2/d5b/a01841.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "d2/d5b/a01841.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "d2/d5b/a01841.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "DACPort", "d2/d5b/a01841.html#a430af54970be9f050913a2587b44af8c", null ],
+    [ "~DACPort", "d2/d5b/a01841.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
+    [ "DACPort", "d2/d5b/a01841.html#a74ca3aad257be30051d7eaf469296f7d", null ],
+    [ "DACPort", "d2/d5b/a01841.html#a3baeea2036cc1c8db31042f17b2ace75", null ],
+    [ "close", "d2/d5b/a01841.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
+    [ "getChannel", "d2/d5b/a01841.html#a668e6706e47926674d5df3daad36276c", null ],
+    [ "open", "d2/d5b/a01841.html#a972d40716f11cc01e220bc488d2fb281", null ],
+    [ "operator=", "d2/d5b/a01841.html#a3de9f7904a1682b503e927cd7557360c", null ],
+    [ "operator=", "d2/d5b/a01841.html#a935c4325ea0cf9f2079b66affe1e46a1", null ],
+    [ "start", "d2/d5b/a01841.html#a99aa0c249bf50a455acd99a243d63c67", null ],
+    [ "stop", "d2/d5b/a01841.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
+    [ "waitForEvent", "d2/d5b/a01841.html#a9327549838d3f5ba4298452dabb5e443", null ]
 ];

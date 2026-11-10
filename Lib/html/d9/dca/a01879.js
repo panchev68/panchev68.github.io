@@ -1,14 +1,13 @@
 var a01879 =
 [
-    [ "JaggedArrayBase", "d9/dca/a01879.html#ae79ec88b260154126e7ec280a136c14a", null ],
-    [ "addItem", "d9/dca/a01879.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
-    [ "addItems", "d9/dca/a01879.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
-    [ "clearItems", "d9/dca/a01879.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
-    [ "getElements", "d9/dca/a01879.html#a428409a8385b8547bfa65d04a71565b1", null ],
-    [ "getElements", "d9/dca/a01879.html#a718f7db994c254bce01246ea32b1d653", null ],
-    [ "getSize", "d9/dca/a01879.html#afca6ed09d7865e2bac45430fda768aae", null ],
-    [ "operator[]", "d9/dca/a01879.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
-    [ "operator[]", "d9/dca/a01879.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
-    [ "removeItem", "d9/dca/a01879.html#a819041f4264ebfce07665c548d5dd7bc", null ],
-    [ "elementList", "d9/dca/a01879.html#a319cd6aae084f711db14582ed55929a5", null ]
+    [ "DACPort", "d9/dca/a01879.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d9/dca/a01879.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "d9/dca/a01879.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "d9/dca/a01879.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "getChannel", "d9/dca/a01879.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d9/dca/a01879.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "operator=", "d9/dca/a01879.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "d9/dca/a01879.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "start", "d9/dca/a01879.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d9/dca/a01879.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

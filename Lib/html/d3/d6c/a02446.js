@@ -1,9 +1,7 @@
 var a02446 =
 [
-    [ "Tick", "d3/d6c/a02446.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "d3/d6c/a02446.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "d3/d6c/a02446.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "d3/d6c/a02446.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "d3/d6c/a02446.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "d3/d6c/a02446.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "Config", "d3/d6c/a02446.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
+    [ "name", "d3/d6c/a02446.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "d3/d6c/a02446.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
+    [ "stackSize", "d3/d6c/a02446.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

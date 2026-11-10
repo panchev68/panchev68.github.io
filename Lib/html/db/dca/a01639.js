@@ -1,8 +1,12 @@
 var a01639 =
 [
-    [ "Frame0x81", "db/dca/a01639.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
-    [ "option", "db/dca/a01639.html#a9514d0309e3844c8659d92c660c71a2b", null ],
-    [ "rfData", "db/dca/a01639.html#a17639b9161591eee69ff2916356f4f5f", null ],
-    [ "rssi", "db/dca/a01639.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
-    [ "srcAddr16", "db/dca/a01639.html#a44c2e0a72745be88823b58901a37b73b", null ]
+    [ "Command", "db/dca/a01639.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "db/dca/a01639.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "db/dca/a01639.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "db/dca/a01639.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "db/dca/a01639.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "db/dca/a01639.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "db/dca/a01639.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "db/dca/a01639.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "db/dca/a01639.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

@@ -1,8 +1,7 @@
 var a02310 =
 [
-    [ "State", "d9/d9b/a02310.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "d9/d9b/a02310.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "d9/d9b/a02310.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "d9/d9b/a02310.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "d9/d9b/a02310.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "Point", "d9/d9b/a02310.html#af5f110cd6ba5ff0d50c2c9966175f060", null ],
+    [ "Point", "d9/d9b/a02310.html#a6b4b271df3099e560fe52f44aee3f3b0", null ],
+    [ "x", "d9/d9b/a02310.html#ade6943178d200f4eecb5a7a84e593ba0", null ],
+    [ "y", "d9/d9b/a02310.html#a0921a157fe3803511d1d72c3b5461ca4", null ]
 ];

@@ -1,8 +1,13 @@
 var a01591 =
 [
-    [ "State", "dc/d42/a01591.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "dc/d42/a01591.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "dc/d42/a01591.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "dc/d42/a01591.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "dc/d42/a01591.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "Config", "dc/dbf/a01595.html", "dc/dbf/a01595" ],
+    [ "ComDriver", "dc/d42/a01591.html#ababf68659e9af31a588761f3b7019ee4", null ],
+    [ "ComDriver", "dc/d42/a01591.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
+    [ "~ComDriver", "dc/d42/a01591.html#ac84fd480c15423c989d3f9f367f99045", null ],
+    [ "init", "dc/d42/a01591.html#a43649d6474cd7c536e4e76c7a3374725", null ],
+    [ "operator=", "dc/d42/a01591.html#a39956162d031d237c8741f20d1de0b4d", null ],
+    [ "reset", "dc/d42/a01591.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
+    [ "send", "dc/d42/a01591.html#adb3898389cd892854bac73d239b647fc", null ],
+    [ "diagnostic", "dc/d42/a01591.html#a567a1a6ed97de4267cfec4531f60a373", null ],
+    [ "xrst", "dc/d42/a01591.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
 ];

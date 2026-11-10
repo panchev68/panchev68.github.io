@@ -1,14 +1,14 @@
 var a01881 =
 [
-    [ "Bitset", "de/d9f/a01881.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "de/d9f/a01881.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "de/d9f/a01881.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "de/d9f/a01881.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "de/d9f/a01881.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "de/d9f/a01881.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "de/d9f/a01881.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "de/d9f/a01881.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "de/d9f/a01881.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "de/d9f/a01881.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "Output", "de/d9f/a01881.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
+    [ "~Output", "de/d9f/a01881.html#aa9c1a46117aa84b973279d61e591a610", null ],
+    [ "Output", "de/d9f/a01881.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
+    [ "Output", "de/d9f/a01881.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
+    [ "operator=", "de/d9f/a01881.html#a8ee7e17225987004c3c73099e78d8b78", null ],
+    [ "operator=", "de/d9f/a01881.html#a3187afa0ce2671083228b6b536d45d4b", null ],
+    [ "operator=", "de/d9f/a01881.html#a13bc8e6bba332c350095666b72e568aa", null ],
+    [ "setHigh", "de/d9f/a01881.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
+    [ "setLow", "de/d9f/a01881.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
+    [ "toggle", "de/d9f/a01881.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
+    [ "write", "de/d9f/a01881.html#a52416b95040bffe9915b005b33bc3600", null ]
 ];

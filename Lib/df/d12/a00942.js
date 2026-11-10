@@ -1,7 +1,8 @@
 var a00942 =
 [
-    [ "diPinHandle", "df/d12/a00942.html#ac1b56409fb324181fdf949402d46b876", null ],
-    [ "nrstPinHandle", "df/d12/a00942.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
-    [ "nssPinHandle", "df/d12/a00942.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
-    [ "spiHandle", "df/d12/a00942.html#ab178d2536db34733af537ae7bec2353c", null ]
+    [ "mappingFields", "df/d12/a00942.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "df/d12/a00942.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "df/d12/a00942.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "df/d12/a00942.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "df/d12/a00942.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

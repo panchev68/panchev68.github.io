@@ -1,13 +1,14 @@
 var a01398 =
 [
-    [ "Command", "da/de3/a01398.html#ad7de9040ab35a62c524e02edb5857497", null ],
-    [ "LocalAtCommand", "da/de3/a01398.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
-    [ "LocalAtCommand", "da/de3/a01398.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
-    [ "close", "da/de3/a01398.html#a5c97cd2a002f63083302783169a633fb", null ],
-    [ "isOpen", "da/de3/a01398.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
-    [ "open", "da/de3/a01398.html#a01489f683e248d7c2af355b8f1cd8992", null ],
-    [ "operator=", "da/de3/a01398.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
-    [ "receive", "da/de3/a01398.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
-    [ "send", "da/de3/a01398.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
-    [ "send", "da/de3/a01398.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
+    [ "PasswordAuthHandler", "da/de3/a01398.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "da/de3/a01398.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "da/de3/a01398.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "da/de3/a01398.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "da/de3/a01398.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "da/de3/a01398.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "da/de3/a01398.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "da/de3/a01398.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "da/de3/a01398.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "da/de3/a01398.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "da/de3/a01398.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

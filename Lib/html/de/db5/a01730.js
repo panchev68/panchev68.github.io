@@ -1,7 +1,15 @@
 var a01730 =
 [
-    [ "close", "de/db5/a01730.html#ab9d284c5cdff31383f99dea75c7f9e89", null ],
-    [ "open", "de/db5/a01730.html#a2f27b571e2674aeb90f9773efe5d47c5", null ],
-    [ "read", "de/db5/a01730.html#a53a2f54f254565a80c92924936564fb0", null ],
-    [ "write", "de/db5/a01730.html#ae649720e51a2f29cd3f226e0c91e40f4", null ]
+    [ "dnsIp", "de/db5/a01730.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "de/db5/a01730.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "de/db5/a01730.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "de/db5/a01730.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "de/db5/a01730.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "de/db5/a01730.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "de/db5/a01730.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "de/db5/a01730.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "de/db5/a01730.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "de/db5/a01730.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "de/db5/a01730.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "de/db5/a01730.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

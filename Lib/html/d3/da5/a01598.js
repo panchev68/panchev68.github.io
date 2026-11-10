@@ -1,9 +1,11 @@
 var a01598 =
 [
-    [ "DACPort", "d3/da5/a01598.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
-    [ "~DACPort", "d3/da5/a01598.html#ac832156b805caf8041f1097ecf576ec2", null ],
-    [ "getChannel", "d3/da5/a01598.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
-    [ "getHandle", "d3/da5/a01598.html#a8931efb843554302b191363c4a0bfa41", null ],
-    [ "start", "d3/da5/a01598.html#a0fb9b03d74076c644c02fd75613c0748", null ],
-    [ "stop", "d3/da5/a01598.html#aeb4d00954e883a85534eb2da3acd379f", null ]
+    [ "Message", "d3/da5/a01598.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "d3/da5/a01598.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "d3/da5/a01598.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "d3/da5/a01598.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "d3/da5/a01598.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "d3/da5/a01598.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "d3/da5/a01598.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "d3/da5/a01598.html#a99d9247c3097add390da201d0083e524", null ]
 ];

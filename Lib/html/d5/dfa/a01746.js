@@ -1,19 +1,15 @@
 var a01746 =
 [
-    [ "CallbackID", "d5/dfa/a01746.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
-    [ "Handle", "d5/dfa/a01746.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
-    [ "LPTimer", "d5/dfa/a01746.html#a45b3bd4325053ab1288efbf00fd9aebf", null ],
-    [ "~LPTimer", "d5/dfa/a01746.html#ac0a0979d18daec450ad8dd24a632edb7", null ],
-    [ "LPTimer", "d5/dfa/a01746.html#a694916ba4b3b845dc40a55807a3c010a", null ],
-    [ "LPTimer", "d5/dfa/a01746.html#a0151830764f6149bcd064718e12efa9d", null ],
-    [ "close", "d5/dfa/a01746.html#a357c712f4c1c66b71a22a354a9571feb", null ],
-    [ "getElapsedRtosTicks", "d5/dfa/a01746.html#ade60ec18a6ce100aac3a56fba850f1fe", null ],
-    [ "getHandle", "d5/dfa/a01746.html#add82be5171e6f5f28baaba0aea38a0de", null ],
-    [ "hasExpired", "d5/dfa/a01746.html#a87e699c7a70e9f1f1ce386fdc8962a39", null ],
-    [ "open", "d5/dfa/a01746.html#a2f36ad08fc13700be16a20d5e2f2585d", null ],
-    [ "operator=", "d5/dfa/a01746.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
-    [ "operator=", "d5/dfa/a01746.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
-    [ "startTimeoutInterrupt", "d5/dfa/a01746.html#abd3a3fca5eec4e4dba5d553fde0672aa", null ],
-    [ "stopInterrupt", "d5/dfa/a01746.html#a39d708f6ee189e8b6262c0b6e31a4687", null ],
-    [ "waitForEvent", "d5/dfa/a01746.html#a109ec96e19acb53cc44eccd3ff2452a0", null ]
+    [ "Error", "d5/dfa/a01746.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "d5/dfa/a01746.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "d5/dfa/a01746.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "d5/dfa/a01746.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "d5/dfa/a01746.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "d5/dfa/a01746.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "d5/dfa/a01746.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "d5/dfa/a01746.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "d5/dfa/a01746.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "d5/dfa/a01746.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "d5/dfa/a01746.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "d5/dfa/a01746.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

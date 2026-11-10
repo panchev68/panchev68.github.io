@@ -1,9 +1,23 @@
 var a02352 =
 [
-    [ "Lock", "d6/d3a/a02356.html", "d6/d3a/a02356" ],
-    [ "State", "da/d6b/a02352.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "da/d6b/a02352.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "da/d6b/a02352.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "da/d6b/a02352.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "Parameters", "d6/d3a/a02356.html", "d6/d3a/a02356" ],
+    [ "State", "d3/d35/a02360.html", "d3/d35/a02360" ],
+    [ "Pid", "da/d6b/a02352.html#a41a37f36dc432f8e971650f9ff2e7a8e", null ],
+    [ "Pid", "da/d6b/a02352.html#a1fabd4f5399e04107a81b4b5b8a74ddb", null ],
+    [ "Pid", "da/d6b/a02352.html#a3545b5dac092bbf4b74a70eb0d3e21a7", null ],
+    [ "compute", "da/d6b/a02352.html#a5ebd947fb71cac9e012eeda62346bb39", null ],
+    [ "getIntegralTerm", "da/d6b/a02352.html#a09cf8e3d1fb8e112834bb169d4479a55", null ],
+    [ "getOutput", "da/d6b/a02352.html#aa9cd09e31eeca872417ddc17552872f6", null ],
+    [ "getParameters", "da/d6b/a02352.html#a99de3209865162f13cf91f085b7fdea7", null ],
+    [ "getState", "da/d6b/a02352.html#a235d0900f482fef6b4cce1f1e5932cd4", null ],
+    [ "isAutomatic", "da/d6b/a02352.html#ae87f395bf6f7789860ecd320c3146844", null ],
+    [ "isReverse", "da/d6b/a02352.html#a86c187fc462eb3fbcda4c4765ca5dbef", null ],
+    [ "reset", "da/d6b/a02352.html#aa7e0c148fa92993acc0e062e7ebd50b2", null ],
+    [ "setDirection", "da/d6b/a02352.html#a131b9717e760441b15ff258f878c02a1", null ],
+    [ "setGains", "da/d6b/a02352.html#a6ebec94b45c9fd0543e2d4e529ba19c1", null ],
+    [ "setManualOutput", "da/d6b/a02352.html#aaf9fc6f5598723d89c5b53ab57d0523d", null ],
+    [ "setMode", "da/d6b/a02352.html#af5e5b90007ad75d2739fcbd55618265c", null ],
+    [ "setOutputLimits", "da/d6b/a02352.html#ac87b3672a759beebebc2a98ebbab8c00", null ],
+    [ "setParameters", "da/d6b/a02352.html#a168254291d8c630ee2ebfba757491daf", null ],
+    [ "setSampleTime", "da/d6b/a02352.html#a7eb49cd9682da72b19692d3eb28f1606", null ]
 ];

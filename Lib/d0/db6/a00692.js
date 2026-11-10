@@ -1,5 +1,4 @@
 var a00692 =
 [
-    [ "Lib::USB::SerialPort", "d7/d02/a01771.html", "d7/d02/a01771" ],
-    [ "Lib::USB::SerialPort::Config", "d1/d6b/a01775.html", "d1/d6b/a01775" ]
+    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "dc/db5/a02275.html", "dc/db5/a02275" ]
 ];

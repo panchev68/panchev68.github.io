@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::SolarControl::MPPT Class Reference</title>
+<title>Library: RTOS::Timeout Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,63 +112,95 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d89/a02462.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::SolarControl::MPPT Class Reference</div></div>
+  <div class="headertitle"><div class="title">RTOS::Timeout Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Lightweight helper implementing an adaptive-step Perturb-and-Observe MPPT strategy, hybridized with an estimated maximum-power gate. </p>
-<p>Unlike "Lib::SolarControl::PerturbAndObserve" (which perturbs by a fixed step), this variant scales its perturbation step by the local power/voltage slope and only perturbs while the measured power tracks close to the estimated maximum; otherwise it falls back to a fraction of the reference voltage.</p>
-<p>Maintains reference parameters, computes coefficients from those parameters and updates a voltage setpoint based on new measurements. The type stays a literal type - no destructor is declared and the estimator is a non-owning "FunctionRef" rather than a heap-allocating "std::function" - so an instance can be built in a constant expression. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::SolarControl::MPPT:</div>
+<div class="textblock"><p>Helper for tracking time-based event timeouts. </p>
+<p>The elapsed time is computed with wrap-safe unsigned arithmetic, so a timeout stays correct across the tick counter overflow as long as it is polled at least once every 2^32 ticks. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::Timeout:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d04/a02460.svg" width="387" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d04/a02460.svg" width="287" height="663"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:ReferenceParameters" id="r_ReferenceParameters"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/dd2/a02466.html">ReferenceParameters</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration values used to initialise MPPT coefficients.  <a href="../../dc/dd2/a02466.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Measurement" id="r_Measurement"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../df/ddf/a02470.html">Measurement</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sensor reading bundle used by "update()".  <a href="../../df/ddf/a02470.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:aedf986308c8dd799d4771f32d446ee01" id="r_aedf986308c8dd799d4771f32d446ee01"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#aedf986308c8dd799d4771f32d446ee01">MPPT</a> (const <a class="el" href="../../dc/dd2/a02466.html">ReferenceParameters</a> &amp;parameters=<a class="el" href="../../dc/dd2/a02466.html">ReferenceParameters</a>{})</td></tr>
-<tr class="memdesc:aedf986308c8dd799d4771f32d446ee01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an MPPT helper with optional reference parameters.  <br /></td></tr>
-<tr class="memitem:abc619561c7180e6c69b8282c58157857" id="r_abc619561c7180e6c69b8282c58157857"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#abc619561c7180e6c69b8282c58157857">setMaxPowerEstimationFunction</a> (<a class="el" href="#a434bc885ae98e175c94cc0274463e3e5">MaxPowerEstimator</a> estimator) noexcept</td></tr>
-<tr class="memdesc:abc619561c7180e6c69b8282c58157857"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a custom maximum-power estimator.  <br /></td></tr>
-<tr class="memitem:a15ca43314cd95e5cf3d7c302a9db56af" id="r_a15ca43314cd95e5cf3d7c302a9db56af"><td class="memItemLeft">float&#160;</td><td class="memItemRight"><a class="el" href="#a15ca43314cd95e5cf3d7c302a9db56af">update</a> (const <a class="el" href="../../df/ddf/a02470.html">Measurement</a> &amp;currentMeas)</td></tr>
-<tr class="memdesc:a15ca43314cd95e5cf3d7c302a9db56af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the internal state with a new measurement and compute a voltage setpoint.  <br /></td></tr>
-<tr class="memitem:a55a3b7a18c79deb5568e627889f76b86" id="r_a55a3b7a18c79deb5568e627889f76b86"><td class="memItemLeft">constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a55a3b7a18c79deb5568e627889f76b86">getIrradianceCoefficient</a> () const noexcept</td></tr>
-<tr class="memdesc:a55a3b7a18c79deb5568e627889f76b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the irradiance coefficient derived from reference parameters.  <br /></td></tr>
-<tr class="memitem:a0ac8d81cbc06a7045f43424b16871253" id="r_a0ac8d81cbc06a7045f43424b16871253"><td class="memItemLeft">constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a0ac8d81cbc06a7045f43424b16871253">getTolerance</a> () const noexcept</td></tr>
-<tr class="memdesc:a0ac8d81cbc06a7045f43424b16871253"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the allowed tolerance used when comparing measured power to the estimated maximum power.  <br /></td></tr>
-<tr class="memitem:a455584e52b5677fe4bce93e58e80ca38" id="r_a455584e52b5677fe4bce93e58e80ca38"><td class="memItemLeft">constexpr float&#160;</td><td class="memItemRight"><a class="el" href="#a455584e52b5677fe4bce93e58e80ca38">getVoltageSetpoint</a> () const noexcept</td></tr>
-<tr class="memdesc:a455584e52b5677fe4bce93e58e80ca38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the most recently computed voltage setpoint.  <br /></td></tr>
+<tr class="memitem:a605a58d31953c1321b0571cfbf7809d8" id="r_a605a58d31953c1321b0571cfbf7809d8"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> () noexcept=default</td></tr>
+<tr class="memdesc:a605a58d31953c1321b0571cfbf7809d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty, disabled timeout instance.  <br /></td></tr>
+<tr class="memitem:a56b69bed0df74101bf61b909cf9b564c" id="r_a56b69bed0df74101bf61b909cf9b564c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a56b69bed0df74101bf61b909cf9b564c">Timeout</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:a56b69bed0df74101bf61b909cf9b564c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the timeout with a duration and starts the clock.  <br /></td></tr>
+<tr class="memitem:ae6b31491258f8ac7db42a85c8a6410e3" id="r_ae6b31491258f8ac7db42a85c8a6410e3"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:ae6b31491258f8ac7db42a85c8a6410e3 template"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae6b31491258f8ac7db42a85c8a6410e3">Timeout</a> (std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</td></tr>
+<tr class="memdesc:ae6b31491258f8ac7db42a85c8a6410e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the timeout with a "std::chrono" duration and starts the clock.  <br /></td></tr>
+<tr class="memitem:a3f457e44fdcf7ebe8be8e8c9f6281949" id="r_a3f457e44fdcf7ebe8be8e8c9f6281949"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3f457e44fdcf7ebe8be8e8c9f6281949">Timeout</a> (const Timeout &amp;)=delete</td></tr>
+<tr class="memdesc:a3f457e44fdcf7ebe8be8e8c9f6281949"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance tracks its own independent elapsed-time interval.  <br /></td></tr>
+<tr class="memitem:a572bb22f958387f0e5ef0f331553278a" id="r_a572bb22f958387f0e5ef0f331553278a"><td class="memItemLeft"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a572bb22f958387f0e5ef0f331553278a">operator=</a> (const <a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a572bb22f958387f0e5ef0f331553278a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance tracks its own independent elapsed-time interval.  <br /></td></tr>
+<tr class="memitem:a9f4c1790b62b338de5ee47cad756a53e" id="r_a9f4c1790b62b338de5ee47cad756a53e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9f4c1790b62b338de5ee47cad756a53e">disable</a> () noexcept</td></tr>
+<tr class="memdesc:a9f4c1790b62b338de5ee47cad756a53e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the timeout.  <br /></td></tr>
+<tr class="memitem:a859711fa5327754ac08a5a5f7b6175ba" id="r_a859711fa5327754ac08a5a5f7b6175ba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a859711fa5327754ac08a5a5f7b6175ba">set</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:a859711fa5327754ac08a5a5f7b6175ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timeout duration and starts the clock.  <br /></td></tr>
+<tr class="memitem:a776dc5dd77cf73624f452e0be0e32b8f" id="r_a776dc5dd77cf73624f452e0be0e32b8f"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a776dc5dd77cf73624f452e0be0e32b8f template"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a776dc5dd77cf73624f452e0be0e32b8f">set</a> (std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</td></tr>
+<tr class="memdesc:a776dc5dd77cf73624f452e0be0e32b8f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timeout from a "std::chrono" duration and starts the clock.  <br /></td></tr>
+<tr class="memitem:a4f719fdc728f4b1e2a6a3b33c747c32e" id="r_a4f719fdc728f4b1e2a6a3b33c747c32e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4f719fdc728f4b1e2a6a3b33c747c32e">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a4f719fdc728f4b1e2a6a3b33c747c32e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled.  <br /></td></tr>
+<tr class="memitem:a4264c550073d457fa8f6ca89e591a0e6" id="r_a4264c550073d457fa8f6ca89e591a0e6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4264c550073d457fa8f6ca89e591a0e6">isExpired</a> () const noexcept</td></tr>
+<tr class="memdesc:a4264c550073d457fa8f6ca89e591a0e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timeout duration has elapsed.  <br /></td></tr>
+<tr class="memitem:a9960d8cda67ce72d1c02dcd7d3608066" id="r_a9960d8cda67ce72d1c02dcd7d3608066"><td class="memItemLeft"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9960d8cda67ce72d1c02dcd7d3608066">getRemainingTicks</a> () const noexcept</td></tr>
+<tr class="memdesc:a9960d8cda67ce72d1c02dcd7d3608066"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the remaining ticks until expiration.  <br /></td></tr>
+<tr class="memitem:ab0740e27e7ef4e9e54410d06e32581d2" id="r_ab0740e27e7ef4e9e54410d06e32581d2"><td class="memTemplParams" colspan="2">template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </td></tr>
+<tr class="memitem:ab0740e27e7ef4e9e54410d06e32581d2 template"><td class="memItemLeft">T_DURATION&#160;</td><td class="memItemRight"><a class="el" href="#ab0740e27e7ef4e9e54410d06e32581d2">getRemaining</a> () const noexcept</td></tr>
+<tr class="memdesc:ab0740e27e7ef4e9e54410d06e32581d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the time remaining until expiration as a "std::chrono" duration.  <br /></td></tr>
+<tr class="memitem:ace6d54a64c2dfa18c104111c9dfd1cb9" id="r_ace6d54a64c2dfa18c104111c9dfd1cb9"><td class="memItemLeft"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#ace6d54a64c2dfa18c104111c9dfd1cb9">getElapsedTicks</a> () const noexcept</td></tr>
+<tr class="memdesc:ace6d54a64c2dfa18c104111c9dfd1cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the ticks elapsed since the clock was (re)started.  <br /></td></tr>
+<tr class="memitem:a5093d0c2c7d1f0fc3e6085c212a4f042" id="r_a5093d0c2c7d1f0fc3e6085c212a4f042"><td class="memTemplParams" colspan="2">template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </td></tr>
+<tr class="memitem:a5093d0c2c7d1f0fc3e6085c212a4f042 template"><td class="memItemLeft">T_DURATION&#160;</td><td class="memItemRight"><a class="el" href="#a5093d0c2c7d1f0fc3e6085c212a4f042">getElapsedTime</a> () const noexcept</td></tr>
+<tr class="memdesc:a5093d0c2c7d1f0fc3e6085c212a4f042"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the time elapsed since the clock was (re)started as a "std::chrono" duration.  <br /></td></tr>
+<tr class="memitem:a65bc60adcb34ab1336e932540580c545" id="r_a65bc60adcb34ab1336e932540580c545"><td class="memItemLeft"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a65bc60adcb34ab1336e932540580c545">getDuration</a> () const noexcept</td></tr>
+<tr class="memdesc:a65bc60adcb34ab1336e932540580c545"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the configured total duration.  <br /></td></tr>
+<tr class="memitem:a1262697a55934e1758ed633db12ff84b" id="r_a1262697a55934e1758ed633db12ff84b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1262697a55934e1758ed633db12ff84b">isDisabled</a> () const noexcept</td></tr>
+<tr class="memdesc:a1262697a55934e1758ed633db12ff84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timeout is currently disabled.  <br /></td></tr>
+<tr class="memitem:a80beeb50cf335b4edd9b288f67fcbf31" id="r_a80beeb50cf335b4edd9b288f67fcbf31"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a80beeb50cf335b4edd9b288f67fcbf31">operator TickType</a> () const noexcept</td></tr>
+<tr class="memdesc:a80beeb50cf335b4edd9b288f67fcbf31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts explicitly to the configured tick duration.  <br /></td></tr>
+<tr class="memitem:a0459e730221c4ff43cd418ffcef83c24" id="r_a0459e730221c4ff43cd418ffcef83c24"><td class="memItemLeft"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0459e730221c4ff43cd418ffcef83c24">operator=</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:a0459e730221c4ff43cd418ffcef83c24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the timeout duration and starts the clock, equivalent to "set()".  <br /></td></tr>
+<tr class="memitem:a2823f4f34a13bb76fb12f52f16521b4e" id="r_a2823f4f34a13bb76fb12f52f16521b4e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2823f4f34a13bb76fb12f52f16521b4e">operator==</a> (bool expired) const noexcept</td></tr>
+<tr class="memdesc:a2823f4f34a13bb76fb12f52f16521b4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if "isExpired()" matches the given state.  <br /></td></tr>
+<tr class="memitem:a4dc9099a6f012b5028a3156341c3d564" id="r_a4dc9099a6f012b5028a3156341c3d564"><td class="memItemLeft"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4dc9099a6f012b5028a3156341c3d564">operator+=</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:a4dc9099a6f012b5028a3156341c3d564"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extends the timeout duration, saturating at "MAX_DURATION"; does nothing if disabled.  <br /></td></tr>
+<tr class="memitem:aa7f234cb8c3ed2a313f76a323f75b10a" id="r_aa7f234cb8c3ed2a313f76a323f75b10a"><td class="memItemLeft"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aa7f234cb8c3ed2a313f76a323f75b10a">operator-=</a> (<a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> ticks) noexcept</td></tr>
+<tr class="memdesc:aa7f234cb8c3ed2a313f76a323f75b10a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the timeout duration, clamping at zero; does nothing if disabled.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:aa44c447be4c5012fbaa07f9c01457d61" id="r_aa44c447be4c5012fbaa07f9c01457d61"><td class="memItemLeft">static constexpr <a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa44c447be4c5012fbaa07f9c01457d61">DISABLED_DURATION</a> = portMAX_DELAY</td></tr>
+<tr class="memdesc:aa44c447be4c5012fbaa07f9c01457d61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel duration meaning no timeout.  <br /></td></tr>
+<tr class="memitem:a79a660ffb5b92983f4fa20277994fa6d" id="r_a79a660ffb5b92983f4fa20277994fa6d"><td class="memItemLeft">static constexpr <a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a79a660ffb5b92983f4fa20277994fa6d">MAX_DURATION</a> = <a class="el" href="#aa44c447be4c5012fbaa07f9c01457d61">DISABLED_DURATION</a> - 1U</td></tr>
+<tr class="memdesc:a79a660ffb5b92983f4fa20277994fa6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest representable enabled duration.  <br /></td></tr>
 </table>
 <a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a434bc885ae98e175c94cc0274463e3e5" name="a434bc885ae98e175c94cc0274463e3e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a434bc885ae98e175c94cc0274463e3e5">&#9670;&#160;</a></span>MaxPowerEstimator</h2>
+<a id="a0285ec57b08218404301d71335490923" name="a0285ec57b08218404301d71335490923"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0285ec57b08218404301d71335490923">&#9670;&#160;</a></span>TickType</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a434bc885ae98e175c94cc0274463e3e5">Lib::SolarControl::MPPT::MaxPowerEstimator</a> = <a class="el" href="../../d1/d54/a01326.html">FunctionRef</a>&lt;float(float, float, float)&gt;</td>
+          <td class="memname">using <a class="el" href="#a0285ec57b08218404301d71335490923">RTOS::Timeout::TickType</a> = <a class="el" href="../../de/d91/a02458.html#af8b741f7cd6bd8cefd26aae83980fbfd">TickCounter::TickType</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Signature of the optional maximum-power estimator. </p>
-<p>The arguments are the current irradiance, the temperature delta since the previous measurement and the previously estimated maximum power; the result is the new estimated maximum power in watts. </p>
+<p>Scheduler tick count type. </p>
 
 </div>
 </div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aedf986308c8dd799d4771f32d446ee01" name="aedf986308c8dd799d4771f32d446ee01"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedf986308c8dd799d4771f32d446ee01">&#9670;&#160;</a></span>MPPT()</h2>
+<a id="a605a58d31953c1321b0571cfbf7809d8" name="a605a58d31953c1321b0571cfbf7809d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a605a58d31953c1321b0571cfbf7809d8">&#9670;&#160;</a></span>Timeout() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -177,33 +209,147 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::SolarControl::MPPT::MPPT </td>
+          <td class="memname">RTOS::Timeout::Timeout </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/dd2/a02466.html">ReferenceParameters</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="../../dc/dd2/a02466.html">ReferenceParameters</a>{}</span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel constexpr">constexpr</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Construct an MPPT helper with optional reference parameters. </p>
-<p>Initialises internal coefficients derived from "parameters".</p>
+<p>Initializes an empty, disabled timeout instance. </p>
+<p>No destructor is declared: an explicitly defaulted one makes the class non-literal on IAR. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a605a58d31953c1321b0571cfbf7809d8_icgraph.svg" width="572" height="331"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a56b69bed0df74101bf61b909cf9b564c" name="a56b69bed0df74101bf61b909cf9b564c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56b69bed0df74101bf61b909cf9b564c">&#9670;&#160;</a></span>Timeout() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::Timeout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the timeout with a duration and starts the clock. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">parameters</td><td>Reference configuration used to compute coefficients. </td></tr>
+    <tr><td class="paramname">ticks</td><td>Duration in system ticks; "DISABLED_DURATION" disables the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a56b69bed0df74101bf61b909cf9b564c_cgraph.svg" width="542" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ae6b31491258f8ac7db42a85c8a6410e3" name="ae6b31491258f8ac7db42a85c8a6410e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6b31491258f8ac7db42a85c8a6410e3">&#9670;&#160;</a></span>Timeout() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::Timeout </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the timeout with a "std::chrono" duration and starts the clock. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Duration, rounded up to whole ticks and clamped to "MAX_DURATION". </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
+<a id="a3f457e44fdcf7ebe8be8e8c9f6281949" name="a3f457e44fdcf7ebe8be8e8c9f6281949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f457e44fdcf7ebe8be8e8c9f6281949">&#9670;&#160;</a></span>Timeout() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::Timeout </td>
+          <td>(</td>
+          <td class="paramtype">const Timeout &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: each instance tracks its own independent elapsed-time interval. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a3f457e44fdcf7ebe8be8e8c9f6281949_cgraph.svg" width="542" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a55a3b7a18c79deb5568e627889f76b86" name="a55a3b7a18c79deb5568e627889f76b86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55a3b7a18c79deb5568e627889f76b86">&#9670;&#160;</a></span>getIrradianceCoefficient()</h2>
+<a id="a9f4c1790b62b338de5ee47cad756a53e" name="a9f4c1790b62b338de5ee47cad756a53e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f4c1790b62b338de5ee47cad756a53e">&#9670;&#160;</a></span>disable()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -212,93 +358,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::SolarControl::MPPT::getIrradianceCoefficient </td>
+          <td class="memname">void RTOS::Timeout::disable </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the irradiance coefficient derived from reference parameters. </p>
-<dl class="section return"><dt>Returns</dt><dd>Irradiance coefficient (unit depends on reference values). </dd></dl>
-
-</div>
-</div>
-<a id="a0ac8d81cbc06a7045f43424b16871253" name="a0ac8d81cbc06a7045f43424b16871253"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ac8d81cbc06a7045f43424b16871253">&#9670;&#160;</a></span>getTolerance()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::SolarControl::MPPT::getTolerance </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the allowed tolerance used when comparing measured power to the estimated maximum power. </p>
-<dl class="section return"><dt>Returns</dt><dd>Tolerance value in the same units as power (watts). </dd></dl>
-
-</div>
-</div>
-<a id="a455584e52b5677fe4bce93e58e80ca38" name="a455584e52b5677fe4bce93e58e80ca38"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a455584e52b5677fe4bce93e58e80ca38">&#9670;&#160;</a></span>getVoltageSetpoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float Lib::SolarControl::MPPT::getVoltageSetpoint </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get the most recently computed voltage setpoint. </p>
-<dl class="section return"><dt>Returns</dt><dd>Voltage setpoint in volts, or 0 before the first "update()". </dd></dl>
-
-</div>
-</div>
-<a id="abc619561c7180e6c69b8282c58157857" name="abc619561c7180e6c69b8282c58157857"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc619561c7180e6c69b8282c58157857">&#9670;&#160;</a></span>setMaxPowerEstimationFunction()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::SolarControl::MPPT::setMaxPowerEstimationFunction </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a434bc885ae98e175c94cc0274463e3e5">MaxPowerEstimator</a></td>          <td class="paramname"><span class="paramname"><em>estimator</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -309,19 +371,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set a custom maximum-power estimator. </p>
-<p>The estimator, if bound, replaces the simple linear estimator built into this type and is called on every "update()". Pass a default-constructed "FunctionRef" to fall back to the built-in estimator.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">estimator</td><td>Callable used to compute maximum power; see "MaxPowerEstimator". </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Disables the timeout. </p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a9f4c1790b62b338de5ee47cad756a53e_icgraph.svg" width="582" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a15ca43314cd95e5cf3d7c302a9db56af" name="a15ca43314cd95e5cf3d7c302a9db56af"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15ca43314cd95e5cf3d7c302a9db56af">&#9670;&#160;</a></span>update()</h2>
+<a id="a65bc60adcb34ab1336e932540580c545" name="a65bc60adcb34ab1336e932540580c545"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65bc60adcb34ab1336e932540580c545">&#9670;&#160;</a></span>getDuration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -330,33 +391,655 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float Lib::SolarControl::MPPT::update </td>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getDuration </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../df/ddf/a02470.html">Measurement</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>currentMeas</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the configured total duration. </p>
+<dl class="section return"><dt>Returns</dt><dd>Total duration in ticks, or "DISABLED_DURATION" if disabled. </dd></dl>
+
+</div>
+</div>
+<a id="ace6d54a64c2dfa18c104111c9dfd1cb9" name="ace6d54a64c2dfa18c104111c9dfd1cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace6d54a64c2dfa18c104111c9dfd1cb9">&#9670;&#160;</a></span>getElapsedTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getElapsedTicks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the ticks elapsed since the clock was (re)started. </p>
+<dl class="section return"><dt>Returns</dt><dd>Elapsed tick count, or 0 if disabled. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_ace6d54a64c2dfa18c104111c9dfd1cb9_cgraph.svg" width="602" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_ace6d54a64c2dfa18c104111c9dfd1cb9_icgraph.svg" width="642" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5093d0c2c7d1f0fc3e6085c212a4f042" name="a5093d0c2c7d1f0fc3e6085c212a4f042"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5093d0c2c7d1f0fc3e6085c212a4f042">&#9670;&#160;</a></span>getElapsedTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DURATION RTOS::Timeout::getElapsedTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the time elapsed since the clock was (re)started as a "std::chrono" duration. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DURATION</td><td>Target "std::chrono" duration type; an integral target truncates any remainder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Elapsed time, or zero if disabled. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a5093d0c2c7d1f0fc3e6085c212a4f042_cgraph.svg" width="962" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab0740e27e7ef4e9e54410d06e32581d2" name="ab0740e27e7ef4e9e54410d06e32581d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0740e27e7ef4e9e54410d06e32581d2">&#9670;&#160;</a></span>getRemaining()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DURATION = std::chrono::milliseconds&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T_DURATION RTOS::Timeout::getRemaining </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the time remaining until expiration as a "std::chrono" duration. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DURATION</td><td>Target "std::chrono" duration type; an integral target truncates any remainder. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Remaining time, or zero if disabled or already expired. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_ab0740e27e7ef4e9e54410d06e32581d2_cgraph.svg" width="962" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9960d8cda67ce72d1c02dcd7d3608066" name="a9960d8cda67ce72d1c02dcd7d3608066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9960d8cda67ce72d1c02dcd7d3608066">&#9670;&#160;</a></span>getRemainingTicks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::getRemainingTicks </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the remaining ticks until expiration. </p>
+<dl class="section return"><dt>Returns</dt><dd>Remaining tick count, or 0 if disabled or already expired. </dd></dl>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a9960d8cda67ce72d1c02dcd7d3608066_cgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a9960d8cda67ce72d1c02dcd7d3608066_icgraph.svg" width="642" height="123"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1262697a55934e1758ed633db12ff84b" name="a1262697a55934e1758ed633db12ff84b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1262697a55934e1758ed633db12ff84b">&#9670;&#160;</a></span>isDisabled()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::isDisabled </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the timeout is currently disabled. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if disabled. </dd></dl>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a1262697a55934e1758ed633db12ff84b_icgraph.svg" width="1311" height="731"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4264c550073d457fa8f6ca89e591a0e6" name="a4264c550073d457fa8f6ca89e591a0e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4264c550073d457fa8f6ca89e591a0e6">&#9670;&#160;</a></span>isExpired()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::isExpired </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the timeout duration has elapsed. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if expired; always "false" if disabled. </dd></dl>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a4264c550073d457fa8f6ca89e591a0e6_cgraph.svg" width="592" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
+</div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a4264c550073d457fa8f6ca89e591a0e6_icgraph.svg" width="942" height="538"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a80beeb50cf335b4edd9b288f67fcbf31" name="a80beeb50cf335b4edd9b288f67fcbf31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80beeb50cf335b4edd9b288f67fcbf31">&#9670;&#160;</a></span>operator TickType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">RTOS::Timeout::operator <a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Converts explicitly to the configured tick duration. </p>
+<dl class="section return"><dt>Returns</dt><dd>Same value as "getDuration()". </dd></dl>
+
+</div>
+</div>
+<a id="a4dc9099a6f012b5028a3156341c3d564" name="a4dc9099a6f012b5028a3156341c3d564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc9099a6f012b5028a3156341c3d564">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp; RTOS::Timeout::operator+= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Update the internal state with a new measurement and compute a voltage setpoint. </p>
-<p>The perturbation step size is scaled by the local power/voltage slope (clamped to ["MIN_STEP", "MAX_STEP"]) and only applied while the measured power tracks within "tolerance" of the estimated maximum; otherwise the setpoint falls back to a fraction of "ReferenceParameters::mppVoltageRef". The result is always clamped to [0, 'mppVoltageRef * UPPER_BOUND_MULTIPLIER']. On the first call the method initialises internal state and returns an initial setpoint.</p>
+<p>Extends the timeout duration, saturating at "MAX_DURATION"; does nothing if disabled. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">currentMeas</td><td>Latest sensor measurements (temperature, irradiance, voltage, current). </td></tr>
+    <tr><td class="paramname">ticks</td><td>Additional ticks to add. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Computed voltage setpoint in volts. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
+</div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a4dc9099a6f012b5028a3156341c3d564_cgraph.svg" width="602" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa7f234cb8c3ed2a313f76a323f75b10a" name="aa7f234cb8c3ed2a313f76a323f75b10a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7f234cb8c3ed2a313f76a323f75b10a">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp; RTOS::Timeout::operator-= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reduces the timeout duration, clamping at zero; does nothing if disabled. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Ticks to subtract. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_aa7f234cb8c3ed2a313f76a323f75b10a_cgraph.svg" width="602" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a572bb22f958387f0e5ef0f331553278a" name="a572bb22f958387f0e5ef0f331553278a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a572bb22f958387f0e5ef0f331553278a">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp; RTOS::Timeout::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: each instance tracks its own independent elapsed-time interval. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
+</div>
+<div id="dynsection-16-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a572bb22f958387f0e5ef0f331553278a_cgraph.svg" width="562" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0459e730221c4ff43cd418ffcef83c24" name="a0459e730221c4ff43cd418ffcef83c24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0459e730221c4ff43cd418ffcef83c24">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a605a58d31953c1321b0571cfbf7809d8">Timeout</a> &amp; RTOS::Timeout::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timeout duration and starts the clock, equivalent to "set()". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Duration in ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
+</div>
+<div id="dynsection-17-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a0459e730221c4ff43cd418ffcef83c24_cgraph.svg" width="562" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2823f4f34a13bb76fb12f52f16521b4e" name="a2823f4f34a13bb76fb12f52f16521b4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2823f4f34a13bb76fb12f52f16521b4e">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool RTOS::Timeout::operator== </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>expired</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if "isExpired()" matches the given state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">expired</td><td>State to compare against. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if "isExpired()" equals "expired". </dd></dl>
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
+</div>
+<div id="dynsection-18-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a2823f4f34a13bb76fb12f52f16521b4e_cgraph.svg" width="911" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4f719fdc728f4b1e2a6a3b33c747c32e" name="a4f719fdc728f4b1e2a6a3b33c747c32e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f719fdc728f4b1e2a6a3b33c747c32e">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restarts the clock at the current tick, keeping the configured duration; does nothing if disabled. </p>
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
+</div>
+<div id="dynsection-19-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a4f719fdc728f4b1e2a6a3b33c747c32e_cgraph.svg" width="552" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a776dc5dd77cf73624f452e0be0e32b8f" name="a776dc5dd77cf73624f452e0be0e32b8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a776dc5dd77cf73624f452e0be0e32b8f">&#9670;&#160;</a></span>set() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::set </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timeout from a "std::chrono" duration and starts the clock. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the duration. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Duration, rounded up to whole ticks and clamped to "MAX_DURATION". </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
+</div>
+<div id="dynsection-20-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a776dc5dd77cf73624f452e0be0e32b8f_cgraph.svg" width="462" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a859711fa5327754ac08a5a5f7b6175ba" name="a859711fa5327754ac08a5a5f7b6175ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a859711fa5327754ac08a5a5f7b6175ba">&#9670;&#160;</a></span>set() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RTOS::Timeout::set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a></td>          <td class="paramname"><span class="paramname"><em>ticks</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the timeout duration and starts the clock. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ticks</td><td>Duration in system ticks; "DISABLED_DURATION" disables the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary">
+</div>
+<div id="dynsection-21-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d89/a02462_a859711fa5327754ac08a5a5f7b6175ba_icgraph.svg" width="851" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="aa44c447be4c5012fbaa07f9c01457d61" name="aa44c447be4c5012fbaa07f9c01457d61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa44c447be4c5012fbaa07f9c01457d61">&#9670;&#160;</a></span>DISABLED_DURATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::DISABLED_DURATION = portMAX_DELAY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sentinel duration meaning no timeout. </p>
+
+</div>
+</div>
+<a id="a79a660ffb5b92983f4fa20277994fa6d" name="a79a660ffb5b92983f4fa20277994fa6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79a660ffb5b92983f4fa20277994fa6d">&#9670;&#160;</a></span>MAX_DURATION</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a0285ec57b08218404301d71335490923">TickType</a> RTOS::Timeout::MAX_DURATION = <a class="el" href="#aa44c447be4c5012fbaa07f9c01457d61">DISABLED_DURATION</a> - 1U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Largest representable enabled duration. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/dae/a00767.html">MPPT.hpp</a></li>
+<li><a class="el" href="../../d3/d2c/a00764.html">Timeout.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -371,7 +1054,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../d7/d49/a00863.html">SolarControl</a></li><li class="navelem"><a href="../../df/d89/a02462.html">MPPT</a></li>
+    <li class="navelem"><a href="../../df/d2a/a00874.html">RTOS</a></li><li class="navelem"><a href="../../df/d89/a02462.html">Timeout</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

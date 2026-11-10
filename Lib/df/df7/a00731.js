@@ -1,4 +1,5 @@
 var a00731 =
 [
-    [ "RTOS::Semaphore", "d5/d10/a02396.html", "d5/d10/a02396" ]
+    [ "Lib::Pneumatics::RotationCylinder", "d6/dd7/a02375.html", "d6/dd7/a02375" ],
+    [ "Lib::Pneumatics::RotationCylinder::Config", "d6/daa/a02379.html", "d6/daa/a02379" ]
 ];

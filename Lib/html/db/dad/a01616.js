@@ -1,7 +1,11 @@
 var a01616 =
 [
-    [ "FrameWriter", "db/dad/a01616.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
-    [ "put", "db/dad/a01616.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
-    [ "put", "db/dad/a01616.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
-    [ "put", "db/dad/a01616.html#abb5db27849ce33eefe7c66d078a1372b", null ]
+    [ "onExtendedTransmitStatusChanged", "db/dad/a01616.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "db/dad/a01616.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "db/dad/a01616.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "db/dad/a01616.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "db/dad/a01616.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "db/dad/a01616.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "db/dad/a01616.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "db/dad/a01616.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

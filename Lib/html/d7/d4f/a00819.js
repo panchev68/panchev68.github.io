@@ -1,20 +1,16 @@
 var a00819 =
 [
-    [ "BSP", "dc/d00/a00820.html", "dc/d00/a00820" ],
-    [ "Canbus", "d1/de6/a00837.html", "d1/de6/a00837" ],
-    [ "Communication", "d2/dc7/a00838.html", "d2/dc7/a00838" ],
-    [ "Crypto", "d5/dac/a00841.html", "d5/dac/a00841" ],
-    [ "Digi", "d0/d11/a00842.html", "d0/d11/a00842" ],
-    [ "Errors", "d4/d60/a00847.html", "d4/d60/a00847" ],
-    [ "Ethercat", "de/d37/a00849.html", "de/d37/a00849" ],
-    [ "Ethernet", "df/d4c/a00851.html", "df/d4c/a00851" ],
-    [ "HAL", "db/deb/a00853.html", "db/deb/a00853" ],
-    [ "Helper", "da/de3/a00856.html", "da/de3/a00856" ],
-    [ "HTTP", "d0/d66/a00858.html", "d0/d66/a00858" ],
-    [ "Math", "dc/d8c/a00859.html", "dc/d8c/a00859" ],
-    [ "Pneumatics", "dd/dd5/a00861.html", "dd/dd5/a00861" ],
-    [ "SolarControl", "d7/d49/a00863.html", "d7/d49/a00863" ],
-    [ "System", "d7/d1b/a00864.html", "d7/d1b/a00864" ],
-    [ "USB", "dd/d7b/a00865.html", "dd/d7b/a00865" ],
-    [ "XCOM", "dd/db2/a00866.html", "dd/db2/a00866" ]
+    [ "ClientBase", "d6/d72/a01753.html", "d6/d72/a01753" ],
+    [ "Socket", "db/db8/a01761.html", "db/db8/a01761" ],
+    [ "Sockets", "df/d7b/a01765.html", "df/d7b/a01765" ],
+    [ "W5500", "d7/d6d/a01769.html", "d7/d6d/a01769" ],
+    [ "ConnectionState", "d7/d4f/a00819.html#a98b0bdf37cb6290e7ba27fd526ce4f2f", [
+      [ "INIT", "d7/d4f/a00819.html#a98b0bdf37cb6290e7ba27fd526ce4f2fafaee4ca3c30ee18148ce3ada37466498", null ],
+      [ "IDLE", "d7/d4f/a00819.html#a98b0bdf37cb6290e7ba27fd526ce4f2faa5daf7f2ebbba4975d61dab1c40188c7", null ],
+      [ "CONNECTED", "d7/d4f/a00819.html#a98b0bdf37cb6290e7ba27fd526ce4f2faa5afd6edd5336d91316964e493936858", null ],
+      [ "DISCONNECTED", "d7/d4f/a00819.html#a98b0bdf37cb6290e7ba27fd526ce4f2fa99c8ce56e7ab246445d3b134724428f3", null ],
+      [ "UNDEFINED", "d7/d4f/a00819.html#a98b0bdf37cb6290e7ba27fd526ce4f2fa0db45d2a4141101bdfe48e3314cfbca3", null ]
+    ] ],
+    [ "operator&", "d7/d4f/a00819.html#acb74339821d97e8e11b2409c1dd2a413", null ],
+    [ "operator|", "d7/d4f/a00819.html#aa7f2f28683a1a310a51a07e5e63cde01", null ]
 ];

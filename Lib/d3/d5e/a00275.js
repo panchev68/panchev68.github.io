@@ -1,4 +1,4 @@
 var a00275 =
 [
-    [ "Lib::Digi::Core::Frame0x89", "da/ddf/a01648.html", "da/ddf/a01648" ]
+    [ "Lib::Digi::Core::AtCommandString", "d9/d1b/a01583.html", "d9/d1b/a01583" ]
 ];

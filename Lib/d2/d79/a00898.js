@@ -1,8 +1,8 @@
 var a00898 =
 [
-    [ "DeviceBase", "d2/d79/a00898.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "d2/d79/a00898.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "d2/d79/a00898.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "d2/d79/a00898.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "d2/d79/a00898.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "Config", "d5/dd3/a00902.html", "d5/dd3/a00902" ],
+    [ "Beep", "d2/d79/a00898.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "isPlaying", "d2/d79/a00898.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "play", "d2/d79/a00898.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
+    [ "RTOS::TickClient< Beep >", "d2/d79/a00898.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

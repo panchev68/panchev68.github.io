@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Crypto::WolfSSLDh Class Reference</title>
+<title>Library: Lib::Crypto::WolfSSLSHA256 Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,44 +112,65 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/dc7/a01402.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLDh Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Crypto::WolfSSLSHA256 Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Diffie-Hellman key exchange (CubeMX: DH (Diffie-Hellman) Support). </p>
-<p>The group parameters (prime and generator) are not hardcoded here: they come from the caller through "open()", typically a well-known group such as an RFC 3526 MODP group, since the library has no basis for picking one on the application's behalf. Not thread-safe: use one instance per task, or guard a shared instance with an external "Lib::RTOS::Mutex". </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSLDh:</div>
+<div class="textblock"><p>Streaming SHA-256 hasher driving wolfCrypt's software implementation. </p>
+<p>A third SHA-256 option alongside "Lib::Crypto::SHA256&lt;SHA256Engine::SOFTWARE&gt;" (portable, no dependency) and "Lib::Crypto::SHA256&lt;SHA256Engine::HARDWARE&gt;" (STM32 HASH peripheral): useful where wolfCrypt is already linked in for other cryptography (e.g. TLS) and reusing its hasher avoids pulling in a second implementation. Compiles to nothing in a project that has not generated the wolfSSL middleware through CubeMX (no 'wolfssl/wolfcrypt/settings.h' to include).</p>
+<p>Every wolfCrypt call can fail (e.g. a hardware crypto backend rejecting the context), so, unlike the software engine, "update()" and "finish()" report failure instead of asserting; on failure the hasher must not be used further. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Crypto::WolfSSLSHA256:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d35/a01400.svg" width="398" height="691"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d35/a01400.svg" width="307" height="582"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/d25/a01406.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Diffie-Hellman group parameters.  <a href="../../dc/d25/a01406.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad8c4f4476d3d1e1746d3db4fe86cf82a" id="r_ad8c4f4476d3d1e1746d3db4fe86cf82a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad8c4f4476d3d1e1746d3db4fe86cf82a">open</a> (const <a class="el" href="../../dc/d25/a01406.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:ad8c4f4476d3d1e1746d3db4fe86cf82a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the group parameters, replacing any this instance held.  <br /></td></tr>
-<tr class="memitem:ae0c35d84959cb6078b1d7ce38d4c2c02" id="r_ae0c35d84959cb6078b1d7ce38d4c2c02"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae0c35d84959cb6078b1d7ce38d4c2c02">generateKeyPair</a> (<a class="el" href="../../d6/d2f/a01394.html">WolfSSLRandom</a> &amp;rng, std::span&lt; uint8_t &gt; privateKey, size_t &amp;privateKeyLength, std::span&lt; uint8_t &gt; publicKey, size_t &amp;publicKeyLength) noexcept</td></tr>
-<tr class="memdesc:ae0c35d84959cb6078b1d7ce38d4c2c02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a private/public key pair for the group set through "open()".  <br /></td></tr>
-<tr class="memitem:a76b96df40bf320de9d7254054ad2ab18" id="r_a76b96df40bf320de9d7254054ad2ab18"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a76b96df40bf320de9d7254054ad2ab18">agree</a> (std::span&lt; const uint8_t &gt; privateKey, std::span&lt; const uint8_t &gt; peerPublicKey, std::span&lt; uint8_t &gt; sharedSecret, size_t &amp;sharedSecretLength) noexcept</td></tr>
-<tr class="memdesc:a76b96df40bf320de9d7254054ad2ab18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Derives the shared secret from this instance's private key and a peer's public key.  <br /></td></tr>
-<tr class="memitem:acaf8aa4b45471efcfd3e472780e7b31f" id="r_acaf8aa4b45471efcfd3e472780e7b31f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> () noexcept</td></tr>
-<tr class="memdesc:acaf8aa4b45471efcfd3e472780e7b31f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the DH context; call "open()" before generating a key pair.  <br /></td></tr>
-<tr class="memitem:a6d03ea454eff6ec49352184b945a04e2" id="r_a6d03ea454eff6ec49352184b945a04e2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6d03ea454eff6ec49352184b945a04e2">~WolfSSLDh</a> () noexcept</td></tr>
-<tr class="memdesc:a6d03ea454eff6ec49352184b945a04e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt DH context.  <br /></td></tr>
-<tr class="memitem:aabb6311ca11dc1faceab33055d97c824" id="r_aabb6311ca11dc1faceab33055d97c824"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aabb6311ca11dc1faceab33055d97c824">WolfSSLDh</a> (const WolfSSLDh &amp;)=delete</td></tr>
-<tr class="memitem:a2e951b9b4363af4a96e6e7426382c1d3" id="r_a2e951b9b4363af4a96e6e7426382c1d3"><td class="memItemLeft"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e951b9b4363af4a96e6e7426382c1d3">operator=</a> (const <a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;)=delete</td></tr>
-<tr class="memitem:a0d9f73abb840322aea3f49d8eac3f8ce" id="r_a0d9f73abb840322aea3f49d8eac3f8ce"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0d9f73abb840322aea3f49d8eac3f8ce">WolfSSLDh</a> (WolfSSLDh &amp;&amp;)=delete</td></tr>
-<tr class="memitem:a050501c01119e2aa82565a060075ee61" id="r_a050501c01119e2aa82565a060075ee61"><td class="memItemLeft"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a050501c01119e2aa82565a060075ee61">operator=</a> (<a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a8f2c459bcc74bbdc491240db0f521ccd" id="r_a8f2c459bcc74bbdc491240db0f521ccd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> () noexcept</td></tr>
+<tr class="memdesc:a8f2c459bcc74bbdc491240db0f521ccd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a new digest.  <br /></td></tr>
+<tr class="memitem:a620161254dd9ca7e42a2f0b9798f8183" id="r_a620161254dd9ca7e42a2f0b9798f8183"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a620161254dd9ca7e42a2f0b9798f8183">~WolfSSLSHA256</a> () noexcept</td></tr>
+<tr class="memdesc:a620161254dd9ca7e42a2f0b9798f8183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Releases the wolfCrypt hashing context.  <br /></td></tr>
+<tr class="memitem:ac39e90d775c56d5a9b1687171716062b" id="r_ac39e90d775c56d5a9b1687171716062b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac39e90d775c56d5a9b1687171716062b">WolfSSLSHA256</a> (const WolfSSLSHA256 &amp;)=delete</td></tr>
+<tr class="memitem:a74d113ca6e8dc2b3fb10b5c6ec2f561e" id="r_a74d113ca6e8dc2b3fb10b5c6ec2f561e"><td class="memItemLeft"><a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a74d113ca6e8dc2b3fb10b5c6ec2f561e">operator=</a> (const <a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp;)=delete</td></tr>
+<tr class="memitem:a22497c39de4e0ee61b131f66c1b5eba4" id="r_a22497c39de4e0ee61b131f66c1b5eba4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a22497c39de4e0ee61b131f66c1b5eba4">WolfSSLSHA256</a> (WolfSSLSHA256 &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a72a5c7983a98133e879c4dc9e7bf1680" id="r_a72a5c7983a98133e879c4dc9e7bf1680"><td class="memItemLeft"><a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a72a5c7983a98133e879c4dc9e7bf1680">operator=</a> (<a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp;&amp;)=delete</td></tr>
+<tr class="memitem:a01e3e0e3e2d58bdd234797c040bc8321" id="r_a01e3e0e3e2d58bdd234797c040bc8321"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a01e3e0e3e2d58bdd234797c040bc8321">update</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a01e3e0e3e2d58bdd234797c040bc8321"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends message bytes.  <br /></td></tr>
+<tr class="memitem:a895fb7dee0bfd3914e319bc385f61a00" id="r_a895fb7dee0bfd3914e319bc385f61a00"><td class="memItemLeft">std::optional&lt; <a class="el" href="#ae6533eeb24732d598c786e990b0ce82b">Digest</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a895fb7dee0bfd3914e319bc385f61a00">finish</a> () noexcept</td></tr>
+<tr class="memdesc:a895fb7dee0bfd3914e319bc385f61a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pads the message and returns the digest; the hasher must not be updated afterwards.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af9e1073737ec30014128374c1e0bf060" id="r_af9e1073737ec30014128374c1e0bf060"><td class="memItemLeft">static std::optional&lt; <a class="el" href="#ae6533eeb24732d598c786e990b0ce82b">Digest</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#af9e1073737ec30014128374c1e0bf060">hash</a> (std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:af9e1073737ec30014128374c1e0bf060"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hashes a complete message in one call.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a2eb6a69b93bdb65114bb07c44bb2c7db" id="r_a2eb6a69b93bdb65114bb07c44bb2c7db"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a2eb6a69b93bdb65114bb07c44bb2c7db">DIGEST_SIZE</a> = WC_SHA256_DIGEST_SIZE</td></tr>
+<tr class="memdesc:a2eb6a69b93bdb65114bb07c44bb2c7db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Digest length, in bytes.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="ae6533eeb24732d598c786e990b0ce82b" name="ae6533eeb24732d598c786e990b0ce82b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6533eeb24732d598c786e990b0ce82b">&#9670;&#160;</a></span>Digest</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ae6533eeb24732d598c786e990b0ce82b">Lib::Crypto::WolfSSLSHA256::Digest</a> = std::array&lt;uint8_t, <a class="el" href="#a2eb6a69b93bdb65114bb07c44bb2c7db">DIGEST_SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Big-endian digest bytes. </p>
+
+</div>
+</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acaf8aa4b45471efcfd3e472780e7b31f" name="acaf8aa4b45471efcfd3e472780e7b31f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acaf8aa4b45471efcfd3e472780e7b31f">&#9670;&#160;</a></span>WolfSSLDh() <span class="overload">[1/3]</span></h2>
+<a id="a8f2c459bcc74bbdc491240db0f521ccd" name="a8f2c459bcc74bbdc491240db0f521ccd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f2c459bcc74bbdc491240db0f521ccd">&#9670;&#160;</a></span>WolfSSLSHA256() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,7 +179,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLSHA256::WolfSSLSHA256 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -171,18 +192,18 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Prepares the DH context; call "open()" before generating a key pair. </p>
+<p>Starts a new digest. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_acaf8aa4b45471efcfd3e472780e7b31f_icgraph.svg" width="542" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a8f2c459bcc74bbdc491240db0f521ccd_icgraph.svg" width="622" height="380"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a6d03ea454eff6ec49352184b945a04e2" name="a6d03ea454eff6ec49352184b945a04e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d03ea454eff6ec49352184b945a04e2">&#9670;&#160;</a></span>~WolfSSLDh()</h2>
+<a id="a620161254dd9ca7e42a2f0b9798f8183" name="a620161254dd9ca7e42a2f0b9798f8183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a620161254dd9ca7e42a2f0b9798f8183">&#9670;&#160;</a></span>~WolfSSLSHA256()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -191,7 +212,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::~WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLSHA256::~WolfSSLSHA256 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -204,12 +225,12 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Releases the wolfCrypt DH context. </p>
+<p>Releases the wolfCrypt hashing context. </p>
 
 </div>
 </div>
-<a id="aabb6311ca11dc1faceab33055d97c824" name="aabb6311ca11dc1faceab33055d97c824"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabb6311ca11dc1faceab33055d97c824">&#9670;&#160;</a></span>WolfSSLDh() <span class="overload">[2/3]</span></h2>
+<a id="ac39e90d775c56d5a9b1687171716062b" name="ac39e90d775c56d5a9b1687171716062b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39e90d775c56d5a9b1687171716062b">&#9670;&#160;</a></span>WolfSSLSHA256() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,9 +239,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLSHA256::WolfSSLSHA256 </td>
           <td>(</td>
-          <td class="paramtype">const WolfSSLDh &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const WolfSSLSHA256 &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -234,13 +255,13 @@ Public Member Functions</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_aabb6311ca11dc1faceab33055d97c824_cgraph.svg" width="542" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_ac39e90d775c56d5a9b1687171716062b_cgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a0d9f73abb840322aea3f49d8eac3f8ce" name="a0d9f73abb840322aea3f49d8eac3f8ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d9f73abb840322aea3f49d8eac3f8ce">&#9670;&#160;</a></span>WolfSSLDh() <span class="overload">[3/3]</span></h2>
+<a id="a22497c39de4e0ee61b131f66c1b5eba4" name="a22497c39de4e0ee61b131f66c1b5eba4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22497c39de4e0ee61b131f66c1b5eba4">&#9670;&#160;</a></span>WolfSSLSHA256() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -249,9 +270,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::Crypto::WolfSSLDh::WolfSSLDh </td>
+          <td class="memname">Lib::Crypto::WolfSSLSHA256::WolfSSLSHA256 </td>
           <td>(</td>
-          <td class="paramtype">WolfSSLDh &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">WolfSSLSHA256 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -265,14 +286,14 @@ Public Member Functions</h2></td></tr>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a0d9f73abb840322aea3f49d8eac3f8ce_cgraph.svg" width="542" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a22497c39de4e0ee61b131f66c1b5eba4_cgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a76b96df40bf320de9d7254054ad2ab18" name="a76b96df40bf320de9d7254054ad2ab18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76b96df40bf320de9d7254054ad2ab18">&#9670;&#160;</a></span>agree()</h2>
+<a id="a895fb7dee0bfd3914e319bc385f61a00" name="a895fb7dee0bfd3914e319bc385f61a00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a895fb7dee0bfd3914e319bc385f61a00">&#9670;&#160;</a></span>finish()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -281,117 +302,9 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLDh::agree </td>
+          <td class="memname">std::optional&lt; <a class="el" href="#ae6533eeb24732d598c786e990b0ce82b">Digest</a> &gt; Lib::Crypto::WolfSSLSHA256::finish </td>
           <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>privateKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>peerPublicKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>sharedSecret</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>sharedSecretLength</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Derives the shared secret from this instance's private key and a peer's public key. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">privateKey</td><td>Private key from the matching "generateKeyPair()" call. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">peerPublicKey</td><td>Peer's public key. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sharedSecret</td><td>Destination buffer for the shared secret. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">sharedSecretLength</td><td>Length of the shared secret actually written. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" if the context failed to open or wolfCrypt reported a failure. </dd></dl>
-
-</div>
-</div>
-<a id="ae0c35d84959cb6078b1d7ce38d4c2c02" name="ae0c35d84959cb6078b1d7ce38d4c2c02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0c35d84959cb6078b1d7ce38d4c2c02">&#9670;&#160;</a></span>generateKeyPair()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLDh::generateKeyPair </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../d6/d2f/a01394.html">WolfSSLRandom</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rng</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>privateKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>privateKeyLength</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>publicKey</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t &amp;</td>          <td class="paramname"><span class="paramname"><em>publicKeyLength</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Generates a private/public key pair for the group set through "open()". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">rng</td><td>Random number generator; must be open. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">privateKey</td><td>Destination buffer for the private key. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">privateKeyLength</td><td>Length of the private key actually written. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">publicKey</td><td>Destination buffer for the public key. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">publicKeyLength</td><td>Length of the public key actually written. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" if the context failed to open or wolfCrypt reported a failure. </dd></dl>
-
-</div>
-</div>
-<a id="ad8c4f4476d3d1e1746d3db4fe86cf82a" name="ad8c4f4476d3d1e1746d3db4fe86cf82a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8c4f4476d3d1e1746d3db4fe86cf82a">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::Crypto::WolfSSLDh::open </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/d25/a01406.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -402,50 +315,19 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the group parameters, replacing any this instance held. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">config</td><td>Group prime and generator. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" if the context failed to open or wolfCrypt reported a failure. </dd></dl>
-
-</div>
-</div>
-<a id="a2e951b9b4363af4a96e6e7426382c1d3" name="a2e951b9b4363af4a96e6e7426382c1d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e951b9b4363af4a96e6e7426382c1d3">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp; Lib::Crypto::WolfSSLDh::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<p>Pads the message and returns the digest; the hasher must not be updated afterwards. </p>
+<dl class="section return"><dt>Returns</dt><dd>Big-endian digest, or "std::nullopt" if the context failed to open or wolfCrypt reported a failure. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a2e951b9b4363af4a96e6e7426382c1d3_cgraph.svg" width="542" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a895fb7dee0bfd3914e319bc385f61a00_icgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a050501c01119e2aa82565a060075ee61" name="a050501c01119e2aa82565a060075ee61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a050501c01119e2aa82565a060075ee61">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="af9e1073737ec30014128374c1e0bf060" name="af9e1073737ec30014128374c1e0bf060"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af9e1073737ec30014128374c1e0bf060">&#9670;&#160;</a></span>hash()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -454,29 +336,165 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp; Lib::Crypto::WolfSSLDh::operator= </td>
+          <td class="memname">std::optional&lt; <a class="el" href="#ae6533eeb24732d598c786e990b0ce82b">Digest</a> &gt; Lib::Crypto::WolfSSLSHA256::hash </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#acaf8aa4b45471efcfd3e472780e7b31f">WolfSSLDh</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Hashes a complete message in one call. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Message bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Digest of "data", or "std::nullopt" on a wolfCrypt failure. </dd></dl>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a050501c01119e2aa82565a060075ee61_cgraph.svg" width="542" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_af9e1073737ec30014128374c1e0bf060_cgraph.svg" width="622" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
+<a id="a74d113ca6e8dc2b3fb10b5c6ec2f561e" name="a74d113ca6e8dc2b3fb10b5c6ec2f561e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d113ca6e8dc2b3fb10b5c6ec2f561e">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp; Lib::Crypto::WolfSSLSHA256::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a74d113ca6e8dc2b3fb10b5c6ec2f561e_cgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a72a5c7983a98133e879c4dc9e7bf1680" name="a72a5c7983a98133e879c4dc9e7bf1680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72a5c7983a98133e879c4dc9e7bf1680">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp; Lib::Crypto::WolfSSLSHA256::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a8f2c459bcc74bbdc491240db0f521ccd">WolfSSLSHA256</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a72a5c7983a98133e879c4dc9e7bf1680_cgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a01e3e0e3e2d58bdd234797c040bc8321" name="a01e3e0e3e2d58bdd234797c040bc8321"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01e3e0e3e2d58bdd234797c040bc8321">&#9670;&#160;</a></span>update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::Crypto::WolfSSLSHA256::update </td>
+          <td>(</td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Appends message bytes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>Bytes to append; may be empty. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" if the context failed to open or wolfCrypt reported a failure. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc7/a01402_a01e3e0e3e2d58bdd234797c040bc8321_icgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a2eb6a69b93bdb65114bb07c44bb2c7db" name="a2eb6a69b93bdb65114bb07c44bb2c7db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb6a69b93bdb65114bb07c44bb2c7db">&#9670;&#160;</a></span>DIGEST_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t Lib::Crypto::WolfSSLSHA256::DIGEST_SIZE = WC_SHA256_DIGEST_SIZE</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Digest length, in bytes. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d5/dcb/a00170.html">WolfSSL.hpp</a></li>
+<li><a class="el" href="../../db/dd9/a00179.html">WolfSSL.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -491,7 +509,7 @@ Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../d5/dac/a00841.html">Crypto</a></li><li class="navelem"><a href="../../d0/dc7/a01402.html">WolfSSLDh</a></li>
+    <li class="navelem"><a href="../../d7/d5f/a00831.html">Lib</a></li><li class="navelem"><a href="../../db/deb/a00853.html">Crypto</a></li><li class="navelem"><a href="../../d0/dc7/a01402.html">WolfSSLSHA256</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

@@ -1,14 +1,14 @@
 var a00859 =
 [
-    [ "Filter", "d2/d5e/a00860.html", "d2/d5e/a00860" ],
-    [ "CubicInterpolation", "d5/d49/a02282.html", "d5/d49/a02282" ],
-    [ "HammingCode", "d9/dba/a02278.html", null ],
-    [ "LinearInterpolation", "dd/dae/a02294.html", "dd/dae/a02294" ],
-    [ "Pid", "d3/d58/a02302.html", "d3/d58/a02302" ],
-    [ "CubicInterpolationD", "dc/d8c/a00859.html#ad4addb27687a1c6accb56c4e27269048", null ],
-    [ "CubicInterpolationF", "dc/d8c/a00859.html#a95e75623bdeeebff3be6c024135bfea2", null ],
-    [ "LinearInterpolationD", "dc/d8c/a00859.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e", null ],
-    [ "LinearInterpolationF", "dc/d8c/a00859.html#a8e491be310ee384e098186699963cc0e", null ],
-    [ "PidD", "dc/d8c/a00859.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9", null ],
-    [ "PidF", "dc/d8c/a00859.html#a948fc056c1100dd929fbdca345047060", null ]
+    [ "Detail", "d2/d5e/a00860.html", [
+      [ "errorIdCounter", "d2/d5e/a00860.html#a4aa716a71feabe9eb092678479bdfa78", null ]
+    ] ],
+    [ "BasicDispatcher", "dd/d08/a01682.html", "dd/d08/a01682" ],
+    [ "Error", "d6/d01/a01690.html", "d6/d01/a01690" ],
+    [ "ErrorBase", "d0/d31/a01686.html", "d0/d31/a01686" ],
+    [ "Group", "d4/d8e/a01694.html", "d4/d8e/a01694" ],
+    [ "Observer", "de/d05/a01702.html", "de/d05/a01702" ],
+    [ "ObserverBase", "d5/da6/a01698.html", "d5/da6/a01698" ],
+    [ "ErrorKind", "d8/d09/a02624.html", null ],
+    [ "Dispatcher", "dc/d8c/a00859.html#a32937fedfac156d84189cbf2133bd0ab", null ]
 ];

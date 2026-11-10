@@ -1,18 +1,18 @@
 var a01693 =
 [
-    [ "DateString", "dd/db4/a01693.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "dd/db4/a01693.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "dd/db4/a01693.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "dd/db4/a01693.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "dd/db4/a01693.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "dd/db4/a01693.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "dd/db4/a01693.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "dd/db4/a01693.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "dd/db4/a01693.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "dd/db4/a01693.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "dd/db4/a01693.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "dd/db4/a01693.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "dd/db4/a01693.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "dd/db4/a01693.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "dd/db4/a01693.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "Handlers", "dd/db4/a01693.html#a272ea34043ce0f3bb7014fc2c4df927e", null ],
+    [ "Parameters", "dd/db4/a01693.html#a4d66198ad9a9b1a75925e1a97dbc5fb9", null ],
+    [ "Result", "dd/db4/a01693.html#a6870bc1d903b1d83b238ba51088eb134", null ],
+    [ "EoE", "dd/db4/a01693.html#a57ce3b2cab796d2623bc80be2bc75e80", null ],
+    [ "~EoE", "dd/db4/a01693.html#a5babb7f332ba38f3e2e33203e39e615d", null ],
+    [ "EoE", "dd/db4/a01693.html#a07829bbfc5250b03c81968ebd709bf4e", null ],
+    [ "EoE", "dd/db4/a01693.html#ac52aa3b6cbf2a17e467cfba61ddbf48e", null ],
+    [ "handle", "dd/db4/a01693.html#a41416e8882dd613876cb3a6bcbfc9b44", null ],
+    [ "isSendPending", "dd/db4/a01693.html#a91f842049f97f5f7055e5a7f6de7c6ac", null ],
+    [ "operator=", "dd/db4/a01693.html#a82f98b2311b36aea43517d9a31df5d08", null ],
+    [ "operator=", "dd/db4/a01693.html#ae9237ef17cddb3bf83d5e2b41580c4af", null ],
+    [ "queueFrame", "dd/db4/a01693.html#a2afc345b5bcd9326d015eb678e620201", null ],
+    [ "reset", "dd/db4/a01693.html#a85ee64bff9f15d5ace7999ebdb5643ef", null ],
+    [ "service", "dd/db4/a01693.html#a4d41465f94d62fdbab816ab8d8ebd674", null ],
+    [ "setHandlers", "dd/db4/a01693.html#a6b26ad71662f36a666db683b5755a119", null ]
 ];

@@ -1,10 +1,8 @@
 var a01949 =
 [
-    [ "Value64Handle", "d9/d97/a01953.html", "d9/d97/a01953" ],
-    [ "Status", "dd/d2e/a01949.html#ae95109eada6e1d27cd31567f2ba169de", [
-      [ "OK", "dd/d2e/a01949.html#ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dd/d2e/a01949.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "close", "dd/d2e/a01949.html#a53db90908f030950c411387229c0e443", null ],
-    [ "open", "dd/d2e/a01949.html#a53a9eea61415dd09f7459b8b382eeb58", null ]
+    [ "data", "dd/d2e/a01949.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "dd/d2e/a01949.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "dd/d2e/a01949.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "dd/d2e/a01949.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "dd/d2e/a01949.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

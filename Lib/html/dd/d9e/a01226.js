@@ -1,15 +1,8 @@
 var a01226 =
 [
-    [ "Value", "dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0", [
-      [ "INIT", "dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0aaa7542dc13ab91223fcf190b28846d98", null ],
-      [ "READY", "dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0ae1d7fd9328c3a404f8d7886da7a2f1a8", null ],
-      [ "CONNECTED", "dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0a579710f202d95345d2555010d4cbc29f", null ],
-      [ "DISCONNECTED", "dd/d9e/a01226.html#a59c8aeef51295445b21b24d4c535d6e0ae46b7f4649cda77c1145dc0f77259acf", null ]
-    ] ],
-    [ "State", "dd/d9e/a01226.html#a3007a4a510f248533d6430b451c6b00a", null ],
-    [ "State", "dd/d9e/a01226.html#a95ebe78d3b35e550284d27bc67ff6c7e", null ],
-    [ "isConnected", "dd/d9e/a01226.html#a65815696748e22f0a55e4ac329b6c0d1", null ],
-    [ "operator uint32_t", "dd/d9e/a01226.html#a9b994b0a748f87f74f1297ef9aed5b1b", null ],
-    [ "operator=", "dd/d9e/a01226.html#a14595d3e685bb58c80b00a821f6e2a54", null ],
-    [ "onConnectionChanged", "dd/d9e/a01226.html#af678900015fb6460c22371a41baecf46", null ]
+    [ "miso", "dd/d9e/a01226.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
+    [ "mosi", "dd/d9e/a01226.html#a25f143d2f7674576d969696bb116ccd0", null ],
+    [ "nirq", "dd/d9e/a01226.html#a910a59f08ad5274a68776e743dbaedee", null ],
+    [ "nss", "dd/d9e/a01226.html#ab28458323220459a7d7310bc64b538a2", null ],
+    [ "sck", "dd/d9e/a01226.html#a2bddcf040cbe86554ab6027c20f10236", null ]
 ];

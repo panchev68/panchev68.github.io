@@ -1,14 +1,16 @@
 var a01950 =
 [
-    [ "OSPIPort", "d5/d28/a01950.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d5/d28/a01950.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "OSPIPort", "d5/d28/a01950.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
-    [ "OSPIPort", "d5/d28/a01950.html#a50425950532682614be81eb8bb5216b7", null ],
-    [ "command", "d5/d28/a01950.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
-    [ "getHandle", "d5/d28/a01950.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d5/d28/a01950.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "operator=", "d5/d28/a01950.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
-    [ "operator=", "d5/d28/a01950.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
-    [ "receive", "d5/d28/a01950.html#aef7cf93602718e2d14816e122f15f3be", null ],
-    [ "transmit", "d5/d28/a01950.html#a10d2dc1da9553992110c3752aa39e058", null ]
+    [ "Event", "d7/d34/a01954.html", null ],
+    [ "DACPort", "d5/d28/a01950.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "d5/d28/a01950.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "d5/d28/a01950.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "d5/d28/a01950.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "d5/d28/a01950.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "d5/d28/a01950.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "open", "d5/d28/a01950.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "d5/d28/a01950.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "d5/d28/a01950.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "start", "d5/d28/a01950.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "d5/d28/a01950.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "d5/d28/a01950.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

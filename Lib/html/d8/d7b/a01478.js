@@ -1,16 +1,5 @@
 var a01478 =
 [
-    [ "Channel", "da/d36/a01482.html", "da/d36/a01482" ],
-    [ "ChannelArray", "d8/d7b/a01478.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
-    [ "QualityMode", "d8/d7b/a01478.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
-    [ "Error", "d8/d7b/a01478.html#acb54f9ec6751a18eda393e2c5bd0675c", [
-      [ "NONE", "d8/d7b/a01478.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "MODULE_IS_NOT_CONNECTED", "d8/d7b/a01478.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
-      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d8/d7b/a01478.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
-    ] ],
-    [ "ChannelScanner", "d8/d7b/a01478.html#a4e65a2b73399e5ba18d5090993f64487", null ],
-    [ "ChannelScanner", "d8/d7b/a01478.html#a1b11f5df668c4629836c71101e686990", null ],
-    [ "getChannels", "d8/d7b/a01478.html#a124a962ad28c0688ab38329f7a7b034e", null ],
-    [ "operator=", "d8/d7b/a01478.html#aed5af8462cac9a996e73489e369434d3", null ],
-    [ "onError", "d8/d7b/a01478.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
+    [ "temperatureValue", "d8/d7b/a01478.html#ad352c7bba31cc229e106eea4aef94299", null ],
+    [ "voltageValue", "d8/d7b/a01478.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
 ];

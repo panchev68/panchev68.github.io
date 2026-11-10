@@ -1,9 +1,10 @@
 var a01241 =
 [
-    [ "State", "d3/d07/a01241.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
-    [ "State", "d3/d07/a01241.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
-    [ "isConnected", "d3/d07/a01241.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
-    [ "operator uint32_t", "d3/d07/a01241.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
-    [ "operator=", "d3/d07/a01241.html#a74040294aacf89a661c876eb5aadc081", null ],
-    [ "onConnectionChanged", "d3/d07/a01241.html#af29d5ac1eff410a6876b1be865601ca8", null ]
+    [ "operator==", "d3/d07/a01241.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d3/d07/a01241.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d3/d07/a01241.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d3/d07/a01241.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d3/d07/a01241.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d3/d07/a01241.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d3/d07/a01241.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

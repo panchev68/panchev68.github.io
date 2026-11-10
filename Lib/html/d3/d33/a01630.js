@@ -1,12 +1,9 @@
 var a01630 =
 [
-    [ "Command", "d3/d33/a01630.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
-    [ "RemoteAtCommand", "d3/d33/a01630.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
-    [ "RemoteAtCommand", "d3/d33/a01630.html#a772786f4856c6806756c33743f038855", null ],
-    [ "close", "d3/d33/a01630.html#acfc9182b712685cd72276c7c645330ec", null ],
-    [ "open", "d3/d33/a01630.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
-    [ "operator=", "d3/d33/a01630.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
-    [ "receive", "d3/d33/a01630.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
-    [ "send", "d3/d33/a01630.html#a68565e1939553aa4b73a44d4c6adf059", null ],
-    [ "send", "d3/d33/a01630.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
+    [ "writeTo", "d3/d33/a01630.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d3/d33/a01630.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d3/d33/a01630.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d3/d33/a01630.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d3/d33/a01630.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d3/d33/a01630.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

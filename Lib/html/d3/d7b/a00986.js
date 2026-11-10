@@ -1,8 +1,7 @@
 var a00986 =
 [
-    [ "button", "d3/d7b/a00986.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
-    [ "channel1", "d3/d7b/a00986.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
-    [ "channel2", "d3/d7b/a00986.html#a360d21f775c66781831db2507e7a73fc", null ],
-    [ "divider", "d3/d7b/a00986.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
-    [ "reversePolarity", "d3/d7b/a00986.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
+    [ "Config", "d3/d7b/a00986.html#a71f90ba5852d744d364d627c9200231e", null ],
+    [ "M24C16", "d3/d7b/a00986.html#a82d789de030a0346864f88543d0512e5", null ],
+    [ "~M24C16", "d3/d7b/a00986.html#a0db0fe864ae86e17a1406e2180d119af", null ],
+    [ "Driver< M24C16 >", "d3/d7b/a00986.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
 ];

@@ -1,13 +1,29 @@
 var a00829 =
 [
-    [ "Config", "da/d17/a01046.html", "da/d17/a01046" ],
-    [ "Info", "d9/d8e/a01050.html", "d9/d8e/a01050" ],
-    [ "DriverBase", "dd/d57/a01054.html", "dd/d57/a01054" ],
-    [ "DriverImpl", "db/d34/a02608.html", null ],
-    [ "Status", "d1/dea/a00829.html#a93a86005cbff0244fb1cfdaa80180a51", [
-      [ "NO_INIT", "d1/dea/a00829.html#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "READY", "d1/dea/a00829.html#a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "POWER_OFF", "d1/dea/a00829.html#a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8", null ],
-      [ "ERRORS", "d1/dea/a00829.html#a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57", null ]
-    ] ]
+    [ "EventGroup", "d7/dd6/a02305.html", "d7/dd6/a02305" ],
+    [ "Kernel", "dc/dd6/a02309.html", "dc/dd6/a02309" ],
+    [ "MemoryManager", "d7/dbe/a02333.html", "d7/dbe/a02333" ],
+    [ "MessageBuffer", "d7/d52/a02337.html", "d7/d52/a02337" ],
+    [ "Mutex", "d4/dfb/a02341.html", "d4/dfb/a02341" ],
+    [ "MutexGuard", "dc/d0a/a02345.html", "dc/d0a/a02345" ],
+    [ "PowerManager", "dc/de0/a02349.html", "dc/de0/a02349" ],
+    [ "Queue", "d5/db0/a02361.html", "d5/db0/a02361" ],
+    [ "Semaphore", "d0/dc0/a02365.html", "d0/dc0/a02365" ],
+    [ "SemaphoreBase", "df/def/a02369.html", "df/def/a02369" ],
+    [ "SemaphoreCounting", "d7/de7/a02373.html", "d7/de7/a02373" ],
+    [ "StreamBuffer", "dd/d75/a02377.html", "dd/d75/a02377" ],
+    [ "Task", "d7/d1a/a02381.html", "d7/d1a/a02381" ],
+    [ "TickClient", "dd/d31/a02405.html", "dd/d31/a02405" ],
+    [ "TickCounter", "d5/da5/a02413.html", "d5/da5/a02413" ],
+    [ "Timeout", "de/d76/a02417.html", "de/d76/a02417" ],
+    [ "Timer", "da/d18/a02421.html", "da/d18/a02421" ],
+    [ "delay", "d1/dea/a00829.html#a0960b26725ee8ac0c2798f5d3036b37a", null ],
+    [ "delay", "d1/dea/a00829.html#a9457a17b234e2e6b6336f69c9f756021", null ],
+    [ "delayUntil", "d1/dea/a00829.html#a071ed92c20109dd07c3785eb87914136", null ],
+    [ "delayUntil", "d1/dea/a00829.html#aeaddd65089a8190241b5922399d6168c", null ],
+    [ "durationToTicks", "d1/dea/a00829.html#ab892d206cb79c31e373b3631e023b644", null ],
+    [ "getTickCount", "d1/dea/a00829.html#aa54eb7aeffc794961e60ade51c195480", null ],
+    [ "getTickCountFromISR", "d1/dea/a00829.html#a80d033e9ce70fec78bacaa61cc1221bf", null ],
+    [ "inISR", "d1/dea/a00829.html#a974867cff953c89df2c50da604d4b606", null ],
+    [ "millisecondsToTicks", "d1/dea/a00829.html#a5c21e23f0bba6fde645ac808660b30f8", null ]
 ];

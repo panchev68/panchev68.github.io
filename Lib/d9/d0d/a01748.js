@@ -1,5 +1,6 @@
 var a01748 =
 [
-    [ "inputs", "d9/d0d/a01748.html#a430246e65df286593d6b44f5f1b3b720", null ],
-    [ "outputs", "d9/d0d/a01748.html#a40e1b2b17fe5558dd9d78175a8094a6a", null ]
+    [ "afterWrite", "d9/d0d/a01748.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
+    [ "beforeRead", "d9/d0d/a01748.html#a214b45de3b2b1b03564e40ad91392018", null ],
+    [ "beforeWrite", "d9/d0d/a01748.html#a19848fcaef19f48fd52d8d89e26be851", null ]
 ];

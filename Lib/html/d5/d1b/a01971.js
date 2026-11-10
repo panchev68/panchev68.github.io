@@ -1,11 +1,8 @@
 var a01971 =
 [
-    [ "OTP", "d5/d1b/a01971.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
-    [ "OTP", "d5/d1b/a01971.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
-    [ "lock", "d5/d1b/a01971.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "operator=", "d5/d1b/a01971.html#ad631f9069ef7f1c2f316505e7b391885", null ],
-    [ "operator=", "d5/d1b/a01971.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
-    [ "read", "d5/d1b/a01971.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "d5/d1b/a01971.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "d5/d1b/a01971.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "OSPIPortAsync", "d5/d1b/a01971.html#a51c7bf376cb7e3701de6391b213701a9", null ],
+    [ "abort", "d5/d1b/a01971.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "command", "d5/d1b/a01971.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "receive", "d5/d1b/a01971.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "d5/d1b/a01971.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

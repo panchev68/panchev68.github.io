@@ -1,12 +1,6 @@
 var a01520 =
 [
-    [ "ChannelArray", "d4/d51/a01520.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
-    [ "SpectrumAnalyzer", "d4/d51/a01520.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
-    [ "SpectrumAnalyzer", "d4/d51/a01520.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
-    [ "getAverageArray", "d4/d51/a01520.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
-    [ "getCurrentArray", "d4/d51/a01520.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
-    [ "getMaxArray", "d4/d51/a01520.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
-    [ "isNewData", "d4/d51/a01520.html#a2788be420fbb2acb1168d7aa21759804", null ],
-    [ "operator=", "d4/d51/a01520.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
-    [ "resetData", "d4/d51/a01520.html#a219916036b1120cc272129041d937770", null ]
+    [ "Checksum", "d4/d51/a01520.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d4/d51/a01520.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d4/d51/a01520.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

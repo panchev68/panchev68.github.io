@@ -1,12 +1,7 @@
 var a02351 =
 [
-    [ "Lib::BSP::FMEM::SPI::Config", "de/d4e/a00972.html", "de/d4e/a00972" ],
-    [ "Lib::BSP::FMEM::SPI::Info", "d0/d85/a00976.html", "d0/d85/a00976" ],
-    [ "Lib::BSP::FMEM::SPI::DriverBase&lt; T_DERIVED &gt;", "db/d20/a00980.html", "db/d20/a00980" ],
-    [ "Lib::BSP::FMEM::SPI::Status", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51", [
-      [ "Lib::BSP::FMEM::SPI::Status::NO_INIT", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::READY", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::POWER_OFF", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::ERRORS", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57", null ]
-    ] ]
+    [ "Point", "dd/d1b/a02351.html#af5f110cd6ba5ff0d50c2c9966175f060", null ],
+    [ "Point", "dd/d1b/a02351.html#a6b4b271df3099e560fe52f44aee3f3b0", null ],
+    [ "x", "dd/d1b/a02351.html#ade6943178d200f4eecb5a7a84e593ba0", null ],
+    [ "y", "dd/d1b/a02351.html#a0921a157fe3803511d1d72c3b5461ca4", null ]
 ];

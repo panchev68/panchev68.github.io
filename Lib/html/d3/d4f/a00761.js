@@ -1,4 +1,4 @@
 var a00761 =
 [
-    [ "RTOS::Timeout", "d8/db7/a02450.html", "d8/db7/a02450" ]
+    [ "RTOS::TickCounter", "de/d91/a02458.html", "de/d91/a02458" ]
 ];

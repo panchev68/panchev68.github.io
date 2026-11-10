@@ -25,6 +25,7 @@
 var menudata={children:[
 {text:"Main Page",url:"index.html"},
 {text:"Related Pages",url:"pages.html"},
+{text:"Topics",url:"topics.html"},
 {text:"Classes",url:"annotated.html",children:[
 {text:"List",url:"annotated.html"},
 {text:"Index",url:"classes.html"},
@@ -118,6 +119,7 @@ var menudata={children:[
 {text:"f",url:"functions_type.html#index_f"},
 {text:"h",url:"functions_type.html#index_h"},
 {text:"i",url:"functions_type.html#index_i"},
+{text:"k",url:"functions_type.html#index_k"},
 {text:"l",url:"functions_type.html#index_l"},
 {text:"m",url:"functions_type.html#index_m"},
 {text:"n",url:"functions_type.html#index_n"},
@@ -147,4 +149,5 @@ var menudata={children:[
 {text:"Enumerator",url:"functions_eval.html"},
 {text:"Related Symbols",url:"functions_rela.html"}]}]},
 {text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"}]}]}
+{text:"File List",url:"files.html"}]},
+{text:"Examples",url:"examples.html"}]}

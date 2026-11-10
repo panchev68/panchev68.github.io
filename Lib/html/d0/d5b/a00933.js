@@ -1,12 +1,19 @@
 var a00933 =
 [
-    [ "Inputs", "d0/d5b/a00933.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "d0/d5b/a00933.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "d0/d5b/a00933.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "d0/d5b/a00933.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "d0/d5b/a00933.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "d0/d5b/a00933.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "d0/d5b/a00933.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "d0/d5b/a00933.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "d0/d5b/a00933.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "Config", "de/db9/a00937.html", "de/db9/a00937" ],
+    [ "Driver", "d0/d5b/a00933.html#ad08435e7ab04b1447660c851f626b703", null ],
+    [ "~Driver", "d0/d5b/a00933.html#aa6102b0396341784835c07a1ce9a127a", null ],
+    [ "Driver", "d0/d5b/a00933.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
+    [ "Driver", "d0/d5b/a00933.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
+    [ "close", "d0/d5b/a00933.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d0/d5b/a00933.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d0/d5b/a00933.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "operator=", "d0/d5b/a00933.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
+    [ "operator=", "d0/d5b/a00933.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
+    [ "read", "d0/d5b/a00933.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d0/d5b/a00933.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d0/d5b/a00933.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d0/d5b/a00933.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d0/d5b/a00933.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d0/d5b/a00933.html#a299a926321f0db8d9eac8527198f28fc", null ]
 ];

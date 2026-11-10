@@ -1,7 +1,10 @@
 var a00912 =
 [
-    [ "Inputs", "d6/d66/a00916.html", "d6/d66/a00916" ],
-    [ "Outputs", "d6/d82/a00920.html", "d6/d82/a00920" ],
-    [ "inputs", "df/da5/a00912.html#a83f591b4be154cb08f68588d557cfc3e", null ],
-    [ "outputs", "df/da5/a00912.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
+    [ "PortBase", "df/da5/a00912.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "df/da5/a00912.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "df/da5/a00912.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "df/da5/a00912.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "df/da5/a00912.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "df/da5/a00912.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "df/da5/a00912.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

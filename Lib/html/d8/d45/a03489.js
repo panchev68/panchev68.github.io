@@ -1,5 +1,7 @@
 var a03489 =
 [
-    [ "Lib::Canbus::Service&lt; Mode::CLIENT &gt;", "d4/dd5/a01244.html", "d4/dd5/a01244" ],
-    [ "Lib::Canbus::ClientBase", "d7/d5f/a00831.html#a6a342d3a95a10dc45d846c70f8fd7fb9", null ]
+    [ "Lib::BSP::FMEM::OSPI::Config", "d4/d56/a01042.html", "d4/d56/a01042" ],
+    [ "Lib::BSP::FMEM::OSPI::Info", "da/d17/a01046.html", "da/d17/a01046" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ", "d9/d8e/a01050.html", "d9/d8e/a01050" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register", "dd/d57/a01054.html", "dd/d57/a01054" ]
 ];

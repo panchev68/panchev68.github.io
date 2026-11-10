@@ -1,6 +1,9 @@
 var a01304 =
 [
-    [ "average", "d6/dae/a01304.html#ab4fa2bcc0bec940e745fb7be637aebd6", null ],
-    [ "current", "d6/dae/a01304.html#afb1d3ab66b7d545ad64678211e1916f3", null ],
-    [ "max", "d6/dae/a01304.html#a9ad9c18e962514b6e21e59820bccecdd", null ]
+    [ "Address", "d6/dae/a01304.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "d6/dae/a01304.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "d6/dae/a01304.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "d6/dae/a01304.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "d6/dae/a01304.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "d6/dae/a01304.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
 ];

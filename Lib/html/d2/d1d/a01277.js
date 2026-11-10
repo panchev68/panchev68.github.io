@@ -1,6 +1,6 @@
 var a01277 =
 [
-    [ "getIdentifier", "d2/d1d/a01277.html#a55e3aba9edbe89a84645bcde21bf42a3", null ],
-    [ "setIdentifier", "d2/d1d/a01277.html#ab58fe7391625e1e709418aceb8c4e6ee", null ],
-    [ "identifier", "d2/d1d/a01277.html#a591ed321a0d336bbf9f424a81c8c1189", null ]
+    [ "pinHandle", "d2/d1d/a01277.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "d2/d1d/a01277.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "d2/d1d/a01277.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

@@ -1,30 +1,14 @@
 var a02380 =
 [
-    [ "Statistics", "d2/d11/a02384.html", "d2/d11/a02384" ],
-    [ "DeepSleepLock", "db/d3b/a02388.html", "db/d3b/a02388" ],
-    [ "PeripheralCallback", "d8/d30/a02380.html#ac633324a1cfed84b41ea13c58bf6fbfa", null ],
-    [ "PowerManager", "d8/d30/a02380.html#af37259063989766044b7fa592bd44085", null ],
-    [ "PowerManager", "d8/d30/a02380.html#a580afc3532ffd30c47cab5a645b5bc7b", null ],
-    [ "acquireDeepSleepLock", "d8/d30/a02380.html#a6bdd9dff8463762161a8fa3636a21ff0", null ],
-    [ "canEnterDeepSleep", "d8/d30/a02380.html#a1de32d80fc39ad10a50ba03c986f2bd2", null ],
-    [ "clearCallbacks", "d8/d30/a02380.html#a88eb68fa07a4c301b92b1494aa38c658", null ],
-    [ "disableDeepSleep", "d8/d30/a02380.html#aeee3f51a408ab40cc51936aa0e0961c3", null ],
-    [ "enableDeepSleep", "d8/d30/a02380.html#a124c901bc289619cbe95244c4dc76065", null ],
-    [ "getDeepSleepLockCount", "d8/d30/a02380.html#a6064262d8555aa361dfb6ee449ae72d3", null ],
-    [ "getPostSleepCallbackCount", "d8/d30/a02380.html#a6fcb72ffb29a6bc5a81299278ef7acc0", null ],
-    [ "getPreSleepCallbackCount", "d8/d30/a02380.html#a4e74d968320f127efe98419a466dae4b", null ],
-    [ "getStatistics", "d8/d30/a02380.html#a0bae4d059d5136a3f1a01b190a524c37", null ],
-    [ "getTimer", "d8/d30/a02380.html#a413f529cd450843d1925ae6e9672272a", null ],
-    [ "isDeepSleepEnabled", "d8/d30/a02380.html#a0226d6db41a58b3363a92fc42b5bc696", null ],
-    [ "isSetUp", "d8/d30/a02380.html#aab0d26e47777719ed4cbb5abfa3ff18c", null ],
-    [ "operator=", "d8/d30/a02380.html#ac049ef91e07bc905499cb228bbc97d39", null ],
-    [ "operator=", "d8/d30/a02380.html#a7eaa1f8fd4c5fddd0d6d9aa4202913fe", null ],
-    [ "registerPostSleepCallback", "d8/d30/a02380.html#a13f32f2b1abeed9410f521ffcfaf1e6e", null ],
-    [ "registerPreSleepCallback", "d8/d30/a02380.html#ab5e43097d2f7efc26d1ac3b6eecdd7b8", null ],
-    [ "releaseDeepSleepLock", "d8/d30/a02380.html#a33d9c1c345d706331d8b150dfaf5f883", null ],
-    [ "resetStatistics", "d8/d30/a02380.html#a36783c702ecbb0cfe158745ca64fcaec", null ],
-    [ "setup", "d8/d30/a02380.html#a565502e655a008546ced2e18d0fc7b22", null ],
-    [ "unregisterPostSleepCallback", "d8/d30/a02380.html#a8c9e36018627ddcbae93c6f3279a54bc", null ],
-    [ "unregisterPreSleepCallback", "d8/d30/a02380.html#a9faada79167d302ec78497a7a882e1b9", null ],
-    [ "void::vPortSuppressTicksAndSleep", "d8/d30/a02380.html#a98ee80183ed645629084a482c158afd1", null ]
+    [ "Config", "d2/d11/a02384.html", "d2/d11/a02384" ],
+    [ "State", "d8/d30/a02380.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "d8/d30/a02380.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d8/d30/a02380.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d8/d30/a02380.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d8/d30/a02380.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "d8/d30/a02380.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "d8/d30/a02380.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "d8/d30/a02380.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "d8/d30/a02380.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

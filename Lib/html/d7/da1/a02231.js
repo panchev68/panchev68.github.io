@@ -1,12 +1,22 @@
 var a02231 =
 [
-    [ "Sunset", "d7/da1/a02231.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "d7/da1/a02231.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "d7/da1/a02231.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "d7/da1/a02231.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "d7/da1/a02231.html#a5c6deabfb7071836dede5e4bec4152f3", null ],
-    [ "setCurrentDate", "d7/da1/a02231.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "d7/da1/a02231.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "d7/da1/a02231.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "d7/da1/a02231.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "Date", "d7/da1/a02231.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
+    [ "Phase", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5", [
+      [ "NEW_MOON", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
+      [ "WAXING_CRESCENT", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
+      [ "FIRST_QUARTER", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
+      [ "WAXING_GIBBOUS", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
+      [ "FULL_MOON", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
+      [ "WANING_GIBBOUS", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
+      [ "LAST_QUARTER", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
+      [ "WANING_CRESCENT", "d7/da1/a02231.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
+    ] ],
+    [ "MoonPhase", "d7/da1/a02231.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
+    [ "MoonPhase", "d7/da1/a02231.html#acd603bf923907f139f3479a3fe0c6723", null ],
+    [ "calculate", "d7/da1/a02231.html#a47ac4868563998363835de249a5814a9", null ],
+    [ "index", "d7/da1/a02231.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
+    [ "name", "d7/da1/a02231.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
+    [ "operator std::string_view", "d7/da1/a02231.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
+    [ "operator uint32_t", "d7/da1/a02231.html#a64022e97a09da5fcaa242d39634aafbf", null ],
+    [ "phase", "d7/da1/a02231.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
 ];

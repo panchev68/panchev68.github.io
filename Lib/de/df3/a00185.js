@@ -1,5 +1,5 @@
 var a00185 =
 [
-    [ "Lib::Digi::API::Service::PairService", "da/ddc/a01492.html", "da/ddc/a01492" ],
-    [ "Lib::Digi::API::Service::PairService::Config", "d1/dde/a01496.html", "d1/dde/a01496" ]
+    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;", "d7/dbf/a01239.html", "d7/dbf/a01239" ],
+    [ "Lib::BSP::Thermometer::TMP102&lt; T_MODE &gt;::Config", "d8/db0/a01243.html", "d8/db0/a01243" ]
 ];

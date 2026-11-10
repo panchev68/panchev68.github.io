@@ -1,9 +1,7 @@
 var a00941 =
 [
-    [ "DriverBase", "d6/dad/a00941.html#a329188c9f70a21a0f421598a6fa4aea6", null ],
-    [ "~DriverBase", "d6/dad/a00941.html#a485ac6dbe46e3f7568c6ef46aeb78939", null ],
-    [ "canTransferBlock", "d6/dad/a00941.html#ad55213b27726f017dcbc465586c2b468", null ],
-    [ "getTransferActive", "d6/dad/a00941.html#abee35beb9e71effa911fc8fc30b2fbf7", null ],
-    [ "handleTransferCompleteEvent", "d6/dad/a00941.html#aee5a5b357b886ee353e04fb06a4c0ada", null ],
-    [ "setTransferActive", "d6/dad/a00941.html#af67616fc7d8d9dd4e3c92389d14bc58f", null ]
+    [ "Config", "d6/dad/a00941.html#a71f90ba5852d744d364d627c9200231e", null ],
+    [ "M24C16", "d6/dad/a00941.html#a82d789de030a0346864f88543d0512e5", null ],
+    [ "~M24C16", "d6/dad/a00941.html#a0db0fe864ae86e17a1406e2180d119af", null ],
+    [ "Driver< M24C16 >", "d6/dad/a00941.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
 ];

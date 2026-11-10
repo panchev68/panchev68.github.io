@@ -1,14 +1,12 @@
 var a02058 =
 [
-    [ "UARTPort", "df/d03/a02058.html#a066a22aae400d51f9a8552f6b1757c30", null ],
-    [ "~UARTPort", "df/d03/a02058.html#ae57a4a21992efbdd20a759373b79c5de", null ],
-    [ "UARTPort", "df/d03/a02058.html#a727c4f59d0a03dd2884faf4f6a36928f", null ],
-    [ "UARTPort", "df/d03/a02058.html#a3356806008458666dc1ede53fc85db70", null ],
-    [ "getDirection", "df/d03/a02058.html#abc3c117eef840882dd94aee07d684a11", null ],
-    [ "getHandle", "df/d03/a02058.html#a1a803a307b6fe9ff6e9e595f15c66de8", null ],
-    [ "getHandle", "df/d03/a02058.html#a4d6a362058e35bbfc0c72a9c5f1a46a5", null ],
-    [ "operator=", "df/d03/a02058.html#aebdaa74531eaac591e9bc7c474cdb302", null ],
-    [ "operator=", "df/d03/a02058.html#a700d1ad959852be2e5140408dbde5ab4", null ],
-    [ "receive", "df/d03/a02058.html#a2ac76b4dc3247a959deab8ec3f4403a4", null ],
-    [ "send", "df/d03/a02058.html#abdc90f4e574528b9dcd4c9e2c749dea8", null ]
+    [ "TimOutputCompare", "df/d03/a02058.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "df/d03/a02058.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "getCounter", "df/d03/a02058.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "setCompare", "df/d03/a02058.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "df/d03/a02058.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "df/d03/a02058.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "df/d03/a02058.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "df/d03/a02058.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "df/d03/a02058.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

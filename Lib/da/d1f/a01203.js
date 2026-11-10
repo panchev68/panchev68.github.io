@@ -1,14 +1,10 @@
 var a01203 =
 [
-    [ "ApiFrameBuffer", "da/d1f/a01203.html#a3b3674e333a946b6da57569ec9703a85", null ],
-    [ "~ApiFrameBuffer", "da/d1f/a01203.html#a5c72d2af7cd98b91654724e8edae76ca", null ],
-    [ "append", "da/d1f/a01203.html#a67b0d16ac4e2077bed10dfe096e3f240", null ],
-    [ "append", "da/d1f/a01203.html#a8e0c809c178df02cc620c38ad073e4a5", null ],
-    [ "append", "da/d1f/a01203.html#aa29da9051562fe6a234aeda879afaed5", null ],
-    [ "assign", "da/d1f/a01203.html#aed160e1113397275fa78cd16cfdc9a8f", null ],
-    [ "assign", "da/d1f/a01203.html#adba4fc58aa8f722022b0a180a244fba3", null ],
-    [ "clear", "da/d1f/a01203.html#a5b7bf12667a1163e217aa9776f2be792", null ],
-    [ "getData", "da/d1f/a01203.html#af330a9ce26933f4495d1e727a6394423", null ],
-    [ "getData", "da/d1f/a01203.html#a3a2c07618514a2fe959b0e7dacd5ea3b", null ],
-    [ "getSize", "da/d1f/a01203.html#aee12a2741eeba5e11e1fa84b36d86842", null ]
+    [ "Ring", "da/d1f/a01203.html#a162946918a210436d07b8649948e2939", null ],
+    [ "Ring", "da/d1f/a01203.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
+    [ "Ring", "da/d1f/a01203.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
+    [ "getData", "da/d1f/a01203.html#a897e123e376e08a2741c3498d764166d", null ],
+    [ "operator=", "da/d1f/a01203.html#a3b42427dd22bff92b102320fdf83a671", null ],
+    [ "operator=", "da/d1f/a01203.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
+    [ "operator[]", "da/d1f/a01203.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
 ];

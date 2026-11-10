@@ -1,12 +1,9 @@
 var a01964 =
 [
-    [ "OSPIPortBase", "d6/d90/a01964.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
-    [ "OSPIPortBase", "d6/d90/a01964.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
-    [ "OSPIPortBase", "d6/d90/a01964.html#a18048dab4e848ea5529076be672ccc7c", null ],
-    [ "~OSPIPortBase", "d6/d90/a01964.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
-    [ "close", "d6/d90/a01964.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "isBusy", "d6/d90/a01964.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d6/d90/a01964.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d6/d90/a01964.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
-    [ "operator=", "d6/d90/a01964.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
+    [ "I2CPortAsync", "d6/d90/a01964.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d6/d90/a01964.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "masterMemRead", "d6/d90/a01964.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d6/d90/a01964.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d6/d90/a01964.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d6/d90/a01964.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ]
 ];

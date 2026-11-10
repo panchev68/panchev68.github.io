@@ -1,12 +1,20 @@
 var a01263 =
 [
-    [ "Command", "de/dcb/a01263.html#ad7de9040ab35a62c524e02edb5857497", null ],
-    [ "LocalAtCommand", "de/dcb/a01263.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
-    [ "~LocalAtCommand", "de/dcb/a01263.html#a7342ebde08b2926419d08b5e464f6d84", null ],
-    [ "close", "de/dcb/a01263.html#a5c97cd2a002f63083302783169a633fb", null ],
-    [ "isOpenState", "de/dcb/a01263.html#add59b902d8519406c376e4d1363fd51d", null ],
-    [ "open", "de/dcb/a01263.html#a22221c7778dbe7cfb61112e57837d9d3", null ],
-    [ "receive", "de/dcb/a01263.html#a07623b40020016955fde1acfe07ca322", null ],
-    [ "send", "de/dcb/a01263.html#a48ae33c43e30b1273cb2f0e6b709ffc2", null ],
-    [ "send", "de/dcb/a01263.html#a031935c10edd7ee210a9d66f1aafa843", null ]
+    [ "Diagnostic", "de/dcb/a01263.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
+    [ "RxMessage", "de/dcb/a01263.html#a932efed9da888704df63ae07522746cc", null ],
+    [ "Service", "de/dcb/a01263.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
+    [ "~Service", "de/dcb/a01263.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
+    [ "errorCallback", "de/dcb/a01263.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
+    [ "getDiagnostic", "de/dcb/a01263.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
+    [ "messageReceivedCallback", "de/dcb/a01263.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
+    [ "receive", "de/dcb/a01263.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "de/dcb/a01263.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
+    [ "send", "de/dcb/a01263.html#aad0ab4b3fc67332597a346d30271a53b", null ],
+    [ "send", "de/dcb/a01263.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
+    [ "send", "de/dcb/a01263.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "de/dcb/a01263.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "de/dcb/a01263.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "de/dcb/a01263.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
+    [ "stop", "de/dcb/a01263.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
+    [ "taskFn", "de/dcb/a01263.html#a375bb14705ce8117ed4e147179680854", null ]
 ];

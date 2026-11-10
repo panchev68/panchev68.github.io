@@ -1,8 +1,17 @@
 var a00905 =
 [
-    [ "DeviceBase", "da/d5b/a00905.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "da/d5b/a00905.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "da/d5b/a00905.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "da/d5b/a00905.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "da/d5b/a00905.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "Outputs", "da/d5b/a00905.html#a247cd7c1b9224f24326b3776838b272f", null ],
+    [ "getChangesCounter", "da/d5b/a00905.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
+    [ "getSpiHandle", "da/d5b/a00905.html#a95099752d786b9afd12743cfed8e8f39", null ],
+    [ "getStatus", "da/d5b/a00905.html#a5390728a76821a9b72e0bf604b09462e", null ],
+    [ "getValue", "da/d5b/a00905.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
+    [ "hasSpiError", "da/d5b/a00905.html#a577114566b65889dd42c95c3e3350b1a", null ],
+    [ "postUpdateCallback", "da/d5b/a00905.html#a369ec8b311dd4871503593f3fd91e103", null ],
+    [ "preUpdateCallback", "da/d5b/a00905.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
+    [ "setup", "da/d5b/a00905.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
+    [ "setValue", "da/d5b/a00905.html#a6a6877af80563061eddc23c9bb71746d", null ],
+    [ "update", "da/d5b/a00905.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
+    [ "onSpiError", "da/d5b/a00905.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
+    [ "onStatusChanged", "da/d5b/a00905.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
+    [ "onValueChanged", "da/d5b/a00905.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
 ];

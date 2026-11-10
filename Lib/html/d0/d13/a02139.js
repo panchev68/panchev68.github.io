@@ -1,12 +1,14 @@
 var a02139 =
 [
-    [ "BitSet", "d0/d13/a02139.html#a16d91d28edc897acf8833de8df82699f", null ],
-    [ "BitSet", "d0/d13/a02139.html#addc6ad14e596e534eb7fd2a018719985", null ],
-    [ "getBit", "d0/d13/a02139.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
-    [ "getValue", "d0/d13/a02139.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
-    [ "operator uint32_t", "d0/d13/a02139.html#ab085297affb7e2df90201d7e6cdd1172", null ],
-    [ "operator=", "d0/d13/a02139.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
-    [ "operator[]", "d0/d13/a02139.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
-    [ "setBit", "d0/d13/a02139.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
-    [ "setValue", "d0/d13/a02139.html#a2505d1f74074939a87d45d3343d8bea3", null ]
+    [ "USBOtgPort", "d0/d13/a02139.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
+    [ "~USBOtgPort", "d0/d13/a02139.html#a277068fa3df6459bf52aac65457f31d6", null ],
+    [ "USBOtgPort", "d0/d13/a02139.html#a996c0c11f55b66f27d118a91eb700a30", null ],
+    [ "USBOtgPort", "d0/d13/a02139.html#ab276be300ebf7d87066609fd80b78336", null ],
+    [ "getDevice", "d0/d13/a02139.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
+    [ "getHost", "d0/d13/a02139.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
+    [ "getRole", "d0/d13/a02139.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
+    [ "operator=", "d0/d13/a02139.html#a78acf6354843aa38ea86734991fe89b2", null ],
+    [ "operator=", "d0/d13/a02139.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
+    [ "release", "d0/d13/a02139.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
+    [ "setRole", "d0/d13/a02139.html#aec9af265280bdd162bad2fc3ab471564", null ]
 ];

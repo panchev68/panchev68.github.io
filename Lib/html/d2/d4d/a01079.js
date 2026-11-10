@@ -1,24 +1,19 @@
 var a01079 =
 [
-    [ "Uid", "d6/d9a/a01083.html", "d6/d9a/a01083" ],
-    [ "Type", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7a", [
-      [ "UNKNOWN", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "ISO_14443_4", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7", null ],
-      [ "ISO_18092", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd", null ],
-      [ "MIFARE_MINI", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb", null ],
-      [ "MIFARE_1K", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc", null ],
-      [ "MIFARE_4K", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b", null ],
-      [ "MIFARE_UL", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7", null ],
-      [ "MIFARE_PLUS", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b", null ],
-      [ "TNP3XXX", "d2/d4d/a01079.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0", null ]
-    ] ],
-    [ "Card", "d2/d4d/a01079.html#afe55bac777579392a2341966d599b1aa", null ],
-    [ "~Card", "d2/d4d/a01079.html#a9b462a8f8d521dee2be275ece0ea5096", null ],
-    [ "authenticate", "d2/d4d/a01079.html#a08fa94e57f56bdd7964dd70e267fd718", null ],
-    [ "detectCard", "d2/d4d/a01079.html#a4cdc1e802bc109d771789db15c6830d9", null ],
-    [ "getCardType", "d2/d4d/a01079.html#aaf3cc939cb0c768c7a554db036cdb6ad", null ],
-    [ "getUid", "d2/d4d/a01079.html#a33cc183859688cd28572af600ed743f6", null ],
-    [ "halt", "d2/d4d/a01079.html#a8ee80419a4d19b05e8e0e5451837de29", null ],
-    [ "selectCard", "d2/d4d/a01079.html#a9375b5228d52a37d16ba4e2b6ad19b34", null ],
-    [ "stopCrypto", "d2/d4d/a01079.html#a7b0e6aeddeb25fcaf7c23cf7070117e0", null ]
+    [ "Config", "d6/d9a/a01083.html", "d6/d9a/a01083" ],
+    [ "IS62WV51216", "d2/d4d/a01079.html#a7921fa0f977faf912d2049453fd4c308", null ],
+    [ "~IS62WV51216", "d2/d4d/a01079.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
+    [ "close", "d2/d4d/a01079.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
+    [ "getSize", "d2/d4d/a01079.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
+    [ "isRangeValid", "d2/d4d/a01079.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
+    [ "onMemoryChanged", "d2/d4d/a01079.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
+    [ "open", "d2/d4d/a01079.html#afa482d28208b65335930cb3722de8871", null ],
+    [ "read", "d2/d4d/a01079.html#a2b3f4b448d2b7076918a849936826646", null ],
+    [ "read", "d2/d4d/a01079.html#a71a6069370565b21f326cb1f4e446a71", null ],
+    [ "toAbsoluteAddress", "d2/d4d/a01079.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
+    [ "write", "d2/d4d/a01079.html#abb442f01943c59f8ce352f5f92d959b1", null ],
+    [ "write", "d2/d4d/a01079.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
+    [ "baseAddress", "d2/d4d/a01079.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
+    [ "mutex", "d2/d4d/a01079.html#a0d53d69589f382b51186fd40078d3d7a", null ],
+    [ "sizeBytes", "d2/d4d/a01079.html#af112bc4831d358a9018b8a296e932392", null ]
 ];

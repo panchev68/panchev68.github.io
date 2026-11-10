@@ -1,14 +1,9 @@
 var a01814 =
 [
-    [ "Config", "d4/d56/a01818.html", "d4/d56/a01818" ],
-    [ "State", "d6/dfc/a01814.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "d6/dfc/a01814.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "d6/dfc/a01814.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "d6/dfc/a01814.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "d6/dfc/a01814.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "d6/dfc/a01814.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "d6/dfc/a01814.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "d6/dfc/a01814.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "d6/dfc/a01814.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "Sockets", "d6/dfc/a01814.html#a83aca7ca920c948cf9f775922c19247a", null ],
+    [ "Sockets", "d6/dfc/a01814.html#adf14b2bb687d762d0832d140cfd7c348", null ],
+    [ "Sockets", "d6/dfc/a01814.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
+    [ "operator=", "d6/dfc/a01814.html#a27fe979c8f56a4d202689793724794b7", null ],
+    [ "operator=", "d6/dfc/a01814.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
+    [ "operator[]", "d6/dfc/a01814.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
 ];

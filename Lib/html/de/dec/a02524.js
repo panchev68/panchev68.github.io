@@ -1,9 +1,10 @@
 var a02524 =
 [
-    [ "VersionString", "de/dec/a02524.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "de/dec/a02524.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "de/dec/a02524.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "de/dec/a02524.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "de/dec/a02524.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "de/dec/a02524.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "VersionString", "de/dec/a02524.html#a86d520da943edfbb98a592e47cd30177", null ],
+    [ "VersionBase", "de/dec/a02524.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
+    [ "getSubVersion", "de/dec/a02524.html#ae5c57f2bce8b985f8190894328141480", null ],
+    [ "getValue", "de/dec/a02524.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
+    [ "operator uint32_t", "de/dec/a02524.html#afca34523d727d800376b4959573f80bf", null ],
+    [ "operator VersionString", "de/dec/a02524.html#a3e56152954887db7681501c597507ae4", null ],
+    [ "toString", "de/dec/a02524.html#a1288aa2ce9764268fe7751f879f27a00", null ]
 ];

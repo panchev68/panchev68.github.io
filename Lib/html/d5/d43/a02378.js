@@ -1,15 +1,15 @@
 var a02378 =
 [
-    [ "MutexGuard", "d5/d43/a02378.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "d5/d43/a02378.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "d5/d43/a02378.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "d5/d43/a02378.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "d5/d43/a02378.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "d5/d43/a02378.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "d5/d43/a02378.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "d5/d43/a02378.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "d5/d43/a02378.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "d5/d43/a02378.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "d5/d43/a02378.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "d5/d43/a02378.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "Status", "d5/d43/a02378.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "d5/d43/a02378.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "d5/d43/a02378.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "d5/d43/a02378.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "SIZE_TOO_LARGE", "d5/d43/a02378.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
+    ] ],
+    [ "MemoryManager", "d5/d43/a02378.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "d5/d43/a02378.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "d5/d43/a02378.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "d5/d43/a02378.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "d5/d43/a02378.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "d5/d43/a02378.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

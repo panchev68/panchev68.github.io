@@ -1,10 +1,14 @@
 var a01970 =
 [
-    [ "VersionString", "d5/dd7/a01970.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "d5/dd7/a01970.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "d5/dd7/a01970.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d5/dd7/a01970.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "d5/dd7/a01970.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "d5/dd7/a01970.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "d5/dd7/a01970.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "OSPIPort", "d5/dd7/a01970.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
+    [ "~OSPIPort", "d5/dd7/a01970.html#a88592dfaa7cbb4efa05747483c911d6f", null ],
+    [ "abort", "d5/dd7/a01970.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "close", "d5/dd7/a01970.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "d5/dd7/a01970.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "getHandle", "d5/dd7/a01970.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d5/dd7/a01970.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d5/dd7/a01970.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d5/dd7/a01970.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d5/dd7/a01970.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "d5/dd7/a01970.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

@@ -1,9 +1,8 @@
 var a01779 =
 [
-    [ "command", "d5/df4/a01779.html#af08112845cd66edc31d068ebd37b83ca", null ],
-    [ "delimiter", "d5/df4/a01779.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
-    [ "id", "d5/df4/a01779.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
-    [ "length", "d5/df4/a01779.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
-    [ "option", "d5/df4/a01779.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
-    [ "timestamp", "d5/df4/a01779.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
+    [ "Node", "d5/df4/a01779.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "d5/df4/a01779.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "d5/df4/a01779.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "d5/df4/a01779.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "d5/df4/a01779.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

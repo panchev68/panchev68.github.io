@@ -1,7 +1,13 @@
 var a01990 =
 [
-    [ "day", "d3/dc4/a01990.html#a4e0afef93919b9d81fb11880e985faf7", null ],
-    [ "month", "d3/dc4/a01990.html#a81707050dd28eeb1de5e1bf17bc64ca0", null ],
-    [ "weekDay", "d3/dc4/a01990.html#a30dfc2209d0abdafbba3e90c6a5c24c8", null ],
-    [ "year", "d3/dc4/a01990.html#aacc37a4b6ca5a085f338d84b26cf1595", null ]
+    [ "State", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "d3/dc4/a01990.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

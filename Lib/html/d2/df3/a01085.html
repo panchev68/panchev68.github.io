@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Member List</title>
+<title>Library: Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -27,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08.1</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('da/db7/a01088.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/df3/a01085.html','../../','dd/df1/a01082'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,23 +112,316 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/db7/a01088.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::RFID::MFRC522Config Member List</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt; Class Template Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><div class="compoundTemplParams">template&lt;IssuerKey T_ISSUER&gt;<br />
+class Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt;</div><p>Parser and verifier of the signed card record, keyed by the "T_ISSUER" policy. </p>
+<p>The record is 76 bytes starting at page "FIRST_PAGE": a 3-byte magic (from "T_ISSUER::MAGIC"), a format version byte (1), the 4-byte big-endian card number, a 1-byte issuer key id (from "T_ISSUER::KEY_ID"), 3 reserved zero bytes, and the 64-byte ECDSA P-256 signature r || s. The signature covers SHA-256 of the first 12 header bytes followed by the card UID, so a record copied onto another card fails verification. The product holds only the issuer public key and cannot create valid records itself.</p>
+<p>"T_ISSUER" supplies the magic, the key id and the issuer's uncompressed secp256r1 public key X || Y, big-endian (micro-ecc format). The matching private key signs records with a separate signing tool and must never reach this header or the device. micro-ecc must be configured for "secp256r1" and included as "ThirdParty/micro-ecc/uECC_config.h".</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_ISSUER</td><td>Issuer key policy satisfying the "IssuerKey" concept. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt;:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d9a/a01083.svg" width="278" height="406"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a3ad68838496c556048480c98296ca7c7" id="r_a3ad68838496c556048480c98296ca7c7"><td class="memItemLeft">static <a class="el" href="#ae690657e7ab3cf073f0d03abc2ee488b">Result</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3ad68838496c556048480c98296ca7c7">verify</a> (const <a class="el" href="#aaa924b52936a11a36f991b92270eb1b6">Bytes</a> &amp;record, const <a class="el" href="#ab823c89537a28891f90d448eeb6122c1">Uid</a> &amp;uid, uint32_t &amp;cardNumber) noexcept</td></tr>
+<tr class="memdesc:a3ad68838496c556048480c98296ca7c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifies a record read from the card with the given UID.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a2326684ece771ea043b93e58c43ad2c3" id="r_a2326684ece771ea043b93e58c43ad2c3"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a2326684ece771ea043b93e58c43ad2c3">FIRST_PAGE</a> = 4U</td></tr>
+<tr class="memdesc:a2326684ece771ea043b93e58c43ad2c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTAG page holding the first record byte.  <br /></td></tr>
+<tr class="memitem:af69edee832e16d31ff3bc75892bbf5a1" id="r_af69edee832e16d31ff3bc75892bbf5a1"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#af69edee832e16d31ff3bc75892bbf5a1">HEADER_SIZE</a> = 12U</td></tr>
+<tr class="memdesc:af69edee832e16d31ff3bc75892bbf5a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed header length.  <br /></td></tr>
+<tr class="memitem:a53f8f98e7e1c01e207c653619e599ff5" id="r_a53f8f98e7e1c01e207c653619e599ff5"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a53f8f98e7e1c01e207c653619e599ff5">SIGNATURE_SIZE</a> = 64U</td></tr>
+<tr class="memdesc:a53f8f98e7e1c01e207c653619e599ff5"><td class="mdescLeft">&#160;</td><td class="mdescRight">ECDSA P-256 r || s length.  <br /></td></tr>
+<tr class="memitem:aab08a26c206eba16f51522ae22a7b2cc" id="r_aab08a26c206eba16f51522ae22a7b2cc"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aab08a26c206eba16f51522ae22a7b2cc">SIZE</a> = <a class="el" href="#af69edee832e16d31ff3bc75892bbf5a1">HEADER_SIZE</a> + <a class="el" href="#a53f8f98e7e1c01e207c653619e599ff5">SIGNATURE_SIZE</a></td></tr>
+<tr class="memdesc:aab08a26c206eba16f51522ae22a7b2cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Record length.  <br /></td></tr>
+<tr class="memitem:aada9d15cbc0604bcdf73d60b295b82de" id="r_aada9d15cbc0604bcdf73d60b295b82de"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aada9d15cbc0604bcdf73d60b295b82de">UID_SIZE</a> = <a class="el" href="../../de/d79/a00798.html#aafd94c6505eb4a0544cc89a0caee007d">Lib::BSP::RFID::NTAG21x::UID_SIZE</a></td></tr>
+<tr class="memdesc:aada9d15cbc0604bcdf73d60b295b82de"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTAG21x double-size UID length.  <br /></td></tr>
+</table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="aaa924b52936a11a36f991b92270eb1b6" name="aaa924b52936a11a36f991b92270eb1b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa924b52936a11a36f991b92270eb1b6">&#9670;&#160;</a></span>Bytes</h2>
 
-<p>This is the complete list of members for <a class="el" href="../../da/db7/a01088.html">Lib::BSP::RFID::MFRC522Config</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../da/db7/a01088.html#a5495ff29a821a220cb7ef6ff5a30a067">chipSelectPin</a></td><td class="entry"><a class="el" href="../../da/db7/a01088.html">Lib::BSP::RFID::MFRC522Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/db7/a01088.html#a7fc0e0d08408bc4eb2195853769bd205">irqPin</a></td><td class="entry"><a class="el" href="../../da/db7/a01088.html">Lib::BSP::RFID::MFRC522Config</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/db7/a01088.html#a6432ab2f67c87e8cc40549c8987e7e5a">resetPin</a></td><td class="entry"><a class="el" href="../../da/db7/a01088.html">Lib::BSP::RFID::MFRC522Config</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../da/db7/a01088.html#a02e377e2bbab6d0d5a82dff892ac3cdb">rxGain</a></td><td class="entry"><a class="el" href="../../da/db7/a01088.html">Lib::BSP::RFID::MFRC522Config</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="../../da/db7/a01088.html#a3b44ed084dbe807b7d6d32de433664fd">spiHandle</a></td><td class="entry"><a class="el" href="../../da/db7/a01088.html">Lib::BSP::RFID::MFRC522Config</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::Bytes = std::array&lt;uint8_t, <a class="el" href="#aab08a26c206eba16f51522ae22a7b2cc">SIZE</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Raw record. </p>
+
+</div>
+</div>
+<a id="ab823c89537a28891f90d448eeb6122c1" name="ab823c89537a28891f90d448eeb6122c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab823c89537a28891f90d448eeb6122c1">&#9670;&#160;</a></span>Uid</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::Uid = <a class="el" href="../../de/d79/a00798.html#a435a19683e1fb32e426add14e68d0076">Lib::BSP::RFID::NTAG21x::Uid</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Card UID. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae690657e7ab3cf073f0d03abc2ee488b" name="ae690657e7ab3cf073f0d03abc2ee488b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae690657e7ab3cf073f0d03abc2ee488b">&#9670;&#160;</a></span>Result</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ae690657e7ab3cf073f0d03abc2ee488b">Lib::BSP::RFID::NTAG21x::CardRecord::Result</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Outcome of "verify()". </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea" name="ae690657e7ab3cf073f0d03abc2ee488bac9f1a6384b1c466d4612f513bd8e13ea"></a>VALID&#160;</td><td class="fielddoc"><p>Signature matches this card; the card number is trustworthy. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a" name="ae690657e7ab3cf073f0d03abc2ee488ba2f3631ebd85fc20ceb90918ff46d081a"></a>BAD_FORMAT&#160;</td><td class="fielddoc"><p>Magic, version or reserved bytes are wrong. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb" name="ae690657e7ab3cf073f0d03abc2ee488bacc0e50ab008c2edd61f05cd3ff86a1eb"></a>UNKNOWN_KEY&#160;</td><td class="fielddoc"><p>Signed with another issuer key id. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a" name="ae690657e7ab3cf073f0d03abc2ee488ba1445c3747a23b5fe26b9a373a5c6018a"></a>BAD_SIGNATURE&#160;</td><td class="fielddoc"><p>Signature does not match the header and UID. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a3ad68838496c556048480c98296ca7c7" name="a3ad68838496c556048480c98296ca7c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ad68838496c556048480c98296ca7c7">&#9670;&#160;</a></span>verify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae690657e7ab3cf073f0d03abc2ee488b">Result</a> <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::verify </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aaa924b52936a11a36f991b92270eb1b6">Bytes</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>record</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#ab823c89537a28891f90d448eeb6122c1">Uid</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uid</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t &amp;</td>          <td class="paramname"><span class="paramname"><em>cardNumber</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifies a record read from the card with the given UID. </p>
+<p>Takes about as long as one P-256 verification (hundreds of milliseconds with the portable C code).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">record</td><td>Raw record bytes. </td></tr>
+    <tr><td class="paramdir"></td><td class="paramname">uid</td><td>UID of the card the record was read from. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">cardNumber</td><td>Card number; set only when "Result::VALID" is returned. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Verification outcome. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a2326684ece771ea043b93e58c43ad2c3" name="a2326684ece771ea043b93e58c43ad2c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2326684ece771ea043b93e58c43ad2c3">&#9670;&#160;</a></span>FIRST_PAGE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::FIRST_PAGE = 4U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>NTAG page holding the first record byte. </p>
+
+</div>
+</div>
+<a id="af69edee832e16d31ff3bc75892bbf5a1" name="af69edee832e16d31ff3bc75892bbf5a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af69edee832e16d31ff3bc75892bbf5a1">&#9670;&#160;</a></span>HEADER_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::HEADER_SIZE = 12U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Signed header length. </p>
+
+</div>
+</div>
+<a id="a53f8f98e7e1c01e207c653619e599ff5" name="a53f8f98e7e1c01e207c653619e599ff5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53f8f98e7e1c01e207c653619e599ff5">&#9670;&#160;</a></span>SIGNATURE_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::SIGNATURE_SIZE = 64U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ECDSA P-256 r || s length. </p>
+
+</div>
+</div>
+<a id="aab08a26c206eba16f51522ae22a7b2cc" name="aab08a26c206eba16f51522ae22a7b2cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab08a26c206eba16f51522ae22a7b2cc">&#9670;&#160;</a></span>SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::SIZE = <a class="el" href="#af69edee832e16d31ff3bc75892bbf5a1">HEADER_SIZE</a> + <a class="el" href="#a53f8f98e7e1c01e207c653619e599ff5">SIGNATURE_SIZE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Record length. </p>
+
+</div>
+</div>
+<a id="aada9d15cbc0604bcdf73d60b295b82de" name="aada9d15cbc0604bcdf73d60b295b82de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aada9d15cbc0604bcdf73d60b295b82de">&#9670;&#160;</a></span>UID_SIZE</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;IssuerKey T_ISSUER&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d2/df3/a01085.html">Lib::BSP::RFID::NTAG21x::CardRecord</a>&lt; T_ISSUER &gt;::UID_SIZE = <a class="el" href="../../de/d79/a00798.html#aafd94c6505eb4a0544cc89a0caee007d">Lib::BSP::RFID::NTAG21x::UID_SIZE</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>NTAG21x double-size UID length. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="../../d9/d77/a00095.html">CardRecord.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d0/d7d/a00786.html">Lib</a></li><li class="navelem"><a href="../../d8/d7f/a00787.html">BSP</a></li><li class="navelem"><a href="../../da/db8/a00797.html">RFID</a></li><li class="navelem"><a href="../../de/d79/a00798.html">NTAG21x</a></li><li class="navelem"><a href="../../d2/df3/a01085.html">CardRecord</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

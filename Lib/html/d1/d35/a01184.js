@@ -1,10 +1,13 @@
 var a01184 =
 [
-    [ "FunctionRef", "d1/d35/a01184.html#aa2a49974c49a33c31bf76585b4e2b845", null ],
-    [ "invoke", "d1/d35/a01184.html#acd1e842112de9812e62dd17975aeb1dd", null ],
-    [ "isBound", "d1/d35/a01184.html#a9f91e9de3c8fea21279c1e67ca1a3255", null ],
-    [ "operator bool", "d1/d35/a01184.html#a67e9bc93131ea7ab9bdea2857f65f7a2", null ],
-    [ "operator()", "d1/d35/a01184.html#afad0afdeab252dced23e9361ff8b37c2", null ],
-    [ "operator==", "d1/d35/a01184.html#adbf375ce838e807cdd72a92c9ae85115", null ],
-    [ "reset", "d1/d35/a01184.html#a3bb73fa9fbeec6162ac302d70a63d54d", null ]
+    [ "Config", "d6/d97/a01188.html", "d6/d97/a01188" ],
+    [ "TMP102", "d1/d35/a01184.html#a949aef107b50c3194360a1211fc77380", null ],
+    [ "configureAlert", "d1/d35/a01184.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
+    [ "enterSleepMode", "d1/d35/a01184.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
+    [ "exitSleepMode", "d1/d35/a01184.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
+    [ "init", "d1/d35/a01184.html#aad208b4242276623b58c7e690d0be566", null ],
+    [ "readTemperature", "d1/d35/a01184.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
+    [ "setTHigh", "d1/d35/a01184.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
+    [ "setTLow", "d1/d35/a01184.html#abe3ff96789b3357515f28158f06aa714", null ],
+    [ "triggerOneShot", "d1/d35/a01184.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
 ];

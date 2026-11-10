@@ -1,6 +1,5 @@
 var a01108 =
 [
-    [ "guardTime", "d2/dd7/a01108.html#a6d08fcfd56cd70a165431b4ffca3ec42", null ],
-    [ "onCardActivated", "d2/dd7/a01108.html#ad4b8d3f5ae272c06dc5ce104f9ff06df", null ],
-    [ "taskConfig", "d2/dd7/a01108.html#abbdf9c7b445c45999344281653820100", null ]
+    [ "baseAddress", "d2/dd7/a01108.html#ab922219fc16e46857f76b5a34c05ea47", null ],
+    [ "sizeBytes", "d2/dd7/a01108.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
 ];

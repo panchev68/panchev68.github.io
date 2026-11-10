@@ -1,4 +1,5 @@
 var a00899 =
 [
-    [ "DeviceBase", "d4/d1c/a00903.html", "d4/d1c/a00903" ]
+    [ "OSPI", "d9/db0/a00900.html", "d9/db0/a00900" ],
+    [ "SPI", "d0/dac/a00901.html", "d0/dac/a00901" ]
 ];

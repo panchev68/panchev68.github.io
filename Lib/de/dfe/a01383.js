@@ -1,13 +1,12 @@
 var a01383 =
 [
-    [ "PortString", "de/dfe/a01383.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "de/dfe/a01383.html#aad4167f0040c4a42546ff0c27d4b5c56", null ],
-    [ "Port", "de/dfe/a01383.html#a4f1b0e6bdc323223a63e42c730f935ab", null ],
-    [ "fromString", "de/dfe/a01383.html#aebf851d4105553f8d7a419399670e706", null ],
-    [ "get", "de/dfe/a01383.html#a2555da5052290271fef80ea0c44cdd81", null ],
-    [ "get", "de/dfe/a01383.html#a787a09d5e0d962e341052f259a78c984", null ],
-    [ "operator uint16_t", "de/dfe/a01383.html#a2609657b2d98052d6ce9badaf181d234", null ],
-    [ "operator=", "de/dfe/a01383.html#a17eb9d56ec5a24404f0a8a529326ad7c", null ],
-    [ "set", "de/dfe/a01383.html#a595046f66ee8bc37dd42ab7606b60aae", null ],
-    [ "toString", "de/dfe/a01383.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "FreeFunctionPointer", "de/dfe/a01383.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "de/dfe/a01383.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "de/dfe/a01383.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "de/dfe/a01383.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "de/dfe/a01383.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "de/dfe/a01383.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "de/dfe/a01383.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "de/dfe/a01383.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "de/dfe/a01383.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

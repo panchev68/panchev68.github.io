@@ -1,7 +1,10 @@
 var a02516 =
 [
-    [ "firmwareSubversion", "d2/dab/a02516.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "d2/dab/a02516.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "d2/dab/a02516.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "d2/dab/a02516.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "maxPowerRef", "d2/dab/a02516.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d2/dab/a02516.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d2/dab/a02516.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d2/dab/a02516.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d2/dab/a02516.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d2/dab/a02516.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d2/dab/a02516.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

@@ -1,19 +1,20 @@
 var a01494 =
 [
-    [ "State", "d6/d51/a01494.html#acba02689f37ee7af40ec736d996ed858", null ],
-    [ "~Error", "d6/d51/a01494.html#a45c9bdf2555503aba370ceb9e3be4472", null ],
-    [ "clear", "d6/d51/a01494.html#a1aac17dcab7e7de289d1190bd6c4cb80", null ],
-    [ "disable", "d6/d51/a01494.html#a6535402a86612bd7117d0383414f5a01", null ],
-    [ "enable", "d6/d51/a01494.html#a3b5c2f67fac7cbb39994045f7de8863b", null ],
-    [ "getCaption", "d6/d51/a01494.html#af1685a17adc3751bc34f0f22ff53ddba", null ],
-    [ "getGroup", "d6/d51/a01494.html#a566049e949c9212023d51dfa7fb70b7f", null ],
-    [ "getId", "d6/d51/a01494.html#afa412b5b49489692123f5dc185407e34", null ],
-    [ "getState", "d6/d51/a01494.html#af79e723798e9e9755726cf1fbca0d106", null ],
-    [ "operator bool", "d6/d51/a01494.html#a095c4c29588c57c181f2267c655a4598", null ],
-    [ "operator=", "d6/d51/a01494.html#a0bcba893ea1d1c8fc398d17f7064fb4e", null ],
-    [ "operator=", "d6/d51/a01494.html#a64f8853fd9017d3b184b94ce5d32d416", null ],
-    [ "reset", "d6/d51/a01494.html#ac98111e75aa81293363c0c065d7ea081", null ],
-    [ "set", "d6/d51/a01494.html#aee7745fbda0bc6847c210fb9f4fe41f1", null ],
-    [ "setGroup", "d6/d51/a01494.html#aba45829de28bb9571253018340fa606b", null ],
-    [ "BasicDispatcher", "d6/d51/a01494.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
+    [ "Channel", "d6/dc9/a01498.html", "d6/dc9/a01498" ],
+    [ "ChannelArray", "d6/d51/a01494.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
+    [ "QualityMode", "d6/d51/a01494.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
+    [ "Error", "d6/d51/a01494.html#acb54f9ec6751a18eda393e2c5bd0675c", [
+      [ "NONE", "d6/d51/a01494.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "d6/d51/a01494.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d6/d51/a01494.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "d6/d51/a01494.html#a4e65a2b73399e5ba18d5090993f64487", null ],
+    [ "ChannelScanner", "d6/d51/a01494.html#a1b11f5df668c4629836c71101e686990", null ],
+    [ "close", "d6/d51/a01494.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "getChannels", "d6/d51/a01494.html#a124a962ad28c0688ab38329f7a7b034e", null ],
+    [ "isRunning", "d6/d51/a01494.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d6/d51/a01494.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "operator=", "d6/d51/a01494.html#aed5af8462cac9a996e73489e369434d3", null ],
+    [ "update", "d6/d51/a01494.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
+    [ "onError", "d6/d51/a01494.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
 ];

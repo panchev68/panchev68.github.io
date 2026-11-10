@@ -1,9 +1,13 @@
 var a01432 =
 [
-    [ "Counter", "db/dff/a01432.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "db/dff/a01432.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "db/dff/a01432.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "db/dff/a01432.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "db/dff/a01432.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "db/dff/a01432.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "Tag", "db/dff/a01432.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
+    [ "WolfSSLAesGcm", "db/dff/a01432.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
+    [ "~WolfSSLAesGcm", "db/dff/a01432.html#a032c38854a99ed5c5a281809583c4bad", null ],
+    [ "WolfSSLAesGcm", "db/dff/a01432.html#a0948de3456c47ec4fcfdda7f14014566", null ],
+    [ "WolfSSLAesGcm", "db/dff/a01432.html#ae6206c63d09568b82e1efae3379c82d7", null ],
+    [ "decrypt", "db/dff/a01432.html#a70889db1697fa4212becb3acfb87a2a4", null ],
+    [ "encrypt", "db/dff/a01432.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
+    [ "open", "db/dff/a01432.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
+    [ "operator=", "db/dff/a01432.html#ab46183fdc3c915e95383d1216aac9109", null ],
+    [ "operator=", "db/dff/a01432.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
 ];

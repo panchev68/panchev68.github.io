@@ -1,9 +1,5 @@
 var a01004 =
 [
-    [ "pinIRQ", "df/dbc/a01004.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
-    [ "pinNSS", "df/dbc/a01004.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
-    [ "pinReset", "df/dbc/a01004.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
-    [ "pinSync0", "df/dbc/a01004.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
-    [ "pinSync1", "df/dbc/a01004.html#a3358fa1b35628a6d324f9be9d4624338", null ],
-    [ "spiHandle", "df/dbc/a01004.html#aed57b8892979041579d2eb130d453151", null ]
+    [ "addr", "df/dbc/a01004.html#a52b4f081e411d6f6b400f02e266252f3", null ],
+    [ "i2cPort", "df/dbc/a01004.html#a0f7a92fa8726a2ef6dff8cac74b5e421", null ]
 ];

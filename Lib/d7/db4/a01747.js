@@ -1,6 +1,6 @@
 var a01747 =
 [
-    [ "configuration", "d7/db4/a01747.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "d7/db4/a01747.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "d7/db4/a01747.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "code", "d7/db4/a01747.html#a4d8eace811bd06ebbd23b48cdcd55a97", null ],
+    [ "index", "d7/db4/a01747.html#a3c1fc7598e3500d7f06ac23818fd80a3", null ],
+    [ "name", "d7/db4/a01747.html#adb71631f3f01cfe4b407c729d606608c", null ]
 ];

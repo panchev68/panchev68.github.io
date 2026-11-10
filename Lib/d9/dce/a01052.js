@@ -1,17 +1,17 @@
 var a01052 =
 [
-    [ "DriverBase", "d9/dce/a01052.html#a5eafa5f0d53866cb78471368f7297754", null ],
-    [ "~DriverBase", "d9/dce/a01052.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
-    [ "close", "d9/dce/a01052.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
-    [ "eraseChip", "d9/dce/a01052.html#a32148377b4274abf28db1beb3d12ea11", null ],
-    [ "eraseSector", "d9/dce/a01052.html#a23c3062b24d15e58237ddb109c474b74", null ],
-    [ "getInfo", "d9/dce/a01052.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
-    [ "getStatus", "d9/dce/a01052.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
-    [ "open", "d9/dce/a01052.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
-    [ "read", "d9/dce/a01052.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
-    [ "write", "d9/dce/a01052.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
-    [ "info", "d9/dce/a01052.html#aca8a7487175e31060363fe99270e69a3", null ],
-    [ "nss", "d9/dce/a01052.html#a6cad70d123e273b88f244598cc93a22b", null ],
-    [ "spiPort", "d9/dce/a01052.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
-    [ "status", "d9/dce/a01052.html#af95471bb260264403e3df2dc07b80419", null ]
+    [ "Config", "dc/d19/a01056.html", "dc/d19/a01056" ],
+    [ "Interface", "d9/dce/a01052.html#a381267cd26262085628dc52296d42a8c", null ],
+    [ "~Interface", "d9/dce/a01052.html#aef76c4d4ab040fbe9b344444f1ca1f25", null ],
+    [ "close", "d9/dce/a01052.html#a4a3a734f32c1aa4414ad9067d7cb157f", null ],
+    [ "deselect", "d9/dce/a01052.html#a0b87868f20232885a5b0a2ef5c8d1bcf", null ],
+    [ "lock", "d9/dce/a01052.html#a1e411e237b03ed440a7c1b468aefd254", null ],
+    [ "open", "d9/dce/a01052.html#ae082eeea2b4df228729740f9945df189", null ],
+    [ "read", "d9/dce/a01052.html#a59f57dc88e37b6d81e93ccffd01ee9ed", null ],
+    [ "read", "d9/dce/a01052.html#a50584766a7982887fc9dec5defbeb2b6", null ],
+    [ "readWrite", "d9/dce/a01052.html#ae591bbd92b46b72f8129af300a672a5a", null ],
+    [ "select", "d9/dce/a01052.html#ab62e9728d2b5fca07cb024578f579484", null ],
+    [ "unlock", "d9/dce/a01052.html#a731e79a38afda2e92585da34cbf9b7ea", null ],
+    [ "write", "d9/dce/a01052.html#af4430f4b29907dbbc81a1c4df8783b4d", null ],
+    [ "write", "d9/dce/a01052.html#adfad30fd3c2f39252488033eab8522f4", null ]
 ];

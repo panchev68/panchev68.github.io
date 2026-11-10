@@ -1,6 +1,7 @@
 var a02494 =
 [
-    [ "Lib::Digi::API::Service::Parameters", "d6/dfa/a01318.html", "d6/dfa/a01318" ],
-    [ "Lib::Digi::API::Service::Parameters::Data", "d5/df4/a01322.html", "d5/df4/a01322" ],
-    [ "Lib::Digi::API::Service::Parameters::Data::SerialNumber", "d1/d54/a01326.html", "d1/d54/a01326" ]
+    [ "maxVoltage", "dc/d28/a02494.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "dc/d28/a02494.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "dc/d28/a02494.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "dc/d28/a02494.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

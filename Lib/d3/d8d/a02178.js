@@ -1,6 +1,5 @@
 var a02178 =
 [
-    [ "Lib::BSP::W25Q128JVSIQ", "d7/d34/a00883.html", "d7/d34/a00883" ],
-    [ "Lib::BSP::W25Q128JVSIQ::Register", "d7/d92/a00887.html", "d7/d92/a00887" ],
-    [ "Lib::BSP::W25Q128JVSIQ::Info", "de/dfc/a00891.html", "de/dfc/a00891" ]
+    [ "DecimalDigits", "d3/d8d/a02178.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "d3/d8d/a02178.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

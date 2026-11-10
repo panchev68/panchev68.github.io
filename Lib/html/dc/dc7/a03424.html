@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: TickCounter example</title>
+<title>Library: FunctionRef example</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,41 +112,36 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/dc7/a03424.
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">TickCounter example </div></div>
+  <div class="headertitle"><div class="title">FunctionRef example </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Demonstrates reading the tick count, measuring elapsed ticks, and converting between ticks and time units.</p>
-<p>Conversions to ticks round up, so a wait is never shorter than requested, and saturate at <b>portMAX_DELAY</b>. <b>RTOS::TickCounter::get()</b> is safe from both task and ISR context.</p>
-<dl class="section note"><dt>Note</dt><dd>All APIs are static; <b>RTOS::TickCounter</b> is non-instantiable.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d3/d6c/a02446.html" title="RTOS::TickCounter">RTOS::TickCounter</a>, <a class="el" href="../../de/dc9/a02414.html#a1c0c1a0a57ee9332e741c8422eebbffe" title="RTOS::Task::delay">RTOS::Task::delay</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d5c/a00752.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d4a/a00758.html">Lib/RTOS/FreeRTOS/TickCounter.hpp</a>&gt;</span></div>
+<div class="textblock"><p>Simple usage examples for "FunctionRef" demonstrating construction from a lambda, assignment from a functor, and invocation.</p>
+<p>The examples use <span class="tt">int(int)</span> as a representative callable signature.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de6/a00167.html">Lib/Core/FunctionRef.hpp</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><span class="keyword">struct </span>Adder {</div>
+<div class="line">    <span class="keywordtype">int</span> base;</div>
+<div class="line">    Adder(<span class="keywordtype">int</span> b) : base(b) {}</div>
+<div class="line">    <span class="keywordtype">int</span> operator()(<span class="keywordtype">int</span> x)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> base + x; }</div>
+<div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>std::chrono_literals;</div>
+<div class="line"><span class="keywordtype">void</span> functionRefExample() {</div>
+<div class="line">    <span class="comment">// Construct from a lambda</span></div>
+<div class="line">    <a class="code hl_class" href="../../d2/d4d/a01338.html">FunctionRef</a>&lt;int(<span class="keywordtype">int</span>)&gt; d = [](<span class="keywordtype">int</span> x) { <span class="keywordflow">return</span> x * 2; };</div>
+<div class="line">    std::cout &lt;&lt; d(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// prints 10</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timingTask() noexcept {</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d3/d6c/a02446.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> start = <a class="code hl_function" href="../../d3/d6c/a02446.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a>();</div>
+<div class="line">    <span class="comment">// Reassign from a functor</span></div>
+<div class="line">    d = Adder{3};</div>
+<div class="line">    std::cout &lt;&lt; d(5) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// prints 8</span></div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="../../de/dc9/a02414.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(150ms);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d3/d6c/a02446.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> elapsed = <a class="code hl_function" href="../../d3/d6c/a02446.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a>(start);</div>
-<div class="line">    <span class="keyword">const</span> std::chrono::milliseconds elapsedTime = <a class="code hl_function" href="../../d3/d6c/a02446.html#a9c2f37f5b366ec485302e551cafdb87a">RTOS::TickCounter::toDuration</a>(elapsed);</div>
-<div class="line">    <span class="keyword">const</span> <a class="code hl_typedef" href="../../d3/d6c/a02446.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a> timeoutTicks = <a class="code hl_function" href="../../d3/d6c/a02446.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(2s);</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(elapsedTime);</div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(timeoutTicks);</div>
+<div class="line">    <span class="comment">// Assign a free function</span></div>
+<div class="line">    <span class="keyword">auto</span> square = [](<span class="keywordtype">int</span> v) { <span class="keywordflow">return</span> v * v; };</div>
+<div class="line">    d = square;</div>
+<div class="line">    std::cout &lt;&lt; d(4) &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>; <span class="comment">// prints 16</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aa00752_html"><div class="ttname"><a href="../../dd/d5c/a00752.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa00758_html"><div class="ttname"><a href="../../d2/d4a/a00758.html">TickCounter.hpp</a></div><div class="ttdoc">Converts between scheduler ticks, milliseconds, seconds and &quot;std::chrono&quot; durations.</div></div>
-<div class="ttc" id="aa02414_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../de/dc9/a02414.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:735</div></div>
-<div class="ttc" id="aa02446_html_a3bd8941116778102907c08b9b5184316"><div class="ttname"><a href="../../d3/d6c/a02446.html#a3bd8941116778102907c08b9b5184316">RTOS::TickCounter::get</a></div><div class="ttdeci">static TickType get() noexcept</div><div class="ttdoc">Returns the current scheduler tick count from task context.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:82</div></div>
-<div class="ttc" id="aa02446_html_a97f0500abd250ef6ac60226faa35ccfa"><div class="ttname"><a href="../../d3/d6c/a02446.html#a97f0500abd250ef6ac60226faa35ccfa">RTOS::TickCounter::getElapsedTicksSince</a></div><div class="ttdeci">static TickType getElapsedTicksSince(TickType startTick) noexcept</div><div class="ttdoc">Computes ticks elapsed since a previously captured tick value.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:109</div></div>
-<div class="ttc" id="aa02446_html_a9c2f37f5b366ec485302e551cafdb87a"><div class="ttname"><a href="../../d3/d6c/a02446.html#a9c2f37f5b366ec485302e551cafdb87a">RTOS::TickCounter::toDuration</a></div><div class="ttdeci">static constexpr T_DURATION toDuration(TickType ticks) noexcept</div><div class="ttdoc">Converts a scheduler tick count to a &quot;std::chrono&quot; duration.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:244</div></div>
-<div class="ttc" id="aa02446_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../d3/d6c/a02446.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a &quot;std::chrono&quot; duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:233</div></div>
-<div class="ttc" id="aa02446_html_af8b741f7cd6bd8cefd26aae83980fbfd"><div class="ttname"><a href="../../d3/d6c/a02446.html#af8b741f7cd6bd8cefd26aae83980fbfd">RTOS::TickCounter::TickType</a></div><div class="ttdeci">TickType_t TickType</div><div class="ttdoc">Scheduler tick count type.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:40</div></div>
+<div class="ttc" id="aa00167_html"><div class="ttname"><a href="../../dc/de6/a00167.html">FunctionRef.hpp</a></div><div class="ttdoc">Non-owning callable reference modelled on C++26 &quot;std::function_ref&quot;, without heap,...</div></div>
+<div class="ttc" id="aa01338_html"><div class="ttname"><a href="../../d2/d4d/a01338.html">FunctionRef</a></div><div class="ttdoc">Primary template; only the function-signature specializations below are defined.</div><div class="ttdef"><b>Definition</b> FunctionRef.hpp:33</div></div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

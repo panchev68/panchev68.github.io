@@ -1,12 +1,10 @@
 var a01154 =
 [
-    [ "Data", "df/db5/a01158.html", "df/db5/a01158" ],
-    [ "Color", "d5/d16/a01154.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "d5/d16/a01154.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "d5/d16/a01154.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "d5/d16/a01154.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "d5/d16/a01154.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "d5/d16/a01154.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "d5/d16/a01154.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "d5/d16/a01154.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "operator==", "d5/d16/a01154.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d5/d16/a01154.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d5/d16/a01154.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d5/d16/a01154.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d5/d16/a01154.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d5/d16/a01154.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d5/d16/a01154.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

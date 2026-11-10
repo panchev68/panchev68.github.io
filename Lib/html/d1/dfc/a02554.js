@@ -1,7 +1,10 @@
 var a02554 =
 [
-    [ "baudRate", "d1/dfc/a02554.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "d1/dfc/a02554.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "d1/dfc/a02554.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "d1/dfc/a02554.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "VersionString", "d1/dfc/a02554.html#a86d520da943edfbb98a592e47cd30177", null ],
+    [ "VersionBase", "d1/dfc/a02554.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
+    [ "getSubVersion", "d1/dfc/a02554.html#ae5c57f2bce8b985f8190894328141480", null ],
+    [ "getValue", "d1/dfc/a02554.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
+    [ "operator uint32_t", "d1/dfc/a02554.html#afca34523d727d800376b4959573f80bf", null ],
+    [ "operator VersionString", "d1/dfc/a02554.html#a3e56152954887db7681501c597507ae4", null ],
+    [ "toString", "d1/dfc/a02554.html#a1288aa2ce9764268fe7751f879f27a00", null ]
 ];

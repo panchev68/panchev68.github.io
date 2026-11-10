@@ -1,9 +1,6 @@
 var a01092 =
 [
-    [ "Interface", "de/d9c/a01092.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
-    [ "~Interface", "de/d9c/a01092.html#a66b65dc5b7f6571301b7491242361a95", null ],
-    [ "hardwareReset", "de/d9c/a01092.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
-    [ "initialize", "de/d9c/a01092.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
-    [ "send", "de/d9c/a01092.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
-    [ "sendReceive", "de/d9c/a01092.html#a2d9014fe08fb984de211efd021eb1f35", null ]
+    [ "guardTime", "de/d9c/a01092.html#a6d08fcfd56cd70a165431b4ffca3ec42", null ],
+    [ "onCardActivated", "de/d9c/a01092.html#ad4b8d3f5ae272c06dc5ce104f9ff06df", null ],
+    [ "taskConfig", "de/d9c/a01092.html#abbdf9c7b445c45999344281653820100", null ]
 ];

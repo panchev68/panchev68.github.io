@@ -1,15 +1,20 @@
 var a01924 =
 [
-    [ "I2CPort", "d0/dde/a01924.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
-    [ "~I2CPort", "d0/dde/a01924.html#aa13047282a809658f54818a9b352d7bf", null ],
-    [ "abort", "d0/dde/a01924.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d0/dde/a01924.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "Event", "d1/db0/a01928.html", null ],
+    [ "DataAlignment", "d0/dde/a01924.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d0/dde/a01924.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "d0/dde/a01924.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "d0/dde/a01924.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "d0/dde/a01924.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "d0/dde/a01924.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "d0/dde/a01924.html#abb9c3299abda744064d8d8e8d44f825b", null ],
     [ "getHandle", "d0/dde/a01924.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d0/dde/a01924.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d0/dde/a01924.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "d0/dde/a01924.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d0/dde/a01924.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d0/dde/a01924.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d0/dde/a01924.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d0/dde/a01924.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "open", "d0/dde/a01924.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "d0/dde/a01924.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "d0/dde/a01924.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "setValue", "d0/dde/a01924.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d0/dde/a01924.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "d0/dde/a01924.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "d0/dde/a01924.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

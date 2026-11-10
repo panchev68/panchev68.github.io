@@ -1,9 +1,7 @@
 var a02527 =
 [
-    [ "VersionString", "d7/d7d/a02527.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "d7/d7d/a02527.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "d7/d7d/a02527.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d7/d7d/a02527.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "d7/d7d/a02527.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d7/d7d/a02527.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "firmwareSubversion", "d7/d7d/a02527.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
+    [ "firmwareVersionString", "d7/d7d/a02527.html#a6b83c53d998379f08471d89aead2818e", null ],
+    [ "hardwareSubversion", "d7/d7d/a02527.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
+    [ "hardwareVersionString", "d7/d7d/a02527.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
 ];

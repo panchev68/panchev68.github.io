@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::BSP::RFID::Card Class Reference</title>
+<title>Library: Lib::BSP::IS62WV51216&lt; T_DERIVED &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,109 +112,88 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/df1/a01082.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::RFID::Card Class Reference</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::IS62WV51216&lt; T_DERIVED &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Card (Proximity Integrated Circuit Card) helper for card authentication and communication. </p>
-<p>Handles card detection, selection, authentication, and encrypted communication with proximity cards. Talks to the card over RF through "Chipset::transceive()", which drives the MFRC522's FIFO/COMMAND-register sequence. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::RFID::Card:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;</div><p>CRTP base driver for the IS62WV51216 SRAM device. </p>
+<p>Implements thread-safe read/write over a contiguous memory-mapped SRAM region. The post-write hook "onMemoryChanged()" is dispatched at compile time via CRTP, and "T_DERIVED" may shadow it to react to writes without any virtual-dispatch overhead.</p>
+<p>"T_DERIVED" must inherit publicly, because the base converts itself to "T_DERIVED" to reach the hook. A shadowing "onMemoryChanged()" must be public as well, or "T_DERIVED" must declare "friend class IS62WV51216&lt;T_DERIVED&gt;" so the base may call it.</p>
+<p>Call "open()" before the first transfer: the mutex has no handle until then and every "read()" / "write()" reports failure rather than touching the region unprotected.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete subclass (CRTP parameter). Must publicly inherit from "IS62WV51216&lt;T_DERIVED&gt;". </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::IS62WV51216&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d67/a01080.svg" width="298" height="471"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/d67/a01080.svg" width="327" height="1531"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Uid" id="r_Uid"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d9/df5/a01086.html">Uid</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Card UID and related selection response information.  <a href="../../d9/df5/a01086.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d9/df5/a01086.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for an IS62WV51216 instance.  <a href="../../d9/df5/a01086.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afe55bac777579392a2341966d599b1aa" id="r_afe55bac777579392a2341966d599b1aa"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afe55bac777579392a2341966d599b1aa">Card</a> (<a class="el" href="../../da/d73/a01090.html">Chipset</a> &amp;chipset) noexcept</td></tr>
-<tr class="memdesc:afe55bac777579392a2341966d599b1aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the card helper to its chipset.  <br /></td></tr>
-<tr class="memitem:a9b462a8f8d521dee2be275ece0ea5096" id="r_a9b462a8f8d521dee2be275ece0ea5096"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9b462a8f8d521dee2be275ece0ea5096">~Card</a> () noexcept=default</td></tr>
-<tr class="memdesc:a9b462a8f8d521dee2be275ece0ea5096"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the card helper.  <br /></td></tr>
-<tr class="memitem:a4cdc1e802bc109d771789db15c6830d9" id="r_a4cdc1e802bc109d771789db15c6830d9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4cdc1e802bc109d771789db15c6830d9">detectCard</a> () noexcept</td></tr>
-<tr class="memdesc:a4cdc1e802bc109d771789db15c6830d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detect the presence of a card by sending a REQA command and checking for response.  <br /></td></tr>
-<tr class="memitem:a9375b5228d52a37d16ba4e2b6ad19b34" id="r_a9375b5228d52a37d16ba4e2b6ad19b34"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9375b5228d52a37d16ba4e2b6ad19b34">selectCard</a> () noexcept</td></tr>
-<tr class="memdesc:a9375b5228d52a37d16ba4e2b6ad19b34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Select a card by running the cascade level 1 anticollision and select sequence to retrieve its UID and SAK.  <br /></td></tr>
-<tr class="memitem:a33cc183859688cd28572af600ed743f6" id="r_a33cc183859688cd28572af600ed743f6"><td class="memItemLeft">const <a class="el" href="../../d9/df5/a01086.html">Uid</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a33cc183859688cd28572af600ed743f6">getUid</a> () const noexcept</td></tr>
-<tr class="memdesc:a33cc183859688cd28572af600ed743f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the UID of the currently selected card.  <br /></td></tr>
-<tr class="memitem:aaf3cc939cb0c768c7a554db036cdb6ad" id="r_aaf3cc939cb0c768c7a554db036cdb6ad"><td class="memItemLeft"><a class="el" href="#a3b1a6a37fd9a89b9dca69aa2728daf7a">Type</a>&#160;</td><td class="memItemRight"><a class="el" href="#aaf3cc939cb0c768c7a554db036cdb6ad">getCardType</a> () const noexcept</td></tr>
-<tr class="memdesc:aaf3cc939cb0c768c7a554db036cdb6ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines the type of the currently selected card from its UID and SAK response.  <br /></td></tr>
-<tr class="memitem:a08fa94e57f56bdd7964dd70e267fd718" id="r_a08fa94e57f56bdd7964dd70e267fd718"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a08fa94e57f56bdd7964dd70e267fd718">authenticate</a> (uint8_t blockAddress, bool keyType, const uint8_t *key) noexcept</td></tr>
-<tr class="memdesc:a08fa94e57f56bdd7964dd70e267fd718"><td class="mdescLeft">&#160;</td><td class="mdescRight">Authenticate with a key on the specified block.  <br /></td></tr>
-<tr class="memitem:a7b0e6aeddeb25fcaf7c23cf7070117e0" id="r_a7b0e6aeddeb25fcaf7c23cf7070117e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7b0e6aeddeb25fcaf7c23cf7070117e0">stopCrypto</a> () noexcept</td></tr>
-<tr class="memdesc:a7b0e6aeddeb25fcaf7c23cf7070117e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop encrypted communication with the card by clearing the MFCrypto1On flag.  <br /></td></tr>
-<tr class="memitem:a8ee80419a4d19b05e8e0e5451837de29" id="r_a8ee80419a4d19b05e8e0e5451837de29"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8ee80419a4d19b05e8e0e5451837de29">halt</a> () noexcept</td></tr>
-<tr class="memdesc:a8ee80419a4d19b05e8e0e5451837de29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put the selected card into halt state, stopping communication with the card.  <br /></td></tr>
+<tr class="memitem:a7921fa0f977faf912d2049453fd4c308" id="r_a7921fa0f977faf912d2049453fd4c308"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a> (const <a class="el" href="../../d9/df5/a01086.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a7921fa0f977faf912d2049453fd4c308"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the SRAM wrapper with the provided configuration.  <br /></td></tr>
+<tr class="memitem:afa482d28208b65335930cb3722de8871" id="r_afa482d28208b65335930cb3722de8871"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afa482d28208b65335930cb3722de8871">open</a> () noexcept</td></tr>
+<tr class="memdesc:afa482d28208b65335930cb3722de8871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens internal resources (mutex).  <br /></td></tr>
+<tr class="memitem:ab7d16cfbd2da4ddbf5fe344a3eace30f" id="r_ab7d16cfbd2da4ddbf5fe344a3eace30f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ab7d16cfbd2da4ddbf5fe344a3eace30f">close</a> () noexcept</td></tr>
+<tr class="memdesc:ab7d16cfbd2da4ddbf5fe344a3eace30f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes internal resources.  <br /></td></tr>
+<tr class="memitem:a71a6069370565b21f326cb1f4e446a71" id="r_a71a6069370565b21f326cb1f4e446a71"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a71a6069370565b21f326cb1f4e446a71">read</a> (uint32_t address, void *data, size_t size) noexcept</td></tr>
+<tr class="memdesc:a71a6069370565b21f326cb1f4e446a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from the SRAM region into a caller-provided buffer.  <br /></td></tr>
+<tr class="memitem:a2b3f4b448d2b7076918a849936826646" id="r_a2b3f4b448d2b7076918a849936826646"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b3f4b448d2b7076918a849936826646">read</a> (uint32_t address, std::span&lt; std::byte &gt; data) noexcept</td></tr>
+<tr class="memdesc:a2b3f4b448d2b7076918a849936826646"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads bytes from the SRAM region into a caller-provided span.  <br /></td></tr>
+<tr class="memitem:abb442f01943c59f8ce352f5f92d959b1" id="r_abb442f01943c59f8ce352f5f92d959b1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb442f01943c59f8ce352f5f92d959b1">write</a> (uint32_t address, const void *data, size_t size) noexcept</td></tr>
+<tr class="memdesc:abb442f01943c59f8ce352f5f92d959b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes into the SRAM region from a caller-provided buffer.  <br /></td></tr>
+<tr class="memitem:abd6c3b651e745ff59409e2f5cf7acb44" id="r_abd6c3b651e745ff59409e2f5cf7acb44"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abd6c3b651e745ff59409e2f5cf7acb44">write</a> (uint32_t address, std::span&lt; const std::byte &gt; data) noexcept</td></tr>
+<tr class="memdesc:abd6c3b651e745ff59409e2f5cf7acb44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes bytes into the SRAM region from a caller-provided span.  <br /></td></tr>
+<tr class="memitem:a5d44f7cbee5d1bc849cb54ef47f257a3" id="r_a5d44f7cbee5d1bc849cb54ef47f257a3"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a5d44f7cbee5d1bc849cb54ef47f257a3">getSize</a> () const noexcept</td></tr>
+<tr class="memdesc:a5d44f7cbee5d1bc849cb54ef47f257a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports the size of the mapped region.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:aa5a2e4195473bd9a61319488bb0c60c1" id="r_aa5a2e4195473bd9a61319488bb0c60c1"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aa5a2e4195473bd9a61319488bb0c60c1">MAX_UID_SIZE</a> = 10U</td></tr>
-<tr class="memdesc:aa5a2e4195473bd9a61319488bb0c60c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest UID size (in bytes) reachable via cascade level 3.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a8bbb723bb8da60c1ded7fa4770488e41" id="r_a8bbb723bb8da60c1ded7fa4770488e41"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8bbb723bb8da60c1ded7fa4770488e41">~IS62WV51216</a> () noexcept</td></tr>
+<tr class="memdesc:a8bbb723bb8da60c1ded7fa4770488e41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected destructor — closes resources.  <br /></td></tr>
+<tr class="memitem:a4b6251a86a54f6053c2b89c00ba6a744" id="r_a4b6251a86a54f6053c2b89c00ba6a744"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4b6251a86a54f6053c2b89c00ba6a744">onMemoryChanged</a> (uintptr_t absoluteAddress, size_t size) noexcept</td></tr>
+<tr class="memdesc:a4b6251a86a54f6053c2b89c00ba6a744"><td class="mdescLeft">&#160;</td><td class="mdescRight">Post-write hook — no-op default implementation.  <br /></td></tr>
+<tr class="memitem:a627f5ee3afe264e55f1cc04cafae392d" id="r_a627f5ee3afe264e55f1cc04cafae392d"><td class="memItemLeft">uintptr_t&#160;</td><td class="memItemRight"><a class="el" href="#a627f5ee3afe264e55f1cc04cafae392d">toAbsoluteAddress</a> (uint32_t address) const noexcept</td></tr>
+<tr class="memdesc:a627f5ee3afe264e55f1cc04cafae392d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a region-relative offset to an absolute memory address.  <br /></td></tr>
+<tr class="memitem:a1b6c9da4691865cdfa1b28945756e9e5" id="r_a1b6c9da4691865cdfa1b28945756e9e5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1b6c9da4691865cdfa1b28945756e9e5">isRangeValid</a> (uint32_t address, size_t size) const noexcept</td></tr>
+<tr class="memdesc:a1b6c9da4691865cdfa1b28945756e9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Validates that an access (address, size) lies within the configured region.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0d15eea85e078fd1ca516727c0e8ca8a" id="r_a0d15eea85e078fd1ca516727c0e8ca8a"><td class="memItemLeft">const uintptr_t&#160;</td><td class="memItemRight"><a class="el" href="#a0d15eea85e078fd1ca516727c0e8ca8a">baseAddress</a></td></tr>
+<tr class="memdesc:a0d15eea85e078fd1ca516727c0e8ca8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute base address of the mapped SRAM.  <br /></td></tr>
+<tr class="memitem:af112bc4831d358a9018b8a296e932392" id="r_af112bc4831d358a9018b8a296e932392"><td class="memItemLeft">const size_t&#160;</td><td class="memItemRight"><a class="el" href="#af112bc4831d358a9018b8a296e932392">sizeBytes</a></td></tr>
+<tr class="memdesc:af112bc4831d358a9018b8a296e932392"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the SRAM region in bytes.  <br /></td></tr>
+<tr class="memitem:a0d53d69589f382b51186fd40078d3d7a" id="r_a0d53d69589f382b51186fd40078d3d7a"><td class="memItemLeft"><a class="el" href="../../d9/d8c/a02386.html">RTOS::Mutex</a>&#160;</td><td class="memItemRight"><a class="el" href="#a0d53d69589f382b51186fd40078d3d7a">mutex</a></td></tr>
+<tr class="memdesc:a0d53d69589f382b51186fd40078d3d7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex protecting concurrent access.  <br /></td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a3b1a6a37fd9a89b9dca69aa2728daf7a" name="a3b1a6a37fd9a89b9dca69aa2728daf7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3b1a6a37fd9a89b9dca69aa2728daf7a">&#9670;&#160;</a></span>Type</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a3b1a6a37fd9a89b9dca69aa2728daf7a">Lib::BSP::RFID::Card::Type</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Card type classification based on UID characteristics and SAK response byte. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3" name="a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3"></a>UNKNOWN&#160;</td><td class="fielddoc"><p>Unknown or unsupported Card type. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7" name="a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7"></a>ISO_14443_4&#160;</td><td class="fielddoc"><p>ISO/IEC 14443-4 compliant Card (e.g., Mifare DESFire). </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd" name="a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd"></a>ISO_18092&#160;</td><td class="fielddoc"><p>ISO/IEC 18092 compliant Card (NFC Forum Type 4). </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb" name="a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb"></a>MIFARE_MINI&#160;</td><td class="fielddoc"><p>Mifare Mini card. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc" name="a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc"></a>MIFARE_1K&#160;</td><td class="fielddoc"><p>Mifare Classic 1K card. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b" name="a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b"></a>MIFARE_4K&#160;</td><td class="fielddoc"><p>Mifare Classic 4K card. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7" name="a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7"></a>MIFARE_UL&#160;</td><td class="fielddoc"><p>Mifare Ultralight or Ultralight C card. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b" name="a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b"></a>MIFARE_PLUS&#160;</td><td class="fielddoc"><p>Mifare Plus card. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0" name="a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0"></a>TNP3XXX&#160;</td><td class="fielddoc"><p>TNP3XXX series card. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afe55bac777579392a2341966d599b1aa" name="afe55bac777579392a2341966d599b1aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe55bac777579392a2341966d599b1aa">&#9670;&#160;</a></span>Card()</h2>
+<a id="a7921fa0f977faf912d2049453fd4c308" name="a7921fa0f977faf912d2049453fd4c308"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7921fa0f977faf912d2049453fd4c308">&#9670;&#160;</a></span>IS62WV51216()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::RFID::Card::Card </td>
+          <td class="memname"><a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::IS62WV51216 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d73/a01090.html">Chipset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>chipset</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../d9/df5/a01086.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -225,27 +204,30 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the card helper to its chipset. </p>
+<p>Constructs the SRAM wrapper with the provided configuration. </p>
+<p>Asserts that "sizeBytes" is non-zero and "baseAddress" is non-zero.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">chipset</td><td>Chipset used for register access and commands. </td></tr>
+    <tr><td class="paramname">config</td><td>Configuration describing the mapped SRAM region. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a9b462a8f8d521dee2be275ece0ea5096" name="a9b462a8f8d521dee2be275ece0ea5096"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b462a8f8d521dee2be275ece0ea5096">&#9670;&#160;</a></span>~Card()</h2>
+<a id="a8bbb723bb8da60c1ded7fa4770488e41" name="a8bbb723bb8da60c1ded7fa4770488e41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bbb723bb8da60c1ded7fa4770488e41">&#9670;&#160;</a></span>~IS62WV51216()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::RFID::Card::~Card </td>
+          <td class="memname"><a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a7921fa0f977faf912d2049453fd4c308">IS62WV51216</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -253,82 +235,36 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Destroys the card helper. </p>
-<p>No hardware shutdown is performed; cleanup is managed by the parent MFRC522. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a08fa94e57f56bdd7964dd70e267fd718" name="a08fa94e57f56bdd7964dd70e267fd718"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08fa94e57f56bdd7964dd70e267fd718">&#9670;&#160;</a></span>authenticate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::BSP::RFID::Card::authenticate </td>
-          <td>(</td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>blockAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>keyType</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const uint8_t *</td>          <td class="paramname"><span class="paramname"><em>key</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Authenticate with a key on the specified block. </p>
-<p>Performs key-based authentication using either key A or key B, required before reading or writing data on the block. Uses the UID captured by the most recent "selectCard()" call, as required by the MIFARE authentication protocol. Delegates to "Chipset::executeAuthentication()", which drives the dedicated MF_AUTHENT hardware command; the chip itself reports success via the STATUS2 MFCrypto1On flag.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">blockAddress</td><td>Target block address on the card; clamped to the last block of the detected card type. </td></tr>
-    <tr><td class="paramname">keyType</td><td>Selection between key A ("true") or key B ("false"). </td></tr>
-    <tr><td class="paramname">key</td><td>6-byte authentication key. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if authentication succeeds, "false" otherwise.</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>"key" is not "nullptr".</dd></dl>
-<dl class="section see"><dt>See also</dt><dd>inc/Lib/BSP/RFID/doc/mifare_authenticate.md </dd></dl>
+<p>Protected destructor — closes resources. </p>
+<p>Non-virtual: an instance is never destroyed through a base pointer, so the CRTP base stays free of a vtable. </p>
 <div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a08fa94e57f56bdd7964dd70e267fd718_cgraph.svg" width="502" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a8bbb723bb8da60c1ded7fa4770488e41_cgraph.svg" width="1031" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a4cdc1e802bc109d771789db15c6830d9" name="a4cdc1e802bc109d771789db15c6830d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cdc1e802bc109d771789db15c6830d9">&#9670;&#160;</a></span>detectCard()</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ab7d16cfbd2da4ddbf5fe344a3eace30f" name="ab7d16cfbd2da4ddbf5fe344a3eace30f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d16cfbd2da4ddbf5fe344a3eace30f">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::RFID::Card::detectCard </td>
+          <td class="memname">void <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -336,40 +272,41 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Detect the presence of a card by sending a REQA command and checking for response. </p>
-<p>Sends a REQA command (a 7-bit short frame, per ISO/IEC 14443-A) and waits for a response indicating that a card is present.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if a card is detected, "false" otherwise. </dd></dl>
+<p>Closes internal resources. </p>
+<p>Subsequent "read()" / "write()" calls fail until "open()" is called again. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a4cdc1e802bc109d771789db15c6830d9_cgraph.svg" width="232" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_ab7d16cfbd2da4ddbf5fe344a3eace30f_cgraph.svg" width="751" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a4cdc1e802bc109d771789db15c6830d9_icgraph.svg" width="232" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_ab7d16cfbd2da4ddbf5fe344a3eace30f_icgraph.svg" width="522" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="aaf3cc939cb0c768c7a554db036cdb6ad" name="aaf3cc939cb0c768c7a554db036cdb6ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf3cc939cb0c768c7a554db036cdb6ad">&#9670;&#160;</a></span>getCardType()</h2>
+<a id="a5d44f7cbee5d1bc849cb54ef47f257a3" name="a5d44f7cbee5d1bc849cb54ef47f257a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d44f7cbee5d1bc849cb54ef47f257a3">&#9670;&#160;</a></span>getSize()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a3b1a6a37fd9a89b9dca69aa2728daf7a">Type</a> Lib::BSP::RFID::Card::getCardType </td>
+          <td class="memname">size_t <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::getSize </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -382,88 +319,311 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Determines the type of the currently selected card from its UID and SAK response. </p>
-<dl class="section return"><dt>Returns</dt><dd>Card type; "Type::UNKNOWN" if it cannot be determined. </dd></dl>
+<p>Reports the size of the mapped region. </p>
+<dl class="section return"><dt>Returns</dt><dd>Size of the SRAM region in bytes. </dd></dl>
+
+</div>
+</div>
+<a id="a1b6c9da4691865cdfa1b28945756e9e5" name="a1b6c9da4691865cdfa1b28945756e9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b6c9da4691865cdfa1b28945756e9e5">&#9670;&#160;</a></span>isRangeValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::isRangeValid </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;) const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Validates that an access (address, size) lies within the configured region. </p>
+<p>The remaining space is computed as "sizeBytes" - "address" instead of comparing "address" + "size", so an oversized request cannot wrap around and pass the check.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the SRAM region. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to access. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the range is valid. </dd></dl>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_aaf3cc939cb0c768c7a554db036cdb6ad_icgraph.svg" width="502" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a1b6c9da4691865cdfa1b28945756e9e5_icgraph.svg" width="802" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a33cc183859688cd28572af600ed743f6" name="a33cc183859688cd28572af600ed743f6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33cc183859688cd28572af600ed743f6">&#9670;&#160;</a></span>getUid()</h2>
+<a id="a4b6251a86a54f6053c2b89c00ba6a744" name="a4b6251a86a54f6053c2b89c00ba6a744"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b6251a86a54f6053c2b89c00ba6a744">&#9670;&#160;</a></span>onMemoryChanged()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="../../d9/df5/a01086.html">Uid</a> &amp; Lib::BSP::RFID::Card::getUid </td>
+          <td class="memname">void <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::onMemoryChanged </td>
+          <td>(</td>
+          <td class="paramtype">uintptr_t</td>          <td class="paramname"><span class="paramname"><em>absoluteAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Post-write hook — no-op default implementation. </p>
+<p>Derived may shadow this method to perform cache maintenance, notify clients, or trigger hardware side-effects. Called inside the mutex lock from "write()".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">absoluteAddress</td><td>Absolute memory address where the change began. </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes that were changed. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="afa482d28208b65335930cb3722de8871" name="afa482d28208b65335930cb3722de8871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa482d28208b65335930cb3722de8871">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens internal resources (mutex). </p>
+<p>Safe to call repeatedly; a second call on an open instance succeeds without side effects.</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on failure. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_afa482d28208b65335930cb3722de8871_cgraph.svg" width="742" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2b3f4b448d2b7076918a849936826646" name="a2b3f4b448d2b7076918a849936826646"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b3f4b448d2b7076918a849936826646">&#9670;&#160;</a></span>read() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads bytes from the SRAM region into a caller-provided span. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">address</td><td>Offset inside the SRAM region to start reading from. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">data</td><td>Destination span sized to the number of bytes to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on invalid arguments, out-of-range access or a missing lock. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a2b3f4b448d2b7076918a849936826646_cgraph.svg" width="851" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a71a6069370565b21f326cb1f4e446a71" name="a71a6069370565b21f326cb1f4e446a71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71a6069370565b21f326cb1f4e446a71">&#9670;&#160;</a></span>read() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads bytes from the SRAM region into a caller-provided buffer. </p>
+<p>The read is performed under a mutex to protect concurrent access; it fails rather than proceeding when the lock cannot be taken.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the SRAM region to start reading from. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer (must not be null when size is non-zero). </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on invalid arguments, out-of-range access or a missing lock. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a71a6069370565b21f326cb1f4e446a71_cgraph.svg" width="572" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a71a6069370565b21f326cb1f4e446a71_icgraph.svg" width="522" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a627f5ee3afe264e55f1cc04cafae392d" name="a627f5ee3afe264e55f1cc04cafae392d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627f5ee3afe264e55f1cc04cafae392d">&#9670;&#160;</a></span>toAbsoluteAddress()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uintptr_t <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::toAbsoluteAddress </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the UID of the currently selected card. </p>
-<dl class="section return"><dt>Returns</dt><dd>Size, bytes and SAK of the currently selected card, as captured by the last "selectCard()" call. </dd></dl>
+<p>Converts a region-relative offset to an absolute memory address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the mapped SRAM region. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Absolute address corresponding to the given offset. </dd></dl>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_a627f5ee3afe264e55f1cc04cafae392d_icgraph.svg" width="802" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a8ee80419a4d19b05e8e0e5451837de29" name="a8ee80419a4d19b05e8e0e5451837de29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ee80419a4d19b05e8e0e5451837de29">&#9670;&#160;</a></span>halt()</h2>
+<a id="abb442f01943c59f8ce352f5f92d959b1" name="abb442f01943c59f8ce352f5f92d959b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb442f01943c59f8ce352f5f92d959b1">&#9670;&#160;</a></span>write() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::RFID::Card::halt </td>
+          <td class="memname">bool <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::write </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Put the selected card into halt state, stopping communication with the card. </p>
-<p>The card will not respond to commands until it is removed from and reinserted into the MFRC522's field, or until "selectCard()" is called again.</p>
-<dl class="section return"><dt>Returns</dt><dd>Always "true". A PICC does not acknowledge the HALT command, so a timeout on this exchange is the expected, successful outcome and cannot be distinguished from a communication failure by this return value. </dd></dl>
-
-</div>
-</div>
-<a id="a9375b5228d52a37d16ba4e2b6ad19b34" name="a9375b5228d52a37d16ba4e2b6ad19b34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9375b5228d52a37d16ba4e2b6ad19b34">&#9670;&#160;</a></span>selectCard()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">bool Lib::BSP::RFID::Card::selectCard </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -473,67 +633,160 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Select a card by running the cascade level 1 anticollision and select sequence to retrieve its UID and SAK. </p>
-<p>Must be called after "detectCard()" returns "true". First runs anticollision (NVB 0x20) to read the 4 UID bytes and verify their BCC checksum, then sends a genuine SELECT frame (NVB 0x70, CRC protected) built from that UID to obtain the real SAK from the card. The UID and SAK are stored internally and can be retrieved using "getUid()".</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if selection succeeds, "false" otherwise. </dd></dl>
+<p>Writes bytes into the SRAM region from a caller-provided buffer. </p>
+<p>Invokes the CRTP hook "onMemoryChanged()" after a successful write, still holding the lock.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the SRAM region to start writing to. </td></tr>
+    <tr><td class="paramname">data</td><td>Source buffer (must not be null when size is non-zero). </td></tr>
+    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on invalid arguments, out-of-range access or a missing lock. </dd></dl>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
+</div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_abb442f01943c59f8ce352f5f92d959b1_cgraph.svg" width="572" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_abb442f01943c59f8ce352f5f92d959b1_icgraph.svg" width="522" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a7b0e6aeddeb25fcaf7c23cf7070117e0" name="a7b0e6aeddeb25fcaf7c23cf7070117e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b0e6aeddeb25fcaf7c23cf7070117e0">&#9670;&#160;</a></span>stopCrypto()</h2>
+<a id="abd6c3b651e745ff59409e2f5cf7acb44" name="abd6c3b651e745ff59409e2f5cf7acb44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd6c3b651e745ff59409e2f5cf7acb44">&#9670;&#160;</a></span>write() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::BSP::RFID::Card::stopCrypto </td>
+          <td class="memname">bool <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::write </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">std::span&lt; const std::byte &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stop encrypted communication with the card by clearing the MFCrypto1On flag. </p>
-<p>Should be called after completing operations that require authentication to ensure communication is no longer encrypted. </p>
+<p>Writes bytes into the SRAM region from a caller-provided span. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Offset inside the SRAM region to start writing to. </td></tr>
+    <tr><td class="paramname">data</td><td>Source span holding the bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on invalid arguments, out-of-range access or a missing lock. </dd></dl>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/df1/a01082_abd6c3b651e745ff59409e2f5cf7acb44_cgraph.svg" width="851" height="202"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="aa5a2e4195473bd9a61319488bb0c60c1" name="aa5a2e4195473bd9a61319488bb0c60c1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5a2e4195473bd9a61319488bb0c60c1">&#9670;&#160;</a></span>MAX_UID_SIZE</h2>
+<a id="a0d15eea85e078fd1ca516727c0e8ca8a" name="a0d15eea85e078fd1ca516727c0e8ca8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d15eea85e078fd1ca516727c0e8ca8a">&#9670;&#160;</a></span>baseAddress</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t Lib::BSP::RFID::Card::MAX_UID_SIZE = 10U</td>
+          <td class="memname">const uintptr_t <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::baseAddress</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Largest UID size (in bytes) reachable via cascade level 3. </p>
+<p>Absolute base address of the mapped SRAM. </p>
+
+</div>
+</div>
+<a id="a0d53d69589f382b51186fd40078d3d7a" name="a0d53d69589f382b51186fd40078d3d7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d53d69589f382b51186fd40078d3d7a">&#9670;&#160;</a></span>mutex</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d9/d8c/a02386.html">RTOS::Mutex</a> <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::mutex</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Mutex protecting concurrent access. </p>
+
+</div>
+</div>
+<a id="af112bc4831d358a9018b8a296e932392" name="af112bc4831d358a9018b8a296e932392"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af112bc4831d358a9018b8a296e932392">&#9670;&#160;</a></span>sizeBytes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const size_t <a class="el" href="../../dd/df1/a01082.html">Lib::BSP::IS62WV51216</a>&lt; T_DERIVED &gt;::sizeBytes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Size of the SRAM region in bytes. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../da/d24/a00068.html">Card.hpp</a></li>
+<li><a class="el" href="../../db/db6/a00074.html">IS62WV51216.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -548,7 +801,7 @@ Static Public Attributes</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../dc/d00/a00820.html">BSP</a></li><li class="navelem"><a href="../../d9/daf/a00830.html">RFID</a></li><li class="navelem"><a href="../../dd/df1/a01082.html">Card</a></li>
+    <li class="navelem"><a href="../../d7/d5f/a00831.html">Lib</a></li><li class="navelem"><a href="../../d0/d08/a00832.html">BSP</a></li><li class="navelem"><a href="../../dd/df1/a01082.html">IS62WV51216</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

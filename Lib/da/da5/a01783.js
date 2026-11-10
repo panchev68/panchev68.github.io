@@ -1,8 +1,15 @@
 var a01783 =
 [
-    [ "pinNRST", "da/da5/a01783.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "da/da5/a01783.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "da/da5/a01783.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
-    [ "usbDetectPin", "da/da5/a01783.html#a7821371ae14cff05383049657f3dd8d6", null ],
-    [ "usbDisablePin", "da/da5/a01783.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
+    [ "Error", "da/da5/a01783.html#a9d7546738e259f57d9e431d88a39ac23", null ],
+    [ "Handlers", "da/da5/a01783.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
+    [ "FoE", "da/da5/a01783.html#ad7dd21bafde30794cef6a653baacc862", null ],
+    [ "~FoE", "da/da5/a01783.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
+    [ "FoE", "da/da5/a01783.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
+    [ "FoE", "da/da5/a01783.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
+    [ "handle", "da/da5/a01783.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
+    [ "isBusy", "da/da5/a01783.html#a4463e44a62dae7598614225dc069e03c", null ],
+    [ "operator=", "da/da5/a01783.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
+    [ "operator=", "da/da5/a01783.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
+    [ "reset", "da/da5/a01783.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
+    [ "setHandlers", "da/da5/a01783.html#a39b767747ef43947171f73021ee9dd76", null ]
 ];

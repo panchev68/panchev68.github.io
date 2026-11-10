@@ -1,9 +1,11 @@
 var a01599 =
 [
-    [ "name", "d9/d13/a01599.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d9/d13/a01599.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d9/d13/a01599.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d9/d13/a01599.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d9/d13/a01599.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d9/d13/a01599.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "Message", "d9/d13/a01599.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "d9/d13/a01599.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "d9/d13/a01599.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "d9/d13/a01599.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "d9/d13/a01599.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "d9/d13/a01599.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "d9/d13/a01599.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "d9/d13/a01599.html#a99d9247c3097add390da201d0083e524", null ]
 ];

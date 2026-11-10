@@ -1,13 +1,15 @@
 var a01934 =
 [
-    [ "Date", "de/da9/a01934.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "de/da9/a01934.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "de/da9/a01934.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "de/da9/a01934.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "de/da9/a01934.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "de/da9/a01934.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "de/da9/a01934.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "de/da9/a01934.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "de/da9/a01934.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "Config", "de/da9/a01934.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Handle", "de/da9/a01934.html#ade0f87f7318848ef033a913d2442a32e", null ],
+    [ "Port", "de/da9/a01934.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
+    [ "~Port", "de/da9/a01934.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "Port", "de/da9/a01934.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
+    [ "Port", "de/da9/a01934.html#af0271c4483ea3f5cebaa37054062a428", null ],
+    [ "operator=", "de/da9/a01934.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
+    [ "operator=", "de/da9/a01934.html#a8e39b404c71b26364658b90ae25a398d", null ],
+    [ "read", "de/da9/a01934.html#adce8df0019ea415a350cf833ac481fc2", null ],
+    [ "setPullupPulldown", "de/da9/a01934.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "de/da9/a01934.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
+    [ "write", "de/da9/a01934.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
 ];

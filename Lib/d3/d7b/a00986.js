@@ -1,9 +1,5 @@
 var a00986 =
 [
-    [ "chipManufacturer", "d3/d7b/a00986.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "d3/d7b/a00986.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "d3/d7b/a00986.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "d3/d7b/a00986.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "d3/d7b/a00986.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "d3/d7b/a00986.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "addr", "d3/d7b/a00986.html#a52b4f081e411d6f6b400f02e266252f3", null ],
+    [ "i2cPort", "d3/d7b/a00986.html#a0f7a92fa8726a2ef6dff8cac74b5e421", null ]
 ];

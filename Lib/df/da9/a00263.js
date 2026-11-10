@@ -1,4 +1,4 @@
 var a00263 =
 [
-    [ "Lib::Digi::Core::ResponseEvents", "d6/daf/a01632.html", "d6/daf/a01632" ]
+    [ "Lib::Digi::API::Service::SpectrumAnalyzer", "d3/d22/a01572.html", "d3/d22/a01572" ]
 ];

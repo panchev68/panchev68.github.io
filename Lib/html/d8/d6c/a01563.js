@@ -1,14 +1,11 @@
 var a01563 =
 [
-    [ "append", "d8/d6c/a01563.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
-    [ "append", "d8/d6c/a01563.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
-    [ "assign", "d8/d6c/a01563.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
-    [ "clear", "d8/d6c/a01563.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
-    [ "data", "d8/d6c/a01563.html#aaf5bb127946bfccf2adfc318d584894e", null ],
-    [ "empty", "d8/d6c/a01563.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
-    [ "insert", "d8/d6c/a01563.html#ae409c8ac34780b163e1044b9959a2f81", null ],
-    [ "reserve", "d8/d6c/a01563.html#aa059b03866b8797af025cf959e3dee4e", null ],
-    [ "reset", "d8/d6c/a01563.html#ab7425c54f798a024d87678d5f1495d0e", null ],
-    [ "size", "d8/d6c/a01563.html#aea29854e97878274b63e4a5e3e4c9475", null ],
-    [ "type", "d8/d6c/a01563.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
+    [ "ignoredMessagesByTimeout", "d8/d6c/a01563.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d8/d6c/a01563.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "d8/d6c/a01563.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "d8/d6c/a01563.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "d8/d6c/a01563.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "d8/d6c/a01563.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "d8/d6c/a01563.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "d8/d6c/a01563.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

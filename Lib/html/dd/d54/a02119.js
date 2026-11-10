@@ -1,7 +1,5 @@
 var a02119 =
 [
-    [ "maxVoltage", "dd/d54/a02119.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "dd/d54/a02119.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "dd/d54/a02119.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "dd/d54/a02119.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "USBHostPort", "dd/d54/a02119.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "dd/d54/a02119.html#a4c01d7a9aa859df6f11e05b804af766d", null ]
 ];

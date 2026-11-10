@@ -1,14 +1,14 @@
 var a02472 =
 [
-    [ "Config", "d4/d0c/a02476.html", "d4/d0c/a02476" ],
-    [ "Measurement", "d2/d35/a02480.html", "d2/d35/a02480" ],
-    [ "Direction", "d9/ded/a02472.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
-      [ "DOWN", "d9/ded/a02472.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
-      [ "UP", "d9/ded/a02472.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
+    [ "Label", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821e", [
+      [ "RUNNING", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "READY", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "BLOCKED", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
+      [ "SUSPENDED", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
+      [ "DELETED", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
+      [ "INVALID", "d9/ded/a02472.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
     ] ],
-    [ "PerturbAndObserve", "d9/ded/a02472.html#a7e1626362f778f8b7e085cdc41794a67", null ],
-    [ "getVoltageSetpoint", "d9/ded/a02472.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
-    [ "reset", "d9/ded/a02472.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
-    [ "setStepSize", "d9/ded/a02472.html#a121c7b229d119d0ee55cd0b855065350", null ],
-    [ "update", "d9/ded/a02472.html#ab0587469fdbaa626d9f751ef04255627", null ]
+    [ "State", "d9/ded/a02472.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
+    [ "get", "d9/ded/a02472.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
+    [ "operator Label", "d9/ded/a02472.html#a3c30086da2d01872c5cdccdba1874c74", null ]
 ];

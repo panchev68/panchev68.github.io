@@ -1,9 +1,9 @@
 var a01065 =
 [
-    [ "calculatedChecksum", "d0/dc9/a01065.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "d0/dc9/a01065.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "d0/dc9/a01065.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "d0/dc9/a01065.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "d0/dc9/a01065.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "d0/dc9/a01065.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "Interface", "d0/dc9/a01065.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "d0/dc9/a01065.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "d0/dc9/a01065.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "d0/dc9/a01065.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "d0/dc9/a01065.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "d0/dc9/a01065.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

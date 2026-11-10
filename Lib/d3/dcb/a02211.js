@@ -1,4 +1,5 @@
 var a02211 =
 [
-    [ "Lib::Communication::Modbus::Slave", "d3/d42/a01051.html", "d3/d42/a01051" ]
+    [ "DecimalDigits", "d3/dcb/a02211.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "d3/dcb/a02211.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

@@ -1,8 +1,5 @@
 var a00203 =
 [
-    [ "Lib::Digi::Core::ApiMode", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17ed", [
-      [ "Lib::Digi::Core::ApiMode::TRANSPARENT", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "Lib::Digi::Core::ApiMode::API1", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "Lib::Digi::Core::ApiMode::API2", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ]
+    [ "Lib::Digi::API::Service::ChannelScanner", "d2/d2f/a01460.html", "d2/d2f/a01460" ],
+    [ "Lib::Digi::API::Service::ChannelScanner::Channel", "db/d8b/a01464.html", "db/d8b/a01464" ]
 ];

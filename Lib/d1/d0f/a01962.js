@@ -1,9 +1,10 @@
 var a01962 =
 [
-    [ "VersionString", "d1/d0f/a01962.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Hardware", "d1/d0f/a01962.html#a5df26239c512941c15b1473b41fd41e6", null ],
-    [ "getSubVersion", "d1/d0f/a01962.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d1/d0f/a01962.html#ad9b45ee76c12709fe9ef566466c9f721", null ],
-    [ "operator VersionString", "d1/d0f/a01962.html#a9e770d09f97bafa86fcc361a02339e2b", null ],
-    [ "subVersion", "d1/d0f/a01962.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "IndependentWatchdog", "d1/d0f/a01962.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "d1/d0f/a01962.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "d1/d0f/a01962.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "d1/d0f/a01962.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "d1/d0f/a01962.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "d1/d0f/a01962.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "d1/d0f/a01962.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

@@ -1,17 +1,19 @@
 var a01868 =
 [
-    [ "DataAlignment", "dd/de7/a01868.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "dd/de7/a01868.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
-    [ "~DACPort", "dd/de7/a01868.html#ac832156b805caf8041f1097ecf576ec2", null ],
-    [ "DACPort", "dd/de7/a01868.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
-    [ "DACPort", "dd/de7/a01868.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
-    [ "close", "dd/de7/a01868.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "getChannel", "dd/de7/a01868.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
-    [ "getHandle", "dd/de7/a01868.html#a8931efb843554302b191363c4a0bfa41", null ],
-    [ "open", "dd/de7/a01868.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "dd/de7/a01868.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
-    [ "operator=", "dd/de7/a01868.html#a947c4407f00f40ef2d244a914699c60e", null ],
-    [ "setValue", "dd/de7/a01868.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "dd/de7/a01868.html#a0fb9b03d74076c644c02fd75613c0748", null ],
-    [ "stop", "dd/de7/a01868.html#aeb4d00954e883a85534eb2da3acd379f", null ]
+    [ "Event", "d8/d7b/a01872.html", null ],
+    [ "ADCPort", "dd/de7/a01868.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "dd/de7/a01868.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "dd/de7/a01868.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "dd/de7/a01868.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "dd/de7/a01868.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "getHandle", "dd/de7/a01868.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/de7/a01868.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getValue", "dd/de7/a01868.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dd/de7/a01868.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "dd/de7/a01868.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "dd/de7/a01868.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "dd/de7/a01868.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "dd/de7/a01868.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "dd/de7/a01868.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "dd/de7/a01868.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

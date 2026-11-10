@@ -1,11 +1,17 @@
 var a01966 =
 [
-    [ "FirmwareString", "d7/dfb/a01966.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d7/dfb/a01966.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d7/dfb/a01966.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d7/dfb/a01966.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d7/dfb/a01966.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d7/dfb/a01966.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d7/dfb/a01966.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d7/dfb/a01966.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "OSPIPort", "d7/dfb/a01966.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "d7/dfb/a01966.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "OSPIPort", "d7/dfb/a01966.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
+    [ "OSPIPort", "d7/dfb/a01966.html#a50425950532682614be81eb8bb5216b7", null ],
+    [ "close", "d7/dfb/a01966.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "command", "d7/dfb/a01966.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
+    [ "getHandle", "d7/dfb/a01966.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "d7/dfb/a01966.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "isBusy", "d7/dfb/a01966.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d7/dfb/a01966.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d7/dfb/a01966.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
+    [ "operator=", "d7/dfb/a01966.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
+    [ "receive", "d7/dfb/a01966.html#aef7cf93602718e2d14816e122f15f3be", null ],
+    [ "transmit", "d7/dfb/a01966.html#a10d2dc1da9553992110c3752aa39e058", null ]
 ];

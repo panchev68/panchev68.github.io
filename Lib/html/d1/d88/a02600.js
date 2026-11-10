@@ -1,17 +1,20 @@
 var a02600 =
 [
-    [ "Status", "d1/d88/a02600.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d1/d88/a02600.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d1/d88/a02600.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d1/d88/a02600.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d1/d88/a02600.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
+    [ "Config", "d7/d13/a02604.html", "d7/d13/a02604" ],
+    [ "Status", "d1/d88/a02600.html#a69d5fbac0f2c325b3f576b76a1db1204", [
+      [ "OK", "d1/d88/a02600.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d1/d88/a02600.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "Value64Handle", "d1/d88/a02600.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d1/d88/a02600.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d1/d88/a02600.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d1/d88/a02600.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d1/d88/a02600.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d1/d88/a02600.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d1/d88/a02600.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d1/d88/a02600.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "SerialPort", "d1/d88/a02600.html#a598e18433429c3e9aa74a063852aaccd", null ],
+    [ "~SerialPort", "d1/d88/a02600.html#afded1dc48b51225406bff4ec53c93689", null ],
+    [ "SerialPort", "d1/d88/a02600.html#aa66d3cdfabe12244a2c6c1b5554058d3", null ],
+    [ "close", "d1/d88/a02600.html#aacd6fe508350e10b40ccc284a2b25770", null ],
+    [ "handlePostReceivedEvent", "d1/d88/a02600.html#abe6dcde3251bf403edbf507d07eac6bc", null ],
+    [ "handlePostTransmitEvent", "d1/d88/a02600.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
+    [ "open", "d1/d88/a02600.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
+    [ "operator=", "d1/d88/a02600.html#a91db90b93d921f24baf5b96ce0aa578c", null ],
+    [ "send", "d1/d88/a02600.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
+    [ "send", "d1/d88/a02600.html#a484a85d98faebe518ae3b89b6e0cf5d0", null ],
+    [ "setBaudRate", "d1/d88/a02600.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
+    [ "setResetPin", "d1/d88/a02600.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
 ];

@@ -1,8 +1,7 @@
 var a01644 =
 [
-    [ "Frame0x88", "d3/d3e/a01644.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "d3/d3e/a01644.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d3/d3e/a01644.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d3/d3e/a01644.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d3/d3e/a01644.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "FrameWriter", "d3/d3e/a01644.html#a59412dd23cc927bfec3c14e563ce00ac", null ],
+    [ "put", "d3/d3e/a01644.html#a08ff6a358e2a048f64a0d79be8a77a3a", null ],
+    [ "put", "d3/d3e/a01644.html#afa16c8a90132f75fc0ca2fec2864fc19", null ],
+    [ "put", "d3/d3e/a01644.html#abb5db27849ce33eefe7c66d078a1372b", null ]
 ];

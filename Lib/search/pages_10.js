@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['several_20writers_0',['Several writers',['../d1/d8b/a03420.html#streambuffer_multiwriter',1,'']]],
-  ['single_20measurement_1',['Single measurement',['../da/dc7/a03407.html#pga460_usage_basic',1,'']]],
+  ['several_20writers_0',['Several writers',['../X:/Lib/IAR/docs/Examples/RTOS_StreamBuffer.dox#streambuffer_multiwriter',1,'']]],
+  ['single_20measurement_1',['Single measurement',['../dd/db6/a03514.html#pga460_usage_basic',1,'']]],
   ['spi_20example_2',['Basic Peripheral Access (SPI Example)',['../index.html#basic-peripheral-access-spi-example',1,'']]],
   ['start_3',['▶️ Usage / Quick Start',['../index.html#️-usage--quick-start',1,'']]],
-  ['static_20creation_4',['Static creation',['../d1/d8b/a03420.html#streambuffer_static',1,'']]],
-  ['streambuffer_20examples_5',['StreamBuffer examples',['../d1/d8b/a03420.html',1,'']]]
+  ['static_20creation_4',['Static creation',['../X:/Lib/IAR/docs/Examples/RTOS_StreamBuffer.dox#streambuffer_static',1,'']]]
 ];

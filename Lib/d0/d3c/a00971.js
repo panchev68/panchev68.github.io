@@ -1,12 +1,12 @@
 var a00971 =
 [
-    [ "debounceDuration", "d0/d3c/a00971.html#a645398d022257454438fc47ce15fcdb9", null ],
-    [ "height", "d0/d3c/a00971.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
-    [ "rotationFlipped", "d0/d3c/a00971.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
-    [ "rotationNormal", "d0/d3c/a00971.html#aa5b75686141869dfbbfb78febc4822aa", null ],
-    [ "width", "d0/d3c/a00971.html#a36fe0a7ac1def2933216417d9c50860b", null ],
-    [ "xMax", "d0/d3c/a00971.html#ad7faa3502a791114bf456c98c0dbf644", null ],
-    [ "xMin", "d0/d3c/a00971.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
-    [ "yMax", "d0/d3c/a00971.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
-    [ "yMin", "d0/d3c/a00971.html#acda2f52d642f3f712c72b8046d83fa30", null ]
+    [ "Inputs", "d0/d3c/a00971.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "d0/d3c/a00971.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "d0/d3c/a00971.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "d0/d3c/a00971.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "d0/d3c/a00971.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "d0/d3c/a00971.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "d0/d3c/a00971.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "d0/d3c/a00971.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "d0/d3c/a00971.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

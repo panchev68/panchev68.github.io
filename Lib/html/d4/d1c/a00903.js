@@ -1,8 +1,8 @@
 var a00903 =
 [
-    [ "DeviceBase", "d4/d1c/a00903.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "d4/d1c/a00903.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "d4/d1c/a00903.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "d4/d1c/a00903.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "d4/d1c/a00903.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "CardRecord", "dc/d19/a01190.html", "dc/d19/a01190" ],
+    [ "OriginalitySignature", "d9/d2e/a01194.html", "d9/d2e/a01194" ],
+    [ "IssuerKey", "d4/d9d/a02681.html", null ],
+    [ "Uid", "d4/d1c/a00903.html#a435a19683e1fb32e426add14e68d0076", null ],
+    [ "UID_SIZE", "d4/d1c/a00903.html#aafd94c6505eb4a0544cc89a0caee007d", null ]
 ];

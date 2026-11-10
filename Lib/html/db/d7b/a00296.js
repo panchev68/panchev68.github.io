@@ -1,4 +1,4 @@
 var a00296 =
 [
-    [ "Lib::Digi::Core::isElapsed", "d7/dcf/a00845.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
+    [ "Lib::Digi::Core::Frame0x8b", "de/df6/a01670.html", "de/df6/a01670" ]
 ];

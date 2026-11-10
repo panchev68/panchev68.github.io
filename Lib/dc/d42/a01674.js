@@ -1,8 +1,8 @@
 var a01674 =
 [
-    [ "crc16", "dc/d42/a01674.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "dc/d42/a01674.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "dc/d42/a01674.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "dc/d42/a01674.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "dc/d42/a01674.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "Frame0x8b", "dc/d42/a01674.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
+    [ "deliveryStatus", "dc/d42/a01674.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
+    [ "discoveryStatus", "dc/d42/a01674.html#a7b5c383aff55a80124e65ff4565eb114", null ],
+    [ "frameId", "dc/d42/a01674.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
+    [ "transmitRetryCount", "dc/d42/a01674.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
 ];

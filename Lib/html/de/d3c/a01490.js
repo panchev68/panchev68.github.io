@@ -1,8 +1,16 @@
 var a01490 =
 [
-    [ "Node", "de/d3c/a01490.html#ae77243ef5154f0127b188cb07ee7b730", null ],
-    [ "Node", "de/d3c/a01490.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
-    [ "macAddress", "de/d3c/a01490.html#ab4f01a998762165160e1c5f287e33b36", null ],
-    [ "nodeAddr16", "de/d3c/a01490.html#a047c25d839ad49f40c973b610050fa18", null ],
-    [ "nodeIdentifier", "de/d3c/a01490.html#a66f046134b60cff03864ca23d0ff54fa", null ]
+    [ "Channel", "d6/d51/a01494.html", "d6/d51/a01494" ],
+    [ "ChannelArray", "de/d3c/a01490.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
+    [ "QualityMode", "de/d3c/a01490.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
+    [ "Error", "de/d3c/a01490.html#acb54f9ec6751a18eda393e2c5bd0675c", [
+      [ "NONE", "de/d3c/a01490.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "de/d3c/a01490.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "de/d3c/a01490.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "de/d3c/a01490.html#a4e65a2b73399e5ba18d5090993f64487", null ],
+    [ "ChannelScanner", "de/d3c/a01490.html#a1b11f5df668c4629836c71101e686990", null ],
+    [ "getChannels", "de/d3c/a01490.html#a124a962ad28c0688ab38329f7a7b034e", null ],
+    [ "operator=", "de/d3c/a01490.html#aed5af8462cac9a996e73489e369434d3", null ],
+    [ "onError", "de/d3c/a01490.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
 ];

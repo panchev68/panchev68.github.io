@@ -1,8 +1,10 @@
 var a02214 =
 [
-    [ "Frame", "d4/d54/a02218.html", "d4/d54/a02218" ],
-    [ "Status", "d6/deb/a02214.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
-      [ "OK", "d6/deb/a02214.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d6/deb/a02214.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "PeakInfo", "d4/d54/a02218.html", "d4/d54/a02218" ],
+    [ "FindPeaks", "d6/deb/a02214.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
+    [ "addSample", "d6/deb/a02214.html#af68c408bdc213c13c758fceb90fdf51e", null ],
+    [ "getCount", "d6/deb/a02214.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
+    [ "getFallingPeak", "d6/deb/a02214.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
+    [ "getRisingPeak", "d6/deb/a02214.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
+    [ "reset", "d6/deb/a02214.html#a176df2aab4c0e044fe550ca813f88168", null ]
 ];

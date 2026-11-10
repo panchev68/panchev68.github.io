@@ -1,5 +1,7 @@
 var a03427 =
 [
-    [ "Lib::BSP::DeviceManager", "d5/dd3/a00902.html", "d5/dd3/a00902" ],
-    [ "Lib::BSP::DeviceManager::DeviceBase", "da/dd8/a00906.html", "da/dd8/a00906" ]
+    [ "Lib::BSP::FMEM::OSPI::Config", "d0/d28/a00997.html", "d0/d28/a00997" ],
+    [ "Lib::BSP::FMEM::OSPI::Info", "df/d59/a01001.html", "df/d59/a01001" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ", "d7/d06/a01005.html", "d7/d06/a01005" ],
+    [ "Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register", "d7/ded/a01009.html", "d7/ded/a01009" ]
 ];

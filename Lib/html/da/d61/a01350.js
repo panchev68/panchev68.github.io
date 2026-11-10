@@ -1,11 +1,9 @@
 var a01350 =
 [
-    [ "onExtendedTransmitStatusChanged", "da/d61/a01350.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "da/d61/a01350.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "da/d61/a01350.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "da/d61/a01350.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "da/d61/a01350.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "da/d61/a01350.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "da/d61/a01350.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "da/d61/a01350.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Address", "da/d61/a01350.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "da/d61/a01350.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "da/d61/a01350.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "da/d61/a01350.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "da/d61/a01350.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "da/d61/a01350.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
 ];

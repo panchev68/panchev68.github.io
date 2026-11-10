@@ -1,14 +1,12 @@
 var a02028 =
 [
-    [ "Manager", "db/d68/a02028.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "db/d68/a02028.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimEventBase", "db/d68/a02028.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
-    [ "TimEventBase", "db/d68/a02028.html#a5bc4465b338b0255addd68424099b237", null ],
-    [ "TimEventBase", "db/d68/a02028.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
-    [ "~TimEventBase", "db/d68/a02028.html#a5005179511e8564eef47bc3da1d74925", null ],
-    [ "bindWorker", "db/d68/a02028.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "notifyWorkerFromISR", "db/d68/a02028.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "operator=", "db/d68/a02028.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
-    [ "operator=", "db/d68/a02028.html#a252859ce5916b5a86188c2929fc271a4", null ],
-    [ "waitEvent", "db/d68/a02028.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
+    [ "TimOutputCompare", "db/d68/a02028.html#a147e928fad995991b23e7d01fe3858fd", null ],
+    [ "~TimOutputCompare", "db/d68/a02028.html#ad51108ace6896dca15950c5bbfd3002b", null ],
+    [ "getCounter", "db/d68/a02028.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
+    [ "setCompare", "db/d68/a02028.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
+    [ "start", "db/d68/a02028.html#a63482b7958cd7171218c959b2b5df044", null ],
+    [ "stop", "db/d68/a02028.html#aac2ec3db8ef26406c23bea924b96997b", null ],
+    [ "waitCompare", "db/d68/a02028.html#a040290a0bf889a08fc0248b637b69e71", null ],
+    [ "waitCompare", "db/d68/a02028.html#a18804c13963fca99f8037034a6d4e7ec", null ],
+    [ "void::HAL_TIM_OC_DelayElapsedCallback", "db/d68/a02028.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
 ];

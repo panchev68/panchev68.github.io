@@ -1,6 +1,8 @@
 var a01195 =
 [
-    [ "average", "d8/df3/a01195.html#ab4fa2bcc0bec940e745fb7be637aebd6", null ],
-    [ "current", "d8/df3/a01195.html#afb1d3ab66b7d545ad64678211e1916f3", null ],
-    [ "max", "d8/df3/a01195.html#a9ad9c18e962514b6e21e59820bccecdd", null ]
+    [ "operator==", "d8/df3/a01195.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d8/df3/a01195.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d8/df3/a01195.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d8/df3/a01195.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d8/df3/a01195.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

@@ -1,15 +1,14 @@
 var a01922 =
 [
-    [ "I2CPort", "dd/d19/a01922.html#a70dc562f520726340c2c942ee7753b17", null ],
-    [ "~I2CPort", "dd/d19/a01922.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
-    [ "I2CPort", "dd/d19/a01922.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
-    [ "I2CPort", "dd/d19/a01922.html#a6c227decd7ea7b8ff23e032025761259", null ],
-    [ "getHandle", "dd/d19/a01922.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "dd/d19/a01922.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "masterMemRead", "dd/d19/a01922.html#aff45c6ae44d78ac3f07f800383374359", null ],
-    [ "masterMemWrite", "dd/d19/a01922.html#ae89e0f492119ac05671af0cdca2b90de", null ],
-    [ "masterReceive", "dd/d19/a01922.html#a165d3958b26f38d4c513160a447bcfaf", null ],
-    [ "masterTransmit", "dd/d19/a01922.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
-    [ "operator=", "dd/d19/a01922.html#aae592f22809df591ac07e2cd47f3969b", null ],
-    [ "operator=", "dd/d19/a01922.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
+    [ "Input", "dd/d19/a01922.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "dd/d19/a01922.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "Input", "dd/d19/a01922.html#aba23478206e067c578a2081a0ba4d1ee", null ],
+    [ "Input", "dd/d19/a01922.html#a01d95887913602ed10325b5b07f8cef5", null ],
+    [ "isHigh", "dd/d19/a01922.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "dd/d19/a01922.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "dd/d19/a01922.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "dd/d19/a01922.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
+    [ "operator=", "dd/d19/a01922.html#aac4da8195bb51d393df961046635bfc0", null ],
+    [ "read", "dd/d19/a01922.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "dd/d19/a01922.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

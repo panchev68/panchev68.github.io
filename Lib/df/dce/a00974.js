@@ -1,17 +1,9 @@
 var a00974 =
 [
-    [ "DriverBase", "df/dce/a00974.html#a5eafa5f0d53866cb78471368f7297754", null ],
-    [ "~DriverBase", "df/dce/a00974.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
-    [ "close", "df/dce/a00974.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
-    [ "eraseChip", "df/dce/a00974.html#a32148377b4274abf28db1beb3d12ea11", null ],
-    [ "eraseSector", "df/dce/a00974.html#a23c3062b24d15e58237ddb109c474b74", null ],
-    [ "getInfo", "df/dce/a00974.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
-    [ "getStatus", "df/dce/a00974.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
-    [ "open", "df/dce/a00974.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
-    [ "read", "df/dce/a00974.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
-    [ "write", "df/dce/a00974.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
-    [ "info", "df/dce/a00974.html#aca8a7487175e31060363fe99270e69a3", null ],
-    [ "nss", "df/dce/a00974.html#a6cad70d123e273b88f244598cc93a22b", null ],
-    [ "spiPort", "df/dce/a00974.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
-    [ "status", "df/dce/a00974.html#af95471bb260264403e3df2dc07b80419", null ]
+    [ "Config", "d2/ddd/a00978.html", "d2/ddd/a00978" ],
+    [ "Driver", "df/dce/a00974.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "df/dce/a00974.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "df/dce/a00974.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "df/dce/a00974.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "df/dce/a00974.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

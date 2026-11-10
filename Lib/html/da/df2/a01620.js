@@ -1,7 +1,8 @@
 var a01620 =
 [
-    [ "operator std::vector< uint8_t >", "da/df2/a01620.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
-    [ "view", "da/df2/a01620.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
-    [ "data", "da/df2/a01620.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
-    [ "size", "da/df2/a01620.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
+    [ "Frame0x80", "da/df2/a01620.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
+    [ "option", "da/df2/a01620.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
+    [ "rfData", "da/df2/a01620.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
+    [ "rssi", "da/df2/a01620.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
+    [ "srcAddr64", "da/df2/a01620.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
 ];

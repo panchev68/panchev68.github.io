@@ -1,13 +1,22 @@
 var a01832 =
 [
-    [ "BackupRamDomain", "dc/d06/a01832.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "dc/d06/a01832.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "dc/d06/a01832.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "dc/d06/a01832.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "dc/d06/a01832.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "dc/d06/a01832.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "dc/d06/a01832.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "dc/d06/a01832.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "dc/d06/a01832.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "dc/d06/a01832.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "Diagnostic", "db/df3/a01836.html", "db/df3/a01836" ],
+    [ "ConnectionState", "dc/d06/a01832.html#a56cd12ff82e971645f7a23734b80bbf0", null ],
+    [ "ClientBase", "dc/d06/a01832.html#a2ee9814fe7b1bdf67ee96cc783454230", null ],
+    [ "~ClientBase", "dc/d06/a01832.html#aa64fe42414f52a9ddcf73265f7aaa32e", null ],
+    [ "ClientBase", "dc/d06/a01832.html#a171d0ee214534d948c4d955355ab7bf3", null ],
+    [ "ClientBase", "dc/d06/a01832.html#a9ad742e1649a2f2423837da9974e4140", null ],
+    [ "getConnectionState", "dc/d06/a01832.html#a0ba4737991369ec358f11bf82c4392df", null ],
+    [ "getDiagnostic", "dc/d06/a01832.html#acddaa0b3fe21bf41d5c49971e4833fb8", null ],
+    [ "getRemoteNode", "dc/d06/a01832.html#a0d9ed09b6ed483d84196c3617fdd854d", null ],
+    [ "handleApplicationProcess", "dc/d06/a01832.html#a00422437a5ab35fa114a370d21d55678", null ],
+    [ "operator=", "dc/d06/a01832.html#a878f98b5d415e7a8e2821d7c2b7c398e", null ],
+    [ "operator=", "dc/d06/a01832.html#ae1ba6598652355c62f04b855d15e0ee4", null ],
+    [ "readLinkState", "dc/d06/a01832.html#a1509f9ad6bf5e3766269bbdec6103779", null ],
+    [ "send", "dc/d06/a01832.html#a75056b314ce6ce19807888e9fd56cb2c", null ],
+    [ "setConnectionState", "dc/d06/a01832.html#a7936da086b583d8438bc492bd1423181", null ],
+    [ "setRemoteNode", "dc/d06/a01832.html#aca3bfc7a7ae808b71533018ec7f30382", null ],
+    [ "start", "dc/d06/a01832.html#a590e03d72003060be01839884fdd0b26", null ],
+    [ "updateRxLedCallback", "dc/d06/a01832.html#af2915b8806cc5b5c86f344d441dc28c2", null ],
+    [ "updateTxLedCallback", "dc/d06/a01832.html#ac2aebcf3601efce658d06d2be4f7f06c", null ]
 ];

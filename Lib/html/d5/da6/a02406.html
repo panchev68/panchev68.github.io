@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: RTOS::SemaphoreCounting Class Reference</title>
+<title>Library: RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,150 +112,166 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/da6/a02406.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">RTOS::SemaphoreCounting Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt; Class Template Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Counting semaphore resource manager for tracking multiple resource instances or queued events. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for RTOS::SemaphoreCounting:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt;<br />
+requires (std::is_trivially_copyable_v&lt;T_ELEMENT_TYPE&gt; &amp;&amp; std::default_initializable&lt;T_ELEMENT_TYPE&gt; &amp;&amp; (N_QUEUE_LENGTH &gt; 0U))<br />
+class RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;</div><p>Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type. </p>
+<p>The kernel copies every item with "memcpy()" on send and receive, which is why the element type must be trivially copyable: anything owning a resource (a "std::vector", a "std::string", a smart pointer) would be shallow-copied and double-released. Task-context methods may block; the "FromISR" variants never block and report through "higherPriorityTaskWoken" whether the caller must request a context switch with "portYIELD_FROM_ISR()" before leaving the interrupt. A queue that has been added to a "RTOS::QueueSet" must only be read after the set selected it, and then with a zero timeout.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_ELEMENT_TYPE</td><td>Data type held by the queue; must be trivially copyable and default-initializable. </td></tr>
+    <tr><td class="paramname">N_QUEUE_LENGTH</td><td>Maximum number of items the queue can hold; must be greater than zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d31/a02405.svg" width="387" height="2692"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d31/a02405.svg" width="2178" height="1542"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::SemaphoreCounting:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/db1/a02404.svg" width="387" height="2692"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/db1/a02404.svg" width="307" height="614"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a34360dc9fc24d07df2ef16080a21c61e" id="r_a34360dc9fc24d07df2ef16080a21c61e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> (UBaseType_t maxCount, UBaseType_t initialCount) noexcept</td></tr>
-<tr class="memdesc:a34360dc9fc24d07df2ef16080a21c61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores the counting limits; the native handle is created later by "open()".  <br /></td></tr>
-<tr class="memitem:a28b01c517b6b58ec1c1dcdff28c2a50c" id="r_a28b01c517b6b58ec1c1dcdff28c2a50c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a28b01c517b6b58ec1c1dcdff28c2a50c">SemaphoreCounting</a> (SemaphoreCounting &amp;&amp;other) noexcept=default</td></tr>
-<tr class="memdesc:a28b01c517b6b58ec1c1dcdff28c2a50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfers ownership of the native handle and the counting limits from another instance.  <br /></td></tr>
-<tr class="memitem:ac13d24083bc909c7813fb3367712fe95" id="r_ac13d24083bc909c7813fb3367712fe95"><td class="memItemLeft"><a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac13d24083bc909c7813fb3367712fe95">operator=</a> (<a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp;&amp;other) noexcept=default</td></tr>
-<tr class="memdesc:ac13d24083bc909c7813fb3367712fe95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this semaphore and takes ownership of the native handle and the counting limits of another instance.  <br /></td></tr>
-<tr class="memitem:a7e497551b91db5e404470925688a3ea2" id="r_a7e497551b91db5e404470925688a3ea2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7e497551b91db5e404470925688a3ea2">SemaphoreCounting</a> (const SemaphoreCounting &amp;)=delete</td></tr>
-<tr class="memdesc:a7e497551b91db5e404470925688a3ea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:a1ef840e684e45e8065fa31c8b3690d52" id="r_a1ef840e684e45e8065fa31c8b3690d52"><td class="memItemLeft"><a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1ef840e684e45e8065fa31c8b3690d52">operator=</a> (const <a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a1ef840e684e45e8065fa31c8b3690d52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:abc57684576686004799b4afa06460768" id="r_abc57684576686004799b4afa06460768"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abc57684576686004799b4afa06460768">open</a> () noexcept</td></tr>
-<tr class="memdesc:abc57684576686004799b4afa06460768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocates the native FreeRTOS counting semaphore handle, if not already open.  <br /></td></tr>
-<tr class="memitem:a4a3a3bf0955b317a1d871ee838f5ea59" id="r_a4a3a3bf0955b317a1d871ee838f5ea59"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4a3a3bf0955b317a1d871ee838f5ea59">createStatic</a> (StaticSemaphore_t &amp;buffer) noexcept</td></tr>
-<tr class="memdesc:a4a3a3bf0955b317a1d871ee838f5ea59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the native counting semaphore in caller-provided static memory, if not already open.  <br /></td></tr>
-<tr class="memitem:ac1348d8967c750e28e7a6ba4f84d6061" id="r_ac1348d8967c750e28e7a6ba4f84d6061"><td class="memItemLeft">UBaseType_t&#160;</td><td class="memItemRight"><a class="el" href="#ac1348d8967c750e28e7a6ba4f84d6061">getCount</a> () const noexcept</td></tr>
-<tr class="memdesc:ac1348d8967c750e28e7a6ba4f84d6061"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current semaphore count.  <br /></td></tr>
-<tr class="memitem:addd31c2ffd410bd866e7365497d65280" id="r_addd31c2ffd410bd866e7365497d65280"><td class="memItemLeft">UBaseType_t&#160;</td><td class="memItemRight"><a class="el" href="#addd31c2ffd410bd866e7365497d65280">getMaxCount</a> () const noexcept</td></tr>
-<tr class="memdesc:addd31c2ffd410bd866e7365497d65280"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the configured maximum count limit.  <br /></td></tr>
-<tr class="memitem:abe4488af469ef47e32e09e2d38a602b1" id="r_abe4488af469ef47e32e09e2d38a602b1"><td class="memItemLeft">UBaseType_t&#160;</td><td class="memItemRight"><a class="el" href="#abe4488af469ef47e32e09e2d38a602b1">getInitialCount</a> () const noexcept</td></tr>
-<tr class="memdesc:abe4488af469ef47e32e09e2d38a602b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the initial count configured at creation.  <br /></td></tr>
-<tr class="memitem:a1bf7a6046c23fcaf2dcab086b735f624" id="r_a1bf7a6046c23fcaf2dcab086b735f624"><td class="memItemLeft">UBaseType_t&#160;</td><td class="memItemRight"><a class="el" href="#a1bf7a6046c23fcaf2dcab086b735f624">getRemainingCapacity</a> () const noexcept</td></tr>
-<tr class="memdesc:a1bf7a6046c23fcaf2dcab086b735f624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the remaining capacity before the maximum limit is reached.  <br /></td></tr>
-<tr class="memitem:aa49210c40edb460f5b64e0a7db0d87e8" id="r_aa49210c40edb460f5b64e0a7db0d87e8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa49210c40edb460f5b64e0a7db0d87e8">isAtMaxCount</a> () const noexcept</td></tr>
-<tr class="memdesc:aa49210c40edb460f5b64e0a7db0d87e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the current count reached the maximum limit.  <br /></td></tr>
-<tr class="memitem:a7d8026113d6006885360edd9ff77068d" id="r_a7d8026113d6006885360edd9ff77068d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d8026113d6006885360edd9ff77068d">isEmpty</a> () const noexcept</td></tr>
-<tr class="memdesc:a7d8026113d6006885360edd9ff77068d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the semaphore is currently empty.  <br /></td></tr>
-<tr class="inherit_header pub_methods_a02402"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../df/d79/a02402.html">RTOS::SemaphoreBase&lt; SemaphoreCounting &gt;</a></td></tr>
-<tr class="memitem:a7717ea389a92a9878d51dfde3869dd64 inherit pub_methods_a02402" id="r_a7717ea389a92a9878d51dfde3869dd64"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a7717ea389a92a9878d51dfde3869dd64">SemaphoreBase</a> (const SemaphoreBase &amp;)=delete</td></tr>
-<tr class="memdesc:a7717ea389a92a9878d51dfde3869dd64 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:aaba790805ac420c6d1b347ab01b9550a inherit pub_methods_a02402" id="r_aaba790805ac420c6d1b347ab01b9550a"><td class="memItemLeft"><a class="el" href="../../df/d79/a02402.html#a7717ea389a92a9878d51dfde3869dd64">SemaphoreBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#aaba790805ac420c6d1b347ab01b9550a">operator=</a> (const <a class="el" href="../../df/d79/a02402.html#a7717ea389a92a9878d51dfde3869dd64">SemaphoreBase</a> &amp;)=delete</td></tr>
-<tr class="memdesc:aaba790805ac420c6d1b347ab01b9550a inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns a unique FreeRTOS handle.  <br /></td></tr>
-<tr class="memitem:ac6a74e3af35fe243ff32a8ae89fd4214 inherit pub_methods_a02402" id="r_ac6a74e3af35fe243ff32a8ae89fd4214"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#ac6a74e3af35fe243ff32a8ae89fd4214">close</a> () noexcept</td></tr>
-<tr class="memdesc:ac6a74e3af35fe243ff32a8ae89fd4214 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native semaphore and releases its resources.  <br /></td></tr>
-<tr class="memitem:a8fe23c2cca8f01687c58c3aa1b257649 inherit pub_methods_a02402" id="r_a8fe23c2cca8f01687c58c3aa1b257649"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a8fe23c2cca8f01687c58c3aa1b257649">isOpen</a> () const noexcept</td></tr>
-<tr class="memdesc:a8fe23c2cca8f01687c58c3aa1b257649 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the semaphore is currently open.  <br /></td></tr>
-<tr class="memitem:a9cd3c80279acde60a0701a674eecc148 inherit pub_methods_a02402" id="r_a9cd3c80279acde60a0701a674eecc148"><td class="memItemLeft"><a class="el" href="../../df/d79/a02402.html#a4b0fa065d254b79172dce084d987b8d4">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a9cd3c80279acde60a0701a674eecc148">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:a9cd3c80279acde60a0701a674eecc148 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the underlying native semaphore handle for interop with raw FreeRTOS APIs.  <br /></td></tr>
-<tr class="memitem:aa25056dd49c8d19a9f388b97f02c5291 inherit pub_methods_a02402" id="r_aa25056dd49c8d19a9f388b97f02c5291"><td class="memItemLeft">UBaseType_t&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#aa25056dd49c8d19a9f388b97f02c5291">getCountFromISR</a> () const noexcept</td></tr>
-<tr class="memdesc:aa25056dd49c8d19a9f388b97f02c5291 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current count from an ISR context.  <br /></td></tr>
-<tr class="memitem:a0c09ee6fc8a221b811abbd57ac9d0071 inherit pub_methods_a02402" id="r_a0c09ee6fc8a221b811abbd57ac9d0071"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a0c09ee6fc8a221b811abbd57ac9d0071">take</a> (<a class="el" href="../../df/d79/a02402.html#a052c7fc009c89fd8f8542c6014405b43">TickType</a> timeout=<a class="el" href="../../df/d79/a02402.html#abf2ba4294ac6e78a3adcf7e4bf35bad0">WAIT_FOREVER</a>) noexcept</td></tr>
-<tr class="memdesc:a0c09ee6fc8a221b811abbd57ac9d0071 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore, blocking the calling task for at most the given number of ticks.  <br /></td></tr>
-<tr class="memitem:a99e434d16d327ee8039d19a7feb75f8b inherit pub_methods_a02402" id="r_a99e434d16d327ee8039d19a7feb75f8b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a99e434d16d327ee8039d19a7feb75f8b">tryTake</a> () noexcept</td></tr>
-<tr class="memdesc:a99e434d16d327ee8039d19a7feb75f8b inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore without blocking.  <br /></td></tr>
-<tr class="memitem:a351bf0854e0c48d82c1a078a39e02879 inherit pub_methods_a02402" id="r_a351bf0854e0c48d82c1a078a39e02879"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a351bf0854e0c48d82c1a078a39e02879">takeFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:a351bf0854e0c48d82c1a078a39e02879 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore from an ISR context without blocking.  <br /></td></tr>
-<tr class="memitem:a5682e0c5d8eb6b2076978634963b4020 inherit pub_methods_a02402" id="r_a5682e0c5d8eb6b2076978634963b4020"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a5682e0c5d8eb6b2076978634963b4020">give</a> () noexcept</td></tr>
-<tr class="memdesc:a5682e0c5d8eb6b2076978634963b4020 inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives (releases) the semaphore.  <br /></td></tr>
-<tr class="memitem:adc665ae88781c6a32668f430f0425eac inherit pub_methods_a02402" id="r_adc665ae88781c6a32668f430f0425eac"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#adc665ae88781c6a32668f430f0425eac">giveFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
-<tr class="memdesc:adc665ae88781c6a32668f430f0425eac inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gives the semaphore from an ISR context, leaving the context switch to the caller.  <br /></td></tr>
-<tr class="memitem:a431358a0063bbdcb40d09537a2babe3a inherit pub_methods_a02402" id="r_a431358a0063bbdcb40d09537a2babe3a"><td class="memItemLeft"><a class="el" href="../../d5/da6/a02406.html">SemaphoreCounting</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a431358a0063bbdcb40d09537a2babe3a">getDerived</a> () noexcept</td></tr>
-<tr class="memdesc:a431358a0063bbdcb40d09537a2babe3a inherit pub_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Casts the base instance to the derived class type.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_attribs_a02402"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Public Attributes inherited from <a class="el" href="../../df/d79/a02402.html">RTOS::SemaphoreBase&lt; SemaphoreCounting &gt;</a></td></tr>
-<tr class="memitem:a9c656a0e27460132673603735f260a81 inherit pub_static_attribs_a02402" id="r_a9c656a0e27460132673603735f260a81"><td class="memItemLeft">static constexpr <a class="el" href="../../df/d79/a02402.html#a052c7fc009c89fd8f8542c6014405b43">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a9c656a0e27460132673603735f260a81">NO_WAIT</a></td></tr>
-<tr class="memdesc:a9c656a0e27460132673603735f260a81 inherit pub_static_attribs_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that makes a take non-blocking.  <br /></td></tr>
-<tr class="memitem:abf2ba4294ac6e78a3adcf7e4bf35bad0 inherit pub_static_attribs_a02402" id="r_abf2ba4294ac6e78a3adcf7e4bf35bad0"><td class="memItemLeft">static constexpr <a class="el" href="../../df/d79/a02402.html#a052c7fc009c89fd8f8542c6014405b43">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#abf2ba4294ac6e78a3adcf7e4bf35bad0">WAIT_FOREVER</a></td></tr>
-<tr class="memdesc:abf2ba4294ac6e78a3adcf7e4bf35bad0 inherit pub_static_attribs_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block time that waits indefinitely.  <br /></td></tr>
-<tr class="inherit_header pro_methods_a02402"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../df/d79/a02402.html">RTOS::SemaphoreBase&lt; SemaphoreCounting &gt;</a></td></tr>
-<tr class="memitem:a15508562779df713e9be104d41d7664d inherit pro_methods_a02402" id="r_a15508562779df713e9be104d41d7664d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a15508562779df713e9be104d41d7664d">~SemaphoreBase</a> () noexcept</td></tr>
-<tr class="memdesc:a15508562779df713e9be104d41d7664d inherit pro_methods_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the semaphore; protected so that the non-virtual destructor is never reached through a base pointer.  <br /></td></tr>
-<tr class="inherit_header pro_attribs_a02402"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="../../df/d79/a02402.html">RTOS::SemaphoreBase&lt; SemaphoreCounting &gt;</a></td></tr>
-<tr class="memitem:a9f2ff1e57e66e99707d4107fa4c19812 inherit pro_attribs_a02402" id="r_a9f2ff1e57e66e99707d4107fa4c19812"><td class="memItemLeft"><a class="el" href="../../df/d79/a02402.html#a4b0fa065d254b79172dce084d987b8d4">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="../../df/d79/a02402.html#a9f2ff1e57e66e99707d4107fa4c19812">semaphoreHandle</a></td></tr>
-<tr class="memdesc:a9f2ff1e57e66e99707d4107fa4c19812 inherit pro_attribs_a02402"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS semaphore handle, or "nullptr" when closed.  <br /></td></tr>
+<tr class="memitem:ae2e2d5be166083d6b7ac6bf532106e78" id="r_ae2e2d5be166083d6b7ac6bf532106e78"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> () noexcept=default</td></tr>
+<tr class="memdesc:ae2e2d5be166083d6b7ac6bf532106e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes an empty, closed queue instance.  <br /></td></tr>
+<tr class="memitem:afdb069f466541cd251b9c77df8cbcc37" id="r_afdb069f466541cd251b9c77df8cbcc37"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afdb069f466541cd251b9c77df8cbcc37">~Queue</a> () noexcept</td></tr>
+<tr class="memdesc:afdb069f466541cd251b9c77df8cbcc37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the queue and releases its resources.  <br /></td></tr>
+<tr class="memitem:a26973b6d8a64d88a5dc5fcaca14fd774" id="r_a26973b6d8a64d88a5dc5fcaca14fd774"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a26973b6d8a64d88a5dc5fcaca14fd774">Queue</a> (Queue &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a26973b6d8a64d88a5dc5fcaca14fd774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes ownership of another queue's native handle.  <br /></td></tr>
+<tr class="memitem:a96b605104a9cd0185cf6be8596be2fe8" id="r_a96b605104a9cd0185cf6be8596be2fe8"><td class="memItemLeft"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a96b605104a9cd0185cf6be8596be2fe8">operator=</a> (<a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:a96b605104a9cd0185cf6be8596be2fe8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes this queue, then takes ownership of another queue's native handle.  <br /></td></tr>
+<tr class="memitem:ada5fbc10473e6f81a9c1f7388129a966" id="r_ada5fbc10473e6f81a9c1f7388129a966"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ada5fbc10473e6f81a9c1f7388129a966">Queue</a> (const Queue &amp;)=delete</td></tr>
+<tr class="memdesc:ada5fbc10473e6f81a9c1f7388129a966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy construction is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:a7c2a31fcce1468b3f504cead1c02a48c" id="r_a7c2a31fcce1468b3f504cead1c02a48c"><td class="memItemLeft"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a7c2a31fcce1468b3f504cead1c02a48c">operator=</a> (const <a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a7c2a31fcce1468b3f504cead1c02a48c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is disabled because the wrapper owns a unique FreeRTOS handle.  <br /></td></tr>
+<tr class="memitem:ae7166c29ff52cacbac2667b40d1920a9" id="r_ae7166c29ff52cacbac2667b40d1920a9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae7166c29ff52cacbac2667b40d1920a9">close</a> () noexcept</td></tr>
+<tr class="memdesc:ae7166c29ff52cacbac2667b40d1920a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the native queue and releases its memory; does nothing if already closed.  <br /></td></tr>
+<tr class="memitem:a6950e31dce154f895380894a07095550" id="r_a6950e31dce154f895380894a07095550"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6950e31dce154f895380894a07095550">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a6950e31dce154f895380894a07095550"><td class="mdescLeft">&#160;</td><td class="mdescRight">Discards every item currently held by the queue; does nothing if closed.  <br /></td></tr>
+<tr class="memitem:abe1cd4bde4ff79326492fd1d5c56ffc6" id="r_abe1cd4bde4ff79326492fd1d5c56ffc6"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#abe1cd4bde4ff79326492fd1d5c56ffc6">receive</a> (TickType_t maxWait=portMAX_DELAY) noexcept</td></tr>
+<tr class="memdesc:abe1cd4bde4ff79326492fd1d5c56ffc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue, blocking up to a timeout for one to arrive.  <br /></td></tr>
+<tr class="memitem:a6707cd8aa1086c87efb4858f59eb33cd" id="r_a6707cd8aa1086c87efb4858f59eb33cd"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a6707cd8aa1086c87efb4858f59eb33cd template"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a6707cd8aa1086c87efb4858f59eb33cd">receive</a> (std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a6707cd8aa1086c87efb4858f59eb33cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue, blocking up to a "std::chrono" timeout for one to arrive.  <br /></td></tr>
+<tr class="memitem:a2195f46d6d07e619db12bf5baee526c1" id="r_a2195f46d6d07e619db12bf5baee526c1"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a2195f46d6d07e619db12bf5baee526c1">receiveFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:a2195f46d6d07e619db12bf5baee526c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue from an interrupt, without blocking.  <br /></td></tr>
+<tr class="memitem:a0785cb3870134fdae999c6b1f92a1891" id="r_a0785cb3870134fdae999c6b1f92a1891"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a0785cb3870134fdae999c6b1f92a1891">receiveFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a0785cb3870134fdae999c6b1f92a1891"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes the oldest item from the queue from an interrupt, requesting any context switch itself.  <br /></td></tr>
+<tr class="memitem:a684ff0185b4a7701c81c8503764b97bc" id="r_a684ff0185b4a7701c81c8503764b97bc"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a684ff0185b4a7701c81c8503764b97bc">peek</a> (TickType_t maxWait=portMAX_DELAY) const noexcept</td></tr>
+<tr class="memdesc:a684ff0185b4a7701c81c8503764b97bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it, blocking up to a timeout for one to arrive.  <br /></td></tr>
+<tr class="memitem:a680b60f6c52507b3bb14498ecf87791a" id="r_a680b60f6c52507b3bb14498ecf87791a"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a680b60f6c52507b3bb14498ecf87791a template"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a680b60f6c52507b3bb14498ecf87791a">peek</a> (std::chrono::duration&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
+<tr class="memdesc:a680b60f6c52507b3bb14498ecf87791a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it, blocking up to a "std::chrono" timeout for one to arrive.  <br /></td></tr>
+<tr class="memitem:a5828637bad2d5f35eade62bc5fe2726d" id="r_a5828637bad2d5f35eade62bc5fe2726d"><td class="memItemLeft">std::optional&lt; T_ELEMENT_TYPE &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5828637bad2d5f35eade62bc5fe2726d">peekFromISR</a> () const noexcept</td></tr>
+<tr class="memdesc:a5828637bad2d5f35eade62bc5fe2726d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies the oldest item without removing it from an interrupt, without blocking.  <br /></td></tr>
+<tr class="memitem:ab15322e6aead7ac29c01289b9be388d8" id="r_ab15322e6aead7ac29c01289b9be388d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab15322e6aead7ac29c01289b9be388d8">send</a> (const T_ELEMENT_TYPE &amp;item, TickType_t maxWait=portMAX_DELAY) noexcept</td></tr>
+<tr class="memdesc:ab15322e6aead7ac29c01289b9be388d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue, blocking up to a timeout for free space.  <br /></td></tr>
+<tr class="memitem:ac2c33422e644cb774321992bb195b484" id="r_ac2c33422e644cb774321992bb195b484"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:ac2c33422e644cb774321992bb195b484 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac2c33422e644cb774321992bb195b484">send</a> (const T_ELEMENT_TYPE &amp;item, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:ac2c33422e644cb774321992bb195b484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue, blocking up to a "std::chrono" timeout for free space.  <br /></td></tr>
+<tr class="memitem:ad4d0487e882e9df0a5ff94c12e2e8299" id="r_ad4d0487e882e9df0a5ff94c12e2e8299"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad4d0487e882e9df0a5ff94c12e2e8299">sendFromISR</a> (const T_ELEMENT_TYPE &amp;item, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:ad4d0487e882e9df0a5ff94c12e2e8299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue from an interrupt, without blocking.  <br /></td></tr>
+<tr class="memitem:a67e911c970037e95a08acca718cc1e75" id="r_a67e911c970037e95a08acca718cc1e75"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a67e911c970037e95a08acca718cc1e75">sendFromISR</a> (const T_ELEMENT_TYPE &amp;item) noexcept</td></tr>
+<tr class="memdesc:a67e911c970037e95a08acca718cc1e75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the back of the queue from an interrupt, requesting any context switch itself.  <br /></td></tr>
+<tr class="memitem:a56084e2572cee1d9421d7c9547bb57c6" id="r_a56084e2572cee1d9421d7c9547bb57c6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a56084e2572cee1d9421d7c9547bb57c6">sendToFront</a> (const T_ELEMENT_TYPE &amp;item, TickType_t maxWait=portMAX_DELAY) noexcept</td></tr>
+<tr class="memdesc:a56084e2572cee1d9421d7c9547bb57c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue, blocking up to a timeout for free space.  <br /></td></tr>
+<tr class="memitem:a6c48cce891ac5711c498e15ce81cae7a" id="r_a6c48cce891ac5711c498e15ce81cae7a"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a6c48cce891ac5711c498e15ce81cae7a template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6c48cce891ac5711c498e15ce81cae7a">sendToFront</a> (const T_ELEMENT_TYPE &amp;item, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a6c48cce891ac5711c498e15ce81cae7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue, blocking up to a "std::chrono" timeout for free space.  <br /></td></tr>
+<tr class="memitem:a6a3673161ba51852fe499817c4b0a847" id="r_a6a3673161ba51852fe499817c4b0a847"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6a3673161ba51852fe499817c4b0a847">sendToFrontFromISR</a> (const T_ELEMENT_TYPE &amp;item, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:a6a3673161ba51852fe499817c4b0a847"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue from an interrupt, without blocking.  <br /></td></tr>
+<tr class="memitem:a1a8f30270f104c56c11c54fe3c7a13d5" id="r_a1a8f30270f104c56c11c54fe3c7a13d5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a8f30270f104c56c11c54fe3c7a13d5">sendToFrontFromISR</a> (const T_ELEMENT_TYPE &amp;item) noexcept</td></tr>
+<tr class="memdesc:a1a8f30270f104c56c11c54fe3c7a13d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copies an item to the front of the queue from an interrupt, requesting any context switch itself.  <br /></td></tr>
+<tr class="memitem:aa2efbfd3ec5a20ad4df2a744e7f8aebe" id="r_aa2efbfd3ec5a20ad4df2a744e7f8aebe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa2efbfd3ec5a20ad4df2a744e7f8aebe">overwrite</a> (const T_ELEMENT_TYPE &amp;item) noexcept</td></tr>
+<tr class="memdesc:aa2efbfd3ec5a20ad4df2a744e7f8aebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores an item in a single-slot queue, replacing the previous item if present; never blocks.  <br /></td></tr>
+<tr class="memitem:a8c3a548d7ac74afcd8410b4fefd0b835" id="r_a8c3a548d7ac74afcd8410b4fefd0b835"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8c3a548d7ac74afcd8410b4fefd0b835">overwriteFromISR</a> (const T_ELEMENT_TYPE &amp;item, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:a8c3a548d7ac74afcd8410b4fefd0b835"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores an item in a single-slot queue from an interrupt, replacing the previous item if present.  <br /></td></tr>
+<tr class="memitem:a0965b257a8e64e656ef51a4244c0482a" id="r_a0965b257a8e64e656ef51a4244c0482a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0965b257a8e64e656ef51a4244c0482a">overwriteFromISR</a> (const T_ELEMENT_TYPE &amp;item) noexcept</td></tr>
+<tr class="memdesc:a0965b257a8e64e656ef51a4244c0482a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stores an item in a single-slot queue from an interrupt, requesting any context switch itself.  <br /></td></tr>
+<tr class="memitem:aa6c7c851bebaf1b28298fdc41db466b7" id="r_aa6c7c851bebaf1b28298fdc41db466b7"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa6c7c851bebaf1b28298fdc41db466b7">messagesWaiting</a> () const noexcept</td></tr>
+<tr class="memdesc:aa6c7c851bebaf1b28298fdc41db466b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of items currently held by the queue; task context only.  <br /></td></tr>
+<tr class="memitem:a71fb3a1f28559d3f033144f1a0b4489f" id="r_a71fb3a1f28559d3f033144f1a0b4489f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a71fb3a1f28559d3f033144f1a0b4489f">messagesWaitingFromISR</a> () const noexcept</td></tr>
+<tr class="memdesc:a71fb3a1f28559d3f033144f1a0b4489f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of items currently held by the queue from an interrupt.  <br /></td></tr>
+<tr class="memitem:a84938db21ab97d1453a39c2eb6ba1bc4" id="r_a84938db21ab97d1453a39c2eb6ba1bc4"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#a84938db21ab97d1453a39c2eb6ba1bc4">spacesAvailable</a> () const noexcept</td></tr>
+<tr class="memdesc:a84938db21ab97d1453a39c2eb6ba1bc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the number of free item slots; task context only.  <br /></td></tr>
+<tr class="memitem:a1db3194c86039201896b5c13e11ac6cf" id="r_a1db3194c86039201896b5c13e11ac6cf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1db3194c86039201896b5c13e11ac6cf">isEmpty</a> () const noexcept</td></tr>
+<tr class="memdesc:a1db3194c86039201896b5c13e11ac6cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the queue holds no items; task context only.  <br /></td></tr>
+<tr class="memitem:a5d780ff4742111f966d2590548db653b" id="r_a5d780ff4742111f966d2590548db653b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5d780ff4742111f966d2590548db653b">isEmptyFromISR</a> () const noexcept</td></tr>
+<tr class="memdesc:a5d780ff4742111f966d2590548db653b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the queue holds no items from an interrupt.  <br /></td></tr>
+<tr class="memitem:ac587aaa8dc44efa51a4159d88a2e4038" id="r_ac587aaa8dc44efa51a4159d88a2e4038"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac587aaa8dc44efa51a4159d88a2e4038">isFull</a> () const noexcept</td></tr>
+<tr class="memdesc:ac587aaa8dc44efa51a4159d88a2e4038"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the queue has no free slot; task context only.  <br /></td></tr>
+<tr class="memitem:a437633c027c9b000ae1c7010410d8138" id="r_a437633c027c9b000ae1c7010410d8138"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a437633c027c9b000ae1c7010410d8138">isFullFromISR</a> () const noexcept</td></tr>
+<tr class="memdesc:a437633c027c9b000ae1c7010410d8138"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the queue has no free slot from an interrupt.  <br /></td></tr>
+<tr class="memitem:a47a154ec64fbd8d6ddce25c358219634" id="r_a47a154ec64fbd8d6ddce25c358219634"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a47a154ec64fbd8d6ddce25c358219634">capacity</a> () const noexcept</td></tr>
+<tr class="memdesc:a47a154ec64fbd8d6ddce25c358219634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum number of items the queue can hold.  <br /></td></tr>
+<tr class="memitem:aa6a3924c14ed3d4e5c955c50212345d9" id="r_aa6a3924c14ed3d4e5c955c50212345d9"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aa6a3924c14ed3d4e5c955c50212345d9">isOpen</a> () const noexcept</td></tr>
+<tr class="memdesc:aa6a3924c14ed3d4e5c955c50212345d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the native queue exists.  <br /></td></tr>
+<tr class="memitem:abd1cd42014765c2d80dc782dd6d5e25c" id="r_abd1cd42014765c2d80dc782dd6d5e25c"><td class="memItemLeft">constexpr <a class="el" href="#a7b7645018d43538240c762c09964eb6d">Handle</a>&#160;</td><td class="memItemRight"><a class="el" href="#abd1cd42014765c2d80dc782dd6d5e25c">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:abd1cd42014765c2d80dc782dd6d5e25c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the native handle, e.g.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a34360dc9fc24d07df2ef16080a21c61e" name="a34360dc9fc24d07df2ef16080a21c61e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34360dc9fc24d07df2ef16080a21c61e">&#9670;&#160;</a></span>SemaphoreCounting() <span class="overload">[1/3]</span></h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a7b7645018d43538240c762c09964eb6d" name="a7b7645018d43538240c762c09964eb6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b7645018d43538240c762c09964eb6d">&#9670;&#160;</a></span>Handle</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::SemaphoreCounting::SemaphoreCounting </td>
-          <td>(</td>
-          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>maxCount</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">UBaseType_t</td>          <td class="paramname"><span class="paramname"><em>initialCount</em></span>&#160;)</td>
+          <td class="memname">using <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::Handle = QueueHandle_t</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Stores the counting limits; the native handle is created later by "open()". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">maxCount</td><td>Maximum allowable count; must be greater than zero. </td></tr>
-    <tr><td class="paramname">initialCount</td><td>Initial count value upon creation; must not exceed "maxCount". </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a34360dc9fc24d07df2ef16080a21c61e_icgraph.svg" width="562" height="302"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Native FreeRTOS queue handle. </p>
 
 </div>
 </div>
-<a id="a28b01c517b6b58ec1c1dcdff28c2a50c" name="a28b01c517b6b58ec1c1dcdff28c2a50c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28b01c517b6b58ec1c1dcdff28c2a50c">&#9670;&#160;</a></span>SemaphoreCounting() <span class="overload">[2/3]</span></h2>
+<a id="a2e005eeef82edd981b9d0cac15b7f677" name="a2e005eeef82edd981b9d0cac15b7f677"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e005eeef82edd981b9d0cac15b7f677">&#9670;&#160;</a></span>Storage</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::Storage = std::array&lt;uint8_t, N_QUEUE_LENGTH * sizeof(T_ELEMENT_TYPE)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Item storage for "createStatic()". </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae2e2d5be166083d6b7ac6bf532106e78" name="ae2e2d5be166083d6b7ac6bf532106e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2e2d5be166083d6b7ac6bf532106e78">&#9670;&#160;</a></span>Queue() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::SemaphoreCounting::SemaphoreCounting </td>
+          <td class="memname"><a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::Queue </td>
           <td>(</td>
-          <td class="paramtype">SemaphoreCounting &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -266,35 +282,108 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Transfers ownership of the native handle and the counting limits from another instance. </p>
+<p>Initializes an empty, closed queue instance. </p>
+<p>Call "open()" or "createStatic()" before use. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ae2e2d5be166083d6b7ac6bf532106e78_icgraph.svg" width="502" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afdb069f466541cd251b9c77df8cbcc37" name="afdb069f466541cd251b9c77df8cbcc37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdb069f466541cd251b9c77df8cbcc37">&#9670;&#160;</a></span>~Queue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::~<a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Closes the queue and releases its resources. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_afdb069f466541cd251b9c77df8cbcc37_cgraph.svg" width="731" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a26973b6d8a64d88a5dc5fcaca14fd774" name="a26973b6d8a64d88a5dc5fcaca14fd774"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26973b6d8a64d88a5dc5fcaca14fd774">&#9670;&#160;</a></span>Queue() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::Queue </td>
+          <td>(</td>
+          <td class="paramtype">Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Takes ownership of another queue's native handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a28b01c517b6b58ec1c1dcdff28c2a50c_cgraph.svg" width="562" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a26973b6d8a64d88a5dc5fcaca14fd774_cgraph.svg" width="462" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a7e497551b91db5e404470925688a3ea2" name="a7e497551b91db5e404470925688a3ea2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e497551b91db5e404470925688a3ea2">&#9670;&#160;</a></span>SemaphoreCounting() <span class="overload">[3/3]</span></h2>
+<a id="ada5fbc10473e6f81a9c1f7388129a966" name="ada5fbc10473e6f81a9c1f7388129a966"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada5fbc10473e6f81a9c1f7388129a966">&#9670;&#160;</a></span>Queue() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">RTOS::SemaphoreCounting::SemaphoreCounting </td>
+          <td class="memname"><a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::Queue </td>
           <td>(</td>
-          <td class="paramtype">const SemaphoreCounting &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -305,68 +394,30 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a unique FreeRTOS handle. </p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<p>Copy construction is disabled because the wrapper owns a unique FreeRTOS handle. </p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a7e497551b91db5e404470925688a3ea2_cgraph.svg" width="562" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ada5fbc10473e6f81a9c1f7388129a966_cgraph.svg" width="462" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a4a3a3bf0955b317a1d871ee838f5ea59" name="a4a3a3bf0955b317a1d871ee838f5ea59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a3a3bf0955b317a1d871ee838f5ea59">&#9670;&#160;</a></span>createStatic()</h2>
+<a id="a47a154ec64fbd8d6ddce25c358219634" name="a47a154ec64fbd8d6ddce25c358219634"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47a154ec64fbd8d6ddce25c358219634">&#9670;&#160;</a></span>capacity()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::createStatic </td>
-          <td>(</td>
-          <td class="paramtype">StaticSemaphore_t &amp;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Creates the native counting semaphore in caller-provided static memory, if not already open. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Static control structure; must outlive the semaphore. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the semaphore is open (newly created or already open), "false" if creation failed. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a4a3a3bf0955b317a1d871ee838f5ea59_cgraph.svg" width="522" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac1348d8967c750e28e7a6ba4f84d6061" name="ac1348d8967c750e28e7a6ba4f84d6061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac1348d8967c750e28e7a6ba4f84d6061">&#9670;&#160;</a></span>getCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">UBaseType_t RTOS::SemaphoreCounting::getCount </td>
+          <td class="memname">size_t <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::capacity </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -374,39 +425,71 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Gets the current semaphore count. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current count, or 0 if not open. </dd></dl>
+<p>Gets the maximum number of items the queue can hold. </p>
+<dl class="section return"><dt>Returns</dt><dd>The "N_QUEUE_LENGTH" template argument. </dd></dl>
+
+</div>
+</div>
+<a id="ae7166c29ff52cacbac2667b40d1920a9" name="ae7166c29ff52cacbac2667b40d1920a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7166c29ff52cacbac2667b40d1920a9">&#9670;&#160;</a></span>close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::close </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deletes the native queue and releases its memory; does nothing if already closed. </p>
+<p>The queue must not be a member of a "RTOS::QueueSet" at this point, and no task may be blocked on it. </p>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ac1348d8967c750e28e7a6ba4f84d6061_cgraph.svg" width="522" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ae7166c29ff52cacbac2667b40d1920a9_cgraph.svg" width="472" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ac1348d8967c750e28e7a6ba4f84d6061_icgraph.svg" width="562" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ae7166c29ff52cacbac2667b40d1920a9_icgraph.svg" width="502" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="abe4488af469ef47e32e09e2d38a602b1" name="abe4488af469ef47e32e09e2d38a602b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe4488af469ef47e32e09e2d38a602b1">&#9670;&#160;</a></span>getInitialCount()</h2>
+<a id="abd1cd42014765c2d80dc782dd6d5e25c" name="abd1cd42014765c2d80dc782dd6d5e25c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd1cd42014765c2d80dc782dd6d5e25c">&#9670;&#160;</a></span>getHandle()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">UBaseType_t RTOS::SemaphoreCounting::getInitialCount </td>
+          <td class="memname"><a class="el" href="#a7b7645018d43538240c762c09964eb6d">Handle</a> <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::getHandle </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -414,89 +497,36 @@ Additional Inherited Members</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the initial count configured at creation. </p>
-<dl class="section return"><dt>Returns</dt><dd>Initial count. </dd></dl>
-
-</div>
-</div>
-<a id="addd31c2ffd410bd866e7365497d65280" name="addd31c2ffd410bd866e7365497d65280"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addd31c2ffd410bd866e7365497d65280">&#9670;&#160;</a></span>getMaxCount()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">UBaseType_t RTOS::SemaphoreCounting::getMaxCount </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the configured maximum count limit. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximum count. </dd></dl>
-
-</div>
-</div>
-<a id="a1bf7a6046c23fcaf2dcab086b735f624" name="a1bf7a6046c23fcaf2dcab086b735f624"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1bf7a6046c23fcaf2dcab086b735f624">&#9670;&#160;</a></span>getRemainingCapacity()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">UBaseType_t RTOS::SemaphoreCounting::getRemainingCapacity </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Calculates the remaining capacity before the maximum limit is reached. </p>
-<dl class="section return"><dt>Returns</dt><dd>Number of gives that would still succeed. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<p>Gets the native handle, e.g. </p>
+<p>for "RTOS::QueueSet::addToSet()".</p>
+<dl class="section return"><dt>Returns</dt><dd>Native queue handle, or "nullptr" if closed. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
 <div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a1bf7a6046c23fcaf2dcab086b735f624_cgraph.svg" width="822" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_abd1cd42014765c2d80dc782dd6d5e25c_icgraph.svg" width="562" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="aa49210c40edb460f5b64e0a7db0d87e8" name="aa49210c40edb460f5b64e0a7db0d87e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa49210c40edb460f5b64e0a7db0d87e8">&#9670;&#160;</a></span>isAtMaxCount()</h2>
+<a id="a1db3194c86039201896b5c13e11ac6cf" name="a1db3194c86039201896b5c13e11ac6cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1db3194c86039201896b5c13e11ac6cf">&#9670;&#160;</a></span>isEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::isAtMaxCount </td>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::isEmpty </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -509,28 +539,30 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the current count reached the maximum limit. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the count is at "maxCount"; always "false" if not open, since "maxCount" is non-zero. </dd></dl>
+<p>Checks whether the queue holds no items; task context only. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the queue is empty or closed. </dd></dl>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
 <div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_aa49210c40edb460f5b64e0a7db0d87e8_cgraph.svg" width="822" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a1db3194c86039201896b5c13e11ac6cf_cgraph.svg" width="842" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a7d8026113d6006885360edd9ff77068d" name="a7d8026113d6006885360edd9ff77068d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d8026113d6006885360edd9ff77068d">&#9670;&#160;</a></span>isEmpty()</h2>
+<a id="a5d780ff4742111f966d2590548db653b" name="a5d780ff4742111f966d2590548db653b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d780ff4742111f966d2590548db653b">&#9670;&#160;</a></span>isEmptyFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::isEmpty </td>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::isEmptyFromISR </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -543,31 +575,27 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the semaphore is currently empty. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the count is zero or the semaphore is not open. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a7d8026113d6006885360edd9ff77068d_cgraph.svg" width="822" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Checks whether the queue holds no items from an interrupt. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the queue is empty or closed. </dd></dl>
 
 </div>
 </div>
-<a id="abc57684576686004799b4afa06460768" name="abc57684576686004799b4afa06460768"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc57684576686004799b4afa06460768">&#9670;&#160;</a></span>open()</h2>
+<a id="ac587aaa8dc44efa51a4159d88a2e4038" name="ac587aaa8dc44efa51a4159d88a2e4038"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac587aaa8dc44efa51a4159d88a2e4038">&#9670;&#160;</a></span>isFull()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool RTOS::SemaphoreCounting::open </td>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::isFull </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -577,30 +605,164 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Allocates the native FreeRTOS counting semaphore handle, if not already open. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the semaphore is open (newly created or already open), "false" if creation failed. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<p>Checks whether the queue has no free slot; task context only. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the queue is full or closed. </dd></dl>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_abc57684576686004799b4afa06460768_cgraph.svg" width="522" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ac587aaa8dc44efa51a4159d88a2e4038_cgraph.svg" width="831" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a1ef840e684e45e8065fa31c8b3690d52" name="a1ef840e684e45e8065fa31c8b3690d52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ef840e684e45e8065fa31c8b3690d52">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="a437633c027c9b000ae1c7010410d8138" name="a437633c027c9b000ae1c7010410d8138"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a437633c027c9b000ae1c7010410d8138">&#9670;&#160;</a></span>isFullFromISR()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp; RTOS::SemaphoreCounting::operator= </td>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::isFullFromISR </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the queue has no free slot from an interrupt. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the queue is full or closed. </dd></dl>
+
+</div>
+</div>
+<a id="aa6a3924c14ed3d4e5c955c50212345d9" name="aa6a3924c14ed3d4e5c955c50212345d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6a3924c14ed3d4e5c955c50212345d9">&#9670;&#160;</a></span>isOpen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::isOpen </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks whether the native queue exists. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if open. </dd></dl>
+
+</div>
+</div>
+<a id="aa6c7c851bebaf1b28298fdc41db466b7" name="aa6c7c851bebaf1b28298fdc41db466b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6c7c851bebaf1b28298fdc41db466b7">&#9670;&#160;</a></span>messagesWaiting()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::messagesWaiting </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of items currently held by the queue; task context only. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of queued items, or 0 if the queue is closed. </dd></dl>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_aa6c7c851bebaf1b28298fdc41db466b7_cgraph.svg" width="572" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
+</div>
+<div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_aa6c7c851bebaf1b28298fdc41db466b7_icgraph.svg" width="582" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a71fb3a1f28559d3f033144f1a0b4489f" name="a71fb3a1f28559d3f033144f1a0b4489f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71fb3a1f28559d3f033144f1a0b4489f">&#9670;&#160;</a></span>messagesWaitingFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::messagesWaitingFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of items currently held by the queue from an interrupt. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of queued items, or 0 if the queue is closed. </dd></dl>
+
+</div>
+</div>
+<a id="a7c2a31fcce1468b3f504cead1c02a48c" name="a7c2a31fcce1468b3f504cead1c02a48c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c2a31fcce1468b3f504cead1c02a48c">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> &amp; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -611,41 +773,43 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: owns a unique FreeRTOS handle. </p>
+<p>Copy assignment is disabled because the wrapper owns a unique FreeRTOS handle. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a1ef840e684e45e8065fa31c8b3690d52_cgraph.svg" width="562" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-13-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a7c2a31fcce1468b3f504cead1c02a48c_cgraph.svg" width="512" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ac13d24083bc909c7813fb3367712fe95" name="ac13d24083bc909c7813fb3367712fe95"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac13d24083bc909c7813fb3367712fe95">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a96b605104a9cd0185cf6be8596be2fe8" name="a96b605104a9cd0185cf6be8596be2fe8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96b605104a9cd0185cf6be8596be2fe8">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp; RTOS::SemaphoreCounting::operator= </td>
+          <td class="memname"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> &amp; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a34360dc9fc24d07df2ef16080a21c61e">SemaphoreCounting</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes this semaphore and takes ownership of the native handle and the counting limits of another instance. </p>
+<p>Closes this queue, then takes ownership of another queue's native handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">other</td><td>Instance to move from; left closed afterward. </td></tr>
@@ -653,17 +817,934 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
 </div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ac13d24083bc909c7813fb3367712fe95_cgraph.svg" width="562" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a96b605104a9cd0185cf6be8596be2fe8_cgraph.svg" width="762" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="aa2efbfd3ec5a20ad4df2a744e7f8aebe" name="aa2efbfd3ec5a20ad4df2a744e7f8aebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2efbfd3ec5a20ad4df2a744e7f8aebe">&#9670;&#160;</a></span>overwrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::overwrite </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores an item in a single-slot queue, replacing the previous item if present; never blocks. </p>
+<p>Only available for a length-1 queue, the only case for which FreeRTOS defines "xQueueOverwrite()".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to store. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was stored, "false" if the queue is closed. </dd></dl>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_aa2efbfd3ec5a20ad4df2a744e7f8aebe_cgraph.svg" width="512" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0965b257a8e64e656ef51a4244c0482a" name="a0965b257a8e64e656ef51a4244c0482a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0965b257a8e64e656ef51a4244c0482a">&#9670;&#160;</a></span>overwriteFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::overwriteFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores an item in a single-slot queue from an interrupt, requesting any context switch itself. </p>
+<p>Convenient when the overwrite is the last RTOS call of the ISR; batch several FromISR calls through the 'overwriteFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to store. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was stored, "false" if the queue is closed. </dd></dl>
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
+</div>
+<div id="dynsection-16-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a0965b257a8e64e656ef51a4244c0482a_cgraph.svg" width="682" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a8c3a548d7ac74afcd8410b4fefd0b835" name="a8c3a548d7ac74afcd8410b4fefd0b835"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c3a548d7ac74afcd8410b4fefd0b835">&#9670;&#160;</a></span>overwriteFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::overwriteFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stores an item in a single-slot queue from an interrupt, replacing the previous item if present. </p>
+<p>Only available for a length-1 queue, the only case for which FreeRTOS defines "xQueueOverwriteFromISR()".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">item</td><td>Item to store. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher-priority task was unblocked; initialize it to "pdFALSE" and pass it to "portYIELD_FROM_ISR()" before leaving the interrupt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was stored, "false" if the queue is closed. </dd></dl>
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
+</div>
+<div id="dynsection-17-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a8c3a548d7ac74afcd8410b4fefd0b835_icgraph.svg" width="682" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a680b60f6c52507b3bb14498ecf87791a" name="a680b60f6c52507b3bb14498ecf87791a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a680b60f6c52507b3bb14498ecf87791a">&#9670;&#160;</a></span>peek() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::peek </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies the oldest item without removing it, blocking up to a "std::chrono" timeout for one to arrive. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
+    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A copy of the oldest item, or "std::nullopt" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
+</div>
+<div id="dynsection-18-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a680b60f6c52507b3bb14498ecf87791a_cgraph.svg" width="742" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a684ff0185b4a7701c81c8503764b97bc" name="a684ff0185b4a7701c81c8503764b97bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684ff0185b4a7701c81c8503764b97bc">&#9670;&#160;</a></span>peek() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::peek </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies the oldest item without removing it, blocking up to a timeout for one to arrive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; "portMAX_DELAY" waits indefinitely. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A copy of the oldest item, or "std::nullopt" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
+</div>
+<div id="dynsection-19-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a684ff0185b4a7701c81c8503764b97bc_cgraph.svg" width="462" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
+</div>
+<div id="dynsection-20-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a684ff0185b4a7701c81c8503764b97bc_icgraph.svg" width="442" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a5828637bad2d5f35eade62bc5fe2726d" name="a5828637bad2d5f35eade62bc5fe2726d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5828637bad2d5f35eade62bc5fe2726d">&#9670;&#160;</a></span>peekFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::peekFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies the oldest item without removing it from an interrupt, without blocking. </p>
+<dl class="section return"><dt>Returns</dt><dd>A copy of the oldest item, or "std::nullopt" if the queue is empty or closed. </dd></dl>
+
+</div>
+</div>
+<a id="a6707cd8aa1086c87efb4858f59eb33cd" name="a6707cd8aa1086c87efb4858f59eb33cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6707cd8aa1086c87efb4858f59eb33cd">&#9670;&#160;</a></span>receive() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::receive </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the oldest item from the queue, blocking up to a "std::chrono" timeout for one to arrive. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
+    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The received item, or "std::nullopt" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-21-summary" class="dynsummary">
+</div>
+<div id="dynsection-21-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a6707cd8aa1086c87efb4858f59eb33cd_cgraph.svg" width="771" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="abe1cd4bde4ff79326492fd1d5c56ffc6" name="abe1cd4bde4ff79326492fd1d5c56ffc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1cd4bde4ff79326492fd1d5c56ffc6">&#9670;&#160;</a></span>receive() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::receive </td>
+          <td>(</td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the oldest item from the queue, blocking up to a timeout for one to arrive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; "portMAX_DELAY" waits indefinitely. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The received item, or "std::nullopt" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary">
+</div>
+<div id="dynsection-22-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_abe1cd4bde4ff79326492fd1d5c56ffc6_cgraph.svg" width="492" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-23-summary" class="dynsummary">
+</div>
+<div id="dynsection-23-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_abe1cd4bde4ff79326492fd1d5c56ffc6_icgraph.svg" width="502" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0785cb3870134fdae999c6b1f92a1891" name="a0785cb3870134fdae999c6b1f92a1891"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0785cb3870134fdae999c6b1f92a1891">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::receiveFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the oldest item from the queue from an interrupt, requesting any context switch itself. </p>
+<p>Convenient when the receive is the last RTOS call of the ISR; batch several FromISR calls through the 'receiveFromISR(BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<dl class="section return"><dt>Returns</dt><dd>The received item, or "std::nullopt" if the queue is empty or closed. </dd></dl>
+<div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-24-summary" class="dynsummary">
+</div>
+<div id="dynsection-24-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a0785cb3870134fdae999c6b1f92a1891_cgraph.svg" width="642" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2195f46d6d07e619db12bf5baee526c1" name="a2195f46d6d07e619db12bf5baee526c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2195f46d6d07e619db12bf5baee526c1">&#9670;&#160;</a></span>receiveFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; T_ELEMENT_TYPE &gt; <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::receiveFromISR </td>
+          <td>(</td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Removes the oldest item from the queue from an interrupt, without blocking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher-priority task was unblocked; initialize it to "pdFALSE" and pass it to "portYIELD_FROM_ISR()" before leaving the interrupt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The received item, or "std::nullopt" if the queue is empty or closed. </dd></dl>
+<div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-25-summary" class="dynsummary">
+</div>
+<div id="dynsection-25-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a2195f46d6d07e619db12bf5baee526c1_icgraph.svg" width="642" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6950e31dce154f895380894a07095550" name="a6950e31dce154f895380894a07095550"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6950e31dce154f895380894a07095550">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Discards every item currently held by the queue; does nothing if closed. </p>
+<div id="dynsection-26" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-26-summary" class="dynsummary">
+</div>
+<div id="dynsection-26-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a6950e31dce154f895380894a07095550_cgraph.svg" width="472" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ac2c33422e644cb774321992bb195b484" name="ac2c33422e644cb774321992bb195b484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2c33422e644cb774321992bb195b484">&#9670;&#160;</a></span>send() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the back of the queue, blocking up to a "std::chrono" timeout for free space. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
+    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-27" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-27-summary" class="dynsummary">
+</div>
+<div id="dynsection-27-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ac2c33422e644cb774321992bb195b484_cgraph.svg" width="742" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab15322e6aead7ac29c01289b9be388d8" name="ab15322e6aead7ac29c01289b9be388d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab15322e6aead7ac29c01289b9be388d8">&#9670;&#160;</a></span>send() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::send </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the back of the queue, blocking up to a timeout for free space. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; "portMAX_DELAY" waits indefinitely. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-28" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-28-summary" class="dynsummary">
+</div>
+<div id="dynsection-28-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ab15322e6aead7ac29c01289b9be388d8_cgraph.svg" width="462" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-29" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-29-summary" class="dynsummary">
+</div>
+<div id="dynsection-29-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ab15322e6aead7ac29c01289b9be388d8_icgraph.svg" width="442" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a67e911c970037e95a08acca718cc1e75" name="a67e911c970037e95a08acca718cc1e75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67e911c970037e95a08acca718cc1e75">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::sendFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the back of the queue from an interrupt, requesting any context switch itself. </p>
+<p>Convenient when the send is the last RTOS call of the ISR; batch several FromISR calls through the 'sendFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" if the queue is full or closed. </dd></dl>
+<div id="dynsection-30" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-30-summary" class="dynsummary">
+</div>
+<div id="dynsection-30-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a67e911c970037e95a08acca718cc1e75_cgraph.svg" width="582" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad4d0487e882e9df0a5ff94c12e2e8299" name="ad4d0487e882e9df0a5ff94c12e2e8299"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4d0487e882e9df0a5ff94c12e2e8299">&#9670;&#160;</a></span>sendFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::sendFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the back of the queue from an interrupt, without blocking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher-priority task was unblocked; initialize it to "pdFALSE" and pass it to "portYIELD_FROM_ISR()" before leaving the interrupt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" if the queue is full or closed. </dd></dl>
+<div id="dynsection-31" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-31-summary" class="dynsummary">
+</div>
+<div id="dynsection-31-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_ad4d0487e882e9df0a5ff94c12e2e8299_icgraph.svg" width="582" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6c48cce891ac5711c498e15ce81cae7a" name="a6c48cce891ac5711c498e15ce81cae7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c48cce891ac5711c498e15ce81cae7a">&#9670;&#160;</a></span>sendToFront() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::sendToFront </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the front of the queue, blocking up to a "std::chrono" timeout for free space. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic type of the duration's tick count. </td></tr>
+    <tr><td class="paramname">Period</td><td>Tick period of the duration. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to block; rounded up to whole ticks, saturating at an indefinite wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-32" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-32-summary" class="dynsummary">
+</div>
+<div id="dynsection-32-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a6c48cce891ac5711c498e15ce81cae7a_cgraph.svg" width="842" height="126"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a56084e2572cee1d9421d7c9547bb57c6" name="a56084e2572cee1d9421d7c9547bb57c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56084e2572cee1d9421d7c9547bb57c6">&#9670;&#160;</a></span>sendToFront() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::sendToFront </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TickType_t</td>          <td class="paramname"><span class="paramname"><em>maxWait</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the front of the queue, blocking up to a timeout for free space. </p>
+<p>The item is received before every item already queued, which suits urgent messages.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+    <tr><td class="paramname">maxWait</td><td>Maximum number of ticks to block; "portMAX_DELAY" waits indefinitely. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" on timeout or if the queue is closed. </dd></dl>
+<div id="dynsection-33" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-33-summary" class="dynsummary">
+</div>
+<div id="dynsection-33-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a56084e2572cee1d9421d7c9547bb57c6_cgraph.svg" width="532" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-34" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-34-summary" class="dynsummary">
+</div>
+<div id="dynsection-34-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a56084e2572cee1d9421d7c9547bb57c6_icgraph.svg" width="582" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a1a8f30270f104c56c11c54fe3c7a13d5" name="a1a8f30270f104c56c11c54fe3c7a13d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a8f30270f104c56c11c54fe3c7a13d5">&#9670;&#160;</a></span>sendToFrontFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::sendToFrontFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the front of the queue from an interrupt, requesting any context switch itself. </p>
+<p>Convenient when the send is the last RTOS call of the ISR; batch several FromISR calls through the 'sendToFrontFromISR(const T_ELEMENT_TYPE &amp;, BaseType_t &amp;)' overload instead, so that only one context switch is requested.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" if the queue is full or closed. </dd></dl>
+<div id="dynsection-35" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-35-summary" class="dynsummary">
+</div>
+<div id="dynsection-35-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a1a8f30270f104c56c11c54fe3c7a13d5_cgraph.svg" width="582" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a6a3673161ba51852fe499817c4b0a847" name="a6a3673161ba51852fe499817c4b0a847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a3673161ba51852fe499817c4b0a847">&#9670;&#160;</a></span>sendToFrontFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::sendToFrontFromISR </td>
+          <td>(</td>
+          <td class="paramtype">const T_ELEMENT_TYPE &amp;</td>          <td class="paramname"><span class="paramname"><em>item</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copies an item to the front of the queue from an interrupt, without blocking. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">item</td><td>Item to copy into the queue. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher-priority task was unblocked; initialize it to "pdFALSE" and pass it to "portYIELD_FROM_ISR()" before leaving the interrupt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the item was queued, "false" if the queue is full or closed. </dd></dl>
+<div id="dynsection-36" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-36-summary" class="dynsummary">
+</div>
+<div id="dynsection-36-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a6a3673161ba51852fe499817c4b0a847_icgraph.svg" width="582" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a84938db21ab97d1453a39c2eb6ba1bc4" name="a84938db21ab97d1453a39c2eb6ba1bc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84938db21ab97d1453a39c2eb6ba1bc4">&#9670;&#160;</a></span>spacesAvailable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d5/da6/a02406.html">RTOS::Queue</a>&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;::spacesAvailable </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the number of free item slots; task context only. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of free slots, or 0 if the queue is closed. </dd></dl>
+<div id="dynsection-37" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-37-summary" class="dynsummary">
+</div>
+<div id="dynsection-37-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a84938db21ab97d1453a39c2eb6ba1bc4_cgraph.svg" width="572" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-38" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-38-summary" class="dynsummary">
+</div>
+<div id="dynsection-38-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/da6/a02406_a84938db21ab97d1453a39c2eb6ba1bc4_icgraph.svg" width="572" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d4/dfa/a00746.html">SemaphoreCounting.hpp</a></li>
+<li><a class="el" href="../../dd/db2/a00737.html">Queue.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -678,7 +1759,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dc/d41/a00862.html">RTOS</a></li><li class="navelem"><a href="../../d5/da6/a02406.html">SemaphoreCounting</a></li>
+    <li class="navelem"><a href="../../df/d2a/a00874.html">RTOS</a></li><li class="navelem"><a href="../../d5/da6/a02406.html">Queue</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

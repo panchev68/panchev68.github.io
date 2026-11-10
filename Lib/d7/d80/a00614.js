@@ -1,4 +1,4 @@
 var a00614 =
 [
-    [ "Lib::Helper::crc8", "d6/d34/a02176.html", "d6/d34/a02176" ]
+    [ "Lib::HAL::USBDevicePortAsync&lt; T_DERIVED &gt;", "d0/d13/a02139.html", "d0/d13/a02139" ]
 ];

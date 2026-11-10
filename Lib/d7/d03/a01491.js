@@ -1,10 +1,10 @@
 var a01491 =
 [
-    [ "PeakInfo", "d2/d36/a01495.html", "d2/d36/a01495" ],
-    [ "FindPeaks", "d7/d03/a01491.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "d7/d03/a01491.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "d7/d03/a01491.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "d7/d03/a01491.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "d7/d03/a01491.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "d7/d03/a01491.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "SignalStrength", "d7/d03/a01491.html#a7221c00a8ff27a3bd355928f960897d4", null ],
+    [ "SignalStrength", "d7/d03/a01491.html#ae5207184fca8fed0cc906620b9f017a1", null ],
+    [ "SignalStrength", "d7/d03/a01491.html#a759f37108d2a33d860169ffd300b57ed", null ],
+    [ "operator uint8_t", "d7/d03/a01491.html#a9d673263c2b74c5aefc860e9f9d03a15", null ],
+    [ "operator=", "d7/d03/a01491.html#ae69aec5c67c3620921f8b4dcbcf52bcd", null ],
+    [ "operator=", "d7/d03/a01491.html#a849d26f03c86e035d3c4c257ff25e136", null ],
+    [ "toPercent", "d7/d03/a01491.html#adf558805c6630d02cef0e3d45d936b9c", null ]
 ];

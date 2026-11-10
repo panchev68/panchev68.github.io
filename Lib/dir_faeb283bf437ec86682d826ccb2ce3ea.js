@@ -1,7 +1,6 @@
 var dir_faeb283bf437ec86682d826ccb2ce3ea =
 [
-    [ "examples", "dir_46eb37b2bd5f1a8bb912c0b98f45ab19.html", null ],
-    [ "CDCDevice.hpp", "df/d0c/a00788.html", "df/d0c/a00788" ],
-    [ "SerialPort.hpp", "d5/d12/a00794.html", "d5/d12/a00794" ],
-    [ "SerialPortRepeaterBase.hpp", "da/db8/a00797.html", "da/db8/a00797" ]
+    [ "CDCDevice.hpp", "d6/d8b/a00821.html", "d6/d8b/a00821" ],
+    [ "SerialPort.hpp", "d8/d1c/a00824.html", "d8/d1c/a00824" ],
+    [ "SerialPortRepeaterBase.hpp", "dc/d1b/a00827.html", "dc/d1b/a00827" ]
 ];

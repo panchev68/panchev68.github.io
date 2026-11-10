@@ -1,4 +1,4 @@
 var a00146 =
 [
-    [ "Lib::Communication::Modbus::SerialPortBase", "dd/d75/a01180.html", "dd/d75/a01180" ]
+    [ "Lib::BSP::RFID::MFRC522Config", "d8/d84/a01131.html", "d8/d84/a01131" ]
 ];

@@ -1,5 +1,8 @@
 var a00996 =
 [
-    [ "button", "d3/daa/a00996.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-    [ "handle", "d3/daa/a00996.html#a75774bfc0a226b392ad051cc0514697c", null ]
+    [ "bl", "d3/daa/a00996.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "d3/daa/a00996.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "d3/daa/a00996.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "d3/daa/a00996.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "d3/daa/a00996.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

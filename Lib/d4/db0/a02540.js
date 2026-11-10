@@ -1,10 +1,10 @@
 var a02540 =
 [
-    [ "VersionString", "d4/db0/a02540.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "d4/db0/a02540.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "d4/db0/a02540.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d4/db0/a02540.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "d4/db0/a02540.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "d4/db0/a02540.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "d4/db0/a02540.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "VersionString", "d4/db0/a02540.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
+    [ "FirmwareVersion", "d4/db0/a02540.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
+    [ "getSubVersion", "d4/db0/a02540.html#a74bafacd182d3ccff4da47e5aac54408", null ],
+    [ "getValue", "d4/db0/a02540.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
+    [ "operator uint32_t", "d4/db0/a02540.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
+    [ "operator VersionString", "d4/db0/a02540.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
+    [ "toString", "d4/db0/a02540.html#ac82dd7d67829e33f61b3625626f44742", null ]
 ];

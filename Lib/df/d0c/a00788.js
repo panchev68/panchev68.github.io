@@ -1,6 +1,5 @@
 var a00788 =
 [
-    [ "Lib::USB::CDCDevice", "d1/df6/a02544.html", "d1/df6/a02544" ],
-    [ "Lib::USB::CDCDevice::Config", "da/dc4/a02548.html", "da/dc4/a02548" ],
-    [ "Lib::USB::CDCDevice::LineCoding", "de/d48/a02552.html", "de/d48/a02552" ]
+    [ "RTOS::Timer", "de/dbd/a02507.html", "de/dbd/a02507" ],
+    [ "RTOS::Timer::Config", "d0/d01/a02511.html", "d0/d01/a02511" ]
 ];

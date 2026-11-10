@@ -1,11 +1,14 @@
 var a02536 =
 [
-    [ "FirmwareString", "d6/d24/a02536.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d6/d24/a02536.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d6/d24/a02536.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d6/d24/a02536.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d6/d24/a02536.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d6/d24/a02536.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d6/d24/a02536.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d6/d24/a02536.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Bitset", "d6/d24/a02536.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
+    [ "Status", "d6/d24/a02536.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
+      [ "OK", "d6/d24/a02536.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d6/d24/a02536.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Configuration", "d6/d24/a02536.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
+    [ "isEmpty", "d6/d24/a02536.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
+    [ "isValid", "d6/d24/a02536.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
+    [ "read", "d6/d24/a02536.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
+    [ "write", "d6/d24/a02536.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
+    [ "flashAddress", "d6/d24/a02536.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

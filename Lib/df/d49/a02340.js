@@ -1,13 +1,9 @@
 var a02340 =
 [
-    [ "CriticalSectionFromISR", "d6/d71/a02344.html", "d6/d71/a02344" ],
-    [ "CriticalSection", "da/db4/a02348.html", "da/db4/a02348" ],
-    [ "Scheduler", "da/d6b/a02352.html", "da/d6b/a02352" ],
-    [ "MemoryInfo", "d3/d35/a02360.html", "d3/d35/a02360" ],
-    [ "InterruptMask", "df/d49/a02340.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "df/d49/a02340.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "df/d49/a02340.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
-    [ "TickType", "df/d49/a02340.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "df/d49/a02340.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "df/d49/a02340.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "name", "df/d49/a02340.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "df/d49/a02340.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "df/d49/a02340.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "df/d49/a02340.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "df/d49/a02340.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "df/d49/a02340.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

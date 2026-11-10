@@ -1,4 +1,5 @@
 var a00368 =
 [
-    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "dd/d90/a01626.html", "dd/d90/a01626" ]
+    [ "Lib::Errors::BasicDispatcher&lt; T_ERROR &gt;", "d6/d56/a01719.html", "d6/d56/a01719" ],
+    [ "Lib::Errors::Dispatcher", "d1/d8f/a00880.html#a32937fedfac156d84189cbf2133bd0ab", null ]
 ];

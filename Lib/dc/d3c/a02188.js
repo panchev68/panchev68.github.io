@@ -1,18 +1,12 @@
 var a02188 =
 [
-    [ "DateString", "dc/d3c/a02188.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "dc/d3c/a02188.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "dc/d3c/a02188.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "dc/d3c/a02188.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "dc/d3c/a02188.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "dc/d3c/a02188.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "dc/d3c/a02188.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "dc/d3c/a02188.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "dc/d3c/a02188.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "dc/d3c/a02188.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "dc/d3c/a02188.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "dc/d3c/a02188.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "dc/d3c/a02188.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "dc/d3c/a02188.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "dc/d3c/a02188.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "BitSet", "dc/d3c/a02188.html#a16d91d28edc897acf8833de8df82699f", null ],
+    [ "BitSet", "dc/d3c/a02188.html#addc6ad14e596e534eb7fd2a018719985", null ],
+    [ "getBit", "dc/d3c/a02188.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
+    [ "getValue", "dc/d3c/a02188.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
+    [ "operator uint32_t", "dc/d3c/a02188.html#ab085297affb7e2df90201d7e6cdd1172", null ],
+    [ "operator=", "dc/d3c/a02188.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
+    [ "operator[]", "dc/d3c/a02188.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
+    [ "setBit", "dc/d3c/a02188.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
+    [ "setValue", "dc/d3c/a02188.html#a2505d1f74074939a87d45d3343d8bea3", null ]
 ];

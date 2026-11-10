@@ -1,39 +1,6 @@
 var a00845 =
 [
-    [ "Frame", "d9/d87/a00846.html", "d9/d87/a00846" ],
-    [ "AtCommandString", "dc/d2d/a01534.html", "dc/d2d/a01534" ],
-    [ "Checksum", "d7/def/a01538.html", "d7/def/a01538" ],
-    [ "ComDriver", "d6/d02/a01542.html", "d6/d02/a01542" ],
-    [ "Diagnostic", "d7/d1d/a01554.html", "d7/d1d/a01554" ],
-    [ "DigiApiFrameBuffer", "da/dcf/a01558.html", "da/dcf/a01558" ],
-    [ "EscapedCode", "d2/dc1/a01562.html", "d2/dc1/a01562" ],
-    [ "Frame0x00", "d5/dcf/a01602.html", "d5/dcf/a01602" ],
-    [ "Frame0x01", "d3/d2d/a01606.html", "d3/d2d/a01606" ],
-    [ "Frame0x08", "d9/dfd/a01610.html", "d9/dfd/a01610" ],
-    [ "Frame0x09", "db/d7c/a01614.html", "db/d7c/a01614" ],
-    [ "Frame0x17", "d9/d6a/a01618.html", "d9/d6a/a01618" ],
-    [ "Frame0x80", "dd/d55/a01638.html", "dd/d55/a01638" ],
-    [ "Frame0x81", "d7/d94/a01642.html", "d7/d94/a01642" ],
-    [ "Frame0x88", "df/dee/a01646.html", "df/dee/a01646" ],
-    [ "Frame0x89", "d9/d3b/a01650.html", "d9/d3b/a01650" ],
-    [ "Frame0x8a", "d1/d73/a01654.html", "d1/d73/a01654" ],
-    [ "Frame0x8b", "d9/d79/a01658.html", "d9/d79/a01658" ],
-    [ "Frame0x90", "d9/dbc/a01662.html", "d9/dbc/a01662" ],
-    [ "Frame0x97", "d8/d75/a01666.html", "d8/d75/a01666" ],
-    [ "FrameWriter", "d1/d3a/a01622.html", "d1/d3a/a01622" ],
-    [ "LocalAtCommand", "d0/d21/a01582.html", "d0/d21/a01582" ],
-    [ "Message", "d2/d2f/a01586.html", "d2/d2f/a01586" ],
-    [ "ModemStatus", "d4/d49/a01590.html", "d4/d49/a01590" ],
-    [ "Module", "dc/def/a01594.html", "dc/def/a01594" ],
-    [ "Protocol", "d3/da5/a01598.html", null ],
-    [ "QueueMessage", "dd/d90/a01626.html", "dd/d90/a01626" ],
-    [ "RemoteAtCommand", "d3/d33/a01630.html", "d3/d33/a01630" ],
-    [ "ResponseEvents", "d4/d99/a01634.html", "d4/d99/a01634" ],
-    [ "Query", "d6/d79/a02611.html", null ],
-    [ "ApiMode", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17ed", [
-      [ "TRANSPARENT", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "API1", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "API2", "d7/dcf/a00845.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ],
-    [ "isElapsed", "d7/dcf/a00845.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
+    [ "DTH", "d9/d87/a00846.html", "d9/d87/a00846" ],
+    [ "OneWire", "d4/d60/a00847.html", "d4/d60/a00847" ],
+    [ "TMP102", "d5/d32/a01214.html", "d5/d32/a01214" ]
 ];

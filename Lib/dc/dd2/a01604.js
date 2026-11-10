@@ -1,8 +1,13 @@
 var a01604 =
 [
-    [ "writeTo", "dc/dd2/a01604.html#a46342f730043bd2cb721cafd68faf502", null ],
-    [ "dstAddress", "dc/dd2/a01604.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "dc/dd2/a01604.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "dc/dd2/a01604.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "dc/dd2/a01604.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "append", "dc/dd2/a01604.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "dc/dd2/a01604.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "dc/dd2/a01604.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "dc/dd2/a01604.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "dc/dd2/a01604.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "dc/dd2/a01604.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "dc/dd2/a01604.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "dc/dd2/a01604.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "dc/dd2/a01604.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "dc/dd2/a01604.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

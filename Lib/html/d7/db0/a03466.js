@@ -1,5 +1,5 @@
 var a03466 =
 [
-    [ "Lib::Digi::Core::Frame::Helper", "d9/df5/a01574.html", "d9/df5/a01574" ],
-    [ "Lib::Digi::Core::Frame::Helper::Convert", "d1/d88/a01578.html", null ]
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "d9/d2e/a01194.html", "d9/d2e/a01194" ],
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "d0/d32/a01198.html", "d0/d32/a01198" ]
 ];

@@ -1,10 +1,9 @@
 var a01050 =
 [
-    [ "Ring", "d9/d8e/a01050.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "d9/d8e/a01050.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "d9/d8e/a01050.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "d9/d8e/a01050.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "d9/d8e/a01050.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "d9/d8e/a01050.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "d9/d8e/a01050.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "chipManufacturer", "d9/d8e/a01050.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "d9/d8e/a01050.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "d9/d8e/a01050.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "d9/d8e/a01050.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "d9/d8e/a01050.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "d9/d8e/a01050.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

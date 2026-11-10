@@ -1,14 +1,15 @@
 var a02292 =
 [
-    [ "Point", "d8/d9a/a02296.html", "d8/d9a/a02296" ],
-    [ "LinearInterpolation", "d4/d8c/a02292.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d4/d8c/a02292.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d4/d8c/a02292.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d4/d8c/a02292.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d4/d8c/a02292.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d4/d8c/a02292.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d4/d8c/a02292.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d4/d8c/a02292.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d4/d8c/a02292.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d4/d8c/a02292.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "TickType", "d4/d8c/a02292.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
+    [ "TimePeriod", "d4/d8c/a02292.html#a096466d88bfa78ef18f074937a43f63f", null ],
+    [ "elapsed", "d4/d8c/a02292.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
+    [ "elapsedFromISR", "d4/d8c/a02292.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
+    [ "elapsedTime", "d4/d8c/a02292.html#aea37e1feea05928a3dfd98f79e82c449", null ],
+    [ "elapsedTimeFromISR", "d4/d8c/a02292.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
+    [ "isRunning", "d4/d8c/a02292.html#aa4477fa15b16c620396b69b2935bf2de", null ],
+    [ "reset", "d4/d8c/a02292.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
+    [ "start", "d4/d8c/a02292.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
+    [ "startFromISR", "d4/d8c/a02292.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
+    [ "stop", "d4/d8c/a02292.html#a12059cd59e97f3575d46ed98120763a2", null ],
+    [ "stopFromISR", "d4/d8c/a02292.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
 ];

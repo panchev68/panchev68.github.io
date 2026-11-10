@@ -1,11 +1,12 @@
 var a00946 =
 [
-    [ "Config", "df/d39/a00950.html", "df/d39/a00950" ],
-    [ "Driver", "da/d40/a00946.html#a1485030ad4d5221083358bb976d4f6a9", null ],
-    [ "~Driver", "da/d40/a00946.html#a02b3a6700a07d6ec290c3b84098c3389", null ],
-    [ "handleTransferCompleteEvent", "da/d40/a00946.html#a16f81d6e044e814af3071d70b3bfd029", null ],
-    [ "setBacklight", "da/d40/a00946.html#a5c3019cb4ef6b0af87fb89c9b1e25ca4", null ],
-    [ "setRotation", "da/d40/a00946.html#aa82bca6d7225f8fb51714daaa7b44ee1", null ],
-    [ "setup", "da/d40/a00946.html#ae80e1a0a03b141829f376e2309e65a30", null ],
-    [ "transmitBlock", "da/d40/a00946.html#a7c3b10e802400c9d45d7467ee59a7562", null ]
+    [ "Inputs", "da/d40/a00946.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "da/d40/a00946.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "da/d40/a00946.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "da/d40/a00946.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "da/d40/a00946.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "da/d40/a00946.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "da/d40/a00946.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "da/d40/a00946.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "da/d40/a00946.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

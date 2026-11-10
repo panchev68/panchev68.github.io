@@ -1,16 +1,20 @@
 var a01524 =
 [
-    [ "ChannelArray", "d9/d34/a01524.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
-    [ "SpectrumAnalyzer", "d9/d34/a01524.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
-    [ "SpectrumAnalyzer", "d9/d34/a01524.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
+    [ "Channel", "da/d97/a01528.html", "da/d97/a01528" ],
+    [ "ChannelArray", "d9/d34/a01524.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
+    [ "QualityMode", "d9/d34/a01524.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
+    [ "Error", "d9/d34/a01524.html#acb54f9ec6751a18eda393e2c5bd0675c", [
+      [ "NONE", "d9/d34/a01524.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "MODULE_IS_NOT_CONNECTED", "d9/d34/a01524.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
+      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d9/d34/a01524.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
+    ] ],
+    [ "ChannelScanner", "d9/d34/a01524.html#a4e65a2b73399e5ba18d5090993f64487", null ],
+    [ "ChannelScanner", "d9/d34/a01524.html#a1b11f5df668c4629836c71101e686990", null ],
     [ "close", "d9/d34/a01524.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "getAverageArray", "d9/d34/a01524.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
-    [ "getCurrentArray", "d9/d34/a01524.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
-    [ "getMaxArray", "d9/d34/a01524.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
-    [ "isNewData", "d9/d34/a01524.html#a2788be420fbb2acb1168d7aa21759804", null ],
+    [ "getChannels", "d9/d34/a01524.html#a124a962ad28c0688ab38329f7a7b034e", null ],
     [ "isRunning", "d9/d34/a01524.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
     [ "open", "d9/d34/a01524.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d9/d34/a01524.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
-    [ "resetData", "d9/d34/a01524.html#a219916036b1120cc272129041d937770", null ],
-    [ "update", "d9/d34/a01524.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "operator=", "d9/d34/a01524.html#aed5af8462cac9a996e73489e369434d3", null ],
+    [ "update", "d9/d34/a01524.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
+    [ "onError", "d9/d34/a01524.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
 ];

@@ -1,8 +1,5 @@
 var a01966 =
 [
-    [ "State", "d7/dfb/a01966.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "d7/dfb/a01966.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "d7/dfb/a01966.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "d7/dfb/a01966.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "d7/dfb/a01966.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "OSPIPort", "d7/dfb/a01966.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
+    [ "~OSPIPort", "d7/dfb/a01966.html#a88592dfaa7cbb4efa05747483c911d6f", null ]
 ];

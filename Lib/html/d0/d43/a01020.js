@@ -1,10 +1,22 @@
 var a01020 =
 [
-    [ "Ring", "d0/d43/a01020.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "d0/d43/a01020.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "d0/d43/a01020.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "d0/d43/a01020.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "d0/d43/a01020.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "d0/d43/a01020.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "d0/d43/a01020.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "Register", "d4/dc5/a01024.html", "d4/dc5/a01024" ],
+    [ "Config", "d0/d43/a01020.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
+    [ "Info", "d0/d43/a01020.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
+    [ "W25Q128JVSIQ", "d0/d43/a01020.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
+    [ "~W25Q128JVSIQ", "d0/d43/a01020.html#aeb4e3658c1a50d80811bddb4e5794788", null ],
+    [ "W25Q128JVSIQ", "d0/d43/a01020.html#a8e63f6957e7d3835c28850539c92b803", null ],
+    [ "W25Q128JVSIQ", "d0/d43/a01020.html#ab86a72c21a4af20d878b815237041775", null ],
+    [ "close", "d0/d43/a01020.html#ab84d3fc2e1e49b6feddd226fdc925ae6", null ],
+    [ "enterPowerDown", "d0/d43/a01020.html#a8a0d94550896c7062f6594cd0e532007", null ],
+    [ "eraseChip", "d0/d43/a01020.html#a0b3b683afc77b0c0ee69e757c581a722", null ],
+    [ "eraseSector", "d0/d43/a01020.html#aff869cb6bde4f4f94493097c4c7e2da6", null ],
+    [ "getInfo", "d0/d43/a01020.html#a3f7a3b245b2a704b45e6a638a2c9c971", null ],
+    [ "isPresent", "d0/d43/a01020.html#a40a9ef783ecafece7202ae4ec39d4939", null ],
+    [ "open", "d0/d43/a01020.html#acc5fbed9faca7400c7d70130fbb74131", null ],
+    [ "operator=", "d0/d43/a01020.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
+    [ "operator=", "d0/d43/a01020.html#a042aafe50feeb5ffe960d362458e460e", null ],
+    [ "read", "d0/d43/a01020.html#abb4813e3ca50641c3bc3d1a367927ab8", null ],
+    [ "releasePowerDown", "d0/d43/a01020.html#a686c0c59ab4f223b15aefeeab43ca2bd", null ],
+    [ "write", "d0/d43/a01020.html#a48fee6a63474b5ad43a51157fcd0129a", null ]
 ];

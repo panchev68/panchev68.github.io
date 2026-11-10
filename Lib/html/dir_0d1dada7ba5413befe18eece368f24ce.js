@@ -1,4 +1,4 @@
 var dir_0d1dada7ba5413befe18eece368f24ce =
 [
-    [ "DigitalPeripheralBase.hpp", "d3/d52/a00023.html", "d3/d52/a00023" ]
+    [ "DigitalPeripheralBase.hpp", "dc/d87/a00032.html", "dc/d87/a00032" ]
 ];

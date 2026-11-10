@@ -1,5 +1,5 @@
 var a01014 =
 [
-    [ "onCardDetect", "d0/d56/a01014.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
-    [ "spiPort", "d0/d56/a01014.html#a67ad4df5e15c12584fe20e638078eab3", null ]
+    [ "button", "d0/d56/a01014.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
+    [ "handle", "d0/d56/a01014.html#a75774bfc0a226b392ad051cc0514697c", null ]
 ];

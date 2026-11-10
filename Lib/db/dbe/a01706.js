@@ -1,10 +1,13 @@
 var a01706 =
 [
-    [ "Integrator", "db/dbe/a01706.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
-    [ "addValue", "db/dbe/a01706.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
-    [ "computeResult", "db/dbe/a01706.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
-    [ "isWindowFull", "db/dbe/a01706.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
-    [ "operator()", "db/dbe/a01706.html#a97085ec2f9a9f65920181fffae409662", null ],
-    [ "processValue", "db/dbe/a01706.html#ab31a92d828aeae207fd9641101c217f5", null ],
-    [ "resetWindow", "db/dbe/a01706.html#a78e088ee416a676679fe227ceb71b1b0", null ]
+    [ "Observer", "db/dbe/a01706.html#abdcd46d6d928709efb45c4092a509ad3", null ],
+    [ "Observer", "db/dbe/a01706.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
+    [ "Observer", "db/dbe/a01706.html#a285dcb5567493b45b23d25b24004e9b9", null ],
+    [ "check", "db/dbe/a01706.html#ac245a085bf28b893f98cbc8943c50939", null ],
+    [ "forEach", "db/dbe/a01706.html#a6dcac43dde13eaf06dff704610eb7f8f", null ],
+    [ "getGroup", "db/dbe/a01706.html#a2973edaf7f9a66d9900fe3adf841146c", null ],
+    [ "matches", "db/dbe/a01706.html#abc1b7f5285e87adc24a4969a47113543", null ],
+    [ "number", "db/dbe/a01706.html#a446e9c28defc96197acdcd260d4706f6", null ],
+    [ "operator const Group *", "db/dbe/a01706.html#a68975b48ce0a7e2e846ed67f6851be04", null ],
+    [ "read", "db/dbe/a01706.html#ae9c2b90078fb4baacc77df620dd6affc", null ]
 ];

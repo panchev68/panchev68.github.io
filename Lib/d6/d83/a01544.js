@@ -1,6 +1,5 @@
 var a01544 =
 [
-    [ "resetPin", "d6/d83/a01544.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "d6/d83/a01544.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "d6/d83/a01544.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "localAtCommand", "d6/d83/a01544.html#a62c4d2c354626705c34bc850c039b5f7", null ],
+    [ "remoteAtCommand", "d6/d83/a01544.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
 ];

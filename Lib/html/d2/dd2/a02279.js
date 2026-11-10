@@ -1,20 +1,9 @@
 var a02279 =
 [
-    [ "Point", "dd/d29/a02283.html", "dd/d29/a02283" ],
-    [ "BoundaryType", "d2/dd2/a02279.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d2/dd2/a02279.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d2/dd2/a02279.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d2/dd2/a02279.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d2/dd2/a02279.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d2/dd2/a02279.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d2/dd2/a02279.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d2/dd2/a02279.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d2/dd2/a02279.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d2/dd2/a02279.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d2/dd2/a02279.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d2/dd2/a02279.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d2/dd2/a02279.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d2/dd2/a02279.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d2/dd2/a02279.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "Config", "dd/d29/a02283.html", "dd/d29/a02283" ],
+    [ "Kalman", "d2/dd2/a02279.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
+    [ "~Kalman", "d2/dd2/a02279.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
+    [ "operator()", "d2/dd2/a02279.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
+    [ "reset", "d2/dd2/a02279.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
+    [ "setParam", "d2/dd2/a02279.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
 ];

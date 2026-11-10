@@ -1,12 +1,13 @@
 var a01730 =
 [
-    [ "Sunset", "de/db5/a01730.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "de/db5/a01730.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "de/db5/a01730.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "de/db5/a01730.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "de/db5/a01730.html#a5c6deabfb7071836dede5e4bec4152f3", null ],
-    [ "setCurrentDate", "de/db5/a01730.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "de/db5/a01730.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "de/db5/a01730.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "de/db5/a01730.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "Handlers", "de/db5/a01730.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
+    [ "EepromEmulation", "de/db5/a01730.html#a1146daff507a230799851b6c5f9ee835", null ],
+    [ "~EepromEmulation", "de/db5/a01730.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
+    [ "EepromEmulation", "de/db5/a01730.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
+    [ "EepromEmulation", "de/db5/a01730.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
+    [ "operator=", "de/db5/a01730.html#ac18054ff925ab9ff88d05d79a8674626", null ],
+    [ "operator=", "de/db5/a01730.html#a8a0057afb82e294f720a93b50ad87908", null ],
+    [ "process", "de/db5/a01730.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
+    [ "setHandlers", "de/db5/a01730.html#a070225a3de178cf14fb35d7a18f183e0", null ],
+    [ "setReadSize", "de/db5/a01730.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
 ];

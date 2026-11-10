@@ -1,13 +1,12 @@
 var a01576 =
 [
-    [ "Command", "db/dfd/a01576.html#ad7de9040ab35a62c524e02edb5857497", null ],
-    [ "LocalAtCommand", "db/dfd/a01576.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
-    [ "LocalAtCommand", "db/dfd/a01576.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
-    [ "close", "db/dfd/a01576.html#a5c97cd2a002f63083302783169a633fb", null ],
-    [ "isOpen", "db/dfd/a01576.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
-    [ "open", "db/dfd/a01576.html#a01489f683e248d7c2af355b8f1cd8992", null ],
-    [ "operator=", "db/dfd/a01576.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
-    [ "receive", "db/dfd/a01576.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
-    [ "send", "db/dfd/a01576.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
-    [ "send", "db/dfd/a01576.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
+    [ "Config", "db/dfd/a01576.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
+    [ "Module", "db/dfd/a01576.html#a254c8c718d7faf592b274708db07db8d", null ],
+    [ "~Module", "db/dfd/a01576.html#a3e8be6962f855fba474c3c0e0366a256", null ],
+    [ "init", "db/dfd/a01576.html#a45140156f7c70b779d773237bed74b50", null ],
+    [ "reset", "db/dfd/a01576.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
+    [ "send", "db/dfd/a01576.html#adb8dd809dcd7a22dee2718819616b947", null ],
+    [ "onMessageReceive", "db/dfd/a01576.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
+    [ "onMessageSend", "db/dfd/a01576.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
+    [ "responseEvents", "db/dfd/a01576.html#ac2585942261cabaa51522f461c64816b", null ]
 ];

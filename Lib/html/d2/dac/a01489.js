@@ -1,16 +1,12 @@
 var a01489 =
 [
-    [ "Container", "d2/dac/a01489.html#aee7408e236983dfe716699922a20e848", null ],
-    [ "Status", "d2/dac/a01489.html#abfa34fca2a40d9f990c238a66f2611aa", [
-      [ "STATUS_CHANGED", "d2/dac/a01489.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "d2/dac/a01489.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "BasicDispatcher", "d2/dac/a01489.html#a8888661e1979a2b522e456f3e143e065", null ],
-    [ "BasicDispatcher", "d2/dac/a01489.html#add10f2d01f474243d9fa895cff993e07", null ],
-    [ "createError", "d2/dac/a01489.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
-    [ "operator=", "d2/dac/a01489.html#a663a1359b4c59113e160a2da62046222", null ],
-    [ "operator=", "d2/dac/a01489.html#a45f56f6db82a8095e39231ccf05639dc", null ],
-    [ "start", "d2/dac/a01489.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
-    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "d2/dac/a01489.html#a650ea0ef5048343da33f94d14c44e548", null ],
-    [ "statusChangedHook", "d2/dac/a01489.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
+    [ "ServiceBase", "d2/dac/a01489.html#a9fe2fc0c11059c42c16470a0ee18f1b1", null ],
+    [ "~ServiceBase", "d2/dac/a01489.html#aaffb2619b9b150dd2c5970ef8b4e11e1", null ],
+    [ "close", "d2/dac/a01489.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
+    [ "initialize", "d2/dac/a01489.html#a6329c58c641c134db59a8f37a9637dea", null ],
+    [ "isRunning", "d2/dac/a01489.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
+    [ "open", "d2/dac/a01489.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
+    [ "process", "d2/dac/a01489.html#a0747f885e5a9feba10647c760353f395", null ],
+    [ "tearDown", "d2/dac/a01489.html#a433b1176b2ec86cafe98bb73425d401b", null ],
+    [ "update", "d2/dac/a01489.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
 ];

@@ -1,7 +1,7 @@
 var a01675 =
 [
-    [ "Config", "db/d98/a01675.html#aa61c6d1302b314f60627c2cf9ac37d04", null ],
-    [ "name", "db/d98/a01675.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "db/d98/a01675.html#a274584bafb133fa51a23c4c52e77f64f", null ],
-    [ "stackSize", "db/d98/a01675.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "operator std::vector< uint8_t >", "db/d98/a01675.html#a834e9b3a6edc71d897ac58f16bc47e62", null ],
+    [ "view", "db/d98/a01675.html#a5b6240ac3f756b4d29a1009db83fe5a1", null ],
+    [ "data", "db/d98/a01675.html#a1a2bb42d97aa1681a867a11a8efb4b63", null ],
+    [ "size", "db/d98/a01675.html#a98b5bd54aeccbc3686cf30051d746e92", null ]
 ];

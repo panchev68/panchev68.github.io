@@ -1,8 +1,8 @@
 var a01658 =
 [
-    [ "Frame0x8b", "d9/d79/a01658.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
-    [ "deliveryStatus", "d9/d79/a01658.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "d9/d79/a01658.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "d9/d79/a01658.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "transmitRetryCount", "d9/d79/a01658.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "Frame0x88", "d9/d79/a01658.html#a8cdabdda134adaf1796641f68581f1c8", null ],
+    [ "atCommand", "d9/d79/a01658.html#aba3a41028c41109166efaf024c9dca74", null ],
+    [ "data", "d9/d79/a01658.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
+    [ "frameId", "d9/d79/a01658.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
+    [ "status", "d9/d79/a01658.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
 ];

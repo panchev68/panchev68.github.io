@@ -1,13 +1,9 @@
 var a02503 =
 [
-    [ "Date", "d1/d5d/a02503.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "d1/d5d/a02503.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "d1/d5d/a02503.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "d1/d5d/a02503.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d1/d5d/a02503.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "d1/d5d/a02503.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "d1/d5d/a02503.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "d1/d5d/a02503.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "d1/d5d/a02503.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "VersionString", "d1/d5d/a02503.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
+    [ "HardwareVersion", "d1/d5d/a02503.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
+    [ "getValue", "d1/d5d/a02503.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
+    [ "operator uint32_t", "d1/d5d/a02503.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
+    [ "operator VersionString", "d1/d5d/a02503.html#aa3df38606e4bae3745c893ccbffb030c", null ],
+    [ "toString", "d1/d5d/a02503.html#a318575bc9f5967d830a1cb350b1e8061", null ]
 ];

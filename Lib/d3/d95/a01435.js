@@ -1,9 +1,13 @@
 var a01435 =
 [
-    [ "CityHash", "d3/d95/a01435.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "d3/d95/a01435.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "d3/d95/a01435.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "d3/d95/a01435.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "d3/d95/a01435.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "d3/d95/a01435.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "Tag", "d3/d95/a01435.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
+    [ "WolfSSLAesGcm", "d3/d95/a01435.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
+    [ "~WolfSSLAesGcm", "d3/d95/a01435.html#a032c38854a99ed5c5a281809583c4bad", null ],
+    [ "WolfSSLAesGcm", "d3/d95/a01435.html#a0948de3456c47ec4fcfdda7f14014566", null ],
+    [ "WolfSSLAesGcm", "d3/d95/a01435.html#ae6206c63d09568b82e1efae3379c82d7", null ],
+    [ "decrypt", "d3/d95/a01435.html#a70889db1697fa4212becb3acfb87a2a4", null ],
+    [ "encrypt", "d3/d95/a01435.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
+    [ "open", "d3/d95/a01435.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
+    [ "operator=", "d3/d95/a01435.html#ab46183fdc3c915e95383d1216aac9109", null ],
+    [ "operator=", "d3/d95/a01435.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
 ];

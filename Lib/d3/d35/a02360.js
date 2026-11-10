@@ -1,8 +1,8 @@
 var a02360 =
 [
-    [ "allocations", "d3/d35/a02360.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d3/d35/a02360.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d3/d35/a02360.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d3/d35/a02360.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d3/d35/a02360.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "State", "d3/d35/a02360.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
+    [ "firstRun", "d3/d35/a02360.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
+    [ "integralSum", "d3/d35/a02360.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
+    [ "lastInput", "d3/d35/a02360.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
+    [ "lastOutput", "d3/d35/a02360.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
 ];

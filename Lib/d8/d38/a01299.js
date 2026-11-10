@@ -1,10 +1,10 @@
 var a01299 =
 [
-    [ "DstAddress", "d8/d38/a01299.html#a08442ca9839fbd669e6a803ab2bbb5fc", null ],
-    [ "operator Frame::Data", "d8/d38/a01299.html#aa1e4cdd0f75ad2b29678b0d9b3df74bb", null ],
-    [ "atCommand", "d8/d38/a01299.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
-    [ "dstAddress", "d8/d38/a01299.html#a961f721cb79f4d93e1516b992c16e4fe", null ],
-    [ "frameId", "d8/d38/a01299.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
-    [ "parameters", "d8/d38/a01299.html#a69a8b0f293677febe578417b21dbba6b", null ],
-    [ "remoteCommandOption", "d8/d38/a01299.html#ae4922577edd7679e2964fb14f35bc919", null ]
+    [ "RxMessage", "d8/d38/a01299.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
+    [ "RxMessage", "d8/d38/a01299.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
+    [ "getData", "d8/d38/a01299.html#a211378ed57e780728a164371a88e9913", null ],
+    [ "getId", "d8/d38/a01299.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
+    [ "data", "d8/d38/a01299.html#ad7fd7612128273e1c546b6344e7410b3", null ],
+    [ "id", "d8/d38/a01299.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
+    [ "length", "d8/d38/a01299.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
 ];

@@ -1,15 +1,18 @@
 var a01732 =
 [
-    [ "Error", "de/d25/a01732.html#a9d7546738e259f57d9e431d88a39ac23", null ],
-    [ "Handlers", "de/d25/a01732.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
-    [ "FoE", "de/d25/a01732.html#ad7dd21bafde30794cef6a653baacc862", null ],
-    [ "~FoE", "de/d25/a01732.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
-    [ "FoE", "de/d25/a01732.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
-    [ "FoE", "de/d25/a01732.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
-    [ "handle", "de/d25/a01732.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
-    [ "isBusy", "de/d25/a01732.html#a4463e44a62dae7598614225dc069e03c", null ],
-    [ "operator=", "de/d25/a01732.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
-    [ "operator=", "de/d25/a01732.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
-    [ "reset", "de/d25/a01732.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
-    [ "setHandlers", "de/d25/a01732.html#a39b767747ef43947171f73021ee9dd76", null ]
+    [ "ObserverBase", "de/d25/a01732.html#a32d97a053bd59655ba3e484167b856f6", null ],
+    [ "ObserverBase", "de/d25/a01732.html#a9eaaa64f41d017b0542fd19e23e4b4eb", null ],
+    [ "ObserverBase", "de/d25/a01732.html#a533552093d254aaf91e8aa506abe97eb", null ],
+    [ "ObserverBase", "de/d25/a01732.html#a04d21933596b0c1dd78bfb671ef811cd", null ],
+    [ "ObserverBase", "de/d25/a01732.html#a48c400abfb1256b145f494a80a4602fd", null ],
+    [ "~ObserverBase", "de/d25/a01732.html#a5335bb5ae20c789e034de9dbc451d7eb", null ],
+    [ "check", "de/d25/a01732.html#ac245a085bf28b893f98cbc8943c50939", null ],
+    [ "forEach", "de/d25/a01732.html#a6dcac43dde13eaf06dff704610eb7f8f", null ],
+    [ "getGroup", "de/d25/a01732.html#a2973edaf7f9a66d9900fe3adf841146c", null ],
+    [ "matches", "de/d25/a01732.html#abc1b7f5285e87adc24a4969a47113543", null ],
+    [ "number", "de/d25/a01732.html#a446e9c28defc96197acdcd260d4706f6", null ],
+    [ "operator const Group *", "de/d25/a01732.html#a68975b48ce0a7e2e846ed67f6851be04", null ],
+    [ "operator=", "de/d25/a01732.html#af0f8f28571cd95c78515fc20c696b688", null ],
+    [ "operator=", "de/d25/a01732.html#a5bef52360bbd4cdd83f4cd41fb610c4a", null ],
+    [ "read", "de/d25/a01732.html#ae9c2b90078fb4baacc77df620dd6affc", null ]
 ];

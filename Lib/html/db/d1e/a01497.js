@@ -1,7 +1,16 @@
 var a01497 =
 [
-    [ "~Error", "db/d1e/a01497.html#a45c9bdf2555503aba370ceb9e3be4472", null ],
-    [ "operator=", "db/d1e/a01497.html#a0bcba893ea1d1c8fc398d17f7064fb4e", null ],
-    [ "operator=", "db/d1e/a01497.html#a64f8853fd9017d3b184b94ce5d32d416", null ],
-    [ "BasicDispatcher", "db/d1e/a01497.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
+    [ "Command", "db/d1e/a01497.html#aeec1806cc51651aec7c65df97f20824f", [
+      [ "INPUTS", "db/d1e/a01497.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
+      [ "GET_PARAMETERS", "db/d1e/a01497.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
+      [ "OUTPUTS", "db/d1e/a01497.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
+      [ "SET_PARAMETERS", "db/d1e/a01497.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
+    ] ],
+    [ "UserProtocol", "db/d1e/a01497.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
+    [ "~UserProtocol", "db/d1e/a01497.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
+    [ "handleGetParameters", "db/d1e/a01497.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
+    [ "handleInputsUpdate", "db/d1e/a01497.html#a667d3ff5b042410546dc2212f46897b3", null ],
+    [ "handleOutputsUpdate", "db/d1e/a01497.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
+    [ "handleSetParameters", "db/d1e/a01497.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
+    [ "parse", "db/d1e/a01497.html#a4d3b6c9250019cb601e8256f0167da64", null ]
 ];

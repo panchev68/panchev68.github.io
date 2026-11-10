@@ -1,10 +1,12 @@
 var a01163 =
 [
-    [ "Ring", "d6/d27/a01163.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "d6/d27/a01163.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "d6/d27/a01163.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "d6/d27/a01163.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "d6/d27/a01163.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "d6/d27/a01163.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "d6/d27/a01163.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "Data", "d7/dd6/a01167.html", "d7/dd6/a01167" ],
+    [ "Color", "d6/d27/a01163.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "d6/d27/a01163.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "d6/d27/a01163.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "d6/d27/a01163.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "d6/d27/a01163.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "d6/d27/a01163.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "d6/d27/a01163.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "d6/d27/a01163.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

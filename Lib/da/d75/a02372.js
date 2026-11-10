@@ -1,29 +1,23 @@
 var a02372 =
 [
-    [ "TickType", "da/d75/a02372.html#adc2e1b449462bfc5e02a4ee323b012e5", null ],
-    [ "Type", "da/d75/a02372.html#a32944cdf5acfc817c79a3b60e03bbc38", [
-      [ "NORMAL", "da/d75/a02372.html#a32944cdf5acfc817c79a3b60e03bbc38a1e23852820b9154316c7c06e2b7ba051", null ],
-      [ "RECURSIVE", "da/d75/a02372.html#a32944cdf5acfc817c79a3b60e03bbc38a1c1aa83dfe54dfc3528f9e40131cf638", null ]
+    [ "Config", "df/d46/a02376.html", "df/d46/a02376" ],
+    [ "Command", "da/d75/a02372.html#a0b7ad8b7773fc15de07047754f3794f9", [
+      [ "OFF", "da/d75/a02372.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "da/d75/a02372.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
     ] ],
-    [ "Mutex", "da/d75/a02372.html#a85140f0dfb31c3d5a8a27ce01e98fdc6", null ],
-    [ "Mutex", "da/d75/a02372.html#a301698c6b87d5cd81fda2792e6f14b4c", null ],
-    [ "~Mutex", "da/d75/a02372.html#a032031894c38dfb5861f1be4a7e247dd", null ],
-    [ "Mutex", "da/d75/a02372.html#acce47428aedbea4c3597ab4b07a0dc16", null ],
-    [ "close", "da/d75/a02372.html#acae6fb03115a857672d114638e6da0cb", null ],
-    [ "createStatic", "da/d75/a02372.html#a4a72a94370a00b530eb26b466ed373bc", null ],
-    [ "getHolder", "da/d75/a02372.html#a616ca3c51747ccb7932dab4363b40ef5", null ],
-    [ "getHolderFromISR", "da/d75/a02372.html#a4442eb3b200cdfba2f9780f45b293ee4", null ],
-    [ "getNativeHandle", "da/d75/a02372.html#a38014af85379eee8f59569c75f075995", null ],
-    [ "getType", "da/d75/a02372.html#a4625bbff147fffc8861b3478c8430f94", null ],
-    [ "isLocked", "da/d75/a02372.html#a7797096bb17dedbd7f2dc83952a87ad0", null ],
-    [ "isOwnedByCurrentTask", "da/d75/a02372.html#a0fe980766d5bb3fb9f27336981430a6f", null ],
-    [ "isValid", "da/d75/a02372.html#a2a35fb03473deda78f602d516fb9b09c", null ],
-    [ "lock", "da/d75/a02372.html#a80b2989f05e4378994f3eb8e811d9a2b", null ],
-    [ "lock", "da/d75/a02372.html#a9249f5e17ed3dc3621afb504a94f51c4", null ],
-    [ "lock", "da/d75/a02372.html#a2b2c30777cc3c44739df34e98fc05d0f", null ],
-    [ "open", "da/d75/a02372.html#a9f2abf5c8b3442dd741bac7c15e5726a", null ],
-    [ "operator=", "da/d75/a02372.html#a1e606324a490dacaed78d56b0f2e463f", null ],
-    [ "operator=", "da/d75/a02372.html#aa0480ec896a8ce6959a8fe0069fc4a0f", null ],
-    [ "tryLock", "da/d75/a02372.html#a18a279e5ed19c174389ad7be7fb2264d", null ],
-    [ "unlock", "da/d75/a02372.html#a55031b1cdaf584950893279ceac8ff93", null ]
+    [ "Status", "da/d75/a02372.html#a9f826713fcf7511db5c43ef6f27173af", [
+      [ "IS_OFF", "da/d75/a02372.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "da/d75/a02372.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "da/d75/a02372.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
+    ] ],
+    [ "RotationCylinder", "da/d75/a02372.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
+    [ "RotationCylinder", "da/d75/a02372.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
+    [ "command", "da/d75/a02372.html#a8ca6acca72dbe8c542856371e956e058", null ],
+    [ "getName", "da/d75/a02372.html#a480be139cc8704be72afb69d2456281f", null ],
+    [ "getStatus", "da/d75/a02372.html#aba16d8727149fd2debf8b51fff5438bd", null ],
+    [ "isOff", "da/d75/a02372.html#a90f1e56010dee19b0f66350351127712", null ],
+    [ "isOn", "da/d75/a02372.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
+    [ "operator=", "da/d75/a02372.html#a44c71110f315e89203746b05fd4ab10a", null ],
+    [ "setup", "da/d75/a02372.html#a659c7989f745a79aeecb1c24004acba6", null ],
+    [ "update", "da/d75/a02372.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
 ];

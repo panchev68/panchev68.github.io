@@ -1,12 +1,9 @@
 var a01828 =
 [
-    [ "ADCPortBase", "dc/d79/a01828.html#a4434447d51727d630ac97c35686a4ec0", null ],
-    [ "ADCPortBase", "dc/d79/a01828.html#a0ad5d61e73944a97373bfae0962076a5", null ],
-    [ "ADCPortBase", "dc/d79/a01828.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
-    [ "~ADCPortBase", "dc/d79/a01828.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
-    [ "close", "dc/d79/a01828.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getValue", "dc/d79/a01828.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "dc/d79/a01828.html#aed764265c454323ee0b2d718d2f447cb", null ],
-    [ "operator=", "dc/d79/a01828.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
-    [ "operator=", "dc/d79/a01828.html#a0fcfa429879f8263683b639ed5e74c96", null ]
+    [ "command", "dc/d79/a01828.html#af08112845cd66edc31d068ebd37b83ca", null ],
+    [ "delimiter", "dc/d79/a01828.html#a4a5572bd4e22f6a1de87a3ad3d4ebad8", null ],
+    [ "id", "dc/d79/a01828.html#a38a95e9ff32ffbe026a54b59e0133d60", null ],
+    [ "length", "dc/d79/a01828.html#a8d832b6579b4ecbc8f9555ab3e14aa21", null ],
+    [ "option", "dc/d79/a01828.html#afef42cfd87d0013b3e3ff843a1cc5d36", null ],
+    [ "timestamp", "dc/d79/a01828.html#a3665c6cb45f55219bf365da4619f7ab9", null ]
 ];

@@ -1,10 +1,13 @@
 var a00927 =
 [
-    [ "PortBase", "dd/d98/a00927.html#a5350d276e1d3d6505501c1a194798ee1", null ],
-    [ "~PortBase", "dd/d98/a00927.html#ae97ed92776c4c9fec031848b9d223290", null ],
-    [ "getSpiHandle", "dd/d98/a00927.html#a1677aa107627ab40c3a7a3a495722c77", null ],
-    [ "postUpdateCallback", "dd/d98/a00927.html#af0d8329309d89f85d0432a205da0410c", null ],
-    [ "preUpdateCallback", "dd/d98/a00927.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
-    [ "setup", "dd/d98/a00927.html#a819a0deaed30808011035c3403fbf93c", null ],
-    [ "update", "dd/d98/a00927.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
+    [ "TimEncoder", "d0/dfe/a02102.html", "d0/dfe/a02102" ],
+    [ "TimEventBase", "d4/d18/a02106.html", "d4/d18/a02106" ],
+    [ "TimInputCapture", "d5/d23/a02110.html", "d5/d23/a02110" ],
+    [ "TimOnePulse", "da/d4a/a02114.html", "da/d4a/a02114" ],
+    [ "TimOutputCompare", "db/d34/a02118.html", "db/d34/a02118" ],
+    [ "TimPwmOutput", "d8/d23/a02122.html", "d8/d23/a02122" ],
+    [ "TimTimebase", "da/da0/a02126.html", "da/da0/a02126" ],
+    [ "compareRegister", "dd/d98/a00927.html#afb4fb6e73aa0198e451581196e258e12", null ],
+    [ "isValidChannel", "dd/d98/a00927.html#ab75a39e4c4d2e24306f9d60322937e4a", null ],
+    [ "toActiveChannel", "dd/d98/a00927.html#a7308e7f3aee34a139db6fc9cc68a0876", null ]
 ];

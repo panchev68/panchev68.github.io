@@ -1,13 +1,9 @@
 var a01828 =
 [
-    [ "BackupRamDomain", "dc/d79/a01828.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
-    [ "~BackupRamDomain", "dc/d79/a01828.html#a3b301936cae87db14bef527c0a5629af", null ],
-    [ "BackupRamDomain", "dc/d79/a01828.html#abf039272ad85b43415d4df28c8c0a051", null ],
-    [ "BackupRamDomain", "dc/d79/a01828.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
-    [ "close", "dc/d79/a01828.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
-    [ "open", "dc/d79/a01828.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
-    [ "operator=", "dc/d79/a01828.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
-    [ "operator=", "dc/d79/a01828.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
-    [ "readRegister", "dc/d79/a01828.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
-    [ "writeRegister", "dc/d79/a01828.html#acc5002942f221da40872cb7be92706a9", null ]
+    [ "Sockets", "dc/d79/a01828.html#a83aca7ca920c948cf9f775922c19247a", null ],
+    [ "Sockets", "dc/d79/a01828.html#adf14b2bb687d762d0832d140cfd7c348", null ],
+    [ "Sockets", "dc/d79/a01828.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
+    [ "operator=", "dc/d79/a01828.html#a27fe979c8f56a4d202689793724794b7", null ],
+    [ "operator=", "dc/d79/a01828.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
+    [ "operator[]", "dc/d79/a01828.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
 ];

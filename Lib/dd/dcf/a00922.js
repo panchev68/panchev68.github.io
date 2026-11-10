@@ -1,10 +1,8 @@
 var a00922 =
 [
-    [ "PortBase", "dd/dcf/a00922.html#a5350d276e1d3d6505501c1a194798ee1", null ],
-    [ "~PortBase", "dd/dcf/a00922.html#ae97ed92776c4c9fec031848b9d223290", null ],
-    [ "getSpiHandle", "dd/dcf/a00922.html#a1677aa107627ab40c3a7a3a495722c77", null ],
-    [ "postUpdateCallback", "dd/dcf/a00922.html#af0d8329309d89f85d0432a205da0410c", null ],
-    [ "preUpdateCallback", "dd/dcf/a00922.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
-    [ "setup", "dd/dcf/a00922.html#a819a0deaed30808011035c3403fbf93c", null ],
-    [ "update", "dd/dcf/a00922.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
+    [ "DeviceBase", "dd/dcf/a00922.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
+    [ "~DeviceBase", "dd/dcf/a00922.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
+    [ "handleTickEvent", "dd/dcf/a00922.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
+    [ "registerDevice", "dd/dcf/a00922.html#a299662c9e9bdb346771579418056dccf", null ],
+    [ "setup", "dd/dcf/a00922.html#af06fe39cba15bd187e05a7593e41d35a", null ]
 ];

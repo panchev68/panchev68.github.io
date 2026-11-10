@@ -1,22 +1,11 @@
 var a01602 =
 [
-    [ "Diagnostic", "d3/d2d/a01606.html", "d3/d2d/a01606" ],
-    [ "ConnectionState", "d5/dcf/a01602.html#a56cd12ff82e971645f7a23734b80bbf0", null ],
-    [ "ClientBase", "d5/dcf/a01602.html#a2ee9814fe7b1bdf67ee96cc783454230", null ],
-    [ "~ClientBase", "d5/dcf/a01602.html#aa64fe42414f52a9ddcf73265f7aaa32e", null ],
-    [ "ClientBase", "d5/dcf/a01602.html#a171d0ee214534d948c4d955355ab7bf3", null ],
-    [ "ClientBase", "d5/dcf/a01602.html#a9ad742e1649a2f2423837da9974e4140", null ],
-    [ "getConnectionState", "d5/dcf/a01602.html#a0ba4737991369ec358f11bf82c4392df", null ],
-    [ "getDiagnostic", "d5/dcf/a01602.html#acddaa0b3fe21bf41d5c49971e4833fb8", null ],
-    [ "getRemoteNode", "d5/dcf/a01602.html#a0d9ed09b6ed483d84196c3617fdd854d", null ],
-    [ "handleApplicationProcess", "d5/dcf/a01602.html#a00422437a5ab35fa114a370d21d55678", null ],
-    [ "operator=", "d5/dcf/a01602.html#a878f98b5d415e7a8e2821d7c2b7c398e", null ],
-    [ "operator=", "d5/dcf/a01602.html#ae1ba6598652355c62f04b855d15e0ee4", null ],
-    [ "readLinkState", "d5/dcf/a01602.html#a1509f9ad6bf5e3766269bbdec6103779", null ],
-    [ "send", "d5/dcf/a01602.html#a75056b314ce6ce19807888e9fd56cb2c", null ],
-    [ "setConnectionState", "d5/dcf/a01602.html#a7936da086b583d8438bc492bd1423181", null ],
-    [ "setRemoteNode", "d5/dcf/a01602.html#aca3bfc7a7ae808b71533018ec7f30382", null ],
-    [ "start", "d5/dcf/a01602.html#a590e03d72003060be01839884fdd0b26", null ],
-    [ "updateRxLedCallback", "d5/dcf/a01602.html#af2915b8806cc5b5c86f344d441dc28c2", null ],
-    [ "updateTxLedCallback", "d5/dcf/a01602.html#ac2aebcf3601efce658d06d2be4f7f06c", null ]
+    [ "Message", "d5/dcf/a01602.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "d5/dcf/a01602.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "d5/dcf/a01602.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "d5/dcf/a01602.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "d5/dcf/a01602.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "d5/dcf/a01602.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "d5/dcf/a01602.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "d5/dcf/a01602.html#a99d9247c3097add390da201d0083e524", null ]
 ];

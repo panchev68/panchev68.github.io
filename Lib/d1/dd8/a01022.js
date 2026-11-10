@@ -1,8 +1,9 @@
 var a01022 =
 [
-    [ "operator==", "d1/dd8/a01022.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "d1/dd8/a01022.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "d1/dd8/a01022.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "d1/dd8/a01022.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "d1/dd8/a01022.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "pinIRQ", "d1/dd8/a01022.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "d1/dd8/a01022.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "d1/dd8/a01022.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "d1/dd8/a01022.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "d1/dd8/a01022.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "d1/dd8/a01022.html#aed57b8892979041579d2eb130d453151", null ]
 ];

@@ -1,4 +1,4 @@
 var a03507 =
 [
-    [ "Lib::Digi::API::Service::ServiceBase&lt; T_DERIVED &gt;", "db/dbf/a01516.html", "db/dbf/a01516" ]
+    [ "Lib::Digi::API::ServerBase&lt; Derived &gt;", "d0/d34/a01486.html", "d0/d34/a01486" ]
 ];

@@ -1,12 +1,15 @@
 var a01826 =
 [
-    [ "Time", "d2/d45/a01826.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d2/d45/a01826.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d2/d45/a01826.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d2/d45/a01826.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d2/d45/a01826.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d2/d45/a01826.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d2/d45/a01826.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d2/d45/a01826.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d2/d45/a01826.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "Event", "d0/d4f/a01830.html", null ],
+    [ "ADCPort", "d2/d45/a01826.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
+    [ "~ADCPort", "d2/d45/a01826.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
+    [ "ADCPort", "d2/d45/a01826.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
+    [ "ADCPort", "d2/d45/a01826.html#af963171787341304aeec9ad771e5f523", null ],
+    [ "close", "d2/d45/a01826.html#a91651451878e1931de2457be52f68c92", null ],
+    [ "open", "d2/d45/a01826.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
+    [ "operator=", "d2/d45/a01826.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
+    [ "operator=", "d2/d45/a01826.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
+    [ "start", "d2/d45/a01826.html#a97c4921b9e22a517072028d001c86ef1", null ],
+    [ "stop", "d2/d45/a01826.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
+    [ "waitForEvent", "d2/d45/a01826.html#af0c975bbd0a66ffabc210d52ec971714", null ]
 ];

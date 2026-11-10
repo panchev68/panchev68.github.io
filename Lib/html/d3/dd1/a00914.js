@@ -1,5 +1,4 @@
 var a00914 =
 [
-    [ "mask", "d3/dd1/a00914.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-    [ "port", "d3/dd1/a00914.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "DeviceBase", "d0/ddf/a00918.html", "d0/ddf/a00918" ]
 ];

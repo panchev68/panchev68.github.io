@@ -1,6 +1,13 @@
 var a01540 =
 [
-    [ "resetPin", "d3/d4c/a01540.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "d3/d4c/a01540.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "d3/d4c/a01540.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "append", "d3/d4c/a01540.html#ad8e9930946b066f26cbf08f6de2e84f9", null ],
+    [ "append", "d3/d4c/a01540.html#adc3f34b3aa1e106403a5ce36930d2e4b", null ],
+    [ "append", "d3/d4c/a01540.html#a04412e1fc3a07248441dc288c99867f6", null ],
+    [ "assign", "d3/d4c/a01540.html#a056342d102635bded069d9f153268884", null ],
+    [ "assign", "d3/d4c/a01540.html#ae796119895d95296e7fe754347df07d7", null ],
+    [ "clear", "d3/d4c/a01540.html#a4e9638e82e027739671827a11a48a211", null ],
+    [ "getData", "d3/d4c/a01540.html#ac5d7ba3eee68da0a19848f8026a3f600", null ],
+    [ "getData", "d3/d4c/a01540.html#a2bd908cbd334615b4ec6e8076279e1ea", null ],
+    [ "getSize", "d3/d4c/a01540.html#a391a31513797286c540adbbc99195704", null ],
+    [ "setSize", "d3/d4c/a01540.html#a55130d108aa3f8d6235341814cfd4c23", null ]
 ];

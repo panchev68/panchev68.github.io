@@ -1,8 +1,6 @@
 var a01586 =
 [
-    [ "Node", "d2/d2f/a01586.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "d2/d2f/a01586.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "d2/d2f/a01586.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "d2/d2f/a01586.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "d2/d2f/a01586.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "lengthLSB", "d2/d2f/a01586.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "d2/d2f/a01586.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "d2/d2f/a01586.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

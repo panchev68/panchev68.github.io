@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['flag_0',['Flag',['../dd/de9/a01792.html#a0d014768676f3aad8b6fb7f3fc1390c1',1,'Lib::Ethernet::Wiznet::Socket']]],
-  ['foeerror_1',['FoEError',['../d3/d69/a00844.html#a058e47e5398a583fd14a446b7b2dbdb4',1,'Lib::Ethercat::SOES']]]
+  ['flag_0',['Flag',['../d9/d75/a01843.html#a0d014768676f3aad8b6fb7f3fc1390c1',1,'Lib::Ethernet::Wiznet::Socket']]],
+  ['foeerror_1',['FoEError',['../d7/d34/a00883.html#a058e47e5398a583fd14a446b7b2dbdb4',1,'Lib::Ethercat::SOES']]]
 ];

@@ -1,15 +1,11 @@
 var a01553 =
 [
-    [ "Error", "de/d2c/a01553.html#a9d7546738e259f57d9e431d88a39ac23", null ],
-    [ "Handlers", "de/d2c/a01553.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
-    [ "FoE", "de/d2c/a01553.html#ad7dd21bafde30794cef6a653baacc862", null ],
-    [ "~FoE", "de/d2c/a01553.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
-    [ "FoE", "de/d2c/a01553.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
-    [ "FoE", "de/d2c/a01553.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
-    [ "handle", "de/d2c/a01553.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
-    [ "isBusy", "de/d2c/a01553.html#a4463e44a62dae7598614225dc069e03c", null ],
-    [ "operator=", "de/d2c/a01553.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
-    [ "operator=", "de/d2c/a01553.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
-    [ "reset", "de/d2c/a01553.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
-    [ "setHandlers", "de/d2c/a01553.html#a39b767747ef43947171f73021ee9dd76", null ]
+    [ "Message", "de/d2c/a01553.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "de/d2c/a01553.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "de/d2c/a01553.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "de/d2c/a01553.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "de/d2c/a01553.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "de/d2c/a01553.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "de/d2c/a01553.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "de/d2c/a01553.html#a99d9247c3097add390da201d0083e524", null ]
 ];

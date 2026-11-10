@@ -1,9 +1,12 @@
 var a00950 =
 [
-    [ "Config", "d3/dca/a00954.html", "d3/dca/a00954" ],
-    [ "Driver", "df/d39/a00950.html#a1d8e503b6726e6008abf411810b2191d", null ],
-    [ "~Driver", "df/d39/a00950.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
-    [ "handleTransferCompleteEvent", "df/d39/a00950.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
-    [ "setup", "df/d39/a00950.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
-    [ "transmitBlock", "df/d39/a00950.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
+    [ "Inputs", "df/d39/a00950.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
+    [ "getChangesCounter", "df/d39/a00950.html#a02a156f7de35ad87391858c4284826ce", null ],
+    [ "getSpiHandle", "df/d39/a00950.html#afb55a694371e388292f94be2800d26b6", null ],
+    [ "getValue", "df/d39/a00950.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
+    [ "postUpdateCallback", "df/d39/a00950.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
+    [ "preUpdateCallback", "df/d39/a00950.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
+    [ "setup", "df/d39/a00950.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
+    [ "update", "df/d39/a00950.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
+    [ "onValueChanged", "df/d39/a00950.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
 ];

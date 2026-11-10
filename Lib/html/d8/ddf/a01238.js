@@ -1,5 +1,10 @@
 var a01238 =
 [
-    [ "decayPeriodMicroseconds", "d8/ddf/a01238.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
-    [ "frequencyHz", "d8/ddf/a01238.html#a50257a628ef439fb965df1ee908f3e5e", null ]
+    [ "Ring", "d8/ddf/a01238.html#a162946918a210436d07b8649948e2939", null ],
+    [ "Ring", "d8/ddf/a01238.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
+    [ "Ring", "d8/ddf/a01238.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
+    [ "getData", "d8/ddf/a01238.html#a897e123e376e08a2741c3498d764166d", null ],
+    [ "operator=", "d8/ddf/a01238.html#a3b42427dd22bff92b102320fdf83a671", null ],
+    [ "operator=", "d8/ddf/a01238.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
+    [ "operator[]", "d8/ddf/a01238.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
 ];

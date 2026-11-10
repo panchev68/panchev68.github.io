@@ -1,14 +1,19 @@
 var a01888 =
 [
-    [ "FlashInterface", "d7/d5f/a01888.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
-    [ "~FlashInterface", "d7/d5f/a01888.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
-    [ "FlashInterface", "d7/d5f/a01888.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
-    [ "FlashInterface", "d7/d5f/a01888.html#a1c805cbd8158ca094182032c42fa8a68", null ],
-    [ "eraseSector", "d7/d5f/a01888.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
-    [ "lock", "d7/d5f/a01888.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
-    [ "operator=", "d7/d5f/a01888.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
-    [ "operator=", "d7/d5f/a01888.html#a2e5471c04f3069860252fdf10e53270a", null ],
-    [ "unlock", "d7/d5f/a01888.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
-    [ "writeBuffer", "d7/d5f/a01888.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
-    [ "writeWord", "d7/d5f/a01888.html#ad771befb1be3db0d319c46507a7896ca", null ]
+    [ "Event", "dc/d31/a01892.html", null ],
+    [ "CANPort", "d7/d5f/a01888.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
+    [ "~CANPort", "d7/d5f/a01888.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
+    [ "CANPort", "d7/d5f/a01888.html#abe29825ceeac4153d36a08a6cb3adf7f", null ],
+    [ "CANPort", "d7/d5f/a01888.html#af568e7e4043e0b195db174dab37c5dc9", null ],
+    [ "close", "d7/d5f/a01888.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "getFreeTxMailboxCount", "d7/d5f/a01888.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getHandle", "d7/d5f/a01888.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d7/d5f/a01888.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "getRxFifoFillLevel", "d7/d5f/a01888.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "d7/d5f/a01888.html#a591e40ed78afa5d73704475e00c55060", null ],
+    [ "operator=", "d7/d5f/a01888.html#aa58c9c3ab70cdf4e842716686aaa8c40", null ],
+    [ "operator=", "d7/d5f/a01888.html#a8edeb615d6ad0c65bcf55d3d8f8fdce0", null ],
+    [ "read", "d7/d5f/a01888.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "waitForEvent", "d7/d5f/a01888.html#a1c4fcd17767b405bdecda984747567ed", null ],
+    [ "write", "d7/d5f/a01888.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

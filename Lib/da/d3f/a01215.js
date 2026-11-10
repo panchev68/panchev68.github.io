@@ -1,6 +1,6 @@
 var a01215 =
 [
-    [ "Checksum", "da/d3f/a01215.html#a975d7b7bec66de9f37566e22707b1666", null ],
-    [ "Checksum", "da/d3f/a01215.html#a74fc3e3e51f71adc0089bc8af4153d40", null ],
-    [ "operator uint8_t", "da/d3f/a01215.html#a427a9cf140bde300d7f8662f529b1840", null ]
+    [ "pinHandle", "da/d3f/a01215.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "da/d3f/a01215.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "da/d3f/a01215.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

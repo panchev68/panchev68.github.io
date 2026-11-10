@@ -1,5 +1,6 @@
 var a00188 =
 [
-    [ "Lib::Digi::API::Service::PairService", "df/dec/a01320.html", "df/dec/a01320" ],
-    [ "Lib::Digi::API::Service::PairService::Config", "d5/d53/a01324.html", "d5/d53/a01324" ]
+    [ "Lib::BSP::XPT2046", "dd/d95/a01247.html", "dd/d95/a01247" ],
+    [ "Lib::BSP::XPT2046::Config", "dc/dc2/a01251.html", "dc/dc2/a01251" ],
+    [ "Lib::BSP::XPT2046::Parameters", "d7/d88/a01255.html", "d7/d88/a01255" ]
 ];

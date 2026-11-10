@@ -1,12 +1,6 @@
 var a01592 =
 [
-    [ "Config", "de/d40/a01592.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
-    [ "Module", "de/d40/a01592.html#a254c8c718d7faf592b274708db07db8d", null ],
-    [ "~Module", "de/d40/a01592.html#a3e8be6962f855fba474c3c0e0366a256", null ],
-    [ "init", "de/d40/a01592.html#a45140156f7c70b779d773237bed74b50", null ],
-    [ "reset", "de/d40/a01592.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
-    [ "send", "de/d40/a01592.html#adb8dd809dcd7a22dee2718819616b947", null ],
-    [ "onMessageReceive", "de/d40/a01592.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
-    [ "onMessageSend", "de/d40/a01592.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
-    [ "responseEvents", "de/d40/a01592.html#ac2585942261cabaa51522f461c64816b", null ]
+    [ "resetPin", "de/d40/a01592.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
+    [ "rxHandle", "de/d40/a01592.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
+    [ "txHandle", "de/d40/a01592.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
 ];

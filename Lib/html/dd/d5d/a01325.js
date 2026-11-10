@@ -1,14 +1,12 @@
 var a01325 =
 [
-    [ "SerialNumber", "df/d29/a01329.html", "df/d29/a01329" ],
-    [ "ackFailures", "dd/d5d/a01325.html#aa36464587f33788505f069d1c46ec004", null ],
-    [ "ccaFailures", "dd/d5d/a01325.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
-    [ "channel", "dd/d5d/a01325.html#a910133d925087a409f8f8357447b9e3a", null ],
-    [ "firmwareVersion", "dd/d5d/a01325.html#a919225b632587966d3cdbd15ca30f0d3", null ],
-    [ "hardwareVersion", "dd/d5d/a01325.html#a2efd702c930d16f10c2672244503d676", null ],
-    [ "nodeIdentifier", "dd/d5d/a01325.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
-    [ "panId", "dd/d5d/a01325.html#ad1515643697ad647030e33ba97d79968", null ],
-    [ "serialNumber", "dd/d5d/a01325.html#a5e4e85516315320363b69f902c64a5b7", null ],
-    [ "temperature", "dd/d5d/a01325.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
-    [ "voltage", "dd/d5d/a01325.html#a9ee4423766190b01b3381ae41455bf2d", null ]
+    [ "SerialPortBase", "dd/d5d/a01325.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "dd/d5d/a01325.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "dd/d5d/a01325.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "dd/d5d/a01325.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "dd/d5d/a01325.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "dd/d5d/a01325.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "dd/d5d/a01325.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "dd/d5d/a01325.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "dd/d5d/a01325.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

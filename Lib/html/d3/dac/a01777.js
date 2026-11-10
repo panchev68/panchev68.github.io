@@ -1,20 +1,14 @@
 var a01777 =
 [
-    [ "Point", "d6/d27/a01781.html", "d6/d27/a01781" ],
-    [ "BoundaryType", "d3/dac/a01777.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d3/dac/a01777.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d3/dac/a01777.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d3/dac/a01777.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d3/dac/a01777.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d3/dac/a01777.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d3/dac/a01777.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d3/dac/a01777.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d3/dac/a01777.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d3/dac/a01777.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d3/dac/a01777.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d3/dac/a01777.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d3/dac/a01777.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d3/dac/a01777.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d3/dac/a01777.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "ADCPort", "d3/dac/a01777.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "d3/dac/a01777.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "d3/dac/a01777.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "d3/dac/a01777.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "getHandle", "d3/dac/a01777.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "d3/dac/a01777.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "operator=", "d3/dac/a01777.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "d3/dac/a01777.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "d3/dac/a01777.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "d3/dac/a01777.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "d3/dac/a01777.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

@@ -1,9 +1,8 @@
 var a00999 =
 [
-    [ "errorCode", "de/de2/a00999.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "de/de2/a00999.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "de/de2/a00999.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "de/de2/a00999.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "de/de2/a00999.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "de/de2/a00999.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "bl", "de/de2/a00999.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "de/de2/a00999.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "de/de2/a00999.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "de/de2/a00999.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "de/de2/a00999.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

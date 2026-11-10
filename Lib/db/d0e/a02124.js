@@ -1,19 +1,13 @@
 var a02124 =
 [
-    [ "USBHostPortBase", "db/d0e/a02124.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
-    [ "USBHostPortBase", "db/d0e/a02124.html#aa89066f8aa5102a47badafbc732bf444", null ],
-    [ "USBHostPortBase", "db/d0e/a02124.html#a6ab4021b54519845f9f116d64637e8b3", null ],
-    [ "~USBHostPortBase", "db/d0e/a02124.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
-    [ "close", "db/d0e/a02124.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
-    [ "closeChannel", "db/d0e/a02124.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
-    [ "getFrame", "db/d0e/a02124.html#aa5a82053bf356261f139d027918f7a98", null ],
-    [ "getSpeed", "db/d0e/a02124.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
-    [ "getTransferCount", "db/d0e/a02124.html#aeafad19d337548bb5ef919dd44723b5f", null ],
-    [ "open", "db/d0e/a02124.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
-    [ "openChannel", "db/d0e/a02124.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
-    [ "operator=", "db/d0e/a02124.html#a58f84861a9e04f0260bf39e31c926931", null ],
-    [ "operator=", "db/d0e/a02124.html#a9dea26483778c8eacb80952819421b30", null ],
-    [ "resetPort", "db/d0e/a02124.html#a4be20887571f3bd3694a79bb349979f8", null ],
-    [ "start", "db/d0e/a02124.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
-    [ "stop", "db/d0e/a02124.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
+    [ "UARTPortBase", "db/d0e/a02124.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "db/d0e/a02124.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "db/d0e/a02124.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "db/d0e/a02124.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "db/d0e/a02124.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "db/d0e/a02124.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "db/d0e/a02124.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "db/d0e/a02124.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "db/d0e/a02124.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "db/d0e/a02124.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

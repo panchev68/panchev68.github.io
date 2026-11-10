@@ -1,6 +1,10 @@
 var a01176 =
 [
-    [ "pinHandle", "d3/d32/a01176.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
-    [ "timerHandler", "d3/d32/a01176.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
-    [ "updatePeriod", "d3/d32/a01176.html#a08c430ab4ab176b490c190835f89b3b0", null ]
+    [ "operator==", "d3/d32/a01176.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d3/d32/a01176.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d3/d32/a01176.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d3/d32/a01176.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d3/d32/a01176.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d3/d32/a01176.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d3/d32/a01176.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

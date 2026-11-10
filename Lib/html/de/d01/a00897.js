@@ -1,7 +1,10 @@
 var a00897 =
 [
-    [ "correction", "de/d01/a00897.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
-    [ "i2cAddr", "de/d01/a00897.html#ae3266da82296416f02f68de0c610a2f9", null ],
-    [ "i2cPort", "de/d01/a00897.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
-    [ "shuntResistorOhms", "de/d01/a00897.html#a9808e99c30c4516f65cdae3a889ec038", null ]
+    [ "PortBase", "de/d01/a00897.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "de/d01/a00897.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "de/d01/a00897.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "de/d01/a00897.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "de/d01/a00897.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "de/d01/a00897.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "de/d01/a00897.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

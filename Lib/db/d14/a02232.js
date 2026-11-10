@@ -1,12 +1,12 @@
 var a02232 =
 [
-    [ "Sunset", "db/d14/a02232.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "db/d14/a02232.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "db/d14/a02232.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "db/d14/a02232.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "db/d14/a02232.html#a0598ea08f953291be6bd331b39254b2a", null ],
-    [ "setCurrentDate", "db/d14/a02232.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "db/d14/a02232.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "db/d14/a02232.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "db/d14/a02232.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "Time", "db/d14/a02232.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "db/d14/a02232.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "db/d14/a02232.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "db/d14/a02232.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "db/d14/a02232.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "db/d14/a02232.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "db/d14/a02232.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "db/d14/a02232.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "db/d14/a02232.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

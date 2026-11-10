@@ -1,7 +1,11 @@
 var a01680 =
 [
-    [ "Group", "d5/d83/a01680.html#a48b74757679d549dd7d08383435d59b5", null ],
-    [ "~Group", "d5/d83/a01680.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "d5/d83/a01680.html#a6b28a1279997058ac197a0579f4c818d", null ],
-    [ "tag", "d5/d83/a01680.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "onExtendedTransmitStatusChanged", "d5/d83/a01680.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
+    [ "onLocalAtCommand", "d5/d83/a01680.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
+    [ "onModemStatusChanged", "d5/d83/a01680.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
+    [ "onPacketReceived", "d5/d83/a01680.html#a850cfb32fb4c250ebb5d07029d996133", null ],
+    [ "onReceivePacket16bit", "d5/d83/a01680.html#a30dd6aca5f04efa028541965da0f724f", null ],
+    [ "onReceivePacket64bit", "d5/d83/a01680.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
+    [ "onRemoteATCommand", "d5/d83/a01680.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
+    [ "onTransmitStatus", "d5/d83/a01680.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
 ];

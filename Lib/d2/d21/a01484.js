@@ -1,18 +1,16 @@
 var a01484 =
 [
-    [ "Node", "d2/daa/a01488.html", "d2/daa/a01488" ],
-    [ "NetworkDiscovery", "d2/d21/a01484.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
-    [ "NetworkDiscovery", "d2/d21/a01484.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
-    [ "close", "d2/d21/a01484.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
-    [ "getNodeCount", "d2/d21/a01484.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
-    [ "getNodes", "d2/d21/a01484.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
-    [ "hasNodes", "d2/d21/a01484.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
-    [ "initialize", "d2/d21/a01484.html#a6329c58c641c134db59a8f37a9637dea", null ],
-    [ "isRunning", "d2/d21/a01484.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d2/d21/a01484.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
-    [ "operator=", "d2/d21/a01484.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
-    [ "process", "d2/d21/a01484.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "start", "d2/d21/a01484.html#a959b5480dd22f8a82c83f45f689a5f47", null ],
-    [ "tearDown", "d2/d21/a01484.html#a433b1176b2ec86cafe98bb73425d401b", null ],
-    [ "update", "d2/d21/a01484.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "Period", "d2/d21/a01484.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
+    [ "Period", "d2/d21/a01484.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
+    [ "beginMeasurement", "d2/d21/a01484.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
+    [ "clearMinMax", "d2/d21/a01484.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
+    [ "endMeasurement", "d2/d21/a01484.html#a764b89843884696c66a1e499e466bb51", null ],
+    [ "getMaximum", "d2/d21/a01484.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
+    [ "getMinimum", "d2/d21/a01484.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
+    [ "getRawValue", "d2/d21/a01484.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
+    [ "getValue", "d2/d21/a01484.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
+    [ "operator uint32_t", "d2/d21/a01484.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
+    [ "operator=", "d2/d21/a01484.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
+    [ "reset", "d2/d21/a01484.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
+    [ "stopMeasurement", "d2/d21/a01484.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
 ];

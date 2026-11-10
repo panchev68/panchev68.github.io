@@ -1,19 +1,14 @@
 var a01820 =
 [
-    [ "Event", "d2/d77/a01824.html", null ],
-    [ "ADCPort", "d5/dd6/a01820.html#a4367ca9803f69b785980f81032d2b4e5", null ],
-    [ "~ADCPort", "d5/dd6/a01820.html#aef75242b0f88129467c7f469f87adbdd", null ],
-    [ "ADCPort", "d5/dd6/a01820.html#a0c76f40278dd8828f6c5d929122ab108", null ],
-    [ "ADCPort", "d5/dd6/a01820.html#a3defd155b3695109fe259c5ab8b702ba", null ],
-    [ "close", "d5/dd6/a01820.html#a5701c9da4db47e937bec19f3d29c9855", null ],
-    [ "getHandle", "d5/dd6/a01820.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d5/dd6/a01820.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "getValue", "d5/dd6/a01820.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d5/dd6/a01820.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
-    [ "operator=", "d5/dd6/a01820.html#a3a51d3196eaa9489df8eda029877ee83", null ],
-    [ "operator=", "d5/dd6/a01820.html#abebb56cf09bf035f43b898c284835ccd", null ],
-    [ "read", "d5/dd6/a01820.html#ada05318e458485bb7ae8564156216202", null ],
-    [ "start", "d5/dd6/a01820.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
-    [ "stop", "d5/dd6/a01820.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
-    [ "waitForEvent", "d5/dd6/a01820.html#a780888659faa909e3e3228c427e5969e", null ]
+    [ "PortString", "d5/dd6/a01820.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "d5/dd6/a01820.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "d5/dd6/a01820.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "d5/dd6/a01820.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "d5/dd6/a01820.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "d5/dd6/a01820.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "d5/dd6/a01820.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "d5/dd6/a01820.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "d5/dd6/a01820.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "d5/dd6/a01820.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "d5/dd6/a01820.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

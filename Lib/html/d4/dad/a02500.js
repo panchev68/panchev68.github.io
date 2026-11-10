@@ -1,13 +1,7 @@
 var a02500 =
 [
-    [ "Date", "d4/dad/a02500.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "d4/dad/a02500.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "d4/dad/a02500.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "d4/dad/a02500.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d4/dad/a02500.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "d4/dad/a02500.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "d4/dad/a02500.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "d4/dad/a02500.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "d4/dad/a02500.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "firmwareSubversion", "d4/dad/a02500.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
+    [ "firmwareVersionString", "d4/dad/a02500.html#a6b83c53d998379f08471d89aead2818e", null ],
+    [ "hardwareSubversion", "d4/dad/a02500.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
+    [ "hardwareVersionString", "d4/dad/a02500.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
 ];

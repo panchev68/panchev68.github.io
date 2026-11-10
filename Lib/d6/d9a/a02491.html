@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Slave.hpp</title>
+<title>IAR Library: RTOS::TickClient&lt; Derived &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d9a/a02491.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d9a/a02491.html','../../','d6/d57/a02488'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -110,106 +111,1039 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d9a/a02491.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Slave.hpp</div></div>
+  <div class="headertitle"><div class="title">RTOS::TickClient&lt; Derived &gt;</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave controller.  
-<a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>EtherCAT slave: the application layer state machine, the process data and the mailbox of one slave controller. </p>
-<p>Written directly on the ESC registers, so no vendor stack is needed. The class follows the master's AL control requests (INIT, PRE-OP, SAFE-OP, OP), checks the sync manager configuration the master wrote before each step up, reports a refused request or a failure through the AL status and AL status code registers, drops from OP to SAFE-OP when the process data watchdog expires, and exchanges the process data of SM2 (outputs) and SM3 (inputs), which it enables through the PDI control registers on entering OP and SAFE-OP. The mailbox is a <b>Mailbox</b>; the messages of a protocol such as CoE are handed to the derived class.</p>
-<p>The BOOTSTRAP state is offered when the derived class says so (<b>isBootstrapSupported()</b>); the firmware update itself runs over FoE. Distributed clock synchronization is configured by the master in the ESC; the step to SAFE-OP asks the derived class to accept it (<b>checkDistributedClock()</b>). Not covered: AoE and SoE on the mailbox. CoE, FoE and EoE are the separate classes <b>CoE</b>, <b>FoE</b> and <b>EoE</b> (class/): call their <b>handle()</b> from <b>handleMailboxMessage()</b>. The chip is reached through any type that provides <b>readReg()</b> and <b>writeReg()</b> (the LAN9252 driver does).</p>
-<p>The class is a CRTP base. A derived class may provide <b>handleMailboxMessage()</b>, <b>handleMailboxIdle()</b>, <b>handleStateChange()</b>, <b>isBootstrapSupported()</b> and <b>checkDistributedClock()</b>; each replaces the default of this class. If it declares them private, it must make <b>Slave&lt;...&gt;</b> its friend. One task at a time may use a slave.</p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-10-13 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for Ethercat/SOES/Slave.hpp:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename Derived&gt;<br />
+class RTOS::TickClient&lt; Derived &gt;</div><p>RAII owner of a periodic FreeRTOS software timer that calls "Derived::handleTickEvent()" on every expiry. </p>
+<p>The callback runs in the timer service task, so it must not block. The derived class must make "handleTickEvent()" reachable from this base (public, or befriend "TickClient") and should stop the timer in its own destructor, because the timer may still fire while the derived members are being destroyed.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Derived</td><td>Class inheriting from "TickClient" that implements "handleTickEvent()". </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::TickClient&lt; Derived &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d90/a02492.svg" width="595" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dbe/a02489.svg" width="238" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><table class="memberdecls">
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3AProcessDataSize" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3AProcessDataSize"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d1/d9b/a01566.html">Lib::Ethercat::SOES::ProcessDataSize</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sizes of the process data of a slave.  <a href="../../d1/d9b/a01566.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES_3A_3ASlave_3C_20T_5FDERIVED_2C_20T_5FESC_2C_20T_5FMAILBOX_5FSIZE_20_3E" id="r_Lib_3A_3AEthercat_3A_3ASOES_3A_3ASlave_3C_20T_5FDERIVED_2C_20T_5FESC_2C_20T_5FMAILBOX_5FSIZE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d75/a01570.html">Lib::Ethercat::SOES::Slave&lt; T_DERIVED, T_ESC, T_MAILBOX_SIZE &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">EtherCAT slave.  <a href="../../d5/d75/a01570.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d5/d56/a02495.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construction parameters of a tick client.  <a href="../../d5/d56/a02495.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dd1/a00804.html">Lib</a></td></tr>
-<tr class="memdesc:d1/dd1/a00804"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat" id="r_Lib_3A_3AEthercat"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d8/d64/a00828.html">Lib::Ethercat</a></td></tr>
-<tr class="memitem:Lib_3A_3AEthercat_3A_3ASOES" id="r_Lib_3A_3AEthercat_3A_3ASOES"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html">Lib::Ethercat::SOES</a></td></tr>
-<tr class="memdesc:d1/dea/a00829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple Open EtherCAT <a class="el" href="../../d5/d75/a01570.html" title="EtherCAT slave.">Slave</a> (<a class="el" href="../../d1/dea/a00829.html" title="Simple Open EtherCAT Slave (SOES) stack integration.">SOES</a>) stack integration. <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3e885923e858b4dbbb6896a511cb5166" id="r_a3e885923e858b4dbbb6896a511cb5166"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> (const <a class="el" href="../../d5/d56/a02495.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:a3e885923e858b4dbbb6896a511cb5166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a new tick client and creates the underlying timer; check "isValid()" for the outcome.  <br /></td></tr>
+<tr class="memitem:aa081d1530901d0d5cca0f29807ada39a" id="r_aa081d1530901d0d5cca0f29807ada39a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa081d1530901d0d5cca0f29807ada39a">~TickClient</a> () noexcept</td></tr>
+<tr class="memdesc:aa081d1530901d0d5cca0f29807ada39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes the underlying timer.  <br /></td></tr>
+<tr class="memitem:a6a64e7b4307315ae1a1a0e8ee2214b4b" id="r_a6a64e7b4307315ae1a1a0e8ee2214b4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6a64e7b4307315ae1a1a0e8ee2214b4b">TickClient</a> (const TickClient &amp;)=delete</td></tr>
+<tr class="memdesc:a6a64e7b4307315ae1a1a0e8ee2214b4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the native timer stores this object's address as its callback context.  <br /></td></tr>
+<tr class="memitem:a8cbfad05ae465784059e104778632821" id="r_a8cbfad05ae465784059e104778632821"><td class="memItemLeft"><a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a8cbfad05ae465784059e104778632821">operator=</a> (const <a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a8cbfad05ae465784059e104778632821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the native timer stores this object's address as its callback context.  <br /></td></tr>
+<tr class="memitem:a32f321fa2b51b5909c7f4a3302e1bc77" id="r_a32f321fa2b51b5909c7f4a3302e1bc77"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a32f321fa2b51b5909c7f4a3302e1bc77">TickClient</a> (TickClient &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a32f321fa2b51b5909c7f4a3302e1bc77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the native timer stores this object's address as its callback context.  <br /></td></tr>
+<tr class="memitem:a206dc99dd3e2606043f77ede19d83bf5" id="r_a206dc99dd3e2606043f77ede19d83bf5"><td class="memItemLeft"><a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a206dc99dd3e2606043f77ede19d83bf5">operator=</a> (<a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a206dc99dd3e2606043f77ede19d83bf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the native timer stores this object's address as its callback context.  <br /></td></tr>
+<tr class="memitem:a95568f125f0eac00c1b1668b017ae662" id="r_a95568f125f0eac00c1b1668b017ae662"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a95568f125f0eac00c1b1668b017ae662">setup</a> (<a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> period=<a class="el" href="#ab5833b8429432a0ad4e29569826f505d">DEFAULT_PERIOD</a>, bool autoStart=true) noexcept</td></tr>
+<tr class="memdesc:a95568f125f0eac00c1b1668b017ae662"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the underlying timer if not already created, or updates its period if it already exists.  <br /></td></tr>
+<tr class="memitem:af079f0ff38c9abbb17860ae663c665df" id="r_af079f0ff38c9abbb17860ae663c665df"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:af079f0ff38c9abbb17860ae663c665df template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af079f0ff38c9abbb17860ae663c665df">setup</a> (std::chrono::duration&lt; Rep, Period &gt; period, bool autoStart=true) noexcept</td></tr>
+<tr class="memdesc:af079f0ff38c9abbb17860ae663c665df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates or updates the underlying timer with a "std::chrono" period.  <br /></td></tr>
+<tr class="memitem:a59730ccf7ef04d00837d566cd5184305" id="r_a59730ccf7ef04d00837d566cd5184305"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a59730ccf7ef04d00837d566cd5184305">start</a> () noexcept</td></tr>
+<tr class="memdesc:a59730ccf7ef04d00837d566cd5184305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer; must be called from task context.  <br /></td></tr>
+<tr class="memitem:a63fcbf5699a2025dba2c058bc0715c62" id="r_a63fcbf5699a2025dba2c058bc0715c62"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a63fcbf5699a2025dba2c058bc0715c62">stop</a> () noexcept</td></tr>
+<tr class="memdesc:a63fcbf5699a2025dba2c058bc0715c62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer; must be called from task context.  <br /></td></tr>
+<tr class="memitem:a7a4396772c0f38c13c4159eda24dad0d" id="r_a7a4396772c0f38c13c4159eda24dad0d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7a4396772c0f38c13c4159eda24dad0d">reset</a> () noexcept</td></tr>
+<tr class="memdesc:a7a4396772c0f38c13c4159eda24dad0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the period from now, starting the timer if it was stopped; must be called from task context.  <br /></td></tr>
+<tr class="memitem:adf87e93a9e774ae37b684423c1f2acde" id="r_adf87e93a9e774ae37b684423c1f2acde"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adf87e93a9e774ae37b684423c1f2acde">startFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:adf87e93a9e774ae37b684423c1f2acde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer from an ISR context, leaving the context switch to the caller.  <br /></td></tr>
+<tr class="memitem:a950094a7c5c23bac35a8dfa0472dbd02" id="r_a950094a7c5c23bac35a8dfa0472dbd02"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a950094a7c5c23bac35a8dfa0472dbd02">stopFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:a950094a7c5c23bac35a8dfa0472dbd02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer from an ISR context, leaving the context switch to the caller.  <br /></td></tr>
+<tr class="memitem:a7c3baef45d5c6e812ec90241dd97ff6c" id="r_a7c3baef45d5c6e812ec90241dd97ff6c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7c3baef45d5c6e812ec90241dd97ff6c">startFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a7c3baef45d5c6e812ec90241dd97ff6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer from an ISR context and requests a context switch when needed.  <br /></td></tr>
+<tr class="memitem:ab9f24e9be6431fa9de927ef5b39ce61e" id="r_ab9f24e9be6431fa9de927ef5b39ce61e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab9f24e9be6431fa9de927ef5b39ce61e">stopFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:ab9f24e9be6431fa9de927ef5b39ce61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer from an ISR context and requests a context switch when needed.  <br /></td></tr>
+<tr class="memitem:ad88e49d6dba20d768779b274c73eeaaf" id="r_ad88e49d6dba20d768779b274c73eeaaf"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad88e49d6dba20d768779b274c73eeaaf">resetFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:ad88e49d6dba20d768779b274c73eeaaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the period from an ISR context, leaving the context switch to the caller.  <br /></td></tr>
+<tr class="memitem:abc6e0b22a8ccbaefc9c2c961b59b81f1" id="r_abc6e0b22a8ccbaefc9c2c961b59b81f1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abc6e0b22a8ccbaefc9c2c961b59b81f1">resetFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:abc6e0b22a8ccbaefc9c2c961b59b81f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Restarts the period from an ISR context and requests a context switch when needed.  <br /></td></tr>
+<tr class="memitem:ad20836d70197059eab8a5694eededa40" id="r_ad20836d70197059eab8a5694eededa40"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad20836d70197059eab8a5694eededa40">changePeriodFromISR</a> (<a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> period, BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
+<tr class="memdesc:ad20836d70197059eab8a5694eededa40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the period from an ISR context, which also starts a stopped timer, leaving the context switch to the caller.  <br /></td></tr>
+<tr class="memitem:a7c8017e24f2f8306cca30515802f61de" id="r_a7c8017e24f2f8306cca30515802f61de"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7c8017e24f2f8306cca30515802f61de">changePeriodFromISR</a> (<a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> period) noexcept</td></tr>
+<tr class="memdesc:a7c8017e24f2f8306cca30515802f61de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the period from an ISR context, which also starts a stopped timer, and requests a context switch when needed.  <br /></td></tr>
+<tr class="memitem:a084f884000ac866e97a7de170367ac6f" id="r_a084f884000ac866e97a7de170367ac6f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a084f884000ac866e97a7de170367ac6f">isActive</a> () const noexcept</td></tr>
+<tr class="memdesc:a084f884000ac866e97a7de170367ac6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timer is currently running; must be called from task context.  <br /></td></tr>
+<tr class="memitem:aa3419504803e71b4605ae5f4765608db" id="r_aa3419504803e71b4605ae5f4765608db"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa3419504803e71b4605ae5f4765608db">isStarted</a> () const noexcept</td></tr>
+<tr class="memdesc:aa3419504803e71b4605ae5f4765608db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Alias for "isActive()", kept for call-site readability; must be called from task context.  <br /></td></tr>
+<tr class="memitem:a408eb1aee05259b64d9d520fecbad54f" id="r_a408eb1aee05259b64d9d520fecbad54f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a408eb1aee05259b64d9d520fecbad54f">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:a408eb1aee05259b64d9d520fecbad54f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports whether the last setup, including the one run by the constructor, succeeded.  <br /></td></tr>
+<tr class="memitem:ae8047f3e345b144287a23699cfebebcc" id="r_ae8047f3e345b144287a23699cfebebcc"><td class="memItemLeft"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae8047f3e345b144287a23699cfebebcc">getPeriod</a> () const noexcept</td></tr>
+<tr class="memdesc:ae8047f3e345b144287a23699cfebebcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the current timer period.  <br /></td></tr>
+<tr class="memitem:af5207bfd2383a7f0cf5bc9d5e370acba" id="r_af5207bfd2383a7f0cf5bc9d5e370acba"><td class="memItemLeft"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#af5207bfd2383a7f0cf5bc9d5e370acba">getExpiryTime</a> () const noexcept</td></tr>
+<tr class="memdesc:af5207bfd2383a7f0cf5bc9d5e370acba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the tick at which the timer expires next; meaningful only while it is active.  <br /></td></tr>
+<tr class="memitem:aef2ed6cb01e9bb34542b767662c88bd3" id="r_aef2ed6cb01e9bb34542b767662c88bd3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aef2ed6cb01e9bb34542b767662c88bd3">changePeriod</a> (<a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> period) noexcept</td></tr>
+<tr class="memdesc:aef2ed6cb01e9bb34542b767662c88bd3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the period of the timer, which also starts it if it was stopped; must be called from task context.  <br /></td></tr>
+<tr class="memitem:a0db43688ea792433fe8d94ebfcab20ca" id="r_a0db43688ea792433fe8d94ebfcab20ca"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a0db43688ea792433fe8d94ebfcab20ca template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0db43688ea792433fe8d94ebfcab20ca">changePeriod</a> (std::chrono::duration&lt; Rep, Period &gt; period) noexcept</td></tr>
+<tr class="memdesc:a0db43688ea792433fe8d94ebfcab20ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Changes the period of the timer to a "std::chrono" duration; must be called from task context.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:afea74831b3c37117c52ebef85489a279" id="r_afea74831b3c37117c52ebef85489a279"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279">Lib::Ethercat::SOES::SlaveState</a> : uint8_t { <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279afaee4ca3c30ee18148ce3ada37466498">Lib::Ethercat::SOES::INIT</a> = 0x01U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279ab981a04a5395a680cda33b4a461bb899">Lib::Ethercat::SOES::PRE_OP</a> = 0x02U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279a82cbe14b76947cbd0fa3e2523c66b267">Lib::Ethercat::SOES::BOOTSTRAP</a> = 0x03U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279abb3ce80a940056cf4ce8a616968a1f60">Lib::Ethercat::SOES::SAFE_OP</a> = 0x04U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279a7457cdd15d09bfc6c4dbb5d2b6f87390">Lib::Ethercat::SOES::OP</a> = 0x08U
-<br />
- }</td></tr>
-<tr class="memdesc:afea74831b3c37117c52ebef85489a279"><td class="mdescLeft">&#160;</td><td class="mdescRight">States of the EtherCAT application layer (AL), as the AL control and AL status registers encode them.  <a href="../../d1/dea/a00829.html#afea74831b3c37117c52ebef85489a279">More...</a><br /></td></tr>
-<tr class="memitem:a10c6daadd4bfb6d09e355d88ec1681dc" id="r_a10c6daadd4bfb6d09e355d88ec1681dc"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dc">Lib::Ethercat::SOES::SlaveError</a> : uint16_t { <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcab50339a10e1de285ac99d4c3990b8693">Lib::Ethercat::SOES::NONE</a> = 0x0000U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca1c04cc3823d476c3017238679a0fdf52">Lib::Ethercat::SOES::UNSPECIFIED</a> = 0x0001U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcafe39af6ff8b4f14f5759e4d70bba6ebc">Lib::Ethercat::SOES::NO_MEMORY</a> = 0x0002U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca3bae6187d2242bcde61de043fe7ad190">Lib::Ethercat::SOES::INVALID_STATE_CHANGE</a> = 0x0011U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcaede65c19ffbe1f6b8cd49a99ee9e3e5e">Lib::Ethercat::SOES::UNKNOWN_STATE</a> = 0x0012U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcac8628a40f8cc37e00058f812e8f4ba39">Lib::Ethercat::SOES::BOOTSTRAP_NOT_SUPPORTED</a> = 0x0013U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcadb196f4b04e8f1adf253ddb24802d1cb">Lib::Ethercat::SOES::NO_VALID_FIRMWARE</a> = 0x0014U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcafc12e148c9811155896337e481fc41a6">Lib::Ethercat::SOES::INVALID_BOOT_MAILBOX_CONFIG</a> = 0x0015U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca531cc95f5d9d1911d23fd6543c863391">Lib::Ethercat::SOES::INVALID_MAILBOX_CONFIG</a> = 0x0016U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcaa5d3c6b48305903390332071f9e63e70">Lib::Ethercat::SOES::INVALID_SYNC_MANAGER_CONFIG</a> = 0x0017U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca83eab79b64f0f34b78a3044b85b6c997">Lib::Ethercat::SOES::NO_VALID_INPUTS</a> = 0x0018U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcad8a4d35e31dfe36557302ca452a605bc">Lib::Ethercat::SOES::NO_VALID_OUTPUTS</a> = 0x0019U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca2d2bfb8866aaca94d1f82c8a285d8925">Lib::Ethercat::SOES::SYNC_ERROR</a> = 0x001AU
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca82ca70e49487bc09fe8b8b3910413122">Lib::Ethercat::SOES::SYNC_MANAGER_WATCHDOG</a> = 0x001BU
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca5814ed6c7d86c6feac7639d6f59f0dbb">Lib::Ethercat::SOES::INVALID_SYNC_MANAGER_TYPE</a> = 0x001CU
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca891cb5019a8d5d1116cce445c413e4db">Lib::Ethercat::SOES::INVALID_OUTPUT_CONFIG</a> = 0x001DU
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca21c9424874272ce464313689d515ddef">Lib::Ethercat::SOES::INVALID_INPUT_CONFIG</a> = 0x001EU
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dca3b21e9c61e6ab826f6201592b74c7b98">Lib::Ethercat::SOES::INVALID_WATCHDOG_CONFIG</a> = 0x001FU
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcae07d7d466ccbb16c9abbcb6a56c5ff56">Lib::Ethercat::SOES::INVALID_DC_SYNC_CONFIG</a> = 0x0030U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcaa2d7e98ebaa19fea18abbc1eb9942f96">Lib::Ethercat::SOES::INVALID_DC_LATCH_CONFIG</a> = 0x0031U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcab05a25a02c394ea192d7777ea468a1b4">Lib::Ethercat::SOES::PLL_ERROR</a> = 0x0032U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcad9ef3ac22d9af2705feac82bdf0e0466">Lib::Ethercat::SOES::DC_SYNC_TIMEOUT</a> = 0x0034U
-, <br />
-&#160;&#160;<a class="el" href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dcae29212c814d52fda7f75613bbaec287d">Lib::Ethercat::SOES::DC_CYCLE_TIME</a> = 0x0035U
-<br />
- }</td></tr>
-<tr class="memdesc:a10c6daadd4bfb6d09e355d88ec1681dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Codes the slave puts in the AL status code register (ETG.1000.6).  <a href="../../d1/dea/a00829.html#a10c6daadd4bfb6d09e355d88ec1681dc">More...</a><br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ab5833b8429432a0ad4e29569826f505d" id="r_ab5833b8429432a0ad4e29569826f505d"><td class="memItemLeft">static constexpr <a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab5833b8429432a0ad4e29569826f505d">DEFAULT_PERIOD</a> = 1U</td></tr>
+<tr class="memdesc:ab5833b8429432a0ad4e29569826f505d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timer period in ticks.  <br /></td></tr>
+<tr class="memitem:a256406936a3e47fe06fc823722cd7c3e" id="r_a256406936a3e47fe06fc823722cd7c3e"><td class="memItemLeft">static constexpr <a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a>&#160;</td><td class="memItemRight"><a class="el" href="#a256406936a3e47fe06fc823722cd7c3e">TIMER_CMD_TIMEOUT</a> = portMAX_DELAY</td></tr>
+<tr class="memdesc:a256406936a3e47fe06fc823722cd7c3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default timeout for timer commands.  <br /></td></tr>
 </table>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="adc76fba01b70e91209e1f25d9dd7f1ce" name="adc76fba01b70e91209e1f25d9dd7f1ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc76fba01b70e91209e1f25d9dd7f1ce">&#9670;&#160;</a></span>TickType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::TickType = TickType_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scheduler tick count type. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a3e885923e858b4dbbb6896a511cb5166" name="a3e885923e858b4dbbb6896a511cb5166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e885923e858b4dbbb6896a511cb5166">&#9670;&#160;</a></span>TickClient() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::TickClient </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../d5/d56/a02495.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes a new tick client and creates the underlying timer; check "isValid()" for the outcome. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td><a class="el" href="../../de/dbd/a02507.html" title="RAII wrapper for managing FreeRTOS software timer resources.">Timer</a> period, start behavior and name. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa081d1530901d0d5cca0f29807ada39a" name="aa081d1530901d0d5cca0f29807ada39a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa081d1530901d0d5cca0f29807ada39a">&#9670;&#160;</a></span>~TickClient()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::~<a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Deletes the underlying timer. </p>
+
+</div>
+</div>
+<a id="a6a64e7b4307315ae1a1a0e8ee2214b4b" name="a6a64e7b4307315ae1a1a0e8ee2214b4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a64e7b4307315ae1a1a0e8ee2214b4b">&#9670;&#160;</a></span>TickClient() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::TickClient </td>
+          <td>(</td>
+          <td class="paramtype">const TickClient&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the native timer stores this object's address as its callback context. </p>
+
+</div>
+</div>
+<a id="a32f321fa2b51b5909c7f4a3302e1bc77" name="a32f321fa2b51b5909c7f4a3302e1bc77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32f321fa2b51b5909c7f4a3302e1bc77">&#9670;&#160;</a></span>TickClient() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::TickClient </td>
+          <td>(</td>
+          <td class="paramtype">TickClient&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the native timer stores this object's address as its callback context. </p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a0db43688ea792433fe8d94ebfcab20ca" name="a0db43688ea792433fe8d94ebfcab20ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0db43688ea792433fe8d94ebfcab20ca">&#9670;&#160;</a></span>changePeriod() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::changePeriod </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>period</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the period of the timer to a "std::chrono" duration; must be called from task context. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the period. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the period. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>New period, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if successful. </dd></dl>
+
+</div>
+</div>
+<a id="aef2ed6cb01e9bb34542b767662c88bd3" name="aef2ed6cb01e9bb34542b767662c88bd3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef2ed6cb01e9bb34542b767662c88bd3">&#9670;&#160;</a></span>changePeriod() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::changePeriod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the period of the timer, which also starts it if it was stopped; must be called from task context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>New period in ticks; must be greater than zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if successful. </dd></dl>
+
+</div>
+</div>
+<a id="a7c8017e24f2f8306cca30515802f61de" name="a7c8017e24f2f8306cca30515802f61de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c8017e24f2f8306cca30515802f61de">&#9670;&#160;</a></span>changePeriodFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::changePeriodFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the period from an ISR context, which also starts a stopped timer, and requests a context switch when needed. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td>New period in ticks; must be greater than zero. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="ad20836d70197059eab8a5694eededa40" name="ad20836d70197059eab8a5694eededa40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad20836d70197059eab8a5694eededa40">&#9670;&#160;</a></span>changePeriodFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::changePeriodFromISR </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Changes the period from an ISR context, which also starts a stopped timer, leaving the context switch to the caller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">period</td><td>New period in ticks; must be greater than zero. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher priority task was woken. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="af5207bfd2383a7f0cf5bc9d5e370acba" name="af5207bfd2383a7f0cf5bc9d5e370acba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5207bfd2383a7f0cf5bc9d5e370acba">&#9670;&#160;</a></span>getExpiryTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::getExpiryTime </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the tick at which the timer expires next; meaningful only while it is active. </p>
+<dl class="section return"><dt>Returns</dt><dd>Expiry tick, or 0 if the timer is not created. </dd></dl>
+
+</div>
+</div>
+<a id="ae8047f3e345b144287a23699cfebebcc" name="ae8047f3e345b144287a23699cfebebcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8047f3e345b144287a23699cfebebcc">&#9670;&#160;</a></span>getPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::getPeriod </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the current timer period. </p>
+<dl class="section return"><dt>Returns</dt><dd>Period in ticks, or 0 if the timer is not created. </dd></dl>
+
+</div>
+</div>
+<a id="a084f884000ac866e97a7de170367ac6f" name="a084f884000ac866e97a7de170367ac6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a084f884000ac866e97a7de170367ac6f">&#9670;&#160;</a></span>isActive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::isActive </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if the timer is currently running; must be called from task context. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if active. </dd></dl>
+
+</div>
+</div>
+<a id="aa3419504803e71b4605ae5f4765608db" name="aa3419504803e71b4605ae5f4765608db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3419504803e71b4605ae5f4765608db">&#9670;&#160;</a></span>isStarted()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::isStarted </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Alias for "isActive()", kept for call-site readability; must be called from task context. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the timer is running. </dd></dl>
+
+</div>
+</div>
+<a id="a408eb1aee05259b64d9d520fecbad54f" name="a408eb1aee05259b64d9d520fecbad54f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a408eb1aee05259b64d9d520fecbad54f">&#9670;&#160;</a></span>isValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::isValid </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reports whether the last setup, including the one run by the constructor, succeeded. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the timer was created or updated and the requested start or stop was accepted. </dd></dl>
+
+</div>
+</div>
+<a id="a8cbfad05ae465784059e104778632821" name="a8cbfad05ae465784059e104778632821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cbfad05ae465784059e104778632821">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> &amp; <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a>&lt; Derived &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the native timer stores this object's address as its callback context. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a206dc99dd3e2606043f77ede19d83bf5" name="a206dc99dd3e2606043f77ede19d83bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a206dc99dd3e2606043f77ede19d83bf5">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a> &amp; <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a3e885923e858b4dbbb6896a511cb5166">TickClient</a>&lt; Derived &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the native timer stores this object's address as its callback context. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a7a4396772c0f38c13c4159eda24dad0d" name="a7a4396772c0f38c13c4159eda24dad0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a4396772c0f38c13c4159eda24dad0d">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restarts the period from now, starting the timer if it was stopped; must be called from task context. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent to the timer service. </dd></dl>
+
+</div>
+</div>
+<a id="abc6e0b22a8ccbaefc9c2c961b59b81f1" name="abc6e0b22a8ccbaefc9c2c961b59b81f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc6e0b22a8ccbaefc9c2c961b59b81f1">&#9670;&#160;</a></span>resetFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::resetFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restarts the period from an ISR context and requests a context switch when needed. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="ad88e49d6dba20d768779b274c73eeaaf" name="ad88e49d6dba20d768779b274c73eeaaf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad88e49d6dba20d768779b274c73eeaaf">&#9670;&#160;</a></span>resetFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::resetFromISR </td>
+          <td>(</td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Restarts the period from an ISR context, leaving the context switch to the caller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher priority task was woken. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="af079f0ff38c9abbb17860ae663c665df" name="af079f0ff38c9abbb17860ae663c665df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af079f0ff38c9abbb17860ae663c665df">&#9670;&#160;</a></span>setup() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::setup </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>period</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoStart</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates or updates the underlying timer with a "std::chrono" period. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the period. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the period. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td><a class="el" href="../../de/dbd/a02507.html" title="RAII wrapper for managing FreeRTOS software timer resources.">Timer</a> period, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">autoStart</td><td>If "true", starts the timer after a successful setup, otherwise leaves it stopped. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if creation or update (and the requested start or stop) succeeded. </dd></dl>
+
+</div>
+</div>
+<a id="a95568f125f0eac00c1b1668b017ae662" name="a95568f125f0eac00c1b1668b017ae662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95568f125f0eac00c1b1668b017ae662">&#9670;&#160;</a></span>setup() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::setup </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a></td>          <td class="paramname"><span class="paramname"><em>period</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ab5833b8429432a0ad4e29569826f505d">DEFAULT_PERIOD</a></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>autoStart</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the underlying timer if not already created, or updates its period if it already exists. </p>
+<p>The outcome is also recorded for "isValid()".</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">period</td><td><a class="el" href="../../de/dbd/a02507.html" title="RAII wrapper for managing FreeRTOS software timer resources.">Timer</a> period in ticks; must be greater than zero. </td></tr>
+    <tr><td class="paramname">autoStart</td><td>If "true", starts the timer after a successful setup, otherwise leaves it stopped. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if creation or update (and the requested start or stop) succeeded. </dd></dl>
+
+</div>
+</div>
+<a id="a59730ccf7ef04d00837d566cd5184305" name="a59730ccf7ef04d00837d566cd5184305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59730ccf7ef04d00837d566cd5184305">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer; must be called from task context. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent to the timer service. </dd></dl>
+
+</div>
+</div>
+<a id="a7c3baef45d5c6e812ec90241dd97ff6c" name="a7c3baef45d5c6e812ec90241dd97ff6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3baef45d5c6e812ec90241dd97ff6c">&#9670;&#160;</a></span>startFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::startFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer from an ISR context and requests a context switch when needed. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="adf87e93a9e774ae37b684423c1f2acde" name="adf87e93a9e774ae37b684423c1f2acde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf87e93a9e774ae37b684423c1f2acde">&#9670;&#160;</a></span>startFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::startFromISR </td>
+          <td>(</td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer from an ISR context, leaving the context switch to the caller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher priority task was woken. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="a63fcbf5699a2025dba2c058bc0715c62" name="a63fcbf5699a2025dba2c058bc0715c62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63fcbf5699a2025dba2c058bc0715c62">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer; must be called from task context. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent to the timer service. </dd></dl>
+
+</div>
+</div>
+<a id="ab9f24e9be6431fa9de927ef5b39ce61e" name="ab9f24e9be6431fa9de927ef5b39ce61e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9f24e9be6431fa9de927ef5b39ce61e">&#9670;&#160;</a></span>stopFromISR() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::stopFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer from an ISR context and requests a context switch when needed. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a id="a950094a7c5c23bac35a8dfa0472dbd02" name="a950094a7c5c23bac35a8dfa0472dbd02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950094a7c5c23bac35a8dfa0472dbd02">&#9670;&#160;</a></span>stopFromISR() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::stopFromISR </td>
+          <td>(</td>
+          <td class="paramtype">BaseType_t &amp;</td>          <td class="paramname"><span class="paramname"><em>higherPriorityTaskWoken</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer from an ISR context, leaving the context switch to the caller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">higherPriorityTaskWoken</td><td>Set to "pdTRUE" if a higher priority task was woken. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the command was successfully sent. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ab5833b8429432a0ad4e29569826f505d" name="ab5833b8429432a0ad4e29569826f505d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5833b8429432a0ad4e29569826f505d">&#9670;&#160;</a></span>DEFAULT_PERIOD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::DEFAULT_PERIOD = 1U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default timer period in ticks. </p>
+
+</div>
+</div>
+<a id="a256406936a3e47fe06fc823722cd7c3e" name="a256406936a3e47fe06fc823722cd7c3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256406936a3e47fe06fc823722cd7c3e">&#9670;&#160;</a></span>TIMER_CMD_TIMEOUT</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Derived&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#adc76fba01b70e91209e1f25d9dd7f1ce">TickType</a> <a class="el" href="../../d6/d9a/a02491.html">RTOS::TickClient</a>&lt; Derived &gt;::TIMER_CMD_TIMEOUT = portMAX_DELAY</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default timeout for timer commands. </p>
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
@@ -223,7 +1157,7 @@ Enumerations</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_ab080a3daff6b74c2c7f4ef6a80e99c9.html">Ethercat</a></li><li class="navelem"><a href="../../dir_c7c96065d50f18644c67d832de179f2c.html">SOES</a></li><li class="navelem"><a href="../../d6/d9a/a02491.html">Slave.hpp</a></li>
+    <li class="navelem"><a href="../../d2/d21/a00895.html">RTOS</a></li><li class="navelem"><a href="../../d6/d9a/a02491.html">TickClient</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

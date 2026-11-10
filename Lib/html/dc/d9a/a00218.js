@@ -1,4 +1,4 @@
 var a00218 =
 [
-    [ "Lib::Digi::Core::DigiApiFrameBuffer", "da/dcf/a01558.html", "da/dcf/a01558" ]
+    [ "Lib::Digi::Core::Checksum", "d8/daf/a01550.html", "d8/daf/a01550" ]
 ];

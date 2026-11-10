@@ -17,13 +17,13 @@ var dir_4ad11338be6ed64801f932656637dcad =
     [ "UART", "dir_08c997db9e6b8b7da37b53044a3ff8a9.html", "dir_08c997db9e6b8b7da37b53044a3ff8a9" ],
     [ "USB", "dir_523f6c4afe5efe6343928a6ac1520b46.html", "dir_523f6c4afe5efe6343928a6ac1520b46" ],
     [ "WWDG", "dir_9119bb87706c54cf3d539dfe80175e29.html", "dir_9119bb87706c54cf3d539dfe80175e29" ],
-    [ "CAN.hpp", "d5/db5/a00374.html", null ],
-    [ "DAC.hpp", "d1/d98/a00407.html", null ],
-    [ "GPIO.hpp", "dc/d2f/a00425.html", "dc/d2f/a00425" ],
-    [ "I2C.hpp", "d0/dc4/a00443.html", null ],
-    [ "OSPI.hpp", "d2/d9d/a00464.html", null ],
-    [ "Reset.hpp", "d0/d29/a00470.html", "d0/d29/a00470" ],
-    [ "SPI.hpp", "d6/d60/a00491.html", null ],
-    [ "UART.hpp", "d4/d33/a00536.html", null ],
-    [ "USB.hpp", "d4/d9e/a00569.html", null ]
+    [ "CAN.hpp", "da/dee/a00383.html", null ],
+    [ "DAC.hpp", "df/d15/a00416.html", null ],
+    [ "GPIO.hpp", "d1/d7e/a00434.html", "d1/d7e/a00434" ],
+    [ "I2C.hpp", "d1/d0b/a00452.html", null ],
+    [ "OSPI.hpp", "dc/d8e/a00473.html", null ],
+    [ "Reset.hpp", "d9/d4a/a00479.html", "d9/d4a/a00479" ],
+    [ "SPI.hpp", "de/d4e/a00500.html", null ],
+    [ "UART.hpp", "d8/deb/a00545.html", null ],
+    [ "USB.hpp", "dd/d5c/a00578.html", null ]
 ];

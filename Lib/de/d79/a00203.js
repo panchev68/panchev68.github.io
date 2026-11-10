@@ -1,4 +1,7 @@
 var a00203 =
 [
-    [ "Lib::Digi::Core::Checksum", "d0/da6/a01536.html", "d0/da6/a01536" ]
+    [ "Lib::Canbus::Mode", "da/d98/a00870.html#ad81e761f20d5185ff2c7cbf5e547ef02", [
+      [ "Lib::Canbus::Mode::CLIENT", "da/d98/a00870.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1", null ],
+      [ "Lib::Canbus::Mode::SERVER", "da/d98/a00870.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844", null ]
+    ] ]
 ];

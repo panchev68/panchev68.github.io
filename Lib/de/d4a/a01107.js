@@ -1,23 +1,19 @@
 var a01107 =
 [
-    [ "Mode", "de/d4a/a01107.html#a1fa3d5a5e7307d0b5620518c07332406", [
-      [ "RUNTIME", "de/d4a/a01107.html#a1fa3d5a5e7307d0b5620518c07332406ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
-      [ "SCANNER", "de/d4a/a01107.html#a1fa3d5a5e7307d0b5620518c07332406aa1323822e71d19091075dd86a90ee35d", null ]
-    ] ],
-    [ "State", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8", [
-      [ "DISCONNECTED", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8a99c8ce56e7ab246445d3b134724428f3", null ],
-      [ "UNUSABLE", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8a22b311bc8cac928de4f019e7672bb154", null ],
-      [ "NOT_GOOD", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8a57a61c4494fc7176bda36f964b413e91", null ],
-      [ "OKAY", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8a74eb855e4de6fe58228f03006c02fd8a", null ],
-      [ "VERY_GOOD", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8a57e657071a4b2bdd078dc2de63037b3a", null ],
-      [ "AMAZING", "de/d4a/a01107.html#a2894ee50dc5996ed2f18b07b95eac6e8a50d3a20a2a39b495b6bec36ca77287e9", null ]
-    ] ],
-    [ "Quality", "de/d4a/a01107.html#ac8b7cad9c67eac45b83424fc09cfcff8", null ],
-    [ "clear", "de/d4a/a01107.html#a9f83d384f7ac11104d7797f317a07abe", null ],
-    [ "getPercent", "de/d4a/a01107.html#abdc935b5e4e162b6c98b3fe97c134901", null ],
-    [ "getState", "de/d4a/a01107.html#ac0ce3488e55e61cb6a016e5037e89822", null ],
-    [ "setMode", "de/d4a/a01107.html#aaf2759f8b73b8569418f26d46af5865e", null ],
-    [ "start", "de/d4a/a01107.html#a97e20d9aa5d1ccb636cd2f19696a0c09", null ],
-    [ "update", "de/d4a/a01107.html#a3c087691136285dc63a4cd1ff03f2459", null ],
-    [ "onUpdate", "de/d4a/a01107.html#a981c4d76b66480b0a86fca4fd7b89963", null ]
+    [ "Config", "d3/de1/a01111.html", "d3/de1/a01111" ],
+    [ "IS62WV51216", "de/d4a/a01107.html#a7921fa0f977faf912d2049453fd4c308", null ],
+    [ "~IS62WV51216", "de/d4a/a01107.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
+    [ "close", "de/d4a/a01107.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
+    [ "getSize", "de/d4a/a01107.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
+    [ "isRangeValid", "de/d4a/a01107.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
+    [ "onMemoryChanged", "de/d4a/a01107.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
+    [ "open", "de/d4a/a01107.html#afa482d28208b65335930cb3722de8871", null ],
+    [ "read", "de/d4a/a01107.html#a2b3f4b448d2b7076918a849936826646", null ],
+    [ "read", "de/d4a/a01107.html#a71a6069370565b21f326cb1f4e446a71", null ],
+    [ "toAbsoluteAddress", "de/d4a/a01107.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
+    [ "write", "de/d4a/a01107.html#abb442f01943c59f8ce352f5f92d959b1", null ],
+    [ "write", "de/d4a/a01107.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
+    [ "baseAddress", "de/d4a/a01107.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
+    [ "mutex", "de/d4a/a01107.html#a0d53d69589f382b51186fd40078d3d7a", null ],
+    [ "sizeBytes", "de/d4a/a01107.html#af112bc4831d358a9018b8a296e932392", null ]
 ];

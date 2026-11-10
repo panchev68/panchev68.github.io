@@ -1,20 +1,14 @@
 var a01476 =
 [
-    [ "Channel", "d1/d38/a01480.html", "d1/d38/a01480" ],
-    [ "ChannelArray", "d0/d38/a01476.html#a1a67d6a4e1044ae073b1f51100dcef07", null ],
-    [ "QualityMode", "d0/d38/a01476.html#ad5fc8e4a205712347c919b6c0934fb03", null ],
-    [ "Error", "d0/d38/a01476.html#acb54f9ec6751a18eda393e2c5bd0675c", [
-      [ "NONE", "d0/d38/a01476.html#acb54f9ec6751a18eda393e2c5bd0675cab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "MODULE_IS_NOT_CONNECTED", "d0/d38/a01476.html#acb54f9ec6751a18eda393e2c5bd0675ca2ca69989fcd0489fd209ace247dd1b45", null ],
-      [ "REMOTE_NOT_ACCEPTED_AT_COMMAND", "d0/d38/a01476.html#acb54f9ec6751a18eda393e2c5bd0675ca2952a8e677a31de2cbc98729e503dc8c", null ]
-    ] ],
-    [ "ChannelScanner", "d0/d38/a01476.html#a4e65a2b73399e5ba18d5090993f64487", null ],
-    [ "ChannelScanner", "d0/d38/a01476.html#a1b11f5df668c4629836c71101e686990", null ],
-    [ "close", "d0/d38/a01476.html#a7f366d60ccef72aaff877cebfd4f119e", null ],
-    [ "getChannels", "d0/d38/a01476.html#a124a962ad28c0688ab38329f7a7b034e", null ],
-    [ "isRunning", "d0/d38/a01476.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d0/d38/a01476.html#ad07146aef2c0fb5d790ac09efb0c9f69", null ],
-    [ "operator=", "d0/d38/a01476.html#aed5af8462cac9a996e73489e369434d3", null ],
-    [ "update", "d0/d38/a01476.html#a8cd40b87b5dbd173792b15fc800ebe85", null ],
-    [ "onError", "d0/d38/a01476.html#ac3cc7bbb10237ee52fefcf65ec1e31b9", null ]
+    [ "Counter", "d1/d38/a01480.html", "d1/d38/a01480" ],
+    [ "Period", "d2/d21/a01484.html", "d2/d21/a01484" ],
+    [ "SignalStrength", "d2/daa/a01488.html", "d2/daa/a01488" ],
+    [ "deletedMessages", "d0/d38/a01476.html#af628e5c20d43a21697a20298e3850d62", null ],
+    [ "deletedTransmitStatus", "d0/d38/a01476.html#a5cb11ade89e22561cb697360e6f647d0", null ],
+    [ "noTransmitStatus", "d0/d38/a01476.html#aec698012d20e26bb10d4bea26c010985", null ],
+    [ "reconnectionCounter", "d0/d38/a01476.html#ac7f62868a289abb2450f79aa885bb423", null ],
+    [ "retriesCounter", "d0/d38/a01476.html#ac6e666ea8ac5731fdd252b8dc813485b", null ],
+    [ "signalStrength", "d0/d38/a01476.html#ae57e34d0254c73139d0015fc39e498dd", null ],
+    [ "transmitPeriod", "d0/d38/a01476.html#afa5724d63b364d43fb031cc4682d2de3", null ],
+    [ "unsuccessTransmitStatus", "d0/d38/a01476.html#ac67e8232f97db31ebd0f825093b661fa", null ]
 ];

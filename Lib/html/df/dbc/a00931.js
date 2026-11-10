@@ -1,12 +1,14 @@
 var a00931 =
 [
-    [ "Inputs", "df/dbc/a00931.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "df/dbc/a00931.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "df/dbc/a00931.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "df/dbc/a00931.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "df/dbc/a00931.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "df/dbc/a00931.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "df/dbc/a00931.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "df/dbc/a00931.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "df/dbc/a00931.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "Filter", "d8/dbb/a00932.html", "d8/dbb/a00932" ],
+    [ "CubicInterpolation", "d3/d12/a02354.html", "d3/d12/a02354" ],
+    [ "HammingCode", "d9/d61/a02350.html", null ],
+    [ "LinearInterpolation", "d9/d4f/a02366.html", "d9/d4f/a02366" ],
+    [ "Pid", "d0/d40/a02374.html", "d0/d40/a02374" ],
+    [ "CubicInterpolationD", "df/dbc/a00931.html#ad4addb27687a1c6accb56c4e27269048", null ],
+    [ "CubicInterpolationF", "df/dbc/a00931.html#a95e75623bdeeebff3be6c024135bfea2", null ],
+    [ "LinearInterpolationD", "df/dbc/a00931.html#a9bf9bc3df3d95d1280a4ea6c6f33ce4e", null ],
+    [ "LinearInterpolationF", "df/dbc/a00931.html#a8e491be310ee384e098186699963cc0e", null ],
+    [ "PidD", "df/dbc/a00931.html#ab35c1bb42b7af8a9c4b7bb5f07ec29b9", null ],
+    [ "PidF", "df/dbc/a00931.html#a948fc056c1100dd929fbdca345047060", null ]
 ];

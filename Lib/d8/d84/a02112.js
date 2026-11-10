@@ -1,21 +1,13 @@
 var a02112 =
 [
-    [ "EventHandler", "d8/d84/a02112.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPortAsync", "d8/d84/a02112.html#a0eb76333730406f2b4eb1c25a840e786", null ],
+    [ "UARTPort", "d8/d84/a02112.html#a074ec6b19b1073304ca2513d11d43247", null ],
+    [ "~UARTPort", "d8/d84/a02112.html#a864254902b1d7b3afa27a66ccd465c69", null ],
+    [ "abort", "d8/d84/a02112.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
     [ "close", "d8/d84/a02112.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "closeChannel", "d8/d84/a02112.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
-    [ "getFrame", "d8/d84/a02112.html#aa5a82053bf356261f139d027918f7a98", null ],
     [ "getHandle", "d8/d84/a02112.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d8/d84/a02112.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "getSpeed", "d8/d84/a02112.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
-    [ "getTransferCount", "d8/d84/a02112.html#aeafad19d337548bb5ef919dd44723b5f", null ],
     [ "isOpened", "d8/d84/a02112.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
     [ "open", "d8/d84/a02112.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "openChannel", "d8/d84/a02112.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
-    [ "resetPort", "d8/d84/a02112.html#a4be20887571f3bd3694a79bb349979f8", null ],
-    [ "setEventHandler", "d8/d84/a02112.html#a031aa9b48caa98516825b7f35468b627", null ],
-    [ "start", "d8/d84/a02112.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
-    [ "stop", "d8/d84/a02112.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ],
-    [ "transfer", "d8/d84/a02112.html#a3bcff372802df7955ce5761f4e32e420", null ],
-    [ "waitForEvent", "d8/d84/a02112.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
+    [ "receive", "d8/d84/a02112.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "d8/d84/a02112.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
 ];

@@ -1,7 +1,13 @@
 var a01909 =
 [
-    [ "firmwareSubversion", "d9/d90/a01909.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "d9/d90/a01909.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "d9/d90/a01909.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "d9/d90/a01909.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "I2CPortBase", "d9/d90/a01909.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
+    [ "I2CPortBase", "d9/d90/a01909.html#abb555787d1c67ffeb59851d309d7e32f", null ],
+    [ "I2CPortBase", "d9/d90/a01909.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
+    [ "~I2CPortBase", "d9/d90/a01909.html#a4d69d746f11c95220372f8f0a62397b1", null ],
+    [ "close", "d9/d90/a01909.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "isBusy", "d9/d90/a01909.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d9/d90/a01909.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "open", "d9/d90/a01909.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d9/d90/a01909.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
+    [ "operator=", "d9/d90/a01909.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
 ];

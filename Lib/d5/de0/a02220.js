@@ -1,22 +1,8 @@
 var a02220 =
 [
-    [ "Date", "d5/de0/a02220.html#afc5fc84f3a6e3838bf46d2ebb7b2c4dd", null ],
-    [ "Phase", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5", [
-      [ "NEW_MOON", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5ae90b5c30eafa974e344526ca39738446", null ],
-      [ "WAXING_CRESCENT", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5ac1cff9c33c49d23aa7a4399eaf6454bd", null ],
-      [ "FIRST_QUARTER", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5acbc67512f234a33b9e199cc140820404", null ],
-      [ "WAXING_GIBBOUS", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5ac5019dc9ff0c3a6493a35e1b2d095651", null ],
-      [ "FULL_MOON", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5a1a9df68a9a088bca76e3f2c44db90cd1", null ],
-      [ "WANING_GIBBOUS", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5af31fe35a6e4d935c7eeae573b3f39cc6", null ],
-      [ "LAST_QUARTER", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5a38351fce7be39e0e9b4568766627ec18", null ],
-      [ "WANING_CRESCENT", "d5/de0/a02220.html#a5567988b4297dec26d3237506884f6a5a88838fb810ddba62fdf93150c131aa39", null ]
-    ] ],
-    [ "MoonPhase", "d5/de0/a02220.html#ac58c9ddf6d8f37e3f317e4f702ac00a5", null ],
-    [ "MoonPhase", "d5/de0/a02220.html#acd603bf923907f139f3479a3fe0c6723", null ],
-    [ "calculate", "d5/de0/a02220.html#a47ac4868563998363835de249a5814a9", null ],
-    [ "index", "d5/de0/a02220.html#aa813fe60ba073a14b7e7f8fc97ac0ba7", null ],
-    [ "name", "d5/de0/a02220.html#adc9f9d9a3930766fcb4e46c172d398c1", null ],
-    [ "operator std::string_view", "d5/de0/a02220.html#a1163c4cf76a0dfe6e089e3dd35da9021", null ],
-    [ "operator uint32_t", "d5/de0/a02220.html#a64022e97a09da5fcaa242d39634aafbf", null ],
-    [ "phase", "d5/de0/a02220.html#a6ddb8be8e68814a16313e0824662b5c9", null ]
+    [ "crc16", "d5/de0/a02220.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "d5/de0/a02220.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "d5/de0/a02220.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "d5/de0/a02220.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "d5/de0/a02220.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

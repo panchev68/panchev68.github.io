@@ -1,9 +1,15 @@
 var a01900 =
 [
-    [ "Handle", "d5/dcc/a01900.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
-    [ "Handle", "d5/dcc/a01900.html#a2ff88e41407c02b9858a201f579b32a1", null ],
-    [ "getPinNumber", "d5/dcc/a01900.html#a8d29716bb6bcc278e753e55560639c17", null ],
-    [ "getPort", "d5/dcc/a01900.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
-    [ "getPort", "d5/dcc/a01900.html#a717fa8fdec63c64bef95cffab50ed478", null ],
-    [ "operator==", "d5/dcc/a01900.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
+    [ "Config", "d5/dcc/a01900.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Handle", "d5/dcc/a01900.html#ade0f87f7318848ef033a913d2442a32e", null ],
+    [ "Port", "d5/dcc/a01900.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
+    [ "~Port", "d5/dcc/a01900.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "Port", "d5/dcc/a01900.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
+    [ "Port", "d5/dcc/a01900.html#af0271c4483ea3f5cebaa37054062a428", null ],
+    [ "operator=", "d5/dcc/a01900.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
+    [ "operator=", "d5/dcc/a01900.html#a8e39b404c71b26364658b90ae25a398d", null ],
+    [ "read", "d5/dcc/a01900.html#adce8df0019ea415a350cf833ac481fc2", null ],
+    [ "setPullupPulldown", "d5/dcc/a01900.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "d5/dcc/a01900.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
+    [ "write", "d5/dcc/a01900.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
 ];

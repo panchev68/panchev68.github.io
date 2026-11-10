@@ -1,17 +1,15 @@
 var a01194 =
 [
-    [ "Config", "d0/d32/a01198.html", "d0/d32/a01198" ],
-    [ "Resolution", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "d9/d2e/a01194.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "d9/d2e/a01194.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "d9/d2e/a01194.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "d9/d2e/a01194.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "d9/d2e/a01194.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isPresent", "d9/d2e/a01194.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "d9/d2e/a01194.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readTemperatureCelsius", "d9/d2e/a01194.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "Diagnostic", "d0/d32/a01198.html", "d0/d32/a01198" ],
+    [ "Driver", "d9/d2e/a01194.html#ab07845254f409b109812886c271c23fd", null ],
+    [ "~Driver", "d9/d2e/a01194.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
+    [ "getHumidity", "d9/d2e/a01194.html#af1b0389aae714142b8a606106d0a4a56", null ],
+    [ "getRawHumidity", "d9/d2e/a01194.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
+    [ "getRawTemperature", "d9/d2e/a01194.html#ab776af450b94ccff9151de29e820c940", null ],
+    [ "getTemperature", "d9/d2e/a01194.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
+    [ "hasNewData", "d9/d2e/a01194.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
+    [ "isValidData", "d9/d2e/a01194.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
+    [ "start", "d9/d2e/a01194.html#a7bb2909673708c9ad956bc98034da91d", null ],
+    [ "Base< Driver< Type::DTH22 > >", "d9/d2e/a01194.html#a563861f233361c18a30fd9049d7abd7a", null ],
+    [ "diagnostic", "d9/d2e/a01194.html#a641741551ee87f815b7ca238c2fce09c", null ]
 ];

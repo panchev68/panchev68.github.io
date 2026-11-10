@@ -1,6 +1,5 @@
 var a02170 =
 [
-    [ "configuration", "d9/d86/a02170.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "d9/d86/a02170.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "d9/d86/a02170.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "DecimalDigits", "d9/d86/a02170.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "d9/d86/a02170.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

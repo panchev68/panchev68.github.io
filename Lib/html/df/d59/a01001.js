@@ -1,5 +1,9 @@
 var a01001 =
 [
-    [ "baseAddress", "df/d59/a01001.html#ab922219fc16e46857f76b5a34c05ea47", null ],
-    [ "sizeBytes", "df/d59/a01001.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
+    [ "chipManufacturer", "df/d59/a01001.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
+    [ "memoryCapacity", "df/d59/a01001.html#a0ce044d51923185dc77297ec3845620b", null ],
+    [ "pagePerSector", "df/d59/a01001.html#a768e74e894621cf3033a1f4e06661b66", null ],
+    [ "pageSize", "df/d59/a01001.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
+    [ "sectorCount", "df/d59/a01001.html#ae152c07a2eeb80c6525857160e04126b", null ],
+    [ "sectorSize", "df/d59/a01001.html#a453d47437845007dcb1caa1889d1ec2b", null ]
 ];

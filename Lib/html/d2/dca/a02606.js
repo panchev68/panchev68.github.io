@@ -1,17 +1,8 @@
 var a02606 =
 [
-    [ "Status", "d2/dca/a02606.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d2/dca/a02606.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d2/dca/a02606.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d2/dca/a02606.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d2/dca/a02606.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "d2/dca/a02606.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d2/dca/a02606.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d2/dca/a02606.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d2/dca/a02606.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d2/dca/a02606.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d2/dca/a02606.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d2/dca/a02606.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d2/dca/a02606.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "Frame", "de/d3b/a02610.html", "de/d3b/a02610" ],
+    [ "Status", "d2/dca/a02606.html#a9e9dc1e741ca0edee8938fa06d7a9c70", [
+      [ "OK", "d2/dca/a02606.html#a9e9dc1e741ca0edee8938fa06d7a9c70ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d2/dca/a02606.html#a9e9dc1e741ca0edee8938fa06d7a9c70abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ]
 ];

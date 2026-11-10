@@ -1,20 +1,12 @@
 var a01252 =
 [
-    [ "Diagnostic", "d0/d33/a01252.html#a74fdde35a787cd13d6069871c0ff8976", null ],
-    [ "Node", "d0/d33/a01252.html#ab091b12fa34f220a5e75b16695a26a92", null ],
-    [ "RxMessage", "d0/d33/a01252.html#aee877c41a31b08b00ee86c56bdd9cd28", null ],
-    [ "Service", "d0/d33/a01252.html#a34d4fbaded08b287de47655b7713556a", null ],
-    [ "~Service", "d0/d33/a01252.html#aa70d5f9fd723805cc64c383864a55d17", null ],
-    [ "errorCallback", "d0/d33/a01252.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "d0/d33/a01252.html#a568458f9461115a1ea8f443f2dfde355", null ],
-    [ "messageReceivedCallback", "d0/d33/a01252.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
-    [ "postScanCallback", "d0/d33/a01252.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
-    [ "receive", "d0/d33/a01252.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "d0/d33/a01252.html#a2e0c631d402e3175044158dded2de545", null ],
-    [ "send", "d0/d33/a01252.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
-    [ "send", "d0/d33/a01252.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
-    [ "start", "d0/d33/a01252.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
-    [ "start", "d0/d33/a01252.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "d0/d33/a01252.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
-    [ "taskFn", "d0/d33/a01252.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
+    [ "debounceDuration", "d0/d33/a01252.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d0/d33/a01252.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d0/d33/a01252.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d0/d33/a01252.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d0/d33/a01252.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d0/d33/a01252.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d0/d33/a01252.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d0/d33/a01252.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d0/d33/a01252.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

@@ -1,11 +1,14 @@
 var a02042 =
 [
-    [ "TimOnePulse", "d1/dc4/a02042.html#ae287fccac43cfbccd505d62c3450d886", null ],
-    [ "~TimOnePulse", "d1/dc4/a02042.html#a1e04591efe0469a8ca79694006f138e6", null ],
-    [ "setTiming", "d1/dc4/a02042.html#adcd5d98b02d7d70c3dbcd75ab4f117b6", null ],
-    [ "start", "d1/dc4/a02042.html#a4dd784ca9da4b8c662101a2b232a1f61", null ],
-    [ "stop", "d1/dc4/a02042.html#a2ab7da84b6cafce46167eeca602289ac", null ],
-    [ "waitPulseStart", "d1/dc4/a02042.html#a16dbc64b1db27612373f5d95fe8fe6ed", null ],
-    [ "waitPulseStart", "d1/dc4/a02042.html#aeba87dc02428bea360275fd39706fa18", null ],
-    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "d1/dc4/a02042.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
+    [ "TimEncoder", "d1/dc4/a02042.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "d1/dc4/a02042.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "d1/dc4/a02042.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "d1/dc4/a02042.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "d1/dc4/a02042.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "d1/dc4/a02042.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "d1/dc4/a02042.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "d1/dc4/a02042.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "d1/dc4/a02042.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "d1/dc4/a02042.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "d1/dc4/a02042.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

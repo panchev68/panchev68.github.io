@@ -1,19 +1,12 @@
 var a01706 =
 [
-    [ "Abort", "db/dbe/a01706.html#a34422d4477e1d28e96ff0a570ccb0832", null ],
-    [ "Access", "db/dbe/a01706.html#a19c1714c2af7e709205e93053af6fee9", null ],
-    [ "Handlers", "db/dbe/a01706.html#a4dfbb7a5575c7ee9e62bfeab0e6aca45", null ],
-    [ "Object", "db/dbe/a01706.html#a827cdba5edb655bcc4f5784b4a4e893d", null ],
-    [ "ObjectInfo", "db/dbe/a01706.html#a35b9281b5d29eae7fab95112ba1e5115", null ],
-    [ "CoE", "db/dbe/a01706.html#aaf9d8025b89e7899d8cb2c83ae135e45", null ],
-    [ "~CoE", "db/dbe/a01706.html#ac46699d9659c29b73d7c01ca84cbfb5f", null ],
-    [ "CoE", "db/dbe/a01706.html#a71024e33a92eff3dd5b442e02f0b9425", null ],
-    [ "CoE", "db/dbe/a01706.html#a7b986f95ef2d9b17a078924eddf7d17c", null ],
-    [ "find", "db/dbe/a01706.html#afca119caf11fde38cdab46d3d4205107", null ],
-    [ "handle", "db/dbe/a01706.html#afdb20681a34fcdfcb78cf75a78ce0347", null ],
-    [ "operator=", "db/dbe/a01706.html#ac45513fde48737f49471c84707ec42fa", null ],
-    [ "operator=", "db/dbe/a01706.html#aaa3b4bee41d8960bb544d7299a183270", null ],
-    [ "reset", "db/dbe/a01706.html#ab2c195af5b9a058b13b9b6cca0f9159f", null ],
-    [ "service", "db/dbe/a01706.html#aaa57403f24de4e0bd9670919c80376ac", null ],
-    [ "setHandlers", "db/dbe/a01706.html#abfa900feff906b9e829ef4ac5da55711", null ]
+    [ "size", "db/dbe/a01706.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
+    [ "access", "db/dbe/a01706.html#a689087c28b07b550c6eae081e7594f72", null ],
+    [ "bitLength", "db/dbe/a01706.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
+    [ "dataType", "db/dbe/a01706.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
+    [ "index", "db/dbe/a01706.html#ab2f3134366cf4e85eb20119de70393e3", null ],
+    [ "name", "db/dbe/a01706.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
+    [ "readData", "db/dbe/a01706.html#abb1278c8d325465c3e21817c2e559f7f", null ],
+    [ "subIndex", "db/dbe/a01706.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
+    [ "writeData", "db/dbe/a01706.html#ac54a16495fbb3e297360ce4281c1420f", null ]
 ];

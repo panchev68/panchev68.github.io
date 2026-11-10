@@ -1,4 +1,4 @@
 var a00710 =
 [
-    [ "Lib::System::VersionBase&lt; Derived &gt;", "df/d14/a02183.html", "df/d14/a02183" ]
+    [ "RTOS::StreamBuffer", "dd/d75/a02377.html", "dd/d75/a02377" ]
 ];

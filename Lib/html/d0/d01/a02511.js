@@ -1,16 +1,13 @@
 var a02511 =
 [
-    [ "Config", "d5/d6a/a02515.html", "d5/d6a/a02515" ],
-    [ "DataMap", "d9/dce/a02519.html", "d9/dce/a02519" ],
-    [ "LastResetState", "d0/d01/a02511.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "d0/d01/a02511.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "System", "d0/d01/a02511.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
-    [ "operator=", "d0/d01/a02511.html#af9936cf8ce134998481d3b63473f909b", null ],
-    [ "configuration", "d0/d01/a02511.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "d0/d01/a02511.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
-    [ "hardwareVersion", "d0/d01/a02511.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
-    [ "lastResetState", "d0/d01/a02511.html#add4f1e84db40b8862ab63a06766ae439", null ],
-    [ "produceDate", "d0/d01/a02511.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "d0/d01/a02511.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "d0/d01/a02511.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
+    [ "Status", "d0/d01/a02511.html#a335a74b2beee583b06c1cc6a0c928957", [
+      [ "OK", "d0/d01/a02511.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d0/d01/a02511.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Parameters", "d0/d01/a02511.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
+    [ "Parameters", "d0/d01/a02511.html#a401c8f010740c371697fba3fa25b559c", null ],
+    [ "isValid", "d0/d01/a02511.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
+    [ "operator=", "d0/d01/a02511.html#ab7707d467c6b510fc640db358633fd8b", null ],
+    [ "setup", "d0/d01/a02511.html#a6c93bc540f4ca328949b18b8364730fc", null ],
+    [ "write", "d0/d01/a02511.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
 ];

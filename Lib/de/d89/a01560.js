@@ -1,5 +1,6 @@
 var a01560 =
 [
-    [ "EscapedCode", "de/d89/a01560.html#a0eba03e3a280131bad36582bede262ec", null ],
-    [ "operator bool", "de/d89/a01560.html#aaec17e85d58e2a986fd4edae145b737c", null ]
+    [ "Checksum", "de/d89/a01560.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "de/d89/a01560.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "de/d89/a01560.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

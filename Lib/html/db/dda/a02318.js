@@ -1,9 +1,11 @@
 var a02318 =
 [
-    [ "name", "db/dda/a02318.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "db/dda/a02318.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "db/dda/a02318.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "db/dda/a02318.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "db/dda/a02318.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "db/dda/a02318.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "Parameters", "db/dda/a02318.html#a1755515e60fdfe10aafe099283f9d593", null ],
+    [ "Parameters", "db/dda/a02318.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
+    [ "kd", "db/dda/a02318.html#a6fd341537b6f12074478402b53dea8f1", null ],
+    [ "ki", "db/dda/a02318.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
+    [ "kp", "db/dda/a02318.html#af4932c40d48d9c972bd4f448a37388bc", null ],
+    [ "outputMax", "db/dda/a02318.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
+    [ "outputMin", "db/dda/a02318.html#a23515cb5c24f985549f55404aee2928a", null ],
+    [ "sampleTime", "db/dda/a02318.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
 ];

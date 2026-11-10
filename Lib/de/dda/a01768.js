@@ -1,8 +1,6 @@
 var a01768 =
 [
-    [ "Node", "de/dda/a01768.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "de/dda/a01768.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "de/dda/a01768.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "de/dda/a01768.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "de/dda/a01768.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "frameReceived", "de/dda/a01768.html#ac8bfe015a954f64ad27486a7f7b82059", null ],
+    [ "getParameters", "de/dda/a01768.html#af5c689938685464a5e8331e943afbf47", null ],
+    [ "setParameters", "de/dda/a01768.html#a4dbee9575ed5dc6f641f59c022b6b4d3", null ]
 ];

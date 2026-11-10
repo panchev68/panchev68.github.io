@@ -1,14 +1,16 @@
 var a01789 =
 [
-    [ "Point", "d4/dc6/a01793.html", "d4/dc6/a01793" ],
-    [ "LinearInterpolation", "d6/d53/a01789.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d6/d53/a01789.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d6/d53/a01789.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d6/d53/a01789.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d6/d53/a01789.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d6/d53/a01789.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d6/d53/a01789.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d6/d53/a01789.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d6/d53/a01789.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d6/d53/a01789.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "Event", "d4/dc6/a01793.html", null ],
+    [ "ADCPort", "d6/d53/a01789.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d6/d53/a01789.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d6/d53/a01789.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d6/d53/a01789.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d6/d53/a01789.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "d6/d53/a01789.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d6/d53/a01789.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d6/d53/a01789.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d6/d53/a01789.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d6/d53/a01789.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d6/d53/a01789.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d6/d53/a01789.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

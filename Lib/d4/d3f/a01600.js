@@ -1,8 +1,11 @@
 var a01600 =
 [
-    [ "writeTo", "d4/d3f/a01600.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
-    [ "dstAddress", "d4/d3f/a01600.html#a9969bce892ba39508a48daebcde56b75", null ],
-    [ "frameId", "d4/d3f/a01600.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
-    [ "options", "d4/d3f/a01600.html#a61fadbd6372692084aabcea329f5f1ab", null ],
-    [ "rfData", "d4/d3f/a01600.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
+    [ "ignoredMessagesByTimeout", "d4/d3f/a01600.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d4/d3f/a01600.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "d4/d3f/a01600.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "d4/d3f/a01600.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "d4/d3f/a01600.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "d4/d3f/a01600.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "d4/d3f/a01600.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "d4/d3f/a01600.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

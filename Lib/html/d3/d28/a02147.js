@@ -1,13 +1,12 @@
 var a02147 =
 [
-    [ "Date", "d3/d28/a02147.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "d3/d28/a02147.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "d3/d28/a02147.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "d3/d28/a02147.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d3/d28/a02147.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "d3/d28/a02147.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "d3/d28/a02147.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "d3/d28/a02147.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "d3/d28/a02147.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "WindowWatchdog", "d3/d28/a02147.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "d3/d28/a02147.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "d3/d28/a02147.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "d3/d28/a02147.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "d3/d28/a02147.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "d3/d28/a02147.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "d3/d28/a02147.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "d3/d28/a02147.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "d3/d28/a02147.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

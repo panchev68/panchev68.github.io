@@ -1,14 +1,19 @@
 var a02068 =
 [
-    [ "UARTPortAsync", "df/dfb/a02068.html#ae3dfd1d49bf2eb3ae572e5482852a106", null ],
-    [ "abort", "df/dfb/a02068.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "df/dfb/a02068.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "df/dfb/a02068.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "df/dfb/a02068.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "df/dfb/a02068.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "isOpened", "df/dfb/a02068.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "df/dfb/a02068.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "df/dfb/a02068.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "df/dfb/a02068.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ],
-    [ "setBaudRate", "df/dfb/a02068.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "CallbackID", "df/dfb/a02068.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
+    [ "Handle", "df/dfb/a02068.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
+    [ "LPTimer", "df/dfb/a02068.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
+    [ "~LPTimer", "df/dfb/a02068.html#add3250c704445e43eb5798c76d514cd0", null ],
+    [ "LPTimer", "df/dfb/a02068.html#a694916ba4b3b845dc40a55807a3c010a", null ],
+    [ "LPTimer", "df/dfb/a02068.html#a0151830764f6149bcd064718e12efa9d", null ],
+    [ "close", "df/dfb/a02068.html#a6295b01535aa1df83366d83b9426ff7d", null ],
+    [ "getElapsedRtosTicks", "df/dfb/a02068.html#a4fc71247da21a5d02602615eb66c4256", null ],
+    [ "getHandle", "df/dfb/a02068.html#add82be5171e6f5f28baaba0aea38a0de", null ],
+    [ "hasExpired", "df/dfb/a02068.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
+    [ "open", "df/dfb/a02068.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
+    [ "operator=", "df/dfb/a02068.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
+    [ "operator=", "df/dfb/a02068.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
+    [ "startTimeoutInterrupt", "df/dfb/a02068.html#af87c45b091cb7b10192ce86953eba07a", null ],
+    [ "stopInterrupt", "df/dfb/a02068.html#a524f65747a660c2243dfe55d318bb083", null ],
+    [ "waitForEvent", "df/dfb/a02068.html#a8f6329f1b312d263381f3738aacd64b8", null ]
 ];

@@ -1,8 +1,9 @@
 var a02580 =
 [
-    [ "pinNRST", "d7/d66/a02580.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "d7/d66/a02580.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "d7/d66/a02580.html#a7a30a24da1b05da04d34ae04d9601ed4", null ],
-    [ "usbDetectPin", "d7/d66/a02580.html#a7821371ae14cff05383049657f3dd8d6", null ],
-    [ "usbDisablePin", "d7/d66/a02580.html#aeafd4713f3249500c2a871623ffc4e6c", null ]
+    [ "VersionString", "d7/d66/a02580.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
+    [ "Base", "d7/d66/a02580.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
+    [ "getSubVersion", "d7/d66/a02580.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
+    [ "operator uint32_t", "d7/d66/a02580.html#a463ebb1b62a72aab04d6b128c567109a", null ],
+    [ "operator VersionString", "d7/d66/a02580.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
+    [ "subVersion", "d7/d66/a02580.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
 ];

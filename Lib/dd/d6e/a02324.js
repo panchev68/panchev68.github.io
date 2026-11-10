@@ -1,6 +1,7 @@
 var a02324 =
 [
-    [ "name", "dd/d6e/a02324.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
-    [ "output", "dd/d6e/a02324.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
-    [ "rotateTime", "dd/d6e/a02324.html#aad96d287e9891431e5a7c99935482563", null ]
+    [ "estimatedError", "dd/d6e/a02324.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "dd/d6e/a02324.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "dd/d6e/a02324.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "dd/d6e/a02324.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

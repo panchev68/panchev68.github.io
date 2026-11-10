@@ -1,12 +1,13 @@
 var a01628 =
 [
-    [ "Command", "dd/deb/a01628.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
-    [ "RemoteAtCommand", "dd/deb/a01628.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
-    [ "RemoteAtCommand", "dd/deb/a01628.html#a772786f4856c6806756c33743f038855", null ],
-    [ "close", "dd/deb/a01628.html#acfc9182b712685cd72276c7c645330ec", null ],
-    [ "open", "dd/deb/a01628.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
-    [ "operator=", "dd/deb/a01628.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
-    [ "receive", "dd/deb/a01628.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
-    [ "send", "dd/deb/a01628.html#a68565e1939553aa4b73a44d4c6adf059", null ],
-    [ "send", "dd/deb/a01628.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
+    [ "Command", "dd/deb/a01628.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "dd/deb/a01628.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "dd/deb/a01628.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "dd/deb/a01628.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "dd/deb/a01628.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "dd/deb/a01628.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "dd/deb/a01628.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "dd/deb/a01628.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "dd/deb/a01628.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "dd/deb/a01628.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

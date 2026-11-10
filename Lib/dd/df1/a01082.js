@@ -1,5 +1,9 @@
 var a01082 =
 [
-    [ "address", "dd/df1/a01082.html#ab6d5bdfcdd2c6adf69b3b80ca079faa6", null ],
-    [ "port", "dd/df1/a01082.html#a50fd4e61bdf69e56aabc73fdb2cdaa02", null ]
+    [ "chipManufacturer", "dd/df1/a01082.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "dd/df1/a01082.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "dd/df1/a01082.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "dd/df1/a01082.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "dd/df1/a01082.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "dd/df1/a01082.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

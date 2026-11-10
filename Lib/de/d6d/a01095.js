@@ -1,0 +1,25 @@
+var a01095 =
+[
+    [ "Register", "d6/dbc/a01099.html", "d6/dbc/a01099" ],
+    [ "Info", "d9/d10/a01103.html", "d9/d10/a01103" ],
+    [ "Config", "de/d6d/a01095.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "de/d6d/a01095.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "de/d6d/a01095.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "de/d6d/a01095.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChip", "de/d6d/a01095.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseChipImpl", "de/d6d/a01095.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSector", "de/d6d/a01095.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "eraseSectorImpl", "de/d6d/a01095.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "de/d6d/a01095.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "getStatus", "de/d6d/a01095.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "isPresent", "de/d6d/a01095.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "de/d6d/a01095.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "read", "de/d6d/a01095.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "readImpl", "de/d6d/a01095.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "write", "de/d6d/a01095.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "writeImpl", "de/d6d/a01095.html#a00a39954e6187f8b4b393ed390f97239", null ],
+    [ "info", "de/d6d/a01095.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "de/d6d/a01095.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "de/d6d/a01095.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "de/d6d/a01095.html#af95471bb260264403e3df2dc07b80419", null ]
+];

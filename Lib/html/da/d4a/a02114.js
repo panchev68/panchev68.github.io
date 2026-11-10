@@ -1,8 +1,25 @@
 var a02114 =
 [
-    [ "EventHandler", "da/d4a/a02114.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPortAsync", "da/d4a/a02114.html#a0eb76333730406f2b4eb1c25a840e786", null ],
-    [ "setEventHandler", "da/d4a/a02114.html#a031aa9b48caa98516825b7f35468b627", null ],
-    [ "transfer", "da/d4a/a02114.html#a3bcff372802df7955ce5761f4e32e420", null ],
-    [ "waitForEvent", "da/d4a/a02114.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
+    [ "USBDevicePortBase", "da/d4a/a02114.html#a10cff571345e912dd5e479bcb022425b", null ],
+    [ "USBDevicePortBase", "da/d4a/a02114.html#aeaf1da4a57b4c99a4ef7f4ad797515bc", null ],
+    [ "USBDevicePortBase", "da/d4a/a02114.html#a02b2cedb47ee415e471fdc2ad69a8fd9", null ],
+    [ "~USBDevicePortBase", "da/d4a/a02114.html#ae2ed4b2a4a2f0bc75d1224ee7ff9129f", null ],
+    [ "clearStall", "da/d4a/a02114.html#a50fbc4a2665b215a95effd62660a0ac2", null ],
+    [ "close", "da/d4a/a02114.html#a70556d7766ff4f275a730a0cfb515505", null ],
+    [ "closeEndpoint", "da/d4a/a02114.html#a6ba2ed0453c274b531cb8b9d33a80db6", null ],
+    [ "connect", "da/d4a/a02114.html#aefd6500600303402511786eeaaf2b8fe", null ],
+    [ "disconnect", "da/d4a/a02114.html#a60749424c147e3347e02018c72910511", null ],
+    [ "flushEndpoint", "da/d4a/a02114.html#adb7c8a870ff66d6b2e5ba779b536c22c", null ],
+    [ "getReceivedCount", "da/d4a/a02114.html#a39ec41ba413955481a2c57a076e433de", null ],
+    [ "getSetupPacket", "da/d4a/a02114.html#a1d83533b43ad863b76211ee532686a9b", null ],
+    [ "open", "da/d4a/a02114.html#afc2ac672b83340d54497b6ebc58299e0", null ],
+    [ "openEndpoint", "da/d4a/a02114.html#a514cb29eb2bdba3f9de5ad8685671285", null ],
+    [ "operator=", "da/d4a/a02114.html#a3e1f1a0c646bd223fef467533055fe6e", null ],
+    [ "operator=", "da/d4a/a02114.html#a348e2a3d03d95db75c367dedbe49844c", null ],
+    [ "setAddress", "da/d4a/a02114.html#a13f6d0f8f8693765b9e38b93a9316b7c", null ],
+    [ "setRxFifo", "da/d4a/a02114.html#a8243db6e1f57194b390dc675419a65ae", null ],
+    [ "setTxFifo", "da/d4a/a02114.html#abbe2ea9718784caab5c210d61c582e87", null ],
+    [ "stallEndpoint", "da/d4a/a02114.html#a6af92c35c4cfa77a15f20a4bf55698ea", null ],
+    [ "start", "da/d4a/a02114.html#a1f538f3e7aec739023c189ee6fe3550b", null ],
+    [ "stop", "da/d4a/a02114.html#a920b0e6cfe3123e61804850a3420975e", null ]
 ];

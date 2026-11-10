@@ -1,19 +1,18 @@
 var a01081 =
 [
-    [ "Config", "d2/df3/a01085.html", "d2/df3/a01085" ],
-    [ "Parameters", "d3/dc4/a01089.html", "d3/dc4/a01089" ],
-    [ "Rotation", "dd/dee/a01081.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
-      [ "DEFAULT", "dd/dee/a01081.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
-      [ "FLIP_X", "dd/dee/a01081.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
-      [ "FLIP_XY", "dd/dee/a01081.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
-      [ "FLIP_Y", "dd/dee/a01081.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
-    ] ],
-    [ "XPT2046", "dd/dee/a01081.html#a0dda6dc35a85166d57bd689d629e6846", null ],
-    [ "~XPT2046", "dd/dee/a01081.html#a9edd1a086623e54cbb23781f0d989d53", null ],
-    [ "XPT2046", "dd/dee/a01081.html#aa40395fe163fa53055c2381264eee169", null ],
-    [ "XPT2046", "dd/dee/a01081.html#a0b37858e0ef9dc2bc3c8a2494e0d30d0", null ],
-    [ "operator=", "dd/dee/a01081.html#a187bc2ba23928588fb3e435ff1a0ffab", null ],
-    [ "operator=", "dd/dee/a01081.html#a0a0bca74a5312b24895a6b947c35e11a", null ],
-    [ "read", "dd/dee/a01081.html#adbf7069f002f1074ffe599970a15c399", null ],
-    [ "setRotation", "dd/dee/a01081.html#ada371f317a4f0551dc84dcf51749ee60", null ]
+    [ "anticollisionTimeoutCount", "dd/dee/a01081.html#a4d95a6bbb4d079d8bebedbf9b8ee8fa1", null ],
+    [ "cardActivatedCount", "dd/dee/a01081.html#ac30dad467ffa48919576e8a5431a4a2b", null ],
+    [ "cardDetectedCount", "dd/dee/a01081.html#aab85c176a71d381e5691bc1819f7e0f7", null ],
+    [ "lastTimeout", "dd/dee/a01081.html#a15be1ad50b46f4fe74d830fd5dd5380f", null ],
+    [ "postTransmitIrqStatus1", "dd/dee/a01081.html#a40166692a25986bd12544ffb546c499d", null ],
+    [ "postTransmitIrqStatus2", "dd/dee/a01081.html#a21142618b9524d09ba5f29b9c81d45a8", null ],
+    [ "postTransmitStatus", "dd/dee/a01081.html#ad91c2db0d45e9677759d63979315ed24", null ],
+    [ "postTxRxOnStatus", "dd/dee/a01081.html#a794df80db631bc66fa479aa99fc0927f", null ],
+    [ "preTransmitFifoStatus1", "dd/dee/a01081.html#a41d5ce61c5cef34fac6065d36b07a07d", null ],
+    [ "readFailureCount", "dd/dee/a01081.html#aa594bb3892a314d5bae571485028c1f6", null ],
+    [ "reqaPollStatusBits", "dd/dee/a01081.html#a144c567d53c9d9fb36969c7e0a96d4f7", null ],
+    [ "reqaTimeoutCount", "dd/dee/a01081.html#a985da4fadf54931272c8b4013511c43a", null ],
+    [ "selectTimeoutCount", "dd/dee/a01081.html#a87c463babfda8c7c065f6a30250dd1e1", null ],
+    [ "unsupportedUidCount", "dd/dee/a01081.html#a6e9a133ac2b92dc90de4a93eee54e810", null ],
+    [ "writeFailureCount", "dd/dee/a01081.html#a96a8716efd8affbfbc401fcaba040259", null ]
 ];

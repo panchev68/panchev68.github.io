@@ -1,9 +1,8 @@
 var a02510 =
 [
-    [ "SerialString", "dd/df4/a02510.html#aa6020b729e0f58cedf044dc7ff97b00b", null ],
-    [ "SerialNumber", "dd/df4/a02510.html#aed268b613b7b701d255b7d0c98dbfd58", null ],
-    [ "operator SerialString", "dd/df4/a02510.html#a2a4f1521a09306606c2d5f032fdf544e", null ],
-    [ "operator uint32_t", "dd/df4/a02510.html#ac46566dc9eaf2fcb21dcde82468b0652", null ],
-    [ "toString", "dd/df4/a02510.html#a5f96c48e2369c3f690a6b7473ad854d1", null ],
-    [ "result", "dd/df4/a02510.html#af3d33382ba6c5d600113f549fad5b91d", null ]
+    [ "Storage", "dd/df4/a02510.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
+    [ "close", "dd/df4/a02510.html#aa684e568a90f586209178bf82321e7eb", null ],
+    [ "open", "dd/df4/a02510.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
+    [ "read", "dd/df4/a02510.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
+    [ "write", "dd/df4/a02510.html#a7d3edbeec88b0807daece2241bb79d92", null ]
 ];

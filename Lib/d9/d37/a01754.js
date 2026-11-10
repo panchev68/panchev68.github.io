@@ -1,9 +1,9 @@
 var a01754 =
 [
-    [ "Config", "d9/de3/a01758.html", "d9/de3/a01758" ],
-    [ "Kalman", "d9/d37/a01754.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "d9/d37/a01754.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "d9/d37/a01754.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "d9/d37/a01754.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "d9/d37/a01754.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "address", "d9/d37/a01754.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d9/d37/a01754.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d9/d37/a01754.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d9/d37/a01754.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d9/d37/a01754.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d9/d37/a01754.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

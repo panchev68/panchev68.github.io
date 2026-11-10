@@ -1,13 +1,12 @@
 var a01399 =
 [
-    [ "Config", "da/d06/a01403.html", "da/d06/a01403" ],
-    [ "WolfSSLDh", "d6/d64/a01399.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
-    [ "~WolfSSLDh", "d6/d64/a01399.html#a6d03ea454eff6ec49352184b945a04e2", null ],
-    [ "WolfSSLDh", "d6/d64/a01399.html#aabb6311ca11dc1faceab33055d97c824", null ],
-    [ "WolfSSLDh", "d6/d64/a01399.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
-    [ "agree", "d6/d64/a01399.html#a76b96df40bf320de9d7254054ad2ab18", null ],
-    [ "generateKeyPair", "d6/d64/a01399.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
-    [ "open", "d6/d64/a01399.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
-    [ "operator=", "d6/d64/a01399.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
-    [ "operator=", "d6/d64/a01399.html#a050501c01119e2aa82565a060075ee61", null ]
+    [ "Digest", "d6/d64/a01399.html#ae6533eeb24732d598c786e990b0ce82b", null ],
+    [ "WolfSSLSHA256", "d6/d64/a01399.html#a8f2c459bcc74bbdc491240db0f521ccd", null ],
+    [ "~WolfSSLSHA256", "d6/d64/a01399.html#a620161254dd9ca7e42a2f0b9798f8183", null ],
+    [ "WolfSSLSHA256", "d6/d64/a01399.html#ac39e90d775c56d5a9b1687171716062b", null ],
+    [ "WolfSSLSHA256", "d6/d64/a01399.html#a22497c39de4e0ee61b131f66c1b5eba4", null ],
+    [ "finish", "d6/d64/a01399.html#a895fb7dee0bfd3914e319bc385f61a00", null ],
+    [ "operator=", "d6/d64/a01399.html#a74d113ca6e8dc2b3fb10b5c6ec2f561e", null ],
+    [ "operator=", "d6/d64/a01399.html#a72a5c7983a98133e879c4dc9e7bf1680", null ],
+    [ "update", "d6/d64/a01399.html#a01e3e0e3e2d58bdd234797c040bc8321", null ]
 ];

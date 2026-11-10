@@ -1,7 +1,12 @@
 var a01743 =
 [
-    [ "firmwareSubversion", "d5/d34/a01743.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "d5/d34/a01743.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "d5/d34/a01743.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "d5/d34/a01743.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "size", "d5/d34/a01743.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
+    [ "access", "d5/d34/a01743.html#a689087c28b07b550c6eae081e7594f72", null ],
+    [ "bitLength", "d5/d34/a01743.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
+    [ "dataType", "d5/d34/a01743.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
+    [ "index", "d5/d34/a01743.html#ab2f3134366cf4e85eb20119de70393e3", null ],
+    [ "name", "d5/d34/a01743.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
+    [ "readData", "d5/d34/a01743.html#abb1278c8d325465c3e21817c2e559f7f", null ],
+    [ "subIndex", "d5/d34/a01743.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
+    [ "writeData", "d5/d34/a01743.html#ac54a16495fbb3e297360ce4281c1420f", null ]
 ];

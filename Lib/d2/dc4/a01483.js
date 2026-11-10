@@ -1,7 +1,9 @@
 var a01483 =
 [
-    [ "Delay", "d2/dc4/a01483.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
-    [ "~Delay", "d2/dc4/a01483.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
-    [ "Delay", "d2/dc4/a01483.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
-    [ "operator=", "d2/dc4/a01483.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
+    [ "Counter", "d2/dc4/a01483.html#a979dd53107c70679957a49b352e309e4", null ],
+    [ "Counter", "d2/dc4/a01483.html#aa0fcdac4118821433a18e704d608605d", null ],
+    [ "clear", "d2/dc4/a01483.html#a5f4c68779359a4681b48228f57296c09", null ],
+    [ "operator uint32_t", "d2/dc4/a01483.html#a32d48ad9be69d1fb44852223025c4efe", null ],
+    [ "operator++", "d2/dc4/a01483.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
+    [ "operator=", "d2/dc4/a01483.html#aebee6561b906ea1271070b47c2610fe2", null ]
 ];

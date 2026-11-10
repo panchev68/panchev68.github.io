@@ -1,8 +1,12 @@
 var a00903 =
 [
-    [ "~UARTPort", "d4/d1c/a00903.html#a18fcbbf5a352bb81140e70c5e61dda48", null ],
-    [ "close", "d4/d1c/a00903.html#a394658189567299790e47db221b2389a", null ],
-    [ "open", "d4/d1c/a00903.html#a0462a01d6a7f0f2347fc621553638bd5", null ],
-    [ "receive", "d4/d1c/a00903.html#a7940eceaebb00f6729b68d6d598d3414", null ],
-    [ "send", "d4/d1c/a00903.html#a51a96444d95fadff20fa4599fdbd9f48", null ]
+    [ "Exception", "d4/d1c/a00903.html#aea3a4f2e3ac0fdc3bcbba62b440134e6", null ],
+    [ "Exception", "d4/d1c/a00903.html#ada1a40e8146dca7f06683f974831e44d", null ],
+    [ "Exception", "d4/d1c/a00903.html#a63de97c0739c68f7745ec994e3ec0c51", null ],
+    [ "Exception", "d4/d1c/a00903.html#a4c22f469903f067ad7b15fa76082f358", null ],
+    [ "Exception", "d4/d1c/a00903.html#ae9019bdc0095794f48311d32bd33ad5e", null ],
+    [ "~Exception", "d4/d1c/a00903.html#aa3a45fe08c05da8c6fdaafe89f7401ab", null ],
+    [ "operator=", "d4/d1c/a00903.html#a05558ab8ce05f641652a1d9fcaff94a5", null ],
+    [ "operator=", "d4/d1c/a00903.html#ae65a0f7a6e55392a1bac092f2d8daa2d", null ],
+    [ "what", "d4/d1c/a00903.html#a1fb3b55b5d4f4b46281215e9754f45a1", null ]
 ];

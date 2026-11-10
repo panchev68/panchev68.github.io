@@ -1,9 +1,6 @@
 var a01554 =
 [
-    [ "address", "d7/d1d/a01554.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
-    [ "channel", "d7/d1d/a01554.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
-    [ "counter", "d7/d1d/a01554.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
-    [ "length", "d7/d1d/a01554.html#af80f349070d12d0ce2387f6d95764bfe", null ],
-    [ "priority", "d7/d1d/a01554.html#a0c3726e1ac6fed602491f21449c9a740", null ],
-    [ "protocol", "d7/d1d/a01554.html#ac094990b182d42c38feb302d144a6924", null ]
+    [ "Checksum", "d7/d1d/a01554.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d7/d1d/a01554.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d7/d1d/a01554.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

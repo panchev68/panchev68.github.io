@@ -1,9 +1,8 @@
 var a01125 =
 [
-    [ "errorCode", "d6/dc4/a01125.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "d6/dc4/a01125.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "d6/dc4/a01125.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "d6/dc4/a01125.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "d6/dc4/a01125.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "d6/dc4/a01125.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "operator==", "d6/dc4/a01125.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
+    [ "blue", "d6/dc4/a01125.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
+    [ "green", "d6/dc4/a01125.html#aaac4b49f8ced6f8a10842162f110217d", null ],
+    [ "red", "d6/dc4/a01125.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
+    [ "white", "d6/dc4/a01125.html#a272f822cae4bd3b8e993080e2317636e", null ]
 ];

@@ -1,5 +1,7 @@
 var a01999 =
 [
-    [ "SPIPort", "de/d25/a01999.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
-    [ "~SPIPort", "de/d25/a01999.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ]
+    [ "day", "de/d25/a01999.html#a4e0afef93919b9d81fb11880e985faf7", null ],
+    [ "month", "de/d25/a01999.html#a81707050dd28eeb1de5e1bf17bc64ca0", null ],
+    [ "weekDay", "de/d25/a01999.html#a30dfc2209d0abdafbba3e90c6a5c24c8", null ],
+    [ "year", "de/d25/a01999.html#aacc37a4b6ca5a085f338d84b26cf1595", null ]
 ];

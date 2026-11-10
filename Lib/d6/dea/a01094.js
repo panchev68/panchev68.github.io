@@ -1,12 +1,26 @@
 var a01094 =
 [
-    [ "debounceDuration", "d6/dea/a01094.html#a645398d022257454438fc47ce15fcdb9", null ],
-    [ "height", "d6/dea/a01094.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
-    [ "rotationFlipped", "d6/dea/a01094.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
-    [ "rotationNormal", "d6/dea/a01094.html#aa5b75686141869dfbbfb78febc4822aa", null ],
-    [ "width", "d6/dea/a01094.html#a36fe0a7ac1def2933216417d9c50860b", null ],
-    [ "xMax", "d6/dea/a01094.html#ad7faa3502a791114bf456c98c0dbf644", null ],
-    [ "xMin", "d6/dea/a01094.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
-    [ "yMax", "d6/dea/a01094.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
-    [ "yMin", "d6/dea/a01094.html#acda2f52d642f3f712c72b8046d83fa30", null ]
+    [ "CardDetectedCallback", "d6/dea/a01094.html#ab8f303ae41cabb93b41546bbe3eb4b6e", null ],
+    [ "Config", "d6/dea/a01094.html#aa2b4f1926fbeb7d392cebb056d89fb3a", null ],
+    [ "StatusCode", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062", [
+      [ "OK", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062abb1ca97ec761fc37101737ba0aa2e7c5", null ],
+      [ "COLLISION", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062afc3ca10632f0c7aa3aaea07a234377db", null ],
+      [ "TIMEOUT", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062a070a0fb40f6c308ab544b227660aadff", null ],
+      [ "NO_ROOM", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062a48117d92ebb4bcb983ec0c001f99b8ea", null ],
+      [ "INTERNAL_ERROR", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062ae8c0c70879b5895c615677261d64a1ee", null ],
+      [ "INVALID", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062accc0377a8afbf50e7094f5c23a8af223", null ],
+      [ "CRC_WRONG", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062a3c7323ffec41fe2878b32f6a94c6e17f", null ],
+      [ "MIFARE_NACK", "d6/dea/a01094.html#aaf472166e9d4f2a91e9827210adb0062a84285d7fe0894b43e2d179fc85e99538", null ]
+    ] ],
+    [ "MFRC522", "d6/dea/a01094.html#ad1434f2513b05706895669a1dbc96bcc", null ],
+    [ "~MFRC522", "d6/dea/a01094.html#a73dbf6cc73bf71b562399e9e4faa6f75", null ],
+    [ "MFRC522", "d6/dea/a01094.html#a4c602ecc8a154b75bf0bf0a7814a200b", null ],
+    [ "MFRC522", "d6/dea/a01094.html#a8a0fe5e00e7d6b58a17d654abf2d8202", null ],
+    [ "bindCardDetectionCallback", "d6/dea/a01094.html#a41c3481d58b4e074f2d46ab8b2f1e4d2", null ],
+    [ "handleCardDetected", "d6/dea/a01094.html#ad22f44d8d54d142fa796406c0f376ff3", null ],
+    [ "operator=", "d6/dea/a01094.html#ab85ed1b7da554c36b7a2ad60002b5459", null ],
+    [ "operator=", "d6/dea/a01094.html#a3a197b33b50a32efc2a86cc9fd2fff3b", null ],
+    [ "start", "d6/dea/a01094.html#a11b78264bc00dce2664d91725cc77981", null ],
+    [ "stop", "d6/dea/a01094.html#adb7420c7531d1af868014dbcc01d4e7d", null ]
 ];

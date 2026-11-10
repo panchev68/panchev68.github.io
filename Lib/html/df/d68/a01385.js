@@ -1,14 +1,12 @@
 var a01385 =
 [
-    [ "append", "df/d68/a01385.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
-    [ "append", "df/d68/a01385.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
-    [ "assign", "df/d68/a01385.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
-    [ "clear", "df/d68/a01385.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
-    [ "data", "df/d68/a01385.html#aaf5bb127946bfccf2adfc318d584894e", null ],
-    [ "empty", "df/d68/a01385.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
-    [ "insert", "df/d68/a01385.html#ae409c8ac34780b163e1044b9959a2f81", null ],
-    [ "reserve", "df/d68/a01385.html#aa059b03866b8797af025cf959e3dee4e", null ],
-    [ "reset", "df/d68/a01385.html#ab7425c54f798a024d87678d5f1495d0e", null ],
-    [ "size", "df/d68/a01385.html#aea29854e97878274b63e4a5e3e4c9475", null ],
-    [ "type", "df/d68/a01385.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
+    [ "State", "d0/d95/a01389.html", "d0/d95/a01389" ],
+    [ "Quality", "d3/d92/a01393.html", "d3/d92/a01393" ],
+    [ "Info", "d7/d1c/a01397.html", "d7/d1c/a01397" ],
+    [ "Connection", "df/d68/a01385.html#ac3f7cec3bac26ebbbdfd93dc9d339f48", null ],
+    [ "Connection", "df/d68/a01385.html#afaa8af957c71adc2bf6b63d902caedf2", null ],
+    [ "operator=", "df/d68/a01385.html#a6bed4ce5a085f4b0a9bbeb1131272236", null ],
+    [ "info", "df/d68/a01385.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
+    [ "quality", "df/d68/a01385.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
+    [ "state", "df/d68/a01385.html#a79f4aecc9bd038f5938e6373412ed099", null ]
 ];

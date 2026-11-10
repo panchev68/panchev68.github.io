@@ -1,13 +1,10 @@
 var a02502 =
 [
-    [ "Status", "db/d09/a02502.html#a335a74b2beee583b06c1cc6a0c928957", [
-      [ "OK", "db/d09/a02502.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "db/d09/a02502.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Parameters", "db/d09/a02502.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
-    [ "Parameters", "db/d09/a02502.html#a401c8f010740c371697fba3fa25b559c", null ],
-    [ "isValid", "db/d09/a02502.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
-    [ "operator=", "db/d09/a02502.html#ab7707d467c6b510fc640db358633fd8b", null ],
-    [ "setup", "db/d09/a02502.html#a6c93bc540f4ca328949b18b8364730fc", null ],
-    [ "write", "db/d09/a02502.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
+    [ "VersionString", "db/d09/a02502.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
+    [ "FirmwareVersion", "db/d09/a02502.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
+    [ "getSubVersion", "db/d09/a02502.html#a74bafacd182d3ccff4da47e5aac54408", null ],
+    [ "getValue", "db/d09/a02502.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
+    [ "operator uint32_t", "db/d09/a02502.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
+    [ "operator VersionString", "db/d09/a02502.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
+    [ "toString", "db/d09/a02502.html#ac82dd7d67829e33f61b3625626f44742", null ]
 ];

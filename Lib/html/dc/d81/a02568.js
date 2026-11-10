@@ -1,6 +1,7 @@
 var a02568 =
 [
-    [ "pinNRST", "dc/d81/a02568.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "dc/d81/a02568.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "dc/d81/a02568.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
+    [ "FirmwareString", "dc/d81/a02568.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
+    [ "Firmware", "dc/d81/a02568.html#af62d830e6120addddf7a108aef4c37d1", null ],
+    [ "operator FirmwareString", "dc/d81/a02568.html#a0ddef4aded98c6307b972786bb6e5268", null ],
+    [ "operator uint32_t", "dc/d81/a02568.html#a7dcca38967251869c5bf305173fc13ee", null ]
 ];

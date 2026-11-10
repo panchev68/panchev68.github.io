@@ -1,14 +1,15 @@
 var a01685 =
 [
-    [ "Time", "da/d20/a01689.html", "da/d20/a01689" ],
-    [ "Date", "dd/db4/a01693.html", "dd/db4/a01693" ],
-    [ "DateTime", "de/d96/a01685.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "de/d96/a01685.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "de/d96/a01685.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "de/d96/a01685.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "de/d96/a01685.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "de/d96/a01685.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "de/d96/a01685.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "de/d96/a01685.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "de/d96/a01685.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "dnsIp", "de/d96/a01685.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "de/d96/a01685.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "de/d96/a01685.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "de/d96/a01685.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "de/d96/a01685.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "de/d96/a01685.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "de/d96/a01685.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "de/d96/a01685.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "de/d96/a01685.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "de/d96/a01685.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "de/d96/a01685.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "de/d96/a01685.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

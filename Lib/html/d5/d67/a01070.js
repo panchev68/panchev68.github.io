@@ -1,19 +1,16 @@
 var a01070 =
 [
-    [ "Config", "d7/df7/a01074.html", "d7/df7/a01074" ],
-    [ "IS62WV51216", "d5/d67/a01070.html#a7921fa0f977faf912d2049453fd4c308", null ],
-    [ "~IS62WV51216", "d5/d67/a01070.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
-    [ "close", "d5/d67/a01070.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
-    [ "getSize", "d5/d67/a01070.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
-    [ "isRangeValid", "d5/d67/a01070.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
-    [ "onMemoryChanged", "d5/d67/a01070.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
-    [ "open", "d5/d67/a01070.html#afa482d28208b65335930cb3722de8871", null ],
-    [ "read", "d5/d67/a01070.html#a2b3f4b448d2b7076918a849936826646", null ],
-    [ "read", "d5/d67/a01070.html#a71a6069370565b21f326cb1f4e446a71", null ],
-    [ "toAbsoluteAddress", "d5/d67/a01070.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
-    [ "write", "d5/d67/a01070.html#abb442f01943c59f8ce352f5f92d959b1", null ],
-    [ "write", "d5/d67/a01070.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
-    [ "baseAddress", "d5/d67/a01070.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
-    [ "mutex", "d5/d67/a01070.html#a0d53d69589f382b51186fd40078d3d7a", null ],
-    [ "sizeBytes", "d5/d67/a01070.html#af112bc4831d358a9018b8a296e932392", null ]
+    [ "Register", "d7/df7/a01074.html", "d7/df7/a01074" ],
+    [ "Info", "db/dba/a01078.html", "db/dba/a01078" ],
+    [ "Config", "d5/d67/a01070.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "d5/d67/a01070.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "d5/d67/a01070.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "d5/d67/a01070.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChipImpl", "d5/d67/a01070.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSectorImpl", "d5/d67/a01070.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "d5/d67/a01070.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "isPresent", "d5/d67/a01070.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "d5/d67/a01070.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "readImpl", "d5/d67/a01070.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "writeImpl", "d5/d67/a01070.html#a00a39954e6187f8b4b393ed390f97239", null ]
 ];

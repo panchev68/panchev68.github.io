@@ -1,9 +1,18 @@
 var a01292 =
 [
-    [ "Channel", "d8/d7a/a01292.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
-    [ "Channel", "d8/d7a/a01292.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
-    [ "getConnectionQuality", "d8/d7a/a01292.html#a9c351291c3bb7c963270eae54a16597d", null ],
-    [ "operator uint8_t", "d8/d7a/a01292.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
-    [ "operator=", "d8/d7a/a01292.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
-    [ "setConnectionQuality", "d8/d7a/a01292.html#af7e5e84d1697e43122a6e086007d9789", null ]
+    [ "RxMessage", "d4/d64/a01296.html", "d4/d64/a01296" ],
+    [ "Node", "d8/dc5/a01300.html", "d8/dc5/a01300" ],
+    [ "Diagnostic", "d6/dae/a01304.html", "d6/dae/a01304" ],
+    [ "ServiceBase", "d8/d7a/a01292.html#acbfceb92cefef5281785b7d5db81df5d", null ],
+    [ "~ServiceBase", "d8/d7a/a01292.html#a6594894f460fcebe7b8705a3ebca6938", null ],
+    [ "errorCallback", "d8/d7a/a01292.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
+    [ "getDiagnostic", "d8/d7a/a01292.html#aa6e2069cd0ca82608d533788d367dddf", null ],
+    [ "messageReceivedCallback", "d8/d7a/a01292.html#abe37221a89d42b0ec836894d481128b4", null ],
+    [ "receive", "d8/d7a/a01292.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d8/d7a/a01292.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "d8/d7a/a01292.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "d8/d7a/a01292.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "d8/d7a/a01292.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
+    [ "stop", "d8/d7a/a01292.html#a3d0252842f197249fff9649618458fee", null ],
+    [ "taskFn", "d8/d7a/a01292.html#a3f461c3e0f637c2be89463249c736b46", null ]
 ];

@@ -1,5 +1,6 @@
 var a02646 =
 [
-    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;", "d9/dbb/a00852.html", "d9/dbb/a00852" ],
-    [ "Lib::BSP::Display::Driver&lt; Controller::ST7789 &gt;::Config", "da/de3/a00856.html", "da/de3/a00856" ]
+    [ "pinNRST", "d3/d23/a02646.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
+    [ "rxPort", "d3/d23/a02646.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
+    [ "txPort", "d3/d23/a02646.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
 ];

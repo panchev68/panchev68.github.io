@@ -1,4 +1,4 @@
 var a00533 =
 [
-    [ "Lib::HAL::USBDevicePort&lt; DriverMode::DMA &gt;", "d6/d0c/a02080.html", "d6/d0c/a02080" ]
+    [ "Lib::HAL::OTP", "dc/d62/a02020.html", "dc/d62/a02020" ]
 ];

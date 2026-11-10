@@ -1,14 +1,16 @@
 var a01894 =
 [
-    [ "ExtInterrupt", "d8/dd1/a01894.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
-    [ "~ExtInterrupt", "d8/dd1/a01894.html#a0500efb3e0dbde6f95fd02948060723b", null ],
-    [ "ExtInterrupt", "d8/dd1/a01894.html#a0896646faa35c4149a6fb3f8360da15b", null ],
-    [ "ExtInterrupt", "d8/dd1/a01894.html#af65b4789b35500d9539e56a75d90c71c", null ],
-    [ "bindCallback", "d8/dd1/a01894.html#a716641ce172d66ad1226056de77e00f3", null ],
-    [ "operator=", "d8/dd1/a01894.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
-    [ "operator=", "d8/dd1/a01894.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
-    [ "unbindCallback", "d8/dd1/a01894.html#a436fbfef93e09cd205ebb36284da5374", null ],
-    [ "void::HAL_GPIO_EXTI_Callback", "d8/dd1/a01894.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
-    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d8/dd1/a01894.html#a608244a38c1095888d60a17b77ae5ed4", null ],
-    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d8/dd1/a01894.html#aa8068c433729122f23f40e6bfa77659f", null ]
+    [ "Event", "dd/d8e/a01898.html", null ],
+    [ "ADCPort", "d8/dd1/a01894.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d8/dd1/a01894.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d8/dd1/a01894.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d8/dd1/a01894.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d8/dd1/a01894.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "d8/dd1/a01894.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d8/dd1/a01894.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d8/dd1/a01894.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d8/dd1/a01894.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d8/dd1/a01894.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d8/dd1/a01894.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d8/dd1/a01894.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

@@ -1,12 +1,12 @@
 var a01170 =
 [
-    [ "SerialPortBase", "d3/dc7/a01170.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "d3/dc7/a01170.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "d3/dc7/a01170.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "d3/dc7/a01170.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "d3/dc7/a01170.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "d3/dc7/a01170.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "d3/dc7/a01170.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d3/dc7/a01170.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "d3/dc7/a01170.html#a22242f9b587ab6f048bcc4e16ed2e3b3", null ]
+    [ "Data", "da/dfb/a01174.html", "da/dfb/a01174" ],
+    [ "Color", "d3/dc7/a01170.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "d3/dc7/a01170.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "d3/dc7/a01170.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "d3/dc7/a01170.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "d3/dc7/a01170.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "d3/dc7/a01170.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "d3/dc7/a01170.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "d3/dc7/a01170.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

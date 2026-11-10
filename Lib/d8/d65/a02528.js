@@ -1,9 +1,7 @@
 var a02528 =
 [
-    [ "VersionString", "d8/d65/a02528.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "d8/d65/a02528.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "d8/d65/a02528.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d8/d65/a02528.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "d8/d65/a02528.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d8/d65/a02528.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "maxVoltage", "d8/d65/a02528.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
+    [ "minVoltage", "d8/d65/a02528.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
+    [ "powerThreshold", "d8/d65/a02528.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
+    [ "stepSize", "d8/d65/a02528.html#a5ac779799a2638585b8dbced18eff05d", null ]
 ];

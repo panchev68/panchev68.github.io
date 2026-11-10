@@ -1,9 +1,11 @@
 var a02356 =
 [
-    [ "Lock", "d6/d3a/a02356.html#a79915981fe481334533677f3c4691e1f", null ],
-    [ "~Lock", "d6/d3a/a02356.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
-    [ "Lock", "d6/d3a/a02356.html#a7da060988728f2b1731d04e7b4465ffb", null ],
-    [ "Lock", "d6/d3a/a02356.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
-    [ "operator=", "d6/d3a/a02356.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
-    [ "operator=", "d6/d3a/a02356.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
+    [ "Parameters", "d6/d3a/a02356.html#a1755515e60fdfe10aafe099283f9d593", null ],
+    [ "Parameters", "d6/d3a/a02356.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
+    [ "kd", "d6/d3a/a02356.html#a6fd341537b6f12074478402b53dea8f1", null ],
+    [ "ki", "d6/d3a/a02356.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
+    [ "kp", "d6/d3a/a02356.html#af4932c40d48d9c972bd4f448a37388bc", null ],
+    [ "outputMax", "d6/d3a/a02356.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
+    [ "outputMin", "d6/d3a/a02356.html#a23515cb5c24f985549f55404aee2928a", null ],
+    [ "sampleTime", "d6/d3a/a02356.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
 ];

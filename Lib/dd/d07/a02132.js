@@ -1,11 +1,18 @@
 var a02132 =
 [
-    [ "getDirection", "dd/d07/a02132.html#a68335ce20908e5937884bf601bb4b90e", null ],
-    [ "getRecipient", "dd/d07/a02132.html#ae7283011b9493caacbbe6081ca48b217", null ],
-    [ "getType", "dd/d07/a02132.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
-    [ "index", "dd/d07/a02132.html#a042e36be625640c409835eeb4ca30c8a", null ],
-    [ "length", "dd/d07/a02132.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
-    [ "request", "dd/d07/a02132.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
-    [ "requestType", "dd/d07/a02132.html#a87ecd5c19387a9761e2548aba162728d", null ],
-    [ "value", "dd/d07/a02132.html#aeb95036baf576efe55bbdca1daf8c864", null ]
+    [ "EventHandler", "dd/d07/a02132.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "dd/d07/a02132.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
+    [ "~USBDevicePort", "dd/d07/a02132.html#a0a313f5efd10221e16714eece65dda0f", null ],
+    [ "abort", "dd/d07/a02132.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "dd/d07/a02132.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "dd/d07/a02132.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/d07/a02132.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "dd/d07/a02132.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dd/d07/a02132.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "dd/d07/a02132.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "dd/d07/a02132.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "dd/d07/a02132.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "dd/d07/a02132.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "dd/d07/a02132.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "dd/d07/a02132.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

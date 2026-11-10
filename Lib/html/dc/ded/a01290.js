@@ -1,8 +1,9 @@
 var a01290 =
 [
-    [ "add", "dc/ded/a01290.html#aba0c9372d3b1a24b97871a98c33bd4cb", null ],
-    [ "closeAll", "dc/ded/a01290.html#a2f3ea2df8906d22fb9eecb66a955d592", null ],
-    [ "openAll", "dc/ded/a01290.html#a1491fd97fe70faf25e0d0fabe3bb19ad", null ],
-    [ "remove", "dc/ded/a01290.html#a05b2d2dabe7424f9af0d388f0110b88f", null ],
-    [ "update", "dc/ded/a01290.html#a40fa6642ea9d9cb1c79643ff8862c0a7", null ]
+    [ "Address", "dc/ded/a01290.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "dc/ded/a01290.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "dc/ded/a01290.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "dc/ded/a01290.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "dc/ded/a01290.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "dc/ded/a01290.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
 ];

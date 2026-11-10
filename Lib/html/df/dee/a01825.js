@@ -1,14 +1,16 @@
 var a01825 =
 [
-    [ "Config", "d6/dbd/a01829.html", "d6/dbd/a01829" ],
-    [ "State", "df/dee/a01825.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "df/dee/a01825.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "df/dee/a01825.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "df/dee/a01825.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "df/dee/a01825.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "df/dee/a01825.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "df/dee/a01825.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "df/dee/a01825.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "df/dee/a01825.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "EventBits", "df/dee/a01825.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
+    [ "AsyncPortCore", "df/dee/a01825.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
+    [ "AsyncPortCore", "df/dee/a01825.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
+    [ "AsyncPortCore", "df/dee/a01825.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
+    [ "~AsyncPortCore", "df/dee/a01825.html#aa73910a82d1814199dbe1ec58c46f450", null ],
+    [ "close", "df/dee/a01825.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "derived", "df/dee/a01825.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "isOpened", "df/dee/a01825.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "df/dee/a01825.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "operator=", "df/dee/a01825.html#af7a0ea878376b289ff08600fa9477026", null ],
+    [ "operator=", "df/dee/a01825.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
+    [ "events", "df/dee/a01825.html#abb56ddd8ed19246084e1242e9075982f", null ],
+    [ "isOpen", "df/dee/a01825.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
 ];

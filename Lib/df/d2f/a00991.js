@@ -1,19 +1,16 @@
 var a00991 =
 [
-    [ "Node", "dd/d48/a00995.html", "dd/d48/a00995" ],
-    [ "Diagnostic", "de/de2/a00999.html", "de/de2/a00999" ],
-    [ "Filter", "df/d2f/a00991.html#aba2543fcfb2d0bfb529f5b29a749d9f5", null ],
-    [ "RxMessage", "df/d2f/a00991.html#a4037831aea825654d7dbddde75b316c7", null ],
-    [ "ServiceBase", "df/d2f/a00991.html#acbfceb92cefef5281785b7d5db81df5d", null ],
-    [ "~ServiceBase", "df/d2f/a00991.html#a6594894f460fcebe7b8705a3ebca6938", null ],
-    [ "errorCallback", "df/d2f/a00991.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "df/d2f/a00991.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "df/d2f/a00991.html#abe37221a89d42b0ec836894d481128b4", null ],
-    [ "receive", "df/d2f/a00991.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "df/d2f/a00991.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "df/d2f/a00991.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "df/d2f/a00991.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "df/d2f/a00991.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "df/d2f/a00991.html#a3d0252842f197249fff9649618458fee", null ],
-    [ "taskFn", "df/d2f/a00991.html#a3f461c3e0f637c2be89463249c736b46", null ]
+    [ "Config", "df/d2f/a00991.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "df/d2f/a00991.html#a961e9014542ac6f768bd548fa1d15598", null ],
+    [ "~M24C64W", "df/d2f/a00991.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "close", "df/d2f/a00991.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "df/d2f/a00991.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "df/d2f/a00991.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "df/d2f/a00991.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "df/d2f/a00991.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "df/d2f/a00991.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "df/d2f/a00991.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "df/d2f/a00991.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "df/d2f/a00991.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C64W >", "df/d2f/a00991.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

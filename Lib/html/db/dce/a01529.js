@@ -1,5 +1,5 @@
 var a01529 =
 [
-    [ "read", "db/dce/a01529.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
-    [ "write", "db/dce/a01529.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
+    [ "EscapedCode", "db/dce/a01529.html#a0eba03e3a280131bad36582bede262ec", null ],
+    [ "operator bool", "db/dce/a01529.html#aaec17e85d58e2a986fd4edae145b737c", null ]
 ];

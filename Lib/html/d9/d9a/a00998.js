@@ -1,5 +1,8 @@
 var a00998 =
 [
-    [ "button", "d9/d9a/a00998.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-    [ "handle", "d9/d9a/a00998.html#a75774bfc0a226b392ad051cc0514697c", null ]
+    [ "button", "d9/d9a/a00998.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
+    [ "channel1", "d9/d9a/a00998.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
+    [ "channel2", "d9/d9a/a00998.html#a360d21f775c66781831db2507e7a73fc", null ],
+    [ "divider", "d9/d9a/a00998.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
+    [ "reversePolarity", "d9/d9a/a00998.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
 ];

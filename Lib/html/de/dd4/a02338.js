@@ -1,30 +1,6 @@
 var a02338 =
 [
-    [ "Bits", "de/dd4/a02338.html#a27fe7bec268decd9b548d4ad2375ca34", null ],
-    [ "Handle", "de/dd4/a02338.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
-    [ "TickType", "de/dd4/a02338.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
-    [ "EventGroup", "de/dd4/a02338.html#a56df016b3829e560ce9e75a007e6e26c", null ],
-    [ "EventGroup", "de/dd4/a02338.html#ae83c0e347985e554dbffd399d6749c28", null ],
-    [ "~EventGroup", "de/dd4/a02338.html#a28986dc28cf1e996b6c98f1020f26294", null ],
-    [ "EventGroup", "de/dd4/a02338.html#a674ca6cf44432becf24267dda94e547d", null ],
-    [ "clearAllEvents", "de/dd4/a02338.html#a9e46ac55649d284c4950d9c85142bdcf", null ],
-    [ "clearBits", "de/dd4/a02338.html#a564e679e348f400f7840978d5ae63d7f", null ],
-    [ "clearBitsFromISR", "de/dd4/a02338.html#a32ff3286f958a78cacaa0f4b80b9711b", null ],
-    [ "clearFromISR", "de/dd4/a02338.html#a1a5e45f94b4b856ab55ff24bdef9595d", null ],
-    [ "close", "de/dd4/a02338.html#a86f5d90cf8de78fe435b35460bef5edd", null ],
-    [ "createStatic", "de/dd4/a02338.html#ae027cdcf3b41026b6a3cb3a70310c298", null ],
-    [ "getBits", "de/dd4/a02338.html#ad61d21c064aaec70b93bbe5a12ce9436", null ],
-    [ "getBitsFromISR", "de/dd4/a02338.html#ac0074ec5d598a7d397984ff86e110e4a", null ],
-    [ "getHandle", "de/dd4/a02338.html#aec13a03913c66d345ec02187dbe579ec", null ],
-    [ "isOpen", "de/dd4/a02338.html#a14d4bddd8e6249a20ac2ae9f18e2caee", null ],
-    [ "open", "de/dd4/a02338.html#ae966e8d3efe519e3138fedaa3108a300", null ],
-    [ "operator=", "de/dd4/a02338.html#a81801feadd715f46e582f2bd0c8d2c99", null ],
-    [ "operator=", "de/dd4/a02338.html#a2576c192353ebd4e1261f2a0908f1946", null ],
-    [ "setBits", "de/dd4/a02338.html#a154c164a4617cf8553683bb42f04ff11", null ],
-    [ "setBitsFromISR", "de/dd4/a02338.html#a13c55cc45daa6d96a1f21460a4c71626", null ],
-    [ "setBitsFromISR", "de/dd4/a02338.html#a8145a3ffbcf914aa872e193c0368e43b", null ],
-    [ "sync", "de/dd4/a02338.html#af47921ebb5a21fcedea78389027fec71", null ],
-    [ "sync", "de/dd4/a02338.html#aa6e6dd0a0b50af7c854cce6e6f0be0c9", null ],
-    [ "wait", "de/dd4/a02338.html#a98eed0f8fde6aee2a7c1df202f1807fa", null ],
-    [ "wait", "de/dd4/a02338.html#ac933f049ba3d9d3e242bdc243dea3482", null ]
+    [ "name", "de/dd4/a02338.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
+    [ "output", "de/dd4/a02338.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
+    [ "rotateTime", "de/dd4/a02338.html#aad96d287e9891431e5a7c99935482563", null ]
 ];

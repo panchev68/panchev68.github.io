@@ -1,7 +1,10 @@
 var a02551 =
 [
-    [ "baudRate", "db/df2/a02551.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "db/df2/a02551.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "db/df2/a02551.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "db/df2/a02551.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "VersionString", "db/df2/a02551.html#a86d520da943edfbb98a592e47cd30177", null ],
+    [ "VersionBase", "db/df2/a02551.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
+    [ "getSubVersion", "db/df2/a02551.html#ae5c57f2bce8b985f8190894328141480", null ],
+    [ "getValue", "db/df2/a02551.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
+    [ "operator uint32_t", "db/df2/a02551.html#afca34523d727d800376b4959573f80bf", null ],
+    [ "operator VersionString", "db/df2/a02551.html#a3e56152954887db7681501c597507ae4", null ],
+    [ "toString", "db/df2/a02551.html#a1288aa2ce9764268fe7751f879f27a00", null ]
 ];

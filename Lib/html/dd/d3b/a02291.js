@@ -1,14 +1,20 @@
 var a02291 =
 [
     [ "Point", "dd/da4/a02295.html", "dd/da4/a02295" ],
-    [ "LinearInterpolation", "dd/d3b/a02291.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "dd/d3b/a02291.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "dd/d3b/a02291.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "dd/d3b/a02291.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "dd/d3b/a02291.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "dd/d3b/a02291.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "dd/d3b/a02291.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "dd/d3b/a02291.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "dd/d3b/a02291.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "dd/d3b/a02291.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "BoundaryType", "dd/d3b/a02291.html#aa4199170b826f8a973a54466af4c6ee7", [
+      [ "NATURAL", "dd/d3b/a02291.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
+      [ "CLAMPED", "dd/d3b/a02291.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
+    ] ],
+    [ "CubicInterpolation", "dd/d3b/a02291.html#a841b3381f15408dd279fad40a24710bf", null ],
+    [ "CubicInterpolation", "dd/d3b/a02291.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
+    [ "addPoint", "dd/d3b/a02291.html#a29d21ef530981fb7842870ef526f1b0d", null ],
+    [ "addPoint", "dd/d3b/a02291.html#a397f3557d9b7add0f4af4fb332df8489", null ],
+    [ "clear", "dd/d3b/a02291.html#a2d421533830985fc950a97222defd528", null ],
+    [ "getDerivative", "dd/d3b/a02291.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
+    [ "getPoint", "dd/d3b/a02291.html#afda32c424bc54d575f5c946a47366a08", null ],
+    [ "getPointCount", "dd/d3b/a02291.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
+    [ "interpolate", "dd/d3b/a02291.html#a5a79dc95e74d373846583cff418b5cec", null ],
+    [ "isEmpty", "dd/d3b/a02291.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
+    [ "setBoundaryConditions", "dd/d3b/a02291.html#a4d8040b86f154a9249087cd51352f01a", null ],
+    [ "sortPoints", "dd/d3b/a02291.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
 ];

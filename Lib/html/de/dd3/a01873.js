@@ -1,7 +1,9 @@
 var a01873 =
 [
-    [ "maxVoltage", "de/dd3/a01873.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "de/dd3/a01873.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "de/dd3/a01873.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "de/dd3/a01873.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "Handle", "de/dd3/a01873.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "de/dd3/a01873.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "de/dd3/a01873.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "de/dd3/a01873.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "de/dd3/a01873.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "de/dd3/a01873.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

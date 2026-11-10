@@ -1,6 +1,9 @@
 var a01356 =
 [
-    [ "resetPin", "d2/d3f/a01356.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "d2/d3f/a01356.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "d2/d3f/a01356.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "Address", "d2/d3f/a01356.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "d2/d3f/a01356.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "d2/d3f/a01356.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "d2/d3f/a01356.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "d2/d3f/a01356.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "d2/d3f/a01356.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
 ];

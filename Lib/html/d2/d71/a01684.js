@@ -1,6 +1,6 @@
 var a01684 =
 [
-    [ "Observer", "d2/d71/a01684.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "d2/d71/a01684.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
-    [ "Observer", "d2/d71/a01684.html#a285dcb5567493b45b23d25b24004e9b9", null ]
+    [ "afterWrite", "d2/d71/a01684.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
+    [ "beforeRead", "d2/d71/a01684.html#a214b45de3b2b1b03564e40ad91392018", null ],
+    [ "beforeWrite", "d2/d71/a01684.html#a19848fcaef19f48fd52d8d89e26be851", null ]
 ];

@@ -1,10 +1,12 @@
 var a01255 =
 [
-    [ "Payload", "d7/d88/a01255.html#a097ff109525c26888e9a0e3671643975", null ],
-    [ "append", "d7/d88/a01255.html#ae8ece66119e8e11d5464fa8b41b34889", null ],
-    [ "assign", "d7/d88/a01255.html#a88bb1aed79d37b427989cfbff4048a0d", null ],
-    [ "clear", "d7/d88/a01255.html#ac696981b4d124bf89d6a30c113ec50dc", null ],
-    [ "data", "d7/d88/a01255.html#ab8c1fe17ee51caf803630bfda32a31fd", null ],
-    [ "operator[]", "d7/d88/a01255.html#a6e6a89d99c44a8a64238818f6445e47c", null ],
-    [ "size", "d7/d88/a01255.html#aaaf8e0dbdbf274d492d816656c15540c", null ]
+    [ "debounceDuration", "d7/d88/a01255.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d7/d88/a01255.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d7/d88/a01255.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d7/d88/a01255.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d7/d88/a01255.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d7/d88/a01255.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d7/d88/a01255.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d7/d88/a01255.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d7/d88/a01255.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

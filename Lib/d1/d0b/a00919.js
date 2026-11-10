@@ -1,8 +1,13 @@
 var a00919 =
 [
-    [ "operator==", "d1/d0b/a00919.html#ae5c1f1e5d02a988ded6e785d45f26612", null ],
-    [ "blue", "d1/d0b/a00919.html#ac389cd1dee46b5cb8d25573b3d3906b2", null ],
-    [ "green", "d1/d0b/a00919.html#aaac4b49f8ced6f8a10842162f110217d", null ],
-    [ "red", "d1/d0b/a00919.html#a1bd5166e0614bbc5f125800b8d695df4", null ],
-    [ "white", "d1/d0b/a00919.html#a272f822cae4bd3b8e993080e2317636e", null ]
+    [ "Config", "df/de9/a00923.html", "df/de9/a00923" ],
+    [ "Beep", "d1/d0b/a00919.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "~Beep", "d1/d0b/a00919.html#af601628e760dd29541b317a1256b6bd1", null ],
+    [ "Beep", "d1/d0b/a00919.html#a08c08dc451270c224dded9c366b9aa6a", null ],
+    [ "Beep", "d1/d0b/a00919.html#a3506da759c0ccebd28b87c0489cdb56e", null ],
+    [ "isPlaying", "d1/d0b/a00919.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "operator=", "d1/d0b/a00919.html#a3c5fdc21b4e87a407ca4fb0efaa588cc", null ],
+    [ "operator=", "d1/d0b/a00919.html#ad2f515525962880586d857dd395e8983", null ],
+    [ "play", "d1/d0b/a00919.html#a4bc5b3cc66d266518992ce5dc14973c5", null ],
+    [ "RTOS::TickClient< Beep >", "d1/d0b/a00919.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

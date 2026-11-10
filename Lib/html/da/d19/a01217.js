@@ -1,14 +1,16 @@
 var a01217 =
 [
-    [ "Subscriber", "da/d19/a01217.html#a3f40221ae5736ac688a612345a14a8e4", null ],
-    [ "MulticastDelegate", "da/d19/a01217.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
-    [ "add", "da/d19/a01217.html#a7b2551280da180b1f1dda5c6981737cd", null ],
-    [ "clear", "da/d19/a01217.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
-    [ "invoke", "da/d19/a01217.html#abfd30810b143472b8393b53f898dbcd5", null ],
-    [ "isEmpty", "da/d19/a01217.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
-    [ "operator()", "da/d19/a01217.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
-    [ "operator+=", "da/d19/a01217.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
-    [ "operator-=", "da/d19/a01217.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
-    [ "remove", "da/d19/a01217.html#adb01252450a4c8f5a57794062eef97da", null ],
-    [ "size", "da/d19/a01217.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
+    [ "Diagnostic", "da/d19/a01217.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
+    [ "RxMessage", "da/d19/a01217.html#a932efed9da888704df63ae07522746cc", null ],
+    [ "Service", "da/d19/a01217.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
+    [ "~Service", "da/d19/a01217.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
+    [ "errorCallback", "da/d19/a01217.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
+    [ "getDiagnostic", "da/d19/a01217.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
+    [ "messageReceivedCallback", "da/d19/a01217.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
+    [ "send", "da/d19/a01217.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
+    [ "send", "da/d19/a01217.html#aad0ab4b3fc67332597a346d30271a53b", null ],
+    [ "send", "da/d19/a01217.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
+    [ "start", "da/d19/a01217.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
+    [ "stop", "da/d19/a01217.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
+    [ "taskFn", "da/d19/a01217.html#a375bb14705ce8117ed4e147179680854", null ]
 ];

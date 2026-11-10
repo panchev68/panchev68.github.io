@@ -1,5 +1,5 @@
 var a02480 =
 [
-    [ "current", "d2/d35/a02480.html#a2e9a3fd94c50f6eec80b37bc5f23f415", null ],
-    [ "voltage", "d2/d35/a02480.html#a1e7c41cc6f1e458a928298f16e3913df", null ]
+    [ "previousValue", "d2/d35/a02480.html#a18bbde03afa6705ff2164f33a694f539", null ],
+    [ "success", "d2/d35/a02480.html#aaef68ed1b6e5e9f438c5faedf6306ca3", null ]
 ];

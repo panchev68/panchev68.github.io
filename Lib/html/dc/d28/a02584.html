@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Member List</title>
+<title>Library: X:/Lib/IAR/inc/Lib/Helper/Convert/Hex.hpp</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -27,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08.1</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d9e/a02587.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/d28/a02584.html','../../',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,15 +112,115 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d9e/a02587.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">vscode Member List</div></div>
+  <div class="headertitle"><div class="title">X:/Lib/IAR/inc/Lib/Helper/Convert/Hex.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>This is the complete list of members for <a class="el" href="../../d4/d9e/a02587.html">vscode</a>, including all inherited members.</p>
-<table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="../../d4/d9e/a02587.html#adb04031689a0f1b2303e9ca5974b2ae4">vscode</a>()=default</td><td class="entry"><a class="el" href="../../d4/d9e/a02587.html">vscode</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="../../d4/d9e/a02587.html#a4139889b0f0ec3fa1dbefc4808c87c43">~vscode</a>()=default</td><td class="entry"><a class="el" href="../../d4/d9e/a02587.html">vscode</a></td><td class="entry"></td></tr>
-</table></div><!-- contents -->
+<p>Hexadecimal and decimal ASCII conversions for an unsigned integer type.</p>
+<p>Hexadecimal and decimal ASCII conversions for an unsigned integer type."std::to_chars" is not used for the digits: it is not constexpr before C++23, emits lowercase and does not pad, so the fixed-width uppercase form would need a second pass anyway.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Unsigned integer type to convert, such as "uint8_t", "uint16_t", "uint32_t" or "uint64_t"; "bool" is rejected.</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma once</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d21/a00584.html">Ascii.hpp</a>&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d25/a00596.html">HexHelper.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;concepts&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstddef&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d1c/a00824.html">Lib::Helper::Convert</a> {</div>
+<div class="line"></div>
+<div class="line">    <span class="keyword">template</span>&lt;std::<span class="keywordtype">unsigned</span>_<span class="keywordtype">int</span>egral T&gt; <span class="keyword">requires</span>(!std::same_as&lt;T, bool&gt;) <span class="keyword">class</span> Hex <span class="keyword">final</span> {</div>
+<div class="line">    <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t NIBBLE_BITS = 4U;                                            </div>
+<div class="line">        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t HEX_DIGIT_COUNT = <span class="keyword">sizeof</span>(T) * 2U;                            </div>
+<div class="line">        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t DECIMAL_DIGIT_COUNT = std::numeric_limits&lt;T&gt;::digits10 + 1U; </div>
+<div class="line">        <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t BCD_MAX_VALUE = <a id="a0" name="a0"></a><a class="code hl_variable" href="../../da/d67/a02133.html#ac2020c11bb32ceae75bc19a13f847f25">HexHelper::BCD_MAX_VALUE</a>;                    </div>
+<div class="line"> </div>
+<div class="line">        <span class="keyword">using </span>HexDigits = std::array&lt;char, HEX_DIGIT_COUNT + 1U&gt;;                              </div>
+<div class="line">        <span class="keyword">using </span>DecimalDigits = std::array&lt;char, DECIMAL_DIGIT_COUNT + 1U&gt;;                      </div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma region Conversions</span></div>
+<div class="line"></div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t toBcd(T number) <span class="keyword">noexcept</span> <span class="keyword">requires</span>(<span class="keyword">sizeof</span>(T) &lt;= <span class="keyword">sizeof</span>(uint32_t)) {</div>
+<div class="line">            <span class="keywordflow">return</span> <a id="a1" name="a1"></a><a class="code hl_function" href="../../da/d67/a02133.html#adc4e23573cc8d30952b34baa738a7829">HexHelper::toBcd</a>(number);</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> HexDigits toString(T number) <span class="keyword">noexcept</span> {</div>
+<div class="line">            HexDigits digits{};</div>
+<div class="line">            T remaining = number;</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> index = HEX_DIGIT_COUNT; index &gt; 0U; --index) {</div>
+<div class="line">                digits[index - 1U] = <a id="a2" name="a2"></a><a class="code hl_function" href="../../d0/d79/a02117.html#a15313aa6cabb72f0fef9a1a444ac8739">Ascii::fromHex</a>(<span class="keyword">static_cast&lt;</span>uint8_t<span class="keyword">&gt;</span>(remaining &amp; <a id="a3" name="a3"></a><a class="code hl_variable" href="../../d0/d79/a02117.html#a0e5b94c3c4c9eab6ae02425565a272a1">Ascii::NIBBLE_MASK</a>));</div>
+<div class="line">                remaining = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(remaining &gt;&gt; NIBBLE_BITS);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> digits;</div>
+<div class="line">        }</div>
+<div class="line"></div>
+<div class="line">        [[nodiscard]] <span class="keyword">static</span> <span class="keyword">constexpr</span> DecimalDigits toBcdString(T number, <span class="keywordtype">bool</span> showZero = <span class="keyword">false</span>) <span class="keyword">noexcept</span> {</div>
+<div class="line">            <span class="keyword">constexpr</span> T DECIMAL_BASE = 10U;</div>
+<div class="line"> </div>
+<div class="line">            DecimalDigits digits{};</div>
+<div class="line">            <span class="keyword">const</span> <span class="keyword">auto</span> end = digits.begin() + DECIMAL_DIGIT_COUNT;</div>
+<div class="line">            <span class="keyword">auto</span> first = end;</div>
+<div class="line">            T remaining = number;</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">do</span> {</div>
+<div class="line">                *--first = <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<span class="charliteral">&#39;0&#39;</span> + (remaining % DECIMAL_BASE));</div>
+<div class="line">                remaining = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(remaining / DECIMAL_BASE);</div>
+<div class="line">            } <span class="keywordflow">while</span> (remaining != 0U);</div>
+<div class="line"> </div>
+<div class="line">            <span class="keywordflow">if</span> (showZero) {</div>
+<div class="line">                std::fill(digits.begin(), first, <span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line">            } <span class="keywordflow">else</span> {</div>
+<div class="line">                <span class="keyword">const</span> <span class="keyword">auto</span> length = end - first;</div>
+<div class="line"> </div>
+<div class="line">                std::shift_left(digits.begin(), end, first - digits.begin());</div>
+<div class="line">                std::fill(digits.begin() + length, end, <span class="charliteral">&#39;\0&#39;</span>);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">return</span> digits;</div>
+<div class="line">        }</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma region Deleted constructors and operators</span></div>
+<div class="line"></div>
+<div class="line">        Hex() = <span class="keyword">delete</span>;</div>
+<div class="line"></div>
+<div class="line">        ~Hex() = <span class="keyword">delete</span>;</div>
+<div class="line"></div>
+<div class="line">        Hex(<span class="keyword">const</span> Hex &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"></div>
+<div class="line">        Hex &amp; operator=(<span class="keyword">const</span> Hex &amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#pragma endregion</span></div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">} <span class="comment">// namespace Lib::Helper::Convert</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">using </span><a id="_a4" name="_a4"></a><a class="code hl_typedef" href="../../d2/da3/a00593.html#a60e614729279abe20d7718c969b604bb">hex</a> = <a id="_a5" name="_a5"></a><a class="code hl_class" href="../../db/d26/a02129.html">Lib::Helper::Convert::Hex&lt;T&gt;</a>;</div>
+<div class="ttc" id="aa00584_html"><div class="ttname"><a href="../../d7/d21/a00584.html">Ascii.hpp</a></div><div class="ttdoc">ASCII conversion utilities.</div></div>
+<div class="ttc" id="aa00593_html_a60e614729279abe20d7718c969b604bb"><div class="ttname"><a href="../../d2/da3/a00593.html#a60e614729279abe20d7718c969b604bb">hex</a></div><div class="ttdeci">Lib::Helper::Convert::Hex&lt; T &gt; hex</div><div class="ttdoc">Global shorthand for &quot;Lib::Helper::Convert::Hex&quot;, kept for existing consumers.</div><div class="ttdef"><b>Definition</b> Hex.hpp:160</div></div>
+<div class="ttc" id="aa00596_html"><div class="ttname"><a href="../../dc/d25/a00596.html">HexHelper.hpp</a></div><div class="ttdoc">Utility helpers for hexadecimal and BCD conversions.</div></div>
+<div class="ttc" id="aa00824_html"><div class="ttname"><a href="../../d8/d1c/a00824.html">Lib::Helper::Convert</a></div><div class="ttdoc">Helpers for converting between signal units and presentation scales.</div><div class="ttdef"><b>Definition</b> Ascii.hpp:24</div></div>
+<div class="ttc" id="aa02117_html_a0e5b94c3c4c9eab6ae02425565a272a1"><div class="ttname"><a href="../../d0/d79/a02117.html#a0e5b94c3c4c9eab6ae02425565a272a1">Lib::Helper::Convert::Ascii::NIBBLE_MASK</a></div><div class="ttdeci">static constexpr uint8_t NIBBLE_MASK</div><div class="ttdoc">Mask selecting the low four bits of a byte.</div><div class="ttdef"><b>Definition</b> Ascii.hpp:41</div></div>
+<div class="ttc" id="aa02117_html_a15313aa6cabb72f0fef9a1a444ac8739"><div class="ttname"><a href="../../d0/d79/a02117.html#a15313aa6cabb72f0fef9a1a444ac8739">Lib::Helper::Convert::Ascii::fromHex</a></div><div class="ttdeci">static constexpr char fromHex(uint8_t nibble) noexcept</div><div class="ttdoc">Convert a 4-bit value to its hexadecimal character representation.</div><div class="ttdef"><b>Definition</b> Ascii.hpp:126</div></div>
+<div class="ttc" id="aa02129_html"><div class="ttname"><a href="../../db/d26/a02129.html">Lib::Helper::Convert::Hex</a></div><div class="ttdef"><b>Definition</b> Hex.hpp:44</div></div>
+<div class="ttc" id="aa02133_html_ac2020c11bb32ceae75bc19a13f847f25"><div class="ttname"><a href="../../da/d67/a02133.html#ac2020c11bb32ceae75bc19a13f847f25">Lib::Helper::Convert::HexHelper::BCD_MAX_VALUE</a></div><div class="ttdeci">static constexpr uint32_t BCD_MAX_VALUE</div><div class="ttdoc">Largest value encodable in a 32-bit packed BCD.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:32</div></div>
+<div class="ttc" id="aa02133_html_adc4e23573cc8d30952b34baa738a7829"><div class="ttname"><a href="../../da/d67/a02133.html#adc4e23573cc8d30952b34baa738a7829">Lib::Helper::Convert::HexHelper::toBcd</a></div><div class="ttdeci">static constexpr uint32_t toBcd(uint32_t value) noexcept</div><div class="ttdoc">Convert an unsigned decimal value into a packed 32-bit BCD value.</div><div class="ttdef"><b>Definition</b> HexHelper.hpp:77</div></div>
+</div><!-- fragment --> </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->

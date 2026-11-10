@@ -1,9 +1,10 @@
 var a01928 =
 [
-    [ "I2CPortAsync", "d1/db0/a01928.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "abort", "d1/db0/a01928.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "masterMemRead", "d1/db0/a01928.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d1/db0/a01928.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d1/db0/a01928.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d1/db0/a01928.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ]
+    [ "IndependentWatchdog", "d1/db0/a01928.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "d1/db0/a01928.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "d1/db0/a01928.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "d1/db0/a01928.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "d1/db0/a01928.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "d1/db0/a01928.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "d1/db0/a01928.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

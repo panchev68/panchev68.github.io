@@ -1,15 +1,18 @@
 var a01742 =
 [
-    [ "TickType", "d1/dd5/a01742.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "d1/dd5/a01742.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "d1/dd5/a01742.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "d1/dd5/a01742.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "d1/dd5/a01742.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "d1/dd5/a01742.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "d1/dd5/a01742.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "d1/dd5/a01742.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "d1/dd5/a01742.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "d1/dd5/a01742.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "d1/dd5/a01742.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "d1/dd5/a01742.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "Handlers", "d1/dd5/a01742.html#a272ea34043ce0f3bb7014fc2c4df927e", null ],
+    [ "Parameters", "d1/dd5/a01742.html#a4d66198ad9a9b1a75925e1a97dbc5fb9", null ],
+    [ "Result", "d1/dd5/a01742.html#a6870bc1d903b1d83b238ba51088eb134", null ],
+    [ "EoE", "d1/dd5/a01742.html#a57ce3b2cab796d2623bc80be2bc75e80", null ],
+    [ "~EoE", "d1/dd5/a01742.html#a5babb7f332ba38f3e2e33203e39e615d", null ],
+    [ "EoE", "d1/dd5/a01742.html#a07829bbfc5250b03c81968ebd709bf4e", null ],
+    [ "EoE", "d1/dd5/a01742.html#ac52aa3b6cbf2a17e467cfba61ddbf48e", null ],
+    [ "handle", "d1/dd5/a01742.html#a41416e8882dd613876cb3a6bcbfc9b44", null ],
+    [ "isSendPending", "d1/dd5/a01742.html#a91f842049f97f5f7055e5a7f6de7c6ac", null ],
+    [ "operator=", "d1/dd5/a01742.html#a82f98b2311b36aea43517d9a31df5d08", null ],
+    [ "operator=", "d1/dd5/a01742.html#ae9237ef17cddb3bf83d5e2b41580c4af", null ],
+    [ "queueFrame", "d1/dd5/a01742.html#a2afc345b5bcd9326d015eb678e620201", null ],
+    [ "reset", "d1/dd5/a01742.html#a85ee64bff9f15d5ace7999ebdb5643ef", null ],
+    [ "service", "d1/dd5/a01742.html#a4d41465f94d62fdbab816ab8d8ebd674", null ],
+    [ "setHandlers", "d1/dd5/a01742.html#a6b26ad71662f36a666db683b5755a119", null ]
 ];

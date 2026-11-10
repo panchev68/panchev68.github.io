@@ -1,5 +1,5 @@
 var a01510 =
 [
-    [ "high", "dc/d47/a01510.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
-    [ "low", "dc/d47/a01510.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
+    [ "localAtCommand", "dc/d47/a01510.html#a62c4d2c354626705c34bc850c039b5f7", null ],
+    [ "remoteAtCommand", "dc/d47/a01510.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
 ];

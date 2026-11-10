@@ -1,8 +1,5 @@
 var a02174 =
 [
-    [ "crc16", "d6/d6e/a02174.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
-    [ "crc16", "d6/d6e/a02174.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
-    [ "crc16", "d6/d6e/a02174.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
-    [ "crc16", "d6/d6e/a02174.html#abac152733a66bebdb4f969523dc9dbe1", null ],
-    [ "operator uint16_t", "d6/d6e/a02174.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
+    [ "DecimalDigits", "d6/d6e/a02174.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "d6/d6e/a02174.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

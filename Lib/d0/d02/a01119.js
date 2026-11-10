@@ -1,13 +1,24 @@
 var a01119 =
 [
-    [ "Period", "d0/d02/a01119.html#aea86de902c6caf4f08cf0c70c9e92c83", null ],
-    [ "beginMeasurement", "d0/d02/a01119.html#abedf1ddd690a7a9d4d29c8fb2cbaf4b6", null ],
-    [ "clearMinMax", "d0/d02/a01119.html#a8e6eba734ac461aef7a8ae0f0ec5a7c7", null ],
-    [ "endMeasurement", "d0/d02/a01119.html#a0d977f3f6c69ffbd7806c6721d1fc213", null ],
-    [ "getMaximum", "d0/d02/a01119.html#a7fbc6fcbb48991e7184e30f305f1e04b", null ],
-    [ "getMinimum", "d0/d02/a01119.html#a74fe067b228e91e888527cde922af4ab", null ],
-    [ "getRawValue", "d0/d02/a01119.html#a8e9a5702067740cae617ad3e800557cd", null ],
-    [ "getValue", "d0/d02/a01119.html#a76b8ac1dc694c0ce85a1cf9cee298770", null ],
-    [ "operator uint32_t", "d0/d02/a01119.html#ae2c8aa51311f42e1d983f9ae4b5969a9", null ],
-    [ "reset", "d0/d02/a01119.html#a6d75c29880edb434a8c6cba3f2c3718f", null ]
+    [ "Uid", "de/de5/a01123.html", "de/de5/a01123" ],
+    [ "Type", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7a", [
+      [ "UNKNOWN", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "ISO_14443_4", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7", null ],
+      [ "ISO_18092", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd", null ],
+      [ "MIFARE_MINI", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb", null ],
+      [ "MIFARE_1K", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc", null ],
+      [ "MIFARE_4K", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b", null ],
+      [ "MIFARE_UL", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7", null ],
+      [ "MIFARE_PLUS", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b", null ],
+      [ "TNP3XXX", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0", null ]
+    ] ],
+    [ "Card", "d0/d02/a01119.html#afe55bac777579392a2341966d599b1aa", null ],
+    [ "~Card", "d0/d02/a01119.html#a9b462a8f8d521dee2be275ece0ea5096", null ],
+    [ "authenticate", "d0/d02/a01119.html#a08fa94e57f56bdd7964dd70e267fd718", null ],
+    [ "detectCard", "d0/d02/a01119.html#a4cdc1e802bc109d771789db15c6830d9", null ],
+    [ "getCardType", "d0/d02/a01119.html#aaf3cc939cb0c768c7a554db036cdb6ad", null ],
+    [ "getUid", "d0/d02/a01119.html#a33cc183859688cd28572af600ed743f6", null ],
+    [ "halt", "d0/d02/a01119.html#a8ee80419a4d19b05e8e0e5451837de29", null ],
+    [ "selectCard", "d0/d02/a01119.html#a9375b5228d52a37d16ba4e2b6ad19b34", null ],
+    [ "stopCrypto", "d0/d02/a01119.html#a7b0e6aeddeb25fcaf7c23cf7070117e0", null ]
 ];

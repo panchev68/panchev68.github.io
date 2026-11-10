@@ -1,7 +1,10 @@
 var a02475 =
 [
-    [ "maxVoltage", "d2/d70/a02475.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d2/d70/a02475.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d2/d70/a02475.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d2/d70/a02475.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "maxPowerRef", "d2/d70/a02475.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d2/d70/a02475.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d2/d70/a02475.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d2/d70/a02475.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d2/d70/a02475.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d2/d70/a02475.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d2/d70/a02475.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

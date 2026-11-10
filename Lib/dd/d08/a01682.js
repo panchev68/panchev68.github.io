@@ -1,14 +1,10 @@
 var a01682 =
 [
-    [ "Time", "d0/d31/a01686.html", "d0/d31/a01686" ],
-    [ "Date", "d6/d01/a01690.html", "d6/d01/a01690" ],
-    [ "DateTime", "dd/d08/a01682.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "dd/d08/a01682.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "dd/d08/a01682.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "dd/d08/a01682.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "dd/d08/a01682.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "dd/d08/a01682.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "dd/d08/a01682.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "dd/d08/a01682.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "dd/d08/a01682.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "Frame0x97", "dd/d08/a01682.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
+    [ "atCommand", "dd/d08/a01682.html#a965406599165a7744ecbe01f6054fc9d", null ],
+    [ "commandStatus", "dd/d08/a01682.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
+    [ "frameId", "dd/d08/a01682.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
+    [ "parameters", "dd/d08/a01682.html#a0716b11170a5695a6ff94920635fb32f", null ],
+    [ "srcAddr16", "dd/d08/a01682.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
+    [ "srcAddr64", "dd/d08/a01682.html#a146e6de04eded1ed1426630c73a3ad17", null ]
 ];

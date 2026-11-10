@@ -1,10 +1,9 @@
 var a01664 =
 [
-    [ "Frame0x97", "dc/d71/a01664.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
-    [ "atCommand", "dc/d71/a01664.html#a965406599165a7744ecbe01f6054fc9d", null ],
-    [ "commandStatus", "dc/d71/a01664.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
-    [ "frameId", "dc/d71/a01664.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
-    [ "parameters", "dc/d71/a01664.html#a0716b11170a5695a6ff94920635fb32f", null ],
-    [ "srcAddr16", "dc/d71/a01664.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
-    [ "srcAddr64", "dc/d71/a01664.html#a146e6de04eded1ed1426630c73a3ad17", null ]
+    [ "writeTo", "dc/d71/a01664.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "dc/d71/a01664.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "dc/d71/a01664.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "dc/d71/a01664.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "dc/d71/a01664.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "dc/d71/a01664.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

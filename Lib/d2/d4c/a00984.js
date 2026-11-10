@@ -1,8 +1,7 @@
 var a00984 =
 [
-    [ "button", "d2/d4c/a00984.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
-    [ "channel1", "d2/d4c/a00984.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
-    [ "channel2", "d2/d4c/a00984.html#a360d21f775c66781831db2507e7a73fc", null ],
-    [ "divider", "d2/d4c/a00984.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
-    [ "reversePolarity", "d2/d4c/a00984.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
+    [ "diPinHandle", "d2/d4c/a00984.html#ac1b56409fb324181fdf949402d46b876", null ],
+    [ "nrstPinHandle", "d2/d4c/a00984.html#af72580eea93e2646b3f6eb5efbbce47f", null ],
+    [ "nssPinHandle", "d2/d4c/a00984.html#a8dc8520c47e27de48c5b73a8870cda54", null ],
+    [ "spiHandle", "d2/d4c/a00984.html#ab178d2536db34733af537ae7bec2353c", null ]
 ];

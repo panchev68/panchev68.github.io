@@ -1,5 +1,7 @@
 var a00935 =
 [
-    [ "channel", "d8/d19/a00935.html#aa0967939bfb313185c18cc470150b853", null ],
-    [ "handle", "d8/d19/a00935.html#a373f87e5f5c75c7a49f16724225066b1", null ]
+    [ "correction", "d8/d19/a00935.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "d8/d19/a00935.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "d8/d19/a00935.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "d8/d19/a00935.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

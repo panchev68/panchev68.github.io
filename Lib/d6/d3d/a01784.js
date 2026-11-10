@@ -1,22 +1,9 @@
 var a01784 =
 [
-    [ "Diagnostic", "d4/d77/a01788.html", "d4/d77/a01788" ],
-    [ "ConnectionState", "d6/d3d/a01784.html#a56cd12ff82e971645f7a23734b80bbf0", null ],
-    [ "ClientBase", "d6/d3d/a01784.html#a2ee9814fe7b1bdf67ee96cc783454230", null ],
-    [ "~ClientBase", "d6/d3d/a01784.html#aa64fe42414f52a9ddcf73265f7aaa32e", null ],
-    [ "ClientBase", "d6/d3d/a01784.html#a171d0ee214534d948c4d955355ab7bf3", null ],
-    [ "ClientBase", "d6/d3d/a01784.html#a9ad742e1649a2f2423837da9974e4140", null ],
-    [ "getConnectionState", "d6/d3d/a01784.html#a0ba4737991369ec358f11bf82c4392df", null ],
-    [ "getDiagnostic", "d6/d3d/a01784.html#acddaa0b3fe21bf41d5c49971e4833fb8", null ],
-    [ "getRemoteNode", "d6/d3d/a01784.html#a0d9ed09b6ed483d84196c3617fdd854d", null ],
-    [ "handleApplicationProcess", "d6/d3d/a01784.html#a00422437a5ab35fa114a370d21d55678", null ],
-    [ "operator=", "d6/d3d/a01784.html#a878f98b5d415e7a8e2821d7c2b7c398e", null ],
-    [ "operator=", "d6/d3d/a01784.html#ae1ba6598652355c62f04b855d15e0ee4", null ],
-    [ "readLinkState", "d6/d3d/a01784.html#a1509f9ad6bf5e3766269bbdec6103779", null ],
-    [ "send", "d6/d3d/a01784.html#a75056b314ce6ce19807888e9fd56cb2c", null ],
-    [ "setConnectionState", "d6/d3d/a01784.html#a7936da086b583d8438bc492bd1423181", null ],
-    [ "setRemoteNode", "d6/d3d/a01784.html#aca3bfc7a7ae808b71533018ec7f30382", null ],
-    [ "start", "d6/d3d/a01784.html#a590e03d72003060be01839884fdd0b26", null ],
-    [ "updateRxLedCallback", "d6/d3d/a01784.html#af2915b8806cc5b5c86f344d441dc28c2", null ],
-    [ "updateTxLedCallback", "d6/d3d/a01784.html#ac2aebcf3601efce658d06d2be4f7f06c", null ]
+    [ "address", "d6/d3d/a01784.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d6/d3d/a01784.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d6/d3d/a01784.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d6/d3d/a01784.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d6/d3d/a01784.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d6/d3d/a01784.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

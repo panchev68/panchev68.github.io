@@ -1,9 +1,7 @@
 var a02346 =
 [
-    [ "CriticalSectionFromISR", "df/d1b/a02346.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "df/d1b/a02346.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "df/d1b/a02346.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "df/d1b/a02346.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "df/d1b/a02346.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "df/d1b/a02346.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "isInverted", "df/d1b/a02346.html#a527ce99ad9135c5ee638b478e35031de", null ],
+    [ "isPresent", "df/d1b/a02346.html#adeb1badd28d6911fa7c0422e5278feef", null ],
+    [ "name", "df/d1b/a02346.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
+    [ "source", "df/d1b/a02346.html#a13e98c772a216681f6a95506ba77144a", null ]
 ];

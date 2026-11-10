@@ -1,7 +1,10 @@
 var a01865 =
 [
-    [ "current", "d5/da8/a01865.html#a03c2002021ee39257b3712ebb21f9804", null ],
-    [ "irradiance", "d5/da8/a01865.html#aeb4a3f32aa352d29093581039d36dd08", null ],
-    [ "temperature", "d5/da8/a01865.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
-    [ "voltage", "d5/da8/a01865.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
+    [ "MacString", "d5/da8/a01865.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
+    [ "MacAddress", "d5/da8/a01865.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
+    [ "MacAddress", "d5/da8/a01865.html#aa300b2a042efd76f66f61db709b5b736", null ],
+    [ "data", "d5/da8/a01865.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
+    [ "operator[]", "d5/da8/a01865.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
+    [ "size", "d5/da8/a01865.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
+    [ "toString", "d5/da8/a01865.html#a83b7f1a52401d479dea270cbe112b88c", null ]
 ];

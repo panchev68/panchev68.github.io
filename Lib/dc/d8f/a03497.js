@@ -1,7 +1,5 @@
 var a03497 =
 [
-    [ "Lib::Canbus::ServiceBase", "d6/d0f/a01256.html", "d6/d0f/a01256" ],
-    [ "Lib::Canbus::ServiceBase::RxMessage", "d7/da3/a01260.html", "d7/da3/a01260" ],
-    [ "Lib::Canbus::ServiceBase::Node", "d3/d51/a01264.html", "d3/d51/a01264" ],
-    [ "Lib::Canbus::ServiceBase::Diagnostic", "dc/dd9/a01268.html", "dc/dd9/a01268" ]
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "de/df7/a01201.html", "de/df7/a01201" ],
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "de/d61/a01205.html", "de/d61/a01205" ]
 ];

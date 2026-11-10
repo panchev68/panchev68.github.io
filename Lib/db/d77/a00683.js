@@ -1,5 +1,4 @@
 var a00683 =
 [
-    [ "Lib::Pneumatics::Sensor", "db/d83/a02328.html", "db/d83/a02328" ],
-    [ "Lib::Pneumatics::Sensor::Config", "d1/d03/a02332.html", "d1/d03/a02332" ]
+    [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d3/d3a/a02259.html", "d3/d3a/a02259" ]
 ];

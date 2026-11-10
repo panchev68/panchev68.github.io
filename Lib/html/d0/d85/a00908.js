@@ -1,5 +1,8 @@
 var a00908 =
 [
-    [ "mask", "d0/d85/a00908.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-    [ "port", "d0/d85/a00908.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "mappingFields", "d0/d85/a00908.html#a11dd2076fb88f533f185c4b3036c605c", null ],
+    [ "nssPin", "d0/d85/a00908.html#a34daf98cbe961003cd48d2bd333f83c0", null ],
+    [ "oePin", "d0/d85/a00908.html#ad65334adb3ad809e06b272cedcb59224", null ],
+    [ "pinCount", "d0/d85/a00908.html#a85d8e563810275243c4b75899e92dab3", null ],
+    [ "spiPort", "d0/d85/a00908.html#aff796faea898891c8271e1b1dba76858", null ]
 ];

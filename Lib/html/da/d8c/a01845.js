@@ -1,9 +1,16 @@
 var a01845 =
 [
-    [ "Lock", "db/dd4/a01849.html", "db/dd4/a01849" ],
-    [ "State", "da/d8c/a01845.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "da/d8c/a01845.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "da/d8c/a01845.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "da/d8c/a01845.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "Event", "db/dd4/a01849.html", null ],
+    [ "DACPort", "da/d8c/a01845.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "da/d8c/a01845.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "da/d8c/a01845.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "da/d8c/a01845.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "da/d8c/a01845.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "da/d8c/a01845.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "open", "da/d8c/a01845.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "da/d8c/a01845.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "da/d8c/a01845.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "start", "da/d8c/a01845.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "da/d8c/a01845.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "da/d8c/a01845.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

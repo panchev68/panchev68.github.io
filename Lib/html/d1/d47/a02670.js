@@ -1,7 +1,5 @@
 var a02670 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Type", "dc/d8f/a00718.html#a739459324a89506aa4cced1716275d06", [
-      [ "Lib::BSP::Thermometer::DTH::Type::DTH11", "dc/d8f/a00718.html#a739459324a89506aa4cced1716275d06a8c1ff87e2818df1689e21b28586306b2", null ],
-      [ "Lib::BSP::Thermometer::DTH::Type::DTH22", "dc/d8f/a00718.html#a739459324a89506aa4cced1716275d06a9605c38a0c968e9fa948ea26056471a7", null ]
-    ] ]
+    [ "command", "d1/d47/a02670.html#ab88a17ebe65ad74bd0ad24c49f050229", null ],
+    [ "payload", "d1/d47/a02670.html#a837fc81ef88a6c8c67e1982490629483", null ]
 ];

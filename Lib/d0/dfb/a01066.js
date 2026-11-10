@@ -1,22 +1,11 @@
 var a01066 =
 [
-    [ "Diagnostic", "d5/d67/a01070.html", "d5/d67/a01070" ],
-    [ "PinHandle", "d0/dfb/a01066.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
-    [ "Driver", "d0/dfb/a01066.html#ab07845254f409b109812886c271c23fd", null ],
-    [ "~Driver", "d0/dfb/a01066.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
-    [ "beginReceiveData", "d0/dfb/a01066.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
-    [ "endReceivedData", "d0/dfb/a01066.html#a63785a9b88d7556f54e1e71118a760d4", null ],
-    [ "getHumidity", "d0/dfb/a01066.html#af1b0389aae714142b8a606106d0a4a56", null ],
-    [ "getRawHumidity", "d0/dfb/a01066.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
-    [ "getRawTemperature", "d0/dfb/a01066.html#ab776af450b94ccff9151de29e820c940", null ],
-    [ "getTemperature", "d0/dfb/a01066.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
-    [ "hasNewData", "d0/dfb/a01066.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
-    [ "isValidData", "d0/dfb/a01066.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
-    [ "start", "d0/dfb/a01066.html#a7bb2909673708c9ad956bc98034da91d", null ],
-    [ "startupImpulse", "d0/dfb/a01066.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
-    [ "waitForComplete", "d0/dfb/a01066.html#a9b5b96a6106c15c974463750529471d0", null ],
-    [ "writePinState", "d0/dfb/a01066.html#a049430e063b46db8f7e7401c0af75df7", null ],
-    [ "Base< Driver< Type::DTH22 > >", "d0/dfb/a01066.html#a563861f233361c18a30fd9049d7abd7a", null ],
-    [ "config", "d0/dfb/a01066.html#a3b31347dab82ede045f6e076046e5762", null ],
-    [ "diagnostic", "d0/dfb/a01066.html#a641741551ee87f815b7ca238c2fce09c", null ]
+    [ "capacityBytes", "d0/dfb/a01066.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d0/dfb/a01066.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d0/dfb/a01066.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d0/dfb/a01066.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d0/dfb/a01066.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d0/dfb/a01066.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d0/dfb/a01066.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d0/dfb/a01066.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

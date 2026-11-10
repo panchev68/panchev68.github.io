@@ -1,16 +1,10 @@
 var a00167 =
 [
-    [ "Lib::Crypto::WolfSSH", "db/d74/a01378.html", "db/d74/a01378" ],
-    [ "Lib::Crypto::WolfSSHServerContext", "de/d9d/a01382.html", "de/d9d/a01382" ],
-    [ "Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;", "d3/deb/a01386.html", "d3/deb/a01386" ],
-    [ "Lib::Crypto::WolfSSHKeyFormat", "d5/dac/a00841.html#ac3c925af062f5b22fa21eff3b0af0542", [
-      [ "Lib::Crypto::WolfSSHKeyFormat::ASN1", "d5/dac/a00841.html#ac3c925af062f5b22fa21eff3b0af0542a4638457c14ad3dac251404cf286de87c", null ],
-      [ "Lib::Crypto::WolfSSHKeyFormat::PEM", "d5/dac/a00841.html#ac3c925af062f5b22fa21eff3b0af0542ac888957bb6d2fe3bdac6000656d3e2fe", null ],
-      [ "Lib::Crypto::WolfSSHKeyFormat::OPENSSH", "d5/dac/a00841.html#ac3c925af062f5b22fa21eff3b0af0542a8767bfd1184dbf95fa5c63a77a626a1f", null ]
-    ] ],
-    [ "Lib::Crypto::WolfSSHStatus", "d5/dac/a00841.html#a173e4abd0ef87e757ea6dfe73552a7c3", [
-      [ "Lib::Crypto::WolfSSHStatus::SUCCESS", "d5/dac/a00841.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "Lib::Crypto::WolfSSHStatus::WOULD_BLOCK", "d5/dac/a00841.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614", null ],
-      [ "Lib::Crypto::WolfSSHStatus::ERROR", "d5/dac/a00841.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ]
+    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;", "d5/da0/a01342.html", "d5/da0/a01342" ],
+    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;::Target", "d9/de4/a01346.html", "d9/de4/a01346" ],
+    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;::Key", "da/d61/a01350.html", null ],
+    [ "FunctionRef&lt; Ret(Args...)&gt;", "d7/dc4/a01354.html", null ],
+    [ "FunctionRef&lt; Ret(Args...) const &gt;", "de/d5c/a01358.html", null ],
+    [ "FunctionRef&lt; Ret(Args...) noexcept &gt;", "da/dab/a01362.html", null ],
+    [ "FunctionRef&lt; Ret(Args...) const noexcept &gt;", "d6/dfe/a01366.html", null ]
 ];

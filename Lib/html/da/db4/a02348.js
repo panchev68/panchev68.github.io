@@ -1,9 +1,15 @@
 var a02348 =
 [
-    [ "Lock", "da/d6b/a02352.html", "da/d6b/a02352" ],
-    [ "State", "da/db4/a02348.html#a329f49803f7880dc5d4e70b422ef08ff", [
-      [ "SUSPENDED", "da/db4/a02348.html#a329f49803f7880dc5d4e70b422ef08ffa0cb707127aebaa0023eb38363993843a", null ],
-      [ "NOT_STARTED", "da/db4/a02348.html#a329f49803f7880dc5d4e70b422ef08ffa06972acc3aafeb3a65dbd996c8dedc73", null ],
-      [ "RUNNING", "da/db4/a02348.html#a329f49803f7880dc5d4e70b422ef08ffa43491564ebcfd38568918efbd6e840fd", null ]
-    ] ]
+    [ "Status", "da/db4/a02348.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "da/db4/a02348.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "da/db4/a02348.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "da/db4/a02348.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "SIZE_TOO_LARGE", "da/db4/a02348.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
+    ] ],
+    [ "MemoryManager", "da/db4/a02348.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "da/db4/a02348.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "da/db4/a02348.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "da/db4/a02348.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "da/db4/a02348.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "da/db4/a02348.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

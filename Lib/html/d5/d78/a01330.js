@@ -1,19 +1,12 @@
 var a01330 =
 [
-    [ "Target", "d4/dd1/a01334.html", "d4/dd1/a01334" ],
-    [ "Key", "d2/d4d/a01338.html", null ],
-    [ "FreeFunctionPointer", "d5/d78/a01330.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d5/d78/a01330.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d5/d78/a01330.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "Base", "d5/d78/a01330.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
-    [ "Base", "d5/d78/a01330.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
-    [ "Base", "d5/d78/a01330.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
-    [ "Base", "d5/d78/a01330.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
-    [ "Base", "d5/d78/a01330.html#a49a4e79ff99eb03351fd7a280f276905", null ],
-    [ "invoke", "d5/d78/a01330.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d5/d78/a01330.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d5/d78/a01330.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d5/d78/a01330.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d5/d78/a01330.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d5/d78/a01330.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "SerialPortBase", "d5/d78/a01330.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "d5/d78/a01330.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "d5/d78/a01330.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "d5/d78/a01330.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "d5/d78/a01330.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "d5/d78/a01330.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "d5/d78/a01330.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "d5/d78/a01330.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "d5/d78/a01330.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

@@ -1,6 +1,12 @@
 var a01362 =
 [
-    [ "resetPin", "da/dab/a01362.html#a62080691c6e5d8f0d670c1c1ad736bc2", null ],
-    [ "rxHandle", "da/dab/a01362.html#a29ab0a7f869cc03da3b393fb4d9bf2b3", null ],
-    [ "txHandle", "da/dab/a01362.html#a2e41c252b094a33eb5f6e49e649eb863", null ]
+    [ "FreeFunctionPointer", "da/dab/a01362.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "da/dab/a01362.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "da/dab/a01362.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "da/dab/a01362.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "da/dab/a01362.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "da/dab/a01362.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "da/dab/a01362.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "da/dab/a01362.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "da/dab/a01362.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

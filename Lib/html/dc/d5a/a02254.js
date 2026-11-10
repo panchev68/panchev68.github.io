@@ -1,12 +1,14 @@
 var a02254 =
 [
-    [ "getLocalTransition", "dc/d5a/a02254.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "dc/d5a/a02254.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "dc/d5a/a02254.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "dc/d5a/a02254.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "dc/d5a/a02254.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "dc/d5a/a02254.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "dc/d5a/a02254.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "dc/d5a/a02254.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "dc/d5a/a02254.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "Time", "dc/db6/a02258.html", "dc/db6/a02258" ],
+    [ "Date", "d3/ddb/a02262.html", "d3/ddb/a02262" ],
+    [ "DateTime", "dc/d5a/a02254.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "dc/d5a/a02254.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "dc/d5a/a02254.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "dc/d5a/a02254.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "dc/d5a/a02254.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "dc/d5a/a02254.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "dc/d5a/a02254.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "dc/d5a/a02254.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "dc/d5a/a02254.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

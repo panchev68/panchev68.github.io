@@ -1,17 +1,19 @@
 var a01884 =
 [
-    [ "DataAlignment", "dc/d7f/a01884.html#a18b5de83aaec561a43dc24a80e15bd46", [
-      [ "RIGHT_12_BITS", "dc/d7f/a01884.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
-      [ "LEFT_12_BITS", "dc/d7f/a01884.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
-      [ "RIGHT_8_BITS", "dc/d7f/a01884.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
-    ] ],
-    [ "DACPortBase", "dc/d7f/a01884.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
-    [ "DACPortBase", "dc/d7f/a01884.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
-    [ "DACPortBase", "dc/d7f/a01884.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
-    [ "~DACPortBase", "dc/d7f/a01884.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
-    [ "close", "dc/d7f/a01884.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "open", "dc/d7f/a01884.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "dc/d7f/a01884.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
-    [ "operator=", "dc/d7f/a01884.html#abfba06342b098e48cbd2ecf0d159497c", null ],
-    [ "setValue", "dc/d7f/a01884.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
+    [ "CANPort", "dc/d7f/a01884.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "dc/d7f/a01884.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "dc/d7f/a01884.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "dc/d7f/a01884.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "close", "dc/d7f/a01884.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
+    [ "getFreeTxMailboxCount", "dc/d7f/a01884.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getHandle", "dc/d7f/a01884.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "dc/d7f/a01884.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "getRxFifoFillLevel", "dc/d7f/a01884.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "dc/d7f/a01884.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
+    [ "operator=", "dc/d7f/a01884.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "dc/d7f/a01884.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
+    [ "read", "dc/d7f/a01884.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "readBlocking", "dc/d7f/a01884.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "write", "dc/d7f/a01884.html#a65aa681fa591b2d0956e06e67e990b15", null ],
+    [ "writeBlocking", "dc/d7f/a01884.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

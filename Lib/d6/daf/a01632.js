@@ -1,11 +1,11 @@
 var a01632 =
 [
-    [ "onExtendedTransmitStatusChanged", "d6/daf/a01632.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "d6/daf/a01632.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "d6/daf/a01632.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "d6/daf/a01632.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "d6/daf/a01632.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "d6/daf/a01632.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "d6/daf/a01632.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "d6/daf/a01632.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Message", "d6/daf/a01632.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "d6/daf/a01632.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "d6/daf/a01632.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "d6/daf/a01632.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "d6/daf/a01632.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "d6/daf/a01632.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "d6/daf/a01632.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "d6/daf/a01632.html#a99d9247c3097add390da201d0083e524", null ]
 ];

@@ -1,7 +1,20 @@
 var a00922 =
 [
-    [ "mappingFields", "dd/dcf/a00922.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
-    [ "nssPin", "dd/dcf/a00922.html#a1057a60af84ee4d60342df596793afee", null ],
-    [ "pinCount", "dd/dcf/a00922.html#a4ec50d1e310701baec42aebd409d8af6", null ],
-    [ "spiPort", "dd/dcf/a00922.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
+    [ "MapField", "d8/d38/a00926.html", "d8/d38/a00926" ],
+    [ "Config", "d7/d16/a00930.html", "d7/d16/a00930" ],
+    [ "PortBase", "df/d12/a00942.html", "df/d12/a00942" ],
+    [ "Inputs", "da/d40/a00946.html", "da/d40/a00946" ],
+    [ "Outputs", "df/d39/a00950.html", "df/d39/a00950" ],
+    [ "SpiPort", "dd/dcf/a00922.html#a8e662cafaa683ac82c0b60d7b4da8fdc", null ],
+    [ "UpdateMode", "dd/dcf/a00922.html#a50419179ec3a60e3ac3b5036b3b284eb", [
+      [ "SEQUENTIAL", "dd/dcf/a00922.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
+      [ "PARALLEL", "dd/dcf/a00922.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "DigitalPeripheralBase", "dd/dcf/a00922.html#ace067a52b4d9576bd3ade495aa11e352", null ],
+    [ "~DigitalPeripheralBase", "dd/dcf/a00922.html#a9d019d0d0be1f110d76abf5f5ab11e4e", null ],
+    [ "getInputs", "dd/dcf/a00922.html#ae1add73078ebd967252d4864e16de016", null ],
+    [ "getOutputs", "dd/dcf/a00922.html#ad664d141e8c0b66fbd109f6397914af6", null ],
+    [ "handlePostUpdateEvent", "dd/dcf/a00922.html#a9b56e97a372ad140ce2ef0b8b348a7c5", null ],
+    [ "handlePreUpdateEvent", "dd/dcf/a00922.html#a2953eba2059d60debecac4c3d1d3e1d2", null ],
+    [ "setup", "dd/dcf/a00922.html#ae9523074ebe5ad81c27aacd0f7c38c7f", null ]
 ];

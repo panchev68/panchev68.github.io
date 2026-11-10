@@ -1,5 +1,6 @@
 var a02006 =
 [
-    [ "SPIPort", "d9/de8/a02006.html#a6887b333ef818d3bd80112c8ce57998d", null ],
-    [ "~SPIPort", "d9/de8/a02006.html#ad6c6de84d5713ce3f16ae3047ec949a1", null ]
+    [ "hours", "d9/de8/a02006.html#a437ac5c570358c9a7f7f0ead962efd15", null ],
+    [ "minutes", "d9/de8/a02006.html#a2ebd665fed7747e94644f3670cef570a", null ],
+    [ "seconds", "d9/de8/a02006.html#a869962a23dd18f21cc9b54289c3d97ca", null ]
 ];

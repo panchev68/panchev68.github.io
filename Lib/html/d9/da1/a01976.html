@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Helper::TimePeriod</title>
+<title>Library: Lib::HAL::RTCDevice::Time Struct Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -88,7 +89,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/da1/a01976.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/da1/a01976.html','../../','d3/d59/a01973'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -111,57 +112,93 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d9/da1/a01976.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::RTCDevice::Time Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.</p>
-<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.The example starts the stopwatch, delays for a known interval, reads the elapsed ticks and the elapsed time without stopping, then stops and resets the stopwatch.</p>
-<dl class="section note"><dt>Note</dt><dd>This example runs in task context and relies on the FreeRTOS scheduler. Use the FromISR variants inside an interrupt handler.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d9/da1/a01976.html" title="Lib::Helper::TimePeriod">Lib::Helper::TimePeriod</a>, RTOS::Task::delay, <a class="el" href="../../d5/da1/a01988.html" title="RTOS::TickCounter">RTOS::TickCounter</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d91/a00659.html">Lib/Helper/TimePeriod.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timingExampleTask() {</div>
-<div class="line">    <span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../d0/d78/a01745.html">Lib::Helper::TimePeriod</a> timer;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Start measurement</span></div>
-<div class="line">    timer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../d0/d78/a01745.html#afc371b1b7ae3ad092d6048dc93bca6d5">start</a>();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Simulate work or wait for 200 ms</span></div>
-<div class="line">    RTOS::Task::delay(RTOS::TickCounter::toTicks(200ms));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Query elapsed ticks and elapsed time without stopping</span></div>
-<div class="line">    <span class="keyword">const</span> uint32_t elapsedTicks = timer.<a id="a2" name="a2"></a><a class="code hl_function" href="../../d0/d78/a01745.html#ada4c0a6cd0114194a6667e555b90a36a">elapsed</a>();</div>
-<div class="line">    <span class="keyword">const</span> std::chrono::milliseconds elapsedTime = timer.<a id="a3" name="a3"></a><a class="code hl_function" href="../../d0/d78/a01745.html#aea37e1feea05928a3dfd98f79e82c449">elapsedTime</a>();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Stop and retrieve elapsed ticks</span></div>
-<div class="line">    uint32_t measured = 0U;</div>
-<div class="line">    <span class="keywordflow">if</span> (timer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../d0/d78/a01745.html#a12059cd59e97f3575d46ed98120763a2">stop</a>(measured)) {</div>
-<div class="line">        <span class="comment">// measured contains the ticks elapsed since start</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Reset the timer for reuse</span></div>
-<div class="line">    timer.<a id="a5" name="a5"></a><a class="code hl_function" href="../../d0/d78/a01745.html#a702f4bcc03c1b60bcb212b5276fa13fb">reset</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00659_html"><div class="ttname"><a href="../../dc/d91/a00659.html">TimePeriod.hpp</a></div><div class="ttdoc">Lightweight stopwatch measuring intervals with the FreeRTOS scheduler tick counter.</div></div>
-<div class="ttc" id="aa00749_html"><div class="ttname"><a href="../../d5/de8/a00749.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa01745_html"><div class="ttname"><a href="../../d0/d78/a01745.html">Lib::Helper::TimePeriod</a></div><div class="ttdoc">Stopwatch based on the RTOS tick counter.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:29</div></div>
-<div class="ttc" id="aa01745_html_a12059cd59e97f3575d46ed98120763a2"><div class="ttname"><a href="../../d0/d78/a01745.html#a12059cd59e97f3575d46ed98120763a2">Lib::Helper::TimePeriod::stop</a></div><div class="ttdeci">bool stop(uint32_t &amp;ticks) noexcept</div><div class="ttdoc">Stops the stopwatch and reports the elapsed ticks, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:72</div></div>
-<div class="ttc" id="aa01745_html_a702f4bcc03c1b60bcb212b5276fa13fb"><div class="ttname"><a href="../../d0/d78/a01745.html#a702f4bcc03c1b60bcb212b5276fa13fb">Lib::Helper::TimePeriod::reset</a></div><div class="ttdeci">constexpr void reset() noexcept</div><div class="ttdoc">Stops the stopwatch without reading the elapsed time.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:101</div></div>
-<div class="ttc" id="aa01745_html_ada4c0a6cd0114194a6667e555b90a36a"><div class="ttname"><a href="../../d0/d78/a01745.html#ada4c0a6cd0114194a6667e555b90a36a">Lib::Helper::TimePeriod::elapsed</a></div><div class="ttdeci">uint32_t elapsed() const noexcept</div><div class="ttdoc">Returns the ticks elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:123</div></div>
-<div class="ttc" id="aa01745_html_aea37e1feea05928a3dfd98f79e82c449"><div class="ttname"><a href="../../d0/d78/a01745.html#aea37e1feea05928a3dfd98f79e82c449">Lib::Helper::TimePeriod::elapsedTime</a></div><div class="ttdeci">std::chrono::milliseconds elapsedTime() const noexcept</div><div class="ttdoc">Returns the time elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:141</div></div>
-<div class="ttc" id="aa01745_html_afc371b1b7ae3ad092d6048dc93bca6d5"><div class="ttname"><a href="../../d0/d78/a01745.html#afc371b1b7ae3ad092d6048dc93bca6d5">Lib::Helper::TimePeriod::start</a></div><div class="ttdeci">void start() noexcept</div><div class="ttdoc">Starts or restarts the stopwatch from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:53</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Time-of-day fields in the HAL binary format. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::RTCDevice::Time:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/db6/a01974.svg" width="212" height="175"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a437ac5c570358c9a7f7f0ead962efd15" id="r_a437ac5c570358c9a7f7f0ead962efd15"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a437ac5c570358c9a7f7f0ead962efd15">hours</a></td></tr>
+<tr class="memdesc:a437ac5c570358c9a7f7f0ead962efd15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hours (0-23).  <br /></td></tr>
+<tr class="memitem:a2ebd665fed7747e94644f3670cef570a" id="r_a2ebd665fed7747e94644f3670cef570a"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a2ebd665fed7747e94644f3670cef570a">minutes</a></td></tr>
+<tr class="memdesc:a2ebd665fed7747e94644f3670cef570a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minutes (0-59).  <br /></td></tr>
+<tr class="memitem:a869962a23dd18f21cc9b54289c3d97ca" id="r_a869962a23dd18f21cc9b54289c3d97ca"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a869962a23dd18f21cc9b54289c3d97ca">seconds</a></td></tr>
+<tr class="memdesc:a869962a23dd18f21cc9b54289c3d97ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seconds (0-59).  <br /></td></tr>
+</table>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a437ac5c570358c9a7f7f0ead962efd15" name="a437ac5c570358c9a7f7f0ead962efd15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a437ac5c570358c9a7f7f0ead962efd15">&#9670;&#160;</a></span>hours</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::HAL::RTCDevice::Time::hours</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hours (0-23). </p>
+
+</div>
+</div>
+<a id="a2ebd665fed7747e94644f3670cef570a" name="a2ebd665fed7747e94644f3670cef570a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ebd665fed7747e94644f3670cef570a">&#9670;&#160;</a></span>minutes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::HAL::RTCDevice::Time::minutes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minutes (0-59). </p>
+
+</div>
+</div>
+<a id="a869962a23dd18f21cc9b54289c3d97ca" name="a869962a23dd18f21cc9b54289c3d97ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a869962a23dd18f21cc9b54289c3d97ca">&#9670;&#160;</a></span>seconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Lib::HAL::RTCDevice::Time::seconds</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Seconds (0-59). </p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li><a class="el" href="../../d6/d60/a00491.html">RTCDevice.hpp</a></li>
+</ul>
+</div><!-- contents -->
 </div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d7/d0a/a00801.html">Lib</a></li><li class="navelem"><a href="../../dd/d70/a00835.html">HAL</a></li><li class="navelem"><a href="../../d9/d4f/a01968.html">RTCDevice</a></li><li class="navelem"><a href="../../d9/da1/a01976.html">Time</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

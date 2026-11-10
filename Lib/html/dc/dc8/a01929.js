@@ -1,7 +1,8 @@
 var a01929 =
 [
-    [ "FirmwareString", "dc/dc8/a01929.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "Firmware", "dc/dc8/a01929.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "operator FirmwareString", "dc/dc8/a01929.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "dc/dc8/a01929.html#a7dcca38967251869c5bf305173fc13ee", null ]
+    [ "OSPIPortAsync", "dc/dc8/a01929.html#a51c7bf376cb7e3701de6391b213701a9", null ],
+    [ "abort", "dc/dc8/a01929.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "command", "dc/dc8/a01929.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "receive", "dc/dc8/a01929.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "dc/dc8/a01929.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

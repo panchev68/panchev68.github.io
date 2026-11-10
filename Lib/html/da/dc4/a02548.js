@@ -1,7 +1,7 @@
 var a02548 =
 [
-    [ "baudRate", "da/dc4/a02548.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "da/dc4/a02548.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "da/dc4/a02548.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "da/dc4/a02548.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "firmwareSubversion", "da/dc4/a02548.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
+    [ "firmwareVersionString", "da/dc4/a02548.html#a6b83c53d998379f08471d89aead2818e", null ],
+    [ "hardwareSubversion", "da/dc4/a02548.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
+    [ "hardwareVersionString", "da/dc4/a02548.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
 ];

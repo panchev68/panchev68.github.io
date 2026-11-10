@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wolfsshkeyformat_0',['WolfSSHKeyFormat',['../d5/dac/a00841.html#ac3c925af062f5b22fa21eff3b0af0542',1,'Lib::Crypto']]],
-  ['wolfsshstatus_1',['WolfSSHStatus',['../d5/dac/a00841.html#a173e4abd0ef87e757ea6dfe73552a7c3',1,'Lib::Crypto']]]
+  ['wolfsshkeyformat_0',['WolfSSHKeyFormat',['../db/deb/a00853.html#ac3c925af062f5b22fa21eff3b0af0542',1,'Lib::Crypto']]],
+  ['wolfsshstatus_1',['WolfSSHStatus',['../db/deb/a00853.html#a173e4abd0ef87e757ea6dfe73552a7c3',1,'Lib::Crypto']]]
 ];

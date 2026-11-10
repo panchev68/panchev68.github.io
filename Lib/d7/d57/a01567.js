@@ -1,7 +1,11 @@
 var a01567 =
 [
-    [ "Point", "d7/d57/a01567.html#a0a1b67f20f66f9eaa908ee2d2919bbd2", null ],
-    [ "Point", "d7/d57/a01567.html#aa74828bb7e6c3f161133c0e12513f322", null ],
-    [ "x", "d7/d57/a01567.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
-    [ "y", "d7/d57/a01567.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
+    [ "ignoredMessagesByTimeout", "d7/d57/a01567.html#aef5921d826333c4443495f22db6f23b2", null ],
+    [ "invalidMessages", "d7/d57/a01567.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
+    [ "maxMsgLengthErrors", "d7/d57/a01567.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
+    [ "receivedAtCommandMessages", "d7/d57/a01567.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
+    [ "receivedDataMessages", "d7/d57/a01567.html#ac128abb8594b88f0197fc4fc467d9261", null ],
+    [ "sentAtCommandMessages", "d7/d57/a01567.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
+    [ "sentDataMessages", "d7/d57/a01567.html#acdadb83db434afcb1c0147457f423064", null ],
+    [ "sentDataMessagesTimeout", "d7/d57/a01567.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
 ];

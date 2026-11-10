@@ -1,11 +1,8 @@
 var a00895 =
 [
-    [ "~I2CPort", "d2/d21/a00895.html#a79d501d729d1a73e76d100e570c3b5c4", null ],
-    [ "close", "d2/d21/a00895.html#a3bd1d3c1e7eb76875a09e29cf5080a84", null ],
-    [ "isReady", "d2/d21/a00895.html#aadb8cd4306fa1423e693892b4cd029b2", null ],
-    [ "open", "d2/d21/a00895.html#a6f1df1db44f6d865854b30574830faaf", null ],
-    [ "receive", "d2/d21/a00895.html#a03a7a948a03869108c3dbcf5e94bb3cb", null ],
-    [ "receive", "d2/d21/a00895.html#ac04ceaf3b4ca4d1779dfc89246c2ef54", null ],
-    [ "send", "d2/d21/a00895.html#a0fb8d14c10fb4711ccd6be27938cb3b0", null ],
-    [ "send", "d2/d21/a00895.html#a6d5d9e3ebac7873a98249d745dff26fc", null ]
+    [ "Config", "d3/d8a/a00899.html", "d3/d8a/a00899" ],
+    [ "Beep", "d2/d21/a00895.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "isPlaying", "d2/d21/a00895.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "play", "d2/d21/a00895.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
+    [ "RTOS::TickClient< Beep >", "d2/d21/a00895.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

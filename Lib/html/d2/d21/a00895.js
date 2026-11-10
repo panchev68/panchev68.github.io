@@ -1,7 +1,7 @@
 var a00895 =
 [
-    [ "correction", "d2/d21/a00895.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
-    [ "i2cAddr", "d2/d21/a00895.html#ae3266da82296416f02f68de0c610a2f9", null ],
-    [ "i2cPort", "d2/d21/a00895.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
-    [ "shuntResistorOhms", "d2/d21/a00895.html#a9808e99c30c4516f65cdae3a889ec038", null ]
+    [ "Driver", "d4/dbc/a01038.html", "d4/dbc/a01038" ],
+    [ "M24C16", "da/d17/a01046.html", "da/d17/a01046" ],
+    [ "M24C64W", "d9/d8e/a01050.html", "d9/d8e/a01050" ],
+    [ "DriverImpl", "de/dbb/a02679.html", null ]
 ];

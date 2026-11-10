@@ -1,11 +1,11 @@
 var a02054 =
 [
-    [ "TimTimebase", "d7/d38/a02054.html#a2c242b351c880239ebc508905c1cb177", null ],
-    [ "~TimTimebase", "d7/d38/a02054.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
-    [ "setPeriod", "d7/d38/a02054.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
-    [ "start", "d7/d38/a02054.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
-    [ "stop", "d7/d38/a02054.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
-    [ "waitPeriod", "d7/d38/a02054.html#a2b19392b62c66b845538ec09abd31354", null ],
-    [ "waitPeriod", "d7/d38/a02054.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
-    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d7/d38/a02054.html#ae72687d02451939bdec7c3aaba269a45", null ]
+    [ "TimOnePulse", "d7/d38/a02054.html#ae287fccac43cfbccd505d62c3450d886", null ],
+    [ "~TimOnePulse", "d7/d38/a02054.html#a1e04591efe0469a8ca79694006f138e6", null ],
+    [ "setTiming", "d7/d38/a02054.html#adcd5d98b02d7d70c3dbcd75ab4f117b6", null ],
+    [ "start", "d7/d38/a02054.html#a4dd784ca9da4b8c662101a2b232a1f61", null ],
+    [ "stop", "d7/d38/a02054.html#a2ab7da84b6cafce46167eeca602289ac", null ],
+    [ "waitPulseStart", "d7/d38/a02054.html#a16dbc64b1db27612373f5d95fe8fe6ed", null ],
+    [ "waitPulseStart", "d7/d38/a02054.html#aeba87dc02428bea360275fd39706fa18", null ],
+    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "d7/d38/a02054.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
 ];

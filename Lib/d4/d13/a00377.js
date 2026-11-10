@@ -1,4 +1,5 @@
 var a00377 =
 [
-    [ "Lib::HAL::isDmaReachable", "d4/d60/a00847.html#a6d025716096ef0a5098ff9db2688b2da", null ]
+    [ "Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;", "d6/d2e/a01735.html", "d6/d2e/a01735" ],
+    [ "Lib::Errors::Observer", "d1/d46/a01739.html", "d1/d46/a01739" ]
 ];

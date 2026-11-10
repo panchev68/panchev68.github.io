@@ -1,10 +1,11 @@
 var a01117 =
 [
-    [ "RxMessage", "d6/d8b/a01117.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "d6/d8b/a01117.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "d6/d8b/a01117.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "d6/d8b/a01117.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "d6/d8b/a01117.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "d6/d8b/a01117.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "d6/d8b/a01117.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "operator==", "d6/d8b/a01117.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "d6/d8b/a01117.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "d6/d8b/a01117.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "d6/d8b/a01117.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "d6/d8b/a01117.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "d6/d8b/a01117.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "d6/d8b/a01117.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "d6/d8b/a01117.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

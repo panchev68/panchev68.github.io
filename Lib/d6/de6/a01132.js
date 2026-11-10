@@ -1,6 +1,9 @@
 var a01132 =
 [
-    [ "operator==", "d6/de6/a01132.html#aaffc1273857ce092dc8ef57f2f569797", null ],
-    [ "address", "d6/de6/a01132.html#ad4d0d62f304ebdd08f759f363dd3932a", null ],
-    [ "value", "d6/de6/a01132.html#ac1e3de78a37a7229dfb525e2b82a1b4b", null ]
+    [ "Interface", "d6/de6/a01132.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "d6/de6/a01132.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "d6/de6/a01132.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "d6/de6/a01132.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "d6/de6/a01132.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "d6/de6/a01132.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

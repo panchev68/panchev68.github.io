@@ -1,4 +1,4 @@
 var a00233 =
 [
-    [ "Lib::Digi::Core::LocalAtCommand", "d0/d21/a01582.html", "d0/d21/a01582" ]
+    [ "Lib::Digi::Core::Frame::Data", "d1/d88/a01578.html", "d1/d88/a01578" ]
 ];

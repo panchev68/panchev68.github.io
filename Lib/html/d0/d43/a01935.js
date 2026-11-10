@@ -1,7 +1,5 @@
 var a01935 =
 [
-    [ "Point", "d0/d43/a01935.html#a0a1b67f20f66f9eaa908ee2d2919bbd2", null ],
-    [ "Point", "d0/d43/a01935.html#aa74828bb7e6c3f161133c0e12513f322", null ],
-    [ "x", "d0/d43/a01935.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
-    [ "y", "d0/d43/a01935.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
+    [ "I2CPort", "d0/d43/a01935.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d0/d43/a01935.html#aa13047282a809658f54818a9b352d7bf", null ]
 ];

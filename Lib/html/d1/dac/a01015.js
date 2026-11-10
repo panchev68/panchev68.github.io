@@ -1,17 +1,9 @@
 var a01015 =
 [
-    [ "Config", "db/daf/a01019.html", "db/daf/a01019" ],
-    [ "Interface", "d1/dac/a01015.html#a381267cd26262085628dc52296d42a8c", null ],
-    [ "~Interface", "d1/dac/a01015.html#aef76c4d4ab040fbe9b344444f1ca1f25", null ],
-    [ "close", "d1/dac/a01015.html#a4a3a734f32c1aa4414ad9067d7cb157f", null ],
-    [ "deselect", "d1/dac/a01015.html#a0b87868f20232885a5b0a2ef5c8d1bcf", null ],
-    [ "lock", "d1/dac/a01015.html#a1e411e237b03ed440a7c1b468aefd254", null ],
-    [ "open", "d1/dac/a01015.html#ae082eeea2b4df228729740f9945df189", null ],
-    [ "read", "d1/dac/a01015.html#a59f57dc88e37b6d81e93ccffd01ee9ed", null ],
-    [ "read", "d1/dac/a01015.html#a50584766a7982887fc9dec5defbeb2b6", null ],
-    [ "readWrite", "d1/dac/a01015.html#ae591bbd92b46b72f8129af300a672a5a", null ],
-    [ "select", "d1/dac/a01015.html#ab62e9728d2b5fca07cb024578f579484", null ],
-    [ "unlock", "d1/dac/a01015.html#a731e79a38afda2e92585da34cbf9b7ea", null ],
-    [ "write", "d1/dac/a01015.html#af4430f4b29907dbbc81a1c4df8783b4d", null ],
-    [ "write", "d1/dac/a01015.html#adfad30fd3c2f39252488033eab8522f4", null ]
+    [ "pinIRQ", "d1/dac/a01015.html#a0ab780fb02bfd77df15f096810ce2e85", null ],
+    [ "pinNSS", "d1/dac/a01015.html#a214d97f7c4aae60c0b32b0676b02796e", null ],
+    [ "pinReset", "d1/dac/a01015.html#ad0ae47dc035cf93e9bfa71d0507144f3", null ],
+    [ "pinSync0", "d1/dac/a01015.html#a7aeb6b56add932f3c0533bd8fc7011cc", null ],
+    [ "pinSync1", "d1/dac/a01015.html#a3358fa1b35628a6d324f9be9d4624338", null ],
+    [ "spiHandle", "d1/dac/a01015.html#aed57b8892979041579d2eb130d453151", null ]
 ];

@@ -1,14 +1,7 @@
 var a02484 =
 [
-    [ "Bitset", "de/d4e/a02484.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "de/d4e/a02484.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "de/d4e/a02484.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "de/d4e/a02484.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "de/d4e/a02484.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "de/d4e/a02484.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "de/d4e/a02484.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "de/d4e/a02484.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "de/d4e/a02484.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "de/d4e/a02484.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "Config", "de/d4e/a02484.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
+    [ "name", "de/d4e/a02484.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "de/d4e/a02484.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
+    [ "stackSize", "de/d4e/a02484.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

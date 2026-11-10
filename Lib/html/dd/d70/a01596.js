@@ -1,8 +1,7 @@
 var a01596 =
 [
-    [ "writeTo", "dd/d70/a01596.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
-    [ "dstAddress", "dd/d70/a01596.html#a9969bce892ba39508a48daebcde56b75", null ],
-    [ "frameId", "dd/d70/a01596.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
-    [ "options", "dd/d70/a01596.html#a61fadbd6372692084aabcea329f5f1ab", null ],
-    [ "rfData", "dd/d70/a01596.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
+    [ "writeTo", "dd/d70/a01596.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
+    [ "atCommand", "dd/d70/a01596.html#ae3e6e306d54297473f78f320425df58b", null ],
+    [ "frameId", "dd/d70/a01596.html#af2345c092e4bb001e18ac86d718196a4", null ],
+    [ "parameterValue", "dd/d70/a01596.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
 ];

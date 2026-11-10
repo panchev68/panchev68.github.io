@@ -1,16 +1,14 @@
 var a02008 =
 [
-    [ "SPIPortAsync", "d5/d6e/a02008.html#abce1f805b84c4710a11d7e558b87de55", null ],
-    [ "abort", "d5/d6e/a02008.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
-    [ "bindBeginTransactionFunc", "d5/d6e/a02008.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
-    [ "bindEndTransactionFunc", "d5/d6e/a02008.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "OSPIPortAsync", "d5/d6e/a02008.html#a51c7bf376cb7e3701de6391b213701a9", null ],
+    [ "abort", "d5/d6e/a02008.html#a12a734c939e90c6c90510ba2c323dec0", null ],
     [ "close", "d5/d6e/a02008.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "d5/d6e/a02008.html#ab13d30c818279bf38505328181fa1409", null ],
     [ "getHandle", "d5/d6e/a02008.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d5/d6e/a02008.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d5/d6e/a02008.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "isBusy", "d5/d6e/a02008.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
     [ "isOpened", "d5/d6e/a02008.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
     [ "open", "d5/d6e/a02008.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d5/d6e/a02008.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
-    [ "send", "d5/d6e/a02008.html#ac557450438e468ea5bf25de308bc023c", null ],
-    [ "sendReceive", "d5/d6e/a02008.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
+    [ "receive", "d5/d6e/a02008.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "d5/d6e/a02008.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

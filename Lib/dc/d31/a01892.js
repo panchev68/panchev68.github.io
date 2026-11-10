@@ -1,19 +1,17 @@
 var a01892 =
 [
-    [ "ExtInterrupt", "dc/d31/a01892.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
-    [ "~ExtInterrupt", "dc/d31/a01892.html#a0500efb3e0dbde6f95fd02948060723b", null ],
-    [ "ExtInterrupt", "dc/d31/a01892.html#a0896646faa35c4149a6fb3f8360da15b", null ],
-    [ "ExtInterrupt", "dc/d31/a01892.html#af65b4789b35500d9539e56a75d90c71c", null ],
-    [ "bindCallback", "dc/d31/a01892.html#a716641ce172d66ad1226056de77e00f3", null ],
-    [ "isHigh", "dc/d31/a01892.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "dc/d31/a01892.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "dc/d31/a01892.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "dc/d31/a01892.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
-    [ "operator=", "dc/d31/a01892.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
-    [ "read", "dc/d31/a01892.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "unbindCallback", "dc/d31/a01892.html#a436fbfef93e09cd205ebb36284da5374", null ],
-    [ "void::HAL_GPIO_EXTI_Callback", "dc/d31/a01892.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
-    [ "void::HAL_GPIO_EXTI_Falling_Callback", "dc/d31/a01892.html#a608244a38c1095888d60a17b77ae5ed4", null ],
-    [ "void::HAL_GPIO_EXTI_Rising_Callback", "dc/d31/a01892.html#aa8068c433729122f23f40e6bfa77659f", null ],
-    [ "handle", "dc/d31/a01892.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "DataAlignment", "dc/d31/a01892.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "dc/d31/a01892.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "dc/d31/a01892.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "dc/d31/a01892.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "dc/d31/a01892.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "close", "dc/d31/a01892.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "getChannel", "dc/d31/a01892.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "dc/d31/a01892.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "open", "dc/d31/a01892.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "dc/d31/a01892.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "dc/d31/a01892.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "setValue", "dc/d31/a01892.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "dc/d31/a01892.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "dc/d31/a01892.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

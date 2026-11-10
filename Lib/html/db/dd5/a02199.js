@@ -1,10 +1,18 @@
 var a02199 =
 [
-    [ "PeakInfo", "d3/d0f/a02203.html", "d3/d0f/a02203" ],
-    [ "FindPeaks", "db/dd5/a02199.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "db/dd5/a02199.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "db/dd5/a02199.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "db/dd5/a02199.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "db/dd5/a02199.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "db/dd5/a02199.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "DateString", "db/dd5/a02199.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "db/dd5/a02199.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "db/dd5/a02199.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "db/dd5/a02199.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "db/dd5/a02199.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "db/dd5/a02199.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "db/dd5/a02199.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "db/dd5/a02199.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "db/dd5/a02199.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "db/dd5/a02199.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "db/dd5/a02199.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "db/dd5/a02199.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "db/dd5/a02199.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "db/dd5/a02199.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "db/dd5/a02199.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

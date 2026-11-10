@@ -1,8 +1,12 @@
 var a01642 =
 [
-    [ "Frame0x81", "d7/d94/a01642.html#ab6c2582c9c22d8b4b3e34d5c6e73e8b8", null ],
-    [ "option", "d7/d94/a01642.html#a9514d0309e3844c8659d92c660c71a2b", null ],
-    [ "rfData", "d7/d94/a01642.html#a17639b9161591eee69ff2916356f4f5f", null ],
-    [ "rssi", "d7/d94/a01642.html#af6b4d51bb9e62729e45af3c4c973f0f4", null ],
-    [ "srcAddr16", "d7/d94/a01642.html#a44c2e0a72745be88823b58901a37b73b", null ]
+    [ "Command", "d7/d94/a01642.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "d7/d94/a01642.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "d7/d94/a01642.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "d7/d94/a01642.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "d7/d94/a01642.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "d7/d94/a01642.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "d7/d94/a01642.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "d7/d94/a01642.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "d7/d94/a01642.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];

@@ -1,10 +1,10 @@
 var a01179 =
 [
-    [ "SerialNumber", "dc/d2d/a01183.html", "dc/d2d/a01183" ],
-    [ "channel", "de/d1a/a01179.html#a910133d925087a409f8f8357447b9e3a", null ],
-    [ "firmwareVersion", "de/d1a/a01179.html#a919225b632587966d3cdbd15ca30f0d3", null ],
-    [ "hardwareVersion", "de/d1a/a01179.html#a2efd702c930d16f10c2672244503d676", null ],
-    [ "nodeIdentifier", "de/d1a/a01179.html#affd5522c28ef6e30376120f868f275fe", null ],
-    [ "panId", "de/d1a/a01179.html#ad1515643697ad647030e33ba97d79968", null ],
-    [ "serialNumber", "de/d1a/a01179.html#a5e4e85516315320363b69f902c64a5b7", null ]
+    [ "operator==", "de/d1a/a01179.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "de/d1a/a01179.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "de/d1a/a01179.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "de/d1a/a01179.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "de/d1a/a01179.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "de/d1a/a01179.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "de/d1a/a01179.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

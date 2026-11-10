@@ -1,17 +1,15 @@
 var a01199 =
 [
-    [ "Command", "d0/d5a/a01199.html#aeec1806cc51651aec7c65df97f20824f", [
-      [ "INPUTS", "d0/d5a/a01199.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
-      [ "GET_PARAMETERS", "d0/d5a/a01199.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
-      [ "OUTPUTS", "d0/d5a/a01199.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
-      [ "SET_PARAMETERS", "d0/d5a/a01199.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
-    ] ],
-    [ "UserProtocol", "d0/d5a/a01199.html#a2c269949020f7b26dc12cf29f12d347d", null ],
-    [ "~UserProtocol", "d0/d5a/a01199.html#a5f836cccf9dcbbcb7812013c28f1ef3a", null ],
-    [ "build", "d0/d5a/a01199.html#aa1e61741d47d8b099913c96c35aad8d8", null ],
-    [ "handleGetParameters", "d0/d5a/a01199.html#a9c77bbaf1341133af531df056551c43a", null ],
-    [ "handleInputsUpdate", "d0/d5a/a01199.html#a36840d5bffb6ea2e120079a1c3a22af5", null ],
-    [ "handleOutputsUpdate", "d0/d5a/a01199.html#a7dd1fdcff1a5060b9b20367b3e82351e", null ],
-    [ "handleSetParameters", "d0/d5a/a01199.html#aab53c609ec54ede8b785388cd8b61e72", null ],
-    [ "parse", "d0/d5a/a01199.html#a27bb212253aa2168d701106ada024b99", null ]
+    [ "Ring", "da/d1f/a01203.html", "da/d1f/a01203" ],
+    [ "Slice", "d0/d5a/a01199.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "d0/d5a/a01199.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "d0/d5a/a01199.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "d0/d5a/a01199.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "d0/d5a/a01199.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "d0/d5a/a01199.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "d0/d5a/a01199.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "d0/d5a/a01199.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "d0/d5a/a01199.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "d0/d5a/a01199.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "d0/d5a/a01199.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

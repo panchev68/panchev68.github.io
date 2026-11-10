@@ -1,10 +1,16 @@
 var a01840 =
 [
-    [ "TerminateHandler", "d4/d8e/a01840.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "d4/d8e/a01840.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "d4/d8e/a01840.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "d4/d8e/a01840.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "d4/d8e/a01840.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "d4/d8e/a01840.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "d4/d8e/a01840.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "EventBits", "d4/d8e/a01840.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
+    [ "AsyncPortCore", "d4/d8e/a01840.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
+    [ "AsyncPortCore", "d4/d8e/a01840.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
+    [ "AsyncPortCore", "d4/d8e/a01840.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
+    [ "~AsyncPortCore", "d4/d8e/a01840.html#aa73910a82d1814199dbe1ec58c46f450", null ],
+    [ "close", "d4/d8e/a01840.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "derived", "d4/d8e/a01840.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "isOpened", "d4/d8e/a01840.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d4/d8e/a01840.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "operator=", "d4/d8e/a01840.html#af7a0ea878376b289ff08600fa9477026", null ],
+    [ "operator=", "d4/d8e/a01840.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
+    [ "events", "d4/d8e/a01840.html#abb56ddd8ed19246084e1242e9075982f", null ],
+    [ "isOpen", "d4/d8e/a01840.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
 ];

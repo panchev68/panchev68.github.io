@@ -1,10 +1,9 @@
 var a01922 =
 [
-    [ "VersionString", "dd/d19/a01922.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "dd/d19/a01922.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "dd/d19/a01922.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "dd/d19/a01922.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "dd/d19/a01922.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "dd/d19/a01922.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "dd/d19/a01922.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "Handle", "dd/d19/a01922.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "dd/d19/a01922.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "dd/d19/a01922.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "dd/d19/a01922.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "dd/d19/a01922.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "dd/d19/a01922.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

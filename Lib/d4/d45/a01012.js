@@ -1,18 +1,16 @@
 var a01012 =
 [
-    [ "anticollisionTimeoutCount", "d4/d45/a01012.html#a4d95a6bbb4d079d8bebedbf9b8ee8fa1", null ],
-    [ "cardActivatedCount", "d4/d45/a01012.html#ac30dad467ffa48919576e8a5431a4a2b", null ],
-    [ "cardDetectedCount", "d4/d45/a01012.html#aab85c176a71d381e5691bc1819f7e0f7", null ],
-    [ "lastTimeout", "d4/d45/a01012.html#a15be1ad50b46f4fe74d830fd5dd5380f", null ],
-    [ "postTransmitIrqStatus1", "d4/d45/a01012.html#a40166692a25986bd12544ffb546c499d", null ],
-    [ "postTransmitIrqStatus2", "d4/d45/a01012.html#a21142618b9524d09ba5f29b9c81d45a8", null ],
-    [ "postTransmitStatus", "d4/d45/a01012.html#ad91c2db0d45e9677759d63979315ed24", null ],
-    [ "postTxRxOnStatus", "d4/d45/a01012.html#a794df80db631bc66fa479aa99fc0927f", null ],
-    [ "preTransmitFifoStatus1", "d4/d45/a01012.html#a41d5ce61c5cef34fac6065d36b07a07d", null ],
-    [ "readFailureCount", "d4/d45/a01012.html#aa594bb3892a314d5bae571485028c1f6", null ],
-    [ "reqaPollStatusBits", "d4/d45/a01012.html#a144c567d53c9d9fb36969c7e0a96d4f7", null ],
-    [ "reqaTimeoutCount", "d4/d45/a01012.html#a985da4fadf54931272c8b4013511c43a", null ],
-    [ "selectTimeoutCount", "d4/d45/a01012.html#a87c463babfda8c7c065f6a30250dd1e1", null ],
-    [ "unsupportedUidCount", "d4/d45/a01012.html#a6e9a133ac2b92dc90de4a93eee54e810", null ],
-    [ "writeFailureCount", "d4/d45/a01012.html#a96a8716efd8affbfbc401fcaba040259", null ]
+    [ "Config", "d4/d45/a01012.html#abedd5e96ee9763ea9cb27e8dea91ba99", null ],
+    [ "M24C64W", "d4/d45/a01012.html#a961e9014542ac6f768bd548fa1d15598", null ],
+    [ "~M24C64W", "d4/d45/a01012.html#a786bcea2331bd895b693fa1cf2fb0e6b", null ],
+    [ "close", "d4/d45/a01012.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d4/d45/a01012.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d4/d45/a01012.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "d4/d45/a01012.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d4/d45/a01012.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d4/d45/a01012.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d4/d45/a01012.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d4/d45/a01012.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d4/d45/a01012.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C64W >", "d4/d45/a01012.html#a389c035ca7d606c8426542af2e4b7d70", null ]
 ];

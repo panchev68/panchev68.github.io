@@ -1,13 +1,14 @@
 var a01533 =
 [
-    [ "Handlers", "d1/d62/a01533.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "d1/d62/a01533.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "d1/d62/a01533.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "d1/d62/a01533.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "d1/d62/a01533.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "d1/d62/a01533.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "d1/d62/a01533.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "d1/d62/a01533.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "d1/d62/a01533.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "d1/d62/a01533.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "append", "d1/d62/a01533.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "d1/d62/a01533.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "d1/d62/a01533.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "d1/d62/a01533.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "d1/d62/a01533.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "d1/d62/a01533.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "d1/d62/a01533.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "d1/d62/a01533.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "d1/d62/a01533.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "d1/d62/a01533.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "d1/d62/a01533.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

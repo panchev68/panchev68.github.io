@@ -1,6 +1,7 @@
 var a02520 =
 [
-    [ "configuration", "dc/dbb/a02520.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "dc/dbb/a02520.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "dc/dbb/a02520.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "current", "dc/dbb/a02520.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "dc/dbb/a02520.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "dc/dbb/a02520.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "dc/dbb/a02520.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

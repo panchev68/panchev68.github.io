@@ -1,9 +1,14 @@
 var a01792 =
 [
-    [ "Sockets", "dd/de9/a01792.html#a83aca7ca920c948cf9f775922c19247a", null ],
-    [ "Sockets", "dd/de9/a01792.html#adf14b2bb687d762d0832d140cfd7c348", null ],
-    [ "Sockets", "dd/de9/a01792.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
-    [ "operator=", "dd/de9/a01792.html#a27fe979c8f56a4d202689793724794b7", null ],
-    [ "operator=", "dd/de9/a01792.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
-    [ "operator[]", "dd/de9/a01792.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
+    [ "ADCPort", "dd/de9/a01792.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "dd/de9/a01792.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "dd/de9/a01792.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "dd/de9/a01792.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "getHandle", "dd/de9/a01792.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "dd/de9/a01792.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "operator=", "dd/de9/a01792.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "dd/de9/a01792.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "dd/de9/a01792.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "dd/de9/a01792.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "dd/de9/a01792.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

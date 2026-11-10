@@ -1,17 +1,27 @@
 var a01803 =
 [
-    [ "Status", "d3/dfd/a01803.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d3/dfd/a01803.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d3/dfd/a01803.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d3/dfd/a01803.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d3/dfd/a01803.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "d3/dfd/a01803.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d3/dfd/a01803.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d3/dfd/a01803.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d3/dfd/a01803.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d3/dfd/a01803.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d3/dfd/a01803.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d3/dfd/a01803.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d3/dfd/a01803.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "Error", "d3/dfd/a01803.html#ac47f19d90fa852a20c9401bb0a28d971", null ],
+    [ "SlaveMailbox", "d3/dfd/a01803.html#a186483b3bfbc3199f52b2081e591cb83", null ],
+    [ "State", "d3/dfd/a01803.html#a511a0b0fbb34c264baf4c6cd796a1923", null ],
+    [ "Slave", "d3/dfd/a01803.html#a40fe2ce2a9a0c83f329f4d57beaa9f4b", null ],
+    [ "~Slave", "d3/dfd/a01803.html#a30f4b4d98758403d0c59df05000b9170", null ],
+    [ "Slave", "d3/dfd/a01803.html#a1b34ce396cbdf85bf7f8b25ce76b4491", null ],
+    [ "Slave", "d3/dfd/a01803.html#aca9087f0bb6c11b99f5bb29a7cab5d2c", null ],
+    [ "areOutputsValid", "d3/dfd/a01803.html#aba721979d3b3f7d15cfa48c584e87182", null ],
+    [ "checkDistributedClock", "d3/dfd/a01803.html#a7e7721361c828febdd00cb2be71940c7", null ],
+    [ "getError", "d3/dfd/a01803.html#a2944b7e04f26a7786ee0042d429ead54", null ],
+    [ "getMailbox", "d3/dfd/a01803.html#a65f05684a824724062151ac2fdc257d0", null ],
+    [ "getState", "d3/dfd/a01803.html#a488cf78d1e9512af19de30969c6f1d52", null ],
+    [ "handleMailboxIdle", "d3/dfd/a01803.html#af9c8b2d649246374776bf22b633106a1", null ],
+    [ "handleMailboxMessage", "d3/dfd/a01803.html#a5276f808524352e6c6df3a118ee9077c", null ],
+    [ "handleStateChange", "d3/dfd/a01803.html#ac39266e5345996d9607fc9174ef47fc1", null ],
+    [ "hasError", "d3/dfd/a01803.html#a3a39f586f68b1ee07853a6bdff7fbdf7", null ],
+    [ "isBootstrapSupported", "d3/dfd/a01803.html#a3d61cb1f7f2e035ec2c0f6636a81355c", null ],
+    [ "operator=", "d3/dfd/a01803.html#a802e630e4a9fa2528af9b1176a841322", null ],
+    [ "operator=", "d3/dfd/a01803.html#af66a6530fe5cdde6fa1a989a5f84eeb6", null ],
+    [ "process", "d3/dfd/a01803.html#ad379452d18db66bb7ba544fd1539e0ce", null ],
+    [ "readOutputs", "d3/dfd/a01803.html#a391eb22011819a165c89b893c7c0449c", null ],
+    [ "setError", "d3/dfd/a01803.html#a3a1200c4fbb64c5e7c0dab76fb9d2023", null ],
+    [ "start", "d3/dfd/a01803.html#acc49b31f1582074322945e578143555c", null ],
+    [ "writeInputs", "d3/dfd/a01803.html#a012edf8137afeda7183b0d4464897074", null ]
 ];

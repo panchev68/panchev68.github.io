@@ -1,13 +1,8 @@
 var a01832 =
 [
-    [ "CANPort", "dc/d06/a01832.html#adc087231856d1ec6bde6f97494503899", null ],
-    [ "~CANPort", "dc/d06/a01832.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
-    [ "CANPort", "dc/d06/a01832.html#afceeecde4eb91455d12a7305342e889a", null ],
-    [ "CANPort", "dc/d06/a01832.html#a91653fb9445c55c224e60742c91718a2", null ],
-    [ "getHandle", "dc/d06/a01832.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
-    [ "getHandle", "dc/d06/a01832.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
-    [ "operator=", "dc/d06/a01832.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
-    [ "operator=", "dc/d06/a01832.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
-    [ "readBlocking", "dc/d06/a01832.html#a49854c8fa3a47517562c6761363bb281", null ],
-    [ "writeBlocking", "dc/d06/a01832.html#a290a918dfefeea6aab3500acb68b90de", null ]
+    [ "data", "dc/d06/a01832.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "dc/d06/a01832.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "dc/d06/a01832.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "dc/d06/a01832.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "dc/d06/a01832.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

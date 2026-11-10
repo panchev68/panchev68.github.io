@@ -1,11 +1,9 @@
 var a00943 =
 [
-    [ "Config", "d3/d29/a00947.html", "d3/d29/a00947" ],
-    [ "Driver", "d1/ddd/a00943.html#a1485030ad4d5221083358bb976d4f6a9", null ],
-    [ "~Driver", "d1/ddd/a00943.html#a02b3a6700a07d6ec290c3b84098c3389", null ],
-    [ "handleTransferCompleteEvent", "d1/ddd/a00943.html#a16f81d6e044e814af3071d70b3bfd029", null ],
-    [ "setBacklight", "d1/ddd/a00943.html#a5c3019cb4ef6b0af87fb89c9b1e25ca4", null ],
-    [ "setRotation", "d1/ddd/a00943.html#aa82bca6d7225f8fb51714daaa7b44ee1", null ],
-    [ "setup", "d1/ddd/a00943.html#ae80e1a0a03b141829f376e2309e65a30", null ],
-    [ "transmitBlock", "d1/ddd/a00943.html#a7c3b10e802400c9d45d7467ee59a7562", null ]
+    [ "ChannelScanner", "d3/daa/a01577.html", "d3/daa/a01577" ],
+    [ "NetworkDiscovery", "da/de2/a01585.html", "da/de2/a01585" ],
+    [ "PairService", "d9/dc8/a01593.html", "d9/dc8/a01593" ],
+    [ "Parameters", "d7/d82/a01601.html", "d7/d82/a01601" ],
+    [ "ServiceBase", "dd/dda/a01621.html", "dd/dda/a01621" ],
+    [ "SpectrumAnalyzer", "d3/d2d/a01625.html", "d3/d2d/a01625" ]
 ];

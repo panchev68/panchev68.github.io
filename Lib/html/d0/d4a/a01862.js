@@ -1,6 +1,8 @@
 var a01862 =
 [
-    [ "getDevice", "d0/d4a/a01862.html#a44399c0b88c31ab172615c8522506511", null ],
-    [ "registerDevice", "d0/d4a/a01862.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
-    [ "unregisterDevice", "d0/d4a/a01862.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
+    [ "data", "d0/d4a/a01862.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "d0/d4a/a01862.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "d0/d4a/a01862.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "d0/d4a/a01862.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "d0/d4a/a01862.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

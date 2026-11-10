@@ -1,8 +1,14 @@
 var a01926 =
 [
-    [ "Storage", "d2/db9/a01926.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "d2/db9/a01926.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "d2/db9/a01926.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "d2/db9/a01926.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "d2/db9/a01926.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "Input", "d2/db9/a01926.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
+    [ "~Input", "d2/db9/a01926.html#a95f707a268014333f78d7378dd579ea4", null ],
+    [ "Input", "d2/db9/a01926.html#aba23478206e067c578a2081a0ba4d1ee", null ],
+    [ "Input", "d2/db9/a01926.html#a01d95887913602ed10325b5b07f8cef5", null ],
+    [ "isHigh", "d2/db9/a01926.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d2/db9/a01926.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d2/db9/a01926.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d2/db9/a01926.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
+    [ "operator=", "d2/db9/a01926.html#aac4da8195bb51d393df961046635bfc0", null ],
+    [ "read", "d2/db9/a01926.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "handle", "d2/db9/a01926.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

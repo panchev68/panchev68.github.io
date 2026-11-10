@@ -1,9 +1,5 @@
 var a02014 =
 [
-    [ "Lock", "d0/d48/a02014.html#a79915981fe481334533677f3c4691e1f", null ],
-    [ "~Lock", "d0/d48/a02014.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
-    [ "Lock", "d0/d48/a02014.html#a7da060988728f2b1731d04e7b4465ffb", null ],
-    [ "Lock", "d0/d48/a02014.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
-    [ "operator=", "d0/d48/a02014.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
-    [ "operator=", "d0/d48/a02014.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
+    [ "SPIPort", "d0/d48/a02014.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "d0/d48/a02014.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ]
 ];

@@ -1,6 +1,7 @@
 var a01687 =
 [
-    [ "Observer", "d7/db8/a01687.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "d7/db8/a01687.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
-    [ "Observer", "d7/db8/a01687.html#a285dcb5567493b45b23d25b24004e9b9", null ]
+    [ "~Error", "d7/db8/a01687.html#a45c9bdf2555503aba370ceb9e3be4472", null ],
+    [ "operator=", "d7/db8/a01687.html#a0bcba893ea1d1c8fc398d17f7064fb4e", null ],
+    [ "operator=", "d7/db8/a01687.html#a64f8853fd9017d3b184b94ce5d32d416", null ],
+    [ "BasicDispatcher", "d7/db8/a01687.html#a060ae75c87b3adbafa835f181f4d19c5", null ]
 ];

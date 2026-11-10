@@ -1,15 +1,13 @@
 var a01882 =
 [
-    [ "TickType", "d6/d18/a01882.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "d6/d18/a01882.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "d6/d18/a01882.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "d6/d18/a01882.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "d6/d18/a01882.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "d6/d18/a01882.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "d6/d18/a01882.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "d6/d18/a01882.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "d6/d18/a01882.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "d6/d18/a01882.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "d6/d18/a01882.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "d6/d18/a01882.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "DACPort", "d6/d18/a01882.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
+    [ "~DACPort", "d6/d18/a01882.html#ac832156b805caf8041f1097ecf576ec2", null ],
+    [ "DACPort", "d6/d18/a01882.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
+    [ "DACPort", "d6/d18/a01882.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
+    [ "getChannel", "d6/d18/a01882.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
+    [ "getHandle", "d6/d18/a01882.html#a8931efb843554302b191363c4a0bfa41", null ],
+    [ "operator=", "d6/d18/a01882.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
+    [ "operator=", "d6/d18/a01882.html#a947c4407f00f40ef2d244a914699c60e", null ],
+    [ "start", "d6/d18/a01882.html#a0fb9b03d74076c644c02fd75613c0748", null ],
+    [ "stop", "d6/d18/a01882.html#aeb4d00954e883a85534eb2da3acd379f", null ]
 ];

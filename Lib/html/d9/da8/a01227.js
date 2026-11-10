@@ -1,16 +1,12 @@
 var a01227 =
 [
-    [ "Config", "d0/d88/a01231.html", "d0/d88/a01231" ],
-    [ "TransducerDiagnostics", "dd/dad/a01235.html", "dd/dad/a01235" ],
-    [ "PGA460TPWRQ1", "d9/da8/a01227.html#af23eb94dd6b27d2f4b97126ec7c3ff6e", null ],
-    [ "PGA460TPWRQ1", "d9/da8/a01227.html#ab0901e6176d41517bb48f19722c9721b", null ],
-    [ "PGA460TPWRQ1", "d9/da8/a01227.html#ab58650dd060801861ed9ffdd08be491b", null ],
-    [ "close", "d9/da8/a01227.html#a52d6efacbe935389fa51f1f75670476f", null ],
-    [ "open", "d9/da8/a01227.html#a50accfabb3897779a4b26e4c6b8e7566", null ],
-    [ "operator=", "d9/da8/a01227.html#a3e3603ffff316bc5f0bfd3fbfa8f3ac9", null ],
-    [ "operator=", "d9/da8/a01227.html#a8e49edb5b10188a09823c4a7c0c3bba7", null ],
-    [ "readDistance", "d9/da8/a01227.html#ab5b14fe14cfea3451683b86f1cc54952", null ],
-    [ "readRegister", "d9/da8/a01227.html#a2d489995d894aaeddbace0f34825674e", null ],
-    [ "readTransducerDiagnostics", "d9/da8/a01227.html#ad06b5c6df4a4916a991419d66d6cf3f4", null ],
-    [ "writeRegister", "d9/da8/a01227.html#a393f06f504869258b353566ff562f476", null ]
+    [ "debounceDuration", "d9/da8/a01227.html#a645398d022257454438fc47ce15fcdb9", null ],
+    [ "height", "d9/da8/a01227.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
+    [ "rotationFlipped", "d9/da8/a01227.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
+    [ "rotationNormal", "d9/da8/a01227.html#aa5b75686141869dfbbfb78febc4822aa", null ],
+    [ "width", "d9/da8/a01227.html#a36fe0a7ac1def2933216417d9c50860b", null ],
+    [ "xMax", "d9/da8/a01227.html#ad7faa3502a791114bf456c98c0dbf644", null ],
+    [ "xMin", "d9/da8/a01227.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
+    [ "yMax", "d9/da8/a01227.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
+    [ "yMin", "d9/da8/a01227.html#acda2f52d642f3f712c72b8046d83fa30", null ]
 ];

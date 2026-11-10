@@ -1,13 +1,19 @@
 var a01078 =
 [
-    [ "Config", "dd/df1/a01082.html", "dd/df1/a01082" ],
-    [ "TMP102", "db/dba/a01078.html#a949aef107b50c3194360a1211fc77380", null ],
-    [ "configureAlert", "db/dba/a01078.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
-    [ "enterSleepMode", "db/dba/a01078.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
-    [ "exitSleepMode", "db/dba/a01078.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
-    [ "init", "db/dba/a01078.html#aad208b4242276623b58c7e690d0be566", null ],
-    [ "readTemperature", "db/dba/a01078.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
-    [ "setTHigh", "db/dba/a01078.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
-    [ "setTLow", "db/dba/a01078.html#abe3ff96789b3357515f28158f06aa714", null ],
-    [ "triggerOneShot", "db/dba/a01078.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
+    [ "Command", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10", [
+      [ "WRITE_ENABLE", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "WRITE_DISABLE", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
+      [ "READ_STATUS_REGISTER1", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "READ_DATA", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
+      [ "PAGE_PROGRAM", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
+      [ "SECTOR_ERASE", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "db/dba/a01078.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

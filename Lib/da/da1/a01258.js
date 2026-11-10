@@ -1,10 +1,11 @@
 var a01258 =
 [
-    [ "SignalStrength", "da/da1/a01258.html#a7221c00a8ff27a3bd355928f960897d4", null ],
-    [ "SignalStrength", "da/da1/a01258.html#ae5207184fca8fed0cc906620b9f017a1", null ],
-    [ "SignalStrength", "da/da1/a01258.html#a759f37108d2a33d860169ffd300b57ed", null ],
-    [ "operator uint8_t", "da/da1/a01258.html#a9d673263c2b74c5aefc860e9f9d03a15", null ],
-    [ "operator=", "da/da1/a01258.html#ae69aec5c67c3620921f8b4dcbcf52bcd", null ],
-    [ "operator=", "da/da1/a01258.html#a849d26f03c86e035d3c4c257ff25e136", null ],
-    [ "toPercent", "da/da1/a01258.html#adf558805c6630d02cef0e3d45d936b9c", null ]
+    [ "Config", "d3/d53/a01262.html", "d3/d53/a01262" ],
+    [ "Voltmeter", "da/da1/a01258.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
+    [ "getVoltage", "da/da1/a01258.html#ac23395cb420c81ab42a23e604cf05f18", null ],
+    [ "handleValueChanged", "da/da1/a01258.html#a0867be0757674c033a721efb796a8e39", null ],
+    [ "registerDevice", "da/da1/a01258.html#a299662c9e9bdb346771579418056dccf", null ],
+    [ "setup", "da/da1/a01258.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
+    [ "DeviceManager::DeviceBase", "da/da1/a01258.html#af5908117d248071190096967e686c5a3", null ],
+    [ "interpolator", "da/da1/a01258.html#a5cabeda795635eeccd12383109ddf96c", null ]
 ];

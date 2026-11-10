@@ -1,9 +1,8 @@
 var a02344 =
 [
-    [ "CriticalSection", "d6/d71/a02344.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "d6/d71/a02344.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "d6/d71/a02344.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "d6/d71/a02344.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "d6/d71/a02344.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "d6/d71/a02344.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "allocations", "d6/d71/a02344.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "d6/d71/a02344.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "d6/d71/a02344.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "d6/d71/a02344.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "d6/d71/a02344.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

@@ -1,6 +1,8 @@
 var a01536 =
 [
-    [ "Checksum", "d0/da6/a01536.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
-    [ "Checksum", "d0/da6/a01536.html#a804971de0300d66401e3f2ed94f306dc", null ],
-    [ "operator uint8_t", "d0/da6/a01536.html#add4f353a37e719b8e2439c490fa552b8", null ]
+    [ "Node", "d0/da6/a01536.html#ae77243ef5154f0127b188cb07ee7b730", null ],
+    [ "Node", "d0/da6/a01536.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
+    [ "macAddress", "d0/da6/a01536.html#ab4f01a998762165160e1c5f287e33b36", null ],
+    [ "nodeAddr16", "d0/da6/a01536.html#a047c25d839ad49f40c973b610050fa18", null ],
+    [ "nodeIdentifier", "d0/da6/a01536.html#a66f046134b60cff03864ca23d0ff54fa", null ]
 ];

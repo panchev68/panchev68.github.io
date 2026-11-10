@@ -1,4 +1,8 @@
 var a02223 =
 [
-    [ "Lib::Digi::API::UserProtocol", "d0/d5a/a01199.html", "d0/d5a/a01199" ]
+    [ "crc16", "dd/d51/a02223.html#a16dcfcb05534bbfc610e1f6813d4fee8", null ],
+    [ "crc16", "dd/d51/a02223.html#a4aa206f42a25f1a4e058ad60dc6e175b", null ],
+    [ "crc16", "dd/d51/a02223.html#ae6c95a04975dccf8b6e9001cc8d0535c", null ],
+    [ "crc16", "dd/d51/a02223.html#abac152733a66bebdb4f969523dc9dbe1", null ],
+    [ "operator uint16_t", "dd/d51/a02223.html#a8aaf19a4e71b7be0d80fff9843c9c272", null ]
 ];

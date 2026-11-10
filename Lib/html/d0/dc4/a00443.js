@@ -1,4 +1,4 @@
 var a00443 =
 [
-    [ "Lib::HAL::IndependentWatchdog", "df/dd8/a01943.html", "df/dd8/a01943" ]
+    [ "Lib::HAL::I2CPort&lt; DriverMode::IT &gt;", "d3/df9/a01942.html", "d3/df9/a01942" ]
 ];

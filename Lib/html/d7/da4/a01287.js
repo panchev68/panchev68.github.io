@@ -1,8 +1,9 @@
 var a01287 =
 [
-    [ "Node", "d7/da4/a01287.html#ae77243ef5154f0127b188cb07ee7b730", null ],
-    [ "Node", "d7/da4/a01287.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
-    [ "macAddress", "d7/da4/a01287.html#ab4f01a998762165160e1c5f287e33b36", null ],
-    [ "nodeAddr16", "d7/da4/a01287.html#a047c25d839ad49f40c973b610050fa18", null ],
-    [ "nodeIdentifier", "d7/da4/a01287.html#a66f046134b60cff03864ca23d0ff54fa", null ]
+    [ "Address", "d7/da4/a01287.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "d7/da4/a01287.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "d7/da4/a01287.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "d7/da4/a01287.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "d7/da4/a01287.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "d7/da4/a01287.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
 ];

@@ -1,13 +1,11 @@
 var a00855 =
 [
-    [ "TimEncoder", "d8/de7/a02030.html", "d8/de7/a02030" ],
-    [ "TimEventBase", "dc/ddb/a02034.html", "dc/ddb/a02034" ],
-    [ "TimInputCapture", "df/dcf/a02038.html", "df/dcf/a02038" ],
-    [ "TimOnePulse", "d1/dc4/a02042.html", "d1/dc4/a02042" ],
-    [ "TimOutputCompare", "d2/dd9/a02046.html", "d2/dd9/a02046" ],
-    [ "TimPwmOutput", "d0/d3d/a02050.html", "d0/d3d/a02050" ],
-    [ "TimTimebase", "d7/d38/a02054.html", "d7/d38/a02054" ],
-    [ "compareRegister", "da/de6/a00855.html#afb4fb6e73aa0198e451581196e258e12", null ],
-    [ "isValidChannel", "da/de6/a00855.html#ab75a39e4c4d2e24306f9d60322937e4a", null ],
-    [ "toActiveChannel", "da/de6/a00855.html#a7308e7f3aee34a139db6fc9cc68a0876", null ]
+    [ "Service", "da/de3/a00856.html", "da/de3/a00856" ],
+    [ "ApplicationBase", "d1/df4/a01422.html", "d1/df4/a01422" ],
+    [ "ClientBase", "dc/de6/a01426.html", "dc/de6/a01426" ],
+    [ "Connection", "d8/dd0/a01430.html", "d8/dd0/a01430" ],
+    [ "NodeInfo", "d7/dd1/a01458.html", "d7/dd1/a01458" ],
+    [ "ServerBase", "d0/d34/a01486.html", "d0/d34/a01486" ],
+    [ "UserProtocol", "d6/d02/a01542.html", "d6/d02/a01542" ],
+    [ "Pausable", "dc/ddf/a02622.html", null ]
 ];

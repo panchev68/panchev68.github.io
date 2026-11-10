@@ -8,5 +8,5 @@ var searchData=
   ['inc_20lib_20rtos_20readme_20md_20rtos_3a_3a_5',['RTOS Abstractions (&lt;a class=&quot;el&quot; href=&quot;dir_3fba853156281524a1d2ff8b1fb19351.html&quot; title=&quot;X:/Lib/IAR/inc/Lib/RTOS/Readme.md&quot;&gt;&lt;span class=&quot;tt&quot;&gt;RTOS::&lt;/span&gt;&lt;/a&gt;)',['../index.html#rtos-abstractions-rtosinclibrtosreadmemd',1,'']]],
   ['installation_6',['🔧 Installation',['../index.html#autotoc_md-installation',1,'']]],
   ['integration_20with_20iar_20embedded_20workbench_7',['Integration with IAR Embedded Workbench',['../index.html#integration-with-iar-embedded-workbench',1,'']]],
-  ['isr_20to_20task_20uart_20receive_8',['ISR to task (UART receive)',['../d1/d8b/a03420.html#streambuffer_isr',1,'']]]
+  ['isr_20to_20task_20uart_20receive_8',['ISR to task (UART receive)',['../X:/Lib/IAR/docs/Examples/RTOS_StreamBuffer.dox#streambuffer_isr',1,'']]]
 ];

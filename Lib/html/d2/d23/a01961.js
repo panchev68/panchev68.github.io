@@ -1,0 +1,6 @@
+var a01961 =
+[
+    [ "hours", "d2/d23/a01961.html#a437ac5c570358c9a7f7f0ead962efd15", null ],
+    [ "minutes", "d2/d23/a01961.html#a2ebd665fed7747e94644f3670cef570a", null ],
+    [ "seconds", "d2/d23/a01961.html#a869962a23dd18f21cc9b54289c3d97ca", null ]
+];

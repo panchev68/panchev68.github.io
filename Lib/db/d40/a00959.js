@@ -1,6 +1,7 @@
 var a00959 =
 [
-    [ "Config", "db/d40/a00959.html#a091ddcee70c0582950082aa3e0093eaa", null ],
-    [ "address", "db/d40/a00959.html#aff41ba8c8cc3200e888a212414ae0c74", null ],
-    [ "port", "db/d40/a00959.html#af3a9f29dcceffb40cdd04dc7d2907875", null ]
+    [ "mappingFields", "db/d40/a00959.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
+    [ "nssPin", "db/d40/a00959.html#a1057a60af84ee4d60342df596793afee", null ],
+    [ "pinCount", "db/d40/a00959.html#a4ec50d1e310701baec42aebd409d8af6", null ],
+    [ "spiPort", "db/d40/a00959.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
 ];

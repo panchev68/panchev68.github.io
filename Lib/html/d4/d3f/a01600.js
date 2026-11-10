@@ -1,8 +1,9 @@
 var a01600 =
 [
-    [ "writeTo", "d4/d3f/a01600.html#a46342f730043bd2cb721cafd68faf502", null ],
-    [ "dstAddress", "d4/d3f/a01600.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "d4/d3f/a01600.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "d4/d3f/a01600.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "d4/d3f/a01600.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "writeTo", "d4/d3f/a01600.html#a412a05c3b2b6c2c6eb584d554dcec7ce", null ],
+    [ "atCommand", "d4/d3f/a01600.html#a108e95494e82e02932e5a29dd4cc8c26", null ],
+    [ "dstAddr", "d4/d3f/a01600.html#a15159440eb1dacb4ae4b49aa36144863", null ],
+    [ "frameId", "d4/d3f/a01600.html#a2f8bef1a46a7994476a4a269d92cca1e", null ],
+    [ "parameters", "d4/d3f/a01600.html#a69a8b0f293677febe578417b21dbba6b", null ],
+    [ "remoteCommandOption", "d4/d3f/a01600.html#ae4922577edd7679e2964fb14f35bc919", null ]
 ];

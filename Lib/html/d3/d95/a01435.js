@@ -1,16 +1,26 @@
 var a01435 =
 [
-    [ "Period", "d3/d95/a01435.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
-    [ "Period", "d3/d95/a01435.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
-    [ "beginMeasurement", "d3/d95/a01435.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
-    [ "clearMinMax", "d3/d95/a01435.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
-    [ "endMeasurement", "d3/d95/a01435.html#a764b89843884696c66a1e499e466bb51", null ],
-    [ "getMaximum", "d3/d95/a01435.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
-    [ "getMinimum", "d3/d95/a01435.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
-    [ "getRawValue", "d3/d95/a01435.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
-    [ "getValue", "d3/d95/a01435.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
-    [ "operator uint32_t", "d3/d95/a01435.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
-    [ "operator=", "d3/d95/a01435.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
-    [ "reset", "d3/d95/a01435.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
-    [ "stopMeasurement", "d3/d95/a01435.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
+    [ "Mode", "d3/d95/a01435.html#a46b4913da28daeccef03e456b1d3a101", [
+      [ "RUNTIME", "d3/d95/a01435.html#a46b4913da28daeccef03e456b1d3a101ae5f5cd9fe71ac064a678f27c7d539ae8", null ],
+      [ "SCANNER", "d3/d95/a01435.html#a46b4913da28daeccef03e456b1d3a101aa1323822e71d19091075dd86a90ee35d", null ]
+    ] ],
+    [ "State", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72", [
+      [ "DISCONNECTED", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72a299dd0f7baeaa35d95631545e6c0a785", null ],
+      [ "UNUSABLE", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72a92382f7cb149693533c7c51a7ef6125e", null ],
+      [ "NOT_GOOD", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72a975505460030bd88c144bcd84f2046b4", null ],
+      [ "OKAY", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72a1c12d9ebf22a47fe764c2f91b5d02734", null ],
+      [ "VERY_GOOD", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72a0c48b2aa2858b4644db35db05925a347", null ],
+      [ "AMAZING", "d3/d95/a01435.html#af7ac77ba20da5be346e1d3948da5de72aa6d2e49db2c4476867086e4b98ffdab9", null ]
+    ] ],
+    [ "Quality", "d3/d95/a01435.html#addae8d177e3be6cf88efd4277f317ef7", null ],
+    [ "clear", "d3/d95/a01435.html#a609bf11d7132e415fcbb42bdb189c438", null ],
+    [ "getPercent", "d3/d95/a01435.html#a58d1f865ff5385df9120089b3b9be020", null ],
+    [ "getState", "d3/d95/a01435.html#acc0dd49fae439b6a503f21d2c2296569", null ],
+    [ "onExchange", "d3/d95/a01435.html#a889bc1271f7b0cf758338c7ee2514554", null ],
+    [ "onRssi", "d3/d95/a01435.html#acd7a4f8340c849e6247997e1fff9b177", null ],
+    [ "setRuntimeMode", "d3/d95/a01435.html#a55bae7d188caa41cd85b5960bc80b4c9", null ],
+    [ "setScannerMode", "d3/d95/a01435.html#a94bf3ed338180ddd04fe888b204907c7", null ],
+    [ "start", "d3/d95/a01435.html#ad5e27604826fa9613e36ac6186b344bb", null ],
+    [ "update", "d3/d95/a01435.html#a74c56a3babe14b32b8d4362d4e3ace1f", null ],
+    [ "onUpdate", "d3/d95/a01435.html#a6f2e37a3261d7339927cb06d1b32fa02", null ]
 ];

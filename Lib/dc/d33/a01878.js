@@ -1,7 +1,6 @@
 var a01878 =
 [
-    [ "Config", "dc/d33/a01878.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
-    [ "name", "dc/d33/a01878.html#a573525e01a356a23378c06c203754517", null ],
-    [ "priority", "dc/d33/a01878.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
-    [ "stackSize", "dc/d33/a01878.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
+    [ "getDevice", "dc/d33/a01878.html#a44399c0b88c31ab172615c8522506511", null ],
+    [ "registerDevice", "dc/d33/a01878.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
+    [ "unregisterDevice", "dc/d33/a01878.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
 ];

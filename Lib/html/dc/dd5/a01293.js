@@ -1,11 +1,19 @@
 var a01293 =
 [
-    [ "Config", "dc/dd5/a01293.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "State", "dc/dd5/a01293.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
-    [ "ServerBase", "dc/dd5/a01293.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
-    [ "~ServerBase", "dc/dd5/a01293.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
-    [ "getModulePresent", "dc/dd5/a01293.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "dc/dd5/a01293.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "start", "dc/dd5/a01293.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "connection", "dc/dd5/a01293.html#a6cc363b4c00520c96b5d228aab8301b8", null ]
+    [ "Config", "dc/d8c/a01297.html", "dc/d8c/a01297" ],
+    [ "Resolution", "dc/dd5/a01293.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
+      [ "BITS_9", "dc/dd5/a01293.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
+      [ "BITS_10", "dc/dd5/a01293.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
+      [ "BITS_11", "dc/dd5/a01293.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
+      [ "BITS_12", "dc/dd5/a01293.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
+    ] ],
+    [ "DS18B20", "dc/dd5/a01293.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "dc/dd5/a01293.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "dc/dd5/a01293.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "getResolution", "dc/dd5/a01293.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
+    [ "isGenuineDevice", "dc/dd5/a01293.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
+    [ "isPresent", "dc/dd5/a01293.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "dc/dd5/a01293.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readRom", "dc/dd5/a01293.html#a26a1ebc99132937ee58668fd12c26263", null ],
+    [ "readTemperatureCelsius", "dc/dd5/a01293.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

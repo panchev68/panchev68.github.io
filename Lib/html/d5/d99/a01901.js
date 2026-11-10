@@ -1,13 +1,9 @@
 var a01901 =
 [
-    [ "Date", "d5/d99/a01901.html#af06cc8ba2f87935c0445acf20bda3349", null ],
-    [ "DateTime", "d5/d99/a01901.html#a0ce46a41b58672615f57aadbcd88fe18", null ],
-    [ "Status", "d5/d99/a01901.html#ac1982c11ab6f79a7929a9d6d3a81784a", [
-      [ "OK", "d5/d99/a01901.html#ac1982c11ab6f79a7929a9d6d3a81784aae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d5/d99/a01901.html#ac1982c11ab6f79a7929a9d6d3a81784aabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "ProduceDate", "d5/d99/a01901.html#a35243148dd7247b4f7926b4aed02485a", null ],
-    [ "isEmpty", "d5/d99/a01901.html#a3a766915dafa66af64cd53f1c59eab9f", null ],
-    [ "read", "d5/d99/a01901.html#aad534282cedf19b97f1bd45ca1a84da8", null ],
-    [ "write", "d5/d99/a01901.html#a64c5c6d83cf80a34ec3561d61f1f93f9", null ]
+    [ "I2CPortAsync", "d5/d99/a01901.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d5/d99/a01901.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "masterMemRead", "d5/d99/a01901.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d5/d99/a01901.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d5/d99/a01901.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d5/d99/a01901.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ]
 ];

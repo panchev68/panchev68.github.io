@@ -1,10 +1,10 @@
 var a02210 =
 [
-    [ "Integrator", "d8/d1e/a02210.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
-    [ "addValue", "d8/d1e/a02210.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
-    [ "computeResult", "d8/d1e/a02210.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
-    [ "isWindowFull", "d8/d1e/a02210.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
-    [ "operator()", "d8/d1e/a02210.html#a97085ec2f9a9f65920181fffae409662", null ],
-    [ "processValue", "d8/d1e/a02210.html#ab31a92d828aeae207fd9641101c217f5", null ],
-    [ "resetWindow", "d8/d1e/a02210.html#a78e088ee416a676679fe227ceb71b1b0", null ]
+    [ "TerminateHandler", "d8/d1e/a02210.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
+    [ "Exception", "d8/d1e/a02210.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
+    [ "Exception", "d8/d1e/a02210.html#a25551a21318cf9b33efd57e954f91490", null ],
+    [ "Exception", "d8/d1e/a02210.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
+    [ "~Exception", "d8/d1e/a02210.html#aab05c0efba4581a5739c344c1d848c87", null ],
+    [ "operator=", "d8/d1e/a02210.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
+    [ "what", "d8/d1e/a02210.html#ad1278467b92ab31659263c92c3c292e1", null ]
 ];

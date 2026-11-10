@@ -1,23 +1,10 @@
 var a01412 =
 [
-    [ "Config", "dc/d10/a01412.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "DeliveryStatus", "dc/d10/a01412.html#a576edf4b8ae391861cbaa752fb59d0ca", null ],
-    [ "State", "dc/d10/a01412.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
-    [ "ClientBase", "dc/d10/a01412.html#ab66c6aedfa1a9361e96ba2a3e11af2b2", null ],
-    [ "~ClientBase", "dc/d10/a01412.html#a3ec52c83a6ed8e15bca3f6ff2bb92e22", null ],
-    [ "cancelDeliveryStatus", "dc/d10/a01412.html#a78fdfc652fb70b0f86d4526c707d817a", null ],
-    [ "getModuleInstance", "dc/d10/a01412.html#af8063d3ad104519c1331b65494eea01b", null ],
-    [ "getModulePresent", "dc/d10/a01412.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "dc/d10/a01412.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "pause", "dc/d10/a01412.html#a069f63d8ece09ad92a97696e558290b3", null ],
-    [ "receiveDeliveryStatus", "dc/d10/a01412.html#ae4ad19477c169ee00f27854975375c36", null ],
-    [ "resume", "dc/d10/a01412.html#abbf1050f972e12e9f892cbb50f712298", null ],
-    [ "start", "dc/d10/a01412.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "channelScanner", "dc/d10/a01412.html#abcae86ac3f99158551b91f88f0c88de7", null ],
-    [ "connection", "dc/d10/a01412.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
-    [ "diagnostic", "dc/d10/a01412.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
-    [ "modemStatus", "dc/d10/a01412.html#a3aed113d4e636bcad17894b64f1e5734", null ],
-    [ "networkDiscovery", "dc/d10/a01412.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
-    [ "parameters", "dc/d10/a01412.html#a3a40ec0220eb721e07f56c02a206f485", null ],
-    [ "spectrumAnalyzer", "dc/d10/a01412.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
+    [ "WolfSSH", "dc/d10/a01412.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "dc/d10/a01412.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "dc/d10/a01412.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "dc/d10/a01412.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "dc/d10/a01412.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "dc/d10/a01412.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "dc/d10/a01412.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

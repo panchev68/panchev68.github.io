@@ -1,16 +1,14 @@
 var a01349 =
 [
-    [ "Command", "de/d6c/a01349.html#aeec1806cc51651aec7c65df97f20824f", [
-      [ "INPUTS", "de/d6c/a01349.html#aeec1806cc51651aec7c65df97f20824fac7cab40575826be2d11c65614ca65692", null ],
-      [ "GET_PARAMETERS", "de/d6c/a01349.html#aeec1806cc51651aec7c65df97f20824fad87e3170f16eba85483569bdf04166c1", null ],
-      [ "OUTPUTS", "de/d6c/a01349.html#aeec1806cc51651aec7c65df97f20824fa1ca47bf72b5f3be73e90beeed7a36a70", null ],
-      [ "SET_PARAMETERS", "de/d6c/a01349.html#aeec1806cc51651aec7c65df97f20824fa8e883255aa1108c276e166cd0bde2307", null ]
-    ] ],
-    [ "UserProtocol", "de/d6c/a01349.html#aa1cf835574b826afcd369ebf2d028ea7", null ],
-    [ "~UserProtocol", "de/d6c/a01349.html#ad7f787cb3b60753ed4352d4a34e8a9a7", null ],
-    [ "handleGetParameters", "de/d6c/a01349.html#a1675e1b5fd15fd1500a5d996f87dfd46", null ],
-    [ "handleInputsUpdate", "de/d6c/a01349.html#a667d3ff5b042410546dc2212f46897b3", null ],
-    [ "handleOutputsUpdate", "de/d6c/a01349.html#a0da8607e6d55446f6dfa2edb7431481f", null ],
-    [ "handleSetParameters", "de/d6c/a01349.html#afc05283afd3c88f8eee7d0c94e969ab4", null ],
-    [ "parse", "de/d6c/a01349.html#a4d3b6c9250019cb601e8256f0167da64", null ]
+    [ "PasswordAuthHandler", "de/d6c/a01349.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
+    [ "WolfSSHServerContext", "de/d6c/a01349.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
+    [ "~WolfSSHServerContext", "de/d6c/a01349.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
+    [ "WolfSSHServerContext", "de/d6c/a01349.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
+    [ "WolfSSHServerContext", "de/d6c/a01349.html#a41d71d3b7597c69631a274d39e0fa345", null ],
+    [ "native", "de/d6c/a01349.html#a188293485b26e63785504b3f63d346fe", null ],
+    [ "operator=", "de/d6c/a01349.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
+    [ "operator=", "de/d6c/a01349.html#ac889915b8b230867843bb316a9bad1fc", null ],
+    [ "setBanner", "de/d6c/a01349.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
+    [ "setPasswordAuthHandler", "de/d6c/a01349.html#a72301d8027efc740d10b7d0d660c198f", null ],
+    [ "usePrivateKey", "de/d6c/a01349.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
 ];

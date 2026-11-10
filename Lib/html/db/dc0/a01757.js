@@ -1,5 +1,5 @@
 var a01757 =
 [
-    [ "body", "db/dc0/a01757.html#aec3889bdd99fa05f2af29dfcb56c5ace", null ],
-    [ "statusCode", "db/dc0/a01757.html#a5c7bf28c88b7a994c33f96fecbd5b4a3", null ]
+    [ "rxMessageCounter", "db/dc0/a01757.html#ae09c04483f8353c553a966fcfd32c214", null ],
+    [ "txMessageCounter", "db/dc0/a01757.html#a4286c02031295ce311297c75eee43398", null ]
 ];

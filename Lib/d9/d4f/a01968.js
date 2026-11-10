@@ -1,12 +1,19 @@
 var a01968 =
 [
-    [ "OSPIPortBase", "d9/d4f/a01968.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
-    [ "OSPIPortBase", "d9/d4f/a01968.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
-    [ "OSPIPortBase", "d9/d4f/a01968.html#a18048dab4e848ea5529076be672ccc7c", null ],
-    [ "~OSPIPortBase", "d9/d4f/a01968.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
-    [ "close", "d9/d4f/a01968.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "isBusy", "d9/d4f/a01968.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d9/d4f/a01968.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d9/d4f/a01968.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
-    [ "operator=", "d9/d4f/a01968.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
+    [ "I2CPort", "d9/d4f/a01968.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "d9/d4f/a01968.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "d9/d4f/a01968.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "d9/d4f/a01968.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "close", "d9/d4f/a01968.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
+    [ "getHandle", "d9/d4f/a01968.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "d9/d4f/a01968.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "isBusy", "d9/d4f/a01968.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isReady", "d9/d4f/a01968.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "d9/d4f/a01968.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "d9/d4f/a01968.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "d9/d4f/a01968.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "d9/d4f/a01968.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "open", "d9/d4f/a01968.html#ae5b5ff9d68d55b14be794ede22903816", null ],
+    [ "operator=", "d9/d4f/a01968.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "d9/d4f/a01968.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

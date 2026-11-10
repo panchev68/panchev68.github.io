@@ -1,14 +1,8 @@
 var a01816 =
 [
-    [ "Config", "d5/dd6/a01820.html", "d5/dd6/a01820" ],
-    [ "State", "d6/dc4/a01816.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "d6/dc4/a01816.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "d6/dc4/a01816.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "d6/dc4/a01816.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "d6/dc4/a01816.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "d6/dc4/a01816.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "d6/dc4/a01816.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "d6/dc4/a01816.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "d6/dc4/a01816.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "Node", "d6/dc4/a01816.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "d6/dc4/a01816.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "d6/dc4/a01816.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "d6/dc4/a01816.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "d6/dc4/a01816.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

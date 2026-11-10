@@ -1,14 +1,14 @@
 var a02486 =
 [
-    [ "Bitset", "dc/d2b/a02486.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "dc/d2b/a02486.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "dc/d2b/a02486.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dc/d2b/a02486.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Config", "d5/ddd/a02490.html", "d5/ddd/a02490" ],
+    [ "Measurement", "dc/d28/a02494.html", "dc/d28/a02494" ],
+    [ "Direction", "dc/d2b/a02486.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "dc/d2b/a02486.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "dc/d2b/a02486.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
     ] ],
-    [ "Configuration", "dc/d2b/a02486.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "dc/d2b/a02486.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "dc/d2b/a02486.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "dc/d2b/a02486.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "dc/d2b/a02486.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "dc/d2b/a02486.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "PerturbAndObserve", "dc/d2b/a02486.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "dc/d2b/a02486.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "dc/d2b/a02486.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "dc/d2b/a02486.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "dc/d2b/a02486.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

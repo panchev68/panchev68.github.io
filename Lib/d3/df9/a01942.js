@@ -1,16 +1,15 @@
 var a01942 =
 [
-    [ "Config", "d0/dce/a01946.html", "d0/dce/a01946" ],
-    [ "DataMap", "d5/d28/a01950.html", "d5/d28/a01950" ],
-    [ "LastResetState", "d3/df9/a01942.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "d3/df9/a01942.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "System", "d3/df9/a01942.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
-    [ "operator=", "d3/df9/a01942.html#af9936cf8ce134998481d3b63473f909b", null ],
-    [ "configuration", "d3/df9/a01942.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "d3/df9/a01942.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
-    [ "hardwareVersion", "d3/df9/a01942.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
-    [ "lastResetState", "d3/df9/a01942.html#add4f1e84db40b8862ab63a06766ae439", null ],
-    [ "produceDate", "d3/df9/a01942.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "d3/df9/a01942.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "d3/df9/a01942.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
+    [ "I2CPort", "d3/df9/a01942.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d3/df9/a01942.html#aa13047282a809658f54818a9b352d7bf", null ],
+    [ "abort", "d3/df9/a01942.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d3/df9/a01942.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d3/df9/a01942.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/df9/a01942.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d3/df9/a01942.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "d3/df9/a01942.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d3/df9/a01942.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d3/df9/a01942.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d3/df9/a01942.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d3/df9/a01942.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

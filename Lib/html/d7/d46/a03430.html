@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: DeviceManager.hpp File Reference</title>
+<title>Library: Hex example</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,56 +111,65 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d7/d46/a03430.
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">DeviceManager.hpp File Reference</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Hex example </div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>Registry that routes native HAL handles to the open concrete peripheral drivers.  
-<a href="#details">More...</a></p>
-<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Registry that routes native HAL handles to the open concrete peripheral drivers. </p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-09-23 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for HAL/core/DeviceManager.hpp:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d78/a03431.svg" width="558" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/df8/a03432.svg" width="3858" height="931"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AHAL_3A_3ADeviceManager_3C_20T_5FDEVICE_2C_20T_5FHANDLE_20_3E" id="r_Lib_3A_3AHAL_3A_3ADeviceManager_3C_20T_5FDEVICE_2C_20T_5FHANDLE_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d4a/a01862.html">Lib::HAL::DeviceManager&lt; T_DEVICE, T_HANDLE &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Forward declaration of the registry that owns the "Device" list links.  <a href="../../d0/d4a/a01862.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d4f/a00819.html">Lib</a></td></tr>
-<tr class="memdesc:d7/d4f/a00819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AHAL" id="r_Lib_3A_3AHAL"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../db/deb/a00853.html">Lib::HAL</a></td></tr>
-<tr class="memdesc:db/deb/a00853"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware abstraction layer for STM32F4xx peripherals. <br /></td></tr>
-</table>
-</div><!-- contents -->
+<div class="textblock"><p>Example demonstrating conversions provided by Lib::Helper::Convert::Hex for uint8_t, uint16_t, uint32_t and uint64_t.</p>
+<p>Shows hex string, packed BCD value and decimal string output. Every string result is a fixed, NUL-terminated std::array, so it is printed through data().</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/dc4/a00617.html">Lib/Helper/Convert/Hex.hpp</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d3/db2/a00869.html">Lib::Helper::Convert</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> example_Hex_usage() {</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// uint8_t: hex string, packed BCD and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint8_t v8 = 0xAB; <span class="comment">// 171 decimal</span></div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toString(0xAB) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint8_t&gt;::toString</a>(v8).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toBcd(171) = 0x&quot;</span> &lt;&lt; std::hex &lt;&lt; Hex&lt;uint8_t&gt;::toBcd(171) &lt;&lt; std::dec &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint8_t&gt;::toBcdString(5, true) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint8_t&gt;::toBcdString</a>(5, <span class="keyword">true</span>).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// uint16_t: 4-char hex and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint16_t v16 = 0x1234;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint16_t&gt;::toString(0x1234) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint16_t&gt;::toString</a>(v16).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint16_t&gt;::toBcdString(1023) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint16_t&gt;::toBcdString</a>(1023).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// uint32_t: 8-char hex and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint32_t v32 = 0xDEADBEEF;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint32_t&gt;::toString(0xDEADBEEF) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint32_t&gt;::toString</a>(v32).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint32_t&gt;::toBcdString(1234567890) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint32_t&gt;::toBcdString</a>(1234567890).data()</div>
+<div class="line">              &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// uint64_t: 16-char hex and decimal string</span></div>
+<div class="line">    <span class="keyword">const</span> uint64_t v64 = 0x0123456789ABCDEFULL;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint64_t&gt;::toString(0x0123456789ABCDEF) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#aa11e21c762f6832c11a370a8f15b516c">Hex&lt;uint64_t&gt;::toString</a>(v64).data() &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX) = &quot;</span> &lt;&lt; <a class="code hl_function" href="../../d6/d6e/a02174.html#a98805ed7f4ff56f55a56ddafc8d775bc">Hex&lt;uint64_t&gt;::toBcdString</a>(UINT64_MAX).data()</div>
+<div class="line">              &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00617_html"><div class="ttname"><a href="../../d4/dc4/a00617.html">Hex.hpp</a></div><div class="ttdoc">Hex conversion utilities for the fixed-width unsigned integer types.</div></div>
+<div class="ttc" id="aa00869_html"><div class="ttname"><a href="../../d3/db2/a00869.html">Lib::Helper::Convert</a></div><div class="ttdoc">Helpers for converting between signal units and presentation scales.</div><div class="ttdef"><b>Definition</b> Ascii.hpp:24</div></div>
+<div class="ttc" id="aa02174_html_a98805ed7f4ff56f55a56ddafc8d775bc"><div class="ttname"><a href="../../d6/d6e/a02174.html#a98805ed7f4ff56f55a56ddafc8d775bc">Lib::Helper::Convert::Hex::toBcdString</a></div><div class="ttdeci">static constexpr DecimalDigits toBcdString(T number, bool showZero=false) noexcept</div><div class="ttdoc">Format a value as a decimal ASCII string.</div><div class="ttdef"><b>Definition</b> Hex.hpp:98</div></div>
+<div class="ttc" id="aa02174_html_aa11e21c762f6832c11a370a8f15b516c"><div class="ttname"><a href="../../d6/d6e/a02174.html#aa11e21c762f6832c11a370a8f15b516c">Lib::Helper::Convert::Hex::toString</a></div><div class="ttdeci">static constexpr HexDigits toString(T number) noexcept</div><div class="ttdoc">Convert a value to its fixed-width uppercase hexadecimal digits.</div><div class="ttdef"><b>Definition</b> Hex.hpp:77</div></div>
+</div><!-- fragment --><p>Expected output:</p><ul>
+<li>Hex&lt;uint8_t&gt;::toString(0xAB) = "AB"</li>
+<li>Hex&lt;uint8_t&gt;::toBcd(171) = 0x171</li>
+<li>Hex&lt;uint8_t&gt;::toBcdString(5, true) = "005" (padded to DECIMAL_DIGIT_COUNT digits)</li>
+<li>Hex&lt;uint16_t&gt;::toString(0x1234) = "1234"</li>
+<li>Hex&lt;uint16_t&gt;::toBcdString(1023) = "1023"</li>
+<li>Hex&lt;uint32_t&gt;::toString(0xDEADBEEF) = "DEADBEEF"</li>
+<li>Hex&lt;uint32_t&gt;::toBcdString(1234567890) = "1234567890"</li>
+<li>Hex&lt;uint64_t&gt;::toString(0x0123456789ABCDEF) = "0123456789ABCDEF"</li>
+<li>Hex&lt;uint64_t&gt;::toBcdString(UINT64_MAX) = "18446744073709551615" </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 </div><!-- doc-content -->
-<div id="page-nav" class="page-nav-panel">
-<div id="page-nav-resize-handle"></div>
-<div id="page-nav-tree">
-<div id="page-nav-contents">
-</div><!-- page-nav-contents -->
-</div><!-- page-nav-tree -->
-</div><!-- page-nav -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_8614472618abc149a31dd7841874bafa.html">core</a></li><li class="navelem"><a href="../../d7/d46/a03430.html">DeviceManager.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

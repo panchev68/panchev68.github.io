@@ -1,9 +1,9 @@
 var a02340 =
 [
-    [ "CriticalSectionFromISR", "df/d49/a02340.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "df/d49/a02340.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "df/d49/a02340.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "df/d49/a02340.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "df/d49/a02340.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "df/d49/a02340.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "Lock", "df/d49/a02340.html#a79915981fe481334533677f3c4691e1f", null ],
+    [ "~Lock", "df/d49/a02340.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
+    [ "Lock", "df/d49/a02340.html#a7da060988728f2b1731d04e7b4465ffb", null ],
+    [ "Lock", "df/d49/a02340.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
+    [ "operator=", "df/d49/a02340.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
+    [ "operator=", "df/d49/a02340.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
 ];

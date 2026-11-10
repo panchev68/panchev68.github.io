@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::Helper::TimePeriod</title>
+<title>Library: Lib::Ethercat::SOES::EscAccess Concept Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -27,7 +28,7 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="../../IAR_Logo_RGB_Pos.png"/></td>
   <td id="projectalign">
-   <div id="projectname">Library<span id="projectnumber">&#160;3.06</span>
+   <div id="projectname">Library<span id="projectnumber">&#160;3.08.1</span>
    </div>
    <div id="projectbrief">STM32 C++20 Library</div>
   </td>
@@ -111,59 +112,16 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d95/a02625.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::TimePeriod</div></div>
+  <div class="headertitle"><div class="title">Lib::Ethercat::SOES::EscAccess Concept Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.</p>
-<p>Measures elapsed RTOS ticks in a task with Lib::Helper::TimePeriod.The example starts the stopwatch, delays for a known interval, reads the elapsed ticks and the elapsed time without stopping, then stops and resets the stopwatch.</p>
-<dl class="section note"><dt>Note</dt><dd>This example runs in task context and relies on the FreeRTOS scheduler. Use the FromISR variants inside an interrupt handler.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="../../d5/d95/a02625.html" title="Lib::Helper::TimePeriod">Lib::Helper::TimePeriod</a>, <a class="el" href="../../d4/d2d/a02408.html#a1c0c1a0a57ee9332e741c8422eebbffe" title="RTOS::Task::delay">RTOS::Task::delay</a>, <a class="el" href="../../d2/de3/a02637.html" title="RTOS::TickCounter">RTOS::TickCounter</a></dd></dl>
-<dl class="section user"><dt>Example usage:</dt><dd></dd></dl>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/d91/a00659.html">Lib/Helper/TimePeriod.hpp</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/de8/a00749.html">Lib/RTOS/FreeRTOS/Task.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;chrono&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> timingExampleTask() {</div>
-<div class="line">    <span class="keyword">using namespace </span>std::chrono_literals;</div>
-<div class="line"> </div>
-<div class="line">    <a id="_a0" name="_a0"></a><a class="code hl_class" href="../../dc/d35/a02240.html">Lib::Helper::TimePeriod</a> timer;</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Start measurement</span></div>
-<div class="line">    timer.<a id="a1" name="a1"></a><a class="code hl_function" href="../../dc/d35/a02240.html#afc371b1b7ae3ad092d6048dc93bca6d5">start</a>();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Simulate work or wait for 200 ms</span></div>
-<div class="line">    <a id="a2" name="a2"></a><a class="code hl_function" href="../../d4/d2d/a02408.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a>(<a id="_a3" name="_a3"></a><a class="code hl_function" href="../../db/d5f/a02440.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a>(200ms));</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Query elapsed ticks and elapsed time without stopping</span></div>
-<div class="line">    <span class="keyword">const</span> uint32_t elapsedTicks = timer.<a id="a4" name="a4"></a><a class="code hl_function" href="../../dc/d35/a02240.html#ada4c0a6cd0114194a6667e555b90a36a">elapsed</a>();</div>
-<div class="line">    <span class="keyword">const</span> std::chrono::milliseconds elapsedTime = timer.<a id="a5" name="a5"></a><a class="code hl_function" href="../../dc/d35/a02240.html#aea37e1feea05928a3dfd98f79e82c449">elapsedTime</a>();</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Stop and retrieve elapsed ticks</span></div>
-<div class="line">    uint32_t measured = 0U;</div>
-<div class="line">    <span class="keywordflow">if</span> (timer.<a id="a6" name="a6"></a><a class="code hl_function" href="../../dc/d35/a02240.html#a12059cd59e97f3575d46ed98120763a2">stop</a>(measured)) {</div>
-<div class="line">        <span class="comment">// measured contains the ticks elapsed since start</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="comment">// Reset the timer for reuse</span></div>
-<div class="line">    timer.<a id="a7" name="a7"></a><a class="code hl_function" href="../../dc/d35/a02240.html#a702f4bcc03c1b60bcb212b5276fa13fb">reset</a>();</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00659_html"><div class="ttname"><a href="../../dc/d91/a00659.html">TimePeriod.hpp</a></div><div class="ttdoc">Lightweight stopwatch measuring intervals with the FreeRTOS scheduler tick counter.</div></div>
-<div class="ttc" id="aa00749_html"><div class="ttname"><a href="../../d5/de8/a00749.html">Task.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS tasks.</div></div>
-<div class="ttc" id="aa02240_html"><div class="ttname"><a href="../../dc/d35/a02240.html">Lib::Helper::TimePeriod</a></div><div class="ttdoc">Stopwatch based on the RTOS tick counter.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:29</div></div>
-<div class="ttc" id="aa02240_html_a12059cd59e97f3575d46ed98120763a2"><div class="ttname"><a href="../../dc/d35/a02240.html#a12059cd59e97f3575d46ed98120763a2">Lib::Helper::TimePeriod::stop</a></div><div class="ttdeci">bool stop(uint32_t &amp;ticks) noexcept</div><div class="ttdoc">Stops the stopwatch and reports the elapsed ticks, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:72</div></div>
-<div class="ttc" id="aa02240_html_a702f4bcc03c1b60bcb212b5276fa13fb"><div class="ttname"><a href="../../dc/d35/a02240.html#a702f4bcc03c1b60bcb212b5276fa13fb">Lib::Helper::TimePeriod::reset</a></div><div class="ttdeci">constexpr void reset() noexcept</div><div class="ttdoc">Stops the stopwatch without reading the elapsed time.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:101</div></div>
-<div class="ttc" id="aa02240_html_ada4c0a6cd0114194a6667e555b90a36a"><div class="ttname"><a href="../../dc/d35/a02240.html#ada4c0a6cd0114194a6667e555b90a36a">Lib::Helper::TimePeriod::elapsed</a></div><div class="ttdeci">uint32_t elapsed() const noexcept</div><div class="ttdoc">Returns the ticks elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:123</div></div>
-<div class="ttc" id="aa02240_html_aea37e1feea05928a3dfd98f79e82c449"><div class="ttname"><a href="../../dc/d35/a02240.html#aea37e1feea05928a3dfd98f79e82c449">Lib::Helper::TimePeriod::elapsedTime</a></div><div class="ttdeci">std::chrono::milliseconds elapsedTime() const noexcept</div><div class="ttdoc">Returns the time elapsed since start, from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:141</div></div>
-<div class="ttc" id="aa02240_html_afc371b1b7ae3ad092d6048dc93bca6d5"><div class="ttname"><a href="../../dc/d35/a02240.html#afc371b1b7ae3ad092d6048dc93bca6d5">Lib::Helper::TimePeriod::start</a></div><div class="ttdeci">void start() noexcept</div><div class="ttdoc">Starts or restarts the stopwatch from task context.</div><div class="ttdef"><b>Definition</b> TimePeriod.hpp:53</div></div>
-<div class="ttc" id="aa02408_html_a1c0c1a0a57ee9332e741c8422eebbffe"><div class="ttname"><a href="../../d4/d2d/a02408.html#a1c0c1a0a57ee9332e741c8422eebbffe">RTOS::Task::delay</a></div><div class="ttdeci">static void delay(TickType ticks) noexcept</div><div class="ttdoc">Delays the calling task for the given number of ticks.</div><div class="ttdef"><b>Definition</b> Task.hpp:735</div></div>
-<div class="ttc" id="aa02440_html_ad6656fb17699eab5dc474d46e3e29234"><div class="ttname"><a href="../../db/d5f/a02440.html#ad6656fb17699eab5dc474d46e3e29234">RTOS::TickCounter::toTicks</a></div><div class="ttdeci">static constexpr TickType toTicks(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Converts a &quot;std::chrono&quot; duration to scheduler ticks, rounding up.</div><div class="ttdef"><b>Definition</b> TickCounter.hpp:233</div></div>
-</div><!-- fragment --><div class="fragment"></div><!-- fragment --> </div><!-- contents -->
+</div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d7/d5f/a00831.html">Lib</a></li><li class="navelem"><a href="../../dd/dd5/a00861.html">Ethercat</a></li><li class="navelem"><a href="../../dc/d41/a00862.html">SOES</a></li><li class="navelem"><a href="../../d5/d95/a02625.html">EscAccess</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

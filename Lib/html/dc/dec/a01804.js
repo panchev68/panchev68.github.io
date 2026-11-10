@@ -1,14 +1,16 @@
 var a01804 =
 [
-    [ "ADCPort", "dc/dec/a01804.html#ad3590b6cb223a01016ad98732fcce676", null ],
-    [ "~ADCPort", "dc/dec/a01804.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
-    [ "ADCPort", "dc/dec/a01804.html#a9e044644fe3be9918072830d224a30df", null ],
-    [ "ADCPort", "dc/dec/a01804.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
-    [ "getHandle", "dc/dec/a01804.html#a5614da14358698185ca50bab6f0ffb90", null ],
-    [ "getHandle", "dc/dec/a01804.html#a67ec812f689c32e443b0f0b0693c358a", null ],
-    [ "operator=", "dc/dec/a01804.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
-    [ "operator=", "dc/dec/a01804.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
-    [ "poll", "dc/dec/a01804.html#a7f4263cc22040a8ca759022ba6097646", null ],
-    [ "start", "dc/dec/a01804.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
-    [ "stop", "dc/dec/a01804.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
+    [ "Event", "d7/d02/a01808.html", null ],
+    [ "ADCPort", "dc/dec/a01804.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "dc/dec/a01804.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "dc/dec/a01804.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "dc/dec/a01804.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "dc/dec/a01804.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "dc/dec/a01804.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "dc/dec/a01804.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "dc/dec/a01804.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "dc/dec/a01804.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "dc/dec/a01804.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "dc/dec/a01804.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "dc/dec/a01804.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

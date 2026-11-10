@@ -1,10 +1,5 @@
 var a01139 =
 [
-    [ "operator==", "d5/d3e/a01139.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "d5/d3e/a01139.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "d5/d3e/a01139.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "d5/d3e/a01139.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "d5/d3e/a01139.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "d5/d3e/a01139.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "d5/d3e/a01139.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "onCardDetect", "d5/d3e/a01139.html#a4e7561f8d775ae05de344bf44f2cbc7f", null ],
+    [ "spiPort", "d5/d3e/a01139.html#a67ad4df5e15c12584fe20e638078eab3", null ]
 ];

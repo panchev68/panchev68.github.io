@@ -1,5 +1,5 @@
 var a00182 =
 [
-    [ "Lib::Digi::API::Service::NetworkDiscovery", "d2/d21/a01484.html", "d2/d21/a01484" ],
-    [ "Lib::Digi::API::Service::NetworkDiscovery::Node", "d2/daa/a01488.html", "d2/daa/a01488" ]
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20", "d0/d88/a01231.html", "d0/d88/a01231" ],
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20::Config", "dd/dad/a01235.html", "dd/dad/a01235" ]
 ];

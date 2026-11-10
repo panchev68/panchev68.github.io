@@ -1,11 +1,13 @@
 var a01801 =
 [
-    [ "Parameters", "d2/d42/a01801.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d2/d42/a01801.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d2/d42/a01801.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d2/d42/a01801.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d2/d42/a01801.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d2/d42/a01801.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d2/d42/a01801.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d2/d42/a01801.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "BackupRamDomain", "d2/d42/a01801.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d2/d42/a01801.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d2/d42/a01801.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d2/d42/a01801.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d2/d42/a01801.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d2/d42/a01801.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d2/d42/a01801.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d2/d42/a01801.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d2/d42/a01801.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d2/d42/a01801.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

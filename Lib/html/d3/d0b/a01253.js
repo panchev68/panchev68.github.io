@@ -1,9 +1,12 @@
 var a01253 =
 [
-    [ "Counter", "d3/d0b/a01253.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d3/d0b/a01253.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d3/d0b/a01253.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d3/d0b/a01253.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d3/d0b/a01253.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d3/d0b/a01253.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "Data", "d9/de7/a01257.html", "d9/de7/a01257" ],
+    [ "Color", "d3/d0b/a01253.html#a50992f4d62f0c135ac06fb09295272a9", null ],
+    [ "Color", "d3/d0b/a01253.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
+    [ "Color", "d3/d0b/a01253.html#a484309c52934f9c23460c4fe57f45530", null ],
+    [ "clear", "d3/d0b/a01253.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
+    [ "get", "d3/d0b/a01253.html#a4ad28e997f34f1873bf233a5d004e340", null ],
+    [ "getPacked", "d3/d0b/a01253.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
+    [ "set", "d3/d0b/a01253.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
+    [ "set", "d3/d0b/a01253.html#ac8926773deb153f9281f4e235896e4a0", null ]
 ];

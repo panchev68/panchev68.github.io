@@ -1,7 +1,9 @@
 var a02328 =
 [
-    [ "isInverted", "db/d83/a02328.html#a527ce99ad9135c5ee638b478e35031de", null ],
-    [ "isPresent", "db/d83/a02328.html#adeb1badd28d6911fa7c0422e5278feef", null ],
-    [ "name", "db/d83/a02328.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
-    [ "source", "db/d83/a02328.html#a13e98c772a216681f6a95506ba77144a", null ]
+    [ "CriticalSectionFromISR", "db/d83/a02328.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "db/d83/a02328.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "db/d83/a02328.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "db/d83/a02328.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "db/d83/a02328.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "db/d83/a02328.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

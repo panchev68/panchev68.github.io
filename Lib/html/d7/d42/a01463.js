@@ -1,5 +1,5 @@
 var a01463 =
 [
-    [ "temperatureValue", "d7/d42/a01463.html#ad352c7bba31cc229e106eea4aef94299", null ],
-    [ "voltageValue", "d7/d42/a01463.html#a8dfb3d30a434e5346c20ac691dfe3595", null ]
+    [ "channel", "d7/d42/a01463.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
+    [ "id", "d7/d42/a01463.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
 ];

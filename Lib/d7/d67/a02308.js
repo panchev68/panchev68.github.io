@@ -1,8 +1,11 @@
 var a02308 =
 [
-    [ "State", "d7/d67/a02308.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
-    [ "firstRun", "d7/d67/a02308.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
-    [ "integralSum", "d7/d67/a02308.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
-    [ "lastInput", "d7/d67/a02308.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
-    [ "lastOutput", "d7/d67/a02308.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
+    [ "Client", "d7/d67/a02308.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
+    [ "Client", "d7/d67/a02308.html#a893ac5643ef917f5ca701fabbe75a429", null ],
+    [ "Client", "d7/d67/a02308.html#a207055b9f6a7daac509985f971a0e14f", null ],
+    [ "get", "d7/d67/a02308.html#aabf7e35c74111468fdd296e6931b047f", null ],
+    [ "operator=", "d7/d67/a02308.html#a19375415236ef7e6b214f897791eeb09", null ],
+    [ "operator=", "d7/d67/a02308.html#a3b9c27f75842a31365c97eaaa607d452", null ],
+    [ "post", "d7/d67/a02308.html#aee5955fa4ffad931d4418d2f59af2880", null ],
+    [ "request", "d7/d67/a02308.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
 ];

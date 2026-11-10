@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::HAL::UARTPort&lt; DriverMode::IT &gt; Class Reference</title>
+<title>Library: Lib::HAL::Timer::TimTimebase Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,92 +112,83 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/d14/a02066.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::UARTPort&lt; DriverMode::IT &gt; Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimTimebase Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Explicit specialized variant driving asynchronous Interrupt (IT) transfers. </p>
-<p>Everything interrupt-driven (the event group, the start-then-wait transfers, abort(), HAL callback registration and DeviceManager wiring) comes from "UARTPortAsync", shared with the DMA mode. This specialization only supplies the two HAL calls that start an interrupt-driven transfer. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::UARTPort&lt; DriverMode::IT &gt;:</div>
+<div class="textblock"><p>Controls hardware timer blocks configured under active periodic Timebase profiles. </p>
+<p>Eliminates CPU polling overhead by mapping the hardware Update Interrupt (UIF) through the DeviceManager to a task notification, so a task blocked in "waitPeriod()" wakes once per period.</p>
+<p>Unlike the other timer wrappers this header does not define the HAL callback: CubeMX already generates "HAL_TIM_PeriodElapsedCallback()" in "main.c" whenever a timer is the HAL timebase, which the project relies on with FreeRTOS. Forward to this driver from that function's user-code section instead:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> <a class="code hl_friend" href="#ae72687d02451939bdec7c3aaba269a45">Lib_HAL_TimTimebase_PeriodElapsed</a>(TIM_HandleTypeDef * htim);  <span class="comment">// USER CODE BEGIN PFP</span></div>
+<div class="line">...</div>
+<div class="line">Lib_HAL_TimTimebase_PeriodElapsed(htim);                         <span class="comment">// USER CODE BEGIN Callback 1</span></div>
+<div class="ttc" id="aa02066_html_ae72687d02451939bdec7c3aaba269a45"><div class="ttname"><a href="#ae72687d02451939bdec7c3aaba269a45">Lib::HAL::Timer::TimTimebase::Lib_HAL_TimTimebase_PeriodElapsed</a></div><div class="ttdeci">friend void::Lib_HAL_TimTimebase_PeriodElapsed(TIM_HandleTypeDef *htim)</div></div>
+</div><!-- fragment --> </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::Timer::TimTimebase:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d67/a02065.svg" width="1084" height="3598"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d67/a02065.svg" width="640" height="2296"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::UARTPort&lt; DriverMode::IT &gt;:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::Timer::TimTimebase:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/def/a02064.svg" width="1395" height="3938"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../de/def/a02064.svg" width="640" height="2296"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a074ec6b19b1073304ca2513d11d43247" id="r_a074ec6b19b1073304ca2513d11d43247"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a> (UART_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a074ec6b19b1073304ca2513d11d43247"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to a native UART handle.  <br /></td></tr>
-<tr class="memitem:a864254902b1d7b3afa27a66ccd465c69" id="r_a864254902b1d7b3afa27a66ccd465c69"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a864254902b1d7b3afa27a66ccd465c69">~UARTPort</a> () noexcept</td></tr>
-<tr class="memdesc:a864254902b1d7b3afa27a66ccd465c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the DeviceManager registry and no HAL callback points at the destroyed port.  <br /></td></tr>
-<tr class="inherit_header pub_methods_a02070"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d8/d9c/a02070.html">Lib::HAL::UARTPortAsync&lt; UARTPort&lt; DriverMode::IT &gt; &gt;</a></td></tr>
-<tr class="memitem:aa6f2b7746c93553e8ba0a2fda3c494bc inherit pub_methods_a02070" id="r_aa6f2b7746c93553e8ba0a2fda3c494bc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d9c/a02070.html#aa6f2b7746c93553e8ba0a2fda3c494bc">send</a> (std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:aa6f2b7746c93553e8ba0a2fda3c494bc inherit pub_methods_a02070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a buffer and waits for completion.  <br /></td></tr>
-<tr class="memitem:a3c10830f8d93936773f64d95201bc7da inherit pub_methods_a02070" id="r_a3c10830f8d93936773f64d95201bc7da"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d9c/a02070.html#a3c10830f8d93936773f64d95201bc7da">receive</a> (std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3c10830f8d93936773f64d95201bc7da inherit pub_methods_a02070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receives exactly "data.size()" bytes and waits for completion.  <br /></td></tr>
-<tr class="memitem:ac0f3ec8c2a5d8ad83c45e752232f2005 inherit pub_methods_a02070" id="r_ac0f3ec8c2a5d8ad83c45e752232f2005"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d9c/a02070.html#ac0f3ec8c2a5d8ad83c45e752232f2005">abort</a> () noexcept</td></tr>
-<tr class="memdesc:ac0f3ec8c2a5d8ad83c45e752232f2005 inherit pub_methods_a02070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aborts any ongoing transmission and reception immediately.  <br /></td></tr>
-<tr class="inherit_header pub_methods_a01858"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d4/d7f/a01858.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td></tr>
-<tr class="memitem:a9e0e2e3d307485d3bc6cc4c54a4a9790 inherit pub_methods_a01858" id="r_a9e0e2e3d307485d3bc6cc4c54a4a9790"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> (const AsyncPortCore &amp;other)=delete</td></tr>
-<tr class="memdesc:a9e0e2e3d307485d3bc6cc4c54a4a9790 inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a unique RTOS event group and registration slot in the DeviceManager.  <br /></td></tr>
-<tr class="memitem:ae4c323f8431fa6f03e914d953c4306c2 inherit pub_methods_a01858" id="r_ae4c323f8431fa6f03e914d953c4306c2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#ae4c323f8431fa6f03e914d953c4306c2">AsyncPortCore</a> (AsyncPortCore &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ae4c323f8431fa6f03e914d953c4306c2 inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a unique RTOS event group and registration slot in the DeviceManager.  <br /></td></tr>
-<tr class="memitem:a83e0efb939206ab305b7b0c0b80a27e5 inherit pub_methods_a01858" id="r_a83e0efb939206ab305b7b0c0b80a27e5"><td class="memItemLeft"><a class="el" href="../../d4/d7f/a01858.html#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a83e0efb939206ab305b7b0c0b80a27e5">operator=</a> (const <a class="el" href="../../d4/d7f/a01858.html#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a83e0efb939206ab305b7b0c0b80a27e5 inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a unique RTOS event group and registration slot in the DeviceManager.  <br /></td></tr>
-<tr class="memitem:af7a0ea878376b289ff08600fa9477026 inherit pub_methods_a01858" id="r_af7a0ea878376b289ff08600fa9477026"><td class="memItemLeft"><a class="el" href="../../d4/d7f/a01858.html#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#af7a0ea878376b289ff08600fa9477026">operator=</a> (<a class="el" href="../../d4/d7f/a01858.html#a9e0e2e3d307485d3bc6cc4c54a4a9790">AsyncPortCore</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:af7a0ea878376b289ff08600fa9477026 inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a unique RTOS event group and registration slot in the DeviceManager.  <br /></td></tr>
-<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35 inherit pub_methods_a01858" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35 inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, DeviceManager slot and HAL callbacks, in that order.  <br /></td></tr>
-<tr class="memitem:a03c62c024b148a264f9a6a0077198302 inherit pub_methods_a01858" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
-<tr class="memdesc:a03c62c024b148a264f9a6a0077198302 inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the HAL callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
-<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b inherit pub_methods_a01858" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
-<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b inherit pub_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
-<tr class="inherit_header pub_methods_a01866"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d3/d7e/a01866.html">Lib::HAL::Device&lt; T_DERIVED, T_HANDLE &gt;</a></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01866" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf inherit pub_methods_a01866" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf inherit pub_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
+<tr class="memitem:a2c242b351c880239ebc508905c1cb177" id="r_a2c242b351c880239ebc508905c1cb177"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2c242b351c880239ebc508905c1cb177">TimTimebase</a> (TIM_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:a2c242b351c880239ebc508905c1cb177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the timebase abstraction wrapper directly to a native configuration structure.  <br /></td></tr>
+<tr class="memitem:a90c3f44e84cfcfed7135d75abee0a2e1" id="r_a90c3f44e84cfcfed7135d75abee0a2e1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a90c3f44e84cfcfed7135d75abee0a2e1">~TimTimebase</a> () noexcept</td></tr>
+<tr class="memdesc:a90c3f44e84cfcfed7135d75abee0a2e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer before the base leaves the DeviceManager registry.  <br /></td></tr>
+<tr class="memitem:ab552a6aca3293c0ecdd0ce26d6668663" id="r_ab552a6aca3293c0ecdd0ce26d6668663"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab552a6aca3293c0ecdd0ce26d6668663">start</a> () noexcept</td></tr>
+<tr class="memdesc:ab552a6aca3293c0ecdd0ce26d6668663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer with its update interrupt; the calling task becomes the one "waitPeriod()" serves.  <br /></td></tr>
+<tr class="memitem:afffbfe2b0fcf27e6081cc6983d06e626" id="r_afffbfe2b0fcf27e6081cc6983d06e626"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afffbfe2b0fcf27e6081cc6983d06e626">stop</a> () noexcept</td></tr>
+<tr class="memdesc:afffbfe2b0fcf27e6081cc6983d06e626"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer and its update interrupt.  <br /></td></tr>
+<tr class="memitem:a12ce8677b8ff16469cb2f21c9a1eb5bb" id="r_a12ce8677b8ff16469cb2f21c9a1eb5bb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a12ce8677b8ff16469cb2f21c9a1eb5bb">waitPeriod</a> (<a class="el" href="../../d2/dd9/a02046.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
+<tr class="memdesc:a12ce8677b8ff16469cb2f21c9a1eb5bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called "start()" until the next period completes.  <br /></td></tr>
+<tr class="memitem:a2b19392b62c66b845538ec09abd31354" id="r_a2b19392b62c66b845538ec09abd31354"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
+<tr class="memitem:a2b19392b62c66b845538ec09abd31354 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a2b19392b62c66b845538ec09abd31354">waitPeriod</a> (std::chrono::duration&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
+<tr class="memdesc:a2b19392b62c66b845538ec09abd31354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called "start()" until the next period completes.  <br /></td></tr>
+<tr class="memitem:a29d9a9e5c9f5213605679a13c42aa764" id="r_a29d9a9e5c9f5213605679a13c42aa764"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a29d9a9e5c9f5213605679a13c42aa764">setPeriod</a> (uint32_t periodValue) noexcept</td></tr>
+<tr class="memdesc:a29d9a9e5c9f5213605679a13c42aa764"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overrides the timer period in the Auto-Reload Register (ARR).  <br /></td></tr>
+<tr class="inherit_header pub_methods_a02046"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase&lt; TimTimebase &gt;</a></td></tr>
+<tr class="memitem:ae4e4ea4622adc3ec78740bcbb5de40c7 inherit pub_methods_a02046" id="r_ae4e4ea4622adc3ec78740bcbb5de40c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> (const TimEventBase &amp;other)=delete</td></tr>
+<tr class="memdesc:ae4e4ea4622adc3ec78740bcbb5de40c7 inherit pub_methods_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
+<tr class="memitem:a85bb87c2ebb0260e1e4503471892deaa inherit pub_methods_a02046" id="r_a85bb87c2ebb0260e1e4503471892deaa"><td class="memItemLeft"><a class="el" href="../../d2/dd9/a02046.html#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#a85bb87c2ebb0260e1e4503471892deaa">operator=</a> (const <a class="el" href="../../d2/dd9/a02046.html#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a85bb87c2ebb0260e1e4503471892deaa inherit pub_methods_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
+<tr class="inherit_header pub_methods_a01878"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../dc/d33/a01878.html">Lib::HAL::Device&lt; TimTimebase, TIM_HandleTypeDef &gt;</a></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01878" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">TIM_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d33/a01878.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:ae72687d02451939bdec7c3aaba269a45" id="r_ae72687d02451939bdec7c3aaba269a45"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#ae72687d02451939bdec7c3aaba269a45">void::Lib_HAL_TimTimebase_PeriodElapsed</a> (TIM_HandleTypeDef *htim)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_types_a01858"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Types inherited from <a class="el" href="../../d4/d7f/a01858.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td></tr>
-<tr class="memitem:a3c55c6775abc08a42ba3fb85ac9404c9 inherit pro_types_a01858" id="r_a3c55c6775abc08a42ba3fb85ac9404c9"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a3c55c6775abc08a42ba3fb85ac9404c9">EventBits</a> = <a class="el" href="../../de/dd4/a02338.html#a27fe7bec268decd9b548d4ad2375ca34">RTOS::EventGroup::Bits</a></td></tr>
-<tr class="inherit_header pro_methods_a02070"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d8/d9c/a02070.html">Lib::HAL::UARTPortAsync&lt; UARTPort&lt; DriverMode::IT &gt; &gt;</a></td></tr>
-<tr class="memitem:ae3dfd1d49bf2eb3ae572e5482852a106 inherit pro_methods_a02070" id="r_ae3dfd1d49bf2eb3ae572e5482852a106"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d8/d9c/a02070.html#ae3dfd1d49bf2eb3ae572e5482852a106">UARTPortAsync</a> (UART_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:ae3dfd1d49bf2eb3ae572e5482852a106 inherit pro_methods_a02070"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
-<tr class="inherit_header pro_methods_a01858"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d4/d7f/a01858.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td></tr>
-<tr class="memitem:a3fea82834797dbd505ac308e4ebe58a2 inherit pro_methods_a01858" id="r_a3fea82834797dbd505ac308e4ebe58a2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a3fea82834797dbd505ac308e4ebe58a2">AsyncPortCore</a> (T_HANDLE *handle) noexcept</td></tr>
-<tr class="memdesc:a3fea82834797dbd505ac308e4ebe58a2 inherit pro_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
-<tr class="memitem:aa73910a82d1814199dbe1ec58c46f450 inherit pro_methods_a01858" id="r_aa73910a82d1814199dbe1ec58c46f450"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#aa73910a82d1814199dbe1ec58c46f450">~AsyncPortCore</a> () noexcept</td></tr>
-<tr class="memdesc:aa73910a82d1814199dbe1ec58c46f450 inherit pro_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Asserts that the port is closed before the object is destroyed.  <br /></td></tr>
-<tr class="memitem:a3dbece6116a65776aa72cb7a95e4a79a inherit pro_methods_a01858" id="r_a3dbece6116a65776aa72cb7a95e4a79a"><td class="memItemLeft">T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a3dbece6116a65776aa72cb7a95e4a79a">derived</a> () noexcept</td></tr>
-<tr class="memdesc:a3dbece6116a65776aa72cb7a95e4a79a inherit pro_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Views this object through its concrete "T_DERIVED" mode specialization.  <br /></td></tr>
-<tr class="inherit_header pro_methods_a01866"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d3/d7e/a01866.html">Lib::HAL::Device&lt; T_DERIVED, T_HANDLE &gt;</a></td></tr>
-<tr class="memitem:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01866" id="r_acdeffbad9eb409804cbc72fa86794a97"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#acdeffbad9eb409804cbc72fa86794a97">Device</a> (T_HANDLE *handle) noexcept</td></tr>
-<tr class="memdesc:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Device block bound to a native microcontroller peripheral handle.  <br /></td></tr>
-<tr class="memitem:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01866" id="r_a231e1d150464ec12c66e5578ff0c3128"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#a231e1d150464ec12c66e5578ff0c3128">~Device</a> ()=default</td></tr>
-<tr class="memdesc:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Device object.  <br /></td></tr>
-<tr class="inherit_header pro_static_methods_a01858"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Static Protected Member Functions inherited from <a class="el" href="../../d4/d7f/a01858.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td></tr>
-<tr class="memitem:a66f47e9670feddc6fb679436b07a1680 inherit pro_static_methods_a01858" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (T_HANDLE *handle) noexcept</td></tr>
-<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680 inherit pro_static_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a HAL handle.  <br /></td></tr>
-<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9 inherit pro_static_methods_a01858" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (T_HANDLE *handle, uint32_t bits) noexcept</td></tr>
-<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9 inherit pro_static_methods_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a HAL handle; called from interrupt context.  <br /></td></tr>
-<tr class="inherit_header pro_attribs_a01858"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="../../d4/d7f/a01858.html">Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;</a></td></tr>
-<tr class="memitem:abb56ddd8ed19246084e1242e9075982f inherit pro_attribs_a01858" id="r_abb56ddd8ed19246084e1242e9075982f"><td class="memItemLeft"><a class="el" href="../../de/dd4/a02338.html">RTOS::EventGroup</a>&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#abb56ddd8ed19246084e1242e9075982f">events</a></td></tr>
-<tr class="memdesc:abb56ddd8ed19246084e1242e9075982f inherit pro_attribs_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transfer completion and error signals set from the HAL callbacks.  <br /></td></tr>
-<tr class="memitem:aa533ddd5b800443ba9ea9687a78b720e inherit pro_attribs_a01858" id="r_aa533ddd5b800443ba9ea9687a78b720e"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d4/d7f/a01858.html#aa533ddd5b800443ba9ea9687a78b720e">isOpen</a> = false</td></tr>
-<tr class="memdesc:aa533ddd5b800443ba9ea9687a78b720e inherit pro_attribs_a01858"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set between a successful "open()" and "close()"; task context only.  <br /></td></tr>
+<tr class="inherit_header pro_types_a02046"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Types inherited from <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase&lt; TimTimebase &gt;</a></td></tr>
+<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5 inherit pro_types_a02046" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a></td></tr>
+<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5 inherit pro_types_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
+<tr class="inherit_header pro_methods_a02046"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase&lt; TimTimebase &gt;</a></td></tr>
+<tr class="memitem:a5005179511e8564eef47bc3da1d74925 inherit pro_methods_a02046" id="r_a5005179511e8564eef47bc3da1d74925"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#a5005179511e8564eef47bc3da1d74925">~TimEventBase</a> () noexcept</td></tr>
+<tr class="memdesc:a5005179511e8564eef47bc3da1d74925 inherit pro_methods_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leaves the DeviceManager registry; the derived destructor has already stopped the hardware.  <br /></td></tr>
+<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e inherit pro_methods_a02046" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
+<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e inherit pro_methods_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
+<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d inherit pro_methods_a02046" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../d2/dd9/a02046.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
+<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d inherit pro_methods_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
+<tr class="memitem:a96061f4587cc3508811475a8309ab3f0 inherit pro_methods_a02046" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../d2/dd9/a02046.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0 inherit pro_methods_a02046"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
+<tr class="inherit_header pro_methods_a01878"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../dc/d33/a01878.html">Lib::HAL::Device&lt; TimTimebase, TIM_HandleTypeDef &gt;</a></td></tr>
+<tr class="memitem:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01878" id="r_acdeffbad9eb409804cbc72fa86794a97"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d33/a01878.html#acdeffbad9eb409804cbc72fa86794a97">Device</a> (TIM_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Device block bound to a native microcontroller peripheral handle.  <br /></td></tr>
+<tr class="memitem:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01878" id="r_a231e1d150464ec12c66e5578ff0c3128"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d33/a01878.html#a231e1d150464ec12c66e5578ff0c3128">~Device</a> ()=default</td></tr>
+<tr class="memdesc:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Device object.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a074ec6b19b1073304ca2513d11d43247" name="a074ec6b19b1073304ca2513d11d43247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a074ec6b19b1073304ca2513d11d43247">&#9670;&#160;</a></span>UARTPort()</h2>
+<a id="a2c242b351c880239ebc508905c1cb177" name="a2c242b351c880239ebc508905c1cb177"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c242b351c880239ebc508905c1cb177">&#9670;&#160;</a></span>TimTimebase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,9 +197,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::UARTPort&lt; <a class="el" href="../../db/deb/a00853.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::UARTPort </td>
+          <td class="memname">Lib::HAL::Timer::TimTimebase::TimTimebase </td>
           <td>(</td>
-          <td class="paramtype">UART_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -219,18 +210,18 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to a native UART handle. </p>
+<p>Binds the timebase abstraction wrapper directly to a native configuration structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim6). </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a864254902b1d7b3afa27a66ccd465c69" name="a864254902b1d7b3afa27a66ccd465c69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a864254902b1d7b3afa27a66ccd465c69">&#9670;&#160;</a></span>~UARTPort()</h2>
+<a id="a90c3f44e84cfcfed7135d75abee0a2e1" name="a90c3f44e84cfcfed7135d75abee0a2e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c3f44e84cfcfed7135d75abee0a2e1">&#9670;&#160;</a></span>~TimTimebase()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,7 +230,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::UARTPort&lt; <a class="el" href="../../db/deb/a00853.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">DriverMode::IT</a> &gt;::~<a class="el" href="#a074ec6b19b1073304ca2513d11d43247">UARTPort</a> </td>
+          <td class="memname">Lib::HAL::Timer::TimTimebase::~TimTimebase </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -252,18 +243,248 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the port if still open, so no dangling instance stays in the DeviceManager registry and no HAL callback points at the destroyed port. </p>
+<p>Stops the timer before the base leaves the DeviceManager registry. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_a864254902b1d7b3afa27a66ccd465c69_cgraph.svg" width="532" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_a90c3f44e84cfcfed7135d75abee0a2e1_cgraph.svg" width="1042" height="98"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a29d9a9e5c9f5213605679a13c42aa764" name="a29d9a9e5c9f5213605679a13c42aa764"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d9a9e5c9f5213605679a13c42aa764">&#9670;&#160;</a></span>setPeriod()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Lib::HAL::Timer::TimTimebase::setPeriod </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>periodValue</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Overrides the timer period in the Auto-Reload Register (ARR). </p>
+<p>Without ARR preload ("AutoReloadPreload"), a value below the running counter lets it overshoot to the counter maximum before wrapping.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">periodValue</td><td>New auto-reload value in timer ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_a29d9a9e5c9f5213605679a13c42aa764_cgraph.svg" width="692" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ab552a6aca3293c0ecdd0ce26d6668663" name="ab552a6aca3293c0ecdd0ce26d6668663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab552a6aca3293c0ecdd0ce26d6668663">&#9670;&#160;</a></span>start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimTimebase::start </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts the timer with its update interrupt; the calling task becomes the one "waitPeriod()" serves. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware start sequence succeeded. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_ab552a6aca3293c0ecdd0ce26d6668663_cgraph.svg" width="692" height="144"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="afffbfe2b0fcf27e6081cc6983d06e626" name="afffbfe2b0fcf27e6081cc6983d06e626"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afffbfe2b0fcf27e6081cc6983d06e626">&#9670;&#160;</a></span>stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimTimebase::stop </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the timer and its update interrupt. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware stopped safely. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_afffbfe2b0fcf27e6081cc6983d06e626_cgraph.svg" width="692" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_afffbfe2b0fcf27e6081cc6983d06e626_icgraph.svg" width="662" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a2b19392b62c66b845538ec09abd31354" name="a2b19392b62c66b845538ec09abd31354"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b19392b62c66b845538ec09abd31354">&#9670;&#160;</a></span>waitPeriod() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Rep, typename Period&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimTimebase::waitPeriod </td>
+          <td>(</td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the task that called "start()" until the next period completes. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the period elapsed, "false" on timeout. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_a2b19392b62c66b845538ec09abd31354_cgraph.svg" width="962" height="158"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a12ce8677b8ff16469cb2f21c9a1eb5bb" name="a12ce8677b8ff16469cb2f21c9a1eb5bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12ce8677b8ff16469cb2f21c9a1eb5bb">&#9670;&#160;</a></span>waitPeriod() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::Timer::TimTimebase::waitPeriod </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../d2/dd9/a02046.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Blocks the task that called "start()" until the next period completes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the period elapsed, "false" on timeout. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d14/a02066_a12ce8677b8ff16469cb2f21c9a1eb5bb_cgraph.svg" width="682" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="ae72687d02451939bdec7c3aaba269a45" name="ae72687d02451939bdec7c3aaba269a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae72687d02451939bdec7c3aaba269a45">&#9670;&#160;</a></span>void::Lib_HAL_TimTimebase_PeriodElapsed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void::Lib_HAL_TimTimebase_PeriodElapsed </td>
+          <td>(</td>
+          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>htim</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d9/d44/a00527.html">UARTPort-IT.hpp</a></li>
+<li><a class="el" href="../../d9/d44/a00527.html">TimTimebase.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -278,7 +499,7 @@ Additional Inherited Members</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../db/deb/a00853.html">HAL</a></li><li class="navelem"><a href="../../da/d14/a02066.html">UARTPort&lt; DriverMode::IT &gt;</a></li>
+    <li class="navelem"><a href="../../d7/d5f/a00831.html">Lib</a></li><li class="navelem"><a href="../../dd/d7b/a00865.html">HAL</a></li><li class="navelem"><a href="../../d2/db8/a00867.html">Timer</a></li><li class="navelem"><a href="../../da/d14/a02066.html">TimTimebase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

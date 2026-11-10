@@ -1,14 +1,12 @@
 var a01979 =
 [
-    [ "Config", "d6/dd6/a01983.html", "d6/dd6/a01983" ],
-    [ "State", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "d6/d8e/a01979.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "d6/d8e/a01979.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "d6/d8e/a01979.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "d6/d8e/a01979.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "d6/d8e/a01979.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "d6/d8e/a01979.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "OSPIPortBase", "d6/d8e/a01979.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d6/d8e/a01979.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d6/d8e/a01979.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d6/d8e/a01979.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d6/d8e/a01979.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d6/d8e/a01979.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d6/d8e/a01979.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d6/d8e/a01979.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d6/d8e/a01979.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

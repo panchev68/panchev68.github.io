@@ -1,7 +1,9 @@
 var a02512 =
 [
-    [ "firmwareSubversion", "db/da2/a02512.html#a3b197564b64cf294fa3fbc8aaeeec351", null ],
-    [ "firmwareVersionString", "db/da2/a02512.html#a6b83c53d998379f08471d89aead2818e", null ],
-    [ "hardwareSubversion", "db/da2/a02512.html#afe16c0466862070e14e2e5c83eb40cfa", null ],
-    [ "hardwareVersionString", "db/da2/a02512.html#a7903c77c2dca8d29ea92de540b46f91f", null ]
+    [ "VersionString", "db/da2/a02512.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
+    [ "Base", "db/da2/a02512.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
+    [ "getSubVersion", "db/da2/a02512.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
+    [ "operator uint32_t", "db/da2/a02512.html#a463ebb1b62a72aab04d6b128c567109a", null ],
+    [ "operator VersionString", "db/da2/a02512.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
+    [ "subVersion", "db/da2/a02512.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
 ];

@@ -1,4 +1,4 @@
 var a00641 =
 [
-    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "db/da6/a02224.html", "db/da6/a02224" ]
+    [ "Lib::HAL::WindowWatchdog", "de/d1b/a02187.html", "de/d1b/a02187" ]
 ];

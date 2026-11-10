@@ -1,15 +1,16 @@
 var a01716 =
 [
-    [ "dnsIp", "d4/df6/a01716.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
-    [ "dnsName", "d4/df6/a01716.html#a2b21f67fcea486054df4fbece648ef7f", null ],
-    [ "gateway", "d4/df6/a01716.html#ae526dc3391066f8447e665e962d7f3e1", null ],
-    [ "hasDnsIp", "d4/df6/a01716.html#ab1307f2487c4d9d8a056679335c62d47", null ],
-    [ "hasDnsName", "d4/df6/a01716.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
-    [ "hasGateway", "d4/df6/a01716.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
-    [ "hasIp", "d4/df6/a01716.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
-    [ "hasMac", "d4/df6/a01716.html#a44b23d072f52c270d4c722d93a8b6117", null ],
-    [ "hasSubnet", "d4/df6/a01716.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
-    [ "ip", "d4/df6/a01716.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
-    [ "mac", "d4/df6/a01716.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
-    [ "subnet", "d4/df6/a01716.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
+    [ "Container", "d4/df6/a01716.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "d4/df6/a01716.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "d4/df6/a01716.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d4/df6/a01716.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "d4/df6/a01716.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "d4/df6/a01716.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "d4/df6/a01716.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "d4/df6/a01716.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "d4/df6/a01716.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "d4/df6/a01716.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "d4/df6/a01716.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "d4/df6/a01716.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

@@ -1,13 +1,10 @@
 var a01400 =
 [
-    [ "Config", "d2/d82/a01404.html", "d2/d82/a01404" ],
-    [ "WolfSSLDh", "dc/d35/a01400.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
-    [ "~WolfSSLDh", "dc/d35/a01400.html#a6d03ea454eff6ec49352184b945a04e2", null ],
-    [ "WolfSSLDh", "dc/d35/a01400.html#aabb6311ca11dc1faceab33055d97c824", null ],
-    [ "WolfSSLDh", "dc/d35/a01400.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
-    [ "agree", "dc/d35/a01400.html#a76b96df40bf320de9d7254054ad2ab18", null ],
-    [ "generateKeyPair", "dc/d35/a01400.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
-    [ "open", "dc/d35/a01400.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
-    [ "operator=", "dc/d35/a01400.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
-    [ "operator=", "dc/d35/a01400.html#a050501c01119e2aa82565a060075ee61", null ]
+    [ "WolfSSH", "dc/d35/a01400.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "dc/d35/a01400.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "dc/d35/a01400.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "dc/d35/a01400.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "dc/d35/a01400.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "dc/d35/a01400.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "dc/d35/a01400.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

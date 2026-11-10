@@ -1,5 +1,5 @@
 var a01273 =
 [
-    [ "channel", "de/d85/a01273.html#accbe3e59202cfc52dc94acb73e4342e2", null ],
-    [ "id", "de/d85/a01273.html#a0765ed0261b9be43580c85bf3aa4e8c7", null ]
+    [ "channel", "de/d85/a01273.html#aa0967939bfb313185c18cc470150b853", null ],
+    [ "handle", "de/d85/a01273.html#a373f87e5f5c75c7a49f16724225066b1", null ]
 ];

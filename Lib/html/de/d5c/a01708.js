@@ -1,13 +1,18 @@
 var a01708 =
 [
-    [ "Handlers", "de/d5c/a01708.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "de/d5c/a01708.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "de/d5c/a01708.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "de/d5c/a01708.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "de/d5c/a01708.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "de/d5c/a01708.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "de/d5c/a01708.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "de/d5c/a01708.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "de/d5c/a01708.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "de/d5c/a01708.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "Handlers", "de/d5c/a01708.html#a272ea34043ce0f3bb7014fc2c4df927e", null ],
+    [ "Parameters", "de/d5c/a01708.html#a4d66198ad9a9b1a75925e1a97dbc5fb9", null ],
+    [ "Result", "de/d5c/a01708.html#a6870bc1d903b1d83b238ba51088eb134", null ],
+    [ "EoE", "de/d5c/a01708.html#a57ce3b2cab796d2623bc80be2bc75e80", null ],
+    [ "~EoE", "de/d5c/a01708.html#a5babb7f332ba38f3e2e33203e39e615d", null ],
+    [ "EoE", "de/d5c/a01708.html#a07829bbfc5250b03c81968ebd709bf4e", null ],
+    [ "EoE", "de/d5c/a01708.html#ac52aa3b6cbf2a17e467cfba61ddbf48e", null ],
+    [ "handle", "de/d5c/a01708.html#a41416e8882dd613876cb3a6bcbfc9b44", null ],
+    [ "isSendPending", "de/d5c/a01708.html#a91f842049f97f5f7055e5a7f6de7c6ac", null ],
+    [ "operator=", "de/d5c/a01708.html#a82f98b2311b36aea43517d9a31df5d08", null ],
+    [ "operator=", "de/d5c/a01708.html#ae9237ef17cddb3bf83d5e2b41580c4af", null ],
+    [ "queueFrame", "de/d5c/a01708.html#a2afc345b5bcd9326d015eb678e620201", null ],
+    [ "reset", "de/d5c/a01708.html#a85ee64bff9f15d5ace7999ebdb5643ef", null ],
+    [ "service", "de/d5c/a01708.html#a4d41465f94d62fdbab816ab8d8ebd674", null ],
+    [ "setHandlers", "de/d5c/a01708.html#a6b26ad71662f36a666db683b5755a119", null ]
 ];

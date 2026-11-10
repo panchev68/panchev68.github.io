@@ -1,11 +1,11 @@
 var a01595 =
 [
-    [ "DACPort", "dc/dbf/a01595.html#a430af54970be9f050913a2587b44af8c", null ],
-    [ "~DACPort", "dc/dbf/a01595.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
-    [ "close", "dc/dbf/a01595.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
-    [ "getChannel", "dc/dbf/a01595.html#a668e6706e47926674d5df3daad36276c", null ],
-    [ "open", "dc/dbf/a01595.html#a972d40716f11cc01e220bc488d2fb281", null ],
-    [ "start", "dc/dbf/a01595.html#a99aa0c249bf50a455acd99a243d63c67", null ],
-    [ "stop", "dc/dbf/a01595.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
-    [ "waitForEvent", "dc/dbf/a01595.html#adbdb4f63aa33260310f312a82d61124a", null ]
+    [ "Message", "dc/dbf/a01595.html#adf2fad29193213811e051ef8d5f227a7", null ],
+    [ "Message", "dc/dbf/a01595.html#a68d2a5b54227d976281ef2c06d063d87", null ],
+    [ "Message", "dc/dbf/a01595.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
+    [ "data", "dc/dbf/a01595.html#abc7d722b3924f3002a908d282429e590", null ],
+    [ "empty", "dc/dbf/a01595.html#a09e2a403173178d77de083ae66a831fe", null ],
+    [ "operator std::vector< uint8_t >", "dc/dbf/a01595.html#aa265929307138945bf4e16749958a7f8", null ],
+    [ "size", "dc/dbf/a01595.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
+    [ "view", "dc/dbf/a01595.html#a99d9247c3097add390da201d0083e524", null ]
 ];

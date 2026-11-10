@@ -1,20 +1,61 @@
 var a00320 =
 [
-    [ "Lib::Ethercat::SOES::FoEHandlers", "de/db5/a01730.html", "de/db5/a01730" ],
-    [ "Lib::Ethercat::SOES::FoE", "d0/d1f/a01734.html", "d0/d1f/a01734" ],
-    [ "Lib::Ethercat::SOES::FoEError", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4", [
-      [ "Lib::Ethercat::SOES::FoEError::NOT_DEFINED", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4abfd8c78fbb91fe67b9886fad146392a4", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NOT_FOUND", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a8c02547a8a3b02382bac3557bcb2280d", null ],
-      [ "Lib::Ethercat::SOES::FoEError::ACCESS", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a0a3f43b00ddd148f64178deb155a9f45", null ],
-      [ "Lib::Ethercat::SOES::FoEError::DISK_FULL", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a266c3e565a5b03d2174d5f11c1c9126f", null ],
-      [ "Lib::Ethercat::SOES::FoEError::ILLEGAL", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a19b6dd9cf8414bce98a4f0b86c3258ec", null ],
-      [ "Lib::Ethercat::SOES::FoEError::PACKET_NUMBER", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4ae27d5f8fee9d7d99a630bf1bc94e821e", null ],
-      [ "Lib::Ethercat::SOES::FoEError::EXISTS", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a6a240802522e95fc9e2c1d09122d8ec4", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NO_USER", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a5134e6105e32e094d2b6e33e22fbd84c", null ],
-      [ "Lib::Ethercat::SOES::FoEError::BOOTSTRAP_ONLY", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4a84d8c754faa2099140260a5169b1ab2f", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NOT_IN_BOOTSTRAP", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4aaa14e68151e02922d8f04f7a9da4f01c", null ],
-      [ "Lib::Ethercat::SOES::FoEError::NO_RIGHTS", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4af8b0e3e1041bdc078ee24ea08024668d", null ],
-      [ "Lib::Ethercat::SOES::FoEError::PROGRAM_ERROR", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4ab71866328a7646335504d8d65b0a9b94", null ],
-      [ "Lib::Ethercat::SOES::FoEError::CHECKSUM", "dc/d0a/a00850.html#a058e47e5398a583fd14a446b7b2dbdb4ab9493189e36ddf81cabe5a2c63f62bc3", null ]
+    [ "Lib::Ethercat::SOES::CoEObject", "db/dbe/a01706.html", "db/dbe/a01706" ],
+    [ "Lib::Ethercat::SOES::CoEObjectInfo", "d6/d9a/a01710.html", "d6/d9a/a01710" ],
+    [ "Lib::Ethercat::SOES::CoEHandlers", "d8/dce/a01714.html", "d8/dce/a01714" ],
+    [ "Lib::Ethercat::SOES::CoE", "db/d7f/a01718.html", "db/d7f/a01718" ],
+    [ "Lib::Ethercat::SOES::CoEDataType", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5", [
+      [ "Lib::Ethercat::SOES::CoEDataType::BOOLEAN", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5ac48d5da12d702e73d6966069f2687376", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::INTEGER8", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5af64ee8139b05871f5a1351d546a9450a", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::INTEGER16", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a09fde14d584897273dcb0f6ed7770cf3", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::INTEGER32", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a30b3df1a19d1805d0b4d1f7b7af83d82", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::UNSIGNED8", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a508cfc87614128a0a798770ff981df76", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::UNSIGNED16", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a92b53a1933fce128952b58bc0f6911a6", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::UNSIGNED32", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5ac53af51225825607d532f5d48d0610c1", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::REAL32", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a42f57941675e32c85280f5dbdfed1ca5", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::VISIBLE_STRING", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5ab3f91a81615734f2a757c4589e57a22b", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::OCTET_STRING", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5af311236c86ecb853d70332995098fb47", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::UNICODE_STRING", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a0bae6b1f75144d2d4ec66a2775dfb2bf", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::REAL64", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a662fd6bdd55756aeefe1b715c9550e1a", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::INTEGER64", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a1f095e28ad92b57bbd72665422745c62", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::UNSIGNED64", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5a5dd3b4e2e15e7b6dbd2168a8b23428d8", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::PDO_MAPPING", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5ae44a95ac3be12ce76a12d10d08824847", null ],
+      [ "Lib::Ethercat::SOES::CoEDataType::IDENTITY", "dc/d41/a00862.html#aa94d94e23996717a0fb95db4ee93bba5ad8156d3c6735d75d8a1b8dedd0e79c8b", null ]
+    ] ],
+    [ "Lib::Ethercat::SOES::CoEObjectCode", "dc/d41/a00862.html#a49cbf41bf5e867579bcd99b14fbfd063", [
+      [ "Lib::Ethercat::SOES::CoEObjectCode::VAR", "dc/d41/a00862.html#a49cbf41bf5e867579bcd99b14fbfd063ad6f4440b8633f973d33c78928bdac2e1", null ],
+      [ "Lib::Ethercat::SOES::CoEObjectCode::ARRAY", "dc/d41/a00862.html#a49cbf41bf5e867579bcd99b14fbfd063acb4fb1757fb37c43cded35d3eb857c43", null ],
+      [ "Lib::Ethercat::SOES::CoEObjectCode::RECORD", "dc/d41/a00862.html#a49cbf41bf5e867579bcd99b14fbfd063a921df56002ee5dc960debedc8ae06072", null ]
+    ] ],
+    [ "Lib::Ethercat::SOES::ObjectAccess", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197", [
+      [ "Lib::Ethercat::SOES::ObjectAccess::READ_PRE_OP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197a8461f8f2595aed338dc6c2bf0b9c95ab", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::READ_SAFE_OP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197aff7af476eabdf0f20aa07604258bf204", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::READ_OP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197a7b209af8295dd35b7052e365fb34a7d9", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::WRITE_PRE_OP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197afe3e73aa00bf38a63daf88d64ae44cd6", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::WRITE_SAFE_OP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197abf5a112de37e5460f5efbda387dc6f0f", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::WRITE_OP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197a8f9376bb99e1e603f7c16f05b0dfa954", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::RX_PDO", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197ac046ccd0e5f885b97e1f66f4a90974b1", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::TX_PDO", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197a5f75c2463e116dde6753083776f159ba", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::BACKUP", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197abfdf97ae01c73d83a58ec41f78a4291f", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::SETTING", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197a9a4ad0490c7f7c16aa78af29e73ac1bf", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::READ", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197a3466fab4975481651940ed328aa990e4", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::WRITE", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197ad4b9e47f65b6e79b010582f15785867e", null ],
+      [ "Lib::Ethercat::SOES::ObjectAccess::READ_WRITE", "dc/d41/a00862.html#a0a85aabfc74e31864de76e3f26f1b197aa7b843fb734e3b3fea8e5f902d3f4144", null ]
+    ] ],
+    [ "Lib::Ethercat::SOES::SdoAbort", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019de", [
+      [ "Lib::Ethercat::SOES::SdoAbort::NO_TOGGLE", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea009cb0cbf6cc08bc6dcde5d84d150438", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::INVALID_COMMAND", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea000856510488c462ee7720e2c84d5c84", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::OUT_OF_MEMORY", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019deac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::UNSUPPORTED_ACCESS", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea8e5b59d463d27ba355a455f1e411d536", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::WRITE_ONLY", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dead8fddf06187e680ab5a6355f76a17357", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::READ_ONLY", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea47c7e7cb36a953a8c47e02000036bb44", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::COMPLETE_ACCESS", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea8f1f9d52ab2526c8e19bbcc4844cb182", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::OBJECT_NOT_FOUND", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea76a2a975f3363fabb39417b4f6217c11", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::LENGTH_MISMATCH", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea0a2072f0999427fd95b7f3858923a03e", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::LENGTH_TOO_HIGH", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea53bfb01ae7185e071523cfd243d7343c", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::LENGTH_TOO_LOW", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019deaf85d6b7491f0334493640bd6553794d8", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::SUBINDEX_NOT_FOUND", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea3416293916f082a720fb00fca8c225f7", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::GENERAL_ERROR", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019deaebdaebdc4d4c8ee9be6feeea8ee74da6", null ],
+      [ "Lib::Ethercat::SOES::SdoAbort::WRONG_DEVICE_STATE", "dc/d41/a00862.html#ab9edefd3f6cea3cfc71c65cdd01019dea496608e42a71cfc2f7f2e2a216355d9f", null ]
     ] ]
 ];

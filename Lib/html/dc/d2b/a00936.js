@@ -1,9 +1,14 @@
 var a00936 =
 [
-    [ "DriverBase", "dc/d2b/a00936.html#a329188c9f70a21a0f421598a6fa4aea6", null ],
-    [ "~DriverBase", "dc/d2b/a00936.html#a485ac6dbe46e3f7568c6ef46aeb78939", null ],
-    [ "canTransferBlock", "dc/d2b/a00936.html#ad55213b27726f017dcbc465586c2b468", null ],
-    [ "getTransferActive", "dc/d2b/a00936.html#abee35beb9e71effa911fc8fc30b2fbf7", null ],
-    [ "handleTransferCompleteEvent", "dc/d2b/a00936.html#aee5a5b357b886ee353e04fb06a4c0ada", null ],
-    [ "setTransferActive", "dc/d2b/a00936.html#af67616fc7d8d9dd4e3c92389d14bc58f", null ]
+    [ "Configuration", "df/d23/a02558.html", "df/d23/a02558" ],
+    [ "FirmwareVersion", "d9/d66/a02562.html", "d9/d66/a02562" ],
+    [ "HardwareVersion", "db/d0b/a02566.html", "db/d0b/a02566" ],
+    [ "Parameters", "dc/db2/a02574.html", "dc/db2/a02574" ],
+    [ "ProduceDate", "d9/dfb/a02578.html", "d9/dfb/a02578" ],
+    [ "SerialNumber", "d1/d03/a02582.html", "d1/d03/a02582" ],
+    [ "Storage", "d1/d0c/a02570.html", "d1/d0c/a02570" ],
+    [ "System", "df/d44/a02586.html", "df/d44/a02586" ],
+    [ "Version", "da/d37/a02598.html", "da/d37/a02598" ],
+    [ "VersionBase", "dc/dd5/a02614.html", "dc/dd5/a02614" ],
+    [ "StorageLike", "d5/d25/a02687.html", null ]
 ];

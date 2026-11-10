@@ -1,15 +1,11 @@
 var a01187 =
 [
-    [ "ServiceBase", "dc/d70/a01187.html#a5d5292043ede73815797ce2f72dd2080", null ],
-    [ "~ServiceBase", "dc/d70/a01187.html#a91434b8f87f12857c2adf19625bab6df", null ],
-    [ "beginUpdate", "dc/d70/a01187.html#a8051541c82e38b791f21273141bef9fd", null ],
-    [ "close", "dc/d70/a01187.html#a8f20bdbe323cc495f08db5b342701b7a", null ],
-    [ "endUpdate", "dc/d70/a01187.html#a77f6985bc7ef2b9feac65ee75a3018cb", null ],
-    [ "isServiceOpen", "dc/d70/a01187.html#af159dfd9b7e8717cd4c869fbfce36b7a", null ],
-    [ "open", "dc/d70/a01187.html#a753d77f8396c4b45cd0e949461468fa6", null ],
-    [ "update", "dc/d70/a01187.html#a610e6e46a790eedb578757121e442829", null ],
-    [ "Manager", "dc/d70/a01187.html#adddd5c43ff870a047aa66db4edf82a7e", null ],
-    [ "hasClosed", "dc/d70/a01187.html#a51768b13e712166035290776966fbc71", null ],
-    [ "isFirstUpdate", "dc/d70/a01187.html#a5a0cda26ec20daa96b3a724a8e98b8fa", null ],
-    [ "isOpen", "dc/d70/a01187.html#a00192d010ee063714d16a33b4ed7d64a", null ]
+    [ "operator==", "dc/d70/a01187.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "dc/d70/a01187.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "dc/d70/a01187.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "dc/d70/a01187.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "dc/d70/a01187.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "dc/d70/a01187.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "dc/d70/a01187.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "dc/d70/a01187.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

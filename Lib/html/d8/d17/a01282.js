@@ -1,5 +1,9 @@
 var a01282 =
 [
-    [ "Master", "d8/d17/a01282.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d8/d17/a01282.html#af2d503cce06191d01441adbba146c9f5", null ]
+    [ "errorCode", "d8/d17/a01282.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "d8/d17/a01282.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "d8/d17/a01282.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "d8/d17/a01282.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "d8/d17/a01282.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "d8/d17/a01282.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

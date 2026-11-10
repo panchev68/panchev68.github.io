@@ -1,5 +1,8 @@
 var a01678 =
 [
-    [ "crc8", "d6/d26/a01678.html#a6eb0c9200532e08815584e5b040283f9", null ],
-    [ "operator uint8_t", "d6/d26/a01678.html#a17512f695eb94c12c81163d5335f3ef2", null ]
+    [ "Frame0x90", "d6/d26/a01678.html#a22052cd3212328570ef5c6d06ef34390", null ],
+    [ "options", "d6/d26/a01678.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d6/d26/a01678.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d6/d26/a01678.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d6/d26/a01678.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

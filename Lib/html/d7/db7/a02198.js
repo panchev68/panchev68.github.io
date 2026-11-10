@@ -1,10 +1,12 @@
 var a02198 =
 [
-    [ "TerminateHandler", "d7/db7/a02198.html#a0e35d785dbe7d351b99d22035ed1b718", null ],
-    [ "Exception", "d7/db7/a02198.html#a9ec6a52da77a9ac45862f54ddef1c72d", null ],
-    [ "Exception", "d7/db7/a02198.html#a25551a21318cf9b33efd57e954f91490", null ],
-    [ "Exception", "d7/db7/a02198.html#a7accdf6a46f45f923cd7502830b0a1a8", null ],
-    [ "~Exception", "d7/db7/a02198.html#aab05c0efba4581a5739c344c1d848c87", null ],
-    [ "operator=", "d7/db7/a02198.html#ac48124bc1bd301a1f09cf95be8fcf851", null ],
-    [ "what", "d7/db7/a02198.html#ad1278467b92ab31659263c92c3c292e1", null ]
+    [ "Time", "d7/db7/a02198.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "d7/db7/a02198.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "d7/db7/a02198.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "d7/db7/a02198.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "d7/db7/a02198.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "d7/db7/a02198.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "d7/db7/a02198.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "d7/db7/a02198.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "d7/db7/a02198.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

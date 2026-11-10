@@ -1,7 +1,9 @@
 var a01359 =
 [
-    [ "Group", "dc/d4b/a01359.html#a3c72f1f32621d0644086f7ec6212250d", null ],
-    [ "~Group", "dc/d4b/a01359.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "dc/d4b/a01359.html#aebe4704dc58d73d649461459bd3d290c", null ],
-    [ "tag", "dc/d4b/a01359.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "Address", "dc/d4b/a01359.html#acd001c62e8048465f6e3775f8c914bed", null ],
+    [ "FunctionCode", "dc/d4b/a01359.html#aa422425db306dc5abb9819fd3a3489aa", null ],
+    [ "close", "dc/d4b/a01359.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
+    [ "handleReceivedFrame", "dc/d4b/a01359.html#a089411b3f62f689799fb09666cfe1ac9", null ],
+    [ "open", "dc/d4b/a01359.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
+    [ "setup", "dc/d4b/a01359.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
 ];

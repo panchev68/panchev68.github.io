@@ -1,4 +1,4 @@
 var a00743 =
 [
-    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "df/d79/a02402.html", "df/d79/a02402" ]
+    [ "RTOS::Semaphore", "d8/da6/a02410.html", "d8/da6/a02410" ]
 ];

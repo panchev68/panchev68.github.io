@@ -1,12 +1,14 @@
 var a02461 =
 [
-    [ "Lib::Ethernet::Wiznet::ClientBase&lt; T_DERIVED &gt;", "d5/dcf/a01602.html", "d5/dcf/a01602" ],
-    [ "Lib::Ethernet::Wiznet::ClientBase&lt; T_DERIVED &gt;::Diagnostic", "d3/d2d/a01606.html", "d3/d2d/a01606" ],
-    [ "Lib::Ethernet::Wiznet::ConnectionState", "d7/d5f/a00831.html#a98b0bdf37cb6290e7ba27fd526ce4f2f", [
-      [ "Lib::Ethernet::Wiznet::ConnectionState::INIT", "d7/d5f/a00831.html#a98b0bdf37cb6290e7ba27fd526ce4f2fafaee4ca3c30ee18148ce3ada37466498", null ],
-      [ "Lib::Ethernet::Wiznet::ConnectionState::IDLE", "d7/d5f/a00831.html#a98b0bdf37cb6290e7ba27fd526ce4f2faa5daf7f2ebbba4975d61dab1c40188c7", null ],
-      [ "Lib::Ethernet::Wiznet::ConnectionState::CONNECTED", "d7/d5f/a00831.html#a98b0bdf37cb6290e7ba27fd526ce4f2faa5afd6edd5336d91316964e493936858", null ],
-      [ "Lib::Ethernet::Wiznet::ConnectionState::DISCONNECTED", "d7/d5f/a00831.html#a98b0bdf37cb6290e7ba27fd526ce4f2fa99c8ce56e7ab246445d3b134724428f3", null ],
-      [ "Lib::Ethernet::Wiznet::ConnectionState::UNDEFINED", "d7/d5f/a00831.html#a98b0bdf37cb6290e7ba27fd526ce4f2fa0db45d2a4141101bdfe48e3314cfbca3", null ]
-    ] ]
+    [ "Level", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69", [
+      [ "IDLE", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
+      [ "LOW", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
+      [ "NORMAL", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
+      [ "HIGH", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
+      [ "REALTIME", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    ] ],
+    [ "Priority", "df/d68/a02461.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
+    [ "get", "df/d68/a02461.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
+    [ "getFromISR", "df/d68/a02461.html#a077686e91e7ea468ac484026c09fe001", null ],
+    [ "set", "df/d68/a02461.html#a458e98cafe1842d218c9640b76bde004", null ]
 ];

@@ -1,9 +1,19 @@
 var a01177 =
 [
-    [ "Address", "dc/d98/a01177.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "dc/d98/a01177.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "dc/d98/a01177.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "dc/d98/a01177.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "dc/d98/a01177.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "dc/d98/a01177.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "Config", "de/db5/a01181.html", "de/db5/a01181" ],
+    [ "Parameters", "d3/dd3/a01185.html", "d3/dd3/a01185" ],
+    [ "Rotation", "dc/d98/a01177.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
+      [ "DEFAULT", "dc/d98/a01177.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
+      [ "FLIP_X", "dc/d98/a01177.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
+      [ "FLIP_XY", "dc/d98/a01177.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
+      [ "FLIP_Y", "dc/d98/a01177.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
+    ] ],
+    [ "XPT2046", "dc/d98/a01177.html#a0dda6dc35a85166d57bd689d629e6846", null ],
+    [ "~XPT2046", "dc/d98/a01177.html#a9edd1a086623e54cbb23781f0d989d53", null ],
+    [ "XPT2046", "dc/d98/a01177.html#aa40395fe163fa53055c2381264eee169", null ],
+    [ "XPT2046", "dc/d98/a01177.html#a0b37858e0ef9dc2bc3c8a2494e0d30d0", null ],
+    [ "operator=", "dc/d98/a01177.html#a187bc2ba23928588fb3e435ff1a0ffab", null ],
+    [ "operator=", "dc/d98/a01177.html#a0a0bca74a5312b24895a6b947c35e11a", null ],
+    [ "read", "dc/d98/a01177.html#adbf7069f002f1074ffe599970a15c399", null ],
+    [ "setRotation", "dc/d98/a01177.html#ada371f317a4f0551dc84dcf51749ee60", null ]
 ];

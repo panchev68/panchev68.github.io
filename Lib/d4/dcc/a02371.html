@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: PGA460TPWRQ1 usage</title>
+<title>IAR Library: Lib::Pneumatics::Cylinder::Config</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -87,7 +88,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
   </div>
 </div>
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dcc/a02371.html','../../',''); });
+document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dcc/a02371.html','../../','d1/da2/a02368'); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -109,100 +110,132 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/dcc/a02371.
 </div>
 </div>
 
-<div><div class="header">
-  <div class="headertitle"><div class="title">PGA460TPWRQ1 usage </div></div>
+<div class="header">
+  <div class="headertitle"><div class="title">Lib::Pneumatics::Cylinder::Config</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>How to read the distance from the PGA460 ultrasonic sensor with 'Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;IT&gt;'.</p>
-<p>The driver does not own the UART port; pass the 'Lib::HAL::UARTPort&lt;DriverMode::IT&gt;' wired to the PGA460 RXD/TXD pins. 'readDistance()' blocks the calling task for about 'listenDuration' plus two UART transfers and yields via '<a class="el" href="../../d9/d30/a00848.html#a9457a17b234e2e6b6336f69c9f756021" title="Delays execution for a specific duration, rounded up to whole ticks.">RTOS::delay()</a>', so call it from a task, never from an ISR. The driver is not thread-safe: use one instance from a single task, or guard it with a mutex.</p>
-<h1 class="doxsection"><a class="anchor" id="pga460_usage_hw"></a>
-Hardware assumptions</h1>
-<ul>
-<li>Two-wire UART on RXD/TXD; the IO pin is unused (pulled up), so transmitted bytes are not echoed back.</li>
-<li>TEST pin tied to GND at power-up, so the digital I/O runs at 3.3 V.</li>
-<li>Factory 'UART_ADDR' of 0; set 'Config::uartAddress' only if the EEPROM address was reprogrammed.</li>
-</ul>
-<h1 class="doxsection"><a class="anchor" id="pga460_usage_basic"></a>
-Single measurement</h1>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6a/a00119.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> measureOnce(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) <span class="keyword">noexcept</span> {</div>
-<div class="line">    Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt; sensor({</div>
-<div class="line">        .uart = uartPort,</div>
-<div class="line">        .timeout = std::chrono::milliseconds(50),</div>
-<div class="line">        .listenDuration = std::chrono::microseconds(15000),</div>
-<div class="line">        .ambientTemperatureCelsius = 22.0F,</div>
-<div class="line">    });</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (!sensor.open()) {</div>
-<div class="line">        <span class="keywordflow">return</span>;</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordflow">if</span> (<span class="keyword">const</span> std::optional&lt;float&gt; distanceMeters = sensor.readDistance(); distanceMeters.has_value()) {</div>
-<div class="line">        <span class="comment">// Use *distanceMeters.</span></div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(sensor.close());</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00119_html"><div class="ttname"><a href="../../df/d6a/a00119.html">PGA460TPWRQ1.hpp</a></div><div class="ttdoc">UART driver for the Texas Instruments PGA460 ultrasonic signal processor, reading back the current di...</div></div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="pga460_usage_task"></a>
-Periodic measurement task</h1>
-<p>The first reading after power-up may be rejected because the diagnostic byte still carries a stale error flag; treat an empty result as a skipped sample, not a fatal error.</p>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6a/a00119.html">Lib/BSP/Ultrasonic/PGA460TPWRQ1.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/dad/a00806.html">RTOS.hpp</a>&gt;</span></div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">class </span>LevelMonitor final {</div>
-<div class="line"><span class="keyword">public</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">explicit</span> LevelMonitor(Lib::HAL::UARTPort&lt;Lib::HAL::DriverMode::IT&gt; &amp; uartPort) noexcept :</div>
-<div class="line">        sensor({</div>
-<div class="line">            .uart = uartPort,</div>
-<div class="line">            .timeout = std::chrono::milliseconds(50),</div>
-<div class="line">            .listenDuration = std::chrono::microseconds(15000),</div>
-<div class="line">        }),</div>
-<div class="line">        task(RTOS::Task::Config(<span class="stringliteral">&quot;Level&quot;</span>, 512, RTOS::Task::Priority::NORMAL), [<span class="keyword">this</span>]() { run(); }) {</div>
-<div class="line">    }</div>
-<div class="line"> </div>
-<div class="line"><span class="keyword">private</span>:</div>
-<div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> std::chrono::milliseconds PERIOD{1000};</div>
-<div class="line">    <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t MAX_CONSECUTIVE_FAILURES = 5;</div>
-<div class="line"> </div>
-<div class="line">    Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt; sensor; <span class="comment">// Constructed before the task starts using it.</span></div>
-<div class="line">    RTOS::Task task;          <span class="comment">// Must stay the last member.</span></div>
-<div class="line"> </div>
-<div class="line">    <span class="keywordtype">void</span> run() noexcept {</div>
-<div class="line">        <span class="keywordflow">if</span> (!sensor.open()) {</div>
-<div class="line">            assert(!<span class="stringliteral">&quot;LevelMonitor: failed to open sensor UART&quot;</span>);</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">        }</div>
-<div class="line"> </div>
-<div class="line">        uint32_t failures = 0;</div>
-<div class="line">        <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
-<div class="line">            <span class="keywordflow">if</span> (<span class="keyword">const</span> std::optional&lt;float&gt; distanceMeters = sensor.readDistance(); distanceMeters.has_value()) {</div>
-<div class="line">                failures = 0;</div>
-<div class="line">                <span class="comment">// Publish *distanceMeters.</span></div>
-<div class="line">            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (++failures &gt;= MAX_CONSECUTIVE_FAILURES) {</div>
-<div class="line">                failures = 0;</div>
-<div class="line">                <span class="comment">// Report a sensor fault.</span></div>
-<div class="line">            }</div>
-<div class="line">            <a class="code hl_function" href="../../d9/d30/a00848.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a>(PERIOD);</div>
-<div class="line">        }</div>
-<div class="line">    }</div>
-<div class="line">};</div>
-<div class="ttc" id="aa00806_html"><div class="ttname"><a href="../../d0/dad/a00806.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
-<div class="ttc" id="aa00848_html_a9457a17b234e2e6b6336f69c9f756021"><div class="ttname"><a href="../../d9/d30/a00848.html#a9457a17b234e2e6b6336f69c9f756021">RTOS::delay</a></div><div class="ttdeci">void delay(std::chrono::duration&lt; Rep, Period &gt; duration) noexcept</div><div class="ttdoc">Delays execution for a specific duration, rounded up to whole ticks.</div><div class="ttdef"><b>Definition</b> Kernel.hpp:601</div></div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="pga460_usage_address"></a>
-Non-default UART address</h1>
-<div class="fragment"><div class="line">Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt;Lib::HAL::DriverMode::IT&gt; sensor({</div>
-<div class="line">    .uart = uartPort,</div>
-<div class="line">    .timeout = std::chrono::milliseconds(50),</div>
-<div class="line">    .listenDuration = std::chrono::microseconds(15000),</div>
-<div class="line">    .uartAddress = 3, <span class="comment">// Must match UART_ADDR programmed in the device EEPROM.</span></div>
-<div class="line">});</div>
-</div><!-- fragment --> </div></div><!-- contents -->
-</div><!-- PageDoc -->
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
+<div class="textblock"><p>Timing parameters and sensor wiring for debouncing and switch-time supervision. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Pneumatics::Cylinder::Config:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/def/a02369.svg" width="286" height="399"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ae6b42a26240d020ed28832dcb1a4eaf2" id="r_ae6b42a26240d020ed28832dcb1a4eaf2"><td class="memItemLeft">std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#ae6b42a26240d020ed28832dcb1a4eaf2">name</a></td></tr>
+<tr class="memdesc:ae6b42a26240d020ed28832dcb1a4eaf2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Human-readable name of the cylinder.  <br /></td></tr>
+<tr class="memitem:a6e75b7c9f0a1bf1b80f1c26e7cf779a0" id="r_a6e75b7c9f0a1bf1b80f1c26e7cf779a0"><td class="memItemLeft">std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#a6e75b7c9f0a1bf1b80f1c26e7cf779a0">sensorCalmingTime</a></td></tr>
+<tr class="memdesc:a6e75b7c9f0a1bf1b80f1c26e7cf779a0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../db/dd4/a02383.html" title="Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring.">Sensor</a> debounce settling time after reaching a position.  <br /></td></tr>
+<tr class="memitem:a3b47c6d09ae6819d4130656a034a3b0f" id="r_a3b47c6d09ae6819d4130656a034a3b0f"><td class="memItemLeft">std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#a3b47c6d09ae6819d4130656a034a3b0f">switchTimeout</a></td></tr>
+<tr class="memdesc:a3b47c6d09ae6819d4130656a034a3b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum allowed transition time between positions.  <br /></td></tr>
+<tr class="memitem:a4905184e7b9c4dbf249f7fd18fe04294" id="r_a4905184e7b9c4dbf249f7fd18fe04294"><td class="memItemLeft"><a class="el" href="../../d8/deb/a02387.html">Sensor::Config</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4905184e7b9c4dbf249f7fd18fe04294">offSensor</a></td></tr>
+<tr class="memdesc:a4905184e7b9c4dbf249f7fd18fe04294"><td class="mdescLeft">&#160;</td><td class="mdescRight">Off-position sensor wiring, presence, and inversion.  <br /></td></tr>
+<tr class="memitem:a2256dcad5353ffd21cba4b1d1ef02937" id="r_a2256dcad5353ffd21cba4b1d1ef02937"><td class="memItemLeft"><a class="el" href="../../d8/deb/a02387.html">Sensor::Config</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2256dcad5353ffd21cba4b1d1ef02937">onSensor</a></td></tr>
+<tr class="memdesc:a2256dcad5353ffd21cba4b1d1ef02937"><td class="mdescLeft">&#160;</td><td class="mdescRight">On-position sensor wiring, presence, and inversion.  <br /></td></tr>
+<tr class="memitem:a190d46a6d7adb9d97669f3ed0314095a" id="r_a190d46a6d7adb9d97669f3ed0314095a"><td class="memItemLeft">bool &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a190d46a6d7adb9d97669f3ed0314095a">output</a></td></tr>
+<tr class="memdesc:a190d46a6d7adb9d97669f3ed0314095a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output level driven by <a class="el" href="../../d2/daa/a02367.html#adf02fbd43f1b7d0e8bbd5222bf46f8a7" title="Advances the internal state machine from the current sensor readings and applies the resulting output...">update()</a> to control the valve.  <br /></td></tr>
+</table>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="ae6b42a26240d020ed28832dcb1a4eaf2" name="ae6b42a26240d020ed28832dcb1a4eaf2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6b42a26240d020ed28832dcb1a4eaf2">&#9670;&#160;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string_view Lib::Pneumatics::Cylinder::Config::name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Human-readable name of the cylinder. </p>
+
+</div>
+</div>
+<a id="a4905184e7b9c4dbf249f7fd18fe04294" name="a4905184e7b9c4dbf249f7fd18fe04294"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4905184e7b9c4dbf249f7fd18fe04294">&#9670;&#160;</a></span>offSensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/deb/a02387.html">Sensor::Config</a> Lib::Pneumatics::Cylinder::Config::offSensor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Off-position sensor wiring, presence, and inversion. </p>
+
+</div>
+</div>
+<a id="a2256dcad5353ffd21cba4b1d1ef02937" name="a2256dcad5353ffd21cba4b1d1ef02937"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2256dcad5353ffd21cba4b1d1ef02937">&#9670;&#160;</a></span>onSensor</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d8/deb/a02387.html">Sensor::Config</a> Lib::Pneumatics::Cylinder::Config::onSensor</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>On-position sensor wiring, presence, and inversion. </p>
+
+</div>
+</div>
+<a id="a190d46a6d7adb9d97669f3ed0314095a" name="a190d46a6d7adb9d97669f3ed0314095a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a190d46a6d7adb9d97669f3ed0314095a">&#9670;&#160;</a></span>output</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool&amp; Lib::Pneumatics::Cylinder::Config::output</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Output level driven by <a class="el" href="../../d2/daa/a02367.html#adf02fbd43f1b7d0e8bbd5222bf46f8a7" title="Advances the internal state machine from the current sensor readings and applies the resulting output...">update()</a> to control the valve. </p>
+
+</div>
+</div>
+<a id="a6e75b7c9f0a1bf1b80f1c26e7cf779a0" name="a6e75b7c9f0a1bf1b80f1c26e7cf779a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e75b7c9f0a1bf1b80f1c26e7cf779a0">&#9670;&#160;</a></span>sensorCalmingTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::milliseconds Lib::Pneumatics::Cylinder::Config::sensorCalmingTime</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="../../db/dd4/a02383.html" title="Wraps a boolean position-sensor input, accounting for physical absence and inverted wiring.">Sensor</a> debounce settling time after reaching a position. </p>
+
+</div>
+</div>
+<a id="a3b47c6d09ae6819d4130656a034a3b0f" name="a3b47c6d09ae6819d4130656a034a3b0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b47c6d09ae6819d4130656a034a3b0f">&#9670;&#160;</a></span>switchTimeout</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::chrono::milliseconds Lib::Pneumatics::Cylinder::Config::switchTimeout</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Maximum allowed transition time between positions. </p>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -215,6 +248,7 @@ Non-default UART address</h1>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
+    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../dc/dfa/a00894.html">Pneumatics</a></li><li class="navelem"><a href="../../d2/daa/a02367.html">Cylinder</a></li><li class="navelem"><a href="../../d4/dcc/a02371.html">Config</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

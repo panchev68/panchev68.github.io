@@ -1,8 +1,11 @@
 var a02116 =
 [
-    [ "Storage", "dc/d29/a02116.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "dc/d29/a02116.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "dc/d29/a02116.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "dc/d29/a02116.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "dc/d29/a02116.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "getDirection", "dc/d29/a02116.html#a68335ce20908e5937884bf601bb4b90e", null ],
+    [ "getRecipient", "dc/d29/a02116.html#ae7283011b9493caacbbe6081ca48b217", null ],
+    [ "getType", "dc/d29/a02116.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
+    [ "index", "dc/d29/a02116.html#a042e36be625640c409835eeb4ca30c8a", null ],
+    [ "length", "dc/d29/a02116.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
+    [ "request", "dc/d29/a02116.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
+    [ "requestType", "dc/d29/a02116.html#a87ecd5c19387a9761e2548aba162728d", null ],
+    [ "value", "dc/d29/a02116.html#aeb95036baf576efe55bbdca1daf8c864", null ]
 ];

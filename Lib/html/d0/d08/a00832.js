@@ -1,4 +1,25 @@
 var a00832 =
 [
-    [ "DS18B20", "d1/d0d/a01191.html", "d1/d0d/a01191" ]
+    [ "Display", "dc/d6e/a00833.html", "dc/d6e/a00833" ],
+    [ "EEPROM", "d9/d02/a00834.html", "d9/d02/a00834" ],
+    [ "Ethercat", "d3/d13/a00836.html", "d3/d13/a00836" ],
+    [ "FMEM", "df/de8/a00839.html", "df/de8/a00839" ],
+    [ "RFID", "d0/d11/a00842.html", "d0/d11/a00842" ],
+    [ "Thermometer", "d7/dcf/a00845.html", "d7/dcf/a00845" ],
+    [ "Ultrasonic", "d9/d30/a00848.html", "d9/d30/a00848" ],
+    [ "Backlight", "d3/d50/a00882.html", "d3/d50/a00882" ],
+    [ "Beep", "dc/dfa/a00894.html", "dc/dfa/a00894" ],
+    [ "DeviceManager", "d3/dd1/a00914.html", "d3/dd1/a00914" ],
+    [ "DigitalPeripheralBase", "dd/dcf/a00922.html", "dd/dcf/a00922" ],
+    [ "EncoderPins", "d4/dd0/a00994.html", "d4/dd0/a00994" ],
+    [ "EncoderTimer", "dc/d81/a01006.html", "dc/d81/a01006" ],
+    [ "INA219", "d5/dd3/a00902.html", "d5/dd3/a00902" ],
+    [ "IS62WV51216", "dd/df1/a01082.html", "dd/df1/a01082" ],
+    [ "SK6812", "da/dfb/a01174.html", "da/dfb/a01174" ],
+    [ "Voltmeter", "dc/d83/a01254.html", "dc/d83/a01254" ],
+    [ "W25Q128JVSIQ", "d5/d67/a01070.html", "d5/d67/a01070" ],
+    [ "XPT2046", "de/d7e/a01222.html", "de/d7e/a01222" ],
+    [ "AdcPort", "d0/d08/a00832.html#a85b379ca2a4d7d2956ae5317961081ba", null ],
+    [ "Integrator", "d0/d08/a00832.html#a345fa3420ca34ddf02b2c56c8705554b", null ],
+    [ "Interpolator", "d0/d08/a00832.html#a2cacda540ff04115fe891c00364a43a6", null ]
 ];

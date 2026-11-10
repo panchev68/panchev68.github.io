@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::System::Storage&lt; T_DERIVED &gt; Class Template Reference</title>
+<title>Library: Lib::System::Configuration Class Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,89 +112,145 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/dd4/a02498.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::System::Storage&lt; T_DERIVED &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">Lib::System::Configuration Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::System::Storage&lt; T_DERIVED &gt;</div><p>CRTP base class for storage backend implementations. </p>
-<p>A concrete backend derives from "Storage&lt;T_DERIVED&gt;" and implements "openImpl()", "closeImpl()", "readImpl()" and "writeImpl()" as public members. Dispatch happens through a "static_cast" to "T_DERIVED" rather than through a virtual table, so backends such as flash memory or EEPROM cost no runtime indirection.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Concrete storage backend type inheriting from this class. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::System::Storage&lt; T_DERIVED &gt;:</div>
+<div class="textblock"><p>Manager for a 31-bit configuration bitmap stored in one OTP word. </p>
+<p>Bits 0 to 30 hold the configuration, bit 31 is the validity flag: an erased word reads as all ones, so a cleared flag marks a word that has been programmed. OTP bits can only be cleared, never set again, so a later write may only turn configuration bits off. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::System::Configuration:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/df5/a02496.svg" width="267" height="318"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/df5/a02496.svg" width="307" height="367"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a94cdcfa1e6829286576a0e739c44f0dc" id="r_a94cdcfa1e6829286576a0e739c44f0dc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a94cdcfa1e6829286576a0e739c44f0dc">open</a> () noexcept</td></tr>
-<tr class="memdesc:a94cdcfa1e6829286576a0e739c44f0dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the storage device for read and write operations.  <br /></td></tr>
-<tr class="memitem:aa684e568a90f586209178bf82321e7eb" id="r_aa684e568a90f586209178bf82321e7eb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa684e568a90f586209178bf82321e7eb">close</a> () noexcept</td></tr>
-<tr class="memdesc:aa684e568a90f586209178bf82321e7eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finalizes access to the storage device and releases what "open()" acquired.  <br /></td></tr>
-<tr class="memitem:a882acb437b478460ef1a27f02bfbfa1c" id="r_a882acb437b478460ef1a27f02bfbfa1c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a882acb437b478460ef1a27f02bfbfa1c">read</a> (void *buffer, size_t size) noexcept</td></tr>
-<tr class="memdesc:a882acb437b478460ef1a27f02bfbfa1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads data from the opened storage device.  <br /></td></tr>
-<tr class="memitem:a7d3edbeec88b0807daece2241bb79d92" id="r_a7d3edbeec88b0807daece2241bb79d92"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a7d3edbeec88b0807daece2241bb79d92">write</a> (const void *buffer, size_t size) noexcept</td></tr>
-<tr class="memdesc:a7d3edbeec88b0807daece2241bb79d92"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes data to the opened storage device.  <br /></td></tr>
+<tr class="memitem:a1609ab25f9f7ee76c6002c8744d3ccee" id="r_a1609ab25f9f7ee76c6002c8744d3ccee"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1609ab25f9f7ee76c6002c8744d3ccee">Configuration</a> (uint32_t offset) noexcept</td></tr>
+<tr class="memdesc:a1609ab25f9f7ee76c6002c8744d3ccee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the manager to a word inside the OTP area.  <br /></td></tr>
+<tr class="memitem:a840ea89f722c9ef748683ece06dd8d2f" id="r_a840ea89f722c9ef748683ece06dd8d2f"><td class="memItemLeft"><a class="el" href="#aff31793f5ea1b7c28e0c30290a41bc2b">Bitset</a>&#160;</td><td class="memItemRight"><a class="el" href="#a840ea89f722c9ef748683ece06dd8d2f">read</a> () const noexcept</td></tr>
+<tr class="memdesc:a840ea89f722c9ef748683ece06dd8d2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the stored configuration bitmap.  <br /></td></tr>
+<tr class="memitem:ae7b54ac5ddfb2a6a6e130a6a5a01dfa0" id="r_ae7b54ac5ddfb2a6a6e130a6a5a01dfa0"><td class="memItemLeft"><a class="el" href="#a7e18ba8479d03947d2d2d379a72c2cc1">Status</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0">write</a> (const <a class="el" href="#aff31793f5ea1b7c28e0c30290a41bc2b">Bitset</a> &amp;value) noexcept</td></tr>
+<tr class="memdesc:ae7b54ac5ddfb2a6a6e130a6a5a01dfa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs the configuration bitmap and marks the word valid.  <br /></td></tr>
+<tr class="memitem:a965c76e6ed7795afd0a8d85f955223ad" id="r_a965c76e6ed7795afd0a8d85f955223ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a965c76e6ed7795afd0a8d85f955223ad">isEmpty</a> () const noexcept</td></tr>
+<tr class="memdesc:a965c76e6ed7795afd0a8d85f955223ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the configuration word has never been programmed.  <br /></td></tr>
+<tr class="memitem:a337f2d04fe4b82aab82b9d9beb92f829" id="r_a337f2d04fe4b82aab82b9d9beb92f829"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a337f2d04fe4b82aab82b9d9beb92f829">isValid</a> () const noexcept</td></tr>
+<tr class="memdesc:a337f2d04fe4b82aab82b9d9beb92f829"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the stored configuration is marked valid.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:ae3c3f6af7c84c25d29109ca3e1dd90d3" id="r_ae3c3f6af7c84c25d29109ca3e1dd90d3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae3c3f6af7c84c25d29109ca3e1dd90d3">Storage</a> () noexcept=default</td></tr>
-<tr class="memdesc:ae3c3f6af7c84c25d29109ca3e1dd90d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the base; only a derived backend may do so.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a889c51a86228ce8b18804cb2b455d889" id="r_a889c51a86228ce8b18804cb2b455d889"><td class="memItemLeft">const uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a889c51a86228ce8b18804cb2b455d889">flashAddress</a></td></tr>
+<tr class="memdesc:a889c51a86228ce8b18804cb2b455d889"><td class="mdescLeft">&#160;</td><td class="mdescRight">Absolute address in OTP where the configuration is stored.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a4797953888c59bc94f6420f3d98dcf36" id="r_a4797953888c59bc94f6420f3d98dcf36"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a4797953888c59bc94f6420f3d98dcf36">BIT_COUNT</a> = 31U</td></tr>
+<tr class="memdesc:a4797953888c59bc94f6420f3d98dcf36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of configuration bits in the stored word.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ae3c3f6af7c84c25d29109ca3e1dd90d3" name="ae3c3f6af7c84c25d29109ca3e1dd90d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3c3f6af7c84c25d29109ca3e1dd90d3">&#9670;&#160;</a></span>Storage()</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="aff31793f5ea1b7c28e0c30290a41bc2b" name="aff31793f5ea1b7c28e0c30290a41bc2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff31793f5ea1b7c28e0c30290a41bc2b">&#9670;&#160;</a></span>Bitset</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#aff31793f5ea1b7c28e0c30290a41bc2b">Lib::System::Configuration::Bitset</a> = std::bitset&lt;<a class="el" href="#a4797953888c59bc94f6420f3d98dcf36">BIT_COUNT</a>&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Configuration bitmap. </p>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
+<a id="a7e18ba8479d03947d2d2d379a72c2cc1" name="a7e18ba8479d03947d2d2d379a72c2cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e18ba8479d03947d2d2d379a72c2cc1">&#9670;&#160;</a></span>Status</h2>
+
+<div class="memitem">
+<div class="memproto">
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../dd/dd4/a02498.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::Storage </td>
+          <td class="memname">enum class <a class="el" href="#a7e18ba8479d03947d2d2d379a72c2cc1">Lib::System::Configuration::Status</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Operation status return value. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564" name="a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Operation completed successfully. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5" name="a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5"></a>ERROR&#160;</td><td class="fielddoc"><p>Operation failed. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1609ab25f9f7ee76c6002c8744d3ccee" name="a1609ab25f9f7ee76c6002c8744d3ccee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1609ab25f9f7ee76c6002c8744d3ccee">&#9670;&#160;</a></span>Configuration()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::System::Configuration::Configuration </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>offset</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs the base; only a derived backend may do so. </p>
+<p>Binds the manager to a word inside the OTP area. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">offset</td><td>Byte offset from the OTP begin address; must be word-aligned and leave room for one word. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/dd4/a02498_a1609ab25f9f7ee76c6002c8744d3ccee_cgraph.svg" width="902" height="102"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aa684e568a90f586209178bf82321e7eb" name="aa684e568a90f586209178bf82321e7eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa684e568a90f586209178bf82321e7eb">&#9670;&#160;</a></span>close()</h2>
+<a id="a965c76e6ed7795afd0a8d85f955223ad" name="a965c76e6ed7795afd0a8d85f955223ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a965c76e6ed7795afd0a8d85f955223ad">&#9670;&#160;</a></span>isEmpty()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/dd4/a02498.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::close </td>
+          <td class="memname">bool Lib::System::Configuration::isEmpty </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -204,27 +260,25 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Finalizes access to the storage device and releases what "open()" acquired. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the storage device was closed, "false" otherwise. </dd></dl>
+<p>Checks whether the configuration word has never been programmed. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" when the word still holds the erased value, otherwise "false". </dd></dl>
 
 </div>
 </div>
-<a id="a94cdcfa1e6829286576a0e739c44f0dc" name="a94cdcfa1e6829286576a0e739c44f0dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a94cdcfa1e6829286576a0e739c44f0dc">&#9670;&#160;</a></span>open()</h2>
+<a id="a337f2d04fe4b82aab82b9d9beb92f829" name="a337f2d04fe4b82aab82b9d9beb92f829"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a337f2d04fe4b82aab82b9d9beb92f829">&#9670;&#160;</a></span>isValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/dd4/a02498.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::open </td>
+          <td class="memname">bool Lib::System::Configuration::isValid </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -234,32 +288,25 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Prepares the storage device for read and write operations. </p>
-<p>Must be called before any "read()" or "write()".</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the storage device was opened, "false" otherwise. </dd></dl>
+<p>Checks whether the stored configuration is marked valid. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the validity flag has been cleared by a write, otherwise "false". </dd></dl>
 
 </div>
 </div>
-<a id="a882acb437b478460ef1a27f02bfbfa1c" name="a882acb437b478460ef1a27f02bfbfa1c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a882acb437b478460ef1a27f02bfbfa1c">&#9670;&#160;</a></span>read()</h2>
+<a id="a840ea89f722c9ef748683ece06dd8d2f" name="a840ea89f722c9ef748683ece06dd8d2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840ea89f722c9ef748683ece06dd8d2f">&#9670;&#160;</a></span>read()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/dd4/a02498.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::read </td>
+          <td class="memname"><a class="el" href="#aff31793f5ea1b7c28e0c30290a41bc2b">Bitset</a> Lib::System::Configuration::read </td>
           <td>(</td>
-          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -269,61 +316,95 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Reads data from the opened storage device. </p>
+<p>Reads the stored configuration bitmap. </p>
+<dl class="section return"><dt>Returns</dt><dd>Stored configuration; all bits set when the word has never been programmed. </dd></dl>
+
+</div>
+</div>
+<a id="ae7b54ac5ddfb2a6a6e130a6a5a01dfa0" name="ae7b54ac5ddfb2a6a6e130a6a5a01dfa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a7e18ba8479d03947d2d2d379a72c2cc1">Status</a> Lib::System::Configuration::write </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#aff31793f5ea1b7c28e0c30290a41bc2b">Bitset</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Programs the configuration bitmap and marks the word valid. </p>
+<p>The programming is retried once on failure. Because OTP bits cannot be set again, writing a bitmap that needs a previously cleared bit set fails.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">buffer</td><td>Destination for the data; must be non-null and hold at least "size" bytes. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">size</td><td>Number of bytes to read. </td></tr>
+    <tr><td class="paramname">value</td><td>Configuration bitmap to store. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the read succeeded, "false" otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>"Status::OK" on success, "Status::ERROR" otherwise. </dd></dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/dd4/a02498_ae7b54ac5ddfb2a6a6e130a6a5a01dfa0_cgraph.svg" width="842" height="79"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a7d3edbeec88b0807daece2241bb79d92" name="a7d3edbeec88b0807daece2241bb79d92"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d3edbeec88b0807daece2241bb79d92">&#9670;&#160;</a></span>write()</h2>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a4797953888c59bc94f6420f3d98dcf36" name="a4797953888c59bc94f6420f3d98dcf36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4797953888c59bc94f6420f3d98dcf36">&#9670;&#160;</a></span>BIT_COUNT</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../dd/dd4/a02498.html">Lib::System::Storage</a>&lt; T_DERIVED &gt;::write </td>
-          <td>(</td>
-          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span>&#160;)</td>
+          <td class="memname">size_t Lib::System::Configuration::BIT_COUNT = 31U</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Writes data to the opened storage device. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Data to write; must be non-null and hold at least "size" bytes. </td></tr>
-    <tr><td class="paramname">size</td><td>Number of bytes to write. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the write succeeded, "false" otherwise. </dd></dl>
+<p>Number of configuration bits in the stored word. </p>
+
+</div>
+</div>
+<a id="a889c51a86228ce8b18804cb2b455d889" name="a889c51a86228ce8b18804cb2b455d889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a889c51a86228ce8b18804cb2b455d889">&#9670;&#160;</a></span>flashAddress</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint32_t Lib::System::Configuration::flashAddress</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Absolute address in OTP where the configuration is stored. </p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../dd/da8/a03523.html">System/Parameters.hpp</a></li>
+<li><a class="el" href="../../d9/dd4/a00776.html">Configuration.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -338,7 +419,7 @@ template&lt;typename T_DERIVED&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../d7/d1b/a00864.html">System</a></li><li class="navelem"><a href="../../dd/dd4/a02498.html">Storage</a></li>
+    <li class="navelem"><a href="../../d7/d5f/a00831.html">Lib</a></li><li class="navelem"><a href="../../d2/dac/a00876.html">System</a></li><li class="navelem"><a href="../../dd/dd4/a02498.html">Configuration</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

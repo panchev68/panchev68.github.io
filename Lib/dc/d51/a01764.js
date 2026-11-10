@@ -1,10 +1,15 @@
 var a01764 =
 [
-    [ "MacString", "dc/d51/a01764.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
-    [ "MacAddress", "dc/d51/a01764.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
-    [ "MacAddress", "dc/d51/a01764.html#aa300b2a042efd76f66f61db709b5b736", null ],
-    [ "data", "dc/d51/a01764.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
-    [ "operator[]", "dc/d51/a01764.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
-    [ "size", "dc/d51/a01764.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
-    [ "toString", "dc/d51/a01764.html#a83b7f1a52401d479dea270cbe112b88c", null ]
+    [ "dnsIp", "dc/d51/a01764.html#ad6e83d92fc435bd6f8d7c5a7100b9317", null ],
+    [ "dnsName", "dc/d51/a01764.html#a2b21f67fcea486054df4fbece648ef7f", null ],
+    [ "gateway", "dc/d51/a01764.html#ae526dc3391066f8447e665e962d7f3e1", null ],
+    [ "hasDnsIp", "dc/d51/a01764.html#ab1307f2487c4d9d8a056679335c62d47", null ],
+    [ "hasDnsName", "dc/d51/a01764.html#a856f81053eba31b0bc9a3ea2d8456107", null ],
+    [ "hasGateway", "dc/d51/a01764.html#a31f0cbe4fb6095e56cd1a003ad6fc36a", null ],
+    [ "hasIp", "dc/d51/a01764.html#abc517d1acb322a1d54f05167f8ee0d94", null ],
+    [ "hasMac", "dc/d51/a01764.html#a44b23d072f52c270d4c722d93a8b6117", null ],
+    [ "hasSubnet", "dc/d51/a01764.html#a60d46c1ab7cb670f5d8594e81637ae31", null ],
+    [ "ip", "dc/d51/a01764.html#a90004e1d5d5f9c919d65542ec922c04b", null ],
+    [ "mac", "dc/d51/a01764.html#a60f9310ee3aa2d849b93dad204dd7def", null ],
+    [ "subnet", "dc/d51/a01764.html#aa596e10ef6a4ed63c9b8fc35ff881c76", null ]
 ];

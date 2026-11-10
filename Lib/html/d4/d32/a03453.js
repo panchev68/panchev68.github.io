@@ -1,5 +1,5 @@
 var a03453 =
 [
-    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;", "dd/d11/a00960.html", "dd/d11/a00960" ],
-    [ "Lib::BSP::EEPROM::I2C::Driver&lt; T_Device &gt;::Config", "da/d17/a00964.html", "da/d17/a00964" ]
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;", "df/d9c/a00958.html", "df/d9c/a00958" ],
+    [ "Lib::BSP::Display::Driver&lt; Controller::ILI9341 &gt;::Config", "df/d88/a00962.html", "df/d88/a00962" ]
 ];

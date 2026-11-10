@@ -1,18 +1,12 @@
 var a02016 =
 [
-    [ "Timeout", "df/df0/a02016.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
-    [ "SPIPortBase", "df/df0/a02016.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
-    [ "SPIPortBase", "df/df0/a02016.html#a3d58a47067dbf8b77d78250373234f6d", null ],
-    [ "SPIPortBase", "df/df0/a02016.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
-    [ "~SPIPortBase", "df/df0/a02016.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
-    [ "bindBeginTransactionFunc", "df/df0/a02016.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
-    [ "bindEndTransactionFunc", "df/df0/a02016.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
-    [ "close", "df/df0/a02016.html#ab6529e241d0728159eb3f60c7621b666", null ],
-    [ "isBusy", "df/df0/a02016.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
-    [ "open", "df/df0/a02016.html#af039716c9cb01db958d77f8c581627cf", null ],
-    [ "operator=", "df/df0/a02016.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
-    [ "operator=", "df/df0/a02016.html#ae6957396d6689ed6ebcffc3b11177118", null ],
-    [ "receive", "df/df0/a02016.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
-    [ "send", "df/df0/a02016.html#ac557450438e468ea5bf25de308bc023c", null ],
-    [ "sendReceive", "df/df0/a02016.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
+    [ "OSPIPortBase", "df/df0/a02016.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "df/df0/a02016.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "df/df0/a02016.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "df/df0/a02016.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "df/df0/a02016.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "df/df0/a02016.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "df/df0/a02016.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "df/df0/a02016.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "df/df0/a02016.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

@@ -1,11 +1,6 @@
 var a01587 =
 [
-    [ "Parameters", "d6/d91/a01587.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d6/d91/a01587.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d6/d91/a01587.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d6/d91/a01587.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d6/d91/a01587.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d6/d91/a01587.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d6/d91/a01587.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d6/d91/a01587.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "Checksum", "d6/d91/a01587.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d6/d91/a01587.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d6/d91/a01587.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

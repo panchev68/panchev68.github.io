@@ -1,9 +1,8 @@
 var a01250 =
 [
-    [ "Counter", "d4/d22/a01250.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d4/d22/a01250.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d4/d22/a01250.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d4/d22/a01250.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d4/d22/a01250.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d4/d22/a01250.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "ambientTemperatureCelsius", "d4/d22/a01250.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "d4/d22/a01250.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "d4/d22/a01250.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "d4/d22/a01250.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "d4/d22/a01250.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

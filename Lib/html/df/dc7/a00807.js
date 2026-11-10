@@ -1,4 +1,4 @@
 var a00807 =
 [
-    [ "DeviceBase", "dd/d07/a00811.html", "dd/d07/a00811" ]
+    [ "Base", "dc/d8c/a01297.html", "dc/d8c/a01297" ]
 ];

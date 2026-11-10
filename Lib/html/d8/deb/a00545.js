@@ -1,4 +1,4 @@
 var a00545 =
 [
-    [ "Lib::HAL::USBDevicePortAsync&lt; T_DERIVED &gt;", "d7/deb/a02090.html", "d7/deb/a02090" ]
+    [ "Lib::HAL::USBDevicePort&lt; DriverMode::IT &gt;", "d0/d55/a02053.html", "d0/d55/a02053" ]
 ];

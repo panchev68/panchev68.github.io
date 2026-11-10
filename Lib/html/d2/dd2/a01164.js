@@ -1,15 +1,15 @@
 var a01164 =
 [
-    [ "TimerHandler", "d4/da6/a01168.html", "d4/da6/a01168" ],
-    [ "Config", "d6/db6/a01172.html", "d6/db6/a01172" ],
-    [ "PinHandle", "d2/dd2/a01164.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
-    [ "Base", "d2/dd2/a01164.html#af14f0b64c88d8857e32beeba9d6c6493", null ],
-    [ "~Base", "d2/dd2/a01164.html#a07a6568f25502674c91a864497867548", null ],
-    [ "beginReceiveData", "d2/dd2/a01164.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
-    [ "endReceivedData", "d2/dd2/a01164.html#a63785a9b88d7556f54e1e71118a760d4", null ],
-    [ "start", "d2/dd2/a01164.html#a5413ce6c3ea6e0e7f1a36a6835ca9247", null ],
-    [ "startupImpulse", "d2/dd2/a01164.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
-    [ "waitForComplete", "d2/dd2/a01164.html#a9b5b96a6106c15c974463750529471d0", null ],
-    [ "writePinState", "d2/dd2/a01164.html#a049430e063b46db8f7e7401c0af75df7", null ],
-    [ "config", "d2/dd2/a01164.html#a3b31347dab82ede045f6e076046e5762", null ]
+    [ "Diagnostic", "d4/da6/a01168.html", "d4/da6/a01168" ],
+    [ "Driver", "d2/dd2/a01164.html#ab07845254f409b109812886c271c23fd", null ],
+    [ "~Driver", "d2/dd2/a01164.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
+    [ "getHumidity", "d2/dd2/a01164.html#af1b0389aae714142b8a606106d0a4a56", null ],
+    [ "getRawHumidity", "d2/dd2/a01164.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
+    [ "getRawTemperature", "d2/dd2/a01164.html#ab776af450b94ccff9151de29e820c940", null ],
+    [ "getTemperature", "d2/dd2/a01164.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
+    [ "hasNewData", "d2/dd2/a01164.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
+    [ "isValidData", "d2/dd2/a01164.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
+    [ "start", "d2/dd2/a01164.html#a7bb2909673708c9ad956bc98034da91d", null ],
+    [ "Base< Driver< Type::DTH22 > >", "d2/dd2/a01164.html#a563861f233361c18a30fd9049d7abd7a", null ],
+    [ "diagnostic", "d2/dd2/a01164.html#a641741551ee87f815b7ca238c2fce09c", null ]
 ];

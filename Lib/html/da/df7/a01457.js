@@ -1,8 +1,8 @@
 var a01457 =
 [
-    [ "Frame0x80", "da/df7/a01457.html#a6a35178c345302fc3fd7e0e797ecd87f", null ],
-    [ "option", "da/df7/a01457.html#abbdc105cf84ccfae7ac49dcad817a495", null ],
-    [ "rfData", "da/df7/a01457.html#acdd1182b90bc45f91b6d50fd4a0ff3eb", null ],
-    [ "rssi", "da/df7/a01457.html#a75c9b510bbf5bbdfae41d3f2cfff6428", null ],
-    [ "srcAddr64", "da/df7/a01457.html#a2ef2d6ca731ff433131e9a82b31ff492", null ]
+    [ "Node", "da/df7/a01457.html#ae77243ef5154f0127b188cb07ee7b730", null ],
+    [ "Node", "da/df7/a01457.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
+    [ "macAddress", "da/df7/a01457.html#ab4f01a998762165160e1c5f287e33b36", null ],
+    [ "nodeAddr16", "da/df7/a01457.html#a047c25d839ad49f40c973b610050fa18", null ],
+    [ "nodeIdentifier", "da/df7/a01457.html#a66f046134b60cff03864ca23d0ff54fa", null ]
 ];

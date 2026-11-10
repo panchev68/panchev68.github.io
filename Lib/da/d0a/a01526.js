@@ -1,5 +1,5 @@
 var a01526 =
 [
-    [ "read", "da/d0a/a01526.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
-    [ "write", "da/d0a/a01526.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
+    [ "high", "da/d0a/a01526.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
+    [ "low", "da/d0a/a01526.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
 ];

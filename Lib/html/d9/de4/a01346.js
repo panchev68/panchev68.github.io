@@ -1,6 +1,5 @@
 var a01346 =
 [
-    [ "rxHandle", "d9/de4/a01346.html#aea4ca252a5da2c87ccf3fabc2300256a", null ],
-    [ "txHandle", "d9/de4/a01346.html#a0ee017bc386ab3045f793d74d4e9edd6", null ],
-    [ "xrst", "d9/de4/a01346.html#aafc8a2165a704a2553d5ec10510f2756", null ]
+    [ "function", "d9/de4/a01346.html#aff0c3dca100d278e3da27425e0eda593", null ],
+    [ "object", "d9/de4/a01346.html#aab9c6938c500fb9ab189884c52b57486", null ]
 ];

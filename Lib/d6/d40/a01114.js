@@ -1,10 +1,9 @@
 var a01114 =
 [
-    [ "RxMessage", "d6/d40/a01114.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "d6/d40/a01114.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "d6/d40/a01114.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "d6/d40/a01114.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "d6/d40/a01114.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "d6/d40/a01114.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "d6/d40/a01114.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "Interface", "d6/d40/a01114.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "d6/d40/a01114.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "d6/d40/a01114.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "d6/d40/a01114.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "d6/d40/a01114.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "d6/d40/a01114.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

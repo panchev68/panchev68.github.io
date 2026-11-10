@@ -1,9 +1,6 @@
 var a01550 =
 [
-    [ "Event", "d7/d1d/a01554.html", null ],
-    [ "CANPort", "d8/daf/a01550.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
-    [ "~CANPort", "d8/daf/a01550.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
-    [ "close", "d8/daf/a01550.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
-    [ "open", "d8/daf/a01550.html#a591e40ed78afa5d73704475e00c55060", null ],
-    [ "waitForEvent", "d8/daf/a01550.html#a1c4fcd17767b405bdecda984747567ed", null ]
+    [ "Checksum", "d8/daf/a01550.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "d8/daf/a01550.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "d8/daf/a01550.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

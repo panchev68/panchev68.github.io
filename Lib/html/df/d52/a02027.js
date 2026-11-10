@@ -1,14 +1,18 @@
 var a02027 =
 [
-    [ "TimEncoder", "df/d52/a02027.html#a865f1c850a27e5a21c65997eddc230e6", null ],
-    [ "~TimEncoder", "df/d52/a02027.html#a75c39486905ce140625f8ede68cf6b1c", null ],
-    [ "TimEncoder", "df/d52/a02027.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
-    [ "TimEncoder", "df/d52/a02027.html#a6ac1197149221d77d1967fbc9bf30371", null ],
-    [ "close", "df/d52/a02027.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
-    [ "isClockwise", "df/d52/a02027.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
-    [ "open", "df/d52/a02027.html#a0332945ce02a55fb6e624309d4613697", null ],
-    [ "operator=", "df/d52/a02027.html#a5f081d643e5f193b16d632bca48547f3", null ],
-    [ "operator=", "df/d52/a02027.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
-    [ "read", "df/d52/a02027.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
-    [ "write", "df/d52/a02027.html#aa31e675a06e5e104834e47423daa2b5f", null ]
+    [ "Timeout", "df/d52/a02027.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPortBase", "df/d52/a02027.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
+    [ "SPIPortBase", "df/d52/a02027.html#a3d58a47067dbf8b77d78250373234f6d", null ],
+    [ "SPIPortBase", "df/d52/a02027.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
+    [ "~SPIPortBase", "df/d52/a02027.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
+    [ "bindBeginTransactionFunc", "df/d52/a02027.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "df/d52/a02027.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "df/d52/a02027.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "isBusy", "df/d52/a02027.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "df/d52/a02027.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "df/d52/a02027.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
+    [ "operator=", "df/d52/a02027.html#ae6957396d6689ed6ebcffc3b11177118", null ],
+    [ "receive", "df/d52/a02027.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "df/d52/a02027.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "df/d52/a02027.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

@@ -1,4 +1,5 @@
 var a02205 =
 [
-    [ "Lib::Digi::Core::Protocol", "d9/de7/a01279.html", null ]
+    [ "DecimalDigits", "dc/d43/a02205.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
+    [ "HexDigits", "dc/d43/a02205.html#a73d7051255379fed271d86e4b50887f4", null ]
 ];

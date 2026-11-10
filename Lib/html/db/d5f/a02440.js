@@ -1,9 +1,8 @@
 var a02440 =
 [
-    [ "Tick", "db/d5f/a02440.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "db/d5f/a02440.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "db/d5f/a02440.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "db/d5f/a02440.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "db/d5f/a02440.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "db/d5f/a02440.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "Config", "db/d5f/a02440.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
+    [ "callback", "db/d5f/a02440.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
+    [ "mode", "db/d5f/a02440.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
+    [ "name", "db/d5f/a02440.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
+    [ "period", "db/d5f/a02440.html#ae81cad8de025f71497b5b241c41da1eb", null ]
 ];

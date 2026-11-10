@@ -1,4 +1,6 @@
 var a01657 =
 [
-    [ "Digits", "d3/d21/a01657.html#a6d4a05d6f245e02cf8f764801f23f0fc", null ]
+    [ "Observer", "d3/d21/a01657.html#abdcd46d6d928709efb45c4092a509ad3", null ],
+    [ "Observer", "d3/d21/a01657.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
+    [ "Observer", "d3/d21/a01657.html#a285dcb5567493b45b23d25b24004e9b9", null ]
 ];

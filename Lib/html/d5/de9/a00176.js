@@ -1,10 +1,16 @@
 var a00176 =
 [
-    [ "Lib::Digi::API::Connection", "d4/d3c/a01418.html", "d4/d3c/a01418" ],
-    [ "Lib::Digi::API::Connection::State", "d1/df4/a01422.html", "d1/df4/a01422" ],
-    [ "Lib::Digi::API::Connection::Quality", "dc/de6/a01426.html", "dc/de6/a01426" ],
-    [ "Lib::Digi::API::Connection::Info", "d8/dd0/a01430.html", "d8/dd0/a01430" ],
-    [ "Lib::Digi::API::Connection::Info::Counter", "d1/de7/a01434.html", "d1/de7/a01434" ],
-    [ "Lib::Digi::API::Connection::Info::Period", "d5/dd0/a01438.html", "d5/dd0/a01438" ],
-    [ "Lib::Digi::API::Connection::Info::SignalStrength", "d0/de2/a01442.html", "d0/de2/a01442" ]
+    [ "Lib::Crypto::WolfSSH", "d5/d8e/a01390.html", "d5/d8e/a01390" ],
+    [ "Lib::Crypto::WolfSSHServerContext", "d6/d2f/a01394.html", "d6/d2f/a01394" ],
+    [ "Lib::Crypto::WolfSSHServer&lt; T_DERIVED &gt;", "da/de3/a01398.html", "da/de3/a01398" ],
+    [ "Lib::Crypto::WolfSSHKeyFormat", "db/deb/a00853.html#ac3c925af062f5b22fa21eff3b0af0542", [
+      [ "Lib::Crypto::WolfSSHKeyFormat::ASN1", "db/deb/a00853.html#ac3c925af062f5b22fa21eff3b0af0542a4638457c14ad3dac251404cf286de87c", null ],
+      [ "Lib::Crypto::WolfSSHKeyFormat::PEM", "db/deb/a00853.html#ac3c925af062f5b22fa21eff3b0af0542ac888957bb6d2fe3bdac6000656d3e2fe", null ],
+      [ "Lib::Crypto::WolfSSHKeyFormat::OPENSSH", "db/deb/a00853.html#ac3c925af062f5b22fa21eff3b0af0542a8767bfd1184dbf95fa5c63a77a626a1f", null ]
+    ] ],
+    [ "Lib::Crypto::WolfSSHStatus", "db/deb/a00853.html#a173e4abd0ef87e757ea6dfe73552a7c3", [
+      [ "Lib::Crypto::WolfSSHStatus::SUCCESS", "db/deb/a00853.html#a173e4abd0ef87e757ea6dfe73552a7c3ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "Lib::Crypto::WolfSSHStatus::WOULD_BLOCK", "db/deb/a00853.html#a173e4abd0ef87e757ea6dfe73552a7c3aabb57fd8245067368ea2a5cfb5577614", null ],
+      [ "Lib::Crypto::WolfSSHStatus::ERROR", "db/deb/a00853.html#a173e4abd0ef87e757ea6dfe73552a7c3abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ]
 ];

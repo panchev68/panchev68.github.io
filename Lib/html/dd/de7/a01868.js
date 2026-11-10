@@ -1,15 +1,17 @@
 var a01868 =
 [
-    [ "DACPort", "dd/de7/a01868.html#a430af54970be9f050913a2587b44af8c", null ],
-    [ "~DACPort", "dd/de7/a01868.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
-    [ "DACPort", "dd/de7/a01868.html#a74ca3aad257be30051d7eaf469296f7d", null ],
-    [ "DACPort", "dd/de7/a01868.html#a3baeea2036cc1c8db31042f17b2ace75", null ],
-    [ "close", "dd/de7/a01868.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
-    [ "getChannel", "dd/de7/a01868.html#a668e6706e47926674d5df3daad36276c", null ],
-    [ "open", "dd/de7/a01868.html#a972d40716f11cc01e220bc488d2fb281", null ],
-    [ "operator=", "dd/de7/a01868.html#a3de9f7904a1682b503e927cd7557360c", null ],
-    [ "operator=", "dd/de7/a01868.html#a935c4325ea0cf9f2079b66affe1e46a1", null ],
-    [ "start", "dd/de7/a01868.html#a99aa0c249bf50a455acd99a243d63c67", null ],
-    [ "stop", "dd/de7/a01868.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
-    [ "waitForEvent", "dd/de7/a01868.html#a9327549838d3f5ba4298452dabb5e443", null ]
+    [ "DataAlignment", "dd/de7/a01868.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "dd/de7/a01868.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "dd/de7/a01868.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "dd/de7/a01868.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "dd/de7/a01868.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "dd/de7/a01868.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "dd/de7/a01868.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "dd/de7/a01868.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "dd/de7/a01868.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "dd/de7/a01868.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "dd/de7/a01868.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "dd/de7/a01868.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "dd/de7/a01868.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

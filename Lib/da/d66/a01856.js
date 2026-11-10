@@ -1,18 +1,17 @@
 var a01856 =
 [
-    [ "EventBits", "da/d66/a01856.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
-    [ "AsyncPortCore", "da/d66/a01856.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
-    [ "AsyncPortCore", "da/d66/a01856.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
-    [ "AsyncPortCore", "da/d66/a01856.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
-    [ "~AsyncPortCore", "da/d66/a01856.html#aa73910a82d1814199dbe1ec58c46f450", null ],
-    [ "close", "da/d66/a01856.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "derived", "da/d66/a01856.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
-    [ "getHandle", "da/d66/a01856.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "da/d66/a01856.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "da/d66/a01856.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "da/d66/a01856.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "operator=", "da/d66/a01856.html#af7a0ea878376b289ff08600fa9477026", null ],
-    [ "operator=", "da/d66/a01856.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
-    [ "events", "da/d66/a01856.html#abb56ddd8ed19246084e1242e9075982f", null ],
-    [ "isOpen", "da/d66/a01856.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
+    [ "ADCPort", "da/d66/a01856.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "da/d66/a01856.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "da/d66/a01856.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "da/d66/a01856.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "close", "da/d66/a01856.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getHandle", "da/d66/a01856.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "da/d66/a01856.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "getValue", "da/d66/a01856.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "da/d66/a01856.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "da/d66/a01856.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "da/d66/a01856.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "da/d66/a01856.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "da/d66/a01856.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "da/d66/a01856.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

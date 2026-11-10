@@ -1,11 +1,14 @@
 var a01578 =
 [
-    [ "DACPort", "d1/d88/a01578.html#a430af54970be9f050913a2587b44af8c", null ],
-    [ "~DACPort", "d1/d88/a01578.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
-    [ "close", "d1/d88/a01578.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
-    [ "getChannel", "d1/d88/a01578.html#a668e6706e47926674d5df3daad36276c", null ],
-    [ "open", "d1/d88/a01578.html#a972d40716f11cc01e220bc488d2fb281", null ],
-    [ "start", "d1/d88/a01578.html#a99aa0c249bf50a455acd99a243d63c67", null ],
-    [ "stop", "d1/d88/a01578.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
-    [ "waitForEvent", "d1/d88/a01578.html#adbdb4f63aa33260310f312a82d61124a", null ]
+    [ "append", "d1/d88/a01578.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "d1/d88/a01578.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "d1/d88/a01578.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "d1/d88/a01578.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "d1/d88/a01578.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "d1/d88/a01578.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "d1/d88/a01578.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "d1/d88/a01578.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "d1/d88/a01578.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "d1/d88/a01578.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "d1/d88/a01578.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

@@ -1,4 +1,4 @@
 var a00152 =
 [
-    [ "Lib::Digi::API::Pause", "de/d33/a01274.html", "de/d33/a01274" ]
+    [ "Lib::Communication::Modbus::Master", "dc/ded/a01290.html", "dc/ded/a01290" ]
 ];

@@ -1,14 +1,16 @@
 var a02415 =
 [
-    [ "Level", "de/d6a/a02415.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "de/d6a/a02415.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "de/d6a/a02415.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "de/d6a/a02415.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "de/d6a/a02415.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "de/d6a/a02415.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
-    ] ],
-    [ "Priority", "de/d6a/a02415.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "de/d6a/a02415.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "getFromISR", "de/d6a/a02415.html#a077686e91e7ea468ac484026c09fe001", null ],
-    [ "set", "de/d6a/a02415.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "SemaphoreCounting", "de/d6a/a02415.html#a34360dc9fc24d07df2ef16080a21c61e", null ],
+    [ "SemaphoreCounting", "de/d6a/a02415.html#a28b01c517b6b58ec1c1dcdff28c2a50c", null ],
+    [ "SemaphoreCounting", "de/d6a/a02415.html#a7e497551b91db5e404470925688a3ea2", null ],
+    [ "createStatic", "de/d6a/a02415.html#a4a3a3bf0955b317a1d871ee838f5ea59", null ],
+    [ "getCount", "de/d6a/a02415.html#ac1348d8967c750e28e7a6ba4f84d6061", null ],
+    [ "getInitialCount", "de/d6a/a02415.html#abe4488af469ef47e32e09e2d38a602b1", null ],
+    [ "getMaxCount", "de/d6a/a02415.html#addd31c2ffd410bd866e7365497d65280", null ],
+    [ "getRemainingCapacity", "de/d6a/a02415.html#a1bf7a6046c23fcaf2dcab086b735f624", null ],
+    [ "isAtMaxCount", "de/d6a/a02415.html#aa49210c40edb460f5b64e0a7db0d87e8", null ],
+    [ "isEmpty", "de/d6a/a02415.html#a7d8026113d6006885360edd9ff77068d", null ],
+    [ "open", "de/d6a/a02415.html#abc57684576686004799b4afa06460768", null ],
+    [ "operator=", "de/d6a/a02415.html#a1ef840e684e45e8065fa31c8b3690d52", null ],
+    [ "operator=", "de/d6a/a02415.html#ac13d24083bc909c7813fb3367712fe95", null ]
 ];

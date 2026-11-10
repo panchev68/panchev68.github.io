@@ -1,9 +1,9 @@
 var a01765 =
 [
-    [ "Config", "d7/d6d/a01769.html", "d7/d6d/a01769" ],
-    [ "Kalman", "df/d7b/a01765.html#aa1d2d569c178bee69ecdf55d472c9b50", null ],
-    [ "~Kalman", "df/d7b/a01765.html#a080d7f3d5ad7f8e8d9ab0fb9d47896de", null ],
-    [ "operator()", "df/d7b/a01765.html#a08ac86c068c49ae0ab36a020c0939f2c", null ],
-    [ "reset", "df/d7b/a01765.html#ab92d894be215dcd5a1b3999997ca74a9", null ],
-    [ "setParam", "df/d7b/a01765.html#a363c061b7ad96069e62fafd73dbdda8d", null ]
+    [ "Sockets", "df/d7b/a01765.html#a83aca7ca920c948cf9f775922c19247a", null ],
+    [ "Sockets", "df/d7b/a01765.html#adf14b2bb687d762d0832d140cfd7c348", null ],
+    [ "Sockets", "df/d7b/a01765.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
+    [ "operator=", "df/d7b/a01765.html#a27fe979c8f56a4d202689793724794b7", null ],
+    [ "operator=", "df/d7b/a01765.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
+    [ "operator[]", "df/d7b/a01765.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
 ];

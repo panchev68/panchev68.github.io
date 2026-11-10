@@ -1,17 +1,10 @@
 var a01109 =
 [
-    [ "Diagnostic", "d8/dbf/a01109.html#a74fdde35a787cd13d6069871c0ff8976", null ],
-    [ "Node", "d8/dbf/a01109.html#ab091b12fa34f220a5e75b16695a26a92", null ],
-    [ "RxMessage", "d8/dbf/a01109.html#aee877c41a31b08b00ee86c56bdd9cd28", null ],
-    [ "Service", "d8/dbf/a01109.html#a34d4fbaded08b287de47655b7713556a", null ],
-    [ "~Service", "d8/dbf/a01109.html#aa70d5f9fd723805cc64c383864a55d17", null ],
-    [ "getDiagnostic", "d8/dbf/a01109.html#a568458f9461115a1ea8f443f2dfde355", null ],
-    [ "messageReceivedCallback", "d8/dbf/a01109.html#a42b0a1623b22a41e003e2abafd67c9f2", null ],
-    [ "postScanCallback", "d8/dbf/a01109.html#a41b59ad5c5b3ad1f6a7220fbbb325c88", null ],
-    [ "send", "d8/dbf/a01109.html#a2e0c631d402e3175044158dded2de545", null ],
-    [ "send", "d8/dbf/a01109.html#a58523c22bcfd875e9c77077eb5f3e24c", null ],
-    [ "send", "d8/dbf/a01109.html#a5249db04ea2b2e64223f6656ddd774dc", null ],
-    [ "start", "d8/dbf/a01109.html#a93223c3fff4c00dc1af2fb2189a857ee", null ],
-    [ "stop", "d8/dbf/a01109.html#a7ddbb1abfc9d0f93b2d9e809819651cb", null ],
-    [ "taskFn", "d8/dbf/a01109.html#ada9602bb96ff9a1d8ef9d91580113505", null ]
+    [ "operator==", "d8/dbf/a01109.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d8/dbf/a01109.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d8/dbf/a01109.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d8/dbf/a01109.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d8/dbf/a01109.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d8/dbf/a01109.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d8/dbf/a01109.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

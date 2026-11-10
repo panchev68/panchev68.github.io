@@ -1,12 +1,12 @@
 var a00827 =
 [
-    [ "Inputs", "dc/d1b/a00827.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "dc/d1b/a00827.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "dc/d1b/a00827.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "dc/d1b/a00827.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "dc/d1b/a00827.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "dc/d1b/a00827.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "dc/d1b/a00827.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "dc/d1b/a00827.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "dc/d1b/a00827.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "Lib::USB::SerialPortRepeaterBase", "d0/d9a/a02631.html", "d0/d9a/a02631" ],
+    [ "Lib::USB::SerialPortRepeaterBase::Config", "d9/d07/a02635.html", "d9/d07/a02635" ],
+    [ "CDC_Transmit_FS", "dc/d1b/a00827.html#a9f54b31ad23bbe32b693bdeef89303f4", null ],
+    [ "MX_USB_DEVICE_Init", "dc/d1b/a00827.html#adab4f7fc1db4ce2be073d3913209d2af", null ],
+    [ "USBD_CDC_ReceivePacket", "dc/d1b/a00827.html#a7c4014397838b40b7716d800fd90ebcf", null ],
+    [ "hpcd_USB_OTG_FS", "dc/d1b/a00827.html#a3ec0d70a6cb9406d997fb3d006cc940d", null ],
+    [ "hUsbDeviceFS", "dc/d1b/a00827.html#afe8a2d9e10b33d5e7906f9f04f95358e", null ],
+    [ "UserRxBufferFS", "dc/d1b/a00827.html#a1e37e6616e6affe5acf9c0befd063f6a", null ],
+    [ "UserTxBufferFS", "dc/d1b/a00827.html#ad48fea85cdb7aed49bf62140a52f23e0", null ]
 ];

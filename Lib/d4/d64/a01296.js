@@ -1,18 +1,10 @@
 var a01296 =
 [
-    [ "Node", "d8/dc5/a01300.html", "d8/dc5/a01300" ],
-    [ "NetworkDiscovery", "d4/d64/a01296.html#acd0e3f3866a3ca66b7f3e542776da665", null ],
-    [ "NetworkDiscovery", "d4/d64/a01296.html#ab9ffde2714e24e2870cdc93c23495f03", null ],
-    [ "close", "d4/d64/a01296.html#a1315fb9cad5a91c5e451bf64e521ea96", null ],
-    [ "getNodeCount", "d4/d64/a01296.html#a5ff67a6679624bd114c6dcf093a2e5ca", null ],
-    [ "getNodes", "d4/d64/a01296.html#a1bb3ae3971de79ceadc4598cb0e980fb", null ],
-    [ "hasNodes", "d4/d64/a01296.html#aff5f6c6f0f6bea3102ddff447677796f", null ],
-    [ "initialize", "d4/d64/a01296.html#a6329c58c641c134db59a8f37a9637dea", null ],
-    [ "isRunning", "d4/d64/a01296.html#aaf770fe60bcc30fb468c4148a6a37cef", null ],
-    [ "open", "d4/d64/a01296.html#a1a3ede33b94a0d0f532e9e6d3b599dce", null ],
-    [ "operator=", "d4/d64/a01296.html#a56fe4df6f329a5e18e8f8132ec5f5c7b", null ],
-    [ "process", "d4/d64/a01296.html#a0747f885e5a9feba10647c760353f395", null ],
-    [ "start", "d4/d64/a01296.html#a959b5480dd22f8a82c83f45f689a5f47", null ],
-    [ "tearDown", "d4/d64/a01296.html#a433b1176b2ec86cafe98bb73425d401b", null ],
-    [ "update", "d4/d64/a01296.html#a8cd40b87b5dbd173792b15fc800ebe85", null ]
+    [ "RxMessage", "d4/d64/a01296.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
+    [ "RxMessage", "d4/d64/a01296.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
+    [ "getData", "d4/d64/a01296.html#a211378ed57e780728a164371a88e9913", null ],
+    [ "getId", "d4/d64/a01296.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
+    [ "data", "d4/d64/a01296.html#ad7fd7612128273e1c546b6344e7410b3", null ],
+    [ "id", "d4/d64/a01296.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
+    [ "length", "d4/d64/a01296.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
 ];

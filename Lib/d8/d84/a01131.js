@@ -1,7 +1,8 @@
 var a01131 =
 [
-    [ "is_valid", "d8/d84/a01131.html#a6e783f4c5992cebfe886353a8efb864e", null ],
-    [ "operator uint64_t", "d8/d84/a01131.html#a2b33a7d68c813149975cb02c2cb3bf06", null ],
-    [ "lsb", "d8/d84/a01131.html#a524ab930990b008f2d475b20353986c4", null ],
-    [ "msb", "d8/d84/a01131.html#a78ad58bd4bbff90eb0737c7ef482ba51", null ]
+    [ "chipSelectPin", "d8/d84/a01131.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
+    [ "irqPin", "d8/d84/a01131.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
+    [ "resetPin", "d8/d84/a01131.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
+    [ "rxGain", "d8/d84/a01131.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
+    [ "spiHandle", "d8/d84/a01131.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
 ];

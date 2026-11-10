@@ -1,4 +1,4 @@
 var a00767 =
 [
-    [ "Lib::System::FirmwareVersion", "d6/d57/a02488.html", "d6/d57/a02488" ]
+    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "df/db6/a02455.html", "df/db6/a02455" ]
 ];

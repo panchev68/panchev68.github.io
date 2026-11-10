@@ -1,6 +1,5 @@
 var a00119 =
 [
-    [ "Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt; T_MODE &gt;", "d9/da8/a01227.html", "d9/da8/a01227" ],
-    [ "Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt; T_MODE &gt;::Config", "d0/d88/a01231.html", "d0/d88/a01231" ],
-    [ "Lib::BSP::Ultrasonic::PGA460TPWRQ1&lt; T_MODE &gt;::TransducerDiagnostics", "dd/dad/a01235.html", "dd/dad/a01235" ]
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20", "dc/d9e/a01206.html", "dc/d9e/a01206" ],
+    [ "Lib::BSP::Thermometer::OneWire::DS18B20::Config", "d2/da6/a01210.html", "d2/da6/a01210" ]
 ];

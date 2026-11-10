@@ -1,19 +1,24 @@
 var a01064 =
 [
-    [ "Config", "d1/de6/a01068.html", "d1/de6/a01068" ],
-    [ "IS62WV51216", "d9/db3/a01064.html#a7921fa0f977faf912d2049453fd4c308", null ],
-    [ "~IS62WV51216", "d9/db3/a01064.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
-    [ "close", "d9/db3/a01064.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
-    [ "getSize", "d9/db3/a01064.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
-    [ "isRangeValid", "d9/db3/a01064.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
-    [ "onMemoryChanged", "d9/db3/a01064.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
-    [ "open", "d9/db3/a01064.html#afa482d28208b65335930cb3722de8871", null ],
-    [ "read", "d9/db3/a01064.html#a2b3f4b448d2b7076918a849936826646", null ],
-    [ "read", "d9/db3/a01064.html#a71a6069370565b21f326cb1f4e446a71", null ],
-    [ "toAbsoluteAddress", "d9/db3/a01064.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
-    [ "write", "d9/db3/a01064.html#abb442f01943c59f8ce352f5f92d959b1", null ],
-    [ "write", "d9/db3/a01064.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
-    [ "baseAddress", "d9/db3/a01064.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
-    [ "mutex", "d9/db3/a01064.html#a0d53d69589f382b51186fd40078d3d7a", null ],
-    [ "sizeBytes", "d9/db3/a01064.html#af112bc4831d358a9018b8a296e932392", null ]
+    [ "Uid", "d1/de6/a01068.html", "d1/de6/a01068" ],
+    [ "Type", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7a", [
+      [ "UNKNOWN", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "ISO_14443_4", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7", null ],
+      [ "ISO_18092", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd", null ],
+      [ "MIFARE_MINI", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb", null ],
+      [ "MIFARE_1K", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc", null ],
+      [ "MIFARE_4K", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b", null ],
+      [ "MIFARE_UL", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7", null ],
+      [ "MIFARE_PLUS", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b", null ],
+      [ "TNP3XXX", "d9/db3/a01064.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0", null ]
+    ] ],
+    [ "Card", "d9/db3/a01064.html#afe55bac777579392a2341966d599b1aa", null ],
+    [ "~Card", "d9/db3/a01064.html#a9b462a8f8d521dee2be275ece0ea5096", null ],
+    [ "authenticate", "d9/db3/a01064.html#a08fa94e57f56bdd7964dd70e267fd718", null ],
+    [ "detectCard", "d9/db3/a01064.html#a4cdc1e802bc109d771789db15c6830d9", null ],
+    [ "getCardType", "d9/db3/a01064.html#aaf3cc939cb0c768c7a554db036cdb6ad", null ],
+    [ "getUid", "d9/db3/a01064.html#a33cc183859688cd28572af600ed743f6", null ],
+    [ "halt", "d9/db3/a01064.html#a8ee80419a4d19b05e8e0e5451837de29", null ],
+    [ "selectCard", "d9/db3/a01064.html#a9375b5228d52a37d16ba4e2b6ad19b34", null ],
+    [ "stopCrypto", "d9/db3/a01064.html#a7b0e6aeddeb25fcaf7c23cf7070117e0", null ]
 ];

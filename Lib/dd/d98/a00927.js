@@ -1,10 +1,21 @@
 var a00927 =
 [
-    [ "Ring", "dd/d98/a00927.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "dd/d98/a00927.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "dd/d98/a00927.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "dd/d98/a00927.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "dd/d98/a00927.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "dd/d98/a00927.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "dd/d98/a00927.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "CurrentCorrection", "df/dbc/a00931.html", "df/dbc/a00931" ],
+    [ "Config", "d8/d19/a00935.html", "d8/d19/a00935" ],
+    [ "Polarity", "dd/d98/a00927.html#a12dbe47287cc8ea3e6057097e7679d5b", [
+      [ "SIGNED", "dd/d98/a00927.html#a12dbe47287cc8ea3e6057097e7679d5ba6898b46a1cde8a1572e2722c44c5ab07", null ],
+      [ "POSITIVE", "dd/d98/a00927.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58", null ],
+      [ "NEGATIVE", "dd/d98/a00927.html#a12dbe47287cc8ea3e6057097e7679d5ba50546bf973283065b6ccf09faf7a580a", null ]
+    ] ],
+    [ "INA219", "dd/d98/a00927.html#a46c4a6d79eb2edf43b8b0e8625771020", null ],
+    [ "INA219", "dd/d98/a00927.html#ac55a74a1a8fe3544f1f4df51dbae5d07", null ],
+    [ "INA219", "dd/d98/a00927.html#ae35991ea99aed69c1d8e50c315eccb0f", null ],
+    [ "enterSleepMode", "dd/d98/a00927.html#a203ec10d5e73d42a8a5a6a3878012e61", null ],
+    [ "exitSleepMode", "dd/d98/a00927.html#aa45a5bc29c59cb3057f7384cc2a96e64", null ],
+    [ "init", "dd/d98/a00927.html#a1b96174980d4785dbabfcaa110656cbe", null ],
+    [ "operator=", "dd/d98/a00927.html#a2b39cffcccaa479fe1c92078e0b9ba10", null ],
+    [ "operator=", "dd/d98/a00927.html#af97cdd50eb11dfd094357a230546d816", null ],
+    [ "readCurrent", "dd/d98/a00927.html#abb224ceec2374ac08e8ea58d3c898ab6", null ],
+    [ "readShuntVoltage", "dd/d98/a00927.html#a444400cf9229b85d7ea05bfd48ec5a7c", null ],
+    [ "readVoltage", "dd/d98/a00927.html#a1aa8cad61e1ccdb3899c6929726963fd", null ]
 ];

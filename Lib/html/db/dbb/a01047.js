@@ -1,11 +1,22 @@
 var a01047 =
 [
-    [ "capacityBytes", "db/dbb/a01047.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
-    [ "chipId", "db/dbb/a01047.html#a51f97ba3d60d343706487241e08e252e", null ],
-    [ "manufacturerId", "db/dbb/a01047.html#a5c3278897e2a6732479c70a4efed141c", null ],
-    [ "pageCount", "db/dbb/a01047.html#af9ad76ca92b33af38466c11344584476", null ],
-    [ "pageSize", "db/dbb/a01047.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
-    [ "pagesPerSector", "db/dbb/a01047.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
-    [ "sectorCount", "db/dbb/a01047.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
-    [ "sectorSize", "db/dbb/a01047.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
+    [ "Register", "d3/d42/a01051.html", "d3/d42/a01051" ],
+    [ "Config", "db/dbb/a01047.html#a5627e540e90ee9b11c249f9dfd3596ec", null ],
+    [ "Info", "db/dbb/a01047.html#a4d44e5999bff4b46f38692666fdcc25d", null ],
+    [ "W25Q128JVSIQ", "db/dbb/a01047.html#a59ef93437c59f8f672e38905b5e11dc7", null ],
+    [ "~W25Q128JVSIQ", "db/dbb/a01047.html#aeb4e3658c1a50d80811bddb4e5794788", null ],
+    [ "W25Q128JVSIQ", "db/dbb/a01047.html#a8e63f6957e7d3835c28850539c92b803", null ],
+    [ "W25Q128JVSIQ", "db/dbb/a01047.html#ab86a72c21a4af20d878b815237041775", null ],
+    [ "close", "db/dbb/a01047.html#ab84d3fc2e1e49b6feddd226fdc925ae6", null ],
+    [ "enterPowerDown", "db/dbb/a01047.html#a8a0d94550896c7062f6594cd0e532007", null ],
+    [ "eraseChip", "db/dbb/a01047.html#a0b3b683afc77b0c0ee69e757c581a722", null ],
+    [ "eraseSector", "db/dbb/a01047.html#aff869cb6bde4f4f94493097c4c7e2da6", null ],
+    [ "getInfo", "db/dbb/a01047.html#a3f7a3b245b2a704b45e6a638a2c9c971", null ],
+    [ "isPresent", "db/dbb/a01047.html#a40a9ef783ecafece7202ae4ec39d4939", null ],
+    [ "open", "db/dbb/a01047.html#acc5fbed9faca7400c7d70130fbb74131", null ],
+    [ "operator=", "db/dbb/a01047.html#aede81ab56acac1b91b78600c0c6e82c5", null ],
+    [ "operator=", "db/dbb/a01047.html#a042aafe50feeb5ffe960d362458e460e", null ],
+    [ "read", "db/dbb/a01047.html#abb4813e3ca50641c3bc3d1a367927ab8", null ],
+    [ "releasePowerDown", "db/dbb/a01047.html#a686c0c59ab4f223b15aefeeab43ca2bd", null ],
+    [ "write", "db/dbb/a01047.html#a48fee6a63474b5ad43a51157fcd0129a", null ]
 ];

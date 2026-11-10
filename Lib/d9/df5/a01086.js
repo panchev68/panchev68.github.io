@@ -1,19 +1,19 @@
 var a01086 =
 [
     [ "Config", "da/d73/a01090.html", "da/d73/a01090" ],
-    [ "Parameters", "d6/dea/a01094.html", "d6/dea/a01094" ],
-    [ "Rotation", "d9/df5/a01086.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
-      [ "DEFAULT", "d9/df5/a01086.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
-      [ "FLIP_X", "d9/df5/a01086.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
-      [ "FLIP_XY", "d9/df5/a01086.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
-      [ "FLIP_Y", "d9/df5/a01086.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
-    ] ],
-    [ "XPT2046", "d9/df5/a01086.html#a0dda6dc35a85166d57bd689d629e6846", null ],
-    [ "~XPT2046", "d9/df5/a01086.html#a9edd1a086623e54cbb23781f0d989d53", null ],
-    [ "XPT2046", "d9/df5/a01086.html#aa40395fe163fa53055c2381264eee169", null ],
-    [ "XPT2046", "d9/df5/a01086.html#a0b37858e0ef9dc2bc3c8a2494e0d30d0", null ],
-    [ "operator=", "d9/df5/a01086.html#a187bc2ba23928588fb3e435ff1a0ffab", null ],
-    [ "operator=", "d9/df5/a01086.html#a0a0bca74a5312b24895a6b947c35e11a", null ],
-    [ "read", "d9/df5/a01086.html#adbf7069f002f1074ffe599970a15c399", null ],
-    [ "setRotation", "d9/df5/a01086.html#ada371f317a4f0551dc84dcf51749ee60", null ]
+    [ "IS62WV51216", "d9/df5/a01086.html#a7921fa0f977faf912d2049453fd4c308", null ],
+    [ "~IS62WV51216", "d9/df5/a01086.html#a8bbb723bb8da60c1ded7fa4770488e41", null ],
+    [ "close", "d9/df5/a01086.html#ab7d16cfbd2da4ddbf5fe344a3eace30f", null ],
+    [ "getSize", "d9/df5/a01086.html#a5d44f7cbee5d1bc849cb54ef47f257a3", null ],
+    [ "isRangeValid", "d9/df5/a01086.html#a1b6c9da4691865cdfa1b28945756e9e5", null ],
+    [ "onMemoryChanged", "d9/df5/a01086.html#a4b6251a86a54f6053c2b89c00ba6a744", null ],
+    [ "open", "d9/df5/a01086.html#afa482d28208b65335930cb3722de8871", null ],
+    [ "read", "d9/df5/a01086.html#a2b3f4b448d2b7076918a849936826646", null ],
+    [ "read", "d9/df5/a01086.html#a71a6069370565b21f326cb1f4e446a71", null ],
+    [ "toAbsoluteAddress", "d9/df5/a01086.html#a627f5ee3afe264e55f1cc04cafae392d", null ],
+    [ "write", "d9/df5/a01086.html#abb442f01943c59f8ce352f5f92d959b1", null ],
+    [ "write", "d9/df5/a01086.html#abd6c3b651e745ff59409e2f5cf7acb44", null ],
+    [ "baseAddress", "d9/df5/a01086.html#a0d15eea85e078fd1ca516727c0e8ca8a", null ],
+    [ "mutex", "d9/df5/a01086.html#a0d53d69589f382b51186fd40078d3d7a", null ],
+    [ "sizeBytes", "d9/df5/a01086.html#af112bc4831d358a9018b8a296e932392", null ]
 ];

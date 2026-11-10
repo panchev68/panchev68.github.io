@@ -1,8 +1,8 @@
 var a01640 =
 [
-    [ "Frame0x88", "de/d14/a01640.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "de/d14/a01640.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "de/d14/a01640.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "de/d14/a01640.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "de/d14/a01640.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "Frame0x8b", "de/d14/a01640.html#acc41ed2fe2b266bab2e062bcc97b33cc", null ],
+    [ "deliveryStatus", "de/d14/a01640.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
+    [ "discoveryStatus", "de/d14/a01640.html#a7b5c383aff55a80124e65ff4565eb114", null ],
+    [ "frameId", "de/d14/a01640.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
+    [ "transmitRetryCount", "de/d14/a01640.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
 ];

@@ -1,7 +1,14 @@
 var a01615 =
 [
-    [ "isInverted", "d7/dae/a01615.html#a527ce99ad9135c5ee638b478e35031de", null ],
-    [ "isPresent", "d7/dae/a01615.html#adeb1badd28d6911fa7c0422e5278feef", null ],
-    [ "name", "d7/dae/a01615.html#aa93f171d58ca1b53c5c589d81d12bf17", null ],
-    [ "source", "d7/dae/a01615.html#ae70c1c01dd813de2c434df4bdf667ab1", null ]
+    [ "append", "d7/dae/a01615.html#a668dfbfff0a73062240c2b9d4a20bc28", null ],
+    [ "append", "d7/dae/a01615.html#a72a1477ca98df2fd65670dbb3b157f8a", null ],
+    [ "assign", "d7/dae/a01615.html#a3552b4d8b71ae5386a62d2b831cc4754", null ],
+    [ "clear", "d7/dae/a01615.html#a203088c695cf3b7a7190c9a52d8a143c", null ],
+    [ "data", "d7/dae/a01615.html#aaf5bb127946bfccf2adfc318d584894e", null ],
+    [ "empty", "d7/dae/a01615.html#afc7cdfcb2f5ea010a814513b9f7e9692", null ],
+    [ "insert", "d7/dae/a01615.html#ae409c8ac34780b163e1044b9959a2f81", null ],
+    [ "reserve", "d7/dae/a01615.html#aa059b03866b8797af025cf959e3dee4e", null ],
+    [ "reset", "d7/dae/a01615.html#ab7425c54f798a024d87678d5f1495d0e", null ],
+    [ "size", "d7/dae/a01615.html#aea29854e97878274b63e4a5e3e4c9475", null ],
+    [ "type", "d7/dae/a01615.html#ad4d0d5f3c5f4baefd1756b7bbefc47f7", null ]
 ];

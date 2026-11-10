@@ -1,4 +1,5 @@
 var a03441 =
 [
-    [ "Lib::BSP::Display::DriverBase", "dc/d2b/a00936.html", "dc/d2b/a00936" ]
+    [ "Lib::BSP::DeviceManager", "d3/dd1/a00914.html", "d3/dd1/a00914" ],
+    [ "Lib::BSP::DeviceManager::DeviceBase", "d0/ddf/a00918.html", "d0/ddf/a00918" ]
 ];

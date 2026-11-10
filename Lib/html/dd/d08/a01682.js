@@ -1,7 +1,16 @@
 var a01682 =
 [
-    [ "Group", "dd/d08/a01682.html#a48b74757679d549dd7d08383435d59b5", null ],
-    [ "~Group", "dd/d08/a01682.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "dd/d08/a01682.html#a6b28a1279997058ac197a0579f4c818d", null ],
-    [ "tag", "dd/d08/a01682.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "Container", "dd/d08/a01682.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "dd/d08/a01682.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "dd/d08/a01682.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "dd/d08/a01682.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "dd/d08/a01682.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "dd/d08/a01682.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "dd/d08/a01682.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "dd/d08/a01682.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "dd/d08/a01682.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "dd/d08/a01682.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "dd/d08/a01682.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "dd/d08/a01682.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

@@ -1,4 +1,4 @@
 var a00416 =
 [
-    [ "Lib::HAL::GPIO::Output", "df/dd0/a01912.html", "df/dd0/a01912" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::BLOCKING &gt;", "da/d66/a01856.html", "da/d66/a01856" ]
 ];

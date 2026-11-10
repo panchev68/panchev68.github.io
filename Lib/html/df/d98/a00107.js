@@ -1,4 +1,5 @@
 var a00107 =
 [
-    [ "Lib::BSP::Thermometer::DTH::DTH22", "d9/d02/a00834.html#ac925b6863b7c23b83aa215b6588e2487", null ]
+    [ "Lib::BSP::SK6812", "da/dfb/a01174.html", "da/dfb/a01174" ],
+    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "d8/d11/a01178.html", "d8/d11/a01178" ]
 ];

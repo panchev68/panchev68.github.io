@@ -1,14 +1,11 @@
 var a02047 =
 [
-    [ "TimPwmOutput", "dc/d92/a02047.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
-    [ "~TimPwmOutput", "dc/d92/a02047.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
-    [ "TimPwmOutput", "dc/d92/a02047.html#a422a9009ca77380721da2502794a00a0", null ],
-    [ "TimPwmOutput", "dc/d92/a02047.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
-    [ "close", "dc/d92/a02047.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
-    [ "getPeriod", "dc/d92/a02047.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
-    [ "open", "dc/d92/a02047.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
-    [ "operator=", "dc/d92/a02047.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
-    [ "operator=", "dc/d92/a02047.html#a686c13d106e6d8d754e3020b7107d262", null ],
-    [ "setPeriod", "dc/d92/a02047.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
-    [ "setPulse", "dc/d92/a02047.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
+    [ "TimInputCapture", "dc/d92/a02047.html#abfe70b316d617c0b779207aebafd9fb9", null ],
+    [ "~TimInputCapture", "dc/d92/a02047.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
+    [ "getCapture", "dc/d92/a02047.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
+    [ "start", "dc/d92/a02047.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
+    [ "stop", "dc/d92/a02047.html#a6d1e0aa45356b048a97c7390802d142a", null ],
+    [ "waitCapture", "dc/d92/a02047.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
+    [ "waitCapture", "dc/d92/a02047.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "dc/d92/a02047.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

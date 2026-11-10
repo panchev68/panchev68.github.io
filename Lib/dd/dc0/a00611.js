@@ -1,5 +1,4 @@
 var a00611 =
 [
-    [ "Lib::Helper::crc16", "d9/d03/a02172.html", "d9/d03/a02172" ],
-    [ "crc16", "dd/dc0/a00611.html#a9f873c5eb767e723f0ac5ddf1587bb54", null ]
+    [ "Lib::HAL::USBDevicePort&lt; DriverMode::IT &gt;", "df/daa/a02135.html", "df/daa/a02135" ]
 ];

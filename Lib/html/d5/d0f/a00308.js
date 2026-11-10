@@ -1,5 +1,5 @@
 var a00308 =
 [
-    [ "Lib::Errors::ObserverBase&lt; Derived, T_ERROR &gt;", "d0/d31/a01686.html", "d0/d31/a01686" ],
-    [ "Lib::Errors::Observer", "d6/d01/a01690.html", "d6/d01/a01690" ]
+    [ "Lib::Errors::BasicDispatcher&lt; T_ERROR &gt;", "dd/d08/a01682.html", "dd/d08/a01682" ],
+    [ "Lib::Errors::Dispatcher", "dc/d8c/a00859.html#a32937fedfac156d84189cbf2133bd0ab", null ]
 ];

@@ -1,17 +1,14 @@
 var a02164 =
 [
-    [ "Config", "d1/dce/a02168.html", "d1/dce/a02168" ],
-    [ "Status", "d7/daf/a02164.html#a69d5fbac0f2c325b3f576b76a1db1204", [
-      [ "OK", "d7/daf/a02164.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d7/daf/a02164.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "SerialPort", "d7/daf/a02164.html#a598e18433429c3e9aa74a063852aaccd", null ],
-    [ "~SerialPort", "d7/daf/a02164.html#afded1dc48b51225406bff4ec53c93689", null ],
-    [ "close", "d7/daf/a02164.html#a833dd7b50ed3c60c51a1f2e6dc8b8647", null ],
-    [ "handlePostReceivedEvent", "d7/daf/a02164.html#a75314779b791b1fba08ecb13324d3caa", null ],
-    [ "handlePostTransmitEvent", "d7/daf/a02164.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
-    [ "open", "d7/daf/a02164.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
-    [ "send", "d7/daf/a02164.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
-    [ "setBaudRate", "d7/daf/a02164.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
-    [ "setResetPin", "d7/daf/a02164.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
+    [ "Time", "d1/dce/a02168.html", "d1/dce/a02168" ],
+    [ "Date", "d9/d03/a02172.html", "d9/d03/a02172" ],
+    [ "DateTime", "d7/daf/a02164.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "d7/daf/a02164.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "d7/daf/a02164.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "d7/daf/a02164.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "d7/daf/a02164.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "d7/daf/a02164.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "d7/daf/a02164.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "d7/daf/a02164.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "d7/daf/a02164.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

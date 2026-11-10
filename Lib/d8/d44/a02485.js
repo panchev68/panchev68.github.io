@@ -1,5 +1,6 @@
 var a02485 =
 [
-    [ "Lib::XCOM::Protocol", "d3/d4e/a01978.html", "d3/d4e/a01978" ],
-    [ "Lib::XCOM::Protocol::Frame", "d2/d3d/a01982.html", "d2/d3d/a01982" ]
+    [ "autoStart", "d8/d44/a02485.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "d8/d44/a02485.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "d8/d44/a02485.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

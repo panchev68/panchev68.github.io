@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Library: Lib::HAL::Timer::TimOutputCompare Class Reference</title>
+<title>Library: Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt; Class Template Reference</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -112,110 +112,144 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/dd9/a02046.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimOutputCompare Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Controls one hardware timer channel configured under an active Output Compare profile. </p>
-<p>Compare-match interrupts are mapped through the DeviceManager to a task notification, so a task blocked in "waitCompare()" wakes on each match, enabling hardware-timed pin switching. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::Timer::TimOutputCompare:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt;</div><p>CRTP foundation registering a timer wrapper with the DeviceManager and signalling its hardware events to a task. </p>
+<p>Owns the DeviceManager registration that routes a raw HAL handle back to its C++ instance, and the task notification that hands a hardware event from the ISR to the waiting task. Each derived class only adds the HAL start and stop calls and the registers it drives. The DeviceManager keys on the native handle, so each derived type supports one instance per timer.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete timer wrapper; each type gets its own DeviceManager registry. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/d13/a02045.svg" width="662" height="2412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/d13/a02045.svg" width="1355" height="2206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::Timer::TimOutputCompare:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d22/a02044.svg" width="662" height="2412"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d22/a02044.svg" width="442" height="1179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a147e928fad995991b23e7d01fe3858fd" id="r_a147e928fad995991b23e7d01fe3858fd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a147e928fad995991b23e7d01fe3858fd">TimOutputCompare</a> (TIM_HandleTypeDef *timHandle, uint32_t timChannel) noexcept</td></tr>
-<tr class="memdesc:a147e928fad995991b23e7d01fe3858fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the output compare wrapper directly to a native configuration structure.  <br /></td></tr>
-<tr class="memitem:ad51108ace6896dca15950c5bbfd3002b" id="r_ad51108ace6896dca15950c5bbfd3002b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad51108ace6896dca15950c5bbfd3002b">~TimOutputCompare</a> () noexcept</td></tr>
-<tr class="memdesc:ad51108ace6896dca15950c5bbfd3002b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel before the base leaves the DeviceManager registry.  <br /></td></tr>
-<tr class="memitem:a63482b7958cd7171218c959b2b5df044" id="r_a63482b7958cd7171218c959b2b5df044"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a63482b7958cd7171218c959b2b5df044">start</a> () noexcept</td></tr>
-<tr class="memdesc:a63482b7958cd7171218c959b2b5df044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the channel with its compare interrupt; the calling task becomes the one "waitCompare()" serves.  <br /></td></tr>
-<tr class="memitem:aac2ec3db8ef26406c23bea924b96997b" id="r_aac2ec3db8ef26406c23bea924b96997b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aac2ec3db8ef26406c23bea924b96997b">stop</a> () noexcept</td></tr>
-<tr class="memdesc:aac2ec3db8ef26406c23bea924b96997b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the channel and its compare interrupt.  <br /></td></tr>
-<tr class="memitem:a18804c13963fca99f8037034a6d4e7ec" id="r_a18804c13963fca99f8037034a6d4e7ec"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a18804c13963fca99f8037034a6d4e7ec">waitCompare</a> (<a class="el" href="../../dc/ddb/a02034.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout=portMAX_DELAY) const noexcept</td></tr>
-<tr class="memdesc:a18804c13963fca99f8037034a6d4e7ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called "start()" until the counter next matches the compare value.  <br /></td></tr>
-<tr class="memitem:a040290a0bf889a08fc0248b637b69e71" id="r_a040290a0bf889a08fc0248b637b69e71"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a040290a0bf889a08fc0248b637b69e71 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a040290a0bf889a08fc0248b637b69e71">waitCompare</a> (std::chrono::duration&lt; Rep, Period &gt; timeout) const noexcept</td></tr>
-<tr class="memdesc:a040290a0bf889a08fc0248b637b69e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the task that called "start()" until the counter next matches the compare value.  <br /></td></tr>
-<tr class="memitem:a14b6982f85b9be41e24886a8a1c7445d" id="r_a14b6982f85b9be41e24886a8a1c7445d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a14b6982f85b9be41e24886a8a1c7445d">setCompare</a> (uint32_t compareValue) noexcept</td></tr>
-<tr class="memdesc:a14b6982f85b9be41e24886a8a1c7445d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the counter value at which the output changes state, in the channel's CCRx register.  <br /></td></tr>
-<tr class="memitem:afaf7f01f359523e9b30110fdbf8b175b" id="r_afaf7f01f359523e9b30110fdbf8b175b"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#afaf7f01f359523e9b30110fdbf8b175b">getCounter</a> () const noexcept</td></tr>
-<tr class="memdesc:afaf7f01f359523e9b30110fdbf8b175b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the running counter.  <br /></td></tr>
-<tr class="inherit_header pub_methods_a02034"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../dc/ddb/a02034.html">Lib::HAL::Timer::TimEventBase&lt; TimOutputCompare &gt;</a></td></tr>
-<tr class="memitem:ae4e4ea4622adc3ec78740bcbb5de40c7 inherit pub_methods_a02034" id="r_ae4e4ea4622adc3ec78740bcbb5de40c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> (const TimEventBase &amp;other)=delete</td></tr>
-<tr class="memdesc:ae4e4ea4622adc3ec78740bcbb5de40c7 inherit pub_methods_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
-<tr class="memitem:a85bb87c2ebb0260e1e4503471892deaa inherit pub_methods_a02034" id="r_a85bb87c2ebb0260e1e4503471892deaa"><td class="memItemLeft"><a class="el" href="../../dc/ddb/a02034.html#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#a85bb87c2ebb0260e1e4503471892deaa">operator=</a> (const <a class="el" href="../../dc/ddb/a02034.html#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a85bb87c2ebb0260e1e4503471892deaa inherit pub_methods_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
-<tr class="inherit_header pub_methods_a01866"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../d3/d7e/a01866.html">Lib::HAL::Device&lt; TimOutputCompare, TIM_HandleTypeDef &gt;</a></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01866" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">TIM_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:ae4e4ea4622adc3ec78740bcbb5de40c7" id="r_ae4e4ea4622adc3ec78740bcbb5de40c7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> (const TimEventBase &amp;other)=delete</td></tr>
+<tr class="memdesc:ae4e4ea4622adc3ec78740bcbb5de40c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
+<tr class="memitem:a5bc4465b338b0255addd68424099b237" id="r_a5bc4465b338b0255addd68424099b237"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5bc4465b338b0255addd68424099b237">TimEventBase</a> (TimEventBase &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a5bc4465b338b0255addd68424099b237"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
+<tr class="memitem:a85bb87c2ebb0260e1e4503471892deaa" id="r_a85bb87c2ebb0260e1e4503471892deaa"><td class="memItemLeft"><a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a85bb87c2ebb0260e1e4503471892deaa">operator=</a> (const <a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a85bb87c2ebb0260e1e4503471892deaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
+<tr class="memitem:a252859ce5916b5a86188c2929fc271a4" id="r_a252859ce5916b5a86188c2929fc271a4"><td class="memItemLeft"><a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a252859ce5916b5a86188c2929fc271a4">operator=</a> (<a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a252859ce5916b5a86188c2929fc271a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a DeviceManager registration slot bound to one timer.  <br /></td></tr>
+<tr class="inherit_header pub_methods_a01878"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="../../dc/d33/a01878.html">Lib::HAL::Device&lt; T_DERIVED, TIM_HandleTypeDef &gt;</a></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01878" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">TIM_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d33/a01878.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8 inherit pub_methods_a01878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
-Friends</h2></td></tr>
-<tr class="memitem:a1c9628368c1f17c08dc2099a119d2ebb" id="r_a1c9628368c1f17c08dc2099a119d2ebb"><td class="memItemLeft">friend&#160;</td><td class="memItemRight"><a class="el" href="#a1c9628368c1f17c08dc2099a119d2ebb">void::HAL_TIM_OC_DelayElapsedCallback</a> (TIM_HandleTypeDef *htim)</td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-types" class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a> = <a class="el" href="../../de/dfb/a01874.html">DeviceManager</a>&lt;T_DERIVED, TIM_HandleTypeDef&gt;</td></tr>
+<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_types_a02034"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Types inherited from <a class="el" href="../../dc/ddb/a02034.html">Lib::HAL::Timer::TimEventBase&lt; TimOutputCompare &gt;</a></td></tr>
-<tr class="memitem:a0a4806d9f5ce4953eb151c8ec4f74cb5 inherit pro_types_a02034" id="r_a0a4806d9f5ce4953eb151c8ec4f74cb5"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#a0a4806d9f5ce4953eb151c8ec4f74cb5">Manager</a></td></tr>
-<tr class="memdesc:a0a4806d9f5ce4953eb151c8ec4f74cb5 inherit pro_types_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Registry routing HAL callbacks to instances.  <br /></td></tr>
-<tr class="inherit_header pro_methods_a02034"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../dc/ddb/a02034.html">Lib::HAL::Timer::TimEventBase&lt; TimOutputCompare &gt;</a></td></tr>
-<tr class="memitem:a5005179511e8564eef47bc3da1d74925 inherit pro_methods_a02034" id="r_a5005179511e8564eef47bc3da1d74925"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#a5005179511e8564eef47bc3da1d74925">~TimEventBase</a> () noexcept</td></tr>
-<tr class="memdesc:a5005179511e8564eef47bc3da1d74925 inherit pro_methods_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leaves the DeviceManager registry; the derived destructor has already stopped the hardware.  <br /></td></tr>
-<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e inherit pro_methods_a02034" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
-<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e inherit pro_methods_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
-<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d inherit pro_methods_a02034" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="../../dc/ddb/a02034.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
-<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d inherit pro_methods_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
-<tr class="memitem:a96061f4587cc3508811475a8309ab3f0 inherit pro_methods_a02034" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="../../dc/ddb/a02034.html#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
-<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0 inherit pro_methods_a02034"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
-<tr class="inherit_header pro_methods_a01866"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../d3/d7e/a01866.html">Lib::HAL::Device&lt; TimOutputCompare, TIM_HandleTypeDef &gt;</a></td></tr>
-<tr class="memitem:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01866" id="r_acdeffbad9eb409804cbc72fa86794a97"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#acdeffbad9eb409804cbc72fa86794a97">Device</a> (TIM_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Device block bound to a native microcontroller peripheral handle.  <br /></td></tr>
-<tr class="memitem:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01866" id="r_a231e1d150464ec12c66e5578ff0c3128"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d7e/a01866.html#a231e1d150464ec12c66e5578ff0c3128">~Device</a> ()=default</td></tr>
-<tr class="memdesc:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01866"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Device object.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a16a104e17a6f13f616dc2f0a20f42653" id="r_a16a104e17a6f13f616dc2f0a20f42653"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a16a104e17a6f13f616dc2f0a20f42653">TimEventBase</a> (TIM_HandleTypeDef *timHandle) noexcept</td></tr>
+<tr class="memdesc:a16a104e17a6f13f616dc2f0a20f42653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the wrapper to its native handle and registers it with the DeviceManager.  <br /></td></tr>
+<tr class="memitem:a5005179511e8564eef47bc3da1d74925" id="r_a5005179511e8564eef47bc3da1d74925"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5005179511e8564eef47bc3da1d74925">~TimEventBase</a> () noexcept</td></tr>
+<tr class="memdesc:a5005179511e8564eef47bc3da1d74925"><td class="mdescLeft">&#160;</td><td class="mdescRight">Leaves the DeviceManager registry; the derived destructor has already stopped the hardware.  <br /></td></tr>
+<tr class="memitem:ac7b1eac52b77847537b732a7e3cd0d2e" id="r_ac7b1eac52b77847537b732a7e3cd0d2e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac7b1eac52b77847537b732a7e3cd0d2e">bindWorker</a> () noexcept</td></tr>
+<tr class="memdesc:ac7b1eac52b77847537b732a7e3cd0d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes the calling task the one woken by hardware events; call before enabling the interrupt.  <br /></td></tr>
+<tr class="memitem:a50fe83a38ed76cc7a5f8cea7dca98f4d" id="r_a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a50fe83a38ed76cc7a5f8cea7dca98f4d">waitEvent</a> (<a class="el" href="#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a> timeout) const noexcept</td></tr>
+<tr class="memdesc:a50fe83a38ed76cc7a5f8cea7dca98f4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks the calling task until the next hardware event.  <br /></td></tr>
+<tr class="memitem:a96061f4587cc3508811475a8309ab3f0" id="r_a96061f4587cc3508811475a8309ab3f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a96061f4587cc3508811475a8309ab3f0">notifyWorkerFromISR</a> () noexcept</td></tr>
+<tr class="memdesc:a96061f4587cc3508811475a8309ab3f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wakes the bound task from the HAL callback.  <br /></td></tr>
+<tr class="inherit_header pro_methods_a01878"><td colspan="2" class="dyn-inherit"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="../../dc/d33/a01878.html">Lib::HAL::Device&lt; T_DERIVED, TIM_HandleTypeDef &gt;</a></td></tr>
+<tr class="memitem:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01878" id="r_acdeffbad9eb409804cbc72fa86794a97"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d33/a01878.html#acdeffbad9eb409804cbc72fa86794a97">Device</a> (TIM_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:acdeffbad9eb409804cbc72fa86794a97 inherit pro_methods_a01878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Device block bound to a native microcontroller peripheral handle.  <br /></td></tr>
+<tr class="memitem:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01878" id="r_a231e1d150464ec12c66e5578ff0c3128"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d33/a01878.html#a231e1d150464ec12c66e5578ff0c3128">~Device</a> ()=default</td></tr>
+<tr class="memdesc:a231e1d150464ec12c66e5578ff0c3128 inherit pro_methods_a01878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the Device object.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a147e928fad995991b23e7d01fe3858fd" name="a147e928fad995991b23e7d01fe3858fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a147e928fad995991b23e7d01fe3858fd">&#9670;&#160;</a></span>TimOutputCompare()</h2>
+<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
+<a id="a0a4806d9f5ce4953eb151c8ec4f74cb5" name="a0a4806d9f5ce4953eb151c8ec4f74cb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4806d9f5ce4953eb151c8ec4f74cb5">&#9670;&#160;</a></span>Manager</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimOutputCompare::TimOutputCompare </td>
-          <td>(</td>
-          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>timHandle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timChannel</em></span>&#160;)</td>
+          <td class="memname">using <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::Manager = <a class="el" href="../../de/dfb/a01874.html">DeviceManager</a>&lt;T_DERIVED, TIM_HandleTypeDef&gt;</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the output compare wrapper directly to a native configuration structure. </p>
+<p>Registry routing HAL callbacks to instances. </p>
+
+</div>
+</div>
+<a id="ad8ef8d64da7b2fb93cca36bca48241bc" name="ad8ef8d64da7b2fb93cca36bca48241bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8ef8d64da7b2fb93cca36bca48241bc">&#9670;&#160;</a></span>TickType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::TickType = <a class="el" href="../../d0/d1e/a02426.html#ae8e5ffc65178ca37479e618247718ca9">RTOS::Task::TickType</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scheduler tick count type. </p>
+
+</div>
+</div>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae4e4ea4622adc3ec78740bcbb5de40c7" name="ae4e4ea4622adc3ec78740bcbb5de40c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4e4ea4622adc3ec78740bcbb5de40c7">&#9670;&#160;</a></span>TimEventBase() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::TimEventBase </td>
+          <td>(</td>
+          <td class="paramtype">const TimEventBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copying is deleted: each instance owns a DeviceManager registration slot bound to one timer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block (e.g., &amp;htim4). </td></tr>
-    <tr><td class="paramname">timChannel</td><td>Target hardware channel ("TIM_CHANNEL_1" .. "TIM_CHANNEL_4"). </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -223,106 +257,87 @@ Additional Inherited Members</h2></td></tr>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a147e928fad995991b23e7d01fe3858fd_cgraph.svg" width="602" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_ae4e4ea4622adc3ec78740bcbb5de40c7_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_ae4e4ea4622adc3ec78740bcbb5de40c7_icgraph.svg" width="602" height="223"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ad51108ace6896dca15950c5bbfd3002b" name="ad51108ace6896dca15950c5bbfd3002b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad51108ace6896dca15950c5bbfd3002b">&#9670;&#160;</a></span>~TimOutputCompare()</h2>
+<a id="a5bc4465b338b0255addd68424099b237" name="a5bc4465b338b0255addd68424099b237"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc4465b338b0255addd68424099b237">&#9670;&#160;</a></span>TimEventBase() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::Timer::TimOutputCompare::~TimOutputCompare </td>
+          <td class="memname"><a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::TimEventBase </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">TimEventBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Stops the channel before the base leaves the DeviceManager registry. </p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_ad51108ace6896dca15950c5bbfd3002b_cgraph.svg" width="962" height="108"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="afaf7f01f359523e9b30110fdbf8b175b" name="afaf7f01f359523e9b30110fdbf8b175b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afaf7f01f359523e9b30110fdbf8b175b">&#9670;&#160;</a></span>getCounter()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::Timer::TimOutputCompare::getCounter </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reads the running counter. </p>
-<dl class="section return"><dt>Returns</dt><dd>Raw value of the Counter Register (CNT), or 0 if the handle is uninitialized. </dd></dl>
+<p>Moving is deleted: each instance owns a DeviceManager registration slot bound to one timer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_afaf7f01f359523e9b30110fdbf8b175b_cgraph.svg" width="632" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a5bc4465b338b0255addd68424099b237_cgraph.svg" width="602" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a14b6982f85b9be41e24886a8a1c7445d" name="a14b6982f85b9be41e24886a8a1c7445d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14b6982f85b9be41e24886a8a1c7445d">&#9670;&#160;</a></span>setCompare()</h2>
+<a id="a16a104e17a6f13f616dc2f0a20f42653" name="a16a104e17a6f13f616dc2f0a20f42653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a104e17a6f13f616dc2f0a20f42653">&#9670;&#160;</a></span>TimEventBase() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void Lib::HAL::Timer::TimOutputCompare::setCompare </td>
+          <td class="memname"><a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::TimEventBase </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>compareValue</em></span></td><td>)</td>
+          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>timHandle</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sets the counter value at which the output changes state, in the channel's CCRx register. </p>
+<p>Binds the wrapper to its native handle and registers it with the DeviceManager. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">compareValue</td><td>Raw counter position of the match. </td></tr>
+    <tr><td class="paramname">timHandle</td><td>Target native hardware TIM descriptor block. </td></tr>
   </table>
   </dd>
 </dl>
@@ -330,202 +345,239 @@ Additional Inherited Members</h2></td></tr>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a14b6982f85b9be41e24886a8a1c7445d_cgraph.svg" width="632" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a16a104e17a6f13f616dc2f0a20f42653_cgraph.svg" width="652" height="267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a63482b7958cd7171218c959b2b5df044" name="a63482b7958cd7171218c959b2b5df044"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63482b7958cd7171218c959b2b5df044">&#9670;&#160;</a></span>start()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimOutputCompare::start </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Starts the channel with its compare interrupt; the calling task becomes the one "waitCompare()" serves. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware channel activation sequence succeeded. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a63482b7958cd7171218c959b2b5df044_cgraph.svg" width="632" height="190"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aac2ec3db8ef26406c23bea924b96997b" name="aac2ec3db8ef26406c23bea924b96997b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aac2ec3db8ef26406c23bea924b96997b">&#9670;&#160;</a></span>stop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimOutputCompare::stop </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the channel and its compare interrupt. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware channel stopped safely. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_aac2ec3db8ef26406c23bea924b96997b_cgraph.svg" width="632" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_aac2ec3db8ef26406c23bea924b96997b_icgraph.svg" width="622" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a040290a0bf889a08fc0248b637b69e71" name="a040290a0bf889a08fc0248b637b69e71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a040290a0bf889a08fc0248b637b69e71">&#9670;&#160;</a></span>waitCompare() <span class="overload">[1/2]</span></h2>
+<a id="a5005179511e8564eef47bc3da1d74925" name="a5005179511e8564eef47bc3da1d74925"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5005179511e8564eef47bc3da1d74925">&#9670;&#160;</a></span>~TimEventBase()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimOutputCompare::waitCompare </td>
+          <td class="memname"><a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the task that called "start()" until the counter next matches the compare value. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Leaves the DeviceManager registry; the derived destructor has already stopped the hardware. </p>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a5005179511e8564eef47bc3da1d74925_cgraph.svg" width="652" height="267"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ac7b1eac52b77847537b732a7e3cd0d2e" name="ac7b1eac52b77847537b732a7e3cd0d2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b1eac52b77847537b732a7e3cd0d2e">&#9670;&#160;</a></span>bindWorker()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::bindWorker </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Makes the calling task the one woken by hardware events; call before enabling the interrupt. </p>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_ac7b1eac52b77847537b732a7e3cd0d2e_cgraph.svg" width="871" height="135"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a96061f4587cc3508811475a8309ab3f0" name="a96061f4587cc3508811475a8309ab3f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96061f4587cc3508811475a8309ab3f0">&#9670;&#160;</a></span>notifyWorkerFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::notifyWorkerFromISR </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Wakes the bound task from the HAL callback. </p>
+
+</div>
+</div>
+<a id="a85bb87c2ebb0260e1e4503471892deaa" name="a85bb87c2ebb0260e1e4503471892deaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85bb87c2ebb0260e1e4503471892deaa">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp; <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: each instance owns a DeviceManager registration slot bound to one timer. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if a compare match occurred, "false" on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a85bb87c2ebb0260e1e4503471892deaa_cgraph.svg" width="602" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a252859ce5916b5a86188c2929fc271a4" name="a252859ce5916b5a86188c2929fc271a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a252859ce5916b5a86188c2929fc271a4">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a> &amp; <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ae4e4ea4622adc3ec78740bcbb5de40c7">TimEventBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: each instance owns a DeviceManager registration slot bound to one timer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
 <div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a040290a0bf889a08fc0248b637b69e71_cgraph.svg" width="891" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a252859ce5916b5a86188c2929fc271a4_cgraph.svg" width="602" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a18804c13963fca99f8037034a6d4e7ec" name="a18804c13963fca99f8037034a6d4e7ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18804c13963fca99f8037034a6d4e7ec">&#9670;&#160;</a></span>waitCompare() <span class="overload">[2/2]</span></h2>
+<a id="a50fe83a38ed76cc7a5f8cea7dca98f4d" name="a50fe83a38ed76cc7a5f8cea7dca98f4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50fe83a38ed76cc7a5f8cea7dca98f4d">&#9670;&#160;</a></span>waitEvent()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::Timer::TimOutputCompare::waitCompare </td>
+          <td class="memname">bool <a class="el" href="../../d2/dd9/a02046.html">Lib::HAL::Timer::TimEventBase</a>&lt; T_DERIVED &gt;::waitEvent </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../dc/ddb/a02034.html#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span><span class="paramdefsep"> = </span><span class="paramdefval">portMAX_DELAY</span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#ad8ef8d64da7b2fb93cca36bca48241bc">TickType</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks the task that called "start()" until the counter next matches the compare value. </p>
+<p>Blocks the calling task until the next hardware event. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>Maximum ticks to wait. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if a compare match occurred, "false" on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if an event arrived, "false" on timeout. </dd></dl>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
 <div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a18804c13963fca99f8037034a6d4e7ec_cgraph.svg" width="612" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd9/a02046_a50fe83a38ed76cc7a5f8cea7dca98f4d_cgraph.svg" width="612" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
-<a id="a1c9628368c1f17c08dc2099a119d2ebb" name="a1c9628368c1f17c08dc2099a119d2ebb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c9628368c1f17c08dc2099a119d2ebb">&#9670;&#160;</a></span>void::HAL_TIM_OC_DelayElapsedCallback</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void::HAL_TIM_OC_DelayElapsedCallback </td>
-          <td>(</td>
-          <td class="paramtype">TIM_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>htim</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="../../d4/dfb/a00512.html">TimOutputCompare.hpp</a></li>
+<li><a class="el" href="../../d4/dfb/a00512.html">TimEventBase.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -540,7 +592,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d7/d4f/a00819.html">Lib</a></li><li class="navelem"><a href="../../db/deb/a00853.html">HAL</a></li><li class="navelem"><a href="../../da/de6/a00855.html">Timer</a></li><li class="navelem"><a href="../../d2/dd9/a02046.html">TimOutputCompare</a></li>
+    <li class="navelem"><a href="../../d7/d5f/a00831.html">Lib</a></li><li class="navelem"><a href="../../dd/d7b/a00865.html">HAL</a></li><li class="navelem"><a href="../../d2/db8/a00867.html">Timer</a></li><li class="navelem"><a href="../../d2/dd9/a02046.html">TimEventBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

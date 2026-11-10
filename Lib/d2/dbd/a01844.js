@@ -1,8 +1,9 @@
 var a01844 =
 [
-    [ "allocations", "d2/dbd/a01844.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "d2/dbd/a01844.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "d2/dbd/a01844.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "d2/dbd/a01844.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "d2/dbd/a01844.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Sockets", "d2/dbd/a01844.html#a83aca7ca920c948cf9f775922c19247a", null ],
+    [ "Sockets", "d2/dbd/a01844.html#adf14b2bb687d762d0832d140cfd7c348", null ],
+    [ "Sockets", "d2/dbd/a01844.html#ae5d15cc1e5798b37d8f794210497bd1a", null ],
+    [ "operator=", "d2/dbd/a01844.html#a27fe979c8f56a4d202689793724794b7", null ],
+    [ "operator=", "d2/dbd/a01844.html#a19e85bd9c0b03c863f565af5ca659b9b", null ],
+    [ "operator[]", "d2/dbd/a01844.html#afaa1a155408be33af3d1cfc2d94d33f2", null ]
 ];

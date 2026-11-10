@@ -1,11 +1,12 @@
 var a01370 =
 [
-    [ "ignoredMessagesByTimeout", "d8/dbe/a01370.html#aef5921d826333c4443495f22db6f23b2", null ],
-    [ "invalidMessages", "d8/dbe/a01370.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
-    [ "maxMsgLengthErrors", "d8/dbe/a01370.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
-    [ "receivedAtCommandMessages", "d8/dbe/a01370.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
-    [ "receivedDataMessages", "d8/dbe/a01370.html#ac128abb8594b88f0197fc4fc467d9261", null ],
-    [ "sentAtCommandMessages", "d8/dbe/a01370.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
-    [ "sentDataMessages", "d8/dbe/a01370.html#acdadb83db434afcb1c0147457f423064", null ],
-    [ "sentDataMessagesTimeout", "d8/dbe/a01370.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
+    [ "FreeFunctionPointer", "d8/dbe/a01370.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d8/dbe/a01370.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d8/dbe/a01370.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "d8/dbe/a01370.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d8/dbe/a01370.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d8/dbe/a01370.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d8/dbe/a01370.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d8/dbe/a01370.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d8/dbe/a01370.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

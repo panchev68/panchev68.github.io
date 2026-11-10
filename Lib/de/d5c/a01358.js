@@ -1,13 +1,12 @@
 var a01358 =
 [
-    [ "Config", "da/dab/a01362.html", "da/dab/a01362" ],
-    [ "ComDriver", "de/d5c/a01358.html#ababf68659e9af31a588761f3b7019ee4", null ],
-    [ "ComDriver", "de/d5c/a01358.html#af8ff99c8d3c09d23780f803ca1424ad1", null ],
-    [ "~ComDriver", "de/d5c/a01358.html#ac84fd480c15423c989d3f9f367f99045", null ],
-    [ "init", "de/d5c/a01358.html#a43649d6474cd7c536e4e76c7a3374725", null ],
-    [ "operator=", "de/d5c/a01358.html#a39956162d031d237c8741f20d1de0b4d", null ],
-    [ "reset", "de/d5c/a01358.html#a75bf56467f6c2094625b83fc1673f0ee", null ],
-    [ "send", "de/d5c/a01358.html#adb3898389cd892854bac73d239b647fc", null ],
-    [ "diagnostic", "de/d5c/a01358.html#a567a1a6ed97de4267cfec4531f60a373", null ],
-    [ "xrst", "de/d5c/a01358.html#a36e911e3a416607a83c9551cb0ffe7c3", null ]
+    [ "FreeFunctionPointer", "de/d5c/a01358.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "de/d5c/a01358.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "de/d5c/a01358.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "de/d5c/a01358.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "de/d5c/a01358.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "de/d5c/a01358.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "de/d5c/a01358.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "de/d5c/a01358.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "de/d5c/a01358.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

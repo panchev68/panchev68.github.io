@@ -1,13 +1,14 @@
 var a02342 =
 [
-    [ "CriticalSectionFromISR", "df/d1b/a02346.html", "df/d1b/a02346" ],
-    [ "CriticalSection", "d9/d61/a02350.html", "d9/d61/a02350" ],
-    [ "Scheduler", "d3/d12/a02354.html", "d3/d12/a02354" ],
-    [ "MemoryInfo", "d2/d3d/a02362.html", "d2/d3d/a02362" ],
-    [ "InterruptMask", "d7/d54/a02342.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
-    [ "TaskCount", "d7/d54/a02342.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
-    [ "TickDuration", "d7/d54/a02342.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
-    [ "TickType", "d7/d54/a02342.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
-    [ "Kernel", "d7/d54/a02342.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
-    [ "~Kernel", "d7/d54/a02342.html#a002477130b9e5bd7adc19142c1516c08", null ]
+    [ "Config", "df/d1b/a02346.html", "df/d1b/a02346" ],
+    [ "State", "d7/d54/a02342.html#a7063555b30fb75832750a0361328040e", [
+      [ "ACTIVE", "d7/d54/a02342.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
+      [ "INACTIVE", "d7/d54/a02342.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
+      [ "DISABLED", "d7/d54/a02342.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
+    ] ],
+    [ "Sensor", "d7/d54/a02342.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
+    [ "getName", "d7/d54/a02342.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
+    [ "isActive", "d7/d54/a02342.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
+    [ "isPresent", "d7/d54/a02342.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
+    [ "read", "d7/d54/a02342.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
 ];

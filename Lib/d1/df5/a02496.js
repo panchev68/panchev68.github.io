@@ -1,8 +1,9 @@
 var a02496 =
 [
-    [ "Storage", "d1/df5/a02496.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "d1/df5/a02496.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "d1/df5/a02496.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "d1/df5/a02496.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "d1/df5/a02496.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "Tick", "d1/df5/a02496.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
+    [ "TickType", "d1/df5/a02496.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
+    [ "TickCounter", "d1/df5/a02496.html#a2e4f16891a303abf7194b28efe452c4b", null ],
+    [ "~TickCounter", "d1/df5/a02496.html#a82caaf97a995139e4dc974230659be08", null ],
+    [ "TickCounter", "d1/df5/a02496.html#a06b8da334970d2eee58bc03a57c34687", null ],
+    [ "operator=", "d1/df5/a02496.html#ab51f397146bf8a3184476a1b302318e4", null ]
 ];

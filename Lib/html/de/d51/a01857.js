@@ -1,12 +1,14 @@
 var a01857 =
 [
-    [ "ReferenceParameters", "d6/d56/a01861.html", "d6/d56/a01861" ],
-    [ "Measurement", "d5/da8/a01865.html", "d5/da8/a01865" ],
-    [ "MaxPowerEstimator", "de/d51/a01857.html#a434bc885ae98e175c94cc0274463e3e5", null ],
-    [ "MPPT", "de/d51/a01857.html#aedf986308c8dd799d4771f32d446ee01", null ],
-    [ "getIrradianceCoefficient", "de/d51/a01857.html#a55a3b7a18c79deb5568e627889f76b86", null ],
-    [ "getTolerance", "de/d51/a01857.html#a0ac8d81cbc06a7045f43424b16871253", null ],
-    [ "getVoltageSetpoint", "de/d51/a01857.html#a455584e52b5677fe4bce93e58e80ca38", null ],
-    [ "setMaxPowerEstimationFunction", "de/d51/a01857.html#abc619561c7180e6c69b8282c58157857", null ],
-    [ "update", "de/d51/a01857.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
+    [ "FlashInterface", "de/d51/a01857.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "de/d51/a01857.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "de/d51/a01857.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "de/d51/a01857.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "de/d51/a01857.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "de/d51/a01857.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "de/d51/a01857.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "de/d51/a01857.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "de/d51/a01857.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "de/d51/a01857.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "de/d51/a01857.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

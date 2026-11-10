@@ -1,7 +1,11 @@
 var a00915 =
 [
-    [ "Inputs", "d1/d0b/a00919.html", "d1/d0b/a00919" ],
-    [ "Outputs", "df/de9/a00923.html", "df/de9/a00923" ],
-    [ "inputs", "d2/d5e/a00915.html#a83f591b4be154cb08f68588d557cfc3e", null ],
-    [ "outputs", "d2/d5e/a00915.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
+    [ "Service", "d6/d66/a00916.html", "d6/d66/a00916" ],
+    [ "ApplicationBase", "da/d36/a01482.html", "da/d36/a01482" ],
+    [ "ClientBase", "d0/d34/a01486.html", "d0/d34/a01486" ],
+    [ "Connection", "de/d3c/a01490.html", "de/d3c/a01490" ],
+    [ "NodeInfo", "d0/d1a/a01518.html", "d0/d1a/a01518" ],
+    [ "ServerBase", "d9/da1/a01546.html", "d9/da1/a01546" ],
+    [ "UserProtocol", "d5/dcf/a01602.html", "d5/dcf/a01602" ],
+    [ "Pausable", "df/dad/a02682.html", null ]
 ];

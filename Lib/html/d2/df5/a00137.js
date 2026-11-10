@@ -1,10 +1,7 @@
 var a00137 =
 [
-    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;", "d2/d22/a01171.html", "d2/d22/a01171" ],
-    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;::Target", "d6/df2/a01175.html", "d6/df2/a01175" ],
-    [ "FunctionRefDetail::Base&lt; T_SELF, T_CONST, T_NOEXCEPT, Ret, Args &gt;::Key", "de/d1a/a01179.html", null ],
-    [ "FunctionRef&lt; Ret(Args...)&gt;", "dc/d2d/a01183.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) const &gt;", "dc/d70/a01187.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) noexcept &gt;", "d1/d0d/a01191.html", null ],
-    [ "FunctionRef&lt; Ret(Args...) const noexcept &gt;", "d8/df3/a01195.html", null ]
+    [ "Lib::Canbus::Mode", "d1/dd1/a00804.html#ad81e761f20d5185ff2c7cbf5e547ef02", [
+      [ "Lib::Canbus::Mode::CLIENT", "d1/dd1/a00804.html#ad81e761f20d5185ff2c7cbf5e547ef02aef10c650df47bffd6399e5e78da2a9b1", null ],
+      [ "Lib::Canbus::Mode::SERVER", "d1/dd1/a00804.html#ad81e761f20d5185ff2c7cbf5e547ef02a3d27c95bfdbea691b250894d96852844", null ]
+    ] ]
 ];

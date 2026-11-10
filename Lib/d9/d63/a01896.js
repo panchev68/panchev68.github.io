@@ -1,16 +1,8 @@
 var a01896 =
 [
-    [ "Config", "d5/dcc/a01900.html", "d5/dcc/a01900" ],
-    [ "DataMap", "d4/d0d/a01904.html", "d4/d0d/a01904" ],
-    [ "LastResetState", "d9/d63/a01896.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "d9/d63/a01896.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "System", "d9/d63/a01896.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
-    [ "operator=", "d9/d63/a01896.html#af9936cf8ce134998481d3b63473f909b", null ],
-    [ "configuration", "d9/d63/a01896.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "d9/d63/a01896.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
-    [ "hardwareVersion", "d9/d63/a01896.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
-    [ "lastResetState", "d9/d63/a01896.html#add4f1e84db40b8862ab63a06766ae439", null ],
-    [ "produceDate", "d9/d63/a01896.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "d9/d63/a01896.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "d9/d63/a01896.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
+    [ "data", "d9/d63/a01896.html#a251018af6590442834ab27f31949ac0c", null ],
+    [ "frameType", "d9/d63/a01896.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
+    [ "id", "d9/d63/a01896.html#ac603c73011aa584e9a004fabd2239743", null ],
+    [ "idType", "d9/d63/a01896.html#ac4029cba49776e6f2942debd3ed78f58", null ],
+    [ "length", "d9/d63/a01896.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
 ];

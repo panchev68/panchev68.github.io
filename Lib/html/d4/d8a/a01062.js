@@ -1,19 +1,11 @@
 var a01062 =
 [
-    [ "Command", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10", [
-      [ "WRITE_ENABLE", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "WRITE_DISABLE", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a144125af7ffdad2e5116e34ba4fc59b6", null ],
-      [ "READ_STATUS_REGISTER1", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "READ_DATA", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10ae7635aa284a1d1a0f40518b9ad3d2645", null ],
-      [ "PAGE_PROGRAM", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a321de2ada4dccff8c112605f1514879c", null ],
-      [ "SECTOR_ERASE", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d4/d8a/a01062.html#a81a065116f1d7643859e4697646c3c10a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "capacityBytes", "d4/d8a/a01062.html#a6dfa782b4e1075bfbba5e05921a75e4d", null ],
+    [ "chipId", "d4/d8a/a01062.html#a51f97ba3d60d343706487241e08e252e", null ],
+    [ "manufacturerId", "d4/d8a/a01062.html#a5c3278897e2a6732479c70a4efed141c", null ],
+    [ "pageCount", "d4/d8a/a01062.html#af9ad76ca92b33af38466c11344584476", null ],
+    [ "pageSize", "d4/d8a/a01062.html#aa482de6c6eee01a82cb064c799fbf0bd", null ],
+    [ "pagesPerSector", "d4/d8a/a01062.html#a1bc7cd413b6b77127b198f35133f01cf", null ],
+    [ "sectorCount", "d4/d8a/a01062.html#ae20b701cb3f48cd89f4a524b004c870f", null ],
+    [ "sectorSize", "d4/d8a/a01062.html#acabb2e9f89395ebfeab0b0992b2afe6c", null ]
 ];

@@ -1,6 +1,10 @@
 var a01913 =
 [
-    [ "configuration", "d4/d07/a01913.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "d4/d07/a01913.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "d4/d07/a01913.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "IndependentWatchdog", "d4/d07/a01913.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
+    [ "IndependentWatchdog", "d4/d07/a01913.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
+    [ "IndependentWatchdog", "d4/d07/a01913.html#aabfa4830743c87632886a0e095af6dba", null ],
+    [ "open", "d4/d07/a01913.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
+    [ "operator=", "d4/d07/a01913.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
+    [ "operator=", "d4/d07/a01913.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
+    [ "refresh", "d4/d07/a01913.html#ae9f164f43789bd02baa1587a44c30e61", null ]
 ];

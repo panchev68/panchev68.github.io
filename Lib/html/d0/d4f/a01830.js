@@ -1,12 +1,16 @@
 var a01830 =
 [
-    [ "ADCPortBase", "d0/d4f/a01830.html#a4434447d51727d630ac97c35686a4ec0", null ],
-    [ "ADCPortBase", "d0/d4f/a01830.html#a0ad5d61e73944a97373bfae0962076a5", null ],
-    [ "ADCPortBase", "d0/d4f/a01830.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
-    [ "~ADCPortBase", "d0/d4f/a01830.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
-    [ "close", "d0/d4f/a01830.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getValue", "d0/d4f/a01830.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "d0/d4f/a01830.html#aed764265c454323ee0b2d718d2f447cb", null ],
-    [ "operator=", "d0/d4f/a01830.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
-    [ "operator=", "d0/d4f/a01830.html#a0fcfa429879f8263683b639ed5e74c96", null ]
+    [ "Event", "d6/dbe/a01834.html", null ],
+    [ "ADCPort", "d0/d4f/a01830.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d0/d4f/a01830.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d0/d4f/a01830.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d0/d4f/a01830.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d0/d4f/a01830.html#a5701c9da4db47e937bec19f3d29c9855", null ],
+    [ "open", "d0/d4f/a01830.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d0/d4f/a01830.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d0/d4f/a01830.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d0/d4f/a01830.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d0/d4f/a01830.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d0/d4f/a01830.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d0/d4f/a01830.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

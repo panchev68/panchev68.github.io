@@ -1,10 +1,9 @@
 var a01033 =
 [
-    [ "operator==", "d2/d57/a01033.html#a76f4384c25c5a26bc057858df3c55875", null ],
-    [ "inPhaseAdc", "d2/d57/a01033.html#ae284e93d7297470825441d553589ac6f", null ],
-    [ "inPhaseCalibration", "d2/d57/a01033.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
-    [ "inPhaseReference", "d2/d57/a01033.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
-    [ "quadratureAdc", "d2/d57/a01033.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
-    [ "quadratureCalibration", "d2/d57/a01033.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
-    [ "quadratureReference", "d2/d57/a01033.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
+    [ "chipManufacturer", "d2/d57/a01033.html#a0699528d9734e0f26fa0ba87d7132204", null ],
+    [ "memoryCapacity", "d2/d57/a01033.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
+    [ "pagePerSector", "d2/d57/a01033.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
+    [ "pageSize", "d2/d57/a01033.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
+    [ "sectorCount", "d2/d57/a01033.html#a8e623c67b780e827d65e722809156e96", null ],
+    [ "sectorSize", "d2/d57/a01033.html#a61bb395a7747150174a9b64ececfb178", null ]
 ];

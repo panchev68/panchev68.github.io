@@ -1,13 +1,10 @@
 var a01712 =
 [
-    [ "Handlers", "dc/d3e/a01712.html#a341e46394d44eaa24f4fb65f459bf98e", null ],
-    [ "EepromEmulation", "dc/d3e/a01712.html#a1146daff507a230799851b6c5f9ee835", null ],
-    [ "~EepromEmulation", "dc/d3e/a01712.html#a7958db98ab3c05231a7b72cb1af0b541", null ],
-    [ "EepromEmulation", "dc/d3e/a01712.html#ad7dff510056bdddc1b0f203d3b4b4706", null ],
-    [ "EepromEmulation", "dc/d3e/a01712.html#a907dfb13c5a60c36936f72539a54bb0f", null ],
-    [ "operator=", "dc/d3e/a01712.html#ac18054ff925ab9ff88d05d79a8674626", null ],
-    [ "operator=", "dc/d3e/a01712.html#a8a0057afb82e294f720a93b50ad87908", null ],
-    [ "process", "dc/d3e/a01712.html#a43d5b4d5c217949b71744e5cc7f4ea38", null ],
-    [ "setHandlers", "dc/d3e/a01712.html#a070225a3de178cf14fb35d7a18f183e0", null ],
-    [ "setReadSize", "dc/d3e/a01712.html#af5db1919319a4d3ff6af2f55f54bee74", null ]
+    [ "Frame0x97", "dc/d3e/a01712.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
+    [ "atCommand", "dc/d3e/a01712.html#a965406599165a7744ecbe01f6054fc9d", null ],
+    [ "commandStatus", "dc/d3e/a01712.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
+    [ "frameId", "dc/d3e/a01712.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
+    [ "parameters", "dc/d3e/a01712.html#a0716b11170a5695a6ff94920635fb32f", null ],
+    [ "srcAddr16", "dc/d3e/a01712.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
+    [ "srcAddr64", "dc/d3e/a01712.html#a146e6de04eded1ed1426630c73a3ad17", null ]
 ];

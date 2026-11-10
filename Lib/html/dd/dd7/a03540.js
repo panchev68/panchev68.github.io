@@ -1,4 +1,4 @@
 var a03540 =
 [
-    [ "Lib::Ethernet::Port", "de/dda/a01768.html", "de/dda/a01768" ]
+    [ "Lib::Digi::API::UserProtocol&lt; Derived &gt;", "d6/d02/a01542.html", "d6/d02/a01542" ]
 ];

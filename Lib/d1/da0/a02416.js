@@ -1,14 +1,15 @@
 var a02416 =
 [
-    [ "Level", "d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "d1/da0/a02416.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
+    [ "Status", "d1/da0/a02416.html#a12545d9824f6613ee89191861f120584", [
+      [ "SUCCESS", "d1/da0/a02416.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "INVALID_SIZE", "d1/da0/a02416.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
+      [ "OUT_OF_MEMORY", "d1/da0/a02416.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
+      [ "SIZE_TOO_LARGE", "d1/da0/a02416.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
     ] ],
-    [ "Priority", "d1/da0/a02416.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "d1/da0/a02416.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "getFromISR", "d1/da0/a02416.html#a077686e91e7ea468ac484026c09fe001", null ],
-    [ "set", "d1/da0/a02416.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "MemoryManager", "d1/da0/a02416.html#a11985e607e9d0df1a66531314e37b38b", null ],
+    [ "~MemoryManager", "d1/da0/a02416.html#a71e750b42ae7c18640c58654a6e54687", null ],
+    [ "MemoryManager", "d1/da0/a02416.html#a7045943a317adab019e38e7c6bf2de73", null ],
+    [ "MemoryManager", "d1/da0/a02416.html#a89bca016476ef966223eb6841d5cc034", null ],
+    [ "operator=", "d1/da0/a02416.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
+    [ "operator=", "d1/da0/a02416.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
 ];

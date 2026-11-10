@@ -1,9 +1,20 @@
 var a00786 =
 [
-    [ "dimmerMaxValue", "d0/d7d/a00786.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
-    [ "dimmerMinValue", "d0/d7d/a00786.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
-    [ "fadeStep", "d0/d7d/a00786.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
-    [ "sleepTimeout", "d0/d7d/a00786.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
-    [ "timChannel", "d0/d7d/a00786.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
-    [ "timHandle", "d0/d7d/a00786.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
+    [ "BSP", "d8/d7f/a00787.html", "d8/d7f/a00787" ],
+    [ "Canbus", "d1/dd1/a00804.html", "d1/dd1/a00804" ],
+    [ "Communication", "d7/dff/a00805.html", "d7/dff/a00805" ],
+    [ "Crypto", "d7/dc8/a00808.html", "d7/dc8/a00808" ],
+    [ "Digi", "dd/d7e/a00809.html", "dd/d7e/a00809" ],
+    [ "Errors", "da/d71/a00814.html", "da/d71/a00814" ],
+    [ "Ethercat", "d7/d60/a00816.html", "d7/d60/a00816" ],
+    [ "Ethernet", "d3/d60/a00818.html", "d3/d60/a00818" ],
+    [ "HAL", "dc/d00/a00820.html", "dc/d00/a00820" ],
+    [ "Helper", "d3/db4/a00823.html", "d3/db4/a00823" ],
+    [ "HTTP", "dd/d5f/a00825.html", "dd/d5f/a00825" ],
+    [ "Math", "da/d90/a00826.html", "da/d90/a00826" ],
+    [ "Pneumatics", "d8/d64/a00828.html", "d8/d64/a00828" ],
+    [ "SolarControl", "d9/daf/a00830.html", "d9/daf/a00830" ],
+    [ "System", "d7/d5f/a00831.html", "d7/d5f/a00831" ],
+    [ "USB", "d0/d08/a00832.html", "d0/d08/a00832" ],
+    [ "XCOM", "dc/d6e/a00833.html", "dc/d6e/a00833" ]
 ];

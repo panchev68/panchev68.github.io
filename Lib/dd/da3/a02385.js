@@ -1,12 +1,13 @@
 var a02385 =
 [
-    [ "Lib::BSP::FMEM::SPI::Config", "d0/d85/a00976.html", "d0/d85/a00976" ],
-    [ "Lib::BSP::FMEM::SPI::Info", "db/d20/a00980.html", "db/d20/a00980" ],
-    [ "Lib::BSP::FMEM::SPI::DriverBase&lt; T_DERIVED &gt;", "d2/d4c/a00984.html", "d2/d4c/a00984" ],
-    [ "Lib::BSP::FMEM::SPI::Status", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51", [
-      [ "Lib::BSP::FMEM::SPI::Status::NO_INIT", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::READY", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::POWER_OFF", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51aa15cea80d926d7282b831d451ba8aee8", null ],
-      [ "Lib::BSP::FMEM::SPI::Status::ERRORS", "dc/d00/a00820.html#a93a86005cbff0244fb1cfdaa80180a51a6f3a603fac4d817f1848c3173b243b57", null ]
-    ] ]
+    [ "CriticalSectionFromISR", "d3/d53/a02389.html", "d3/d53/a02389" ],
+    [ "CriticalSection", "d1/d29/a02393.html", "d1/d29/a02393" ],
+    [ "Scheduler", "dd/d6b/a02397.html", "dd/d6b/a02397" ],
+    [ "MemoryInfo", "dd/d31/a02405.html", "dd/d31/a02405" ],
+    [ "InterruptMask", "dd/da3/a02385.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
+    [ "TaskCount", "dd/da3/a02385.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
+    [ "TickDuration", "dd/da3/a02385.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
+    [ "TickType", "dd/da3/a02385.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
+    [ "Kernel", "dd/da3/a02385.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
+    [ "~Kernel", "dd/da3/a02385.html#a002477130b9e5bd7adc19142c1516c08", null ]
 ];

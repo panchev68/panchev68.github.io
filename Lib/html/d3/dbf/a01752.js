@@ -1,10 +1,8 @@
 var a01752 =
 [
-    [ "TimTimebase", "d3/dbf/a01752.html#a0bb4306a16c766d8c959a727166c26ac", null ],
-    [ "~TimTimebase", "d3/dbf/a01752.html#af090b1031082ebdc6568705b21be0ab6", null ],
-    [ "setPeriod", "d3/dbf/a01752.html#af417fe67a3fd9eff98b179dc5d82a3d7", null ],
-    [ "start", "d3/dbf/a01752.html#a944142aa0dd655cd9b919a0e06fafa81", null ],
-    [ "stop", "d3/dbf/a01752.html#aa399a05c619bdd1b74c251a7ec730399", null ],
-    [ "waitPeriod", "d3/dbf/a01752.html#ab5769aea74b7d30265ee14935f53b551", null ],
-    [ "void::HAL_TIM_PeriodElapsedCallback", "d3/dbf/a01752.html#a34308d96882870b9e8698d92c2f5eedc", null ]
+    [ "Node", "d3/dbf/a01752.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "d3/dbf/a01752.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "d3/dbf/a01752.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "d3/dbf/a01752.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "d3/dbf/a01752.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

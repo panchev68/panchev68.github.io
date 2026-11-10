@@ -1,13 +1,19 @@
 var a01940 =
 [
-    [ "I2CPortBase", "d5/dba/a01940.html#aa4e4d14ed487d0a4f07d43f83937e8cf", null ],
-    [ "I2CPortBase", "d5/dba/a01940.html#abb555787d1c67ffeb59851d309d7e32f", null ],
-    [ "I2CPortBase", "d5/dba/a01940.html#ad9dd4358cc01cee75cd8f731f9f0fe5e", null ],
-    [ "~I2CPortBase", "d5/dba/a01940.html#a4d69d746f11c95220372f8f0a62397b1", null ],
-    [ "close", "d5/dba/a01940.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
-    [ "isBusy", "d5/dba/a01940.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isReady", "d5/dba/a01940.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "open", "d5/dba/a01940.html#ae5b5ff9d68d55b14be794ede22903816", null ],
-    [ "operator=", "d5/dba/a01940.html#a31bad4fe08fe0a3ffbb5585f42ab9b69", null ],
-    [ "operator=", "d5/dba/a01940.html#a847aa761811d4ff5a26e8ccaaef3bffe", null ]
+    [ "ExtInterrupt", "d5/dba/a01940.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
+    [ "~ExtInterrupt", "d5/dba/a01940.html#a0500efb3e0dbde6f95fd02948060723b", null ],
+    [ "ExtInterrupt", "d5/dba/a01940.html#a0896646faa35c4149a6fb3f8360da15b", null ],
+    [ "ExtInterrupt", "d5/dba/a01940.html#af65b4789b35500d9539e56a75d90c71c", null ],
+    [ "bindCallback", "d5/dba/a01940.html#a716641ce172d66ad1226056de77e00f3", null ],
+    [ "isHigh", "d5/dba/a01940.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d5/dba/a01940.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d5/dba/a01940.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d5/dba/a01940.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
+    [ "operator=", "d5/dba/a01940.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
+    [ "read", "d5/dba/a01940.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "unbindCallback", "d5/dba/a01940.html#a436fbfef93e09cd205ebb36284da5374", null ],
+    [ "void::HAL_GPIO_EXTI_Callback", "d5/dba/a01940.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
+    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d5/dba/a01940.html#a608244a38c1095888d60a17b77ae5ed4", null ],
+    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d5/dba/a01940.html#aa8068c433729122f23f40e6bfa77659f", null ],
+    [ "handle", "d5/dba/a01940.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

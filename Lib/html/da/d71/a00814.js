@@ -1,25 +1,14 @@
 var a00814 =
 [
-    [ "Display", "d8/d2d/a00815.html", "d8/d2d/a00815" ],
-    [ "EEPROM", "d7/d60/a00816.html", "d7/d60/a00816" ],
-    [ "Ethercat", "d3/d60/a00818.html", "d3/d60/a00818" ],
-    [ "FMEM", "d6/d8b/a00821.html", "d6/d8b/a00821" ],
-    [ "RFID", "d8/d1c/a00824.html", "d8/d1c/a00824" ],
-    [ "Thermometer", "dc/d1b/a00827.html", "dc/d1b/a00827" ],
-    [ "Ultrasonic", "d9/daf/a00830.html", "d9/daf/a00830" ],
-    [ "Backlight", "d7/d1b/a00864.html", "d7/d1b/a00864" ],
-    [ "Beep", "d2/dac/a00876.html", "d2/dac/a00876" ],
-    [ "DeviceManager", "da/dd6/a00896.html", "da/dd6/a00896" ],
-    [ "DigitalPeripheralBase", "d8/d0a/a00904.html", "d8/d0a/a00904" ],
-    [ "EncoderPins", "d0/d85/a00976.html", "d0/d85/a00976" ],
-    [ "EncoderTimer", "d6/d48/a00988.html", "d6/d48/a00988" ],
-    [ "INA219", "dd/d08/a00884.html", "dd/d08/a00884" ],
-    [ "IS62WV51216", "d9/db3/a01064.html", "d9/db3/a01064" ],
-    [ "SK6812", "d9/d42/a01156.html", "d9/d42/a01156" ],
-    [ "Voltmeter", "d8/d2b/a01236.html", "d8/d2b/a01236" ],
-    [ "W25Q128JVSIQ", "d9/dce/a01052.html", "d9/dce/a01052" ],
-    [ "XPT2046", "d7/d5a/a01204.html", "d7/d5a/a01204" ],
-    [ "AdcPort", "da/d71/a00814.html#a85b379ca2a4d7d2956ae5317961081ba", null ],
-    [ "Integrator", "da/d71/a00814.html#a345fa3420ca34ddf02b2c56c8705554b", null ],
-    [ "Interpolator", "da/d71/a00814.html#a2cacda540ff04115fe891c00364a43a6", null ]
+    [ "Detail", "d8/d2d/a00815.html", [
+      [ "errorIdCounter", "d8/d2d/a00815.html#a4aa716a71feabe9eb092678479bdfa78", null ]
+    ] ],
+    [ "BasicDispatcher", "db/d95/a01637.html", "db/d95/a01637" ],
+    [ "Error", "d7/d53/a01645.html", "d7/d53/a01645" ],
+    [ "ErrorBase", "d0/d90/a01641.html", "d0/d90/a01641" ],
+    [ "Group", "dc/d87/a01649.html", "dc/d87/a01649" ],
+    [ "Observer", "d3/d21/a01657.html", "d3/d21/a01657" ],
+    [ "ObserverBase", "d1/d03/a01653.html", "d1/d03/a01653" ],
+    [ "ErrorKind", "d4/d70/a02579.html", null ],
+    [ "Dispatcher", "da/d71/a00814.html#a32937fedfac156d84189cbf2133bd0ab", null ]
 ];

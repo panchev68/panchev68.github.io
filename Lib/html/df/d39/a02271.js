@@ -1,7 +1,11 @@
 var a02271 =
 [
-    [ "estimatedError", "df/d39/a02271.html#aa627467e596e97925629cac77c51da24", null ],
-    [ "processNoise", "df/d39/a02271.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
-    [ "sensorNoise", "df/d39/a02271.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
-    [ "value", "df/d39/a02271.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
+    [ "Client", "df/d39/a02271.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
+    [ "Client", "df/d39/a02271.html#a893ac5643ef917f5ca701fabbe75a429", null ],
+    [ "Client", "df/d39/a02271.html#a207055b9f6a7daac509985f971a0e14f", null ],
+    [ "get", "df/d39/a02271.html#aabf7e35c74111468fdd296e6931b047f", null ],
+    [ "operator=", "df/d39/a02271.html#a19375415236ef7e6b214f897791eeb09", null ],
+    [ "operator=", "df/d39/a02271.html#a3b9c27f75842a31365c97eaaa607d452", null ],
+    [ "post", "df/d39/a02271.html#aee5955fa4ffad931d4418d2f59af2880", null ],
+    [ "request", "df/d39/a02271.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
 ];

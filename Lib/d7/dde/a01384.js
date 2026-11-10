@@ -1,13 +1,12 @@
 var a01384 =
 [
-    [ "WolfSSHServer", "d7/dde/a01384.html#a41bf7bcd105beca0973ac47f04d4e3ff", null ],
-    [ "~WolfSSHServer", "d7/dde/a01384.html#a54cb791a164ecc14c00ccdb1f935d00e", null ],
-    [ "WolfSSHServer", "d7/dde/a01384.html#ad8f53deb42abb7890bd933f530e30e99", null ],
-    [ "WolfSSHServer", "d7/dde/a01384.html#ab4aaf2c785967e67853db50c9501bfc3", null ],
-    [ "accept", "d7/dde/a01384.html#a0bcf921f4ac87d3d5ec8ed5bad282b6c", null ],
-    [ "operator=", "d7/dde/a01384.html#a70a5a24b9fc9dd898d62c01766f9ba85", null ],
-    [ "operator=", "d7/dde/a01384.html#a68435d90ada80b3d688783d3a0a20ab5", null ],
-    [ "read", "d7/dde/a01384.html#ac07508d68f41b64e463fdd58db57558b", null ],
-    [ "send", "d7/dde/a01384.html#a034957692d48053e848ee6d77605fe2f", null ],
-    [ "shutdown", "d7/dde/a01384.html#a47906cc0c3be3035aefe35c6b6ca9c36", null ]
+    [ "FreeFunctionPointer", "d7/dde/a01384.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d7/dde/a01384.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d7/dde/a01384.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "invoke", "d7/dde/a01384.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d7/dde/a01384.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d7/dde/a01384.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d7/dde/a01384.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d7/dde/a01384.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d7/dde/a01384.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

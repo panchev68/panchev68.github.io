@@ -1,6 +1,5 @@
 var a01444 =
 [
-    [ "operator uint64_t", "d7/d32/a01444.html#aebc72338217669721612422f138da4e6", null ],
-    [ "leastSignificant", "d7/d32/a01444.html#af020cae181d7b432faf85061911c84dd", null ],
-    [ "mostSignificant", "d7/d32/a01444.html#abd19bd98e154f92791c281037281c222", null ]
+    [ "firmwareVersion", "d7/d32/a01444.html#a8a213038d3ef462ae46b408da218a1eb", null ],
+    [ "hardwareVersion", "d7/d32/a01444.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
 ];

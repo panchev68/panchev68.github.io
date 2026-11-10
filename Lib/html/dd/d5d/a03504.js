@@ -1,7 +1,6 @@
 var a03504 =
 [
-    [ "Lib::Canbus::ServiceBase", "d0/d33/a01252.html", "d0/d33/a01252" ],
-    [ "Lib::Canbus::ServiceBase::RxMessage", "d6/d0f/a01256.html", "d6/d0f/a01256" ],
-    [ "Lib::Canbus::ServiceBase::Node", "d7/da3/a01260.html", "d7/da3/a01260" ],
-    [ "Lib::Canbus::ServiceBase::Diagnostic", "d3/d51/a01264.html", "d3/d51/a01264" ]
+    [ "Lib::Canbus::Service&lt; Mode::SERVER &gt;", "d7/d73/a01266.html", "d7/d73/a01266" ],
+    [ "NUM_OF_CANBUS_CLIENT_NODES", "dd/d5d/a03504.html#a11d7d7b28667bcb585fa645eb27f1da3", null ],
+    [ "Lib::Canbus::ServerBase", "de/d37/a00849.html#ab5bb4cbc53b78fbe35d7058920026275", null ]
 ];

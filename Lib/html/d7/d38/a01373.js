@@ -1,11 +1,5 @@
 var a01373 =
 [
-    [ "ignoredMessagesByTimeout", "d7/d38/a01373.html#aef5921d826333c4443495f22db6f23b2", null ],
-    [ "invalidMessages", "d7/d38/a01373.html#a8cf4081a00bf0b7c76f0409c632e0f2f", null ],
-    [ "maxMsgLengthErrors", "d7/d38/a01373.html#ac832bb3d8fdf9c87802ff316389cdfc2", null ],
-    [ "receivedAtCommandMessages", "d7/d38/a01373.html#a1f9c3ee316f97bc9e08be7e65268f236", null ],
-    [ "receivedDataMessages", "d7/d38/a01373.html#ac128abb8594b88f0197fc4fc467d9261", null ],
-    [ "sentAtCommandMessages", "d7/d38/a01373.html#a7a621de305a56a57ba831cb3f49ffc21", null ],
-    [ "sentDataMessages", "d7/d38/a01373.html#acdadb83db434afcb1c0147457f423064", null ],
-    [ "sentDataMessagesTimeout", "d7/d38/a01373.html#af3174ab8b6a5a5ee0ea3782f3bf68d51", null ]
+    [ "generator", "d7/d38/a01373.html#a809af770c796f423098ad30eb9953eb3", null ],
+    [ "prime", "d7/d38/a01373.html#abbc1d8e6b58e94bac7e603b88be07d0e", null ]
 ];

@@ -1,12 +1,9 @@
 var a01202 =
 [
-    [ "FreeFunctionPointer", "d4/d5d/a01202.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d4/d5d/a01202.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d4/d5d/a01202.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d4/d5d/a01202.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d4/d5d/a01202.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d4/d5d/a01202.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d4/d5d/a01202.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d4/d5d/a01202.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d4/d5d/a01202.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "calculatedChecksum", "d4/d5d/a01202.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
+    [ "frameChecksum", "d4/d5d/a01202.html#afd2a7854bded2de4881565573fc0d9b1", null ],
+    [ "invalidFrameChecksum", "d4/d5d/a01202.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
+    [ "invalidHumidity", "d4/d5d/a01202.html#a97069f405d3773e81b9930425efc8d74", null ],
+    [ "invalidTemperature", "d4/d5d/a01202.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
+    [ "receivedTimeout", "d4/d5d/a01202.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
 ];

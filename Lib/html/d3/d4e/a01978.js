@@ -1,13 +1,9 @@
 var a01978 =
 [
-    [ "State", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "d3/d4e/a01978.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "Handle", "d3/d4e/a01978.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "d3/d4e/a01978.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "d3/d4e/a01978.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "d3/d4e/a01978.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "d3/d4e/a01978.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "d3/d4e/a01978.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

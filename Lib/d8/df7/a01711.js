@@ -1,14 +1,8 @@
 var a01711 =
 [
-    [ "Bitset", "d8/df7/a01711.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
-    [ "Status", "d8/df7/a01711.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
-      [ "OK", "d8/df7/a01711.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d8/df7/a01711.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Configuration", "d8/df7/a01711.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
-    [ "isEmpty", "d8/df7/a01711.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
-    [ "isValid", "d8/df7/a01711.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
-    [ "read", "d8/df7/a01711.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
-    [ "write", "d8/df7/a01711.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
-    [ "flashAddress", "d8/df7/a01711.html#a889c51a86228ce8b18804cb2b455d889", null ]
+    [ "Frame0x90", "d8/df7/a01711.html#a22052cd3212328570ef5c6d06ef34390", null ],
+    [ "options", "d8/df7/a01711.html#a5c602af5052ef25f33461908061ad07f", null ],
+    [ "rfData", "d8/df7/a01711.html#a0a12c77e30ed809310066e0b8ca02ef4", null ],
+    [ "srcAddr16", "d8/df7/a01711.html#a6bca75cd72e3dbbce9c1bc53b4723b78", null ],
+    [ "srcAddr64", "d8/df7/a01711.html#a8c9867ba7149b30c68d2c80449ece42a", null ]
 ];

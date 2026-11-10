@@ -1,4 +1,4 @@
 var a00749 =
 [
-    [ "RTOS::TickCounter", "d4/da8/a02444.html", "d4/da8/a02444" ]
+    [ "RTOS::Mutex", "d6/d5c/a02427.html", "d6/d5c/a02427" ]
 ];

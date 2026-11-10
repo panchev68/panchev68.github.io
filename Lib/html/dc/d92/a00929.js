@@ -1,10 +1,8 @@
 var a00929 =
 [
-    [ "PortBase", "dc/d92/a00929.html#a5350d276e1d3d6505501c1a194798ee1", null ],
-    [ "~PortBase", "dc/d92/a00929.html#ae97ed92776c4c9fec031848b9d223290", null ],
-    [ "getSpiHandle", "dc/d92/a00929.html#a1677aa107627ab40c3a7a3a495722c77", null ],
-    [ "postUpdateCallback", "dc/d92/a00929.html#af0d8329309d89f85d0432a205da0410c", null ],
-    [ "preUpdateCallback", "dc/d92/a00929.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
-    [ "setup", "dc/d92/a00929.html#a819a0deaed30808011035c3403fbf93c", null ],
-    [ "update", "dc/d92/a00929.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
+    [ "bl", "dc/d92/a00929.html#a93656f94c882ca996c98bd294a4f268f", null ],
+    [ "dc", "dc/d92/a00929.html#a0a1a1de131448f5f9259510a9df8905e", null ],
+    [ "nrst", "dc/d92/a00929.html#a5f67207441de783f78571e1d72e2ad0e", null ],
+    [ "nss", "dc/d92/a00929.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
+    [ "spi", "dc/d92/a00929.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
 ];

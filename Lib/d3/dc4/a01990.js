@@ -1,17 +1,11 @@
 var a01990 =
 [
-    [ "Status", "d3/dc4/a01990.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d3/dc4/a01990.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d3/dc4/a01990.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d3/dc4/a01990.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d3/dc4/a01990.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "d3/dc4/a01990.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d3/dc4/a01990.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d3/dc4/a01990.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d3/dc4/a01990.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d3/dc4/a01990.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d3/dc4/a01990.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d3/dc4/a01990.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d3/dc4/a01990.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "OTP", "d3/dc4/a01990.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
+    [ "OTP", "d3/dc4/a01990.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
+    [ "lock", "d3/dc4/a01990.html#ab4c2e78575458526b83be6e259aa1f93", null ],
+    [ "operator=", "d3/dc4/a01990.html#ad631f9069ef7f1c2f316505e7b391885", null ],
+    [ "operator=", "d3/dc4/a01990.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
+    [ "read", "d3/dc4/a01990.html#acff397156950347f6f452dec2c94af43", null ],
+    [ "unlock", "d3/dc4/a01990.html#a220a07c58647557d8a81402260eacfb5", null ],
+    [ "write", "d3/dc4/a01990.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
 ];

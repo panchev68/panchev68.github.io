@@ -1,7 +1,8 @@
 var a02470 =
 [
-    [ "current", "df/ddf/a02470.html#a03c2002021ee39257b3712ebb21f9804", null ],
-    [ "irradiance", "df/ddf/a02470.html#aeb4a3f32aa352d29093581039d36dd08", null ],
-    [ "temperature", "df/ddf/a02470.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
-    [ "voltage", "df/ddf/a02470.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
+    [ "Config", "df/ddf/a02470.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
+    [ "callback", "df/ddf/a02470.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
+    [ "mode", "df/ddf/a02470.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
+    [ "name", "df/ddf/a02470.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
+    [ "period", "df/ddf/a02470.html#ae81cad8de025f71497b5b241c41da1eb", null ]
 ];

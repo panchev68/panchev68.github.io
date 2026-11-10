@@ -1,12 +1,12 @@
 var a02184 =
 [
-    [ "Time", "d5/ddd/a02184.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d5/ddd/a02184.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d5/ddd/a02184.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d5/ddd/a02184.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d5/ddd/a02184.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d5/ddd/a02184.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d5/ddd/a02184.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d5/ddd/a02184.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d5/ddd/a02184.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "WindowWatchdog", "d5/ddd/a02184.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "d5/ddd/a02184.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "d5/ddd/a02184.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "d5/ddd/a02184.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "d5/ddd/a02184.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "d5/ddd/a02184.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "d5/ddd/a02184.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "d5/ddd/a02184.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "d5/ddd/a02184.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

@@ -1,13 +1,14 @@
 var a02076 =
 [
-    [ "UARTPortBase", "db/d87/a02076.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
-    [ "UARTPortBase", "db/d87/a02076.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
-    [ "UARTPortBase", "db/d87/a02076.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
-    [ "~UARTPortBase", "db/d87/a02076.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
-    [ "close", "db/d87/a02076.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
-    [ "isBusy", "db/d87/a02076.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "open", "db/d87/a02076.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
-    [ "operator=", "db/d87/a02076.html#ad0321a4f1297088a60c64e263c8c6816", null ],
-    [ "operator=", "db/d87/a02076.html#af29977f244357cb79e8203dbd192840c", null ],
-    [ "setBaudRate", "db/d87/a02076.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "TimEncoder", "db/d87/a02076.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "db/d87/a02076.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "db/d87/a02076.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "db/d87/a02076.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "db/d87/a02076.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "db/d87/a02076.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "db/d87/a02076.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "db/d87/a02076.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "db/d87/a02076.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "db/d87/a02076.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "db/d87/a02076.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

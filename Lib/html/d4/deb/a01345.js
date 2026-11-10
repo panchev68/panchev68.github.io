@@ -1,12 +1,10 @@
 var a01345 =
 [
-    [ "ChannelArray", "d4/deb/a01345.html#aa2fed2d2a6f2ce38866cce0b42f0fc1d", null ],
-    [ "SpectrumAnalyzer", "d4/deb/a01345.html#acffb15e4dc1a3f0ff7c89bc48f895f8e", null ],
-    [ "SpectrumAnalyzer", "d4/deb/a01345.html#a2c4d3982ffc82582c07ab45464cd9a9f", null ],
-    [ "getAverageArray", "d4/deb/a01345.html#a9a039ecee938e04e07e4fcb9227ae878", null ],
-    [ "getCurrentArray", "d4/deb/a01345.html#a8839a8b30ad3060298b6867566c1aa6d", null ],
-    [ "getMaxArray", "d4/deb/a01345.html#a8fa9bbae67bd369d3c4dcfd522299a06", null ],
-    [ "isNewData", "d4/deb/a01345.html#a2788be420fbb2acb1168d7aa21759804", null ],
-    [ "operator=", "d4/deb/a01345.html#a9ca130f09d902c6ce140e87b155e8d00", null ],
-    [ "resetData", "d4/deb/a01345.html#a219916036b1120cc272129041d937770", null ]
+    [ "WolfSSH", "d4/deb/a01345.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "d4/deb/a01345.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "d4/deb/a01345.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "d4/deb/a01345.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "d4/deb/a01345.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "d4/deb/a01345.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "d4/deb/a01345.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

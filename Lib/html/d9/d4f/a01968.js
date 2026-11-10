@@ -1,11 +1,18 @@
 var a01968 =
 [
-    [ "OTP", "d9/d4f/a01968.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
-    [ "OTP", "d9/d4f/a01968.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
-    [ "lock", "d9/d4f/a01968.html#ab4c2e78575458526b83be6e259aa1f93", null ],
-    [ "operator=", "d9/d4f/a01968.html#ad631f9069ef7f1c2f316505e7b391885", null ],
-    [ "operator=", "d9/d4f/a01968.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
-    [ "read", "d9/d4f/a01968.html#acff397156950347f6f452dec2c94af43", null ],
-    [ "unlock", "d9/d4f/a01968.html#a220a07c58647557d8a81402260eacfb5", null ],
-    [ "write", "d9/d4f/a01968.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
+    [ "Date", "db/d9d/a01972.html", "db/d9d/a01972" ],
+    [ "Time", "d9/da1/a01976.html", "d9/da1/a01976" ],
+    [ "Callback", "d9/d4f/a01968.html#aa65bc239da01d8925270ee88a5cfd754", null ],
+    [ "RTCDevice", "d9/d4f/a01968.html#aef59f39cbffc698a357982cd0194a7f9", null ],
+    [ "~RTCDevice", "d9/d4f/a01968.html#a892362d24be775443627005ea8724b38", null ],
+    [ "RTCDevice", "d9/d4f/a01968.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
+    [ "RTCDevice", "d9/d4f/a01968.html#a6c8a82665278c72edbd09c517d929e67", null ],
+    [ "getDateTime", "d9/d4f/a01968.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
+    [ "isTickServiceRunning", "d9/d4f/a01968.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
+    [ "operator=", "d9/d4f/a01968.html#a97370a531742ca95f9bbb03daefd9919", null ],
+    [ "operator=", "d9/d4f/a01968.html#a9b9f7c009be9bbae886ca7082a302099", null ],
+    [ "setDateTime", "d9/d4f/a01968.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
+    [ "startTickService", "d9/d4f/a01968.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
+    [ "stopTickService", "d9/d4f/a01968.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
+    [ "void::HAL_RTC_AlarmAEventCallback", "d9/d4f/a01968.html#a292bc50e5b612af91527952bbffe57e9", null ]
 ];

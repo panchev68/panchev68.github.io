@@ -1,10 +1,16 @@
 var a01719 =
 [
-    [ "VersionString", "d6/d56/a01719.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d6/d56/a01719.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "d6/d56/a01719.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d6/d56/a01719.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d6/d56/a01719.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d6/d56/a01719.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d6/d56/a01719.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "Container", "d6/d56/a01719.html#aee7408e236983dfe716699922a20e848", null ],
+    [ "Status", "d6/d56/a01719.html#abfa34fca2a40d9f990c238a66f2611aa", [
+      [ "STATUS_CHANGED", "d6/d56/a01719.html#abfa34fca2a40d9f990c238a66f2611aaa7d7345c2c77de394beec94e0aca562a4", null ],
+      [ "ALL_ERRORS_CLEARED", "d6/d56/a01719.html#abfa34fca2a40d9f990c238a66f2611aaa1459aaf5be4f244005eaa164b1d504db", null ]
+    ] ],
+    [ "BasicDispatcher", "d6/d56/a01719.html#a8888661e1979a2b522e456f3e143e065", null ],
+    [ "BasicDispatcher", "d6/d56/a01719.html#add10f2d01f474243d9fa895cff993e07", null ],
+    [ "createError", "d6/d56/a01719.html#a7554b5db1f1070f8aad9ac57559ebe20", null ],
+    [ "operator=", "d6/d56/a01719.html#a663a1359b4c59113e160a2da62046222", null ],
+    [ "operator=", "d6/d56/a01719.html#a45f56f6db82a8095e39231ccf05639dc", null ],
+    [ "start", "d6/d56/a01719.html#a2a8d7f8d21f54b77500912d9f5b9d2a7", null ],
+    [ "RTOS::TickClient< BasicDispatcher< T_ERROR > >", "d6/d56/a01719.html#a650ea0ef5048343da33f94d14c44e548", null ],
+    [ "statusChangedHook", "d6/d56/a01719.html#ad9aef0af1e4c4a90973e199c7381a198", null ]
 ];

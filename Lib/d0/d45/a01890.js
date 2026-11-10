@@ -1,12 +1,19 @@
 var a01890 =
 [
-    [ "ReferenceParameters", "d8/dd1/a01894.html", "d8/dd1/a01894" ],
-    [ "Measurement", "dd/d8e/a01898.html", "dd/d8e/a01898" ],
-    [ "MaxPowerEstimator", "d0/d45/a01890.html#a434bc885ae98e175c94cc0274463e3e5", null ],
-    [ "MPPT", "d0/d45/a01890.html#aedf986308c8dd799d4771f32d446ee01", null ],
-    [ "getIrradianceCoefficient", "d0/d45/a01890.html#a55a3b7a18c79deb5568e627889f76b86", null ],
-    [ "getTolerance", "d0/d45/a01890.html#a0ac8d81cbc06a7045f43424b16871253", null ],
-    [ "getVoltageSetpoint", "d0/d45/a01890.html#a455584e52b5677fe4bce93e58e80ca38", null ],
-    [ "setMaxPowerEstimationFunction", "d0/d45/a01890.html#abc619561c7180e6c69b8282c58157857", null ],
-    [ "update", "d0/d45/a01890.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
+    [ "DataAlignment", "d0/d45/a01890.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d0/d45/a01890.html#a430af54970be9f050913a2587b44af8c", null ],
+    [ "~DACPort", "d0/d45/a01890.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
+    [ "DACPort", "d0/d45/a01890.html#a74ca3aad257be30051d7eaf469296f7d", null ],
+    [ "DACPort", "d0/d45/a01890.html#a3baeea2036cc1c8db31042f17b2ace75", null ],
+    [ "close", "d0/d45/a01890.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
+    [ "getChannel", "d0/d45/a01890.html#a668e6706e47926674d5df3daad36276c", null ],
+    [ "getHandle", "d0/d45/a01890.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d0/d45/a01890.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "open", "d0/d45/a01890.html#a972d40716f11cc01e220bc488d2fb281", null ],
+    [ "operator=", "d0/d45/a01890.html#a3de9f7904a1682b503e927cd7557360c", null ],
+    [ "operator=", "d0/d45/a01890.html#a935c4325ea0cf9f2079b66affe1e46a1", null ],
+    [ "setValue", "d0/d45/a01890.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d0/d45/a01890.html#a99aa0c249bf50a455acd99a243d63c67", null ],
+    [ "stop", "d0/d45/a01890.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
+    [ "waitForEvent", "d0/d45/a01890.html#a9327549838d3f5ba4298452dabb5e443", null ]
 ];

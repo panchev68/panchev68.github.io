@@ -1,9 +1,9 @@
 var a01480 =
 [
-    [ "Channel", "d1/d38/a01480.html#a22027e4571b9cc2d46357b22bd28e66f", null ],
-    [ "Channel", "d1/d38/a01480.html#a5e50f722347f9ed9f0522656753bf4c9", null ],
-    [ "getConnectionQuality", "d1/d38/a01480.html#a9c351291c3bb7c963270eae54a16597d", null ],
-    [ "operator uint8_t", "d1/d38/a01480.html#ae2502b1dd2b99b51b8fbf42035379fd5", null ],
-    [ "operator=", "d1/d38/a01480.html#a3ca558416faa66aa9c8c1957512b8f2c", null ],
-    [ "setConnectionQuality", "d1/d38/a01480.html#af7e5e84d1697e43122a6e086007d9789", null ]
+    [ "Counter", "d1/d38/a01480.html#a979dd53107c70679957a49b352e309e4", null ],
+    [ "Counter", "d1/d38/a01480.html#aa0fcdac4118821433a18e704d608605d", null ],
+    [ "clear", "d1/d38/a01480.html#a5f4c68779359a4681b48228f57296c09", null ],
+    [ "operator uint32_t", "d1/d38/a01480.html#a32d48ad9be69d1fb44852223025c4efe", null ],
+    [ "operator++", "d1/d38/a01480.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
+    [ "operator=", "d1/d38/a01480.html#aebee6561b906ea1271070b47c2610fe2", null ]
 ];

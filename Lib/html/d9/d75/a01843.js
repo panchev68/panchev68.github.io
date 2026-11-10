@@ -1,14 +1,13 @@
 var a01843 =
 [
-    [ "Time", "d3/d19/a01847.html", "d3/d19/a01847" ],
-    [ "Date", "d2/d3e/a01851.html", "d2/d3e/a01851" ],
-    [ "DateTime", "d9/d75/a01843.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "d9/d75/a01843.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "d9/d75/a01843.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "d9/d75/a01843.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "d9/d75/a01843.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "d9/d75/a01843.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "d9/d75/a01843.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "d9/d75/a01843.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "d9/d75/a01843.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "BackupRamDomain", "d9/d75/a01843.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d9/d75/a01843.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d9/d75/a01843.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d9/d75/a01843.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d9/d75/a01843.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d9/d75/a01843.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d9/d75/a01843.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d9/d75/a01843.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d9/d75/a01843.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d9/d75/a01843.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

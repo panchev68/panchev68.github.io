@@ -1,8 +1,5 @@
 var a00906 =
 [
-    [ "DeviceBase", "da/dd8/a00906.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "da/dd8/a00906.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "da/dd8/a00906.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "da/dd8/a00906.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "da/dd8/a00906.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "offsetAmperes", "da/dd8/a00906.html#abbabcd239f7f7e8cd62d810f7ddf34ee", null ],
+    [ "polarity", "da/dd8/a00906.html#a331117dc379889237a688a73fb86504d", null ]
 ];

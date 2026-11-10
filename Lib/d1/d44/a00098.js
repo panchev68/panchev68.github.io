@@ -1,4 +1,4 @@
 var a00098 =
 [
-    [ "Lib::BSP::Thermometer::DTH::Parm", "d6/d97/a01188.html", null ]
+    [ "Lib::BSP::EEPROM::I2C::M24C16", "d3/daa/a00996.html", "d3/daa/a00996" ]
 ];

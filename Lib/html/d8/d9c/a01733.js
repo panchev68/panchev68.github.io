@@ -1,12 +1,10 @@
 var a01733 =
 [
-    [ "Sunset", "d8/d9c/a01733.html#a402a1203f51a88c0d732a65d431084b2", null ],
-    [ "Sunset", "d8/d9c/a01733.html#a2c1f6f04de77d5868feb1fa1a6039fd0", null ],
-    [ "calculateSunTime", "d8/d9c/a01733.html#ac1f5e5819f84b104cb7a80ac1bf582e0", null ],
-    [ "computeHourAngle", "d8/d9c/a01733.html#aef3e93cf3eecbb7ea862c973e2a27740", null ],
-    [ "setCurrentDate", "d8/d9c/a01733.html#a5c6deabfb7071836dede5e4bec4152f3", null ],
-    [ "setCurrentDate", "d8/d9c/a01733.html#a29094e288d78ced6c06c9652828bb343", null ],
-    [ "setPosition", "d8/d9c/a01733.html#afbc858a5944c47609616f459b657339b", null ],
-    [ "sunrise", "d8/d9c/a01733.html#ac18d69149ba7a8ed86b70ce314aa7d0a", null ],
-    [ "sunset", "d8/d9c/a01733.html#a3bea9bb96761c55203633434195d87c4", null ]
+    [ "MacString", "d8/d9c/a01733.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
+    [ "MacAddress", "d8/d9c/a01733.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
+    [ "MacAddress", "d8/d9c/a01733.html#aa300b2a042efd76f66f61db709b5b736", null ],
+    [ "data", "d8/d9c/a01733.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
+    [ "operator[]", "d8/d9c/a01733.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
+    [ "size", "d8/d9c/a01733.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
+    [ "toString", "d8/d9c/a01733.html#a83b7f1a52401d479dea270cbe112b88c", null ]
 ];

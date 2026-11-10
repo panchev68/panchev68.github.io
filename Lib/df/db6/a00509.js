@@ -1,4 +1,4 @@
 var a00509 =
 [
-    [ "Lib::HAL::Timer::TimPwmOutput", "d1/d39/a02048.html", "d1/d39/a02048" ]
+    [ "Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;", "d3/d4e/a01991.html", "d3/d4e/a01991" ]
 ];

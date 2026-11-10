@@ -1,9 +1,15 @@
 var a01889 =
 [
-    [ "VersionString", "d9/d9b/a01889.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d9/d9b/a01889.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getValue", "d9/d9b/a01889.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d9/d9b/a01889.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d9/d9b/a01889.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d9/d9b/a01889.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "I2CPort", "d9/d9b/a01889.html#a70dc562f520726340c2c942ee7753b17", null ],
+    [ "~I2CPort", "d9/d9b/a01889.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
+    [ "I2CPort", "d9/d9b/a01889.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
+    [ "I2CPort", "d9/d9b/a01889.html#a6c227decd7ea7b8ff23e032025761259", null ],
+    [ "getHandle", "d9/d9b/a01889.html#a57df6990634d2cba4b86d8cf193f4050", null ],
+    [ "getHandle", "d9/d9b/a01889.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
+    [ "masterMemRead", "d9/d9b/a01889.html#aff45c6ae44d78ac3f07f800383374359", null ],
+    [ "masterMemWrite", "d9/d9b/a01889.html#ae89e0f492119ac05671af0cdca2b90de", null ],
+    [ "masterReceive", "d9/d9b/a01889.html#a165d3958b26f38d4c513160a447bcfaf", null ],
+    [ "masterTransmit", "d9/d9b/a01889.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
+    [ "operator=", "d9/d9b/a01889.html#aae592f22809df591ac07e2cd47f3969b", null ],
+    [ "operator=", "d9/d9b/a01889.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
 ];

@@ -1,7 +1,8 @@
 var a01614 =
 [
-    [ "writeTo", "db/d7c/a01614.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
-    [ "atCommand", "db/d7c/a01614.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "db/d7c/a01614.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameterValue", "db/d7c/a01614.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
+    [ "writeTo", "db/d7c/a01614.html#a4b67abe71dc0cda3271d558cf7dc8567", null ],
+    [ "dstAddress", "db/d7c/a01614.html#a9969bce892ba39508a48daebcde56b75", null ],
+    [ "frameId", "db/d7c/a01614.html#ae540c1fa3f4c9c108127455e8ac5b127", null ],
+    [ "options", "db/d7c/a01614.html#a61fadbd6372692084aabcea329f5f1ab", null ],
+    [ "rfData", "db/d7c/a01614.html#a99cf3d6eb6a15b6b82e1f552a57c54af", null ]
 ];

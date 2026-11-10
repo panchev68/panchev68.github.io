@@ -1,6 +1,13 @@
 var a01564 =
 [
-    [ "lengthLSB", "de/dd5/a01564.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
-    [ "lengthMSB", "de/dd5/a01564.html#a975df99244301d7a71b2c326555ba6fd", null ],
-    [ "startDelimiter", "de/dd5/a01564.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
+    [ "Command", "de/dd5/a01564.html#ad7de9040ab35a62c524e02edb5857497", null ],
+    [ "LocalAtCommand", "de/dd5/a01564.html#a2644d8442788182ecf1ae8320b0e9eea", null ],
+    [ "LocalAtCommand", "de/dd5/a01564.html#a87fb3012f76cc4c1ec461e5e775af481", null ],
+    [ "close", "de/dd5/a01564.html#a5c97cd2a002f63083302783169a633fb", null ],
+    [ "isOpen", "de/dd5/a01564.html#a358609859fd8a9ac5eccd608b2348c9f", null ],
+    [ "open", "de/dd5/a01564.html#a01489f683e248d7c2af355b8f1cd8992", null ],
+    [ "operator=", "de/dd5/a01564.html#ad7f687a42b171f4d737c1bbc9d2e5388", null ],
+    [ "receive", "de/dd5/a01564.html#a919e2d0395cc2fd5d1b5a4d2378f5ff7", null ],
+    [ "send", "de/dd5/a01564.html#a7154a8ebd0c96b8f0dc4969e86196f39", null ],
+    [ "send", "de/dd5/a01564.html#aefe5f6553ec5b461bf02e0eaffc6e62c", null ]
 ];

@@ -1,16 +1,17 @@
 var a01932 =
 [
-    [ "I2CPortAsync", "d8/d22/a01932.html#a97738073feff35b79d6bb11c9bd2f351", null ],
-    [ "abort", "d8/d22/a01932.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d8/d22/a01932.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d8/d22/a01932.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d8/d22/a01932.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d8/d22/a01932.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isOpened", "d8/d22/a01932.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "isReady", "d8/d22/a01932.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "d8/d22/a01932.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d8/d22/a01932.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d8/d22/a01932.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d8/d22/a01932.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d8/d22/a01932.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "DataAlignment", "d8/d22/a01932.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "d8/d22/a01932.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "d8/d22/a01932.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "d8/d22/a01932.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "d8/d22/a01932.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "d8/d22/a01932.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "d8/d22/a01932.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "d8/d22/a01932.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "d8/d22/a01932.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "d8/d22/a01932.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d8/d22/a01932.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "d8/d22/a01932.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "d8/d22/a01932.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

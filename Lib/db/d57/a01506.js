@@ -1,13 +1,8 @@
 var a01506 =
 [
-    [ "Observer", "db/d57/a01506.html#abdcd46d6d928709efb45c4092a509ad3", null ],
-    [ "Observer", "db/d57/a01506.html#a4cc93d46146ee3fcd380f341b24126ad", null ],
-    [ "Observer", "db/d57/a01506.html#a285dcb5567493b45b23d25b24004e9b9", null ],
-    [ "check", "db/d57/a01506.html#ac245a085bf28b893f98cbc8943c50939", null ],
-    [ "forEach", "db/d57/a01506.html#a6dcac43dde13eaf06dff704610eb7f8f", null ],
-    [ "getGroup", "db/d57/a01506.html#a2973edaf7f9a66d9900fe3adf841146c", null ],
-    [ "matches", "db/d57/a01506.html#abc1b7f5285e87adc24a4969a47113543", null ],
-    [ "number", "db/d57/a01506.html#a446e9c28defc96197acdcd260d4706f6", null ],
-    [ "operator const Group *", "db/d57/a01506.html#a68975b48ce0a7e2e846ed67f6851be04", null ],
-    [ "read", "db/d57/a01506.html#ae9c2b90078fb4baacc77df620dd6affc", null ]
+    [ "Node", "db/d57/a01506.html#ae77243ef5154f0127b188cb07ee7b730", null ],
+    [ "Node", "db/d57/a01506.html#ade2b76a4bad3907d0779b98753dbe88b", null ],
+    [ "macAddress", "db/d57/a01506.html#ab4f01a998762165160e1c5f287e33b36", null ],
+    [ "nodeAddr16", "db/d57/a01506.html#a047c25d839ad49f40c973b610050fa18", null ],
+    [ "nodeIdentifier", "db/d57/a01506.html#a66f046134b60cff03864ca23d0ff54fa", null ]
 ];

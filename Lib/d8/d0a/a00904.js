@@ -1,8 +1,9 @@
 var a00904 =
 [
-    [ "DeviceBase", "d8/d0a/a00904.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "d8/d0a/a00904.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "d8/d0a/a00904.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "d8/d0a/a00904.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "d8/d0a/a00904.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "Config", "d0/d85/a00908.html", "d0/d85/a00908" ],
+    [ "Backlight", "d8/d0a/a00904.html#aa256a4d5fc394db1a9afed11974b96ef", null ],
+    [ "~Backlight", "d8/d0a/a00904.html#a5516d16616d30b6214626e963873f08a", null ],
+    [ "get", "d8/d0a/a00904.html#a50a810c2a297031558286c9c20bb51ea", null ],
+    [ "operator=", "d8/d0a/a00904.html#a6b38c863109edd503a2e5e78f170f0bd", null ],
+    [ "set", "d8/d0a/a00904.html#a666c0e0466ea2c644c087fc5a3eaa625", null ]
 ];

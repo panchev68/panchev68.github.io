@@ -26,37 +26,14 @@ var NAVTREE =
 [
   [ "IAR Library", "index.html", [
     [ "IAR EWARM Library", "index.html", "index" ],
-    [ "PGA460TPWRQ1 usage", "da/dc7/a03407.html", [
-      [ "Hardware assumptions", "da/dc7/a03407.html#pga460_usage_hw", null ],
-      [ "Single measurement", "da/dc7/a03407.html#pga460_usage_basic", null ],
-      [ "Periodic measurement task", "da/dc7/a03407.html#pga460_usage_task", null ],
-      [ "Non-default UART address", "da/dc7/a03407.html#pga460_usage_address", null ]
+    [ "PGA460TPWRQ1 usage", "dd/db6/a03514.html", [
+      [ "Hardware assumptions", "dd/db6/a03514.html#pga460_usage_hw", null ],
+      [ "Single measurement", "dd/db6/a03514.html#pga460_usage_basic", null ],
+      [ "Periodic measurement task", "dd/db6/a03514.html#pga460_usage_task", null ],
+      [ "Non-default UART address", "dd/db6/a03514.html#pga460_usage_address", null ]
     ] ],
-    [ "FunctionRef example", "d2/d2e/a03408.html", null ],
-    [ "Ascii example", "d0/dc8/a03409.html", null ],
-    [ "Bcd example", "df/de2/a03410.html", null ],
-    [ "dBM example", "d3/d74/a03411.html", null ],
-    [ "Hex example", "d4/d57/a03412.html", null ],
-    [ "HexHelper example", "d6/daa/a03413.html", null ],
-    [ "Percent example", "d2/dd6/a03414.html", null ],
-    [ "TimePeriod example", "d0/d4b/a03415.html", null ],
-    [ "TimeZone example", "df/df7/a03416.html", null ],
-    [ "EventGroup example", "d9/d9d/a03417.html", null ],
-    [ "MessageBuffer example", "d1/deb/a03418.html", null ],
-    [ "MutexGuard example", "d1/d42/a03419.html", null ],
-    [ "StreamBuffer examples", "d1/d8b/a03420.html", [
-      [ "Dynamic creation", "d1/d8b/a03420.html#streambuffer_dynamic", null ],
-      [ "Static creation", "d1/d8b/a03420.html#streambuffer_static", null ],
-      [ "Task to task", "d1/d8b/a03420.html#streambuffer_task", null ],
-      [ "ISR to task (UART receive)", "d1/d8b/a03420.html#streambuffer_isr", null ],
-      [ "Several writers", "d1/d8b/a03420.html#streambuffer_multiwriter", null ],
-      [ "Monitoring and control", "d1/d8b/a03420.html#streambuffer_monitor", null ],
-      [ "Moving ownership", "d1/d8b/a03420.html#streambuffer_move", null ]
-    ] ],
-    [ "Task example", "d9/d2c/a03421.html", null ],
-    [ "TickCounter example", "d3/dff/a03422.html", null ],
-    [ "CDCDevice example", "d3/d65/a03423.html", null ],
-    [ "Deprecated List", "d8/db7/a00812.html", null ],
+    [ "Deprecated List", "d0/d11/a00842.html", null ],
+    [ "Topics", "topics.html", "topics" ],
     [ "Namespace Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", "namespacemembers_dup" ],
       [ "Functions", "namespacemembers_func.html", null ],
@@ -81,32 +58,34 @@ var NAVTREE =
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/dbb/a02448.html#a4dc9099a6f012b5028a3156341c3d564",
-"d1/d38/a01480.html#a22027e4571b9cc2d46357b22bd28e66f",
-"d1/dde/a01496.html",
-"d3/d19/a02464.html#a199180804d52f432b3f8a4861146f827",
-"d4/d2d/a02408.html#a763df13de8b80bb510f7a64f2f7bbb48",
-"d5/d10/a02396.html#a70791f9cd23a68a9bd9e6c2ff7067ab5",
-"d5/de7/a01048.html#af9ad76ca92b33af38466c11344584476",
-"d6/db0/a01948.html#aeba7a0754d641aad2f60cd34c1585ed6",
-"d7/db6/a00940.html",
-"d8/d7b/a01872.html#a6f809dceb0bf7f7f10d36a60d80542ae",
-"d9/db6/a02056.html#a4d6a362058e35bbfc0c72a9c5f1a46a5",
-"da/d75/a02372.html#a4a72a94370a00b530eb26b466ed373bc",
-"da/de0/a01248.html#a4412fc056d4c7fd922510ac818f9f29f",
-"db/db1/a02404.html#aa49210c40edb460f5b64e0a7db0d87e8",
-"dc/d62/a02020.html#a1a9d936e6ff40316674eb1bb6293d5eb",
-"dd/d0a/a02436.html#adf87e93a9e774ae37b684423c1f2acde",
-"de/d16/a01228.html#af23eb94dd6b27d2f4b97126ec7c3ff6e",
-"df/d0b/a01372.html#ad5bdebc14ab4ffb181a07e57b3f42abc",
-"dir_0d1dada7ba5413befe18eece368f24ce.html"
+"d0/ddb/a00542.html#a30dfbb10cb465524f842588d8b728267",
+"d1/dea/a01791.html#ad7428bbb83ea5af8171eee7e864fdda4",
+"d2/d9a/a02227.html#a17512f695eb94c12c81163d5335f3ef2",
+"d3/dbc/a01451.html#a2e951b9b4363af4a96e6e7426382c1d3",
+"d4/d64/a02111.html#ac39b97fd324efde09c82d0ccfe7fe4e8",
+"d5/d73/a02423.html#a0f5b82df6b3d86f401191d1b11202f96",
+"d6/d27/a01163.html#a5036c8053ab5111f65ec7d1472838f4c",
+"d6/d9a/a02491.html#ab9f24e9be6431fa9de927ef5b39ce61e",
+"d7/d67/a02323.html#aa1d2d569c178bee69ecdf55d472c9b50",
+"d8/d49/a02419.html#a12545d9824f6613ee89191861f120584",
+"d9/d5b/a01127.html#ab2cf6cb7b446cd6c4c4ad348178a8bf0",
+"d9/df7/a01699.html#a1f2d004cd4c6fbc142552586f654c372a4686d529cd92a743c34e665dfecf98d9",
+"da/df3/a02059.html#a8be2d6d39175f6e71f25e4a64e0e2f1b",
+"db/dca/a01639.html#a7b898336331c68a5b1b7e460205e001e",
+"dc/d6e/a00833.html",
+"dd/d54/a02119.html#a8be2d6d39175f6e71f25e4a64e0e2f1b",
+"de/d4a/a01107.html#ab7d16cfbd2da4ddbf5fe344a3eace30f",
+"df/d12/a01703.html#a1ca3b1d6d0209c50bd947bfccb88bb66a2e99e5dc4968ce76c38add117219dc8a",
+"df/dd8/a01943.html#a608244a38c1095888d60a17b77ae5ed4",
+"namespacemembers_n.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

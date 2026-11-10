@@ -1,4 +1,4 @@
 var a00716 =
 [
-    [ "RTOS::Mutex", "da/d75/a02372.html", "da/d75/a02372" ]
+    [ "Lib::Math::HammingCode", "d5/d1b/a02331.html", null ]
 ];

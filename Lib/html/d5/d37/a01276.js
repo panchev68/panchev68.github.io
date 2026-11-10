@@ -1,5 +1,6 @@
 var a01276 =
 [
-    [ "Master", "d5/d37/a01276.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d5/d37/a01276.html#af2d503cce06191d01441adbba146c9f5", null ]
+    [ "adc", "d5/d37/a01276.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
+    [ "channel", "d5/d37/a01276.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
+    [ "periodMs", "d5/d37/a01276.html#ad839d16fe06238279ff23042e3761f0c", null ]
 ];

@@ -1,14 +1,22 @@
 var a01219 =
 [
-    [ "Config", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
-    [ "ComDriver", "d5/d39/a01219.html#af252f09507beb50cbc2140f5f09fb3f6", null ],
-    [ "ComDriver", "d5/d39/a01219.html#a03ab790da04c621305ff57fb329ae2ae", null ],
-    [ "~ComDriver", "d5/d39/a01219.html#adc08b927e27223cec3f55448bcf5a57a", null ],
-    [ "open", "d5/d39/a01219.html#a71c3c29d31621ca57b6717130e22b13c", null ],
-    [ "operator=", "d5/d39/a01219.html#aefdf5f320df903fedbb7dd5f11d6f3bc", null ],
-    [ "reset", "d5/d39/a01219.html#a47e3cbbb11b240e9df1428f86821470b", null ],
-    [ "send", "d5/d39/a01219.html#aef87a698bd0756085d2f9171d06f0b2c", null ],
-    [ "send", "d5/d39/a01219.html#ada2be188263ba8a0eaa5f7f61eddd2a2", null ],
-    [ "diagnostic", "d5/d39/a01219.html#a2f9d22f76fcd5503e8e2fe513962759f", null ],
-    [ "xrst", "d5/d39/a01219.html#aab403cdee42a2d6cde18c93b8f6ab258", null ]
+    [ "Diagnostic", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
+    [ "PinHandle", "d5/d39/a01219.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
+    [ "Driver", "d5/d39/a01219.html#ab07845254f409b109812886c271c23fd", null ],
+    [ "~Driver", "d5/d39/a01219.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
+    [ "beginReceiveData", "d5/d39/a01219.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
+    [ "endReceivedData", "d5/d39/a01219.html#a63785a9b88d7556f54e1e71118a760d4", null ],
+    [ "getHumidity", "d5/d39/a01219.html#af1b0389aae714142b8a606106d0a4a56", null ],
+    [ "getRawHumidity", "d5/d39/a01219.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
+    [ "getRawTemperature", "d5/d39/a01219.html#ab776af450b94ccff9151de29e820c940", null ],
+    [ "getTemperature", "d5/d39/a01219.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
+    [ "hasNewData", "d5/d39/a01219.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
+    [ "isValidData", "d5/d39/a01219.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
+    [ "start", "d5/d39/a01219.html#a7bb2909673708c9ad956bc98034da91d", null ],
+    [ "startupImpulse", "d5/d39/a01219.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
+    [ "waitForComplete", "d5/d39/a01219.html#a9b5b96a6106c15c974463750529471d0", null ],
+    [ "writePinState", "d5/d39/a01219.html#a049430e063b46db8f7e7401c0af75df7", null ],
+    [ "Base< Driver< Type::DTH22 > >", "d5/d39/a01219.html#a563861f233361c18a30fd9049d7abd7a", null ],
+    [ "config", "d5/d39/a01219.html#a3b31347dab82ede045f6e076046e5762", null ],
+    [ "diagnostic", "d5/d39/a01219.html#a641741551ee87f815b7ca238c2fce09c", null ]
 ];

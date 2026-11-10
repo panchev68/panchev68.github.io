@@ -1,4 +1,4 @@
 var a00206 =
 [
-    [ "Lib::Digi::Core::AtCommandString", "dc/d2d/a01534.html", "dc/d2d/a01534" ]
+    [ "Lib::Digi::API::Service::SpectrumAnalyzer", "d7/def/a01538.html", "d7/def/a01538" ]
 ];

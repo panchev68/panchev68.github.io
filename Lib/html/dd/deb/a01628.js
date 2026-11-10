@@ -1,11 +1,8 @@
 var a01628 =
 [
-    [ "onExtendedTransmitStatusChanged", "dd/deb/a01628.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "dd/deb/a01628.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "dd/deb/a01628.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "dd/deb/a01628.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "dd/deb/a01628.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "dd/deb/a01628.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "dd/deb/a01628.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "dd/deb/a01628.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Frame0x88", "dd/deb/a01628.html#a8cdabdda134adaf1796641f68581f1c8", null ],
+    [ "atCommand", "dd/deb/a01628.html#aba3a41028c41109166efaf024c9dca74", null ],
+    [ "data", "dd/deb/a01628.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
+    [ "frameId", "dd/deb/a01628.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
+    [ "status", "dd/deb/a01628.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
 ];

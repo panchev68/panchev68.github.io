@@ -1,6 +1,5 @@
 var a01083 =
 [
-    [ "sak", "d6/d9a/a01083.html#a0a660971905a4d13ec801be99827ad26", null ],
-    [ "size", "d6/d9a/a01083.html#ae19abed0f3be0cc580838b351a256404", null ],
-    [ "uidByte", "d6/d9a/a01083.html#a8daf36157ed2f3632e9be6ec8b278293", null ]
+    [ "baseAddress", "d6/d9a/a01083.html#ab922219fc16e46857f76b5a34c05ea47", null ],
+    [ "sizeBytes", "d6/d9a/a01083.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
 ];

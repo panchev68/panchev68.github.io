@@ -1,18 +1,17 @@
 var a02084 =
 [
-    [ "EventHandler", "da/dbe/a02084.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "da/dbe/a02084.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
-    [ "~USBDevicePort", "da/dbe/a02084.html#a0a313f5efd10221e16714eece65dda0f", null ],
-    [ "abort", "da/dbe/a02084.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "da/dbe/a02084.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "da/dbe/a02084.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "Manager", "da/dbe/a02084.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "da/dbe/a02084.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimInputCapture", "da/dbe/a02084.html#abfe70b316d617c0b779207aebafd9fb9", null ],
+    [ "~TimInputCapture", "da/dbe/a02084.html#a3b3c0bd5c909651c9a4de95e888d86da", null ],
+    [ "bindWorker", "da/dbe/a02084.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getCapture", "da/dbe/a02084.html#ac7f8fd84985b45a4db579b480aaf5251", null ],
     [ "getHandle", "da/dbe/a02084.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "da/dbe/a02084.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "da/dbe/a02084.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "da/dbe/a02084.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "da/dbe/a02084.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "da/dbe/a02084.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "da/dbe/a02084.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "da/dbe/a02084.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "da/dbe/a02084.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "notifyWorkerFromISR", "da/dbe/a02084.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "start", "da/dbe/a02084.html#add28b2f0b32350281b1f47c4e4e25e84", null ],
+    [ "stop", "da/dbe/a02084.html#a6d1e0aa45356b048a97c7390802d142a", null ],
+    [ "waitCapture", "da/dbe/a02084.html#a1fc8b61efbe101b5e3e019e16d73f707", null ],
+    [ "waitCapture", "da/dbe/a02084.html#a2732cd4549f6b1ca08da0cbcb462f404", null ],
+    [ "waitEvent", "da/dbe/a02084.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "void::HAL_TIM_IC_CaptureCallback", "da/dbe/a02084.html#a4e452b46ec2394148f37767c37e5b374", null ]
 ];

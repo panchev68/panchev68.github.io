@@ -1,10 +1,13 @@
 var a01880 =
 [
-    [ "VersionString", "d9/d7d/a01880.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "d9/d7d/a01880.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "d9/d7d/a01880.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d9/d7d/a01880.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "d9/d7d/a01880.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "d9/d7d/a01880.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "d9/d7d/a01880.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "BackupRamDomain", "d9/d7d/a01880.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d9/d7d/a01880.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d9/d7d/a01880.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d9/d7d/a01880.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d9/d7d/a01880.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d9/d7d/a01880.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d9/d7d/a01880.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d9/d7d/a01880.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d9/d7d/a01880.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d9/d7d/a01880.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

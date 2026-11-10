@@ -1,9 +1,11 @@
 var a01184 =
 [
-    [ "calculatedChecksum", "d1/d35/a01184.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "d1/d35/a01184.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "d1/d35/a01184.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "d1/d35/a01184.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "d1/d35/a01184.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "d1/d35/a01184.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "operator==", "d1/d35/a01184.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "d1/d35/a01184.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "d1/d35/a01184.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "d1/d35/a01184.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "d1/d35/a01184.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "d1/d35/a01184.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "d1/d35/a01184.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "d1/d35/a01184.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

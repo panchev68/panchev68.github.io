@@ -1,10 +1,19 @@
 var a01222 =
 [
-    [ "State", "dd/d9e/a01226.html", "dd/d9e/a01226" ],
-    [ "Quality", "d0/d58/a01230.html", "d0/d58/a01230" ],
-    [ "Info", "d6/d1e/a01234.html", "d6/d1e/a01234" ],
-    [ "Connection", "de/d7e/a01222.html#ac4ae5d78fb394db2bd4c3e233711b44b", null ],
-    [ "info", "de/d7e/a01222.html#a566d10b4610db522b6cb8cbe0b66a545", null ],
-    [ "quality", "de/d7e/a01222.html#a2f83b837e560618fd6d59cdb1aa8cbe3", null ],
-    [ "state", "de/d7e/a01222.html#a79f4aecc9bd038f5938e6373412ed099", null ]
+    [ "Config", "dd/d9e/a01226.html", "dd/d9e/a01226" ],
+    [ "Parameters", "d0/d58/a01230.html", "d0/d58/a01230" ],
+    [ "Rotation", "de/d7e/a01222.html#af8a3b5e266b12d8f829d1e5c4858f36f", [
+      [ "DEFAULT", "de/d7e/a01222.html#af8a3b5e266b12d8f829d1e5c4858f36fa5b39c8b553c821e7cddc6da64b5bd2ee", null ],
+      [ "FLIP_X", "de/d7e/a01222.html#af8a3b5e266b12d8f829d1e5c4858f36fac039a0e505a57a288c0de3334649f17b", null ],
+      [ "FLIP_XY", "de/d7e/a01222.html#af8a3b5e266b12d8f829d1e5c4858f36fa6340c446a18eee835ff5ebf2ef438ca1", null ],
+      [ "FLIP_Y", "de/d7e/a01222.html#af8a3b5e266b12d8f829d1e5c4858f36fab9b8e06eeba4d9b150c39907b7261a34", null ]
+    ] ],
+    [ "XPT2046", "de/d7e/a01222.html#a0dda6dc35a85166d57bd689d629e6846", null ],
+    [ "~XPT2046", "de/d7e/a01222.html#a9edd1a086623e54cbb23781f0d989d53", null ],
+    [ "XPT2046", "de/d7e/a01222.html#aa40395fe163fa53055c2381264eee169", null ],
+    [ "XPT2046", "de/d7e/a01222.html#a0b37858e0ef9dc2bc3c8a2494e0d30d0", null ],
+    [ "operator=", "de/d7e/a01222.html#a187bc2ba23928588fb3e435ff1a0ffab", null ],
+    [ "operator=", "de/d7e/a01222.html#a0a0bca74a5312b24895a6b947c35e11a", null ],
+    [ "read", "de/d7e/a01222.html#adbf7069f002f1074ffe599970a15c399", null ],
+    [ "setRotation", "de/d7e/a01222.html#ada371f317a4f0551dc84dcf51749ee60", null ]
 ];

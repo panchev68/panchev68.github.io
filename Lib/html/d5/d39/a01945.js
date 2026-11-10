@@ -1,5 +1,13 @@
 var a01945 =
 [
-    [ "command", "d5/d39/a01945.html#ab88a17ebe65ad74bd0ad24c49f050229", null ],
-    [ "payload", "d5/d39/a01945.html#a837fc81ef88a6c8c67e1982490629483", null ]
+    [ "State", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "d5/d39/a01945.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

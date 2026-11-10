@@ -1,8 +1,5 @@
 var a01465 =
 [
-    [ "Frame0x88", "d4/dfd/a01465.html#a8cdabdda134adaf1796641f68581f1c8", null ],
-    [ "atCommand", "d4/dfd/a01465.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d4/dfd/a01465.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d4/dfd/a01465.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d4/dfd/a01465.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "localAtCommand", "d4/dfd/a01465.html#a62c4d2c354626705c34bc850c039b5f7", null ],
+    [ "remoteAtCommand", "d4/dfd/a01465.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
 ];

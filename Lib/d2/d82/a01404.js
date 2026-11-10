@@ -1,5 +1,7 @@
 var a01404 =
 [
-    [ "generator", "d2/d82/a01404.html#a809af770c796f423098ad30eb9953eb3", null ],
-    [ "prime", "d2/d82/a01404.html#abbc1d8e6b58e94bac7e603b88be07d0e", null ]
+    [ "Digest", "d2/d82/a01404.html#a177e084473b0593a7a7d9bf1e0dce133", null ],
+    [ "SHA256", "d2/d82/a01404.html#a495e4d841b6752aecbcdaa9d1c805420", null ],
+    [ "finish", "d2/d82/a01404.html#abcfe6df3f9c2f8197fd365f99e07551f", null ],
+    [ "update", "d2/d82/a01404.html#a79e12cbf01846349b78a18c75338c38e", null ]
 ];

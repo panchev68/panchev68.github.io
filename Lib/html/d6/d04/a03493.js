@@ -1,4 +1,6 @@
 var a03493 =
 [
-    [ "Lib::Digi::API::ServerBase&lt; Derived &gt;", "df/d2f/a01474.html", "df/d2f/a01474" ]
+    [ "Lib::BSP::W25Q128JVSIQ", "d5/d67/a01070.html", "d5/d67/a01070" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Register", "d7/df7/a01074.html", "d7/df7/a01074" ],
+    [ "Lib::BSP::W25Q128JVSIQ::Info", "db/dba/a01078.html", "db/dba/a01078" ]
 ];

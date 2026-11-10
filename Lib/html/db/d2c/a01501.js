@@ -1,7 +1,6 @@
 var a01501 =
 [
-    [ "Group", "db/d2c/a01501.html#a48b74757679d549dd7d08383435d59b5", null ],
-    [ "~Group", "db/d2c/a01501.html#a10d7ef679ed67f9d61c5bd90d332f088", null ],
-    [ "getCaption", "db/d2c/a01501.html#a6b28a1279997058ac197a0579f4c818d", null ],
-    [ "tag", "db/d2c/a01501.html#a9157e556c71b84d65a4326aa7000a3a3", null ]
+    [ "AtCommandString", "db/d2c/a01501.html#aececd161348c75d93c06ea6da2f4cd23", null ],
+    [ "AtCommandString", "db/d2c/a01501.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
+    [ "operator uint16_t", "db/d2c/a01501.html#a5bfb355d92f981a786da2146384333c5", null ]
 ];

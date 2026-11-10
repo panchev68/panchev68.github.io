@@ -1,5 +1,7 @@
 var a00911 =
 [
-    [ "mask", "d7/d12/a00911.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-    [ "port", "d7/d12/a00911.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "Master", "da/d61/a01350.html", "da/d61/a01350" ],
+    [ "Protocol", "d7/dc4/a01354.html", "d7/dc4/a01354" ],
+    [ "SerialPortBase", "d5/d8e/a01390.html", "d5/d8e/a01390" ],
+    [ "Slave", "d6/d2f/a01394.html", "d6/d2f/a01394" ]
 ];
