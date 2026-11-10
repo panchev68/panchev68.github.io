@@ -130,7 +130,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d9b/class_a
 </table>
 <p>Removal only clears bits of word 1, which NOR flash allows without erasing. A slot interrupted by a power loss is neither erased nor active and is skipped. Only "clear()" erases the region; a full region rejects further adds until then. "clear()" itself can be interrupted (e.g. a brown-out mid-erase, up to several seconds): "open()" does not assume the first erased slot marks the end of the log, so a later un-erased sector still reporting an active number is never silently dropped from the index; "clear()" stays callable after a failed attempt so the caller can simply retry it to finish erasing.</p>
 <p>"open()" reads the region once into a sorted RAM index (number and slot), so "contains()" never touches the flash and "add()" / "remove()" each program one slot. </p>
-</div><table class="memberdecls">
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::ServiceList:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d12/class_a_p_p_1_1_service_list__coll__graph.svg" width="278" height="959"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a171fca641c4bfec07b6fbdeb4f89645c" id="r_a171fca641c4bfec07b6fbdeb4f89645c"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a171fca641c4bfec07b6fbdeb4f89645c">Status</a> : uint8_t { <br />
@@ -220,17 +226,17 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Outcome of a list update. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae0aa021e21dddbd6d8cecec71e9cf564" name="a171fca641c4bfec07b6fbdeb4f89645cae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fielddoc"><p>Done. </p>
+<tr><th colspan="3">Enumerator</th></tr><tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae0aa021e21dddbd6d8cecec71e9cf564" name="a171fca641c4bfec07b6fbdeb4f89645cae0aa021e21dddbd6d8cecec71e9cf564"></a>OK&#160;</td><td class="fieldinit">0x00U&#160;</td><td class="fielddoc"><p>Done. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5" name="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5"></a>ALREADY_PRESENT&#160;</td><td class="fielddoc"><p>"add()": number was already listed; nothing written. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5" name="a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5"></a>ALREADY_PRESENT&#160;</td><td class="fieldinit">0x01U&#160;</td><td class="fielddoc"><p>"add()": number was already listed; nothing written. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d" name="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d"></a>NOT_FOUND&#160;</td><td class="fielddoc"><p>"remove()": number was not listed. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d" name="a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d"></a>NOT_FOUND&#160;</td><td class="fieldinit">0x02U&#160;</td><td class="fielddoc"><p>"remove()": number was not listed. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1" name="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1"></a>FULL&#160;</td><td class="fielddoc"><p>"add()": no free slot or "MAX_ACTIVE" reached; "clear()" and resend the list. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1" name="a171fca641c4bfec07b6fbdeb4f89645caba7de5bc6888294e5884b024a4c894f1"></a>FULL&#160;</td><td class="fieldinit">0x03U&#160;</td><td class="fielddoc"><p>"add()": no free slot or "MAX_ACTIVE" reached; "clear()" and resend the list. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34" name="a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34"></a>STORAGE_ERROR&#160;</td><td class="fielddoc"><p>Flash access failed or the list is not open. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34" name="a171fca641c4bfec07b6fbdeb4f89645ca7ae7f2a13f0d5a18b0db91af9c5aef34"></a>STORAGE_ERROR&#160;</td><td class="fieldinit">0x04U&#160;</td><td class="fielddoc"><p>Flash access failed or the list is not open. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f" name="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f"></a>INVALID_REQUEST&#160;</td><td class="fielddoc"><p>Reported by "ComModule" for a malformed request; never returned here. </p>
+<tr><td class="fieldname"><a id="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f" name="a171fca641c4bfec07b6fbdeb4f89645cab8c9d7ce4c399c56136475f36309020f"></a>INVALID_REQUEST&#160;</td><td class="fieldinit">0x05U&#160;</td><td class="fielddoc"><p>Reported by "ComModule" for a malformed request; never returned here. </p>
 </td></tr>
 </table>
 
@@ -259,10 +265,10 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary">
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
 </div>
-<div id="dynsection-0-content" class="dyncontent hidden">
+<div id="dynsection-1-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ac2e78339ee74a3ac8c83b2540c6ce6fc_icgraph.svg" width="682" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -290,10 +296,10 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
 </div>
-<div id="dynsection-1-content" class="dyncontent hidden">
+<div id="dynsection-2-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a8299d2bc6b695fa79edac479babaf2a7_cgraph.svg" width="682" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -321,10 +327,10 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-2-content" class="dyncontent hidden">
+<div id="dynsection-3-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ab289b184c5cdfb07b44c9dc718f023ec_cgraph.svg" width="682" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -362,16 +368,16 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Update outcome. </dd></dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_af9e47a85d4476e199894ac886f48b113_cgraph.svg" width="243" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_af9e47a85d4476e199894ac886f48b113_cgraph.svg" width="243" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_af9e47a85d4476e199894ac886f48b113_icgraph.svg" width="243" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -403,16 +409,16 @@ Static Private Member Functions</h2></td></tr>
 <p>Erases the whole list. </p>
 <p>Blocks the caller for the 16 sector erases (up to several seconds). Safe to retry after a "Status::STORAGE_ERROR", including one from a previous, interrupted call.</p>
 <dl class="section return"><dt>Returns</dt><dd>Update outcome. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a11f8910b0ac55013cfa386e651b024d4_cgraph.svg" width="263" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
 <div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a11f8910b0ac55013cfa386e651b024d4_cgraph.svg" width="263" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a11f8910b0ac55013cfa386e651b024d4_icgraph.svg" width="263" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -450,16 +456,16 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><em>true</em> if the number is listed and the list is open. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ab45d45ee23c876821c2e13fbf98902f6_cgraph.svg" width="292" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
 <div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ab45d45ee23c876821c2e13fbf98902f6_cgraph.svg" width="292" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ab45d45ee23c876821c2e13fbf98902f6_icgraph.svg" width="292" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -490,16 +496,16 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the number of service card numbers. </p>
 <dl class="section return"><dt>Returns</dt><dd>Active entries. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ad1775707001e52ce1edf98996faeee93_cgraph.svg" width="292" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
 <div id="dynsection-10-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ad1775707001e52ce1edf98996faeee93_cgraph.svg" width="292" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
+</div>
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_ad1775707001e52ce1edf98996faeee93_icgraph.svg" width="292" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -530,16 +536,16 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns how many more numbers "add()" can accept before "Status::FULL". </p>
 <dl class="section return"><dt>Returns</dt><dd>Remaining capacity, limited by both free slots and "MAX_ACTIVE". </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a49668a404ebe69f4f829de16bd2d1e5e_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
 <div id="dynsection-12-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a49668a404ebe69f4f829de16bd2d1e5e_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
+</div>
+<div id="dynsection-13-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a49668a404ebe69f4f829de16bd2d1e5e_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -570,16 +576,16 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the list state, constructing it on first use. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the state. </dd></dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a6006cdac714bd6b138941e312f92762f_cgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
 <div id="dynsection-14-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a6006cdac714bd6b138941e312f92762f_cgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
+</div>
+<div id="dynsection-15-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a6006cdac714bd6b138941e312f92762f_icgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -610,10 +616,10 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the unique service list. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the service list. </dd></dl>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
 </div>
-<div id="dynsection-15-content" class="dyncontent hidden">
+<div id="dynsection-16-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a6199cbf15a04e909ee080255851a4a35_cgraph.svg" width="652" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -645,16 +651,16 @@ Static Private Member Functions</h2></td></tr>
 <p>Opens the list: reads the region once to build the RAM index and find the first free slot. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>"StorageManager::start()" succeeded. </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd><em>true</em> on success; <em>false</em> on a flash failure or more than "MAX_ACTIVE" active slots. </dd></dl>
-<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-16-summary" class="dynsummary">
-</div>
-<div id="dynsection-16-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a3f0876ffccc28db4f01afa94d4bdb558_cgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
 <div id="dynsection-17-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a3f0876ffccc28db4f01afa94d4bdb558_cgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
+</div>
+<div id="dynsection-18-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a3f0876ffccc28db4f01afa94d4bdb558_icgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -682,10 +688,10 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-18-summary" class="dynsummary">
+<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-19-summary" class="dynsummary">
 </div>
-<div id="dynsection-18-content" class="dyncontent hidden">
+<div id="dynsection-19-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a72bfd997170305d58ea169714a08b723_cgraph.svg" width="662" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -713,10 +719,10 @@ Static Private Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div id="dynsection-19" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-19-summary" class="dynsummary">
+<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-20-summary" class="dynsummary">
 </div>
-<div id="dynsection-19-content" class="dyncontent hidden">
+<div id="dynsection-20-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a090ef7c7947380e7537a3bc484f8c952_cgraph.svg" width="662" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -753,16 +759,16 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Update outcome. </dd></dl>
-<div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-20-summary" class="dynsummary">
-</div>
-<div id="dynsection-20-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a536bfab107e1225476c49050508749fd_cgraph.svg" width="272" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-21-summary" class="dynsummary">
 </div>
 <div id="dynsection-21-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a536bfab107e1225476c49050508749fd_cgraph.svg" width="272" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-22" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-22-summary" class="dynsummary">
+</div>
+<div id="dynsection-22-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/d9b/class_a_p_p_1_1_service_list_a536bfab107e1225476c49050508749fd_icgraph.svg" width="272" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 

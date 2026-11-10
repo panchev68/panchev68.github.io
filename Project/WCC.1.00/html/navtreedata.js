@@ -39,16 +39,7 @@ var NAVTREE =
       ] ]
     ] ],
     [ "Classes", "annotated.html", [
-      [ "List", "annotated.html", "annotated_dup" ],
-      [ "Index", "classes.html", null ],
-      [ "Members", "functions.html", [
-        [ "All", "functions.html", "functions_dup" ],
-        [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ],
-        [ "Enumerations", "functions_enum.html", null ],
-        [ "Events", "functions_evnt.html", null ]
-      ] ]
+      [ "List", "annotated.html", "annotated_dup" ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
@@ -60,11 +51,11 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d3/d72/class_b_s_p_1_1_rgb_led.html#a1a0525e4e3b5d570440085bad8e7d0f0",
-"d5/d21/class_b_s_p_1_1_outputs.html#ad5112c00648cbe59f92478773f03072eaafc40ef118b5f47c2c04ffb62d574b3e",
-"d7/d70/class_a_p_p_1_1_blocklist_removal_buffer.html#a0a43476195ad54d4d41c44fdb979a28e",
-"da/da8/class_a_p_p_1_1_diagnostics.html#a73b1020cd6db0c089423ce9718c9d383",
-"db/d8b/class_a_p_p_1_1_outputs_test.html#a895a3d494ed2d8e96195584027d78e07",
-"dir_ffd1f789ec7bd0a45fc6ad92579c5070.html"
+"d5/d21/class_b_s_p_1_1_outputs.html#ad545743f01a3d23fa9ffda3f3992cd53",
+"d7/d70/class_a_p_p_1_1_blocklist_removal_buffer.html#a2e3b8a847d33da34e861d915b74c6172",
+"da/da8/class_a_p_p_1_1_diagnostics.html#a7a5356423fdf2fbe9e447492babaee54",
+"db/d8b/class_a_p_p_1_1_outputs_test.html#a953f66945817b1c9780449c244454417",
+"files.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

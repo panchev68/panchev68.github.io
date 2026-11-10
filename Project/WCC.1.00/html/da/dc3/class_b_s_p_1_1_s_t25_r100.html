@@ -120,7 +120,13 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('da/dc3/class_b
 <div class="textblock"><p>Project-level facade exposing the board ST25R100 and its discovery manager as singletons bound to SPI3. </p>
 <p>The implementation lives in the shared library as "Lib::BSP::RFID::ST25R100" and "Lib::BSP::RFID::NfcManager"; this class only supplies the board wiring: the reader on SPI3 and its nIRQ line "ST25R100_NIRQ" (PD0).</p>
 <p>PD0 is GPIO_EXTI0 (rising edge, "EXTI0_IRQn" at priority 5, FreeRTOS-safe). The library's "Lib::HAL::GPIO::ExtInterrupt" owns the HAL EXTI callbacks and runs the bound handler in its worker task, which wakes the reader task. </p>
-</div><table class="memberdecls">
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::ST25R100:</div>
+<div id="dynsection-0-summary" class="dynsummary">
+</div>
+<div id="dynsection-0-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d64/class_b_s_p_1_1_s_t25_r100__coll__graph.svg" width="407" height="411"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
 <tr class="memitem:a227073a6af68aafa2eb585938bfd5713" id="r_a227073a6af68aafa2eb585938bfd5713"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a227073a6af68aafa2eb585938bfd5713">Driver</a> = Lib::BSP::RFID::ST25R100&lt;<a class="el" href="#a6c0ac9d97ea90f0582def684fc0f1c83">MODE</a>&gt;</td></tr>
@@ -207,16 +213,16 @@ Static Public Attributes</h2></td></tr>
 
 <p>Stops forwarding nIRQ edges to the reader, without touching the reader or the manager. </p>
 <p>Call before "manager().stop()" (e.g. "APP::RFID::pause()") so a card-detect edge arriving while the reader task is being stopped is dropped instead of notifying a task that is about to be deleted. Call "enableInterrupt()" again once the reader is reopened. </p>
-<div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a893edc64b54314ecb1cfb13afa215bf0_cgraph.svg" width="343" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a893edc64b54314ecb1cfb13afa215bf0_cgraph.svg" width="343" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a893edc64b54314ecb1cfb13afa215bf0_icgraph.svg" width="343" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -248,16 +254,16 @@ Static Public Attributes</h2></td></tr>
 <p>Applies the project's wake-up (LPCD) tuning, then lets nIRQ edges reach the reader task. </p>
 <p>Call it once the reader opened successfully.</p>
 <p>The threshold is lower than the library's own default, for a longer wake-up range at the cost of a higher chance of a false wake-up from noise. The measurement period is also shorter than the library's own default, for a faster reaction to an approaching card at the cost of a higher average standby current ("ST25R100.cpp"). The first "instance()" already registers "ST25R100_NIRQ" (PD0, EXTI0 rising edge) with the library's EXTI worker, so an edge never reaches an unprepared EXTI manager from the interrupt. The edges are dropped until this is called, which also means a transient this causes on the wake-up comparator cannot reach the reader task either; the reader's processing task is created inside "open()" and notifying it earlier asserts. </p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_addcfe6e121a5b3f0c356595da5f6ca06_cgraph.svg" width="332" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_addcfe6e121a5b3f0c356595da5f6ca06_cgraph.svg" width="332" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_addcfe6e121a5b3f0c356595da5f6ca06_icgraph.svg" width="332" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -351,16 +357,16 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the discovery manager. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a879b1604af76568018a964a31e562d0e_cgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a879b1604af76568018a964a31e562d0e_cgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a879b1604af76568018a964a31e562d0e_icgraph.svg" width="252" height="68"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -397,16 +403,16 @@ Static Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><em>true</em> if the SPI writes succeeded. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a29d4b59cf4dc02025cf362a5b0517ee4_cgraph.svg" width="312" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a29d4b59cf4dc02025cf362a5b0517ee4_cgraph.svg" width="312" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/dc3/class_b_s_p_1_1_s_t25_r100_a29d4b59cf4dc02025cf362a5b0517ee4_icgraph.svg" width="312" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
