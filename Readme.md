@@ -19,10 +19,16 @@
 
 ## [Senstate](https://github.com/panchev68-Senstate)
 
+---
+
 #### [Waste Container Controller](https://github.com/panchev68-Senstate/WCC-Firmware)
 
 [Documentation 1.00](https://panchev68.github.io/Project/WCC.1.00/html/index.html)
 
+---
+
 #### [River Sense Controller](https://github.com/panchev68-Senstate/RiverSense-Firmware/tree/main)
 
 [Documentation 1.00](https://panchev68.github.io/Project/RiverSense.1.00/html/index.html)
+
+---
