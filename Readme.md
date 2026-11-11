@@ -1,3 +1,3 @@
 Boyan Panchev page
 
-[Library Documentation](Lib/index.html)
+[Library Documentation](https://panchev68.github.io/Lib/index.html)
