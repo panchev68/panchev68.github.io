@@ -17,9 +17,11 @@
 
 [8.07.1](https://panchev68.github.io/Project/U146-8.07.1/html/index.html)
 
-## [Senstate](https://github.com/panchev68-Senstate)
-
 ---
+
+===
+
+## [Senstate](https://github.com/panchev68-Senstate)
 
 #### [Waste Container Controller](https://github.com/panchev68-Senstate/WCC-Firmware)
 
