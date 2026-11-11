@@ -121,13 +121,14 @@ var searchData=
   ['exception_2ehpp_118',['Exception.hpp',['../d7/d46/a00002.html',1,'']]],
   ['executeauthentication_119',['executeAuthentication',['../d7/dd6/a01167.html#aa4fdabee60f13c30837d9cbadcfd4e50',1,'Lib::BSP::RFID::Chipset']]],
   ['exists_120',['EXISTS',['../d4/d12/a00910.html#a058e47e5398a583fd14a446b7b2dbdb4a6a240802522e95fc9e2c1d09122d8ec4',1,'Lib::Ethercat::SOES']]],
-  ['exit_121',['exit',['../de/dbd/a02507.html#a47b5d102f923a56ea7c79117f98e8fa2',1,'RTOS::Kernel::CriticalSection']]],
-  ['exitfromisr_122',['exitFromISR',['../d1/d5d/a02503.html#a57170b67df565ed19fa77137e8d73d5f',1,'RTOS::Kernel::CriticalSectionFromISR']]],
-  ['exitsleepmode_123',['exitSleepMode',['../dc/db6/a00955.html#aa45a5bc29c59cb3057f7384cc2a96e64',1,'Lib::BSP::INA219::exitSleepMode()'],['../d9/de7/a01279.html#ac7ab933572bb11b6d0193a5e9ab370e9',1,'Lib::BSP::Thermometer::TMP102::exitSleepMode()']]],
-  ['explicit_5faddressing_5fcommand_5frequest_124',['EXPLICIT_ADDRESSING_COMMAND_REQUEST',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4abb7e3e5dadbf93c863ef484e733c8b88',1,'Lib::Digi::Core::Frame']]],
-  ['explicit_5freceive_5findicator_125',['EXPLICIT_RECEIVE_INDICATOR',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4ac63ec021095a4818e90d930cfdc24937',1,'Lib::Digi::Core::Frame']]],
-  ['extended_5fmodem_5fstatus_126',['EXTENDED_MODEM_STATUS',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4a2724e6206408c3751654a88c5ffa5155',1,'Lib::Digi::Core::Frame']]],
-  ['extended_5ftransmit_5fstatus_127',['EXTENDED_TRANSMIT_STATUS',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4a01d52e0725b65c3d3c147e202e34268e',1,'Lib::Digi::Core::Frame']]],
-  ['extinterrupt_128',['ExtInterrupt',['../d6/d5d/a02023.html',1,'Lib::HAL::GPIO::ExtInterrupt'],['../d6/d5d/a02023.html#a8bd01aa06ef31a0168b4238b709bd8b1',1,'Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt(const Handle &amp;handle)'],['../d6/d5d/a02023.html#a0896646faa35c4149a6fb3f8360da15b',1,'Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt(const ExtInterrupt &amp;other)=delete'],['../d6/d5d/a02023.html#af65b4789b35500d9539e56a75d90c71c',1,'Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt(ExtInterrupt &amp;&amp;other)=delete'],['../db/d43/a00422.html#a8cff87d9f48f32853dd18857ee3d60aa',1,'ExtInterrupt:&#160;GPIO.hpp']]],
-  ['extinterrupt_2ehpp_129',['ExtInterrupt.hpp',['../d8/d91/a00410.html',1,'']]]
+  ['exists_121',['exists',['../d0/d43/a01935.html#a96b02cdaa566d256c443b29318a1e6a6',1,'Lib::GSM::A7670E::Files']]],
+  ['exit_122',['exit',['../de/dbd/a02507.html#a47b5d102f923a56ea7c79117f98e8fa2',1,'RTOS::Kernel::CriticalSection']]],
+  ['exitfromisr_123',['exitFromISR',['../d1/d5d/a02503.html#a57170b67df565ed19fa77137e8d73d5f',1,'RTOS::Kernel::CriticalSectionFromISR']]],
+  ['exitsleepmode_124',['exitSleepMode',['../dc/db6/a00955.html#aa45a5bc29c59cb3057f7384cc2a96e64',1,'Lib::BSP::INA219::exitSleepMode()'],['../d9/de7/a01279.html#ac7ab933572bb11b6d0193a5e9ab370e9',1,'Lib::BSP::Thermometer::TMP102::exitSleepMode()']]],
+  ['explicit_5faddressing_5fcommand_5frequest_125',['EXPLICIT_ADDRESSING_COMMAND_REQUEST',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4abb7e3e5dadbf93c863ef484e733c8b88',1,'Lib::Digi::Core::Frame']]],
+  ['explicit_5freceive_5findicator_126',['EXPLICIT_RECEIVE_INDICATOR',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4ac63ec021095a4818e90d930cfdc24937',1,'Lib::Digi::Core::Frame']]],
+  ['extended_5fmodem_5fstatus_127',['EXTENDED_MODEM_STATUS',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4a2724e6206408c3751654a88c5ffa5155',1,'Lib::Digi::Core::Frame']]],
+  ['extended_5ftransmit_5fstatus_128',['EXTENDED_TRANSMIT_STATUS',['../da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4a01d52e0725b65c3d3c147e202e34268e',1,'Lib::Digi::Core::Frame']]],
+  ['extinterrupt_129',['ExtInterrupt',['../d6/d5d/a02023.html',1,'Lib::HAL::GPIO::ExtInterrupt'],['../d6/d5d/a02023.html#a8bd01aa06ef31a0168b4238b709bd8b1',1,'Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt(const Handle &amp;handle)'],['../d6/d5d/a02023.html#a0896646faa35c4149a6fb3f8360da15b',1,'Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt(const ExtInterrupt &amp;other)=delete'],['../d6/d5d/a02023.html#af65b4789b35500d9539e56a75d90c71c',1,'Lib::HAL::GPIO::ExtInterrupt::ExtInterrupt(ExtInterrupt &amp;&amp;other)=delete'],['../db/d43/a00422.html#a8cff87d9f48f32853dd18857ee3d60aa',1,'ExtInterrupt:&#160;GPIO.hpp']]],
+  ['extinterrupt_2ehpp_130',['ExtInterrupt.hpp',['../d8/d91/a00410.html',1,'']]]
 ];
