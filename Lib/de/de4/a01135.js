@@ -1,9 +1,25 @@
 var a01135 =
 [
-    [ "Interface", "de/de4/a01135.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
-    [ "~Interface", "de/de4/a01135.html#a66b65dc5b7f6571301b7491242361a95", null ],
-    [ "hardwareReset", "de/de4/a01135.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
-    [ "initialize", "de/de4/a01135.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
-    [ "send", "de/de4/a01135.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
-    [ "sendReceive", "de/de4/a01135.html#a2d9014fe08fb984de211efd021eb1f35", null ]
+    [ "Register", "d5/d3e/a01139.html", "d5/d3e/a01139" ],
+    [ "Info", "db/db2/a01143.html", "db/db2/a01143" ],
+    [ "Config", "de/de4/a01135.html#a91b48bf59f61c3580e5ead3149d91443", null ],
+    [ "W25Q128JVSIQ", "de/de4/a01135.html#af1b755c474085a41e554dcb38ad9056a", null ],
+    [ "~W25Q128JVSIQ", "de/de4/a01135.html#a1fde54293f8ae9472b98c6cee73bee44", null ],
+    [ "close", "de/de4/a01135.html#a949717933a1c298041adcf500a7d8f9d", null ],
+    [ "eraseChip", "de/de4/a01135.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseChipImpl", "de/de4/a01135.html#a9cfe72e525626e2236219608c53725d8", null ],
+    [ "eraseSector", "de/de4/a01135.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "eraseSectorImpl", "de/de4/a01135.html#ac379792562904225e5deb12f3820112b", null ],
+    [ "getInfo", "de/de4/a01135.html#a7aa2656a3ec7140a001e5981e00bde31", null ],
+    [ "getStatus", "de/de4/a01135.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "isPresent", "de/de4/a01135.html#a701b2e59748b3f3b8a70d7345a8bdc1e", null ],
+    [ "open", "de/de4/a01135.html#a419e720a0a366e322b172d234eccd202", null ],
+    [ "read", "de/de4/a01135.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "readImpl", "de/de4/a01135.html#ac37211819c0d5e4f3072dae655065868", null ],
+    [ "write", "de/de4/a01135.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "writeImpl", "de/de4/a01135.html#a00a39954e6187f8b4b393ed390f97239", null ],
+    [ "info", "de/de4/a01135.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "de/de4/a01135.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "de/de4/a01135.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "de/de4/a01135.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

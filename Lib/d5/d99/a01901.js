@@ -1,18 +1,19 @@
 var a01901 =
 [
-    [ "EventBits", "d5/d99/a01901.html#a3c55c6775abc08a42ba3fb85ac9404c9", null ],
-    [ "AsyncPortCore", "d5/d99/a01901.html#a9e0e2e3d307485d3bc6cc4c54a4a9790", null ],
-    [ "AsyncPortCore", "d5/d99/a01901.html#ae4c323f8431fa6f03e914d953c4306c2", null ],
-    [ "AsyncPortCore", "d5/d99/a01901.html#a3fea82834797dbd505ac308e4ebe58a2", null ],
-    [ "~AsyncPortCore", "d5/d99/a01901.html#aa73910a82d1814199dbe1ec58c46f450", null ],
-    [ "close", "d5/d99/a01901.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "derived", "d5/d99/a01901.html#a3dbece6116a65776aa72cb7a95e4a79a", null ],
+    [ "Event", "d9/d65/a01905.html", null ],
+    [ "ADCPort", "d5/d99/a01901.html#a4367ca9803f69b785980f81032d2b4e5", null ],
+    [ "~ADCPort", "d5/d99/a01901.html#aef75242b0f88129467c7f469f87adbdd", null ],
+    [ "ADCPort", "d5/d99/a01901.html#a0c76f40278dd8828f6c5d929122ab108", null ],
+    [ "ADCPort", "d5/d99/a01901.html#a3defd155b3695109fe259c5ab8b702ba", null ],
+    [ "close", "d5/d99/a01901.html#a5701c9da4db47e937bec19f3d29c9855", null ],
     [ "getHandle", "d5/d99/a01901.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d5/d99/a01901.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d5/d99/a01901.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d5/d99/a01901.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "operator=", "d5/d99/a01901.html#af7a0ea878376b289ff08600fa9477026", null ],
-    [ "operator=", "d5/d99/a01901.html#a83e0efb939206ab305b7b0c0b80a27e5", null ],
-    [ "events", "d5/d99/a01901.html#abb56ddd8ed19246084e1242e9075982f", null ],
-    [ "isOpen", "d5/d99/a01901.html#aa533ddd5b800443ba9ea9687a78b720e", null ]
+    [ "getValue", "d5/d99/a01901.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d5/d99/a01901.html#af68c05c71d21b3e9ecd13d66665672d3", null ],
+    [ "operator=", "d5/d99/a01901.html#a3a51d3196eaa9489df8eda029877ee83", null ],
+    [ "operator=", "d5/d99/a01901.html#abebb56cf09bf035f43b898c284835ccd", null ],
+    [ "read", "d5/d99/a01901.html#ada05318e458485bb7ae8564156216202", null ],
+    [ "start", "d5/d99/a01901.html#a3c4fd72e66de571a8737caade4f7f75c", null ],
+    [ "stop", "d5/d99/a01901.html#ada6d672a5e8535e0d9603ba17c8926c0", null ],
+    [ "waitForEvent", "d5/d99/a01901.html#a780888659faa909e3e3228c427e5969e", null ]
 ];

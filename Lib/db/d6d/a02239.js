@@ -1,18 +1,18 @@
 var a02239 =
 [
-    [ "DateString", "db/d6d/a02239.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "db/d6d/a02239.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "db/d6d/a02239.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "db/d6d/a02239.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "db/d6d/a02239.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "db/d6d/a02239.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "db/d6d/a02239.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "db/d6d/a02239.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "db/d6d/a02239.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "db/d6d/a02239.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "db/d6d/a02239.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "db/d6d/a02239.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "db/d6d/a02239.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "db/d6d/a02239.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "db/d6d/a02239.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "EventHandler", "db/d6d/a02239.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "db/d6d/a02239.html#a73135119d83dd3a80c4b81f5bbe8fd61", null ],
+    [ "~USBDevicePort", "db/d6d/a02239.html#a0a313f5efd10221e16714eece65dda0f", null ],
+    [ "abort", "db/d6d/a02239.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "db/d6d/a02239.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "db/d6d/a02239.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "db/d6d/a02239.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "db/d6d/a02239.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "db/d6d/a02239.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "db/d6d/a02239.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "db/d6d/a02239.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "db/d6d/a02239.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "db/d6d/a02239.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "db/d6d/a02239.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "db/d6d/a02239.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

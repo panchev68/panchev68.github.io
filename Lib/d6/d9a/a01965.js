@@ -1,19 +1,17 @@
 var a01965 =
 [
-    [ "I2CPort", "d6/d9a/a01965.html#a70dc562f520726340c2c942ee7753b17", null ],
-    [ "~I2CPort", "d6/d9a/a01965.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
-    [ "I2CPort", "d6/d9a/a01965.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
-    [ "I2CPort", "d6/d9a/a01965.html#a6c227decd7ea7b8ff23e032025761259", null ],
-    [ "close", "d6/d9a/a01965.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
-    [ "getHandle", "d6/d9a/a01965.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "d6/d9a/a01965.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "isBusy", "d6/d9a/a01965.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isReady", "d6/d9a/a01965.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "d6/d9a/a01965.html#aff45c6ae44d78ac3f07f800383374359", null ],
-    [ "masterMemWrite", "d6/d9a/a01965.html#ae89e0f492119ac05671af0cdca2b90de", null ],
-    [ "masterReceive", "d6/d9a/a01965.html#a165d3958b26f38d4c513160a447bcfaf", null ],
-    [ "masterTransmit", "d6/d9a/a01965.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
-    [ "open", "d6/d9a/a01965.html#ae5b5ff9d68d55b14be794ede22903816", null ],
-    [ "operator=", "d6/d9a/a01965.html#aae592f22809df591ac07e2cd47f3969b", null ],
-    [ "operator=", "d6/d9a/a01965.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
+    [ "DataAlignment", "d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46", [
+      [ "RIGHT_12_BITS", "d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46a9ca4b1fc6d47c3b5d7583dcc69c63327", null ],
+      [ "LEFT_12_BITS", "d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46ac87694e7b7f09020eb2aad6636ddea41", null ],
+      [ "RIGHT_8_BITS", "d6/d9a/a01965.html#a18b5de83aaec561a43dc24a80e15bd46a17db1861bfec05641fbc27d5fa9086e5", null ]
+    ] ],
+    [ "DACPortBase", "d6/d9a/a01965.html#a5c390a543d2fb2e71dab05cd46bba5fb", null ],
+    [ "DACPortBase", "d6/d9a/a01965.html#a98261674f7f24cbf6ddd0b0549e2a020", null ],
+    [ "DACPortBase", "d6/d9a/a01965.html#a59881e4eed40d54771ce2e98b6dbda30", null ],
+    [ "~DACPortBase", "d6/d9a/a01965.html#a3ae4ac657a106fd48d5b165820d747d2", null ],
+    [ "close", "d6/d9a/a01965.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
+    [ "open", "d6/d9a/a01965.html#ae527315d8794d0bcdbd7b686839e4630", null ],
+    [ "operator=", "d6/d9a/a01965.html#a0b6a9ee706cd32b3028ae123bafbc9d0", null ],
+    [ "operator=", "d6/d9a/a01965.html#abfba06342b098e48cbd2ecf0d159497c", null ],
+    [ "setValue", "d6/d9a/a01965.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ]
 ];

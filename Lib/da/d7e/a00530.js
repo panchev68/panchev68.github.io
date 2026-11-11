@@ -1,4 +1,5 @@
 var a00530 =
 [
-    [ "Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;", "df/d78/a02019.html", "df/d78/a02019" ]
+    [ "Lib::HAL::StreamSerialPort", "d3/d0f/a02203.html", "d3/d0f/a02203" ],
+    [ "Lib::HAL::StreamSerialPort::Config", "dd/d6f/a02207.html", "dd/d6f/a02207" ]
 ];

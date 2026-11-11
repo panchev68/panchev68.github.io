@@ -1,6 +1,10 @@
 var a02565 =
 [
-    [ "configuration", "d3/dff/a02565.html#a207811e42d707051b821430532e14dca", null ],
-    [ "produceDate", "d3/dff/a02565.html#a15a774d40f9912978af06fa0b55e5e6a", null ],
-    [ "saleDate", "d3/dff/a02565.html#ae15be586be491076f57ec2f103f5ed81", null ]
+    [ "maxPowerRef", "d3/dff/a02565.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
+    [ "mppCurrentRef", "d3/dff/a02565.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
+    [ "mppVoltageRef", "d3/dff/a02565.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
+    [ "referenceIrradiance", "d3/dff/a02565.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
+    [ "temperatureCoefficient", "d3/dff/a02565.html#a199180804d52f432b3f8a4861146f827", null ],
+    [ "toleranceFactor", "d3/dff/a02565.html#a94dbf0194f1c0097467e34c0605131d4", null ],
+    [ "updateInterval", "d3/dff/a02565.html#a9a72ac9a78c42013979d67300e60de6d", null ]
 ];

@@ -1,9 +1,5 @@
 var a01065 =
 [
-    [ "chipManufacturer", "d0/dc9/a01065.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
-    [ "memoryCapacity", "d0/dc9/a01065.html#a0ce044d51923185dc77297ec3845620b", null ],
-    [ "pagePerSector", "d0/dc9/a01065.html#a768e74e894621cf3033a1f4e06661b66", null ],
-    [ "pageSize", "d0/dc9/a01065.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
-    [ "sectorCount", "d0/dc9/a01065.html#ae152c07a2eeb80c6525857160e04126b", null ],
-    [ "sectorSize", "d0/dc9/a01065.html#a453d47437845007dcb1caa1889d1ec2b", null ]
+    [ "button", "d0/dc9/a01065.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
+    [ "handle", "d0/dc9/a01065.html#a75774bfc0a226b392ad051cc0514697c", null ]
 ];

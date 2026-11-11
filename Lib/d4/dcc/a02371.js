@@ -1,9 +1,14 @@
 var a02371 =
 [
-    [ "name", "d4/dcc/a02371.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
-    [ "offSensor", "d4/dcc/a02371.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
-    [ "onSensor", "d4/dcc/a02371.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
-    [ "output", "d4/dcc/a02371.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
-    [ "sensorCalmingTime", "d4/dcc/a02371.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
-    [ "switchTimeout", "d4/dcc/a02371.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
+    [ "JaggedArrayBase", "d4/dcc/a02371.html#ae79ec88b260154126e7ec280a136c14a", null ],
+    [ "addItem", "d4/dcc/a02371.html#ab01ffb199ea0f9fe77f7b309f8ceb589", null ],
+    [ "addItems", "d4/dcc/a02371.html#aad62165791d6f4a1dc86fcc987e9ede5", null ],
+    [ "clearItems", "d4/dcc/a02371.html#aa9ba9220e9ab7f49a0ebe1093655395d", null ],
+    [ "getElements", "d4/dcc/a02371.html#a428409a8385b8547bfa65d04a71565b1", null ],
+    [ "getElements", "d4/dcc/a02371.html#a718f7db994c254bce01246ea32b1d653", null ],
+    [ "getSize", "d4/dcc/a02371.html#afca6ed09d7865e2bac45430fda768aae", null ],
+    [ "operator[]", "d4/dcc/a02371.html#a9d9609556da53ac88ac8b389fefb1a0d", null ],
+    [ "operator[]", "d4/dcc/a02371.html#a4052852c38f6aa93775e1fb6ee3a809e", null ],
+    [ "removeItem", "d4/dcc/a02371.html#a819041f4264ebfce07665c548d5dd7bc", null ],
+    [ "elementList", "d4/dcc/a02371.html#a319cd6aae084f711db14582ed55929a5", null ]
 ];

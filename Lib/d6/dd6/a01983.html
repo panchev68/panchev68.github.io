@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;</title>
+<title>IAR Library: Lib::HAL::CANPortBase&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,81 +111,64 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/dd6/a01983.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::CANPortBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;</div><p>CRTP foundation for the interrupt-driven I2C master modes. </p>
-<p>Owns everything the two modes would otherwise duplicate: the <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group, the start-then-wait master transfers, <a class="el" href="#aa0017dbe171dc6568f888a4d30997ccc" title="Requests an abort of the ongoing master transfer.">abort()</a>, <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback registration and <a class="el" href="../../d3/d3b/a01911.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> wiring. A mode specialization only supplies the four <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> calls that start a master transfer ("startMasterTransmit()", "startMasterReceive()", "startMemWrite()" and "startMemRead()").</p>
+class Lib::HAL::CANPortBase&lt; T_DERIVED &gt;</div><p>CRTP foundation implementing the lifecycle and mailbox/FIFO policy shared by every transfer mode. </p>
+<p>Owns no state of its own, not even the native handle: it reaches it through "derived()-&gt;getHandle()". Blocking and interrupt-driven transfers use the same non-blocking <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> primitives ("HAL_CAN_AddTxMessage()" returns at once when a mailbox is free, "HAL_CAN_GetRxMessage()" only drains what is already latched), so "write()" and "read()" live here once. Only how a caller learns that a mailbox freed up or a FIFO filled differs per mode.</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization providing "startMasterTransmit()", "startMasterReceive()", "startMemWrite()" and "startMemRead()", each returning "true" once the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the transfer. </td></tr>
+    <tr><td class="paramname">T_DERIVED</td><td>High-level concrete driver class owning the native handle. </td></tr>
   </table>
   </dd>
 </dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;:</div>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::CANPortBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/d3d/a01982.svg" width="584" height="999"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/db2/a01981.svg" width="800" height="1003"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/db2/a01981.svg" width="294" height="343"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3369110fdc9a75b4446d17f5c5bbb7d8" id="r_a3369110fdc9a75b4446d17f5c5bbb7d8"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a3369110fdc9a75b4446d17f5c5bbb7d8 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a3369110fdc9a75b4446d17f5c5bbb7d8">masterTransmit</a> (uint16_t devAddress, std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a3369110fdc9a75b4446d17f5c5bbb7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a master transmission and waits for it.  <br /></td></tr>
-<tr class="memitem:a0f282a9b1fe1a24111ecf8a421fe50e7" id="r_a0f282a9b1fe1a24111ecf8a421fe50e7"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a0f282a9b1fe1a24111ecf8a421fe50e7 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f282a9b1fe1a24111ecf8a421fe50e7">masterReceive</a> (uint16_t devAddress, std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a0f282a9b1fe1a24111ecf8a421fe50e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a master reception and waits for it.  <br /></td></tr>
-<tr class="memitem:adb29287498169b21a8c183a469cc20f4" id="r_adb29287498169b21a8c183a469cc20f4"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:adb29287498169b21a8c183a469cc20f4 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adb29287498169b21a8c183a469cc20f4">masterMemWrite</a> (uint16_t devAddress, uint16_t memAddress, uint16_t memAddSize, std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:adb29287498169b21a8c183a469cc20f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes to a device's internal memory address and waits for it.  <br /></td></tr>
-<tr class="memitem:ac646e78e8e291b9116d22e6593178c3b" id="r_ac646e78e8e291b9116d22e6593178c3b"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:ac646e78e8e291b9116d22e6593178c3b template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac646e78e8e291b9116d22e6593178c3b">masterMemRead</a> (uint16_t devAddress, uint16_t memAddress, uint16_t memAddSize, std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:ac646e78e8e291b9116d22e6593178c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from a device's internal memory address and waits for it.  <br /></td></tr>
-<tr class="memitem:aa0017dbe171dc6568f888a4d30997ccc" id="r_aa0017dbe171dc6568f888a4d30997ccc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa0017dbe171dc6568f888a4d30997ccc">abort</a> (uint16_t devAddress) noexcept</td></tr>
-<tr class="memdesc:aa0017dbe171dc6568f888a4d30997ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests an abort of the ongoing master transfer.  <br /></td></tr>
-<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../de/dca/a01907.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
-<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../d3/d3b/a01911.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> slot and <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order.  <br /></td></tr>
-<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../de/dca/a01907.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
-<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
-<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../de/dca/a01907.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
-<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
-<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">I2C_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d11/a01915.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
-<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
-<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const I2C_HandleTypeDef *&#160;</td><td class="memItemRight"><a class="el" href="../../df/d11/a01915.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
-<tr class="memitem:ac30aad5121ca16fa7c3b185ed73d4104" id="r_ac30aad5121ca16fa7c3b185ed73d4104"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d4e/a01991.html#ac30aad5121ca16fa7c3b185ed73d4104">isBusy</a> () const noexcept</td></tr>
-<tr class="memdesc:ac30aad5121ca16fa7c3b185ed73d4104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Evaluates whether the underlying peripheral is actively locked in a transfer loop.  <br /></td></tr>
-<tr class="memitem:a14c943a270b82f4b76faffc2822e1408" id="r_a14c943a270b82f4b76faffc2822e1408"><td class="memTemplParams" colspan="2">template&lt;typename Rep, typename Period&gt; </td></tr>
-<tr class="memitem:a14c943a270b82f4b76faffc2822e1408 template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d4e/a01991.html#a14c943a270b82f4b76faffc2822e1408">isReady</a> (uint16_t devAddress, uint32_t trials, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
-<tr class="memdesc:a14c943a270b82f4b76faffc2822e1408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Probes whether a slave device acknowledges its address on the bus.  <br /></td></tr>
+<tr class="memitem:a49874a4fadbeed6acb5df1cd34d8b425" id="r_a49874a4fadbeed6acb5df1cd34d8b425"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> (const CANPortBase &amp;other)=delete</td></tr>
+<tr class="memdesc:a49874a4fadbeed6acb5df1cd34d8b425"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a36fdf7b60492dfecc0b7bba144d57de0" id="r_a36fdf7b60492dfecc0b7bba144d57de0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a36fdf7b60492dfecc0b7bba144d57de0">CANPortBase</a> (CANPortBase &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a36fdf7b60492dfecc0b7bba144d57de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a472090855651f87bac97104e8a80dee6" id="r_a472090855651f87bac97104e8a80dee6"><td class="memItemLeft"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a472090855651f87bac97104e8a80dee6">operator=</a> (const <a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a472090855651f87bac97104e8a80dee6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a9d5120e2646e18222b7569d1caeda00e" id="r_a9d5120e2646e18222b7569d1caeda00e"><td class="memItemLeft"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9d5120e2646e18222b7569d1caeda00e">operator=</a> (<a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a9d5120e2646e18222b7569d1caeda00e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a37ea285eb3fe4ea3c94cb248cc1215d3" id="r_a37ea285eb3fe4ea3c94cb248cc1215d3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a37ea285eb3fe4ea3c94cb248cc1215d3">open</a> () noexcept</td></tr>
+<tr class="memdesc:a37ea285eb3fe4ea3c94cb248cc1215d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the CAN peripheral's core state machine.  <br /></td></tr>
+<tr class="memitem:a733145a4ed7d5fce544cdb2b2e298859" id="r_a733145a4ed7d5fce544cdb2b2e298859"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a733145a4ed7d5fce544cdb2b2e298859">close</a> () noexcept</td></tr>
+<tr class="memdesc:a733145a4ed7d5fce544cdb2b2e298859"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts the CAN peripheral's core state machine.  <br /></td></tr>
+<tr class="memitem:a65aa681fa591b2d0956e06e67e990b15" id="r_a65aa681fa591b2d0956e06e67e990b15"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a65aa681fa591b2d0956e06e67e990b15">write</a> (uint32_t identifier, std::span&lt; const uint8_t &gt; data) noexcept</td></tr>
+<tr class="memdesc:a65aa681fa591b2d0956e06e67e990b15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Submits a classic CAN frame to the first free transmit mailbox.  <br /></td></tr>
+<tr class="memitem:a19f3a9f56a84a6b351315710b9aa7cd4" id="r_a19f3a9f56a84a6b351315710b9aa7cd4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a19f3a9f56a84a6b351315710b9aa7cd4">read</a> (uint32_t fifoIndex, <a class="el" href="../../d6/d8e/a01979.html">CANFrame</a> &amp;frame) noexcept</td></tr>
+<tr class="memdesc:a19f3a9f56a84a6b351315710b9aa7cd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads whatever frame is currently latched in the given hardware FIFO.  <br /></td></tr>
+<tr class="memitem:ac88a1857130f01ccafcb72baae483a84" id="r_ac88a1857130f01ccafcb72baae483a84"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ac88a1857130f01ccafcb72baae483a84">getFreeTxMailboxCount</a> () const noexcept</td></tr>
+<tr class="memdesc:ac88a1857130f01ccafcb72baae483a84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports how many transmit mailboxes are currently free.  <br /></td></tr>
+<tr class="memitem:a7c5ae94d27408eb8d67405648fd2f154" id="r_a7c5ae94d27408eb8d67405648fd2f154"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a7c5ae94d27408eb8d67405648fd2f154">getRxFifoFillLevel</a> (uint32_t fifoIndex) const noexcept</td></tr>
+<tr class="memdesc:a7c5ae94d27408eb8d67405648fd2f154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports how many frames are currently latched in the given hardware FIFO.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a91a941265090b2ee4f3c05dbc2354fd9" id="r_a91a941265090b2ee4f3c05dbc2354fd9"><td class="memItemLeft">static constexpr uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a91a941265090b2ee4f3c05dbc2354fd9">MAX_CLASSIC_CAN_PAYLOAD</a> = 8U</td></tr>
+<tr class="memdesc:a91a941265090b2ee4f3c05dbc2354fd9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum payload length of a classic (non-FD) CAN frame.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a97738073feff35b79d6bb11c9bd2f351" id="r_a97738073feff35b79d6bb11c9bd2f351"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a97738073feff35b79d6bb11c9bd2f351">I2CPortAsync</a> (I2C_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a97738073feff35b79d6bb11c9bd2f351"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the port to its native handle.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../de/dca/a01907.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (I2C_HandleTypeDef *handle) noexcept</td></tr>
-<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle.  <br /></td></tr>
-<tr class="memitem:a7e4533f8c7ce274ac9ab1c252eb98246" id="r_a7e4533f8c7ce274ac9ab1c252eb98246"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d4e/a01991.html#a7e4533f8c7ce274ac9ab1c252eb98246">isValidTransferSize</a> (size_t size) noexcept</td></tr>
-<tr class="memdesc:a7e4533f8c7ce274ac9ab1c252eb98246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a transfer buffer is non-empty and fits the 16-bit length every <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> I2C call takes.  <br /></td></tr>
-<tr class="memitem:a4e866ea67cc0cb9eed0f1214dc5aa032" id="r_a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="../../d3/d4e/a01991.html#a4e866ea67cc0cb9eed0f1214dc5aa032">isValidMemAddSize</a> (uint16_t memAddSize) noexcept</td></tr>
-<tr class="memdesc:a4e866ea67cc0cb9eed0f1214dc5aa032"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks that a memory address size is one the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepts.  <br /></td></tr>
+<tr class="memitem:a3758c35d87fdeafd08f0cc9845888bea" id="r_a3758c35d87fdeafd08f0cc9845888bea"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3758c35d87fdeafd08f0cc9845888bea">CANPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a3758c35d87fdeafd08f0cc9845888bea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the CRTP foundation.  <br /></td></tr>
+<tr class="memitem:afe0c3c29da222264a12b2ade136c866c" id="r_afe0c3c29da222264a12b2ade136c866c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#afe0c3c29da222264a12b2ade136c866c">~CANPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:afe0c3c29da222264a12b2ade136c866c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the object; owns no state of its own, so there is nothing to release here.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a97738073feff35b79d6bb11c9bd2f351" name="a97738073feff35b79d6bb11c9bd2f351"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97738073feff35b79d6bb11c9bd2f351">&#9670;&#160;</a></span>I2CPortAsync()</h2>
+<a id="a49874a4fadbeed6acb5df1cd34d8b425" name="a49874a4fadbeed6acb5df1cd34d8b425"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49874a4fadbeed6acb5df1cd34d8b425">&#9670;&#160;</a></span>CANPortBase() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,32 +179,128 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::I2CPortAsync</a>&lt; T_DERIVED &gt;::I2CPortAsync </td>
+          <td class="memname"><a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::CANPortBase </td>
           <td>(</td>
-          <td class="paramtype">I2C_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td class="paramtype">const CANPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel explicit">explicit</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds the port to its native handle. </p>
+<p>Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a36fdf7b60492dfecc0b7bba144d57de0" name="a36fdf7b60492dfecc0b7bba144d57de0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36fdf7b60492dfecc0b7bba144d57de0">&#9670;&#160;</a></span>CANPortBase() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::CANPortBase </td>
+          <td>(</td>
+          <td class="paramtype">CANPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3758c35d87fdeafd08f0cc9845888bea" name="a3758c35d87fdeafd08f0cc9845888bea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3758c35d87fdeafd08f0cc9845888bea">&#9670;&#160;</a></span>CANPortBase() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::CANPortBase </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Constructs the CRTP foundation. </p>
+<p>Carries no state; the native handle lives on "T_DERIVED".</p>
+<p>Protected: the base only makes sense as part of a "T_DERIVED" driver. </p>
+
+</div>
+</div>
+<a id="afe0c3c29da222264a12b2ade136c866c" name="afe0c3c29da222264a12b2ade136c866c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0c3c29da222264a12b2ade136c866c">&#9670;&#160;</a></span>~CANPortBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the object; owns no state of its own, so there is nothing to release here. </p>
+<p>Protected and non-virtual: it is never destroyed through a base pointer. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aa0017dbe171dc6568f888a4d30997ccc" name="aa0017dbe171dc6568f888a4d30997ccc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0017dbe171dc6568f888a4d30997ccc">&#9670;&#160;</a></span>abort()</h2>
+<a id="a733145a4ed7d5fce544cdb2b2e298859" name="a733145a4ed7d5fce544cdb2b2e298859"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a733145a4ed7d5fce544cdb2b2e298859">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -232,9 +311,9 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::I2CPortAsync</a>&lt; T_DERIVED &gt;::abort </td>
+          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -245,92 +324,24 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Requests an abort of the ongoing master transfer. </p>
-<p>The task blocked in the transfer returns "false" once the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> reports the abort complete, so the hardware no longer touches its buffer by then.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address of the transfer to abort. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the abort request. </dd></dl>
+<p>Halts the CAN peripheral's core state machine. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware stop sequence succeeded, "false" otherwise. </dd></dl>
 
 </div>
 </div>
-<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
+<a id="ac88a1857130f01ccafcb72baae483a84" name="ac88a1857130f01ccafcb72baae483a84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac88a1857130f01ccafcb72baae483a84">&#9670;&#160;</a></span>getFreeTxMailboxCount()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../de/dca/a01907.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, I2C_HandleTypeDef, <a class="el" href="../../d3/d4e/a01991.html">I2CPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a97738073feff35b79d6bb11c9bd2f351">I2CPortAsync</a>&lt; T_DERIVED &gt; &gt;::close </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Closes the port: unregisters it, restores the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group. </p>
-<p>Task context only.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
-
-</div>
-</div>
-<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_DERIVED * <a class="el" href="../../de/dca/a01907.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, I2C_HandleTypeDef, <a class="el" href="../../d3/d4e/a01991.html">I2CPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a97738073feff35b79d6bb11c9bd2f351">I2CPortAsync</a>&lt; T_DERIVED &gt; &gt;::findPort </td>
-          <td>(</td>
-          <td class="paramtype">I2C_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Finds the port that owns a <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">handle</td><td><a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The port, or "nullptr" if no open port uses the handle. </dd></dl>
-
-</div>
-</div>
-<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const I2C_HandleTypeDef * <a class="el" href="../../df/d11/a01915.html">Lib::HAL::Device</a>&lt; T_DERIVED, I2C_HandleTypeDef &gt;::getHandle </td>
+          <td class="memname">uint32_t <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::getFreeTxMailboxCount </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -338,46 +349,18 @@ template&lt;typename T_DERIVED&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Const-qualified access to the native microcontroller hardware handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or "nullptr" if uninitialized. </dd></dl>
+<p>Reports how many transmit mailboxes are currently free. </p>
+<dl class="section return"><dt>Returns</dt><dd>Number of free transmit mailboxes (0-3), or 0 if unbound. </dd></dl>
 
 </div>
 </div>
-<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">I2C_HandleTypeDef * <a class="el" href="../../df/d11/a01915.html">Lib::HAL::Device</a>&lt; T_DERIVED, I2C_HandleTypeDef &gt;::getHandle </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or "nullptr" if uninitialized. </dd></dl>
-
-</div>
-</div>
-<a id="ac30aad5121ca16fa7c3b185ed73d4104" name="ac30aad5121ca16fa7c3b185ed73d4104"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac30aad5121ca16fa7c3b185ed73d4104">&#9670;&#160;</a></span>isBusy()</h2>
+<a id="a7c5ae94d27408eb8d67405648fd2f154" name="a7c5ae94d27408eb8d67405648fd2f154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c5ae94d27408eb8d67405648fd2f154">&#9670;&#160;</a></span>getRxFifoFillLevel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -388,456 +371,43 @@ template&lt;typename T_DERIVED&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d4e/a01991.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
+          <td class="memname">uint32_t <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::getRxFifoFillLevel </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>fifoIndex</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Evaluates whether the underlying peripheral is actively locked in a transfer loop. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the bus lines are currently transmitting or receiving data. </dd></dl>
-
-</div>
-</div>
-<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/dca/a01907.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, I2C_HandleTypeDef, <a class="el" href="../../d3/d4e/a01991.html">I2CPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a97738073feff35b79d6bb11c9bd2f351">I2CPortAsync</a>&lt; T_DERIVED &gt; &gt;::isOpened </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the port is open. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" between a successful "open()" and "close()". </dd></dl>
-
-</div>
-</div>
-<a id="a14c943a270b82f4b76faffc2822e1408" name="a14c943a270b82f4b76faffc2822e1408"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14c943a270b82f4b76faffc2822e1408">&#9670;&#160;</a></span>isReady()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d3/d4e/a01991.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isReady </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>trials</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Probes whether a slave device acknowledges its address on the bus. </p>
-<p>"HAL_I2C_IsDeviceReady()" is always a blocking poll in the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a>, regardless of the transfer mode this port otherwise uses for "masterTransmit()" and "masterReceive()", so this lives once in the shared base.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave device address to probe. </td></tr>
-    <tr><td class="paramname">trials</td><td>Number of probe attempts before giving up. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Duration to wait for each probe attempt, rounded up to whole milliseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the device acknowledged within the given trials. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d4e/a01991_a14c943a270b82f4b76faffc2822e1408_cgraph.svg" width="518" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a4e866ea67cc0cb9eed0f1214dc5aa032" name="a4e866ea67cc0cb9eed0f1214dc5aa032"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e866ea67cc0cb9eed0f1214dc5aa032">&#9670;&#160;</a></span>isValidMemAddSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../d3/d4e/a01991.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isValidMemAddSize </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddSize</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks that a memory address size is one the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepts. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">memAddSize</td><td>Value to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" for "I2C_MEMADD_SIZE_8BIT" or "I2C_MEMADD_SIZE_16BIT". </dd></dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d4e/a01991_a4e866ea67cc0cb9eed0f1214dc5aa032_icgraph.svg" width="718" height="128"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a7e4533f8c7ce274ac9ab1c252eb98246" name="a7e4533f8c7ce274ac9ab1c252eb98246"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e4533f8c7ce274ac9ab1c252eb98246">&#9670;&#160;</a></span>isValidTransferSize()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool <a class="el" href="../../d3/d4e/a01991.html">Lib::HAL::I2CPortBase</a>&lt; T_DERIVED &gt;::isValidTransferSize </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks that a transfer buffer is non-empty and fits the 16-bit length every <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> I2C call takes. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">size</td><td>Buffer size in bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the size is usable. </dd></dl>
-
-</div>
-</div>
-<a id="ac646e78e8e291b9116d22e6593178c3b" name="ac646e78e8e291b9116d22e6593178c3b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac646e78e8e291b9116d22e6593178c3b">&#9670;&#160;</a></span>masterMemRead()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::I2CPortAsync</a>&lt; T_DERIVED &gt;::masterMemRead </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddSize</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reads from a device's internal memory address and waits for it. </p>
-<p>Task context only.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Reports how many frames are currently latched in the given hardware FIFO. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
-    <tr><td class="paramname">memAddress</td><td>Internal memory address to read from. </td></tr>
-    <tr><td class="paramname">memAddSize</td><td>Size of "memAddress" ("I2C_MEMADD_SIZE_8BIT" or "I2C_MEMADD_SIZE_16BIT"). </td></tr>
-    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+    <tr><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ("CAN_RX_FIFO0" or "CAN_RX_FIFO1"). </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Number of pending frames in the selected FIFO, or 0 if unbound. </dd></dl>
 
 </div>
 </div>
-<a id="adb29287498169b21a8c183a469cc20f4" name="adb29287498169b21a8c183a469cc20f4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adb29287498169b21a8c183a469cc20f4">&#9670;&#160;</a></span>masterMemWrite()</h2>
+<a id="a37ea285eb3fe4ea3c94cb248cc1215d3" name="a37ea285eb3fe4ea3c94cb248cc1215d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37ea285eb3fe4ea3c94cb248cc1215d3">&#9670;&#160;</a></span>open()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::I2CPortAsync</a>&lt; T_DERIVED &gt;::masterMemWrite </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddSize</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Writes to a device's internal memory address and waits for it. </p>
-<p>Task context only.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
-    <tr><td class="paramname">memAddress</td><td>Internal memory address to write to. </td></tr>
-    <tr><td class="paramname">memAddSize</td><td>Size of "memAddress" ("I2C_MEMADD_SIZE_8BIT" or "I2C_MEMADD_SIZE_16BIT"). </td></tr>
-    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
-
-</div>
-</div>
-<a id="a0f282a9b1fe1a24111ecf8a421fe50e7" name="a0f282a9b1fe1a24111ecf8a421fe50e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f282a9b1fe1a24111ecf8a421fe50e7">&#9670;&#160;</a></span>masterReceive()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::I2CPortAsync</a>&lt; T_DERIVED &gt;::masterReceive </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Performs a master reception and waits for it. </p>
-<p>Task context only.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
-    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
-
-</div>
-</div>
-<a id="a3369110fdc9a75b4446d17f5c5bbb7d8" name="a3369110fdc9a75b4446d17f5c5bbb7d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3369110fdc9a75b4446d17f5c5bbb7d8">&#9670;&#160;</a></span>masterTransmit()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<div class="memtemplate">
-template&lt;typename Rep, typename Period&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::I2CPortAsync</a>&lt; T_DERIVED &gt;::masterTransmit </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Performs a master transmission and waits for it. </p>
-<p>Task context only.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
-    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
-    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
-
-</div>
-</div>
-<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../de/dca/a01907.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, I2C_HandleTypeDef, <a class="el" href="../../d3/d4e/a01991.html">I2CPortBase</a>&lt; T_DERIVED &gt;, <a class="el" href="#a97738073feff35b79d6bb11c9bd2f351">I2CPortAsync</a>&lt; T_DERIVED &gt; &gt;::open </td>
+          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::open </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -845,14 +415,195 @@ template&lt;typename Rep, typename Period&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Opens the port: event group, peripheral, <a class="el" href="../../d3/d3b/a01911.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> slot and <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order. </p>
-<p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if every step succeeded, or if the port was already open. </dd></dl>
+<p>Starts the CAN peripheral's core state machine. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware start sequence succeeded, "false" otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a9d5120e2646e18222b7569d1caeda00e" name="a9d5120e2646e18222b7569d1caeda00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d5120e2646e18222b7569d1caeda00e">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp; <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a472090855651f87bac97104e8a80dee6" name="a472090855651f87bac97104e8a80dee6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a472090855651f87bac97104e8a80dee6">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a> &amp; <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a49874a4fadbeed6acb5df1cd34d8b425">CANPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+
+</div>
+</div>
+<a id="a19f3a9f56a84a6b351315710b9aa7cd4" name="a19f3a9f56a84a6b351315710b9aa7cd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19f3a9f56a84a6b351315710b9aa7cd4">&#9670;&#160;</a></span>read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::read </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>fifoIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d6/d8e/a01979.html">CANFrame</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reads whatever frame is currently latched in the given hardware FIFO. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir"></td><td class="paramname">fifoIndex</td><td>Native allocation key identifying the target buffer ("CAN_RX_FIFO0" or "CAN_RX_FIFO1"). </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">frame</td><td>Output structure receiving the parsed message. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if a valid frame was extracted from the selected hardware FIFO, "false" otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a65aa681fa591b2d0956e06e67e990b15" name="a65aa681fa591b2d0956e06e67e990b15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65aa681fa591b2d0956e06e67e990b15">&#9670;&#160;</a></span>write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::write </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>identifier</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Submits a classic CAN frame to the first free transmit mailbox. </p>
+<p>Returns as soon as the hardware accepts the frame into a mailbox. The bus transmission itself completes asynchronously and is observed through a mode-specific completion signal.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">identifier</td><td>Standard or Extended arbitration CAN frame ID. </td></tr>
+    <tr><td class="paramname">data</td><td>Payload bytes, at most "MAX_CLASSIC_CAN_PAYLOAD" long. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the hardware mailbox accepted the transmission, "false" otherwise. </dd></dl>
+
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a91a941265090b2ee4f3c05dbc2354fd9" name="a91a941265090b2ee4f3c05dbc2354fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91a941265090b2ee4f3c05dbc2354fd9">&#9670;&#160;</a></span>MAX_CLASSIC_CAN_PAYLOAD</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t <a class="el" href="../../d6/dd6/a01983.html">Lib::HAL::CANPortBase</a>&lt; T_DERIVED &gt;::MAX_CLASSIC_CAN_PAYLOAD = 8U</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Maximum payload length of a classic (non-FD) CAN frame. </p>
 
 </div>
 </div>
@@ -869,7 +620,7 @@ template&lt;typename Rep, typename Period&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../d2/dab/a00886.html">HAL</a></li><li class="navelem"><a href="../../d6/dd6/a01983.html">I2CPortAsync</a></li>
+    <li class="navelem"><a href="../../d2/da1/a00879.html">Lib</a></li><li class="navelem"><a href="../../d3/dd1/a00914.html">HAL</a></li><li class="navelem"><a href="../../d6/dd6/a01983.html">CANPortBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

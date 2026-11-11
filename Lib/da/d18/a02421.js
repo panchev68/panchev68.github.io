@@ -1,15 +1,23 @@
 var a02421 =
 [
-    [ "MutexGuard", "da/d18/a02421.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "da/d18/a02421.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "da/d18/a02421.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "da/d18/a02421.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "da/d18/a02421.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "da/d18/a02421.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "da/d18/a02421.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "da/d18/a02421.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "da/d18/a02421.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "da/d18/a02421.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "da/d18/a02421.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "da/d18/a02421.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "Config", "d9/d9d/a02425.html", "d9/d9d/a02425" ],
+    [ "Command", "da/d18/a02421.html#a0b7ad8b7773fc15de07047754f3794f9", [
+      [ "OFF", "da/d18/a02421.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "da/d18/a02421.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
+    ] ],
+    [ "Status", "da/d18/a02421.html#a9f826713fcf7511db5c43ef6f27173af", [
+      [ "IS_OFF", "da/d18/a02421.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "da/d18/a02421.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "da/d18/a02421.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
+    ] ],
+    [ "RotationCylinder", "da/d18/a02421.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
+    [ "RotationCylinder", "da/d18/a02421.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
+    [ "command", "da/d18/a02421.html#a8ca6acca72dbe8c542856371e956e058", null ],
+    [ "getName", "da/d18/a02421.html#a480be139cc8704be72afb69d2456281f", null ],
+    [ "getStatus", "da/d18/a02421.html#aba16d8727149fd2debf8b51fff5438bd", null ],
+    [ "isOff", "da/d18/a02421.html#a90f1e56010dee19b0f66350351127712", null ],
+    [ "isOn", "da/d18/a02421.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
+    [ "operator=", "da/d18/a02421.html#a44c71110f315e89203746b05fd4ab10a", null ],
+    [ "setup", "da/d18/a02421.html#a659c7989f745a79aeecb1c24004acba6", null ],
+    [ "update", "da/d18/a02421.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
 ];

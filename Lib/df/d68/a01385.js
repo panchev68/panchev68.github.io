@@ -1,12 +1,12 @@
 var a01385 =
 [
-    [ "FreeFunctionPointer", "df/d68/a01385.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "df/d68/a01385.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "df/d68/a01385.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "df/d68/a01385.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "df/d68/a01385.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "df/d68/a01385.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "df/d68/a01385.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "df/d68/a01385.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "df/d68/a01385.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "SerialPortBase", "df/d68/a01385.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "df/d68/a01385.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "df/d68/a01385.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "df/d68/a01385.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "df/d68/a01385.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "df/d68/a01385.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "df/d68/a01385.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "df/d68/a01385.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "df/d68/a01385.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

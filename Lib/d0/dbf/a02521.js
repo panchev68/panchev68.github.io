@@ -1,7 +1,14 @@
 var a02521 =
 [
-    [ "maxVoltage", "d0/dbf/a02521.html#a7264a8d3fc08b271c18227f9980f1e53", null ],
-    [ "minVoltage", "d0/dbf/a02521.html#a7a496a33a2cdf47e949b5d91dd82a332", null ],
-    [ "powerThreshold", "d0/dbf/a02521.html#a1173ab4f3f76adb01ce9d989e8071c1e", null ],
-    [ "stepSize", "d0/dbf/a02521.html#a5ac779799a2638585b8dbced18eff05d", null ]
+    [ "Label", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821e", [
+      [ "RUNNING", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
+      [ "READY", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "BLOCKED", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
+      [ "SUSPENDED", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
+      [ "DELETED", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
+      [ "INVALID", "d0/dbf/a02521.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
+    ] ],
+    [ "State", "d0/dbf/a02521.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
+    [ "get", "d0/dbf/a02521.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
+    [ "operator Label", "d0/dbf/a02521.html#a3c30086da2d01872c5cdccdba1874c74", null ]
 ];

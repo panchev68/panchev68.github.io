@@ -1,8 +1,8 @@
 var a00197 =
 [
-    [ "Lib::BSP::Voltmeter&lt; T_DERIVED &gt;", "d9/de7/a01279.html", "d9/de7/a01279" ],
-    [ "Lib::BSP::Voltmeter&lt; T_DERIVED &gt;::Config", "d5/da7/a01283.html", "d5/da7/a01283" ],
-    [ "Lib::BSP::AdcPort", "db/deb/a00853.html#a85b379ca2a4d7d2956ae5317961081ba", null ],
-    [ "Lib::BSP::Integrator", "db/deb/a00853.html#a345fa3420ca34ddf02b2c56c8705554b", null ],
-    [ "Lib::BSP::Interpolator", "db/deb/a00853.html#a2cacda540ff04115fe891c00364a43a6", null ]
+    [ "Lib::Digi::Core::ApiMode", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17ed", [
+      [ "Lib::Digi::Core::ApiMode::TRANSPARENT", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
+      [ "Lib::Digi::Core::ApiMode::API1", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
+      [ "Lib::Digi::Core::ApiMode::API2", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
+    ] ]
 ];

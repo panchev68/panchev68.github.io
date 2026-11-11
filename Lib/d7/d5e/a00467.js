@@ -1,4 +1,4 @@
 var a00467 =
 [
-    [ "Lib::HAL::DACPort&lt; DriverMode::DMA &gt;", "d9/de1/a01923.html", "d9/de1/a01923" ]
+    [ "Lib::HAL::OSPIPortAsync&lt; T_DERIVED &gt;", "db/dd4/a02107.html", "db/dd4/a02107" ]
 ];

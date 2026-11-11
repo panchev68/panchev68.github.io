@@ -1,16 +1,19 @@
 var a01261 =
 [
     [ "Config", "da/dd8/a01265.html", "da/dd8/a01265" ],
-    [ "TransducerDiagnostics", "d6/d16/a01269.html", "d6/d16/a01269" ],
-    [ "PGA460TPWRQ1", "de/d34/a01261.html#af23eb94dd6b27d2f4b97126ec7c3ff6e", null ],
-    [ "PGA460TPWRQ1", "de/d34/a01261.html#ab0901e6176d41517bb48f19722c9721b", null ],
-    [ "PGA460TPWRQ1", "de/d34/a01261.html#ab58650dd060801861ed9ffdd08be491b", null ],
-    [ "close", "de/d34/a01261.html#a52d6efacbe935389fa51f1f75670476f", null ],
-    [ "open", "de/d34/a01261.html#a50accfabb3897779a4b26e4c6b8e7566", null ],
-    [ "operator=", "de/d34/a01261.html#a3e3603ffff316bc5f0bfd3fbfa8f3ac9", null ],
-    [ "operator=", "de/d34/a01261.html#a8e49edb5b10188a09823c4a7c0c3bba7", null ],
-    [ "readDistance", "de/d34/a01261.html#ab5b14fe14cfea3451683b86f1cc54952", null ],
-    [ "readRegister", "de/d34/a01261.html#a2d489995d894aaeddbace0f34825674e", null ],
-    [ "readTransducerDiagnostics", "de/d34/a01261.html#ad06b5c6df4a4916a991419d66d6cf3f4", null ],
-    [ "writeRegister", "de/d34/a01261.html#a393f06f504869258b353566ff562f476", null ]
+    [ "Resolution", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
+      [ "BITS_9", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
+      [ "BITS_10", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
+      [ "BITS_11", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
+      [ "BITS_12", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
+    ] ],
+    [ "DS18B20", "de/d34/a01261.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "de/d34/a01261.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "de/d34/a01261.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "getResolution", "de/d34/a01261.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
+    [ "isGenuineDevice", "de/d34/a01261.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
+    [ "isPresent", "de/d34/a01261.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "de/d34/a01261.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readRom", "de/d34/a01261.html#a26a1ebc99132937ee58668fd12c26263", null ],
+    [ "readTemperatureCelsius", "de/d34/a01261.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

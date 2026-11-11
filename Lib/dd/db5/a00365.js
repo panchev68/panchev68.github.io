@@ -1,4 +1,5 @@
 var a00365 =
 [
-    [ "Lib::Digi::Core::isElapsed", "d5/d69/a00878.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;", "d5/d1b/a01971.html", "d5/d1b/a01971" ],
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;::Event", "dd/d4e/a01975.html", null ]
 ];

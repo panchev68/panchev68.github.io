@@ -1,4 +1,4 @@
 var a00701 =
 [
-    [ "Lib::Helper::SwapBytes", "dd/d3b/a02291.html", null ]
+    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;", "db/df2/a02551.html", "db/df2/a02551" ]
 ];

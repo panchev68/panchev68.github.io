@@ -1,17 +1,20 @@
 var a00975 =
 [
-    [ "Outputs", "db/dbf/a00975.html#a247cd7c1b9224f24326b3776838b272f", null ],
-    [ "getChangesCounter", "db/dbf/a00975.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
-    [ "getSpiHandle", "db/dbf/a00975.html#a95099752d786b9afd12743cfed8e8f39", null ],
-    [ "getStatus", "db/dbf/a00975.html#a5390728a76821a9b72e0bf604b09462e", null ],
-    [ "getValue", "db/dbf/a00975.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
-    [ "hasSpiError", "db/dbf/a00975.html#a577114566b65889dd42c95c3e3350b1a", null ],
-    [ "postUpdateCallback", "db/dbf/a00975.html#a369ec8b311dd4871503593f3fd91e103", null ],
-    [ "preUpdateCallback", "db/dbf/a00975.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
-    [ "setup", "db/dbf/a00975.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
-    [ "setValue", "db/dbf/a00975.html#a6a6877af80563061eddc23c9bb71746d", null ],
-    [ "update", "db/dbf/a00975.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
-    [ "onSpiError", "db/dbf/a00975.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
-    [ "onStatusChanged", "db/dbf/a00975.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
-    [ "onValueChanged", "db/dbf/a00975.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
+    [ "MapField", "d8/d49/a00979.html", "d8/d49/a00979" ],
+    [ "Config", "d7/d98/a00983.html", "d7/d98/a00983" ],
+    [ "PortBase", "dd/d48/a00995.html", "dd/d48/a00995" ],
+    [ "Inputs", "de/de2/a00999.html", "de/de2/a00999" ],
+    [ "Outputs", "dc/d10/a01003.html", "dc/d10/a01003" ],
+    [ "SpiPort", "db/dbf/a00975.html#a8e662cafaa683ac82c0b60d7b4da8fdc", null ],
+    [ "UpdateMode", "db/dbf/a00975.html#a50419179ec3a60e3ac3b5036b3b284eb", [
+      [ "SEQUENTIAL", "db/dbf/a00975.html#a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb", null ],
+      [ "PARALLEL", "db/dbf/a00975.html#a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb", null ]
+    ] ],
+    [ "DigitalPeripheralBase", "db/dbf/a00975.html#ace067a52b4d9576bd3ade495aa11e352", null ],
+    [ "~DigitalPeripheralBase", "db/dbf/a00975.html#a9d019d0d0be1f110d76abf5f5ab11e4e", null ],
+    [ "getInputs", "db/dbf/a00975.html#ae1add73078ebd967252d4864e16de016", null ],
+    [ "getOutputs", "db/dbf/a00975.html#ad664d141e8c0b66fbd109f6397914af6", null ],
+    [ "handlePostUpdateEvent", "db/dbf/a00975.html#a9b56e97a372ad140ce2ef0b8b348a7c5", null ],
+    [ "handlePreUpdateEvent", "db/dbf/a00975.html#a2953eba2059d60debecac4c3d1d3e1d2", null ],
+    [ "setup", "db/dbf/a00975.html#ae9523074ebe5ad81c27aacd0f7c38c7f", null ]
 ];

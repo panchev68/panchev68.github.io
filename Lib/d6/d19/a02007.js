@@ -1,14 +1,20 @@
 var a02007 =
 [
-    [ "OSPIPort", "d6/d19/a02007.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
-    [ "~OSPIPort", "d6/d19/a02007.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
-    [ "abort", "d6/d19/a02007.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "d6/d19/a02007.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "d6/d19/a02007.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "Event", "d5/db4/a02011.html", null ],
+    [ "DataAlignment", "d6/d19/a02007.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d6/d19/a02007.html#ae36ab0485cc108ac7f0082068d118518", null ],
+    [ "~DACPort", "d6/d19/a02007.html#a38af62d642471553e5aa356e673ad171", null ],
+    [ "DACPort", "d6/d19/a02007.html#afe60fcad137acbac62467215f81e262a", null ],
+    [ "DACPort", "d6/d19/a02007.html#a6befbf3fd6e387b958c474127b15a55e", null ],
+    [ "close", "d6/d19/a02007.html#a2b221635f62446099dbe5e86e8065288", null ],
+    [ "getChannel", "d6/d19/a02007.html#abb9c3299abda744064d8d8e8d44f825b", null ],
     [ "getHandle", "d6/d19/a02007.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d6/d19/a02007.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d6/d19/a02007.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d6/d19/a02007.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d6/d19/a02007.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "d6/d19/a02007.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "open", "d6/d19/a02007.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
+    [ "operator=", "d6/d19/a02007.html#a8669eba366ce1c94494df43dfaccc690", null ],
+    [ "operator=", "d6/d19/a02007.html#ae0483104f828bd3464839de4f4880b4a", null ],
+    [ "setValue", "d6/d19/a02007.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d6/d19/a02007.html#a6c386654350eba5ab306e4764474af96", null ],
+    [ "stop", "d6/d19/a02007.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
+    [ "waitForUnderrun", "d6/d19/a02007.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
 ];

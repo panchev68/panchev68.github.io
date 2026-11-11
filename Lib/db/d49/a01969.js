@@ -1,15 +1,14 @@
 var a01969 =
 [
-    [ "I2CPort", "db/d49/a01969.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
-    [ "~I2CPort", "db/d49/a01969.html#aa13047282a809658f54818a9b352d7bf", null ],
-    [ "abort", "db/d49/a01969.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "db/d49/a01969.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "db/d49/a01969.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "db/d49/a01969.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "db/d49/a01969.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "db/d49/a01969.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "db/d49/a01969.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "db/d49/a01969.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "db/d49/a01969.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "db/d49/a01969.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "FlashInterface", "db/d49/a01969.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "db/d49/a01969.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "db/d49/a01969.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "db/d49/a01969.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "db/d49/a01969.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "db/d49/a01969.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "db/d49/a01969.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "db/d49/a01969.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "db/d49/a01969.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "db/d49/a01969.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "db/d49/a01969.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

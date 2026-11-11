@@ -1,19 +1,9 @@
 var a02035 =
 [
-    [ "Date", "d4/d9b/a02039.html", "d4/d9b/a02039" ],
-    [ "Time", "dc/d05/a02043.html", "dc/d05/a02043" ],
-    [ "Callback", "d9/d1f/a02035.html#aa65bc239da01d8925270ee88a5cfd754", null ],
-    [ "RTCDevice", "d9/d1f/a02035.html#aef59f39cbffc698a357982cd0194a7f9", null ],
-    [ "~RTCDevice", "d9/d1f/a02035.html#a892362d24be775443627005ea8724b38", null ],
-    [ "RTCDevice", "d9/d1f/a02035.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
-    [ "RTCDevice", "d9/d1f/a02035.html#a6c8a82665278c72edbd09c517d929e67", null ],
-    [ "getDateTime", "d9/d1f/a02035.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
-    [ "getHandle", "d9/d1f/a02035.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isTickServiceRunning", "d9/d1f/a02035.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
-    [ "operator=", "d9/d1f/a02035.html#a97370a531742ca95f9bbb03daefd9919", null ],
-    [ "operator=", "d9/d1f/a02035.html#a9b9f7c009be9bbae886ca7082a302099", null ],
-    [ "setDateTime", "d9/d1f/a02035.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
-    [ "startTickService", "d9/d1f/a02035.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
-    [ "stopTickService", "d9/d1f/a02035.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
-    [ "void::HAL_RTC_AlarmAEventCallback", "d9/d1f/a02035.html#a292bc50e5b612af91527952bbffe57e9", null ]
+    [ "Handle", "d9/d1f/a02035.html#a980d7c0af69c0d861bbea3f400bd25a6", null ],
+    [ "Handle", "d9/d1f/a02035.html#a2ff88e41407c02b9858a201f579b32a1", null ],
+    [ "getPinNumber", "d9/d1f/a02035.html#a8d29716bb6bcc278e753e55560639c17", null ],
+    [ "getPort", "d9/d1f/a02035.html#af140a6cbfae7f80356aa212dcbf734fa", null ],
+    [ "getPort", "d9/d1f/a02035.html#a717fa8fdec63c64bef95cffab50ed478", null ],
+    [ "operator==", "d9/d1f/a02035.html#a526faa5bc7a8722ecc3b1477e17d225b", null ]
 ];

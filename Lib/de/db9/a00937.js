@@ -1,8 +1,13 @@
 var a00937 =
 [
-    [ "DeviceBase", "de/db9/a00937.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "de/db9/a00937.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "de/db9/a00937.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "de/db9/a00937.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "de/db9/a00937.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "Config", "d6/dad/a00941.html", "d6/dad/a00941" ],
+    [ "Beep", "de/db9/a00937.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
+    [ "~Beep", "de/db9/a00937.html#af601628e760dd29541b317a1256b6bd1", null ],
+    [ "Beep", "de/db9/a00937.html#a08c08dc451270c224dded9c366b9aa6a", null ],
+    [ "Beep", "de/db9/a00937.html#a3506da759c0ccebd28b87c0489cdb56e", null ],
+    [ "isPlaying", "de/db9/a00937.html#ac6552c090b310890de41a06ba77a7e68", null ],
+    [ "operator=", "de/db9/a00937.html#a3c5fdc21b4e87a407ca4fb0efaa588cc", null ],
+    [ "operator=", "de/db9/a00937.html#ad2f515525962880586d857dd395e8983", null ],
+    [ "play", "de/db9/a00937.html#a4bc5b3cc66d266518992ce5dc14973c5", null ],
+    [ "RTOS::TickClient< Beep >", "de/db9/a00937.html#a021b081c55c843fa9b7ba25effa04637", null ]
 ];

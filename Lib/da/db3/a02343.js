@@ -1,14 +1,18 @@
 var a02343 =
 [
-    [ "Config", "d4/d21/a02347.html", "d4/d21/a02347" ],
-    [ "State", "da/db3/a02343.html#a7063555b30fb75832750a0361328040e", [
-      [ "ACTIVE", "da/db3/a02343.html#a7063555b30fb75832750a0361328040ea18ff74f43da410c5529f7d6fca84f115", null ],
-      [ "INACTIVE", "da/db3/a02343.html#a7063555b30fb75832750a0361328040ea6b273343c454f9c53dcfc9c4ccf171d2", null ],
-      [ "DISABLED", "da/db3/a02343.html#a7063555b30fb75832750a0361328040ea055c1a591abb0e8cd86dc969727bcc0b", null ]
-    ] ],
-    [ "Sensor", "da/db3/a02343.html#a710e69df2dee7bfc8aa209f4f6cc8d1c", null ],
-    [ "getName", "da/db3/a02343.html#a132f01180c3998d6e6d751330a9b4b6d", null ],
-    [ "isActive", "da/db3/a02343.html#af197d2b1d06755fc83c2fca16e9c02e5", null ],
-    [ "isPresent", "da/db3/a02343.html#aed9398c1217d23a7d2cd9e94a09f3722", null ],
-    [ "read", "da/db3/a02343.html#a2a1b8d661f06dff4eccff343ce7772bd", null ]
+    [ "DateString", "da/db3/a02343.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "da/db3/a02343.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "da/db3/a02343.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "da/db3/a02343.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "da/db3/a02343.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "da/db3/a02343.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "da/db3/a02343.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "da/db3/a02343.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "da/db3/a02343.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "da/db3/a02343.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "da/db3/a02343.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "da/db3/a02343.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "da/db3/a02343.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "da/db3/a02343.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "da/db3/a02343.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

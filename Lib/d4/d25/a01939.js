@@ -1,14 +1,17 @@
 var a01939 =
 [
-    [ "FlashInterface", "d4/d25/a01939.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
-    [ "~FlashInterface", "d4/d25/a01939.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
-    [ "FlashInterface", "d4/d25/a01939.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
-    [ "FlashInterface", "d4/d25/a01939.html#a1c805cbd8158ca094182032c42fa8a68", null ],
-    [ "eraseSector", "d4/d25/a01939.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
-    [ "lock", "d4/d25/a01939.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
-    [ "operator=", "d4/d25/a01939.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
-    [ "operator=", "d4/d25/a01939.html#a2e5471c04f3069860252fdf10e53270a", null ],
-    [ "unlock", "d4/d25/a01939.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
-    [ "writeBuffer", "d4/d25/a01939.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
-    [ "writeWord", "d4/d25/a01939.html#ad771befb1be3db0d319c46507a7896ca", null ]
+    [ "ADCPort", "d4/d25/a01939.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "d4/d25/a01939.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "d4/d25/a01939.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "d4/d25/a01939.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "close", "d4/d25/a01939.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getHandle", "d4/d25/a01939.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "d4/d25/a01939.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "getValue", "d4/d25/a01939.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d4/d25/a01939.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "d4/d25/a01939.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "d4/d25/a01939.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "d4/d25/a01939.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "d4/d25/a01939.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "d4/d25/a01939.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

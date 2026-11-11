@@ -1,5 +1,14 @@
 var a02205 =
 [
-    [ "DecimalDigits", "dc/d43/a02205.html#a7f58f0c943d4e885231b11dbd0697d08", null ],
-    [ "HexDigits", "dc/d43/a02205.html#a73d7051255379fed271d86e4b50887f4", null ]
+    [ "EventHandler", "dc/d43/a02205.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPort", "dc/d43/a02205.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "dc/d43/a02205.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "close", "dc/d43/a02205.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "dc/d43/a02205.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dc/d43/a02205.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "dc/d43/a02205.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dc/d43/a02205.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "setEventHandler", "dc/d43/a02205.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "dc/d43/a02205.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "dc/d43/a02205.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

@@ -1,5 +1,6 @@
 var a02483 =
 [
-    [ "previousValue", "d3/de3/a02483.html#a18bbde03afa6705ff2164f33a694f539", null ],
-    [ "success", "d3/de3/a02483.html#aaef68ed1b6e5e9f438c5faedf6306ca3", null ]
+    [ "name", "d3/de3/a02483.html#a8dec212efe0f7ea1f915bd172cafd355", null ],
+    [ "output", "d3/de3/a02483.html#acdede7c9e17b2f2ccd22c531789418cc", null ],
+    [ "rotateTime", "d3/de3/a02483.html#aad96d287e9891431e5a7c99935482563", null ]
 ];

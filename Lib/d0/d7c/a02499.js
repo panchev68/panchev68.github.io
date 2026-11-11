@@ -1,9 +1,13 @@
 var a02499 =
 [
-    [ "Tick", "d0/d7c/a02499.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "d0/d7c/a02499.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "d0/d7c/a02499.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "d0/d7c/a02499.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "d0/d7c/a02499.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "d0/d7c/a02499.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "CriticalSectionFromISR", "d1/d5d/a02503.html", "d1/d5d/a02503" ],
+    [ "CriticalSection", "de/dbd/a02507.html", "de/dbd/a02507" ],
+    [ "Scheduler", "d0/d01/a02511.html", "d0/d01/a02511" ],
+    [ "MemoryInfo", "d9/dce/a02519.html", "d9/dce/a02519" ],
+    [ "InterruptMask", "d0/d7c/a02499.html#a8fe5eee6a0f417ce7106b7bcc7df1f4f", null ],
+    [ "TaskCount", "d0/d7c/a02499.html#ae3ed269064d8e8dec76f8cde64bcc7ab", null ],
+    [ "TickDuration", "d0/d7c/a02499.html#ab8efa244b2762e143dbfc23e170ed0e1", null ],
+    [ "TickType", "d0/d7c/a02499.html#ab3a21cca75c9a9c61acc1cb12a3cc132", null ],
+    [ "Kernel", "d0/d7c/a02499.html#abbc417c1dbe0eb579cf07e6568e6f922", null ],
+    [ "~Kernel", "d0/d7c/a02499.html#a002477130b9e5bd7adc19142c1516c08", null ]
 ];

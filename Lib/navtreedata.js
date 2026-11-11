@@ -26,13 +26,13 @@ var NAVTREE =
 [
   [ "IAR Library", "index.html", [
     [ "IAR EWARM Library", "index.html", "index" ],
-    [ "PGA460TPWRQ1 usage", "dd/db6/a03514.html", [
-      [ "Hardware assumptions", "dd/db6/a03514.html#pga460_usage_hw", null ],
-      [ "Single measurement", "dd/db6/a03514.html#pga460_usage_basic", null ],
-      [ "Periodic measurement task", "dd/db6/a03514.html#pga460_usage_task", null ],
-      [ "Non-default UART address", "dd/db6/a03514.html#pga460_usage_address", null ]
+    [ "PGA460TPWRQ1 usage", "d9/d3c/a03650.html", [
+      [ "Hardware assumptions", "d9/d3c/a03650.html#pga460_usage_hw", null ],
+      [ "Single measurement", "d9/d3c/a03650.html#pga460_usage_basic", null ],
+      [ "Periodic measurement task", "d9/d3c/a03650.html#pga460_usage_task", null ],
+      [ "Non-default UART address", "d9/d3c/a03650.html#pga460_usage_address", null ]
     ] ],
-    [ "Deprecated List", "d0/d11/a00842.html", null ],
+    [ "Deprecated List", "d3/db2/a00869.html", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Namespace Members", "namespacemembers.html", [
       [ "All", "namespacemembers.html", "namespacemembers_dup" ],
@@ -66,26 +66,26 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d0/ddb/a00542.html#a30dfbb10cb465524f842588d8b728267",
-"d1/dea/a01791.html#ad7428bbb83ea5af8171eee7e864fdda4",
-"d2/d9a/a02227.html#a17512f695eb94c12c81163d5335f3ef2",
-"d3/dbc/a01451.html#a2e951b9b4363af4a96e6e7426382c1d3",
-"d4/d64/a02111.html#ac39b97fd324efde09c82d0ccfe7fe4e8",
-"d5/d73/a02423.html#a0f5b82df6b3d86f401191d1b11202f96",
-"d6/d27/a01163.html#a5036c8053ab5111f65ec7d1472838f4c",
-"d6/d9a/a02491.html#ab9f24e9be6431fa9de927ef5b39ce61e",
-"d7/d67/a02323.html#aa1d2d569c178bee69ecdf55d472c9b50",
-"d8/d49/a02419.html#a12545d9824f6613ee89191861f120584",
-"d9/d5b/a01127.html#ab2cf6cb7b446cd6c4c4ad348178a8bf0",
-"d9/df7/a01699.html#a1f2d004cd4c6fbc142552586f654c372a4686d529cd92a743c34e665dfecf98d9",
-"da/df3/a02059.html#a8be2d6d39175f6e71f25e4a64e0e2f1b",
-"db/dca/a01639.html#a7b898336331c68a5b1b7e460205e001e",
-"dc/d6e/a00833.html",
-"dd/d54/a02119.html#a8be2d6d39175f6e71f25e4a64e0e2f1b",
-"de/d4a/a01107.html#ab7d16cfbd2da4ddbf5fe344a3eace30f",
-"df/d12/a01703.html#a1ca3b1d6d0209c50bd947bfccb88bb66a2e99e5dc4968ce76c38add117219dc8a",
-"df/dd8/a01943.html#a608244a38c1095888d60a17b77ae5ed4",
-"namespacemembers_n.html"
+"d1/d46/a01739.html#a1f2d004cd4c6fbc142552586f654c372a01ccdb1865b61552076f587dfbb770f0",
+"d2/d11/a02647.html",
+"d2/dd2/a02279.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566",
+"d3/dce/a01963.html#a90b19ee3b4f06e4874a36f9f25b22ce6",
+"d4/da0/a01291.html#a25f143d2f7674576d969696bb116ccd0",
+"d5/d56/a02495.html#a27fe7bec268decd9b548d4ad2375ca34",
+"d6/d5d/a02023.html#a608244a38c1095888d60a17b77ae5ed4",
+"d6/df2/a01175.html#a2d9014fe08fb984de211efd021eb1f35",
+"d7/d7d/a02527.html",
+"d7/dd6/a01167.html#af8f947690c83c732ab7ca793d3e6292e",
+"d8/d8c/a01527.html#a7f7af906ef5f495d7957fd7fe7349c71",
+"d9/d5b/a01127.html#acabb2e9f89395ebfeab0b0992b2afe6c",
+"da/d1f/a01203.html#a388f97dc38869ed6cd60f3fde259bd0da26942c194006dcca0cbce255a74f13f2",
+"db/d4b/a01883.html#a0d014768676f3aad8b6fb7f3fc1390c1a362797564247e15cc626a84e708f821c",
+"db/df2/a02551.html#a26973b6d8a64d88a5dc5fcaca14fd774",
+"dc/d70/a01187.html#abbdf9c7b445c45999344281653820100",
+"dd/d54/a02119.html#a220a07c58647557d8a81402260eacfb5",
+"de/d48/a02167.html#a3ab3ebd892230fa7165da48b1196d7a5",
+"df/d18/a01071.html#a8f9bc205f553a774c7a25beff08602ac",
+"dir_85c91813488a76134f3fa3be141ab59e.html"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

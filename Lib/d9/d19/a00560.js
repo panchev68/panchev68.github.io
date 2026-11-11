@@ -1,4 +1,4 @@
 var a00560 =
 [
-    [ "Lib::HAL::LPTimer", "df/dfb/a02068.html", "df/dfb/a02068" ]
+    [ "Lib::HAL::USBDevicePortBase&lt; T_DERIVED &gt;", "d1/dda/a02255.html", "d1/dda/a02255" ]
 ];

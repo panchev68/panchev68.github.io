@@ -1,19 +1,14 @@
 var a02175 =
 [
-    [ "USBHostPortBase", "de/d92/a02175.html#ac0f4ceb9b0f8b8a506fd172cb3ce4566", null ],
-    [ "USBHostPortBase", "de/d92/a02175.html#aa89066f8aa5102a47badafbc732bf444", null ],
-    [ "USBHostPortBase", "de/d92/a02175.html#a6ab4021b54519845f9f116d64637e8b3", null ],
-    [ "~USBHostPortBase", "de/d92/a02175.html#a78ed9071852127d2096ce7ef2b2a5f8e", null ],
-    [ "close", "de/d92/a02175.html#aff332f8bc49d112c37f829db7d9b78c1", null ],
-    [ "closeChannel", "de/d92/a02175.html#a8f20ce05eb27e7ffc1854d4318e1cd9f", null ],
-    [ "getFrame", "de/d92/a02175.html#aa5a82053bf356261f139d027918f7a98", null ],
-    [ "getSpeed", "de/d92/a02175.html#a606a97ab7752495ff5b4874b04c54cc5", null ],
-    [ "getTransferCount", "de/d92/a02175.html#aeafad19d337548bb5ef919dd44723b5f", null ],
-    [ "open", "de/d92/a02175.html#ab20db0d8a9ceb5b527bc5b4ff065717f", null ],
-    [ "openChannel", "de/d92/a02175.html#aa013c6f71e1233cd4ef77f9d22d951f1", null ],
-    [ "operator=", "de/d92/a02175.html#a58f84861a9e04f0260bf39e31c926931", null ],
-    [ "operator=", "de/d92/a02175.html#a9dea26483778c8eacb80952819421b30", null ],
-    [ "resetPort", "de/d92/a02175.html#a4be20887571f3bd3694a79bb349979f8", null ],
-    [ "start", "de/d92/a02175.html#ae2eed5f70766aca444ca11eb3ab9d1ad", null ],
-    [ "stop", "de/d92/a02175.html#abb99db8a0c5b9c1c35ae04c3fcc63818", null ]
+    [ "TimEncoder", "de/d92/a02175.html#a865f1c850a27e5a21c65997eddc230e6", null ],
+    [ "~TimEncoder", "de/d92/a02175.html#a75c39486905ce140625f8ede68cf6b1c", null ],
+    [ "TimEncoder", "de/d92/a02175.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
+    [ "TimEncoder", "de/d92/a02175.html#a6ac1197149221d77d1967fbc9bf30371", null ],
+    [ "close", "de/d92/a02175.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
+    [ "isClockwise", "de/d92/a02175.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
+    [ "open", "de/d92/a02175.html#a0332945ce02a55fb6e624309d4613697", null ],
+    [ "operator=", "de/d92/a02175.html#a5f081d643e5f193b16d632bca48547f3", null ],
+    [ "operator=", "de/d92/a02175.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
+    [ "read", "de/d92/a02175.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
+    [ "write", "de/d92/a02175.html#aa31e675a06e5e104834e47423daa2b5f", null ]
 ];

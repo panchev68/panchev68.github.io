@@ -1,6 +1,7 @@
 var a02627 =
 [
-    [ "pinNRST", "dc/d34/a02627.html#ac8ee29a38a959691946cf28fbfc75e60", null ],
-    [ "rxPort", "dc/d34/a02627.html#a1c3ff6fa6ecfb8e9cd0df68a1ef74ccc", null ],
-    [ "txPort", "dc/d34/a02627.html#a7a30a24da1b05da04d34ae04d9601ed4", null ]
+    [ "current", "dc/d34/a02627.html#a03c2002021ee39257b3712ebb21f9804", null ],
+    [ "irradiance", "dc/d34/a02627.html#aeb4a3f32aa352d29093581039d36dd08", null ],
+    [ "temperature", "dc/d34/a02627.html#acbe81fadc408c422bd3c3b2aaa66500a", null ],
+    [ "voltage", "dc/d34/a02627.html#aed376e2d8eced1f376c8d5aa79e1d0c6", null ]
 ];

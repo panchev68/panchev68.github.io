@@ -1,4 +1,4 @@
 var a00359 =
 [
-    [ "Lib::Digi::Core::Frame0x90", "d8/df7/a01711.html", "d8/df7/a01711" ]
+    [ "Lib::HAL::BackupRamDomain", "d3/dce/a01963.html", "d3/dce/a01963" ]
 ];

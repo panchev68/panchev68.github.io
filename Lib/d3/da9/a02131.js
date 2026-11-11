@@ -1,18 +1,19 @@
 var a02131 =
 [
-    [ "EventHandler", "d3/da9/a02131.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
-    [ "USBDevicePort", "d3/da9/a02131.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
-    [ "~USBDevicePort", "d3/da9/a02131.html#a380acfe834fbf265a2fdfe8e26550867", null ],
-    [ "abort", "d3/da9/a02131.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
-    [ "close", "d3/da9/a02131.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d3/da9/a02131.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "Date", "df/daa/a02135.html", "df/daa/a02135" ],
+    [ "Time", "d0/d13/a02139.html", "d0/d13/a02139" ],
+    [ "Callback", "d3/da9/a02131.html#a0a60ddd5d190a0aaa1bbe1c7e6d62c59", null ],
+    [ "RTCDevice", "d3/da9/a02131.html#aef59f39cbffc698a357982cd0194a7f9", null ],
+    [ "~RTCDevice", "d3/da9/a02131.html#a892362d24be775443627005ea8724b38", null ],
+    [ "RTCDevice", "d3/da9/a02131.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
+    [ "RTCDevice", "d3/da9/a02131.html#a6c8a82665278c72edbd09c517d929e67", null ],
+    [ "getDateTime", "d3/da9/a02131.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
     [ "getHandle", "d3/da9/a02131.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d3/da9/a02131.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d3/da9/a02131.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d3/da9/a02131.html#add4fb8ab17eac13116050ae3c8237acf", null ],
-    [ "send", "d3/da9/a02131.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
-    [ "setEventHandler", "d3/da9/a02131.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
-    [ "submitReceive", "d3/da9/a02131.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
-    [ "submitSend", "d3/da9/a02131.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
-    [ "waitForEvent", "d3/da9/a02131.html#ac98dece292bb17828882e8d61e803880", null ]
+    [ "isTickServiceRunning", "d3/da9/a02131.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
+    [ "operator=", "d3/da9/a02131.html#a97370a531742ca95f9bbb03daefd9919", null ],
+    [ "operator=", "d3/da9/a02131.html#a9b9f7c009be9bbae886ca7082a302099", null ],
+    [ "setDateTime", "d3/da9/a02131.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
+    [ "startTickService", "d3/da9/a02131.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
+    [ "stopTickService", "d3/da9/a02131.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
+    [ "void::HAL_RTC_AlarmAEventCallback", "d3/da9/a02131.html#a292bc50e5b612af91527952bbffe57e9", null ]
 ];

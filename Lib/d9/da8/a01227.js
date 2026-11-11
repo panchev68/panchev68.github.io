@@ -1,8 +1,11 @@
 var a01227 =
 [
-    [ "miso", "d9/da8/a01227.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "d9/da8/a01227.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "d9/da8/a01227.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "d9/da8/a01227.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "d9/da8/a01227.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "operator==", "d9/da8/a01227.html#a6d55cf519f280eb9c0e3a26e175a07f1", null ],
+    [ "fifoStatus1", "d9/da8/a01227.html#a8d4064983272456f2bb02cc0e9f0c920", null ],
+    [ "irqStatus1", "d9/da8/a01227.html#aa768730607ddfadbd98e83d9e2dad318", null ],
+    [ "irqStatus2", "d9/da8/a01227.html#adac7641fc9718f5eadda0e0b4ab2ed71", null ],
+    [ "operation", "d9/da8/a01227.html#a5b9150d2c316bf04c90a8e926eaf8f81", null ],
+    [ "protocol", "d9/da8/a01227.html#a7057ac56ad3d604ce1fcb392d89f6e1c", null ],
+    [ "protocolRx1", "d9/da8/a01227.html#a3286298ea7c4dc967dd97d575455c368", null ],
+    [ "status", "d9/da8/a01227.html#afd9a8486968b9512fd0de55e3d549edf", null ]
 ];

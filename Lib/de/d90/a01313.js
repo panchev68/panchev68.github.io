@@ -1,5 +1,6 @@
 var a01313 =
 [
-    [ "Master", "de/d90/a01313.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "de/d90/a01313.html#af2d503cce06191d01441adbba146c9f5", null ]
+    [ "adc", "de/d90/a01313.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
+    [ "channel", "de/d90/a01313.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
+    [ "periodMs", "de/d90/a01313.html#ad839d16fe06238279ff23042e3761f0c", null ]
 ];

@@ -1,4 +1,4 @@
 var a00374 =
 [
-    [ "Lib::Errors::Group", "df/dd2/a01731.html", "df/dd2/a01731" ]
+    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "d2/d8a/a01987.html", "d2/d8a/a01987" ]
 ];

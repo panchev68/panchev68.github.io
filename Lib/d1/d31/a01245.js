@@ -1,8 +1,6 @@
 var a01245 =
 [
-    [ "miso", "d1/d31/a01245.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "d1/d31/a01245.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "d1/d31/a01245.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "d1/d31/a01245.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "d1/d31/a01245.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "pinHandle", "d1/d31/a01245.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
+    [ "timerHandler", "d1/d31/a01245.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
+    [ "updatePeriod", "d1/d31/a01245.html#a08c430ab4ab176b490c190835f89b3b0", null ]
 ];

@@ -1,9 +1,6 @@
 var a01781 =
 [
-    [ "address", "d6/d27/a01781.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
-    [ "channel", "d6/d27/a01781.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
-    [ "counter", "d6/d27/a01781.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
-    [ "length", "d6/d27/a01781.html#af80f349070d12d0ce2387f6d95764bfe", null ],
-    [ "priority", "d6/d27/a01781.html#a0c3726e1ac6fed602491f21449c9a740", null ],
-    [ "protocol", "d6/d27/a01781.html#ac094990b182d42c38feb302d144a6924", null ]
+    [ "afterWrite", "d6/d27/a01781.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
+    [ "beforeRead", "d6/d27/a01781.html#a214b45de3b2b1b03564e40ad91392018", null ],
+    [ "beforeWrite", "d6/d27/a01781.html#a19848fcaef19f48fd52d8d89e26be851", null ]
 ];

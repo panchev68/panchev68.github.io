@@ -1,8 +1,6 @@
 var a02541 =
 [
-    [ "Storage", "de/dd4/a02541.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
-    [ "close", "de/dd4/a02541.html#aa684e568a90f586209178bf82321e7eb", null ],
-    [ "open", "de/dd4/a02541.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
-    [ "read", "de/dd4/a02541.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
-    [ "write", "de/dd4/a02541.html#a7d3edbeec88b0807daece2241bb79d92", null ]
+    [ "autoStart", "de/dd4/a02541.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
+    [ "name", "de/dd4/a02541.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
+    [ "period", "de/dd4/a02541.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
 ];

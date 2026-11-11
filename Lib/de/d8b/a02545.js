@@ -1,13 +1,9 @@
 var a02545 =
 [
-    [ "Status", "de/d8b/a02545.html#a335a74b2beee583b06c1cc6a0c928957", [
-      [ "OK", "de/d8b/a02545.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "de/d8b/a02545.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Parameters", "de/d8b/a02545.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
-    [ "Parameters", "de/d8b/a02545.html#a401c8f010740c371697fba3fa25b559c", null ],
-    [ "isValid", "de/d8b/a02545.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
-    [ "operator=", "de/d8b/a02545.html#ab7707d467c6b510fc640db358633fd8b", null ],
-    [ "setup", "de/d8b/a02545.html#a6c93bc540f4ca328949b18b8364730fc", null ],
-    [ "write", "de/d8b/a02545.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
+    [ "Tick", "de/d8b/a02545.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
+    [ "TickType", "de/d8b/a02545.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
+    [ "TickCounter", "de/d8b/a02545.html#a2e4f16891a303abf7194b28efe452c4b", null ],
+    [ "~TickCounter", "de/d8b/a02545.html#a82caaf97a995139e4dc974230659be08", null ],
+    [ "TickCounter", "de/d8b/a02545.html#a06b8da334970d2eee58bc03a57c34687", null ],
+    [ "operator=", "de/d8b/a02545.html#ab51f397146bf8a3184476a1b302318e4", null ]
 ];

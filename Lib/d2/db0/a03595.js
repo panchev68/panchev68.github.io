@@ -1,4 +1,5 @@
 var a03595 =
 [
-    [ "Lib::Digi::Core::Protocol", "d3/d3e/a01644.html", null ]
+    [ "Lib::BSP::DeviceManager", "d1/df7/a00957.html", "d1/df7/a00957" ],
+    [ "Lib::BSP::DeviceManager::DeviceBase", "da/d45/a00961.html", "da/d45/a00961" ]
 ];

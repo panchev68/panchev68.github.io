@@ -1,12 +1,17 @@
 var a02187 =
 [
-    [ "WindowWatchdog", "de/d1b/a02187.html#aedbc081389ab6197c5a334fcff249dc9", null ],
-    [ "~WindowWatchdog", "de/d1b/a02187.html#abf0355eeac54b8e2df2436417ae430c8", null ],
-    [ "WindowWatchdog", "de/d1b/a02187.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
-    [ "WindowWatchdog", "de/d1b/a02187.html#a94de72071a208a3a396313415af9df3a", null ],
-    [ "open", "de/d1b/a02187.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
-    [ "operator=", "de/d1b/a02187.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
-    [ "operator=", "de/d1b/a02187.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
-    [ "refresh", "de/d1b/a02187.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
-    [ "setWindow", "de/d1b/a02187.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
+    [ "Manager", "de/d1b/a02187.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "de/d1b/a02187.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimOnePulse", "de/d1b/a02187.html#ae287fccac43cfbccd505d62c3450d886", null ],
+    [ "~TimOnePulse", "de/d1b/a02187.html#a1e04591efe0469a8ca79694006f138e6", null ],
+    [ "bindWorker", "de/d1b/a02187.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "de/d1b/a02187.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "de/d1b/a02187.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setTiming", "de/d1b/a02187.html#adcd5d98b02d7d70c3dbcd75ab4f117b6", null ],
+    [ "start", "de/d1b/a02187.html#a4dd784ca9da4b8c662101a2b232a1f61", null ],
+    [ "stop", "de/d1b/a02187.html#a2ab7da84b6cafce46167eeca602289ac", null ],
+    [ "waitEvent", "de/d1b/a02187.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPulseStart", "de/d1b/a02187.html#a16dbc64b1db27612373f5d95fe8fe6ed", null ],
+    [ "waitPulseStart", "de/d1b/a02187.html#aeba87dc02428bea360275fd39706fa18", null ],
+    [ "void::HAL_TIM_PWM_PulseFinishedCallback", "de/d1b/a02187.html#a5e91f9ca8a9abc6255b583f8225f7478", null ]
 ];

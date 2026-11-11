@@ -1,17 +1,12 @@
 var a02619 =
 [
-    [ "Status", "da/dfd/a02619.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "da/dfd/a02619.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "da/dfd/a02619.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "da/dfd/a02619.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "da/dfd/a02619.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
-    ] ],
-    [ "Value64Handle", "da/dfd/a02619.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "da/dfd/a02619.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "da/dfd/a02619.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "da/dfd/a02619.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "da/dfd/a02619.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "da/dfd/a02619.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "da/dfd/a02619.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "da/dfd/a02619.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "ReferenceParameters", "d4/d29/a02623.html", "d4/d29/a02623" ],
+    [ "Measurement", "dc/d34/a02627.html", "dc/d34/a02627" ],
+    [ "MaxPowerEstimator", "da/dfd/a02619.html#a434bc885ae98e175c94cc0274463e3e5", null ],
+    [ "MPPT", "da/dfd/a02619.html#aedf986308c8dd799d4771f32d446ee01", null ],
+    [ "getIrradianceCoefficient", "da/dfd/a02619.html#a55a3b7a18c79deb5568e627889f76b86", null ],
+    [ "getTolerance", "da/dfd/a02619.html#a0ac8d81cbc06a7045f43424b16871253", null ],
+    [ "getVoltageSetpoint", "da/dfd/a02619.html#a455584e52b5677fe4bce93e58e80ca38", null ],
+    [ "setMaxPowerEstimationFunction", "da/dfd/a02619.html#abc619561c7180e6c69b8282c58157857", null ],
+    [ "update", "da/dfd/a02619.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
 ];

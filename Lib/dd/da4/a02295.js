@@ -1,15 +1,12 @@
 var a02295 =
 [
-    [ "TickType", "dd/da4/a02295.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
-    [ "TimePeriod", "dd/da4/a02295.html#a096466d88bfa78ef18f074937a43f63f", null ],
-    [ "elapsed", "dd/da4/a02295.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
-    [ "elapsedFromISR", "dd/da4/a02295.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
-    [ "elapsedTime", "dd/da4/a02295.html#aea37e1feea05928a3dfd98f79e82c449", null ],
-    [ "elapsedTimeFromISR", "dd/da4/a02295.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
-    [ "isRunning", "dd/da4/a02295.html#aa4477fa15b16c620396b69b2935bf2de", null ],
-    [ "reset", "dd/da4/a02295.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
-    [ "start", "dd/da4/a02295.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
-    [ "startFromISR", "dd/da4/a02295.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
-    [ "stop", "dd/da4/a02295.html#a12059cd59e97f3575d46ed98120763a2", null ],
-    [ "stopFromISR", "dd/da4/a02295.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
+    [ "BitSet", "dd/da4/a02295.html#a16d91d28edc897acf8833de8df82699f", null ],
+    [ "BitSet", "dd/da4/a02295.html#addc6ad14e596e534eb7fd2a018719985", null ],
+    [ "getBit", "dd/da4/a02295.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
+    [ "getValue", "dd/da4/a02295.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
+    [ "operator uint32_t", "dd/da4/a02295.html#ab085297affb7e2df90201d7e6cdd1172", null ],
+    [ "operator=", "dd/da4/a02295.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
+    [ "operator[]", "dd/da4/a02295.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
+    [ "setBit", "dd/da4/a02295.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
+    [ "setValue", "dd/da4/a02295.html#a2505d1f74074939a87d45d3343d8bea3", null ]
 ];

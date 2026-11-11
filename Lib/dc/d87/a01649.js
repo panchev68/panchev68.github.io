@@ -1,8 +1,6 @@
 var a01649 =
 [
-    [ "writeTo", "dc/d87/a01649.html#a46342f730043bd2cb721cafd68faf502", null ],
-    [ "dstAddress", "dc/d87/a01649.html#a681024a962d2609634ac216a9325a808", null ],
-    [ "frameId", "dc/d87/a01649.html#a30b2f9e311fce068c3facfca4084a959", null ],
-    [ "options", "dc/d87/a01649.html#ab4284a9b9d84085998a66cbc2ff9366c", null ],
-    [ "rfData", "dc/d87/a01649.html#a647a428c66648b2c7897b90431917f0b", null ]
+    [ "lengthLSB", "dc/d87/a01649.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
+    [ "lengthMSB", "dc/d87/a01649.html#a975df99244301d7a71b2c326555ba6fd", null ],
+    [ "startDelimiter", "dc/d87/a01649.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
 ];

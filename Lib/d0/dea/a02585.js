@@ -1,10 +1,14 @@
 var a02585 =
 [
-    [ "VersionString", "d0/dea/a02585.html#a86d520da943edfbb98a592e47cd30177", null ],
-    [ "VersionBase", "d0/dea/a02585.html#a32eb651df51eadc6dc6cca08bcd82ee5", null ],
-    [ "getSubVersion", "d0/dea/a02585.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "d0/dea/a02585.html#ae1d6a7f355d536c916fe355c09825a3e", null ],
-    [ "operator uint32_t", "d0/dea/a02585.html#afca34523d727d800376b4959573f80bf", null ],
-    [ "operator VersionString", "d0/dea/a02585.html#a3e56152954887db7681501c597507ae4", null ],
-    [ "toString", "d0/dea/a02585.html#a1288aa2ce9764268fe7751f879f27a00", null ]
+    [ "Bitset", "d0/dea/a02585.html#aff31793f5ea1b7c28e0c30290a41bc2b", null ],
+    [ "Status", "d0/dea/a02585.html#a7e18ba8479d03947d2d2d379a72c2cc1", [
+      [ "OK", "d0/dea/a02585.html#a7e18ba8479d03947d2d2d379a72c2cc1ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d0/dea/a02585.html#a7e18ba8479d03947d2d2d379a72c2cc1abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Configuration", "d0/dea/a02585.html#a1609ab25f9f7ee76c6002c8744d3ccee", null ],
+    [ "isEmpty", "d0/dea/a02585.html#a965c76e6ed7795afd0a8d85f955223ad", null ],
+    [ "isValid", "d0/dea/a02585.html#a337f2d04fe4b82aab82b9d9beb92f829", null ],
+    [ "read", "d0/dea/a02585.html#a840ea89f722c9ef748683ece06dd8d2f", null ],
+    [ "write", "d0/dea/a02585.html#ae7b54ac5ddfb2a6a6e130a6a5a01dfa0", null ],
+    [ "flashAddress", "d0/dea/a02585.html#a889c51a86228ce8b18804cb2b455d889", null ]
 ];

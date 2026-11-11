@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::LPTimer</title>
+<title>IAR Library: Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,87 +111,62 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d14/a02071.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::LPTimer<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Manages LPTIM peripheral configuration and interrupt-driven timeout events. </p>
-<p>Targets the STM32U5 family and every other part whose <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> ships the modern LPTIM interface, which it relies on for "LPTIM_OC_ConfigTypeDef", "HAL_LPTIM_OC_ConfigChannel()" and the per-channel state array. Parts without an LPTIM peripheral, STM32F407 among them, compile this header away, so including it unconditionally is safe. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::LPTimer:</div>
+<div class="textblock"><p>Explicit specialized variant driving asynchronous DMA master transfers. </p>
+<p>Handle lifecycle and "isReady()" come from "I2CPortBase"; the event group, start-then-wait master transfers, <a class="el" href="../../dc/d21/a02079.html#aa0017dbe171dc6568f888a4d30997ccc">abort()</a>, <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback registration and <a class="el" href="../../d3/d4e/a01991.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> wiring come from "I2CPortAsync", shared with the IT mode. This specialization only supplies the four <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> calls that start a DMA master transfer. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d48/a02069.svg" width="219" height="414"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/d9c/a02070.svg" width="430" height="1216"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d48/a02069.svg" width="632" height="1408"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6520e9a177a61a7f1a6cecc9b582e5fc" id="r_a6520e9a177a61a7f1a6cecc9b582e5fc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> (<a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> *handle, uint32_t channel) noexcept</td></tr>
-<tr class="memdesc:a6520e9a177a61a7f1a6cecc9b582e5fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs an <a class="el" href="../../d5/d14/a02071.html" title="Manages LPTIM peripheral configuration and interrupt-driven timeout events.">LPTimer</a> instance and claims a slot in the handle registry.  <br /></td></tr>
-<tr class="memitem:add3250c704445e43eb5798c76d514cd0" id="r_add3250c704445e43eb5798c76d514cd0"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#add3250c704445e43eb5798c76d514cd0">~LPTimer</a> () noexcept</td></tr>
-<tr class="memdesc:add3250c704445e43eb5798c76d514cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the peripheral and releases the registry slot, so no dangling instance is left for the interrupts.  <br /></td></tr>
-<tr class="memitem:a694916ba4b3b845dc40a55807a3c010a" id="r_a694916ba4b3b845dc40a55807a3c010a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a694916ba4b3b845dc40a55807a3c010a">LPTimer</a> (const LPTimer &amp;other)=delete</td></tr>
-<tr class="memdesc:a694916ba4b3b845dc40a55807a3c010a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group.  <br /></td></tr>
-<tr class="memitem:a0151830764f6149bcd064718e12efa9d" id="r_a0151830764f6149bcd064718e12efa9d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a0151830764f6149bcd064718e12efa9d">LPTimer</a> (LPTimer &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:a0151830764f6149bcd064718e12efa9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group.  <br /></td></tr>
-<tr class="memitem:a3ab3ebd892230fa7165da48b1196d7a5" id="r_a3ab3ebd892230fa7165da48b1196d7a5"><td class="memItemLeft"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3ab3ebd892230fa7165da48b1196d7a5">operator=</a> (const <a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;other)=delete</td></tr>
-<tr class="memdesc:a3ab3ebd892230fa7165da48b1196d7a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group.  <br /></td></tr>
-<tr class="memitem:ac4e8a52cdf24942a7b3ca487f0fa2022" id="r_ac4e8a52cdf24942a7b3ca487f0fa2022"><td class="memItemLeft"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ac4e8a52cdf24942a7b3ca487f0fa2022">operator=</a> (<a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&amp;other)=delete</td></tr>
-<tr class="memdesc:ac4e8a52cdf24942a7b3ca487f0fa2022"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group.  <br /></td></tr>
-<tr class="memitem:a1a9d936e6ff40316674eb1bb6293d5eb" id="r_a1a9d936e6ff40316674eb1bb6293d5eb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a1a9d936e6ff40316674eb1bb6293d5eb">open</a> () noexcept</td></tr>
-<tr class="memdesc:a1a9d936e6ff40316674eb1bb6293d5eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the LPTIM peripheral and associated event groups.  <br /></td></tr>
-<tr class="memitem:a6295b01535aa1df83366d83b9426ff7d" id="r_a6295b01535aa1df83366d83b9426ff7d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a6295b01535aa1df83366d83b9426ff7d">close</a> () noexcept</td></tr>
-<tr class="memdesc:a6295b01535aa1df83366d83b9426ff7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the LPTIM peripheral and clears event groups.  <br /></td></tr>
-<tr class="memitem:af87c45b091cb7b10192ce86953eba07a" id="r_af87c45b091cb7b10192ce86953eba07a"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af87c45b091cb7b10192ce86953eba07a">startTimeoutInterrupt</a> (uint32_t timeoutMs) noexcept</td></tr>
-<tr class="memdesc:af87c45b091cb7b10192ce86953eba07a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configures and starts an interrupt-driven timeout.  <br /></td></tr>
-<tr class="memitem:a524f65747a660c2243dfe55d318bb083" id="r_a524f65747a660c2243dfe55d318bb083"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a524f65747a660c2243dfe55d318bb083">stopInterrupt</a> () noexcept</td></tr>
-<tr class="memdesc:a524f65747a660c2243dfe55d318bb083"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timeout interrupt.  <br /></td></tr>
-<tr class="memitem:a8f6329f1b312d263381f3738aacd64b8" id="r_a8f6329f1b312d263381f3738aacd64b8"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a8f6329f1b312d263381f3738aacd64b8">waitForEvent</a> (<a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a> eventId, uint32_t timeout) noexcept</td></tr>
-<tr class="memdesc:a8f6329f1b312d263381f3738aacd64b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until a specific timer event is received.  <br /></td></tr>
-<tr class="memitem:abaedcebf007dff3863b7fd1eec8fd303" id="r_abaedcebf007dff3863b7fd1eec8fd303"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abaedcebf007dff3863b7fd1eec8fd303">hasExpired</a> () const noexcept</td></tr>
-<tr class="memdesc:abaedcebf007dff3863b7fd1eec8fd303"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the timeout event has occurred.  <br /></td></tr>
-<tr class="memitem:a4fc71247da21a5d02602615eb66c4256" id="r_a4fc71247da21a5d02602615eb66c4256"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a4fc71247da21a5d02602615eb66c4256">getElapsedRtosTicks</a> (uint32_t armedTimeoutMs) const noexcept</td></tr>
-<tr class="memdesc:a4fc71247da21a5d02602615eb66c4256"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates elapsed <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> ticks since the timeout was armed.  <br /></td></tr>
-<tr class="memitem:add82be5171e6f5f28baaba0aea38a0de" id="r_add82be5171e6f5f28baaba0aea38a0de"><td class="memItemLeft"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> *&#160;</td><td class="memItemRight"><a class="el" href="#add82be5171e6f5f28baaba0aea38a0de">getHandle</a> () const noexcept</td></tr>
-<tr class="memdesc:add82be5171e6f5f28baaba0aea38a0de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the native <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle.  <br /></td></tr>
+<tr class="memitem:a4aef0fb120033c1ad56351cdd9aaa579" id="r_a4aef0fb120033c1ad56351cdd9aaa579"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a> (I2C_HandleTypeDef *handle) noexcept</td></tr>
+<tr class="memdesc:a4aef0fb120033c1ad56351cdd9aaa579"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the custom communication context to a native configuration structure.  <br /></td></tr>
+<tr class="memitem:aa13047282a809658f54818a9b352d7bf" id="r_aa13047282a809658f54818a9b352d7bf"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa13047282a809658f54818a9b352d7bf">~I2CPort</a> () noexcept</td></tr>
+<tr class="memdesc:aa13047282a809658f54818a9b352d7bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../d3/d4e/a01991.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> registry and no <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback points at the destroyed port.  <br /></td></tr>
+<tr class="memitem:a3369110fdc9a75b4446d17f5c5bbb7d8" id="r_a3369110fdc9a75b4446d17f5c5bbb7d8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d21/a02079.html#a3369110fdc9a75b4446d17f5c5bbb7d8">masterTransmit</a> (uint16_t devAddress, std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a3369110fdc9a75b4446d17f5c5bbb7d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a master transmission and waits for it.  <br /></td></tr>
+<tr class="memitem:a0f282a9b1fe1a24111ecf8a421fe50e7" id="r_a0f282a9b1fe1a24111ecf8a421fe50e7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d21/a02079.html#a0f282a9b1fe1a24111ecf8a421fe50e7">masterReceive</a> (uint16_t devAddress, std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:a0f282a9b1fe1a24111ecf8a421fe50e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs a master reception and waits for it.  <br /></td></tr>
+<tr class="memitem:adb29287498169b21a8c183a469cc20f4" id="r_adb29287498169b21a8c183a469cc20f4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d21/a02079.html#adb29287498169b21a8c183a469cc20f4">masterMemWrite</a> (uint16_t devAddress, uint16_t memAddress, uint16_t memAddSize, std::span&lt; const uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:adb29287498169b21a8c183a469cc20f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes to a device's internal memory address and waits for it.  <br /></td></tr>
+<tr class="memitem:ac646e78e8e291b9116d22e6593178c3b" id="r_ac646e78e8e291b9116d22e6593178c3b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d21/a02079.html#ac646e78e8e291b9116d22e6593178c3b">masterMemRead</a> (uint16_t devAddress, uint16_t memAddress, uint16_t memAddSize, std::span&lt; uint8_t &gt; data, std::chrono::duration&lt; Rep, Period &gt; timeout) noexcept</td></tr>
+<tr class="memdesc:ac646e78e8e291b9116d22e6593178c3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads from a device's internal memory address and waits for it.  <br /></td></tr>
+<tr class="memitem:aa0017dbe171dc6568f888a4d30997ccc" id="r_aa0017dbe171dc6568f888a4d30997ccc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../dc/d21/a02079.html#aa0017dbe171dc6568f888a4d30997ccc">abort</a> (uint16_t devAddress) noexcept</td></tr>
+<tr class="memdesc:aa0017dbe171dc6568f888a4d30997ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requests an abort of the ongoing master transfer.  <br /></td></tr>
+<tr class="memitem:a3822bc9b87b9e299982b230e2c029f35" id="r_a3822bc9b87b9e299982b230e2c029f35"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d8a/a01987.html#a3822bc9b87b9e299982b230e2c029f35">open</a> () noexcept</td></tr>
+<tr class="memdesc:a3822bc9b87b9e299982b230e2c029f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens the port: event group, peripheral, <a class="el" href="../../d3/d4e/a01991.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> slot and <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order.  <br /></td></tr>
+<tr class="memitem:a03c62c024b148a264f9a6a0077198302" id="r_a03c62c024b148a264f9a6a0077198302"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d8a/a01987.html#a03c62c024b148a264f9a6a0077198302">close</a> () noexcept</td></tr>
+<tr class="memdesc:a03c62c024b148a264f9a6a0077198302"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes the port: unregisters it, restores the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group.  <br /></td></tr>
+<tr class="memitem:a8be2d6d39175f6e71f25e4a64e0e2f1b" id="r_a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d8a/a01987.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">isOpened</a> () const noexcept</td></tr>
+<tr class="memdesc:a8be2d6d39175f6e71f25e4a64e0e2f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the port is open.  <br /></td></tr>
+<tr class="memitem:ac39b97fd324efde09c82d0ccfe7fe4e8" id="r_ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="memItemLeft">T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd8/a01995.html#ac39b97fd324efde09c82d0ccfe7fe4e8">getHandle</a> () noexcept</td></tr>
+<tr class="memdesc:ac39b97fd324efde09c82d0ccfe7fe4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves the native microcontroller hardware handle associated with this device.  <br /></td></tr>
+<tr class="memitem:af92f93241be20a3c9a32286ed19dc4cf" id="r_af92f93241be20a3c9a32286ed19dc4cf"><td class="memItemLeft">const T_HANDLE *&#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd8/a01995.html#af92f93241be20a3c9a32286ed19dc4cf">getHandle</a> () const noexcept</td></tr>
+<tr class="memdesc:af92f93241be20a3c9a32286ed19dc4cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Const-qualified access to the native microcontroller hardware handle.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae8333eb56c7104430e0c3202d29c47cb" id="r_ae8333eb56c7104430e0c3202d29c47cb"><td class="memItemLeft">static uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae8333eb56c7104430e0c3202d29c47cb">callbackIdToBit</a> (<a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a> id) noexcept</td></tr>
-<tr class="memdesc:ae8333eb56c7104430e0c3202d29c47cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maps a <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback identifier to a bitmask for event synchronization.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-pro-static-methods" class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
+Static Protected Member Functions</h2></td></tr>
+<tr class="memitem:ac1e436d02537a9e4b651277ba21762f9" id="r_ac1e436d02537a9e4b651277ba21762f9"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d8a/a01987.html#ac1e436d02537a9e4b651277ba21762f9">signalFromISR</a> (T_HANDLE *handle, uint32_t bits) noexcept</td></tr>
+<tr class="memdesc:ac1e436d02537a9e4b651277ba21762f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets event bits on the port owning a <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context.  <br /></td></tr>
+<tr class="memitem:a66f47e9670feddc6fb679436b07a1680" id="r_a66f47e9670feddc6fb679436b07a1680"><td class="memItemLeft">static T_DERIVED *&#160;</td><td class="memItemRight"><a class="el" href="../../d2/d8a/a01987.html#a66f47e9670feddc6fb679436b07a1680">findPort</a> (T_HANDLE *handle) noexcept</td></tr>
+<tr class="memdesc:a66f47e9670feddc6fb679436b07a1680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the port that owns a <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle.  <br /></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="ab366d4fa77363e661ad71c424eb4faaf" name="ab366d4fa77363e661ad71c424eb4faaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab366d4fa77363e661ad71c424eb4faaf">&#9670;&#160;</a></span>CallbackID</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">Lib::HAL::LPTimer::CallbackID</a> = HAL_LPTIM_CallbackIDTypeDef</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac948323fb2eef4212aaa06df202dfbdc" name="ac948323fb2eef4212aaa06df202dfbdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac948323fb2eef4212aaa06df202dfbdc">&#9670;&#160;</a></span>Handle</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Lib::HAL::LPTimer::Handle</a> = LPTIM_HandleTypeDef</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6520e9a177a61a7f1a6cecc9b582e5fc" name="a6520e9a177a61a7f1a6cecc9b582e5fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6520e9a177a61a7f1a6cecc9b582e5fc">&#9670;&#160;</a></span>LPTimer() <span class="overload">[1/3]</span></h2>
+<a id="a4aef0fb120033c1ad56351cdd9aaa579" name="a4aef0fb120033c1ad56351cdd9aaa579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4aef0fb120033c1ad56351cdd9aaa579">&#9670;&#160;</a></span>I2CPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,14 +175,10 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::LPTimer::LPTimer </td>
+          <td class="memname">Lib::HAL::I2CPort&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt;::I2CPort </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">I2C_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -217,25 +188,18 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs an <a class="el" href="../../d5/d14/a02071.html" title="Manages LPTIM peripheral configuration and interrupt-driven timeout events.">LPTimer</a> instance and claims a slot in the handle registry. </p>
+<p>Binds the custom communication context to a native configuration structure. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">handle</td><td>Pointer to the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> LPTIM handle. </td></tr>
-    <tr><td class="paramname">channel</td><td>The specific LPTIM channel to configure. </td></tr>
+    <tr><td class="paramname">handle</td><td>Target native hardware descriptor block. </td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a6520e9a177a61a7f1a6cecc9b582e5fc_icgraph.svg" width="534" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
-<a id="add3250c704445e43eb5798c76d514cd0" name="add3250c704445e43eb5798c76d514cd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add3250c704445e43eb5798c76d514cd0">&#9670;&#160;</a></span>~LPTimer()</h2>
+<a id="aa13047282a809658f54818a9b352d7bf" name="aa13047282a809658f54818a9b352d7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa13047282a809658f54818a9b352d7bf">&#9670;&#160;</a></span>~I2CPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -244,7 +208,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::HAL::LPTimer::~LPTimer </td>
+          <td class="memname">Lib::HAL::I2CPort&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt;::~<a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -257,97 +221,19 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Closes the peripheral and releases the registry slot, so no dangling instance is left for the interrupts. </p>
+<p>Closes the port if still open, so no dangling instance stays in the <a class="el" href="../../d3/d4e/a01991.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> registry and no <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback points at the destroyed port. </p>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_add3250c704445e43eb5798c76d514cd0_cgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a694916ba4b3b845dc40a55807a3c010a" name="a694916ba4b3b845dc40a55807a3c010a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a694916ba4b3b845dc40a55807a3c010a">&#9670;&#160;</a></span>LPTimer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::LPTimer::LPTimer </td>
-          <td>(</td>
-          <td class="paramtype">const LPTimer &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copying is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a694916ba4b3b845dc40a55807a3c010a_cgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a0151830764f6149bcd064718e12efa9d" name="a0151830764f6149bcd064718e12efa9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0151830764f6149bcd064718e12efa9d">&#9670;&#160;</a></span>LPTimer() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Lib::HAL::LPTimer::LPTimer </td>
-          <td>(</td>
-          <td class="paramtype">LPTimer &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Moving is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a0151830764f6149bcd064718e12efa9d_cgraph.svg" width="518" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_aa13047282a809658f54818a9b352d7bf_cgraph.svg" width="622" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ae8333eb56c7104430e0c3202d29c47cb" name="ae8333eb56c7104430e0c3202d29c47cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8333eb56c7104430e0c3202d29c47cb">&#9670;&#160;</a></span>callbackIdToBit()</h2>
+<a id="aa0017dbe171dc6568f888a4d30997ccc" name="aa0017dbe171dc6568f888a4d30997ccc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0017dbe171dc6568f888a4d30997ccc">&#9670;&#160;</a></span>abort()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -356,47 +242,50 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::LPTimer::callbackIdToBit </td>
+          <td class="memname">bool <a class="el" href="../../dc/d21/a02079.html">Lib::HAL::I2CPortAsync</a>&lt; <a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a>&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::abort </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a></td>          <td class="paramname"><span class="paramname"><em>id</em></span></td><td>)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Maps a <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback identifier to a bitmask for event synchronization. </p>
+<p>Requests an abort of the ongoing master transfer. </p>
+<p>The task blocked in the transfer returns "false" once the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> reports the abort complete, so the hardware no longer touches its buffer by then.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">id</td><td>The <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callback ID. </td></tr>
+    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address of the transfer to abort. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Bitmask representing the callback ID. </dd></dl>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the abort request. </dd></dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_ae8333eb56c7104430e0c3202d29c47cb_icgraph.svg" width="622" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d21/a02079_aa0017dbe171dc6568f888a4d30997ccc_cgraph.svg" width="606" height="58"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a6295b01535aa1df83366d83b9426ff7d" name="a6295b01535aa1df83366d83b9426ff7d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6295b01535aa1df83366d83b9426ff7d">&#9670;&#160;</a></span>close()</h2>
+<a id="a03c62c024b148a264f9a6a0077198302" name="a03c62c024b148a264f9a6a0077198302"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03c62c024b148a264f9a6a0077198302">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::close </td>
+          <td class="memname">bool <a class="el" href="../../d2/d8a/a01987.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d2/d8a/a01987.html#a03c62c024b148a264f9a6a0077198302">::close</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -404,65 +293,55 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the LPTIM peripheral and clears event groups. </p>
-<p>The peripheral is stopped first, so no interrupt can reach the event group while it is being closed.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if successful, "false" otherwise. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a6295b01535aa1df83366d83b9426ff7d_icgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Closes the port: unregisters it, restores the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, deinitializes the peripheral and closes the event group. </p>
+<p>Task context only.</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the peripheral deinitialized cleanly, or if the port was not open. </dd></dl>
 
 </div>
 </div>
-<a id="a4fc71247da21a5d02602615eb66c4256" name="a4fc71247da21a5d02602615eb66c4256"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4fc71247da21a5d02602615eb66c4256">&#9670;&#160;</a></span>getElapsedRtosTicks()</h2>
+<a id="a66f47e9670feddc6fb679436b07a1680" name="a66f47e9670feddc6fb679436b07a1680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66f47e9670feddc6fb679436b07a1680">&#9670;&#160;</a></span>findPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">uint32_t Lib::HAL::LPTimer::getElapsedRtosTicks </td>
+          <td class="memname">T_DERIVED * <a class="el" href="../../d2/d8a/a01987.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d2/d8a/a01987.html#a66f47e9670feddc6fb679436b07a1680">::findPort</a> </td>
           <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>armedTimeoutMs</em></span></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Calculates elapsed <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> ticks since the timeout was armed. </p>
+<p>Finds the port that owns a <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">armedTimeoutMs</td><td>The timeout duration originally set. </td></tr>
+    <tr><td class="paramname">handle</td><td><a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Elapsed ticks. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a4fc71247da21a5d02602615eb66c4256_cgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<dl class="section return"><dt>Returns</dt><dd>The port, or "nullptr" if no open port uses the handle. </dd></dl>
 
 </div>
 </div>
-<a id="add82be5171e6f5f28baaba0aea38a0de" name="add82be5171e6f5f28baaba0aea38a0de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add82be5171e6f5f28baaba0aea38a0de">&#9670;&#160;</a></span>getHandle()</h2>
+<a id="af92f93241be20a3c9a32286ed19dc4cf" name="af92f93241be20a3c9a32286ed19dc4cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af92f93241be20a3c9a32286ed19dc4cf">&#9670;&#160;</a></span>getHandle() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,7 +350,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ac948323fb2eef4212aaa06df202dfbdc">Handle</a> * Lib::HAL::LPTimer::getHandle </td>
+          <td class="memname">const T_HANDLE * <a class="el" href="../../d3/dd8/a01995.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../d3/dd8/a01995.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -479,18 +358,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the native <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle. </dd></dl>
+<p>Const-qualified access to the native microcontroller hardware handle. </p>
+<dl class="section return"><dt>Returns</dt><dd>Const pointer to the native handle tracking configuration mappings, or "nullptr" if uninitialized. </dd></dl>
 
 </div>
 </div>
-<a id="abaedcebf007dff3863b7fd1eec8fd303" name="abaedcebf007dff3863b7fd1eec8fd303"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abaedcebf007dff3863b7fd1eec8fd303">&#9670;&#160;</a></span>hasExpired()</h2>
+<a id="ac39b97fd324efde09c82d0ccfe7fe4e8" name="ac39b97fd324efde09c82d0ccfe7fe4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac39b97fd324efde09c82d0ccfe7fe4e8">&#9670;&#160;</a></span>getHandle() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -499,7 +378,37 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::hasExpired </td>
+          <td class="memname">T_HANDLE * <a class="el" href="../../d3/dd8/a01995.html">Lib::HAL::Device</a>&lt; T_DERIVED, T_HANDLE &gt;<a class="el" href="../../d3/dd8/a01995.html#ac39b97fd324efde09c82d0ccfe7fe4e8">::getHandle</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieves the native microcontroller hardware handle associated with this device. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the native handle tracking configuration mappings, or "nullptr" if uninitialized. </dd></dl>
+
+</div>
+</div>
+<a id="a8be2d6d39175f6e71f25e4a64e0e2f1b" name="a8be2d6d39175f6e71f25e4a64e0e2f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8be2d6d39175f6e71f25e4a64e0e2f1b">&#9670;&#160;</a></span>isOpened()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d2/d8a/a01987.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d2/d8a/a01987.html#a8be2d6d39175f6e71f25e4a64e0e2f1b">::isOpened</a> </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>
@@ -507,24 +416,18 @@ Static Public Member Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Checks if the timeout event has occurred. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if expired, "false" otherwise. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_abaedcebf007dff3863b7fd1eec8fd303_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
+<p>Checks whether the port is open. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" between a successful "open()" and "close()". </dd></dl>
 
 </div>
 </div>
-<a id="a1a9d936e6ff40316674eb1bb6293d5eb" name="a1a9d936e6ff40316674eb1bb6293d5eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a9d936e6ff40316674eb1bb6293d5eb">&#9670;&#160;</a></span>open()</h2>
+<a id="ac646e78e8e291b9116d22e6593178c3b" name="ac646e78e8e291b9116d22e6593178c3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac646e78e8e291b9116d22e6593178c3b">&#9670;&#160;</a></span>masterMemRead()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -533,208 +436,324 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::open </td>
+          <td class="memname">bool <a class="el" href="../../dc/d21/a02079.html">Lib::HAL::I2CPortAsync</a>&lt; <a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a>&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::masterMemRead </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes the LPTIM peripheral and associated event groups. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if successful, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a3ab3ebd892230fa7165da48b1196d7a5" name="a3ab3ebd892230fa7165da48b1196d7a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3ab3ebd892230fa7165da48b1196d7a5">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp; Lib::HAL::LPTimer::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy assignment is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a3ab3ebd892230fa7165da48b1196d7a5_cgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ac4e8a52cdf24942a7b3ca487f0fa2022" name="ac4e8a52cdf24942a7b3ca487f0fa2022"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4e8a52cdf24942a7b3ca487f0fa2022">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp; Lib::HAL::LPTimer::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a6520e9a177a61a7f1a6cecc9b582e5fc">LPTimer</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Move assignment is deleted: each instance owns a registry slot and an <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> event group. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">other</td><td>Source object. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_ac4e8a52cdf24942a7b3ca487f0fa2022_cgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="af87c45b091cb7b10192ce86953eba07a" name="af87c45b091cb7b10192ce86953eba07a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af87c45b091cb7b10192ce86953eba07a">&#9670;&#160;</a></span>startTimeoutInterrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Lib::HAL::LPTimer::startTimeoutInterrupt </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeoutMs</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Configures and starts an interrupt-driven timeout. </p>
-<p>The slowest prescaler that still fits the timeout into the 16-bit counter is used; a longer timeout is clamped to the longest one the hardware can count.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">timeoutMs</td><td>The desired timeout duration in milliseconds. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if successfully armed, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a524f65747a660c2243dfe55d318bb083" name="a524f65747a660c2243dfe55d318bb083"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a524f65747a660c2243dfe55d318bb083">&#9670;&#160;</a></span>stopInterrupt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Lib::HAL::LPTimer::stopInterrupt </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the timeout interrupt. </p>
-
-</div>
-</div>
-<a id="a8f6329f1b312d263381f3738aacd64b8" name="a8f6329f1b312d263381f3738aacd64b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f6329f1b312d263381f3738aacd64b8">&#9670;&#160;</a></span>waitForEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::HAL::LPTimer::waitForEvent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ab366d4fa77363e661ad71c424eb4faaf">CallbackID</a></td>          <td class="paramname"><span class="paramname"><em>eventId</em></span>, </td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Blocks until a specific timer event is received. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">eventId</td><td>The event identifier to wait for. </td></tr>
-    <tr><td class="paramname">timeout</td><td>Maximum wait duration in ticks. </td></tr>
+<p>Reads from a device's internal memory address and waits for it. </p>
+<p>Task context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Bitmask of received events. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
+    <tr><td class="paramname">memAddress</td><td>Internal memory address to read from. </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Size of "memAddress" ("I2C_MEMADD_SIZE_8BIT" or "I2C_MEMADD_SIZE_16BIT"). </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d14/a02071_a8f6329f1b312d263381f3738aacd64b8_cgraph.svg" width="622" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d21/a02079_ac646e78e8e291b9116d22e6593178c3b_cgraph.svg" width="947" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="adb29287498169b21a8c183a469cc20f4" name="adb29287498169b21a8c183a469cc20f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb29287498169b21a8c183a469cc20f4">&#9670;&#160;</a></span>masterMemWrite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dc/d21/a02079.html">Lib::HAL::I2CPortAsync</a>&lt; <a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a>&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::masterMemWrite </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>memAddSize</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Writes to a device's internal memory address and waits for it. </p>
+<p>Task context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
+    <tr><td class="paramname">memAddress</td><td>Internal memory address to write to. </td></tr>
+    <tr><td class="paramname">memAddSize</td><td>Size of "memAddress" ("I2C_MEMADD_SIZE_8BIT" or "I2C_MEMADD_SIZE_16BIT"). </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d21/a02079_adb29287498169b21a8c183a469cc20f4_cgraph.svg" width="955" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0f282a9b1fe1a24111ecf8a421fe50e7" name="a0f282a9b1fe1a24111ecf8a421fe50e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f282a9b1fe1a24111ecf8a421fe50e7">&#9670;&#160;</a></span>masterReceive()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dc/d21/a02079.html">Lib::HAL::I2CPortAsync</a>&lt; <a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a>&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::masterReceive </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs a master reception and waits for it. </p>
+<p>Task context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Destination buffer; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d21/a02079_a0f282a9b1fe1a24111ecf8a421fe50e7_cgraph.svg" width="835" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3369110fdc9a75b4446d17f5c5bbb7d8" name="a3369110fdc9a75b4446d17f5c5bbb7d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3369110fdc9a75b4446d17f5c5bbb7d8">&#9670;&#160;</a></span>masterTransmit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../dc/d21/a02079.html">Lib::HAL::I2CPortAsync</a>&lt; <a class="el" href="#a4aef0fb120033c1ad56351cdd9aaa579">I2CPort</a>&lt; <a class="el" href="../../d3/dd1/a00914.html#a031c16cd1ba2f466615bbfa2b2832ed0a33fd5f6391f2f0cb4c91179d7f521949">DriverMode::DMA</a> &gt; &gt;::masterTransmit </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>devAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::chrono::duration&lt; Rep, Period &gt;</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Performs a master transmission and waits for it. </p>
+<p>Task context only.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Rep</td><td>Arithmetic representation type of the timeout. </td></tr>
+    <tr><td class="paramname">Period</td><td>Ratio type of the timeout. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">devAddress</td><td>Target 8-bit slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Bytes to transmit; 1 to 65535 bytes. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum time to wait, rounded up to whole ticks. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the transfer completed successfully, "false" on initiation failure, error or timeout. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d21/a02079_a3369110fdc9a75b4446d17f5c5bbb7d8_cgraph.svg" width="843" height="72"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3822bc9b87b9e299982b230e2c029f35" name="a3822bc9b87b9e299982b230e2c029f35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3822bc9b87b9e299982b230e2c029f35">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d2/d8a/a01987.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;<a class="el" href="../../d2/d8a/a01987.html#a3822bc9b87b9e299982b230e2c029f35">::open</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Opens the port: event group, peripheral, <a class="el" href="../../d3/d4e/a01991.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> slot and <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> callbacks, in that order. </p>
+<p>Task context only. A failure undoes the earlier steps, so the port stays closed.</p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if every step succeeded, or if the port was already open. </dd></dl>
+
+</div>
+</div>
+<a id="ac1e436d02537a9e4b651277ba21762f9" name="ac1e436d02537a9e4b651277ba21762f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e436d02537a9e4b651277ba21762f9">&#9670;&#160;</a></span>signalFromISR()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED, typename T_HANDLE, typename T_BASE, typename T_PORT&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="../../d2/d8a/a01987.html">Lib::HAL::AsyncPortCore</a>&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;::signalFromISR </td>
+          <td>(</td>
+          <td class="paramtype">T_HANDLE *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>bits</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel protected">protected</span><span class="mlabel noexcept">noexcept</span><span class="mlabel inherited">inherited</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets event bits on the port owning a <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle; called from interrupt context. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td><a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> handle reported by the interrupt module. </td></tr>
+    <tr><td class="paramname">bits</td><td>Event bits to set. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -751,7 +770,7 @@ Static Public Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../d2/dab/a00886.html">HAL</a></li><li class="navelem"><a href="../../d5/d14/a02071.html">LPTimer</a></li>
+    <li class="navelem"><a href="../../d2/da1/a00879.html">Lib</a></li><li class="navelem"><a href="../../d3/dd1/a00914.html">HAL</a></li><li class="navelem"><a href="../../d5/d14/a02071.html">I2CPort&lt; DriverMode::DMA &gt;</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

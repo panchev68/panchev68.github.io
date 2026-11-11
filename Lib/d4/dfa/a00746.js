@@ -1,4 +1,4 @@
 var a00746 =
 [
-    [ "RTOS::MessageBuffer", "d5/d73/a02423.html", "d5/d73/a02423" ]
+    [ "Lib::System::HardwareVersion", "df/de4/a02651.html", "df/de4/a02651" ]
 ];

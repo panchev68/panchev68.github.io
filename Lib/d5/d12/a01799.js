@@ -1,5 +1,5 @@
 var a01799 =
 [
-    [ "inputs", "d5/d12/a01799.html#a430246e65df286593d6b44f5f1b3b720", null ],
-    [ "outputs", "d5/d12/a01799.html#a40e1b2b17fe5558dd9d78175a8094a6a", null ]
+    [ "read", "d5/d12/a01799.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
+    [ "write", "d5/d12/a01799.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
 ];

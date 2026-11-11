@@ -1,9 +1,14 @@
 var a02573 =
 [
-    [ "VersionString", "d2/ddf/a02573.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Base", "d2/ddf/a02573.html#ac292e3d736bf2a1ec901499ac9882c23", null ],
-    [ "getSubVersion", "d2/ddf/a02573.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator uint32_t", "d2/ddf/a02573.html#a463ebb1b62a72aab04d6b128c567109a", null ],
-    [ "operator VersionString", "d2/ddf/a02573.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d2/ddf/a02573.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Config", "da/d03/a02577.html", "da/d03/a02577" ],
+    [ "Measurement", "d6/dae/a02581.html", "d6/dae/a02581" ],
+    [ "Direction", "d2/ddf/a02573.html#a6cc22bd1ce18c90b4b906e7d4a4ca07e", [
+      [ "DOWN", "d2/ddf/a02573.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eac4e0e4e3118472beeb2ae75827450f1f", null ],
+      [ "UP", "d2/ddf/a02573.html#a6cc22bd1ce18c90b4b906e7d4a4ca07eafbaedde498cdead4f2780217646e9ba1", null ]
+    ] ],
+    [ "PerturbAndObserve", "d2/ddf/a02573.html#a7e1626362f778f8b7e085cdc41794a67", null ],
+    [ "getVoltageSetpoint", "d2/ddf/a02573.html#a73dd4fe7f002f53b28e564f87f1854cf", null ],
+    [ "reset", "d2/ddf/a02573.html#ad0977e4dba5c7109b4b046bcf505862b", null ],
+    [ "setStepSize", "d2/ddf/a02573.html#a121c7b229d119d0ee55cd0b855065350", null ],
+    [ "update", "d2/ddf/a02573.html#ab0587469fdbaa626d9f751ef04255627", null ]
 ];

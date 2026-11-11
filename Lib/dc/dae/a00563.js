@@ -1,4 +1,4 @@
 var a00563 =
 [
-    [ "Lib::HAL::LPTimer", "d5/d14/a02071.html", "d5/d14/a02071" ]
+    [ "Lib::HAL::USBHostPort&lt; DriverMode::DMA &gt;", "d3/d3a/a02259.html", "d3/d3a/a02259" ]
 ];

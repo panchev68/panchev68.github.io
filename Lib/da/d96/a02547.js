@@ -1,10 +1,9 @@
 var a02547 =
 [
-    [ "VersionString", "da/d96/a02547.html#a6d6f55e4f488742856d8cf7d2ed1a51d", null ],
-    [ "HardwareVersion", "da/d96/a02547.html#a8733e41c5e9e64598261c81b45fa2ebb", null ],
-    [ "getSubVersion", "da/d96/a02547.html#ae5c57f2bce8b985f8190894328141480", null ],
-    [ "getValue", "da/d96/a02547.html#a6c55a799840cc35fa4e9bda22c9b2246", null ],
-    [ "operator uint32_t", "da/d96/a02547.html#a6aba61d6f2039cc19d25fee6aa791a29", null ],
-    [ "operator VersionString", "da/d96/a02547.html#aa3df38606e4bae3745c893ccbffb030c", null ],
-    [ "toString", "da/d96/a02547.html#a318575bc9f5967d830a1cb350b1e8061", null ]
+    [ "DeepSleepLock", "da/d96/a02547.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
+    [ "~DeepSleepLock", "da/d96/a02547.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
+    [ "DeepSleepLock", "da/d96/a02547.html#a40925e50ac0805b094e04973ed61f50b", null ],
+    [ "DeepSleepLock", "da/d96/a02547.html#a653104e321c6b159eb7b5e5385d286ac", null ],
+    [ "operator=", "da/d96/a02547.html#a3523f9fd591310866af37223de2c32d3", null ],
+    [ "operator=", "da/d96/a02547.html#a10ab5d18c8a969841a27a2688604c55c", null ]
 ];

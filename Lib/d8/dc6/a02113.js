@@ -1,14 +1,18 @@
 var a02113 =
 [
-    [ "UARTPortAsync", "d8/dc6/a02113.html#ae3dfd1d49bf2eb3ae572e5482852a106", null ],
-    [ "abort", "d8/dc6/a02113.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "d8/dc6/a02113.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d8/dc6/a02113.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d8/dc6/a02113.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "d8/dc6/a02113.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "isOpened", "d8/dc6/a02113.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d8/dc6/a02113.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d8/dc6/a02113.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "d8/dc6/a02113.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ],
-    [ "setBaudRate", "d8/dc6/a02113.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "Timeout", "d8/dc6/a02113.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPortBase", "d8/dc6/a02113.html#af7d9dc0b540fee5b78bdf3853a203937", null ],
+    [ "SPIPortBase", "d8/dc6/a02113.html#a3d58a47067dbf8b77d78250373234f6d", null ],
+    [ "SPIPortBase", "d8/dc6/a02113.html#afa9b12cc40b3d5af68b16f594f5a92f7", null ],
+    [ "~SPIPortBase", "d8/dc6/a02113.html#a88e5899dd8db4b887c6afbf89dcbed77", null ],
+    [ "bindBeginTransactionFunc", "d8/dc6/a02113.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d8/dc6/a02113.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d8/dc6/a02113.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "isBusy", "d8/dc6/a02113.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d8/dc6/a02113.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d8/dc6/a02113.html#a33e5060aa4a9e4755b6786700276a5bf", null ],
+    [ "operator=", "d8/dc6/a02113.html#ae6957396d6689ed6ebcffc3b11177118", null ],
+    [ "receive", "d8/dc6/a02113.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d8/dc6/a02113.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d8/dc6/a02113.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

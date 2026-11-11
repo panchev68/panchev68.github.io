@@ -1,33 +1,23 @@
 var a02479 =
 [
-    [ "Result", "d3/de3/a02483.html", "d3/de3/a02483" ],
-    [ "Bits", "d7/dc4/a02479.html#a76db1b2abff36d5013ab969b3b149834", null ],
-    [ "Action", "d7/dc4/a02479.html#a2e9af9f97a3c22576f3f0e8fe98b88c0", [
-      [ "NO_ACTION", "d7/dc4/a02479.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a24ce802dad4f363a652f77ce888c9b91", null ],
-      [ "SET_BITS", "d7/dc4/a02479.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a584142dc5514c9123172a12e9f7f150f", null ],
-      [ "INCREMENT", "d7/dc4/a02479.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a90cf1f5206b348a822cc1a453a587534", null ],
-      [ "SET_VALUE_WITH_OVERWRITE", "d7/dc4/a02479.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a9cfe01dd4b87702dc2867fc27635501f", null ],
-      [ "SET_VALUE_WITHOUT_OVERWRITE", "d7/dc4/a02479.html#a2e9af9f97a3c22576f3f0e8fe98b88c0a07e53fb05649b7d8f7020183075a9afb", null ]
+    [ "Config", "d3/de3/a02483.html", "d3/de3/a02483" ],
+    [ "Command", "d7/dc4/a02479.html#a0b7ad8b7773fc15de07047754f3794f9", [
+      [ "OFF", "d7/dc4/a02479.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
+      [ "ON", "d7/dc4/a02479.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
     ] ],
-    [ "Notify", "d7/dc4/a02479.html#af4a648aef0b1204911e4f0b57ca2d90b", null ],
-    [ "clearBits", "d7/dc4/a02479.html#adfd929a14d86953a749caecb186a493b", null ],
-    [ "clearState", "d7/dc4/a02479.html#a4a968ee53740cc429b232c80589b748a", null ],
-    [ "fireEvent", "d7/dc4/a02479.html#a4732602e81ec507a9370a1dd41be78f8", null ],
-    [ "fireEventFromISR", "d7/dc4/a02479.html#a742840c973b7a2ce22645d9ae4f8d51a", null ],
-    [ "fireEventFromISR", "d7/dc4/a02479.html#a0fcaadc33f0db421bbae341a59b0b07a", null ],
-    [ "give", "d7/dc4/a02479.html#a1fb17f69e367f23f6497932cc17e4630", null ],
-    [ "giveFromISR", "d7/dc4/a02479.html#a38804fffd180e5a0cfd4488727e7521a", null ],
-    [ "giveFromISR", "d7/dc4/a02479.html#a4e0005f0d61c80d42a6f4a1f86447d6f", null ],
-    [ "notify", "d7/dc4/a02479.html#ac28b1bcc68bd40c199a5e504d7cd696c", null ],
-    [ "notifyAndQuery", "d7/dc4/a02479.html#ae4d92ef7755e1231a03356b8e9ff8ecc", null ],
-    [ "notifyAndQueryFromISR", "d7/dc4/a02479.html#aabfa91e4b27b8816c32546da448da44f", null ],
-    [ "notifyAndQueryFromISR", "d7/dc4/a02479.html#a01a8186691b5ea2d9884997612955204", null ],
-    [ "notifyFromISR", "d7/dc4/a02479.html#a25aaaf77386e00477eb6dc16df543364", null ],
-    [ "notifyFromISR", "d7/dc4/a02479.html#a90999910ff7124119e0143b6281ebeac", null ],
-    [ "take", "d7/dc4/a02479.html#affe9d15dcc3438ccb68a264744683f96", null ],
-    [ "take", "d7/dc4/a02479.html#ab2c154d06ce722fcc5d10141ea9971dc", null ],
-    [ "wait", "d7/dc4/a02479.html#a9b7ec0e3945a5a2e59f89abc12c995ac", null ],
-    [ "wait", "d7/dc4/a02479.html#a05ffffc3617eb293c579a9e12885057b", null ],
-    [ "waitForBits", "d7/dc4/a02479.html#acd94a5ede593ed6ae5571c18903e030b", null ],
-    [ "waitForBits", "d7/dc4/a02479.html#a1eafe4fed845fcf63255a0cd6b71e5a1", null ]
+    [ "Status", "d7/dc4/a02479.html#a9f826713fcf7511db5c43ef6f27173af", [
+      [ "IS_OFF", "d7/dc4/a02479.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
+      [ "IS_ON", "d7/dc4/a02479.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
+      [ "IN_MOTION", "d7/dc4/a02479.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
+    ] ],
+    [ "RotationCylinder", "d7/dc4/a02479.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
+    [ "RotationCylinder", "d7/dc4/a02479.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
+    [ "command", "d7/dc4/a02479.html#a8ca6acca72dbe8c542856371e956e058", null ],
+    [ "getName", "d7/dc4/a02479.html#a480be139cc8704be72afb69d2456281f", null ],
+    [ "getStatus", "d7/dc4/a02479.html#aba16d8727149fd2debf8b51fff5438bd", null ],
+    [ "isOff", "d7/dc4/a02479.html#a90f1e56010dee19b0f66350351127712", null ],
+    [ "isOn", "d7/dc4/a02479.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
+    [ "operator=", "d7/dc4/a02479.html#a44c71110f315e89203746b05fd4ab10a", null ],
+    [ "setup", "d7/dc4/a02479.html#a659c7989f745a79aeecb1c24004acba6", null ],
+    [ "update", "d7/dc4/a02479.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
 ];

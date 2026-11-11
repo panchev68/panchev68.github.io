@@ -1,14 +1,12 @@
 var a01395 =
 [
-    [ "PasswordAuthHandler", "d2/df5/a01395.html#a02da5e559fa4b2c28e3f68e32933f97d", null ],
-    [ "WolfSSHServerContext", "d2/df5/a01395.html#ad363eed6ea00561564796afb4ef3e3fb", null ],
-    [ "~WolfSSHServerContext", "d2/df5/a01395.html#a598919e9d94f4f4a862ee7bad3ef19f1", null ],
-    [ "WolfSSHServerContext", "d2/df5/a01395.html#a2ef7ed72d52c71393f6b994a819e5f61", null ],
-    [ "WolfSSHServerContext", "d2/df5/a01395.html#a41d71d3b7597c69631a274d39e0fa345", null ],
-    [ "native", "d2/df5/a01395.html#a188293485b26e63785504b3f63d346fe", null ],
-    [ "operator=", "d2/df5/a01395.html#a73bf998848ea5f7e51839651eab2cbdb", null ],
-    [ "operator=", "d2/df5/a01395.html#ac889915b8b230867843bb316a9bad1fc", null ],
-    [ "setBanner", "d2/df5/a01395.html#ad3ca33a90b311793a3e8b8bef0f99a21", null ],
-    [ "setPasswordAuthHandler", "d2/df5/a01395.html#a72301d8027efc740d10b7d0d660c198f", null ],
-    [ "usePrivateKey", "d2/df5/a01395.html#ac06c1bc25be79333ff5cc3edbbd41960", null ]
+    [ "SerialPortBase", "d2/df5/a01395.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
+    [ "~SerialPortBase", "d2/df5/a01395.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
+    [ "close", "d2/df5/a01395.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
+    [ "isOpen", "d2/df5/a01395.html#a8a52c63b043300492be23bf0b0138f86", null ],
+    [ "open", "d2/df5/a01395.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
+    [ "send", "d2/df5/a01395.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
+    [ "Master", "d2/df5/a01395.html#a34b85c36cc2386b553fcff72fc15a596", null ],
+    [ "Slave", "d2/df5/a01395.html#af2d503cce06191d01441adbba146c9f5", null ],
+    [ "onBufferReceive", "d2/df5/a01395.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
 ];

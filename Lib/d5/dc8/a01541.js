@@ -1,5 +1,5 @@
 var a01541 =
 [
-    [ "localAtCommand", "d5/dc8/a01541.html#a62c4d2c354626705c34bc850c039b5f7", null ],
-    [ "remoteAtCommand", "d5/dc8/a01541.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
+    [ "firmwareVersion", "d5/dc8/a01541.html#a8a213038d3ef462ae46b408da218a1eb", null ],
+    [ "hardwareVersion", "d5/dc8/a01541.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
 ];

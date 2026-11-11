@@ -1,5 +1,5 @@
 var a01559 =
 [
-    [ "high", "de/d1a/a01559.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
-    [ "low", "de/d1a/a01559.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
+    [ "ascFailureCount", "de/d1a/a01559.html#a1e6fa3ed0ff87b537b8ec7aed53093bb", null ],
+    [ "ccaFailureCount", "de/d1a/a01559.html#a20afcf39b211e185e969b8d770f99017", null ]
 ];

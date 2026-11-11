@@ -1,14 +1,19 @@
 var a02003 =
 [
-    [ "OSPIPort", "d7/d98/a02003.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
-    [ "~OSPIPort", "d7/d98/a02003.html#a88592dfaa7cbb4efa05747483c911d6f", null ],
-    [ "abort", "d7/d98/a02003.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "d7/d98/a02003.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "d7/d98/a02003.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "DataAlignment", "d7/d98/a02003.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
+    [ "DACPort", "d7/d98/a02003.html#a430af54970be9f050913a2587b44af8c", null ],
+    [ "~DACPort", "d7/d98/a02003.html#a6f809dceb0bf7f7f10d36a60d80542ae", null ],
+    [ "DACPort", "d7/d98/a02003.html#a74ca3aad257be30051d7eaf469296f7d", null ],
+    [ "DACPort", "d7/d98/a02003.html#a3baeea2036cc1c8db31042f17b2ace75", null ],
+    [ "close", "d7/d98/a02003.html#a5a6f143205e2aaed0dc76423e1ae1464", null ],
+    [ "getChannel", "d7/d98/a02003.html#a668e6706e47926674d5df3daad36276c", null ],
     [ "getHandle", "d7/d98/a02003.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d7/d98/a02003.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d7/d98/a02003.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d7/d98/a02003.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d7/d98/a02003.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "d7/d98/a02003.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "open", "d7/d98/a02003.html#a972d40716f11cc01e220bc488d2fb281", null ],
+    [ "operator=", "d7/d98/a02003.html#a3de9f7904a1682b503e927cd7557360c", null ],
+    [ "operator=", "d7/d98/a02003.html#a935c4325ea0cf9f2079b66affe1e46a1", null ],
+    [ "setValue", "d7/d98/a02003.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
+    [ "start", "d7/d98/a02003.html#a99aa0c249bf50a455acd99a243d63c67", null ],
+    [ "stop", "d7/d98/a02003.html#a05ff882667b873c0ea3c7874ab07bb73", null ],
+    [ "waitForEvent", "d7/d98/a02003.html#a9327549838d3f5ba4298452dabb5e443", null ]
 ];

@@ -1,21 +1,19 @@
 var a01031 =
 [
     [ "Config", "de/d26/a01035.html", "de/d26/a01035" ],
-    [ "EventCode", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7", [
-      [ "BUTTON_PUSH", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7ac36aee6215a48ebf1e92e42dd6a0cf4c", null ],
-      [ "BUTTON_PULL", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7a87cc2515777cc275be23e4735ad2b972", null ],
-      [ "BUTTON_HOLD", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7aa9ac7af6781d04fe7e05a387f285044e", null ],
-      [ "ENCODER_CW", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7a900afcef9f88f5d81725b2402b094404", null ],
-      [ "ENCODER_CCW", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7ace67436040095a7cbfe0cd8645257a4b", null ],
-      [ "NONE", "d6/dcf/a01031.html#a79bb5179e93b8bb7fb1dca034f1572f7ab50339a10e1de285ac99d4c3990b8693", null ]
-    ] ],
-    [ "EncoderTimer", "d6/dcf/a01031.html#aaf07b62dc5be29307f86fc985c41c7ab", null ],
-    [ "~EncoderTimer", "d6/dcf/a01031.html#a449279e87494b389cfa1adba8e7f6b37", null ],
-    [ "EncoderTimer", "d6/dcf/a01031.html#a99753bd300ae9ecf9544bf7ba709e3f5", null ],
-    [ "EncoderTimer", "d6/dcf/a01031.html#a7d21c22284a66c9cbf8d4260a84aef01", null ],
-    [ "close", "d6/dcf/a01031.html#a9e37bcbed278df67dad753953c0e0505", null ],
-    [ "open", "d6/dcf/a01031.html#a332145ce828a12688d8de9aea070c328", null ],
-    [ "operator=", "d6/dcf/a01031.html#a6e4f9be3709b642fa4507cda01d85fc1", null ],
-    [ "operator=", "d6/dcf/a01031.html#a8f9bc205f553a774c7a25beff08602ac", null ],
-    [ "read", "d6/dcf/a01031.html#afa10c44ad4eee7779caf46410cac1255", null ]
+    [ "Driver", "d6/dcf/a01031.html#ad08435e7ab04b1447660c851f626b703", null ],
+    [ "~Driver", "d6/dcf/a01031.html#aa6102b0396341784835c07a1ce9a127a", null ],
+    [ "Driver", "d6/dcf/a01031.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
+    [ "Driver", "d6/dcf/a01031.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
+    [ "close", "d6/dcf/a01031.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "d6/dcf/a01031.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "d6/dcf/a01031.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "operator=", "d6/dcf/a01031.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
+    [ "operator=", "d6/dcf/a01031.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
+    [ "read", "d6/dcf/a01031.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "d6/dcf/a01031.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "d6/dcf/a01031.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "d6/dcf/a01031.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "d6/dcf/a01031.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "d6/dcf/a01031.html#a299a926321f0db8d9eac8527198f28fc", null ]
 ];

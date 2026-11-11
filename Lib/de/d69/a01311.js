@@ -1,12 +1,8 @@
 var a01311 =
 [
-    [ "Command", "de/d69/a01311.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
-    [ "RemoteAtCommand", "de/d69/a01311.html#ade690ee17d2cf577a449a15aface6526", null ],
-    [ "~RemoteAtCommand", "de/d69/a01311.html#afd12e6b6bca08b1380f7b6a22b3d7fdf", null ],
-    [ "close", "de/d69/a01311.html#ace2e2109ec97fd13e30d7d607c9e4965", null ],
-    [ "isOpenState", "de/d69/a01311.html#a984410f30d2345c11376e7e61188d250", null ],
-    [ "open", "de/d69/a01311.html#a2122f4e9fe130ebeea8790f7f4e7a45b", null ],
-    [ "receive", "de/d69/a01311.html#a5138cbf29b030be3bd7247d02e6ffb78", null ],
-    [ "send", "de/d69/a01311.html#afd20b30efeb981b1dbccad5a1a20d41b", null ],
-    [ "send", "de/d69/a01311.html#a4e1dd3e3932804a583f5c83a1af9179c", null ]
+    [ "ambientTemperatureCelsius", "de/d69/a01311.html#afe46178f50e25346cca90112dc708790", null ],
+    [ "listenDuration", "de/d69/a01311.html#aed97102995a3a032b9524b1e47731f17", null ],
+    [ "timeout", "de/d69/a01311.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
+    [ "uart", "de/d69/a01311.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
+    [ "uartAddress", "de/d69/a01311.html#a07cd324da0adf0baf2262a0b33404164", null ]
 ];

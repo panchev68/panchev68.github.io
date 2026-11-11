@@ -1,11 +1,10 @@
 var a02305 =
 [
-    [ "Client", "d7/dd6/a02305.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
-    [ "Client", "d7/dd6/a02305.html#a893ac5643ef917f5ca701fabbe75a429", null ],
-    [ "Client", "d7/dd6/a02305.html#a207055b9f6a7daac509985f971a0e14f", null ],
-    [ "get", "d7/dd6/a02305.html#aabf7e35c74111468fdd296e6931b047f", null ],
-    [ "operator=", "d7/dd6/a02305.html#a19375415236ef7e6b214f897791eeb09", null ],
-    [ "operator=", "d7/dd6/a02305.html#a3b9c27f75842a31365c97eaaa607d452", null ],
-    [ "post", "d7/dd6/a02305.html#aee5955fa4ffad931d4418d2f59af2880", null ],
-    [ "request", "d7/dd6/a02305.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
+    [ "Integrator", "d7/dd6/a02305.html#a75a15b2aff31bbe4ae980198a1ad1884", null ],
+    [ "addValue", "d7/dd6/a02305.html#ab9b5d595a68b4a253baf246ec39e309b", null ],
+    [ "computeResult", "d7/dd6/a02305.html#ad3e3688697bc8180a6bf550b7d67eda2", null ],
+    [ "isWindowFull", "d7/dd6/a02305.html#aeb147317d59f6e6641e3938d0bf468d9", null ],
+    [ "operator()", "d7/dd6/a02305.html#a97085ec2f9a9f65920181fffae409662", null ],
+    [ "processValue", "d7/dd6/a02305.html#ab31a92d828aeae207fd9641101c217f5", null ],
+    [ "resetWindow", "d7/dd6/a02305.html#a78e088ee416a676679fe227ceb71b1b0", null ]
 ];

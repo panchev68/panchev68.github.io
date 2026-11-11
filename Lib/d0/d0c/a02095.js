@@ -1,18 +1,17 @@
 var a02095 =
 [
-    [ "Manager", "d0/d0c/a02095.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
-    [ "TickType", "d0/d0c/a02095.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
-    [ "TimOutputCompare", "d0/d0c/a02095.html#a147e928fad995991b23e7d01fe3858fd", null ],
-    [ "~TimOutputCompare", "d0/d0c/a02095.html#ad51108ace6896dca15950c5bbfd3002b", null ],
-    [ "bindWorker", "d0/d0c/a02095.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
-    [ "getCounter", "d0/d0c/a02095.html#afaf7f01f359523e9b30110fdbf8b175b", null ],
-    [ "getHandle", "d0/d0c/a02095.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "notifyWorkerFromISR", "d0/d0c/a02095.html#a96061f4587cc3508811475a8309ab3f0", null ],
-    [ "setCompare", "d0/d0c/a02095.html#a14b6982f85b9be41e24886a8a1c7445d", null ],
-    [ "start", "d0/d0c/a02095.html#a63482b7958cd7171218c959b2b5df044", null ],
-    [ "stop", "d0/d0c/a02095.html#aac2ec3db8ef26406c23bea924b96997b", null ],
-    [ "waitCompare", "d0/d0c/a02095.html#a040290a0bf889a08fc0248b637b69e71", null ],
-    [ "waitCompare", "d0/d0c/a02095.html#a18804c13963fca99f8037034a6d4e7ec", null ],
-    [ "waitEvent", "d0/d0c/a02095.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
-    [ "void::HAL_TIM_OC_DelayElapsedCallback", "d0/d0c/a02095.html#a1c9628368c1f17c08dc2099a119d2ebb", null ]
+    [ "OSPIPort", "d0/d0c/a02095.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
+    [ "~OSPIPort", "d0/d0c/a02095.html#a08e56728c9a64f13a22b89d6b482b132", null ],
+    [ "OSPIPort", "d0/d0c/a02095.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
+    [ "OSPIPort", "d0/d0c/a02095.html#a50425950532682614be81eb8bb5216b7", null ],
+    [ "close", "d0/d0c/a02095.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "command", "d0/d0c/a02095.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
+    [ "getHandle", "d0/d0c/a02095.html#a696d949d69359bb54440fe22e1de963f", null ],
+    [ "getHandle", "d0/d0c/a02095.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
+    [ "isBusy", "d0/d0c/a02095.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d0/d0c/a02095.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d0/d0c/a02095.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
+    [ "operator=", "d0/d0c/a02095.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
+    [ "receive", "d0/d0c/a02095.html#aef7cf93602718e2d14816e122f15f3be", null ],
+    [ "transmit", "d0/d0c/a02095.html#a10d2dc1da9553992110c3752aa39e058", null ]
 ];

@@ -1,9 +1,14 @@
 var a01483 =
 [
-    [ "Counter", "d2/dc4/a01483.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d2/dc4/a01483.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d2/dc4/a01483.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d2/dc4/a01483.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d2/dc4/a01483.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d2/dc4/a01483.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "SharedSecret", "d2/dc4/a01483.html#a7fbb5355ccfc526d83b2d67eadb425c8", null ],
+    [ "WolfSSLEcc", "d2/dc4/a01483.html#a19debb4d33bed3fade556263320330f7", null ],
+    [ "~WolfSSLEcc", "d2/dc4/a01483.html#ab882988b2ec1b1494dbe8f30062bd13e", null ],
+    [ "WolfSSLEcc", "d2/dc4/a01483.html#acfed6fbd26a4fb663e7aec5f8408e3f4", null ],
+    [ "WolfSSLEcc", "d2/dc4/a01483.html#ab7483aff9567983a99ff831e7bfcf284", null ],
+    [ "generateKey", "d2/dc4/a01483.html#a17edfaa1f02adf3fdd3a15dacc409b5d", null ],
+    [ "operator=", "d2/dc4/a01483.html#a3309d37d1e7115e7a81b80cee385c0f3", null ],
+    [ "operator=", "d2/dc4/a01483.html#a251a0fe821d569d4e0f785056ced42d7", null ],
+    [ "sharedSecret", "d2/dc4/a01483.html#a6c37442161fbe64b4d931ffc6a6f8997", null ],
+    [ "sign", "d2/dc4/a01483.html#ad2b17e604dc8ee9188ffc9a54dc87b46", null ],
+    [ "verify", "d2/dc4/a01483.html#a22a3ef4290390aa55282ade89d4bd8e4", null ]
 ];

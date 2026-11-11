@@ -1,4 +1,4 @@
 var a00752 =
 [
-    [ "RTOS::MutexGuard", "d1/df1/a02431.html", "d1/df1/a02431" ]
+    [ "Lib::System::SerialNumber", "dc/d58/a02667.html", "dc/d58/a02667" ]
 ];

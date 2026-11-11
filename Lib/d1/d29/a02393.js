@@ -1,9 +1,14 @@
 var a02393 =
 [
-    [ "CriticalSection", "d1/d29/a02393.html#ae0d8591a9f951915226f9cc3fee5dc0c", null ],
-    [ "~CriticalSection", "d1/d29/a02393.html#a4a507b226238920b8fae903a5bd87776", null ],
-    [ "CriticalSection", "d1/d29/a02393.html#a12c8f603f29e98f7bf45f3685a8a9346", null ],
-    [ "CriticalSection", "d1/d29/a02393.html#a9de7a81409af7b28d1da974ded4a7688", null ],
-    [ "operator=", "d1/d29/a02393.html#aabac4732503c72da02f8e49754bbc736", null ],
-    [ "operator=", "d1/d29/a02393.html#aedeb62fa344a12ef7e33a668f584bed9", null ]
+    [ "Point", "dd/d6b/a02397.html", "dd/d6b/a02397" ],
+    [ "LinearInterpolation", "d1/d29/a02393.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
+    [ "LinearInterpolation", "d1/d29/a02393.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
+    [ "addPoint", "d1/d29/a02393.html#afdd4b894d0803bc604d379fa4629d483", null ],
+    [ "addPoint", "d1/d29/a02393.html#a74376103d2a68f503d4edeac77bcb80c", null ],
+    [ "clear", "d1/d29/a02393.html#aab5168233071bba85d5f5119cecdc12f", null ],
+    [ "getPoint", "d1/d29/a02393.html#a96708d1e4a7701724f4770d48a1b4661", null ],
+    [ "getPointCount", "d1/d29/a02393.html#aff35d714c8d5e1859adca0de1f902a34", null ],
+    [ "interpolate", "d1/d29/a02393.html#a15ad2325a927ddfead159579c0d375aa", null ],
+    [ "isEmpty", "d1/d29/a02393.html#a297a3b5b4a94c75ad444983025829924", null ],
+    [ "sortPoints", "d1/d29/a02393.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
 ];

@@ -1,5 +1,6 @@
 var a00734 =
 [
-    [ "Lib::Pneumatics::Sensor", "db/dd4/a02383.html", "db/dd4/a02383" ],
-    [ "Lib::Pneumatics::Sensor::Config", "d8/deb/a02387.html", "d8/deb/a02387" ]
+    [ "Lib::SolarControl::MPPT", "da/dfd/a02619.html", "da/dfd/a02619" ],
+    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d4/d29/a02623.html", "d4/d29/a02623" ],
+    [ "Lib::SolarControl::MPPT::Measurement", "dc/d34/a02627.html", "dc/d34/a02627" ]
 ];

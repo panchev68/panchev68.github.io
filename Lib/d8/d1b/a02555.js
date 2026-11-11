@@ -1,13 +1,38 @@
 var a02555 =
 [
-    [ "Status", "d8/d1b/a02555.html#a335a74b2beee583b06c1cc6a0c928957", [
-      [ "OK", "d8/d1b/a02555.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d8/d1b/a02555.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    [ "Handle", "d8/d1b/a02555.html#a4b0fa065d254b79172dce084d987b8d4", null ],
+    [ "TickType", "d8/d1b/a02555.html#a052c7fc009c89fd8f8542c6014405b43", null ],
+    [ "State", "d8/d1b/a02555.html#a7ad1b7a849143d5692507f7dddbcfde8", [
+      [ "AVAILABLE", "d8/d1b/a02555.html#a7ad1b7a849143d5692507f7dddbcfde8a1588118736b5ecdb1ac20c16428d8ea7", null ],
+      [ "TAKEN", "d8/d1b/a02555.html#a7ad1b7a849143d5692507f7dddbcfde8afdfe502af50675587395ffe111ae6c63", null ],
+      [ "INVALID", "d8/d1b/a02555.html#a7ad1b7a849143d5692507f7dddbcfde8accc0377a8afbf50e7094f5c23a8af223", null ]
     ] ],
-    [ "Parameters", "d8/d1b/a02555.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
-    [ "Parameters", "d8/d1b/a02555.html#a401c8f010740c371697fba3fa25b559c", null ],
-    [ "isValid", "d8/d1b/a02555.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
-    [ "operator=", "d8/d1b/a02555.html#ab7707d467c6b510fc640db358633fd8b", null ],
-    [ "setup", "d8/d1b/a02555.html#a6c93bc540f4ca328949b18b8364730fc", null ],
-    [ "write", "d8/d1b/a02555.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
+    [ "Semaphore", "d8/d1b/a02555.html#a05660cc9a7ec8aed6d962e4574ff41fd", null ],
+    [ "Semaphore", "d8/d1b/a02555.html#a81c2289b5095339fc9301c72fae88487", null ],
+    [ "Semaphore", "d8/d1b/a02555.html#a70791f9cd23a68a9bd9e6c2ff7067ab5", null ],
+    [ "Semaphore", "d8/d1b/a02555.html#a87fa949b382d64e96b2d93f381032500", null ],
+    [ "close", "d8/d1b/a02555.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
+    [ "createStatic", "d8/d1b/a02555.html#a4f5da52c7ee3efdf3cb229e205149ba5", null ],
+    [ "getCount", "d8/d1b/a02555.html#a3536e6a7e2e6dd4ac62bbce8b897b3c8", null ],
+    [ "getCountFromISR", "d8/d1b/a02555.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
+    [ "getDerived", "d8/d1b/a02555.html#a431358a0063bbdcb40d09537a2babe3a", null ],
+    [ "getHandle", "d8/d1b/a02555.html#a9cd3c80279acde60a0701a674eecc148", null ],
+    [ "getState", "d8/d1b/a02555.html#a4dc6f42d28351e57274eb7e45aa62248", null ],
+    [ "give", "d8/d1b/a02555.html#a5682e0c5d8eb6b2076978634963b4020", null ],
+    [ "giveFromISR", "d8/d1b/a02555.html#adc665ae88781c6a32668f430f0425eac", null ],
+    [ "isAvailable", "d8/d1b/a02555.html#a58227dfaddfa5a315561f0619d791a45", null ],
+    [ "isOpen", "d8/d1b/a02555.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
+    [ "isTaken", "d8/d1b/a02555.html#ad88c6e815967329927ac73939fb3361d", null ],
+    [ "open", "d8/d1b/a02555.html#a4f3a14ce62c98f7ce5520ce3e91b2322", null ],
+    [ "operator=", "d8/d1b/a02555.html#abe1f7c1fff0d8632a0e3f7dda8ed9b0b", null ],
+    [ "operator=", "d8/d1b/a02555.html#ab0c39e4bed96c5f7e874b3ecf89d8a63", null ],
+    [ "overwrite", "d8/d1b/a02555.html#a70748ace923762624068ff43a0438e8b", null ],
+    [ "overwriteFromISR", "d8/d1b/a02555.html#ae17808587d941f6cdf076edfc7f50a69", null ],
+    [ "overwriteFromISR", "d8/d1b/a02555.html#ac4fa91c7638ef0a1811557de4ff2709a", null ],
+    [ "take", "d8/d1b/a02555.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
+    [ "takeFromISR", "d8/d1b/a02555.html#a351bf0854e0c48d82c1a078a39e02879", null ],
+    [ "takeMs", "d8/d1b/a02555.html#a4a7b4e66593bcbcf465ddf9458cee540", null ],
+    [ "takeSeconds", "d8/d1b/a02555.html#a154ec0be77fe01c345872f7420174929", null ],
+    [ "tryTake", "d8/d1b/a02555.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
+    [ "semaphoreHandle", "d8/d1b/a02555.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
 ];

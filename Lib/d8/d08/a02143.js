@@ -1,14 +1,20 @@
 var a02143 =
 [
-    [ "USBOtgPort", "d8/d08/a02143.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
-    [ "~USBOtgPort", "d8/d08/a02143.html#a277068fa3df6459bf52aac65457f31d6", null ],
-    [ "USBOtgPort", "d8/d08/a02143.html#a996c0c11f55b66f27d118a91eb700a30", null ],
-    [ "USBOtgPort", "d8/d08/a02143.html#ab276be300ebf7d87066609fd80b78336", null ],
-    [ "getDevice", "d8/d08/a02143.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
-    [ "getHost", "d8/d08/a02143.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
-    [ "getRole", "d8/d08/a02143.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
-    [ "operator=", "d8/d08/a02143.html#a78acf6354843aa38ea86734991fe89b2", null ],
-    [ "operator=", "d8/d08/a02143.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
-    [ "release", "d8/d08/a02143.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
-    [ "setRole", "d8/d08/a02143.html#aec9af265280bdd162bad2fc3ab471564", null ]
+    [ "Timeout", "d8/d08/a02143.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
+    [ "SPIPort", "d8/d08/a02143.html#a903be3f889b13683ab1e357df5e48ddb", null ],
+    [ "~SPIPort", "d8/d08/a02143.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
+    [ "SPIPort", "d8/d08/a02143.html#a8335bc7cd53354957b5b059adfa4a702", null ],
+    [ "SPIPort", "d8/d08/a02143.html#ab03e262f43c766b37a67b48c85bff815", null ],
+    [ "bindBeginTransactionFunc", "d8/d08/a02143.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
+    [ "bindEndTransactionFunc", "d8/d08/a02143.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
+    [ "close", "d8/d08/a02143.html#ab6529e241d0728159eb3f60c7621b666", null ],
+    [ "getHandle", "d8/d08/a02143.html#a177a320faf7a48d1692b081641399447", null ],
+    [ "getHandle", "d8/d08/a02143.html#a88e71252a873f0d8d5051292a08b1336", null ],
+    [ "isBusy", "d8/d08/a02143.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
+    [ "open", "d8/d08/a02143.html#af039716c9cb01db958d77f8c581627cf", null ],
+    [ "operator=", "d8/d08/a02143.html#a7ac0642f801168b819d2f19789bd9d15", null ],
+    [ "operator=", "d8/d08/a02143.html#ae10f073f8753cb6161429d0e321dfd92", null ],
+    [ "receive", "d8/d08/a02143.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
+    [ "send", "d8/d08/a02143.html#ac557450438e468ea5bf25de308bc023c", null ],
+    [ "sendReceive", "d8/d08/a02143.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
 ];

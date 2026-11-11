@@ -1,7 +1,8 @@
 var a02597 =
 [
-    [ "baudRate", "de/d94/a02597.html#ad346dd14c75b113671501f286d5348d3", null ],
-    [ "dataBits", "de/d94/a02597.html#a0834146908baa5e641e203755bcae7d0", null ],
-    [ "parity", "de/d94/a02597.html#ae1d9173fb3c732649e3ae12b963b784c", null ],
-    [ "stopBits", "de/d94/a02597.html#aece0199b65b1b9e27305ae98b9c7bc31", null ]
+    [ "Storage", "de/d94/a02597.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
+    [ "close", "de/d94/a02597.html#aa684e568a90f586209178bf82321e7eb", null ],
+    [ "open", "de/d94/a02597.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
+    [ "read", "de/d94/a02597.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
+    [ "write", "de/d94/a02597.html#a7d3edbeec88b0807daece2241bb79d92", null ]
 ];

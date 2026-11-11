@@ -1,14 +1,17 @@
 var a02149 =
 [
-    [ "EventHandler", "d2/da0/a02149.html#a10761412c20341dee385767eac673248", null ],
-    [ "USBHostPort", "d2/da0/a02149.html#a8c4ffe96e057ebee8d694a33d50ca85a", null ],
-    [ "~USBHostPort", "d2/da0/a02149.html#a56f4dd3a3342b8ec3066733c10f723f1", null ],
-    [ "close", "d2/da0/a02149.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d2/da0/a02149.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "Manager", "d2/da0/a02149.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d2/da0/a02149.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimTimebase", "d2/da0/a02149.html#a2c242b351c880239ebc508905c1cb177", null ],
+    [ "~TimTimebase", "d2/da0/a02149.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
+    [ "bindWorker", "d2/da0/a02149.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
     [ "getHandle", "d2/da0/a02149.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d2/da0/a02149.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d2/da0/a02149.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "setEventHandler", "d2/da0/a02149.html#a031aa9b48caa98516825b7f35468b627", null ],
-    [ "transfer", "d2/da0/a02149.html#a3bcff372802df7955ce5761f4e32e420", null ],
-    [ "waitForEvent", "d2/da0/a02149.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
+    [ "notifyWorkerFromISR", "d2/da0/a02149.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setPeriod", "d2/da0/a02149.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
+    [ "start", "d2/da0/a02149.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
+    [ "stop", "d2/da0/a02149.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
+    [ "waitEvent", "d2/da0/a02149.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPeriod", "d2/da0/a02149.html#a2b19392b62c66b845538ec09abd31354", null ],
+    [ "waitPeriod", "d2/da0/a02149.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
+    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "d2/da0/a02149.html#ae72687d02451939bdec7c3aaba269a45", null ]
 ];

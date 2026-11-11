@@ -1,15 +1,12 @@
 var a01783 =
 [
-    [ "Error", "da/da5/a01783.html#a9d7546738e259f57d9e431d88a39ac23", null ],
-    [ "Handlers", "da/da5/a01783.html#a0cc369eea636a2b7334c4fcb151bacdb", null ],
-    [ "FoE", "da/da5/a01783.html#ad7dd21bafde30794cef6a653baacc862", null ],
-    [ "~FoE", "da/da5/a01783.html#a2b79ec9ea18a8e18adac7ce48a7e5463", null ],
-    [ "FoE", "da/da5/a01783.html#a62eae3fa84fd6deb7d3bdb96b4b8386d", null ],
-    [ "FoE", "da/da5/a01783.html#a4c9554c1e4ac15ef4c1fa1fa81e0be9b", null ],
-    [ "handle", "da/da5/a01783.html#a89eda74e421aaa19c4a146f169dee6d6", null ],
-    [ "isBusy", "da/da5/a01783.html#a4463e44a62dae7598614225dc069e03c", null ],
-    [ "operator=", "da/da5/a01783.html#ad4ee1458ee523b0108e1a4ab32655e4e", null ],
-    [ "operator=", "da/da5/a01783.html#a2e66c6e267a7bf4dfa07d74ee5fb7b46", null ],
-    [ "reset", "da/da5/a01783.html#a33f80a76d8f7d890ff15f88f6567e7a8", null ],
-    [ "setHandlers", "da/da5/a01783.html#a39b767747ef43947171f73021ee9dd76", null ]
+    [ "size", "da/da5/a01783.html#a7306fdc8fa82a6f3d142e23b25af606d", null ],
+    [ "access", "da/da5/a01783.html#a689087c28b07b550c6eae081e7594f72", null ],
+    [ "bitLength", "da/da5/a01783.html#a9720d19e5c0b0e8f1be49ac104234370", null ],
+    [ "dataType", "da/da5/a01783.html#a0f18ed5e1c01a3298b9a235b433b363a", null ],
+    [ "index", "da/da5/a01783.html#ab2f3134366cf4e85eb20119de70393e3", null ],
+    [ "name", "da/da5/a01783.html#a2497e7c2ce49cc0f0fe4601dd78aba7b", null ],
+    [ "readData", "da/da5/a01783.html#abb1278c8d325465c3e21817c2e559f7f", null ],
+    [ "subIndex", "da/da5/a01783.html#a5e7dc405b23d4a2c9c30824dbd1aa348", null ],
+    [ "writeData", "da/da5/a01783.html#ac54a16495fbb3e297360ce4281c1420f", null ]
 ];

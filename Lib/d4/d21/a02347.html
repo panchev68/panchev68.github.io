@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;</title>
+<title>IAR Library: Lib::Helper::Delay</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,77 +111,53 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d4/d21/a02347.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::Helper::Delay<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt;<br />
-class Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;</div><p>Linear interpolation between a fixed-size table of (x, y) data points. </p>
-<p>Supports up to "MAX_POINTS" data points, stored in a fixed-size array with no heap allocation. A lookup first binary-searches for the enclosing interval, then linearly interpolates between its two endpoints; values outside the table's range clamp to the nearest endpoint.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_VALUE</td><td>Floating-point type of the output (y) values. </td></tr>
-    <tr><td class="paramname">T_INPUT</td><td>Floating-point type of the input (x) coordinates; defaults to "T_VALUE". </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Math::LinearInterpolation&lt; T_VALUE, T_INPUT &gt;:</div>
+<div class="textblock"><p>Busy-wait delay helpers based on the ARM Cortex-M Data Watchpoint and Trace (DWT) cycle counter. </p>
+<p>Suitable for short, precise delays where suspending the task or using <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timers would be too coarse. Every delay is rounded up to whole CPU cycles, so it is never shorter than requested; interrupts may lengthen it. The microsecond path and its helpers carry "#pragma inline=forced": measured on a 16 MHz Cortex-M33 with optimization off (a Debug build, where asserts/breakpoints in a caller like a 1-Wire bit-bang driver are actually live), the un-inlined call chain added roughly 100 extra cycles (over 6 us) on top of the requested wait - enough by itself to corrupt a protocol slot a few microseconds wide. Forcing the inline keeps that overhead low independent of the build's optimization level. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::Delay:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d0a/a02345.svg" width="270" height="362"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d0a/a02345.svg" width="166" height="250"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Point" id="r_Point"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dd/d1b/a02351.html">Point</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single (x, y) coordinate pair stored in the interpolation table.  <a href="../../dd/d1b/a02351.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6edc8e5ca9a2bce0f7e9198c72ea34f0" id="r_a6edc8e5ca9a2bce0f7e9198c72ea34f0"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#a6edc8e5ca9a2bce0f7e9198c72ea34f0">LinearInterpolation</a> ()</td></tr>
-<tr class="memdesc:a6edc8e5ca9a2bce0f7e9198c72ea34f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an empty interpolation table.  <br /></td></tr>
-<tr class="memitem:af8dee1ed0a09d5cf17ab2fb2cc73d8cb" id="r_af8dee1ed0a09d5cf17ab2fb2cc73d8cb"><td class="memTemplParams" colspan="2">template&lt;size_t N&gt; </td></tr>
-<tr class="memitem:af8dee1ed0a09d5cf17ab2fb2cc73d8cb template"><td class="memItemLeft">constexpr&#160;</td><td class="memItemRight"><a class="el" href="#af8dee1ed0a09d5cf17ab2fb2cc73d8cb">LinearInterpolation</a> (const std::array&lt; <a class="el" href="../../dd/d1b/a02351.html">Point</a>, N &gt; &amp;pointArray)</td></tr>
-<tr class="memdesc:af8dee1ed0a09d5cf17ab2fb2cc73d8cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an interpolation table from an initial array of points, sorted by x coordinate.  <br /></td></tr>
-<tr class="memitem:afdd4b894d0803bc604d379fa4629d483" id="r_afdd4b894d0803bc604d379fa4629d483"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afdd4b894d0803bc604d379fa4629d483">addPoint</a> (const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;point)</td></tr>
-<tr class="memdesc:afdd4b894d0803bc604d379fa4629d483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a data point to the table.  <br /></td></tr>
-<tr class="memitem:a74376103d2a68f503d4edeac77bcb80c" id="r_a74376103d2a68f503d4edeac77bcb80c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a74376103d2a68f503d4edeac77bcb80c">addPoint</a> (T_INPUT x, T_VALUE y)</td></tr>
-<tr class="memdesc:a74376103d2a68f503d4edeac77bcb80c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Appends a data point given by its coordinates.  <br /></td></tr>
-<tr class="memitem:aab5168233071bba85d5f5119cecdc12f" id="r_aab5168233071bba85d5f5119cecdc12f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aab5168233071bba85d5f5119cecdc12f">clear</a> ()</td></tr>
-<tr class="memdesc:aab5168233071bba85d5f5119cecdc12f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes every point, returning the table to its initial empty state.  <br /></td></tr>
-<tr class="memitem:aff35d714c8d5e1859adca0de1f902a34" id="r_aff35d714c8d5e1859adca0de1f902a34"><td class="memItemLeft">constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aff35d714c8d5e1859adca0de1f902a34">getPointCount</a> () const</td></tr>
-<tr class="memdesc:aff35d714c8d5e1859adca0de1f902a34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of points currently in the table.  <br /></td></tr>
-<tr class="memitem:a297a3b5b4a94c75ad444983025829924" id="r_a297a3b5b4a94c75ad444983025829924"><td class="memItemLeft">constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a297a3b5b4a94c75ad444983025829924">isEmpty</a> () const</td></tr>
-<tr class="memdesc:a297a3b5b4a94c75ad444983025829924"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the table holds no points.  <br /></td></tr>
-<tr class="memitem:a15ad2325a927ddfead159579c0d375aa" id="r_a15ad2325a927ddfead159579c0d375aa"><td class="memItemLeft">T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a15ad2325a927ddfead159579c0d375aa">interpolate</a> (T_INPUT x)</td></tr>
-<tr class="memdesc:a15ad2325a927ddfead159579c0d375aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Computes the interpolated value at the given input coordinate.  <br /></td></tr>
-<tr class="memitem:a96708d1e4a7701724f4770d48a1b4661" id="r_a96708d1e4a7701724f4770d48a1b4661"><td class="memItemLeft">const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a96708d1e4a7701724f4770d48a1b4661">getPoint</a> (size_t index) const</td></tr>
-<tr class="memdesc:a96708d1e4a7701724f4770d48a1b4661"><td class="mdescLeft">&#160;</td><td class="mdescRight">Accesses the point at the given table index.  <br /></td></tr>
-<tr class="memitem:a811655db142fd3fe1aa6dfbd5352a582" id="r_a811655db142fd3fe1aa6dfbd5352a582"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a811655db142fd3fe1aa6dfbd5352a582">sortPoints</a> ()</td></tr>
-<tr class="memdesc:a811655db142fd3fe1aa6dfbd5352a582"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sorts the table by x coordinate in ascending order, if not already sorted.  <br /></td></tr>
+<tr class="memitem:ae05989164bd1c17d9508a274c9c8efc6" id="r_ae05989164bd1c17d9508a274c9c8efc6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> ()=delete</td></tr>
+<tr class="memdesc:ae05989164bd1c17d9508a274c9c8efc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted default constructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:abab8b5337f9a0a494dc33f550b7d898b" id="r_abab8b5337f9a0a494dc33f550b7d898b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abab8b5337f9a0a494dc33f550b7d898b">~Delay</a> ()=delete</td></tr>
+<tr class="memdesc:abab8b5337f9a0a494dc33f550b7d898b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deleted destructor; this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a1cb3786f2784e6c6c42979b9860a5c4b" id="r_a1cb3786f2784e6c6c42979b9860a5c4b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1cb3786f2784e6c6c42979b9860a5c4b">Delay</a> (const Delay &amp;)=delete</td></tr>
+<tr class="memdesc:a1cb3786f2784e6c6c42979b9860a5c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
+<tr class="memitem:a62e0ff423d0e589d0757d35725eaf0b2" id="r_a62e0ff423d0e589d0757d35725eaf0b2"><td class="memItemLeft"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a62e0ff423d0e589d0757d35725eaf0b2">operator=</a> (const <a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a62e0ff423d0e589d0757d35725eaf0b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: this is a non-instantiable static utility class.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a6f6fdaa95c5df133be213e1ad20f34a8" id="r_a6f6fdaa95c5df133be213e1ad20f34a8"><td class="memItemLeft">static constexpr T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a6f6fdaa95c5df133be213e1ad20f34a8">interpolateBetween</a> (const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;point1, const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;point2, T_INPUT x)</td></tr>
-<tr class="memdesc:a6f6fdaa95c5df133be213e1ad20f34a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two points at the given input coordinate.  <br /></td></tr>
-<tr class="memitem:a637e9123547cb0cb5032cd680793c1e6" id="r_a637e9123547cb0cb5032cd680793c1e6"><td class="memItemLeft">static constexpr T_VALUE&#160;</td><td class="memItemRight"><a class="el" href="#a637e9123547cb0cb5032cd680793c1e6">interpolateSimple</a> (T_INPUT x1, T_VALUE y1, T_INPUT x2, T_VALUE y2, T_INPUT x)</td></tr>
-<tr class="memdesc:a637e9123547cb0cb5032cd680793c1e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Linearly interpolates between two points given directly as coordinates, without a table.  <br /></td></tr>
+<tr class="memitem:a592daf57dd9e14add5de04bb3af7a5b7" id="r_a592daf57dd9e14add5de04bb3af7a5b7"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a592daf57dd9e14add5de04bb3af7a5b7">microseconds</a> (uint32_t us) noexcept</td></tr>
+<tr class="memdesc:a592daf57dd9e14add5de04bb3af7a5b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of microseconds.  <br /></td></tr>
+<tr class="memitem:a76e93003f799131c3700666dbb54d9d3" id="r_a76e93003f799131c3700666dbb54d9d3"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a76e93003f799131c3700666dbb54d9d3">microseconds</a> (std::chrono::microseconds duration) noexcept</td></tr>
+<tr class="memdesc:a76e93003f799131c3700666dbb54d9d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified duration with microsecond resolution.  <br /></td></tr>
+<tr class="memitem:a5c674006bbbe5569f838a1270e1229b6" id="r_a5c674006bbbe5569f838a1270e1229b6"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a5c674006bbbe5569f838a1270e1229b6">nanoseconds</a> (uint32_t ns) noexcept</td></tr>
+<tr class="memdesc:a5c674006bbbe5569f838a1270e1229b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified number of nanoseconds.  <br /></td></tr>
+<tr class="memitem:a6357acfa21552cd02b3af7a85f1fee6c" id="r_a6357acfa21552cd02b3af7a85f1fee6c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a6357acfa21552cd02b3af7a85f1fee6c">nanoseconds</a> (std::chrono::nanoseconds duration) noexcept</td></tr>
+<tr class="memdesc:a6357acfa21552cd02b3af7a85f1fee6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delays execution for the specified duration with nanosecond resolution.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6edc8e5ca9a2bce0f7e9198c72ea34f0" name="a6edc8e5ca9a2bce0f7e9198c72ea34f0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6edc8e5ca9a2bce0f7e9198c72ea34f0">&#9670;&#160;</a></span>LinearInterpolation() <span class="overload">[1/2]</span></h2>
+<a id="ae05989164bd1c17d9508a274c9c8efc6" name="ae05989164bd1c17d9508a274c9c8efc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae05989164bd1c17d9508a274c9c8efc6">&#9670;&#160;</a></span>Delay() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::LinearInterpolation </td>
+          <td class="memname">Lib::Helper::Delay::Delay </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -189,430 +165,258 @@ template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates an empty interpolation table. </p>
+<p>Deleted default constructor; this is a non-instantiable static utility class. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d21/a02347_ae05989164bd1c17d9508a274c9c8efc6_icgraph.svg" width="534" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="af8dee1ed0a09d5cf17ab2fb2cc73d8cb" name="af8dee1ed0a09d5cf17ab2fb2cc73d8cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8dee1ed0a09d5cf17ab2fb2cc73d8cb">&#9670;&#160;</a></span>LinearInterpolation() <span class="overload">[2/2]</span></h2>
+<a id="abab8b5337f9a0a494dc33f550b7d898b" name="abab8b5337f9a0a494dc33f550b7d898b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abab8b5337f9a0a494dc33f550b7d898b">&#9670;&#160;</a></span>~Delay()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<div class="memtemplate">
-template&lt;size_t N&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::LinearInterpolation </td>
+          <td class="memname">Lib::Helper::Delay::~Delay </td>
           <td>(</td>
-          <td class="paramtype">const std::array&lt; <a class="el" href="../../dd/d1b/a02351.html">Point</a>, N &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>pointArray</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Creates an interpolation table from an initial array of points, sorted by x coordinate. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">N</td><td>Number of points in "pointArray"; must not exceed "MAX_POINTS". </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pointArray</td><td>Initial data points for the table. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Deleted destructor; this is a non-instantiable static utility class. </p>
+
+</div>
+</div>
+<a id="a1cb3786f2784e6c6c42979b9860a5c4b" name="a1cb3786f2784e6c6c42979b9860a5c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cb3786f2784e6c6c42979b9860a5c4b">&#9670;&#160;</a></span>Delay() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::Helper::Delay::Delay </td>
+          <td>(</td>
+          <td class="paramtype">const Delay &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d21/a02347_a1cb3786f2784e6c6c42979b9860a5c4b_cgraph.svg" width="502" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="afdd4b894d0803bc604d379fa4629d483" name="afdd4b894d0803bc604d379fa4629d483"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdd4b894d0803bc604d379fa4629d483">&#9670;&#160;</a></span>addPoint() <span class="overload">[1/2]</span></h2>
+<a id="a76e93003f799131c3700666dbb54d9d3" name="a76e93003f799131c3700666dbb54d9d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76e93003f799131c3700666dbb54d9d3">&#9670;&#160;</a></span>microseconds() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::addPoint </td>
+          <td class="memname">void Lib::Helper::Delay::microseconds </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td class="paramtype">std::chrono::microseconds</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a data point to the table. </p>
+<p>Delays execution for the specified duration with microsecond resolution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">point</td><td>Data point to add. </td></tr>
+    <tr><td class="paramname">duration</td><td>Duration to delay; zero or negative returns immediately. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if added, "false" if the table is already at "MAX_POINTS". </dd></dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d21/a02347_a76e93003f799131c3700666dbb54d9d3_cgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a74376103d2a68f503d4edeac77bcb80c" name="a74376103d2a68f503d4edeac77bcb80c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74376103d2a68f503d4edeac77bcb80c">&#9670;&#160;</a></span>addPoint() <span class="overload">[2/2]</span></h2>
+<a id="a592daf57dd9e14add5de04bb3af7a5b7" name="a592daf57dd9e14add5de04bb3af7a5b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a592daf57dd9e14add5de04bb3af7a5b7">&#9670;&#160;</a></span>microseconds() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::addPoint </td>
+          <td class="memname">void Lib::Helper::Delay::microseconds </td>
           <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>us</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Appends a data point given by its coordinates. </p>
+<p>Delays execution for the specified number of microseconds. </p>
+<p>Bypasses the generic nanosecond-based conversion below ("waitFor()"/"toCycles()"): that path needs a 64-bit division, measured at roughly 600 CPU cycles on a 16 MHz Cortex-M33 - more than six times the 6 us it was meant to wait for, which is fatal to a tight bit-bang slot (e.g. 1-Wire). This path only ever divides two 32-bit values ("SystemCoreClock" by the constant 1'000'000), a single hardware "UDIV", then multiplies by "us" - correct for any clock that is a whole number of MHz (every STM32 configuration in practice), with the same "never shorter than requested" guarantee.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate. </td></tr>
-    <tr><td class="paramname">y</td><td>Output value. </td></tr>
+    <tr><td class="paramname">us</td><td>Number of microseconds to delay; "0" returns immediately. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" if added, "false" if the table is already at "MAX_POINTS". </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d21/a02347_a592daf57dd9e14add5de04bb3af7a5b7_icgraph.svg" width="614" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="aab5168233071bba85d5f5119cecdc12f" name="aab5168233071bba85d5f5119cecdc12f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab5168233071bba85d5f5119cecdc12f">&#9670;&#160;</a></span>clear()</h2>
+<a id="a6357acfa21552cd02b3af7a85f1fee6c" name="a6357acfa21552cd02b3af7a85f1fee6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6357acfa21552cd02b3af7a85f1fee6c">&#9670;&#160;</a></span>nanoseconds() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::clear </td>
+          <td class="memname">void Lib::Helper::Delay::nanoseconds </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">std::chrono::nanoseconds</td>          <td class="paramname"><span class="paramname"><em>duration</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Removes every point, returning the table to its initial empty state. </p>
-
-</div>
-</div>
-<a id="a96708d1e4a7701724f4770d48a1b4661" name="a96708d1e4a7701724f4770d48a1b4661"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a96708d1e4a7701724f4770d48a1b4661">&#9670;&#160;</a></span>getPoint()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp; <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getPoint </td>
-          <td>(</td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Accesses the point at the given table index. </p>
+<p>Delays execution for the specified duration with nanosecond resolution. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">index</td><td>Index of the point; must be below "getPointCount()". </td></tr>
+    <tr><td class="paramname">duration</td><td>Duration to delay; zero or negative returns immediately. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Const reference to the point at "index". </dd></dl>
 
 </div>
 </div>
-<a id="aff35d714c8d5e1859adca0de1f902a34" name="aff35d714c8d5e1859adca0de1f902a34"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aff35d714c8d5e1859adca0de1f902a34">&#9670;&#160;</a></span>getPointCount()</h2>
+<a id="a5c674006bbbe5569f838a1270e1229b6" name="a5c674006bbbe5569f838a1270e1229b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c674006bbbe5569f838a1270e1229b6">&#9670;&#160;</a></span>nanoseconds() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::getPointCount </td>
+          <td class="memname">void Lib::Helper::Delay::nanoseconds </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the number of points currently in the table. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current point count. </dd></dl>
-
-</div>
-</div>
-<a id="a15ad2325a927ddfead159579c0d375aa" name="a15ad2325a927ddfead159579c0d375aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15ad2325a927ddfead159579c0d375aa">&#9670;&#160;</a></span>interpolate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T_VALUE <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolate </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ns</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Computes the interpolated value at the given input coordinate. </p>
-<p>A coordinate outside the table's range clamps to the nearest endpoint's output value.</p>
+<p>Delays execution for the specified number of nanoseconds. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">x</td><td>Input coordinate to interpolate at. </td></tr>
+    <tr><td class="paramname">ns</td><td>Number of nanoseconds to delay; "0" returns immediately. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated value at "x". </dd></dl>
 
 </div>
 </div>
-<a id="a6f6fdaa95c5df133be213e1ad20f34a8" name="a6f6fdaa95c5df133be213e1ad20f34a8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f6fdaa95c5df133be213e1ad20f34a8">&#9670;&#160;</a></span>interpolateBetween()</h2>
+<a id="a62e0ff423d0e589d0757d35725eaf0b2" name="a62e0ff423d0e589d0757d35725eaf0b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62e0ff423d0e589d0757d35725eaf0b2">&#9670;&#160;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr T_VALUE <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolateBetween </td>
+          <td class="memname"><a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp; Lib::Helper::Delay::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="../../dd/d1b/a02351.html">Point</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Linearly interpolates between two points at the given input coordinate. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">point1</td><td>First point. </td></tr>
-    <tr><td class="paramname">point2</td><td>Second point; must have a different x coordinate from "point1". </td></tr>
-    <tr><td class="paramname">x</td><td>Input coordinate to interpolate at. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated value at "x". </dd></dl>
-
-</div>
-</div>
-<a id="a637e9123547cb0cb5032cd680793c1e6" name="a637e9123547cb0cb5032cd680793c1e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a637e9123547cb0cb5032cd680793c1e6">&#9670;&#160;</a></span>interpolateSimple()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr T_VALUE <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::interpolateSimple </td>
-          <td>(</td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_VALUE</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T_INPUT</td>          <td class="paramname"><span class="paramname"><em>x</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Linearly interpolates between two points given directly as coordinates, without a table. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">x1</td><td>First point's input coordinate. </td></tr>
-    <tr><td class="paramname">y1</td><td>First point's output value. </td></tr>
-    <tr><td class="paramname">x2</td><td>Second point's input coordinate; must differ from "x1". </td></tr>
-    <tr><td class="paramname">y2</td><td>Second point's output value. </td></tr>
-    <tr><td class="paramname">x</td><td>Input coordinate to interpolate at. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Interpolated value at "x". </dd></dl>
-
-</div>
-</div>
-<a id="a297a3b5b4a94c75ad444983025829924" name="a297a3b5b4a94c75ad444983025829924"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a297a3b5b4a94c75ad444983025829924">&#9670;&#160;</a></span>isEmpty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::isEmpty </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the table holds no points. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if the table is empty, "false" otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a811655db142fd3fe1aa6dfbd5352a582" name="a811655db142fd3fe1aa6dfbd5352a582"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a811655db142fd3fe1aa6dfbd5352a582">&#9670;&#160;</a></span>sortPoints()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="../../d4/d21/a02347.html">Lib::Math::LinearInterpolation</a>&lt; T_VALUE, T_INPUT &gt;::sortPoints </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#ae05989164bd1c17d9508a274c9c8efc6">Delay</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Sorts the table by x coordinate in ascending order, if not already sorted. </p>
+<p>Non-copyable: this is a non-instantiable static utility class. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d21/a02347_a62e0ff423d0e589d0757d35725eaf0b2_cgraph.svg" width="534" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -629,7 +433,7 @@ template&lt;std::floating_point T_VALUE, typename T_INPUT = T_VALUE&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../d0/de2/a00892.html">Math</a></li><li class="navelem"><a href="../../d4/d21/a02347.html">LinearInterpolation</a></li>
+    <li class="navelem"><a href="../../d2/da1/a00879.html">Lib</a></li><li class="navelem"><a href="../../d4/ddc/a00917.html">Helper</a></li><li class="navelem"><a href="../../d4/d21/a02347.html">Delay</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

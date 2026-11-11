@@ -1,20 +1,9 @@
 var a01263 =
 [
-    [ "Diagnostic", "de/dcb/a01263.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
-    [ "RxMessage", "de/dcb/a01263.html#a932efed9da888704df63ae07522746cc", null ],
-    [ "Service", "de/dcb/a01263.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
-    [ "~Service", "de/dcb/a01263.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
-    [ "errorCallback", "de/dcb/a01263.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
-    [ "getDiagnostic", "de/dcb/a01263.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
-    [ "messageReceivedCallback", "de/dcb/a01263.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
-    [ "receive", "de/dcb/a01263.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "de/dcb/a01263.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
-    [ "send", "de/dcb/a01263.html#aad0ab4b3fc67332597a346d30271a53b", null ],
-    [ "send", "de/dcb/a01263.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
-    [ "send", "de/dcb/a01263.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "de/dcb/a01263.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "de/dcb/a01263.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "de/dcb/a01263.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
-    [ "stop", "de/dcb/a01263.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
-    [ "taskFn", "de/dcb/a01263.html#a375bb14705ce8117ed4e147179680854", null ]
+    [ "calculatedChecksum", "de/dcb/a01263.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
+    [ "frameChecksum", "de/dcb/a01263.html#afd2a7854bded2de4881565573fc0d9b1", null ],
+    [ "invalidFrameChecksum", "de/dcb/a01263.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
+    [ "invalidHumidity", "de/dcb/a01263.html#a97069f405d3773e81b9930425efc8d74", null ],
+    [ "invalidTemperature", "de/dcb/a01263.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
+    [ "receivedTimeout", "de/dcb/a01263.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
 ];

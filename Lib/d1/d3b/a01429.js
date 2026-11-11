@@ -1,13 +1,14 @@
 var a01429 =
 [
-    [ "Tag", "d1/d3b/a01429.html#a3b8d244e297932c9f9a3c4c2150ebe97", null ],
-    [ "WolfSSLAesGcm", "d1/d3b/a01429.html#ae1521a27b0c27291aa09717ce06b59f3", null ],
-    [ "~WolfSSLAesGcm", "d1/d3b/a01429.html#a032c38854a99ed5c5a281809583c4bad", null ],
-    [ "WolfSSLAesGcm", "d1/d3b/a01429.html#a0948de3456c47ec4fcfdda7f14014566", null ],
-    [ "WolfSSLAesGcm", "d1/d3b/a01429.html#ae6206c63d09568b82e1efae3379c82d7", null ],
-    [ "decrypt", "d1/d3b/a01429.html#a70889db1697fa4212becb3acfb87a2a4", null ],
-    [ "encrypt", "d1/d3b/a01429.html#a689ba847043a2ede5a7bdaef8cd4f8c1", null ],
-    [ "open", "d1/d3b/a01429.html#a9bf89e3c97bc9e6b4a3be9f2a976fc1d", null ],
-    [ "operator=", "d1/d3b/a01429.html#ab46183fdc3c915e95383d1216aac9109", null ],
-    [ "operator=", "d1/d3b/a01429.html#ab435c1e3a79fe610c1201c4c0cf69934", null ]
+    [ "Subscriber", "d1/d3b/a01429.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "d1/d3b/a01429.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "d1/d3b/a01429.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "d1/d3b/a01429.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "d1/d3b/a01429.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "d1/d3b/a01429.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "d1/d3b/a01429.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "d1/d3b/a01429.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "d1/d3b/a01429.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "d1/d3b/a01429.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "d1/d3b/a01429.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

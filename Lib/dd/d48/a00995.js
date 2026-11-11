@@ -1,9 +1,10 @@
 var a00995 =
 [
-    [ "Config", "de/de2/a00999.html", "de/de2/a00999" ],
-    [ "Driver", "dd/d48/a00995.html#a1d8e503b6726e6008abf411810b2191d", null ],
-    [ "~Driver", "dd/d48/a00995.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
-    [ "handleTransferCompleteEvent", "dd/d48/a00995.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
-    [ "setup", "dd/d48/a00995.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
-    [ "transmitBlock", "dd/d48/a00995.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
+    [ "PortBase", "dd/d48/a00995.html#a5350d276e1d3d6505501c1a194798ee1", null ],
+    [ "~PortBase", "dd/d48/a00995.html#ae97ed92776c4c9fec031848b9d223290", null ],
+    [ "getSpiHandle", "dd/d48/a00995.html#a1677aa107627ab40c3a7a3a495722c77", null ],
+    [ "postUpdateCallback", "dd/d48/a00995.html#af0d8329309d89f85d0432a205da0410c", null ],
+    [ "preUpdateCallback", "dd/d48/a00995.html#a1d3c38e42b94c8d721e78fa712c003b9", null ],
+    [ "setup", "dd/d48/a00995.html#a819a0deaed30808011035c3403fbf93c", null ],
+    [ "update", "dd/d48/a00995.html#a0dbdc066a75d16333220b562e8d17b2a", null ]
 ];

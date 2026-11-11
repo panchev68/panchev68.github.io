@@ -1,5 +1,8 @@
 var a01849 =
 [
-    [ "nssPin", "db/dd4/a01849.html#af56f9d2f7252dc530ec070d0aa211f2b", null ],
-    [ "spiPort", "db/dd4/a01849.html#aefcb5eddfdf2be760845ce74b7a29ec9", null ]
+    [ "Node", "db/dd4/a01849.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
+    [ "Node", "db/dd4/a01849.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
+    [ "set", "db/dd4/a01849.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
+    [ "ip", "db/dd4/a01849.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
+    [ "port", "db/dd4/a01849.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
 ];

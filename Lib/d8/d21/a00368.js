@@ -1,5 +1,5 @@
 var a00368 =
 [
-    [ "Lib::Errors::BasicDispatcher&lt; T_ERROR &gt;", "d6/d56/a01719.html", "d6/d56/a01719" ],
-    [ "Lib::Errors::Dispatcher", "d1/d8f/a00880.html#a32937fedfac156d84189cbf2133bd0ab", null ]
+    [ "Lib::HAL::CANFrame", "d6/d8e/a01979.html", "d6/d8e/a01979" ],
+    [ "Lib::HAL::CANPortBase&lt; T_DERIVED &gt;", "d6/dd6/a01983.html", "d6/dd6/a01983" ]
 ];

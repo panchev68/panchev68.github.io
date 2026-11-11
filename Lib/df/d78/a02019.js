@@ -1,12 +1,14 @@
 var a02019 =
 [
-    [ "OSPIPortBase", "df/d78/a02019.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
-    [ "OSPIPortBase", "df/d78/a02019.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
-    [ "OSPIPortBase", "df/d78/a02019.html#a18048dab4e848ea5529076be672ccc7c", null ],
-    [ "~OSPIPortBase", "df/d78/a02019.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
-    [ "close", "df/d78/a02019.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "isBusy", "df/d78/a02019.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "df/d78/a02019.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "df/d78/a02019.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
-    [ "operator=", "df/d78/a02019.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
+    [ "FlashInterface", "df/d78/a02019.html#a8d095be00ec32cc8d562d8de4f5285b9", null ],
+    [ "~FlashInterface", "df/d78/a02019.html#a21441fdc8ee265dd3125df9d4e9939f1", null ],
+    [ "FlashInterface", "df/d78/a02019.html#a3b934e9e562900d0d933cf2628a1f6ff", null ],
+    [ "FlashInterface", "df/d78/a02019.html#a1c805cbd8158ca094182032c42fa8a68", null ],
+    [ "eraseSector", "df/d78/a02019.html#a31fec472e71d387e0e9a5ade75e5ae24", null ],
+    [ "lock", "df/d78/a02019.html#a076081c699cb3dcf3a7f5890c6c4f568", null ],
+    [ "operator=", "df/d78/a02019.html#a3d3605babb7dc3b9f118bf52dc3e62c6", null ],
+    [ "operator=", "df/d78/a02019.html#a2e5471c04f3069860252fdf10e53270a", null ],
+    [ "unlock", "df/d78/a02019.html#a0f5c36a802a9b6cf15aacf3d104cb445", null ],
+    [ "writeBuffer", "df/d78/a02019.html#ae33402652ac23992b9eb28ed57ca35e8", null ],
+    [ "writeWord", "df/d78/a02019.html#ad771befb1be3db0d319c46507a7896ca", null ]
 ];

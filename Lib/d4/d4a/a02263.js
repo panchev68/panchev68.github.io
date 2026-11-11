@@ -1,14 +1,14 @@
 var a02263 =
 [
-    [ "TimeChangeRule", "d5/d95/a02267.html", "d5/d95/a02267" ],
-    [ "TimeZone", "d4/d4a/a02263.html#acfa216e9c176bd0d0c9ee299d8822079", null ],
-    [ "TimeZone", "d4/d4a/a02263.html#a0edb02c779df5ea86747377d1413c3d8", null ],
-    [ "TimeZone", "d4/d4a/a02263.html#ab21cd925449783a8f1eb4a96c8acc7b5", null ],
-    [ "convertLocalToUtcMinutes", "d4/d4a/a02263.html#a479ec4792a22a5b314a497bb01be2047", null ],
-    [ "getName", "d4/d4a/a02263.html#a94e921f607d5e6f2895cddf062dbea9d", null ],
-    [ "getOffset", "d4/d4a/a02263.html#aa176591d519be11e10c65a8bcd1c9fad", null ],
-    [ "getOffsetMinutes", "d4/d4a/a02263.html#a85aeda7715611b5af76b28bdc266c545", null ],
-    [ "setName", "d4/d4a/a02263.html#a46b717d157e7f9b012a459cf78b723b5", null ],
-    [ "setOffset", "d4/d4a/a02263.html#aedb03e610f976aba921183f41dd10501", null ],
-    [ "setOffsetMinutes", "d4/d4a/a02263.html#a57128a66ae77de2e6d60521056cb33db", null ]
+    [ "EventHandler", "d4/d4a/a02263.html#a10761412c20341dee385767eac673248", null ],
+    [ "USBHostPort", "d4/d4a/a02263.html#a91ab9877db9cf87b15fe9118bf39ed92", null ],
+    [ "~USBHostPort", "d4/d4a/a02263.html#a4c01d7a9aa859df6f11e05b804af766d", null ],
+    [ "close", "d4/d4a/a02263.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d4/d4a/a02263.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d4/d4a/a02263.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d4/d4a/a02263.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d4/d4a/a02263.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "setEventHandler", "d4/d4a/a02263.html#a031aa9b48caa98516825b7f35468b627", null ],
+    [ "transfer", "d4/d4a/a02263.html#a3bcff372802df7955ce5761f4e32e420", null ],
+    [ "waitForEvent", "d4/d4a/a02263.html#a3f0b1b6f781d9750119863a0ef5c1332", null ]
 ];

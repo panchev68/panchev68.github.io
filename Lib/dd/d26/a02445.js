@@ -1,27 +1,9 @@
 var a02445 =
 [
-    [ "Handle", "dd/d26/a02445.html#a4b0fa065d254b79172dce084d987b8d4", null ],
-    [ "TickType", "dd/d26/a02445.html#a052c7fc009c89fd8f8542c6014405b43", null ],
-    [ "SemaphoreBase", "dd/d26/a02445.html#a7717ea389a92a9878d51dfde3869dd64", null ],
-    [ "SemaphoreBase", "dd/d26/a02445.html#ae0c09f0d483b3959297f30bd3909de83", null ],
-    [ "SemaphoreBase", "dd/d26/a02445.html#aa8eb9e59c8d7eea278876d3a562dd4f0", null ],
-    [ "~SemaphoreBase", "dd/d26/a02445.html#a15508562779df713e9be104d41d7664d", null ],
-    [ "close", "dd/d26/a02445.html#ac6a74e3af35fe243ff32a8ae89fd4214", null ],
-    [ "getCountFromISR", "dd/d26/a02445.html#aa25056dd49c8d19a9f388b97f02c5291", null ],
-    [ "getDerived", "dd/d26/a02445.html#a2cd2d582d5bec19cc64612f8c4c5cd8c", null ],
-    [ "getDerived", "dd/d26/a02445.html#a431358a0063bbdcb40d09537a2babe3a", null ],
-    [ "getHandle", "dd/d26/a02445.html#a9cd3c80279acde60a0701a674eecc148", null ],
-    [ "give", "dd/d26/a02445.html#a5682e0c5d8eb6b2076978634963b4020", null ],
-    [ "giveFromISR", "dd/d26/a02445.html#aa210564f44d72420fb519ca27f12d9a1", null ],
-    [ "giveFromISR", "dd/d26/a02445.html#adc665ae88781c6a32668f430f0425eac", null ],
-    [ "isOpen", "dd/d26/a02445.html#a8fe23c2cca8f01687c58c3aa1b257649", null ],
-    [ "operator=", "dd/d26/a02445.html#aaba790805ac420c6d1b347ab01b9550a", null ],
-    [ "operator=", "dd/d26/a02445.html#aaa0c4d93b7bd73160f68f700b6d86e26", null ],
-    [ "take", "dd/d26/a02445.html#adba0e9091ed738abab54ed798d53a7ca", null ],
-    [ "take", "dd/d26/a02445.html#a320bbbf470cde849ac2b5405273ff10d", null ],
-    [ "take", "dd/d26/a02445.html#a0c09ee6fc8a221b811abbd57ac9d0071", null ],
-    [ "takeFromISR", "dd/d26/a02445.html#a64003ee333dc11bd7ed7dff2d14e4145", null ],
-    [ "takeFromISR", "dd/d26/a02445.html#a351bf0854e0c48d82c1a078a39e02879", null ],
-    [ "tryTake", "dd/d26/a02445.html#a99e434d16d327ee8039d19a7feb75f8b", null ],
-    [ "semaphoreHandle", "dd/d26/a02445.html#a9f2ff1e57e66e99707d4107fa4c19812", null ]
+    [ "CriticalSectionFromISR", "dd/d26/a02445.html#a94cda37183a61f5455dc5e641bcb5109", null ],
+    [ "~CriticalSectionFromISR", "dd/d26/a02445.html#a54e463ae72e1238776194c4cb941357b", null ],
+    [ "CriticalSectionFromISR", "dd/d26/a02445.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
+    [ "CriticalSectionFromISR", "dd/d26/a02445.html#a9d04ea07249455e75c39ce5450c33028", null ],
+    [ "operator=", "dd/d26/a02445.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
+    [ "operator=", "dd/d26/a02445.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
 ];

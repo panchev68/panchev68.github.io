@@ -1,14 +1,13 @@
 var a02231 =
 [
-    [ "Time", "d5/d5b/a02235.html", "d5/d5b/a02235" ],
-    [ "Date", "db/d6d/a02239.html", "db/d6d/a02239" ],
-    [ "DateTime", "d7/da1/a02231.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "d7/da1/a02231.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "d7/da1/a02231.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "d7/da1/a02231.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "d7/da1/a02231.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "d7/da1/a02231.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "d7/da1/a02231.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "d7/da1/a02231.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "d7/da1/a02231.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "UARTPortBase", "d7/da1/a02231.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "d7/da1/a02231.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "d7/da1/a02231.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "d7/da1/a02231.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "d7/da1/a02231.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "d7/da1/a02231.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "d7/da1/a02231.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "d7/da1/a02231.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "d7/da1/a02231.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "d7/da1/a02231.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

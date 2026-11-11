@@ -1,24 +1,9 @@
 var a01013 =
 [
     [ "Config", "d3/ded/a01017.html", "d3/ded/a01017" ],
-    [ "EventState", "d7/d59/a01013.html#a04b234ac50c12b687cfe292d1aaae8e9", [
-      [ "NONE", "d7/d59/a01013.html#a04b234ac50c12b687cfe292d1aaae8e9ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "CW", "d7/d59/a01013.html#a04b234ac50c12b687cfe292d1aaae8e9a9af3107a066f6b0defb1cafc0499f6ed", null ],
-      [ "CCW", "d7/d59/a01013.html#a04b234ac50c12b687cfe292d1aaae8e9a59ec5d573abd014f3ae2c26ca962e8cf", null ],
-      [ "BUT_PUSH", "d7/d59/a01013.html#a04b234ac50c12b687cfe292d1aaae8e9aec99b17e69f307181424c4145f5f6490", null ],
-      [ "BUT_PULL", "d7/d59/a01013.html#a04b234ac50c12b687cfe292d1aaae8e9a33a5524041986baf515293cd1d0c67e4", null ]
-    ] ],
-    [ "EncoderPins", "d7/d59/a01013.html#ad6c68a3e1bd1f553c1fcb54fa3264d62", null ],
-    [ "~EncoderPins", "d7/d59/a01013.html#a3c13f0de2b9b885c3ef460b745f4f3a8", null ],
-    [ "EncoderPins", "d7/d59/a01013.html#a470d8d445c616002fef5b8a198607d3e", null ],
-    [ "EncoderPins", "d7/d59/a01013.html#a5c43a9c21791c21d33bf94b114b9998b", null ],
-    [ "close", "d7/d59/a01013.html#a89671c8fae2abdaedc8c96d60935e791", null ],
-    [ "getButtonHoldPeriod", "d7/d59/a01013.html#a09d0b1187e255228fc21b499d1ee668a", null ],
-    [ "getButtonState", "d7/d59/a01013.html#ae77935b319710e2aa2bbf23fe5899a09", null ],
-    [ "handlePinChangedEvent", "d7/d59/a01013.html#ad2f27a5e62e8b4d2e7c8a2c9439374d7", null ],
-    [ "kbdhit", "d7/d59/a01013.html#a7173287d816b57b6541368dfbe743659", null ],
-    [ "open", "d7/d59/a01013.html#a2a3bbe4007278e92eca193886d2dfe9a", null ],
-    [ "operator=", "d7/d59/a01013.html#a312c7443016b24a3bd7ec68e9e91ad17", null ],
-    [ "operator=", "d7/d59/a01013.html#aa437134351c87db62209dc4300d6bf6f", null ],
-    [ "setPulseDivider", "d7/d59/a01013.html#a9e197aea35b839f6cb6d44ca5f020137", null ]
+    [ "Driver", "d7/d59/a01013.html#a1d8e503b6726e6008abf411810b2191d", null ],
+    [ "~Driver", "d7/d59/a01013.html#abfc9c46b2dd29baeae5a762b4d140017", null ],
+    [ "handleTransferCompleteEvent", "d7/d59/a01013.html#a64a84dea9f9d14bd6348134d5f670d35", null ],
+    [ "setup", "d7/d59/a01013.html#a5256777f6dbc9d38f95ae739e1130db8", null ],
+    [ "transmitBlock", "d7/d59/a01013.html#a40805f8d2c5aed467fbaa6635752a2fc", null ]
 ];

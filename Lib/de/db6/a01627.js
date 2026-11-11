@@ -1,7 +1,6 @@
 var a01627 =
 [
-    [ "writeTo", "de/db6/a01627.html#a7822cbb27fa7495fd67556a0afaed75f", null ],
-    [ "atCommand", "de/db6/a01627.html#ae3e6e306d54297473f78f320425df58b", null ],
-    [ "frameId", "de/db6/a01627.html#af2345c092e4bb001e18ac86d718196a4", null ],
-    [ "parameterValue", "de/db6/a01627.html#a060767a4f172791aa4d493bf2ba4ac6d", null ]
+    [ "Checksum", "de/db6/a01627.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
+    [ "Checksum", "de/db6/a01627.html#a804971de0300d66401e3f2ed94f306dc", null ],
+    [ "operator uint8_t", "de/db6/a01627.html#add4f353a37e719b8e2439c490fa552b8", null ]
 ];

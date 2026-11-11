@@ -1,4 +1,7 @@
 var a00758 =
 [
-    [ "RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;", "d8/d9a/a02447.html", "d8/d9a/a02447" ]
+    [ "Lib::System::Version", "d3/d25/a02683.html", "d3/d25/a02683" ],
+    [ "Lib::System::Version::Base&lt; Derived &gt;", "d5/d25/a02687.html", "d5/d25/a02687" ],
+    [ "Lib::System::Version::Hardware", "dc/d8b/a02691.html", "dc/d8b/a02691" ],
+    [ "Lib::System::Version::Firmware", "de/dde/a02695.html", "de/dde/a02695" ]
 ];

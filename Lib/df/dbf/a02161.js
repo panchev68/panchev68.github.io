@@ -1,12 +1,13 @@
 var a02161 =
 [
-    [ "BitSet", "df/dbf/a02161.html#a16d91d28edc897acf8833de8df82699f", null ],
-    [ "BitSet", "df/dbf/a02161.html#addc6ad14e596e534eb7fd2a018719985", null ],
-    [ "getBit", "df/dbf/a02161.html#a75314fd3a0cdd4150d7689194fdbbd8e", null ],
-    [ "getValue", "df/dbf/a02161.html#a115ba70aea8b19b1a8365d29d0df628a", null ],
-    [ "operator uint32_t", "df/dbf/a02161.html#ab085297affb7e2df90201d7e6cdd1172", null ],
-    [ "operator=", "df/dbf/a02161.html#a43867e109cd0986d9b9a4c2d828b88d7", null ],
-    [ "operator[]", "df/dbf/a02161.html#a80c3e256b3dd32253f2f0d235ff03e05", null ],
-    [ "setBit", "df/dbf/a02161.html#ae426ba408f7657c25c1b72ba9a10ad80", null ],
-    [ "setValue", "df/dbf/a02161.html#a2505d1f74074939a87d45d3343d8bea3", null ]
+    [ "UARTPort", "df/dbf/a02161.html#a074ec6b19b1073304ca2513d11d43247", null ],
+    [ "~UARTPort", "df/dbf/a02161.html#a864254902b1d7b3afa27a66ccd465c69", null ],
+    [ "abort", "df/dbf/a02161.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "close", "df/dbf/a02161.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "df/dbf/a02161.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "df/dbf/a02161.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "df/dbf/a02161.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "df/dbf/a02161.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "df/dbf/a02161.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "df/dbf/a02161.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
 ];

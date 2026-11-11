@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</title>
+<title>IAR Library: Lib::HAL::FlashInterface</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,73 +111,120 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('df/d78/a02019.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::FlashInterface<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
-class Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</div><p>CRTP base implementing the open/close/busy policy common to every "OSPIPort" mode. </p>
-<p>Owns no state, not even the native handle: it reaches the handle through "derived()-&gt;getHandle()". The blocking mode stores the handle itself, while the IT and DMA modes get it from "Device&lt;&gt;" through "OSPIPortAsync", since only they need the <a class="el" href="../../d3/d3b/a01911.html" title="Forward declaration of the registry that owns the &quot;Device&quot; list links.">DeviceManager</a> link that "Device&lt;&gt;" carries.</p>
-<p>Not compile-checked in this repository: the STM32F4 target has no OCTOSPI peripheral and its <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> package ships no OCTOSPI driver.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T_DERIVED</td><td>Mode specialization owning the native handle and the transfer mechanism. </td></tr>
-  </table>
-  </dd>
-</dl>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;:</div>
+<div class="textblock"><p>Stateless facade over the internal Flash controller. </p>
+<p>Erasing and programming need the controller unlocked, see <a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445" title="Unlocks the Flash control register so that erase and program operations are accepted.">unlock()</a>. The <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> calls block until the operation ends. Programming granularity follows the family: a 32-bit word where the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> offers "FLASH_TYPEPROGRAM_WORD", a 64-bit doubleword where it offers "FLASH_TYPEPROGRAM_DOUBLEWORD". Families with other granularities (for example quad-word) are not supported yet and every programming call returns "false" there. </p>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::FlashInterface:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d2d/a02018.svg" width="366" height="906"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dfd/a02017.svg" width="302" height="274"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dfd/a02017.svg" width="214" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a77065b02ae1d32db4828d6e6410ad5bc" id="r_a77065b02ae1d32db4828d6e6410ad5bc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> (const OSPIPortBase &amp;)=delete</td></tr>
-<tr class="memdesc:a77065b02ae1d32db4828d6e6410ad5bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance is bound to one "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:acd087ceb0b00ba99edfdc6871179e99f" id="r_acd087ceb0b00ba99edfdc6871179e99f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acd087ceb0b00ba99edfdc6871179e99f">OSPIPortBase</a> (OSPIPortBase &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:acd087ceb0b00ba99edfdc6871179e99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: each instance is bound to one "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:a2eb0cd98ee61ccb3037cf1cdc7828985" id="r_a2eb0cd98ee61ccb3037cf1cdc7828985"><td class="memItemLeft"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2eb0cd98ee61ccb3037cf1cdc7828985">operator=</a> (const <a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a2eb0cd98ee61ccb3037cf1cdc7828985"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: each instance is bound to one "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:a87f9efa43d6d385bc0cee9ba8fb521cd" id="r_a87f9efa43d6d385bc0cee9ba8fb521cd"><td class="memItemLeft"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a87f9efa43d6d385bc0cee9ba8fb521cd">operator=</a> (<a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a87f9efa43d6d385bc0cee9ba8fb521cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: each instance is bound to one "T_DERIVED" driver instance.  <br /></td></tr>
-<tr class="memitem:aeba7a0754d641aad2f60cd34c1585ed6" id="r_aeba7a0754d641aad2f60cd34c1585ed6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aeba7a0754d641aad2f60cd34c1585ed6">open</a> () noexcept</td></tr>
-<tr class="memdesc:aeba7a0754d641aad2f60cd34c1585ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the OCTOSPI peripheral from the configuration held in the native handle.  <br /></td></tr>
-<tr class="memitem:a4e17dc4d8626455726f5809b59b2d4c7" id="r_a4e17dc4d8626455726f5809b59b2d4c7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4e17dc4d8626455726f5809b59b2d4c7">close</a> () noexcept</td></tr>
-<tr class="memdesc:a4e17dc4d8626455726f5809b59b2d4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the OCTOSPI peripheral and releases its pins and DMA channel.  <br /></td></tr>
-<tr class="memitem:ae5f3e31cd86a68fec68977ed1ab7796d" id="r_ae5f3e31cd86a68fec68977ed1ab7796d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae5f3e31cd86a68fec68977ed1ab7796d">isBusy</a> () const noexcept</td></tr>
-<tr class="memdesc:ae5f3e31cd86a68fec68977ed1ab7796d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks whether the peripheral is outside its idle state.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a18048dab4e848ea5529076be672ccc7c" id="r_a18048dab4e848ea5529076be672ccc7c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a18048dab4e848ea5529076be672ccc7c">OSPIPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a18048dab4e848ea5529076be672ccc7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the stateless CRTP base; only a mode specialization may create one.  <br /></td></tr>
-<tr class="memitem:a24d2016939eff2ab2af9d3a0efd3510a" id="r_a24d2016939eff2ab2af9d3a0efd3510a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a24d2016939eff2ab2af9d3a0efd3510a">~OSPIPortBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a24d2016939eff2ab2af9d3a0efd3510a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the base; it owns nothing, and it is protected so no one deletes a mode through a base pointer.  <br /></td></tr>
+<tr class="memitem:a8d095be00ec32cc8d562d8de4f5285b9" id="r_a8d095be00ec32cc8d562d8de4f5285b9"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> ()=default</td></tr>
+<tr class="memdesc:a8d095be00ec32cc8d562d8de4f5285b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the facade.  <br /></td></tr>
+<tr class="memitem:a21441fdc8ee265dd3125df9d4e9939f1" id="r_a21441fdc8ee265dd3125df9d4e9939f1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a21441fdc8ee265dd3125df9d4e9939f1">~FlashInterface</a> ()=default</td></tr>
+<tr class="memdesc:a21441fdc8ee265dd3125df9d4e9939f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the facade.  <br /></td></tr>
+<tr class="memitem:a3b934e9e562900d0d933cf2628a1f6ff" id="r_a3b934e9e562900d0d933cf2628a1f6ff"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3b934e9e562900d0d933cf2628a1f6ff">FlashInterface</a> (const FlashInterface &amp;other)=delete</td></tr>
+<tr class="memdesc:a3b934e9e562900d0d933cf2628a1f6ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a1c805cbd8158ca094182032c42fa8a68" id="r_a1c805cbd8158ca094182032c42fa8a68"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a1c805cbd8158ca094182032c42fa8a68">FlashInterface</a> (FlashInterface &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a1c805cbd8158ca094182032c42fa8a68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a3d3605babb7dc3b9f118bf52dc3e62c6" id="r_a3d3605babb7dc3b9f118bf52dc3e62c6"><td class="memItemLeft"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3d3605babb7dc3b9f118bf52dc3e62c6">operator=</a> (const <a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a3d3605babb7dc3b9f118bf52dc3e62c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a2e5471c04f3069860252fdf10e53270a" id="r_a2e5471c04f3069860252fdf10e53270a"><td class="memItemLeft"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a2e5471c04f3069860252fdf10e53270a">operator=</a> (<a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a2e5471c04f3069860252fdf10e53270a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: the facade stands for the single process-wide Flash controller.  <br /></td></tr>
+<tr class="memitem:a0f5c36a802a9b6cf15aacf3d104cb445" id="r_a0f5c36a802a9b6cf15aacf3d104cb445"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f5c36a802a9b6cf15aacf3d104cb445">unlock</a> () noexcept</td></tr>
+<tr class="memdesc:a0f5c36a802a9b6cf15aacf3d104cb445"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unlocks the Flash control register so that erase and program operations are accepted.  <br /></td></tr>
+<tr class="memitem:a076081c699cb3dcf3a7f5890c6c4f568" id="r_a076081c699cb3dcf3a7f5890c6c4f568"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a076081c699cb3dcf3a7f5890c6c4f568">lock</a> () noexcept</td></tr>
+<tr class="memdesc:a076081c699cb3dcf3a7f5890c6c4f568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Locks the Flash control register against accidental erase and program operations.  <br /></td></tr>
+<tr class="memitem:a31fec472e71d387e0e9a5ade75e5ae24" id="r_a31fec472e71d387e0e9a5ade75e5ae24"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a31fec472e71d387e0e9a5ade75e5ae24">eraseSector</a> (uint32_t sectorIndex, uint32_t voltageRange) noexcept</td></tr>
+<tr class="memdesc:a31fec472e71d387e0e9a5ade75e5ae24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Erases one sector (sector-based families) or one page (page-based families).  <br /></td></tr>
+<tr class="memitem:ad771befb1be3db0d319c46507a7896ca" id="r_ad771befb1be3db0d319c46507a7896ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad771befb1be3db0d319c46507a7896ca">writeWord</a> (uint32_t address, uint32_t data) noexcept</td></tr>
+<tr class="memdesc:ad771befb1be3db0d319c46507a7896ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs one 32-bit word.  <br /></td></tr>
+<tr class="memitem:ae33402652ac23992b9eb28ed57ca35e8" id="r_ae33402652ac23992b9eb28ed57ca35e8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae33402652ac23992b9eb28ed57ca35e8">writeBuffer</a> (uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</td></tr>
+<tr class="memdesc:ae33402652ac23992b9eb28ed57ca35e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Programs a buffer of 32-bit words into consecutive flash addresses.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a77065b02ae1d32db4828d6e6410ad5bc" name="a77065b02ae1d32db4828d6e6410ad5bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77065b02ae1d32db4828d6e6410ad5bc">&#9670;&#160;</a></span>OSPIPortBase() <span class="overload">[1/3]</span></h2>
+<a id="a8d095be00ec32cc8d562d8de4f5285b9" name="a8d095be00ec32cc8d562d8de4f5285b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d095be00ec32cc8d562d8de4f5285b9">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::OSPIPortBase </td>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
           <td>(</td>
-          <td class="paramtype">const OSPIPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates the facade. </p>
+<p>No hardware is touched until a method is called. </p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_a8d095be00ec32cc8d562d8de4f5285b9_icgraph.svg" width="742" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a21441fdc8ee265dd3125df9d4e9939f1" name="a21441fdc8ee265dd3125df9d4e9939f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21441fdc8ee265dd3125df9d4e9939f1">&#9670;&#160;</a></span>~FlashInterface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::FlashInterface::~FlashInterface </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel default">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the facade. </p>
+<p>The controller is left as it is, <a class="el" href="#a076081c699cb3dcf3a7f5890c6c4f568" title="Locks the Flash control register against accidental erase and program operations.">lock()</a> is not called. </p>
+
+</div>
+</div>
+<a id="a3b934e9e562900d0d933cf2628a1f6ff" name="a3b934e9e562900d0d933cf2628a1f6ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b934e9e562900d0d933cf2628a1f6ff">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
+          <td>(</td>
+          <td class="paramtype">const FlashInterface &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -188,25 +235,35 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: each instance is bound to one "T_DERIVED" driver instance. </p>
+<p>Copying is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary">
+</div>
+<div id="dynsection-2-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_a3b934e9e562900d0d933cf2628a1f6ff_cgraph.svg" width="742" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="acd087ceb0b00ba99edfdc6871179e99f" name="acd087ceb0b00ba99edfdc6871179e99f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd087ceb0b00ba99edfdc6871179e99f">&#9670;&#160;</a></span>OSPIPortBase() <span class="overload">[2/3]</span></h2>
+<a id="a1c805cbd8158ca094182032c42fa8a68" name="a1c805cbd8158ca094182032c42fa8a68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c805cbd8158ca094182032c42fa8a68">&#9670;&#160;</a></span>FlashInterface() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::OSPIPortBase </td>
+          <td class="memname">Lib::HAL::FlashInterface::FlashInterface </td>
           <td>(</td>
-          <td class="paramtype">OSPIPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">FlashInterface &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -217,82 +274,73 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: each instance is bound to one "T_DERIVED" driver instance. </p>
-
+<p>Moving is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
 </div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_a1c805cbd8158ca094182032c42fa8a68_cgraph.svg" width="742" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<a id="a18048dab4e848ea5529076be672ccc7c" name="a18048dab4e848ea5529076be672ccc7c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18048dab4e848ea5529076be672ccc7c">&#9670;&#160;</a></span>OSPIPortBase() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::OSPIPortBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs the stateless CRTP base; only a mode specialization may create one. </p>
-
-</div>
-</div>
-<a id="a24d2016939eff2ab2af9d3a0efd3510a" name="a24d2016939eff2ab2af9d3a0efd3510a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24d2016939eff2ab2af9d3a0efd3510a">&#9670;&#160;</a></span>~OSPIPortBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Destroys the base; it owns nothing, and it is protected so no one deletes a mode through a base pointer. </p>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a4e17dc4d8626455726f5809b59b2d4c7" name="a4e17dc4d8626455726f5809b59b2d4c7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e17dc4d8626455726f5809b59b2d4c7">&#9670;&#160;</a></span>close()</h2>
+<a id="a31fec472e71d387e0e9a5ade75e5ae24" name="a31fec472e71d387e0e9a5ade75e5ae24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31fec472e71d387e0e9a5ade75e5ae24">&#9670;&#160;</a></span>eraseSector()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::close </td>
+          <td class="memname">bool Lib::HAL::FlashInterface::eraseSector </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>sectorIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>voltageRange</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Erases one sector (sector-based families) or one page (page-based families). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sectorIndex</td><td>Sector or page number to erase (e.g. "FLASH_SECTOR_5"). </td></tr>
+    <tr><td class="paramname">voltageRange</td><td>Supply voltage range, typically "FLASH_VOLTAGE_RANGE_3". Ignored on page-based families. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the erase finished successfully. Always "false" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> has no sector or page erase. </dd></dl>
+
+</div>
+</div>
+<a id="a076081c699cb3dcf3a7f5890c6c4f568" name="a076081c699cb3dcf3a7f5890c6c4f568"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a076081c699cb3dcf3a7f5890c6c4f568">&#9670;&#160;</a></span>lock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::lock </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -305,87 +353,24 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Deinitializes the OCTOSPI peripheral and releases its pins and DMA channel. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if "HAL_OSPI_DeInit()" succeeded. </dd></dl>
+<p>Locks the Flash control register against accidental erase and program operations. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the controller is locked. </dd></dl>
 
 </div>
 </div>
-<a id="ae5f3e31cd86a68fec68977ed1ab7796d" name="ae5f3e31cd86a68fec68977ed1ab7796d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae5f3e31cd86a68fec68977ed1ab7796d">&#9670;&#160;</a></span>isBusy()</h2>
+<a id="a3d3605babb7dc3b9f118bf52dc3e62c6" name="a3d3605babb7dc3b9f118bf52dc3e62c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d3605babb7dc3b9f118bf52dc3e62c6">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::isBusy </td>
+          <td class="memname"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp; Lib::HAL::FlashInterface::operator= </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks whether the peripheral is outside its idle state. </p>
-<p>Any state other than "HAL_OSPI_STATE_READY" counts, including a configured command still waiting for its data phase.</p>
-<dl class="section return"><dt>Returns</dt><dd>"true" unless the <a class="el" href="../../d2/dab/a00886.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> reports "HAL_OSPI_STATE_READY". </dd></dl>
-
-</div>
-</div>
-<a id="aeba7a0754d641aad2f60cd34c1585ed6" name="aeba7a0754d641aad2f60cd34c1585ed6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeba7a0754d641aad2f60cd34c1585ed6">&#9670;&#160;</a></span>open()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool <a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::open </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Initializes the OCTOSPI peripheral from the configuration held in the native handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>"true" if "HAL_OSPI_Init()" succeeded. </dd></dl>
-
-</div>
-</div>
-<a id="a2eb0cd98ee61ccb3037cf1cdc7828985" name="a2eb0cd98ee61ccb3037cf1cdc7828985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2eb0cd98ee61ccb3037cf1cdc7828985">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp; <a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -396,26 +381,36 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-copyable: each instance is bound to one "T_DERIVED" driver instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Copy assignment is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_a3d3605babb7dc3b9f118bf52dc3e62c6_cgraph.svg" width="702" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
-<a id="a87f9efa43d6d385bc0cee9ba8fb521cd" name="a87f9efa43d6d385bc0cee9ba8fb521cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a87f9efa43d6d385bc0cee9ba8fb521cd">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a2e5471c04f3069860252fdf10e53270a" name="a2e5471c04f3069860252fdf10e53270a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e5471c04f3069860252fdf10e53270a">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a> &amp; <a class="el" href="../../df/d78/a02019.html">Lib::HAL::OSPIPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td class="memname"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp; Lib::HAL::FlashInterface::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a77065b02ae1d32db4828d6e6410ad5bc">OSPIPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype"><a class="el" href="#a8d095be00ec32cc8d562d8de4f5285b9">FlashInterface</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -426,8 +421,146 @@ template&lt;typename T_DERIVED&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Non-movable: each instance is bound to one "T_DERIVED" driver instance. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<p>Move assignment is deleted: the facade stands for the single process-wide Flash controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_a2e5471c04f3069860252fdf10e53270a_cgraph.svg" width="702" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a0f5c36a802a9b6cf15aacf3d104cb445" name="a0f5c36a802a9b6cf15aacf3d104cb445"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f5c36a802a9b6cf15aacf3d104cb445">&#9670;&#160;</a></span>unlock()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::unlock </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Unlocks the Flash control register so that erase and program operations are accepted. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the controller accepted the unlock sequence. </dd></dl>
+
+</div>
+</div>
+<a id="ae33402652ac23992b9eb28ed57ca35e8" name="ae33402652ac23992b9eb28ed57ca35e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae33402652ac23992b9eb28ed57ca35e8">&#9670;&#160;</a></span>writeBuffer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::writeBuffer </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>startAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const uint32_t *</td>          <td class="paramname"><span class="paramname"><em>dataPointer</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>wordLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Programs a buffer of 32-bit words into consecutive flash addresses. </p>
+<p>On doubleword families the words are paired into full doublewords. An unaligned start or an odd trailing word goes through <a class="el" href="#ad771befb1be3db0d319c46507a7896ca" title="Programs one 32-bit word.">writeWord()</a>, which preserves the neighbouring half.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startAddress</td><td>Flash address of the first word, 4-byte aligned. </td></tr>
+    <tr><td class="paramname">dataPointer</td><td>Source words. </td></tr>
+    <tr><td class="paramname">wordLength</td><td>Number of 32-bit words to program. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if every word was programmed. Always "false" if the family's program granularity is unsupported. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_ae33402652ac23992b9eb28ed57ca35e8_cgraph.svg" width="678" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad771befb1be3db0d319c46507a7896ca" name="ad771befb1be3db0d319c46507a7896ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad771befb1be3db0d319c46507a7896ca">&#9670;&#160;</a></span>writeWord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::HAL::FlashInterface::writeWord </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Programs one 32-bit word. </p>
+<p>On doubleword families the hardware programs 8 bytes at once, so the other half of the doubleword is read back and written unchanged. It must still be erased (all ones) or hold the value already there.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>Flash address, 4-byte aligned. </td></tr>
+    <tr><td class="paramname">data</td><td>Value to program. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the word was programmed. Always "false" if the family's program granularity is unsupported. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../df/d78/a02019_ad771befb1be3db0d319c46507a7896ca_icgraph.svg" width="678" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -444,7 +577,7 @@ template&lt;typename T_DERIVED&gt; </div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../d2/dab/a00886.html">HAL</a></li><li class="navelem"><a href="../../df/d78/a02019.html">OSPIPortBase</a></li>
+    <li class="navelem"><a href="../../d2/da1/a00879.html">Lib</a></li><li class="navelem"><a href="../../d3/dd1/a00914.html">HAL</a></li><li class="navelem"><a href="../../df/d78/a02019.html">FlashInterface</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

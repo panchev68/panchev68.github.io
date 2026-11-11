@@ -1,8 +1,5 @@
 var a01869 =
 [
-    [ "data", "d8/d3a/a01869.html#a251018af6590442834ab27f31949ac0c", null ],
-    [ "frameType", "d8/d3a/a01869.html#aaf877a02bde4417c8194c94e6fc4e22b", null ],
-    [ "id", "d8/d3a/a01869.html#ac603c73011aa584e9a004fabd2239743", null ],
-    [ "idType", "d8/d3a/a01869.html#ac4029cba49776e6f2942debd3ed78f58", null ],
-    [ "length", "d8/d3a/a01869.html#a2e33dfc67dc9a922e1dcb2ed9db0174f", null ]
+    [ "rxMessageCounter", "d8/d3a/a01869.html#ae09c04483f8353c553a966fcfd32c214", null ],
+    [ "txMessageCounter", "d8/d3a/a01869.html#a4286c02031295ce311297c75eee43398", null ]
 ];

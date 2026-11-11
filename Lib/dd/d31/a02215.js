@@ -1,10 +1,13 @@
 var a02215 =
 [
-    [ "PeakInfo", "de/d59/a02219.html", "de/d59/a02219" ],
-    [ "FindPeaks", "dd/d31/a02215.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
-    [ "addSample", "dd/d31/a02215.html#af68c408bdc213c13c758fceb90fdf51e", null ],
-    [ "getCount", "dd/d31/a02215.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
-    [ "getFallingPeak", "dd/d31/a02215.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
-    [ "getRisingPeak", "dd/d31/a02215.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
-    [ "reset", "dd/d31/a02215.html#a176df2aab4c0e044fe550ca813f88168", null ]
+    [ "UARTPort", "dd/d31/a02215.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
+    [ "~UARTPort", "dd/d31/a02215.html#a379b29de4717643896518dcc44558b2d", null ],
+    [ "abort", "dd/d31/a02215.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "close", "dd/d31/a02215.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "dd/d31/a02215.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "dd/d31/a02215.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "dd/d31/a02215.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "dd/d31/a02215.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "dd/d31/a02215.html#a3c10830f8d93936773f64d95201bc7da", null ],
+    [ "send", "dd/d31/a02215.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
 ];

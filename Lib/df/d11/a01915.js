@@ -1,8 +1,9 @@
 var a01915 =
 [
-    [ "Device", "df/d11/a01915.html#acdeffbad9eb409804cbc72fa86794a97", null ],
-    [ "~Device", "df/d11/a01915.html#a231e1d150464ec12c66e5578ff0c3128", null ],
-    [ "getHandle", "df/d11/a01915.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "df/d11/a01915.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "DeviceManager< T_DEVICE, T_HANDLE >", "df/d11/a01915.html#ad317e84715f53c3ea50d6b4113c92403", null ]
+    [ "CommandBuilder", "df/d11/a01915.html#a3db7dff4b75ded543f12c81f99fd7b4b", null ],
+    [ "append", "df/d11/a01915.html#acab7756c37de0693938a6d7a85dbbc2a", null ],
+    [ "appendNumber", "df/d11/a01915.html#a9836ba254a270aaab6bad20285872a09", null ],
+    [ "appendSigned", "df/d11/a01915.html#aa6e6c1131f62a3d0ff462088dfc6bc0e", null ],
+    [ "isComplete", "df/d11/a01915.html#ae2dccaca8964b53e131ca43d9be03b2d", null ],
+    [ "view", "df/d11/a01915.html#a098ef4b99f9463cadc918fd5c85e88b2", null ]
 ];

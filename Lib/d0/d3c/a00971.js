@@ -1,12 +1,8 @@
 var a00971 =
 [
-    [ "Inputs", "d0/d3c/a00971.html#a0aa01bf96242d23efb48326392f5dfe4", null ],
-    [ "getChangesCounter", "d0/d3c/a00971.html#a02a156f7de35ad87391858c4284826ce", null ],
-    [ "getSpiHandle", "d0/d3c/a00971.html#afb55a694371e388292f94be2800d26b6", null ],
-    [ "getValue", "d0/d3c/a00971.html#ac25cf048386cbfdbeb442c2efcf23ac2", null ],
-    [ "postUpdateCallback", "d0/d3c/a00971.html#a224f17bba5e8b5c91b4b2cafbec08983", null ],
-    [ "preUpdateCallback", "d0/d3c/a00971.html#a8caba1afb7850dd5dfa329a89bb46ce4", null ],
-    [ "setup", "d0/d3c/a00971.html#a2fe3a43a554141fe0bc4a75f610eaec2", null ],
-    [ "update", "d0/d3c/a00971.html#ae6069dc4aba19e03580a2c32c2d79756", null ],
-    [ "onValueChanged", "d0/d3c/a00971.html#a9292ab7cebf6aa0f1bc5dee56fbc8614", null ]
+    [ "DeviceBase", "d0/d3c/a00971.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
+    [ "~DeviceBase", "d0/d3c/a00971.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
+    [ "handleTickEvent", "d0/d3c/a00971.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
+    [ "registerDevice", "d0/d3c/a00971.html#a299662c9e9bdb346771579418056dccf", null ],
+    [ "setup", "d0/d3c/a00971.html#af06fe39cba15bd187e05a7593e41d35a", null ]
 ];

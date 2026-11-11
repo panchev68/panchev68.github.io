@@ -1,4 +1,4 @@
 var a00488 =
 [
-    [ "Lib::HAL::GPIO::Input", "dc/da8/a01959.html", "dc/da8/a01959" ]
+    [ "Lib::HAL::SPIPort&lt; DriverMode::DMA &gt;", "d3/d28/a02147.html", "d3/d28/a02147" ]
 ];

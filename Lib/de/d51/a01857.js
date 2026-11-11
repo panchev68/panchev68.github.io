@@ -1,18 +1,26 @@
 var a01857 =
 [
-    [ "Event", "d6/d56/a01861.html", null ],
-    [ "ADCPort", "de/d51/a01857.html#a7a5dd77223992690b7b040dbbf4ee806", null ],
-    [ "~ADCPort", "de/d51/a01857.html#afde58fc4cb735cf197b9496e77e1b8ce", null ],
-    [ "ADCPort", "de/d51/a01857.html#ae5662cd3c48411a028c6c4c37ee13ace", null ],
-    [ "ADCPort", "de/d51/a01857.html#af963171787341304aeec9ad771e5f523", null ],
-    [ "close", "de/d51/a01857.html#a91651451878e1931de2457be52f68c92", null ],
-    [ "getHandle", "de/d51/a01857.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "de/d51/a01857.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "getValue", "de/d51/a01857.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "de/d51/a01857.html#a36cb4f397fe1bf367b9d8bc15e5f5049", null ],
-    [ "operator=", "de/d51/a01857.html#a1a195ad989012b40e6112b3d55b4fcf8", null ],
-    [ "operator=", "de/d51/a01857.html#a22fbba82d2493c17bdcf134ec47bbb41", null ],
-    [ "start", "de/d51/a01857.html#a97c4921b9e22a517072028d001c86ef1", null ],
-    [ "stop", "de/d51/a01857.html#a02a58c4058306a8b7dcfa2d4e5a8dda6", null ],
-    [ "waitForEvent", "de/d51/a01857.html#af0c975bbd0a66ffabc210d52ec971714", null ]
+    [ "MessageHeader", "d6/d56/a01861.html", "d6/d56/a01861" ],
+    [ "Command", "de/d51/a01857.html#af1bf58d46a2365d039aa946466c931e4", [
+      [ "ECHO", "de/d51/a01857.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
+      [ "INPUTS", "de/d51/a01857.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
+      [ "OUTPUTS", "de/d51/a01857.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
+    ] ],
+    [ "Error", "de/d51/a01857.html#af7acfca02d188807a9c220d5c0bfeda6", [
+      [ "OK", "de/d51/a01857.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "COMMAND_NOT_SUPPORT", "de/d51/a01857.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
+      [ "EMPTY_MESSAGE", "de/d51/a01857.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
+      [ "INVALID_PAYLOAD_LENGTH", "de/d51/a01857.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
+      [ "INVALID_START_DELIMITER", "de/d51/a01857.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
+    ] ],
+    [ "UserProtocol", "de/d51/a01857.html#ab11ca2634a103484248a6d8ea24a5407", null ],
+    [ "~UserProtocol", "de/d51/a01857.html#ad2bb639951ce599fce10adfb65668d02", null ],
+    [ "build", "de/d51/a01857.html#ae9170839094fc83686dd4af2244027fb", null ],
+    [ "echoCallback", "de/d51/a01857.html#a3061aa5da161fa13a28466c38e0f725f", null ],
+    [ "getLastSentTimeStamp", "de/d51/a01857.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
+    [ "handleIncomingMessageHeader", "de/d51/a01857.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
+    [ "handleOutputsUpdate", "de/d51/a01857.html#a78c96c1519356f5ea3948970fff30d5c", null ],
+    [ "inputsUpdateCallback", "de/d51/a01857.html#a26f74b072f3f808ae2a3374051efa833", null ],
+    [ "parse", "de/d51/a01857.html#a5693bd9519902713725ab87ae72a635d", null ],
+    [ "updateNodeActivityCallback", "de/d51/a01857.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
 ];

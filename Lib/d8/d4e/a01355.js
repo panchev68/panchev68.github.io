@@ -1,12 +1,9 @@
 var a01355 =
 [
-    [ "SerialPortBase", "d8/d4e/a01355.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "d8/d4e/a01355.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "d8/d4e/a01355.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "d8/d4e/a01355.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "d8/d4e/a01355.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "d8/d4e/a01355.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "d8/d4e/a01355.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d8/d4e/a01355.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "d8/d4e/a01355.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
+    [ "Address", "d8/d4e/a01355.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
+    [ "FunctionCode", "d8/d4e/a01355.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
+    [ "close", "d8/d4e/a01355.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
+    [ "open", "d8/d4e/a01355.html#a60baa47faf417d3e58c9da926ba26d49", null ],
+    [ "sendFrame", "d8/d4e/a01355.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
+    [ "setup", "d8/d4e/a01355.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
 ];

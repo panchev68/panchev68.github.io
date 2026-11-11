@@ -1,14 +1,9 @@
 var a01817 =
 [
-    [ "PortString", "d4/d29/a01817.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
-    [ "Port", "d4/d29/a01817.html#a0cdcdcee9376806af5c6778670685c80", null ],
-    [ "Port", "d4/d29/a01817.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
-    [ "fromString", "d4/d29/a01817.html#af096519c074646658fc5d42017770060", null ],
-    [ "get", "d4/d29/a01817.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
-    [ "get", "d4/d29/a01817.html#a74efeaeccbeb41630891ddb4725470a5", null ],
-    [ "operator uint16_t", "d4/d29/a01817.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
-    [ "operator<=>", "d4/d29/a01817.html#a5db32af54d9bdde977000618e7b6d476", null ],
-    [ "operator=", "d4/d29/a01817.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
-    [ "set", "d4/d29/a01817.html#a1de553c3b996aee8be2112632f45ee1b", null ],
-    [ "toString", "d4/d29/a01817.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
+    [ "address", "d4/d29/a01817.html#a7c228c03d72a996bf0b444a34e86b4f7", null ],
+    [ "channel", "d4/d29/a01817.html#a8616b0d59be8d4dae94f9fddafb07bfe", null ],
+    [ "counter", "d4/d29/a01817.html#ab0cbee078973da4bbbd4d4618d06a852", null ],
+    [ "length", "d4/d29/a01817.html#af80f349070d12d0ce2387f6d95764bfe", null ],
+    [ "priority", "d4/d29/a01817.html#a0c3726e1ac6fed602491f21449c9a740", null ],
+    [ "protocol", "d4/d29/a01817.html#ac094990b182d42c38feb302d144a6924", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::Helper::StringHelper</title>
+<title>IAR Library: Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,1246 +111,653 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d2/dd2/a02279.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::Helper::StringHelper<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
+  <div class="headertitle"><div class="title">Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Collection of lightweight string utility helpers. </p>
-<p>Covers classification, case conversion, trimming, searching, splitting, integer parsing and hex encoding. Every helper writes into a caller-supplied buffer instead of returning a "std::string", so nothing here allocates and every function is usable in a constant expression. Classification and case folding are also written out by hand rather than forwarded to "cctype": those functions are locale-dependent, are not constexpr, and are undefined for negative "char" values, which is where every byte above 127 lands because plain "char" is signed on this toolchain. All APIs are static, non-allocating and non-throwing, and operate on "std::string_view" and "std::span" so they bind to literals, arrays and strings alike. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::Helper::StringHelper:</div>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T_DERIVED&gt;<br />
+class Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;</div><p>Compile-time polymorphic foundation implementing the lifecycle and channel policy of the <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> host port. </p>
+<p>Owns no state: the native "HCD_HandleTypeDef" is reached through "derived()-&gt;getHandle()", as in "UARTPortBase". The class is a thin typed layer over the ST <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> HCD calls; the clock, pins, VBUS switch and the interrupt ("HAL_HCD_MspInit()" and the "OTG_FS_IRQHandler()" calling "HAL_HCD_IRQHandler()") stay in the CubeMX code. Enumeration and device classes are not part of this layer.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T_DERIVED</td><td>Concrete driver class owning the native handle and the transfer mechanism. </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc1/a02277.svg" width="222" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/dba/a02278.svg" width="390" height="1046"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a31c1d2ce59c3d3d5cae4eb564de28e71" id="r_a31c1d2ce59c3d3d5cae4eb564de28e71"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a31c1d2ce59c3d3d5cae4eb564de28e71">isDigit</a> (char character) noexcept</td></tr>
-<tr class="memdesc:a31c1d2ce59c3d3d5cae4eb564de28e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "character" is an ASCII decimal digit.  <br /></td></tr>
-<tr class="memitem:adc2363864a22d143b3c52dd6d85c39e2" id="r_adc2363864a22d143b3c52dd6d85c39e2"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adc2363864a22d143b3c52dd6d85c39e2">isHexDigit</a> (char character) noexcept</td></tr>
-<tr class="memdesc:adc2363864a22d143b3c52dd6d85c39e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "character" is an ASCII hexadecimal digit.  <br /></td></tr>
-<tr class="memitem:a6e572eea9d5827b40949830ef8b4f3f8" id="r_a6e572eea9d5827b40949830ef8b4f3f8"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a6e572eea9d5827b40949830ef8b4f3f8">isAlpha</a> (char character) noexcept</td></tr>
-<tr class="memdesc:a6e572eea9d5827b40949830ef8b4f3f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "character" is an ASCII letter.  <br /></td></tr>
-<tr class="memitem:a9237a20526744e303840fc0f0ae682eb" id="r_a9237a20526744e303840fc0f0ae682eb"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a9237a20526744e303840fc0f0ae682eb">isAlphaNumeric</a> (char character) noexcept</td></tr>
-<tr class="memdesc:a9237a20526744e303840fc0f0ae682eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "character" is an ASCII letter or decimal digit.  <br /></td></tr>
-<tr class="memitem:a2a95a6dfb9c197c18dde158f12290aa7" id="r_a2a95a6dfb9c197c18dde158f12290aa7"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a2a95a6dfb9c197c18dde158f12290aa7">isWhitespace</a> (char character) noexcept</td></tr>
-<tr class="memdesc:a2a95a6dfb9c197c18dde158f12290aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "character" is ASCII whitespace.  <br /></td></tr>
-<tr class="memitem:ab5d55fab639019b032452d2aed84765c" id="r_ab5d55fab639019b032452d2aed84765c"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ab5d55fab639019b032452d2aed84765c">isPrintable</a> (char character) noexcept</td></tr>
-<tr class="memdesc:ab5d55fab639019b032452d2aed84765c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "character" is printable ASCII.  <br /></td></tr>
-<tr class="memitem:af0552b4dd5288a0feaa8e6dc5dc92764" id="r_af0552b4dd5288a0feaa8e6dc5dc92764"><td class="memItemLeft">static constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#af0552b4dd5288a0feaa8e6dc5dc92764">toUpperCase</a> (std::string_view input, std::span&lt; char &gt; output) noexcept</td></tr>
-<tr class="memdesc:af0552b4dd5288a0feaa8e6dc5dc92764"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "input" to its upper-case representation.  <br /></td></tr>
-<tr class="memitem:a1019248640c9b2d3f8b01487c240b135" id="r_a1019248640c9b2d3f8b01487c240b135"><td class="memItemLeft">static constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a1019248640c9b2d3f8b01487c240b135">toUpperCaseInPlace</a> (std::span&lt; char &gt; buffer) noexcept</td></tr>
-<tr class="memdesc:a1019248640c9b2d3f8b01487c240b135"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "buffer" to upper case in place.  <br /></td></tr>
-<tr class="memitem:a0ca94c3562d49e908992178c0e94254c" id="r_a0ca94c3562d49e908992178c0e94254c"><td class="memItemLeft">static constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#a0ca94c3562d49e908992178c0e94254c">toLowerCase</a> (std::string_view input, std::span&lt; char &gt; output) noexcept</td></tr>
-<tr class="memdesc:a0ca94c3562d49e908992178c0e94254c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "input" to its lower-case representation.  <br /></td></tr>
-<tr class="memitem:aa489df5b828be650c52d25ff4cb6c66b" id="r_aa489df5b828be650c52d25ff4cb6c66b"><td class="memItemLeft">static constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#aa489df5b828be650c52d25ff4cb6c66b">toLowerCaseInPlace</a> (std::span&lt; char &gt; buffer) noexcept</td></tr>
-<tr class="memdesc:aa489df5b828be650c52d25ff4cb6c66b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "buffer" to lower case in place.  <br /></td></tr>
-<tr class="memitem:ac641d00fe40401733c00642547895f68" id="r_ac641d00fe40401733c00642547895f68"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#ac641d00fe40401733c00642547895f68">equalsIgnoreCase</a> (std::string_view left, std::string_view right) noexcept</td></tr>
-<tr class="memdesc:ac641d00fe40401733c00642547895f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare two strings ignoring ASCII letter case.  <br /></td></tr>
-<tr class="memitem:a29631573c86b1e1d6ba1a5819a1cff86" id="r_a29631573c86b1e1d6ba1a5819a1cff86"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a29631573c86b1e1d6ba1a5819a1cff86">startsWithIgnoreCase</a> (std::string_view input, std::string_view prefix) noexcept</td></tr>
-<tr class="memdesc:a29631573c86b1e1d6ba1a5819a1cff86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "input" begins with "prefix", ignoring ASCII letter case.  <br /></td></tr>
-<tr class="memitem:a21eff6d52304772a34f2bc2d716a9d24" id="r_a21eff6d52304772a34f2bc2d716a9d24"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a21eff6d52304772a34f2bc2d716a9d24">endsWithIgnoreCase</a> (std::string_view input, std::string_view suffix) noexcept</td></tr>
-<tr class="memdesc:a21eff6d52304772a34f2bc2d716a9d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "input" ends with "suffix", ignoring ASCII letter case.  <br /></td></tr>
-<tr class="memitem:aea358f48a1889dd86758b74f73595281" id="r_aea358f48a1889dd86758b74f73595281"><td class="memItemLeft">static constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#aea358f48a1889dd86758b74f73595281">trimLeft</a> (std::string_view input) noexcept</td></tr>
-<tr class="memdesc:aea358f48a1889dd86758b74f73595281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim leading ASCII whitespace from "input".  <br /></td></tr>
-<tr class="memitem:ab10075b04e08bef0a431f89a173b9741" id="r_ab10075b04e08bef0a431f89a173b9741"><td class="memItemLeft">static constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#ab10075b04e08bef0a431f89a173b9741">trimRight</a> (std::string_view input) noexcept</td></tr>
-<tr class="memdesc:ab10075b04e08bef0a431f89a173b9741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim trailing ASCII whitespace from "input".  <br /></td></tr>
-<tr class="memitem:accde21de05cd8a8a240196d0c9bb5166" id="r_accde21de05cd8a8a240196d0c9bb5166"><td class="memItemLeft">static constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#accde21de05cd8a8a240196d0c9bb5166">trim</a> (std::string_view input) noexcept</td></tr>
-<tr class="memdesc:accde21de05cd8a8a240196d0c9bb5166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trim leading and trailing ASCII whitespace from "input".  <br /></td></tr>
-<tr class="memitem:aaf493b54b2fc3c74c60da99ef274b7ed" id="r_aaf493b54b2fc3c74c60da99ef274b7ed"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#aaf493b54b2fc3c74c60da99ef274b7ed">contains</a> (std::string_view input, char character) noexcept</td></tr>
-<tr class="memdesc:aaf493b54b2fc3c74c60da99ef274b7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "input" contains the character "character".  <br /></td></tr>
-<tr class="memitem:a8cad02f05f4b973933166bd5a431f984" id="r_a8cad02f05f4b973933166bd5a431f984"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a8cad02f05f4b973933166bd5a431f984">contains</a> (std::string_view input, std::string_view pattern) noexcept</td></tr>
-<tr class="memdesc:a8cad02f05f4b973933166bd5a431f984"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether "input" contains the substring "pattern".  <br /></td></tr>
-<tr class="memitem:a091f2b2e3a2cd0db38465256325d0299" id="r_a091f2b2e3a2cd0db38465256325d0299"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a091f2b2e3a2cd0db38465256325d0299">count</a> (std::string_view input, char character) noexcept</td></tr>
-<tr class="memdesc:a091f2b2e3a2cd0db38465256325d0299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Count the occurrences of "character" in "input".  <br /></td></tr>
-<tr class="memitem:aa7ad4131c34e89def6b673fa2c7ca98f" id="r_aa7ad4131c34e89def6b673fa2c7ca98f"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#aa7ad4131c34e89def6b673fa2c7ca98f">replaceInPlace</a> (std::span&lt; char &gt; buffer, char from, char to) noexcept</td></tr>
-<tr class="memdesc:aa7ad4131c34e89def6b673fa2c7ca98f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Replace every occurrence of "from" with "to" in "buffer".  <br /></td></tr>
-<tr class="memitem:a5045388a989b2e8bb8d103561ad56ba2" id="r_a5045388a989b2e8bb8d103561ad56ba2"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a5045388a989b2e8bb8d103561ad56ba2">copyTo</a> (std::string_view input, std::span&lt; char &gt; output) noexcept</td></tr>
-<tr class="memdesc:a5045388a989b2e8bb8d103561ad56ba2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy "input" into "output" and append a null terminator.  <br /></td></tr>
-<tr class="memitem:ae51395d9b15ab5f66b471c8ce9650bf8" id="r_ae51395d9b15ab5f66b471c8ce9650bf8"><td class="memItemLeft">static constexpr int32_t&#160;</td><td class="memItemRight"><a class="el" href="#ae51395d9b15ab5f66b471c8ce9650bf8">findInArray</a> (std::string_view select, const char *const *array) noexcept</td></tr>
-<tr class="memdesc:ae51395d9b15ab5f66b471c8ce9650bf8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find "select" in a null-terminated array of C strings.  <br /></td></tr>
-<tr class="memitem:a56b87223e35dbc0754e09942c94c7d85" id="r_a56b87223e35dbc0754e09942c94c7d85"><td class="memTemplParams" colspan="2">template&lt;typename F&gt; <br />
-requires std::invocable&lt;F &amp;, std::string_view&gt;</td></tr>
-<tr class="memitem:a56b87223e35dbc0754e09942c94c7d85 template"><td class="memItemLeft">static constexpr void&#160;</td><td class="memItemRight"><a class="el" href="#a56b87223e35dbc0754e09942c94c7d85">split</a> (std::string_view input, char delimiter, F &amp;&amp;callback) noexcept</td></tr>
-<tr class="memdesc:a56b87223e35dbc0754e09942c94c7d85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split "input" by "delimiter" and invoke "callback" once for each token.  <br /></td></tr>
-<tr class="memitem:a07f671da48f9d7c420853de5a5cc769b" id="r_a07f671da48f9d7c420853de5a5cc769b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a07f671da48f9d7c420853de5a5cc769b">splitTo</a> (std::string_view input, char delimiter, std::span&lt; std::string_view &gt; tokens) noexcept</td></tr>
-<tr class="memdesc:a07f671da48f9d7c420853de5a5cc769b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Split "input" by "delimiter" into the caller-supplied "tokens" array.  <br /></td></tr>
-<tr class="memitem:a22f2dd59b7c79dc4cc59071d50ff7aab" id="r_a22f2dd59b7c79dc4cc59071d50ff7aab"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; <br />
-requires (!std::same_as&lt;T, bool&gt;)</td></tr>
-<tr class="memitem:a22f2dd59b7c79dc4cc59071d50ff7aab template"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#a22f2dd59b7c79dc4cc59071d50ff7aab">parseInteger</a> (std::string_view input, T &amp;value, uint32_t base=10U) noexcept</td></tr>
-<tr class="memdesc:a22f2dd59b7c79dc4cc59071d50ff7aab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parse "input" as an integer in the given "base".  <br /></td></tr>
-<tr class="memitem:ad92ab1e3ab5301dea791138d956fb09e" id="r_ad92ab1e3ab5301dea791138d956fb09e"><td class="memItemLeft">static constexpr std::string_view&#160;</td><td class="memItemRight"><a class="el" href="#ad92ab1e3ab5301dea791138d956fb09e">toHex</a> (std::span&lt; const uint8_t &gt; input, std::span&lt; char &gt; output, bool upperCase=true) noexcept</td></tr>
-<tr class="memdesc:ad92ab1e3ab5301dea791138d956fb09e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encode "input" as hexadecimal text, two characters per byte, most significant nibble first.  <br /></td></tr>
-<tr class="memitem:adce7129f8a4a374627f19e75be5d33fe" id="r_adce7129f8a4a374627f19e75be5d33fe"><td class="memItemLeft">static constexpr bool&#160;</td><td class="memItemRight"><a class="el" href="#adce7129f8a4a374627f19e75be5d33fe">fromHex</a> (std::string_view input, std::span&lt; uint8_t &gt; output) noexcept</td></tr>
-<tr class="memdesc:adce7129f8a4a374627f19e75be5d33fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode hexadecimal text in "input" into bytes.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:a5bf99845ae67ccdd4a93374ca8ba346d" id="r_a5bf99845ae67ccdd4a93374ca8ba346d"><td class="memItemLeft">static constexpr int32_t&#160;</td><td class="memItemRight"><a class="el" href="#a5bf99845ae67ccdd4a93374ca8ba346d">NOT_FOUND</a> = -1</td></tr>
-<tr class="memdesc:a5bf99845ae67ccdd4a93374ca8ba346d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sentinel returned by "findInArray()" when no match is found.  <br /></td></tr>
-</table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="aaf493b54b2fc3c74c60da99ef274b7ed" name="aaf493b54b2fc3c74c60da99ef274b7ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaf493b54b2fc3c74c60da99ef274b7ed">&#9670;&#160;</a></span>contains() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::contains </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "input" contains the character "character". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String to search. </td></tr>
-    <tr><td class="paramname">character</td><td>Character to look for. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" when at least one occurrence exists. </dd></dl>
-
-</div>
-</div>
-<a id="a8cad02f05f4b973933166bd5a431f984" name="a8cad02f05f4b973933166bd5a431f984"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cad02f05f4b973933166bd5a431f984">&#9670;&#160;</a></span>contains() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::contains </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>pattern</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "input" contains the substring "pattern". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String to search. </td></tr>
-    <tr><td class="paramname">pattern</td><td>Substring to look for; an empty "pattern" is always found. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" when at least one occurrence exists. </dd></dl>
-
-</div>
-</div>
-<a id="a5045388a989b2e8bb8d103561ad56ba2" name="a5045388a989b2e8bb8d103561ad56ba2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5045388a989b2e8bb8d103561ad56ba2">&#9670;&#160;</a></span>copyTo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::copyTo </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Copy "input" into "output" and append a null terminator. </p>
-<p>Nothing is written when the text and its terminator do not fit, so a truncated string is never produced.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Source string. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least "input.size()" + 1 characters. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" when "output" is too small. </dd></dl>
-
-</div>
-</div>
-<a id="a091f2b2e3a2cd0db38465256325d0299" name="a091f2b2e3a2cd0db38465256325d0299"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a091f2b2e3a2cd0db38465256325d0299">&#9670;&#160;</a></span>count()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr size_t Lib::Helper::StringHelper::count </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Count the occurrences of "character" in "input". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String to search. </td></tr>
-    <tr><td class="paramname">character</td><td>Character to count. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of occurrences. </dd></dl>
-
-</div>
-</div>
-<a id="a21eff6d52304772a34f2bc2d716a9d24" name="a21eff6d52304772a34f2bc2d716a9d24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21eff6d52304772a34f2bc2d716a9d24">&#9670;&#160;</a></span>endsWithIgnoreCase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::endsWithIgnoreCase </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>suffix</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "input" ends with "suffix", ignoring ASCII letter case. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String to test. </td></tr>
-    <tr><td class="paramname">suffix</td><td>Expected suffix. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" when "input" ends with "suffix"; always "true" for an empty "suffix". </dd></dl>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;:</div>
 <div id="dynsection-1-summary" class="dynsummary">
 </div>
 <div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a21eff6d52304772a34f2bc2d716a9d24_cgraph.svg" width="806" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc1/a02277.svg" width="326" height="436"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ac641d00fe40401733c00642547895f68" name="ac641d00fe40401733c00642547895f68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac641d00fe40401733c00642547895f68">&#9670;&#160;</a></span>equalsIgnoreCase()</h2>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ac0f4ceb9b0f8b8a506fd172cb3ce4566" id="r_ac0f4ceb9b0f8b8a506fd172cb3ce4566"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> (const USBHostPortBase &amp;other)=delete</td></tr>
+<tr class="memdesc:ac0f4ceb9b0f8b8a506fd172cb3ce4566"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:aa89066f8aa5102a47badafbc732bf444" id="r_aa89066f8aa5102a47badafbc732bf444"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aa89066f8aa5102a47badafbc732bf444">USBHostPortBase</a> (USBHostPortBase &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:aa89066f8aa5102a47badafbc732bf444"><td class="mdescLeft">&#160;</td><td class="mdescRight">Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a58f84861a9e04f0260bf39e31c926931" id="r_a58f84861a9e04f0260bf39e31c926931"><td class="memItemLeft"><a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a58f84861a9e04f0260bf39e31c926931">operator=</a> (const <a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> &amp;other)=delete</td></tr>
+<tr class="memdesc:a58f84861a9e04f0260bf39e31c926931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:a9dea26483778c8eacb80952819421b30" id="r_a9dea26483778c8eacb80952819421b30"><td class="memItemLeft"><a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a9dea26483778c8eacb80952819421b30">operator=</a> (<a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> &amp;&amp;other)=delete</td></tr>
+<tr class="memdesc:a9dea26483778c8eacb80952819421b30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance.  <br /></td></tr>
+<tr class="memitem:ab20db0d8a9ceb5b527bc5b4ff065717f" id="r_ab20db0d8a9ceb5b527bc5b4ff065717f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab20db0d8a9ceb5b527bc5b4ff065717f">open</a> () noexcept</td></tr>
+<tr class="memdesc:ab20db0d8a9ceb5b527bc5b4ff065717f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the controller in host mode; the bus stays silent until "start()".  <br /></td></tr>
+<tr class="memitem:aff332f8bc49d112c37f829db7d9b78c1" id="r_aff332f8bc49d112c37f829db7d9b78c1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aff332f8bc49d112c37f829db7d9b78c1">close</a> () noexcept</td></tr>
+<tr class="memdesc:aff332f8bc49d112c37f829db7d9b78c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deinitializes the controller and releases it.  <br /></td></tr>
+<tr class="memitem:ae2eed5f70766aca444ca11eb3ab9d1ad" id="r_ae2eed5f70766aca444ca11eb3ab9d1ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae2eed5f70766aca444ca11eb3ab9d1ad">start</a> () noexcept</td></tr>
+<tr class="memdesc:ae2eed5f70766aca444ca11eb3ab9d1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the controller interrupts and powers the port, so a device can be attached.  <br /></td></tr>
+<tr class="memitem:abb99db8a0c5b9c1c35ae04c3fcc63818" id="r_abb99db8a0c5b9c1c35ae04c3fcc63818"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abb99db8a0c5b9c1c35ae04c3fcc63818">stop</a> () noexcept</td></tr>
+<tr class="memdesc:abb99db8a0c5b9c1c35ae04c3fcc63818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the controller interrupts and the port.  <br /></td></tr>
+<tr class="memitem:a4be20887571f3bd3694a79bb349979f8" id="r_a4be20887571f3bd3694a79bb349979f8"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4be20887571f3bd3694a79bb349979f8">resetPort</a> () noexcept</td></tr>
+<tr class="memdesc:a4be20887571f3bd3694a79bb349979f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Drives a bus reset on the port, as the first step after a device is attached.  <br /></td></tr>
+<tr class="memitem:aa013c6f71e1233cd4ef77f9d22d951f1" id="r_aa013c6f71e1233cd4ef77f9d22d951f1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa013c6f71e1233cd4ef77f9d22d951f1">openChannel</a> (uint8_t channel, uint8_t endpointNumber, uint8_t deviceAddress, <a class="el" href="../../d3/dd1/a00914.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a> speed, <a class="el" href="../../d3/dd1/a00914.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a> type, uint16_t maxPacketSize) noexcept</td></tr>
+<tr class="memdesc:aa013c6f71e1233cd4ef77f9d22d951f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes a host channel for one endpoint of the attached device.  <br /></td></tr>
+<tr class="memitem:a8f20ce05eb27e7ffc1854d4318e1cd9f" id="r_a8f20ce05eb27e7ffc1854d4318e1cd9f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8f20ce05eb27e7ffc1854d4318e1cd9f">closeChannel</a> (uint8_t channel) noexcept</td></tr>
+<tr class="memdesc:a8f20ce05eb27e7ffc1854d4318e1cd9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Halts a host channel, so its transfer stops and the channel can be reused.  <br /></td></tr>
+<tr class="memitem:aeafad19d337548bb5ef919dd44723b5f" id="r_aeafad19d337548bb5ef919dd44723b5f"><td class="memItemLeft">size_t&#160;</td><td class="memItemRight"><a class="el" href="#aeafad19d337548bb5ef919dd44723b5f">getTransferCount</a> (uint8_t channel) const noexcept</td></tr>
+<tr class="memdesc:aeafad19d337548bb5ef919dd44723b5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the number of bytes a channel transferred in its last transfer.  <br /></td></tr>
+<tr class="memitem:a606a97ab7752495ff5b4874b04c54cc5" id="r_a606a97ab7752495ff5b4874b04c54cc5"><td class="memItemLeft"><a class="el" href="../../d3/dd1/a00914.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a>&#160;</td><td class="memItemRight"><a class="el" href="#a606a97ab7752495ff5b4874b04c54cc5">getSpeed</a> () noexcept</td></tr>
+<tr class="memdesc:a606a97ab7752495ff5b4874b04c54cc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the speed of the attached device, as detected at the last bus reset.  <br /></td></tr>
+<tr class="memitem:aa5a82053bf356261f139d027918f7a98" id="r_aa5a82053bf356261f139d027918f7a98"><td class="memItemLeft">uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#aa5a82053bf356261f139d027918f7a98">getFrame</a> () noexcept</td></tr>
+<tr class="memdesc:aa5a82053bf356261f139d027918f7a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current frame number, for scheduling.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a6ab4021b54519845f9f116d64637e8b3" id="r_a6ab4021b54519845f9f116d64637e8b3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a6ab4021b54519845f9f116d64637e8b3">USBHostPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a6ab4021b54519845f9f116d64637e8b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default-constructs the CRTP foundation.  <br /></td></tr>
+<tr class="memitem:a78ed9071852127d2096ce7ef2b2a5f8e" id="r_a78ed9071852127d2096ce7ef2b2a5f8e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a78ed9071852127d2096ce7ef2b2a5f8e">~USBHostPortBase</a> () noexcept=default</td></tr>
+<tr class="memdesc:a78ed9071852127d2096ce7ef2b2a5f8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the foundation; it owns no state, so there is nothing to release here.  <br /></td></tr>
+</table>
+<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac0f4ceb9b0f8b8a506fd172cb3ce4566" name="ac0f4ceb9b0f8b8a506fd172cb3ce4566"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">&#9670;&#160;</a></span>USBHostPortBase() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::equalsIgnoreCase </td>
+          <td class="memname"><a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::USBHostPortBase </td>
           <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const USBHostPortBase&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Compare two strings ignoring ASCII letter case. </p>
+<p>Copying is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">left</td><td>First string. </td></tr>
-    <tr><td class="paramname">right</td><td>Second string. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" when both strings have the same length and match character by character after case folding. </dd></dl>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_ac641d00fe40401733c00642547895f68_icgraph.svg" width="822" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_ac0f4ceb9b0f8b8a506fd172cb3ce4566_cgraph.svg" width="368" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-
-</div>
-</div>
-<a id="ae51395d9b15ab5f66b471c8ce9650bf8" name="ae51395d9b15ab5f66b471c8ce9650bf8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae51395d9b15ab5f66b471c8ce9650bf8">&#9670;&#160;</a></span>findInArray()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr int32_t Lib::Helper::StringHelper::findInArray </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>select</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *const *</td>          <td class="paramname"><span class="paramname"><em>array</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Find "select" in a null-terminated array of C strings. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">select</td><td>String view to search for. </td></tr>
-    <tr><td class="paramname">array</td><td>Array of C strings terminated by a "nullptr" entry; a null "array" finds nothing. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Index of the matching array entry, or "NOT_FOUND" if there is none. </dd></dl>
-
-</div>
-</div>
-<a id="adce7129f8a4a374627f19e75be5d33fe" name="adce7129f8a4a374627f19e75be5d33fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adce7129f8a4a374627f19e75be5d33fe">&#9670;&#160;</a></span>fromHex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::fromHex </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Decode hexadecimal text in "input" into bytes. </p>
-<p>Digits are accepted in either case; separators and prefixes are rejected. On success exactly "input.size()" / 2 bytes are written; on failure the content of "output" is unspecified.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Hexadecimal text; its length must be even. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least "input.size()" / 2 bytes. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on odd length, a non-hex character or a too-small "output". </dd></dl>
-
-</div>
-</div>
-<a id="a6e572eea9d5827b40949830ef8b4f3f8" name="a6e572eea9d5827b40949830ef8b4f3f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e572eea9d5827b40949830ef8b4f3f8">&#9670;&#160;</a></span>isAlpha()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::isAlpha </td>
-          <td>(</td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "character" is an ASCII letter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" for "a" to "z" and "A" to "Z". </dd></dl>
 <div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-3-summary" class="dynsummary">
 </div>
 <div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a6e572eea9d5827b40949830ef8b4f3f8_icgraph.svg" width="702" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_ac0f4ceb9b0f8b8a506fd172cb3ce4566_icgraph.svg" width="782" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a9237a20526744e303840fc0f0ae682eb" name="a9237a20526744e303840fc0f0ae682eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9237a20526744e303840fc0f0ae682eb">&#9670;&#160;</a></span>isAlphaNumeric()</h2>
+<a id="aa89066f8aa5102a47badafbc732bf444" name="aa89066f8aa5102a47badafbc732bf444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa89066f8aa5102a47badafbc732bf444">&#9670;&#160;</a></span>USBHostPortBase() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::isAlphaNumeric </td>
+          <td class="memname"><a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::USBHostPortBase </td>
           <td>(</td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
+          <td class="paramtype">USBHostPortBase&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check whether "character" is an ASCII letter or decimal digit. </p>
+<p>Moving is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" when "isAlpha()" or "isDigit()" holds. </dd></dl>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
 <div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a9237a20526744e303840fc0f0ae682eb_cgraph.svg" width="1059" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_aa89066f8aa5102a47badafbc732bf444_cgraph.svg" width="774" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="a31c1d2ce59c3d3d5cae4eb564de28e71" name="a31c1d2ce59c3d3d5cae4eb564de28e71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a31c1d2ce59c3d3d5cae4eb564de28e71">&#9670;&#160;</a></span>isDigit()</h2>
+<a id="a6ab4021b54519845f9f116d64637e8b3" name="a6ab4021b54519845f9f116d64637e8b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ab4021b54519845f9f116d64637e8b3">&#9670;&#160;</a></span>USBHostPortBase() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::isDigit </td>
+          <td class="memname"><a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::USBHostPortBase </td>
           <td>(</td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check whether "character" is an ASCII decimal digit. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" for '0' to '9'. </dd></dl>
+<p>Default-constructs the CRTP foundation. </p>
+<p>Carries no state; the native handle lives on "T_DERIVED". </p>
+
+</div>
+</div>
+<a id="a78ed9071852127d2096ce7ef2b2a5f8e" name="a78ed9071852127d2096ce7ef2b2a5f8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78ed9071852127d2096ce7ef2b2a5f8e">&#9670;&#160;</a></span>~USBHostPortBase()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::~<a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Destroys the foundation; it owns no state, so there is nothing to release here. </p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
 <div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a31c1d2ce59c3d3d5cae4eb564de28e71_cgraph.svg" width="662" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a31c1d2ce59c3d3d5cae4eb564de28e71_icgraph.svg" width="702" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a78ed9071852127d2096ce7ef2b2a5f8e_cgraph.svg" width="782" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="adc2363864a22d143b3c52dd6d85c39e2" name="adc2363864a22d143b3c52dd6d85c39e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc2363864a22d143b3c52dd6d85c39e2">&#9670;&#160;</a></span>isHexDigit()</h2>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aff332f8bc49d112c37f829db7d9b78c1" name="aff332f8bc49d112c37f829db7d9b78c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff332f8bc49d112c37f829db7d9b78c1">&#9670;&#160;</a></span>close()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::isHexDigit </td>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::close </td>
           <td>(</td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Check whether "character" is an ASCII hexadecimal digit. </p>
+<p>Deinitializes the controller and releases it. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> deinitialization succeeded. </dd></dl>
+
+</div>
+</div>
+<a id="a8f20ce05eb27e7ffc1854d4318e1cd9f" name="a8f20ce05eb27e7ffc1854d4318e1cd9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f20ce05eb27e7ffc1854d4318e1cd9f">&#9670;&#160;</a></span>closeChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::closeChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Halts a host channel, so its transfer stops and the channel can be reused. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
+    <tr><td class="paramname">channel</td><td>Channel number. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" for '0' to '9', "a" to "f" and "A" to "F". </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the halt. </dd></dl>
+
+</div>
+</div>
+<a id="aa5a82053bf356261f139d027918f7a98" name="aa5a82053bf356261f139d027918f7a98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5a82053bf356261f139d027918f7a98">&#9670;&#160;</a></span>getFrame()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getFrame </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the current frame number, for scheduling. </p>
+<dl class="section return"><dt>Returns</dt><dd>Frame number. </dd></dl>
+
+</div>
+</div>
+<a id="a606a97ab7752495ff5b4874b04c54cc5" name="a606a97ab7752495ff5b4874b04c54cc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a606a97ab7752495ff5b4874b04c54cc5">&#9670;&#160;</a></span>getSpeed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d3/dd1/a00914.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a> <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getSpeed </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the speed of the attached device, as detected at the last bus reset. </p>
+<dl class="section return"><dt>Returns</dt><dd>Speed of the port. </dd></dl>
+
+</div>
+</div>
+<a id="aeafad19d337548bb5ef919dd44723b5f" name="aeafad19d337548bb5ef919dd44723b5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafad19d337548bb5ef919dd44723b5f">&#9670;&#160;</a></span>getTransferCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::getTransferCount </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the number of bytes a channel transferred in its last transfer. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel number. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Transferred byte count. </dd></dl>
+
+</div>
+</div>
+<a id="ab20db0d8a9ceb5b527bc5b4ff065717f" name="ab20db0d8a9ceb5b527bc5b4ff065717f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab20db0d8a9ceb5b527bc5b4ff065717f">&#9670;&#160;</a></span>open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::open </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes the controller in host mode; the bus stays silent until "start()". </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> initialization succeeded. </dd></dl>
+
+</div>
+</div>
+<a id="aa013c6f71e1233cd4ef77f9d22d951f1" name="aa013c6f71e1233cd4ef77f9d22d951f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa013c6f71e1233cd4ef77f9d22d951f1">&#9670;&#160;</a></span>openChannel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::openChannel </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>endpointNumber</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>deviceAddress</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/dd1/a00914.html#a8cde9e5e92df1421df294fcb1a50b4e7">USBSpeed</a></td>          <td class="paramname"><span class="paramname"><em>speed</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../d3/dd1/a00914.html#ae1783f3c88baf78f222c313659cf4a98">USBEndpointType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>maxPacketSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Initializes a host channel for one endpoint of the attached device. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel</td><td>Channel number, below the number the controller has. </td></tr>
+    <tr><td class="paramname">endpointNumber</td><td>Endpoint number of the device (without the direction bit). </td></tr>
+    <tr><td class="paramname">deviceAddress</td><td>Address of the device on the bus (0 before SET_ADDRESS). </td></tr>
+    <tr><td class="paramname">speed</td><td>Bus speed of the device. </td></tr>
+    <tr><td class="paramname">type</td><td>Transfer type of the endpoint. </td></tr>
+    <tr><td class="paramname">maxPacketSize</td><td>Maximum packet size of the endpoint, in bytes. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the channel. </dd></dl>
+
+</div>
+</div>
+<a id="a58f84861a9e04f0260bf39e31c926931" name="a58f84861a9e04f0260bf39e31c926931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58f84861a9e04f0260bf39e31c926931">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> &amp; <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a>&lt; T_DERIVED &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Copy assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a58f84861a9e04f0260bf39e31c926931_cgraph.svg" width="726" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a9dea26483778c8eacb80952819421b30" name="a9dea26483778c8eacb80952819421b30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9dea26483778c8eacb80952819421b30">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a> &amp; <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ac0f4ceb9b0f8b8a506fd172cb3ce4566">USBHostPortBase</a>&lt; T_DERIVED &gt; &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Move assignment is deleted: each instance is bound to a unique "T_DERIVED" driver instance. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>Source object. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
 <div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_adc2363864a22d143b3c52dd6d85c39e2_cgraph.svg" width="1067" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a9dea26483778c8eacb80952819421b30_cgraph.svg" width="726" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
 </div>
-<a id="ab5d55fab639019b032452d2aed84765c" name="ab5d55fab639019b032452d2aed84765c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5d55fab639019b032452d2aed84765c">&#9670;&#160;</a></span>isPrintable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::isPrintable </td>
-          <td>(</td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "character" is printable ASCII. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" for the range from space to tilde. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_ab5d55fab639019b032452d2aed84765c_cgraph.svg" width="766" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a2a95a6dfb9c197c18dde158f12290aa7" name="a2a95a6dfb9c197c18dde158f12290aa7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a95a6dfb9c197c18dde158f12290aa7">&#9670;&#160;</a></span>isWhitespace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::isWhitespace </td>
-          <td>(</td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>character</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "character" is ASCII whitespace. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">character</td><td>Character to test. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" for space, tab, line feed, carriage return, form feed and vertical tab. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a2a95a6dfb9c197c18dde158f12290aa7_icgraph.svg" width="1019" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a22f2dd59b7c79dc4cc59071d50ff7aab" name="a22f2dd59b7c79dc4cc59071d50ff7aab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a22f2dd59b7c79dc4cc59071d50ff7aab">&#9670;&#160;</a></span>parseInteger()</h2>
+<a id="a4be20887571f3bd3694a79bb349979f8" name="a4be20887571f3bd3694a79bb349979f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4be20887571f3bd3694a79bb349979f8">&#9670;&#160;</a></span>resetPort()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::integral T&gt; <br />
-requires (!std::same_as&lt;T, bool&gt;)</div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::parseInteger </td>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::resetPort </td>
           <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>base</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10U</span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Parse "input" as an integer in the given "base". </p>
-<p>Accepts an optional leading '+' sign, or '-' for signed "T", followed by at least one digit. Surrounding whitespace, radix prefixes such as '0x' and any trailing characters are rejected; call "trim()" first if needed. "value" is left untouched on failure.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>Integral destination type other than "bool". </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Text to parse. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">value</td><td>Parsed result, written only on success. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">base</td><td>Numeric base from 2 to 36; digits above 9 are letters in either case. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" on success, "false" on a malformed number, overflow or invalid "base". </dd></dl>
+<p>Drives a bus reset on the port, as the first step after a device is attached. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the reset. </dd></dl>
 
 </div>
 </div>
-<a id="aa7ad4131c34e89def6b673fa2c7ca98f" name="aa7ad4131c34e89def6b673fa2c7ca98f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7ad4131c34e89def6b673fa2c7ca98f">&#9670;&#160;</a></span>replaceInPlace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr size_t Lib::Helper::StringHelper::replaceInPlace </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>to</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Replace every occurrence of "from" with "to" in "buffer". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Characters to edit; modified in place. </td></tr>
-    <tr><td class="paramname">from</td><td>Character to replace. </td></tr>
-    <tr><td class="paramname">to</td><td>Replacement character. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of replaced characters. </dd></dl>
-
-</div>
-</div>
-<a id="a56b87223e35dbc0754e09942c94c7d85" name="a56b87223e35dbc0754e09942c94c7d85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56b87223e35dbc0754e09942c94c7d85">&#9670;&#160;</a></span>split()</h2>
+<a id="ae2eed5f70766aca444ca11eb3ab9d1ad" name="ae2eed5f70766aca444ca11eb3ab9d1ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2eed5f70766aca444ca11eb3ab9d1ad">&#9670;&#160;</a></span>start()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename F&gt; <br />
-requires std::invocable&lt;F &amp;, std::string_view&gt;</div>
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr void Lib::Helper::StringHelper::split </td>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::start </td>
           <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">F &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>Split "input" by "delimiter" and invoke "callback" once for each token. </p>
-<p>Every token, including empty ones between adjacent delimiters and the one after the last delimiter, is passed as a "std::string_view" referencing the original input.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">F</td><td>Callable type invocable with a single "std::string_view" argument. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String to split. </td></tr>
-    <tr><td class="paramname">delimiter</td><td>Character used as token separator. </td></tr>
-    <tr><td class="paramname">callback</td><td>Function to call for each token. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Enables the controller interrupts and powers the port, so a device can be attached. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the start. </dd></dl>
 
 </div>
 </div>
-<a id="a07f671da48f9d7c420853de5a5cc769b" name="a07f671da48f9d7c420853de5a5cc769b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07f671da48f9d7c420853de5a5cc769b">&#9670;&#160;</a></span>splitTo()</h2>
+<a id="abb99db8a0c5b9c1c35ae04c3fcc63818" name="abb99db8a0c5b9c1c35ae04c3fcc63818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb99db8a0c5b9c1c35ae04c3fcc63818">&#9670;&#160;</a></span>stop()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T_DERIVED&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr size_t Lib::Helper::StringHelper::splitTo </td>
+          <td class="memname">bool <a class="el" href="../../d2/dd2/a02279.html">Lib::HAL::USBHostPortBase</a>&lt; T_DERIVED &gt;::stop </td>
           <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; std::string_view &gt;</td>          <td class="paramname"><span class="paramname"><em>tokens</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Split "input" by "delimiter" into the caller-supplied "tokens" array. </p>
-<p>Tokenization follows the same rules as "split()". When "input" holds more tokens than "tokens" can store, the last stored token holds the unsplit remainder of the input, so no text is ever lost.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>String to split. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">delimiter</td><td>Character used as token separator. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">tokens</td><td>Destination array of views referencing "input". </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Number of tokens stored; '0' only when "tokens" is empty. </dd></dl>
-
-</div>
-</div>
-<a id="a29631573c86b1e1d6ba1a5819a1cff86" name="a29631573c86b1e1d6ba1a5819a1cff86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29631573c86b1e1d6ba1a5819a1cff86">&#9670;&#160;</a></span>startsWithIgnoreCase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool Lib::Helper::StringHelper::startsWithIgnoreCase </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>prefix</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Check whether "input" begins with "prefix", ignoring ASCII letter case. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String to test. </td></tr>
-    <tr><td class="paramname">prefix</td><td>Expected prefix. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>"true" when "input" starts with "prefix"; always "true" for an empty "prefix". </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_a29631573c86b1e1d6ba1a5819a1cff86_cgraph.svg" width="822" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ad92ab1e3ab5301dea791138d956fb09e" name="ad92ab1e3ab5301dea791138d956fb09e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad92ab1e3ab5301dea791138d956fb09e">&#9670;&#160;</a></span>toHex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::string_view Lib::Helper::StringHelper::toHex </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; const uint8_t &gt;</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>upperCase</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Encode "input" as hexadecimal text, two characters per byte, most significant nibble first. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Bytes to encode. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least 2 * "input.size()" characters. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">upperCase</td><td>"true" for "A" to "F", "false" for "a" to "f". </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>View of the encoded text inside "output", or an empty view when "output" is too small. </dd></dl>
-
-</div>
-</div>
-<a id="a0ca94c3562d49e908992178c0e94254c" name="a0ca94c3562d49e908992178c0e94254c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ca94c3562d49e908992178c0e94254c">&#9670;&#160;</a></span>toLowerCase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::string_view Lib::Helper::StringHelper::toLowerCase </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "input" to its lower-case representation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Source string view to convert. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least "input.size()" characters. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>View of the converted characters inside "output", or an empty view when "output" is too small. </dd></dl>
-
-</div>
-</div>
-<a id="aa489df5b828be650c52d25ff4cb6c66b" name="aa489df5b828be650c52d25ff4cb6c66b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa489df5b828be650c52d25ff4cb6c66b">&#9670;&#160;</a></span>toLowerCaseInPlace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr void Lib::Helper::StringHelper::toLowerCaseInPlace </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "buffer" to lower case in place. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Characters to convert; modified in place. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="af0552b4dd5288a0feaa8e6dc5dc92764" name="af0552b4dd5288a0feaa8e6dc5dc92764"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0552b4dd5288a0feaa8e6dc5dc92764">&#9670;&#160;</a></span>toUpperCase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::string_view Lib::Helper::StringHelper::toUpperCase </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>output</em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "input" to its upper-case representation. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramdir"></td><td class="paramname">input</td><td>Source string view to convert. </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">output</td><td>Destination buffer; must hold at least "input.size()" characters. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>View of the converted characters inside "output", or an empty view when "output" is too small. </dd></dl>
-
-</div>
-</div>
-<a id="a1019248640c9b2d3f8b01487c240b135" name="a1019248640c9b2d3f8b01487c240b135"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1019248640c9b2d3f8b01487c240b135">&#9670;&#160;</a></span>toUpperCaseInPlace()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr void Lib::Helper::StringHelper::toUpperCaseInPlace </td>
-          <td>(</td>
-          <td class="paramtype">std::span&lt; char &gt;</td>          <td class="paramname"><span class="paramname"><em>buffer</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p><a class="el" href="../../d7/d46/a00890.html" title="Helpers for converting between signal units and presentation scales.">Convert</a> "buffer" to upper case in place. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">buffer</td><td>Characters to convert; modified in place. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="accde21de05cd8a8a240196d0c9bb5166" name="accde21de05cd8a8a240196d0c9bb5166"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#accde21de05cd8a8a240196d0c9bb5166">&#9670;&#160;</a></span>trim()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::string_view Lib::Helper::StringHelper::trim </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Trim leading and trailing ASCII whitespace from "input". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String view to trim. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Substring view referencing the trimmed range; an empty view when the input contains only whitespace. </dd></dl>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
-</div>
-<div id="dynsection-11-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_accde21de05cd8a8a240196d0c9bb5166_cgraph.svg" width="1019" height="94"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="aea358f48a1889dd86758b74f73595281" name="aea358f48a1889dd86758b74f73595281"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea358f48a1889dd86758b74f73595281">&#9670;&#160;</a></span>trimLeft()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::string_view Lib::Helper::StringHelper::trimLeft </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Trim leading ASCII whitespace from "input". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String view to trim. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Substring view referencing the trimmed range; an empty view when the input contains only whitespace. </dd></dl>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
-</div>
-<div id="dynsection-12-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_aea358f48a1889dd86758b74f73595281_cgraph.svg" width="694" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
-</div>
-<div id="dynsection-13-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_aea358f48a1889dd86758b74f73595281_icgraph.svg" width="630" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="ab10075b04e08bef0a431f89a173b9741" name="ab10075b04e08bef0a431f89a173b9741"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab10075b04e08bef0a431f89a173b9741">&#9670;&#160;</a></span>trimRight()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr std::string_view Lib::Helper::StringHelper::trimRight </td>
-          <td>(</td>
-          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel constexpr">constexpr</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Trim trailing ASCII whitespace from "input". </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>String view to trim. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Substring view referencing the trimmed range; an empty view when the input contains only whitespace. </dd></dl>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
-</div>
-<div id="dynsection-14-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_ab10075b04e08bef0a431f89a173b9741_cgraph.svg" width="702" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-15-summary" class="dynsummary">
-</div>
-<div id="dynsection-15-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/dd2/a02279_ab10075b04e08bef0a431f89a173b9741_icgraph.svg" width="638" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a5bf99845ae67ccdd4a93374ca8ba346d" name="a5bf99845ae67ccdd4a93374ca8ba346d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bf99845ae67ccdd4a93374ca8ba346d">&#9670;&#160;</a></span>NOT_FOUND</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t Lib::Helper::StringHelper::NOT_FOUND = -1</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sentinel returned by "findInArray()" when no match is found. </p>
+<p>Disables the controller interrupts and the port. </p>
+<dl class="section return"><dt>Returns</dt><dd>"true" if the <a class="el" href="../../d3/dd1/a00914.html" title="Hardware abstraction layer for STM32F4xx peripherals.">HAL</a> accepted the stop. </dd></dl>
 
 </div>
 </div>
@@ -1367,7 +774,7 @@ requires std::invocable&lt;F &amp;, std::string_view&gt;</div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../de/dc8/a00889.html">Helper</a></li><li class="navelem"><a href="../../d2/dd2/a02279.html">StringHelper</a></li>
+    <li class="navelem"><a href="../../d2/da1/a00879.html">Lib</a></li><li class="navelem"><a href="../../d3/dd1/a00914.html">HAL</a></li><li class="navelem"><a href="../../d2/dd2/a02279.html">USBHostPortBase</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

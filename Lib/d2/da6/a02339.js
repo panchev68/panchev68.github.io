@@ -1,7 +1,12 @@
 var a02339 =
 [
-    [ "Point", "d2/da6/a02339.html#a0a1b67f20f66f9eaa908ee2d2919bbd2", null ],
-    [ "Point", "d2/da6/a02339.html#aa74828bb7e6c3f161133c0e12513f322", null ],
-    [ "x", "d2/da6/a02339.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
-    [ "y", "d2/da6/a02339.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
+    [ "Time", "d2/da6/a02339.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "d2/da6/a02339.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "d2/da6/a02339.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "d2/da6/a02339.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "d2/da6/a02339.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "d2/da6/a02339.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "d2/da6/a02339.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "d2/da6/a02339.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "d2/da6/a02339.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

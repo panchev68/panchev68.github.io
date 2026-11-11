@@ -1,12 +1,12 @@
 var a01673 =
 [
-    [ "Command", "d9/df5/a01673.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
-    [ "RemoteAtCommand", "d9/df5/a01673.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
-    [ "RemoteAtCommand", "d9/df5/a01673.html#a772786f4856c6806756c33743f038855", null ],
-    [ "close", "d9/df5/a01673.html#acfc9182b712685cd72276c7c645330ec", null ],
-    [ "open", "d9/df5/a01673.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
-    [ "operator=", "d9/df5/a01673.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
-    [ "receive", "d9/df5/a01673.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
-    [ "send", "d9/df5/a01673.html#a68565e1939553aa4b73a44d4c6adf059", null ],
-    [ "send", "d9/df5/a01673.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
+    [ "Config", "d9/df5/a01673.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
+    [ "Module", "d9/df5/a01673.html#a254c8c718d7faf592b274708db07db8d", null ],
+    [ "~Module", "d9/df5/a01673.html#a3e8be6962f855fba474c3c0e0366a256", null ],
+    [ "init", "d9/df5/a01673.html#a45140156f7c70b779d773237bed74b50", null ],
+    [ "reset", "d9/df5/a01673.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
+    [ "send", "d9/df5/a01673.html#adb8dd809dcd7a22dee2718819616b947", null ],
+    [ "onMessageReceive", "d9/df5/a01673.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
+    [ "onMessageSend", "d9/df5/a01673.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
+    [ "responseEvents", "d9/df5/a01673.html#ac2585942261cabaa51522f461c64816b", null ]
 ];

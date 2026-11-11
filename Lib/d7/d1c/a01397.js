@@ -1,10 +1,19 @@
 var a01397 =
 [
-    [ "WolfSSH", "d7/d1c/a01397.html#acda587d771e0b88270bdf9263d156fd0", null ],
-    [ "~WolfSSH", "d7/d1c/a01397.html#ad07d509cc2a825d9165ab30739d84515", null ],
-    [ "WolfSSH", "d7/d1c/a01397.html#ab03771dcd75546ec452cb768b0a29da5", null ],
-    [ "WolfSSH", "d7/d1c/a01397.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
-    [ "isOpen", "d7/d1c/a01397.html#aac3ff36b57e422860d83792bb84c84f3", null ],
-    [ "operator=", "d7/d1c/a01397.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
-    [ "operator=", "d7/d1c/a01397.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
+    [ "Target", "dc/df4/a01401.html", "dc/df4/a01401" ],
+    [ "Key", "d4/d1a/a01405.html", null ],
+    [ "FreeFunctionPointer", "d7/d1c/a01397.html#ae22c5663935235364bcc0825ab4d629f", null ],
+    [ "Invoker", "d7/d1c/a01397.html#a8214768472d127afdfab5c89248b46d5", null ],
+    [ "Qualified", "d7/d1c/a01397.html#ad27df83b5fa38c097b7679da335eb089", null ],
+    [ "Base", "d7/d1c/a01397.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
+    [ "Base", "d7/d1c/a01397.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
+    [ "Base", "d7/d1c/a01397.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
+    [ "Base", "d7/d1c/a01397.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
+    [ "Base", "d7/d1c/a01397.html#a49a4e79ff99eb03351fd7a280f276905", null ],
+    [ "invoke", "d7/d1c/a01397.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
+    [ "isBound", "d7/d1c/a01397.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
+    [ "operator bool", "d7/d1c/a01397.html#a3635f11b2444ac12c65990fa27343923", null ],
+    [ "operator()", "d7/d1c/a01397.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
+    [ "operator==", "d7/d1c/a01397.html#a267b146fdae7f078f2b0aa59079ca812", null ],
+    [ "reset", "d7/d1c/a01397.html#af8010e435b8b1074e838687910e56e2f", null ]
 ];

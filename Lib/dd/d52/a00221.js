@@ -1,4 +1,4 @@
 var a00221 =
 [
-    [ "Lib::Communication::Modbus::SerialPortBase", "d8/d4e/a01355.html", "d8/d4e/a01355" ]
+    [ "Lib::Digi::Core::Frame::Header", "d4/dd4/a01659.html", "d4/dd4/a01659" ]
 ];

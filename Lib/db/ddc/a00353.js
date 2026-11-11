@@ -1,4 +1,5 @@
 var a00353 =
 [
-    [ "Lib::Digi::Core::Frame0x8a", "df/d12/a01703.html", "df/d12/a01703" ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::IT &gt;", "d8/ddf/a01951.html", "d8/ddf/a01951" ],
+    [ "Lib::HAL::ADCPort&lt; DriverMode::IT &gt;::Event", "d4/d93/a01955.html", null ]
 ];

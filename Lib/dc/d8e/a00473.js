@@ -1,4 +1,4 @@
 var a00473 =
 [
-    [ "Lib::HAL::DACPortBase&lt; Derived &gt;", "d0/d43/a01935.html", "d0/d43/a01935" ]
+    [ "Lib::HAL::OTP", "d3/d48/a02069.html", "d3/d48/a02069" ]
 ];

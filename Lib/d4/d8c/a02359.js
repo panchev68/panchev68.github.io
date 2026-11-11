@@ -1,11 +1,6 @@
 var a02359 =
 [
-    [ "Parameters", "d4/d8c/a02359.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "d4/d8c/a02359.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "d4/d8c/a02359.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "d4/d8c/a02359.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "d4/d8c/a02359.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "d4/d8c/a02359.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "d4/d8c/a02359.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "d4/d8c/a02359.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "operator==", "d4/d8c/a02359.html#a0384dbed539af8588014927e2cc2611e", null ],
+    [ "position", "d4/d8c/a02359.html#a1e9e29c6bb250746612836ecee4e0f57", null ],
+    [ "value", "d4/d8c/a02359.html#a036bbd4435de7509f8854ca2adf96d41", null ]
 ];

@@ -1,9 +1,10 @@
 var a01339 =
 [
-    [ "Frame0x8b", "dd/d6e/a01339.html#abcc6d3244285552f4058f0ed6eb4d2e5", null ],
-    [ "deliveryStatus", "dd/d6e/a01339.html#aa61c6349a40e8e7782a0d1555aab3027", null ],
-    [ "discoveryStatus", "dd/d6e/a01339.html#a7b5c383aff55a80124e65ff4565eb114", null ],
-    [ "frameId", "dd/d6e/a01339.html#aa36023fc0fab1e308c69d99bd3b38297", null ],
-    [ "srcAddr16", "dd/d6e/a01339.html#a664a688b154503cfcc1b025049d43046", null ],
-    [ "transmitRetryCount", "dd/d6e/a01339.html#aad4ecb57da5cee188cb1296d76c5d588", null ]
+    [ "RxMessage", "dd/d6e/a01339.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
+    [ "RxMessage", "dd/d6e/a01339.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
+    [ "getData", "dd/d6e/a01339.html#a211378ed57e780728a164371a88e9913", null ],
+    [ "getId", "dd/d6e/a01339.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
+    [ "data", "dd/d6e/a01339.html#ad7fd7612128273e1c546b6344e7410b3", null ],
+    [ "id", "dd/d6e/a01339.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
+    [ "length", "dd/d6e/a01339.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
 ];

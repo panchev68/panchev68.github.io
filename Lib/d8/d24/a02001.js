@@ -1,14 +1,10 @@
 var a02001 =
 [
-    [ "OSPIPort", "d8/d24/a02001.html#a14ccf4bafc49e1e7c3810bc249cc5748", null ],
-    [ "~OSPIPort", "d8/d24/a02001.html#a50dab62adbe482ae17aa805e97c7f3ce", null ],
-    [ "abort", "d8/d24/a02001.html#a12a734c939e90c6c90510ba2c323dec0", null ],
-    [ "close", "d8/d24/a02001.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "command", "d8/d24/a02001.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "Sha256Digest", "d8/d24/a02001.html#add4d9f33ecf447251492399927b27da5", null ],
+    [ "HASHPort", "d8/d24/a02001.html#ad7c67ca7392509b46ee7d33aa8ac4615", null ],
+    [ "close", "d8/d24/a02001.html#aea9707fb978271d6f7346e2eacd3d206", null ],
     [ "getHandle", "d8/d24/a02001.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d8/d24/a02001.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d8/d24/a02001.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d8/d24/a02001.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d8/d24/a02001.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
-    [ "transmit", "d8/d24/a02001.html#a2f58a3412364e7819ba973859d2389a7", null ]
+    [ "open", "d8/d24/a02001.html#ae9dc794f4ad8b52c9c6ecdd73468f030", null ],
+    [ "sha256", "d8/d24/a02001.html#ac83a5444340025355f8b0986799c34fc", null ]
 ];

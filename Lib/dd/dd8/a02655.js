@@ -1,10 +1,8 @@
 var a02655 =
 [
-    [ "Value64Handle", "d3/d59/a02659.html", "d3/d59/a02659" ],
-    [ "Status", "dd/dd8/a02655.html#ae95109eada6e1d27cd31567f2ba169de", [
-      [ "OK", "dd/dd8/a02655.html#ae95109eada6e1d27cd31567f2ba169deae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "dd/dd8/a02655.html#ae95109eada6e1d27cd31567f2ba169deabb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "close", "dd/dd8/a02655.html#a53db90908f030950c411387229c0e443", null ],
-    [ "open", "dd/dd8/a02655.html#a53a9eea61415dd09f7459b8b382eeb58", null ]
+    [ "Storage", "dd/dd8/a02655.html#ae3c3f6af7c84c25d29109ca3e1dd90d3", null ],
+    [ "close", "dd/dd8/a02655.html#aa684e568a90f586209178bf82321e7eb", null ],
+    [ "open", "dd/dd8/a02655.html#a94cdcfa1e6829286576a0e739c44f0dc", null ],
+    [ "read", "dd/dd8/a02655.html#a882acb437b478460ef1a27f02bfbfa1c", null ],
+    [ "write", "dd/dd8/a02655.html#a7d3edbeec88b0807daece2241bb79d92", null ]
 ];

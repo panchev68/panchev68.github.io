@@ -1,17 +1,17 @@
 var a01889 =
 [
-    [ "DataAlignment", "d9/d9b/a01889.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "d9/d9b/a01889.html#a639e7e6b8ef7eb47baac27f82712963e", null ],
-    [ "~DACPort", "d9/d9b/a01889.html#ac832156b805caf8041f1097ecf576ec2", null ],
-    [ "DACPort", "d9/d9b/a01889.html#ae857dfa99c02206e9c82894b2b5d50c7", null ],
-    [ "DACPort", "d9/d9b/a01889.html#a188f7d834b91520e5dc8b255c12e6d7c", null ],
-    [ "close", "d9/d9b/a01889.html#a2c3c1b081f9ff127e0f02cd3db61d4c4", null ],
-    [ "getChannel", "d9/d9b/a01889.html#a6607ca6708888b8278a5fbe1b865e33d", null ],
-    [ "getHandle", "d9/d9b/a01889.html#a8931efb843554302b191363c4a0bfa41", null ],
-    [ "open", "d9/d9b/a01889.html#ae527315d8794d0bcdbd7b686839e4630", null ],
-    [ "operator=", "d9/d9b/a01889.html#a5e9177ee33e5a96bb6fcb732f8ea15ef", null ],
-    [ "operator=", "d9/d9b/a01889.html#a947c4407f00f40ef2d244a914699c60e", null ],
-    [ "setValue", "d9/d9b/a01889.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "d9/d9b/a01889.html#a0fb9b03d74076c644c02fd75613c0748", null ],
-    [ "stop", "d9/d9b/a01889.html#aeb4d00954e883a85534eb2da3acd379f", null ]
+    [ "ADCPort", "d9/d9b/a01889.html#ad3590b6cb223a01016ad98732fcce676", null ],
+    [ "~ADCPort", "d9/d9b/a01889.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
+    [ "ADCPort", "d9/d9b/a01889.html#a9e044644fe3be9918072830d224a30df", null ],
+    [ "ADCPort", "d9/d9b/a01889.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
+    [ "close", "d9/d9b/a01889.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getHandle", "d9/d9b/a01889.html#a5614da14358698185ca50bab6f0ffb90", null ],
+    [ "getHandle", "d9/d9b/a01889.html#a67ec812f689c32e443b0f0b0693c358a", null ],
+    [ "getValue", "d9/d9b/a01889.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "d9/d9b/a01889.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "d9/d9b/a01889.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
+    [ "operator=", "d9/d9b/a01889.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
+    [ "poll", "d9/d9b/a01889.html#a7f4263cc22040a8ca759022ba6097646", null ],
+    [ "start", "d9/d9b/a01889.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
+    [ "stop", "d9/d9b/a01889.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
 ];

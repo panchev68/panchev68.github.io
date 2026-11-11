@@ -1,4 +1,4 @@
 var a00401 =
 [
-    [ "Lib::Ethernet::Node", "d7/d10/a01819.html", "d7/d10/a01819" ]
+    [ "Lib::HAL::DACPortBase&lt; Derived &gt;", "de/d0a/a02015.html", "de/d0a/a02015" ]
 ];

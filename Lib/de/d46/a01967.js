@@ -1,15 +1,19 @@
 var a01967 =
 [
-    [ "Config", "de/d46/a01967.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
-    [ "Handle", "de/d46/a01967.html#ade0f87f7318848ef033a913d2442a32e", null ],
-    [ "Port", "de/d46/a01967.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
-    [ "~Port", "de/d46/a01967.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
-    [ "Port", "de/d46/a01967.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
-    [ "Port", "de/d46/a01967.html#af0271c4483ea3f5cebaa37054062a428", null ],
-    [ "operator=", "de/d46/a01967.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
-    [ "operator=", "de/d46/a01967.html#a8e39b404c71b26364658b90ae25a398d", null ],
-    [ "read", "de/d46/a01967.html#adce8df0019ea415a350cf833ac481fc2", null ],
-    [ "setPullupPulldown", "de/d46/a01967.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
-    [ "setup", "de/d46/a01967.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
-    [ "write", "de/d46/a01967.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
+    [ "CANPort", "de/d46/a01967.html#adc087231856d1ec6bde6f97494503899", null ],
+    [ "~CANPort", "de/d46/a01967.html#a5fa6802ddfc361d46c041d2e47845c2c", null ],
+    [ "CANPort", "de/d46/a01967.html#afceeecde4eb91455d12a7305342e889a", null ],
+    [ "CANPort", "de/d46/a01967.html#a91653fb9445c55c224e60742c91718a2", null ],
+    [ "close", "de/d46/a01967.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
+    [ "getFreeTxMailboxCount", "de/d46/a01967.html#ac88a1857130f01ccafcb72baae483a84", null ],
+    [ "getHandle", "de/d46/a01967.html#a7cc8f0ba52871e42a14956ec8d48a461", null ],
+    [ "getHandle", "de/d46/a01967.html#afb1f2832e5b39cbae7756143ad5f0fcd", null ],
+    [ "getRxFifoFillLevel", "de/d46/a01967.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "de/d46/a01967.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
+    [ "operator=", "de/d46/a01967.html#afeb6c524be39aba3ed0ff9ef12c87157", null ],
+    [ "operator=", "de/d46/a01967.html#ad2c6c6ceec4e51d58070498c44a3e1b0", null ],
+    [ "read", "de/d46/a01967.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "readBlocking", "de/d46/a01967.html#a49854c8fa3a47517562c6761363bb281", null ],
+    [ "write", "de/d46/a01967.html#a65aa681fa591b2d0956e06e67e990b15", null ],
+    [ "writeBlocking", "de/d46/a01967.html#a290a918dfefeea6aab3500acb68b90de", null ]
 ];

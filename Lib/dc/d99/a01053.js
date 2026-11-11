@@ -1,5 +1,8 @@
 var a01053 =
 [
-    [ "nssPin", "dc/d99/a01053.html#a17d403b44dd249cb67c2cc77a8734e78", null ],
-    [ "spiHandle", "dc/d99/a01053.html#a64f95c007499d4922e5fbf9abcf0eb31", null ]
+    [ "button", "dc/d99/a01053.html#a94e7a1f830574d353bb26c0ad6a5a78c", null ],
+    [ "channel1", "dc/d99/a01053.html#a0718f2449bbbaaf9cb4f37beb1d2f85b", null ],
+    [ "channel2", "dc/d99/a01053.html#a360d21f775c66781831db2507e7a73fc", null ],
+    [ "divider", "dc/d99/a01053.html#a702af25fea0b8af225fc46b4f3fdaee3", null ],
+    [ "reversePolarity", "dc/d99/a01053.html#a979f1b4b2c4f2a9dd0b652da9bb5b724", null ]
 ];

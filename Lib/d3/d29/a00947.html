@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: Lib::BSP::DigitalPeripheralBase</title>
+<title>IAR Library: Lib::BSP::Beep</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -111,122 +111,64 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d3/d29/a00947.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">Lib::BSP::DigitalPeripheralBase</div></div>
+  <div class="headertitle"><div class="title">Lib::BSP::Beep</div></div>
 </div><!--header-->
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>SPI-driven digital input and output block, updated periodically by its own <a class="el" href="../../d2/d21/a00895.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> task. </p>
-<p>Reads an input shift-register chain and drives an MC33879 output driver chain over SPI from a background task. When both chains share one SPI bus they are served one after the other, otherwise independently. Owns one input port and one output port. Call "setup()" once to start the task; derived classes may override "handlePreUpdateEvent()" and "handlePostUpdateEvent()" to run code around every update cycle. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::DigitalPeripheralBase:</div>
+<div class="textblock"><p>Buzzer driven by toggling a timer output-compare channel for a set duration and repeat count. </p>
+<p><a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> only arms a sequence; a periodic tick plays it out in the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer service task as beep, pause, repeat, so the call never blocks. A <a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> call made while a sequence is still running is ignored, also when several tasks call it at once.</p>
+<dl class="section important"><dt>Important</dt><dd>The timer is set up by CubeMX (prescaler and period give the tone); the driver only reconfigures the channel as output compare in toggle mode on every beep. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d91/a02774.html#_a0">Lib::BSP::Beep</a>.</dd>
+</dl>
+</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Inheritance diagram for Lib::BSP::Beep:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/db0/a00945.svg" width="270" height="390"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d40/a00946.svg" width="214" height="630"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Lib::BSP::Beep:</div>
+<div id="dynsection-1-summary" class="dynsummary">
+</div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d1/db0/a00945.svg" width="214" height="630"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:MapField" id="r_MapField"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/da0/a00951.html">MapField</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Location of one logical pin in the expander chain.  <a href="../../dc/da0/a00951.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/db6/a00955.html">Config</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding of the input and the output port.  <a href="../../dc/db6/a00955.html#details">More...</a><br /></td></tr>
-<tr class="memitem:PortBase" id="r_PortBase"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d4/d94/a00967.html">PortBase</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Common interface of the input and the output port, dispatched through CRTP instead of virtual calls.  <a href="../../d4/d94/a00967.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Inputs" id="r_Inputs"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d0/d3c/a00971.html">Inputs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Input port reading a chain of parallel-in shift registers.  <a href="../../d0/d3c/a00971.html#details">More...</a><br /></td></tr>
-<tr class="memitem:Outputs" id="r_Outputs"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../db/dbf/a00975.html">Outputs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output port driving a daisy chain of MC33879 low-side switches.  <a href="../../db/dbf/a00975.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../dc/da0/a00951.html">Config</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware binding of the buzzer to its timer output-compare channel.  <a href="../../dc/da0/a00951.html#details">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ace067a52b4d9576bd3ade495aa11e352" id="r_ace067a52b4d9576bd3ade495aa11e352"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ace067a52b4d9576bd3ade495aa11e352">DigitalPeripheralBase</a> (const <a class="el" href="../../dc/db6/a00955.html">Config</a> &amp;config) noexcept</td></tr>
-<tr class="memdesc:ace067a52b4d9576bd3ade495aa11e352"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds both ports to their hardware; nothing runs until "setup()".  <br /></td></tr>
-<tr class="memitem:a9d019d0d0be1f110d76abf5f5ab11e4e" id="r_a9d019d0d0be1f110d76abf5f5ab11e4e"><td class="memItemLeft">virtual&#160;</td><td class="memItemRight"><a class="el" href="#a9d019d0d0be1f110d76abf5f5ab11e4e">~DigitalPeripheralBase</a> () noexcept=default</td></tr>
-<tr class="memdesc:a9d019d0d0be1f110d76abf5f5ab11e4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the update task, then releases both ports.  <br /></td></tr>
-<tr class="memitem:ae9523074ebe5ad81c27aacd0f7c38c7f" id="r_ae9523074ebe5ad81c27aacd0f7c38c7f"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae9523074ebe5ad81c27aacd0f7c38c7f">setup</a> () noexcept</td></tr>
-<tr class="memdesc:ae9523074ebe5ad81c27aacd0f7c38c7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Brings both ports into their idle state and starts the update task.  <br /></td></tr>
-<tr class="memitem:ae1add73078ebd967252d4864e16de016" id="r_ae1add73078ebd967252d4864e16de016"><td class="memItemLeft"><a class="el" href="../../d0/d3c/a00971.html">Inputs</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ae1add73078ebd967252d4864e16de016">getInputs</a> () noexcept</td></tr>
-<tr class="memdesc:ae1add73078ebd967252d4864e16de016"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the input port.  <br /></td></tr>
-<tr class="memitem:ad664d141e8c0b66fbd109f6397914af6" id="r_ad664d141e8c0b66fbd109f6397914af6"><td class="memItemLeft"><a class="el" href="../../db/dbf/a00975.html">Outputs</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad664d141e8c0b66fbd109f6397914af6">getOutputs</a> () noexcept</td></tr>
-<tr class="memdesc:ad664d141e8c0b66fbd109f6397914af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the output port.  <br /></td></tr>
+<tr class="memitem:ab7fc52bc381f9496a1cf35f629d1a944" id="r_ab7fc52bc381f9496a1cf35f629d1a944"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> (const <a class="el" href="../../dc/da0/a00951.html">Config</a> &amp;config) noexcept</td></tr>
+<tr class="memdesc:ab7fc52bc381f9496a1cf35f629d1a944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Binds the buzzer to its timer channel and starts the periodic state-machine tick.  <br /></td></tr>
+<tr class="memitem:af601628e760dd29541b317a1256b6bd1" id="r_af601628e760dd29541b317a1256b6bd1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af601628e760dd29541b317a1256b6bd1">~Beep</a> () noexcept</td></tr>
+<tr class="memdesc:af601628e760dd29541b317a1256b6bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the tick and silences the buzzer if a sequence is still playing.  <br /></td></tr>
+<tr class="memitem:a08c08dc451270c224dded9c366b9aa6a" id="r_a08c08dc451270c224dded9c366b9aa6a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a08c08dc451270c224dded9c366b9aa6a">Beep</a> (const Beep &amp;)=delete</td></tr>
+<tr class="memdesc:a08c08dc451270c224dded9c366b9aa6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:ad2f515525962880586d857dd395e8983" id="r_ad2f515525962880586d857dd395e8983"><td class="memItemLeft"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ad2f515525962880586d857dd395e8983">operator=</a> (const <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;)=delete</td></tr>
+<tr class="memdesc:ad2f515525962880586d857dd395e8983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:a3506da759c0ccebd28b87c0489cdb56e" id="r_a3506da759c0ccebd28b87c0489cdb56e"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3506da759c0ccebd28b87c0489cdb56e">Beep</a> (Beep &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a3506da759c0ccebd28b87c0489cdb56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:a3c5fdc21b4e87a407ca4fb0efaa588cc" id="r_a3c5fdc21b4e87a407ca4fb0efaa588cc"><td class="memItemLeft"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a3c5fdc21b4e87a407ca4fb0efaa588cc">operator=</a> (<a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&amp;)=delete</td></tr>
+<tr class="memdesc:a3c5fdc21b4e87a407ca4fb0efaa588cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance.  <br /></td></tr>
+<tr class="memitem:a4bc5b3cc66d266518992ce5dc14973c5" id="r_a4bc5b3cc66d266518992ce5dc14973c5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5">play</a> (uint32_t duration, uint32_t count=1U, uint32_t pause=0U) noexcept</td></tr>
+<tr class="memdesc:a4bc5b3cc66d266518992ce5dc14973c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts a beep sequence, unless one is already playing.  <br /></td></tr>
+<tr class="memitem:ac6552c090b310890de41a06ba77a7e68" id="r_ac6552c090b310890de41a06ba77a7e68"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac6552c090b310890de41a06ba77a7e68">isPlaying</a> () const noexcept</td></tr>
+<tr class="memdesc:ac6552c090b310890de41a06ba77a7e68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets whether a beep sequence is playing.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:a2cba361d16e175d2c042aa2444e0c1c6" id="r_a2cba361d16e175d2c042aa2444e0c1c6"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a2cba361d16e175d2c042aa2444e0c1c6">MAX_PINS</a> = 64U</td></tr>
-<tr class="memdesc:a2cba361d16e175d2c042aa2444e0c1c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest pin count a port can map.  <br /></td></tr>
-<tr class="memitem:a3889581ee3a7457aa37003fdce72a2b5" id="r_a3889581ee3a7457aa37003fdce72a2b5"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#a3889581ee3a7457aa37003fdce72a2b5">INPUT_SPI_TIMEOUT</a> {20}</td></tr>
-<tr class="memdesc:a3889581ee3a7457aa37003fdce72a2b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time limit of one input transfer.  <br /></td></tr>
-<tr class="memitem:acfaa37a52dd0d84fdb758259c189fcf1" id="r_acfaa37a52dd0d84fdb758259c189fcf1"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#acfaa37a52dd0d84fdb758259c189fcf1">OUTPUT_SPI_TIMEOUT</a> {5}</td></tr>
-<tr class="memdesc:acfaa37a52dd0d84fdb758259c189fcf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time limit of one output transfer.  <br /></td></tr>
-<tr class="memitem:a213b32b04af680c72f92d11a3c9716d9" id="r_a213b32b04af680c72f92d11a3c9716d9"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#a213b32b04af680c72f92d11a3c9716d9">UPDATE_TIMEOUT_MS</a> {50}</td></tr>
-<tr class="memdesc:a213b32b04af680c72f92d11a3c9716d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Refresh period of unchanged outputs.  <br /></td></tr>
-<tr class="memitem:a9ecb33908489c5e9e72d244f7d2e957a" id="r_a9ecb33908489c5e9e72d244f7d2e957a"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#a9ecb33908489c5e9e72d244f7d2e957a">TASK_LOOP_DELAY</a> {1}</td></tr>
-<tr class="memdesc:a9ecb33908489c5e9e72d244f7d2e957a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause between two update cycles.  <br /></td></tr>
-<tr class="memitem:af7f093e29aa32fdd52d539d9ad146cc6" id="r_af7f093e29aa32fdd52d539d9ad146cc6"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#af7f093e29aa32fdd52d539d9ad146cc6">SPI_PRESCALER</a> = SPI_BAUDRATEPRESCALER_128</td></tr>
-<tr class="memdesc:af7f093e29aa32fdd52d539d9ad146cc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">SPI clock prescaler of both ports.  <br /></td></tr>
-<tr class="memitem:a8a7832fe456a42f27106c06db4b989ea" id="r_a8a7832fe456a42f27106c06db4b989ea"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#a8a7832fe456a42f27106c06db4b989ea">TASK_STACK_SIZE</a> = 256U</td></tr>
-<tr class="memdesc:a8a7832fe456a42f27106c06db4b989ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stack of the update task, in words.  <br /></td></tr>
-<tr class="memitem:aa7ff652aa900adc3408bcfda25c8714c" id="r_aa7ff652aa900adc3408bcfda25c8714c"><td class="memItemLeft">static constexpr <a class="el" href="../../d1/ded/a02471.html#a47d1302bb72530432eb0072fc7286e69">RTOS::Task::Priority::Level</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa7ff652aa900adc3408bcfda25c8714c">TASK_PRIORITY</a> = <a class="el" href="../../d1/ded/a02471.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></td></tr>
-<tr class="memdesc:aa7ff652aa900adc3408bcfda25c8714c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priority of the update task.  <br /></td></tr>
+<tr class="memitem:a9540c4c8740da0d59747a9373e03833a" id="r_a9540c4c8740da0d59747a9373e03833a"><td class="memItemLeft">static constexpr TIM_OC_InitTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a9540c4c8740da0d59747a9373e03833a">DEFAULT_OC_CONFIG</a></td></tr>
+<tr class="memdesc:a9540c4c8740da0d59747a9373e03833a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output-compare configuration applied to the buzzer channel on every beep.  <br /></td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a2953eba2059d60debecac4c3d1d3e1d2" id="r_a2953eba2059d60debecac4c3d1d3e1d2"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a2953eba2059d60debecac4c3d1d3e1d2">handlePreUpdateEvent</a> () noexcept</td></tr>
-<tr class="memdesc:a2953eba2059d60debecac4c3d1d3e1d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs at the start of every update cycle, in the update task; does nothing by default.  <br /></td></tr>
-<tr class="memitem:a9b56e97a372ad140ce2ef0b8b348a7c5" id="r_a9b56e97a372ad140ce2ef0b8b348a7c5"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a9b56e97a372ad140ce2ef0b8b348a7c5">handlePostUpdateEvent</a> () noexcept</td></tr>
-<tr class="memdesc:a9b56e97a372ad140ce2ef0b8b348a7c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs at the end of every update cycle, in the update task; does nothing by default.  <br /></td></tr>
+<tr class="heading"><td colspan="2"><h2 id="header-friends" class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a021b081c55c843fa9b7ba25effa04637" id="r_a021b081c55c843fa9b7ba25effa04637"><td class="memItemLeft">class&#160;</td><td class="memItemRight"><a class="el" href="#a021b081c55c843fa9b7ba25effa04637">RTOS::TickClient&lt; Beep &gt;</a></td></tr>
 </table>
-<a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Member Typedef Documentation</h2>
-<a id="a8e662cafaa683ac82c0b60d7b4da8fdc" name="a8e662cafaa683ac82c0b60d7b4da8fdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e662cafaa683ac82c0b60d7b4da8fdc">&#9670;&#160;</a></span>SpiPort</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="#a8e662cafaa683ac82c0b60d7b4da8fdc">Lib::BSP::DigitalPeripheralBase::SpiPort</a> = Lib::HAL::SPIPort&lt;<a class="el" href="../../d2/dab/a00886.html#a031c16cd1ba2f466615bbfa2b2832ed0acd32106bcb6de321930cf34574ea388c">Lib::HAL::DriverMode::IT</a>&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>SPI port driver used by both ports, in interrupt-driven mode. </p>
-
-</div>
-</div>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
-<a id="a50419179ec3a60e3ac3b5036b3b284eb" name="a50419179ec3a60e3ac3b5036b3b284eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a50419179ec3a60e3ac3b5036b3b284eb">&#9670;&#160;</a></span>UpdateMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a50419179ec3a60e3ac3b5036b3b284eb">Lib::BSP::DigitalPeripheralBase::UpdateMode</a> : uint8_t</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>How the update task serves the two ports. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb" name="a50419179ec3a60e3ac3b5036b3b284eba39403cd282d944abcd4f14996cb71bcb"></a>SEQUENTIAL&#160;</td><td class="fielddoc"><p>Ports share one SPI bus; each is reconfigured, served and released in turn. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb" name="a50419179ec3a60e3ac3b5036b3b284ebadf13a99b035d6f0bce4f44ab18eec8eb"></a>PARALLEL&#160;</td><td class="fielddoc"><p>Ports have separate SPI buses; each is configured once and then served every cycle. </p>
-</td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ace067a52b4d9576bd3ade495aa11e352" name="ace067a52b4d9576bd3ade495aa11e352"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ace067a52b4d9576bd3ade495aa11e352">&#9670;&#160;</a></span>DigitalPeripheralBase()</h2>
+<a id="ab7fc52bc381f9496a1cf35f629d1a944" name="ab7fc52bc381f9496a1cf35f629d1a944"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7fc52bc381f9496a1cf35f629d1a944">&#9670;&#160;</a></span>Beep() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,9 +177,9 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Lib::BSP::DigitalPeripheralBase::DigitalPeripheralBase </td>
+          <td class="memname">Lib::BSP::Beep::Beep </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="../../dc/db6/a00955.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="../../dc/da0/a00951.html">Config</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -248,197 +190,295 @@ Protected Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Binds both ports to their hardware; nothing runs until "setup()". </p>
+<p>Binds the buzzer to its timer channel and starts the periodic state-machine tick. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">config</td><td>Hardware binding of the input and the output port. </td></tr>
+    <tr><td class="paramname">config</td><td>Hardware binding of the buzzer. </td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="a9d019d0d0be1f110d76abf5f5ab11e4e" name="a9d019d0d0be1f110d76abf5f5ab11e4e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d019d0d0be1f110d76abf5f5ab11e4e">&#9670;&#160;</a></span>~DigitalPeripheralBase()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual Lib::BSP::DigitalPeripheralBase::~DigitalPeripheralBase </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel virtual">virtual</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stops the update task, then releases both ports. </p>
-
-</div>
-</div>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ae1add73078ebd967252d4864e16de016" name="ae1add73078ebd967252d4864e16de016"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1add73078ebd967252d4864e16de016">&#9670;&#160;</a></span>getInputs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d0/d3c/a00971.html">Inputs</a> &amp; Lib::BSP::DigitalPeripheralBase::getInputs </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the input port. </p>
-<dl class="section return"><dt>Returns</dt><dd>Input port, to read inputs or attach a change callback. </dd></dl>
-
-</div>
-</div>
-<a id="ad664d141e8c0b66fbd109f6397914af6" name="ad664d141e8c0b66fbd109f6397914af6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad664d141e8c0b66fbd109f6397914af6">&#9670;&#160;</a></span>getOutputs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../db/dbf/a00975.html">Outputs</a> &amp; Lib::BSP::DigitalPeripheralBase::getOutputs </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets the output port. </p>
-<dl class="section return"><dt>Returns</dt><dd>Output port, to set outputs or attach status and error callbacks. </dd></dl>
-
-</div>
-</div>
-<a id="a9b56e97a372ad140ce2ef0b8b348a7c5" name="a9b56e97a372ad140ce2ef0b8b348a7c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b56e97a372ad140ce2ef0b8b348a7c5">&#9670;&#160;</a></span>handlePostUpdateEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Lib::BSP::DigitalPeripheralBase::handlePostUpdateEvent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Runs at the end of every update cycle, in the update task; does nothing by default. </p>
-
-</div>
-</div>
-<a id="a2953eba2059d60debecac4c3d1d3e1d2" name="a2953eba2059d60debecac4c3d1d3e1d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2953eba2059d60debecac4c3d1d3e1d2">&#9670;&#160;</a></span>handlePreUpdateEvent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Lib::BSP::DigitalPeripheralBase::handlePreUpdateEvent </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel protected">protected</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Runs at the start of every update cycle, in the update task; does nothing by default. </p>
-
-</div>
-</div>
-<a id="ae9523074ebe5ad81c27aacd0f7c38c7f" name="ae9523074ebe5ad81c27aacd0f7c38c7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9523074ebe5ad81c27aacd0f7c38c7f">&#9670;&#160;</a></span>setup()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual void Lib::BSP::DigitalPeripheralBase::setup </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Brings both ports into their idle state and starts the update task. </p>
-<p>The ports are served one after the other when they share an SPI bus, otherwise independently. </p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_ae9523074ebe5ad81c27aacd0f7c38c7f_cgraph.svg" width="336" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 <div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary">
 </div>
 <div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_ae9523074ebe5ad81c27aacd0f7c38c7f_icgraph.svg" width="336" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_ab7fc52bc381f9496a1cf35f629d1a944_icgraph.svg" width="462" height="200"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
+
+</div>
+</div>
+<a id="af601628e760dd29541b317a1256b6bd1" name="af601628e760dd29541b317a1256b6bd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af601628e760dd29541b317a1256b6bd1">&#9670;&#160;</a></span>~Beep()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::Beep::~Beep </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Stops the tick and silences the buzzer if a sequence is still playing. </p>
+<p>Task context only. </p>
+<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary">
+</div>
+<div id="dynsection-3-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_af601628e760dd29541b317a1256b6bd1_cgraph.svg" width="510" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a08c08dc451270c224dded9c366b9aa6a" name="a08c08dc451270c224dded9c366b9aa6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08c08dc451270c224dded9c366b9aa6a">&#9670;&#160;</a></span>Beep() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::Beep::Beep </td>
+          <td>(</td>
+          <td class="paramtype">const Beep &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_a08c08dc451270c224dded9c366b9aa6a_cgraph.svg" width="422" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a3506da759c0ccebd28b87c0489cdb56e" name="a3506da759c0ccebd28b87c0489cdb56e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3506da759c0ccebd28b87c0489cdb56e">&#9670;&#160;</a></span>Beep() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Lib::BSP::Beep::Beep </td>
+          <td>(</td>
+          <td class="paramtype">Beep &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_a3506da759c0ccebd28b87c0489cdb56e_cgraph.svg" width="422" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="ac6552c090b310890de41a06ba77a7e68" name="ac6552c090b310890de41a06ba77a7e68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6552c090b310890de41a06ba77a7e68">&#9670;&#160;</a></span>isPlaying()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::Beep::isPlaying </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets whether a beep sequence is playing. </p>
+<dl class="section return"><dt>Returns</dt><dd>'true' from a successful <a class="el" href="#a4bc5b3cc66d266518992ce5dc14973c5" title="play()">play()</a> until the last beep has ended. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d91/a02774.html#a2">Lib::BSP::Beep</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a id="a3c5fdc21b4e87a407ca4fb0efaa588cc" name="a3c5fdc21b4e87a407ca4fb0efaa588cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c5fdc21b4e87a407ca4fb0efaa588cc">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp; Lib::BSP::Beep::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-movable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
+</div>
+<div id="dynsection-6-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_a3c5fdc21b4e87a407ca4fb0efaa588cc_cgraph.svg" width="462" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="ad2f515525962880586d857dd395e8983" name="ad2f515525962880586d857dd395e8983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2f515525962880586d857dd395e8983">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp; Lib::BSP::Beep::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel delete">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Non-copyable: the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> timer calls back into this instance. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d3/d29/a00947_ad2f515525962880586d857dd395e8983_cgraph.svg" width="462" height="40"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="a4bc5b3cc66d266518992ce5dc14973c5" name="a4bc5b3cc66d266518992ce5dc14973c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc5b3cc66d266518992ce5dc14973c5">&#9670;&#160;</a></span>play()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Lib::BSP::Beep::play </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>duration</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1U</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>pause</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0U</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Starts a beep sequence, unless one is already playing. </p>
+<p>Returns at once; the sequence plays in the background.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">duration</td><td>Length of each beep, in milliseconds. </td></tr>
+    <tr><td class="paramname">count</td><td>Number of beeps; 0 plays nothing. </td></tr>
+    <tr><td class="paramname">pause</td><td>Silence between two beeps, in milliseconds. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if the sequence was started, 'false' if one was already playing or 'count' is 0. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="../../df/d91/a02774.html#a1">Lib::BSP::Beep</a>.</dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-related-members" id="doc-related-members"></a><h2 id="header-doc-related-members" class="groupheader">Friends And Related Symbol Documentation</h2>
+<a id="a021b081c55c843fa9b7ba25effa04637" name="a021b081c55c843fa9b7ba25effa04637"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a021b081c55c843fa9b7ba25effa04637">&#9670;&#160;</a></span>RTOS::TickClient&lt; Beep &gt;</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="../../d8/d4e/a02595.html">RTOS::TickClient</a>&lt; <a class="el" href="#ab7fc52bc381f9496a1cf35f629d1a944">Beep</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="a3889581ee3a7457aa37003fdce72a2b5" name="a3889581ee3a7457aa37003fdce72a2b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3889581ee3a7457aa37003fdce72a2b5">&#9670;&#160;</a></span>INPUT_SPI_TIMEOUT</h2>
+<a id="a9540c4c8740da0d59747a9373e03833a" name="a9540c4c8740da0d59747a9373e03833a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9540c4c8740da0d59747a9373e03833a">&#9670;&#160;</a></span>DEFAULT_OC_CONFIG</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +487,7 @@ Protected Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::milliseconds Lib::BSP::DigitalPeripheralBase::INPUT_SPI_TIMEOUT {20}</td>
+          <td class="memname">TIM_OC_InitTypeDef Lib::BSP::Beep::DEFAULT_OC_CONFIG</td>
         </tr>
       </table>
   </td>
@@ -456,176 +496,18 @@ Protected Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Time limit of one input transfer. </p>
-
-</div>
-</div>
-<a id="a2cba361d16e175d2c042aa2444e0c1c6" name="a2cba361d16e175d2c042aa2444e0c1c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cba361d16e175d2c042aa2444e0c1c6">&#9670;&#160;</a></span>MAX_PINS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::BSP::DigitalPeripheralBase::MAX_PINS = 64U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Largest pin count a port can map. </p>
-
-</div>
-</div>
-<a id="acfaa37a52dd0d84fdb758259c189fcf1" name="acfaa37a52dd0d84fdb758259c189fcf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfaa37a52dd0d84fdb758259c189fcf1">&#9670;&#160;</a></span>OUTPUT_SPI_TIMEOUT</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::milliseconds Lib::BSP::DigitalPeripheralBase::OUTPUT_SPI_TIMEOUT {5}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Time limit of one output transfer. </p>
-
-</div>
-</div>
-<a id="af7f093e29aa32fdd52d539d9ad146cc6" name="af7f093e29aa32fdd52d539d9ad146cc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7f093e29aa32fdd52d539d9ad146cc6">&#9670;&#160;</a></span>SPI_PRESCALER</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint32_t Lib::BSP::DigitalPeripheralBase::SPI_PRESCALER = SPI_BAUDRATEPRESCALER_128</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>SPI clock prescaler of both ports. </p>
-
-</div>
-</div>
-<a id="a9ecb33908489c5e9e72d244f7d2e957a" name="a9ecb33908489c5e9e72d244f7d2e957a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ecb33908489c5e9e72d244f7d2e957a">&#9670;&#160;</a></span>TASK_LOOP_DELAY</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::milliseconds Lib::BSP::DigitalPeripheralBase::TASK_LOOP_DELAY {1}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Pause between two update cycles. </p>
-
-</div>
-</div>
-<a id="aa7ff652aa900adc3408bcfda25c8714c" name="aa7ff652aa900adc3408bcfda25c8714c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7ff652aa900adc3408bcfda25c8714c">&#9670;&#160;</a></span>TASK_PRIORITY</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="../../d1/ded/a02471.html#a47d1302bb72530432eb0072fc7286e69">RTOS::Task::Priority::Level</a> Lib::BSP::DigitalPeripheralBase::TASK_PRIORITY = <a class="el" href="../../d1/ded/a02471.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a">RTOS::Task::Priority::LOW</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Priority of the update task. </p>
-
-</div>
-</div>
-<a id="a8a7832fe456a42f27106c06db4b989ea" name="a8a7832fe456a42f27106c06db4b989ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a7832fe456a42f27106c06db4b989ea">&#9670;&#160;</a></span>TASK_STACK_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t Lib::BSP::DigitalPeripheralBase::TASK_STACK_SIZE = 256U</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Stack of the update task, in words. </p>
-
-</div>
-</div>
-<a id="a213b32b04af680c72f92d11a3c9716d9" name="a213b32b04af680c72f92d11a3c9716d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a213b32b04af680c72f92d11a3c9716d9">&#9670;&#160;</a></span>UPDATE_TIMEOUT_MS</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::chrono::milliseconds Lib::BSP::DigitalPeripheralBase::UPDATE_TIMEOUT_MS {50}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel constexpr">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Refresh period of unchanged outputs. </p>
+<b>Initial value:</b><div class="fragment"><div class="line">                                                      = {</div>
+<div class="line">    .OCMode = TIM_OCMODE_TOGGLE,</div>
+<div class="line">    .Pulse = 100,</div>
+<div class="line">    .OCPolarity = TIM_OCPOLARITY_LOW,</div>
+<div class="line">    .OCNPolarity = TIM_OCNPOLARITY_LOW,</div>
+<div class="line">    .OCFastMode = TIM_OCFAST_DISABLE,</div>
+<div class="line">    .OCIdleState = TIM_OCIDLESTATE_RESET,</div>
+<div class="line">    .OCNIdleState = TIM_OCNIDLESTATE_RESET,</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+<p>Output-compare configuration applied to the buzzer channel on every beep. </p>
+<p>Toggle mode, active-low polarity on both the channel and its complementary output, both idle states reset. </p>
 
 </div>
 </div>
@@ -642,7 +524,7 @@ Protected Member Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../d9/dbb/a00852.html">Lib</a></li><li class="navelem"><a href="../../db/deb/a00853.html">BSP</a></li><li class="navelem"><a href="../../d3/d29/a00947.html">DigitalPeripheralBase</a></li>
+    <li class="navelem"><a href="../../d2/da1/a00879.html">Lib</a></li><li class="navelem"><a href="../../d1/d8f/a00880.html">BSP</a></li><li class="navelem"><a href="../../d3/d29/a00947.html">Beep</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

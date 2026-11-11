@@ -1,13 +1,10 @@
 var a01445 =
 [
-    [ "Config", "d2/d95/a01449.html", "d2/d95/a01449" ],
-    [ "WolfSSLDh", "d9/d6f/a01445.html#acaf8aa4b45471efcfd3e472780e7b31f", null ],
-    [ "~WolfSSLDh", "d9/d6f/a01445.html#a6d03ea454eff6ec49352184b945a04e2", null ],
-    [ "WolfSSLDh", "d9/d6f/a01445.html#aabb6311ca11dc1faceab33055d97c824", null ],
-    [ "WolfSSLDh", "d9/d6f/a01445.html#a0d9f73abb840322aea3f49d8eac3f8ce", null ],
-    [ "agree", "d9/d6f/a01445.html#a76b96df40bf320de9d7254054ad2ab18", null ],
-    [ "generateKeyPair", "d9/d6f/a01445.html#ae0c35d84959cb6078b1d7ce38d4c2c02", null ],
-    [ "open", "d9/d6f/a01445.html#ad8c4f4476d3d1e1746d3db4fe86cf82a", null ],
-    [ "operator=", "d9/d6f/a01445.html#a2e951b9b4363af4a96e6e7426382c1d3", null ],
-    [ "operator=", "d9/d6f/a01445.html#a050501c01119e2aa82565a060075ee61", null ]
+    [ "WolfSSH", "d9/d6f/a01445.html#acda587d771e0b88270bdf9263d156fd0", null ],
+    [ "~WolfSSH", "d9/d6f/a01445.html#ad07d509cc2a825d9165ab30739d84515", null ],
+    [ "WolfSSH", "d9/d6f/a01445.html#ab03771dcd75546ec452cb768b0a29da5", null ],
+    [ "WolfSSH", "d9/d6f/a01445.html#ae46df48c97bb9fb2b64975cdd5568a57", null ],
+    [ "isOpen", "d9/d6f/a01445.html#aac3ff36b57e422860d83792bb84c84f3", null ],
+    [ "operator=", "d9/d6f/a01445.html#a1f81fc8aa460ffe7dbbdb89186833a9a", null ],
+    [ "operator=", "d9/d6f/a01445.html#ad0a8cf68d06a11f49564b2798aaebe30", null ]
 ];

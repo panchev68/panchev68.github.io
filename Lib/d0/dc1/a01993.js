@@ -1,17 +1,19 @@
 var a01993 =
 [
-    [ "OSPIPort", "d0/dc1/a01993.html#aceebf1ac821b6ccc92b99c1fe0ca7c19", null ],
-    [ "~OSPIPort", "d0/dc1/a01993.html#a08e56728c9a64f13a22b89d6b482b132", null ],
-    [ "OSPIPort", "d0/dc1/a01993.html#a7763cecbfc9f952858e94c3dd31b6ae8", null ],
-    [ "OSPIPort", "d0/dc1/a01993.html#a50425950532682614be81eb8bb5216b7", null ],
-    [ "close", "d0/dc1/a01993.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
-    [ "command", "d0/dc1/a01993.html#a91b2a335ef6e9723039f123ea3f66e47", null ],
-    [ "getHandle", "d0/dc1/a01993.html#a696d949d69359bb54440fe22e1de963f", null ],
-    [ "getHandle", "d0/dc1/a01993.html#a9d414342c2936b7023a8cc7ee05c9403", null ],
-    [ "isBusy", "d0/dc1/a01993.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
-    [ "open", "d0/dc1/a01993.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
-    [ "operator=", "d0/dc1/a01993.html#a9a452f1cf8d2d0e3f643f6b82326135b", null ],
-    [ "operator=", "d0/dc1/a01993.html#a4d6b81dc8f17c815f4eb18e2cc631e7a", null ],
-    [ "receive", "d0/dc1/a01993.html#aef7cf93602718e2d14816e122f15f3be", null ],
-    [ "transmit", "d0/dc1/a01993.html#a10d2dc1da9553992110c3752aa39e058", null ]
+    [ "Output", "d0/dc1/a01993.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
+    [ "~Output", "d0/dc1/a01993.html#aa9c1a46117aa84b973279d61e591a610", null ],
+    [ "Output", "d0/dc1/a01993.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
+    [ "Output", "d0/dc1/a01993.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
+    [ "isHigh", "d0/dc1/a01993.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d0/dc1/a01993.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d0/dc1/a01993.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d0/dc1/a01993.html#a8ee7e17225987004c3c73099e78d8b78", null ],
+    [ "operator=", "d0/dc1/a01993.html#a3187afa0ce2671083228b6b536d45d4b", null ],
+    [ "operator=", "d0/dc1/a01993.html#a13bc8e6bba332c350095666b72e568aa", null ],
+    [ "read", "d0/dc1/a01993.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "setHigh", "d0/dc1/a01993.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
+    [ "setLow", "d0/dc1/a01993.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
+    [ "toggle", "d0/dc1/a01993.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
+    [ "write", "d0/dc1/a01993.html#a52416b95040bffe9915b005b33bc3600", null ],
+    [ "handle", "d0/dc1/a01993.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

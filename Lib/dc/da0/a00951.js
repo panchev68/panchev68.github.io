@@ -1,5 +1,5 @@
 var a00951 =
 [
-    [ "mask", "dc/da0/a00951.html#ac5e756620af38daca7da6aaff5c5de5f", null ],
-    [ "port", "dc/da0/a00951.html#aeba565c07ca364748f572902aba40f3a", null ]
+    [ "timerChannel", "dc/da0/a00951.html#acf47a2c6d6854305f3aa60f818d44f03", null ],
+    [ "timerHandle", "dc/da0/a00951.html#a968302dd20489e07471fff8d662ed3d7", null ]
 ];

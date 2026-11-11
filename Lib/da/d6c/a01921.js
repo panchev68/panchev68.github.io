@@ -1,20 +1,19 @@
 var a01921 =
 [
     [ "Event", "d6/d18/a01925.html", null ],
-    [ "DataAlignment", "da/d6c/a01921.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "da/d6c/a01921.html#ae36ab0485cc108ac7f0082068d118518", null ],
-    [ "~DACPort", "da/d6c/a01921.html#a38af62d642471553e5aa356e673ad171", null ],
-    [ "DACPort", "da/d6c/a01921.html#afe60fcad137acbac62467215f81e262a", null ],
-    [ "DACPort", "da/d6c/a01921.html#a6befbf3fd6e387b958c474127b15a55e", null ],
-    [ "close", "da/d6c/a01921.html#a2b221635f62446099dbe5e86e8065288", null ],
-    [ "getChannel", "da/d6c/a01921.html#abb9c3299abda744064d8d8e8d44f825b", null ],
+    [ "CANPort", "da/d6c/a01921.html#a4477b4c95db49ce0b556d568b2d879a0", null ],
+    [ "~CANPort", "da/d6c/a01921.html#a6f6a6f1c91dc26fef9f74ef07f013b2c", null ],
+    [ "CANPort", "da/d6c/a01921.html#abe29825ceeac4153d36a08a6cb3adf7f", null ],
+    [ "CANPort", "da/d6c/a01921.html#af568e7e4043e0b195db174dab37c5dc9", null ],
+    [ "close", "da/d6c/a01921.html#a4ec7ae44fe2e374d256f3fd66767dbc7", null ],
+    [ "getFreeTxMailboxCount", "da/d6c/a01921.html#ac88a1857130f01ccafcb72baae483a84", null ],
     [ "getHandle", "da/d6c/a01921.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "da/d6c/a01921.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "open", "da/d6c/a01921.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
-    [ "operator=", "da/d6c/a01921.html#a8669eba366ce1c94494df43dfaccc690", null ],
-    [ "operator=", "da/d6c/a01921.html#ae0483104f828bd3464839de4f4880b4a", null ],
-    [ "setValue", "da/d6c/a01921.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "da/d6c/a01921.html#a6c386654350eba5ab306e4764474af96", null ],
-    [ "stop", "da/d6c/a01921.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
-    [ "waitForUnderrun", "da/d6c/a01921.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
+    [ "getRxFifoFillLevel", "da/d6c/a01921.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
+    [ "open", "da/d6c/a01921.html#a591e40ed78afa5d73704475e00c55060", null ],
+    [ "operator=", "da/d6c/a01921.html#aa58c9c3ab70cdf4e842716686aaa8c40", null ],
+    [ "operator=", "da/d6c/a01921.html#a8edeb615d6ad0c65bcf55d3d8f8fdce0", null ],
+    [ "read", "da/d6c/a01921.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
+    [ "waitForEvent", "da/d6c/a01921.html#a1c4fcd17767b405bdecda984747567ed", null ],
+    [ "write", "da/d6c/a01921.html#a65aa681fa591b2d0956e06e67e990b15", null ]
 ];

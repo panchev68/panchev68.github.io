@@ -1,18 +1,28 @@
 var a01079 =
 [
-    [ "Command", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726", [
-      [ "WRITE_ENABLE", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
-      [ "READ_STATUS_REGISTER1", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
-      [ "QUAD_PAGE_PROGRAM", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
-      [ "FAST_READ_QUAD_IO", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
-      [ "SECTOR_ERASE", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
-      [ "BLOCK_ERASE_32K", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
-      [ "BLOCK_ERASE_64K", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
-      [ "CHIP_ERASE", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
-      [ "ENABLE_RESET", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
-      [ "RESET_DEVICE", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
-      [ "READ_JEDEC_ID", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
-      [ "POWER_DOWN", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
-      [ "POWER_UP", "d2/d4d/a01079.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
-    ] ]
+    [ "Config", "d6/d9a/a01083.html", "d6/d9a/a01083" ],
+    [ "State", "d2/d4d/a01079.html#a9fd0a76196b2eb1e21013c1f0379cd08", [
+      [ "NO_INIT", "d2/d4d/a01079.html#a9fd0a76196b2eb1e21013c1f0379cd08a72144f138e8a9f73854d58b59deca26d", null ],
+      [ "READY", "d2/d4d/a01079.html#a9fd0a76196b2eb1e21013c1f0379cd08a2baa69eafc7204f3bd8648eba580c489", null ],
+      [ "DISABLE", "d2/d4d/a01079.html#a9fd0a76196b2eb1e21013c1f0379cd08afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
+      [ "ERROR", "d2/d4d/a01079.html#a9fd0a76196b2eb1e21013c1f0379cd08abb1ca97ec761fc37101737ba0aa2e7c5", null ]
+    ] ],
+    [ "Base", "d2/d4d/a01079.html#a12aecbfda8834bf3a667148d765a5131", null ],
+    [ "close", "d2/d4d/a01079.html#a661ff278a48b8dba19a2a054bc21a7cd", null ],
+    [ "getState", "d2/d4d/a01079.html#adb79d7f488b262bfdc58c114a3ac6f33", null ],
+    [ "open", "d2/d4d/a01079.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
+    [ "readAlEventReg", "d2/d4d/a01079.html#aec3fa0792cf0cda4f5d91244b599d804", null ],
+    [ "readCSR", "d2/d4d/a01079.html#a6872fa6c05dea9476d20434f28b40b99", null ],
+    [ "readDLStatus", "d2/d4d/a01079.html#acae5d3c1c2b5679addbccc5506d2de0e", null ],
+    [ "readPDIRegister", "d2/d4d/a01079.html#ac2aaa9d194b1af38aa02bc21b97e4b79", null ],
+    [ "readPRAM", "d2/d4d/a01079.html#a3d2a55bfbcbe4193a6f9c88a6853c9e4", null ],
+    [ "readReg", "d2/d4d/a01079.html#a5dcebd0d4f0135e2133880e9671892c6", null ],
+    [ "readU32", "d2/d4d/a01079.html#a044adc74263d0844a30a59541c3162a6", null ],
+    [ "resetChip", "d2/d4d/a01079.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
+    [ "resetPin", "d2/d4d/a01079.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
+    [ "verifyChipId", "d2/d4d/a01079.html#a92fb14a44d98ad85c15d007798f188d4", null ],
+    [ "writeCSR", "d2/d4d/a01079.html#a6856933af0bd9892be77168a4e2dcdcf", null ],
+    [ "writePRAM", "d2/d4d/a01079.html#a8a9b2c1a0824c7603b223ce93be6b268", null ],
+    [ "writeReg", "d2/d4d/a01079.html#ab886f5f4a7c67fc4e763676ee25c8440", null ],
+    [ "writeU32", "d2/d4d/a01079.html#af18c7df8aeade40e9137a8e803825144", null ]
 ];

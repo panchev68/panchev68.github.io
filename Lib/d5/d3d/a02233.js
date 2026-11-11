@@ -1,18 +1,12 @@
 var a02233 =
 [
-    [ "DateString", "d5/d3d/a02233.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
-    [ "Date", "d5/d3d/a02233.html#a93def70969fc16974f55e56219a01b0f", null ],
-    [ "Date", "d5/d3d/a02233.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
-    [ "getDayOfWeek", "d5/d3d/a02233.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
-    [ "getDayOfYear", "d5/d3d/a02233.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
-    [ "isValid", "d5/d3d/a02233.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
-    [ "operator<=>", "d5/d3d/a02233.html#a7a7ccaefa33e38ba99be918a93731119", null ],
-    [ "operator==", "d5/d3d/a02233.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
-    [ "toString", "d5/d3d/a02233.html#a70ecfff686d88d444a44393965b296e5", null ],
-    [ "toSysDays", "d5/d3d/a02233.html#a59f67718a1b057bca29012a393547479", null ],
-    [ "toYearMonthDay", "d5/d3d/a02233.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
-    [ "DateTime", "d5/d3d/a02233.html#ae3d4a8787eced68c65a23f5906c11add", null ],
-    [ "day", "d5/d3d/a02233.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
-    [ "month", "d5/d3d/a02233.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
-    [ "year", "d5/d3d/a02233.html#a1026d89f27e48fd23eccde7a9850b302", null ]
+    [ "WindowWatchdog", "d5/d3d/a02233.html#aedbc081389ab6197c5a334fcff249dc9", null ],
+    [ "~WindowWatchdog", "d5/d3d/a02233.html#abf0355eeac54b8e2df2436417ae430c8", null ],
+    [ "WindowWatchdog", "d5/d3d/a02233.html#aefd93951d08fd2c7b8ac59ca0df6c754", null ],
+    [ "WindowWatchdog", "d5/d3d/a02233.html#a94de72071a208a3a396313415af9df3a", null ],
+    [ "open", "d5/d3d/a02233.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f", null ],
+    [ "operator=", "d5/d3d/a02233.html#a200f6efa5027d0a294c4331f46e54bbb", null ],
+    [ "operator=", "d5/d3d/a02233.html#af34267bbc73ff09fc3c70a41b6d79420", null ],
+    [ "refresh", "d5/d3d/a02233.html#a8391a6219cf7a6f1a8e9e1383b0e115b", null ],
+    [ "setWindow", "d5/d3d/a02233.html#a874dc7d2f0c51055da55dc4f4622d62a", null ]
 ];

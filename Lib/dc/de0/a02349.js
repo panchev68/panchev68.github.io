@@ -1,11 +1,12 @@
 var a02349 =
 [
-    [ "Parameters", "dc/de0/a02349.html#a1755515e60fdfe10aafe099283f9d593", null ],
-    [ "Parameters", "dc/de0/a02349.html#aa086f9cd96f4da06f3838b4b9c9d018c", null ],
-    [ "kd", "dc/de0/a02349.html#a6fd341537b6f12074478402b53dea8f1", null ],
-    [ "ki", "dc/de0/a02349.html#ac30cd8786ec60c8114bc21b7f63145d4", null ],
-    [ "kp", "dc/de0/a02349.html#af4932c40d48d9c972bd4f448a37388bc", null ],
-    [ "outputMax", "dc/de0/a02349.html#a413072c853e2fdf9a83cb1b601c736ab", null ],
-    [ "outputMin", "dc/de0/a02349.html#a23515cb5c24f985549f55404aee2928a", null ],
-    [ "sampleTime", "dc/de0/a02349.html#a37913f8c463aabd9669d332ce99bb9b6", null ]
+    [ "getLocalTransition", "dc/de0/a02349.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
+    [ "getOffset", "dc/de0/a02349.html#a5b83c2cf38318866e23774caee880570", null ],
+    [ "isValid", "dc/de0/a02349.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
+    [ "dayOfWeek", "dc/de0/a02349.html#a71011003fee57e0e6420889a983146f2", null ],
+    [ "hour", "dc/de0/a02349.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
+    [ "month", "dc/de0/a02349.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
+    [ "offsetMinutes", "dc/de0/a02349.html#ade82abb20d81fccacc264075f09a1667", null ],
+    [ "ruleName", "dc/de0/a02349.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
+    [ "weekOfMonth", "dc/de0/a02349.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
 ];

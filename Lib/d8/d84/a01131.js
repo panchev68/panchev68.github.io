@@ -1,8 +1,17 @@
 var a01131 =
 [
-    [ "chipSelectPin", "d8/d84/a01131.html#a5495ff29a821a220cb7ef6ff5a30a067", null ],
-    [ "irqPin", "d8/d84/a01131.html#a7fc0e0d08408bc4eb2195853769bd205", null ],
-    [ "resetPin", "d8/d84/a01131.html#a6432ab2f67c87e8cc40549c8987e7e5a", null ],
-    [ "rxGain", "d8/d84/a01131.html#a02e377e2bbab6d0d5a82dff892ac3cdb", null ],
-    [ "spiHandle", "d8/d84/a01131.html#a3b44ed084dbe807b7d6d32de433664fd", null ]
+    [ "DriverBase", "d8/d84/a01131.html#a5eafa5f0d53866cb78471368f7297754", null ],
+    [ "~DriverBase", "d8/d84/a01131.html#a5205dedf63ce60a8439a4fdd8ff7950b", null ],
+    [ "close", "d8/d84/a01131.html#a71f952f5639e0a0d0d7c1af2c3f0dbc0", null ],
+    [ "eraseChip", "d8/d84/a01131.html#a32148377b4274abf28db1beb3d12ea11", null ],
+    [ "eraseSector", "d8/d84/a01131.html#a23c3062b24d15e58237ddb109c474b74", null ],
+    [ "getInfo", "d8/d84/a01131.html#ad6c747b02c7f3e3781d0bb8d4da5a8c2", null ],
+    [ "getStatus", "d8/d84/a01131.html#aaf6ca0fb5d3b8ff2f228fdc610ba93a5", null ],
+    [ "open", "d8/d84/a01131.html#a5d093e457b6ea6877ea0bfccc4007122", null ],
+    [ "read", "d8/d84/a01131.html#ab46504813bc3145ab27ffa8ed43a9769", null ],
+    [ "write", "d8/d84/a01131.html#a8d3cac8d48fd998c3972c32e311af9a8", null ],
+    [ "info", "d8/d84/a01131.html#aca8a7487175e31060363fe99270e69a3", null ],
+    [ "nss", "d8/d84/a01131.html#a6cad70d123e273b88f244598cc93a22b", null ],
+    [ "spiPort", "d8/d84/a01131.html#a64ba7a1c1b53b4fff28f7d00664e1171", null ],
+    [ "status", "d8/d84/a01131.html#af95471bb260264403e3df2dc07b80419", null ]
 ];

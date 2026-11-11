@@ -1,4 +1,5 @@
 var a00179 =
 [
-    [ "Lib::BSP::Thermometer::DTH::DTH22", "d2/db8/a00867.html#ac925b6863b7c23b83aa215b6588e2487", null ]
+    [ "Lib::Digi::API::Service::ChannelScanner", "d7/d57/a01567.html", "d7/d57/a01567" ],
+    [ "Lib::Digi::API::Service::ChannelScanner::Channel", "d5/d10/a01571.html", "d5/d10/a01571" ]
 ];

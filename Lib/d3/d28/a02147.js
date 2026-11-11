@@ -1,11 +1,11 @@
 var a02147 =
 [
-    [ "getDirection", "d3/d28/a02147.html#a68335ce20908e5937884bf601bb4b90e", null ],
-    [ "getRecipient", "d3/d28/a02147.html#ae7283011b9493caacbbe6081ca48b217", null ],
-    [ "getType", "d3/d28/a02147.html#a2e0f40dbc98143b97268fbfa4a39bd3a", null ],
-    [ "index", "d3/d28/a02147.html#a042e36be625640c409835eeb4ca30c8a", null ],
-    [ "length", "d3/d28/a02147.html#a2e7f6964058d59cf704c5534a3b64cae", null ],
-    [ "request", "d3/d28/a02147.html#a8f0551503e5416ac2f9eaaa0bef3a08f", null ],
-    [ "requestType", "d3/d28/a02147.html#a87ecd5c19387a9761e2548aba162728d", null ],
-    [ "value", "d3/d28/a02147.html#aeb95036baf576efe55bbdca1daf8c864", null ]
+    [ "SPIPort", "d3/d28/a02147.html#a03f718bf6ee85b54598a241b6c353fd4", null ],
+    [ "~SPIPort", "d3/d28/a02147.html#a088ac9f0d2efa3ad16fe29126f2fb931", null ],
+    [ "abort", "d3/d28/a02147.html#a3d63fe443c0e1bd35bd8cd870a0435f6", null ],
+    [ "close", "d3/d28/a02147.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d3/d28/a02147.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/d28/a02147.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d3/d28/a02147.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d3/d28/a02147.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

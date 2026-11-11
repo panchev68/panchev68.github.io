@@ -1,16 +1,8 @@
 var a02557 =
 [
-    [ "Config", "d1/d67/a02561.html", "d1/d67/a02561" ],
-    [ "DataMap", "d3/dff/a02565.html", "d3/dff/a02565" ],
-    [ "LastResetState", "dd/d98/a02557.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
-    [ "System", "dd/d98/a02557.html#af4fce1b946378e3b68e2dab8e562134f", null ],
-    [ "System", "dd/d98/a02557.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
-    [ "operator=", "dd/d98/a02557.html#af9936cf8ce134998481d3b63473f909b", null ],
-    [ "configuration", "dd/d98/a02557.html#a97e928b4c78a8a3e74760b983ea17573", null ],
-    [ "firmwareVersion", "dd/d98/a02557.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
-    [ "hardwareVersion", "dd/d98/a02557.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
-    [ "lastResetState", "dd/d98/a02557.html#add4f1e84db40b8862ab63a06766ae439", null ],
-    [ "produceDate", "dd/d98/a02557.html#a542e9245a4b9791006636abac56b2574", null ],
-    [ "saleDate", "dd/d98/a02557.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
-    [ "serialNumber", "dd/d98/a02557.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
+    [ "Config", "dd/d98/a02557.html#ad96cafee005fee2ce4bf4c2f96b9b99e", null ],
+    [ "callback", "dd/d98/a02557.html#a4bba8860ef29aee7eb7330c174cd0d3c", null ],
+    [ "mode", "dd/d98/a02557.html#a2851f316d1c5b160ae3f2338e02e59ab", null ],
+    [ "name", "dd/d98/a02557.html#a1679571bd3ae91ae4a7187f772ad0806", null ],
+    [ "period", "dd/d98/a02557.html#ae81cad8de025f71497b5b241c41da1eb", null ]
 ];

@@ -1,14 +1,11 @@
 var a02119 =
 [
-    [ "UARTPortAsync", "dd/d54/a02119.html#ae3dfd1d49bf2eb3ae572e5482852a106", null ],
-    [ "abort", "dd/d54/a02119.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "dd/d54/a02119.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "dd/d54/a02119.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "dd/d54/a02119.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isBusy", "dd/d54/a02119.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
-    [ "isOpened", "dd/d54/a02119.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "dd/d54/a02119.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "dd/d54/a02119.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "dd/d54/a02119.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ],
-    [ "setBaudRate", "dd/d54/a02119.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
+    [ "OTP", "dd/d54/a02119.html#aaff496f8bf89080e84c1fbda6b0904c3", null ],
+    [ "OTP", "dd/d54/a02119.html#a7bc9c9e1f02016880f00d3a1182e5e71", null ],
+    [ "lock", "dd/d54/a02119.html#ab4c2e78575458526b83be6e259aa1f93", null ],
+    [ "operator=", "dd/d54/a02119.html#ad631f9069ef7f1c2f316505e7b391885", null ],
+    [ "operator=", "dd/d54/a02119.html#af5af865ec6e520ce53d21e6c9ecd7221", null ],
+    [ "read", "dd/d54/a02119.html#acff397156950347f6f452dec2c94af43", null ],
+    [ "unlock", "dd/d54/a02119.html#a220a07c58647557d8a81402260eacfb5", null ],
+    [ "write", "dd/d54/a02119.html#a778b8e7ce12a4c0bdeed759cb2a79493", null ]
 ];

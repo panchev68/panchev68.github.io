@@ -1,10 +1,18 @@
 var a01815 =
 [
-    [ "MacString", "d8/dce/a01815.html#a8d2931e8aadff5cd62c7538659cd0b5f", null ],
-    [ "MacAddress", "d8/dce/a01815.html#a1f0169e55ffd6342fdac1722c1a5a969", null ],
-    [ "MacAddress", "d8/dce/a01815.html#aa300b2a042efd76f66f61db709b5b736", null ],
-    [ "data", "d8/dce/a01815.html#ab4ba32f79afc750e8e1702d652a14ed4", null ],
-    [ "operator[]", "d8/dce/a01815.html#a85452ad134f85dbeb0c8bcced1916eeb", null ],
-    [ "size", "d8/dce/a01815.html#a64f89fcca5dea4f1c032848f71589c3a", null ],
-    [ "toString", "d8/dce/a01815.html#a83b7f1a52401d479dea270cbe112b88c", null ]
+    [ "Handlers", "d8/dce/a01815.html#a272ea34043ce0f3bb7014fc2c4df927e", null ],
+    [ "Parameters", "d8/dce/a01815.html#a4d66198ad9a9b1a75925e1a97dbc5fb9", null ],
+    [ "Result", "d8/dce/a01815.html#a6870bc1d903b1d83b238ba51088eb134", null ],
+    [ "EoE", "d8/dce/a01815.html#a57ce3b2cab796d2623bc80be2bc75e80", null ],
+    [ "~EoE", "d8/dce/a01815.html#a5babb7f332ba38f3e2e33203e39e615d", null ],
+    [ "EoE", "d8/dce/a01815.html#a07829bbfc5250b03c81968ebd709bf4e", null ],
+    [ "EoE", "d8/dce/a01815.html#ac52aa3b6cbf2a17e467cfba61ddbf48e", null ],
+    [ "handle", "d8/dce/a01815.html#a41416e8882dd613876cb3a6bcbfc9b44", null ],
+    [ "isSendPending", "d8/dce/a01815.html#a91f842049f97f5f7055e5a7f6de7c6ac", null ],
+    [ "operator=", "d8/dce/a01815.html#a82f98b2311b36aea43517d9a31df5d08", null ],
+    [ "operator=", "d8/dce/a01815.html#ae9237ef17cddb3bf83d5e2b41580c4af", null ],
+    [ "queueFrame", "d8/dce/a01815.html#a2afc345b5bcd9326d015eb678e620201", null ],
+    [ "reset", "d8/dce/a01815.html#a85ee64bff9f15d5ace7999ebdb5643ef", null ],
+    [ "service", "d8/dce/a01815.html#a4d41465f94d62fdbab816ab8d8ebd674", null ],
+    [ "setHandlers", "d8/dce/a01815.html#a6b26ad71662f36a666db683b5755a119", null ]
 ];

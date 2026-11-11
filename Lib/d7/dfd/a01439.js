@@ -1,7 +1,14 @@
 var a01439 =
 [
-    [ "Key", "d7/dfd/a01439.html#a01aa89923019ee3bf5249396252577a0", null ],
-    [ "Nonce", "d7/dfd/a01439.html#ae4ce9fb8d76a85f4786b936d4bdb3327", null ],
-    [ "Tag", "d7/dfd/a01439.html#a73ebbac632c0982dc3eeb3880cd7febc", null ],
-    [ "WolfSSLChaCha20Poly1305", "d7/dfd/a01439.html#af47892a2a6a403161bf652674b3fbaf8", null ]
+    [ "Subscriber", "d7/dfd/a01439.html#a3f40221ae5736ac688a612345a14a8e4", null ],
+    [ "MulticastDelegate", "d7/dfd/a01439.html#a97c8b763c044a223aedb0c06d3d0ac1b", null ],
+    [ "add", "d7/dfd/a01439.html#a7b2551280da180b1f1dda5c6981737cd", null ],
+    [ "clear", "d7/dfd/a01439.html#abbfe045521bcf97ffee6e1cbf7e6953b", null ],
+    [ "invoke", "d7/dfd/a01439.html#abfd30810b143472b8393b53f898dbcd5", null ],
+    [ "isEmpty", "d7/dfd/a01439.html#a7e9bae0d6658cf7e1eb8e4a4bfd3478b", null ],
+    [ "operator()", "d7/dfd/a01439.html#a3ce770a13a2e2797a7e25e94bde9a97b", null ],
+    [ "operator+=", "d7/dfd/a01439.html#a6dbac05fdf70d7b6ea7c1223f90eb0f3", null ],
+    [ "operator-=", "d7/dfd/a01439.html#abf65efccd32893eb2f7b5adfc53f8536", null ],
+    [ "remove", "d7/dfd/a01439.html#adb01252450a4c8f5a57794062eef97da", null ],
+    [ "size", "d7/dfd/a01439.html#a79a257c4883e94ef0e08c23ad8d4fa7c", null ]
 ];

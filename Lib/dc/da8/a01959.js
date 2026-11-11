@@ -1,14 +1,12 @@
 var a01959 =
 [
-    [ "Input", "dc/da8/a01959.html#a2abfa039a43677df3c61e12530f2ecc3", null ],
-    [ "~Input", "dc/da8/a01959.html#a95f707a268014333f78d7378dd579ea4", null ],
-    [ "Input", "dc/da8/a01959.html#aba23478206e067c578a2081a0ba4d1ee", null ],
-    [ "Input", "dc/da8/a01959.html#a01d95887913602ed10325b5b07f8cef5", null ],
-    [ "isHigh", "dc/da8/a01959.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "dc/da8/a01959.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "dc/da8/a01959.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "dc/da8/a01959.html#a88354381ff4d3b9ddb9b102e49a96003", null ],
-    [ "operator=", "dc/da8/a01959.html#aac4da8195bb51d393df961046635bfc0", null ],
-    [ "read", "dc/da8/a01959.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "handle", "dc/da8/a01959.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "ADCPortBase", "dc/da8/a01959.html#a4434447d51727d630ac97c35686a4ec0", null ],
+    [ "ADCPortBase", "dc/da8/a01959.html#a0ad5d61e73944a97373bfae0962076a5", null ],
+    [ "ADCPortBase", "dc/da8/a01959.html#a3fd3d8471efb4fa0be2eff201733b1e3", null ],
+    [ "~ADCPortBase", "dc/da8/a01959.html#a31b7b2e0f7cd281e6a54c42f43cf52cf", null ],
+    [ "close", "dc/da8/a01959.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
+    [ "getValue", "dc/da8/a01959.html#a2e87465b382640a36ec07e5abd45f434", null ],
+    [ "open", "dc/da8/a01959.html#aed764265c454323ee0b2d718d2f447cb", null ],
+    [ "operator=", "dc/da8/a01959.html#a283bca78dae75fbe3786f0ddfcb865f3", null ],
+    [ "operator=", "dc/da8/a01959.html#a0fcfa429879f8263683b639ed5e74c96", null ]
 ];

@@ -1,17 +1,13 @@
 var a02659 =
 [
-    [ "Status", "d3/d59/a02659.html#a61454ee42b2bfba6e7e63296f6011ff2", [
-      [ "NO_INIT", "d3/d59/a02659.html#a61454ee42b2bfba6e7e63296f6011ff2a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "CHANGED", "d3/d59/a02659.html#a61454ee42b2bfba6e7e63296f6011ff2ae6b94e58bfd13b21bc786578d9f8ba4a", null ],
-      [ "IN_PROGRESS", "d3/d59/a02659.html#a61454ee42b2bfba6e7e63296f6011ff2aca69f96c768067fbff6c911ca87bccc9", null ],
-      [ "COMPLETED", "d3/d59/a02659.html#a61454ee42b2bfba6e7e63296f6011ff2a8f7afecbc8fbc4cd0f50a57d1172482e", null ]
+    [ "Status", "d3/d59/a02659.html#a335a74b2beee583b06c1cc6a0c928957", [
+      [ "OK", "d3/d59/a02659.html#a335a74b2beee583b06c1cc6a0c928957ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "ERROR", "d3/d59/a02659.html#a335a74b2beee583b06c1cc6a0c928957abb1ca97ec761fc37101737ba0aa2e7c5", null ]
     ] ],
-    [ "Value64Handle", "d3/d59/a02659.html#ae91f7070344c27bb733ae287d79e858d", null ],
-    [ "~Value64Handle", "d3/d59/a02659.html#a5421aedc1179a53c55c2d4d93ce22391", null ],
-    [ "bind", "d3/d59/a02659.html#add5c3b1dc3041fd34c3f7da2614cbb4a", null ],
-    [ "complete", "d3/d59/a02659.html#ac621a9cf7d72e05de784a76929a7dab4", null ],
-    [ "inProgress", "d3/d59/a02659.html#ade6d2f8f79b9705b6078b0d797bdee41", null ],
-    [ "operator const uint64_t &", "d3/d59/a02659.html#aa4aa8de706f83b39bb1006637a938ff3", null ],
-    [ "operator=", "d3/d59/a02659.html#aa8cf727f1d905c276f8dadefb6a080dc", null ],
-    [ "update", "d3/d59/a02659.html#a3b562544e02a39556f90e7dac8d760ca", null ]
+    [ "Parameters", "d3/d59/a02659.html#a0d2e425ec31b105ced5a1ec414518eb2", null ],
+    [ "Parameters", "d3/d59/a02659.html#a401c8f010740c371697fba3fa25b559c", null ],
+    [ "isValid", "d3/d59/a02659.html#aea6685c90b8a40bf879c93f795cb0d1a", null ],
+    [ "operator=", "d3/d59/a02659.html#ab7707d467c6b510fc640db358633fd8b", null ],
+    [ "setup", "d3/d59/a02659.html#a6c93bc540f4ca328949b18b8364730fc", null ],
+    [ "write", "d3/d59/a02659.html#ab2a15849ffa63fb1b31e58a50f802faa", null ]
 ];

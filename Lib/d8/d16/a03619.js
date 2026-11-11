@@ -1,4 +1,5 @@
 var a03619 =
 [
-    [ "Lib::Ethernet::Port", "d5/dd6/a01820.html", "d5/dd6/a01820" ]
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;", "d3/d7b/a01249.html", "d3/d7b/a01249" ],
+    [ "Lib::BSP::Thermometer::DTH::Driver&lt; Type::DTH22 &gt;::Diagnostic", "d3/d0b/a01253.html", "d3/d0b/a01253" ]
 ];

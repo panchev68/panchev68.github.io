@@ -1,29 +1,6 @@
 var a01791 =
 [
-    [ "Error", "d1/dea/a01791.html#a200281c0172b3a65057b86c77b175586", null ],
-    [ "Header", "d1/dea/a01791.html#ad7428bbb83ea5af8171eee7e864fdda4", null ],
-    [ "Protocol", "d1/dea/a01791.html#a03e55875290d9ac400cdac8cb14a858e", null ],
-    [ "Mailbox", "d1/dea/a01791.html#a1debe96138e08d6ccb16868333feb2bf", null ],
-    [ "~Mailbox", "d1/dea/a01791.html#a11d50ad6b758157d23c8d9afd1f9da50", null ],
-    [ "Mailbox", "d1/dea/a01791.html#a237ac941b481e7903f53c72e3a84c37d", null ],
-    [ "Mailbox", "d1/dea/a01791.html#ae1f42eb47014d50f8a22229504f9f812", null ],
-    [ "getAlStatus", "d1/dea/a01791.html#a35431f80931e480938c96b76a926692d", null ],
-    [ "getAlStatusCode", "d1/dea/a01791.html#a38924c6c0bb5575f566f139a7fbd83be", null ],
-    [ "getHeader", "d1/dea/a01791.html#aedee8505e9fc71d9b8ee1f861aed18bd", null ],
-    [ "getMaxReceivePayload", "d1/dea/a01791.html#ac7ab98301c17e070b6dc163a3c8cced5", null ],
-    [ "getMaxSendPayload", "d1/dea/a01791.html#adde97f5c848352eeba6b208c92a29e67", null ],
-    [ "getPayload", "d1/dea/a01791.html#a9872acce7c2cf2223766fcf44e1bab1b", null ],
-    [ "hasIncomingMessage", "d1/dea/a01791.html#a42da399e1c4912a51547721ecd747034", null ],
-    [ "isSendFree", "d1/dea/a01791.html#a1841296b5aeb9919b19eacf34f6f8c29", null ],
-    [ "isStarted", "d1/dea/a01791.html#ab1bcb7c3a74502f21370427c1e31753c", null ],
-    [ "isWatchdogExpired", "d1/dea/a01791.html#aa53136056fbab6f9ab30f59ecf2e1ede", null ],
-    [ "operator=", "d1/dea/a01791.html#abae1162408c4bf8b2325a6f9bd12422b", null ],
-    [ "operator=", "d1/dea/a01791.html#aac7d5d69054aa75c6c65ab7278e2136a", null ],
-    [ "process", "d1/dea/a01791.html#a6ae0df748e2b7e0163d2d0e576c60e67", null ],
-    [ "release", "d1/dea/a01791.html#a24ecfe28e44d01a0ef7402c9dd2b1929", null ],
-    [ "reply", "d1/dea/a01791.html#aa8e763a2fb2fb167a2fb8507743e6a8c", null ],
-    [ "sendError", "d1/dea/a01791.html#af16f83230223a0cfc670c79022e90a1b", null ],
-    [ "sendMessage", "d1/dea/a01791.html#a307441f14d9e3120190624e16e92e238", null ],
-    [ "start", "d1/dea/a01791.html#abf50b8069f4ceb92d29414e4c378b96a", null ],
-    [ "stop", "d1/dea/a01791.html#a931f26c5e93d20514fbea7d2d011fe6a", null ]
+    [ "afterWrite", "d1/dea/a01791.html#a53e4f89f1542245add410f8b0f52b0bd", null ],
+    [ "beforeRead", "d1/dea/a01791.html#a214b45de3b2b1b03564e40ad91392018", null ],
+    [ "beforeWrite", "d1/dea/a01791.html#a19848fcaef19f48fd52d8d89e26be851", null ]
 ];

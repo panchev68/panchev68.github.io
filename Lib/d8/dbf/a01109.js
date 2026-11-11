@@ -1,26 +1,18 @@
 var a01109 =
 [
-    [ "CardDetectedCallback", "d8/dbf/a01109.html#ab8f303ae41cabb93b41546bbe3eb4b6e", null ],
-    [ "Config", "d8/dbf/a01109.html#aa2b4f1926fbeb7d392cebb056d89fb3a", null ],
-    [ "StatusCode", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062", [
-      [ "OK", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062abb1ca97ec761fc37101737ba0aa2e7c5", null ],
-      [ "COLLISION", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062afc3ca10632f0c7aa3aaea07a234377db", null ],
-      [ "TIMEOUT", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062a070a0fb40f6c308ab544b227660aadff", null ],
-      [ "NO_ROOM", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062a48117d92ebb4bcb983ec0c001f99b8ea", null ],
-      [ "INTERNAL_ERROR", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062ae8c0c70879b5895c615677261d64a1ee", null ],
-      [ "INVALID", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062accc0377a8afbf50e7094f5c23a8af223", null ],
-      [ "CRC_WRONG", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062a3c7323ffec41fe2878b32f6a94c6e17f", null ],
-      [ "MIFARE_NACK", "d8/dbf/a01109.html#aaf472166e9d4f2a91e9827210adb0062a84285d7fe0894b43e2d179fc85e99538", null ]
-    ] ],
-    [ "MFRC522", "d8/dbf/a01109.html#ad1434f2513b05706895669a1dbc96bcc", null ],
-    [ "~MFRC522", "d8/dbf/a01109.html#a73dbf6cc73bf71b562399e9e4faa6f75", null ],
-    [ "MFRC522", "d8/dbf/a01109.html#a4c602ecc8a154b75bf0bf0a7814a200b", null ],
-    [ "MFRC522", "d8/dbf/a01109.html#a8a0fe5e00e7d6b58a17d654abf2d8202", null ],
-    [ "bindCardDetectionCallback", "d8/dbf/a01109.html#a41c3481d58b4e074f2d46ab8b2f1e4d2", null ],
-    [ "handleCardDetected", "d8/dbf/a01109.html#ad22f44d8d54d142fa796406c0f376ff3", null ],
-    [ "operator=", "d8/dbf/a01109.html#ab85ed1b7da554c36b7a2ad60002b5459", null ],
-    [ "operator=", "d8/dbf/a01109.html#a3a197b33b50a32efc2a86cc9fd2fff3b", null ],
-    [ "start", "d8/dbf/a01109.html#a11b78264bc00dce2664d91725cc77981", null ],
-    [ "stop", "d8/dbf/a01109.html#adb7420c7531d1af868014dbcc01d4e7d", null ]
+    [ "Command", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d8/dbf/a01109.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

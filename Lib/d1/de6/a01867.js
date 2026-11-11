@@ -1,15 +1,26 @@
 var a01867 =
 [
-    [ "CANPortBase", "d1/de6/a01867.html#a49874a4fadbeed6acb5df1cd34d8b425", null ],
-    [ "CANPortBase", "d1/de6/a01867.html#a36fdf7b60492dfecc0b7bba144d57de0", null ],
-    [ "CANPortBase", "d1/de6/a01867.html#a3758c35d87fdeafd08f0cc9845888bea", null ],
-    [ "~CANPortBase", "d1/de6/a01867.html#afe0c3c29da222264a12b2ade136c866c", null ],
-    [ "close", "d1/de6/a01867.html#a733145a4ed7d5fce544cdb2b2e298859", null ],
-    [ "getFreeTxMailboxCount", "d1/de6/a01867.html#ac88a1857130f01ccafcb72baae483a84", null ],
-    [ "getRxFifoFillLevel", "d1/de6/a01867.html#a7c5ae94d27408eb8d67405648fd2f154", null ],
-    [ "open", "d1/de6/a01867.html#a37ea285eb3fe4ea3c94cb248cc1215d3", null ],
-    [ "operator=", "d1/de6/a01867.html#a9d5120e2646e18222b7569d1caeda00e", null ],
-    [ "operator=", "d1/de6/a01867.html#a472090855651f87bac97104e8a80dee6", null ],
-    [ "read", "d1/de6/a01867.html#a19f3a9f56a84a6b351315710b9aa7cd4", null ],
-    [ "write", "d1/de6/a01867.html#a65aa681fa591b2d0956e06e67e990b15", null ]
+    [ "MessageHeader", "da/d8b/a01871.html", "da/d8b/a01871" ],
+    [ "Command", "d1/de6/a01867.html#af1bf58d46a2365d039aa946466c931e4", [
+      [ "ECHO", "d1/de6/a01867.html#af1bf58d46a2365d039aa946466c931e4ad61484f1331c7f66061e43b859556409", null ],
+      [ "INPUTS", "d1/de6/a01867.html#af1bf58d46a2365d039aa946466c931e4ac7cab40575826be2d11c65614ca65692", null ],
+      [ "OUTPUTS", "d1/de6/a01867.html#af1bf58d46a2365d039aa946466c931e4a1ca47bf72b5f3be73e90beeed7a36a70", null ]
+    ] ],
+    [ "Error", "d1/de6/a01867.html#af7acfca02d188807a9c220d5c0bfeda6", [
+      [ "OK", "d1/de6/a01867.html#af7acfca02d188807a9c220d5c0bfeda6ae0aa021e21dddbd6d8cecec71e9cf564", null ],
+      [ "COMMAND_NOT_SUPPORT", "d1/de6/a01867.html#af7acfca02d188807a9c220d5c0bfeda6ae0901c756669051ca21388e7f93a81d7", null ],
+      [ "EMPTY_MESSAGE", "d1/de6/a01867.html#af7acfca02d188807a9c220d5c0bfeda6a819bbac87ec98b192364727ac5ecddd0", null ],
+      [ "INVALID_PAYLOAD_LENGTH", "d1/de6/a01867.html#af7acfca02d188807a9c220d5c0bfeda6a300245d5c052e31e2ce33bb4b2a74d6e", null ],
+      [ "INVALID_START_DELIMITER", "d1/de6/a01867.html#af7acfca02d188807a9c220d5c0bfeda6a57f56f4562c894ed1de509438fab7a6c", null ]
+    ] ],
+    [ "UserProtocol", "d1/de6/a01867.html#ab11ca2634a103484248a6d8ea24a5407", null ],
+    [ "~UserProtocol", "d1/de6/a01867.html#ad2bb639951ce599fce10adfb65668d02", null ],
+    [ "build", "d1/de6/a01867.html#ae9170839094fc83686dd4af2244027fb", null ],
+    [ "echoCallback", "d1/de6/a01867.html#a3061aa5da161fa13a28466c38e0f725f", null ],
+    [ "getLastSentTimeStamp", "d1/de6/a01867.html#ad39a3a83a2a35aab8c09065f6ea63f0f", null ],
+    [ "handleIncomingMessageHeader", "d1/de6/a01867.html#aa78f9b31828d798a794fcd69e78f46e2", null ],
+    [ "handleOutputsUpdate", "d1/de6/a01867.html#a78c96c1519356f5ea3948970fff30d5c", null ],
+    [ "inputsUpdateCallback", "d1/de6/a01867.html#a26f74b072f3f808ae2a3374051efa833", null ],
+    [ "parse", "d1/de6/a01867.html#a5693bd9519902713725ab87ae72a635d", null ],
+    [ "updateNodeActivityCallback", "d1/de6/a01867.html#a9937ef06792e7b6d381e0b29d25c1f27", null ]
 ];

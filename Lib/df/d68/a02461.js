@@ -1,14 +1,8 @@
 var a02461 =
 [
-    [ "Level", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69", [
-      [ "IDLE", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69aceddfa7747a7a51ad756de3f5af8d262", null ],
-      [ "LOW", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a7aa6572a3a7fb589eb43c6db6340c36a", null ],
-      [ "NORMAL", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8", null ],
-      [ "HIGH", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a88e13967bac8e2192adf0a219659a18a", null ],
-      [ "REALTIME", "df/d68/a02461.html#a47d1302bb72530432eb0072fc7286e69a29325bae0c29ba2f8790ba06028f880c", null ]
-    ] ],
-    [ "Priority", "df/d68/a02461.html#aa5bf16a24ce58ea6a9e41bb82125a3bc", null ],
-    [ "get", "df/d68/a02461.html#ac823c21fa862625f9ccfbfab187a1cb4", null ],
-    [ "getFromISR", "df/d68/a02461.html#a077686e91e7ea468ac484026c09fe001", null ],
-    [ "set", "df/d68/a02461.html#a458e98cafe1842d218c9640b76bde004", null ]
+    [ "allocations", "df/d68/a02461.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "df/d68/a02461.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "df/d68/a02461.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "df/d68/a02461.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "df/d68/a02461.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

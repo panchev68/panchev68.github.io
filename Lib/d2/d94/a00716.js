@@ -1,4 +1,4 @@
 var a00716 =
 [
-    [ "Lib::Math::HammingCode", "d5/d1b/a02331.html", null ]
+    [ "RTOS::StreamBuffer", "db/dab/a02567.html", "db/dab/a02567" ]
 ];

@@ -1,8 +1,19 @@
 var a01271 =
 [
-    [ "ambientTemperatureCelsius", "dd/d39/a01271.html#afe46178f50e25346cca90112dc708790", null ],
-    [ "listenDuration", "dd/d39/a01271.html#aed97102995a3a032b9524b1e47731f17", null ],
-    [ "timeout", "dd/d39/a01271.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
-    [ "uart", "dd/d39/a01271.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
-    [ "uartAddress", "dd/d39/a01271.html#a07cd324da0adf0baf2262a0b33404164", null ]
+    [ "Config", "d3/d42/a01275.html", "d3/d42/a01275" ],
+    [ "Resolution", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
+      [ "BITS_9", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
+      [ "BITS_10", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
+      [ "BITS_11", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
+      [ "BITS_12", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
+    ] ],
+    [ "DS18B20", "dd/d39/a01271.html#a6e8835c62b13a615346d69068ee41c97", null ],
+    [ "~DS18B20", "dd/d39/a01271.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
+    [ "close", "dd/d39/a01271.html#aab038c628d13a5369429107b4be42b3d", null ],
+    [ "getResolution", "dd/d39/a01271.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
+    [ "isGenuineDevice", "dd/d39/a01271.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
+    [ "isPresent", "dd/d39/a01271.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
+    [ "open", "dd/d39/a01271.html#a1dc439d417a53a57d054f811cf33402d", null ],
+    [ "readRom", "dd/d39/a01271.html#a26a1ebc99132937ee58668fd12c26263", null ],
+    [ "readTemperatureCelsius", "dd/d39/a01271.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
 ];

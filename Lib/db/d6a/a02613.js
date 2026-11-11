@@ -1,20 +1,16 @@
 var a02613 =
 [
     [ "Config", "d0/dce/a02617.html", "d0/dce/a02617" ],
-    [ "Status", "db/d6a/a02613.html#a69d5fbac0f2c325b3f576b76a1db1204", [
-      [ "OK", "db/d6a/a02613.html#a69d5fbac0f2c325b3f576b76a1db1204ae0aa021e21dddbd6d8cecec71e9cf564", null ],
-      [ "ERROR", "db/d6a/a02613.html#a69d5fbac0f2c325b3f576b76a1db1204abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "SerialPort", "db/d6a/a02613.html#a598e18433429c3e9aa74a063852aaccd", null ],
-    [ "~SerialPort", "db/d6a/a02613.html#afded1dc48b51225406bff4ec53c93689", null ],
-    [ "SerialPort", "db/d6a/a02613.html#aa66d3cdfabe12244a2c6c1b5554058d3", null ],
-    [ "close", "db/d6a/a02613.html#aacd6fe508350e10b40ccc284a2b25770", null ],
-    [ "handlePostReceivedEvent", "db/d6a/a02613.html#abe6dcde3251bf403edbf507d07eac6bc", null ],
-    [ "handlePostTransmitEvent", "db/d6a/a02613.html#a3f8514c11b7df4573af3eda89f9105e6", null ],
-    [ "open", "db/d6a/a02613.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a", null ],
-    [ "operator=", "db/d6a/a02613.html#a91db90b93d921f24baf5b96ce0aa578c", null ],
-    [ "send", "db/d6a/a02613.html#a0ad3de935e20dec9db20515d75bf4f0a", null ],
-    [ "send", "db/d6a/a02613.html#a484a85d98faebe518ae3b89b6e0cf5d0", null ],
-    [ "setBaudRate", "db/d6a/a02613.html#aaf6c85e6f10e0756e438bf61460c7563", null ],
-    [ "setResetPin", "db/d6a/a02613.html#a0abe8e602336b586b790df6ea81b4ab0", null ]
+    [ "DataMap", "d6/d10/a02621.html", "d6/d10/a02621" ],
+    [ "LastResetState", "db/d6a/a02613.html#af425c5eae72c35aa95aa9a1a224f4092", null ],
+    [ "System", "db/d6a/a02613.html#af4fce1b946378e3b68e2dab8e562134f", null ],
+    [ "System", "db/d6a/a02613.html#a5ea26b055ba2f74bfb770c90aea5ed2e", null ],
+    [ "operator=", "db/d6a/a02613.html#af9936cf8ce134998481d3b63473f909b", null ],
+    [ "configuration", "db/d6a/a02613.html#a97e928b4c78a8a3e74760b983ea17573", null ],
+    [ "firmwareVersion", "db/d6a/a02613.html#a6b544bb551e83fc1c464e0e9572f48ab", null ],
+    [ "hardwareVersion", "db/d6a/a02613.html#a6d884054d36dd9f4b62aed86e5830d9b", null ],
+    [ "lastResetState", "db/d6a/a02613.html#add4f1e84db40b8862ab63a06766ae439", null ],
+    [ "produceDate", "db/d6a/a02613.html#a542e9245a4b9791006636abac56b2574", null ],
+    [ "saleDate", "db/d6a/a02613.html#a5b0e031d4f0f739ad6679efb88040b41", null ],
+    [ "serialNumber", "db/d6a/a02613.html#a2a1eff5a3c2fc68cb2d853d61065a903", null ]
 ];

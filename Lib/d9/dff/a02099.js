@@ -1,14 +1,14 @@
 var a02099 =
 [
-    [ "TimPwmOutput", "d9/dff/a02099.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
-    [ "~TimPwmOutput", "d9/dff/a02099.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
-    [ "TimPwmOutput", "d9/dff/a02099.html#a422a9009ca77380721da2502794a00a0", null ],
-    [ "TimPwmOutput", "d9/dff/a02099.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
-    [ "close", "d9/dff/a02099.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
-    [ "getPeriod", "d9/dff/a02099.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
-    [ "open", "d9/dff/a02099.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
-    [ "operator=", "d9/dff/a02099.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
-    [ "operator=", "d9/dff/a02099.html#a686c13d106e6d8d754e3020b7107d262", null ],
-    [ "setPeriod", "d9/dff/a02099.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
-    [ "setPulse", "d9/dff/a02099.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
+    [ "OSPIPort", "d9/dff/a02099.html#a8c1f23febaf9293e008f91a9d6ad5b17", null ],
+    [ "~OSPIPort", "d9/dff/a02099.html#a88592dfaa7cbb4efa05747483c911d6f", null ],
+    [ "abort", "d9/dff/a02099.html#a12a734c939e90c6c90510ba2c323dec0", null ],
+    [ "close", "d9/dff/a02099.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "command", "d9/dff/a02099.html#ab13d30c818279bf38505328181fa1409", null ],
+    [ "getHandle", "d9/dff/a02099.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d9/dff/a02099.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d9/dff/a02099.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d9/dff/a02099.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d9/dff/a02099.html#a95258a0fd430fb23d0ac55441a6ef9ca", null ],
+    [ "transmit", "d9/dff/a02099.html#a2f58a3412364e7819ba973859d2389a7", null ]
 ];

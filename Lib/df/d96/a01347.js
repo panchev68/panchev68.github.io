@@ -1,5 +1,9 @@
 var a01347 =
 [
-    [ "function", "df/d96/a01347.html#aff0c3dca100d278e3da27425e0eda593", null ],
-    [ "object", "df/d96/a01347.html#aab9c6938c500fb9ab189884c52b57486", null ]
+    [ "errorCode", "df/d96/a01347.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
+    [ "errorCounter", "df/d96/a01347.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
+    [ "receivedMessages", "df/d96/a01347.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
+    [ "rxFifoFullCounter", "df/d96/a01347.html#ae1980d93ca6461dabf615247c5043049", null ],
+    [ "sentMessages", "df/d96/a01347.html#a71de4cab31423207b05a464ff4024347", null ],
+    [ "txMailboxAbortCounter", "df/d96/a01347.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
 ];

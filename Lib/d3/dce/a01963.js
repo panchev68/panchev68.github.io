@@ -1,19 +1,13 @@
 var a01963 =
 [
-    [ "Output", "d3/dce/a01963.html#a1281e0a7881e9bbc4c5ab50eff8991a3", null ],
-    [ "~Output", "d3/dce/a01963.html#aa9c1a46117aa84b973279d61e591a610", null ],
-    [ "Output", "d3/dce/a01963.html#a2e5b8d5672d2476d29d0474439f58c30", null ],
-    [ "Output", "d3/dce/a01963.html#ab0a0cbf5fea7eaa9a5c04405b63cd798", null ],
-    [ "isHigh", "d3/dce/a01963.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
-    [ "isLow", "d3/dce/a01963.html#aac45963cf0777027622bcfbd5773ad89", null ],
-    [ "operator bool", "d3/dce/a01963.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
-    [ "operator=", "d3/dce/a01963.html#a8ee7e17225987004c3c73099e78d8b78", null ],
-    [ "operator=", "d3/dce/a01963.html#a3187afa0ce2671083228b6b536d45d4b", null ],
-    [ "operator=", "d3/dce/a01963.html#a13bc8e6bba332c350095666b72e568aa", null ],
-    [ "read", "d3/dce/a01963.html#acf9a806f75242814c40947cdc229ed24", null ],
-    [ "setHigh", "d3/dce/a01963.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11", null ],
-    [ "setLow", "d3/dce/a01963.html#a0fc44f31312833d252e8aef8a1c4e361", null ],
-    [ "toggle", "d3/dce/a01963.html#ad11ab03ddf964b154331b7ffc708e4c2", null ],
-    [ "write", "d3/dce/a01963.html#a52416b95040bffe9915b005b33bc3600", null ],
-    [ "handle", "d3/dce/a01963.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
+    [ "BackupRamDomain", "d3/dce/a01963.html#a1cb02fe127fbd828d79a74dc4d4ebcb3", null ],
+    [ "~BackupRamDomain", "d3/dce/a01963.html#a3b301936cae87db14bef527c0a5629af", null ],
+    [ "BackupRamDomain", "d3/dce/a01963.html#abf039272ad85b43415d4df28c8c0a051", null ],
+    [ "BackupRamDomain", "d3/dce/a01963.html#af604f32af7890cccdb80c4f97e2b6eb9", null ],
+    [ "close", "d3/dce/a01963.html#a0e38a00a0e42d1e9718b0e5ab46c9223", null ],
+    [ "open", "d3/dce/a01963.html#a75eda4bb9a1e9d88118cacebbb8992a3", null ],
+    [ "operator=", "d3/dce/a01963.html#a675d9fc47e5f2315cdc7199d34015dc6", null ],
+    [ "operator=", "d3/dce/a01963.html#a8e1d5f45dba88392d588bac17ef3ee9c", null ],
+    [ "readRegister", "d3/dce/a01963.html#a90b19ee3b4f06e4874a36f9f25b22ce6", null ],
+    [ "writeRegister", "d3/dce/a01963.html#acc5002942f221da40872cb7be92706a9", null ]
 ];

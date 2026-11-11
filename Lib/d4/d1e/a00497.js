@@ -1,4 +1,4 @@
 var a00497 =
 [
-    [ "Lib::HAL::I2CPort&lt; DriverMode::BLOCKING &gt;", "d5/d1b/a01971.html", "d5/d1b/a01971" ]
+    [ "Lib::HAL::SPIPortBase&lt; T_DERIVED &gt;", "dc/d6c/a02163.html", "dc/d6c/a02163" ]
 ];

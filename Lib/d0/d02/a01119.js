@@ -1,24 +1,18 @@
 var a01119 =
 [
-    [ "Uid", "de/de5/a01123.html", "de/de5/a01123" ],
-    [ "Type", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7a", [
-      [ "UNKNOWN", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "ISO_14443_4", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aafa9e9f88672e820b61f058ca42323bb7", null ],
-      [ "ISO_18092", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad68f4a068cb3b370cffbffd6312931fd", null ],
-      [ "MIFARE_MINI", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9deebb94208e96cbe2148d9e025496eb", null ],
-      [ "MIFARE_1K", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aad9c09da0543c9aa90857c5ff69b7c5bc", null ],
-      [ "MIFARE_4K", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aae0ad034ca9f191ee8cdd44a25261a85b", null ],
-      [ "MIFARE_UL", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa2f1ebbec4cd29aea742c86c606532df7", null ],
-      [ "MIFARE_PLUS", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa8d05bb52b858b539b01e8c24f1cbe18b", null ],
-      [ "TNP3XXX", "d0/d02/a01119.html#a3b1a6a37fd9a89b9dca69aa2728daf7aa9f548f7ec1df322d9af4ce1b127c06a0", null ]
-    ] ],
-    [ "Card", "d0/d02/a01119.html#afe55bac777579392a2341966d599b1aa", null ],
-    [ "~Card", "d0/d02/a01119.html#a9b462a8f8d521dee2be275ece0ea5096", null ],
-    [ "authenticate", "d0/d02/a01119.html#a08fa94e57f56bdd7964dd70e267fd718", null ],
-    [ "detectCard", "d0/d02/a01119.html#a4cdc1e802bc109d771789db15c6830d9", null ],
-    [ "getCardType", "d0/d02/a01119.html#aaf3cc939cb0c768c7a554db036cdb6ad", null ],
-    [ "getUid", "d0/d02/a01119.html#a33cc183859688cd28572af600ed743f6", null ],
-    [ "halt", "d0/d02/a01119.html#a8ee80419a4d19b05e8e0e5451837de29", null ],
-    [ "selectCard", "d0/d02/a01119.html#a9375b5228d52a37d16ba4e2b6ad19b34", null ],
-    [ "stopCrypto", "d0/d02/a01119.html#a7b0e6aeddeb25fcaf7c23cf7070117e0", null ]
+    [ "Command", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726", [
+      [ "WRITE_ENABLE", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726ada67cc4e34a4af2d9f1fb1a0e824746c", null ],
+      [ "READ_STATUS_REGISTER1", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726ae306cefbf3289f4e008a1360c47a0aee", null ],
+      [ "QUAD_PAGE_PROGRAM", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726ae1b472f68e059beca49be1643bed5942", null ],
+      [ "FAST_READ_QUAD_IO", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a98726f276da05fff093339108b488989", null ],
+      [ "SECTOR_ERASE", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a663c23c81f74bcf5f8484e3b94411530", null ],
+      [ "BLOCK_ERASE_32K", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a27cde1a68e65ba519cffb74e89e0ce63", null ],
+      [ "BLOCK_ERASE_64K", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726ab3562ef4b8a70831d4e5eae1023b58e1", null ],
+      [ "CHIP_ERASE", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a2073bd3f356062f809fb7865cb45946b", null ],
+      [ "ENABLE_RESET", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a76b9275e847cf69953713ee58e407ef1", null ],
+      [ "RESET_DEVICE", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726ad542d824121bd310ce5a056ee00110a8", null ],
+      [ "READ_JEDEC_ID", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a255f5008b9addd48029e91905ff9a2fc", null ],
+      [ "POWER_DOWN", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a62f255a0405c1614801a52285695c501", null ],
+      [ "POWER_UP", "d0/d02/a01119.html#a91e4a55498899cc227e8610922efa726a2321a328381b552bb8db5f234ca2309a", null ]
+    ] ]
 ];

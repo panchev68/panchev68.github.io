@@ -1,9 +1,9 @@
 var a02489 =
 [
-    [ "Tick", "da/dbe/a02489.html#a73acf8fc8b1cd8e08ae680600c7644ed", null ],
-    [ "TickType", "da/dbe/a02489.html#af8b741f7cd6bd8cefd26aae83980fbfd", null ],
-    [ "TickCounter", "da/dbe/a02489.html#a2e4f16891a303abf7194b28efe452c4b", null ],
-    [ "~TickCounter", "da/dbe/a02489.html#a82caaf97a995139e4dc974230659be08", null ],
-    [ "TickCounter", "da/dbe/a02489.html#a06b8da334970d2eee58bc03a57c34687", null ],
-    [ "operator=", "da/dbe/a02489.html#ab51f397146bf8a3184476a1b302318e4", null ]
+    [ "DeepSleepLock", "da/dbe/a02489.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
+    [ "~DeepSleepLock", "da/dbe/a02489.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
+    [ "DeepSleepLock", "da/dbe/a02489.html#a40925e50ac0805b094e04973ed61f50b", null ],
+    [ "DeepSleepLock", "da/dbe/a02489.html#a653104e321c6b159eb7b5e5385d286ac", null ],
+    [ "operator=", "da/dbe/a02489.html#a3523f9fd591310866af37223de2c32d3", null ],
+    [ "operator=", "da/dbe/a02489.html#a10ab5d18c8a969841a27a2688604c55c", null ]
 ];

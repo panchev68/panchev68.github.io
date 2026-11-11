@@ -1,13 +1,18 @@
 var a02285 =
 [
-    [ "WolfSSLTransport", "df/d4d/a02285.html#a902fc980deaff7372065ac354e424bd7", null ],
-    [ "~WolfSSLTransport", "df/d4d/a02285.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
-    [ "WolfSSLTransport", "df/d4d/a02285.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
-    [ "WolfSSLTransport", "df/d4d/a02285.html#aee33a9d5d619aea80630e5c113bc940c", null ],
-    [ "close", "df/d4d/a02285.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
-    [ "open", "df/d4d/a02285.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
-    [ "operator=", "df/d4d/a02285.html#a65c79de2e76f70c00d2a7117462aef12", null ],
-    [ "operator=", "df/d4d/a02285.html#ac0b3753689c57f39a30e72868cac2919", null ],
-    [ "receive", "df/d4d/a02285.html#a665163ec5d248c6f5f86737aec8901e8", null ],
-    [ "send", "df/d4d/a02285.html#a609db5ba4b95a1e99a742291477e322b", null ]
+    [ "DateString", "df/d4d/a02285.html#aa5fe19e100a8011afd58ddfb70d372c9", null ],
+    [ "Date", "df/d4d/a02285.html#a93def70969fc16974f55e56219a01b0f", null ],
+    [ "Date", "df/d4d/a02285.html#ad2f811dbd2893bb8de1f1c76b3f5e8e6", null ],
+    [ "getDayOfWeek", "df/d4d/a02285.html#a1c4d4bbe4c808bf05b754cc37a48b869", null ],
+    [ "getDayOfYear", "df/d4d/a02285.html#a4ea90bfd64b95e1bfba3b17d53f6484e", null ],
+    [ "isValid", "df/d4d/a02285.html#a66cc8b6924524dbb160bff50af6b9bbe", null ],
+    [ "operator<=>", "df/d4d/a02285.html#a7a7ccaefa33e38ba99be918a93731119", null ],
+    [ "operator==", "df/d4d/a02285.html#aea6eccc4e7cd93f42e9981519c06fbb9", null ],
+    [ "toString", "df/d4d/a02285.html#a70ecfff686d88d444a44393965b296e5", null ],
+    [ "toSysDays", "df/d4d/a02285.html#a59f67718a1b057bca29012a393547479", null ],
+    [ "toYearMonthDay", "df/d4d/a02285.html#aac55daf6d75fe108be643e3c9b6c3491", null ],
+    [ "DateTime", "df/d4d/a02285.html#ae3d4a8787eced68c65a23f5906c11add", null ],
+    [ "day", "df/d4d/a02285.html#a28104067bdc87b286c7be7cec2b75e1a", null ],
+    [ "month", "df/d4d/a02285.html#a7820218f153fd1a59f9133bbc70c7c98", null ],
+    [ "year", "df/d4d/a02285.html#a1026d89f27e48fd23eccde7a9850b302", null ]
 ];

@@ -1,14 +1,15 @@
 var a02179 =
 [
-    [ "USBOtgPort", "d3/d61/a02179.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
-    [ "~USBOtgPort", "d3/d61/a02179.html#a277068fa3df6459bf52aac65457f31d6", null ],
-    [ "USBOtgPort", "d3/d61/a02179.html#a996c0c11f55b66f27d118a91eb700a30", null ],
-    [ "USBOtgPort", "d3/d61/a02179.html#ab276be300ebf7d87066609fd80b78336", null ],
-    [ "getDevice", "d3/d61/a02179.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
-    [ "getHost", "d3/d61/a02179.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
-    [ "getRole", "d3/d61/a02179.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
-    [ "operator=", "d3/d61/a02179.html#a78acf6354843aa38ea86734991fe89b2", null ],
-    [ "operator=", "d3/d61/a02179.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
-    [ "release", "d3/d61/a02179.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
-    [ "setRole", "d3/d61/a02179.html#aec9af265280bdd162bad2fc3ab471564", null ]
+    [ "Manager", "d3/d61/a02179.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "d3/d61/a02179.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimEventBase", "d3/d61/a02179.html#ae4e4ea4622adc3ec78740bcbb5de40c7", null ],
+    [ "TimEventBase", "d3/d61/a02179.html#a5bc4465b338b0255addd68424099b237", null ],
+    [ "TimEventBase", "d3/d61/a02179.html#a16a104e17a6f13f616dc2f0a20f42653", null ],
+    [ "~TimEventBase", "d3/d61/a02179.html#a5005179511e8564eef47bc3da1d74925", null ],
+    [ "bindWorker", "d3/d61/a02179.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "d3/d61/a02179.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "d3/d61/a02179.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "operator=", "d3/d61/a02179.html#a85bb87c2ebb0260e1e4503471892deaa", null ],
+    [ "operator=", "d3/d61/a02179.html#a252859ce5916b5a86188c2929fc271a4", null ],
+    [ "waitEvent", "d3/d61/a02179.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ]
 ];

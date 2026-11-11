@@ -1,5 +1,9 @@
 var a01511 =
 [
-    [ "firmwareVersion", "da/d50/a01511.html#a8a213038d3ef462ae46b408da218a1eb", null ],
-    [ "hardwareVersion", "da/d50/a01511.html#adfbefffe4f1c4d33955752b2c3cd85e5", null ]
+    [ "State", "da/d50/a01511.html#a44ae11ff1f6d6879d625d65a2966de90", null ],
+    [ "State", "da/d50/a01511.html#a55f4fdb2e6d17db4e479da5cbb8f5dda", null ],
+    [ "isConnected", "da/d50/a01511.html#a1cf62fb6448e4b0a9967e5913898c509", null ],
+    [ "operator uint32_t", "da/d50/a01511.html#aa64849cf1236f74a384ce3e21fd3e4b6", null ],
+    [ "operator=", "da/d50/a01511.html#a74040294aacf89a661c876eb5aadc081", null ],
+    [ "onConnectionChanged", "da/d50/a01511.html#af29d5ac1eff410a6876b1be865601ca8", null ]
 ];

@@ -1,9 +1,15 @@
 var a02399 =
 [
-    [ "CriticalSectionFromISR", "da/d11/a02399.html#a94cda37183a61f5455dc5e641bcb5109", null ],
-    [ "~CriticalSectionFromISR", "da/d11/a02399.html#a54e463ae72e1238776194c4cb941357b", null ],
-    [ "CriticalSectionFromISR", "da/d11/a02399.html#ac2eb1900fbadee2e7ebc634850565a53", null ],
-    [ "CriticalSectionFromISR", "da/d11/a02399.html#a9d04ea07249455e75c39ce5450c33028", null ],
-    [ "operator=", "da/d11/a02399.html#abbd78f0b65afb21ae7dd250f064b5f7e", null ],
-    [ "operator=", "da/d11/a02399.html#ad56353eb9df7f2e778f6e42f12b62fb8", null ]
+    [ "TickType", "da/d11/a02399.html#a0b47d84cbdd58474013fe3b38dce4974", null ],
+    [ "TimePeriod", "da/d11/a02399.html#a096466d88bfa78ef18f074937a43f63f", null ],
+    [ "elapsed", "da/d11/a02399.html#ada4c0a6cd0114194a6667e555b90a36a", null ],
+    [ "elapsedFromISR", "da/d11/a02399.html#ae540ca7df9f089b8222259dc40b38cf1", null ],
+    [ "elapsedTime", "da/d11/a02399.html#aea37e1feea05928a3dfd98f79e82c449", null ],
+    [ "elapsedTimeFromISR", "da/d11/a02399.html#ab6c5330c006db5e62d55de83a3308e1d", null ],
+    [ "isRunning", "da/d11/a02399.html#aa4477fa15b16c620396b69b2935bf2de", null ],
+    [ "reset", "da/d11/a02399.html#a702f4bcc03c1b60bcb212b5276fa13fb", null ],
+    [ "start", "da/d11/a02399.html#afc371b1b7ae3ad092d6048dc93bca6d5", null ],
+    [ "startFromISR", "da/d11/a02399.html#ad2011c05fa06aa25c0d3046d9e495740", null ],
+    [ "stop", "da/d11/a02399.html#a12059cd59e97f3575d46ed98120763a2", null ],
+    [ "stopFromISR", "da/d11/a02399.html#a31d84fe4ec67de8d3610f1ee0c827b83", null ]
 ];

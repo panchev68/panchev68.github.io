@@ -1,7 +1,9 @@
 var a00929 =
 [
-    [ "correction", "dc/d92/a00929.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
-    [ "i2cAddr", "dc/d92/a00929.html#ae3266da82296416f02f68de0c610a2f9", null ],
-    [ "i2cPort", "dc/d92/a00929.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
-    [ "shuntResistorOhms", "dc/d92/a00929.html#a9808e99c30c4516f65cdae3a889ec038", null ]
+    [ "dimmerMaxValue", "dc/d92/a00929.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
+    [ "dimmerMinValue", "dc/d92/a00929.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
+    [ "fadeStep", "dc/d92/a00929.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
+    [ "sleepTimeout", "dc/d92/a00929.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
+    [ "timChannel", "dc/d92/a00929.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
+    [ "timHandle", "dc/d92/a00929.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
 ];

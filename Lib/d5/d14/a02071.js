@@ -1,19 +1,15 @@
 var a02071 =
 [
-    [ "CallbackID", "d5/d14/a02071.html#ab366d4fa77363e661ad71c424eb4faaf", null ],
-    [ "Handle", "d5/d14/a02071.html#ac948323fb2eef4212aaa06df202dfbdc", null ],
-    [ "LPTimer", "d5/d14/a02071.html#a6520e9a177a61a7f1a6cecc9b582e5fc", null ],
-    [ "~LPTimer", "d5/d14/a02071.html#add3250c704445e43eb5798c76d514cd0", null ],
-    [ "LPTimer", "d5/d14/a02071.html#a694916ba4b3b845dc40a55807a3c010a", null ],
-    [ "LPTimer", "d5/d14/a02071.html#a0151830764f6149bcd064718e12efa9d", null ],
-    [ "close", "d5/d14/a02071.html#a6295b01535aa1df83366d83b9426ff7d", null ],
-    [ "getElapsedRtosTicks", "d5/d14/a02071.html#a4fc71247da21a5d02602615eb66c4256", null ],
-    [ "getHandle", "d5/d14/a02071.html#add82be5171e6f5f28baaba0aea38a0de", null ],
-    [ "hasExpired", "d5/d14/a02071.html#abaedcebf007dff3863b7fd1eec8fd303", null ],
-    [ "open", "d5/d14/a02071.html#a1a9d936e6ff40316674eb1bb6293d5eb", null ],
-    [ "operator=", "d5/d14/a02071.html#a3ab3ebd892230fa7165da48b1196d7a5", null ],
-    [ "operator=", "d5/d14/a02071.html#ac4e8a52cdf24942a7b3ca487f0fa2022", null ],
-    [ "startTimeoutInterrupt", "d5/d14/a02071.html#af87c45b091cb7b10192ce86953eba07a", null ],
-    [ "stopInterrupt", "d5/d14/a02071.html#a524f65747a660c2243dfe55d318bb083", null ],
-    [ "waitForEvent", "d5/d14/a02071.html#a8f6329f1b312d263381f3738aacd64b8", null ]
+    [ "I2CPort", "d5/d14/a02071.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d5/d14/a02071.html#aa13047282a809658f54818a9b352d7bf", null ],
+    [ "abort", "d5/d14/a02071.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d5/d14/a02071.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d5/d14/a02071.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d5/d14/a02071.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d5/d14/a02071.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "d5/d14/a02071.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d5/d14/a02071.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d5/d14/a02071.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d5/d14/a02071.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d5/d14/a02071.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

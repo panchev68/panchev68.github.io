@@ -1,19 +1,6 @@
 var a01941 =
 [
-    [ "I2CPort", "da/d76/a01941.html#a70dc562f520726340c2c942ee7753b17", null ],
-    [ "~I2CPort", "da/d76/a01941.html#aabd63a3e7b5c5e7379cde321595e289a", null ],
-    [ "I2CPort", "da/d76/a01941.html#a3a090c26f0644cce45bc5b99813c7f5b", null ],
-    [ "I2CPort", "da/d76/a01941.html#a6c227decd7ea7b8ff23e032025761259", null ],
-    [ "close", "da/d76/a01941.html#aae0ad19378c79d7c9d3f47f6255ad4e7", null ],
-    [ "getHandle", "da/d76/a01941.html#a57df6990634d2cba4b86d8cf193f4050", null ],
-    [ "getHandle", "da/d76/a01941.html#a69c94e71f27fa3cd5ec2a2074f055e8b", null ],
-    [ "isBusy", "da/d76/a01941.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
-    [ "isReady", "da/d76/a01941.html#a14c943a270b82f4b76faffc2822e1408", null ],
-    [ "masterMemRead", "da/d76/a01941.html#aff45c6ae44d78ac3f07f800383374359", null ],
-    [ "masterMemWrite", "da/d76/a01941.html#ae89e0f492119ac05671af0cdca2b90de", null ],
-    [ "masterReceive", "da/d76/a01941.html#a165d3958b26f38d4c513160a447bcfaf", null ],
-    [ "masterTransmit", "da/d76/a01941.html#a890fb1518f0e09f5f04f878dcdaeaf23", null ],
-    [ "open", "da/d76/a01941.html#ae5b5ff9d68d55b14be794ede22903816", null ],
-    [ "operator=", "da/d76/a01941.html#aae592f22809df591ac07e2cd47f3969b", null ],
-    [ "operator=", "da/d76/a01941.html#ad5fbff9bd27efbf828e458b4accc74ab", null ]
+    [ "getDevice", "da/d76/a01941.html#a44399c0b88c31ab172615c8522506511", null ],
+    [ "registerDevice", "da/d76/a01941.html#a20731f8c338ecda6068a2f416c8e9e97", null ],
+    [ "unregisterDevice", "da/d76/a01941.html#aa1c87169c3e9040cd552e10c08e0eee4", null ]
 ];

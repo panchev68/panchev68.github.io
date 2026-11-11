@@ -1,8 +1,5 @@
 var a01789 =
 [
-    [ "Node", "d6/d53/a01789.html#a81d927b8b26c0c7205c5710453d1fe32", null ],
-    [ "Node", "d6/d53/a01789.html#abaf2c8f6c4fc7e312bfac1f54ef20547", null ],
-    [ "set", "d6/d53/a01789.html#aabf66f7098b390e0ec219ba2a51abc84", null ],
-    [ "ip", "d6/d53/a01789.html#a5295e464e380953c5bce5bb7b83d3c10", null ],
-    [ "port", "d6/d53/a01789.html#ac8248e88c87c5b0bfab445627f0d484e", null ]
+    [ "read", "d6/d53/a01789.html#a1d185c9a891facac570cbbdaa2157fa4", null ],
+    [ "write", "d6/d53/a01789.html#a26af4517707f2496ad3f4ab6f5e51719", null ]
 ];

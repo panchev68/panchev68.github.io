@@ -1,23 +1,13 @@
 var a02365 =
 [
-    [ "Config", "df/def/a02369.html", "df/def/a02369" ],
-    [ "Command", "d0/dc0/a02365.html#a0b7ad8b7773fc15de07047754f3794f9", [
-      [ "OFF", "d0/dc0/a02365.html#a0b7ad8b7773fc15de07047754f3794f9a88559a0cfd8250c9d65970cc145c92d4", null ],
-      [ "ON", "d0/dc0/a02365.html#a0b7ad8b7773fc15de07047754f3794f9a90651ebea9a35ec4e018c8157492e17c", null ]
-    ] ],
-    [ "Status", "d0/dc0/a02365.html#a9f826713fcf7511db5c43ef6f27173af", [
-      [ "IS_OFF", "d0/dc0/a02365.html#a9f826713fcf7511db5c43ef6f27173afa5b47312014964c5843fdd0002c86e46d", null ],
-      [ "IS_ON", "d0/dc0/a02365.html#a9f826713fcf7511db5c43ef6f27173afa93829aa602d1d42d28fc6821d0e0083b", null ],
-      [ "IN_MOTION", "d0/dc0/a02365.html#a9f826713fcf7511db5c43ef6f27173afa229051669055140f5d0bbafd5ea64412", null ]
-    ] ],
-    [ "RotationCylinder", "d0/dc0/a02365.html#a9e8bc0dbf9e33b3d355379fb51a67416", null ],
-    [ "RotationCylinder", "d0/dc0/a02365.html#a7c2b4110cef52e26a1699691fd9bd4fb", null ],
-    [ "command", "d0/dc0/a02365.html#a8ca6acca72dbe8c542856371e956e058", null ],
-    [ "getName", "d0/dc0/a02365.html#a480be139cc8704be72afb69d2456281f", null ],
-    [ "getStatus", "d0/dc0/a02365.html#aba16d8727149fd2debf8b51fff5438bd", null ],
-    [ "isOff", "d0/dc0/a02365.html#a90f1e56010dee19b0f66350351127712", null ],
-    [ "isOn", "d0/dc0/a02365.html#a3dfd5b2cf18acd7457732541b4271d1a", null ],
-    [ "operator=", "d0/dc0/a02365.html#a44c71110f315e89203746b05fd4ab10a", null ],
-    [ "setup", "d0/dc0/a02365.html#a659c7989f745a79aeecb1c24004acba6", null ],
-    [ "update", "d0/dc0/a02365.html#afcafcbf63c5703cb97f68a8496510b3b", null ]
+    [ "WolfSSLTransport", "d0/dc0/a02365.html#a902fc980deaff7372065ac354e424bd7", null ],
+    [ "~WolfSSLTransport", "d0/dc0/a02365.html#a1af1ec7c8459af557cecf30e2fce9851", null ],
+    [ "WolfSSLTransport", "d0/dc0/a02365.html#ac66ebbbe5867fdc9e41b120f0703afd9", null ],
+    [ "WolfSSLTransport", "d0/dc0/a02365.html#aee33a9d5d619aea80630e5c113bc940c", null ],
+    [ "close", "d0/dc0/a02365.html#afc96144cd745fe9fc116e7fa03ea0c00", null ],
+    [ "open", "d0/dc0/a02365.html#a34b1d6a735d69895b3381e71a3d7b24f", null ],
+    [ "operator=", "d0/dc0/a02365.html#a65c79de2e76f70c00d2a7117462aef12", null ],
+    [ "operator=", "d0/dc0/a02365.html#ac0b3753689c57f39a30e72868cac2919", null ],
+    [ "receive", "d0/dc0/a02365.html#a665163ec5d248c6f5f86737aec8901e8", null ],
+    [ "send", "d0/dc0/a02365.html#a609db5ba4b95a1e99a742291477e322b", null ]
 ];

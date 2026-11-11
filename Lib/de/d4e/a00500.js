@@ -1,4 +1,4 @@
 var a00500 =
 [
-    [ "Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;", "dd/d4e/a01975.html", "dd/d4e/a01975" ]
+    [ "Lib::HAL::LPTimer", "d0/d79/a02117.html", "d0/d79/a02117" ]
 ];

@@ -1,15 +1,8 @@
 var a02409 =
 [
-    [ "Status", "d7/d18/a02409.html#a12545d9824f6613ee89191861f120584", [
-      [ "SUCCESS", "d7/d18/a02409.html#a12545d9824f6613ee89191861f120584ad0749aaba8b833466dfcbb0428e4f89c", null ],
-      [ "INVALID_SIZE", "d7/d18/a02409.html#a12545d9824f6613ee89191861f120584a51a0660230eb5c4b9f49430f9c2c0f05", null ],
-      [ "OUT_OF_MEMORY", "d7/d18/a02409.html#a12545d9824f6613ee89191861f120584ac56ddb8056b120c9d5fee05981f219c6", null ],
-      [ "SIZE_TOO_LARGE", "d7/d18/a02409.html#a12545d9824f6613ee89191861f120584ac6c2e6b9d5584c8333430e2120fd4cae", null ]
-    ] ],
-    [ "MemoryManager", "d7/d18/a02409.html#a11985e607e9d0df1a66531314e37b38b", null ],
-    [ "~MemoryManager", "d7/d18/a02409.html#a71e750b42ae7c18640c58654a6e54687", null ],
-    [ "MemoryManager", "d7/d18/a02409.html#a7045943a317adab019e38e7c6bf2de73", null ],
-    [ "MemoryManager", "d7/d18/a02409.html#a89bca016476ef966223eb6841d5cc034", null ],
-    [ "operator=", "d7/d18/a02409.html#a3d49149b2b6d2ccba12daf1e0689202e", null ],
-    [ "operator=", "d7/d18/a02409.html#a16ef9a0ce4ca80cfdcac20e6e4f204e9", null ]
+    [ "State", "d7/d18/a02409.html#afe35f3917f1fcf220ff6a116f81ddc4f", null ],
+    [ "firstRun", "d7/d18/a02409.html#aa91a1cb5adce924c40ec92d505f95d36", null ],
+    [ "integralSum", "d7/d18/a02409.html#ac2512432c839efc7cb014a77b0df4dc5", null ],
+    [ "lastInput", "d7/d18/a02409.html#aee85caac0b3ab6791a7d81348950ea4b", null ],
+    [ "lastOutput", "d7/d18/a02409.html#a862f1f2c16be14d1c1caa0a261fd5598", null ]
 ];

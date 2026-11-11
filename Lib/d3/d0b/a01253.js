@@ -1,8 +1,9 @@
 var a01253 =
 [
-    [ "ambientTemperatureCelsius", "d3/d0b/a01253.html#afe46178f50e25346cca90112dc708790", null ],
-    [ "listenDuration", "d3/d0b/a01253.html#aed97102995a3a032b9524b1e47731f17", null ],
-    [ "timeout", "d3/d0b/a01253.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
-    [ "uart", "d3/d0b/a01253.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
-    [ "uartAddress", "d3/d0b/a01253.html#a07cd324da0adf0baf2262a0b33404164", null ]
+    [ "calculatedChecksum", "d3/d0b/a01253.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
+    [ "frameChecksum", "d3/d0b/a01253.html#afd2a7854bded2de4881565573fc0d9b1", null ],
+    [ "invalidFrameChecksum", "d3/d0b/a01253.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
+    [ "invalidHumidity", "d3/d0b/a01253.html#a97069f405d3773e81b9930425efc8d74", null ],
+    [ "invalidTemperature", "d3/d0b/a01253.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
+    [ "receivedTimeout", "d3/d0b/a01253.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
 ];

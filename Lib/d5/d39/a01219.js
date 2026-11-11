@@ -1,22 +1,10 @@
 var a01219 =
 [
-    [ "Diagnostic", "d7/ddd/a01223.html", "d7/ddd/a01223" ],
-    [ "PinHandle", "d5/d39/a01219.html#a9c9b1adf3f4cdaad9fee54301cb21f1f", null ],
-    [ "Driver", "d5/d39/a01219.html#ab07845254f409b109812886c271c23fd", null ],
-    [ "~Driver", "d5/d39/a01219.html#a0d29d1fa0f72b7e7ee12c096389e8711", null ],
-    [ "beginReceiveData", "d5/d39/a01219.html#a9e2aee6a61daef81b7ccc8c2b3a73031", null ],
-    [ "endReceivedData", "d5/d39/a01219.html#a63785a9b88d7556f54e1e71118a760d4", null ],
-    [ "getHumidity", "d5/d39/a01219.html#af1b0389aae714142b8a606106d0a4a56", null ],
-    [ "getRawHumidity", "d5/d39/a01219.html#a3e8dacb5fd8d85536ca9a3c31f6feffd", null ],
-    [ "getRawTemperature", "d5/d39/a01219.html#ab776af450b94ccff9151de29e820c940", null ],
-    [ "getTemperature", "d5/d39/a01219.html#ae20843f3a9105a0d355f64cdb1096f9c", null ],
-    [ "hasNewData", "d5/d39/a01219.html#a1bc076c8cc5e10883a332ef5f6a090ee", null ],
-    [ "isValidData", "d5/d39/a01219.html#a76b28ab92569b5bf36888ef2cb155f63", null ],
-    [ "start", "d5/d39/a01219.html#a7bb2909673708c9ad956bc98034da91d", null ],
-    [ "startupImpulse", "d5/d39/a01219.html#ab0b91e6ca971b92cc9b60de925eeceae", null ],
-    [ "waitForComplete", "d5/d39/a01219.html#a9b5b96a6106c15c974463750529471d0", null ],
-    [ "writePinState", "d5/d39/a01219.html#a049430e063b46db8f7e7401c0af75df7", null ],
-    [ "Base< Driver< Type::DTH22 > >", "d5/d39/a01219.html#a563861f233361c18a30fd9049d7abd7a", null ],
-    [ "config", "d5/d39/a01219.html#a3b31347dab82ede045f6e076046e5762", null ],
-    [ "diagnostic", "d5/d39/a01219.html#a641741551ee87f815b7ca238c2fce09c", null ]
+    [ "operator==", "d5/d39/a01219.html#a76f4384c25c5a26bc057858df3c55875", null ],
+    [ "inPhaseAdc", "d5/d39/a01219.html#ae284e93d7297470825441d553589ac6f", null ],
+    [ "inPhaseCalibration", "d5/d39/a01219.html#ac441666e18f4b4aa793bd97b17ba8b33", null ],
+    [ "inPhaseReference", "d5/d39/a01219.html#ac861bb40ecbdfc1c56832664cec7a9d8", null ],
+    [ "quadratureAdc", "d5/d39/a01219.html#a17b30f12146f08fd5831a0df67e9ff5c", null ],
+    [ "quadratureCalibration", "d5/d39/a01219.html#addbb57cc85ad0a60cde2f7760a61425c", null ],
+    [ "quadratureReference", "d5/d39/a01219.html#a7a7dcfdea56a9d66f562fa291a1cefcb", null ]
 ];

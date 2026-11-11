@@ -1,7 +1,7 @@
 var a00953 =
 [
-    [ "mappingFields", "d5/da3/a00953.html#a1ab61452f8c6716fefec2b2b8d48ddff", null ],
-    [ "nssPin", "d5/da3/a00953.html#a1057a60af84ee4d60342df596793afee", null ],
-    [ "pinCount", "d5/da3/a00953.html#a4ec50d1e310701baec42aebd409d8af6", null ],
-    [ "spiPort", "d5/da3/a00953.html#a7a00976594ca0e1ebcaf62159fddb767", null ]
+    [ "correction", "d5/da3/a00953.html#aafc1a971f8aa46e96205f1d9c4b71f60", null ],
+    [ "i2cAddr", "d5/da3/a00953.html#ae3266da82296416f02f68de0c610a2f9", null ],
+    [ "i2cPort", "d5/da3/a00953.html#a526bebd41ca844fb0989bb6efd6f6910", null ],
+    [ "shuntResistorOhms", "d5/da3/a00953.html#a9808e99c30c4516f65cdae3a889ec038", null ]
 ];

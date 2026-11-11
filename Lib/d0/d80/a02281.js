@@ -1,11 +1,12 @@
 var a02281 =
 [
-    [ "Client", "d0/d80/a02281.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
-    [ "Client", "d0/d80/a02281.html#a893ac5643ef917f5ca701fabbe75a429", null ],
-    [ "Client", "d0/d80/a02281.html#a207055b9f6a7daac509985f971a0e14f", null ],
-    [ "get", "d0/d80/a02281.html#aabf7e35c74111468fdd296e6931b047f", null ],
-    [ "operator=", "d0/d80/a02281.html#a19375415236ef7e6b214f897791eeb09", null ],
-    [ "operator=", "d0/d80/a02281.html#a3b9c27f75842a31365c97eaaa607d452", null ],
-    [ "post", "d0/d80/a02281.html#aee5955fa4ffad931d4418d2f59af2880", null ],
-    [ "request", "d0/d80/a02281.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
+    [ "Time", "d0/d80/a02281.html#a09c1a289db437e3ca338e958ea1101fe", null ],
+    [ "Time", "d0/d80/a02281.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
+    [ "isValid", "d0/d80/a02281.html#aad60c63a33a981ba3174a5360f508caa", null ],
+    [ "operator<=>", "d0/d80/a02281.html#a439444313b0351de56cc2f43dc39b9b4", null ],
+    [ "operator==", "d0/d80/a02281.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
+    [ "toDuration", "d0/d80/a02281.html#a3f5be273bd672ae87b52a229edec304f", null ],
+    [ "hours", "d0/d80/a02281.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
+    [ "minutes", "d0/d80/a02281.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
+    [ "seconds", "d0/d80/a02281.html#acffd8038132dc5a2078816b9d0dae829", null ]
 ];

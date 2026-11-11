@@ -1,4 +1,5 @@
 var a00677 =
 [
-    [ "Lib::Helper::Delay", "d6/dd2/a02243.html", "d6/dd2/a02243" ]
+    [ "Lib::Pneumatics::Sensor", "d1/d50/a02487.html", "d1/d50/a02487" ],
+    [ "Lib::Pneumatics::Sensor::Config", "d6/d9a/a02491.html", "d6/d9a/a02491" ]
 ];

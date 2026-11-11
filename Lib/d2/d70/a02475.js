@@ -1,14 +1,9 @@
 var a02475 =
 [
-    [ "Label", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821e", [
-      [ "RUNNING", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821ea43491564ebcfd38568918efbd6e840fd", null ],
-      [ "READY", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821ea2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "BLOCKED", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821eaeecba0068950a2df17c47e851e1eef14", null ],
-      [ "SUSPENDED", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821ea0cb707127aebaa0023eb38363993843a", null ],
-      [ "DELETED", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821ea63c2867fdcae0e8e8413d7ac21b69b59", null ],
-      [ "INVALID", "d2/d70/a02475.html#a98d823750bde45aebd4db31f4086821eaccc0377a8afbf50e7094f5c23a8af223", null ]
-    ] ],
-    [ "State", "d2/d70/a02475.html#a5c01ee10cb82d70d5dc1862fa48ebeb3", null ],
-    [ "get", "d2/d70/a02475.html#a5a2b8169bb0b0cff3c9f26a63e43582a", null ],
-    [ "operator Label", "d2/d70/a02475.html#a3c30086da2d01872c5cdccdba1874c74", null ]
+    [ "name", "d2/d70/a02475.html#ae6b42a26240d020ed28832dcb1a4eaf2", null ],
+    [ "offSensor", "d2/d70/a02475.html#a4905184e7b9c4dbf249f7fd18fe04294", null ],
+    [ "onSensor", "d2/d70/a02475.html#a2256dcad5353ffd21cba4b1d1ef02937", null ],
+    [ "output", "d2/d70/a02475.html#a190d46a6d7adb9d97669f3ed0314095a", null ],
+    [ "sensorCalmingTime", "d2/d70/a02475.html#a6e75b7c9f0a1bf1b80f1c26e7cf779a0", null ],
+    [ "switchTimeout", "d2/d70/a02475.html#a3b47c6d09ae6819d4130656a034a3b0f", null ]
 ];

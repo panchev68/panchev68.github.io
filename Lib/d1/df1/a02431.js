@@ -1,15 +1,7 @@
 var a02431 =
 [
-    [ "MutexGuard", "d1/df1/a02431.html#a61b8b1a0414884098d80ddf7a5ce0a68", null ],
-    [ "MutexGuard", "d1/df1/a02431.html#a06d66e08a55ebf1440edb711e6886307", null ],
-    [ "MutexGuard", "d1/df1/a02431.html#a8a8469451b606ba9c2030f5ac422e7d7", null ],
-    [ "MutexGuard", "d1/df1/a02431.html#a21aba9e001a6afec8742ff355b845ede", null ],
-    [ "~MutexGuard", "d1/df1/a02431.html#a35526aab46b7a21b967df7060f8d6747", null ],
-    [ "MutexGuard", "d1/df1/a02431.html#a271282f741f6a7c1dcebff1616c9916e", null ],
-    [ "MutexGuard", "d1/df1/a02431.html#a66f7b610af22e97faef98e233dbd46d5", null ],
-    [ "isLocked", "d1/df1/a02431.html#a3f156fd8fcb57426c142acbd54ddb267", null ],
-    [ "operator bool", "d1/df1/a02431.html#af9126f464f900d7777d9bb069a13265b", null ],
-    [ "operator=", "d1/df1/a02431.html#ada341f5a3644025a9b57e448e023d88b", null ],
-    [ "operator=", "d1/df1/a02431.html#ab3ecbdac4533bf5b0bc98c2b855d335b", null ],
-    [ "unlock", "d1/df1/a02431.html#aac958a4a6fa41d74c55c0a3de3e817af", null ]
+    [ "estimatedError", "d1/df1/a02431.html#aa627467e596e97925629cac77c51da24", null ],
+    [ "processNoise", "d1/df1/a02431.html#a7e16b71ff3502e6a879deb251c303f6c", null ],
+    [ "sensorNoise", "d1/df1/a02431.html#a04983eb19f2dfbb4304e33ce8283c384", null ],
+    [ "value", "d1/df1/a02431.html#a9083872d6be2774cad6b5e7a7741f9e6", null ]
 ];

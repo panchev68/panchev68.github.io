@@ -1,11 +1,12 @@
 var a01683 =
 [
-    [ "onExtendedTransmitStatusChanged", "d2/dca/a01683.html#ac0fb0d5db40ad0549201f3ccfd479d2a", null ],
-    [ "onLocalAtCommand", "d2/dca/a01683.html#aceae13566afc6b2f8d52bd3c08e8937a", null ],
-    [ "onModemStatusChanged", "d2/dca/a01683.html#ae996503dc6eb467028f6d6e2ae6569ea", null ],
-    [ "onPacketReceived", "d2/dca/a01683.html#a850cfb32fb4c250ebb5d07029d996133", null ],
-    [ "onReceivePacket16bit", "d2/dca/a01683.html#a30dd6aca5f04efa028541965da0f724f", null ],
-    [ "onReceivePacket64bit", "d2/dca/a01683.html#ae842afa495347e1ae7b18cb81643c7f1", null ],
-    [ "onRemoteATCommand", "d2/dca/a01683.html#a6478313e9cdf3b52be0a0c225f2b4dd0", null ],
-    [ "onTransmitStatus", "d2/dca/a01683.html#ab7c267d735405ac8ba7f0f31e6270cad", null ]
+    [ "Config", "d2/dca/a01683.html#a9b9fb43457649e59ca4afc679738e4a1", null ],
+    [ "Module", "d2/dca/a01683.html#a254c8c718d7faf592b274708db07db8d", null ],
+    [ "~Module", "d2/dca/a01683.html#a3e8be6962f855fba474c3c0e0366a256", null ],
+    [ "init", "d2/dca/a01683.html#a45140156f7c70b779d773237bed74b50", null ],
+    [ "reset", "d2/dca/a01683.html#ad12e07277c8b5e96fea25af2c6cd5b09", null ],
+    [ "send", "d2/dca/a01683.html#adb8dd809dcd7a22dee2718819616b947", null ],
+    [ "onMessageReceive", "d2/dca/a01683.html#a7f2e8faef33f497245aea8cfbba53c3e", null ],
+    [ "onMessageSend", "d2/dca/a01683.html#a5f37bfbb2382a13b955a6063fc31bc2e", null ],
+    [ "responseEvents", "d2/dca/a01683.html#ac2585942261cabaa51522f461c64816b", null ]
 ];

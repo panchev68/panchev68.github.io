@@ -1,10 +1,7 @@
 var a02533 =
 [
-    [ "VersionString", "dc/db6/a02533.html#ac9851fd06f3c97e29948444eda72ba7a", null ],
-    [ "FirmwareVersion", "dc/db6/a02533.html#a442edbd6ce53c5d45e852377b1bdb060", null ],
-    [ "getSubVersion", "dc/db6/a02533.html#a74bafacd182d3ccff4da47e5aac54408", null ],
-    [ "getValue", "dc/db6/a02533.html#ac7f2c6567e3ebdf4b76572188a634e57", null ],
-    [ "operator uint32_t", "dc/db6/a02533.html#a03ea62a5d151575e4d44a3e135f6e79a", null ],
-    [ "operator VersionString", "dc/db6/a02533.html#ac1754b29d3c496eddc95c6ea0aeb1742", null ],
-    [ "toString", "dc/db6/a02533.html#ac82dd7d67829e33f61b3625626f44742", null ]
+    [ "Config", "dc/db6/a02533.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
+    [ "name", "dc/db6/a02533.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "dc/db6/a02533.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
+    [ "stackSize", "dc/db6/a02533.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

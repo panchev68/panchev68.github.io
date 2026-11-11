@@ -1,11 +1,5 @@
 var a01599 =
 [
-    [ "Message", "d9/d13/a01599.html#adf2fad29193213811e051ef8d5f227a7", null ],
-    [ "Message", "d9/d13/a01599.html#a68d2a5b54227d976281ef2c06d063d87", null ],
-    [ "Message", "d9/d13/a01599.html#a0889e6d46908d6cf55cae865dbe3883f", null ],
-    [ "data", "d9/d13/a01599.html#abc7d722b3924f3002a908d282429e590", null ],
-    [ "empty", "d9/d13/a01599.html#a09e2a403173178d77de083ae66a831fe", null ],
-    [ "operator std::vector< uint8_t >", "d9/d13/a01599.html#aa265929307138945bf4e16749958a7f8", null ],
-    [ "size", "d9/d13/a01599.html#ae0984b2ca9f8d12f76f5adffc2096b5e", null ],
-    [ "view", "d9/d13/a01599.html#a99d9247c3097add390da201d0083e524", null ]
+    [ "high", "d9/d13/a01599.html#a463a9c11eea19eccb5ce4ac37c1a3d66", null ],
+    [ "low", "d9/d13/a01599.html#a717f15e16e6d47bb9ae5a9290676ea33", null ]
 ];

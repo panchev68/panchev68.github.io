@@ -1,12 +1,17 @@
 var a02199 =
 [
-    [ "Time", "db/dd5/a02199.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "db/dd5/a02199.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "db/dd5/a02199.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "db/dd5/a02199.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "db/dd5/a02199.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "db/dd5/a02199.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "db/dd5/a02199.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "db/dd5/a02199.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "db/dd5/a02199.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "Manager", "db/dd5/a02199.html#a0a4806d9f5ce4953eb151c8ec4f74cb5", null ],
+    [ "TickType", "db/dd5/a02199.html#ad8ef8d64da7b2fb93cca36bca48241bc", null ],
+    [ "TimTimebase", "db/dd5/a02199.html#a2c242b351c880239ebc508905c1cb177", null ],
+    [ "~TimTimebase", "db/dd5/a02199.html#a90c3f44e84cfcfed7135d75abee0a2e1", null ],
+    [ "bindWorker", "db/dd5/a02199.html#ac7b1eac52b77847537b732a7e3cd0d2e", null ],
+    [ "getHandle", "db/dd5/a02199.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "notifyWorkerFromISR", "db/dd5/a02199.html#a96061f4587cc3508811475a8309ab3f0", null ],
+    [ "setPeriod", "db/dd5/a02199.html#a29d9a9e5c9f5213605679a13c42aa764", null ],
+    [ "start", "db/dd5/a02199.html#ab552a6aca3293c0ecdd0ce26d6668663", null ],
+    [ "stop", "db/dd5/a02199.html#afffbfe2b0fcf27e6081cc6983d06e626", null ],
+    [ "waitEvent", "db/dd5/a02199.html#a50fe83a38ed76cc7a5f8cea7dca98f4d", null ],
+    [ "waitPeriod", "db/dd5/a02199.html#a2b19392b62c66b845538ec09abd31354", null ],
+    [ "waitPeriod", "db/dd5/a02199.html#a12ce8677b8ff16469cb2f21c9a1eb5bb", null ],
+    [ "void::Lib_HAL_TimTimebase_PeriodElapsed", "db/dd5/a02199.html#ae72687d02451939bdec7c3aaba269a45", null ]
 ];

@@ -1,28 +1,16 @@
 var a01039 =
 [
-    [ "Config", "d8/d27/a01043.html", "d8/d27/a01043" ],
-    [ "State", "df/d21/a01039.html#a9fd0a76196b2eb1e21013c1f0379cd08", [
-      [ "NO_INIT", "df/d21/a01039.html#a9fd0a76196b2eb1e21013c1f0379cd08a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "READY", "df/d21/a01039.html#a9fd0a76196b2eb1e21013c1f0379cd08a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "DISABLE", "df/d21/a01039.html#a9fd0a76196b2eb1e21013c1f0379cd08afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
-      [ "ERROR", "df/d21/a01039.html#a9fd0a76196b2eb1e21013c1f0379cd08abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Base", "df/d21/a01039.html#a12aecbfda8834bf3a667148d765a5131", null ],
-    [ "close", "df/d21/a01039.html#a661ff278a48b8dba19a2a054bc21a7cd", null ],
-    [ "getState", "df/d21/a01039.html#adb79d7f488b262bfdc58c114a3ac6f33", null ],
-    [ "open", "df/d21/a01039.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
-    [ "readAlEventReg", "df/d21/a01039.html#aec3fa0792cf0cda4f5d91244b599d804", null ],
-    [ "readCSR", "df/d21/a01039.html#a6872fa6c05dea9476d20434f28b40b99", null ],
-    [ "readDLStatus", "df/d21/a01039.html#acae5d3c1c2b5679addbccc5506d2de0e", null ],
-    [ "readPDIRegister", "df/d21/a01039.html#ac2aaa9d194b1af38aa02bc21b97e4b79", null ],
-    [ "readPRAM", "df/d21/a01039.html#a3d2a55bfbcbe4193a6f9c88a6853c9e4", null ],
-    [ "readReg", "df/d21/a01039.html#a5dcebd0d4f0135e2133880e9671892c6", null ],
-    [ "readU32", "df/d21/a01039.html#a044adc74263d0844a30a59541c3162a6", null ],
-    [ "resetChip", "df/d21/a01039.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
-    [ "resetPin", "df/d21/a01039.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
-    [ "verifyChipId", "df/d21/a01039.html#a92fb14a44d98ad85c15d007798f188d4", null ],
-    [ "writeCSR", "df/d21/a01039.html#a6856933af0bd9892be77168a4e2dcdcf", null ],
-    [ "writePRAM", "df/d21/a01039.html#a8a9b2c1a0824c7603b223ce93be6b268", null ],
-    [ "writeReg", "df/d21/a01039.html#ab886f5f4a7c67fc4e763676ee25c8440", null ],
-    [ "writeU32", "df/d21/a01039.html#af18c7df8aeade40e9137a8e803825144", null ]
+    [ "Config", "df/d21/a01039.html#a71f90ba5852d744d364d627c9200231e", null ],
+    [ "M24C16", "df/d21/a01039.html#a82d789de030a0346864f88543d0512e5", null ],
+    [ "~M24C16", "df/d21/a01039.html#a0db0fe864ae86e17a1406e2180d119af", null ],
+    [ "close", "df/d21/a01039.html#a379c6a49e0b3c1c663020582e61d6887", null ],
+    [ "getChipSize", "df/d21/a01039.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
+    [ "open", "df/d21/a01039.html#ababf497720b16b51762103ca82e56f49", null ],
+    [ "read", "df/d21/a01039.html#a54927e78496718fcd7a9cb0e02767604", null ],
+    [ "read16", "df/d21/a01039.html#a41825423769f79dd77cb1e77736e6e2a", null ],
+    [ "read8", "df/d21/a01039.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
+    [ "write", "df/d21/a01039.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
+    [ "write16", "df/d21/a01039.html#a1736b59146de0f5cacdb663197cd061e", null ],
+    [ "write8", "df/d21/a01039.html#a299a926321f0db8d9eac8527198f28fc", null ],
+    [ "Driver< M24C16 >", "df/d21/a01039.html#abc7b2f2488b46308e0ee7a50e8b5c26b", null ]
 ];

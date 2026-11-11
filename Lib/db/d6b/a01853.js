@@ -1,17 +1,14 @@
 var a01853 =
 [
-    [ "ADCPort", "db/d6b/a01853.html#ad3590b6cb223a01016ad98732fcce676", null ],
-    [ "~ADCPort", "db/d6b/a01853.html#a75f470b6bc8c1c091c0bab98709a70d0", null ],
-    [ "ADCPort", "db/d6b/a01853.html#a9e044644fe3be9918072830d224a30df", null ],
-    [ "ADCPort", "db/d6b/a01853.html#aeaa518b84bd8f90fcef8791a36bf4d5f", null ],
-    [ "close", "db/d6b/a01853.html#a9ea6813ddd5a710a237c3c7d6ddc93ba", null ],
-    [ "getHandle", "db/d6b/a01853.html#a5614da14358698185ca50bab6f0ffb90", null ],
-    [ "getHandle", "db/d6b/a01853.html#a67ec812f689c32e443b0f0b0693c358a", null ],
-    [ "getValue", "db/d6b/a01853.html#a2e87465b382640a36ec07e5abd45f434", null ],
-    [ "open", "db/d6b/a01853.html#aed764265c454323ee0b2d718d2f447cb", null ],
-    [ "operator=", "db/d6b/a01853.html#ab1c16fcf45ece2edac96b496f440eba5", null ],
-    [ "operator=", "db/d6b/a01853.html#a583519bd204ed44fa1fe54a2b6f2e024", null ],
-    [ "poll", "db/d6b/a01853.html#a7f4263cc22040a8ca759022ba6097646", null ],
-    [ "start", "db/d6b/a01853.html#a1b1e5f9a230b0baaaebe9e34bf3948f1", null ],
-    [ "stop", "db/d6b/a01853.html#a9ada6411f9d589391a3f4a8396ba87fe", null ]
+    [ "PortString", "db/d6b/a01853.html#a77b8666fde23c166cb6a2ff8ba32e75f", null ],
+    [ "Port", "db/d6b/a01853.html#a0cdcdcee9376806af5c6778670685c80", null ],
+    [ "Port", "db/d6b/a01853.html#a557aa5b63a11f1fb3bacd15033d34816", null ],
+    [ "fromString", "db/d6b/a01853.html#af096519c074646658fc5d42017770060", null ],
+    [ "get", "db/d6b/a01853.html#a2c10d58145f110034d4c6152e2f11f3d", null ],
+    [ "get", "db/d6b/a01853.html#a74efeaeccbeb41630891ddb4725470a5", null ],
+    [ "operator uint16_t", "db/d6b/a01853.html#a484cc8252d74ed19b3ddc021b4ebbc7a", null ],
+    [ "operator<=>", "db/d6b/a01853.html#a5db32af54d9bdde977000618e7b6d476", null ],
+    [ "operator=", "db/d6b/a01853.html#a4bdd58ee0e3a212c2e9b5be63a0ef4fd", null ],
+    [ "set", "db/d6b/a01853.html#a1de553c3b996aee8be2112632f45ee1b", null ],
+    [ "toString", "db/d6b/a01853.html#a08c2068f012c9bf6bb7c16893081cab6", null ]
 ];

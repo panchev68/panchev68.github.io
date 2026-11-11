@@ -1,8 +1,11 @@
 var a02415 =
 [
-    [ "allocations", "de/d6a/a02415.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
-    [ "freeHeap", "de/d6a/a02415.html#a944d10ce32d8114a8a1349e2582022bd", null ],
-    [ "frees", "de/d6a/a02415.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
-    [ "minimumFreeHeap", "de/d6a/a02415.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
-    [ "totalHeap", "de/d6a/a02415.html#a83580325c3df5098f79f23bd212fb20a", null ]
+    [ "Client", "de/d6a/a02415.html#afbf556ac8abd6b5e8b12958b7b7e8e87", null ],
+    [ "Client", "de/d6a/a02415.html#a893ac5643ef917f5ca701fabbe75a429", null ],
+    [ "Client", "de/d6a/a02415.html#a207055b9f6a7daac509985f971a0e14f", null ],
+    [ "get", "de/d6a/a02415.html#aabf7e35c74111468fdd296e6931b047f", null ],
+    [ "operator=", "de/d6a/a02415.html#a19375415236ef7e6b214f897791eeb09", null ],
+    [ "operator=", "de/d6a/a02415.html#a3b9c27f75842a31365c97eaaa607d452", null ],
+    [ "post", "de/d6a/a02415.html#aee5955fa4ffad931d4418d2f59af2880", null ],
+    [ "request", "de/d6a/a02415.html#aff0df8d671c191feb30e91ba3a1053a7", null ]
 ];

@@ -1,4 +1,5 @@
 var a00767 =
 [
-    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "df/db6/a02455.html", "df/db6/a02455" ]
+    [ "Lib::USB::SerialPort", "de/d3e/a02727.html", "de/d3e/a02727" ],
+    [ "Lib::USB::SerialPort::Config", "d1/d58/a02731.html", "d1/d58/a02731" ]
 ];

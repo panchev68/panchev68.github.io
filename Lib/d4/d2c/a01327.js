@@ -1,8 +1,20 @@
 var a01327 =
 [
-    [ "Frame0x88", "d4/d2c/a01327.html#a0f33e04d3ad28dabd1bf0c1d0bad3d81", null ],
-    [ "atCommand", "d4/d2c/a01327.html#aba3a41028c41109166efaf024c9dca74", null ],
-    [ "data", "d4/d2c/a01327.html#a6637ca90011c94d8ca523c1d1b44c151", null ],
-    [ "frameId", "d4/d2c/a01327.html#aa57ed3b6f671c7cce417c339026eb7f7", null ],
-    [ "status", "d4/d2c/a01327.html#a8c86058f2a571aa04d50be3e17917fe4", null ]
+    [ "Diagnostic", "d4/d2c/a01327.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
+    [ "RxMessage", "d4/d2c/a01327.html#a932efed9da888704df63ae07522746cc", null ],
+    [ "Service", "d4/d2c/a01327.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
+    [ "~Service", "d4/d2c/a01327.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
+    [ "errorCallback", "d4/d2c/a01327.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
+    [ "getDiagnostic", "d4/d2c/a01327.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
+    [ "messageReceivedCallback", "d4/d2c/a01327.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
+    [ "receive", "d4/d2c/a01327.html#a24358bc730156fbe1517606352fbf513", null ],
+    [ "send", "d4/d2c/a01327.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
+    [ "send", "d4/d2c/a01327.html#aad0ab4b3fc67332597a346d30271a53b", null ],
+    [ "send", "d4/d2c/a01327.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
+    [ "send", "d4/d2c/a01327.html#a9e61e58322c0a574320d57ad9da13966", null ],
+    [ "send", "d4/d2c/a01327.html#ae9698dff358c5494704ad558fcf82d22", null ],
+    [ "send", "d4/d2c/a01327.html#a26cd3541d7c850c5151fe7281e917a94", null ],
+    [ "start", "d4/d2c/a01327.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
+    [ "stop", "d4/d2c/a01327.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
+    [ "taskFn", "d4/d2c/a01327.html#a375bb14705ce8117ed4e147179680854", null ]
 ];

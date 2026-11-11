@@ -1,4 +1,4 @@
 var a00461 =
 [
-    [ "Lib::HAL::toHalTimeout", "d2/dab/a00886.html#a55be7e95dba53e09a7b9b5e29bcc3840", null ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::DMA &gt;", "d9/dff/a02099.html", "d9/dff/a02099" ]
 ];

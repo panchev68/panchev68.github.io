@@ -1,10 +1,8 @@
 var a02519 =
 [
-    [ "maxPowerRef", "d9/dce/a02519.html#aa28727165e6404d1b8fff757ecd7dcce", null ],
-    [ "mppCurrentRef", "d9/dce/a02519.html#a7cf159bc6cfd0eef9a3f1bbe66b5a5c2", null ],
-    [ "mppVoltageRef", "d9/dce/a02519.html#a7c8ce0a85cedefa5af31968293e38df8", null ],
-    [ "referenceIrradiance", "d9/dce/a02519.html#a4a730720610e7ecb5ea6806a631fd0af", null ],
-    [ "temperatureCoefficient", "d9/dce/a02519.html#a199180804d52f432b3f8a4861146f827", null ],
-    [ "toleranceFactor", "d9/dce/a02519.html#a94dbf0194f1c0097467e34c0605131d4", null ],
-    [ "updateInterval", "d9/dce/a02519.html#a9a72ac9a78c42013979d67300e60de6d", null ]
+    [ "allocations", "d9/dce/a02519.html#a01d6b00f1dddcb8090d0e2c1a4c94a64", null ],
+    [ "freeHeap", "d9/dce/a02519.html#a944d10ce32d8114a8a1349e2582022bd", null ],
+    [ "frees", "d9/dce/a02519.html#ab89de264c4b68a7aa5588cc0c9a665c2", null ],
+    [ "minimumFreeHeap", "d9/dce/a02519.html#ae46d426a02aaacb8ac8552b7c3bd5e72", null ],
+    [ "totalHeap", "d9/dce/a02519.html#a83580325c3df5098f79f23bd212fb20a", null ]
 ];

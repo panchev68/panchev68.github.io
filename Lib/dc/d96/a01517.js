@@ -1,20 +1,16 @@
 var a01517 =
 [
-    [ "Config", "dc/d96/a01517.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
-    [ "State", "dc/d96/a01517.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
-    [ "ServerBase", "dc/d96/a01517.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
-    [ "~ServerBase", "dc/d96/a01517.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
-    [ "getModuleInstance", "dc/d96/a01517.html#af8063d3ad104519c1331b65494eea01b", null ],
-    [ "getModulePresent", "dc/d96/a01517.html#abefa9599b01a774884c7f5f1a8578084", null ],
-    [ "getState", "dc/d96/a01517.html#a569078f4b1701fb0579efd9d8e10655d", null ],
-    [ "pause", "dc/d96/a01517.html#a069f63d8ece09ad92a97696e558290b3", null ],
-    [ "resume", "dc/d96/a01517.html#abbf1050f972e12e9f892cbb50f712298", null ],
-    [ "start", "dc/d96/a01517.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
-    [ "channelScanner", "dc/d96/a01517.html#abcae86ac3f99158551b91f88f0c88de7", null ],
-    [ "connection", "dc/d96/a01517.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
-    [ "diagnostic", "dc/d96/a01517.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
-    [ "modemStatus", "dc/d96/a01517.html#a3aed113d4e636bcad17894b64f1e5734", null ],
-    [ "networkDiscovery", "dc/d96/a01517.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
-    [ "parameters", "dc/d96/a01517.html#a3a40ec0220eb721e07f56c02a206f485", null ],
-    [ "spectrumAnalyzer", "dc/d96/a01517.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
+    [ "Period", "dc/d96/a01517.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
+    [ "Period", "dc/d96/a01517.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
+    [ "beginMeasurement", "dc/d96/a01517.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
+    [ "clearMinMax", "dc/d96/a01517.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
+    [ "endMeasurement", "dc/d96/a01517.html#a764b89843884696c66a1e499e466bb51", null ],
+    [ "getMaximum", "dc/d96/a01517.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
+    [ "getMinimum", "dc/d96/a01517.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
+    [ "getRawValue", "dc/d96/a01517.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
+    [ "getValue", "dc/d96/a01517.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
+    [ "operator uint32_t", "dc/d96/a01517.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
+    [ "operator=", "dc/d96/a01517.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
+    [ "reset", "dc/d96/a01517.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
+    [ "stopMeasurement", "dc/d96/a01517.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
 ];

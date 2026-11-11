@@ -1,20 +1,15 @@
 var a02047 =
 [
-    [ "Timeout", "dc/d92/a02047.html#a03b1d8751fc952fa93668bd1d0e48aca", null ],
-    [ "SPIPort", "dc/d92/a02047.html#a903be3f889b13683ab1e357df5e48ddb", null ],
-    [ "~SPIPort", "dc/d92/a02047.html#a50952b4c6824c9ca9cb9f3fa6f07caca", null ],
-    [ "SPIPort", "dc/d92/a02047.html#a8335bc7cd53354957b5b059adfa4a702", null ],
-    [ "SPIPort", "dc/d92/a02047.html#ab03e262f43c766b37a67b48c85bff815", null ],
-    [ "bindBeginTransactionFunc", "dc/d92/a02047.html#a6b1a1218b3072179b7f437e4bed425ed", null ],
-    [ "bindEndTransactionFunc", "dc/d92/a02047.html#ae29dec95e0fb16ecb0358ada047b372c", null ],
-    [ "close", "dc/d92/a02047.html#ab6529e241d0728159eb3f60c7621b666", null ],
-    [ "getHandle", "dc/d92/a02047.html#a177a320faf7a48d1692b081641399447", null ],
-    [ "getHandle", "dc/d92/a02047.html#a88e71252a873f0d8d5051292a08b1336", null ],
-    [ "isBusy", "dc/d92/a02047.html#aab4ba08bd7815d4dc0052197f9aa41dd", null ],
-    [ "open", "dc/d92/a02047.html#af039716c9cb01db958d77f8c581627cf", null ],
-    [ "operator=", "dc/d92/a02047.html#a7ac0642f801168b819d2f19789bd9d15", null ],
-    [ "operator=", "dc/d92/a02047.html#ae10f073f8753cb6161429d0e321dfd92", null ],
-    [ "receive", "dc/d92/a02047.html#a92f0a2b4df702792cbc1e97fdd843a33", null ],
-    [ "send", "dc/d92/a02047.html#ac557450438e468ea5bf25de308bc023c", null ],
-    [ "sendReceive", "dc/d92/a02047.html#a856e94be39c7518eed69bbde0ef8eaf8", null ]
+    [ "Config", "dc/d92/a02047.html#a77e01bd661cc7463d3be8c5c0db802fd", null ],
+    [ "Handle", "dc/d92/a02047.html#ade0f87f7318848ef033a913d2442a32e", null ],
+    [ "Port", "dc/d92/a02047.html#ad4395b6d9b762e123ebbb09110c3a99f", null ],
+    [ "~Port", "dc/d92/a02047.html#ae773a0aa1b575a77ffccb2bc215289c1", null ],
+    [ "Port", "dc/d92/a02047.html#adbcc85448b423ac51fae90db4cb3a5f4", null ],
+    [ "Port", "dc/d92/a02047.html#af0271c4483ea3f5cebaa37054062a428", null ],
+    [ "operator=", "dc/d92/a02047.html#a451d09420f0a1f54df4073cdeb4ae623", null ],
+    [ "operator=", "dc/d92/a02047.html#a8e39b404c71b26364658b90ae25a398d", null ],
+    [ "read", "dc/d92/a02047.html#adce8df0019ea415a350cf833ac481fc2", null ],
+    [ "setPullupPulldown", "dc/d92/a02047.html#a4c2fb2f88af88b46380f3e042c6a0849", null ],
+    [ "setup", "dc/d92/a02047.html#a5cbf2a8c7874db91ada4dfec7e22aff1", null ],
+    [ "write", "dc/d92/a02047.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0", null ]
 ];

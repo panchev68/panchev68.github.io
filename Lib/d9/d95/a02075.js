@@ -1,13 +1,15 @@
 var a02075 =
 [
-    [ "UARTPort", "d9/d95/a02075.html#aa1edbc34ab746c1cdd38b9b302b57949", null ],
-    [ "~UARTPort", "d9/d95/a02075.html#a379b29de4717643896518dcc44558b2d", null ],
-    [ "abort", "d9/d95/a02075.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
+    [ "I2CPort", "d9/d95/a02075.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
+    [ "~I2CPort", "d9/d95/a02075.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
+    [ "abort", "d9/d95/a02075.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
     [ "close", "d9/d95/a02075.html#a03c62c024b148a264f9a6a0077198302", null ],
     [ "getHandle", "d9/d95/a02075.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d9/d95/a02075.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
     [ "isOpened", "d9/d95/a02075.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d9/d95/a02075.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d9/d95/a02075.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "d9/d95/a02075.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "masterMemRead", "d9/d95/a02075.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d9/d95/a02075.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d9/d95/a02075.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d9/d95/a02075.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d9/d95/a02075.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

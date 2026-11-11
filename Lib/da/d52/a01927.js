@@ -1,20 +1,10 @@
 var a01927 =
 [
-    [ "Event", "d5/d31/a01931.html", null ],
-    [ "DataAlignment", "da/d52/a01927.html#a18b5de83aaec561a43dc24a80e15bd46", null ],
-    [ "DACPort", "da/d52/a01927.html#ae36ab0485cc108ac7f0082068d118518", null ],
-    [ "~DACPort", "da/d52/a01927.html#a38af62d642471553e5aa356e673ad171", null ],
-    [ "DACPort", "da/d52/a01927.html#afe60fcad137acbac62467215f81e262a", null ],
-    [ "DACPort", "da/d52/a01927.html#a6befbf3fd6e387b958c474127b15a55e", null ],
-    [ "close", "da/d52/a01927.html#a2b221635f62446099dbe5e86e8065288", null ],
-    [ "getChannel", "da/d52/a01927.html#abb9c3299abda744064d8d8e8d44f825b", null ],
-    [ "getHandle", "da/d52/a01927.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "da/d52/a01927.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "open", "da/d52/a01927.html#a6a948fd07814c8d346d20ad52d5e68d5", null ],
-    [ "operator=", "da/d52/a01927.html#a8669eba366ce1c94494df43dfaccc690", null ],
-    [ "operator=", "da/d52/a01927.html#ae0483104f828bd3464839de4f4880b4a", null ],
-    [ "setValue", "da/d52/a01927.html#a984f15fd9218a6fec1e7ac0d61e04e6d", null ],
-    [ "start", "da/d52/a01927.html#a6c386654350eba5ab306e4764474af96", null ],
-    [ "stop", "da/d52/a01927.html#a5b866d4c61c5c1dcc7b58063edd6e45d", null ],
-    [ "waitForUnderrun", "da/d52/a01927.html#aaf7fd403bcd529d8c30a8ef723bee287", null ]
+    [ "Network", "da/d52/a01927.html#a8a79b18c344e852b7407c0494a82adbd", null ],
+    [ "getLocation", "da/d52/a01927.html#ae9cf143ddf2ac77a89fc8c55a4ad2d9a", null ],
+    [ "getNetworkTime", "da/d52/a01927.html#a0ca6cd8a8ffe8142fd9462d44124addf", null ],
+    [ "getRegistration", "da/d52/a01927.html#a0ba5a1946fdef5898098ae433c7bbc7e", null ],
+    [ "getSignalQuality", "da/d52/a01927.html#a7b216bf9beb5eb9b492df275322bf91d", null ],
+    [ "setLTEOnly", "da/d52/a01927.html#a037d7f7905180a50e7c67ccb4b32340a", null ],
+    [ "waitForRegistration", "da/d52/a01927.html#a7b0d5756f219ac0622081018e2667b81", null ]
 ];

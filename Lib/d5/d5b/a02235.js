@@ -1,12 +1,18 @@
 var a02235 =
 [
-    [ "Time", "d5/d5b/a02235.html#a09c1a289db437e3ca338e958ea1101fe", null ],
-    [ "Time", "d5/d5b/a02235.html#ad9077427b0bcc14fa1f8f5f4c81de0f9", null ],
-    [ "isValid", "d5/d5b/a02235.html#aad60c63a33a981ba3174a5360f508caa", null ],
-    [ "operator<=>", "d5/d5b/a02235.html#a439444313b0351de56cc2f43dc39b9b4", null ],
-    [ "operator==", "d5/d5b/a02235.html#a4dd2a1271eb8c0b832d4a823f24153ec", null ],
-    [ "toDuration", "d5/d5b/a02235.html#a3f5be273bd672ae87b52a229edec304f", null ],
-    [ "hours", "d5/d5b/a02235.html#ae995e646fc95c0ff34aee8587092b3c0", null ],
-    [ "minutes", "d5/d5b/a02235.html#a6aa28d5e8d236fe3c0ce731acf59c0e6", null ],
-    [ "seconds", "d5/d5b/a02235.html#acffd8038132dc5a2078816b9d0dae829", null ]
+    [ "EventHandler", "d5/d5b/a02235.html#a86ae7f6389e58b16ee2f4528fe600712", null ],
+    [ "USBDevicePort", "d5/d5b/a02235.html#a5bf2481c9bde9fcc309e2b1b75af2464", null ],
+    [ "~USBDevicePort", "d5/d5b/a02235.html#a380acfe834fbf265a2fdfe8e26550867", null ],
+    [ "abort", "d5/d5b/a02235.html#aeb39ea45dd6ba999d3dce602b124fd6e", null ],
+    [ "close", "d5/d5b/a02235.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d5/d5b/a02235.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d5/d5b/a02235.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d5/d5b/a02235.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "open", "d5/d5b/a02235.html#a3822bc9b87b9e299982b230e2c029f35", null ],
+    [ "receive", "d5/d5b/a02235.html#add4fb8ab17eac13116050ae3c8237acf", null ],
+    [ "send", "d5/d5b/a02235.html#ac2f4db5ccde6b6abc34de6e35463c877", null ],
+    [ "setEventHandler", "d5/d5b/a02235.html#ae3f2f27cc8aed02518f6060515b622cc", null ],
+    [ "submitReceive", "d5/d5b/a02235.html#a9fce4aa5997956a9b232bb7f32df0a5f", null ],
+    [ "submitSend", "d5/d5b/a02235.html#adef4f58b97bcabf7e0d7ae9317e6fb39", null ],
+    [ "waitForEvent", "d5/d5b/a02235.html#ac98dece292bb17828882e8d61e803880", null ]
 ];

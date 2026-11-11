@@ -1,14 +1,13 @@
 var a02073 =
 [
-    [ "TimEncoder", "de/df8/a02073.html#a865f1c850a27e5a21c65997eddc230e6", null ],
-    [ "~TimEncoder", "de/df8/a02073.html#a75c39486905ce140625f8ede68cf6b1c", null ],
-    [ "TimEncoder", "de/df8/a02073.html#ab1d7d4c14ddad06846dbb8f3f39f57e2", null ],
-    [ "TimEncoder", "de/df8/a02073.html#a6ac1197149221d77d1967fbc9bf30371", null ],
-    [ "close", "de/df8/a02073.html#ab2f54f60ed37f2eb93026eeb86deca1d", null ],
-    [ "isClockwise", "de/df8/a02073.html#a3d50810ab570c1eda25ed92ffbf631d1", null ],
-    [ "open", "de/df8/a02073.html#a0332945ce02a55fb6e624309d4613697", null ],
-    [ "operator=", "de/df8/a02073.html#a5f081d643e5f193b16d632bca48547f3", null ],
-    [ "operator=", "de/df8/a02073.html#a65f9304f38d0afcedc9c8bcaeae935c7", null ],
-    [ "read", "de/df8/a02073.html#a57d60f2a4d4cb3d5f13805eac6bf0ac5", null ],
-    [ "write", "de/df8/a02073.html#aa31e675a06e5e104834e47423daa2b5f", null ]
+    [ "State", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91", [
+      [ "UNKNOWN", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
+      [ "POWER_ON", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
+      [ "BROWNOUT", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
+      [ "PIN", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
+      [ "SOFTWARE", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
+      [ "INDEPENDENT_WATCHDOG", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
+      [ "WINDOW_WATCHDOG", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
+      [ "LOW_POWER", "de/df8/a02073.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
+    ] ]
 ];

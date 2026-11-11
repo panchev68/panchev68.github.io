@@ -1,11 +1,7 @@
 var a02591 =
 [
-    [ "FirmwareString", "d1/de9/a02591.html#a1590155a31fe02b206f55b5255f8d2c6", null ],
-    [ "VersionString", "d1/de9/a02591.html#ac8f09f6c30afa1c38e7460fcd9560814", null ],
-    [ "Firmware", "d1/de9/a02591.html#af62d830e6120addddf7a108aef4c37d1", null ],
-    [ "getSubVersion", "d1/de9/a02591.html#af3b9df5f96f8e20b557a2172adf745f9", null ],
-    [ "operator FirmwareString", "d1/de9/a02591.html#a0ddef4aded98c6307b972786bb6e5268", null ],
-    [ "operator uint32_t", "d1/de9/a02591.html#a7dcca38967251869c5bf305173fc13ee", null ],
-    [ "operator VersionString", "d1/de9/a02591.html#a6857dd6dd2371ce61eff623ffba1ccb9", null ],
-    [ "subVersion", "d1/de9/a02591.html#a1495fd32d8468af93bdea3f2b7cfb3a6", null ]
+    [ "Config", "d1/de9/a02591.html#a3dd0c854864c93e37dcf898eac213cf9", null ],
+    [ "name", "d1/de9/a02591.html#a573525e01a356a23378c06c203754517", null ],
+    [ "priority", "d1/de9/a02591.html#a5d982f29a32e7d0b156f2ea79f36ef74", null ],
+    [ "stackSize", "d1/de9/a02591.html#a95d0d70c11524d1aab0a5d8d265acc87", null ]
 ];

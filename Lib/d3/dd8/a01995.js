@@ -1,10 +1,8 @@
 var a01995 =
 [
-    [ "IndependentWatchdog", "d3/dd8/a01995.html#a3b655cc20d9d358105e3fe2c9e4e5401", null ],
-    [ "IndependentWatchdog", "d3/dd8/a01995.html#ad0241c1ae5c55e271532e47194eb1d46", null ],
-    [ "IndependentWatchdog", "d3/dd8/a01995.html#aabfa4830743c87632886a0e095af6dba", null ],
-    [ "open", "d3/dd8/a01995.html#aefbbf9853d59e4b287ed0df49e5f7cdd", null ],
-    [ "operator=", "d3/dd8/a01995.html#a1d5bb030beabf8703ad1a2e0c24496b5", null ],
-    [ "operator=", "d3/dd8/a01995.html#a435b0e03baabe26a14f653bbd8239ee1", null ],
-    [ "refresh", "d3/dd8/a01995.html#ae9f164f43789bd02baa1587a44c30e61", null ]
+    [ "Device", "d3/dd8/a01995.html#acdeffbad9eb409804cbc72fa86794a97", null ],
+    [ "~Device", "d3/dd8/a01995.html#a231e1d150464ec12c66e5578ff0c3128", null ],
+    [ "getHandle", "d3/dd8/a01995.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d3/dd8/a01995.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "DeviceManager< T_DEVICE, T_HANDLE >", "d3/dd8/a01995.html#ad317e84715f53c3ea50d6b4113c92403", null ]
 ];

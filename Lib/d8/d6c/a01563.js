@@ -1,20 +1,20 @@
 var a01563 =
 [
-    [ "Point", "d7/d57/a01567.html", "d7/d57/a01567" ],
-    [ "BoundaryType", "d8/d6c/a01563.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d8/d6c/a01563.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d8/d6c/a01563.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d8/d6c/a01563.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d8/d6c/a01563.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d8/d6c/a01563.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d8/d6c/a01563.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d8/d6c/a01563.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d8/d6c/a01563.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d8/d6c/a01563.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d8/d6c/a01563.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d8/d6c/a01563.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d8/d6c/a01563.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d8/d6c/a01563.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d8/d6c/a01563.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "Config", "d8/d6c/a01563.html#ad904a82ea1890f84cbdfe4aa97a6eff7", null ],
+    [ "State", "d8/d6c/a01563.html#a71f91e486ebbe685b8ef04a85df9816e", null ],
+    [ "ServerBase", "d8/d6c/a01563.html#a024c8654b0689cd8af2775cba7efc9ca", null ],
+    [ "~ServerBase", "d8/d6c/a01563.html#a7f9293f66a2b9cd19fb019f38e743049", null ],
+    [ "getModuleInstance", "d8/d6c/a01563.html#af8063d3ad104519c1331b65494eea01b", null ],
+    [ "getModulePresent", "d8/d6c/a01563.html#abefa9599b01a774884c7f5f1a8578084", null ],
+    [ "getState", "d8/d6c/a01563.html#a569078f4b1701fb0579efd9d8e10655d", null ],
+    [ "pause", "d8/d6c/a01563.html#a069f63d8ece09ad92a97696e558290b3", null ],
+    [ "resume", "d8/d6c/a01563.html#abbf1050f972e12e9f892cbb50f712298", null ],
+    [ "start", "d8/d6c/a01563.html#af8d75474b9de9892b7b1b1bcc56118da", null ],
+    [ "channelScanner", "d8/d6c/a01563.html#abcae86ac3f99158551b91f88f0c88de7", null ],
+    [ "connection", "d8/d6c/a01563.html#a6cc363b4c00520c96b5d228aab8301b8", null ],
+    [ "diagnostic", "d8/d6c/a01563.html#a6d0f2ae6cd2c2076945ec0be3c66436c", null ],
+    [ "modemStatus", "d8/d6c/a01563.html#a3aed113d4e636bcad17894b64f1e5734", null ],
+    [ "networkDiscovery", "d8/d6c/a01563.html#a1936fa3a20798013fd230a5b9ae5a651", null ],
+    [ "parameters", "d8/d6c/a01563.html#a3a40ec0220eb721e07f56c02a206f485", null ],
+    [ "spectrumAnalyzer", "d8/d6c/a01563.html#a94172a0bb6588a8bad00411e1e6ce038", null ]
 ];

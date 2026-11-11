@@ -1,13 +1,12 @@
 var a02115 =
 [
-    [ "UARTPort", "d6/df4/a02115.html#a074ec6b19b1073304ca2513d11d43247", null ],
-    [ "~UARTPort", "d6/df4/a02115.html#a864254902b1d7b3afa27a66ccd465c69", null ],
-    [ "abort", "d6/df4/a02115.html#ac0f3ec8c2a5d8ad83c45e752232f2005", null ],
-    [ "close", "d6/df4/a02115.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d6/df4/a02115.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d6/df4/a02115.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d6/df4/a02115.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "open", "d6/df4/a02115.html#a3822bc9b87b9e299982b230e2c029f35", null ],
-    [ "receive", "d6/df4/a02115.html#a3c10830f8d93936773f64d95201bc7da", null ],
-    [ "send", "d6/df4/a02115.html#aa6f2b7746c93553e8ba0a2fda3c494bc", null ]
+    [ "OSPIPortBase", "d6/df4/a02115.html#a77065b02ae1d32db4828d6e6410ad5bc", null ],
+    [ "OSPIPortBase", "d6/df4/a02115.html#acd087ceb0b00ba99edfdc6871179e99f", null ],
+    [ "OSPIPortBase", "d6/df4/a02115.html#a18048dab4e848ea5529076be672ccc7c", null ],
+    [ "~OSPIPortBase", "d6/df4/a02115.html#a24d2016939eff2ab2af9d3a0efd3510a", null ],
+    [ "close", "d6/df4/a02115.html#a4e17dc4d8626455726f5809b59b2d4c7", null ],
+    [ "isBusy", "d6/df4/a02115.html#ae5f3e31cd86a68fec68977ed1ab7796d", null ],
+    [ "open", "d6/df4/a02115.html#aeba7a0754d641aad2f60cd34c1585ed6", null ],
+    [ "operator=", "d6/df4/a02115.html#a2eb0cd98ee61ccb3037cf1cdc7828985", null ],
+    [ "operator=", "d6/df4/a02115.html#a87f9efa43d6d385bc0cee9ba8fb521cd", null ]
 ];

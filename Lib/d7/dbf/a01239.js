@@ -1,13 +1,15 @@
 var a01239 =
 [
-    [ "Config", "d8/db0/a01243.html", "d8/db0/a01243" ],
-    [ "TMP102", "d7/dbf/a01239.html#a949aef107b50c3194360a1211fc77380", null ],
-    [ "configureAlert", "d7/dbf/a01239.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
-    [ "enterSleepMode", "d7/dbf/a01239.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
-    [ "exitSleepMode", "d7/dbf/a01239.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
-    [ "init", "d7/dbf/a01239.html#aad208b4242276623b58c7e690d0be566", null ],
-    [ "readTemperature", "d7/dbf/a01239.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
-    [ "setTHigh", "d7/dbf/a01239.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
-    [ "setTLow", "d7/dbf/a01239.html#abe3ff96789b3357515f28158f06aa714", null ],
-    [ "triggerOneShot", "d7/dbf/a01239.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
+    [ "Ring", "d8/db0/a01243.html", "d8/db0/a01243" ],
+    [ "Slice", "d7/dbf/a01239.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
+    [ "SK6812", "d7/dbf/a01239.html#a713fbeedeb85ff82f1097b206afd7918", null ],
+    [ "SK6812", "d7/dbf/a01239.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
+    [ "SK6812", "d7/dbf/a01239.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
+    [ "clear", "d7/dbf/a01239.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
+    [ "getColor", "d7/dbf/a01239.html#a1a0907fe121161268c1b859d90232628", null ],
+    [ "operator=", "d7/dbf/a01239.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
+    [ "operator=", "d7/dbf/a01239.html#aa21ec5517b393c1649c2045e822978e7", null ],
+    [ "setColor", "d7/dbf/a01239.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
+    [ "setColor", "d7/dbf/a01239.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
+    [ "setColor", "d7/dbf/a01239.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
 ];

@@ -1,15 +1,19 @@
 var a01973 =
 [
-    [ "I2CPort", "d3/d59/a01973.html#a5ed7014d6c1bb4669c90ada1b61bbffe", null ],
-    [ "~I2CPort", "d3/d59/a01973.html#a28d64cb04bd2cd5f1648ac33b94bf4ec", null ],
-    [ "abort", "d3/d59/a01973.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
-    [ "close", "d3/d59/a01973.html#a03c62c024b148a264f9a6a0077198302", null ],
-    [ "getHandle", "d3/d59/a01973.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
-    [ "getHandle", "d3/d59/a01973.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isOpened", "d3/d59/a01973.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
-    [ "masterMemRead", "d3/d59/a01973.html#ac646e78e8e291b9116d22e6593178c3b", null ],
-    [ "masterMemWrite", "d3/d59/a01973.html#adb29287498169b21a8c183a469cc20f4", null ],
-    [ "masterReceive", "d3/d59/a01973.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
-    [ "masterTransmit", "d3/d59/a01973.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
-    [ "open", "d3/d59/a01973.html#a3822bc9b87b9e299982b230e2c029f35", null ]
+    [ "ExtInterrupt", "d3/d59/a01973.html#a8bd01aa06ef31a0168b4238b709bd8b1", null ],
+    [ "~ExtInterrupt", "d3/d59/a01973.html#a0500efb3e0dbde6f95fd02948060723b", null ],
+    [ "ExtInterrupt", "d3/d59/a01973.html#a0896646faa35c4149a6fb3f8360da15b", null ],
+    [ "ExtInterrupt", "d3/d59/a01973.html#af65b4789b35500d9539e56a75d90c71c", null ],
+    [ "bindCallback", "d3/d59/a01973.html#a716641ce172d66ad1226056de77e00f3", null ],
+    [ "isHigh", "d3/d59/a01973.html#ac4819ceaa799d09422b2441ab37d1bf3", null ],
+    [ "isLow", "d3/d59/a01973.html#aac45963cf0777027622bcfbd5773ad89", null ],
+    [ "operator bool", "d3/d59/a01973.html#ace264d0a7f70d722e7b10b4d43c851ad", null ],
+    [ "operator=", "d3/d59/a01973.html#a89f184dfbf150b77ab08f3bf7a9078ca", null ],
+    [ "operator=", "d3/d59/a01973.html#a29b2dfe4158fc5f27e352ab72f1a11fe", null ],
+    [ "read", "d3/d59/a01973.html#acf9a806f75242814c40947cdc229ed24", null ],
+    [ "unbindCallback", "d3/d59/a01973.html#a436fbfef93e09cd205ebb36284da5374", null ],
+    [ "void::HAL_GPIO_EXTI_Callback", "d3/d59/a01973.html#a7b34f0451fb5f0d0f5077ea7594eb5bb", null ],
+    [ "void::HAL_GPIO_EXTI_Falling_Callback", "d3/d59/a01973.html#a608244a38c1095888d60a17b77ae5ed4", null ],
+    [ "void::HAL_GPIO_EXTI_Rising_Callback", "d3/d59/a01973.html#aa8068c433729122f23f40e6bfa77659f", null ],
+    [ "handle", "d3/d59/a01973.html#abdaf238c7d26a6f26b8e73aae6c1ebff", null ]
 ];

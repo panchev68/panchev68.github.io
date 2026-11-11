@@ -1,4 +1,4 @@
 var a00290 =
 [
-    [ "Lib::Digi::Core::EscapedCode", "d3/d79/a01611.html", "d3/d79/a01611" ]
+    [ "Lib::Digi::Core::isElapsed", "da/d5b/a00905.html#a3d546e5b9af6a0406bc510721f8621ec", null ]
 ];

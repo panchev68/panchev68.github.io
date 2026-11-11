@@ -1,9 +1,7 @@
 var a02443 =
 [
-    [ "DeepSleepLock", "d1/d04/a02443.html#ab00fac8a47a75ae0c82df162d96ee706", null ],
-    [ "~DeepSleepLock", "d1/d04/a02443.html#a7ea19ec22cb68100a7d962b4db2cd493", null ],
-    [ "DeepSleepLock", "d1/d04/a02443.html#a40925e50ac0805b094e04973ed61f50b", null ],
-    [ "DeepSleepLock", "d1/d04/a02443.html#a653104e321c6b159eb7b5e5385d286ac", null ],
-    [ "operator=", "d1/d04/a02443.html#a3523f9fd591310866af37223de2c32d3", null ],
-    [ "operator=", "d1/d04/a02443.html#a10ab5d18c8a969841a27a2688604c55c", null ]
+    [ "Point", "d1/d04/a02443.html#a0a1b67f20f66f9eaa908ee2d2919bbd2", null ],
+    [ "Point", "d1/d04/a02443.html#aa74828bb7e6c3f161133c0e12513f322", null ],
+    [ "x", "d1/d04/a02443.html#a5c0770c52f3794c74f1e05a140cb3c1c", null ],
+    [ "y", "d1/d04/a02443.html#af5bf7bc951e336b3552ed2a36f6d9056", null ]
 ];

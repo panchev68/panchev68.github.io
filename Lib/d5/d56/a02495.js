@@ -1,6 +1,30 @@
 var a02495 =
 [
-    [ "autoStart", "d5/d56/a02495.html#ab55e2272bf479804d0a0d2f1e6e5bed4", null ],
-    [ "name", "d5/d56/a02495.html#aacc889d1a77591ed4d41f693a1ad15e7", null ],
-    [ "period", "d5/d56/a02495.html#a72f5a204f1d7fe3831b3f7afddae31a7", null ]
+    [ "Bits", "d5/d56/a02495.html#a27fe7bec268decd9b548d4ad2375ca34", null ],
+    [ "Handle", "d5/d56/a02495.html#a8f85547a426b02f14d6e4ea12fe668d3", null ],
+    [ "TickType", "d5/d56/a02495.html#ad148e5ad55c065d22eaa6d5c10ce0768", null ],
+    [ "EventGroup", "d5/d56/a02495.html#a56df016b3829e560ce9e75a007e6e26c", null ],
+    [ "EventGroup", "d5/d56/a02495.html#ae83c0e347985e554dbffd399d6749c28", null ],
+    [ "~EventGroup", "d5/d56/a02495.html#a28986dc28cf1e996b6c98f1020f26294", null ],
+    [ "EventGroup", "d5/d56/a02495.html#a674ca6cf44432becf24267dda94e547d", null ],
+    [ "clearAllEvents", "d5/d56/a02495.html#a9e46ac55649d284c4950d9c85142bdcf", null ],
+    [ "clearBits", "d5/d56/a02495.html#a564e679e348f400f7840978d5ae63d7f", null ],
+    [ "clearBitsFromISR", "d5/d56/a02495.html#a32ff3286f958a78cacaa0f4b80b9711b", null ],
+    [ "clearFromISR", "d5/d56/a02495.html#a1a5e45f94b4b856ab55ff24bdef9595d", null ],
+    [ "close", "d5/d56/a02495.html#a86f5d90cf8de78fe435b35460bef5edd", null ],
+    [ "createStatic", "d5/d56/a02495.html#ae027cdcf3b41026b6a3cb3a70310c298", null ],
+    [ "getBits", "d5/d56/a02495.html#ad61d21c064aaec70b93bbe5a12ce9436", null ],
+    [ "getBitsFromISR", "d5/d56/a02495.html#ac0074ec5d598a7d397984ff86e110e4a", null ],
+    [ "getHandle", "d5/d56/a02495.html#aec13a03913c66d345ec02187dbe579ec", null ],
+    [ "isOpen", "d5/d56/a02495.html#a14d4bddd8e6249a20ac2ae9f18e2caee", null ],
+    [ "open", "d5/d56/a02495.html#ae966e8d3efe519e3138fedaa3108a300", null ],
+    [ "operator=", "d5/d56/a02495.html#a81801feadd715f46e582f2bd0c8d2c99", null ],
+    [ "operator=", "d5/d56/a02495.html#a2576c192353ebd4e1261f2a0908f1946", null ],
+    [ "setBits", "d5/d56/a02495.html#a154c164a4617cf8553683bb42f04ff11", null ],
+    [ "setBitsFromISR", "d5/d56/a02495.html#a13c55cc45daa6d96a1f21460a4c71626", null ],
+    [ "setBitsFromISR", "d5/d56/a02495.html#a8145a3ffbcf914aa872e193c0368e43b", null ],
+    [ "sync", "d5/d56/a02495.html#af47921ebb5a21fcedea78389027fec71", null ],
+    [ "sync", "d5/d56/a02495.html#aa6e6dd0a0b50af7c854cce6e6f0be0c9", null ],
+    [ "wait", "d5/d56/a02495.html#a98eed0f8fde6aee2a7c1df202f1807fa", null ],
+    [ "wait", "d5/d56/a02495.html#ac933f049ba3d9d3e242bdc243dea3482", null ]
 ];

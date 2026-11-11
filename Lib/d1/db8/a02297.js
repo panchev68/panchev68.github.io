@@ -1,12 +1,10 @@
 var a02297 =
 [
-    [ "getLocalTransition", "d1/db8/a02297.html#a12ec5463f2dea9ddde7e165e17715fea", null ],
-    [ "getOffset", "d1/db8/a02297.html#a5b83c2cf38318866e23774caee880570", null ],
-    [ "isValid", "d1/db8/a02297.html#a36d58dccdeb5671a7d4e9d2831c85256", null ],
-    [ "dayOfWeek", "d1/db8/a02297.html#a71011003fee57e0e6420889a983146f2", null ],
-    [ "hour", "d1/db8/a02297.html#a0c3e0f22d0712e2ba8031db740de830b", null ],
-    [ "month", "d1/db8/a02297.html#a3bb1321a2422f76e10f80c9df0c9a18a", null ],
-    [ "offsetMinutes", "d1/db8/a02297.html#ade82abb20d81fccacc264075f09a1667", null ],
-    [ "ruleName", "d1/db8/a02297.html#a1ee23cdce5ebbada4f7a6497aaf2058a", null ],
-    [ "weekOfMonth", "d1/db8/a02297.html#a9145fd5570f2898b8fcd1e9bc866222f", null ]
+    [ "PeakInfo", "db/db3/a02301.html", "db/db3/a02301" ],
+    [ "FindPeaks", "d1/db8/a02297.html#a1dcc2d44df31b363f9f06b9daf3af302", null ],
+    [ "addSample", "d1/db8/a02297.html#af68c408bdc213c13c758fceb90fdf51e", null ],
+    [ "getCount", "d1/db8/a02297.html#a65428faaf92c61bce62ff8de3af8f44a", null ],
+    [ "getFallingPeak", "d1/db8/a02297.html#a428ad1bcf05a01386c183e7ff0719b87", null ],
+    [ "getRisingPeak", "d1/db8/a02297.html#ad7c36f4ffcb651dcb65c75c1bca49333", null ],
+    [ "reset", "d1/db8/a02297.html#a176df2aab4c0e044fe550ca813f88168", null ]
 ];

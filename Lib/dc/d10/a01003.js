@@ -1,19 +1,17 @@
 var a01003 =
 [
-    [ "Config", "d6/d8d/a01007.html", "d6/d8d/a01007" ],
-    [ "Driver", "dc/d10/a01003.html#ad08435e7ab04b1447660c851f626b703", null ],
-    [ "~Driver", "dc/d10/a01003.html#aa6102b0396341784835c07a1ce9a127a", null ],
-    [ "Driver", "dc/d10/a01003.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
-    [ "Driver", "dc/d10/a01003.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
-    [ "close", "dc/d10/a01003.html#a379c6a49e0b3c1c663020582e61d6887", null ],
-    [ "getChipSize", "dc/d10/a01003.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
-    [ "open", "dc/d10/a01003.html#ababf497720b16b51762103ca82e56f49", null ],
-    [ "operator=", "dc/d10/a01003.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
-    [ "operator=", "dc/d10/a01003.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
-    [ "read", "dc/d10/a01003.html#a54927e78496718fcd7a9cb0e02767604", null ],
-    [ "read16", "dc/d10/a01003.html#a41825423769f79dd77cb1e77736e6e2a", null ],
-    [ "read8", "dc/d10/a01003.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
-    [ "write", "dc/d10/a01003.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
-    [ "write16", "dc/d10/a01003.html#a1736b59146de0f5cacdb663197cd061e", null ],
-    [ "write8", "dc/d10/a01003.html#a299a926321f0db8d9eac8527198f28fc", null ]
+    [ "Outputs", "dc/d10/a01003.html#a247cd7c1b9224f24326b3776838b272f", null ],
+    [ "getChangesCounter", "dc/d10/a01003.html#a20ce1721d96d5e27bdd04a0e1952f3fb", null ],
+    [ "getSpiHandle", "dc/d10/a01003.html#a95099752d786b9afd12743cfed8e8f39", null ],
+    [ "getStatus", "dc/d10/a01003.html#a5390728a76821a9b72e0bf604b09462e", null ],
+    [ "getValue", "dc/d10/a01003.html#adfeabb3ecc2b63a7d2fdaef8972422d2", null ],
+    [ "hasSpiError", "dc/d10/a01003.html#a577114566b65889dd42c95c3e3350b1a", null ],
+    [ "postUpdateCallback", "dc/d10/a01003.html#a369ec8b311dd4871503593f3fd91e103", null ],
+    [ "preUpdateCallback", "dc/d10/a01003.html#a785e5cd7daaf7419e296aaa67f4d785c", null ],
+    [ "setup", "dc/d10/a01003.html#aeee2211d23c7dfc940b0d3f16ff4e531", null ],
+    [ "setValue", "dc/d10/a01003.html#a6a6877af80563061eddc23c9bb71746d", null ],
+    [ "update", "dc/d10/a01003.html#aae51811f331f09bf179cc6f2d9c2b974", null ],
+    [ "onSpiError", "dc/d10/a01003.html#ac1712a00bda5093ed106f6f7924d6c54", null ],
+    [ "onStatusChanged", "dc/d10/a01003.html#a931c2b178d43f30e3aad9ebdabe094d9", null ],
+    [ "onValueChanged", "dc/d10/a01003.html#aeeff5cb2652ef6ff0541b09d96f4579c", null ]
 ];

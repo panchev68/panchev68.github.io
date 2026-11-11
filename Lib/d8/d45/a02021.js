@@ -1,13 +1,15 @@
 var a02021 =
 [
-    [ "State", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91", [
-      [ "UNKNOWN", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91a696b031073e74bf2cb98e5ef201d4aa3", null ],
-      [ "POWER_ON", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91a3d6fc432ff9e2d9b890c591179a4401e", null ],
-      [ "BROWNOUT", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91aeb701471494a2c0840c816eb49c0cc3e", null ],
-      [ "PIN", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91acdbc895d08b5d92db04174533a8548f7", null ],
-      [ "SOFTWARE", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91aaea541d7f9574587656dc5125116e548", null ],
-      [ "INDEPENDENT_WATCHDOG", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91a0b386f9ff7463cc38f45563ea7137ca9", null ],
-      [ "WINDOW_WATCHDOG", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91a8017fcbf4fb9189fa3611a5a0f28a368", null ],
-      [ "LOW_POWER", "d8/d45/a02021.html#ae9f0fa1c20664b577fc615da59211d91a21126880bb1dc4bb1274024d012272a0", null ]
-    ] ]
+    [ "I2CPort", "d8/d45/a02021.html#a4aef0fb120033c1ad56351cdd9aaa579", null ],
+    [ "~I2CPort", "d8/d45/a02021.html#aa13047282a809658f54818a9b352d7bf", null ],
+    [ "abort", "d8/d45/a02021.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d8/d45/a02021.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d8/d45/a02021.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
+    [ "getHandle", "d8/d45/a02021.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
+    [ "isOpened", "d8/d45/a02021.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "masterMemRead", "d8/d45/a02021.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d8/d45/a02021.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d8/d45/a02021.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d8/d45/a02021.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d8/d45/a02021.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

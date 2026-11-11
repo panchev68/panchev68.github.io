@@ -1,14 +1,7 @@
 var a02347 =
 [
-    [ "Point", "dd/d1b/a02351.html", "dd/d1b/a02351" ],
-    [ "LinearInterpolation", "d4/d21/a02347.html#a6edc8e5ca9a2bce0f7e9198c72ea34f0", null ],
-    [ "LinearInterpolation", "d4/d21/a02347.html#af8dee1ed0a09d5cf17ab2fb2cc73d8cb", null ],
-    [ "addPoint", "d4/d21/a02347.html#afdd4b894d0803bc604d379fa4629d483", null ],
-    [ "addPoint", "d4/d21/a02347.html#a74376103d2a68f503d4edeac77bcb80c", null ],
-    [ "clear", "d4/d21/a02347.html#aab5168233071bba85d5f5119cecdc12f", null ],
-    [ "getPoint", "d4/d21/a02347.html#a96708d1e4a7701724f4770d48a1b4661", null ],
-    [ "getPointCount", "d4/d21/a02347.html#aff35d714c8d5e1859adca0de1f902a34", null ],
-    [ "interpolate", "d4/d21/a02347.html#a15ad2325a927ddfead159579c0d375aa", null ],
-    [ "isEmpty", "d4/d21/a02347.html#a297a3b5b4a94c75ad444983025829924", null ],
-    [ "sortPoints", "d4/d21/a02347.html#a811655db142fd3fe1aa6dfbd5352a582", null ]
+    [ "Delay", "d4/d21/a02347.html#ae05989164bd1c17d9508a274c9c8efc6", null ],
+    [ "~Delay", "d4/d21/a02347.html#abab8b5337f9a0a494dc33f550b7d898b", null ],
+    [ "Delay", "d4/d21/a02347.html#a1cb3786f2784e6c6c42979b9860a5c4b", null ],
+    [ "operator=", "d4/d21/a02347.html#a62e0ff423d0e589d0757d35725eaf0b2", null ]
 ];

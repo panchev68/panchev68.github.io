@@ -1,14 +1,14 @@
 var a02225 =
 [
-    [ "Time", "da/d3b/a02229.html", "da/d3b/a02229" ],
-    [ "Date", "d5/d3d/a02233.html", "d5/d3d/a02233" ],
-    [ "DateTime", "d4/dc0/a02225.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
-    [ "DateTime", "d4/dc0/a02225.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
-    [ "isValid", "d4/dc0/a02225.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
-    [ "operator<=>", "d4/dc0/a02225.html#a768cad764174be4d63763ddda26b9f67", null ],
-    [ "operator==", "d4/dc0/a02225.html#a3d983b842fee71216375379ddc6be3ce", null ],
-    [ "to_tm", "d4/dc0/a02225.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
-    [ "toSysSeconds", "d4/dc0/a02225.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
-    [ "date", "d4/dc0/a02225.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
-    [ "time", "d4/dc0/a02225.html#a99c6886879b06c9396a2df8bd08ce997", null ]
+    [ "USBOtgPort", "d4/dc0/a02225.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
+    [ "~USBOtgPort", "d4/dc0/a02225.html#a277068fa3df6459bf52aac65457f31d6", null ],
+    [ "USBOtgPort", "d4/dc0/a02225.html#a996c0c11f55b66f27d118a91eb700a30", null ],
+    [ "USBOtgPort", "d4/dc0/a02225.html#ab276be300ebf7d87066609fd80b78336", null ],
+    [ "getDevice", "d4/dc0/a02225.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
+    [ "getHost", "d4/dc0/a02225.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
+    [ "getRole", "d4/dc0/a02225.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
+    [ "operator=", "d4/dc0/a02225.html#a78acf6354843aa38ea86734991fe89b2", null ],
+    [ "operator=", "d4/dc0/a02225.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
+    [ "release", "d4/dc0/a02225.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
+    [ "setRole", "d4/dc0/a02225.html#aec9af265280bdd162bad2fc3ab471564", null ]
 ];

@@ -1,9 +1,14 @@
 var a02195 =
 [
-    [ "CityHash", "df/d0e/a02195.html#a15e433a2ca8afc2454c0b9ee95e7fea7", null ],
-    [ "CityHash", "df/d0e/a02195.html#a15b35a0b560f8789aa9ee2094ab202c0", null ],
-    [ "CityHash", "df/d0e/a02195.html#a74cd5ecd399d3ab6143d6ce1d372250c", null ],
-    [ "operator uint32_t", "df/d0e/a02195.html#a59dabbcd8725156de559846906b1d2d2", null ],
-    [ "operator=", "df/d0e/a02195.html#a9686208520746297f398d6e4c46879ec", null ],
-    [ "operator=", "df/d0e/a02195.html#a92c9de43df76b5194aa1da56c05e07fd", null ]
+    [ "TimPwmOutput", "df/d0e/a02195.html#a809eb7ca953a2674c82ca0684b8b55a9", null ],
+    [ "~TimPwmOutput", "df/d0e/a02195.html#a5be8b189846279ae607f6ceaf0dc220d", null ],
+    [ "TimPwmOutput", "df/d0e/a02195.html#a422a9009ca77380721da2502794a00a0", null ],
+    [ "TimPwmOutput", "df/d0e/a02195.html#a2412abefcbbf32d140d9b3e2e72ed511", null ],
+    [ "close", "df/d0e/a02195.html#a3c2e8aa945f04a0c827147f62a2ccb5a", null ],
+    [ "getPeriod", "df/d0e/a02195.html#a2f62b0d33341cf6109b01926e7c2c446", null ],
+    [ "open", "df/d0e/a02195.html#ab30ea02f742bdd63bde16c03b3f780da", null ],
+    [ "operator=", "df/d0e/a02195.html#acc1841d21da440c1c0cdb4a9d61e0ff9", null ],
+    [ "operator=", "df/d0e/a02195.html#a686c13d106e6d8d754e3020b7107d262", null ],
+    [ "setPeriod", "df/d0e/a02195.html#a3361b7c050046b52d03fbc351fcac5a8", null ],
+    [ "setPulse", "df/d0e/a02195.html#a4db830d0cdfdbd5ab01f959dd0653647", null ]
 ];

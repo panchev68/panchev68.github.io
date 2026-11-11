@@ -1,4 +1,5 @@
 var a00206 =
 [
-    [ "Lib::Communication::Modbus::SerialPortBase", "d7/d51/a01340.html", "d7/d51/a01340" ]
+    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;", "d0/da4/a01631.html", "d0/da4/a01631" ],
+    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;::Config", "dd/d2d/a01635.html", "dd/d2d/a01635" ]
 ];

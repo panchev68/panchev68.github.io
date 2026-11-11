@@ -1,6 +1,6 @@
 var a01613 =
 [
-    [ "lengthLSB", "d3/da1/a01613.html#aefb99ff71c5c075c47e8bb91fc59b43f", null ],
-    [ "lengthMSB", "d3/da1/a01613.html#a975df99244301d7a71b2c326555ba6fd", null ],
-    [ "startDelimiter", "d3/da1/a01613.html#a8d7cd77b1f0d6180256f8a7f4d2d8d14", null ]
+    [ "AtCommandString", "d3/da1/a01613.html#aececd161348c75d93c06ea6da2f4cd23", null ],
+    [ "AtCommandString", "d3/da1/a01613.html#aeda6a28d5f8d19ea98ec29f1795507be", null ],
+    [ "operator uint16_t", "d3/da1/a01613.html#a5bfb355d92f981a786da2146384333c5", null ]
 ];

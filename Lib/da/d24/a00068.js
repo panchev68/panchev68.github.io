@@ -1,5 +1,4 @@
 var a00068 =
 [
-    [ "Lib::BSP::Backlight", "d0/de2/a00892.html", "d0/de2/a00892" ],
-    [ "Lib::BSP::Backlight::Config", "da/dd6/a00896.html", "da/dd6/a00896" ]
+    [ "Lib::BSP::RFID::Chipset", "d7/dd6/a01167.html", "d7/dd6/a01167" ]
 ];

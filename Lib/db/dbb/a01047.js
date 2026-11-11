@@ -1,9 +1,15 @@
 var a01047 =
 [
-    [ "chipManufacturer", "db/dbb/a01047.html#acc4b7c4c93a2fff80277ee1d7c15b40b", null ],
-    [ "memoryCapacity", "db/dbb/a01047.html#a0ce044d51923185dc77297ec3845620b", null ],
-    [ "pagePerSector", "db/dbb/a01047.html#a768e74e894621cf3033a1f4e06661b66", null ],
-    [ "pageSize", "db/dbb/a01047.html#a37f4c370a31d7522d42ab79cb1ba94d9", null ],
-    [ "sectorCount", "db/dbb/a01047.html#ae152c07a2eeb80c6525857160e04126b", null ],
-    [ "sectorSize", "db/dbb/a01047.html#a453d47437845007dcb1caa1889d1ec2b", null ]
+    [ "FlashEmulation", "db/dbb/a01047.html#a0e75388b44cd284464c96fb9a0c7fc1f", null ],
+    [ "FlashEmulation", "db/dbb/a01047.html#af5de4a71fd88ee41e580deb1e4a8b4e1", null ],
+    [ "FlashEmulation", "db/dbb/a01047.html#a65b04ccc40b81a011eafa3dd70ccd280", null ],
+    [ "close", "db/dbb/a01047.html#af34a366cd1952a3ba03b96af1976a0f6", null ],
+    [ "getFreeSpace", "db/dbb/a01047.html#a9edbfceb64b451800f603d97a165a446", null ],
+    [ "getUsedSpace", "db/dbb/a01047.html#aa1c59b98d1ce881640ce49d0d8b3e3ee", null ],
+    [ "isOpen", "db/dbb/a01047.html#ab3c80c5ea91d07003acec0528aeea7af", null ],
+    [ "open", "db/dbb/a01047.html#a8947a65dd4bc123a43147aadad6d5328", null ],
+    [ "operator=", "db/dbb/a01047.html#ac176ad5bc133ed1cdbc6b3e8e1e402e4", null ],
+    [ "operator=", "db/dbb/a01047.html#abd98d1e0a541c569e9a190459fdce6c8", null ],
+    [ "read", "db/dbb/a01047.html#a3f58c8364b14419a8582e02eb79e613a", null ],
+    [ "write", "db/dbb/a01047.html#a063c0d9941fea672cb74a10cb66f281e", null ]
 ];

@@ -1,14 +1,13 @@
 var a02173 =
 [
-    [ "USBOtgPort", "d4/d63/a02173.html#a94591d5e8c2febc4e287510cbbe8fdd3", null ],
-    [ "~USBOtgPort", "d4/d63/a02173.html#a277068fa3df6459bf52aac65457f31d6", null ],
-    [ "USBOtgPort", "d4/d63/a02173.html#a996c0c11f55b66f27d118a91eb700a30", null ],
-    [ "USBOtgPort", "d4/d63/a02173.html#ab276be300ebf7d87066609fd80b78336", null ],
-    [ "getDevice", "d4/d63/a02173.html#a023ac50c5d201c51c5b288f17fc86ec9", null ],
-    [ "getHost", "d4/d63/a02173.html#a5e5a4a2c6e79efb76f4ef3bbd18fbdfa", null ],
-    [ "getRole", "d4/d63/a02173.html#a1bcb32f40cc65b5e6e7e2103f39f683f", null ],
-    [ "operator=", "d4/d63/a02173.html#a78acf6354843aa38ea86734991fe89b2", null ],
-    [ "operator=", "d4/d63/a02173.html#ab1fe3b9f1189d474ddf9fe136989041e", null ],
-    [ "release", "d4/d63/a02173.html#ae01129b71b69271e84ae03dfd2b17bb1", null ],
-    [ "setRole", "d4/d63/a02173.html#aec9af265280bdd162bad2fc3ab471564", null ]
+    [ "UARTPortBase", "d4/d63/a02173.html#a74e99fb01450ab4c0c241cb799e160ca", null ],
+    [ "UARTPortBase", "d4/d63/a02173.html#a6d994fbebdb0ca87ec7dd1bba6e866c6", null ],
+    [ "UARTPortBase", "d4/d63/a02173.html#ac8d94aa75e7d1ad74d363416e0c51ce2", null ],
+    [ "~UARTPortBase", "d4/d63/a02173.html#a50f88ef1503ea612ba0ff7622f66a93b", null ],
+    [ "close", "d4/d63/a02173.html#a61d7aee4295e8ba8c1794639258d47b1", null ],
+    [ "isBusy", "d4/d63/a02173.html#ad81fdaf9c82d0a48e796139d2d6241ea", null ],
+    [ "open", "d4/d63/a02173.html#a55dca0e7725a4f8e8697ba94ce8c1ef7", null ],
+    [ "operator=", "d4/d63/a02173.html#ad0321a4f1297088a60c64e263c8c6816", null ],
+    [ "operator=", "d4/d63/a02173.html#af29977f244357cb79e8203dbd192840c", null ],
+    [ "setBaudRate", "d4/d63/a02173.html#aa69f87ceff32286dc0ce857ef84e314c", null ]
 ];

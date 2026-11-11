@@ -1,19 +1,16 @@
 var a02029 =
 [
-    [ "Date", "d6/d94/a02033.html", "d6/d94/a02033" ],
-    [ "Time", "dd/dfc/a02037.html", "dd/dfc/a02037" ],
-    [ "Callback", "d6/d19/a02029.html#aa65bc239da01d8925270ee88a5cfd754", null ],
-    [ "RTCDevice", "d6/d19/a02029.html#aef59f39cbffc698a357982cd0194a7f9", null ],
-    [ "~RTCDevice", "d6/d19/a02029.html#a892362d24be775443627005ea8724b38", null ],
-    [ "RTCDevice", "d6/d19/a02029.html#a0a276a7a9c7f0c70b9f23ff4d33f5e42", null ],
-    [ "RTCDevice", "d6/d19/a02029.html#a6c8a82665278c72edbd09c517d929e67", null ],
-    [ "getDateTime", "d6/d19/a02029.html#ad950fdd81c82bb7ecbe2f6f0a896c573", null ],
+    [ "I2CPortAsync", "d6/d19/a02029.html#a97738073feff35b79d6bb11c9bd2f351", null ],
+    [ "abort", "d6/d19/a02029.html#aa0017dbe171dc6568f888a4d30997ccc", null ],
+    [ "close", "d6/d19/a02029.html#a03c62c024b148a264f9a6a0077198302", null ],
+    [ "getHandle", "d6/d19/a02029.html#af92f93241be20a3c9a32286ed19dc4cf", null ],
     [ "getHandle", "d6/d19/a02029.html#ac39b97fd324efde09c82d0ccfe7fe4e8", null ],
-    [ "isTickServiceRunning", "d6/d19/a02029.html#a17d53ca66d3c3868cf28aea0df5922dc", null ],
-    [ "operator=", "d6/d19/a02029.html#a97370a531742ca95f9bbb03daefd9919", null ],
-    [ "operator=", "d6/d19/a02029.html#a9b9f7c009be9bbae886ca7082a302099", null ],
-    [ "setDateTime", "d6/d19/a02029.html#a9911cafdfc9189dd93f7eb0494ffd54a", null ],
-    [ "startTickService", "d6/d19/a02029.html#a653f2f434ecec9a018b72fd9101db1d0", null ],
-    [ "stopTickService", "d6/d19/a02029.html#acdd2b9c31ba35c63f5873309d8f0130e", null ],
-    [ "void::HAL_RTC_AlarmAEventCallback", "d6/d19/a02029.html#a292bc50e5b612af91527952bbffe57e9", null ]
+    [ "isBusy", "d6/d19/a02029.html#ac30aad5121ca16fa7c3b185ed73d4104", null ],
+    [ "isOpened", "d6/d19/a02029.html#a8be2d6d39175f6e71f25e4a64e0e2f1b", null ],
+    [ "isReady", "d6/d19/a02029.html#a14c943a270b82f4b76faffc2822e1408", null ],
+    [ "masterMemRead", "d6/d19/a02029.html#ac646e78e8e291b9116d22e6593178c3b", null ],
+    [ "masterMemWrite", "d6/d19/a02029.html#adb29287498169b21a8c183a469cc20f4", null ],
+    [ "masterReceive", "d6/d19/a02029.html#a0f282a9b1fe1a24111ecf8a421fe50e7", null ],
+    [ "masterTransmit", "d6/d19/a02029.html#a3369110fdc9a75b4446d17f5c5bbb7d8", null ],
+    [ "open", "d6/d19/a02029.html#a3822bc9b87b9e299982b230e2c029f35", null ]
 ];

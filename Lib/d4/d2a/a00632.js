@@ -1,4 +1,4 @@
 var a00632 =
 [
-    [ "Lib::HAL::USBOtgPort", "d3/d61/a02179.html", "d3/d61/a02179" ]
+    [ "Lib::Helper::MoonPhase", "d6/dd7/a02375.html", "d6/dd7/a02375" ]
 ];

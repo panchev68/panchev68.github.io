@@ -1,8 +1,9 @@
 var a01175 =
 [
-    [ "operator==", "d6/df2/a01175.html#a8f050fcfe6312321bdf61e34a50f45ad", null ],
-    [ "inPhaseMax", "d6/df2/a01175.html#a9cc6f988ea7bdbd90c3566c936e6e21d", null ],
-    [ "inPhaseMin", "d6/df2/a01175.html#a6c5c8262d9a60e040c8b10c3ea53ad0d", null ],
-    [ "quadratureMax", "d6/df2/a01175.html#ab677a45b5cc11de6a0ed44a8bd31ada6", null ],
-    [ "quadratureMin", "d6/df2/a01175.html#ae6e3818b88b409e124c2a8ade03c4189", null ]
+    [ "Interface", "d6/df2/a01175.html#a39076029ddcb76974f6c62b4e8d4ea0d", null ],
+    [ "~Interface", "d6/df2/a01175.html#a66b65dc5b7f6571301b7491242361a95", null ],
+    [ "hardwareReset", "d6/df2/a01175.html#acbf9b8086bc4b70a9c61e6984f29590e", null ],
+    [ "initialize", "d6/df2/a01175.html#af8d627cf864c37c23c59c626e5ad02ea", null ],
+    [ "send", "d6/df2/a01175.html#a7093a7ca70d05a41a09435220b1dea3d", null ],
+    [ "sendReceive", "d6/df2/a01175.html#a2d9014fe08fb984de211efd021eb1f35", null ]
 ];

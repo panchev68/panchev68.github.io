@@ -1,20 +1,14 @@
 var a02335 =
 [
-    [ "Point", "d2/da6/a02339.html", "d2/da6/a02339" ],
-    [ "BoundaryType", "d4/d30/a02335.html#aa4199170b826f8a973a54466af4c6ee7", [
-      [ "NATURAL", "d4/d30/a02335.html#aa4199170b826f8a973a54466af4c6ee7a5309059cbdbae2a0551437827203ad0f", null ],
-      [ "CLAMPED", "d4/d30/a02335.html#aa4199170b826f8a973a54466af4c6ee7acd74834cde3fd975a1562870aa3076ad", null ]
-    ] ],
-    [ "CubicInterpolation", "d4/d30/a02335.html#a841b3381f15408dd279fad40a24710bf", null ],
-    [ "CubicInterpolation", "d4/d30/a02335.html#aee92c48fb302a56583a32a3d2e0eb111", null ],
-    [ "addPoint", "d4/d30/a02335.html#a29d21ef530981fb7842870ef526f1b0d", null ],
-    [ "addPoint", "d4/d30/a02335.html#a397f3557d9b7add0f4af4fb332df8489", null ],
-    [ "clear", "d4/d30/a02335.html#a2d421533830985fc950a97222defd528", null ],
-    [ "getDerivative", "d4/d30/a02335.html#a439ff9990cbc0b7d627d8b820fc338aa", null ],
-    [ "getPoint", "d4/d30/a02335.html#afda32c424bc54d575f5c946a47366a08", null ],
-    [ "getPointCount", "d4/d30/a02335.html#af5ee6e4a24f86e3d5b0a195a069ee447", null ],
-    [ "interpolate", "d4/d30/a02335.html#a5a79dc95e74d373846583cff418b5cec", null ],
-    [ "isEmpty", "d4/d30/a02335.html#a02e5f7f4d0665f9aa4c588975711c778", null ],
-    [ "setBoundaryConditions", "d4/d30/a02335.html#a4d8040b86f154a9249087cd51352f01a", null ],
-    [ "sortPoints", "d4/d30/a02335.html#ad4fb720a4dedcf2756f149abd3f888e0", null ]
+    [ "Time", "d2/da6/a02339.html", "d2/da6/a02339" ],
+    [ "Date", "da/db3/a02343.html", "da/db3/a02343" ],
+    [ "DateTime", "d4/d30/a02335.html#adf84d5d32c4bef7ab7d8e749c24768f1", null ],
+    [ "DateTime", "d4/d30/a02335.html#aa3c4d9ba3ecc6f999203752275fc0013", null ],
+    [ "isValid", "d4/d30/a02335.html#a3c83152ceb8b0fc8bbb830e8fe05a05f", null ],
+    [ "operator<=>", "d4/d30/a02335.html#a768cad764174be4d63763ddda26b9f67", null ],
+    [ "operator==", "d4/d30/a02335.html#a3d983b842fee71216375379ddc6be3ce", null ],
+    [ "to_tm", "d4/d30/a02335.html#ad62d5868c5b9114799a3c50aa1d45104", null ],
+    [ "toSysSeconds", "d4/d30/a02335.html#af3b147bf0c050a82f5151b6dcf7f7000", null ],
+    [ "date", "d4/d30/a02335.html#a3900e41a15e618ab5fc0d7bbb32b24cb", null ],
+    [ "time", "d4/d30/a02335.html#a99c6886879b06c9396a2df8bd08ce997", null ]
 ];

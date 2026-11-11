@@ -1,12 +1,9 @@
 var a02515 =
 [
-    [ "ReferenceParameters", "d9/dce/a02519.html", "d9/dce/a02519" ],
-    [ "Measurement", "d7/d8d/a02523.html", "d7/d8d/a02523" ],
-    [ "MaxPowerEstimator", "d5/d6a/a02515.html#a434bc885ae98e175c94cc0274463e3e5", null ],
-    [ "MPPT", "d5/d6a/a02515.html#aedf986308c8dd799d4771f32d446ee01", null ],
-    [ "getIrradianceCoefficient", "d5/d6a/a02515.html#a55a3b7a18c79deb5568e627889f76b86", null ],
-    [ "getTolerance", "d5/d6a/a02515.html#a0ac8d81cbc06a7045f43424b16871253", null ],
-    [ "getVoltageSetpoint", "d5/d6a/a02515.html#a455584e52b5677fe4bce93e58e80ca38", null ],
-    [ "setMaxPowerEstimationFunction", "d5/d6a/a02515.html#abc619561c7180e6c69b8282c58157857", null ],
-    [ "update", "d5/d6a/a02515.html#a15ca43314cd95e5cf3d7c302a9db56af", null ]
+    [ "Lock", "d5/d6a/a02515.html#a79915981fe481334533677f3c4691e1f", null ],
+    [ "~Lock", "d5/d6a/a02515.html#acca996da9f16704d9247d8d2f0bab3e1", null ],
+    [ "Lock", "d5/d6a/a02515.html#a7da060988728f2b1731d04e7b4465ffb", null ],
+    [ "Lock", "d5/d6a/a02515.html#a73e4ec26337a86b9060fbfd8356a083c", null ],
+    [ "operator=", "d5/d6a/a02515.html#a58e51b984954b6ea0275dd7b48479bb2", null ],
+    [ "operator=", "d5/d6a/a02515.html#a2af1d07230d3a75aee8b72daf7ec73bf", null ]
 ];

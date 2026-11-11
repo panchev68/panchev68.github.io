@@ -1,4 +1,4 @@
 var a00572 =
 [
-    [ "Lib::HAL::Timer::TimEventBase&lt; T_DERIVED &gt;", "d3/d79/a02083.html", "d3/d79/a02083" ]
+    [ "Lib::HAL::USBHostPortBase&lt; T_DERIVED &gt;", "d2/dd2/a02279.html", "d2/dd2/a02279" ]
 ];

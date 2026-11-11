@@ -1,10 +1,12 @@
 var a01709 =
 [
-    [ "Frame0x97", "d1/da7/a01709.html#a8d6d58095dc72605b19af99d9a4c2097", null ],
-    [ "atCommand", "d1/da7/a01709.html#a965406599165a7744ecbe01f6054fc9d", null ],
-    [ "commandStatus", "d1/da7/a01709.html#a1ffffd99f0fd3d9c4529ae8fd2d2f069", null ],
-    [ "frameId", "d1/da7/a01709.html#ae5cbfb88fbca17299b374c0b207128d0", null ],
-    [ "parameters", "d1/da7/a01709.html#a0716b11170a5695a6ff94920635fb32f", null ],
-    [ "srcAddr16", "d1/da7/a01709.html#a4dcf22e4dd07f8d0c0764bebb9e23721", null ],
-    [ "srcAddr64", "d1/da7/a01709.html#a146e6de04eded1ed1426630c73a3ad17", null ]
+    [ "Command", "d1/da7/a01709.html#a9a8b5d1d84231de85aeacf70fe4405f4", null ],
+    [ "RemoteAtCommand", "d1/da7/a01709.html#ae2e0be6c6f79d8d850898e9a2fb5bebd", null ],
+    [ "RemoteAtCommand", "d1/da7/a01709.html#a772786f4856c6806756c33743f038855", null ],
+    [ "close", "d1/da7/a01709.html#acfc9182b712685cd72276c7c645330ec", null ],
+    [ "open", "d1/da7/a01709.html#a5a1c6480b4a3eafc1106a35b30f82496", null ],
+    [ "operator=", "d1/da7/a01709.html#a5cc9c73308fe59d0f9bb5265e46b373f", null ],
+    [ "receive", "d1/da7/a01709.html#a44d51fc0a14d8966aa905f7e30dd05e2", null ],
+    [ "send", "d1/da7/a01709.html#a68565e1939553aa4b73a44d4c6adf059", null ],
+    [ "send", "d1/da7/a01709.html#acbe47127d8235ebc53d5b9e3f3a57261", null ]
 ];
