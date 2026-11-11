@@ -1,6 +1,5 @@
 var class_a_p_p_1_1_com_module =
 [
-    [ "Counters", "dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html", "dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters" ],
     [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#a86c8c4cf1a7c73773a2c1fa8038a140a", null ],
     [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#a43f29f92e60bb6e2e5db78952a00def3", null ],
     [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#afce2838cafc9d95b78a5c45104ed2884", null ],

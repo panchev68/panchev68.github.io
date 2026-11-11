@@ -36,26 +36,28 @@ var annotated_dup =
     ] ],
     [ "BSP", "da/da7/namespace_b_s_p.html", [
       [ "ButtonLeds", "db/d4f/class_b_s_p_1_1_button_leds.html", "db/d4f/class_b_s_p_1_1_button_leds" ],
+      [ "Buzzer", "d2/d5f/class_b_s_p_1_1_buzzer.html", "d2/d5f/class_b_s_p_1_1_buzzer" ],
       [ "DS18B20", "d1/dc4/class_b_s_p_1_1_d_s18_b20.html", "d1/dc4/class_b_s_p_1_1_d_s18_b20" ],
       [ "INA219", "da/d04/class_b_s_p_1_1_i_n_a219.html", "da/d04/class_b_s_p_1_1_i_n_a219" ],
       [ "Inputs", "df/df2/class_b_s_p_1_1_inputs.html", "df/df2/class_b_s_p_1_1_inputs" ],
       [ "Outputs", "d5/d21/class_b_s_p_1_1_outputs.html", "d5/d21/class_b_s_p_1_1_outputs" ],
+      [ "PGA460TPWRQ1", "d5/dcc/class_b_s_p_1_1_p_g_a460_t_p_w_r_q1.html", "d5/dcc/class_b_s_p_1_1_p_g_a460_t_p_w_r_q1" ],
       [ "RgbLed", "d3/d72/class_b_s_p_1_1_rgb_led.html", "d3/d72/class_b_s_p_1_1_rgb_led" ],
       [ "ST25R100", "da/dc3/class_b_s_p_1_1_s_t25_r100.html", "da/dc3/class_b_s_p_1_1_s_t25_r100" ],
       [ "TMP102", "d9/dd1/class_b_s_p_1_1_t_m_p102.html", "d9/dd1/class_b_s_p_1_1_t_m_p102" ],
       [ "W25Q128JVSIQ", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html", "d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q" ]
     ] ],
     [ "HAL", "df/da1/namespace_h_a_l.html", [
-      [ "I2CPort1", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html", "d8/d8e/class_h_a_l_1_1_i2_c_port1" ]
+      [ "DAC1Port", "d3/dd6/class_h_a_l_1_1_d_a_c1_port.html", "d3/dd6/class_h_a_l_1_1_d_a_c1_port" ],
+      [ "HashPort", "d6/da8/class_h_a_l_1_1_hash_port.html", "d6/da8/class_h_a_l_1_1_hash_port" ],
+      [ "I2CPort1", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html", "d8/d8e/class_h_a_l_1_1_i2_c_port1" ],
+      [ "OSPI1Port", "dc/d54/class_h_a_l_1_1_o_s_p_i1_port.html", "dc/d54/class_h_a_l_1_1_o_s_p_i1_port" ],
+      [ "RTCPort", "de/d8f/class_h_a_l_1_1_r_t_c_port.html", "de/d8f/class_h_a_l_1_1_r_t_c_port" ],
+      [ "SPI3Port", "da/d1a/class_h_a_l_1_1_s_p_i3_port.html", "da/d1a/class_h_a_l_1_1_s_p_i3_port" ],
+      [ "Usart1Port", "da/d5b/class_h_a_l_1_1_usart1_port.html", "da/d5b/class_h_a_l_1_1_usart1_port" ],
+      [ "Usart3Port", "d3/deb/class_h_a_l_1_1_usart3_port.html", "d3/deb/class_h_a_l_1_1_usart3_port" ]
     ] ],
     [ "ComService", "dd/df7/class_com_service.html", "dd/df7/class_com_service" ],
-    [ "DAC1Port", "d3/dd6/class_h_a_l_1_1_d_a_c1_port.html", null ],
-    [ "I2C1Port", "d4/dc0/class_h_a_l_1_1_i2_c1_port.html", null ],
     [ "MPPT", "d2/db7/class_m_p_p_t.html", "d2/db7/class_m_p_p_t" ],
-    [ "OSPI1Port", "dc/d54/class_h_a_l_1_1_o_s_p_i1_port.html", null ],
-    [ "Protocol", "d6/dcc/class_protocol.html", "d6/dcc/class_protocol" ],
-    [ "RTCPort", "de/d8f/class_h_a_l_1_1_r_t_c_port.html", null ],
-    [ "SPI3Port", "da/d1a/class_h_a_l_1_1_s_p_i3_port.html", null ],
-    [ "Usart1Port", "da/d5b/class_h_a_l_1_1_usart1_port.html", null ],
-    [ "Usart3Port", "d3/deb/class_h_a_l_1_1_usart3_port.html", null ]
+    [ "Protocol", "d6/dcc/class_protocol.html", "d6/dcc/class_protocol" ]
 ];

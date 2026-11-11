@@ -3,11 +3,11 @@ var class_com_service =
     [ "ErrorCallback", "dd/df7/class_com_service.html#a883bb986c40e5b7ca63c6c5d883d9101", null ],
     [ "Frame", "dd/df7/class_com_service.html#aed55440fa94790715156fca2c25d88bf", null ],
     [ "NewFrameCallback", "dd/df7/class_com_service.html#aeb336bde438e3ff9e0df3d8cbd1aa4ad", null ],
-    [ "ErrorCode", "dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099", [
-      [ "NONE", "dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099ab50339a10e1de285ac99d4c3990b8693", null ],
-      [ "UART_RECEIVE_FAILURE", "dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099aadf41b09e79a5dded6fc549bd1b23793", null ],
-      [ "INVALID_FRAME_LENGTH", "dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099a310202ab05790f964cfce492ebaeeb80", null ],
-      [ "CHECKSUM_MISMATCH", "dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099a2e0ee01e0807b586c11744580712274f", null ]
+    [ "ErrorCode", "d6/dc5/group___a_p_p.html#gad99394c03546200de2cef12a277a2099", [
+      [ "NONE", "d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099ab50339a10e1de285ac99d4c3990b8693", null ],
+      [ "UART_RECEIVE_FAILURE", "d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099aadf41b09e79a5dded6fc549bd1b23793", null ],
+      [ "INVALID_FRAME_LENGTH", "d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099a310202ab05790f964cfce492ebaeeb80", null ],
+      [ "CHECKSUM_MISMATCH", "d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099a2e0ee01e0807b586c11744580712274f", null ]
     ] ],
     [ "ComService", "dd/df7/class_com_service.html#a0e2c4e61707e7cf3c053fe4cf1064e40", null ],
     [ "ComService", "dd/df7/class_com_service.html#a2f4807efef031bd0a7c42d3e80c0c02f", null ],

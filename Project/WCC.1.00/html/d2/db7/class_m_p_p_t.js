@@ -1,6 +1,5 @@
 var class_m_p_p_t =
 [
-    [ "Config", "de/d01/struct_m_p_p_t_1_1_config.html", "de/d01/struct_m_p_p_t_1_1_config" ],
     [ "DACPort", "d2/db7/class_m_p_p_t.html#a72273650954b06cb54a14c6913f0dfd2", null ],
     [ "MPPT", "d2/db7/class_m_p_p_t.html#a3fd59c9483d426a6f82d8dcba5926d3f", null ],
     [ "~MPPT", "d2/db7/class_m_p_p_t.html#a7ea5fdb8d4e8aa25c72f82b9cc790ef4", null ],

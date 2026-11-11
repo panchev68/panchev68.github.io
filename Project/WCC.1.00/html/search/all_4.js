@@ -31,14 +31,14 @@ var searchData=
   ['erase_5ffailed_28',['ERASE_FAILED',['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a0a08f62c139f5c203381275d2b542a7f',1,'APP::StorageTest']]],
   ['erasesector_29',['eraseSector',['../da/d74/class_a_p_p_1_1_storage_manager.html#a3d5fbc5dabd3456d9d45bfdbf90acaca',1,'APP::StorageManager']]],
   ['errorcallback_30',['ErrorCallback',['../dd/df7/class_com_service.html#a883bb986c40e5b7ca63c6c5d883d9101',1,'ComService']]],
-  ['errorcode_31',['ErrorCode',['../dd/df7/class_com_service.html#ad99394c03546200de2cef12a277a2099',1,'ComService']]],
+  ['errorcode_31',['ErrorCode',['../d6/dc5/group___a_p_p.html#gad99394c03546200de2cef12a277a2099',1,'ComService']]],
   ['errors_32',['errors',['../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html#a3ebbb0a5b5063e3d4c8310e16fbc5a60',1,'APP::ComModule::Counters']]],
   ['esc_5fchar_33',['ESC_CHAR',['../d6/dcc/class_protocol.html#a6adf703cdf58fe5c413076090e096f91',1,'Protocol']]],
   ['escape_5fmask_34',['ESCAPE_MASK',['../d6/dcc/class_protocol.html#a5dca65fa0d81eb15cdeeb2e87a988f0f',1,'Protocol']]],
   ['esp32_5fpower_5fon_5flevel_35',['ESP32_POWER_ON_LEVEL',['../d6/dcf/class_a_p_p_1_1_com_module.html#a922d7cebb841edfb5e8820a5131181fb',1,'APP::ComModule']]],
   ['esp32_5fwakeup_5flevel_36',['ESP32_WAKEUP_LEVEL',['../d6/dcf/class_a_p_p_1_1_com_module.html#ac64da79639456e5b029affdfc65e7a96',1,'APP::ComModule']]],
-  ['external_5fflash_37',['EXTERNAL_FLASH',['../d4/dab/namespace_a_p_p_1_1_commands.html#ab7dddd440070a1dbdfec9cb40c01c43aa12e5ddb21d427eadedd3714b26dc37fb',1,'APP::Commands']]],
-  ['external_5ftemperature_5fvalid_38',['EXTERNAL_TEMPERATURE_VALID',['../d4/dab/namespace_a_p_p_1_1_commands.html#a16ddf6ac358413eda6b8ce33c9f9f179a2ae3c7ce31ff551366da208a76b67abc',1,'APP::Commands']]],
+  ['external_5fflash_37',['EXTERNAL_FLASH',['../d6/dc5/group___a_p_p.html#ggab7dddd440070a1dbdfec9cb40c01c43aa12e5ddb21d427eadedd3714b26dc37fb',1,'APP::Commands']]],
+  ['external_5ftemperature_5fvalid_38',['EXTERNAL_TEMPERATURE_VALID',['../d6/dc5/group___a_p_p.html#gga16ddf6ac358413eda6b8ce33c9f9f179a2ae3c7ce31ff551366da208a76b67abc',1,'APP::Commands']]],
   ['externalthermometer_39',['ExternalThermometer',['../d6/d63/class_a_p_p_1_1_external_thermometer.html',1,'APP::ExternalThermometer'],['../d6/d63/class_a_p_p_1_1_external_thermometer.html#a15e864eafe521157efb2bb6bf4d656c0',1,'APP::ExternalThermometer::ExternalThermometer() noexcept=default'],['../d6/d63/class_a_p_p_1_1_external_thermometer.html#afd705c272d37559a9616d9b0e9b9a900',1,'APP::ExternalThermometer::ExternalThermometer(const ExternalThermometer &amp;)=delete'],['../d6/d63/class_a_p_p_1_1_external_thermometer.html#a934626c43499075f81ae2605c97aebdc',1,'APP::ExternalThermometer::ExternalThermometer(ExternalThermometer &amp;&amp;)=delete']]],
   ['externalthermometer_2ehpp_40',['ExternalThermometer.hpp',['../d6/dec/_external_thermometer_8hpp.html',1,'']]]
 ];

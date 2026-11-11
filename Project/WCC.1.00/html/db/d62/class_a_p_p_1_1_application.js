@@ -1,6 +1,5 @@
 var class_a_p_p_1_1_application =
 [
-    [ "Status", "d3/d8b/struct_a_p_p_1_1_application_1_1_status.html", "d3/d8b/struct_a_p_p_1_1_application_1_1_status" ],
     [ "start", "db/d62/class_a_p_p_1_1_application.html#a7e0d9210bd3ea23020e9613eee298852", null ],
     [ "ENABLE_COM", "db/d62/class_a_p_p_1_1_application.html#a2b338e5af039b0875b3375b0da5c86be", null ],
     [ "ENABLE_DISTANCE_INDICATOR_TEST", "db/d62/class_a_p_p_1_1_application.html#a8f467a589f406a75e9f4308a859f3cb2", null ],

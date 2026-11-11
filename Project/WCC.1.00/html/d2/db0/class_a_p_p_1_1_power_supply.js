@@ -1,6 +1,5 @@
 var class_a_p_p_1_1_power_supply =
 [
-    [ "ChargeIdle", "da/d3b/class_a_p_p_1_1_power_supply_1_1_charge_idle.html", "da/d3b/class_a_p_p_1_1_power_supply_1_1_charge_idle" ],
     [ "PowerSupply", "d2/db0/class_a_p_p_1_1_power_supply.html#aca46de0fa7c8f00ff9125b333a61aeac", null ],
     [ "PowerSupply", "d2/db0/class_a_p_p_1_1_power_supply.html#a00914747263ce77097037b1cc534bf4c", null ],
     [ "PowerSupply", "d2/db0/class_a_p_p_1_1_power_supply.html#a1c5c28f870b205c659909740fafbe8a7", null ],

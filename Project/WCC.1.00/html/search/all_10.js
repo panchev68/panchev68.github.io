@@ -1,7 +1,7 @@
 var searchData=
 [
   ['read_0',['read',['../da/d74/class_a_p_p_1_1_storage_manager.html#a95bf0fe2763a8f5272b8a5dd2a22905f',1,'APP::StorageManager::read()'],['../db/d4f/class_b_s_p_1_1_button_leds.html#a72ada4521283451aa134a4488f2b3614',1,'BSP::ButtonLeds::read()'],['../df/df2/class_b_s_p_1_1_inputs.html#a76387fa905062f418a610103275d0f76',1,'BSP::Inputs::read()'],['../d5/d21/class_b_s_p_1_1_outputs.html#a44ae5e97792d32ce40667d2f39f00fbc',1,'BSP::Outputs::read()']]],
-  ['read_5ferror_1',['READ_ERROR',['../d4/dab/namespace_a_p_p_1_1_commands.html#a88db4eccae3f9db42d03355cd029286ca54481c80b10e75ecba9c621f1eee91fe',1,'APP::Commands']]],
+  ['read_5ferror_1',['READ_ERROR',['../d6/dc5/group___a_p_p.html#gga88db4eccae3f9db42d03355cd029286ca54481c80b10e75ecba9c621f1eee91fe',1,'APP::Commands']]],
   ['read_5ffailed_2',['READ_FAILED',['../d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786a82fbe87835b941addda10c26ff6e98d6',1,'APP::DS18B20CommsTest::READ_FAILED'],['../de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#ade05f577cceb0dd19b53b3cc9bc40bb0a82fbe87835b941addda10c26ff6e98d6',1,'APP::RFIDCommsTest::READ_FAILED'],['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a82fbe87835b941addda10c26ff6e98d6',1,'APP::StorageTest::READ_FAILED']]],
   ['read_5fheader_5fsize_3',['READ_HEADER_SIZE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a7c250fdd706bba6d081021e35802c9d0',1,'APP::Commands']]],
   ['read_5frequest_5fsize_4',['READ_REQUEST_SIZE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a4dfb5c3625d61c9465cadcc7b03fc919',1,'APP::Commands']]],
@@ -29,9 +29,10 @@ var searchData=
   ['rfidcommstest_2ehpp_26',['RFIDCommsTest.hpp',['../d3/d9c/_r_f_i_d_comms_test_8hpp.html',1,'']]],
   ['rgbled_27',['RgbLed',['../d3/d72/class_b_s_p_1_1_rgb_led.html',1,'BSP::RgbLed'],['../d3/d72/class_b_s_p_1_1_rgb_led.html#a383cdb8928f3342183d678f5c3bcc68d',1,'BSP::RgbLed::RgbLed() noexcept=default'],['../d3/d72/class_b_s_p_1_1_rgb_led.html#a7d7f7bfea67604a6d8acc0405f138434',1,'BSP::RgbLed::RgbLed(const RgbLed &amp;)=delete'],['../d3/d72/class_b_s_p_1_1_rgb_led.html#a61ac1c37ee5343a9e357a4b2d5a689b3',1,'BSP::RgbLed::RgbLed(RgbLed &amp;&amp;)=delete']]],
   ['rgbled_2ehpp_28',['RgbLed.hpp',['../dd/d7f/_rgb_led_8hpp.html',1,'']]],
-  ['rtcport_29',['RTCPort',['../de/d8f/class_h_a_l_1_1_r_t_c_port.html',1,'']]],
-  ['rtcport_2ehpp_30',['RTCPort.hpp',['../df/dcd/_r_t_c_port_8hpp.html',1,'']]],
-  ['run_31',['run',['../da/da8/class_a_p_p_1_1_diagnostics.html#a7a5356423fdf2fbe9e447492babaee54',1,'APP::Diagnostics']]],
-  ['running_32',['RUNNING',['../d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547a43491564ebcfd38568918efbd6e840fd',1,'APP::DistanceMeterTest::RUNNING'],['../d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786a43491564ebcfd38568918efbd6e840fd',1,'APP::DS18B20CommsTest::RUNNING'],['../d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a43491564ebcfd38568918efbd6e840fd',1,'APP::PGA460CommsTest::RUNNING'],['../de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#ade05f577cceb0dd19b53b3cc9bc40bb0a43491564ebcfd38568918efbd6e840fd',1,'APP::RFIDCommsTest::RUNNING'],['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a43491564ebcfd38568918efbd6e840fd',1,'APP::StorageTest::RUNNING']]],
-  ['rxframes_33',['rxFrames',['../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html#a963b835af2c5f148c310f375c114b6ce',1,'APP::ComModule::Counters']]]
+  ['rtc_5fepoch_5fyear_29',['RTC_EPOCH_YEAR',['../de/d8f/class_h_a_l_1_1_r_t_c_port.html#a6f3244220299042b5fa574a445923b35',1,'HAL::RTCPort']]],
+  ['rtcport_30',['RTCPort',['../de/d8f/class_h_a_l_1_1_r_t_c_port.html',1,'HAL']]],
+  ['rtcport_2ehpp_31',['RTCPort.hpp',['../df/dcd/_r_t_c_port_8hpp.html',1,'']]],
+  ['run_32',['run',['../da/da8/class_a_p_p_1_1_diagnostics.html#a7a5356423fdf2fbe9e447492babaee54',1,'APP::Diagnostics']]],
+  ['running_33',['RUNNING',['../d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547a43491564ebcfd38568918efbd6e840fd',1,'APP::DistanceMeterTest::RUNNING'],['../d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786a43491564ebcfd38568918efbd6e840fd',1,'APP::DS18B20CommsTest::RUNNING'],['../d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a43491564ebcfd38568918efbd6e840fd',1,'APP::PGA460CommsTest::RUNNING'],['../de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#ade05f577cceb0dd19b53b3cc9bc40bb0a43491564ebcfd38568918efbd6e840fd',1,'APP::RFIDCommsTest::RUNNING'],['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a43491564ebcfd38568918efbd6e840fd',1,'APP::StorageTest::RUNNING']]],
+  ['rxframes_34',['rxFrames',['../dd/dfa/struct_a_p_p_1_1_com_module_1_1_counters.html#a963b835af2c5f148c310f375c114b6ce',1,'APP::ComModule::Counters']]]
 ];

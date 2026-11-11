@@ -9,9 +9,12 @@ var searchData=
   ['max_5fnumbers_5fper_5fframe_6',['MAX_NUMBERS_PER_FRAME',['../d4/dab/namespace_a_p_p_1_1_commands.html#a8c32c216d5efe720863efd9ecf8edd53',1,'APP::Commands']]],
   ['max_5foff_5ftime_7',['MAX_OFF_TIME',['../d6/dcf/class_a_p_p_1_1_com_module.html#a255d1ed89b9e5bc6eb59a61b3ae3c68c',1,'APP::ComModule']]],
   ['max_5fpayload_5fsize_8',['MAX_PAYLOAD_SIZE',['../d6/dcc/class_protocol.html#ae869e54095fe3ca7f2e6826cb95386ae',1,'Protocol']]],
-  ['max_5frecords_5fper_5fframe_9',['MAX_RECORDS_PER_FRAME',['../d4/dab/namespace_a_p_p_1_1_commands.html#ad5ed895918e5ccd05298add1fbab5160',1,'APP::Commands']]],
-  ['max_5frestarts_10',['MAX_RESTARTS',['../d6/dcf/class_a_p_p_1_1_com_module.html#a6d064953cfc07fd33a2884fa4017aa7a',1,'APP::ComModule']]],
-  ['measurements_5fresponse_5fsize_11',['MEASUREMENTS_RESPONSE_SIZE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a14e8ca6dab95301800e025f8a256731a',1,'APP::Commands']]],
-  ['min_5fvalid_5funix_5ftime_12',['MIN_VALID_UNIX_TIME',['../d6/dcf/class_a_p_p_1_1_com_module.html#a4c1db40a2070f0de36045310a186ec80',1,'APP::ComModule']]],
-  ['mode_13',['MODE',['../da/dc3/class_b_s_p_1_1_s_t25_r100.html#a6c0ac9d97ea90f0582def684fc0f1c83',1,'BSP::ST25R100']]]
+  ['max_5fperiod_9',['MAX_PERIOD',['../d2/d5f/class_b_s_p_1_1_buzzer.html#ab9f27d322332d1c57a884430aa28a95f',1,'BSP::Buzzer']]],
+  ['max_5frecords_5fper_5fframe_10',['MAX_RECORDS_PER_FRAME',['../d4/dab/namespace_a_p_p_1_1_commands.html#ad5ed895918e5ccd05298add1fbab5160',1,'APP::Commands']]],
+  ['max_5frestarts_11',['MAX_RESTARTS',['../d6/dcf/class_a_p_p_1_1_com_module.html#a6d064953cfc07fd33a2884fa4017aa7a',1,'APP::ComModule']]],
+  ['max_5frtc_5fyear_12',['MAX_RTC_YEAR',['../de/d8f/class_h_a_l_1_1_r_t_c_port.html#accc68253d37613905ffc345fbbbfde99',1,'HAL::RTCPort']]],
+  ['measurements_5fresponse_5fsize_13',['MEASUREMENTS_RESPONSE_SIZE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a14e8ca6dab95301800e025f8a256731a',1,'APP::Commands']]],
+  ['min_5ffrequency_5fhz_14',['MIN_FREQUENCY_HZ',['../d2/d5f/class_b_s_p_1_1_buzzer.html#ad198da9bffb4c8e6733f522ad3c3d097',1,'BSP::Buzzer']]],
+  ['min_5fvalid_5funix_5ftime_15',['MIN_VALID_UNIX_TIME',['../d6/dcf/class_a_p_p_1_1_com_module.html#a4c1db40a2070f0de36045310a186ec80',1,'APP::ComModule']]],
+  ['mode_16',['MODE',['../da/dc3/class_b_s_p_1_1_s_t25_r100.html#a6c0ac9d97ea90f0582def684fc0f1c83',1,'BSP::ST25R100']]]
 ];

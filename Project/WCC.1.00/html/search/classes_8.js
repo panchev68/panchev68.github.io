@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['mppt_0',['MPPT',['../d2/db7/class_m_p_p_t.html',1,'']]],
-  ['mpptchargetest_1',['MPPTChargeTest',['../d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html',1,'APP']]]
+  ['lowpower_0',['LowPower',['../d6/d7e/class_a_p_p_1_1_low_power.html',1,'APP']]]
 ];
