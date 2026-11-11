@@ -22,3 +22,7 @@
 #### Waste Container Controller
 
 [1.00](https://panchev68.github.io/Project/WCC.1.00/html/index.html)
+
+#### River Sense Controller
+
+[1.00](https://panchev68.github.io/Project/RiverSense.1.00/html/index.html)
