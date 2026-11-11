@@ -17,12 +17,12 @@
 
 [8.07.1](https://panchev68.github.io/Project/U146-8.07.1/html/index.html)
 
-## Senstate
+## [Senstate](https://github.com/panchev68-Senstate)
 
-#### Waste Container Controller
+#### [Waste Container Controller](https://github.com/panchev68-Senstate/WCC-Firmware)
 
-[1.00](https://panchev68.github.io/Project/WCC.1.00/html/index.html)
+[Documentation 1.00](https://panchev68.github.io/Project/WCC.1.00/html/index.html)
 
-#### River Sense Controller
+#### [River Sense Controller](https://github.com/panchev68-Senstate/RiverSense-Firmware/tree/main)
 
-[1.00](https://panchev68.github.io/Project/RiverSense.1.00/html/index.html)
+[Documentation 1.00](https://panchev68.github.io/Project/RiverSense.1.00/html/index.html)
