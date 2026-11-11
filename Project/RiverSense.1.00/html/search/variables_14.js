@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['value_0',['value',['https://panchev68.github.io/Lib/d1/d34/a01211.html#ac1e3de78a37a7229dfb525e2b82a1b4b',1,'Lib::BSP::RFID::ST25R100::RegisterWrite::value'],['https://panchev68.github.io/Lib/df/d04/a02287.html#aeb95036baf576efe55bbdca1daf8c864',1,'Lib::HAL::USBSetupPacket::value'],['https://panchev68.github.io/Lib/d4/d8c/a02359.html#a036bbd4435de7509f8854ca2adf96d41',1,'Lib::Helper::FindPeaks::PeakInfo::value'],['https://panchev68.github.io/Lib/d1/df1/a02431.html#a9083872d6be2774cad6b5e7a7741f9e6',1,'Lib::Math::Filter::Kalman::Config::value']]],
+  ['vapvanen_1',['VAPVANEN',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa1285283afbf9c3085840c9c1b9ab63df',1,'Lib::BSP::Display']]],
+  ['vcmofset_2',['VCMOFSET',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaacb62c87f8dba86c95cb45b522ebe4c14',1,'Lib::BSP::Display']]],
+  ['vcoms_3',['VCOMS',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa15f09a53a4d9cb3030c03b11ab537bb7',1,'Lib::BSP::Display']]],
+  ['vdvs_4',['VDVS',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa07a8be7c95b14a74972ea6be5ee60b71',1,'Lib::BSP::Display']]],
+  ['vdvvrhen_5',['VDVVRHEN',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa2a4e7761b31c3ce747611f87c75b4e72',1,'Lib::BSP::Display']]],
+  ['vendorid_6',['vendorId',['https://panchev68.github.io/Lib/d8/d0f/a02707.html#a901d8fbdeedadd519352ef01e124ebaa',1,'Lib::USB::CDCDevice::Config']]],
+  ['versions_7',['versions',['https://panchev68.github.io/Lib/dc/d93/a01535.html#a8af2e6c665db207944c0e30fdf610763',1,'Lib::Digi::API::NodeInfo']]],
+  ['violet_8',['VIOLET',['https://panchev68.github.io/Lib/d0/d88/a01231.html#adcce34027bfb4e02c6112b5e951ae35d',1,'Color']]],
+  ['vmctr1_9',['VMCTR1',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2a429fb5d36816f6cec9d104a1c3098ef1',1,'Lib::BSP::Display']]],
+  ['vmctr2_10',['VMCTR2',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2a46487ad0c24c2b10e0145a3699304f31',1,'Lib::BSP::Display']]],
+  ['voltage_11',['voltage',['https://panchev68.github.io/Lib/dc/dbf/a01595.html#a9ee4423766190b01b3381ae41455bf2d',1,'Lib::Digi::API::Service::Parameters::Data::voltage'],['https://panchev68.github.io/Lib/dc/d34/a02627.html#aed376e2d8eced1f376c8d5aa79e1d0c6',1,'Lib::SolarControl::MPPT::Measurement::voltage'],['https://panchev68.github.io/Lib/dd/d75/a02639.html#a1e7c41cc6f1e458a928298f16e3913df',1,'Lib::SolarControl::PerturbAndObserve::Measurement::voltage']]],
+  ['voltagevalue_12',['voltageValue',['https://panchev68.github.io/Lib/d6/dd7/a01555.html#a8dfb3d30a434e5346c20ac691dfe3595',1,'Lib::Digi::API::NodeInfo::Monitor']]],
+  ['vrhs_13',['VRHS',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaaa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
+  ['vscrdef_14',['VSCRDEF',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF'],['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF']]],
+  ['vscrsadd_15',['VSCRSADD',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2adaaf3d170f76e19ffeed8fe25ef2a750',1,'Lib::BSP::Display']]],
+  ['vscsad_16',['VSCSAD',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa2c040526ab31d930a82ffcb730cbd399',1,'Lib::BSP::Display']]]
+];

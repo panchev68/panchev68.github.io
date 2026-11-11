@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['monitor_0',['Monitor',['../da/d02/class_b_s_p_1_1_accumulator.html#a9c3339d9df9643d01298d523bf42cb4d',1,'BSP::Accumulator::Monitor'],['../df/dfc/class_b_s_p_1_1_solar_panel.html#a064f3ad51fea5f648e86810759d30490',1,'BSP::SolarPanel::Monitor']]]
+  ['frame_0',['Frame',['../d6/d36/class_b_s_p_1_1_a02_y_y_u_w.html#a0512d8de76602f89980810885ada145f',1,'BSP::A02YYUW']]],
+  ['freefunctionpointer_1',['FreeFunctionPointer',['https://panchev68.github.io/Lib/d8/d31/a01407.html#ae22c5663935235364bcc0825ab4d629f',1,'FunctionRefDetail::Base::FreeFunctionPointer'],['https://panchev68.github.io/Lib/d8/d31/a01407.html#ae22c5663935235364bcc0825ab4d629f',1,'FunctionRef&lt; Ret(Args...) const noexcept &gt;::FreeFunctionPointer'],['https://panchev68.github.io/Lib/d8/d31/a01407.html#ae22c5663935235364bcc0825ab4d629f',1,'FunctionRef&lt; Ret(Args...) const &gt;::FreeFunctionPointer'],['https://panchev68.github.io/Lib/d8/d31/a01407.html#ae22c5663935235364bcc0825ab4d629f',1,'FunctionRef&lt; Ret(Args...) noexcept &gt;::FreeFunctionPointer'],['https://panchev68.github.io/Lib/d8/d31/a01407.html#ae22c5663935235364bcc0825ab4d629f',1,'FunctionRef&lt; Ret(Args...)&gt;::FreeFunctionPointer']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tmp102_2ehpp_0',['TMP102.hpp',['../d3/d9f/_t_m_p102_8hpp.html',1,'']]]
+  ['kalman_2ehpp_0',['Kalman.hpp',['https://panchev68.github.io/Lib/dc/df2/a00656.html',1,'']]],
+  ['kernel_2ehpp_1',['Kernel.hpp',['https://panchev68.github.io/Lib/db/d77/a00683.html',1,'']]]
 ];

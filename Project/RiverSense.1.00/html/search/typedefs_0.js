@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['config_0',['Config',['../d1/dc4/class_b_s_p_1_1_d_s18_b20.html#a9afeb46aea3a4e09ef6119bbf1ab1bb7',1,'BSP::DS18B20']]]
+  ['adcport_0',['AdcPort',['https://panchev68.github.io/Lib/d1/d8f/a00880.html#a85b379ca2a4d7d2956ae5317961081ba',1,'Lib::BSP']]]
 ];

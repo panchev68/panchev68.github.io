@@ -1,0 +1,26 @@
+var a02583 =
+[
+    [ "Result", "https://panchev68.github.io/Lib/d4/d9e/a02587.html", "d4/d9e/a02587" ],
+    [ "Notify", "https://panchev68.github.io/Lib/dc/d15/a02583.html#af4a648aef0b1204911e4f0b57ca2d90b", null ],
+    [ "clearBits", "https://panchev68.github.io/Lib/dc/d15/a02583.html#adfd929a14d86953a749caecb186a493b", null ],
+    [ "clearState", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a4a968ee53740cc429b232c80589b748a", null ],
+    [ "fireEvent", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a4732602e81ec507a9370a1dd41be78f8", null ],
+    [ "fireEventFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a742840c973b7a2ce22645d9ae4f8d51a", null ],
+    [ "fireEventFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a0fcaadc33f0db421bbae341a59b0b07a", null ],
+    [ "give", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a1fb17f69e367f23f6497932cc17e4630", null ],
+    [ "giveFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a38804fffd180e5a0cfd4488727e7521a", null ],
+    [ "giveFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a4e0005f0d61c80d42a6f4a1f86447d6f", null ],
+    [ "notify", "https://panchev68.github.io/Lib/dc/d15/a02583.html#ac28b1bcc68bd40c199a5e504d7cd696c", null ],
+    [ "notifyAndQuery", "https://panchev68.github.io/Lib/dc/d15/a02583.html#ae4d92ef7755e1231a03356b8e9ff8ecc", null ],
+    [ "notifyAndQueryFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#aabfa91e4b27b8816c32546da448da44f", null ],
+    [ "notifyAndQueryFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a01a8186691b5ea2d9884997612955204", null ],
+    [ "notifyFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a25aaaf77386e00477eb6dc16df543364", null ],
+    [ "notifyFromISR", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a90999910ff7124119e0143b6281ebeac", null ],
+    [ "take", "https://panchev68.github.io/Lib/dc/d15/a02583.html#affe9d15dcc3438ccb68a264744683f96", null ],
+    [ "take", "https://panchev68.github.io/Lib/dc/d15/a02583.html#ab2c154d06ce722fcc5d10141ea9971dc", null ],
+    [ "wait", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a9b7ec0e3945a5a2e59f89abc12c995ac", null ],
+    [ "wait", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a05ffffc3617eb293c579a9e12885057b", null ],
+    [ "waitForBits", "https://panchev68.github.io/Lib/dc/d15/a02583.html#acd94a5ede593ed6ae5571c18903e030b", null ],
+    [ "waitForBits", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a1eafe4fed845fcf63255a0cd6b71e5a1", null ],
+    [ "ALL_BITS", "https://panchev68.github.io/Lib/dc/d15/a02583.html#a14b93aef9b147c71b74dc5c0976cd5a0", null ]
+];
