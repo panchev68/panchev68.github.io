@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['master_0',['Master',['https://panchev68.github.io/Lib/dc/d4b/a01359.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::Protocol::Master()'],['https://panchev68.github.io/Lib/d2/df5/a01395.html#a34b85c36cc2386b553fcff72fc15a596',1,'Lib::Communication::Modbus::SerialPortBase::Master()']]]
+  ['datetime_0',['DateTime',['https://panchev68.github.io/Lib/da/db3/a02343.html#ae3d4a8787eced68c65a23f5906c11add',1,'Lib::Helper::DateTime::Date']]],
+  ['devicemanager_1',['DeviceManager',['https://panchev68.github.io/Lib/d3/dd8/a01995.html#ad317e84715f53c3ea50d6b4113c92403',1,'Lib::HAL::Device']]],
+  ['devicemanager_3a_3adevicebase_2',['DeviceBase',['https://panchev68.github.io/Lib/d1/d72/a01319.html#af5908117d248071190096967e686c5a3',1,'Lib::BSP::Voltmeter']]],
+  ['driver_3',['Driver',['https://panchev68.github.io/Lib/df/d21/a01039.html#abc7b2f2488b46308e0ee7a50e8b5c26b',1,'Lib::BSP::EEPROM::I2C::M24C16::Driver()'],['https://panchev68.github.io/Lib/d8/d27/a01043.html#a389c035ca7d606c8426542af2e4b7d70',1,'Lib::BSP::EEPROM::I2C::M24C64W::Driver()']]]
 ];

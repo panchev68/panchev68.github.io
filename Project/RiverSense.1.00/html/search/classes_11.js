@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['referenceparameters_0',['ReferenceParameters',['https://panchev68.github.io/Lib/d4/d29/a02623.html',1,'Lib::SolarControl::MPPT']]],
-  ['register_1',['Register',['https://panchev68.github.io/Lib/d0/d02/a01119.html',1,'Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::Register'],['https://panchev68.github.io/Lib/d5/d3e/a01139.html',1,'Lib::BSP::W25Q128JVSIQ::Register']]],
-  ['registers_2',['Registers',['https://panchev68.github.io/Lib/d9/d10/a01103.html',1,'Lib::BSP::Ethercat::PDI::LAN9252']]],
-  ['registerwrite_3',['RegisterWrite',['https://panchev68.github.io/Lib/d1/d34/a01211.html',1,'Lib::BSP::RFID::ST25R100']]],
-  ['remoteatcommand_4',['RemoteAtCommand',['https://panchev68.github.io/Lib/d6/d56/a01719.html',1,'Lib::Digi::Core']]],
-  ['reset_5',['Reset',['https://panchev68.github.io/Lib/d5/d63/a02123.html',1,'Lib::HAL']]],
-  ['response_6',['Response',['../da/d6d/struct_a_p_p_1_1_cloud_1_1_response.html',1,'APP::Cloud::Response'],['https://panchev68.github.io/Lib/d8/df6/a02411.html',1,'Lib::HTTP::Response']]],
-  ['responseevents_7',['ResponseEvents',['https://panchev68.github.io/Lib/dc/de8/a01723.html',1,'Lib::Digi::Core']]],
-  ['result_8',['Result',['https://panchev68.github.io/Lib/d4/d9e/a02587.html',1,'RTOS::Task::Notify']]],
-  ['ring_9',['Ring',['https://panchev68.github.io/Lib/d8/db0/a01243.html',1,'Lib::BSP::SK6812']]],
-  ['ringbuffer_10',['RingBuffer',['https://panchev68.github.io/Lib/d6/daa/a02379.html',1,'Lib::Helper']]],
-  ['rotationcylinder_11',['RotationCylinder',['https://panchev68.github.io/Lib/d7/dc4/a02479.html',1,'Lib::Pneumatics']]],
-  ['rtcdevice_12',['RTCDevice',['https://panchev68.github.io/Lib/d3/da9/a02131.html',1,'Lib::HAL']]],
-  ['rtcport_13',['RTCPort',['../de/d8f/class_h_a_l_1_1_r_t_c_port.html',1,'HAL']]],
-  ['runtime_14',['Runtime',['../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime.html',1,'APP::Diagnostics']]],
-  ['rxmessage_15',['RxMessage',['https://panchev68.github.io/Lib/dd/d6e/a01339.html',1,'Lib::Canbus::ServiceBase']]]
+  ['quadratic_5fprobe_5ffn_0',['quadratic_probe_fn',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11626.html',1,'__gnu_pbds']]],
+  ['quality_1',['Quality',['https://panchev68.github.io/Lib/d2/de0/a01515.html',1,'Lib::Digi::API::Connection']]],
+  ['queue_2',['Queue',['https://panchev68.github.io/Lib/db/df2/a02551.html',1,'RTOS']]],
+  ['queue_3',['queue',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07314.html',1,'std']]],
+  ['queuemessage_4',['QueueMessage',['https://panchev68.github.io/Lib/df/d9a/a01715.html',1,'Lib::Digi::Core']]],
+  ['quicksort_5ftag_5',['quicksort_tag',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a09058.html',1,'__gnu_parallel']]]
 ];

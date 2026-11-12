@@ -40,9 +40,14 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html#afbdd4afc3d459ff55ebe1db0ba860889",
-"dc/dd4/class_a_p_p_1_1_command_interpreter.html#aa709593d2295acc37dd1b82b7bde42d6"
+"a01601.html#ga2a1a321e469c0cafa50d1085b27ebbc3",
+"a01627.html#gac3ed6cdaf87857588954bb89f22de04b",
+"a01655.html#ga27f52521ba0dde2b6c8f60f73c31b1de",
+"a01692.html#a6735baedce2b2f078175e63a0e3ca140",
+"a01726.html#a19db2783be8034b2dd52e99657184670",
+"d2/db0/class_a_p_p_1_1_power_supply.html#aaaa766912ed696d231a7acb725d8951a",
+"da/d3b/class_a_p_p_1_1_power_supply_1_1_charge_idle.html#a1197a175e91d29b3d8296facb8f45b76",
+"df/de9/a00923.html#ab892d206cb79c31e373b3631e023b644"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

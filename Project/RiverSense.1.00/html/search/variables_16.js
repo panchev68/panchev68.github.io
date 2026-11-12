@@ -1,7 +1,26 @@
 var searchData=
 [
-  ['x_0',['x',['https://panchev68.github.io/Lib/d1/d04/a02443.html#a5c0770c52f3794c74f1e05a140cb3c1c',1,'Lib::Math::CubicInterpolation::Point::x'],['https://panchev68.github.io/Lib/df/db6/a02455.html#ade6943178d200f4eecb5a7a84e593ba0',1,'Lib::Math::LinearInterpolation::Point::x']]],
-  ['xmax_1',['xMax',['https://panchev68.github.io/Lib/d2/d68/a01295.html#ad7faa3502a791114bf456c98c0dbf644',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['xmin_2',['xMin',['https://panchev68.github.io/Lib/d2/d68/a01295.html#aca3ae32e6bdecc7bc919ef20ed75beac',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['xrst_3',['xrst',['https://panchev68.github.io/Lib/d0/da4/a01631.html#a36e911e3a416607a83c9551cb0ffe7c3',1,'Lib::Digi::Core::ComDriver']]]
+  ['wait_5fforever_0',['WAIT_FOREVER',['https://panchev68.github.io/Lib/d9/dc8/a02531.html#acb650bbb5d2ae6ae2bab2490d29712be',1,'RTOS::Mutex::WAIT_FOREVER'],['https://panchev68.github.io/Lib/d3/d80/a02559.html#abf2ba4294ac6e78a3adcf7e4bf35bad0',1,'RTOS::Semaphore::WAIT_FOREVER'],['https://panchev68.github.io/Lib/d3/d80/a02559.html#abf2ba4294ac6e78a3adcf7e4bf35bad0',1,'RTOS::SemaphoreBase::WAIT_FOREVER'],['https://panchev68.github.io/Lib/d3/d80/a02559.html#abf2ba4294ac6e78a3adcf7e4bf35bad0',1,'RTOS::SemaphoreCounting::WAIT_FOREVER']]],
+  ['wake_5fconversion_5ftime_1',['WAKE_CONVERSION_TIME',['../da/d02/class_b_s_p_1_1_accumulator.html#a793a8a951cff583dbfd3152f87a70a3b',1,'BSP::Accumulator::WAKE_CONVERSION_TIME'],['../df/dfc/class_b_s_p_1_1_solar_panel.html#a396b2096e9feb457347ff0dd369de77a',1,'BSP::SolarPanel::WAKE_CONVERSION_TIME']]],
+  ['wake_5ftimeout_2',['WAKE_TIMEOUT',['https://panchev68.github.io/Lib/d9/d32/a01899.html#a382f1274b37930de2bf05f8f139e27b2',1,'Lib::GSM::A7670E']]],
+  ['wcerr_3',['wcerr',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#ae50854b2a6629e6504846f8aff472e7e',1,'std::wcerr'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#ae50854b2a6629e6504846f8aff472e7e',1,'std::wcerr']]],
+  ['wcin_4',['wcin',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#ab1807d3145162e06150b063da4da2707',1,'std::wcin'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#ab1807d3145162e06150b063da4da2707',1,'std::wcin']]],
+  ['wclog_5',['wclog',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a09e3edb1609f2a7fb18370eab59ba8dc',1,'std::wclog'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a09e3edb1609f2a7fb18370eab59ba8dc',1,'std::wclog']]],
+  ['wcout_6',['wcout',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a2f5fc307ed84f0ecfbc36d2cda322040',1,'std::wcout'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a2f5fc307ed84f0ecfbc36d2cda322040',1,'std::wcout']]],
+  ['weekday_7',['weekDay',['https://panchev68.github.io/Lib/df/daa/a02135.html#a30dfc2209d0abdafbba3e90c6a5c24c8',1,'Lib::HAL::RTCDevice::Date']]],
+  ['weekofmonth_8',['weekOfMonth',['https://panchev68.github.io/Lib/d4/dad/a02407.html#a9145fd5570f2898b8fcd1e9bc866222f',1,'Lib::Helper::TimeZone::TimeChangeRule']]],
+  ['wheat_9',['WHEAT',['https://panchev68.github.io/Lib/d0/d88/a01231.html#a796b16ed69c52f87af067413b1e76067',1,'Color']]],
+  ['white_10',['WHITE',['https://panchev68.github.io/Lib/d0/d88/a01231.html#aa0a16bfc1a6f9cd12e493f90dd233681',1,'Color']]],
+  ['white_11',['white',['https://panchev68.github.io/Lib/dd/dad/a01235.html#a272f822cae4bd3b8e993080e2317636e',1,'Color::Data']]],
+  ['whitesmoke_12',['WHITESMOKE',['https://panchev68.github.io/Lib/d0/d88/a01231.html#ab2db8451845c68dfe19a58e24138893a',1,'Color']]],
+  ['width_13',['width',['https://panchev68.github.io/Lib/d2/d68/a01295.html#a36fe0a7ac1def2933216417d9c50860b',1,'Lib::BSP::XPT2046::Parameters']]],
+  ['word_5fsize_14',['WORD_SIZE',['https://panchev68.github.io/Lib/dd/d54/a02119.html#a9bfc926572971cb1d61d71d98c1be86f',1,'Lib::HAL::OTP::WORD_SIZE'],['https://panchev68.github.io/Lib/d3/dfd/a01803.html#aea9b75ed4e210eddf4a3f65a2986adbf',1,'Lib::Ethercat::SOES::EepromEmulation::WORD_SIZE']]],
+  ['wrcabcmb_15',['WRCABCMB',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaaf2ef658fd159f7705dd738d3ed3692c7',1,'Lib::BSP::Display']]],
+  ['wrcace_16',['WRCACE',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa0114037b78c765eda31a500255c0cebe',1,'Lib::BSP::Display']]],
+  ['wrctrld_17',['WRCTRLD',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaaafcd7c6ccbd22055c7e8be371ff8d840',1,'Lib::BSP::Display']]],
+  ['wrdisbv_18',['WRDISBV',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaac06e33ef739de23eb8a661a971992d7c',1,'Lib::BSP::Display']]],
+  ['write_19',['write',['https://panchev68.github.io/Lib/d5/d12/a01799.html#a26af4517707f2496ad3f4ab6f5e51719',1,'Lib::Ethercat::SOES::EepromHandlers::write'],['https://panchev68.github.io/Lib/d7/d10/a01819.html#ae649720e51a2f29cd3f226e0c91e40f4',1,'Lib::Ethercat::SOES::FoEHandlers::write']]],
+  ['writedata_20',['writeData',['https://panchev68.github.io/Lib/da/da5/a01783.html#ac54a16495fbb3e297360ce4281c1420f',1,'Lib::Ethercat::SOES::CoEObject']]],
+  ['writefailurecount_21',['writeFailureCount',['https://panchev68.github.io/Lib/d1/d0d/a01191.html#a96a8716efd8affbfbc401fcaba040259',1,'Lib::BSP::RFID::NfcManager::Diagnostics']]],
+  ['wrmemc_22',['WRMEMC',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaaa4b9f6db63d9706d69e2637c576da541',1,'Lib::BSP::Display']]]
 ];

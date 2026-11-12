@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['temperature_5fsensor_0',['TEMPERATURE_SENSOR',['../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7ca64a0a16ffb662dfb46102031d211138e',1,'APP::Diagnostics']]],
-  ['thermometer_1',['THERMOMETER',['../d5/dae/namespace_a_p_p_1_1_diagnostics.html#ac98c96de312e353c1a0eccd825e78a7ca77c0117e636bb85d3a9a5e4afb2e0ab2',1,'APP::Diagnostics']]]
+  ['preferred_0',['preferred',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106ae4e5ef276d7ffb582d6c44f837a1e11e',1,'std::preferred'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106ae4e5ef276d7ffb582d6c44f837a1e11e',1,'std::preferred']]],
+  ['promise_5falready_5fsatisfied_1',['promise_already_satisfied',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a9327d6f7b9aca59b62b436696fd17a00',1,'std::promise_already_satisfied'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a9327d6f7b9aca59b62b436696fd17a00',1,'std::promise_already_satisfied']]]
 ];

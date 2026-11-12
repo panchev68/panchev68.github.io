@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['certificate_5ffailed_0',['CERTIFICATE_FAILED',['../da/d3e/class_a_p_p_1_1_cloud.html#a93eb2ae4e9296f61cc86e23522708036a05e57129d9a79c67d41369e5b15453e8',1,'APP::Cloud']]]
+  ['block_0',['block',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278',1,'std::filesystem::block'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#gab511a0eef21ba5813dd03bda276604a7a14511f2f5564650d129ca7cabc333278',1,'std::filesystem::block'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01658.html#ga5088b41ab96d68a5db87b76c180fb0f8a14511f2f5564650d129ca7cabc333278',1,'std::experimental::filesystem::v1::block']]],
+  ['broken_5fpromise_1',['broken_promise',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a2c6bc6062e72db1c0915032943cb6452',1,'std::broken_promise'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga61938f7ac25df97b5362109e61bb46a6a2c6bc6062e72db1c0915032943cb6452',1,'std::broken_promise']]]
 ];

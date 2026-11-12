@@ -119,19 +119,19 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d36/class_b
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton driver of the A02YYUW ultrasonic distance sensor on USART1. </p>
 <p>With its RX line idle high (the USART1 TX line) the sensor sends a processed reading on its own about every 100 ms as a four-byte frame: '0xFF', distance high byte, distance low byte, checksum = low byte of the sum of the first three. The distance is in millimetres. The driver resynchronizes on '0xFF' and drops frames with a bad checksum or a distance outside the sensor range.</p>
-<p>The sensor is powered from <a class="el" href="../../db/daf/class_b_s_p_1_1_power_switches.html" title="BSP::PowerSwitches">BSP::PowerSwitches</a> channel 'SENSORS'; the caller powers it, then calls <a class="el" href="#af228c5b70ff2815c056b714515e7b7aa" title="open()">open()</a>, and calls <a class="el" href="#a178a6f4970c6fdd86c9430762cf7626f" title="close()">close()</a> before cutting the rail so USART1 does not back-feed it.</p>
+<p>The sensor is powered from <a class="el" href="../../db/daf/class_b_s_p_1_1_power_switches.html" title="BSP::PowerSwitches">BSP::PowerSwitches</a> channel <a class="el" href="../../db/daf/class_b_s_p_1_1_power_switches.html#a7aed9e767b8b9ce35fef19d60ed462c4a3f9d1c3652820e6c9716f628c6f0b5af" title="BSP::PowerSwitches::Channel::SENSORS">BSP::PowerSwitches::Channel::SENSORS</a>; the caller powers it, then calls <a class="el" href="#af228c5b70ff2815c056b714515e7b7aa" title="open()">open()</a>, and calls <a class="el" href="#a178a6f4970c6fdd86c9430762cf7626f" title="close()">close()</a> before cutting the rail so USART1 does not back-feed it.</p>
 <p>Holds no state between calls, so no Pimpl.</p>
 <dl class="section warning"><dt>Warning</dt><dd><b>Task context only</b>, one task at a time: it reads the single-reader stream of <a class="el" href="../../da/d5b/class_h_a_l_1_1_usart1_port.html" title="HAL::Usart1Port">HAL::Usart1Port</a>. </dd></dl>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for BSP::A02YYUW:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d3a/class_b_s_p_1_1_a02_y_y_u_w__coll__graph.svg" width="358" height="1158"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../db/d3a/class_b_s_p_1_1_a02_y_y_u_w__coll__graph.svg" width="398" height="2856"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a0512d8de76602f89980810885ada145f" id="r_a0512d8de76602f89980810885ada145f"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a0512d8de76602f89980810885ada145f">Frame</a> = std::array&lt;uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a>&gt;</td></tr>
+<tr class="memitem:a0512d8de76602f89980810885ada145f" id="r_a0512d8de76602f89980810885ada145f"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a0512d8de76602f89980810885ada145f">Frame</a> = <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a>&gt;</td></tr>
 <tr class="memdesc:a0512d8de76602f89980810885ada145f"><td class="mdescLeft">&#160;</td><td class="mdescRight">One raw frame.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -140,16 +140,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af228c5b70ff2815c056b714515e7b7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Opens USART1 and waits for the first valid frame.  <br /></td></tr>
 <tr class="memitem:a178a6f4970c6fdd86c9430762cf7626f" id="r_a178a6f4970c6fdd86c9430762cf7626f"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a178a6f4970c6fdd86c9430762cf7626f">close</a> () noexcept</td></tr>
 <tr class="memdesc:a178a6f4970c6fdd86c9430762cf7626f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Closes USART1 and returns its pins to the analog state.  <br /></td></tr>
-<tr class="memitem:ae96716bf86c960f8e9c3b8bef9b620f5" id="r_ae96716bf86c960f8e9c3b8bef9b620f5"><td class="memItemLeft">std::optional&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae96716bf86c960f8e9c3b8bef9b620f5">readDistance</a> (std::chrono::milliseconds timeout) noexcept</td></tr>
+<tr class="memitem:ae96716bf86c960f8e9c3b8bef9b620f5" id="r_ae96716bf86c960f8e9c3b8bef9b620f5"><td class="memItemLeft"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ae96716bf86c960f8e9c3b8bef9b620f5">readDistance</a> (<a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> timeout) noexcept</td></tr>
 <tr class="memdesc:ae96716bf86c960f8e9c3b8bef9b620f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits for the next valid frame.  <br /></td></tr>
-<tr class="memitem:ad4bd76b990f30a052afec492d6ca01eb" id="r_ad4bd76b990f30a052afec492d6ca01eb"><td class="memItemLeft">std::optional&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad4bd76b990f30a052afec492d6ca01eb">measure</a> (size_t sampleCount) noexcept</td></tr>
+<tr class="memitem:ad4bd76b990f30a052afec492d6ca01eb" id="r_ad4bd76b990f30a052afec492d6ca01eb"><td class="memItemLeft"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ad4bd76b990f30a052afec492d6ca01eb">measure</a> (size_t sampleCount) noexcept</td></tr>
 <tr class="memdesc:ad4bd76b990f30a052afec492d6ca01eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes several readings and returns their median, which rejects single echoes from waves or debris.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1bfd57cd59e8c8a85fdc4fdbd64e2834" id="r_a1bfd57cd59e8c8a85fdc4fdbd64e2834"><td class="memItemLeft">static <a class="el" href="#a0673b8b3398b3f0a5917b212ab44953a">A02YYUW</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1bfd57cd59e8c8a85fdc4fdbd64e2834">instance</a> () noexcept</td></tr>
 <tr class="memdesc:a1bfd57cd59e8c8a85fdc4fdbd64e2834"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique sensor instance.  <br /></td></tr>
-<tr class="memitem:aca6ef336b09c53253b151812528f5d81" id="r_aca6ef336b09c53253b151812528f5d81"><td class="memItemLeft">static constexpr std::optional&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aca6ef336b09c53253b151812528f5d81">decodeFrame</a> (std::span&lt; const uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a> &gt; frame) noexcept</td></tr>
+<tr class="memitem:aca6ef336b09c53253b151812528f5d81" id="r_aca6ef336b09c53253b151812528f5d81"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint16_t &gt;&#160;</td><td class="memItemRight"><a class="el" href="#aca6ef336b09c53253b151812528f5d81">decodeFrame</a> (std::span&lt; const uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a> &gt; frame) noexcept</td></tr>
 <tr class="memdesc:aca6ef336b09c53253b151812528f5d81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decodes a frame.  <br /></td></tr>
 <tr class="memitem:a58ea60dea8ead244498e383c5f6da84d" id="r_a58ea60dea8ead244498e383c5f6da84d"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a58ea60dea8ead244498e383c5f6da84d">median</a> (std::span&lt; uint16_t &gt; samples) noexcept</td></tr>
 <tr class="memdesc:a58ea60dea8ead244498e383c5f6da84d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the median of the given readings; reorders them.  <br /></td></tr>
@@ -165,10 +165,10 @@ Static Public Attributes</h2></td></tr>
 <tr class="memitem:ab51efd9188d6e7917b3688139a349b4a" id="r_ab51efd9188d6e7917b3688139a349b4a"><td class="memItemLeft">static constexpr uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ab51efd9188d6e7917b3688139a349b4a">MAX_DISTANCE</a> = 4500U</td></tr>
 <tr class="memdesc:ab51efd9188d6e7917b3688139a349b4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Range limit of the sensor, mm.  <br /></td></tr>
 <tr class="memitem:adb68534d70bde47a3adb9485f188f50b" id="r_adb68534d70bde47a3adb9485f188f50b"><td class="memItemLeft">static constexpr size_t&#160;</td><td class="memItemRight"><a class="el" href="#adb68534d70bde47a3adb9485f188f50b">MAX_SAMPLES</a> = 15U</td></tr>
-<tr class="memdesc:adb68534d70bde47a3adb9485f188f50b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest sample count of measure().  <br /></td></tr>
-<tr class="memitem:a33dec8caef389c4585020cee8973f6f2" id="r_a33dec8caef389c4585020cee8973f6f2"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#a33dec8caef389c4585020cee8973f6f2">FRAME_PERIOD</a> {100}</td></tr>
+<tr class="memdesc:adb68534d70bde47a3adb9485f188f50b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Largest sample count of <a class="el" href="#ad4bd76b990f30a052afec492d6ca01eb" title="measure()">measure()</a>.  <br /></td></tr>
+<tr class="memitem:a33dec8caef389c4585020cee8973f6f2" id="r_a33dec8caef389c4585020cee8973f6f2"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#a33dec8caef389c4585020cee8973f6f2">FRAME_PERIOD</a> {100}</td></tr>
 <tr class="memdesc:a33dec8caef389c4585020cee8973f6f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Typical interval between two frames.  <br /></td></tr>
-<tr class="memitem:aa6faca6b3ea0e705241bb513f1b63fe2" id="r_aa6faca6b3ea0e705241bb513f1b63fe2"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#aa6faca6b3ea0e705241bb513f1b63fe2">STARTUP_TIMEOUT</a> {2000}</td></tr>
+<tr class="memitem:aa6faca6b3ea0e705241bb513f1b63fe2" id="r_aa6faca6b3ea0e705241bb513f1b63fe2"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#aa6faca6b3ea0e705241bb513f1b63fe2">STARTUP_TIMEOUT</a> {2000}</td></tr>
 <tr class="memdesc:aa6faca6b3ea0e705241bb513f1b63fe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Longest wait for the first frame after power-up.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
@@ -192,7 +192,7 @@ Private Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a0512d8de76602f89980810885ada145f">BSP::A02YYUW::Frame</a> = std::array&lt;uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a>&gt;</td>
+          <td class="memname">using <a class="el" href="#a0512d8de76602f89980810885ada145f">BSP::A02YYUW::Frame</a> = <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -363,7 +363,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr std::optional&lt; uint16_t &gt; BSP::A02YYUW::decodeFrame </td>
+          <td class="memname">constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint16_t &gt; BSP::A02YYUW::decodeFrame </td>
           <td>(</td>
           <td class="paramtype">std::span&lt; const uint8_t, <a class="el" href="#a69a5d5e1da5079811ac079d78413db27">FRAME_SIZE</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>frame</em></span></td><td>)</td>
           <td></td>
@@ -383,7 +383,7 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Distance in millimetres, or <b>std::nullopt</b> for a bad header, checksum or out-of-range distance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Distance in millimetres, or <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> for a bad header, checksum or out-of-range distance. </dd></dl>
 
 </div>
 </div>
@@ -431,7 +431,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; uint16_t &gt; BSP::A02YYUW::measure </td>
+          <td class="memname"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint16_t &gt; BSP::A02YYUW::measure </td>
           <td>(</td>
           <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>sampleCount</em></span></td><td>)</td>
           <td></td>
@@ -452,7 +452,7 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Median distance in millimetres, or <b>std::nullopt</b> if fewer than half of the readings were valid. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Median distance in millimetres, or <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if fewer than half of the readings were valid. </dd></dl>
 
 </div>
 </div>
@@ -487,6 +487,12 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Middle element (upper middle for an even count). </dd></dl>
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
+</div>
+<div id="dynsection-7-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d36/class_b_s_p_1_1_a02_y_y_u_w_a58ea60dea8ead244498e383c5f6da84d_cgraph.svg" width="462" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
 
 </div>
 </div>
@@ -514,7 +520,7 @@ Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens USART1 and waits for the first valid frame. </p>
-<p>Call it after the 'SENSORS' rail is powered; the wait covers the start-up time of the sensor.</p>
+<p>Call it after the <a class="el" href="../../db/daf/class_b_s_p_1_1_power_switches.html#a7aed9e767b8b9ce35fef19d60ed462c4a3f9d1c3652820e6c9716f628c6f0b5af" title="BSP::PowerSwitches::Channel::SENSORS">BSP::PowerSwitches::Channel::SENSORS</a> rail is powered; the wait covers the start-up time of the sensor.</p>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the sensor answered within <a class="el" href="#aa6faca6b3ea0e705241bb513f1b63fe2" title="STARTUP_TIMEOUT">STARTUP_TIMEOUT</a>. </dd></dl>
 
 </div>
@@ -550,10 +556,10 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-8-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d36/class_b_s_p_1_1_a02_y_y_u_w_a842dc4c098d57fc8e2b7f4206a72867b_cgraph.svg" width="542" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -590,10 +596,10 @@ Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-9-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d6/d36/class_b_s_p_1_1_a02_y_y_u_w_a5d2da3cf8d5a6ebf1b84f4acb41386b7_cgraph.svg" width="542" height="44"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -609,9 +615,9 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt; uint16_t &gt; BSP::A02YYUW::readDistance </td>
+          <td class="memname"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html">std::optional</a>&lt; uint16_t &gt; BSP::A02YYUW::readDistance </td>
           <td>(</td>
-          <td class="paramtype">std::chrono::milliseconds</td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
+          <td class="paramtype"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></td>          <td class="paramname"><span class="paramname"><em>timeout</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -629,7 +635,7 @@ Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Distance in millimetres, or <b>std::nullopt</b> on timeout. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Distance in millimetres, or <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on timeout. </dd></dl>
 
 </div>
 </div>
@@ -668,7 +674,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::milliseconds BSP::A02YYUW::FRAME_PERIOD {100}</td>
+          <td class="memname"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> BSP::A02YYUW::FRAME_PERIOD {100}</td>
         </tr>
       </table>
   </td>
@@ -750,7 +756,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Largest sample count of measure(). </p>
+<p>Largest sample count of <a class="el" href="#ad4bd76b990f30a052afec492d6ca01eb" title="measure()">measure()</a>. </p>
 
 </div>
 </div>
@@ -788,7 +794,7 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::milliseconds BSP::A02YYUW::STARTUP_TIMEOUT {2000}</td>
+          <td class="memname"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> BSP::A02YYUW::STARTUP_TIMEOUT {2000}</td>
         </tr>
       </table>
   </td>

@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['hal_0',['HAL',['https://panchev68.github.io/Lib/d5/d69/a00878.html',1,'']]],
-  ['hardware_20abstraction_20layer_1',['Hardware Abstraction Layer',['https://panchev68.github.io/Lib/da/d98/a00870.html',1,'']]]
+  ['exceptions_0',['Exceptions',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01675.html',1,'Exceptions'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01632.html',1,'Exceptions']]],
+  ['expressions_1',['Regular Expressions',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01639.html',1,'']]],
+  ['extensions_2',['Extensions',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01600.html',1,'']]],
+  ['extensions_3',['Data parallel extensions',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01665.html',1,'']]]
 ];

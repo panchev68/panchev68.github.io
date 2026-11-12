@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_0',['Type',['https://panchev68.github.io/Lib/da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4',1,'Lib::Digi::Core::Frame']]]
+  ['objectaccess_0',['ObjectAccess',['https://panchev68.github.io/Lib/d4/d12/a00910.html#a0a85aabfc74e31864de76e3f26f1b197',1,'Lib::Ethercat::SOES']]]
 ];
