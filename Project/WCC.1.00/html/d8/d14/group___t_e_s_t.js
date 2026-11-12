@@ -14,28 +14,16 @@ var group___t_e_s_t =
     [ "StorageTest.hpp", "dc/d1a/_storage_test_8hpp.html", null ],
     [ "WakeupTuningTest.hpp", "d0/d87/_wakeup_tuning_test_8hpp.html", null ],
     [ "APP::DistanceIndicatorTest", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html", [
-      [ "DistanceIndicatorTest", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a23ec5eb3402171603c1a308cb0ba80d3", null ],
-      [ "DistanceIndicatorTest", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a936aecda86325d2dbff122394bbc594d", null ],
-      [ "DistanceIndicatorTest", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a167ff7c9573cc16a19acebfbf74bed5f", null ],
-      [ "impl", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a976790caedf14f4265083226f51cf44d", null ],
       [ "instance", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#ae43030b57bcd5fce3f9bf1081ba59d07", null ],
-      [ "operator=", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a4541293be0f76df1a501faad676b689a", null ],
-      [ "operator=", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a584449fff44612089d099dedeb6dd61c", null ],
       [ "start", "d2/dd1/class_a_p_p_1_1_distance_indicator_test.html#a650d4bfb2d44128c353753cc05494cd3", null ]
     ] ],
     [ "APP::DistanceLiveTest", "de/dba/class_a_p_p_1_1_distance_live_test.html", [
-      [ "DistanceLiveTest", "de/dba/class_a_p_p_1_1_distance_live_test.html#a041891a7c3ace68f5f7d79abdad58d02", null ],
-      [ "DistanceLiveTest", "de/dba/class_a_p_p_1_1_distance_live_test.html#a66804e5f1beb400f35ef33ce069219f5", null ],
-      [ "DistanceLiveTest", "de/dba/class_a_p_p_1_1_distance_live_test.html#a5a72725988baffc9bca1b840ac506ddd", null ],
       [ "getDistance", "de/dba/class_a_p_p_1_1_distance_live_test.html#abf2fb53ca693aedfc1f5de5a00adc1d6", null ],
       [ "getFailures", "de/dba/class_a_p_p_1_1_distance_live_test.html#a1580233d5d148a66de2841ce93d889a2", null ],
       [ "getMaxDistance", "de/dba/class_a_p_p_1_1_distance_live_test.html#a1cd1868cf33bc71e99486e53667855b7", null ],
       [ "getMeasurements", "de/dba/class_a_p_p_1_1_distance_live_test.html#aaeb42e7379d3313de1b6a7f9382f1e6d", null ],
       [ "getMinDistance", "de/dba/class_a_p_p_1_1_distance_live_test.html#ab6214fa5ae2b2abd8c868e2d5ae703ff", null ],
-      [ "impl", "de/dba/class_a_p_p_1_1_distance_live_test.html#a920c43604ada3a18ad450ee180e32924", null ],
       [ "instance", "de/dba/class_a_p_p_1_1_distance_live_test.html#a2305a16bce6a092d9c62a79e87381f9d", null ],
-      [ "operator=", "de/dba/class_a_p_p_1_1_distance_live_test.html#a3186ddb5b4110cedfbaf576b003f3dd8", null ],
-      [ "operator=", "de/dba/class_a_p_p_1_1_distance_live_test.html#a6fb96ffba60883ce95e25c00da3d8482", null ],
       [ "start", "de/dba/class_a_p_p_1_1_distance_live_test.html#a9601b217987bfb0aa308ef8573f072d6", null ]
     ] ],
     [ "APP::DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html", [
@@ -47,16 +35,10 @@ var group___t_e_s_t =
         [ "OUT_OF_RANGE", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547a6feaf66704b269610cff9431d5519cad", null ],
         [ "UNSTABLE", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547ad3582680e9ce6bdf2e9791926bd99d5f", null ]
       ] ],
-      [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a09cd69de7928e7691a293c8bb23ef5c2", null ],
-      [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a6b85e20f9c158621e2c380849957065a", null ],
-      [ "DistanceMeterTest", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a96330b809687ea2c78efa92c9d31f4d7", null ],
       [ "getFirstDistance", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a27cebcbd534e3397d7942da5a6b28ac4", null ],
       [ "getResult", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a5a74762c562f1abda8a172007bb6749d", null ],
       [ "getSecondDistance", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a64fba9342de1264d79267dc9d0a08430", null ],
-      [ "impl", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a8aed61f917e3affc96ee5836f5d5b97c", null ],
       [ "instance", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a47f424696b9af5ac7a240cbddfc50410", null ],
-      [ "operator=", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#ad5c3e7d9e58564acd2dbee48322709bd", null ],
-      [ "operator=", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#af2ce90b1b6b6291182747c6640991d68", null ],
       [ "start", "d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a65d25a1faf8d2f367595ad72a4c82477", null ]
     ] ],
     [ "APP::DS18B20CommsTest", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html", [
@@ -68,9 +50,6 @@ var group___t_e_s_t =
         [ "READ_FAILED", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786a82fbe87835b941addda10c26ff6e98d6", null ],
         [ "OUT_OF_RANGE", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786a6feaf66704b269610cff9431d5519cad", null ]
       ] ],
-      [ "DS18B20CommsTest", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a9698c55869c225277013e9ffa34e1a38", null ],
-      [ "DS18B20CommsTest", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a7c63fce9795641a28a93540ec800deb5", null ],
-      [ "DS18B20CommsTest", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a619219d69de09f5e2e7a6840d1240372", null ],
       [ "getAttempts", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a76f94863d96f1db7fca4147428529635", null ],
       [ "getLastTemperature", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#ae01a3c21f3f61eb56f224665b77446c3", null ],
       [ "getPowerOnDefaultCount", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#abc4516c59ca30b002253276f0c591539", null ],
@@ -79,37 +58,22 @@ var group___t_e_s_t =
       [ "getResult", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a49b2e14f72ff25b32613d4877b1257f8", null ],
       [ "getRomCheckValid", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a13f8d337a128f74237c25413c12c19fe", null ],
       [ "getSuccesses", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a82d3f5996ff5d7ee603e89ee13e4a325", null ],
-      [ "impl", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#ae9c75cdc5970398ee077f04e63df285f", null ],
       [ "instance", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a4374d1be89b46dc919a767ffc43a6834", null ],
-      [ "operator=", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a5f2938c10feeb598f130fead34c81da2", null ],
-      [ "operator=", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#aee2eb6ecde84797837488a2245b0149b", null ],
       [ "start", "d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#a788a535000e666c6c43ce9a1ed4bfe2d", null ]
     ] ],
     [ "APP::MPPTChargeTest", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html", [
-      [ "MPPTChargeTest", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#ab1562e8fc2e70eaf1e15b1298d56b938", null ],
-      [ "MPPTChargeTest", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#afe39ed906f5a65d2b1e1ff3b19406e9e", null ],
-      [ "MPPTChargeTest", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#afc3725e87a86cfa40753f7446a4800a7", null ],
       [ "getChargeDeliveredAh", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a4f6cdea785f7eb4123401b178280bc13", null ],
       [ "getElapsedSeconds", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a3d373b22789c4664609938290796d030", null ],
       [ "getPeakPanelPowerWatts", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#ab486065fee151aeac1bd8f6a0f2ccdf4", null ],
       [ "getWindowMaxPanelVoltage", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a57aad79d7c5cde655990798d97046f8b", null ],
       [ "getWindowMinPanelVoltage", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a3ae5295aa3569bf82c9b32171684c281", null ],
-      [ "impl", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#afdb89170f0e3f293726045986e99e5bf", null ],
       [ "instance", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a09400ab4955ad51fcae6ca7cc3999bf2", null ],
-      [ "operator=", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a0703a37714de1923172fb8b070e2e250", null ],
-      [ "operator=", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#a2cfa90755b918b508f6ac27d089f8fdc", null ],
       [ "start", "d8/d60/class_a_p_p_1_1_m_p_p_t_charge_test.html#aba534708d4aeb7f65f878864199ee6b5", null ]
     ] ],
     [ "APP::OutputsTest", "db/d8b/class_a_p_p_1_1_outputs_test.html", [
-      [ "OutputsTest", "db/d8b/class_a_p_p_1_1_outputs_test.html#a895a3d494ed2d8e96195584027d78e07", null ],
-      [ "OutputsTest", "db/d8b/class_a_p_p_1_1_outputs_test.html#a723ef55693ccf8354046bb70e8abf7f8", null ],
-      [ "OutputsTest", "db/d8b/class_a_p_p_1_1_outputs_test.html#a2fb7c7cbc3d9ae42664c36a00501fc14", null ],
       [ "getActiveOutput", "db/d8b/class_a_p_p_1_1_outputs_test.html#a953f66945817b1c9780449c244454417", null ],
       [ "getFinishedRounds", "db/d8b/class_a_p_p_1_1_outputs_test.html#a439a0d011dd48206f5aae3cab6a2f637", null ],
-      [ "impl", "db/d8b/class_a_p_p_1_1_outputs_test.html#af5bbcac9d98e955d45752bdc7e42e5a8", null ],
       [ "instance", "db/d8b/class_a_p_p_1_1_outputs_test.html#a37e62cb63e38e7a8e1bdcbd2e36568b9", null ],
-      [ "operator=", "db/d8b/class_a_p_p_1_1_outputs_test.html#a2a6538f637895996bc42898ac7921128", null ],
-      [ "operator=", "db/d8b/class_a_p_p_1_1_outputs_test.html#a73ba915701484b46b1fb3d539496c476", null ],
       [ "start", "db/d8b/class_a_p_p_1_1_outputs_test.html#ac78381ae7a9853256af4459b2562d46f", null ]
     ] ],
     [ "APP::PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html", [
@@ -123,9 +87,6 @@ var group___t_e_s_t =
         [ "BAD_CHECKSUM", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a7a672c8926fbead872ad3731aaac28d8", null ],
         [ "BAD_DIAGNOSTIC", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a0cb6453271d2966289686a3c62ceb624", null ]
       ] ],
-      [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afd1618da1a3b3df72d8b2758b06e0caf", null ],
-      [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a3cc0384c8e08918b53a46f6e8ca4b867", null ],
-      [ "PGA460CommsTest", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a3f049cb7edc74197113c5605b865a6e0", null ],
       [ "getAttempts", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a223538b81c44ed8655d28b26fa4d3460", null ],
       [ "getBaudRate", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#aafc9dc4ae2aef975153e73315da721eb", null ],
       [ "getLastResponse", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a9bd95c5c9137db51596937f67e91ddee", null ],
@@ -134,21 +95,12 @@ var group___t_e_s_t =
       [ "getRxIdleHigh", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a175babff95b99b55c5d004ba5a2c6f53", null ],
       [ "getSuccesses", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a613e1357494a7036910b1087258fd6fc", null ],
       [ "getUartFlags", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a81e4db2181dd68ba09a07d3bc071ae1d", null ],
-      [ "impl", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a260d485fd044992eab29c0940168d65e", null ],
       [ "instance", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#ae9eafcecb74e7e083f6d01cae30960a3", null ],
-      [ "operator=", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a2f043a829a11c5515c2796fc720543df", null ],
-      [ "operator=", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#a9d435280633008031421c7593b4ed7a4", null ],
       [ "start", "d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#aece5342ba7f7c87bbe1b04c00cf2924f", null ]
     ] ],
     [ "APP::PowerProbeTest", "d0/db3/class_a_p_p_1_1_power_probe_test.html", [
-      [ "PowerProbeTest", "d0/db3/class_a_p_p_1_1_power_probe_test.html#a18a01a6d52fbc8b93d24f3e293201068", null ],
-      [ "PowerProbeTest", "d0/db3/class_a_p_p_1_1_power_probe_test.html#ab704be1afca26b5bf6f7496c71382eeb", null ],
-      [ "PowerProbeTest", "d0/db3/class_a_p_p_1_1_power_probe_test.html#af817b3fe63b441291b05f56b45a767f8", null ],
       [ "getStage", "d0/db3/class_a_p_p_1_1_power_probe_test.html#ae52792ae6d91ac411ab9ea3a0c1bd7f6", null ],
-      [ "impl", "d0/db3/class_a_p_p_1_1_power_probe_test.html#ae15dc8ca812df09def279442ae2060fa", null ],
       [ "instance", "d0/db3/class_a_p_p_1_1_power_probe_test.html#ab23e529197011c653754791804ea5c0d", null ],
-      [ "operator=", "d0/db3/class_a_p_p_1_1_power_probe_test.html#aba0dcb7a83cd77fd75ba12b0d18060e8", null ],
-      [ "operator=", "d0/db3/class_a_p_p_1_1_power_probe_test.html#acf5f803a7bb153a8d8ca914568770eab", null ],
       [ "start", "d0/db3/class_a_p_p_1_1_power_probe_test.html#a212ec45a4374908a103138a24484137a", null ]
     ] ],
     [ "APP::RFIDCardTest", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html", [
@@ -158,16 +110,10 @@ var group___t_e_s_t =
         [ "DOUBLE_7", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a779f894f7d441c83f09558afa303b57da0bc879baba990cb4632171f47490df44", null ],
         [ "TRIPLE_10", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a779f894f7d441c83f09558afa303b57da1ac620d60db60745bdca12ba42da9564", null ]
       ] ],
-      [ "RFIDCardTest", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#afeb230eb659e4f597a3d43057323423a", null ],
-      [ "RFIDCardTest", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a3125d8bbb79a461f38463ea73594bee5", null ],
-      [ "RFIDCardTest", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a138661f42e6c40710e315135167238da", null ],
       [ "getCardCount", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a99e9e491c6b1a0b6f2f7e295fe9efd0c", null ],
       [ "getLastKind", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a3153a712bd0709b224531f93ca5a0f5b", null ],
       [ "getLastUidValue", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a3260cc93f547072b4488ba04c7aee882", null ],
-      [ "impl", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#aa138ab79911aa7fac83cb054314f9eef", null ],
       [ "instance", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#ab98187fa58f95f949bef5565a9a6b880", null ],
-      [ "operator=", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a0741059255706d62fb5bbad33f691557", null ],
-      [ "operator=", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a3e1e11df8daadb01a4e1dfc006ec3b05", null ],
       [ "start", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a4cd60c13df54e4a34d0cb1b3189ec6bc", null ],
       [ "OUT1_PULSE", "d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a9239c1f6759dc976fe3cd82c6588f3f5", null ]
     ] ],
@@ -180,17 +126,11 @@ var group___t_e_s_t =
         [ "BAD_IDENTITY", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#ade05f577cceb0dd19b53b3cc9bc40bb0a6db8d4abc97f97533808ba87fb0e61ea", null ],
         [ "IDENTITY_CHANGED", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#ade05f577cceb0dd19b53b3cc9bc40bb0aff0d30f32b6953c6f05abfe2727455fb", null ]
       ] ],
-      [ "RFIDCommsTest", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a4c2ebc7c941d7bf3f4e4df5ad3d37586", null ],
-      [ "RFIDCommsTest", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a4fe268013fee311822261fdd37079b70", null ],
-      [ "RFIDCommsTest", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a991c125635a536d4ba775cd028a4abd7", null ],
       [ "getGoodReads", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#aad2bf66f43b9bd3963605d14943e51ef", null ],
       [ "getIdentity", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#aa250bb1a03bd9ceda5032ac0897dc235", null ],
       [ "getReads", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a58ce6c2da92546639b2d5d83fac19a0c", null ],
       [ "getResult", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a59a64e34f1367c3bf8c349ef498f2400", null ],
-      [ "impl", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a848f86af4e3d8c244ef216fcb83057bf", null ],
       [ "instance", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a9cc7516b177f9b9024217ad12efdc991", null ],
-      [ "operator=", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a8233dc855b179a87f4a9040b761c0fc2", null ],
-      [ "operator=", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a49ed53fab3e622c4800a0a7651f668bc", null ],
       [ "start", "de/deb/class_a_p_p_1_1_r_f_i_d_comms_test.html#a958832eae9991287c61ae4cdc79dfde8", null ]
     ] ],
     [ "BSP::RgbLed", "d3/d72/class_b_s_p_1_1_rgb_led.html", [
@@ -204,15 +144,9 @@ var group___t_e_s_t =
         [ "CYAN", "d3/d72/class_b_s_p_1_1_rgb_led.html#a1a0525e4e3b5d570440085bad8e7d0f0a344dd8cd533280795b9db82ef0c92749", null ],
         [ "WHITE", "d3/d72/class_b_s_p_1_1_rgb_led.html#a1a0525e4e3b5d570440085bad8e7d0f0ab5bf627e448384cf3a4c35121ca6008d", null ]
       ] ],
-      [ "RgbLed", "d3/d72/class_b_s_p_1_1_rgb_led.html#a383cdb8928f3342183d678f5c3bcc68d", null ],
-      [ "RgbLed", "d3/d72/class_b_s_p_1_1_rgb_led.html#a7d7f7bfea67604a6d8acc0405f138434", null ],
-      [ "RgbLed", "d3/d72/class_b_s_p_1_1_rgb_led.html#a61ac1c37ee5343a9e357a4b2d5a689b3", null ],
       [ "getColor", "d3/d72/class_b_s_p_1_1_rgb_led.html#a19b1251c93e3a59dd038a8e73befe072", null ],
-      [ "impl", "d3/d72/class_b_s_p_1_1_rgb_led.html#abade8466ac78c34f15056af6ddc7dac1", null ],
       [ "instance", "d3/d72/class_b_s_p_1_1_rgb_led.html#a12693ca0f2b9088c19b7b652ca82c042", null ],
       [ "off", "d3/d72/class_b_s_p_1_1_rgb_led.html#aed188b100d6afacaa8036ec4f6a93fb6", null ],
-      [ "operator=", "d3/d72/class_b_s_p_1_1_rgb_led.html#a87f00701edf0069a4721862623cfafb2", null ],
-      [ "operator=", "d3/d72/class_b_s_p_1_1_rgb_led.html#a6de9f9f9b4aabde53bf932ba5412cd95", null ],
       [ "set", "d3/d72/class_b_s_p_1_1_rgb_led.html#aca42975557bebe850cf6f65c9497cb85", null ]
     ] ],
     [ "APP::StorageTest", "da/dff/class_a_p_p_1_1_storage_test.html", [
@@ -226,26 +160,14 @@ var group___t_e_s_t =
         [ "READ_FAILED", "da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a82fbe87835b941addda10c26ff6e98d6", null ],
         [ "VERIFY_FAILED", "da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785a94f2b2b203bb3bd3b97b3cf76749a2e8", null ]
       ] ],
-      [ "StorageTest", "da/dff/class_a_p_p_1_1_storage_test.html#a59fb348e81ad5e1b39feefc2a3a14f47", null ],
-      [ "StorageTest", "da/dff/class_a_p_p_1_1_storage_test.html#a18c721d498c26081721474477817ee95", null ],
-      [ "StorageTest", "da/dff/class_a_p_p_1_1_storage_test.html#a61f1ca35f27a1d1bd1b278c378e6fbe2", null ],
       [ "getBadAddress", "da/dff/class_a_p_p_1_1_storage_test.html#a61a51388bf1af839eb5a9932bb6aade5", null ],
       [ "getPassedCycles", "da/dff/class_a_p_p_1_1_storage_test.html#a42085f323ff0328fb6ce96090aafff6d", null ],
       [ "getResult", "da/dff/class_a_p_p_1_1_storage_test.html#ad1919fe09d01d5d0f3b8d03526afcb41", null ],
-      [ "impl", "da/dff/class_a_p_p_1_1_storage_test.html#aca10065c237b71a3dbccd3cf10d9ebbe", null ],
       [ "instance", "da/dff/class_a_p_p_1_1_storage_test.html#a9b91f8b5438aab052e3723b2d4fd3dbc", null ],
-      [ "operator=", "da/dff/class_a_p_p_1_1_storage_test.html#a0feb7fa0b59a547a1dcc2d86847eb3cd", null ],
-      [ "operator=", "da/dff/class_a_p_p_1_1_storage_test.html#a7c008b9eed1db3e80edba47be9d36dbf", null ],
       [ "start", "da/dff/class_a_p_p_1_1_storage_test.html#ae677675336b6b6b92ff141a8eeb26bc3", null ]
     ] ],
     [ "APP::WakeupTuningTest", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html", [
-      [ "WakeupTuningTest", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#af9e830d8f4835a06b237a0c747151e1a", null ],
-      [ "WakeupTuningTest", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#a363c2d281812420d4d1b9ba3702913d2", null ],
-      [ "WakeupTuningTest", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#abc699443dad5016ffe8a5dd5cd16b4f3", null ],
-      [ "impl", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#a61d6a346177dbfe86dbf81b74db65876", null ],
       [ "instance", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#af2b278b3270b40b8d21e645ac70c012a", null ],
-      [ "operator=", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#a0aca318a7d91b1677f60c93c685df002", null ],
-      [ "operator=", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#a1621e65e15f928033703c6a008f3f5b7", null ],
       [ "start", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#afb7c17640aa6d801212b979015d68fc1", null ],
       [ "POLL_PERIOD", "d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html#ae55c05541df7d7bd1c64d70ffe1884fb", null ]
     ] ]

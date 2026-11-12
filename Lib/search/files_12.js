@@ -56,7 +56,7 @@ var searchData=
   ['specfun_2eh_53',['specfun.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00701.html',0,'']]],
   ['spectrumanalyzer_2ehpp_54',['SpectrumAnalyzer.hpp',['../d3/d5e/a00275.html',1,'']]],
   ['spi_2ehpp_55',['SPI.hpp',['../d7/d21/a00584.html',1,'']]],
-  ['spi_2fw25q128jvsiq_2ehpp_56',['W25Q128JVSIQ.hpp',['../d6/d03/a08202.html',1,'']]],
+  ['spi_2fw25q128jvsiq_2ehpp_56',['W25Q128JVSIQ.hpp',['../d4/da7/a08195.html',1,'']]],
   ['spiport_2dblock_2ehpp_57',['SPIPort-Block.hpp',['../d4/d9e/a00569.html',1,'']]],
   ['spiport_2ddma_2ehpp_58',['SPIPort-DMA.hpp',['../d6/d06/a00572.html',1,'']]],
   ['spiport_2dit_2ehpp_59',['SPIPort-IT.hpp',['../d9/d42/a00575.html',1,'']]],
@@ -330,6 +330,6 @@ var searchData=
   ['syncstream_327',['syncstream',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00218.html',0,'']]],
   ['synth_5faccess_5ftraits_2ehpp_328',['synth_access_traits.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01517.html',0,'']]],
   ['system_2ehpp_329',['System.hpp',['../df/de8/a00839.html',1,'']]],
-  ['system_2fparameters_2ehpp_330',['Parameters.hpp',['../dc/db7/a08247.html',1,'']]],
+  ['system_2fparameters_2ehpp_330',['Parameters.hpp',['../d0/d0e/a08240.html',1,'']]],
   ['system_5ferror_331',['system_error',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00221.html',0,'']]]
 ];

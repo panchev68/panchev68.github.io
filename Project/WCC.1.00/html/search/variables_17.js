@@ -1,9 +1,19 @@
 var searchData=
 [
-  ['y_0',['y',['d3/d81/a02284.html#af5bf7bc951e336b3552ed2a36f6d9056',1,'Lib::Math::CubicInterpolation::Point::y'],['d8/d9a/a02296.html#a0921a157fe3803511d1d72c3b5461ca4',1,'Lib::Math::LinearInterpolation::Point::y']]],
-  ['year_1',['year',['d5/da1/a01988.html#aacc37a4b6ca5a085f338d84b26cf1595',1,'Lib::HAL::RTCDevice::Date::year'],['dc/d3c/a02188.html#a1026d89f27e48fd23eccde7a9850b302',1,'Lib::Helper::DateTime::Date::year']]],
-  ['yellow_2',['YELLOW',['d9/d97/a01152.html#a6163c4c991c9f873e21bc693a0a00c71',1,'Color']]],
-  ['yellowgreen_3',['YELLOWGREEN',['d9/d97/a01152.html#a46490b2492c334cbc17dfe9453d87ade',1,'Color']]],
-  ['ymax_4',['yMax',['d8/df3/a01216.html#ac2cd6aa16ead1e5ce384d823cfc14098',1,'Lib::BSP::XPT2046::Parameters']]],
-  ['ymin_5',['yMin',['d8/df3/a01216.html#acda2f52d642f3f712c72b8046d83fa30',1,'Lib::BSP::XPT2046::Parameters']]]
+  ['x_0',['x',['https://panchev68.github.io/Lib/da/de9/a05716.html#a5c0770c52f3794c74f1e05a140cb3c1c',1,'Lib::Math::CubicInterpolation::Point::x'],['https://panchev68.github.io/Lib/d8/dcc/a05728.html#ade6943178d200f4eecb5a7a84e593ba0',1,'Lib::Math::LinearInterpolation::Point::x']]],
+  ['xferabortcallback_1',['XferAbortCallback',['https://panchev68.github.io/HALF4/d0/d05/a01420.html#ad36667891971d70eed15f513f6f83368',1,'__DMA_HandleTypeDef']]],
+  ['xfercount_2',['XferCount',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a04028e4c742c86e051abcba0854e9a4e',1,'__SMBUS_HandleTypeDef::XferCount'],['https://panchev68.github.io/HALF4/dd/d1c/a01452.html#a1860b3cf8f463c2751d0c935f33e0ad4',1,'I2C_HandleTypeDef::XferCount']]],
+  ['xfercpltcallback_3',['XferCpltCallback',['https://panchev68.github.io/HALF4/d0/d05/a01420.html#a306edf796ce5ff10c81bec172627eea6',1,'__DMA_HandleTypeDef']]],
+  ['xfererrorcallback_4',['XferErrorCallback',['https://panchev68.github.io/HALF4/d0/d05/a01420.html#a4295f1434989b51d3a3b023b6cf9341b',1,'__DMA_HandleTypeDef']]],
+  ['xferhalfcpltcallback_5',['XferHalfCpltCallback',['https://panchev68.github.io/HALF4/d0/d05/a01420.html#a183a62ef81736c1e655911900e83fa47',1,'__DMA_HandleTypeDef']]],
+  ['xferm1cpltcallback_6',['XferM1CpltCallback',['https://panchev68.github.io/HALF4/d0/d05/a01420.html#a5447d9068098f7d0d33632256222b1f1',1,'__DMA_HandleTypeDef']]],
+  ['xferm1halfcpltcallback_7',['XferM1HalfCpltCallback',['https://panchev68.github.io/HALF4/d0/d05/a01420.html#a2c61faf32a577980d26b6300d8e0663f',1,'__DMA_HandleTypeDef']]],
+  ['xferoptions_8',['XferOptions',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a8d0b7062cdc7f83a02c2da15006f2657',1,'__SMBUS_HandleTypeDef::XferOptions'],['https://panchev68.github.io/HALF4/dd/d1c/a01452.html#af8de60af8242279e8a65e22bf53fad81',1,'I2C_HandleTypeDef::XferOptions']]],
+  ['xferpec_9',['XferPEC',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a1fbcdb4f1a5a2ad6a1e3a065822e61d2',1,'__SMBUS_HandleTypeDef']]],
+  ['xfersize_10',['XferSize',['https://panchev68.github.io/HALF4/dc/d0c/a01532.html#a3d9bde0af5ad8f473ff6b201c6eebf4a',1,'__SMBUS_HandleTypeDef::XferSize'],['https://panchev68.github.io/HALF4/dd/d1c/a01452.html#a47afa75961930ab1743f47245fdf6e85',1,'I2C_HandleTypeDef::XferSize']]],
+  ['xmax_11',['xMax',['https://panchev68.github.io/Lib/dd/d7a/a04568.html#ad7faa3502a791114bf456c98c0dbf644',1,'Lib::BSP::XPT2046::Parameters']]],
+  ['xmin_12',['xMin',['https://panchev68.github.io/Lib/dd/d7a/a04568.html#aca3ae32e6bdecc7bc919ef20ed75beac',1,'Lib::BSP::XPT2046::Parameters']]],
+  ['xoff_5fchar_13',['XOFF_CHAR',['../d6/dcc/class_protocol.html#af67c022b58b21018c1c72a42f7b7f2b8',1,'Protocol']]],
+  ['xon_5fchar_14',['XON_CHAR',['../d6/dcc/class_protocol.html#a3a2da886deaf016a30cf530b96decbf5',1,'Protocol']]],
+  ['xrst_15',['xrst',['https://panchev68.github.io/Lib/df/d8c/a04904.html#a36e911e3a416607a83c9551cb0ffe7c3',1,'Lib::Digi::Core::ComDriver']]]
 ];

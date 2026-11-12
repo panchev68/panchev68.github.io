@@ -18,6 +18,7 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+<link href="../../JetBrains Mono-15pt.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -114,185 +115,36 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/dc1/class_a
 </div><!--header-->
 <div class="contents">
 
-<p>ST25R100 wake-up tuning singleton.  
+<p>Polls the ST25R100 wake-up (LPCD) registers into one Live Watch structure, to tune the wake-up threshold.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>ST25R100 wake-up tuning singleton. </p>
-<p>Polls the raw wake-up registers of <em>BSP::ST25R100::instance()</em> (<em>Driver::readWakeupDiagnostics()</em>) and its lifetime min/max ADC range (<em>Driver::getWakeupADCRange()</em>) every <em>POLL_PERIOD</em> into one Live Watch structure, so the wake-up threshold of <em>BSP::ST25R100</em> (<em>WAKEUP_DIFF_THRESHOLD</em>, <em>ST25R100.cpp</em>) can be picked from a measured margin between <em>no card</em> and <em>card at the wanted distance</em> instead of a guessed number.</p>
-<p>Runs in its own task, not a <em>RTOS::TickClient</em> software timer: <em>readWakeupDiagnostics()</em> takes the reader's SPI mutex, which can block for a while if the discovery task is mid-transfer, and blocking the shared FreeRTOS timer daemon task stalls every other software timer in the project, not just this one.</p>
-<p>Does not open the reader itself and starts no card discovery of its own: it only reads an already-open <em>BSP::ST25R100::instance()</em>. Enable it alongside <em>RFIDCardTest</em> or <em>RFID</em> (whichever is active), not instead of them, and start it after that module in <em>Application::start()</em>.</p>
-<p>The values are the members of <em>APP::wakeupTuningWatch</em> (<em>WakeupTuningTest.cpp</em>); add that one expression to the IAR Live Watch and expand it — each field's own trailing comment documents it. Of note: the lifetime min/max fields update only when a wake-up interrupt actually fires, so they can sit at their reset extremes for as long as none happens, unlike the live ADC readings, which are polled directly every cycle regardless of interrupt activity. Set <em>resetRangeRequest</em> to 1 from the Live Watch to clear the min/max range and start a fresh soak run (e.g. right before moving a card toward the antenna); the test clears it back to 0 once done.</p>
-<p>The state and the task live in an <em>Impl</em> defined in <em>WakeupTuningTest.cpp</em>. </p>
+<div class="textblock"><p>Polls the ST25R100 wake-up (LPCD) registers into one Live Watch structure, to tune the wake-up threshold. </p>
+<p>Every <a class="el" href="#ae55c05541df7d7bd1c64d70ffe1884fb" title="POLL_PERIOD">POLL_PERIOD</a> it reads the raw wake-up registers and the lifetime min/max ADC range of <a class="el" href="../../da/dc3/class_b_s_p_1_1_s_t25_r100.html#a444f95144fbba8d40fe95a36ca0d0d28" title="BSP::ST25R100::instance()">BSP::ST25R100::instance()</a> into 'APP::wakeupTuningWatch', so the threshold ('BSP::ST25R100::Impl::WAKEUP_DIFF_THRESHOLD') can be picked from a measured margin between no card and a card at the wanted distance. The min/max fields change only when a wake-up interrupt fires; writing 1 to 'resetRangeRequest' clears them for a fresh run. The procedure is in 'doc/WakeupTuningTest.md'.</p>
+<p>Runs in its own task, not an 'RTOS::TickClient' timer: reading the registers takes the reader's SPI mutex, which may block and would stall every software timer on the shared timer daemon task.</p>
+<dl class="section important"><dt>Important</dt><dd>Opens no reader and starts no discovery of its own: enable it alongside <a class="el" href="../../d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html" title="APP::RFIDCardTest">APP::RFIDCardTest</a> or <a class="el" href="../../db/d0f/class_a_p_p_1_1_r_f_i_d.html" title="APP::RFID">APP::RFID</a>, and start it after that module in <a class="el" href="../../db/d62/class_a_p_p_1_1_application.html#a7e0d9210bd3ea23020e9613eee298852" title="APP::Application::start()">APP::Application::start()</a>. </dd></dl>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::WakeupTuningTest:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d2f/class_a_p_p_1_1_wakeup_tuning_test__coll__graph.svg" width="207" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d5/d2f/class_a_p_p_1_1_wakeup_tuning_test__coll__graph.svg" width="360" height="1806"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:afb7c17640aa6d801212b979015d68fc1" id="r_afb7c17640aa6d801212b979015d68fc1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#afb7c17640aa6d801212b979015d68fc1">start</a> () noexcept</td></tr>
-<tr class="memdesc:afb7c17640aa6d801212b979015d68fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the polling task; the reader must already be open (see the class comment).  <br /></td></tr>
+<tr class="memdesc:afb7c17640aa6d801212b979015d68fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the polling task; the reader must already be open.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af2b278b3270b40b8d21e645ac70c012a" id="r_af2b278b3270b40b8d21e645ac70c012a"><td class="memItemLeft">static <a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af2b278b3270b40b8d21e645ac70c012a">instance</a> () noexcept</td></tr>
+<tr class="memitem:af2b278b3270b40b8d21e645ac70c012a" id="r_af2b278b3270b40b8d21e645ac70c012a"><td class="memItemLeft">static WakeupTuningTest &amp;&#160;</td><td class="memItemRight"><a class="el" href="#af2b278b3270b40b8d21e645ac70c012a">instance</a> () noexcept</td></tr>
 <tr class="memdesc:af2b278b3270b40b8d21e645ac70c012a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique instance.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
-<tr class="memitem:ae55c05541df7d7bd1c64d70ffe1884fb" id="r_ae55c05541df7d7bd1c64d70ffe1884fb"><td class="memItemLeft">static constexpr std::chrono::milliseconds&#160;</td><td class="memItemRight"><a class="el" href="#ae55c05541df7d7bd1c64d70ffe1884fb">POLL_PERIOD</a> {250}</td></tr>
+<tr class="memitem:ae55c05541df7d7bd1c64d70ffe1884fb" id="r_ae55c05541df7d7bd1c64d70ffe1884fb"><td class="memItemLeft">static constexpr <a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>&#160;</td><td class="memItemRight"><a class="el" href="#ae55c05541df7d7bd1c64d70ffe1884fb">POLL_PERIOD</a> {250}</td></tr>
 <tr class="memdesc:ae55c05541df7d7bd1c64d70ffe1884fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">How often the Live Watch values refresh.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:af9e830d8f4835a06b237a0c747151e1a" id="r_af9e830d8f4835a06b237a0c747151e1a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> () noexcept=default</td></tr>
-<tr class="memitem:a363c2d281812420d4d1b9ba3702913d2" id="r_a363c2d281812420d4d1b9ba3702913d2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a363c2d281812420d4d1b9ba3702913d2">WakeupTuningTest</a> (const WakeupTuningTest &amp;)=delete</td></tr>
-<tr class="memitem:a0aca318a7d91b1677f60c93c685df002" id="r_a0aca318a7d91b1677f60c93c685df002"><td class="memItemLeft"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a0aca318a7d91b1677f60c93c685df002">operator=</a> (const <a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;)=delete</td></tr>
-<tr class="memitem:abc699443dad5016ffe8a5dd5cd16b4f3" id="r_abc699443dad5016ffe8a5dd5cd16b4f3"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abc699443dad5016ffe8a5dd5cd16b4f3">WakeupTuningTest</a> (WakeupTuningTest &amp;&amp;)=delete</td></tr>
-<tr class="memitem:a1621e65e15f928033703c6a008f3f5b7" id="r_a1621e65e15f928033703c6a008f3f5b7"><td class="memItemLeft"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a1621e65e15f928033703c6a008f3f5b7">operator=</a> (<a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;&amp;)=delete</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a61d6a346177dbfe86dbf81b74db65876" id="r_a61d6a346177dbfe86dbf81b74db65876"><td class="memItemLeft">static Impl &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a61d6a346177dbfe86dbf81b74db65876">impl</a> () noexcept</td></tr>
-<tr class="memdesc:a61d6a346177dbfe86dbf81b74db65876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the test state, constructing it on first use.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="af9e830d8f4835a06b237a0c747151e1a" name="af9e830d8f4835a06b237a0c747151e1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9e830d8f4835a06b237a0c747151e1a">&#9670;&#160;</a></span>WakeupTuningTest() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">APP::WakeupTuningTest::WakeupTuningTest </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_af9e830d8f4835a06b237a0c747151e1a_icgraph.svg" width="354" height="314"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a363c2d281812420d4d1b9ba3702913d2" name="a363c2d281812420d4d1b9ba3702913d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a363c2d281812420d4d1b9ba3702913d2">&#9670;&#160;</a></span>WakeupTuningTest() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">APP::WakeupTuningTest::WakeupTuningTest </td>
-          <td>(</td>
-          <td class="paramtype">const WakeupTuningTest &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_a363c2d281812420d4d1b9ba3702913d2_cgraph.svg" width="354" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="abc699443dad5016ffe8a5dd5cd16b4f3" name="abc699443dad5016ffe8a5dd5cd16b4f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc699443dad5016ffe8a5dd5cd16b4f3">&#9670;&#160;</a></span>WakeupTuningTest() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">APP::WakeupTuningTest::WakeupTuningTest </td>
-          <td>(</td>
-          <td class="paramtype">WakeupTuningTest &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_abc699443dad5016ffe8a5dd5cd16b4f3_cgraph.svg" width="354" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="a61d6a346177dbfe86dbf81b74db65876" name="a61d6a346177dbfe86dbf81b74db65876"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61d6a346177dbfe86dbf81b74db65876">&#9670;&#160;</a></span>impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Impl &amp; APP::WakeupTuningTest::impl </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel private">private</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the test state, constructing it on first use. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the state. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_a61d6a346177dbfe86dbf81b74db65876_cgraph.svg" width="159" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_a61d6a346177dbfe86dbf81b74db65876_icgraph.svg" width="159" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
 <a id="af2b278b3270b40b8d21e645ac70c012a" name="af2b278b3270b40b8d21e645ac70c012a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af2b278b3270b40b8d21e645ac70c012a">&#9670;&#160;</a></span>instance()</h2>
 
@@ -303,7 +155,7 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp; APP::WakeupTuningTest::instance </td>
+          <td class="memname">WakeupTuningTest &amp; APP::WakeupTuningTest::instance </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -318,74 +170,6 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the unique instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the test. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_af2b278b3270b40b8d21e645ac70c012a_cgraph.svg" width="354" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a0aca318a7d91b1677f60c93c685df002" name="a0aca318a7d91b1677f60c93c685df002"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aca318a7d91b1677f60c93c685df002">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp; APP::WakeupTuningTest::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_a0aca318a7d91b1677f60c93c685df002_cgraph.svg" width="354" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-
-</div>
-</div>
-<a id="a1621e65e15f928033703c6a008f3f5b7" name="a1621e65e15f928033703c6a008f3f5b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1621e65e15f928033703c6a008f3f5b7">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp; APP::WakeupTuningTest::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#af9e830d8f4835a06b237a0c747151e1a">WakeupTuningTest</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_a1621e65e15f928033703c6a008f3f5b7_cgraph.svg" width="354" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -412,19 +196,15 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Starts the polling task; the reader must already be open (see the class comment). </p>
-<dl class="section return"><dt>Returns</dt><dd><em>true</em> if the task is running. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<p>Starts the polling task; the reader must already be open. </p>
+<dl class="section return"><dt>Returns</dt><dd>'true' if the task is running. </dd></dl>
+
+<p class="reference">Referenced by <a class="el" href="#afb7c17640aa6d801212b979015d68fc1">start()</a>.</p>
+<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_afb7c17640aa6d801212b979015d68fc1_cgraph.svg" width="159" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
-</div>
-<div id="dynsection-10-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_afb7c17640aa6d801212b979015d68fc1_icgraph.svg" width="159" height="76"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div id="dynsection-1-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test_afb7c17640aa6d801212b979015d68fc1_cgraph.svg" width="222" height="86"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -440,7 +220,7 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::chrono::milliseconds APP::WakeupTuningTest::POLL_PERIOD {250}</td>
+          <td class="memname"><a class="elRef" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a> APP::WakeupTuningTest::POLL_PERIOD {250}</td>
         </tr>
       </table>
   </td>

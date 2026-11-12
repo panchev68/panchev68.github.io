@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -119,7 +118,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d83/a05884.
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>RAII wrapper for managing FreeRTOS software timer resources. </p>
-<p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach callback; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed 'configTIMER_TASK_PRIORITY', or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>. </p>
+<p>Provides one-shot and auto-reload timers with task and ISR command variants. The native timer stores the address of its owning instance as the timer ID, which the expiry trampoline uses to reach 'callback'; moving the instance re-targets that ID. Every command is queued to the timer daemon task, so a command issued from inside a timer callback never blocks, since blocking there could only deadlock the daemon on its own command queue. Destroy or move an instance only while no callback of it can be running concurrently, for example from a task whose priority does not exceed 'configTIMER_TASK_PRIORITY', or after <a class="el" href="#a798530d43191f94bd5cd6f8cfea846b3" title="stop()">stop()</a>. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::Timer:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
@@ -712,7 +711,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the raw FreeRTOS handle. </p>
-<dl class="section return"><dt>Returns</dt><dd>Native FreeRTOS timer handle, or 'nullptr' if closed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a88e12a9654bf75a052ba3eab8aefe933" title="Native FreeRTOS timer handle type.">Handle</a>. </dd></dl>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -747,7 +746,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Gets timer mode, read back from the native timer. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8" title="Timer operational modes.">Mode</a> enum; <a class="el" href="#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d" title="Mode::ONE_SHOT">Mode::ONE_SHOT</a> for an unset instance. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a944342cd0e4d5216ab51763e898f19c8" title="Timer operational modes.">Mode</a> enum; '<a class="el" href="#a944342cd0e4d5216ab51763e898f19c8a5bc2964599423c796ecf0aaecdc5be9d" title="Timer runs once and stops.">Mode::ONE_SHOT</a>' for an unset instance. </dd></dl>
 <div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-10-summary" class="dynsummary">
 </div>
@@ -787,7 +786,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets the timer name. </p>
-<dl class="section return"><dt>Returns</dt><dd>Name given at creation, or an empty view if unset. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String view. </dd></dl>
 
 </div>
 </div>
@@ -917,7 +916,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Gets remaining ticks until expiration. </p>
-<p>Must be called from task context. Uses signed wraparound-safe tick arithmetic (matching <a class="el" href="../../df/de9/a00923.html#a071ed92c20109dd07c3785eb87914136" title="RTOS::delayUntil()">RTOS::delayUntil()</a>) so the result stays correct even when the tick counter wraps around between now and the expiry time.</p>
+<p>Must be called from task context. Uses signed wraparound-safe tick arithmetic (matching '<a class="el" href="../../df/de9/a00923.html#a071ed92c20109dd07c3785eb87914136" title="Delays execution until a target system tick is reached.">RTOS::delayUntil()</a>') so the result stays correct even when the tick counter wraps around between now and the expiry time.</p>
 <dl class="section return"><dt>Returns</dt><dd>Remaining ticks, or zero if the timer is not active. </dd></dl>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary">
@@ -1092,7 +1091,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Checks if this instance is active. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if active. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if active. </dd></dl>
 <div id="dynsection-20" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-20-summary" class="dynsummary">
 </div>
@@ -1133,7 +1132,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if active. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if active. </dd></dl>
 <div id="dynsection-21" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-21-summary" class="dynsummary">
 </div>
@@ -1174,7 +1173,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Checks if auto-reload mode is active. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if auto-reload. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if auto-reload. </dd></dl>
 <div id="dynsection-23" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-23-summary" class="dynsummary">
 </div>
@@ -1209,7 +1208,7 @@ Static Public Attributes</h2></td></tr>
 
 <p>Checks if one-shot mode is active. </p>
 <p>Must be called from task context.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if one-shot. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if one-shot. </dd></dl>
 <div id="dynsection-24" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-24-summary" class="dynsummary">
 </div>
@@ -1243,7 +1242,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the timer handle is valid. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if initialized. </dd></dl>
 <div id="dynsection-25" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-25-summary" class="dynsummary">
 </div>
@@ -1283,7 +1282,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Engaged optional holding the constructed, native-timer-backed instance on success; <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> if the underlying FreeRTOS timer could not be created. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Engaged optional holding the constructed, native-timer-backed instance on success; '<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html">std::nullopt</a>' if the underlying FreeRTOS timer could not be created. </dd></dl>
 <div id="dynsection-26" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-26-summary" class="dynsummary">
 </div>
@@ -1323,7 +1322,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Converts to the validity status. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if initialized. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if initialized. </dd></dl>
 <div id="dynsection-28" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-28-summary" class="dynsummary">
 </div>
@@ -1490,7 +1489,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue stayed full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if 'function' is null. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'<a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Operation completed successfully.">Status::SUCCESS</a>' if the call was queued, '<a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Operation failed, typically because the timer command queue stayed full.">Status::FAILURE</a>' if the queue stayed full, '<a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Timer is invalid or uninitialized, or an argument is out of range.">Status::INVALID</a>' if 'function' is null. </dd></dl>
 <div id="dynsection-32" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-32-summary" class="dynsummary">
 </div>
@@ -1548,7 +1547,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue is full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if 'function' is null. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'<a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Operation completed successfully.">Status::SUCCESS</a>' if the call was queued, '<a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Operation failed, typically because the timer command queue stayed full.">Status::FAILURE</a>' if the queue is full, '<a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Timer is invalid or uninitialized, or an argument is out of range.">Status::INVALID</a>' if 'function' is null. </dd></dl>
 <div id="dynsection-33" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-33-summary" class="dynsummary">
 </div>
@@ -1599,7 +1598,7 @@ Static Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Status::SUCCESS">Status::SUCCESS</a> if the call was queued, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Status::FAILURE">Status::FAILURE</a> if the queue is full, <a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Status::INVALID">Status::INVALID</a> if 'function' is null. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'<a class="el" href="#a19967bec636caee34f53f6eafd48bc74ad0749aaba8b833466dfcbb0428e4f89c" title="Operation completed successfully.">Status::SUCCESS</a>' if the call was queued, '<a class="el" href="#a19967bec636caee34f53f6eafd48bc74a36fc6065a3e970bc3e6b2e59da52bf2a" title="Operation failed, typically because the timer command queue stayed full.">Status::FAILURE</a>' if the queue is full, '<a class="el" href="#a19967bec636caee34f53f6eafd48bc74accc0377a8afbf50e7094f5c23a8af223" title="Timer is invalid or uninitialized, or an argument is out of range.">Status::INVALID</a>' if 'function' is null. </dd></dl>
 <div id="dynsection-34" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-34-summary" class="dynsummary">
 </div>

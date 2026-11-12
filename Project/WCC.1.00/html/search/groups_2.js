@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardware_20abstraction_20layer_0',['Hardware Abstraction Layer',['../de/df8/group___h_a_l.html',1,'']]]
+  ['_5fsystick_20clock_20source_0',['CORTEX _SysTick clock source',['https://panchev68.github.io/HALF4/dc/d8f/a00718.html',1,'']]]
 ];

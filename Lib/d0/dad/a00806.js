@@ -1,5 +1,5 @@
 var a00806 =
 [
-    [ "RTOS::TickClient&lt; Derived &gt;", "da/d96/a05868.html", "da/d96/a05868" ],
-    [ "RTOS::TickClient&lt; Derived &gt;::Config", "d8/d73/a05872.html", "d8/d73/a05872" ]
+    [ "RTOS::TickClient&lt; Derived &gt;", "de/d8f/a05865.html", "de/d8f/a05865" ],
+    [ "RTOS::TickClient&lt; Derived &gt;::Config", "da/df2/a05869.html", "da/df2/a05869" ]
 ];

@@ -1,5 +1,5 @@
 var a00392 =
 [
-    [ "Lib::Ethercat::SOES::EepromHandlers", "d3/d96/a05072.html", "d3/d96/a05072" ],
-    [ "Lib::Ethercat::SOES::EepromEmulation", "d1/ddd/a05076.html", "d1/ddd/a05076" ]
+    [ "Lib::Ethercat::SOES::EepromHandlers", "d2/d3f/a05069.html", "d2/d3f/a05069" ],
+    [ "Lib::Ethercat::SOES::EepromEmulation", "d1/dd2/a05073.html", "d1/dd2/a05073" ]
 ];

@@ -7,7 +7,7 @@ var a01276 =
     [ "FSMC_LL Private Macros", "https://panchev68.github.io/HALF4/dc/db6/a01212.html", null ],
     [ "CAN", "https://panchev68.github.io/HALF4/d8/d53/a01225.html", null ],
     [ "ETH", "https://panchev68.github.io/HALF4/dd/d9e/a01226.html", null ],
-    [ "Hardware Abstraction Layer", "da/d98/a00870.html", "da/d98/a00870" ],
+    [ "Hardware Abstraction Layer", "d2/db8/a00867.html", "d2/db8/a00867" ],
     [ "ADC", "https://panchev68.github.io/HALF4/d0/d88/a01231.html", "d0/d88/a01231" ],
     [ "ADCEx", "https://panchev68.github.io/HALF4/d0/d67/a01232.html", "d0/d67/a01232" ],
     [ "CEC", "https://panchev68.github.io/HALF4/d6/da1/a01233.html", null ],

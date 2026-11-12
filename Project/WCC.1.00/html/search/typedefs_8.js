@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['result_0',['Result',['../db/d0f/class_a_p_p_1_1_r_f_i_d.html#aa44f5fffad7318ebde69680c4131db90',1,'APP::RFID']]]
+  ['jaggedarray_0',['JaggedArray',['https://panchev68.github.io/Lib/d4/ddc/a00917.html#ad371b43a764bd5b625afa226a1fc12eb',1,'Lib::Helper']]],
+  ['jaggedarrayrow_1',['JaggedArrayRow',['https://panchev68.github.io/Lib/d4/ddc/a00917.html#abb4a58cc33c78b1e079bef9fe69346d0',1,'Lib::Helper']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['uid_0',['Uid',['dd/d5f/a00825.html#a435a19683e1fb32e426add14e68d0076',1,'Lib::BSP::RFID::NTAG21x']]]
+  ['qualified_0',['Qualified',['https://panchev68.github.io/Lib/d5/dfd/a04680.html#ad27df83b5fa38c097b7679da335eb089',1,'FunctionRefDetail::Base::Qualified'],['https://panchev68.github.io/Lib/d5/dfd/a04680.html#ad27df83b5fa38c097b7679da335eb089',1,'FunctionRef&lt; Ret(Args...) const noexcept &gt;::Qualified'],['https://panchev68.github.io/Lib/d5/dfd/a04680.html#ad27df83b5fa38c097b7679da335eb089',1,'FunctionRef&lt; Ret(Args...) const &gt;::Qualified'],['https://panchev68.github.io/Lib/d5/dfd/a04680.html#ad27df83b5fa38c097b7679da335eb089',1,'FunctionRef&lt; Ret(Args...) noexcept &gt;::Qualified'],['https://panchev68.github.io/Lib/d5/dfd/a04680.html#ad27df83b5fa38c097b7679da335eb089',1,'FunctionRef&lt; Ret(Args...)&gt;::Qualified']]]
 ];

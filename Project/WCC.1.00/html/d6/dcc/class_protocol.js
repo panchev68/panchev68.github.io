@@ -6,7 +6,6 @@ var class_protocol =
       [ "API1", "d6/dc5/group___a_p_p.html#ggaa9aaf8c3bbffea4da90dc21fea9b0b43a7e8d092d9c015707dedc7a3b8173f6b5", null ],
       [ "API2", "d6/dc5/group___a_p_p.html#ggaa9aaf8c3bbffea4da90dc21fea9b0b43a51dfa65dc2042cfa662ff3a4cd76c968", null ]
     ] ],
-    [ "Protocol", "d6/dcc/class_protocol.html#a4232eeeed372f2c091a710a369c284d5", null ],
     [ "calculateChecksum", "d6/dcc/class_protocol.html#a19bdad4039decddd1793f5bc7b20766c", null ],
     [ "decode", "d6/dcc/class_protocol.html#ad6267de120f5ab4f25e51342ff5b1ef2", null ],
     [ "encode", "d6/dcc/class_protocol.html#ab46ec34531bb71d1129e5b749290fef9", null ],

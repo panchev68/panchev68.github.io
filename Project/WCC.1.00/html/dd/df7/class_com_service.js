@@ -9,13 +9,7 @@ var class_com_service =
       [ "INVALID_FRAME_LENGTH", "d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099a310202ab05790f964cfce492ebaeeb80", null ],
       [ "CHECKSUM_MISMATCH", "d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099a2e0ee01e0807b586c11744580712274f", null ]
     ] ],
-    [ "ComService", "dd/df7/class_com_service.html#a0e2c4e61707e7cf3c053fe4cf1064e40", null ],
-    [ "ComService", "dd/df7/class_com_service.html#a2f4807efef031bd0a7c42d3e80c0c02f", null ],
-    [ "ComService", "dd/df7/class_com_service.html#a158306a68308f8a077d98d5c26558958", null ],
-    [ "impl", "dd/df7/class_com_service.html#a48fb09b2acd1f63e74042b7d8b01c372", null ],
     [ "instance", "dd/df7/class_com_service.html#a6f3e134c3687e9c7ce7e902d22c45a6a", null ],
-    [ "operator=", "dd/df7/class_com_service.html#aacb405eab884fd32743febdc02a89c7f", null ],
-    [ "operator=", "dd/df7/class_com_service.html#af072b1f128c257d45de43a88d9a8b606", null ],
     [ "sendFrame", "dd/df7/class_com_service.html#aa4f800d6e2b5ef89c44100ade46f270f", null ],
     [ "setOnErrorCallback", "dd/df7/class_com_service.html#ada14ac920b6a90ac8780adc05bd9c8cd", null ],
     [ "setOnNewFrameCallback", "dd/df7/class_com_service.html#a8c57ed977be5ee53272b288d76c12638", null ]

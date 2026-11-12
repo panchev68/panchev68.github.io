@@ -12,9 +12,8 @@ var searchData=
   ['version_2ehpp_9',['Version.hpp',['../d0/d11/a00842.html',1,'']]],
   ['versionbase_2ehpp_10',['VersionBase.hpp',['../d7/dcf/a00845.html',1,'']]],
   ['voltmeter_2ehpp_11',['Voltmeter.hpp',['../d5/df1/a00206.html',1,'']]],
-  ['vscode_2ehpp_12',['vscode.hpp',['../d0/d82/a00857.html',1,'']]],
-  ['vstring_2eh_13',['vstring.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01238.html',0,'']]],
-  ['vstring_2etcc_14',['vstring.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01241.html',0,'']]],
-  ['vstring_5ffwd_2eh_15',['vstring_fwd.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01235.html',0,'']]],
-  ['vstring_5futil_2eh_16',['vstring_util.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01244.html',0,'']]]
+  ['vstring_2eh_12',['vstring.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01238.html',0,'']]],
+  ['vstring_2etcc_13',['vstring.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01241.html',0,'']]],
+  ['vstring_5ffwd_2eh_14',['vstring_fwd.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01235.html',0,'']]],
+  ['vstring_5futil_2eh_15',['vstring_util.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01244.html',0,'']]]
 ];

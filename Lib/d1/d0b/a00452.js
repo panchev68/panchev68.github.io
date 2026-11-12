@@ -1,5 +1,5 @@
 var a00452 =
 [
-    [ "Lib::HAL::CANFrame", "d9/df0/a05252.html", "d9/df0/a05252" ],
-    [ "Lib::HAL::CANPortBase&lt; T_DERIVED &gt;", "da/d44/a05256.html", "da/d44/a05256" ]
+    [ "Lib::HAL::CANFrame", "dc/d42/a05249.html", "dc/d42/a05249" ],
+    [ "Lib::HAL::CANPortBase&lt; T_DERIVED &gt;", "d4/d90/a05253.html", "d4/d90/a05253" ]
 ];

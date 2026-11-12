@@ -1,17 +1,18 @@
 var searchData=
 [
-  ['w25q128jvsiq_0',['W25Q128JVSIQ',['../d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html',1,'BSP::W25Q128JVSIQ'],['d8/d79/a01036.html',1,'Lib::BSP::FMEM::OSPI::W25Q128JVSIQ'],['dc/d19/a01056.html',1,'Lib::BSP::W25Q128JVSIQ']]],
-  ['w5500_1',['W5500',['d1/d42/a01800.html',1,'Lib::Ethernet::Wiznet']]],
-  ['wakeupdiagnostics_2',['WakeupDiagnostics',['dc/d64/a01140.html',1,'Lib::BSP::RFID::ST25R100']]],
-  ['wakeuptuningtest_3',['WakeupTuningTest',['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html',1,'APP']]],
-  ['windowwatchdog_4',['WindowWatchdog',['db/ddd/a02136.html',1,'Lib::HAL']]],
-  ['wolfssh_5',['WolfSSH',['d2/d29/a01376.html',1,'Lib::Crypto']]],
-  ['wolfsshserver_6',['WolfSSHServer',['d7/dde/a01384.html',1,'Lib::Crypto']]],
-  ['wolfsshservercontext_7',['WolfSSHServerContext',['dd/d6d/a01380.html',1,'Lib::Crypto']]],
-  ['wolfssldh_8',['WolfSSLDh',['dc/d35/a01400.html',1,'Lib::Crypto']]],
-  ['wolfsslrandom_9',['WolfSSLRandom',['d1/dcc/a01392.html',1,'Lib::Crypto']]],
-  ['wolfsslrsa_10',['WolfSSLRsa',['d9/d45/a01396.html',1,'Lib::Crypto']]],
-  ['wolfsslsha256_11',['WolfSSLSHA256',['d0/d36/a01388.html',1,'Lib::Crypto']]],
-  ['wolfssltransport_12',['WolfSSLTransport',['d7/dc8/a02264.html',1,'Lib::HTTP']]],
-  ['wucomparatorsnapshot_13',['WuComparatorSnapshot',['db/d51/a01144.html',1,'Lib::BSP::RFID::ST25R100']]]
+  ['valarray_0',['valarray',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03750.html',1,'std']]],
+  ['value64handle_1',['Value64Handle',['https://panchev68.github.io/Lib/d6/d18/a06036.html',1,'Lib::XCOM::ServiceBase']]],
+  ['value_5ftype_2',['value_type',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04638.html',1,'std']]],
+  ['vector_3',['vector',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a08430.html',1,'std::__debug::vector&lt; typename _Tp, typename _Allocator &gt;'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html',1,'std::vector&lt; typename _Tp, typename _Alloc &gt;']]],
+  ['vector_3c_20bool_2c_20_5falloc_20_3e_4',['vector&lt; bool, _Alloc &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06702.html',1,'std']]],
+  ['vector_3c_20t_5felement_20_2a_20_3e_5',['vector&lt; T_ELEMENT * &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html',1,'std']]],
+  ['vector_3c_20uint8_5ft_20_3e_6',['vector&lt; uint8_t &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a07426.html',1,'std']]],
+  ['version_7',['Version',['https://panchev68.github.io/Lib/dc/dc1/a05956.html',1,'Lib::System']]],
+  ['versionbase_8',['VersionBase',['https://panchev68.github.io/Lib/d1/d4e/a05972.html',1,'Lib::System']]],
+  ['versionbase_3c_20firmwareversion_20_3e_9',['VersionBase&lt; FirmwareVersion &gt;',['https://panchev68.github.io/Lib/d1/d4e/a05972.html',1,'Lib::System']]],
+  ['versionbase_3c_20hardwareversion_20_3e_10',['VersionBase&lt; HardwareVersion &gt;',['https://panchev68.github.io/Lib/d1/d4e/a05972.html',1,'Lib::System']]],
+  ['versions_11',['Versions',['https://panchev68.github.io/Lib/da/d47/a04824.html',1,'Lib::Digi::API::NodeInfo']]],
+  ['view_5finterface_12',['view_interface',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05974.html',1,'std::ranges']]],
+  ['voltmeter_13',['Voltmeter',['https://panchev68.github.io/Lib/da/d34/a04592.html',1,'Lib::BSP']]],
+  ['vscode_14',['vscode',['https://panchev68.github.io/Lib/d7/d13/a06020.html',1,'']]]
 ];

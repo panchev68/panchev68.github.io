@@ -1,8 +1,5 @@
 var class_a_p_p_1_1_com_module =
 [
-    [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#a86c8c4cf1a7c73773a2c1fa8038a140a", null ],
-    [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#a43f29f92e60bb6e2e5db78952a00def3", null ],
-    [ "ComModule", "d6/dcf/class_a_p_p_1_1_com_module.html#afce2838cafc9d95b78a5c45104ed2884", null ],
     [ "getCounters", "d6/dcf/class_a_p_p_1_1_com_module.html#aa6370a8036b0fb8d01916caf5e0c6d95", null ],
     [ "getIsEsp32Powered", "d6/dcf/class_a_p_p_1_1_com_module.html#a1b9f6e3180d66b9f8f45c047a4751f71", null ],
     [ "getIsLocationSet", "d6/dcf/class_a_p_p_1_1_com_module.html#a3873bb65c9b82c1e54b4b8d93bdab358", null ],
@@ -12,11 +9,8 @@ var class_a_p_p_1_1_com_module =
     [ "getPendingRecordCount", "d6/dcf/class_a_p_p_1_1_com_module.html#a94cb807663c71d75c3a6598658922027", null ],
     [ "getPowerCycleCount", "d6/dcf/class_a_p_p_1_1_com_module.html#a8f3487c6ec946483346f5239bc073d62", null ],
     [ "getSession", "d6/dcf/class_a_p_p_1_1_com_module.html#aae674dfa3e44b4868e698d07158cc20a", null ],
-    [ "impl", "d6/dcf/class_a_p_p_1_1_com_module.html#a90b2d6af132d732673d82763871ae42d", null ],
     [ "instance", "d6/dcf/class_a_p_p_1_1_com_module.html#a3294b1eb839c0d377a3c73612b39c035", null ],
     [ "notifyActivity", "d6/dcf/class_a_p_p_1_1_com_module.html#a69ed1d167f03e2435d416caede18bb24", null ],
-    [ "operator=", "d6/dcf/class_a_p_p_1_1_com_module.html#a498e7350a1547c871776cc57fd8b8bd8", null ],
-    [ "operator=", "d6/dcf/class_a_p_p_1_1_com_module.html#af7258a0897dd012c198212fe949f7ff5", null ],
     [ "queueBlocklistRemoval", "d6/dcf/class_a_p_p_1_1_com_module.html#af43e41fb6733a4213eeb769087133f04", null ],
     [ "queueDisposalRecord", "d6/dcf/class_a_p_p_1_1_com_module.html#a0e8c7e4d6edda845b4c9ac151a19b0ed", null ],
     [ "start", "d6/dcf/class_a_p_p_1_1_com_module.html#a991610dcc331c6b50af4d1098012187f", null ],

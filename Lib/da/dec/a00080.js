@@ -1,6 +1,6 @@
 var a00080 =
 [
-    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;", "d4/d45/a04456.html", "d4/d45/a04456" ],
-    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Config", "d0/ddf/a04460.html", "d0/ddf/a04460" ],
-    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics", "df/d25/a04464.html", "df/d25/a04464" ]
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;", "dd/de1/a04453.html", "dd/de1/a04453" ],
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Config", "d5/de3/a04457.html", "d5/de3/a04457" ],
+    [ "Lib::BSP::RFID::NfcManager&lt; T_MODE &gt;::Diagnostics", "d9/d5d/a04461.html", "d9/d5d/a04461" ]
 ];

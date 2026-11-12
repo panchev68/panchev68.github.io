@@ -1,5 +1,5 @@
 var a00815 =
 [
-    [ "RTOS::Timer", "d0/d83/a05884.html", "d0/d83/a05884" ],
-    [ "RTOS::Timer::Config", "d6/dd1/a05888.html", "d6/dd1/a05888" ]
+    [ "RTOS::Timer", "d9/d28/a05881.html", "d9/d28/a05881" ],
+    [ "RTOS::Timer::Config", "d3/d87/a05885.html", "d3/d87/a05885" ]
 ];

@@ -14,7 +14,7 @@ var dir_023c5fb9efdc6821c9104ed99559a611 =
     [ "Message.hpp", "d0/d39/a00314.html", "d0/d39/a00314" ],
     [ "ModemStatus.hpp", "da/de0/a00317.html", "da/de0/a00317" ],
     [ "Module.hpp", "dd/de2/a00320.html", "dd/de2/a00320" ],
-    [ "Protocol.hpp", "d7/d21/a08232.html", "d7/d21/a08232" ],
+    [ "Protocol.hpp", "d4/df7/a08225.html", "d4/df7/a08225" ],
     [ "QueueMessage.hpp", "d3/d93/a00341.html", "d3/d93/a00341" ],
     [ "RemoteAtCommand.hpp", "d8/d8e/a00344.html", "d8/d8e/a00344" ],
     [ "ResponseEvents.hpp", "d1/dc6/a00347.html", "d1/dc6/a00347" ],

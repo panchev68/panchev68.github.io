@@ -1,4 +1,4 @@
 var a00275 =
 [
-    [ "Lib::Digi::API::Service::SpectrumAnalyzer", "d0/d62/a04888.html", "d0/d62/a04888" ]
+    [ "Lib::Digi::API::Service::SpectrumAnalyzer", "d5/d10/a04885.html", "d5/d10/a04885" ]
 ];

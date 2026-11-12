@@ -18,7 +18,6 @@
 <script type="text/javascript" src="../../search/searchdata.js"></script>
 <script type="text/javascript" src="../../search/search.js"></script>
 <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
-<link href="../../doxygen-jetbrains-mono.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -161,7 +160,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a320bbbf470cde849ac2b5405273ff10d template"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a320bbbf470cde849ac2b5405273ff10d">take</a> (<a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04258.html">std::chrono::duration</a>&lt; Rep, Period &gt; timeout) noexcept</td></tr>
 <tr class="memdesc:a320bbbf470cde849ac2b5405273ff10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore, blocking the calling task for at most the given duration.  <br /></td></tr>
 <tr class="memitem:adba0e9091ed738abab54ed798d53a7ca" id="r_adba0e9091ed738abab54ed798d53a7ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#adba0e9091ed738abab54ed798d53a7ca">take</a> (const <a class="el" href="../../d6/d45/a05880.html">Timeout</a> &amp;timeout) noexcept</td></tr>
-<tr class="memdesc:adba0e9091ed738abab54ed798d53a7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore, waiting at most the time remaining on a shared <a class="el" href="../../d6/d45/a05880.html" title="Timeout">Timeout</a> budget.  <br /></td></tr>
+<tr class="memdesc:adba0e9091ed738abab54ed798d53a7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore, waiting at most the time remaining on a shared '<a class="el" href="../../d6/d45/a05880.html" title="Helper for tracking time-based event timeouts.">Timeout</a>' budget.  <br /></td></tr>
 <tr class="memitem:a99e434d16d327ee8039d19a7feb75f8b" id="r_a99e434d16d327ee8039d19a7feb75f8b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a99e434d16d327ee8039d19a7feb75f8b">tryTake</a> () noexcept</td></tr>
 <tr class="memdesc:a99e434d16d327ee8039d19a7feb75f8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the semaphore without blocking.  <br /></td></tr>
 <tr class="memitem:a351bf0854e0c48d82c1a078a39e02879" id="r_a351bf0854e0c48d82c1a078a39e02879"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a351bf0854e0c48d82c1a078a39e02879">takeFromISR</a> (BaseType_t &amp;higherPriorityTaskWoken) noexcept</td></tr>
@@ -456,8 +455,8 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the current count from an ISR context. </p>
-<p>FreeRTOS V10 has no <b>uxSemaphoreGetCountFromISR()</b>, but a semaphore is a queue of zero-sized items whose count is its number of waiting items, so the ISR-safe queue query gives the same value.</p>
-<dl class="section return"><dt>Returns</dt><dd>Current count (<b>0</b> or <b>1</b> for a binary semaphore), or <b>0</b> if not open. </dd></dl>
+<p>FreeRTOS V10 has no 'uxSemaphoreGetCountFromISR()', but a semaphore is a queue of zero-sized items whose count is its number of waiting items, so the ISR-safe queue query gives the same value.</p>
+<dl class="section return"><dt>Returns</dt><dd>Current count (0 or 1 for a binary semaphore), or 0 if not open. </dd></dl>
 
 </div>
 </div>
@@ -578,7 +577,7 @@ template&lt;typename Derived&gt; </div>
 
 <p>Gives (releases) the semaphore. </p>
 <p><a class="el" href="../../d6/dfd/a05844.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if given, <b>false</b> if the count is already at its maximum or the semaphore is not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if given, 'false' if the count is already at its maximum or the semaphore is not open. </dd></dl>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -614,8 +613,8 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Gives the semaphore from an ISR context and requests the context switch itself if a task was woken. </p>
-<p>Convenient when the give is the last <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> call of the ISR; batch several FromISR calls through the <a class="el" href="#adc665ae88781c6a32668f430f0425eac" title="giveFromISR(BaseType_t &amp;)">giveFromISR(BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if given, <b>false</b> if the count is already at its maximum or the semaphore is not open. </dd></dl>
+<p>Convenient when the give is the last <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> call of the ISR; batch several FromISR calls through the '<a class="el" href="#adc665ae88781c6a32668f430f0425eac" title="Gives the semaphore from an ISR context, leaving the context switch to the caller.">giveFromISR(BaseType_t &amp;)</a>' overload instead, so that only one context switch is requested.</p>
+<dl class="section return"><dt>Returns</dt><dd>'true' if given, 'false' if the count is already at its maximum or the semaphore is not open. </dd></dl>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -657,7 +656,7 @@ template&lt;typename Derived&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if given, <b>false</b> if the count is already at its maximum or the semaphore is not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if given, 'false' if the count is already at its maximum or the semaphore is not open. </dd></dl>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -693,7 +692,7 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks if the semaphore is currently open. </p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a native handle has been created. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if a native handle has been created. </dd></dl>
 
 </div>
 </div>
@@ -800,15 +799,15 @@ template&lt;typename Derived&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Takes the semaphore, waiting at most the time remaining on a shared <a class="el" href="../../d6/d45/a05880.html" title="Timeout">Timeout</a> budget. </p>
-<p><a class="el" href="../../d6/dfd/a05844.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only. Repeated calls against the same <a class="el" href="../../d6/d45/a05880.html" title="Timeout">Timeout</a> instance never wait longer than the time still remaining until it expires; an expired budget makes the call non-blocking and a disabled one waits indefinitely.</p>
+<p>Takes the semaphore, waiting at most the time remaining on a shared '<a class="el" href="../../d6/d45/a05880.html" title="Helper for tracking time-based event timeouts.">Timeout</a>' budget. </p>
+<p><a class="el" href="../../d6/dfd/a05844.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only. Repeated calls against the same '<a class="el" href="../../d6/d45/a05880.html" title="Helper for tracking time-based event timeouts.">Timeout</a>' instance never wait longer than the time still remaining until it expires; an expired budget makes the call non-blocking and a disabled one waits indefinitely.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">timeout</td><td>The shared timeout budget. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if acquired, <b>false</b> on timeout or if not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if acquired, 'false' on timeout or if not open. </dd></dl>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -861,7 +860,7 @@ template&lt;typename Rep, typename Period&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if acquired, <b>false</b> on timeout or if not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if acquired, 'false' on timeout or if not open. </dd></dl>
 <div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-13-summary" class="dynsummary">
 </div>
@@ -904,7 +903,7 @@ template&lt;typename Derived&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if acquired, <b>false</b> on timeout or if not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if acquired, 'false' on timeout or if not open. </dd></dl>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
@@ -946,8 +945,8 @@ template&lt;typename Derived&gt; </div>
 </div><div class="memdoc">
 
 <p>Takes the semaphore from an ISR context and requests the context switch itself if a task was woken. </p>
-<p>Convenient when the take is the last <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> call of the ISR; batch several FromISR calls through the <a class="el" href="#a351bf0854e0c48d82c1a078a39e02879" title="takeFromISR(BaseType_t &amp;)">takeFromISR(BaseType_t &amp;)</a> overload instead, so that only one context switch is requested.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if acquired, <b>false</b> if unavailable or not open. </dd></dl>
+<p>Convenient when the take is the last <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> call of the ISR; batch several FromISR calls through the '<a class="el" href="#a351bf0854e0c48d82c1a078a39e02879" title="Takes the semaphore from an ISR context without blocking.">takeFromISR(BaseType_t &amp;)</a>' overload instead, so that only one context switch is requested.</p>
+<dl class="section return"><dt>Returns</dt><dd>'true' if acquired, 'false' if unavailable or not open. </dd></dl>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary">
 </div>
@@ -989,7 +988,7 @@ template&lt;typename Derived&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if acquired, <b>false</b> if unavailable or not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if acquired, 'false' if unavailable or not open. </dd></dl>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
@@ -1026,7 +1025,7 @@ template&lt;typename Derived&gt; </div>
 
 <p>Takes the semaphore without blocking. </p>
 <p><a class="el" href="../../d6/dfd/a05844.html" title="RAII-managed FreeRTOS task abstraction.">Task</a> context only.</p>
-<dl class="section return"><dt>Returns</dt><dd><b>true</b> if acquired immediately, <b>false</b> if unavailable or not open. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>'true' if acquired immediately, 'false' if unavailable or not open. </dd></dl>
 <div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary">
 </div>

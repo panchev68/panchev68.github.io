@@ -1,31 +1,5 @@
 var searchData=
 [
-  ['abstraction_20layer_0',['Hardware Abstraction Layer',['../de/df8/group___h_a_l.html',1,'']]],
-  ['accepted_1',['ACCEPTED',['../d6/dc5/group___a_p_p.html#gga88db4eccae3f9db42d03355cd029286caa806f1d2c42338ef5fa6497b66153e79',1,'APP::Commands']]],
-  ['accumulator_2',['accumulator',['../da/d04/class_b_s_p_1_1_i_n_a219.html#a19bca774926f075d2044a2485e941f7c',1,'BSP::INA219']]],
-  ['accumulator_5faddress_3',['ACCUMULATOR_ADDRESS',['../da/d04/class_b_s_p_1_1_i_n_a219.html#a61cb42a3952505dedb4eb2417fb64564',1,'BSP::INA219']]],
-  ['accumulator_5fcorrection_4',['ACCUMULATOR_CORRECTION',['../da/d04/class_b_s_p_1_1_i_n_a219.html#aa14ea6a6a375c2f875df602302af9b55',1,'BSP::INA219']]],
-  ['accumulator_5fmonitor_5',['ACCUMULATOR_MONITOR',['../d6/dc5/group___a_p_p.html#ggab7dddd440070a1dbdfec9cb40c01c43aa65482c1b89593ea157e4e4a5233779e7',1,'APP::Commands']]],
-  ['accumulator_5fvalid_6',['ACCUMULATOR_VALID',['../d6/dc5/group___a_p_p.html#gga16ddf6ac358413eda6b8ce33c9f9f179a55a29dc0f12dee5366179021142e679c',1,'APP::Commands']]],
-  ['accumulatormonitor_7',['accumulatorMonitor',['../de/d01/struct_m_p_p_t_1_1_config.html#a4abf5bbcd38ed302c5ea08779c337831',1,'MPPT::Config']]],
-  ['acknowledge_8',['acknowledge',['../d6/d5d/class_a_p_p_1_1_record_buffer.html#aeb329ab866bc93052446e807730a2d65',1,'APP::RecordBuffer::acknowledge()'],['../db/d32/class_a_p_p_1_1_record_store.html#ae508fb0f5a83d18ecf9e6ed052b15921',1,'APP::RecordStore::acknowledge()']]],
-  ['acknowledgeupto_9',['acknowledgeUpTo',['../d7/d70/class_a_p_p_1_1_blocklist_removal_buffer.html#acda2e2950701a21e48bc3026b76e4463',1,'APP::BlocklistRemovalBuffer::acknowledgeUpTo()'],['../d6/d5d/class_a_p_p_1_1_record_buffer.html#aa98da1081495634b8039eb3dcbdd22b2',1,'APP::RecordBuffer::acknowledgeUpTo()']]],
-  ['acquire_10',['acquire',['../de/d84/class_a_p_p_1_1_supply12_v.html#a8e436b4c4601a50618dd3f461d42c06c',1,'APP::Supply12V']]],
-  ['add_11',['add',['../db/da7/class_a_p_p_1_1_blocklist.html#adf2afa3b063bf43ae5596641fe1eb799',1,'APP::Blocklist::add()'],['../d0/d9b/class_a_p_p_1_1_service_list.html#af9e47a85d4476e199894ac886f48b113',1,'APP::ServiceList::add()']]],
-  ['address_12',['ADDRESS',['../d9/dd1/class_b_s_p_1_1_t_m_p102.html#accddd0dc61f0483ebe4ce78b04a00f69',1,'BSP::TMP102']]],
-  ['alarm_5fduration_13',['ALARM_DURATION',['../d4/dba/class_a_p_p_1_1_user_interface.html#a2ce64d144e5e1cf3a48a316e7f5fb27f',1,'APP::UserInterface']]],
-  ['alarm_5fhalf_5fperiod_14',['ALARM_HALF_PERIOD',['../d4/dba/class_a_p_p_1_1_user_interface.html#ac6f56939a0176098a0ed4c3f9b73a5c9',1,'APP::UserInterface']]],
-  ['already_5fpresent_15',['ALREADY_PRESENT',['../db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0ae2acab845d328d706912d37050a463c5',1,'APP::Blocklist::ALREADY_PRESENT'],['../d0/d9b/class_a_p_p_1_1_service_list.html#a171fca641c4bfec07b6fbdeb4f89645cae2acab845d328d706912d37050a463c5',1,'APP::ServiceList::ALREADY_PRESENT']]],
-  ['api1_16',['API1',['../d6/dc5/group___a_p_p.html#ggaa9aaf8c3bbffea4da90dc21fea9b0b43a7e8d092d9c015707dedc7a3b8173f6b5',1,'Protocol']]],
-  ['api2_17',['API2',['../d6/dc5/group___a_p_p.html#ggaa9aaf8c3bbffea4da90dc21fea9b0b43a51dfa65dc2042cfa662ff3a4cd76c968',1,'Protocol']]],
-  ['apimode_18',['ApiMode',['../d6/dc5/group___a_p_p.html#gaa9aaf8c3bbffea4da90dc21fea9b0b43',1,'Protocol']]],
-  ['app_19',['APP',['../d1/deb/namespace_a_p_p.html',1,'']]],
-  ['app_3a_3acommands_20',['Commands',['../d4/dab/namespace_a_p_p_1_1_commands.html',1,'APP']]],
-  ['append_21',['append',['../db/d32/class_a_p_p_1_1_record_store.html#ac5b725c5a7455fb0c0b9b454bddc5194',1,'APP::RecordStore']]],
-  ['application_22',['Application',['../db/d62/class_a_p_p_1_1_application.html',1,'APP']]],
-  ['application_20layer_23',['Application Layer',['../d6/dc5/group___a_p_p.html',1,'']]],
-  ['application_20tests_24',['Application Tests',['../d8/d14/group___t_e_s_t.html',1,'']]],
-  ['application_2ehpp_25',['Application.hpp',['../d2/dcb/_application_8hpp.html',1,'']]],
-  ['applyfrequency_26',['applyFrequency',['../d2/d5f/class_b_s_p_1_1_buzzer.html#a285ccbb6056ccb77926774d96256344e',1,'BSP::Buzzer']]],
-  ['awake_5fwindow_27',['AWAKE_WINDOW',['../d6/dcf/class_a_p_p_1_1_com_module.html#a80db1230e6a88db34e6d9c3b67b999a8',1,'APP::ComModule']]]
+  ['1_20mbyte_0',['FLASH Dual-bank on 1 Mbyte',['https://panchev68.github.io/HALF4/d4/dfd/a00810.html',1,'']]],
+  ['1_20second_20parameter_20definitions_1',['RTCEx Add 1 Second Parameter Definitions',['https://panchev68.github.io/HALF4/db/daf/a01019.html',1,'']]]
 ];

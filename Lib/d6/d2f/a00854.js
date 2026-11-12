@@ -1,7 +1,7 @@
 var a00854 =
 [
-    [ "Lib::USB::SerialPortRepeaterBase", "dc/dec/a06008.html", "dc/dec/a06008" ],
-    [ "Lib::USB::SerialPortRepeaterBase::Config", "d2/dc4/a06012.html", "d2/dc4/a06012" ],
+    [ "Lib::USB::SerialPortRepeaterBase", "d0/d4e/a06005.html", "d0/d4e/a06005" ],
+    [ "Lib::USB::SerialPortRepeaterBase::Config", "d5/d0a/a06009.html", "d5/d0a/a06009" ],
     [ "CDC_Transmit_FS", "d6/d2f/a00854.html#a9f54b31ad23bbe32b693bdeef89303f4", null ],
     [ "MX_USB_DEVICE_Init", "d6/d2f/a00854.html#adab4f7fc1db4ce2be073d3913209d2af", null ],
     [ "USBD_CDC_ReceivePacket", "d6/d2f/a00854.html#a7c4014397838b40b7716d800fd90ebcf", null ],

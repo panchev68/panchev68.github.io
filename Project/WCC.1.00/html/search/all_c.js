@@ -1,16 +1,11 @@
 var searchData=
 [
-  ['newframecallback_0',['NewFrameCallback',['../dd/df7/class_com_service.html#aeb336bde438e3ff9e0df3d8cbd1aa4ad',1,'ComService']]],
-  ['nfc_5freader_1',['NFC_READER',['../d6/dc5/group___a_p_p.html#ggab7dddd440070a1dbdfec9cb40c01c43aa07614812b8e46b19cb98d69d7cf2d7d0',1,'APP::Commands']]],
-  ['no_5ffirst_5fresult_2',['NO_FIRST_RESULT',['../d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547a768cb4a0014757976d3a039312891922',1,'APP::DistanceMeterTest']]],
-  ['no_5fpresence_3',['NO_PRESENCE',['../d8/d8e/class_a_p_p_1_1_d_s18_b20_comms_test.html#af1f47ec2dcef1f9ae1ead2660f65b786a29b3867a7b097c5f3dc4b338260989d8',1,'APP::DS18B20CommsTest']]],
-  ['no_5fresponse_4',['NO_RESPONSE',['../d0/d3d/class_a_p_p_1_1_p_g_a460_comms_test.html#afa3d9788b340374a1c32a4a43c6ea1f8a8e399aedb37789c2596e6c36b6c63547',1,'APP::PGA460CommsTest']]],
-  ['no_5fsecond_5fresult_5',['NO_SECOND_RESULT',['../d0/d6b/class_a_p_p_1_1_distance_meter_test.html#a66a7632d28ae40357ff6a0a580f7f547a13c4f6d2d985cc5f31c4fbbf14f6e2e0',1,'APP::DistanceMeterTest']]],
-  ['none_6',['NONE',['../d6/dc5/group___a_p_p.html#ggad99394c03546200de2cef12a277a2099ab50339a10e1de285ac99d4c3990b8693',1,'ComService::NONE'],['../d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a779f894f7d441c83f09558afa303b57dab50339a10e1de285ac99d4c3990b8693',1,'APP::RFIDCardTest::NONE']]],
-  ['not_5ferased_7',['NOT_ERASED',['../da/dff/class_a_p_p_1_1_storage_test.html#a0ece340e4a965f2a3e4901349f4ff785adddec33f1c188fbb88bb532a64c33d77',1,'APP::StorageTest']]],
-  ['not_5ffound_8',['NOT_FOUND',['../db/da7/class_a_p_p_1_1_blocklist.html#ab29f9d83dc9107143ad8baa1d2cc56d0a8c02547a8a3b02382bac3557bcb2280d',1,'APP::Blocklist::NOT_FOUND'],['../d0/d9b/class_a_p_p_1_1_service_list.html#a171fca641c4bfec07b6fbdeb4f89645ca8c02547a8a3b02382bac3557bcb2280d',1,'APP::ServiceList::NOT_FOUND']]],
-  ['not_5fgenuine_9',['NOT_GENUINE',['../d6/dc5/group___a_p_p.html#gga88db4eccae3f9db42d03355cd029286cad497de826ca9653101fb3f160ce8fbdf',1,'APP::Commands']]],
-  ['not_5fopened_10',['NOT_OPENED',['../d6/dc5/group___a_p_p.html#gga5186e98dedb05c54d817d2063a204812a70814641bed052ce0bb618311864160c',1,'APP::Commands']]],
-  ['notifyactivity_11',['notifyActivity',['../d6/dcf/class_a_p_p_1_1_com_module.html#a69ed1d167f03e2435d416caede18bb24',1,'APP::ComModule']]],
-  ['notifydisposal_12',['notifyDisposal',['../d7/dc4/class_a_p_p_1_1_distance_meter.html#a0445a0d332e48795aa9e8f776f48bb5f',1,'APP::DistanceMeter']]]
+  ['jaggedarray_0',['JaggedArray',['https://panchev68.github.io/Lib/d4/ddc/a00917.html#ad371b43a764bd5b625afa226a1fc12eb',1,'Lib::Helper']]],
+  ['jaggedarray_2ehpp_1',['JaggedArray.hpp',['https://panchev68.github.io/Lib/da/dd1/a00629.html',1,'']]],
+  ['jaggedarraybase_2',['JaggedArrayBase',['https://panchev68.github.io/Lib/da/d28/a05644.html',1,'Lib::Helper::JaggedArrayBase&lt; typename T_ELEMENT &gt;'],['https://panchev68.github.io/Lib/da/d28/a05644.html#ae79ec88b260154126e7ec280a136c14a',1,'Lib::Helper::JaggedArrayBase::JaggedArrayBase()']]],
+  ['jaggedarraybase_3c_20jaggedarrayrow_3c_20t_5felement_20_3e_20_3e_3',['JaggedArrayBase&lt; JaggedArrayRow&lt; T_ELEMENT &gt; &gt;',['https://panchev68.github.io/Lib/da/d28/a05644.html',1,'Lib::Helper']]],
+  ['jaggedarraybase_3c_20t_5felement_20_3e_4',['JaggedArrayBase&lt; T_ELEMENT &gt;',['https://panchev68.github.io/Lib/da/d28/a05644.html',1,'Lib::Helper']]],
+  ['jaggedarrayrow_5',['JaggedArrayRow',['https://panchev68.github.io/Lib/d4/ddc/a00917.html#abb4a58cc33c78b1e079bef9fe69346d0',1,'Lib::Helper']]],
+  ['join_5ferror_6',['join_error',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11614.html',1,'__gnu_pbds']]],
+  ['jpeg_20aliased_20macros_20maintained_20for_20legacy_20purpose_7',['HAL JPEG Aliased Macros maintained for legacy purpose',['https://panchev68.github.io/HALF4/d1/d8c/a00600.html',1,'']]]
 ];

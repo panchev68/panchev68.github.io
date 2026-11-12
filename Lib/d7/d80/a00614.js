@@ -1,5 +1,5 @@
 var a00614 =
 [
-    [ "Lib::HAL::StreamSerialPort", "d4/db7/a05476.html", "d4/db7/a05476" ],
-    [ "Lib::HAL::StreamSerialPort::Config", "dd/d34/a05480.html", "dd/d34/a05480" ]
+    [ "Lib::HAL::StreamSerialPort", "dd/da9/a05473.html", "dd/da9/a05473" ],
+    [ "Lib::HAL::StreamSerialPort::Config", "d4/d8b/a05477.html", "d4/d8b/a05477" ]
 ];

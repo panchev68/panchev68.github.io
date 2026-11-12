@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hal_0',['HAL',['../d5/d69/a00878.html',1,'']]],
+  ['hal_0',['HAL',['../d1/d93/a00875.html',1,'']]],
   ['hal_20adc_20aliased_20defines_20maintained_20for_20legacy_20purpose_1',['HAL ADC Aliased Defines maintained for legacy purpose',['https://panchev68.github.io/HALF4/d9/dad/a00591.html',0,'']]],
   ['hal_20adc_20aliased_20macros_20maintained_20for_20legacy_20purpose_2',['HAL ADC Aliased Macros maintained for legacy purpose',['https://panchev68.github.io/HALF4/d6/d08/a00646.html',0,'']]],
   ['hal_20can_20aliased_20defines_20maintained_20for_20legacy_20purpose_3',['HAL CAN Aliased Defines maintained for legacy purpose',['https://panchev68.github.io/HALF4/d2/d34/a00625.html',0,'']]],
@@ -106,7 +106,7 @@ var searchData=
   ['handler_20fault_20type_103',['Handler Fault type',['https://panchev68.github.io/HALF4/d4/d10/a01197.html',0,'']]],
   ['handler_20management_104',['TIM IRQ handler management',['https://panchev68.github.io/HALF4/d7/dc4/a01354.html',0,'']]],
   ['handles_105',['Node handles',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01636.html',0,'']]],
-  ['hardware_20abstraction_20layer_106',['Hardware Abstraction Layer',['../da/d98/a00870.html',1,'']]],
+  ['hardware_20abstraction_20layer_106',['Hardware Abstraction Layer',['../d2/db8/a00867.html',1,'']]],
   ['hardware_20flow_20control_107',['UART Hardware Flow Control',['https://panchev68.github.io/HALF4/db/d07/a01155.html',0,'']]],
   ['hash_20aliased_20functions_20maintained_20for_20legacy_20purpose_108',['HAL HASH Aliased Functions maintained for legacy purpose',['https://panchev68.github.io/HALF4/d4/d2a/a00632.html',0,'']]],
   ['hash_20api_20alias_109',['HASH API alias',['https://panchev68.github.io/HALF4/d5/de3/a00631.html',0,'']]],

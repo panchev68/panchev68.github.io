@@ -1,4 +1,4 @@
 var a00338 =
 [
-    [ "Lib::Digi::Core::FrameWriter", "d8/d36/a04984.html", "d8/d36/a04984" ]
+    [ "Lib::Digi::Core::FrameWriter", "df/d07/a04981.html", "df/d07/a04981" ]
 ];

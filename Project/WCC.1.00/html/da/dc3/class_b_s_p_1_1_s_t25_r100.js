@@ -6,7 +6,7 @@ var class_b_s_p_1_1_s_t25_r100 =
     [ "enableInterrupt", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#addcfe6e121a5b3f0c356595da5f6ca06", null ],
     [ "handleInterrupt", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#a7fd27895d6488eeff1181fe2185f666a", null ],
     [ "instance", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#a444f95144fbba8d40fe95a36ca0d0d28", null ],
-    [ "manager", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#a879b1604af76568018a964a31e562d0e", null ],
+    [ "manager", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#a64d2d5c6571ab1c4218027349a6138dc", null ],
     [ "setIdleWakeupTiming", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#a29d4b59cf4dc02025cf362a5b0517ee4", null ],
     [ "MODE", "da/dc3/class_b_s_p_1_1_s_t25_r100.html#a6c0ac9d97ea90f0582def684fc0f1c83", null ]
 ];

@@ -1,20 +1,9 @@
 var searchData=
 [
-  ['magic_0',['MAGIC',['../dc/dfb/struct_a_p_p_1_1_issuer_key.html#abecd123ee4a35f8979d33b0bbb384c92',1,'APP::IssuerKey']]],
-  ['max_5factive_1',['MAX_ACTIVE',['../db/da7/class_a_p_p_1_1_blocklist.html#afb3174f12ef57865cd92808b7d4f19f9',1,'APP::Blocklist::MAX_ACTIVE'],['../d0/d9b/class_a_p_p_1_1_service_list.html#a50f9cc32db584b5ae1a43ab4609127d3',1,'APP::ServiceList::MAX_ACTIVE']]],
-  ['max_5fblocklist_5fremovals_5fper_5fframe_2',['MAX_BLOCKLIST_REMOVALS_PER_FRAME',['../d4/dab/namespace_a_p_p_1_1_commands.html#a1f1dac6d2cd680b94f32eceff0f7f85e',1,'APP::Commands']]],
-  ['max_5fbody_5fsize_3',['MAX_BODY_SIZE',['../d6/dcc/class_protocol.html#a1a596af52d7a569931d5fd4cbfe08ca9',1,'Protocol']]],
-  ['max_5fencoded_5fsize_4',['MAX_ENCODED_SIZE',['../d6/dcc/class_protocol.html#aba25087a15ba123a2c9107fce70af5c9',1,'Protocol']]],
-  ['max_5fframe_5flength_5',['MAX_FRAME_LENGTH',['../d6/dcc/class_protocol.html#acc7a9f5c370de2940f9a5701396a99fb',1,'Protocol']]],
-  ['max_5fnumbers_5fper_5fframe_6',['MAX_NUMBERS_PER_FRAME',['../d4/dab/namespace_a_p_p_1_1_commands.html#a8c32c216d5efe720863efd9ecf8edd53',1,'APP::Commands']]],
-  ['max_5foff_5ftime_7',['MAX_OFF_TIME',['../d6/dcf/class_a_p_p_1_1_com_module.html#a255d1ed89b9e5bc6eb59a61b3ae3c68c',1,'APP::ComModule']]],
-  ['max_5fpayload_5fsize_8',['MAX_PAYLOAD_SIZE',['../d6/dcc/class_protocol.html#ae869e54095fe3ca7f2e6826cb95386ae',1,'Protocol']]],
-  ['max_5fperiod_9',['MAX_PERIOD',['../d2/d5f/class_b_s_p_1_1_buzzer.html#ab9f27d322332d1c57a884430aa28a95f',1,'BSP::Buzzer']]],
-  ['max_5frecords_5fper_5fframe_10',['MAX_RECORDS_PER_FRAME',['../d4/dab/namespace_a_p_p_1_1_commands.html#ad5ed895918e5ccd05298add1fbab5160',1,'APP::Commands']]],
-  ['max_5frestarts_11',['MAX_RESTARTS',['../d6/dcf/class_a_p_p_1_1_com_module.html#a6d064953cfc07fd33a2884fa4017aa7a',1,'APP::ComModule']]],
-  ['max_5frtc_5fyear_12',['MAX_RTC_YEAR',['../de/d8f/class_h_a_l_1_1_r_t_c_port.html#accc68253d37613905ffc345fbbbfde99',1,'HAL::RTCPort']]],
-  ['measurements_5fresponse_5fsize_13',['MEASUREMENTS_RESPONSE_SIZE',['../d4/dab/namespace_a_p_p_1_1_commands.html#a14e8ca6dab95301800e025f8a256731a',1,'APP::Commands']]],
-  ['min_5ffrequency_5fhz_14',['MIN_FREQUENCY_HZ',['../d2/d5f/class_b_s_p_1_1_buzzer.html#ad198da9bffb4c8e6733f522ad3c3d097',1,'BSP::Buzzer']]],
-  ['min_5fvalid_5funix_5ftime_15',['MIN_VALID_UNIX_TIME',['../d6/dcf/class_a_p_p_1_1_com_module.html#a4c1db40a2070f0de36045310a186ec80',1,'APP::ComModule']]],
-  ['mode_16',['MODE',['../da/dc3/class_b_s_p_1_1_s_t25_r100.html#a6c0ac9d97ea90f0582def684fc0f1c83',1,'BSP::ST25R100']]]
+  ['kd_0',['kd',['https://panchev68.github.io/Lib/d7/df8/a05736.html#a6fd341537b6f12074478402b53dea8f1',1,'Lib::Math::Pid::Parameters']]],
+  ['key_5fid_1',['KEY_ID',['../dc/dfb/struct_a_p_p_1_1_issuer_key.html#a351fe47831abbd0e9383ffc68843fb93',1,'APP::IssuerKey']]],
+  ['key_5fsize_2',['KEY_SIZE',['https://panchev68.github.io/Lib/d7/d79/a04452.html#a980b716db4c2a569de88ee08e724300b',1,'Lib::BSP::RFID::Mifare::KEY_SIZE'],['https://panchev68.github.io/Lib/da/d0e/a04752.html#ac4008236e8ab12e80436fcd9c33d2a32',1,'Lib::Crypto::WolfSSLChaCha20Poly1305::KEY_SIZE'],['https://panchev68.github.io/Lib/d8/dfa/a04756.html#ae3da827199d0e9dbd72b6071bedc5eb5',1,'Lib::Crypto::WolfSSLEcc::KEY_SIZE']]],
+  ['khaki_3',['KHAKI',['https://panchev68.github.io/Lib/de/da6/a04504.html#a48b82b65f1fad4d9822cc288cd4f6c1a',1,'Color']]],
+  ['ki_4',['ki',['https://panchev68.github.io/Lib/d7/df8/a05736.html#ac30cd8786ec60c8114bc21b7f63145d4',1,'Lib::Math::Pid::Parameters']]],
+  ['kp_5',['kp',['https://panchev68.github.io/Lib/d7/df8/a05736.html#af4932c40d48d9c972bd4f448a37388bc',1,'Lib::Math::Pid::Parameters']]]
 ];

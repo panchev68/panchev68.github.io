@@ -1,4 +1,27 @@
 var searchData=
 [
-  ['xpt2046_0',['XPT2046',['d9/d31/a01208.html',1,'Lib::BSP']]]
+  ['w25q128jvsiq_0',['W25Q128JVSIQ',['../d7/d46/class_b_s_p_1_1_w25_q128_j_v_s_i_q.html',1,'BSP::W25Q128JVSIQ'],['https://panchev68.github.io/Lib/d6/d5c/a04388.html',1,'Lib::BSP::FMEM::OSPI::W25Q128JVSIQ'],['https://panchev68.github.io/Lib/d5/dbb/a04408.html',1,'Lib::BSP::W25Q128JVSIQ']]],
+  ['w5500_1',['W5500',['https://panchev68.github.io/Lib/d9/dab/a05164.html',1,'Lib::Ethernet::Wiznet']]],
+  ['wakeupdiagnostics_2',['WakeupDiagnostics',['https://panchev68.github.io/Lib/d1/dc3/a04492.html',1,'Lib::BSP::RFID::ST25R100']]],
+  ['wakeuptuningtest_3',['WakeupTuningTest',['../d8/dc1/class_a_p_p_1_1_wakeup_tuning_test.html',1,'APP']]],
+  ['wbuffer_5fconvert_4',['wbuffer_convert',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04986.html',1,'std']]],
+  ['weak_5fptr_5',['weak_ptr',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06210.html',1,'std']]],
+  ['weak_5fptr_3c_20_5ftp_20_3e_6',['weak_ptr&lt; _Tp &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06210.html',1,'std']]],
+  ['weibull_5fdistribution_7',['weibull_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05602.html',1,'std']]],
+  ['windowwatchdog_8',['WindowWatchdog',['https://panchev68.github.io/Lib/d7/d1c/a05564.html',1,'Lib::HAL']]],
+  ['wolfssh_9',['WolfSSH',['https://panchev68.github.io/Lib/d4/deb/a04728.html',1,'Lib::Crypto']]],
+  ['wolfsshserver_10',['WolfSSHServer',['https://panchev68.github.io/Lib/d4/da9/a04736.html',1,'Lib::Crypto']]],
+  ['wolfsshservercontext_11',['WolfSSHServerContext',['https://panchev68.github.io/Lib/d7/deb/a04732.html',1,'Lib::Crypto']]],
+  ['wolfsslaesgcm_12',['WolfSSLAesGcm',['https://panchev68.github.io/Lib/dc/d42/a04748.html',1,'Lib::Crypto']]],
+  ['wolfsslchacha20poly1305_13',['WolfSSLChaCha20Poly1305',['https://panchev68.github.io/Lib/da/d0e/a04752.html',1,'Lib::Crypto']]],
+  ['wolfssldh_14',['WolfSSLDh',['https://panchev68.github.io/Lib/da/deb/a04764.html',1,'Lib::Crypto']]],
+  ['wolfsslecc_15',['WolfSSLEcc',['https://panchev68.github.io/Lib/d8/dfa/a04756.html',1,'Lib::Crypto']]],
+  ['wolfsslrandom_16',['WolfSSLRandom',['https://panchev68.github.io/Lib/d8/d0e/a04744.html',1,'Lib::Crypto']]],
+  ['wolfsslrsa_17',['WolfSSLRsa',['https://panchev68.github.io/Lib/db/dc8/a04760.html',1,'Lib::Crypto']]],
+  ['wolfsslsha256_18',['WolfSSLSHA256',['https://panchev68.github.io/Lib/d9/dda/a04740.html',1,'Lib::Crypto']]],
+  ['wolfssltransport_19',['WolfSSLTransport',['https://panchev68.github.io/Lib/da/dff/a05696.html',1,'Lib::HTTP']]],
+  ['wstring_5fconvert_20',['wstring_convert',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04982.html',1,'std']]],
+  ['wucomparatorsnapshot_21',['WuComparatorSnapshot',['https://panchev68.github.io/Lib/d1/d55/a04496.html',1,'Lib::BSP::RFID::ST25R100']]],
+  ['wwdg_5fhandletypedef_22',['WWDG_HandleTypeDef',['https://panchev68.github.io/HALF4/d5/d84/a01612.html',1,'']]],
+  ['wwdg_5finittypedef_23',['WWDG_InitTypeDef',['https://panchev68.github.io/HALF4/db/dfd/a01608.html',1,'']]]
 ];

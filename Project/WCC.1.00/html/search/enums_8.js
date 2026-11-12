@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['uidkind_0',['UidKind',['../d6/d3e/class_a_p_p_1_1_r_f_i_d_card_test.html#a779f894f7d441c83f09558afa303b57d',1,'APP::RFIDCardTest']]]
+  ['ili9341registers_0',['ILI9341Registers',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2',1,'Lib::BSP::Display']]],
+  ['io_5ferrc_1',['io_errc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2',1,'std']]]
 ];

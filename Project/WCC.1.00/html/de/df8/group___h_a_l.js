@@ -18,7 +18,6 @@ var group___h_a_l =
       [ "instance", "d6/da8/class_h_a_l_1_1_hash_port.html#a6480ca170175c410a768934832f3ed58", null ]
     ] ],
     [ "HAL::I2CPort1", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html", [
-      [ "Driver", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html#ad8ba32a667e66c0f885744d575d987ce", null ],
       [ "instance", "d8/d8e/class_h_a_l_1_1_i2_c_port1.html#ae5e4dd0f4b693b6977563f0fe1eabdc7", null ]
     ] ],
     [ "HAL::OSPI1Port", "dc/d54/class_h_a_l_1_1_o_s_p_i1_port.html", [
@@ -31,9 +30,7 @@ var group___h_a_l =
       [ "getUnixTime", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#a654151d7aa47563d2f887b0005d05547", null ],
       [ "instance", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#ab4162a3124b02586ef0010c3871c5127", null ],
       [ "setUnixTime", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#a42b57b2b702bf7dd7af6c35d2ee8ff45", null ],
-      [ "toUnixTime", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#a81333fd6977ce2b8a6394f796bf1cb12", null ],
-      [ "MAX_RTC_YEAR", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#accc68253d37613905ffc345fbbbfde99", null ],
-      [ "RTC_EPOCH_YEAR", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#a6f3244220299042b5fa574a445923b35", null ]
+      [ "toUnixTime", "de/d8f/class_h_a_l_1_1_r_t_c_port.html#a81333fd6977ce2b8a6394f796bf1cb12", null ]
     ] ],
     [ "HAL::SPI3Port", "da/d1a/class_h_a_l_1_1_s_p_i3_port.html", [
       [ "Driver", "da/d1a/class_h_a_l_1_1_s_p_i3_port.html#ada1f7202ace4ccd9a0513f42cf55758d", null ],

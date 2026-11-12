@@ -1,5 +1,5 @@
 var a00434 =
 [
-    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;", "df/d2e/a05216.html", "df/d2e/a05216" ],
-    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;::Event", "dd/d2d/a05220.html", null ]
+    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;", "d3/dbd/a05213.html", "d3/dbd/a05213" ],
+    [ "Lib::HAL::ADCPort&lt; DriverMode::DMA &gt;::Event", "d9/d28/a05217.html", null ]
 ];

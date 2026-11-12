@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['storagelike_0',['StorageLike',['db/d6a/a02613.html',1,'Lib::System']]]
+  ['storagelike_0',['StorageLike',['https://panchev68.github.io/Lib/dd/d27/a06045.html',1,'Lib::System']]]
 ];

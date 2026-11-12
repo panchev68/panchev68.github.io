@@ -1,15 +1,9 @@
 var class_a_p_p_1_1_user_interface =
 [
-    [ "UserInterface", "d4/dba/class_a_p_p_1_1_user_interface.html#ae40af677ae8df7c43e1ab41536408007", null ],
-    [ "UserInterface", "d4/dba/class_a_p_p_1_1_user_interface.html#ac2511a8c58fd3bfe56d674987fd8dfe9", null ],
-    [ "UserInterface", "d4/dba/class_a_p_p_1_1_user_interface.html#a31f3a9dd3cfe4af80ed4e3170a2842da", null ],
     [ "getIsAlarmOn", "d4/dba/class_a_p_p_1_1_user_interface.html#abe16c3efb9a19cbe8cc314ee42741774", null ],
     [ "getIsBusy", "d4/dba/class_a_p_p_1_1_user_interface.html#a969346776eb7e4b4edb97199f3b9a824", null ],
     [ "getIsDoorOpen", "d4/dba/class_a_p_p_1_1_user_interface.html#a87eecd7ba683c69d993382045b5b44d2", null ],
-    [ "impl", "d4/dba/class_a_p_p_1_1_user_interface.html#afddd0377b5e0b978604f588e21a41024", null ],
     [ "instance", "d4/dba/class_a_p_p_1_1_user_interface.html#a6ef421bb13bfa403adb62319df4b3deb", null ],
-    [ "operator=", "d4/dba/class_a_p_p_1_1_user_interface.html#ac4a71d91d4e5ef00bb8a840e28bc645b", null ],
-    [ "operator=", "d4/dba/class_a_p_p_1_1_user_interface.html#aab0a72f4f1e59e4178d547d1566e3e64", null ],
     [ "requestSelection", "d4/dba/class_a_p_p_1_1_user_interface.html#aaee089d282f46969324086c323c26244", null ],
     [ "requestServiceOpen", "d4/dba/class_a_p_p_1_1_user_interface.html#a38e2c6c65ce3e12848af7a75efcba9cb", null ],
     [ "start", "d4/dba/class_a_p_p_1_1_user_interface.html#a6c606ac92ba37f0ac6b192b83d56a7a7", null ],
