@@ -1,8 +1,5 @@
 var a01281 =
 [
-    [ "miso", "d5/d6f/a01281.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "d5/d6f/a01281.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "d5/d6f/a01281.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "d5/d6f/a01281.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "d5/d6f/a01281.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "HAL_ADC_AnalogWDGConfig", "https://panchev68.github.io/HALF4/d5/d6f/a01281.html#gaebd9d3c15de8c92e92e18ee38d1bd998", null ],
+    [ "HAL_ADC_ConfigChannel", "https://panchev68.github.io/HALF4/d5/d6f/a01281.html#gac6f70c4927204d6f50ab44c8e4800106", null ]
 ];

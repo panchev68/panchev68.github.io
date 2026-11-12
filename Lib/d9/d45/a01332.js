@@ -1,5 +1,6 @@
 var a01332 =
 [
-    [ "function", "d9/d45/a01332.html#aff0c3dca100d278e3da27425e0eda593", null ],
-    [ "object", "d9/d45/a01332.html#aab9c6938c500fb9ab189884c52b57486", null ]
+    [ "SMARTCARD_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/dc/d2a/a01333.html", "dc/d2a/a01333" ],
+    [ "SMARTCARD_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/d4/dd1/a01334.html", "d4/dd1/a01334" ],
+    [ "SMARTCARD_Exported_Functions_Group3", "https://panchev68.github.io/HALF4/d4/d04/a01335.html", "d4/d04/a01335" ]
 ];

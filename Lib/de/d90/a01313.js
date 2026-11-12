@@ -1,6 +1,6 @@
 var a01313 =
 [
-    [ "adc", "de/d90/a01313.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
-    [ "channel", "de/d90/a01313.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
-    [ "periodMs", "de/d90/a01313.html#ad839d16fe06238279ff23042e3761f0c", null ]
+    [ "HAL_PWR_DeInit", "https://panchev68.github.io/HALF4/de/d90/a01313.html#ga7edb99b94a46448c34f0301b0a077ff5", null ],
+    [ "HAL_PWR_DisableBkUpAccess", "https://panchev68.github.io/HALF4/de/d90/a01313.html#ga1513de5f2e4b72e094fb04bab786fec8", null ],
+    [ "HAL_PWR_EnableBkUpAccess", "https://panchev68.github.io/HALF4/de/d90/a01313.html#ga3d07cef39bf294db4aed7e06e5dbf9af", null ]
 ];

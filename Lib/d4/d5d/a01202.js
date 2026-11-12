@@ -1,9 +1,8 @@
 var a01202 =
 [
-    [ "calculatedChecksum", "d4/d5d/a01202.html#a1d18a8e050f48b361fe2c7fc67b48d9c", null ],
-    [ "frameChecksum", "d4/d5d/a01202.html#afd2a7854bded2de4881565573fc0d9b1", null ],
-    [ "invalidFrameChecksum", "d4/d5d/a01202.html#a535dc6543896cb6332741f3f4bcbbf25", null ],
-    [ "invalidHumidity", "d4/d5d/a01202.html#a97069f405d3773e81b9930425efc8d74", null ],
-    [ "invalidTemperature", "d4/d5d/a01202.html#a1546e42a9d2980ee2327c19a3fdedfd7", null ],
-    [ "receivedTimeout", "d4/d5d/a01202.html#a3e5e86a8e63c9916804fedfede21ed31", null ]
+    [ "LL_CPUID_GetConstant", "https://panchev68.github.io/HALF4/d4/d5d/a01202.html#ga787f8b30eaa7a4c304fd5784daa98d6c", null ],
+    [ "LL_CPUID_GetImplementer", "https://panchev68.github.io/HALF4/d4/d5d/a01202.html#ga648a5236b7fa08786086fcc4ce42b4b9", null ],
+    [ "LL_CPUID_GetParNo", "https://panchev68.github.io/HALF4/d4/d5d/a01202.html#gac98fd56ad9162c3f372004bd07038bdb", null ],
+    [ "LL_CPUID_GetRevision", "https://panchev68.github.io/HALF4/d4/d5d/a01202.html#ga7372821defd92c49ea4563da407acd01", null ],
+    [ "LL_CPUID_GetVariant", "https://panchev68.github.io/HALF4/d4/d5d/a01202.html#ga1f843da5f8524bace7fcf8dcce7996cb", null ]
 ];

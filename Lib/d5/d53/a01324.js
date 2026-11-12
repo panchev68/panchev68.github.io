@@ -1,5 +1,7 @@
 var a01324 =
 [
-    [ "localAtCommand", "d5/d53/a01324.html#a62c4d2c354626705c34bc850c039b5f7", null ],
-    [ "remoteAtCommand", "d5/d53/a01324.html#aa56356e688d34101ce88fae45dd6fa4a", null ]
+    [ "HAL_RTC_GetDate", "https://panchev68.github.io/HALF4/d5/d53/a01324.html#ga07ec2e43a305aa55e8c2442a349fc505", null ],
+    [ "HAL_RTC_GetTime", "https://panchev68.github.io/HALF4/d5/d53/a01324.html#gae478ca2647e8d2f7dd1828ce43889a9e", null ],
+    [ "HAL_RTC_SetDate", "https://panchev68.github.io/HALF4/d5/d53/a01324.html#ga6cf6c70227337a564ccef82f64d6268f", null ],
+    [ "HAL_RTC_SetTime", "https://panchev68.github.io/HALF4/d5/d53/a01324.html#gafe0fed98171a564decd2a6c9be9781d8", null ]
 ];

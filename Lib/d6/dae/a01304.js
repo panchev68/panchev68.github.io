@@ -1,9 +1,6 @@
 var a01304 =
 [
-    [ "errorCode", "d6/dae/a01304.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "d6/dae/a01304.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "d6/dae/a01304.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "d6/dae/a01304.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "d6/dae/a01304.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "d6/dae/a01304.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "I2S_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/dc/d9e/a01305.html", "dc/d9e/a01305" ],
+    [ "I2S_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/d7/d8c/a01306.html", "d7/d8c/a01306" ],
+    [ "I2S_Exported_Functions_Group3", "https://panchev68.github.io/HALF4/d2/d4c/a01307.html", "d2/d4c/a01307" ]
 ];

@@ -1,20 +1,15 @@
 var a01284 =
 [
-    [ "Diagnostic", "dd/d18/a01284.html#a4412fc056d4c7fd922510ac818f9f29f", null ],
-    [ "RxMessage", "dd/d18/a01284.html#a932efed9da888704df63ae07522746cc", null ],
-    [ "Service", "dd/d18/a01284.html#afb69c60e1b3fb8c0f019359b77c18e7c", null ],
-    [ "~Service", "dd/d18/a01284.html#a30e6a9733d9f217ad7d68f54d009a286", null ],
-    [ "errorCallback", "dd/d18/a01284.html#ad74f33fcf92667fa655a8cef606c84d9", null ],
-    [ "getDiagnostic", "dd/d18/a01284.html#ac4f24cab5af43338c4feec4e384ec00b", null ],
-    [ "messageReceivedCallback", "dd/d18/a01284.html#a90b4af9d9bea6fa640fce38af5d20e5f", null ],
-    [ "receive", "dd/d18/a01284.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "dd/d18/a01284.html#a7f595e29f9d0f652826f0c139ddb37e8", null ],
-    [ "send", "dd/d18/a01284.html#aad0ab4b3fc67332597a346d30271a53b", null ],
-    [ "send", "dd/d18/a01284.html#a6237cedfed2431ade85c2736d2e9fc10", null ],
-    [ "send", "dd/d18/a01284.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "dd/d18/a01284.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "dd/d18/a01284.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "dd/d18/a01284.html#a784752f46553c65f8c8b3fe024a43cc1", null ],
-    [ "stop", "dd/d18/a01284.html#aaa138c97c967ef7f4ae1ccbf10b69187", null ],
-    [ "taskFn", "dd/d18/a01284.html#a375bb14705ce8117ed4e147179680854", null ]
+    [ "HAL_ADCEx_InjectedConfigChannel", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#ga5736a78398eb51ddeb09dd83d1243045", null ],
+    [ "HAL_ADCEx_InjectedConvCpltCallback", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#gaed7815e8b636ff1c1f456ecbaffe1942", null ],
+    [ "HAL_ADCEx_InjectedGetValue", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#ga7996668b61263f91c76d5f55551f3a07", null ],
+    [ "HAL_ADCEx_InjectedPollForConversion", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#ga5e11b306be79f36c71a73f2e465ad613", null ],
+    [ "HAL_ADCEx_InjectedStart", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#gaa666882ff772df8a5140090422825ed6", null ],
+    [ "HAL_ADCEx_InjectedStart_IT", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#gaf55cd28b1394a0564f99e1f5069c0ed1", null ],
+    [ "HAL_ADCEx_InjectedStop", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#ga91f6c85ae910e9baaf578a346c30c7c1", null ],
+    [ "HAL_ADCEx_InjectedStop_IT", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#gae032f41136f4dc4b3f3c2476b96a21f5", null ],
+    [ "HAL_ADCEx_MultiModeConfigChannel", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#gabfe8b04f9cfda94bc8aad912470122f5", null ],
+    [ "HAL_ADCEx_MultiModeGetValue", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#ga5ab7c06d2f0b5f9de1f86de5713d68d2", null ],
+    [ "HAL_ADCEx_MultiModeStart_DMA", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#gab36a3508a06430d7c7d0def79ec61b08", null ],
+    [ "HAL_ADCEx_MultiModeStop_DMA", "https://panchev68.github.io/HALF4/dd/d18/a01284.html#ga6a114ff60985be225d621a5c3be8ddf2", null ]
 ];

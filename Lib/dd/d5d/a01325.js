@@ -1,18 +1,10 @@
 var a01325 =
 [
-    [ "RxMessage", "df/d29/a01329.html", "df/d29/a01329" ],
-    [ "Node", "dc/d2a/a01333.html", "dc/d2a/a01333" ],
-    [ "Diagnostic", "db/dec/a01337.html", "db/dec/a01337" ],
-    [ "ServiceBase", "dd/d5d/a01325.html#acbfceb92cefef5281785b7d5db81df5d", null ],
-    [ "~ServiceBase", "dd/d5d/a01325.html#a6594894f460fcebe7b8705a3ebca6938", null ],
-    [ "errorCallback", "dd/d5d/a01325.html#aae6dd52724c824bca7f3a535ba9449d0", null ],
-    [ "getDiagnostic", "dd/d5d/a01325.html#aa6e2069cd0ca82608d533788d367dddf", null ],
-    [ "messageReceivedCallback", "dd/d5d/a01325.html#abe37221a89d42b0ec836894d481128b4", null ],
-    [ "receive", "dd/d5d/a01325.html#a24358bc730156fbe1517606352fbf513", null ],
-    [ "send", "dd/d5d/a01325.html#a9e61e58322c0a574320d57ad9da13966", null ],
-    [ "send", "dd/d5d/a01325.html#ae9698dff358c5494704ad558fcf82d22", null ],
-    [ "send", "dd/d5d/a01325.html#a26cd3541d7c850c5151fe7281e917a94", null ],
-    [ "start", "dd/d5d/a01325.html#a8d6e7286a93e0c3ef9d72b187747aaf5", null ],
-    [ "stop", "dd/d5d/a01325.html#a3d0252842f197249fff9649618458fee", null ],
-    [ "taskFn", "dd/d5d/a01325.html#a3f461c3e0f637c2be89463249c736b46", null ]
+    [ "HAL_RTC_AlarmAEventCallback", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#ga11aeff83fd498cddbed3bcddcf017e0a", null ],
+    [ "HAL_RTC_AlarmIRQHandler", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gac185f2ce34fe566418d0978a48e0c199", null ],
+    [ "HAL_RTC_DeactivateAlarm", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#ga186d852f8aee8a4d0dfeec778be35482", null ],
+    [ "HAL_RTC_GetAlarm", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#ga4786b652ffee2d59da2c65dd78646405", null ],
+    [ "HAL_RTC_PollForAlarmAEvent", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gaedc27fe412f45d999d74a0b98dce4d09", null ],
+    [ "HAL_RTC_SetAlarm", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gafd78015b93b16dcb9e41a4655a7ea972", null ],
+    [ "HAL_RTC_SetAlarm_IT", "https://panchev68.github.io/HALF4/dd/d5d/a01325.html#gab66a7fec05e9d9374de95d5f61e16c16", null ]
 ];

@@ -1,19 +1,15 @@
 var a01328 =
 [
-    [ "Target", "d9/d45/a01332.html", "d9/d45/a01332" ],
-    [ "Key", "df/d93/a01336.html", null ],
-    [ "FreeFunctionPointer", "dc/dd9/a01328.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "dc/dd9/a01328.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "dc/dd9/a01328.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "Base", "dc/dd9/a01328.html#ada2f3620cb4cc9850220df31dbcf89e9", null ],
-    [ "Base", "dc/dd9/a01328.html#a1d92d30cf7d3f61cb94e3c69f90ff601", null ],
-    [ "Base", "dc/dd9/a01328.html#ae7d33e0ad35e3c8a38cbc00dc1eaf95c", null ],
-    [ "Base", "dc/dd9/a01328.html#a653434d6566327a7ce3dd0d4409cdd70", null ],
-    [ "Base", "dc/dd9/a01328.html#a49a4e79ff99eb03351fd7a280f276905", null ],
-    [ "invoke", "dc/dd9/a01328.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "dc/dd9/a01328.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "dc/dd9/a01328.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "dc/dd9/a01328.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "dc/dd9/a01328.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "dc/dd9/a01328.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "HAL_RTCEx_DeactivateTamper", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gaf0c1b98177dbd9d20c460d6130dbad7e", null ],
+    [ "HAL_RTCEx_DeactivateTimeStamp", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#ga1d7152fccc39480de86c555c94e222a0", null ],
+    [ "HAL_RTCEx_GetTimeStamp", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#ga68d83277bafa5fcebd10f1bd83ef059e", null ],
+    [ "HAL_RTCEx_PollForTamper1Event", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gadea47894c36fc74044106654c081070b", null ],
+    [ "HAL_RTCEx_PollForTimeStampEvent", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gaff8adc3d27b9c84c69b64ffa6ad43457", null ],
+    [ "HAL_RTCEx_SetTamper", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#ga4b819431e03c521285cf3e275d930707", null ],
+    [ "HAL_RTCEx_SetTamper_IT", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#ga4984cf38a5bbdf1f607cc94cfdf3797f", null ],
+    [ "HAL_RTCEx_SetTimeStamp", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gaa3f5b7130d22ecd988e6d4a166328137", null ],
+    [ "HAL_RTCEx_SetTimeStamp_IT", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gaa60edb01ba82ff14dfa2d8b8d15c45ee", null ],
+    [ "HAL_RTCEx_Tamper1EventCallback", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gad849caf1e7b4774af56388a13636ba73", null ],
+    [ "HAL_RTCEx_TamperTimeStampIRQHandler", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#ga710f2cd8bab31242d496b020c182fef3", null ],
+    [ "HAL_RTCEx_TimeStampEventCallback", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html#gac9ef67f1f1698e9560a5ecd5e8c9a330", null ]
 ];

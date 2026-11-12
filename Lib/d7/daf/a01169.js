@@ -1,14 +1,13 @@
 var a01169 =
 [
-    [ "Mifare", "d7/daf/a01169.html#a32c5c26548db5a62c135d462408f7eb8", null ],
-    [ "~Mifare", "d7/daf/a01169.html#ab9292dbd07d2f2f0a579729beadce81a", null ],
-    [ "adjustValue", "d7/daf/a01169.html#ae63c40816081c83b32237540fa351d20", null ],
-    [ "authenticate", "d7/daf/a01169.html#a646ed2b83f740acca2902cf2bd94584a", null ],
-    [ "decrement", "d7/daf/a01169.html#ad4aef0d4dd5dd87530916fd4e7899410", null ],
-    [ "formatValueBlock", "d7/daf/a01169.html#ae321e9f7437818d3481f77afa3da63ec", null ],
-    [ "increment", "d7/daf/a01169.html#a419ae2e457e93dfb3ad77a301758f796", null ],
-    [ "readBlock", "d7/daf/a01169.html#ac2dfd03cabc019b9f3bf484f8affa113", null ],
-    [ "restore", "d7/daf/a01169.html#a7dee5ed9db810229e38b0299ec1ed31a", null ],
-    [ "transfer", "d7/daf/a01169.html#a7eac216ac4049cd65471896003a0d925", null ],
-    [ "writeBlock", "d7/daf/a01169.html#a602509a99b488ae6354b4c75e9335610", null ]
+    [ "USART_HandleTypeDef", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gaec98b0c736ef0239d3138036d0339c91", null ],
+    [ "HAL_USART_StateTypeDef", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#ga502e7abdfa6b24f0f6b40cf60c7383c5", null ],
+    [ "HAL_USART_STATE_BUSY", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5af29d38beb8203761692149ce14a9cbdb", null ],
+    [ "HAL_USART_STATE_BUSY_RX", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5a4943f2dd7af684bfad7688b16e149f0d", null ],
+    [ "HAL_USART_STATE_BUSY_TX", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5a2ee8ab5e15829c484ab4c4fbec68d3f6", null ],
+    [ "HAL_USART_STATE_BUSY_TX_RX", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5aab5458c5e3bf1fbd3065ef8fb0109e63", null ],
+    [ "HAL_USART_STATE_ERROR", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5a3bd9b34183b2942ab9b8bb8e9f2beb13", null ],
+    [ "HAL_USART_STATE_READY", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5ac707f3dc06c16fce84d167b03441e3d1", null ],
+    [ "HAL_USART_STATE_RESET", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5ab78adc4ded45529f2cf9e74150e49696", null ],
+    [ "HAL_USART_STATE_TIMEOUT", "https://panchev68.github.io/HALF4/d7/daf/a01169.html#gga502e7abdfa6b24f0f6b40cf60c7383c5a7e3fd9d81ea140c60b8ace92fa0efb06", null ]
 ];

@@ -1,15 +1,8 @@
 var a01229 =
 [
-    [ "Ring", "d6/da1/a01233.html", "d6/da1/a01233" ],
-    [ "Slice", "db/d1c/a01229.html#a029fda2bec067f1632bb4c002c0cc4d7", null ],
-    [ "SK6812", "db/d1c/a01229.html#a713fbeedeb85ff82f1097b206afd7918", null ],
-    [ "SK6812", "db/d1c/a01229.html#a9324fa6fb841ad9e67fb3bd936636c40", null ],
-    [ "SK6812", "db/d1c/a01229.html#a2f9a219363ee150f8efa09f1bd6ec064", null ],
-    [ "clear", "db/d1c/a01229.html#a8ea54ab6bb547eb76e71dface16f8de7", null ],
-    [ "getColor", "db/d1c/a01229.html#a1a0907fe121161268c1b859d90232628", null ],
-    [ "operator=", "db/d1c/a01229.html#a9d8fc15934e49458ed3b8b81fcd0dbec", null ],
-    [ "operator=", "db/d1c/a01229.html#aa21ec5517b393c1649c2045e822978e7", null ],
-    [ "setColor", "db/d1c/a01229.html#a1dee091ab3a22cc834dc6fa77f72a733", null ],
-    [ "setColor", "db/d1c/a01229.html#a61d6e4bc62a095e3a5553f184a8f0651", null ],
-    [ "setColor", "db/d1c/a01229.html#a31d240cb8095311a4ae5575a19d4dda0", null ]
+    [ "HAL_DeInit", "https://panchev68.github.io/HALF4/db/d1c/a01229.html#ga95911129a26afb05232caaaefa31956f", null ],
+    [ "HAL_Init", "https://panchev68.github.io/HALF4/db/d1c/a01229.html#gaecac54d350c3730e6831eb404e557dc4", null ],
+    [ "HAL_InitTick", "https://panchev68.github.io/HALF4/db/d1c/a01229.html#ga44d1542f9985b2243b14a41070cc41cc", null ],
+    [ "HAL_MspDeInit", "https://panchev68.github.io/HALF4/db/d1c/a01229.html#gaa2d4540edcb9dacec34edb77f3455bf0", null ],
+    [ "HAL_MspInit", "https://panchev68.github.io/HALF4/db/d1c/a01229.html#ga07e099a69ab23e79be8b7a80505de519", null ]
 ];

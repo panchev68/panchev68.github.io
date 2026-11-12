@@ -1,8 +1,8 @@
 var a01268 =
 [
-    [ "ambientTemperatureCelsius", "dc/dd9/a01268.html#afe46178f50e25346cca90112dc708790", null ],
-    [ "listenDuration", "dc/dd9/a01268.html#aed97102995a3a032b9524b1e47731f17", null ],
-    [ "timeout", "dc/dd9/a01268.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
-    [ "uart", "dc/dd9/a01268.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
-    [ "uartAddress", "dc/dd9/a01268.html#a07cd324da0adf0baf2262a0b33404164", null ]
+    [ "SPI Exported Types", "https://panchev68.github.io/HALF4/d1/de6/a01068.html", "d1/de6/a01068" ],
+    [ "SPI Exported Constants", "https://panchev68.github.io/HALF4/d8/d18/a01069.html", "d8/d18/a01069" ],
+    [ "SPI Exported Macros", "https://panchev68.github.io/HALF4/d6/d9a/a01083.html", null ],
+    [ "SPI Private Macros", "https://panchev68.github.io/HALF4/da/d93/a01084.html", null ],
+    [ "SPI_Exported_Functions", "https://panchev68.github.io/HALF4/d3/da4/a01343.html", "d3/da4/a01343" ]
 ];

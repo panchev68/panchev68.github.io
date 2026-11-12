@@ -1,9 +1,7 @@
 var a01294 =
 [
-    [ "Address", "d7/d88/a01294.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d7/d88/a01294.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d7/d88/a01294.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d7/d88/a01294.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d7/d88/a01294.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d7/d88/a01294.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
+    [ "HAL_FLASHEx_Erase", "https://panchev68.github.io/HALF4/d7/d88/a01294.html#ga3e998fdfd05d4073fb9af251ad649531", null ],
+    [ "HAL_FLASHEx_Erase_IT", "https://panchev68.github.io/HALF4/d7/d88/a01294.html#gaf58c6764859e4febc21abe462dfb2615", null ],
+    [ "HAL_FLASHEx_OBGetConfig", "https://panchev68.github.io/HALF4/d7/d88/a01294.html#ga6d45d5442b8147533b1100ec40fe75d7", null ],
+    [ "HAL_FLASHEx_OBProgram", "https://panchev68.github.io/HALF4/d7/d88/a01294.html#ga001dd4a8defa9eb24a17c4df5953a41d", null ]
 ];

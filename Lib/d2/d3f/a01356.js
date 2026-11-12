@@ -1,13 +1,13 @@
 var a01356 =
 [
-    [ "HAL_TIMEx_HallSensor_DeInit", "d2/d3f/a01356.html#ga61f3c18eb8fe53b65b55ec855072631d", null ],
-    [ "HAL_TIMEx_HallSensor_Init", "d2/d3f/a01356.html#ga70b3896d3c42d92d211c00566c623f71", null ],
-    [ "HAL_TIMEx_HallSensor_MspDeInit", "d2/d3f/a01356.html#gac19734439bdfa549b7fb5d85f3c0720d", null ],
-    [ "HAL_TIMEx_HallSensor_MspInit", "d2/d3f/a01356.html#ga88d9e7c4bc86e1a1190fda06e04552ea", null ],
-    [ "HAL_TIMEx_HallSensor_Start", "d2/d3f/a01356.html#ga9f4bfa2a4b890a2219ca927bbbb455fc", null ],
-    [ "HAL_TIMEx_HallSensor_Start_DMA", "d2/d3f/a01356.html#ga3d0d063498f6888d61411d56380f5211", null ],
-    [ "HAL_TIMEx_HallSensor_Start_IT", "d2/d3f/a01356.html#gaf3e7068c5bc6fc74e016cc8e990cbb02", null ],
-    [ "HAL_TIMEx_HallSensor_Stop", "d2/d3f/a01356.html#ga714c2a7a51f4ab61b04df84ab182eb86", null ],
-    [ "HAL_TIMEx_HallSensor_Stop_DMA", "d2/d3f/a01356.html#gab361d1aa6e0eb244886b93908beded6f", null ],
-    [ "HAL_TIMEx_HallSensor_Stop_IT", "d2/d3f/a01356.html#gac6ab7ab0cada425a8d4deb637bd2ad71", null ]
+    [ "HAL_TIMEx_HallSensor_DeInit", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#ga61f3c18eb8fe53b65b55ec855072631d", null ],
+    [ "HAL_TIMEx_HallSensor_Init", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#ga70b3896d3c42d92d211c00566c623f71", null ],
+    [ "HAL_TIMEx_HallSensor_MspDeInit", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#gac19734439bdfa549b7fb5d85f3c0720d", null ],
+    [ "HAL_TIMEx_HallSensor_MspInit", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#ga88d9e7c4bc86e1a1190fda06e04552ea", null ],
+    [ "HAL_TIMEx_HallSensor_Start", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#ga9f4bfa2a4b890a2219ca927bbbb455fc", null ],
+    [ "HAL_TIMEx_HallSensor_Start_DMA", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#ga3d0d063498f6888d61411d56380f5211", null ],
+    [ "HAL_TIMEx_HallSensor_Start_IT", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#gaf3e7068c5bc6fc74e016cc8e990cbb02", null ],
+    [ "HAL_TIMEx_HallSensor_Stop", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#ga714c2a7a51f4ab61b04df84ab182eb86", null ],
+    [ "HAL_TIMEx_HallSensor_Stop_DMA", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#gab361d1aa6e0eb244886b93908beded6f", null ],
+    [ "HAL_TIMEx_HallSensor_Stop_IT", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html#gac6ab7ab0cada425a8d4deb637bd2ad71", null ]
 ];

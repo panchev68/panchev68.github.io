@@ -1,5 +1,5 @@
 var a01368 =
 [
-    [ "function", "dd/d0c/a01368.html#aff0c3dca100d278e3da27425e0eda593", null ],
-    [ "object", "dd/d0c/a01368.html#aab9c6938c500fb9ab189884c52b57486", null ]
+    [ "HAL_UART_GetError", "https://panchev68.github.io/HALF4/dd/d0c/a01368.html#ga7297bf8c1679501a19c34f737c2eeea7", null ],
+    [ "HAL_UART_GetState", "https://panchev68.github.io/HALF4/dd/d0c/a01368.html#gad2799699d4d4b3c9d7fac0c3523fe45e", null ]
 ];

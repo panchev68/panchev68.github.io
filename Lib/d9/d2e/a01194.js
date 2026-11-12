@@ -1,6 +1,5 @@
 var a01194 =
 [
-    [ "pinHandle", "d9/d2e/a01194.html#af9f04ed2aca4140a903bfdc8b4b33ba8", null ],
-    [ "timerHandler", "d9/d2e/a01194.html#a908f71d13e7c2f17a05d9652c71b271d", null ],
-    [ "updatePeriod", "d9/d2e/a01194.html#a08c430ab4ab176b490c190835f89b3b0", null ]
+    [ "CORTEX Exported Constants", "https://panchev68.github.io/HALF4/d8/df3/a01195.html", "d8/df3/a01195" ],
+    [ "CORTEX Exported Functions", "https://panchev68.github.io/HALF4/d0/d32/a01198.html", "d0/d32/a01198" ]
 ];

@@ -1,5 +1,7 @@
 var a01298 =
 [
-    [ "Master", "d4/d34/a01298.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d4/d34/a01298.html#af2d503cce06191d01441adbba146c9f5", null ]
+    [ "Initialization and de-initialization functions", "https://panchev68.github.io/HALF4/d8/d38/a01299.html", "d8/d38/a01299" ],
+    [ "Input and Output operation functions", "https://panchev68.github.io/HALF4/d8/dc5/a01300.html", "d8/dc5/a01300" ],
+    [ "IRQ Handler and Callbacks", "https://panchev68.github.io/HALF4/d3/d07/a01301.html", "d3/d07/a01301" ],
+    [ "Peripheral State, Mode and Error functions", "https://panchev68.github.io/HALF4/dc/de0/a01302.html", "dc/de0/a01302" ]
 ];

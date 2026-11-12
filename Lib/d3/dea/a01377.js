@@ -1,12 +1,6 @@
 var a01377 =
 [
-    [ "FreeFunctionPointer", "d3/dea/a01377.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d3/dea/a01377.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d3/dea/a01377.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d3/dea/a01377.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d3/dea/a01377.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d3/dea/a01377.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d3/dea/a01377.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d3/dea/a01377.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d3/dea/a01377.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "HAL_WWDG_EarlyWakeupCallback", "https://panchev68.github.io/HALF4/d3/dea/a01377.html#gac939b6f7bd78682d222dacb8909b8788", null ],
+    [ "HAL_WWDG_IRQHandler", "https://panchev68.github.io/HALF4/d3/dea/a01377.html#ga6521c5a0ff3184f951561302fb540fde", null ],
+    [ "HAL_WWDG_Refresh", "https://panchev68.github.io/HALF4/d3/dea/a01377.html#gaf88d543a2fe8520439b69c9f55e70d48", null ]
 ];

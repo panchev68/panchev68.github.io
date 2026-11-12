@@ -1,8 +1,10 @@
 var a01248 =
 [
-    [ "miso", "da/de0/a01248.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "da/de0/a01248.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "da/de0/a01248.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "da/de0/a01248.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "da/de0/a01248.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "I2C Exported Types", "https://panchev68.github.io/HALF4/d3/d13/a00836.html", "d3/d13/a00836" ],
+    [ "I2C Exported Constants", "https://panchev68.github.io/HALF4/d0/d11/a00842.html", "d0/d11/a00842" ],
+    [ "I2C Exported Macros", "https://panchev68.github.io/HALF4/db/deb/a00853.html", null ],
+    [ "I2C Private Constants", "https://panchev68.github.io/HALF4/d6/d2f/a00854.html", null ],
+    [ "I2C Private Macros", "https://panchev68.github.io/HALF4/da/de6/a00855.html", "da/de6/a00855" ],
+    [ "I2C Private Functions", "https://panchev68.github.io/HALF4/d0/d82/a00857.html", null ],
+    [ "I2C_Exported_Functions", "https://panchev68.github.io/HALF4/d4/d34/a01298.html", "d4/d34/a01298" ]
 ];

@@ -1,12 +1,22 @@
 var a00921 =
 [
-    [ "Exception", "dd/d7a/a00921.html#aea3a4f2e3ac0fdc3bcbba62b440134e6", null ],
-    [ "Exception", "dd/d7a/a00921.html#ada1a40e8146dca7f06683f974831e44d", null ],
-    [ "Exception", "dd/d7a/a00921.html#a63de97c0739c68f7745ec994e3ec0c51", null ],
-    [ "Exception", "dd/d7a/a00921.html#a4c22f469903f067ad7b15fa76082f358", null ],
-    [ "Exception", "dd/d7a/a00921.html#ae9019bdc0095794f48311d32bd33ad5e", null ],
-    [ "~Exception", "dd/d7a/a00921.html#aa3a45fe08c05da8c6fdaafe89f7401ab", null ],
-    [ "operator=", "dd/d7a/a00921.html#a05558ab8ce05f641652a1d9fcaff94a5", null ],
-    [ "operator=", "dd/d7a/a00921.html#ae65a0f7a6e55392a1bac092f2d8daa2d", null ],
-    [ "what", "dd/d7a/a00921.html#a1fb3b55b5d4f4b46281215e9754f45a1", null ]
+    [ "Oscillator Type", "https://panchev68.github.io/HALF4/dd/dcf/a00922.html", null ],
+    [ "HSE Config", "https://panchev68.github.io/HALF4/df/de9/a00923.html", null ],
+    [ "LSE Config", "https://panchev68.github.io/HALF4/de/d62/a00924.html", null ],
+    [ "HSI Config", "https://panchev68.github.io/HALF4/dc/d36/a00925.html", null ],
+    [ "LSI Config", "https://panchev68.github.io/HALF4/d8/d38/a00926.html", null ],
+    [ "PLL Config", "https://panchev68.github.io/HALF4/dd/d98/a00927.html", null ],
+    [ "PLLP Clock Divider", "https://panchev68.github.io/HALF4/dd/d38/a00928.html", null ],
+    [ "PLL Clock Source", "https://panchev68.github.io/HALF4/dc/d92/a00929.html", null ],
+    [ "System Clock Type", "https://panchev68.github.io/HALF4/d7/d16/a00930.html", null ],
+    [ "System Clock Source", "https://panchev68.github.io/HALF4/df/dbc/a00931.html", null ],
+    [ "System Clock Source Status", "https://panchev68.github.io/HALF4/d8/dbb/a00932.html", null ],
+    [ "AHB Clock Source", "https://panchev68.github.io/HALF4/d0/d5b/a00933.html", null ],
+    [ "APB1/APB2 Clock Source", "https://panchev68.github.io/HALF4/d0/df0/a00934.html", null ],
+    [ "RTC Clock Source", "https://panchev68.github.io/HALF4/d8/d19/a00935.html", null ],
+    [ "MCO Index", "https://panchev68.github.io/HALF4/dc/d2b/a00936.html", null ],
+    [ "MCO1 Clock Source", "https://panchev68.github.io/HALF4/de/db9/a00937.html", null ],
+    [ "MCOx Clock Prescaler", "https://panchev68.github.io/HALF4/d5/d54/a00938.html", null ],
+    [ "Interrupts", "https://panchev68.github.io/HALF4/dd/d20/a00939.html", null ],
+    [ "Flags", "https://panchev68.github.io/HALF4/d7/db6/a00940.html", null ]
 ];

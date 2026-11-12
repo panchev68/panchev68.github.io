@@ -1,13 +1,10 @@
 var a01269 =
 [
-    [ "Config", "de/d85/a01273.html", "de/d85/a01273" ],
-    [ "TMP102", "d6/d16/a01269.html#a949aef107b50c3194360a1211fc77380", null ],
-    [ "configureAlert", "d6/d16/a01269.html#ad9a264b10f99d9f65ad8c08b872fb4fb", null ],
-    [ "enterSleepMode", "d6/d16/a01269.html#aaf751d7c9bc24731e6fe8347ec8772ce", null ],
-    [ "exitSleepMode", "d6/d16/a01269.html#ac7ab933572bb11b6d0193a5e9ab370e9", null ],
-    [ "init", "d6/d16/a01269.html#aad208b4242276623b58c7e690d0be566", null ],
-    [ "readTemperature", "d6/d16/a01269.html#a8bad032159a78dfb379d94fd21f9a14e", null ],
-    [ "setTHigh", "d6/d16/a01269.html#a31909d75566cc264aeee9cc68c96c6a8", null ],
-    [ "setTLow", "d6/d16/a01269.html#abe3ff96789b3357515f28158f06aa714", null ],
-    [ "triggerOneShot", "d6/d16/a01269.html#a911c4aa4ba809f4461cd5d1c2586670c", null ]
+    [ "TIM Exported Types", "https://panchev68.github.io/HALF4/d2/df3/a01085.html", "d2/df3/a01085" ],
+    [ "TIM Exported Constants", "https://panchev68.github.io/HALF4/d9/df5/a01086.html", "d9/df5/a01086" ],
+    [ "TIM Exported Macros", "https://panchev68.github.io/HALF4/d6/d6e/a01137.html", null ],
+    [ "TIM Private Constants", "https://panchev68.github.io/HALF4/d0/d39/a01138.html", null ],
+    [ "TIM Private Macros", "https://panchev68.github.io/HALF4/d5/d3e/a01139.html", null ],
+    [ "TIM Private Functions", "https://panchev68.github.io/HALF4/db/db2/a01143.html", "db/db2/a01143" ],
+    [ "TIM Exported Functions", "https://panchev68.github.io/HALF4/df/d96/a01347.html", "df/d96/a01347" ]
 ];

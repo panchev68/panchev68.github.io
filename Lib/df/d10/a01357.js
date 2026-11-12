@@ -1,9 +1,9 @@
 var a01357 =
 [
-    [ "HAL_TIMEx_OCN_Start", "df/d10/a01357.html#ga56d25f544564ef28a66dca7ec150de00", null ],
-    [ "HAL_TIMEx_OCN_Start_DMA", "df/d10/a01357.html#ga4d82bbece7e69bff83c478bbcf003e1d", null ],
-    [ "HAL_TIMEx_OCN_Start_IT", "df/d10/a01357.html#ga2f4d7c285095d5293b81d2e11cd991af", null ],
-    [ "HAL_TIMEx_OCN_Stop", "df/d10/a01357.html#ga576cb1c3e40fc49555f232773cb2cdbc", null ],
-    [ "HAL_TIMEx_OCN_Stop_DMA", "df/d10/a01357.html#ga09216649456d28828492740232b275fd", null ],
-    [ "HAL_TIMEx_OCN_Stop_IT", "df/d10/a01357.html#gabe91877781dbd7fb9fdd63262e6ea10f", null ]
+    [ "HAL_TIMEx_OCN_Start", "https://panchev68.github.io/HALF4/df/d10/a01357.html#ga56d25f544564ef28a66dca7ec150de00", null ],
+    [ "HAL_TIMEx_OCN_Start_DMA", "https://panchev68.github.io/HALF4/df/d10/a01357.html#ga4d82bbece7e69bff83c478bbcf003e1d", null ],
+    [ "HAL_TIMEx_OCN_Start_IT", "https://panchev68.github.io/HALF4/df/d10/a01357.html#ga2f4d7c285095d5293b81d2e11cd991af", null ],
+    [ "HAL_TIMEx_OCN_Stop", "https://panchev68.github.io/HALF4/df/d10/a01357.html#ga576cb1c3e40fc49555f232773cb2cdbc", null ],
+    [ "HAL_TIMEx_OCN_Stop_DMA", "https://panchev68.github.io/HALF4/df/d10/a01357.html#ga09216649456d28828492740232b275fd", null ],
+    [ "HAL_TIMEx_OCN_Stop_IT", "https://panchev68.github.io/HALF4/df/d10/a01357.html#gabe91877781dbd7fb9fdd63262e6ea10f", null ]
 ];

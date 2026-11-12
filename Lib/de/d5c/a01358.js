@@ -1,12 +1,9 @@
 var a01358 =
 [
-    [ "FreeFunctionPointer", "de/d5c/a01358.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "de/d5c/a01358.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "de/d5c/a01358.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "de/d5c/a01358.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "de/d5c/a01358.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "de/d5c/a01358.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "de/d5c/a01358.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "de/d5c/a01358.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "de/d5c/a01358.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "HAL_TIMEx_PWMN_Start", "https://panchev68.github.io/HALF4/de/d5c/a01358.html#ga4f2b0bb4b66a5acd76eac4e8d32cc498", null ],
+    [ "HAL_TIMEx_PWMN_Start_DMA", "https://panchev68.github.io/HALF4/de/d5c/a01358.html#ga40c945a8c706dbfc1da753fbcb821c4b", null ],
+    [ "HAL_TIMEx_PWMN_Start_IT", "https://panchev68.github.io/HALF4/de/d5c/a01358.html#ga82f0b53f6b10e6aafc6835178662c488", null ],
+    [ "HAL_TIMEx_PWMN_Stop", "https://panchev68.github.io/HALF4/de/d5c/a01358.html#ga0f2e27f3fb6d8f42d998e2071e5f0482", null ],
+    [ "HAL_TIMEx_PWMN_Stop_DMA", "https://panchev68.github.io/HALF4/de/d5c/a01358.html#ga10afdfdc5eed2e0288ccb969f48bc0e4", null ],
+    [ "HAL_TIMEx_PWMN_Stop_IT", "https://panchev68.github.io/HALF4/de/d5c/a01358.html#ga13848e20df29fa552ef4f5b69fef20a6", null ]
 ];

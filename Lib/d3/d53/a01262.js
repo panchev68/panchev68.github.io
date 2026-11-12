@@ -1,6 +1,9 @@
 var a01262 =
 [
-    [ "adc", "d3/d53/a01262.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
-    [ "channel", "d3/d53/a01262.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
-    [ "periodMs", "d3/d53/a01262.html#ad839d16fe06238279ff23042e3761f0c", null ]
+    [ "RTCEx Exported Types", "https://panchev68.github.io/HALF4/df/d59/a01001.html", null ],
+    [ "RTCEx Exported Constants", "https://panchev68.github.io/HALF4/d2/dd5/a01002.html", "d2/dd5/a01002" ],
+    [ "RTCEx Exported Macros", "https://panchev68.github.io/HALF4/d5/dfb/a01021.html", "d5/dfb/a01021" ],
+    [ "RTCEx Exported Functions", "https://panchev68.github.io/HALF4/dd/dfd/a01027.html", "dd/dfd/a01027" ],
+    [ "RTCEx Private Constants", "https://panchev68.github.io/HALF4/db/d08/a01028.html", null ],
+    [ "RTCEx Private Macros", "https://panchev68.github.io/HALF4/d0/daa/a01029.html", "d0/daa/a01029" ]
 ];

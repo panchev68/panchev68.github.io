@@ -1,12 +1,9 @@
 var a01383 =
 [
-    [ "FreeFunctionPointer", "de/dfe/a01383.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "de/dfe/a01383.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "de/dfe/a01383.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "de/dfe/a01383.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "de/dfe/a01383.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "de/dfe/a01383.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "de/dfe/a01383.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "de/dfe/a01383.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "de/dfe/a01383.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "HAL_InitTick", "https://panchev68.github.io/HALF4/de/dfe/a01383.html#ga879cdb21ef051eb81ec51c18147397d5", null ],
+    [ "HAL_ResumeTick", "https://panchev68.github.io/HALF4/de/dfe/a01383.html#ga24e0ee9dae1ec0f9d19200f5575ff790", null ],
+    [ "HAL_SuspendTick", "https://panchev68.github.io/HALF4/de/dfe/a01383.html#gaaf651af2afe688a991c657f64f8fa5f9", null ],
+    [ "HAL_TIM_PeriodElapsedCallback", "https://panchev68.github.io/HALF4/de/dfe/a01383.html#ga8a3b0ad512a6e6c6157440b68d395eac", null ],
+    [ "TIM6_DAC_IRQHandler", "https://panchev68.github.io/HALF4/de/dfe/a01383.html#ga0839a45f331c4c067939b9c4533bbf4d", null ],
+    [ "TimHandle", "https://panchev68.github.io/HALF4/de/dfe/a01383.html#gaad0e79d89de05e8451c9b6ac5d88109d", null ]
 ];

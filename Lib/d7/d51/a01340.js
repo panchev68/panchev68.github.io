@@ -1,12 +1,12 @@
 var a01340 =
 [
-    [ "SerialPortBase", "d7/d51/a01340.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "d7/d51/a01340.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "d7/d51/a01340.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "d7/d51/a01340.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "d7/d51/a01340.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "d7/d51/a01340.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "d7/d51/a01340.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d7/d51/a01340.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "d7/d51/a01340.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
+    [ "HAL_SMBUS_DisableAlert_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#ga41168a506bce0b3d905c2c3c3d27db55", null ],
+    [ "HAL_SMBUS_DisableListen_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#ga1551c1e20a89997d55b9cb17ba256ea5", null ],
+    [ "HAL_SMBUS_EnableAlert_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#ga4e4e15f73f1a4b95e51ffe205cd832d8", null ],
+    [ "HAL_SMBUS_EnableListen_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#ga5be3f13c71b8bfcd3443b50d013c0766", null ],
+    [ "HAL_SMBUS_Master_Abort_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#ga753f06add5574ae7a77f1e03796097d5", null ],
+    [ "HAL_SMBUS_Master_Receive_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#gab9d8d52f797123b8d61ed44adf2b392e", null ],
+    [ "HAL_SMBUS_Master_Transmit_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#gacbf8f48c6a407d0c7c82fb5d37eb2b8f", null ],
+    [ "HAL_SMBUS_Slave_Receive_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#ga989041d1840009faf569878c082b5a86", null ],
+    [ "HAL_SMBUS_Slave_Transmit_IT", "https://panchev68.github.io/HALF4/d7/d51/a01340.html#gaed5ff89636397bfbc0d418b9044c1837", null ]
 ];

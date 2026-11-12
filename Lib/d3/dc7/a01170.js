@@ -1,12 +1,15 @@
 var a01170 =
 [
-    [ "Data", "da/dfb/a01174.html", "da/dfb/a01174" ],
-    [ "Color", "d3/dc7/a01170.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "d3/dc7/a01170.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "d3/dc7/a01170.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "d3/dc7/a01170.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "d3/dc7/a01170.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "d3/dc7/a01170.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "d3/dc7/a01170.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "d3/dc7/a01170.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "USART Error Code", "https://panchev68.github.io/HALF4/d2/d22/a01171.html", null ],
+    [ "USART Word Length", "https://panchev68.github.io/HALF4/d6/db6/a01172.html", null ],
+    [ "USART Number of Stop Bits", "https://panchev68.github.io/HALF4/d7/d0c/a01173.html", null ],
+    [ "USART Parity", "https://panchev68.github.io/HALF4/da/dfb/a01174.html", null ],
+    [ "USART Mode", "https://panchev68.github.io/HALF4/d6/df2/a01175.html", null ],
+    [ "USART Clock", "https://panchev68.github.io/HALF4/d3/d32/a01176.html", null ],
+    [ "USART Clock Polarity", "https://panchev68.github.io/HALF4/dc/d98/a01177.html", null ],
+    [ "USART Clock Phase", "https://panchev68.github.io/HALF4/d8/d11/a01178.html", null ],
+    [ "USART Last Bit", "https://panchev68.github.io/HALF4/de/d1a/a01179.html", null ],
+    [ "USART NACK State", "https://panchev68.github.io/HALF4/dd/d75/a01180.html", null ],
+    [ "USART Flags", "https://panchev68.github.io/HALF4/de/db5/a01181.html", null ],
+    [ "USART Interrupts Definition", "https://panchev68.github.io/HALF4/dd/de9/a01182.html", null ]
 ];

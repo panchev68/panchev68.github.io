@@ -1,10 +1,7 @@
 var a01278 =
 [
-    [ "RxMessage", "d4/d10/a01278.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "d4/d10/a01278.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "d4/d10/a01278.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "d4/d10/a01278.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "d4/d10/a01278.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "d4/d10/a01278.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "d4/d10/a01278.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "ADC_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/d9/de7/a01279.html", "d9/de7/a01279" ],
+    [ "ADC_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/d8/d0d/a01280.html", "d8/d0d/a01280" ],
+    [ "ADC_Exported_Functions_Group3", "https://panchev68.github.io/HALF4/d5/d6f/a01281.html", "d5/d6f/a01281" ],
+    [ "ADC_Exported_Functions_Group4", "https://panchev68.github.io/HALF4/d8/d17/a01282.html", "d8/d17/a01282" ]
 ];

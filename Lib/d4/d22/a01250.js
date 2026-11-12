@@ -1,8 +1,10 @@
 var a01250 =
 [
-    [ "ambientTemperatureCelsius", "d4/d22/a01250.html#afe46178f50e25346cca90112dc708790", null ],
-    [ "listenDuration", "d4/d22/a01250.html#aed97102995a3a032b9524b1e47731f17", null ],
-    [ "timeout", "d4/d22/a01250.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
-    [ "uart", "d4/d22/a01250.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
-    [ "uartAddress", "d4/d22/a01250.html#a07cd324da0adf0baf2262a0b33404164", null ]
+    [ "IRDA Exported Types", "https://panchev68.github.io/HALF4/d9/d22/a00873.html", "d9/d22/a00873" ],
+    [ "IRDA Exported constants", "https://panchev68.github.io/HALF4/df/d2a/a00874.html", "df/d2a/a00874" ],
+    [ "IRDA Exported Macros", "https://panchev68.github.io/HALF4/d3/d50/a00882.html", null ],
+    [ "IRDA Private Constants", "https://panchev68.github.io/HALF4/d7/d34/a00883.html", null ],
+    [ "IRDA Private Macros", "https://panchev68.github.io/HALF4/dd/d08/a00884.html", null ],
+    [ "IRDA Private Functions", "https://panchev68.github.io/HALF4/db/d18/a00885.html", null ],
+    [ "IRDA_Exported_Functions", "https://panchev68.github.io/HALF4/d1/d56/a01308.html", "d1/d56/a01308" ]
 ];

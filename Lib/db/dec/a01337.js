@@ -1,9 +1,7 @@
 var a01337 =
 [
-    [ "errorCode", "db/dec/a01337.html#a7a08764d9ca680ce3a6054b1b0086700", null ],
-    [ "errorCounter", "db/dec/a01337.html#a48ff889cdfdd2ca07799a68737d6b6a6", null ],
-    [ "receivedMessages", "db/dec/a01337.html#ad34fe7e5c5e27049cf5e49e59a8bcf85", null ],
-    [ "rxFifoFullCounter", "db/dec/a01337.html#ae1980d93ca6461dabf615247c5043049", null ],
-    [ "sentMessages", "db/dec/a01337.html#a71de4cab31423207b05a464ff4024347", null ],
-    [ "txMailboxAbortCounter", "db/dec/a01337.html#a6176c9e8bec370d663cc4d97568af1fa", null ]
+    [ "HAL_SMBUS_DeInit", "https://panchev68.github.io/HALF4/db/dec/a01337.html#ga31b2584cdae5c90cfdd49a0bfdc67e8b", null ],
+    [ "HAL_SMBUS_Init", "https://panchev68.github.io/HALF4/db/dec/a01337.html#ga94cf51c24051d626d26663f5d34141d4", null ],
+    [ "HAL_SMBUS_MspDeInit", "https://panchev68.github.io/HALF4/db/dec/a01337.html#ga9dd1f62881dd6d5063492ca9b688fcbb", null ],
+    [ "HAL_SMBUS_MspInit", "https://panchev68.github.io/HALF4/db/dec/a01337.html#ga6d165f7f7953da1cccd983d66df5879b", null ]
 ];

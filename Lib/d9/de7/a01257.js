@@ -1,5 +1,9 @@
 var a01257 =
 [
-    [ "decayPeriodMicroseconds", "d9/de7/a01257.html#a12e79efa3a5a899b1e64d25ff5a0fdb3", null ],
-    [ "frequencyHz", "d9/de7/a01257.html#a50257a628ef439fb965df1ee908f3e5e", null ]
+    [ "PWR Exported Types", "https://panchev68.github.io/HALF4/da/dd6/a00896.html", null ],
+    [ "PWR Exported Constants", "https://panchev68.github.io/HALF4/de/d01/a00897.html", "de/d01/a00897" ],
+    [ "PWR Exported Macro", "https://panchev68.github.io/HALF4/da/d5b/a00905.html", null ],
+    [ "PWR Private Constants", "https://panchev68.github.io/HALF4/da/dd8/a00906.html", "da/dd8/a00906" ],
+    [ "PWR Private Macros", "https://panchev68.github.io/HALF4/d7/d12/a00911.html", "d7/d12/a00911" ],
+    [ "PWR Exported Functions", "https://panchev68.github.io/HALF4/d7/d41/a01312.html", "d7/d41/a01312" ]
 ];

@@ -1,6 +1,4 @@
 var a01354 =
 [
-    [ "Checksum", "d7/dc4/a01354.html#a84d21e7228fb14e21d840ae16a2f9ad7", null ],
-    [ "Checksum", "d7/dc4/a01354.html#a804971de0300d66401e3f2ed94f306dc", null ],
-    [ "operator uint8_t", "d7/dc4/a01354.html#add4f353a37e719b8e2439c490fa552b8", null ]
+    [ "HAL_TIM_IRQHandler", "https://panchev68.github.io/HALF4/d7/dc4/a01354.html#ga2dc3ef34340412aa8a01d734d2ff8f88", null ]
 ];

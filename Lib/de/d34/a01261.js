@@ -1,19 +1,10 @@
 var a01261 =
 [
-    [ "Config", "da/dd8/a01265.html", "da/dd8/a01265" ],
-    [ "Resolution", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "de/d34/a01261.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "de/d34/a01261.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "de/d34/a01261.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "de/d34/a01261.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "de/d34/a01261.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isGenuineDevice", "de/d34/a01261.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
-    [ "isPresent", "de/d34/a01261.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "de/d34/a01261.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readRom", "de/d34/a01261.html#a26a1ebc99132937ee58668fd12c26263", null ],
-    [ "readTemperatureCelsius", "de/d34/a01261.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "RTC Exported Types", "https://panchev68.github.io/HALF4/d2/ddd/a00978.html", "d2/ddd/a00978" ],
+    [ "RTC Exported Constants", "https://panchev68.github.io/HALF4/d8/d49/a00979.html", "d8/d49/a00979" ],
+    [ "RTC Exported Macros", "https://panchev68.github.io/HALF4/d3/daa/a00996.html", null ],
+    [ "RTC Private Constants", "https://panchev68.github.io/HALF4/d0/d28/a00997.html", null ],
+    [ "RTC Private Macros", "https://panchev68.github.io/HALF4/d9/d9a/a00998.html", "d9/d9a/a00998" ],
+    [ "RTC Private Functions", "https://panchev68.github.io/HALF4/d7/df2/a01000.html", "d7/df2/a01000" ],
+    [ "RTC_Exported_Functions", "https://panchev68.github.io/HALF4/d5/df4/a01322.html", "d5/df4/a01322" ]
 ];

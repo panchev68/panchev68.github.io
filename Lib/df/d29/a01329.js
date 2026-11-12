@@ -1,10 +1,10 @@
 var a01329 =
 [
-    [ "RxMessage", "df/d29/a01329.html#a1fe7e60dc9ec11878f05a9072ac8c78e", null ],
-    [ "RxMessage", "df/d29/a01329.html#a6ccbf96d99bfd96a79b4fd080d890702", null ],
-    [ "getData", "df/d29/a01329.html#a211378ed57e780728a164371a88e9913", null ],
-    [ "getId", "df/d29/a01329.html#a345149abd2f8ec21f9fba8f4316f3af9", null ],
-    [ "data", "df/d29/a01329.html#ad7fd7612128273e1c546b6344e7410b3", null ],
-    [ "id", "df/d29/a01329.html#a1b9bfde4a802f51ec2639a0847dafcd8", null ],
-    [ "length", "df/d29/a01329.html#a05380c2565fb4a8398dcc9f54c4f5576", null ]
+    [ "HAL_RTCEx_DeactivateWakeUpTimer", "https://panchev68.github.io/HALF4/df/d29/a01329.html#ga5a0e07ff18e3f839b6a43693d024100d", null ],
+    [ "HAL_RTCEx_GetWakeUpTimer", "https://panchev68.github.io/HALF4/df/d29/a01329.html#gae2aa87c6544a982c4e7657d649e7a797", null ],
+    [ "HAL_RTCEx_PollForWakeUpTimerEvent", "https://panchev68.github.io/HALF4/df/d29/a01329.html#ga13cdc56c03d2d606ef8c635dcc25f555", null ],
+    [ "HAL_RTCEx_SetWakeUpTimer", "https://panchev68.github.io/HALF4/df/d29/a01329.html#gab22373ae0d2eeb1322569c44c42ee9db", null ],
+    [ "HAL_RTCEx_SetWakeUpTimer_IT", "https://panchev68.github.io/HALF4/df/d29/a01329.html#ga92f7781781a2fd96991ca932377418da", null ],
+    [ "HAL_RTCEx_WakeUpTimerEventCallback", "https://panchev68.github.io/HALF4/df/d29/a01329.html#gac9ed5d6224b5c86f2845a9c1af7d94de", null ],
+    [ "HAL_RTCEx_WakeUpTimerIRQHandler", "https://panchev68.github.io/HALF4/df/d29/a01329.html#ga5e391424483012fe09827739dc53885f", null ]
 ];

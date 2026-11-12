@@ -1,9 +1,13 @@
 var a01341 =
 [
-    [ "Address", "de/da0/a01341.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "de/da0/a01341.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "de/da0/a01341.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "de/da0/a01341.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "de/da0/a01341.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "de/da0/a01341.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "HAL_SMBUS_AbortCpltCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#ga0486f6382fa58708bb759c1f9e20a421", null ],
+    [ "HAL_SMBUS_AddrCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#ga6901a2dce77b77f0566565162963b8ad", null ],
+    [ "HAL_SMBUS_ER_IRQHandler", "https://panchev68.github.io/HALF4/de/da0/a01341.html#gabcdffc8b0a2f9df905f7c7c38cfb5cab", null ],
+    [ "HAL_SMBUS_ErrorCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#ga0712f11a6832a4007f96e7b91b29293c", null ],
+    [ "HAL_SMBUS_EV_IRQHandler", "https://panchev68.github.io/HALF4/de/da0/a01341.html#ga359d538b1f467d7b562ca9ccf3d07c31", null ],
+    [ "HAL_SMBUS_ListenCpltCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#gac31d20bd9b7bfd1cbb23075ddbb46f25", null ],
+    [ "HAL_SMBUS_MasterRxCpltCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#ga4d01fedd1d3ebf6605a2aca56e0f38af", null ],
+    [ "HAL_SMBUS_MasterTxCpltCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#ga5b0c11c8ceb53ac2f7c0f78309fe4362", null ],
+    [ "HAL_SMBUS_SlaveRxCpltCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#gabd6235177a6ab889bbf5792a0d03cda1", null ],
+    [ "HAL_SMBUS_SlaveTxCpltCallback", "https://panchev68.github.io/HALF4/de/da0/a01341.html#gaa19d5a6fceb7ef7bc213ce7e677ef056", null ]
 ];

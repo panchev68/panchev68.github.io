@@ -1,9 +1,26 @@
 var a01345 =
 [
-    [ "Address", "d4/deb/a01345.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d4/deb/a01345.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d4/deb/a01345.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d4/deb/a01345.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d4/deb/a01345.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d4/deb/a01345.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
+    [ "HAL_SPI_Abort", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga11c74b1d91d88ff336f674f6376cc904", null ],
+    [ "HAL_SPI_Abort_IT", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga75d7782876ed13b9f8aebfa8dbba5a1c", null ],
+    [ "HAL_SPI_AbortCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga4a2593ec36fa4def11929e65f631f3cf", null ],
+    [ "HAL_SPI_DMAPause", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga61e4a628d6918ec838736d65ae135031", null ],
+    [ "HAL_SPI_DMAResume", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga7fdd4b7aa5c6bd560a476c833f546d93", null ],
+    [ "HAL_SPI_DMAStop", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga7e01eb529af91fabc950180b927fa355", null ],
+    [ "HAL_SPI_ErrorCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga3db7835e7e7ac335887f62fedf156926", null ],
+    [ "HAL_SPI_IRQHandler", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gaf3da6e0a87468bc039b578c21329df47", null ],
+    [ "HAL_SPI_Receive", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gafdf43dbe4e5ef225bed6650b6e8c6313", null ],
+    [ "HAL_SPI_Receive_DMA", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga626bb2ec54e7b6ff9bd5d807ae6e6e24", null ],
+    [ "HAL_SPI_Receive_IT", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gaaae0af2e2db7e7549b52b020a18f6168", null ],
+    [ "HAL_SPI_RxCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga3df7021fe24cf874f8b1eec5bd5f4cb3", null ],
+    [ "HAL_SPI_RxHalfCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gacf622756a3814edfacf449b5749b048a", null ],
+    [ "HAL_SPI_Transmit", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gaca4b7bb29640435fb30d7eb89ce0fd62", null ],
+    [ "HAL_SPI_Transmit_DMA", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gac48467984880755e9632f914e8576007", null ],
+    [ "HAL_SPI_Transmit_IT", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga96859ed0a0b5571ecaa958780fb19700", null ],
+    [ "HAL_SPI_TransmitReceive", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga806db11431c61c963eb7ed8025e58f70", null ],
+    [ "HAL_SPI_TransmitReceive_DMA", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gaf94b75cd52be2dc144867bd4be5f4a90", null ],
+    [ "HAL_SPI_TransmitReceive_IT", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga3bde00f3764556ef6050bea913269946", null ],
+    [ "HAL_SPI_TxCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga0a99ab4f6aa6ee7dc2abca5483910dde", null ],
+    [ "HAL_SPI_TxHalfCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga931ef2f7fd94ffa16ec431972b1b237f", null ],
+    [ "HAL_SPI_TxRxCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#ga04e63f382f172164c8e7cae4ff5d883c", null ],
+    [ "HAL_SPI_TxRxHalfCpltCallback", "https://panchev68.github.io/HALF4/d4/deb/a01345.html#gab46e2325b0880d5b5a301792438b151b", null ]
 ];

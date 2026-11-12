@@ -1,9 +1,7 @@
 var a01344 =
 [
-    [ "Address", "dc/d54/a01344.html#acd001c62e8048465f6e3775f8c914bed", null ],
-    [ "FunctionCode", "dc/d54/a01344.html#aa422425db306dc5abb9819fd3a3489aa", null ],
-    [ "close", "dc/d54/a01344.html#ab2e53f4b8f99d03aec026fc9d74d050e", null ],
-    [ "handleReceivedFrame", "dc/d54/a01344.html#a089411b3f62f689799fb09666cfe1ac9", null ],
-    [ "open", "dc/d54/a01344.html#a03ea12d272e904f92d81888bbe95c4b2", null ],
-    [ "setup", "dc/d54/a01344.html#aac9c43568e485a6a46c7c3ce147a9f46", null ]
+    [ "HAL_SPI_DeInit", "https://panchev68.github.io/HALF4/dc/d54/a01344.html#gaca2db2a7bbed96ac013c565080fb61f2", null ],
+    [ "HAL_SPI_Init", "https://panchev68.github.io/HALF4/dc/d54/a01344.html#gaadb9d40e710c714d96b2501996658c44", null ],
+    [ "HAL_SPI_MspDeInit", "https://panchev68.github.io/HALF4/dc/d54/a01344.html#gabadc4d4974af1afd943e8d13589068e1", null ],
+    [ "HAL_SPI_MspInit", "https://panchev68.github.io/HALF4/dc/d54/a01344.html#ga17f583be14b22caffa6c4e56dcd035ef", null ]
 ];

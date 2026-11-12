@@ -1,10 +1,10 @@
 var a01200 =
 [
-    [ "Ring", "dc/dcc/a01200.html#a162946918a210436d07b8649948e2939", null ],
-    [ "Ring", "dc/dcc/a01200.html#a893e2b866ecc019f8b11cf06afd82f88", null ],
-    [ "Ring", "dc/dcc/a01200.html#a1b86238c581aff7462e775d7fe6d20a8", null ],
-    [ "getData", "dc/dcc/a01200.html#a897e123e376e08a2741c3498d764166d", null ],
-    [ "operator=", "dc/dcc/a01200.html#a3b42427dd22bff92b102320fdf83a671", null ],
-    [ "operator=", "dc/dcc/a01200.html#a46361d21fc1fac5baecd1f41fc3fe955", null ],
-    [ "operator[]", "dc/dcc/a01200.html#abc5ff1e835ae3842b0d596484b2d2399", null ]
+    [ "LL_LPM_ClearEvent", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#ga7dc8f153ab303eeb3f7197f442747d76", null ],
+    [ "LL_LPM_DisableEventOnPend", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#gaf4ebb8351f09676067aa0ce1fe08321b", null ],
+    [ "LL_LPM_DisableSleepOnExit", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#ga88768c6c5f53de30a647123241451eb9", null ],
+    [ "LL_LPM_EnableDeepSleep", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#ga37d70238e98ca1214e3fe4113b119474", null ],
+    [ "LL_LPM_EnableEventOnPend", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#gaf1c01ae00b4a13c5b6531f82a9677b90", null ],
+    [ "LL_LPM_EnableSleep", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#gab55eabc37e5abe00df558c0ba1c37508", null ],
+    [ "LL_LPM_EnableSleepOnExit", "https://panchev68.github.io/HALF4/dc/dcc/a01200.html#gabb2b2648dff19d88209af8761fc34c30", null ]
 ];

@@ -1,28 +1,16 @@
 var a01069 =
 [
-    [ "Config", "d9/d7c/a01073.html", "d9/d7c/a01073" ],
-    [ "State", "d8/d18/a01069.html#a9fd0a76196b2eb1e21013c1f0379cd08", [
-      [ "NO_INIT", "d8/d18/a01069.html#a9fd0a76196b2eb1e21013c1f0379cd08a72144f138e8a9f73854d58b59deca26d", null ],
-      [ "READY", "d8/d18/a01069.html#a9fd0a76196b2eb1e21013c1f0379cd08a2baa69eafc7204f3bd8648eba580c489", null ],
-      [ "DISABLE", "d8/d18/a01069.html#a9fd0a76196b2eb1e21013c1f0379cd08afc93ea58f6d27ffed2b6518ffecf3e4e", null ],
-      [ "ERROR", "d8/d18/a01069.html#a9fd0a76196b2eb1e21013c1f0379cd08abb1ca97ec761fc37101737ba0aa2e7c5", null ]
-    ] ],
-    [ "Base", "d8/d18/a01069.html#a12aecbfda8834bf3a667148d765a5131", null ],
-    [ "close", "d8/d18/a01069.html#a661ff278a48b8dba19a2a054bc21a7cd", null ],
-    [ "getState", "d8/d18/a01069.html#adb79d7f488b262bfdc58c114a3ac6f33", null ],
-    [ "open", "d8/d18/a01069.html#ab28d40e8b1d5e784f01d5c8308dd8353", null ],
-    [ "readAlEventReg", "d8/d18/a01069.html#aec3fa0792cf0cda4f5d91244b599d804", null ],
-    [ "readCSR", "d8/d18/a01069.html#a6872fa6c05dea9476d20434f28b40b99", null ],
-    [ "readDLStatus", "d8/d18/a01069.html#acae5d3c1c2b5679addbccc5506d2de0e", null ],
-    [ "readPDIRegister", "d8/d18/a01069.html#ac2aaa9d194b1af38aa02bc21b97e4b79", null ],
-    [ "readPRAM", "d8/d18/a01069.html#a3d2a55bfbcbe4193a6f9c88a6853c9e4", null ],
-    [ "readReg", "d8/d18/a01069.html#a5dcebd0d4f0135e2133880e9671892c6", null ],
-    [ "readU32", "d8/d18/a01069.html#a044adc74263d0844a30a59541c3162a6", null ],
-    [ "resetChip", "d8/d18/a01069.html#a489564ee364cc9d33fc1ee03da39cfd2", null ],
-    [ "resetPin", "d8/d18/a01069.html#a3ecc5d418dc69fa0f957c3053eb35f7b", null ],
-    [ "verifyChipId", "d8/d18/a01069.html#a92fb14a44d98ad85c15d007798f188d4", null ],
-    [ "writeCSR", "d8/d18/a01069.html#a6856933af0bd9892be77168a4e2dcdcf", null ],
-    [ "writePRAM", "d8/d18/a01069.html#a8a9b2c1a0824c7603b223ce93be6b268", null ],
-    [ "writeReg", "d8/d18/a01069.html#ab886f5f4a7c67fc4e763676ee25c8440", null ],
-    [ "writeU32", "d8/d18/a01069.html#af18c7df8aeade40e9137a8e803825144", null ]
+    [ "SPI Error Code", "https://panchev68.github.io/HALF4/d5/d67/a01070.html", null ],
+    [ "SPI Mode", "https://panchev68.github.io/HALF4/df/d18/a01071.html", null ],
+    [ "SPI Direction Mode", "https://panchev68.github.io/HALF4/d6/d6a/a01072.html", null ],
+    [ "SPI Data Size", "https://panchev68.github.io/HALF4/d9/d7c/a01073.html", null ],
+    [ "SPI Clock Polarity", "https://panchev68.github.io/HALF4/d7/df7/a01074.html", null ],
+    [ "SPI Clock Phase", "https://panchev68.github.io/HALF4/dd/d80/a01075.html", null ],
+    [ "SPI Slave Select Management", "https://panchev68.github.io/HALF4/d6/d80/a01076.html", null ],
+    [ "SPI BaudRate Prescaler", "https://panchev68.github.io/HALF4/d0/dd3/a01077.html", null ],
+    [ "SPI MSB LSB Transmission", "https://panchev68.github.io/HALF4/db/dba/a01078.html", null ],
+    [ "SPI TI Mode", "https://panchev68.github.io/HALF4/d2/d4d/a01079.html", null ],
+    [ "SPI CRC Calculation", "https://panchev68.github.io/HALF4/d9/d67/a01080.html", null ],
+    [ "SPI Interrupt Definition", "https://panchev68.github.io/HALF4/dd/dee/a01081.html", null ],
+    [ "SPI Flags Definition", "https://panchev68.github.io/HALF4/dd/df1/a01082.html", null ]
 ];

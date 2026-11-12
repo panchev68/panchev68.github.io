@@ -1,12 +1,7 @@
 var a01234 =
 [
-    [ "debounceDuration", "d6/d1e/a01234.html#a645398d022257454438fc47ce15fcdb9", null ],
-    [ "height", "d6/d1e/a01234.html#a1967b67dee53f7a69a49e5b2fe822045", null ],
-    [ "rotationFlipped", "d6/d1e/a01234.html#a19cf86ba9283c705ad0bccb0b07236c8", null ],
-    [ "rotationNormal", "d6/d1e/a01234.html#aa5b75686141869dfbbfb78febc4822aa", null ],
-    [ "width", "d6/d1e/a01234.html#a36fe0a7ac1def2933216417d9c50860b", null ],
-    [ "xMax", "d6/d1e/a01234.html#ad7faa3502a791114bf456c98c0dbf644", null ],
-    [ "xMin", "d6/d1e/a01234.html#aca3ae32e6bdecc7bc919ef20ed75beac", null ],
-    [ "yMax", "d6/d1e/a01234.html#ac2cd6aa16ead1e5ce384d823cfc14098", null ],
-    [ "yMin", "d6/d1e/a01234.html#acda2f52d642f3f712c72b8046d83fa30", null ]
+    [ "Cortex Exported Types", "https://panchev68.github.io/HALF4/d3/d3b/a00715.html", null ],
+    [ "CORTEX Exported Constants", "https://panchev68.github.io/HALF4/d2/d94/a00716.html", "d2/d94/a00716" ],
+    [ "CORTEX Private Macros", "https://panchev68.github.io/HALF4/dd/dd8/a00719.html", null ],
+    [ "CORTEX_Exported_Functions", "https://panchev68.github.io/HALF4/d1/d1a/a01285.html", "d1/d1a/a01285" ]
 ];

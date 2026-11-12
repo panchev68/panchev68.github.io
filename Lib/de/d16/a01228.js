@@ -1,19 +1,5 @@
 var a01228 =
 [
-    [ "Config", "d0/d67/a01232.html", "d0/d67/a01232" ],
-    [ "Resolution", "de/d16/a01228.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "de/d16/a01228.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "de/d16/a01228.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "de/d16/a01228.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "de/d16/a01228.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "de/d16/a01228.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "de/d16/a01228.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "de/d16/a01228.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "de/d16/a01228.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isGenuineDevice", "de/d16/a01228.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
-    [ "isPresent", "de/d16/a01228.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "de/d16/a01228.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readRom", "de/d16/a01228.html#a26a1ebc99132937ee58668fd12c26263", null ],
-    [ "readTemperatureCelsius", "de/d16/a01228.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "Initialization and de-initialization Functions", "https://panchev68.github.io/HALF4/db/d1c/a01229.html", "db/d1c/a01229" ],
+    [ "HAL Control functions", "https://panchev68.github.io/HALF4/d0/d58/a01230.html", "d0/d58/a01230" ]
 ];
