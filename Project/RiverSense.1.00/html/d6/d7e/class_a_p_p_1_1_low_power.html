@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d6/d7e/class_a
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Puts the controller into STOP1 whenever the kernel is idle long enough. </p>
-<p>With no task ready the kernel idle task sleeps: a plain WFI for short idle times and STOP1 for more than <a class="elRef" href="https://panchev68.github.io/Lib/d3/d09/a02539.html#a2162a3d1da000ffe6566c9801c8a310b" title="RTOS::PowerManager::MIN_TICKS_FOR_STOP_MODE">RTOS::PowerManager::MIN_TICKS_FOR_STOP_MODE</a> ticks, woken by LPTIM1 (clocked from the LSE) or by any interrupt. Everything that makes this work lives in the project, so regenerating the project in CubeMX changes nothing: the strong 'vPortSuppressTicksAndSleep()' and <b>LPTIM1_IRQHandler()</b> are in the implementation file, and the LPTIM1 clock source and interrupt are set in <a class="el" href="#a55616b10b0897fd666231df013af937a" title="start()">start()</a>. Only 'configUSE_TICKLESS_IDLE' and 'FREERTOS_LOW_POWER_SUPPORT' stay in the USER CODE block of <b>FreeRTOSConfig.h</b>.</p>
+<p>With no task ready the kernel idle task sleeps: a plain WFI for short idle times and STOP1 for more than <a class="elRef" href="https://panchev68.github.io/Lib/d3/d09/a02539.html#a2162a3d1da000ffe6566c9801c8a310b" title="RTOS::PowerManager::MIN_TICKS_FOR_STOP_MODE">RTOS::PowerManager::MIN_TICKS_FOR_STOP_MODE</a> ticks, woken by LPTIM1 (clocked from the LSE) or by any interrupt. Everything that makes this work lives in the project, so regenerating the project in CubeMX changes nothing: the strong <b>vPortSuppressTicksAndSleep()</b> and <b>LPTIM1_IRQHandler()</b> are in the implementation file, and the LPTIM1 clock source and interrupt are set in <a class="el" href="#a55616b10b0897fd666231df013af937a" title="start()">start()</a>. Only 'configUSE_TICKLESS_IDLE' and 'FREERTOS_LOW_POWER_SUPPORT' stay in the USER CODE block of <b>FreeRTOSConfig.h</b>.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Do not enable the LPTIM1 global interrupt in CubeMX: it would generate a second <b>LPTIM1_IRQHandler()</b>. </dd></dl>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::LowPower:</div>
 <div id="dynsection-0-summary" class="dynsummary">
@@ -356,7 +356,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether <a class="el" href="#a55616b10b0897fd666231df013af937a" title="start()">start()</a> succeeded. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' when STOP1 is available. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when STOP1 is available. </dd></dl>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">
 </div>
@@ -465,7 +465,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Sets up the wake-up timer and enables tickless idle. </p>
 <dl class="section important"><dt>Important</dt><dd>Call once, from task context, before the modules start.</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' when STOP1 is available; 'false' leaves the system with a plain WFI sleep only. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when STOP1 is available; <b>false</b> leaves the system with a plain WFI sleep only. </dd></dl>
 <div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-11-summary" class="dynsummary">
 </div>

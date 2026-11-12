@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d8/de5/class_a
 <p>The outer loop (library MPPT, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps) computes the panel voltage setpoint; the inner loop (every <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call) moves the DAC_OUT voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
 <p>The DAC current is summed into the FB node through R13 + R14, so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current. Divider of the WCC board hw2.00 (R15 from the output after the R9 shunt, R11 + R12 to GND through Q4, R13 + R14 from DAC_OUT):</p>
 <div class="fragment"><div class="line">Vout = Vfb * (1 + R15 / (R11 + R12) + R15 / (R13 + R14)) - Vdac * R15 / (R13 + R14)  ~  7.82 V - 1.32 * Vdac</div>
-</div><!-- fragment --><p><b>Singleton:</b> the charger has one buck, one DAC and one enable pin. The state, the hardware constants and the private helpers live in an 'Impl' defined in the '.cpp', reached through <a class="el" href="#a4ef42a4a0a9023bf45539d934533c59e" title="impl()">impl()</a> (function-local static, no heap).</p>
+</div><!-- fragment --><p><b>Singleton:</b> the charger has one buck, one DAC and one enable pin. The state, the hardware constants and the private helpers live in an <b>Impl</b> defined in the '.cpp', reached through <a class="el" href="#a4ef42a4a0a9023bf45539d934533c59e" title="impl()">impl()</a> (function-local static, no heap).</p>
 <dl class="section warning"><dt>Warning</dt><dd>Not thread-safe: <a class="el" href="#a1a0589375b746214f96bd8f5331faaf2" title="init()">init()</a>, <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> and <a class="el" href="#a409d1aeb10fed97156d6dcf2c540d99d" title="disable()">disable()</a> must all run in the power supply task. </dd></dl>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::MPPT:</div>
 <div id="dynsection-0-summary" class="dynsummary">
@@ -348,7 +348,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the accumulator voltage measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call. </p>
 <p>It is read by the same step that limits the charge, so the caller needs no second read of the sensor.</p>
-<dl class="section return"><dt>Returns</dt><dd>Accumulator voltage, in volts; 0 until the first successful read. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Accumulator voltage, in volts; <b>0</b> until the first successful read. </dd></dl>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
 </div>
@@ -389,7 +389,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the charger output current measured by the last <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call. </p>
 <p>The 0x41 monitor's shunt R9 sits between the charger diode D2 and the 6 V rail, so this is the current the charger feeds into the loads plus the accumulator; the accumulator's own discharge does not pass it.</p>
-<dl class="section return"><dt>Returns</dt><dd>Charger output current, in amperes; never positive (calibration sign), 0 until the first update. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Charger output current, in amperes; never positive (calibration sign), <b>0</b> until the first update. </dd></dl>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -469,7 +469,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether the charger is enabled. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' while the charger is enabled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> while the charger is enabled. </dd></dl>
 <div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-12-summary" class="dynsummary">
 </div>
@@ -509,7 +509,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the panel current measured by the last MPPT update (every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps). </p>
-<dl class="section return"><dt>Returns</dt><dd>Panel current, in amperes; 0 until the first update. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Panel current, in amperes; <b>0</b> until the first update. </dd></dl>
 <div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-14-summary" class="dynsummary">
 </div>
@@ -646,7 +646,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Starts the DAC at the lowest charge voltage and enables the charger. </p>
 <dl class="section pre"><dt>Precondition</dt><dd>The panel and accumulator monitors and the TMP102 are already initialized.</dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if the DAC started and the charger was enabled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the DAC started and the charger was enabled. </dd></dl>
 
 </div>
 </div>
@@ -778,7 +778,7 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Runs one inner-loop iteration and, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> calls, one MPPT update. </p>
 <p>Call every <a class="el" href="#a4dfaa47ad7a8a240bdc8e91a714de227" title="STEP_PERIOD_MS">STEP_PERIOD_MS</a> milliseconds. The accumulator charge voltage and charge current limits override the MPPT setpoint.</p>
-<dl class="section return"><dt>Returns</dt><dd>'false' if a sensor read or the DAC write failed; the charger then keeps its last DAC value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>false</b> if a sensor read or the DAC write failed; the charger then keeps its last DAC value. </dd></dl>
 
 </div>
 </div>
