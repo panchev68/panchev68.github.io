@@ -11,7 +11,7 @@ var indexSectionsWithContent =
   8: "acdfhimnorstu",
   9: "bdmrsv",
   10: "abdfhlmpst",
-  11: "pu",
+  11: "fpru",
   12: "dehipqs"
 };
 

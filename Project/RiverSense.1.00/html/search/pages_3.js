@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['структура_0',['Структура',['../index.html#структура',1,'']]],
-  ['състояние_1',['Състояние',['../index.html#състояние',1,'']]]
+  ['usage_0',['PGA460TPWRQ1 usage',['https://panchev68.github.io/Lib/d9/d3c/a03650.html',1,'']]]
 ];

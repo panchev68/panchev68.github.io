@@ -1,7 +1,6 @@
 var namespaces_dup =
 [
     [ "APP", "d1/deb/namespace_a_p_p.html", "d1/deb/namespace_a_p_p" ],
-    [ "block", "d3/d51/namespaceblock.html", null ],
     [ "BSP", "da/da7/namespace_b_s_p.html", "da/da7/namespace_b_s_p" ],
     [ "ColorDetail", "https://panchev68.github.io/Lib/d0/de2/a00892.html", [
       [ "pack", "https://panchev68.github.io/Lib/d0/de2/a00892.html#ad8d403e5fc6766109d53890ca071caf2", null ]
