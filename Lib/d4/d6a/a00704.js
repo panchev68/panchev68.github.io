@@ -1,4 +1,4 @@
 var a00704 =
 [
-    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "d1/df7/a02501.html", "d1/df7/a02501" ]
+    [ "Lib::Helper::Delay", "d3/d9a/a05620.html", "d3/d9a/a05620" ]
 ];

@@ -1,4 +1,4 @@
 var a00644 =
 [
-    [ "Lib::Helper::SwapBytes", "da/df1/a05668.html", null ]
+    [ "Lib::HAL::USBDevicePortBase&lt; T_DERIVED &gt;", "df/d63/a05528.html", "df/d63/a05528" ]
 ];

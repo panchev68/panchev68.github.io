@@ -15,6 +15,6 @@ var searchData=
   ['versionbase_12',['VersionBase',['../d1/d4e/a05972.html#a32eb651df51eadc6dc6cca08bcd82ee5',1,'Lib::System::VersionBase']]],
   ['view_13',['view',['../de/d1b/a04948.html#a99d9247c3097add390da201d0083e524',1,'Lib::Digi::Core::Message::view()'],['../d5/d6e/a04988.html#a5b6240ac3f756b4d29a1009db83fe5a1',1,'Lib::Digi::Core::QueueMessage::view()'],['../d6/d8c/a05188.html#a098ef4b99f9463cadc918fd5c85e88b2',1,'Lib::GSM::A7670E::CommandBuilder::view()']]],
   ['voltmeter_14',['Voltmeter',['../da/d34/a04592.html#a0f038c75a30b2d6cd8382c776fddd2bb',1,'Lib::BSP::Voltmeter']]],
-  ['vportsuppressticksandsleep_15',['vPortSuppressTicksAndSleep',['../df/dbb/a00698.html#af0b23788b85d579db89c2cbb6744b92f',1,'PowerManager.hpp']]],
+  ['vportsuppressticksandsleep_15',['vPortSuppressTicksAndSleep',['../da/d96/a00782.html#af0b23788b85d579db89c2cbb6744b92f',1,'PowerManager.hpp']]],
   ['vscode_16',['vscode',['../d7/d13/a06020.html#adb04031689a0f1b2303e9ca5974b2ae4',1,'vscode']]]
 ];

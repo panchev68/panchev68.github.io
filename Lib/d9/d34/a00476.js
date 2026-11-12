@@ -1,4 +1,4 @@
 var a00476 =
 [
-    [ "Lib::HAL::OTP", "da/dc0/a05392.html", "da/dc0/a05392" ]
+    [ "Lib::HAL::DACPort&lt; DriverMode::BLOCKING &gt;", "d1/d54/a05272.html", "d1/d54/a05272" ]
 ];

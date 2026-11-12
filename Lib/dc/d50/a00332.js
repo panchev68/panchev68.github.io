@@ -1,6 +1,4 @@
 var a00332 =
 [
-    [ "Lib::Ethernet::Wiznet::Socket", "d7/d13/a05156.html", "d7/d13/a05156" ],
-    [ "Lib::Ethernet::Wiznet::operator&", "df/da5/a00912.html#acb74339821d97e8e11b2409c1dd2a413", null ],
-    [ "Lib::Ethernet::Wiznet::operator|", "df/da5/a00912.html#aa7f2f28683a1a310a51a07e5e63cde01", null ]
+    [ "Lib::Digi::Core::Frame0x09", "d8/dbe/a04976.html", "d8/dbe/a04976" ]
 ];

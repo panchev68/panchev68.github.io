@@ -1,4 +1,4 @@
 var a00371 =
 [
-    [ "Lib::HAL::AsyncPortCore&lt; T_DERIVED, T_HANDLE, T_BASE, T_PORT &gt;", "d9/d17/a01937.html", "d9/d17/a01937" ]
+    [ "Lib::Digi::Core::Frame0x97", "dc/d61/a05028.html", "dc/d61/a05028" ]
 ];

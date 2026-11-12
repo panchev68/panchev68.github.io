@@ -1,4 +1,4 @@
 var a00635 =
 [
-    [ "Lib::Helper::RingBuffer&lt; T, T_SIZE &gt;", "d4/d20/a05652.html", "d4/d20/a05652" ]
+    [ "Lib::HAL::USBDevicePort&lt; DriverMode::DMA &gt;", "d7/d56/a05508.html", "d7/d56/a05508" ]
 ];

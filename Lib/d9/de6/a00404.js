@@ -1,4 +1,4 @@
 var a00404 =
 [
-    [ "Lib::HAL::FlashInterface", "db/d49/a01969.html", "db/d49/a01969" ]
+    [ "Lib::Ethernet::IpAddress", "d0/dbf/a05124.html", "d0/dbf/a05124" ]
 ];

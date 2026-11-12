@@ -1,6 +1,4 @@
 var a00188 =
 [
-    [ "Lib::BSP::XPT2046", "dd/d95/a01247.html", "dd/d95/a01247" ],
-    [ "Lib::BSP::XPT2046::Config", "dc/dc2/a01251.html", "dc/dc2/a01251" ],
-    [ "Lib::BSP::XPT2046::Parameters", "d7/d88/a01255.html", "d7/d88/a01255" ]
+    [ "Lib::BSP::Thermometer::DTH::DTH22", "dc/dfa/a00894.html#ac925b6863b7c23b83aa215b6588e2487", null ]
 ];

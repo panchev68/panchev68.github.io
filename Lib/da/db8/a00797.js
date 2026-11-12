@@ -1,4 +1,4 @@
 var a00797 =
 [
-    [ "Lib::System::Configuration", "d3/d09/a02539.html", "d3/d09/a02539" ]
+    [ "RTOS::SemaphoreCounting", "d2/d02/a05836.html", "d2/d02/a05836" ]
 ];

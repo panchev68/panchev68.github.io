@@ -1,6 +1,7 @@
 var a00506 =
 [
-    [ "Lib::HAL::Timer::compareRegister", "d6/d66/a00916.html#afb4fb6e73aa0198e451581196e258e12", null ],
-    [ "Lib::HAL::Timer::isValidChannel", "d6/d66/a00916.html#ab75a39e4c4d2e24306f9d60322937e4a", null ],
-    [ "Lib::HAL::Timer::toActiveChannel", "d6/d66/a00916.html#a7308e7f3aee34a139db6fc9cc68a0876", null ]
+    [ "ExtInterrupt", "d4/d1f/a00506.html#a8cff87d9f48f32853dd18857ee3d60aa", null ],
+    [ "GPIOPort", "d4/d1f/a00506.html#ab4dcd7ad399e9a169b894000edd27101", null ],
+    [ "PinInput", "d4/d1f/a00506.html#a8ec0ca73e638e4f25bf78418c3871eda", null ],
+    [ "PinOutput", "d4/d1f/a00506.html#a5f9adc83bde8d23ea2a3a1b7d37630c9", null ]
 ];

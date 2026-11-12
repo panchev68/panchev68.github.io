@@ -114,6 +114,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d12/a05744.
   <div class="headertitle"><div class="title">Lib::Pneumatics::Cylinder</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Drives a pneumatic cylinder output from off/on position sensor feedback.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Drives a pneumatic cylinder output from off/on position sensor feedback. </p>
 <p>Either or both sensors may be physically absent, configured via "Config::offSensor" / "Config::onSensor"; an absent sensor's transitions are then confirmed by timeout instead, and its uncommanded-move detection is disabled. With both sensors absent, the cylinder behaves as a purely time-based actuator: "Status::UNKNOWN" only clears once <a class="el" href="#a4da495987bbb4e5916779c867b023761" title="Requests the cylinder to move to the given position.">command()</a> is called, and "Status::IS_ERROR" can never be raised. </p>
@@ -128,6 +131,42 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/d12/a05744.
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../db/d37/a05748.html">Config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timing parameters and sensor wiring for debouncing and switch-time supervision.  <a href="../../db/d37/a05748.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac6a1f18dc094880e53169a7e884cc0cf" id="r_ac6a1f18dc094880e53169a7e884cc0cf"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cf">Command</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cfa88559a0cfd8250c9d65970cc145c92d4">OFF</a>
+, <br />
+&#160;&#160;<a class="el" href="#ac6a1f18dc094880e53169a7e884cc0cfa90651ebea9a35ec4e018c8157492e17c">ON</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:ac6a1f18dc094880e53169a7e884cc0cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Requested cylinder movement direction.  <a href="#ac6a1f18dc094880e53169a7e884cc0cf">More...</a><br /></td></tr>
+<tr class="memitem:a7273a3341799aff5527818d9cf88b2b3" id="r_a7273a3341799aff5527818d9cf88b2b3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a7273a3341799aff5527818d9cf88b2b3">Status</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a>
+, <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a5b47312014964c5843fdd0002c86e46d">IS_OFF</a>
+, <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a93829aa602d1d42d28fc6821d0e0083b">IS_ON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a229051669055140f5d0bbafd5ea64412">IN_MOTION</a>
+, <br />
+&#160;&#160;<a class="el" href="#a7273a3341799aff5527818d9cf88b2b3a08d9808c0d90af039e7ccffc802e5232">IS_ERROR</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a7273a3341799aff5527818d9cf88b2b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reported cylinder position and health status.  <a href="#a7273a3341799aff5527818d9cf88b2b3">More...</a><br /></td></tr>
+<tr class="memitem:a9e4cc2264975fb90820378e04641c518" id="r_a9e4cc2264975fb90820378e04641c518"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#a9e4cc2264975fb90820378e04641c518">Error</a> : uint8_t { <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518ab50339a10e1de285ac99d4c3990b8693">NONE</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a5dbb3ccc1d669d4795a0132d6fed5d3a">TIMEOUT_ON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a81a5a7f809ca6aaefe5685dbf5503ef8">TIMEOUT_OFF</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a91f2b697900d216110382c0902b17e25">UNCOMMANDED_ON</a>
+, <br />
+&#160;&#160;<a class="el" href="#a9e4cc2264975fb90820378e04641c518a3c05ea266a6f2e3d7ce10c09bc0db0ff">UNCOMMANDED_OFF</a>
+<br />
+ }</td></tr>
+<tr class="memdesc:a9e4cc2264975fb90820378e04641c518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Latched fault reason for the last raised error.  <a href="#a9e4cc2264975fb90820378e04641c518">More...</a><br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>

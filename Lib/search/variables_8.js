@@ -161,11 +161,11 @@ var searchData=
   ['hourformat_158',['HourFormat',['https://panchev68.github.io/HALF4/d1/dde/a01496.html#aa7dff3583cd79a5a3f9868a56ffd31ee',0,'RTC_InitTypeDef']]],
   ['hours_159',['Hours',['https://panchev68.github.io/HALF4/de/d65/a01500.html#afb56ed968b4967d127517ebb4ed40d8b',0,'RTC_TimeTypeDef']]],
   ['hours_160',['hours',['../d8/d73/a05412.html#a437ac5c570358c9a7f7f0ead962efd15',1,'Lib::HAL::RTCDevice::Time::hours'],['../df/d16/a05612.html#ae995e646fc95c0ff34aee8587092b3c0',1,'Lib::Helper::DateTime::Time::hours']]],
-  ['hpcd_5fusb_5fotg_5ffs_161',['hpcd_USB_OTG_FS',['../d0/d7e/a00770.html#a3ec0d70a6cb9406d997fb3d006cc940d',1,'SerialPortRepeaterBase.hpp']]],
+  ['hpcd_5fusb_5fotg_5ffs_161',['hpcd_USB_OTG_FS',['../d6/d2f/a00854.html#a3ec0d70a6cb9406d997fb3d006cc940d',1,'SerialPortRepeaterBase.hpp']]],
   ['hrtc_5fhandle_162',['hRTC_Handle',['https://panchev68.github.io/HALF4/dd/d39/a01271.html#ga66edbb38f0b45759c28ecd5aede14478',0,'hRTC_Handle(Global Namespace)'],['https://panchev68.github.io/HALF4/d4/d0e/a01272.html#ga66edbb38f0b45759c28ecd5aede14478',0,'hRTC_Handle(Global Namespace)']]],
   ['hsestate_163',['HSEState',['https://panchev68.github.io/HALF4/d2/d21/a01484.html#a7e05d6eec98ed8cdaba00ca3d167ff72',0,'RCC_OscInitTypeDef']]],
   ['hsicalibrationvalue_164',['HSICalibrationValue',['https://panchev68.github.io/HALF4/d2/d21/a01484.html#a9b2e48e452d0c334f2b9473216064560',0,'RCC_OscInitTypeDef']]],
   ['hsistate_165',['HSIState',['https://panchev68.github.io/HALF4/d2/d21/a01484.html#a39b62cae65fe7a251000354e5bba8cb6',0,'RCC_OscInitTypeDef']]],
-  ['husbdevicefs_166',['hUsbDeviceFS',['../d0/d7e/a00770.html#afe8a2d9e10b33d5e7906f9f04f95358e',1,'SerialPortRepeaterBase.hpp']]],
+  ['husbdevicefs_166',['hUsbDeviceFS',['../d6/d2f/a00854.html#afe8a2d9e10b33d5e7906f9f04f95358e',1,'SerialPortRepeaterBase.hpp']]],
   ['hwflowctl_167',['HwFlowCtl',['https://panchev68.github.io/HALF4/de/d40/a01592.html#adbf4734130666b94201c6658464c1622',0,'UART_InitTypeDef']]]
 ];

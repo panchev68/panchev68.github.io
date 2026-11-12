@@ -1,4 +1,5 @@
 var a00449 =
 [
-    [ "Lib::HAL::I2CPortBase&lt; T_DERIVED &gt;", "d1/d68/a05360.html", "d1/d68/a05360" ]
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;", "d5/d76/a05244.html", "d5/d76/a05244" ],
+    [ "Lib::HAL::CANPort&lt; DriverMode::IT &gt;::Event", "df/d8e/a05248.html", null ]
 ];

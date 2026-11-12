@@ -1,4 +1,4 @@
 var a00548 =
 [
-    [ "Lib::HAL::USBDevicePort&lt; DriverMode::IT &gt;", "d5/d85/a02181.html", "d5/d85/a02181" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::IT &gt;", "d4/d93/a05376.html", "d4/d93/a05376" ]
 ];

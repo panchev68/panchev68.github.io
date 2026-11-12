@@ -1,4 +1,4 @@
 var a00542 =
 [
-    [ "Lib::HAL::UARTPortAsync&lt; T_DERIVED &gt;", "d2/d0e/a05496.html", "d2/d0e/a05496" ]
+    [ "Lib::HAL::OSPIPort&lt; DriverMode::BLOCKING &gt;", "d3/d02/a05368.html", "d3/d02/a05368" ]
 ];

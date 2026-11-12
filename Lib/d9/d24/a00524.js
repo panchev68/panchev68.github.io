@@ -1,4 +1,4 @@
 var a00524 =
 [
-    [ "Lib::HAL::Timer::TimPwmOutput", "d1/d06/a05468.html", "d1/d06/a05468" ]
+    [ "Lib::HAL::I2CPort&lt; DriverMode::DMA &gt;", "da/def/a05344.html", "da/def/a05344" ]
 ];

@@ -114,6 +114,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/dec/a06008.
   <div class="headertitle"><div class="title">Lib::USB::SerialPortRepeaterBase</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> serial port repeater bridging UART and <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> CDC communication.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p><a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> serial port repeater bridging UART and <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> CDC communication. </p>
 <p>Extends <a class="el" href="../../d3/dc5/a06000.html" title="USB-UART bridge serial port with buffered receive and transmit tasks.">SerialPort</a> to provide bidirectional <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> device communication through the CDC (Communications Device Class) protocol. Manages <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> device initialization, connection state tracking, line coding parameters, <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> power detection, and event signaling for connection state changes. Uses FreeRTOS tasks and STM32 <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> device middleware for reliable <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> serial communication.</p>
@@ -136,6 +139,11 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dc/dec/a06008.
 Classes</h2></td></tr>
 <tr class="memitem:Config" id="r_Config"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="../../d2/dc4/a06012.html">Config</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration structure extending <a class="el" href="../../de/dd0/a06004.html" title="Configuration required to construct a SerialPort instance.">SerialPort::Config</a> with USB-specific settings.  <a href="../../d2/dc4/a06012.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a02700dee6676fa9bcb527b7187e2813e" id="r_a02700dee6676fa9bcb527b7187e2813e"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a02700dee6676fa9bcb527b7187e2813e">Status</a> = <a class="el" href="../../d3/dc5/a06000.html#a69d5fbac0f2c325b3f576b76a1db1204">SerialPort::Status</a></td></tr>
+<tr class="memdesc:a02700dee6676fa9bcb527b7187e2813e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="#a02700dee6676fa9bcb527b7187e2813e" title="Status codes shared with SerialPort, so the open() override keeps its return type.">Status</a> codes shared with <a class="el" href="../../d3/dc5/a06000.html" title="USB-UART bridge serial port with buffered receive and transmit tasks.">SerialPort</a>, so the <a class="el" href="#a9869e02a625d87d244bb9fa24407a398" title="Opens the serial port and initializes USB device interface.">open()</a> override keeps its return type.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -549,7 +557,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Opens the serial port and initializes <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> device interface. </p>
-<p>Calls the base <a class="el" href="../../d3/dc5/a06000.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a" title="Open the serial port, start internal tasks and initialize hardware.">SerialPort::open()</a>, waits for <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> initialization delay, enables the <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> port, configures CDC callbacks (Init, DeInit, Control, Receive), and initializes the <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> device via <a class="el" href="../../d0/d7e/a00770.html#adab4f7fc1db4ce2be073d3913209d2af">MX_USB_DEVICE_Init()</a>. Sets the internal open flag to track state.</p>
+<p>Calls the base <a class="el" href="../../d3/dc5/a06000.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a" title="Open the serial port, start internal tasks and initialize hardware.">SerialPort::open()</a>, waits for <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> initialization delay, enables the <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> port, configures CDC callbacks (Init, DeInit, Control, Receive), and initializes the <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> device via <a class="el" href="../../d6/d2f/a00854.html#adab4f7fc1db4ce2be073d3913209d2af">MX_USB_DEVICE_Init()</a>. Sets the internal open flag to track state.</p>
 <dl class="section return"><dt>Returns</dt><dd>Status::OK if successful, Status::ERROR if port is already open or <a class="el" href="../../d3/dc5/a06000.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a" title="Open the serial port, start internal tasks and initialize hardware.">SerialPort::open()</a> fails. </dd></dl>
 
 <p>Reimplemented from <a class="el" href="../../d3/dc5/a06000.html#a1c7223a50d6f9dcb2ad12810ceb0ca4a">Lib::USB::SerialPort</a>.</p>
@@ -817,7 +825,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Virtual hook called before received data is processed. </p>
-<p>Invoked before <a class="el" href="../../d0/d7e/a00770.html#a9f54b31ad23bbe32b693bdeef89303f4">CDC_Transmit_FS()</a> is called to send received data to <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> host. Allows derived classes to implement custom signaling or state management. </p>
+<p>Invoked before <a class="el" href="../../d6/d2f/a00854.html#a9f54b31ad23bbe32b693bdeef89303f4">CDC_Transmit_FS()</a> is called to send received data to <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> host. Allows derived classes to implement custom signaling or state management. </p>
 <div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-15-summary" class="dynsummary">
 </div>
@@ -851,7 +859,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Virtual hook called after received data is processed. </p>
-<p>Invoked after <a class="el" href="../../d0/d7e/a00770.html#a9f54b31ad23bbe32b693bdeef89303f4">CDC_Transmit_FS()</a> completes sending received data to <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> host. Allows derived classes to implement custom signaling or state management. </p>
+<p>Invoked after <a class="el" href="../../d6/d2f/a00854.html#a9f54b31ad23bbe32b693bdeef89303f4">CDC_Transmit_FS()</a> completes sending received data to <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> host. Allows derived classes to implement custom signaling or state management. </p>
 <div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-16-summary" class="dynsummary">
 </div>
@@ -885,7 +893,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Virtual hook called before transmit completion processing. </p>
-<p>Invoked before <a class="el" href="../../d0/d7e/a00770.html#a7c4014397838b40b7716d800fd90ebcf">USBD_CDC_ReceivePacket()</a> is called to prepare for next <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> message. Allows derived classes to implement custom signaling or state management. </p>
+<p>Invoked before <a class="el" href="../../d6/d2f/a00854.html#a7c4014397838b40b7716d800fd90ebcf">USBD_CDC_ReceivePacket()</a> is called to prepare for next <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> message. Allows derived classes to implement custom signaling or state management. </p>
 <div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-17-summary" class="dynsummary">
 </div>
@@ -919,7 +927,7 @@ Protected Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Virtual hook called after transmit completion processing. </p>
-<p>Invoked after <a class="el" href="../../d0/d7e/a00770.html#a7c4014397838b40b7716d800fd90ebcf">USBD_CDC_ReceivePacket()</a> completes <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> message queue processing. Allows derived classes to implement custom signaling or state management. </p>
+<p>Invoked after <a class="el" href="../../d6/d2f/a00854.html#a7c4014397838b40b7716d800fd90ebcf">USBD_CDC_ReceivePacket()</a> completes <a class="el" href="../../d8/d38/a00926.html" title="USB serial port abstractions and helpers.">USB</a> message queue processing. Allows derived classes to implement custom signaling or state management. </p>
 <div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-18-summary" class="dynsummary">
 </div>

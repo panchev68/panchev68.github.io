@@ -1,5 +1,4 @@
 var a00530 =
 [
-    [ "Lib::HAL::StreamSerialPort", "d4/db7/a05476.html", "d4/db7/a05476" ],
-    [ "Lib::HAL::StreamSerialPort::Config", "dd/d34/a05480.html", "dd/d34/a05480" ]
+    [ "Lib::HAL::I2CPortAsync&lt; T_DERIVED &gt;", "dd/d2f/a05352.html", "dd/d2f/a05352" ]
 ];

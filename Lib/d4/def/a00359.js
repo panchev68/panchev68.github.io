@@ -1,4 +1,4 @@
 var a00359 =
 [
-    [ "Lib::HAL::BackupRamDomain", "dd/d1a/a05236.html", "dd/d1a/a05236" ]
+    [ "Lib::Digi::Core::Frame0x89", "db/dd9/a05012.html", "db/dd9/a05012" ]
 ];

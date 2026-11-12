@@ -1,4 +1,4 @@
 var a00167 =
 [
-    [ "Lib::Digi::API::ApplicationBase&lt; Derived &gt;", "d0/d95/a04772.html", "d0/d95/a04772" ]
+    [ "Lib::BSP::RFID::NTAG21x::CardRecord&lt; T_ISSUER &gt;", "dd/d3b/a04468.html", "dd/d3b/a04468" ]
 ];

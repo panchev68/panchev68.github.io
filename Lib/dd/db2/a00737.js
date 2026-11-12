@@ -1,6 +1,21 @@
 var a00737 =
 [
-    [ "Lib::SolarControl::PerturbAndObserve", "dd/d2a/a05904.html", "dd/d2a/a05904" ],
-    [ "Lib::SolarControl::PerturbAndObserve::Config", "d0/d71/a05908.html", "d0/d71/a05908" ],
-    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d3/d4c/a05912.html", "d3/d4c/a05912" ]
+    [ "Lib::HTTP::Response", "d9/d54/a05684.html", "d9/d54/a05684" ],
+    [ "Lib::HTTP::Client&lt; T_TRANSPORT &gt;", "db/daf/a05688.html", "db/daf/a05688" ],
+    [ "Lib::HTTP::WolfSSLTransport&lt; T_RAW_TRANSPORT &gt;", "da/dff/a05696.html", "da/dff/a05696" ],
+    [ "Lib::HTTP::Method", "d1/d0b/a00919.html#a8f753d750ea425a0a07f531674302436", [
+      [ "Lib::HTTP::Method::GET", "d1/d0b/a00919.html#a8f753d750ea425a0a07f531674302436a7528035a93ee69cedb1dbddb2f0bfcc8", null ],
+      [ "Lib::HTTP::Method::POST", "d1/d0b/a00919.html#a8f753d750ea425a0a07f531674302436aa02439ec229d8be0e74b0c1602392310", null ],
+      [ "Lib::HTTP::Method::PUT", "d1/d0b/a00919.html#a8f753d750ea425a0a07f531674302436a3e75383a5992a6d15fb81e872e46e256", null ],
+      [ "Lib::HTTP::Method::DELETE", "d1/d0b/a00919.html#a8f753d750ea425a0a07f531674302436a32f68a60cef40faedbc6af20298c1a1e", null ]
+    ] ],
+    [ "Lib::HTTP::Status", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85c", [
+      [ "Lib::HTTP::Status::SUCCESS", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85cad0749aaba8b833466dfcbb0428e4f89c", null ],
+      [ "Lib::HTTP::Status::REQUEST_TOO_LARGE", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85ca851bf3985bc449f3da3c770257062617", null ],
+      [ "Lib::HTTP::Status::SEND_ERROR", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85ca2722a1c4409a8a5aad2b5467f3cb5b2d", null ],
+      [ "Lib::HTTP::Status::RECEIVE_ERROR", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85ca892a643eb340f74fff27ab376b6105bf", null ],
+      [ "Lib::HTTP::Status::TIMEOUT", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85ca070a0fb40f6c308ab544b227660aadff", null ],
+      [ "Lib::HTTP::Status::MALFORMED_RESPONSE", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85ca7850e7c3a0c981c95e69e331469c33b9", null ],
+      [ "Lib::HTTP::Status::RESPONSE_TOO_LARGE", "d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85ca06679887379e5098264880df36242556", null ]
+    ] ]
 ];

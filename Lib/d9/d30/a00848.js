@@ -1,5 +1,6 @@
 var a00848 =
 [
-    [ "I2C_MEMADD_SIZE_16BIT", "d9/d30/a00848.html#ga5b8c4b7d245fd7ab998acf2c7edd61a4", null ],
-    [ "I2C_MEMADD_SIZE_8BIT", "d9/d30/a00848.html#ga44007b689fa80deeab22820ad0b2dc6d", null ]
+    [ "Lib::USB::CDCDevice", "d7/d3c/a05976.html", "d7/d3c/a05976" ],
+    [ "Lib::USB::CDCDevice::Config", "d7/d4b/a05980.html", "d7/d4b/a05980" ],
+    [ "Lib::USB::CDCDevice::LineCoding", "db/df6/a05984.html", "db/df6/a05984" ]
 ];

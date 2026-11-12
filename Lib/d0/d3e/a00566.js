@@ -1,4 +1,7 @@
 var a00566 =
 [
-    [ "Lib::HAL::USBHostPort&lt; DriverMode::IT &gt;", "d8/d58/a05536.html", "d8/d58/a05536" ]
+    [ "Lib::HAL::RTCDevice", "d4/d15/a05404.html", "d4/d15/a05404" ],
+    [ "Lib::HAL::RTCDevice::Date", "da/df4/a05408.html", "da/df4/a05408" ],
+    [ "Lib::HAL::RTCDevice::Time", "d8/d73/a05412.html", "d8/d73/a05412" ],
+    [ "HAL_RTC_AlarmAEventCallback", "d0/d3e/a00566.html#a11aeff83fd498cddbed3bcddcf017e0a", null ]
 ];

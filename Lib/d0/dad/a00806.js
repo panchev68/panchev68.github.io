@@ -1,4 +1,5 @@
 var a00806 =
 [
-    [ "Lib::System::ProduceDate", "d3/d80/a02559.html", "d3/d80/a02559" ]
+    [ "RTOS::TickClient&lt; Derived &gt;", "da/d96/a05868.html", "da/d96/a05868" ],
+    [ "RTOS::TickClient&lt; Derived &gt;::Config", "d8/d73/a05872.html", "d8/d73/a05872" ]
 ];

@@ -1,4 +1,4 @@
 var a00743 =
 [
-    [ "Lib::System::FirmwareVersion", "db/dbf/a05920.html", "db/dbf/a05920" ]
+    [ "Lib::Math::HammingCode", "d2/d02/a05708.html", null ]
 ];

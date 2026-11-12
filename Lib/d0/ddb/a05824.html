@@ -114,6 +114,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/ddb/a05824.
   <div class="headertitle"><div class="title">RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Fixed-capacity FreeRTOS queue carrying items of one trivially copyable type.  
+ <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt;<br />
 requires (std::is_trivially_copyable_v&lt;T_ELEMENT_TYPE&gt; &amp;&amp; std::default_initializable&lt;T_ELEMENT_TYPE&gt; &amp;&amp; (N_QUEUE_LENGTH &gt; 0U))<br />
@@ -133,6 +136,13 @@ class RTOS::Queue&lt; T_ELEMENT_TYPE, N_QUEUE_LENGTH &gt;</div><p>Fixed-capacity
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../da/d1d/a05822.svg" width="382" height="320"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a7b7645018d43538240c762c09964eb6d" id="r_a7b7645018d43538240c762c09964eb6d"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a7b7645018d43538240c762c09964eb6d">Handle</a> = QueueHandle_t</td></tr>
+<tr class="memdesc:a7b7645018d43538240c762c09964eb6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Native FreeRTOS queue handle.  <br /></td></tr>
+<tr class="memitem:a2e005eeef82edd981b9d0cac15b7f677" id="r_a2e005eeef82edd981b9d0cac15b7f677"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#a2e005eeef82edd981b9d0cac15b7f677">Storage</a> = <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a>&lt;uint8_t, N_QUEUE_LENGTH * sizeof(T_ELEMENT_TYPE)&gt;</td></tr>
+<tr class="memdesc:a2e005eeef82edd981b9d0cac15b7f677"><td class="mdescLeft">&#160;</td><td class="mdescRight">Item storage for createStatic().  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae2e2d5be166083d6b7ac6bf532106e78" id="r_ae2e2d5be166083d6b7ac6bf532106e78"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae2e2d5be166083d6b7ac6bf532106e78">Queue</a> () noexcept=default</td></tr>
@@ -454,7 +464,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Deletes the native queue and releases its memory; does nothing if already closed. </p>
-<p>The queue must not be a member of a 'RTOS::QueueSet' at this point, and no task may be blocked on it. </p>
+<p>The queue must not be a member of a RTOS::QueueSet at this point, and no task may be blocked on it. </p>
 <div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-5-summary" class="dynsummary">
 </div>
@@ -496,7 +506,7 @@ template&lt;typename T_ELEMENT_TYPE, size_t N_QUEUE_LENGTH = 1U&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the native handle, e.g. </p>
-<p>for 'RTOS::QueueSet::addToSet()'.</p>
+<p>for RTOS::QueueSet::addToSet().</p>
 <dl class="section return"><dt>Returns</dt><dd>Native queue handle, or 'nullptr' if closed. </dd></dl>
 <div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-7-summary" class="dynsummary">

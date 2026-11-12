@@ -1,8 +1,6 @@
 var a00197 =
 [
-    [ "Lib::Digi::Core::ApiMode", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17ed", [
-      [ "Lib::Digi::Core::ApiMode::TRANSPARENT", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17eda6dbf1b8bc39b4ed513395a18b554979f", null ],
-      [ "Lib::Digi::Core::ApiMode::API1", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17eda7e8d092d9c015707dedc7a3b8173f6b5", null ],
-      [ "Lib::Digi::Core::ApiMode::API2", "da/d5b/a00905.html#a90113324d5ba519fcc76387893bb17eda51dfa65dc2042cfa662ff3a4cd76c968", null ]
-    ] ]
+    [ "Lib::BSP::XPT2046", "dd/d39/a04560.html", "dd/d39/a04560" ],
+    [ "Lib::BSP::XPT2046::Config", "d7/df4/a04564.html", "d7/df4/a04564" ],
+    [ "Lib::BSP::XPT2046::Parameters", "dd/d7a/a04568.html", "dd/d7a/a04568" ]
 ];

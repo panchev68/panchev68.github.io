@@ -1,5 +1,4 @@
 var a00185 =
 [
-    [ "Lib::Digi::API::Service::PairService", "db/dde/a04856.html", "db/dde/a04856" ],
-    [ "Lib::Digi::API::Service::PairService::Config", "d1/dda/a04860.html", "d1/dda/a04860" ]
+    [ "Lib::BSP::Thermometer::DTH::Parm", "d6/dad/a04540.html", null ]
 ];

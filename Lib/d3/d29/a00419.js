@@ -1,4 +1,4 @@
 var a00419 =
 [
-    [ "Lib::HAL::GPIO::Output", "d8/df6/a05316.html", "d8/df6/a05316" ]
+    [ "Lib::Ethernet::Wiznet::Sockets", "df/df0/a05160.html", "df/df0/a05160" ]
 ];

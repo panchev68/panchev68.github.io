@@ -1,5 +1,5 @@
 var a00179 =
 [
-    [ "Lib::Digi::API::Service::ChannelScanner", "de/daa/a04840.html", "de/daa/a04840" ],
-    [ "Lib::Digi::API::Service::ChannelScanner::Channel", "de/df4/a04844.html", "de/df4/a04844" ]
+    [ "Lib::BSP::SK6812", "d1/def/a04512.html", "d1/def/a04512" ],
+    [ "Lib::BSP::SK6812::Ring&lt; T_COUNT &gt;", "d5/d91/a04516.html", "d5/d91/a04516" ]
 ];

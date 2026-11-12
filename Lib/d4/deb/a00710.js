@@ -1,4 +1,4 @@
 var a00710 =
 [
-    [ "RTOS::SemaphoreBase&lt; Derived &gt;", "d3/d10/a05832.html", "d3/d10/a05832" ]
+    [ "Lib::Helper::Integrator&lt; T_VALUE, T_WINDOW_SIZE &gt;", "d2/d2a/a05636.html", "d2/d2a/a05636" ]
 ];

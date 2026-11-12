@@ -1,4 +1,4 @@
 var a00362 =
 [
-    [ "Lib::HAL::CANPort&lt; DriverMode::BLOCKING &gt;", "d5/d47/a05240.html", "d5/d47/a05240" ]
+    [ "Lib::Digi::Core::Frame0x8a", "d5/d66/a05016.html", "d5/d66/a05016" ]
 ];

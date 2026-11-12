@@ -1,4 +1,4 @@
 var a00356 =
 [
-    [ "Lib::HAL::ADCPortBase&lt; Derived &gt;", "d5/d8b/a05232.html", "d5/d8b/a05232" ]
+    [ "Lib::Digi::Core::Frame0x88", "d6/df3/a05008.html", "d6/df3/a05008" ]
 ];

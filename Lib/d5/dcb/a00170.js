@@ -1,10 +1,6 @@
 var a00170 =
 [
-    [ "Lib::Digi::API::Connection", "d6/db2/a04780.html", "d6/db2/a04780" ],
-    [ "Lib::Digi::API::Connection::State", "d2/d13/a04784.html", "d2/d13/a04784" ],
-    [ "Lib::Digi::API::Connection::Quality", "d2/d5c/a04788.html", "d2/d5c/a04788" ],
-    [ "Lib::Digi::API::Connection::Info", "da/d11/a04792.html", "da/d11/a04792" ],
-    [ "Lib::Digi::API::Connection::Info::Counter", "d8/dc6/a04796.html", "d8/dc6/a04796" ],
-    [ "Lib::Digi::API::Connection::Info::Period", "dd/df4/a04800.html", "dd/df4/a04800" ],
-    [ "Lib::Digi::API::Connection::Info::SignalStrength", "d5/dc9/a04804.html", "d5/dc9/a04804" ]
+    [ "Lib::BSP::RFID::NTAG21x::OriginalitySignature", "df/dfb/a04472.html", "df/dfb/a04472" ],
+    [ "Lib::BSP::RFID::NTAG21x::Uid", "de/dfc/a00891.html#a435a19683e1fb32e426add14e68d0076", null ],
+    [ "Lib::BSP::RFID::NTAG21x::UID_SIZE", "de/dfc/a00891.html#aafd94c6505eb4a0544cc89a0caee007d", null ]
 ];

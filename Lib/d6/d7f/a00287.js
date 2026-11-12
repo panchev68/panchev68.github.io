@@ -1,4 +1,4 @@
 var a00287 =
 [
-    [ "Lib::Digi::Core::Frame0x97", "dc/d61/a05028.html", "dc/d61/a05028" ]
+    [ "Lib::Digi::Core::Checksum", "d9/d2e/a04900.html", "d9/d2e/a04900" ]
 ];

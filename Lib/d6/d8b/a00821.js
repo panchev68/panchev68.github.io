@@ -1,6 +1,6 @@
 var a00821 =
 [
-    [ "Lib::USB::CDCDevice", "df/df0/a02599.html", "df/df0/a02599" ],
-    [ "Lib::USB::CDCDevice::Config", "d1/d23/a02603.html", "d1/d23/a02603" ],
-    [ "Lib::USB::CDCDevice::LineCoding", "df/d65/a02607.html", "df/d65/a02607" ]
+    [ "Lib::SolarControl::PerturbAndObserve", "dd/d2a/a05904.html", "dd/d2a/a05904" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Config", "d0/d71/a05908.html", "d0/d71/a05908" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d3/d4c/a05912.html", "d3/d4c/a05912" ]
 ];

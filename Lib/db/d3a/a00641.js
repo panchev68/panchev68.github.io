@@ -1,4 +1,4 @@
 var a00641 =
 [
-    [ "Lib::Helper::Sunset", "d4/de8/a05660.html", "d4/de8/a05660" ]
+    [ "Lib::HAL::USBDevicePortAsync&lt; T_DERIVED &gt;", "d3/dd7/a05516.html", "d3/dd7/a05516" ]
 ];

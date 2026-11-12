@@ -1,5 +1,4 @@
 var a00293 =
 [
-    [ "Lib::Errors::BasicDispatcher&lt; T_ERROR &gt;", "de/dff/a05032.html", "de/dff/a05032" ],
-    [ "Lib::Errors::Dispatcher", "d5/d89/a00907.html#a32937fedfac156d84189cbf2133bd0ab", null ]
+    [ "Lib::Digi::Core::Diagnostic", "d1/d58/a04916.html", "d1/d58/a04916" ]
 ];

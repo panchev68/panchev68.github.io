@@ -19,8 +19,8 @@ var searchData=
   ['usbdisablepin_16',['usbDisablePin',['../d2/dc4/a06012.html#aeafd4713f3249500c2a871623ffc4e6c',1,'Lib::USB::SerialPortRepeaterBase::Config']]],
   ['used_17',['used',['../dc/ded/a05184.html#a2e2c2a1528ada9e70dca6788258f4285',1,'Lib::GSM::A7670E::StorageInfo']]],
   ['userconfig_18',['USERConfig',['https://panchev68.github.io/HALF4/df/d31/a01440.html#ae6c9b55d49bc9627a2319ba680a924de',0,'FLASH_OBProgramInitTypeDef']]],
-  ['userrxbufferfs_19',['UserRxBufferFS',['../d0/d7e/a00770.html#a1e37e6616e6affe5acf9c0befd063f6a',1,'SerialPortRepeaterBase.hpp']]],
-  ['usertxbufferfs_20',['UserTxBufferFS',['../d0/d7e/a00770.html#ad48fea85cdb7aed49bf62140a52f23e0',1,'SerialPortRepeaterBase.hpp']]],
+  ['userrxbufferfs_19',['UserRxBufferFS',['../d6/d2f/a00854.html#a1e37e6616e6affe5acf9c0befd063f6a',1,'SerialPortRepeaterBase.hpp']]],
+  ['usertxbufferfs_20',['UserTxBufferFS',['../d6/d2f/a00854.html#ad48fea85cdb7aed49bf62140a52f23e0',1,'SerialPortRepeaterBase.hpp']]],
   ['uwtick_21',['uwTick',['https://panchev68.github.io/HALF4/d8/dba/a00681.html#ga9d411ea525781e633bf7ea7ef2f90728',0,'uwTick(Global Namespace)'],['https://panchev68.github.io/HALF4/d2/d1d/a01277.html#ga9d411ea525781e633bf7ea7ef2f90728',0,'uwTick(Global Namespace)']]],
   ['uwtickfreq_22',['uwTickFreq',['https://panchev68.github.io/HALF4/d8/dba/a00681.html#ga84a0c55c4d0bff06a085b4fcfd6531cd',0,'uwTickFreq(Global Namespace)'],['https://panchev68.github.io/HALF4/d2/d1d/a01277.html#ga84a0c55c4d0bff06a085b4fcfd6531cd',0,'uwTickFreq(Global Namespace)']]],
   ['uwtickprio_23',['uwTickPrio',['https://panchev68.github.io/HALF4/d8/dba/a00681.html#ga3000c5e83924ed2debb1849c738d4be2',0,'uwTickPrio(Global Namespace)'],['https://panchev68.github.io/HALF4/d2/d1d/a01277.html#ga3000c5e83924ed2debb1849c738d4be2',0,'uwTickPrio(Global Namespace)']]]

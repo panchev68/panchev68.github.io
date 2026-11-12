@@ -1,4 +1,4 @@
 var a00800 =
 [
-    [ "Lib::System::FirmwareVersion", "d1/d57/a02543.html", "d1/d57/a02543" ]
+    [ "RTOS::StreamBuffer", "dd/dce/a05840.html", "dd/dce/a05840" ]
 ];

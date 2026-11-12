@@ -1,4 +1,6 @@
 var a00416 =
 [
-    [ "Lib::HAL::GPIO::Input", "d7/d32/a05312.html", "d7/d32/a05312" ]
+    [ "Lib::Ethernet::Wiznet::Socket", "d7/d13/a05156.html", "d7/d13/a05156" ],
+    [ "Lib::Ethernet::Wiznet::operator&", "df/da5/a00912.html#acb74339821d97e8e11b2409c1dd2a413", null ],
+    [ "Lib::Ethernet::Wiznet::operator|", "df/da5/a00912.html#aa7f2f28683a1a310a51a07e5e63cde01", null ]
 ];
