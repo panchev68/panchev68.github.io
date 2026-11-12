@@ -116,8 +116,8 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d5/db1/a05812.
 <div class="contents">
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Manages low-power states and peripheral synchronization for the <a class="el" href="../../df/de9/a00923.html" title="C++20 RAII wrappers over FreeRTOS primitives.">RTOS</a> tickless idle mechanism. </p>
-<p>The kernel calls the hook from the idle task with the scheduler suspended. The manager masks interrupts, confirms that sleeping is still allowed, and then either stops the core in STOP1 until the LPTIM timeout (deep sleep) or waits in a plain '__WFI()' (light sleep). Pre-sleep and post-sleep callbacks run only around deep sleep and always with interrupts masked, so they must be short and must not call any blocking API.</p>
-<p>Stop mode needs a clock that keeps running while the core is stopped, so the manager drives an LPTIM through '<a class="el" href="../../d3/d72/a05440.html" title="Manages LPTIM peripheral configuration and interrupt-driven timeout events.">Lib::HAL::LPTimer</a>'. It targets the STM32U5 family, whose HAL provides both that driver's LPTIM interface and 'HAL_PWREx_EnterSTOP1Mode()'. On a device without an LPTIM, such as the STM32F407, the component is compiled away and the application runs without tickless idle.</p>
+<p>The kernel calls the hook from the idle task with the scheduler suspended. The manager masks interrupts, confirms that sleeping is still allowed, and then either stops the core in STOP1 until the LPTIM timeout (deep sleep) or waits in a plain <b>__WFI()</b> (light sleep). Pre-sleep and post-sleep callbacks run only around deep sleep and always with interrupts masked, so they must be short and must not call any blocking API.</p>
+<p>Stop mode needs a clock that keeps running while the core is stopped, so the manager drives an LPTIM through the <a class="el" href="../../d3/d72/a05440.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> driver. The STM32U5 family is the target: its HAL provides that driver's LPTIM interface and <b>HAL_PWREx_EnterSTOP1Mode()</b>. On a device without an LPTIM, such as the 'STM32F407', the component is compiled away and the application runs without tickless idle.</p>
 <p>The kernel reaches the manager through <a class="el" href="#a98ee80183ed645629084a482c158afd1" title="vPortSuppressTicksAndSleep()">vPortSuppressTicksAndSleep()</a>. Exactly one translation unit of the application must define 'RTOS_POWER_MANAGER_IMPLEMENTATION' before including this header; that unit emits the hook as a strong symbol which replaces the weak default of the FreeRTOS port. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for RTOS::PowerManager:</div>
 <div id="dynsection-0-summary" class="dynsummary">
@@ -350,8 +350,8 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if deep sleep mode is currently permitted. </p>
-<p>Also 'false' whenever a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>): STOP1 stops the core clock, and even with '<a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d58/a01230.html#gadf25043b17de4bef38a95a75fd03e5c4">HAL_DBGMCU_EnableDBGStopMode()</a>' (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>) SWD can still misread or momentarily lose the connection across the transition, which a plain '__WFI()' light sleep never does, since the core clock never stops. Unconditional in every build: the check itself is a single free register read, costing nothing when no debugger is attached, so there is no release-build reason to skip it.</p>
-<dl class="section return"><dt>Returns</dt><dd>'true' if permitted, initialized, and no debugger is attached. </dd></dl>
+<p>Also <b>false</b> while a debugger is attached (<a class="el" href="#ac35887bd479a4425729b40a4b3114f52" title="isDebuggerAttached()">isDebuggerAttached()</a>): STOP1 stops the core clock, and SWD can misread or lose the connection across the transition even with <b><a class="elRef" target="_blank" href="https://panchev68.github.io/HALF4/d0/d58/a01230.html#gadf25043b17de4bef38a95a75fd03e5c4">HAL_DBGMCU_EnableDBGStopMode()</a></b> (see <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a>). A light sleep keeps the core clock running and is unaffected. The check is unconditional, since it costs a single register read.</p>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if permitted, initialized, and no debugger is attached. </dd></dl>
 <div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-4-summary" class="dynsummary">
 </div>
@@ -612,7 +612,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Retrieves the singleton instance of the <a class="el" href="../../d5/db1/a05812.html" title="Manages low-power states and peripheral synchronization for the RTOS tickless idle mechanism.">PowerManager</a>. </p>
-<p>The instance is constant-initialized, so the first call needs no guarded initialization; this matters because that first call may come from the idle hook while the scheduler is suspended.</p>
+<p>Constant-initialized, so the first call needs no guarded initialization. That first call may come from the idle hook while the scheduler is suspended.</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the <a class="el" href="../../d5/db1/a05812.html" title="Manages low-power states and peripheral synchronization for the RTOS tickless idle mechanism.">PowerManager</a> instance. </dd></dl>
 <div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
 <div id="dynsection-6-summary" class="dynsummary">
@@ -653,7 +653,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Reports whether a debugger is currently attached, through the Cortex-M 'C_DEBUGEN' bit. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' if a debugger is attached. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if a debugger is attached. </dd></dl>
 <div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-8-summary" class="dynsummary">
 </div>
@@ -687,7 +687,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks the global deep sleep switch, ignoring any <a class="el" href="../../d9/d0b/a05820.html" title="DeepSleepLock">DeepSleepLock</a>. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' if deep sleep is enabled. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if deep sleep is enabled. </dd></dl>
 
 </div>
 </div>
@@ -715,7 +715,7 @@ Friends</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks whether <a class="el" href="#a565502e655a008546ced2e18d0fc7b22" title="setup()">setup()</a> has succeeded. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' once an LPTimer has been assigned. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> once an LPTimer has been assigned. </dd></dl>
 <div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
 <div id="dynsection-9-summary" class="dynsummary">
 </div>
@@ -823,7 +823,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if registration succeeded, 'false' if the registry is full. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if registration succeeded, <b>false</b> if the registry is full. </dd></dl>
 
 </div>
 </div>
@@ -857,7 +857,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if registration succeeded, 'false' if the registry is full. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if registration succeeded, <b>false</b> if the registry is full. </dd></dl>
 
 </div>
 </div>
@@ -946,7 +946,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if setup succeeded, otherwise 'false'. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if setup succeeded, otherwise <b>false</b>. </dd></dl>
 
 </div>
 </div>
@@ -980,7 +980,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if it was registered and has been removed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was registered and has been removed. </dd></dl>
 
 </div>
 </div>
@@ -1014,7 +1014,7 @@ Friends</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if it was registered and has been removed. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if it was registered and has been removed. </dd></dl>
 
 </div>
 </div>
