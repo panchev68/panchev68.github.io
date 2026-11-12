@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['📋_20requirements_0',['📋 Requirements',['../index.html#autotoc_md-requirements',1,'']]]
+  ['⚙️_20configuration_0',['⚙️ Configuration',['../index.html#️-configuration',1,'']]]
 ];

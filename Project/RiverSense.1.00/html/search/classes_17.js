@@ -20,5 +20,7 @@ var searchData=
   ['wolfsslsha256_17',['WolfSSLSHA256',['https://panchev68.github.io/Lib/df/d5e/a01467.html',1,'Lib::Crypto']]],
   ['wolfssltransport_18',['WolfSSLTransport',['https://panchev68.github.io/Lib/d5/d73/a02423.html',1,'Lib::HTTP']]],
   ['wstring_5fconvert_19',['wstring_convert',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04982.html',1,'std']]],
-  ['wucomparatorsnapshot_20',['WuComparatorSnapshot',['https://panchev68.github.io/Lib/d7/ddd/a01223.html',1,'Lib::BSP::RFID::ST25R100']]]
+  ['wucomparatorsnapshot_20',['WuComparatorSnapshot',['https://panchev68.github.io/Lib/d7/ddd/a01223.html',1,'Lib::BSP::RFID::ST25R100']]],
+  ['wwdg_5fhandletypedef_21',['WWDG_HandleTypeDef',['https://panchev68.github.io/HALF4/d5/d84/a01612.html',1,'']]],
+  ['wwdg_5finittypedef_22',['WWDG_InitTypeDef',['https://panchev68.github.io/HALF4/db/dfd/a01608.html',1,'']]]
 ];

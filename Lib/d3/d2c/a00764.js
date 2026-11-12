@@ -1,9 +1,6 @@
 var a00764 =
 [
-    [ "EXTI Exported Types", "dc/de2/a00765.html", "dc/de2/a00765" ],
-    [ "EXTI Exported Constants", "d4/d13/a00766.html", "d4/d13/a00766" ],
-    [ "EXTI Exported Macros", "dd/de5/a00771.html", null ],
-    [ "EXTI Private Constants", "d9/d9c/a00772.html", "d9/d9c/a00772" ],
-    [ "EXTI Private Macros", "d8/dba/a00773.html", "d8/dba/a00773" ],
-    [ "EXTI Exported Functions", "d3/dee/a00774.html", "d3/dee/a00774" ]
+    [ "Lib::USB::CDCDevice", "d7/d3c/a05976.html", "d7/d3c/a05976" ],
+    [ "Lib::USB::CDCDevice::Config", "d7/d4b/a05980.html", "d7/d4b/a05980" ],
+    [ "Lib::USB::CDCDevice::LineCoding", "db/df6/a05984.html", "db/df6/a05984" ]
 ];

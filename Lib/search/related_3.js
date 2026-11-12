@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['rtos_3a_3atickclient_3c_20basicdispatcher_3c_20t_5ferror_20_3e_20_3e_0',['TickClient&lt; BasicDispatcher&lt; T_ERROR &gt; &gt;',['../db/de5/a01759.html#a650ea0ef5048343da33f94d14c44e548',1,'Lib::Errors::BasicDispatcher']]],
-  ['rtos_3a_3atickclient_3c_20beep_20_3e_1',['TickClient&lt; Beep &gt;',['../d3/d29/a00947.html#a021b081c55c843fa9b7ba25effa04637',1,'Lib::BSP::Beep']]]
+  ['has_5ffacet_0',['has_facet',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04954.html#ad5bc3cddb6bb375329682cb211ba0441',0,'std::locale::has_facet()'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04962.html#ad5bc3cddb6bb375329682cb211ba0441',0,'std::locale::id::has_facet()']]]
 ];

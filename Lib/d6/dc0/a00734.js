@@ -1,6 +1,6 @@
 var a00734 =
 [
-    [ "Lib::SolarControl::MPPT", "da/dfd/a02619.html", "da/dfd/a02619" ],
-    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d4/d29/a02623.html", "d4/d29/a02623" ],
-    [ "Lib::SolarControl::MPPT::Measurement", "dc/d34/a02627.html", "dc/d34/a02627" ]
+    [ "Lib::SolarControl::MPPT", "d3/da5/a05892.html", "d3/da5/a05892" ],
+    [ "Lib::SolarControl::MPPT::ReferenceParameters", "d5/dd4/a05896.html", "d5/dd4/a05896" ],
+    [ "Lib::SolarControl::MPPT::Measurement", "d3/d9b/a05900.html", "d3/d9b/a05900" ]
 ];

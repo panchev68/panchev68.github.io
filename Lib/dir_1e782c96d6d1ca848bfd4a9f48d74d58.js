@@ -7,7 +7,7 @@ var dir_1e782c96d6d1ca848bfd4a9f48d74d58 =
     [ "crc8.hpp", "d7/d80/a00614.html", "d7/d80/a00614" ],
     [ "DateTime.hpp", "d4/dc4/a00617.html", "d4/dc4/a00617" ],
     [ "Delay.hpp", "dc/d4d/a00620.html", "dc/d4d/a00620" ],
-    [ "Exception.hpp", "d6/da5/a03652.html", "d6/da5/a03652" ],
+    [ "Exception.hpp", "d0/db0/a08148.html", "d0/db0/a08148" ],
     [ "FindPeaks.hpp", "df/d6f/a00623.html", "df/d6f/a00623" ],
     [ "Integrator.hpp", "d6/dfa/a00626.html", "d6/dfa/a00626" ],
     [ "JaggedArray.hpp", "da/dd1/a00629.html", "da/dd1/a00629" ],

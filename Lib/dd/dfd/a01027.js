@@ -1,8 +1,7 @@
 var a01027 =
 [
-    [ "bl", "dd/dfd/a01027.html#a93656f94c882ca996c98bd294a4f268f", null ],
-    [ "dc", "dd/dfd/a01027.html#a0a1a1de131448f5f9259510a9df8905e", null ],
-    [ "nrst", "dd/dfd/a01027.html#a5f67207441de783f78571e1d72e2ad0e", null ],
-    [ "nss", "dd/dfd/a01027.html#a34b530cab03f8c62e0a05806fbaf516d", null ],
-    [ "spi", "dd/dfd/a01027.html#a99045060968ee22dfa6a3fd17ea62b9f", null ]
+    [ "RTCEx_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/dc/dd9/a01328.html", "dc/dd9/a01328" ],
+    [ "RTCEx_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/df/d29/a01329.html", "df/d29/a01329" ],
+    [ "RTCEx_Exported_Functions_Group3", "https://panchev68.github.io/HALF4/d5/d78/a01330.html", "d5/d78/a01330" ],
+    [ "RTCEx_Exported_Functions_Group4", "https://panchev68.github.io/HALF4/dc/d8e/a01331.html", "dc/d8e/a01331" ]
 ];

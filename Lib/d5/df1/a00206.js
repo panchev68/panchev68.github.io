@@ -1,5 +1,5 @@
 var a00206 =
 [
-    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;", "d0/da4/a01631.html", "d0/da4/a01631" ],
-    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;::Config", "dd/d2d/a01635.html", "dd/d2d/a01635" ]
+    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;", "df/d8c/a04904.html", "df/d8c/a04904" ],
+    [ "Lib::Digi::Core::ComDriver&lt; T_DERIVED &gt;::Config", "da/db8/a04908.html", "da/db8/a04908" ]
 ];

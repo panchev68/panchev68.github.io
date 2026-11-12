@@ -1,7 +1,20 @@
 var searchData=
 [
-  ['version_2ehpp_0',['Version.hpp',['../d2/d4a/a00758.html',1,'']]],
-  ['versionbase_2ehpp_1',['VersionBase.hpp',['../d3/d4f/a00761.html',1,'']]],
-  ['voltmeter_2ehpp_2',['Voltmeter.hpp',['../df/dc8/a00122.html',1,'']]],
-  ['vscode_2ehpp_3',['vscode.hpp',['../d8/dba/a00773.html',1,'']]]
+  ['valarray_0',['valarray',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00245.html',0,'']]],
+  ['valarray_5fafter_2eh_1',['valarray_after.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00788.html',0,'']]],
+  ['valarray_5farray_2eh_2',['valarray_array.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00779.html',0,'']]],
+  ['valarray_5farray_2etcc_3',['valarray_array.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00782.html',0,'']]],
+  ['valarray_5fbefore_2eh_4',['valarray_before.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00785.html',0,'']]],
+  ['variant_5',['variant',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00248.html',0,'']]],
+  ['vector_6',['vector',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00251.html',0,'']]],
+  ['vector_2etcc_7',['vector.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00791.html',0,'']]],
+  ['version_2eh_8',['version.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00470.html',0,'']]],
+  ['version_2ehpp_9',['Version.hpp',['../d2/d4a/a00758.html',1,'']]],
+  ['versionbase_2ehpp_10',['VersionBase.hpp',['../d3/d4f/a00761.html',1,'']]],
+  ['voltmeter_2ehpp_11',['Voltmeter.hpp',['../df/dc8/a00122.html',1,'']]],
+  ['vscode_2ehpp_12',['vscode.hpp',['../d8/dba/a00773.html',1,'']]],
+  ['vstring_2eh_13',['vstring.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01238.html',0,'']]],
+  ['vstring_2etcc_14',['vstring.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01241.html',0,'']]],
+  ['vstring_5ffwd_2eh_15',['vstring_fwd.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01235.html',0,'']]],
+  ['vstring_5futil_2eh_16',['vstring_util.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01244.html',0,'']]]
 ];

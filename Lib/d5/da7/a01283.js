@@ -1,5 +1,4 @@
 var a01283 =
 [
-    [ "address", "d5/da7/a01283.html#ab6d5bdfcdd2c6adf69b3b80ca079faa6", null ],
-    [ "port", "d5/da7/a01283.html#a50fd4e61bdf69e56aabc73fdb2cdaa02", null ]
+    [ "ADCEx_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/dd/d18/a01284.html", "dd/d18/a01284" ]
 ];

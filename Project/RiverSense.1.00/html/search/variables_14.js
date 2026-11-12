@@ -20,5 +20,9 @@ var searchData=
   ['usbdisablepin_17',['usbDisablePin',['https://panchev68.github.io/Lib/d1/d89/a02739.html#aeafd4713f3249500c2a871623ffc4e6c',1,'Lib::USB::SerialPortRepeaterBase::Config']]],
   ['used_18',['used',['https://panchev68.github.io/Lib/d3/d3b/a01911.html#a2e2c2a1528ada9e70dca6788258f4285',1,'Lib::GSM::A7670E::StorageInfo']]],
   ['user_5fdata_5frelay_5finput_19',['USER_DATA_RELAY_INPUT',['https://panchev68.github.io/Lib/da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4ad0f49698f59cf30d349977476bcfa819',1,'Lib::Digi::Core::Frame']]],
-  ['user_5fdata_5frelay_5foutput_20',['USER_DATA_RELAY_OUTPUT',['https://panchev68.github.io/Lib/da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4a09410e6f2762a821749999f2b326a30e',1,'Lib::Digi::Core::Frame']]]
+  ['user_5fdata_5frelay_5foutput_20',['USER_DATA_RELAY_OUTPUT',['https://panchev68.github.io/Lib/da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4a09410e6f2762a821749999f2b326a30e',1,'Lib::Digi::Core::Frame']]],
+  ['userconfig_21',['USERConfig',['https://panchev68.github.io/HALF4/df/d31/a01440.html#ae6c9b55d49bc9627a2319ba680a924de',1,'FLASH_OBProgramInitTypeDef']]],
+  ['uwtick_22',['uwTick',['https://panchev68.github.io/HALF4/d8/dba/a00681.html#ga9d411ea525781e633bf7ea7ef2f90728',1,'uwTick(Global Namespace)'],['https://panchev68.github.io/HALF4/d2/d1d/a01277.html#ga9d411ea525781e633bf7ea7ef2f90728',1,'uwTick(Global Namespace)']]],
+  ['uwtickfreq_23',['uwTickFreq',['https://panchev68.github.io/HALF4/d8/dba/a00681.html#ga84a0c55c4d0bff06a085b4fcfd6531cd',1,'uwTickFreq(Global Namespace)'],['https://panchev68.github.io/HALF4/d2/d1d/a01277.html#ga84a0c55c4d0bff06a085b4fcfd6531cd',1,'uwTickFreq(Global Namespace)']]],
+  ['uwtickprio_24',['uwTickPrio',['https://panchev68.github.io/HALF4/d8/dba/a00681.html#ga3000c5e83924ed2debb1849c738d4be2',1,'uwTickPrio(Global Namespace)'],['https://panchev68.github.io/HALF4/d2/d1d/a01277.html#ga3000c5e83924ed2debb1849c738d4be2',1,'uwTickPrio(Global Namespace)']]]
 ];

@@ -12,9 +12,11 @@ var searchData=
   ['vmctr1_9',['VMCTR1',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2a429fb5d36816f6cec9d104a1c3098ef1',1,'Lib::BSP::Display']]],
   ['vmctr2_10',['VMCTR2',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2a46487ad0c24c2b10e0145a3699304f31',1,'Lib::BSP::Display']]],
   ['voltage_11',['voltage',['https://panchev68.github.io/Lib/dc/dbf/a01595.html#a9ee4423766190b01b3381ae41455bf2d',1,'Lib::Digi::API::Service::Parameters::Data::voltage'],['https://panchev68.github.io/Lib/dc/d34/a02627.html#aed376e2d8eced1f376c8d5aa79e1d0c6',1,'Lib::SolarControl::MPPT::Measurement::voltage'],['https://panchev68.github.io/Lib/dd/d75/a02639.html#a1e7c41cc6f1e458a928298f16e3913df',1,'Lib::SolarControl::PerturbAndObserve::Measurement::voltage']]],
-  ['voltagevalue_12',['voltageValue',['https://panchev68.github.io/Lib/d6/dd7/a01555.html#a8dfb3d30a434e5346c20ac691dfe3595',1,'Lib::Digi::API::NodeInfo::Monitor']]],
-  ['vrhs_13',['VRHS',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaaa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
-  ['vscrdef_14',['VSCRDEF',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF'],['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF']]],
-  ['vscrsadd_15',['VSCRSADD',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2adaaf3d170f76e19ffeed8fe25ef2a750',1,'Lib::BSP::Display']]],
-  ['vscsad_16',['VSCSAD',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa2c040526ab31d930a82ffcb730cbd399',1,'Lib::BSP::Display']]]
+  ['voltageforerase_12',['VoltageForErase',['https://panchev68.github.io/HALF4/db/dff/a01432.html#aac2fd0eb2907b7317b0f620fb5303c21',1,'FLASH_ProcessTypeDef']]],
+  ['voltagerange_13',['VoltageRange',['https://panchev68.github.io/HALF4/dc/d85/a01436.html#a3a2a0c2c4ed573bb84c768c6dbb92cc9',1,'FLASH_EraseInitTypeDef']]],
+  ['voltagevalue_14',['voltageValue',['https://panchev68.github.io/Lib/d6/dd7/a01555.html#a8dfb3d30a434e5346c20ac691dfe3595',1,'Lib::Digi::API::NodeInfo::Monitor']]],
+  ['vrhs_15',['VRHS',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaaa98ceff6bde8bd403668e20249ff4a37',1,'Lib::BSP::Display']]],
+  ['vscrdef_16',['VSCRDEF',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF'],['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa9cc683dc3acfc6c0f0aa8db307b68f7d',1,'Lib::BSP::Display::VSCRDEF']]],
+  ['vscrsadd_17',['VSCRSADD',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2adaaf3d170f76e19ffeed8fe25ef2a750',1,'Lib::BSP::Display']]],
+  ['vscsad_18',['VSCSAD',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abbaa2c040526ab31d930a82ffcb730cbd399',1,'Lib::BSP::Display']]]
 ];

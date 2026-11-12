@@ -1,4 +1,6 @@
 var a01343 =
 [
-    [ "activity", "d3/da4/a01343.html#a18868bb97d02dec73fd63f7c1977762e", null ]
+    [ "SPI_Exported_Functions_Group1", "https://panchev68.github.io/HALF4/dc/d54/a01344.html", "dc/d54/a01344" ],
+    [ "SPI_Exported_Functions_Group2", "https://panchev68.github.io/HALF4/d4/deb/a01345.html", "d4/deb/a01345" ],
+    [ "SPI_Exported_Functions_Group3", "https://panchev68.github.io/HALF4/d9/de4/a01346.html", "d9/de4/a01346" ]
 ];

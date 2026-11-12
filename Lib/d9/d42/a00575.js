@@ -1,4 +1,4 @@
 var a00575 =
 [
-    [ "Lib::HAL::USBOtgPort", "dd/d29/a02283.html", "dd/d29/a02283" ]
+    [ "Lib::HAL::USBOtgPort", "d5/d8d/a05556.html", "d5/d8d/a05556" ]
 ];

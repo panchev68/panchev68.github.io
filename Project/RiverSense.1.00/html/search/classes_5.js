@@ -38,6 +38,8 @@ var searchData=
   ['exception_5fptr_35',['exception_ptr',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04722.html',1,'std::__unspecified__']]],
   ['exponential_5fdistribution_36',['exponential_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05594.html',1,'std']]],
   ['extent_37',['extent',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03454.html',1,'std']]],
-  ['extinterrupt_38',['ExtInterrupt',['https://panchev68.github.io/Lib/d6/d5d/a02023.html',1,'Lib::HAL::GPIO']]],
-  ['extreme_5fvalue_5fdistribution_39',['extreme_value_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05610.html',1,'std']]]
+  ['exti_5fconfigtypedef_38',['EXTI_ConfigTypeDef',['https://panchev68.github.io/HALF4/d2/db1/a01428.html',1,'']]],
+  ['exti_5fhandletypedef_39',['EXTI_HandleTypeDef',['https://panchev68.github.io/HALF4/d5/da5/a01424.html',1,'']]],
+  ['extinterrupt_40',['ExtInterrupt',['https://panchev68.github.io/Lib/d6/d5d/a02023.html',1,'Lib::HAL::GPIO']]],
+  ['extreme_5fvalue_5fdistribution_41',['extreme_value_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05610.html',1,'std']]]
 ];

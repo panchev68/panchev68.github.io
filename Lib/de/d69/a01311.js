@@ -1,8 +1,5 @@
 var a01311 =
 [
-    [ "ambientTemperatureCelsius", "de/d69/a01311.html#afe46178f50e25346cca90112dc708790", null ],
-    [ "listenDuration", "de/d69/a01311.html#aed97102995a3a032b9524b1e47731f17", null ],
-    [ "timeout", "de/d69/a01311.html#a33dc09d9aa87a5d8bb1fc837ac5256a2", null ],
-    [ "uart", "de/d69/a01311.html#a15c0bdd8f683a436484b77a1fd7a0fe5", null ],
-    [ "uartAddress", "de/d69/a01311.html#a07cd324da0adf0baf2262a0b33404164", null ]
+    [ "HAL_IRDA_GetError", "https://panchev68.github.io/HALF4/de/d69/a01311.html#ga14c3c3d5b64737b2891d47c17ffc03aa", null ],
+    [ "HAL_IRDA_GetState", "https://panchev68.github.io/HALF4/de/d69/a01311.html#gadaa893ba134a36057497deefacb100d9", null ]
 ];

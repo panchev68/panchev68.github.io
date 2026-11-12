@@ -1,9 +1,5 @@
 var searchData=
 [
-  ['mailboxerror_0',['MailboxError',['https://panchev68.github.io/Lib/d4/d12/a00910.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8',1,'Lib::Ethercat::SOES']]],
-  ['mailboxprotocol_1',['MailboxProtocol',['https://panchev68.github.io/Lib/d4/d12/a00910.html#aec1c5f98acbef86d50b04a081702ff10',1,'Lib::Ethercat::SOES']]],
-  ['match_5fflag_5ftype_2',['match_flag_type',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01726.html#aaa717c7c94d1075dfb06f79feb4ca11c',1,'std::regex_constants']]],
-  ['memory_5forder_3',['memory_order',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01631.html#gaee2ca844349947692087e6436affd285',1,'std::memory_order'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01631.html#gaee2ca844349947692087e6436affd285',1,'std::memory_order']]],
-  ['method_4',['Method',['https://panchev68.github.io/Lib/d1/d0b/a00919.html#a8f753d750ea425a0a07f531674302436',1,'Lib::HTTP']]],
-  ['mode_5',['Mode',['https://panchev68.github.io/Lib/de/d01/a00897.html#ad81e761f20d5185ff2c7cbf5e547ef02',1,'Lib::Canbus']]]
+  ['ili9341registers_0',['ILI9341Registers',['https://panchev68.github.io/Lib/df/d41/a00881.html#aa079b641f0d5c91c7219aa446879acf2',1,'Lib::BSP::Display']]],
+  ['io_5ferrc_1',['io_errc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01692.html#a5a20cae60a4377da46121402c57322a2',1,'std']]]
 ];

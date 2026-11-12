@@ -1,6 +1,7 @@
 var a01323 =
 [
-    [ "adc", "db/da8/a01323.html#ae24f670ce2f09cfb8b26a173364eaefb", null ],
-    [ "channel", "db/da8/a01323.html#a50bc9c3fb0cbb385eca0784f32858280", null ],
-    [ "periodMs", "db/da8/a01323.html#ad839d16fe06238279ff23042e3761f0c", null ]
+    [ "HAL_RTC_DeInit", "https://panchev68.github.io/HALF4/db/da8/a01323.html#ga24a8aac7bd6d9bac9f211d24ff6930ec", null ],
+    [ "HAL_RTC_Init", "https://panchev68.github.io/HALF4/db/da8/a01323.html#gaa6b53830aa3e2efaf210c0b1d3e5f4a4", null ],
+    [ "HAL_RTC_MspDeInit", "https://panchev68.github.io/HALF4/db/da8/a01323.html#ga8767bc3a4d472d39a688090ab10ba6ce", null ],
+    [ "HAL_RTC_MspInit", "https://panchev68.github.io/HALF4/db/da8/a01323.html#gaee6eddaa309c8c9829f1ca794d8f99c5", null ]
 ];

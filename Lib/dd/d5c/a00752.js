@@ -1,4 +1,4 @@
 var a00752 =
 [
-    [ "Lib::System::SerialNumber", "dc/d58/a02667.html", "dc/d58/a02667" ]
+    [ "Lib::System::SerialNumber", "da/d70/a05940.html", "da/d70/a05940" ]
 ];

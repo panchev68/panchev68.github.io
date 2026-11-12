@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🔧_20installation_0',['🔧 Installation',['../index.html#autotoc_md-installation',1,'']]]
+  ['📋_20requirements_0',['📋 Requirements',['../index.html#autotoc_md-requirements',1,'']]]
 ];

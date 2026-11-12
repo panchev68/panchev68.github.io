@@ -1,8 +1,8 @@
 var a01291 =
 [
-    [ "miso", "d4/da0/a01291.html#a406b7c242c5d8a43eb0e35ed8da7822e", null ],
-    [ "mosi", "d4/da0/a01291.html#a25f143d2f7674576d969696bb116ccd0", null ],
-    [ "nirq", "d4/da0/a01291.html#a910a59f08ad5274a68776e743dbaedee", null ],
-    [ "nss", "d4/da0/a01291.html#ab28458323220459a7d7310bc64b538a2", null ],
-    [ "sck", "d4/da0/a01291.html#a2bddcf040cbe86554ab6027c20f10236", null ]
+    [ "HAL_FLASH_Lock", "https://panchev68.github.io/HALF4/d4/da0/a01291.html#gae07eeca0b0aa9d5047f8df88d82f4bcd", null ],
+    [ "HAL_FLASH_OB_Launch", "https://panchev68.github.io/HALF4/d4/da0/a01291.html#ga046c539c76aaae3d487d59193f74c9db", null ],
+    [ "HAL_FLASH_OB_Lock", "https://panchev68.github.io/HALF4/d4/da0/a01291.html#ga3ff599bd7eba88f7a169a537ccbf3e3f", null ],
+    [ "HAL_FLASH_OB_Unlock", "https://panchev68.github.io/HALF4/d4/da0/a01291.html#ga6e8f380b7a938592f0b6f05d0ebf69c3", null ],
+    [ "HAL_FLASH_Unlock", "https://panchev68.github.io/HALF4/d4/da0/a01291.html#ga23d4ff42a8873bac585c92ce4f633747", null ]
 ];

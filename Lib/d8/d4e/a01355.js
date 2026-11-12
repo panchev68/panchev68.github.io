@@ -1,9 +1,10 @@
 var a01355 =
 [
-    [ "Address", "d8/d4e/a01355.html#a6ce1119ff7663a70ce35d91dbfa564ca", null ],
-    [ "FunctionCode", "d8/d4e/a01355.html#ac5f37f14c188daabc919e354ca8fe5a8", null ],
-    [ "close", "d8/d4e/a01355.html#afee7c7c7ef62fb4eb3ff199bc19faaf9", null ],
-    [ "open", "d8/d4e/a01355.html#a60baa47faf417d3e58c9da926ba26d49", null ],
-    [ "sendFrame", "d8/d4e/a01355.html#a4e3c7256b3919bf9fe6778a3925f332d", null ],
-    [ "setup", "d8/d4e/a01355.html#a21661b4e40b50bd346fc01f3866d03bb", null ]
+    [ "Extended Timer Hall Sensor functions", "https://panchev68.github.io/HALF4/d2/d3f/a01356.html", "d2/d3f/a01356" ],
+    [ "Extended Timer Complementary Output Compare functions", "https://panchev68.github.io/HALF4/df/d10/a01357.html", "df/d10/a01357" ],
+    [ "Extended Timer Complementary PWM functions", "https://panchev68.github.io/HALF4/de/d5c/a01358.html", "de/d5c/a01358" ],
+    [ "Extended Timer Complementary One Pulse functions", "https://panchev68.github.io/HALF4/dc/d4b/a01359.html", "dc/d4b/a01359" ],
+    [ "Extended Peripheral Control functions", "https://panchev68.github.io/HALF4/d9/d79/a01360.html", "d9/d79/a01360" ],
+    [ "Extended Callbacks functions", "https://panchev68.github.io/HALF4/d2/d1f/a01361.html", "d2/d1f/a01361" ],
+    [ "Extended Peripheral State functions", "https://panchev68.github.io/HALF4/da/dab/a01362.html", "da/dab/a01362" ]
 ];

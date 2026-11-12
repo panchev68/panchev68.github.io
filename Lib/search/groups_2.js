@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['data_20application_20layer_0',['Data Application Layer',['../dc/d17/a00872.html',1,'']]],
-  ['drivers_1',['Drivers',['../d1/de7/a00877.html',1,'']]]
+  ['_5fsystick_20clock_20source_0',['CORTEX _SysTick clock source',['https://panchev68.github.io/HALF4/dc/d8f/a00718.html',0,'']]]
 ];

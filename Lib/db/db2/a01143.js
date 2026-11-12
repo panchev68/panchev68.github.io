@@ -1,9 +1,12 @@
 var a01143 =
 [
-    [ "chipManufacturer", "db/db2/a01143.html#a0699528d9734e0f26fa0ba87d7132204", null ],
-    [ "memoryCapacity", "db/db2/a01143.html#a3f1fb5812d6de82b12ecbdf2a052eab2", null ],
-    [ "pagePerSector", "db/db2/a01143.html#adfe3f2e9af700a89bb2bb7c9c38dfa22", null ],
-    [ "pageSize", "db/db2/a01143.html#ace5c0d6ba822112eee6eafb348ac82f1", null ],
-    [ "sectorCount", "db/db2/a01143.html#a8e623c67b780e827d65e722809156e96", null ],
-    [ "sectorSize", "db/db2/a01143.html#a61bb395a7747150174a9b64ececfb178", null ]
+    [ "TIM_Base_SetConfig", "https://panchev68.github.io/HALF4/db/db2/a01143.html#gae0f82ff07c1973cf4fb132740a8e24ae", null ],
+    [ "TIM_CCxChannelCmd", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga7fcc6d5ca311c37f5d0250687c899924", null ],
+    [ "TIM_DMACaptureCplt", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga60b9c315720fddb3db32299f05f7d712", null ],
+    [ "TIM_DMACaptureHalfCplt", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga2c2f2f092eaa9414661422f06fdc56a0", null ],
+    [ "TIM_DMADelayPulseHalfCplt", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga8bfc333f26980f4e473a75cdb45de292", null ],
+    [ "TIM_DMAError", "https://panchev68.github.io/HALF4/db/db2/a01143.html#gaa112bee5279feee040c1ea9e283f7378", null ],
+    [ "TIM_ETR_SetConfig", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga0dc6b90093e2510142a5b21d75e025e0", null ],
+    [ "TIM_OC2_SetConfig", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga5d921b105aeea15c381e7a265af9092e", null ],
+    [ "TIM_TI1_SetConfig", "https://panchev68.github.io/HALF4/db/db2/a01143.html#ga83c847710a92f0558c862dd0dc889ff3", null ]
 ];

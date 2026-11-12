@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['updatemode_0',['UpdateMode',['../db/dbf/a00975.html#a50419179ec3a60e3ac3b5036b3b284eb',1,'Lib::BSP::DigitalPeripheralBase']]],
-  ['usbdeviceevent_1',['USBDeviceEvent',['../d3/dd1/a00914.html#a5d499d7d2a344d0473d62dcf724d9a12',1,'Lib::HAL']]],
-  ['usbdirection_2',['USBDirection',['../d3/dd1/a00914.html#a0feace7a2249d65bd2313f48bf07ba0b',1,'Lib::HAL']]],
-  ['usbendpointtype_3',['USBEndpointType',['../d3/dd1/a00914.html#ae1783f3c88baf78f222c313659cf4a98',1,'Lib::HAL']]],
-  ['usbhostevent_4',['USBHostEvent',['../d3/dd1/a00914.html#a53f17b15be5eab9c94b2c21a10f050fd',1,'Lib::HAL']]],
-  ['usbhosttransferresult_5',['USBHostTransferResult',['../d3/dd1/a00914.html#a62152c846403f6b93d0f2e9ff14adafe',1,'Lib::HAL']]],
-  ['usbrole_6',['USBRole',['../d3/dd1/a00914.html#ada24ea1dfe0720a6a56871f1392f9955',1,'Lib::HAL']]],
-  ['usbspeed_7',['USBSpeed',['../d3/dd1/a00914.html#a8cde9e5e92df1421df294fcb1a50b4e7',1,'Lib::HAL']]]
+  ['perm_5foptions_0',['perm_options',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga7361a9de17a1b4b3271983f2394c1c1b',0,'std::filesystem::perm_options'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga7361a9de17a1b4b3271983f2394c1c1b',0,'std::filesystem::perm_options']]],
+  ['perms_1',['perms',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga6acbc7f8d98096bb9453b2f4b9850553',0,'std::filesystem::perms'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01683.html#ga6acbc7f8d98096bb9453b2f4b9850553',0,'std::filesystem::perms'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01658.html#ga0a1765c6b0d8d734be3d54d85be9f145',0,'std::experimental::filesystem::v1::perms']]],
+  ['phase_2',['Phase',['../dc/d02/a05648.html#a5567988b4297dec26d3237506884f6a5',1,'Lib::Helper::MoonPhase']]],
+  ['pointer_5fsafety_3',['pointer_safety',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106',0,'std::pointer_safety'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01617.html#ga9fab6cf004cd3194f8b89580f6453106',0,'std::pointer_safety']]],
+  ['polarity_4',['Polarity',['../d4/d29/a04228.html#a12dbe47287cc8ea3e6057097e7679d5b',1,'Lib::BSP::INA219']]],
+  ['protocol_5',['Protocol',['../d7/d13/a05156.html#ae8736b16f707b5eab4e3b478d387e876',1,'Lib::Ethernet::Wiznet::Socket']]]
 ];

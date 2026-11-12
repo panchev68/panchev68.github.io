@@ -1,28 +1,4 @@
 var a00230 =
 [
-    [ "LL_HANDLER_FAULT_BUS", "d4/d10/a01197.html#ga115d536ac8df55563b54b89397fdf465", null ],
-    [ "LL_HANDLER_FAULT_MEM", "d4/d10/a01197.html#ga6d126af175425807712344e17d75152b", null ],
-    [ "LL_HANDLER_FAULT_USG", "d4/d10/a01197.html#gadbac946ab3d6ddf6e039f892f15777d9", null ],
-    [ "LL_SYSTICK_CLKSOURCE_HCLK", "d2/d22/a01196.html#gaa92530d2f2cd8ce785297e4aed960ff0", null ],
-    [ "LL_SYSTICK_CLKSOURCE_HCLK_DIV8", "d2/d22/a01196.html#gab13c4588c1b1a8b867541a4ad928d205", null ],
-    [ "LL_CPUID_GetConstant", "d4/d5d/a01202.html#ga787f8b30eaa7a4c304fd5784daa98d6c", null ],
-    [ "LL_CPUID_GetImplementer", "d4/d5d/a01202.html#ga648a5236b7fa08786086fcc4ce42b4b9", null ],
-    [ "LL_CPUID_GetParNo", "d4/d5d/a01202.html#gac98fd56ad9162c3f372004bd07038bdb", null ],
-    [ "LL_CPUID_GetRevision", "d4/d5d/a01202.html#ga7372821defd92c49ea4563da407acd01", null ],
-    [ "LL_CPUID_GetVariant", "d4/d5d/a01202.html#ga1f843da5f8524bace7fcf8dcce7996cb", null ],
-    [ "LL_HANDLER_DisableFault", "de/df7/a01201.html#ga8b6826c996c587651a651a6138c44e1e", null ],
-    [ "LL_HANDLER_EnableFault", "de/df7/a01201.html#ga904eb6ce46a723dd47b468241c6b0a2c", null ],
-    [ "LL_LPM_ClearEvent", "dc/dcc/a01200.html#ga7dc8f153ab303eeb3f7197f442747d76", null ],
-    [ "LL_LPM_DisableEventOnPend", "dc/dcc/a01200.html#gaf4ebb8351f09676067aa0ce1fe08321b", null ],
-    [ "LL_LPM_DisableSleepOnExit", "dc/dcc/a01200.html#ga88768c6c5f53de30a647123241451eb9", null ],
-    [ "LL_LPM_EnableDeepSleep", "dc/dcc/a01200.html#ga37d70238e98ca1214e3fe4113b119474", null ],
-    [ "LL_LPM_EnableEventOnPend", "dc/dcc/a01200.html#gaf1c01ae00b4a13c5b6531f82a9677b90", null ],
-    [ "LL_LPM_EnableSleep", "dc/dcc/a01200.html#gab55eabc37e5abe00df558c0ba1c37508", null ],
-    [ "LL_LPM_EnableSleepOnExit", "dc/dcc/a01200.html#gabb2b2648dff19d88209af8761fc34c30", null ],
-    [ "LL_SYSTICK_DisableIT", "d0/d5a/a01199.html#ga11d0d066050805c9e8d24718d8a15e4d", null ],
-    [ "LL_SYSTICK_EnableIT", "d0/d5a/a01199.html#ga770fac4394ddde9a53e1a236c81538f0", null ],
-    [ "LL_SYSTICK_GetClkSource", "d0/d5a/a01199.html#ga2cfeb1396db13a9fbc208cc659064b19", null ],
-    [ "LL_SYSTICK_IsActiveCounterFlag", "d0/d5a/a01199.html#gaf5dfb37d859552753594f9cc66431ba6", null ],
-    [ "LL_SYSTICK_IsEnabledIT", "d0/d5a/a01199.html#gab34484042fd5a82aa80ba94223b6fbde", null ],
-    [ "LL_SYSTICK_SetClkSource", "d0/d5a/a01199.html#gaaf98ae8e0298b44c5d58a3ba9ef358f7", null ]
+    [ "Lib::Digi::Core::Message", "de/d1b/a04948.html", "de/d1b/a04948" ]
 ];

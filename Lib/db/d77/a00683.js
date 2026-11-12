@@ -1,11 +1,11 @@
 var a00683 =
 [
-    [ "RTOS::Kernel", "d0/d7c/a02499.html", "d0/d7c/a02499" ],
-    [ "RTOS::Kernel::CriticalSectionFromISR", "d1/d5d/a02503.html", "d1/d5d/a02503" ],
-    [ "RTOS::Kernel::CriticalSection", "de/dbd/a02507.html", "de/dbd/a02507" ],
-    [ "RTOS::Kernel::Scheduler", "d0/d01/a02511.html", "d0/d01/a02511" ],
-    [ "RTOS::Kernel::Scheduler::Lock", "d5/d6a/a02515.html", "d5/d6a/a02515" ],
-    [ "RTOS::Kernel::MemoryInfo", "d9/dce/a02519.html", "d9/dce/a02519" ],
+    [ "RTOS::Kernel", "d7/d32/a05772.html", "d7/d32/a05772" ],
+    [ "RTOS::Kernel::CriticalSectionFromISR", "d7/d3c/a05776.html", "d7/d3c/a05776" ],
+    [ "RTOS::Kernel::CriticalSection", "d6/d3b/a05780.html", "d6/d3b/a05780" ],
+    [ "RTOS::Kernel::Scheduler", "de/dc9/a05784.html", "de/dc9/a05784" ],
+    [ "RTOS::Kernel::Scheduler::Lock", "d0/d9e/a05788.html", "d0/d9e/a05788" ],
+    [ "RTOS::Kernel::MemoryInfo", "d8/dde/a05792.html", "d8/dde/a05792" ],
     [ "RTOS_HEAP_HAS_STATS", "db/d77/a00683.html#aea3f5304a2ee9e9c830027b6035472ae", null ],
     [ "RTOS::delay", "df/de9/a00923.html#a0960b26725ee8ac0c2798f5d3036b37a", null ],
     [ "RTOS::delay", "df/de9/a00923.html#a9457a17b234e2e6b6336f69c9f756021", null ],

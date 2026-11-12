@@ -1,19 +1,9 @@
 var a01271 =
 [
-    [ "Config", "d3/d42/a01275.html", "d3/d42/a01275" ],
-    [ "Resolution", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173", [
-      [ "BITS_9", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173a9ab6572ed9c11c2b6bd8e9876730ea8c", null ],
-      [ "BITS_10", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173a8812e84b2a81192ab533a506709b0890", null ],
-      [ "BITS_11", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173abed151c52a89ea134a775944e8318746", null ],
-      [ "BITS_12", "dd/d39/a01271.html#ada95ddee88d18f2cd77e60f7ed6a5173a5cdb4593c18074255e55c311cd64bd83", null ]
-    ] ],
-    [ "DS18B20", "dd/d39/a01271.html#a6e8835c62b13a615346d69068ee41c97", null ],
-    [ "~DS18B20", "dd/d39/a01271.html#ad96a41a08602dd6c62b535a54e81e10c", null ],
-    [ "close", "dd/d39/a01271.html#aab038c628d13a5369429107b4be42b3d", null ],
-    [ "getResolution", "dd/d39/a01271.html#a4eea42ddf1b1a0a722ba6cac89caa674", null ],
-    [ "isGenuineDevice", "dd/d39/a01271.html#ae8e710761fe8b7931ba5d6893456b4a2", null ],
-    [ "isPresent", "dd/d39/a01271.html#affe0375dcb019e883b9d72cfd2b38f73", null ],
-    [ "open", "dd/d39/a01271.html#a1dc439d417a53a57d054f811cf33402d", null ],
-    [ "readRom", "dd/d39/a01271.html#a26a1ebc99132937ee58668fd12c26263", null ],
-    [ "readTemperatureCelsius", "dd/d39/a01271.html#ad7e16c37160102332ce9ca78b3fd59fb", null ]
+    [ "HAL_InitTick", "https://panchev68.github.io/HALF4/dd/d39/a01271.html#ga879cdb21ef051eb81ec51c18147397d5", null ],
+    [ "HAL_ResumeTick", "https://panchev68.github.io/HALF4/dd/d39/a01271.html#ga24e0ee9dae1ec0f9d19200f5575ff790", null ],
+    [ "HAL_RTC_AlarmAEventCallback", "https://panchev68.github.io/HALF4/dd/d39/a01271.html#ga11aeff83fd498cddbed3bcddcf017e0a", null ],
+    [ "HAL_SuspendTick", "https://panchev68.github.io/HALF4/dd/d39/a01271.html#gaaf651af2afe688a991c657f64f8fa5f9", null ],
+    [ "RTC_Alarm_IRQHandler", "https://panchev68.github.io/HALF4/dd/d39/a01271.html#ga4da4fb52ec579671d337938e78f9a207", null ],
+    [ "hRTC_Handle", "https://panchev68.github.io/HALF4/dd/d39/a01271.html#ga66edbb38f0b45759c28ecd5aede14478", null ]
 ];

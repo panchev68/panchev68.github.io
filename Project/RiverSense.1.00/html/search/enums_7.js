@@ -1,4 +1,24 @@
 var searchData=
 [
-  ['launch_0',['launch',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga6f4ad125d364f01560e2ed20a3c8bb5b',1,'std::launch'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01613.html#ga6f4ad125d364f01560e2ed20a3c8bb5b',1,'std::launch']]]
+  ['hal_5fcrc_5fstatetypedef_0',['HAL_CRC_StateTypeDef',['https://panchev68.github.io/HALF4/dc/d14/a00720.html#ga1021d6f27a072d45f6f3b233eefd8bbe',1,]]],
+  ['hal_5fdma_5fcallbackidtypedef_1',['HAL_DMA_CallbackIDTypeDef',['https://panchev68.github.io/HALF4/dc/d85/a00736.html#gafbe8b2bd9ce2128de6cdc08ccde7e8ad',1,]]],
+  ['hal_5fdma_5flevelcompletetypedef_2',['HAL_DMA_LevelCompleteTypeDef',['https://panchev68.github.io/HALF4/dc/d85/a00736.html#gaee3245eea8fa938edeb35a6c9596fd86',1,]]],
+  ['hal_5fdma_5fmemorytypedef_3',['HAL_DMA_MemoryTypeDef',['https://panchev68.github.io/HALF4/d8/db4/a00760.html#ga9cec283a461e47eda968838c35fd6eed',1,]]],
+  ['hal_5fdma_5fstatetypedef_4',['HAL_DMA_StateTypeDef',['https://panchev68.github.io/HALF4/dc/d85/a00736.html#ga9c012af359987a240826f29073bbe463',1,]]],
+  ['hal_5fi2c_5fmodetypedef_5',['HAL_I2C_ModeTypeDef',['https://panchev68.github.io/HALF4/df/de8/a00839.html#gabcbb7b844f2ffd63c4e530c117882062',1,]]],
+  ['hal_5fi2c_5fstatetypedef_6',['HAL_I2C_StateTypeDef',['https://panchev68.github.io/HALF4/d2/dc7/a00838.html#gaef355af8eab251ae2a19ee164ad81c37',1,]]],
+  ['hal_5fi2s_5fstatetypedef_7',['HAL_I2S_StateTypeDef',['https://panchev68.github.io/HALF4/d0/d66/a00858.html#ga2588a0c71baf7cd6d2c1b9b11120bef0',1,]]],
+  ['hal_5firda_5fstatetypedef_8',['HAL_IRDA_StateTypeDef',['https://panchev68.github.io/HALF4/d9/d22/a00873.html#gab3e65b75c9d4ae39bc50a31222509e1e',1,]]],
+  ['hal_5frtcstatetypedef_9',['HAL_RTCStateTypeDef',['https://panchev68.github.io/HALF4/d2/ddd/a00978.html#ga1e2460a2d13c4efc7a2a1ab2a1ebd32b',1,]]],
+  ['hal_5fsmartcard_5fstatetypedef_10',['HAL_SMARTCARD_StateTypeDef',['https://panchev68.github.io/HALF4/d6/dcf/a01031.html#ga79d6a3b95636861dcfd70913746e087e',1,]]],
+  ['hal_5fsmbus_5fmodetypedef_11',['HAL_SMBUS_ModeTypeDef',['https://panchev68.github.io/HALF4/d9/d8e/a01050.html#gaf3eb99bb66f3e388777f3d123a242f13',1,]]],
+  ['hal_5fsmbus_5fstatetypedef_12',['HAL_SMBUS_StateTypeDef',['https://panchev68.github.io/HALF4/d9/d8e/a01050.html#ga566b6739a68408dafa25ad013868e7b1',1,]]],
+  ['hal_5fspi_5fstatetypedef_13',['HAL_SPI_StateTypeDef',['https://panchev68.github.io/HALF4/d1/de6/a01068.html#ga8891cb64e76198a860172d94c638c9b4',1,]]],
+  ['hal_5ftickfreqtypedef_14',['HAL_TickFreqTypeDef',['https://panchev68.github.io/HALF4/da/d31/a00678.html#gab36ec81674817249c46734772ff3b73a',1,]]],
+  ['hal_5ftim_5factivechannel_15',['HAL_TIM_ActiveChannel',['https://panchev68.github.io/HALF4/d2/df3/a01085.html#gaa3fa7bcbb4707f1151ccfc90a8cf9706',1,]]],
+  ['hal_5ftim_5fchannelstatetypedef_16',['HAL_TIM_ChannelStateTypeDef',['https://panchev68.github.io/HALF4/d2/df3/a01085.html#ga1a70fcbe9952e18af5c890e216a15f34',1,]]],
+  ['hal_5ftim_5fdmaburststatetypedef_17',['HAL_TIM_DMABurstStateTypeDef',['https://panchev68.github.io/HALF4/d2/df3/a01085.html#ga9b87df539778a60ea940a9d5ba793f7c',1,]]],
+  ['hal_5ftim_5fstatetypedef_18',['HAL_TIM_StateTypeDef',['https://panchev68.github.io/HALF4/d2/df3/a01085.html#gae0994cf5970e56ca4903e9151f40010c',1,]]],
+  ['hal_5fuart_5fstatetypedef_19',['HAL_UART_StateTypeDef',['https://panchev68.github.io/HALF4/d8/d02/a01149.html#gaf55d844a35379c204c90be5d1e8e50ba',1,]]],
+  ['hal_5fusart_5fstatetypedef_20',['HAL_USART_StateTypeDef',['https://panchev68.github.io/HALF4/d7/daf/a01169.html#ga502e7abdfa6b24f0f6b40cf60c7383c5',1,]]]
 ];

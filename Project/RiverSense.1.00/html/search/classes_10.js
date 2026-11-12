@@ -63,5 +63,6 @@ var searchData=
   ['promise_3c_20_5fres_20_26_20_3e_60',['promise&lt; _Res &amp; &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02598.html',1,'std']]],
   ['promise_3c_20void_20_3e_61',['promise&lt; void &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02602.html',1,'std']]],
   ['propagate_5fconst_62',['propagate_const',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10618.html',1,'std::experimental::fundamentals_v2']]],
-  ['protocol_63',['Protocol',['https://panchev68.github.io/Lib/dc/d4b/a01359.html',1,'Lib::Communication::Modbus::Protocol'],['https://panchev68.github.io/Lib/d7/db8/a01687.html',1,'Lib::Digi::Core::Protocol'],['https://panchev68.github.io/Lib/df/d23/a02751.html',1,'Lib::XCOM::Protocol']]]
+  ['protocol_63',['Protocol',['https://panchev68.github.io/Lib/dc/d4b/a01359.html',1,'Lib::Communication::Modbus::Protocol'],['https://panchev68.github.io/Lib/d7/db8/a01687.html',1,'Lib::Digi::Core::Protocol'],['https://panchev68.github.io/Lib/df/d23/a02751.html',1,'Lib::XCOM::Protocol']]],
+  ['pwr_5fpvdtypedef_64',['PWR_PVDTypeDef',['https://panchev68.github.io/HALF4/d1/d38/a01480.html',1,'']]]
 ];

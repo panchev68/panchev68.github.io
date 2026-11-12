@@ -1,6 +1,6 @@
 var a00578 =
 [
-    [ "Lib::HAL::USBSetupPacket", "df/d04/a02287.html", "df/d04/a02287" ],
+    [ "Lib::HAL::USBSetupPacket", "d9/d3f/a05560.html", "d9/d3f/a05560" ],
     [ "Lib::HAL::USBDeviceEvent", "d3/dd1/a00914.html#a5d499d7d2a344d0473d62dcf724d9a12", [
       [ "Lib::HAL::USBDeviceEvent::RESET", "d3/dd1/a00914.html#a5d499d7d2a344d0473d62dcf724d9a12ab5859d8721cfdc0312b2838b9c985bc1", null ],
       [ "Lib::HAL::USBDeviceEvent::SUSPEND", "d3/dd1/a00914.html#a5d499d7d2a344d0473d62dcf724d9a12aee93a0b023cef18b34ebfee347881c14", null ],

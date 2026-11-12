@@ -1,6 +1,7 @@
 var a01187 =
 [
-    [ "guardTime", "dc/d70/a01187.html#a6d08fcfd56cd70a165431b4ffca3ec42", null ],
-    [ "onCardActivated", "dc/d70/a01187.html#ad4b8d3f5ae272c06dc5ce104f9ff06df", null ],
-    [ "taskConfig", "dc/d70/a01187.html#abbdf9c7b445c45999344281653820100", null ]
+    [ "WWDG Interrupt definition", "https://panchev68.github.io/HALF4/d6/d97/a01188.html", null ],
+    [ "WWDG Flag definition", "https://panchev68.github.io/HALF4/d3/d10/a01189.html", null ],
+    [ "WWDG Prescaler", "https://panchev68.github.io/HALF4/dc/d19/a01190.html", null ],
+    [ "WWDG Early Wakeup Interrupt Mode", "https://panchev68.github.io/HALF4/d1/d0d/a01191.html", null ]
 ];

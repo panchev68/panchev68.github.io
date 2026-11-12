@@ -1,8 +1,6 @@
 var a01223 =
 [
-    [ "operator==", "d7/ddd/a01223.html#ada8e55f2f00e1f0256475c584eb863d5", null ],
-    [ "display4", "d7/ddd/a01223.html#a190805124006c5599e92dd544db486f4", null ],
-    [ "inPhaseAdc", "d7/ddd/a01223.html#a4dc0e13ddf52631bc23c4bf09f726650", null ],
-    [ "quadratureAdc", "d7/ddd/a01223.html#ad47ff67b3f90ab4180e577fa6d842ec9", null ],
-    [ "status", "d7/ddd/a01223.html#af495ab17ed6e1a39e137c8fd834ac9f3", null ]
+    [ "LL_Init1msTick", "https://panchev68.github.io/HALF4/d7/ddd/a01223.html#ga485805c708e3aa0820454523782d4de4", null ],
+    [ "LL_InitTick", "https://panchev68.github.io/HALF4/d7/ddd/a01223.html#ga170d1d651b46544daf571fb6b4e3b850", null ],
+    [ "LL_mDelay", "https://panchev68.github.io/HALF4/d7/ddd/a01223.html#ga7b7ca6d9cbec320c3e9f326b203807aa", null ]
 ];

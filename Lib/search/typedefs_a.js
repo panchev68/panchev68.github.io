@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['key_0',['Key',['../da/d1e/a01479.html#a01aa89923019ee3bf5249396252577a0',1,'Lib::Crypto::WolfSSLChaCha20Poly1305']]]
+  ['jaggedarray_0',['JaggedArray',['../d4/ddc/a00917.html#ad371b43a764bd5b625afa226a1fc12eb',1,'Lib::Helper']]],
+  ['jaggedarrayrow_1',['JaggedArrayRow',['../d4/ddc/a00917.html#abb4a58cc33c78b1e079bef9fe69346d0',1,'Lib::Helper']]]
 ];

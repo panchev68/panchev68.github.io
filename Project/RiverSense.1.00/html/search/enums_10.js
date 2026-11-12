@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wolfsshkeyformat_0',['WolfSSHKeyFormat',['https://panchev68.github.io/Lib/d0/dac/a00901.html#ac3c925af062f5b22fa21eff3b0af0542',1,'Lib::Crypto']]],
-  ['wolfsshstatus_1',['WolfSSHStatus',['https://panchev68.github.io/Lib/d0/dac/a00901.html#a173e4abd0ef87e757ea6dfe73552a7c3',1,'Lib::Crypto']]]
+  ['type_0',['Type',['https://panchev68.github.io/Lib/da/dd8/a00906.html#a28e123f246098db8d8570511c8c739f4',1,'Lib::Digi::Core::Frame']]]
 ];

@@ -1,6 +1,6 @@
 var a00737 =
 [
-    [ "Lib::SolarControl::PerturbAndObserve", "d0/d9a/a02631.html", "d0/d9a/a02631" ],
-    [ "Lib::SolarControl::PerturbAndObserve::Config", "d9/d07/a02635.html", "d9/d07/a02635" ],
-    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "dd/d75/a02639.html", "dd/d75/a02639" ]
+    [ "Lib::SolarControl::PerturbAndObserve", "dd/d2a/a05904.html", "dd/d2a/a05904" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Config", "d0/d71/a05908.html", "d0/d71/a05908" ],
+    [ "Lib::SolarControl::PerturbAndObserve::Measurement", "d3/d4c/a05912.html", "d3/d4c/a05912" ]
 ];

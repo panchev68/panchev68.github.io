@@ -1,19 +1,13 @@
 var a01031 =
 [
-    [ "Config", "de/d26/a01035.html", "de/d26/a01035" ],
-    [ "Driver", "d6/dcf/a01031.html#ad08435e7ab04b1447660c851f626b703", null ],
-    [ "~Driver", "d6/dcf/a01031.html#aa6102b0396341784835c07a1ce9a127a", null ],
-    [ "Driver", "d6/dcf/a01031.html#af6f8c45fa76cc4cdc69a8d3131ee043d", null ],
-    [ "Driver", "d6/dcf/a01031.html#a7768b7b6fa2ec552019ebed7d7728e4c", null ],
-    [ "close", "d6/dcf/a01031.html#a379c6a49e0b3c1c663020582e61d6887", null ],
-    [ "getChipSize", "d6/dcf/a01031.html#a9d4c8832f1bcf188ae0c358a9a363b82", null ],
-    [ "open", "d6/dcf/a01031.html#ababf497720b16b51762103ca82e56f49", null ],
-    [ "operator=", "d6/dcf/a01031.html#afe0439b5fd16b15fa6196111c14e70ef", null ],
-    [ "operator=", "d6/dcf/a01031.html#aa79821ce37ce3fca38aaaa91e94ddf75", null ],
-    [ "read", "d6/dcf/a01031.html#a54927e78496718fcd7a9cb0e02767604", null ],
-    [ "read16", "d6/dcf/a01031.html#a41825423769f79dd77cb1e77736e6e2a", null ],
-    [ "read8", "d6/dcf/a01031.html#aadf54e6d52b72a43d71b1a89c690a385", null ],
-    [ "write", "d6/dcf/a01031.html#a13e5c1d0f2d73fc592f0270be2b3a646", null ],
-    [ "write16", "d6/dcf/a01031.html#a1736b59146de0f5cacdb663197cd061e", null ],
-    [ "write8", "d6/dcf/a01031.html#a299a926321f0db8d9eac8527198f28fc", null ]
+    [ "SMARTCARD_HandleTypeDef", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gaac64f7e688322545bf927f9f901d7f8c", null ],
+    [ "HAL_SMARTCARD_StateTypeDef", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#ga79d6a3b95636861dcfd70913746e087e", null ],
+    [ "HAL_SMARTCARD_STATE_BUSY", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087ea2cb929aaef6e779ed7cd6b3909ddd9dc", null ],
+    [ "HAL_SMARTCARD_STATE_BUSY_RX", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087eaebf962d48014d5c46f262a1e7c6fe5a3", null ],
+    [ "HAL_SMARTCARD_STATE_BUSY_TX", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087eae782bca07469b811467a60454fd3789d", null ],
+    [ "HAL_SMARTCARD_STATE_BUSY_TX_RX", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087eadce24f292ca00c111d393cbc11a823bf", null ],
+    [ "HAL_SMARTCARD_STATE_ERROR", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087eabd76a0e440c55bb7d040626f2134afee", null ],
+    [ "HAL_SMARTCARD_STATE_READY", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087ea574c38a9650163fcf757974c7a6c4a44", null ],
+    [ "HAL_SMARTCARD_STATE_RESET", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087ea3bb178c89408959b462cf8bc607034cb", null ],
+    [ "HAL_SMARTCARD_STATE_TIMEOUT", "https://panchev68.github.io/HALF4/d6/dcf/a01031.html#gga79d6a3b95636861dcfd70913746e087eac871d68a9fe445e9cdcef0d3eb374a1c", null ]
 ];

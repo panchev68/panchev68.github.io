@@ -1,7 +1,7 @@
 var a00317 =
 [
-    [ "Lib::Ethercat::SOES::MailboxHeader", "d7/d1a/a01827.html", "d7/d1a/a01827" ],
-    [ "Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;", "d0/db3/a01831.html", "d0/db3/a01831" ],
+    [ "Lib::Ethercat::SOES::MailboxHeader", "d6/da5/a05100.html", "d6/da5/a05100" ],
+    [ "Lib::Ethercat::SOES::Mailbox&lt; T_ESC, T_MAX_SIZE &gt;", "d0/d47/a05104.html", "d0/d47/a05104" ],
     [ "Lib::Ethercat::SOES::MailboxError", "d4/d12/a00910.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8", [
       [ "Lib::Ethercat::SOES::MailboxError::SYNTAX", "d4/d12/a00910.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a3dee5c76b66ffa6cc917386bdfaeb2b5", null ],
       [ "Lib::Ethercat::SOES::MailboxError::UNSUPPORTED_PROTOCOL", "d4/d12/a00910.html#a0d1dbf6c78ae1aa2d11b57cab65a26d8a735c3d53d46c84c25dc772162b02ca6c", null ],

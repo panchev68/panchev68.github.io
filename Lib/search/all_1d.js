@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['🏗️_20architecture_0',['🏗️ Architecture',['../index.html#️-architecture',1,'']]]
+  ['▶️_20usage_20quick_20start_0',['▶️ Usage / Quick Start',['../index.html#️-usage--quick-start',1,'']]]
 ];

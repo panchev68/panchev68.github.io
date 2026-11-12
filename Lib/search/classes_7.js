@@ -1,16 +1,20 @@
 var searchData=
 [
-  ['hammingcode_0',['HammingCode',['../d1/de1/a02435.html',1,'Lib::Math']]],
-  ['handle_1',['Handle',['../d9/d1f/a02035.html',1,'Lib::HAL::GPIO']]],
-  ['hardware_2',['Hardware',['../dc/d8b/a02691.html',1,'Lib::System::Version']]],
-  ['hardwareversion_3',['HardwareVersion',['../df/de4/a02651.html',1,'Lib::System']]],
-  ['hashport_3c_20drivermode_3a_3ablocking_20_3e_4',['HASHPort&lt; DriverMode::BLOCKING &gt;',['../d4/d2e/a02051.html',1,'Lib::HAL']]],
-  ['hashport_3c_20drivermode_3a_3ait_20_3e_5',['HASHPort&lt; DriverMode::IT &gt;',['../d5/dd6/a02055.html',1,'Lib::HAL']]],
-  ['hashportbase_6',['HASHPortBase',['../d2/d8a/a02063.html',1,'Lib::HAL']]],
-  ['hashportbase_3c_20hashport_3c_20drivermode_3a_3ablocking_20_3e_20_3e_7',['HASHPortBase&lt; HASHPort&lt; DriverMode::BLOCKING &gt; &gt;',['../d2/d8a/a02063.html',1,'Lib::HAL']]],
-  ['hashportbase_3c_20hashport_3c_20drivermode_3a_3ait_20_3e_20_3e_8',['HASHPortBase&lt; HASHPort&lt; DriverMode::IT &gt; &gt;',['../d2/d8a/a02063.html',1,'Lib::HAL']]],
-  ['header_9',['Header',['../d4/dd4/a01659.html',1,'Lib::Digi::Core::Frame']]],
-  ['helper_10',['Helper',['../d6/d0d/a01091.html',1,'Lib::BSP::Ethercat::PDI::LAN9252::Helper'],['../dd/d38/a01663.html',1,'Lib::Digi::Core::Frame::Helper']]],
-  ['hex_11',['Hex',['../d7/d0c/a02315.html',1,'Lib::Helper::Convert']]],
-  ['hexhelper_12',['HexHelper',['../dc/d52/a02319.html',1,'Lib::Helper::Convert']]]
+  ['gamma_5fdistribution_0',['gamma_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05514.html',0,'std']]],
+  ['geometric_5fdistribution_1',['geometric_distribution',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05570.html',0,'std']]],
+  ['gp_5fhash_5ftable_2',['gp_hash_table',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11586.html',0,'__gnu_pbds']]],
+  ['gp_5fhash_5ftag_3',['gp_hash_tag',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11710.html',0,'__gnu_pbds']]],
+  ['gp_5fht_5fmap_4',['gp_ht_map',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a12170.html',0,'__gnu_pbds::detail']]],
+  ['gp_5fht_5fmap_3c_20key_2c_20mapped_2c_20at0t_2c_20at1t_2c_20_5falloc_2c_20at3t_3a_3avalue_2c_20at4t_2c_20at5t_2c_20at2t_20_3e_5',['gp_ht_map&lt; Key, Mapped, at0t, at1t, _Alloc, at3t::value, at4t, at5t, at2t &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a12170.html',0,'__gnu_pbds::detail']]],
+  ['gpio_5finittypedef_6',['GPIO_InitTypeDef',['https://panchev68.github.io/HALF4/d7/d32/a01444.html',0,'']]],
+  ['gps_5fclock_7',['gps_clock',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02094.html',0,'std::chrono']]],
+  ['greater_8',['greater',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06810.html',0,'std::greater&lt; typename _Tp &gt;'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05962.html',0,'std::ranges::greater']]],
+  ['greater_3c_20void_20_3e_9',['greater&lt; void &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06850.html',0,'std']]],
+  ['greater_5fequal_10',['greater_equal',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06818.html',0,'std::greater_equal&lt; typename _Tp &gt;'],['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a05966.html',0,'std::ranges::greater_equal']]],
+  ['greater_5fequal_3c_20void_20_3e_11',['greater_equal&lt; void &gt;',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a06890.html',0,'std']]],
+  ['group_12',['Group',['../db/df9/a05044.html',1,'Lib::Errors']]],
+  ['group_5fadjustor_13',['group_adjustor',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a11194.html',0,'__gnu_cxx::random_condition']]],
+  ['growing_5fblocks_5ftag_14',['growing_blocks_tag',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a09066.html',0,'__gnu_parallel']]],
+  ['gslice_15',['gslice',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a04918.html',0,'std']]],
+  ['gslice_5farray_16',['gslice_array',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a03758.html',0,'std']]]
 ];

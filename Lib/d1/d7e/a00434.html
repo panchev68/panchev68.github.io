@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>STM32CubeF4 HAL Driver MCU Component: stm32f4xx_hal_nand.c</title>
+<title>IAR Library: HASH.hpp</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">STM32CubeF4 HAL Driver MCU Component<span id="projectnumber">&#160;1.86</span>
+   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
    </div>
-   <div id="projectbrief">STM32CubeF4 HAL Driver MCU Component</div>
+   <div id="projectbrief">IAR  Library</div>
   </td>
  </tr>
  </tbody>
@@ -111,106 +111,21 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d7e/a00434.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">stm32f4xx_hal_nand.c</div></div>
+  <div class="headertitle"><div class="title">HASH.hpp</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>NAND HAL module driver. This file provides a generic firmware to drive NAND memories mounted as external device.  
+<p>Public umbrella include for the HASH subsystem.  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>NAND HAL module driver. This file provides a generic firmware to drive NAND memories mounted as external device. </p>
-<dl class="section author"><dt>Author</dt><dd>MCD Application Team </dd></dl>
-<dl class="section attention"><dt>Attention</dt><dd></dd></dl>
-<p>Copyright (c) 2016 STMicroelectronics. All rights reserved.</p>
-<p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS.</p>
-<pre class="fragment">==============================================================================
-                       ##### How to use this driver #####
-==============================================================================
-  [..]
-    This driver is a generic layered driver which contains a set of APIs used to
-    control NAND flash memories. It uses the FMC/FSMC layer functions to interface
-    with NAND devices. This driver is used as follows:
-
-    (+) NAND flash memory configuration sequence using the function HAL_NAND_Init()
-        with control and timing parameters for both common and attribute spaces.
-
-    (+) Read NAND flash memory maker and device IDs using the function
-        HAL_NAND_Read_ID(). The read information is stored in the NAND_ID_TypeDef
-        structure declared by the function caller.
-
-    (+) Access NAND flash memory by read/write operations using the functions
-        HAL_NAND_Read_Page_8b()/HAL_NAND_Read_SpareArea_8b(),
-        HAL_NAND_Write_Page_8b()/HAL_NAND_Write_SpareArea_8b(),
-        HAL_NAND_Read_Page_16b()/HAL_NAND_Read_SpareArea_16b(),
-        HAL_NAND_Write_Page_16b()/HAL_NAND_Write_SpareArea_16b()
-        to read/write page(s)/spare area(s). These functions use specific device
-        information (Block, page size..) predefined by the user in the NAND_DeviceConfigTypeDef
-        structure. The read/write address information is contained by the Nand_Address_Typedef
-        structure passed as parameter.
-
-    (+) Perform NAND flash Reset chip operation using the function HAL_NAND_Reset().
-
-    (+) Perform NAND flash erase block operation using the function HAL_NAND_Erase_Block().
-        The erase block address information is contained in the Nand_Address_Typedef
-        structure passed as parameter.
-
-    (+) Read the NAND flash status operation using the function HAL_NAND_Read_Status().
-
-    (+) You can also control the NAND device by calling the control APIs HAL_NAND_ECC_Enable()/
-        HAL_NAND_ECC_Disable() to respectively enable/disable the ECC code correction
-        feature or the function HAL_NAND_GetECC() to get the ECC correction code.
-
-    (+) You can monitor the NAND device HAL state by calling the function
-        HAL_NAND_GetState()
-
-  [..]
-    (@) This driver is a set of generic APIs which handle standard NAND flash operations.
-        If a NAND flash device contains different operations and/or implementations,
-        it should be implemented separately.
-
-  *** Callback registration ***
-  =============================================
-  [..]
-    The compilation define  USE_HAL_NAND_REGISTER_CALLBACKS when set to 1
-    allows the user to configure dynamically the driver callbacks.
-
-    Use Functions HAL_NAND_RegisterCallback() to register a user callback,
-    it allows to register following callbacks:
-      (+) MspInitCallback    : NAND MspInit.
-      (+) MspDeInitCallback  : NAND MspDeInit.
-    This function takes as parameters the HAL peripheral handle, the Callback ID
-    and a pointer to the user callback function.
-
-    Use function HAL_NAND_UnRegisterCallback() to reset a callback to the default
-    weak (overridden) function. It allows to reset following callbacks:
-      (+) MspInitCallback    : NAND MspInit.
-      (+) MspDeInitCallback  : NAND MspDeInit.
-    This function) takes as parameters the HAL peripheral handle and the Callback ID.
-
-    By default, after the HAL_NAND_Init and if the state is HAL_NAND_STATE_RESET
-    all callbacks are reset to the corresponding legacy weak (overridden) functions.
-    Exception done for MspInit and MspDeInit callbacks that are respectively
-    reset to the legacy weak (overridden) functions in the HAL_NAND_Init
-    and  HAL_NAND_DeInit only when these callbacks are null (not registered beforehand).
-    If not, MspInit or MspDeInit are not null, the HAL_NAND_Init and HAL_NAND_DeInit
-    keep and use the user MspInit/MspDeInit callbacks (registered beforehand)
-
-    Callbacks can be registered/unregistered in READY state only.
-    Exception done for MspInit/MspDeInit callbacks that can be registered/unregistered
-    in READY or RESET state, thus registered (user) MspInit/DeInit callbacks can be used
-    during the Init/DeInit.
-    In that case first register the MspInit/MspDeInit user callbacks
-    using HAL_NAND_RegisterCallback before calling HAL_NAND_DeInit
-    or HAL_NAND_Init function.
-
-    When The compilation define USE_HAL_NAND_REGISTER_CALLBACKS is set to 0 or
-    not defined, the callback registering feature is not available
-    and weak (overridden) callbacks are used.
-</pre> </div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for stm32f4xx_hal_nand.c:</div>
+<div class="textblock"><p>Public umbrella include for the HASH subsystem. </p>
+<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>2026-11-11 </dd></dl>
+</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for HASH.hpp:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc5/a00435.svg" width="192" height="194"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d0/dc5/a00435.svg" width="8078" height="730"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
@@ -225,7 +140,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d1/d7e/a00434.
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_e6bb53534ac0e427887cf7a94c0c004e.html">C:</a></li><li class="navelem"><a href="../../dir_9cdfc84494d65cbdf682cabecccc8157.html">stm32_hal</a></li><li class="navelem"><a href="../../dir_2aa8fa252254dd720a0378bbbe838e97.html">stm32f4xx-hal-driver-master</a></li><li class="navelem"><a href="../../dir_99b16bea5b9b33062f1ab3234a327223.html">stm32f4xx-hal-driver-master</a></li><li class="navelem"><a href="../../dir_9c23d26f9868ed87e0cb41b13fbb5248.html">Src</a></li><li class="navelem"><a href="../../d1/d7e/a00434.html">stm32f4xx_hal_nand.c</a></li>
+    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../d1/d7e/a00434.html">HASH.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

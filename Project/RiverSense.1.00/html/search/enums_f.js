@@ -1,10 +1,11 @@
 var searchData=
 [
-  ['usbdeviceevent_0',['USBDeviceEvent',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#a5d499d7d2a344d0473d62dcf724d9a12',1,'Lib::HAL']]],
-  ['usbdirection_1',['USBDirection',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#a0feace7a2249d65bd2313f48bf07ba0b',1,'Lib::HAL']]],
-  ['usbendpointtype_2',['USBEndpointType',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#ae1783f3c88baf78f222c313659cf4a98',1,'Lib::HAL']]],
-  ['usbhostevent_3',['USBHostEvent',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#a53f17b15be5eab9c94b2c21a10f050fd',1,'Lib::HAL']]],
-  ['usbhosttransferresult_4',['USBHostTransferResult',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#a62152c846403f6b93d0f2e9ff14adafe',1,'Lib::HAL']]],
-  ['usbrole_5',['USBRole',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#ada24ea1dfe0720a6a56871f1392f9955',1,'Lib::HAL']]],
-  ['usbspeed_6',['USBSpeed',['https://panchev68.github.io/Lib/d3/dd1/a00914.html#a8cde9e5e92df1421df294fcb1a50b4e7',1,'Lib::HAL']]]
+  ['sdoabort_0',['SdoAbort',['https://panchev68.github.io/Lib/d4/d12/a00910.html#ab9edefd3f6cea3cfc71c65cdd01019de',1,'Lib::Ethercat::SOES']]],
+  ['sha256engine_1',['SHA256Engine',['https://panchev68.github.io/Lib/d0/dac/a00901.html#a9f3539ae201a7873d936d653c9bd56bb',1,'Lib::Crypto']]],
+  ['slaveerror_2',['SlaveError',['https://panchev68.github.io/Lib/d4/d12/a00910.html#a10c6daadd4bfb6d09e355d88ec1681dc',1,'Lib::Ethercat::SOES']]],
+  ['slavestate_3',['SlaveState',['https://panchev68.github.io/Lib/d4/d12/a00910.html#afea74831b3c37117c52ebef85489a279',1,'Lib::Ethercat::SOES']]],
+  ['st7789registers_4',['ST7789Registers',['https://panchev68.github.io/Lib/df/d41/a00881.html#a4a5baa065e1f33f03e2af5cb8e96abba',1,'Lib::BSP::Display']]],
+  ['state_5',['State',['https://panchev68.github.io/Lib/d5/d06/a01499.html#a71f91e486ebbe685b8ef04a85df9816e',1,'Lib::Digi::API::ApplicationBase::State'],['https://panchev68.github.io/Lib/d6/df5/a01503.html#a71f91e486ebbe685b8ef04a85df9816e',1,'Lib::Digi::API::ClientBase::State'],['https://panchev68.github.io/Lib/d8/d6c/a01563.html#a71f91e486ebbe685b8ef04a85df9816e',1,'Lib::Digi::API::ServerBase::State']]],
+  ['status_6',['Status',['../da/d3e/class_a_p_p_1_1_cloud.html#a93eb2ae4e9296f61cc86e23522708036',1,'APP::Cloud::Status'],['https://panchev68.github.io/Lib/de/dc8/a00889.html#a93a86005cbff0244fb1cfdaa80180a51',1,'Lib::BSP::FMEM::SPI::Status'],['https://panchev68.github.io/Lib/d1/d0b/a00919.html#afc43b899679a3737d2e7425a9168a85c',1,'Lib::HTTP::Status']]],
+  ['syntax_5foption_5ftype_7',['syntax_option_type',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01726.html#a510caedb3e640b81620023a85c1280bb',1,'std::regex_constants']]]
 ];

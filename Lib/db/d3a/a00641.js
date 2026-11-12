@@ -1,4 +1,4 @@
 var a00641 =
 [
-    [ "Lib::Helper::Sunset", "d8/deb/a02387.html", "d8/deb/a02387" ]
+    [ "Lib::Helper::Sunset", "d4/de8/a05660.html", "d4/de8/a05660" ]
 ];
