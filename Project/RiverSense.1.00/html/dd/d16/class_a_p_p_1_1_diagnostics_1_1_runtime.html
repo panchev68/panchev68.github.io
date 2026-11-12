@@ -114,17 +114,17 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('dd/d16/class_a
 </div><!--header-->
 <div class="contents">
 
-<p>Singleton holding the fault mask that goes to the cloud with every report.  
+<p>Singleton holding the two fault masks that go to the cloud with every report: the current one and the latched one.  
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Singleton holding the fault mask that goes to the cloud with every report. </p>
-<p>Unlike WCC there is no diagnostic task: the node sleeps between measurements, and the sensor rail, the modem and the single-reader UART streams belong to <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, so a second task probing them would collide with it. The runtime pass is the measurement cycle itself. The modules that own the devices report every result they get with <a class="el" href="#af59850d1f1ac256dc070a9fcf0bef9b0" title="update()">update()</a>: <a class="el" href="../../d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html" title="Boot">Boot</a> once at start-up, <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> after each measurement (both sensors, plus the I2C mirror, once per measurement period) and each modem session. The I2C sensors are mirrored from <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html#a1519cc8b2fe5798dcf0db9a81dbfef29" title="APP::PowerSupply::getIsSensorsOk()">APP::PowerSupply::getIsSensorsOk()</a> by <a class="el" href="#a23f68e218dee29c37a66256a803900c8" title="refreshPowerSensors()">refreshPowerSensors()</a>, which does not touch the bus the MPPT loop uses.</p>
-<p>Thread-safe: the mask is a single atomic word in an 'Impl' in the '.cpp'. </p>
+<div class="textblock"><p>Singleton holding the two fault masks that go to the cloud with every report: the current one and the latched one. </p>
+<p>Unlike WCC there is no diagnostic task: the node sleeps between measurements, and the sensor rail, the modem and the single-reader UART streams belong to <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, so a second task probing them would collide with it. The runtime pass is the measurement cycle itself. The modules that own the devices report every result they get with <a class="el" href="#af59850d1f1ac256dc070a9fcf0bef9b0" title="update()">update()</a>: <a class="el" href="../../d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html" title="Boot">Boot</a> once at start-up, <a class="el" href="../../da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a> after each measurement (both sensors, plus the I2C mirror, once per measurement period) and each modem session. The I2C sensors are mirrored from <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html#a1519cc8b2fe5798dcf0db9a81dbfef29" title="APP::PowerSupply::getIsSensorsOk()">APP::PowerSupply::getIsSensorsOk()</a> by <a class="el" href="#a23f68e218dee29c37a66256a803900c8" title="refreshPowerSensors()">refreshPowerSensors()</a>.</p>
+<p>Thread-safe: both masks are atomic bytes in an 'Impl' in the '.cpp'. </p>
 </div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::Diagnostics::Runtime:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/de3/class_a_p_p_1_1_diagnostics_1_1_runtime__coll__graph.svg" width="287" height="608"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d9/de3/class_a_p_p_1_1_diagnostics_1_1_runtime__coll__graph.svg" width="287" height="707"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -134,7 +134,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a23f68e218dee29c37a66256a803900c8" id="r_a23f68e218dee29c37a66256a803900c8"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a23f68e218dee29c37a66256a803900c8">refreshPowerSensors</a> () noexcept</td></tr>
 <tr class="memdesc:a23f68e218dee29c37a66256a803900c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mirrors the I2C sensors (both INA219 and the TMP102) from the state published by <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>.  <br /></td></tr>
 <tr class="memitem:aabb5adb04c418eb59483b7eaeb073c79" id="r_aabb5adb04c418eb59483b7eaeb073c79"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aabb5adb04c418eb59483b7eaeb073c79">getFaultMask</a> () const noexcept</td></tr>
-<tr class="memdesc:aabb5adb04c418eb59483b7eaeb073c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the published fault mask; any task.  <br /></td></tr>
+<tr class="memdesc:aabb5adb04c418eb59483b7eaeb073c79"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current fault mask, from the last check of each device; any task.  <br /></td></tr>
+<tr class="memitem:af4cb6320f2e818f30483ffe03fc1bf11" id="r_af4cb6320f2e818f30483ffe03fc1bf11"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#af4cb6320f2e818f30483ffe03fc1bf11">getLatchedMask</a> () const noexcept</td></tr>
+<tr class="memdesc:af4cb6320f2e818f30483ffe03fc1bf11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the latched fault mask: every device that failed since the last successful upload; any task.  <br /></td></tr>
+<tr class="memitem:a8965761e771ef2cdea88f2e355ba58df" id="r_a8965761e771ef2cdea88f2e355ba58df"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a8965761e771ef2cdea88f2e355ba58df">acknowledge</a> (uint8_t sentMask) noexcept</td></tr>
+<tr class="memdesc:a8965761e771ef2cdea88f2e355ba58df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the latched bits that were sent in a successful upload; bits set after the snapshot stay; any task.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -272,6 +276,51 @@ Static Private Member Functions</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="a8965761e771ef2cdea88f2e355ba58df" name="a8965761e771ef2cdea88f2e355ba58df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8965761e771ef2cdea88f2e355ba58df">&#9670;&#160;</a></span>acknowledge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void APP::Diagnostics::Runtime::acknowledge </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>sentMask</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Clears the latched bits that were sent in a successful upload; bits set after the snapshot stay; any task. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sentMask</td><td>Latched mask that the upload carried, as returned by <a class="el" href="#af4cb6320f2e818f30483ffe03fc1bf11" title="getLatchedMask()">getLatchedMask()</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary">
+</div>
+<div id="dynsection-4-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a8965761e771ef2cdea88f2e355ba58df_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary">
+</div>
+<div id="dynsection-5-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a8965761e771ef2cdea88f2e355ba58df_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
 <a id="aabb5adb04c418eb59483b7eaeb073c79" name="aabb5adb04c418eb59483b7eaeb073c79"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aabb5adb04c418eb59483b7eaeb073c79">&#9670;&#160;</a></span>getFaultMask()</h2>
 
@@ -295,19 +344,59 @@ Static Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the published fault mask; any task. </p>
-<dl class="section return"><dt>Returns</dt><dd>One Device bit per failed device; 0 if all passed. </dd></dl>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
+<p>Returns the current fault mask, from the last check of each device; any task. </p>
+<dl class="section return"><dt>Returns</dt><dd>One Device bit per device that failed its last check; 0 if all passed. </dd></dl>
+<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary">
 </div>
-<div id="dynsection-4-content" class="dyncontent hidden">
+<div id="dynsection-6-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_aabb5adb04c418eb59483b7eaeb073c79_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
+<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary">
 </div>
-<div id="dynsection-5-content" class="dyncontent hidden">
+<div id="dynsection-7-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_aabb5adb04c418eb59483b7eaeb073c79_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+
+</div>
+</div>
+<a id="af4cb6320f2e818f30483ffe03fc1bf11" name="af4cb6320f2e818f30483ffe03fc1bf11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4cb6320f2e818f30483ffe03fc1bf11">&#9670;&#160;</a></span>getLatchedMask()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t APP::Diagnostics::Runtime::getLatchedMask </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel nodiscard">nodiscard</span><span class="mlabel noexcept">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns the latched fault mask: every device that failed since the last successful upload; any task. </p>
+<dl class="section return"><dt>Returns</dt><dd>One Device bit per device that failed since the last <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="acknowledge()">acknowledge()</a>; 0 if none did. </dd></dl>
+<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-8-summary" class="dynsummary">
+</div>
+<div id="dynsection-8-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_af4cb6320f2e818f30483ffe03fc1bf11_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-9-summary" class="dynsummary">
+</div>
+<div id="dynsection-9-content" class="dyncontent hidden">
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_af4cb6320f2e818f30483ffe03fc1bf11_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
 </div>
@@ -337,16 +426,16 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the hidden state of the singleton. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the implementation. </dd></dl>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
+<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-10-summary" class="dynsummary">
 </div>
-<div id="dynsection-6-content" class="dyncontent hidden">
+<div id="dynsection-10-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a257409c1a41c5681ead620e58ad4c746_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
+<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-11-summary" class="dynsummary">
 </div>
-<div id="dynsection-7-content" class="dyncontent hidden">
+<div id="dynsection-11-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a257409c1a41c5681ead620e58ad4c746_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -377,10 +466,10 @@ Static Private Member Functions</h2></td></tr>
 
 <p>Returns the unique runtime diagnostics. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the diagnostics. </dd></dl>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
+<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-12-summary" class="dynsummary">
 </div>
-<div id="dynsection-8-content" class="dyncontent hidden">
+<div id="dynsection-12-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a59e321bdad0789050761fcb06cf68e44_cgraph.svg" width="602" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -417,10 +506,10 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
+<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-13-summary" class="dynsummary">
 </div>
-<div id="dynsection-9-content" class="dyncontent hidden">
+<div id="dynsection-13-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a232cb4e2e39dc7c68e6b862951d62f8b_cgraph.svg" width="602" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -457,10 +546,10 @@ Static Private Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Reference to this object. </dd></dl>
-<div id="dynsection-10" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-10-summary" class="dynsummary">
+<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-14-summary" class="dynsummary">
 </div>
-<div id="dynsection-10-content" class="dyncontent hidden">
+<div id="dynsection-14-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_aad43b737cdbcca72e87d3ba39b6485aa_cgraph.svg" width="602" height="66"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -490,16 +579,17 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Mirrors the I2C sensors (both INA219 and the TMP102) from the state published by <a class="el" href="../../d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>. </p>
-<div id="dynsection-11" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-11-summary" class="dynsummary">
+<p>Does not touch the I2C1 bus that the MPPT loop uses. </p>
+<div id="dynsection-15" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-15-summary" class="dynsummary">
 </div>
-<div id="dynsection-11-content" class="dyncontent hidden">
+<div id="dynsection-15-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a23f68e218dee29c37a66256a803900c8_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-12" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-12-summary" class="dynsummary">
+<div id="dynsection-16" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-16-summary" class="dynsummary">
 </div>
-<div id="dynsection-12-content" class="dyncontent hidden">
+<div id="dynsection-16-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_a23f68e218dee29c37a66256a803900c8_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 
@@ -533,6 +623,7 @@ Static Private Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Publishes the result of a device check made by the module that owns the device; any task. </p>
+<p>A failure also sets the device bit in the latched mask, which stays set until <a class="el" href="#a8965761e771ef2cdea88f2e355ba58df" title="acknowledge()">acknowledge()</a>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">device</td><td>Checked device. </td></tr>
@@ -540,16 +631,16 @@ Static Private Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<div id="dynsection-13" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-13-summary" class="dynsummary">
+<div id="dynsection-17" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-17-summary" class="dynsummary">
 </div>
-<div id="dynsection-13-content" class="dyncontent hidden">
+<div id="dynsection-17-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_af59850d1f1ac256dc070a9fcf0bef9b0_cgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-<div id="dynsection-14" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
-<div id="dynsection-14-summary" class="dynsummary">
+<div id="dynsection-18" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-18-summary" class="dynsummary">
 </div>
-<div id="dynsection-14-content" class="dyncontent hidden">
+<div id="dynsection-18-content" class="dyncontent hidden">
 <div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dd/d16/class_a_p_p_1_1_diagnostics_1_1_runtime_af59850d1f1ac256dc070a9fcf0bef9b0_icgraph.svg" width="283" height="90"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 

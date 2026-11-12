@@ -26,13 +26,7 @@ var NAVTREE =
 [
   [ "River Sense Control Firmware", "index.html", [
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
-      [ "Namespace Members", "namespacemembers.html", [
-        [ "All", "namespacemembers.html", null ],
-        [ "Functions", "namespacemembers_func.html", null ],
-        [ "Variables", "namespacemembers_vars.html", null ],
-        [ "Enumerations", "namespacemembers_enum.html", null ]
-      ] ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "List", "annotated.html", "annotated_dup" ]
@@ -47,7 +41,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d9/d25/class_a_p_p_1_1_diagnostics_1_1_boot.html#afbdd4afc3d459ff55ebe1db0ba860889",
-"dc/dd4/class_a_p_p_1_1_command_interpreter.html#a9c1bde975cad6c36140cef1d884cba12a41dffdaef39b73d51e6a3879b7864e5f"
+"dc/dd4/class_a_p_p_1_1_command_interpreter.html#a9c1bde975cad6c36140cef1d884cba12ae0aa021e21dddbd6d8cecec71e9cf564"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';
