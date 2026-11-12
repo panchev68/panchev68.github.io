@@ -1,12 +1,10 @@
 var a01231 =
 [
-    [ "Data", "dd/dad/a01235.html", "dd/dad/a01235" ],
-    [ "Color", "d0/d88/a01231.html#a50992f4d62f0c135ac06fb09295272a9", null ],
-    [ "Color", "d0/d88/a01231.html#a7fd24aff5fcb49896cd778aa74acd77a", null ],
-    [ "Color", "d0/d88/a01231.html#a484309c52934f9c23460c4fe57f45530", null ],
-    [ "clear", "d0/d88/a01231.html#a185365d10a10bb67bb7aea5474a2d42f", null ],
-    [ "get", "d0/d88/a01231.html#a4ad28e997f34f1873bf233a5d004e340", null ],
-    [ "getPacked", "d0/d88/a01231.html#a3c7ebf48aaf22efebf6ac2ee85b7ec46", null ],
-    [ "set", "d0/d88/a01231.html#ab5fb099a9fe6af7fa10393f3ae542ee0", null ],
-    [ "set", "d0/d88/a01231.html#ac8926773deb153f9281f4e235896e4a0", null ]
+    [ "ADC Exported Types", "db/d77/a00683.html", "db/d77/a00683" ],
+    [ "ADC Exported Constants", "d3/db4/a00684.html", "d3/db4/a00684" ],
+    [ "ADC Exported Macros", "d0/d15/a00700.html", "d0/d15/a00700" ],
+    [ "ADC Private Constants", "dd/d57/a00701.html", "dd/d57/a00701" ],
+    [ "ADC Private Macros", "dd/d85/a00702.html", "dd/d85/a00702" ],
+    [ "ADC Private Functions", "d8/d86/a00703.html", null ],
+    [ "ADC_Exported_Functions", "d4/d10/a01278.html", "d4/d10/a01278" ]
 ];

@@ -1,0 +1,7 @@
+var a01028 =
+[
+    [ "RTC_EXTI_LINE_TAMPER_TIMESTAMP_EVENT", "db/d08/a01028.html#gaffa3448885f1dec216899aef7f49471f", null ],
+    [ "RTC_EXTI_LINE_WAKEUPTIMER_EVENT", "db/d08/a01028.html#ga1a1a58e244663850786c387bfa5474f2", null ],
+    [ "RTC_TAMPER_ENABLE_BITS_MASK", "db/d08/a01028.html#ga7e88cdfea61101a213d859c28017c2c3", null ],
+    [ "RTC_TAMPER_FLAGS_MASK", "db/d08/a01028.html#ga2456340b3ee0ad3fae07075530742960", null ]
+];

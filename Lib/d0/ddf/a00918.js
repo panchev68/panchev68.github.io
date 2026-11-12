@@ -1,4 +1,4 @@
 var a00918 =
 [
-    [ "DeviceBase", "dd/dcf/a00922.html", "dd/dcf/a00922" ]
+    [ "PWREx Private macros to check input parameters", "d1/d0b/a00919.html", "d1/d0b/a00919" ]
 ];

@@ -1,0 +1,6 @@
+var a01059 =
+[
+    [ "SMBUS_PERIPHERAL_MODE_SMBUS_HOST", "d0/d90/a01059.html#ga219f1a9519ebb3c12bc21045fb5fbacc", null ],
+    [ "SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE", "d0/d90/a01059.html#ga58135a2226dc75d5627434bcc72d69d5", null ],
+    [ "SMBUS_PERIPHERAL_MODE_SMBUS_SLAVE_ARP", "d0/d90/a01059.html#gacbcd4481e0cf3e1b58b43604b78f5645", null ]
+];

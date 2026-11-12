@@ -1,14 +1,13 @@
 var a01351 =
 [
-    [ "Status", "d1/dcd/a01351.html#a577acdd119b66063413debe6a438470f", [
-      [ "STATUS_CHANGED", "d1/dcd/a01351.html#a577acdd119b66063413debe6a438470fa7d7345c2c77de394beec94e0aca562a4", null ],
-      [ "ALL_ERRORS_CLEARED", "d1/dcd/a01351.html#a577acdd119b66063413debe6a438470fa1459aaf5be4f244005eaa164b1d504db", null ]
-    ] ],
-    [ "Dispatcher", "d1/dcd/a01351.html#a1a68a3ecc8ce85f9f1b5d4f77c78bd45", null ],
-    [ "Dispatcher", "d1/dcd/a01351.html#a26aefbcc8e66b5d3918ab12b3a127762", null ],
-    [ "createError", "d1/dcd/a01351.html#a11635cec08a65c210b1e95beb3f7cac7", null ],
-    [ "operator=", "d1/dcd/a01351.html#a746dc88b2dbe86bd302dfaf139ff52b0", null ],
-    [ "operator=", "d1/dcd/a01351.html#ac07b5c3a0787f115c024715d330b6971", null ],
-    [ "start", "d1/dcd/a01351.html#a0dea9c515fd6a0ec071f86548f913907", null ],
-    [ "statusChangedHook", "d1/dcd/a01351.html#a440515f7e1ffdabc843bccb96ec779b1", null ]
+    [ "HAL_TIM_IC_DeInit", "d1/dcd/a01351.html#ga2fc9af96c4ec45ba9057e182012f3586", null ],
+    [ "HAL_TIM_IC_Init", "d1/dcd/a01351.html#ga342aa1098891f55f59c7867afff589c1", null ],
+    [ "HAL_TIM_IC_MspDeInit", "d1/dcd/a01351.html#gad1aa484ec0f0559908d9d8128614e7ad", null ],
+    [ "HAL_TIM_IC_MspInit", "d1/dcd/a01351.html#ga202723f23bc46b29b16145f9cceabbbb", null ],
+    [ "HAL_TIM_IC_Start", "d1/dcd/a01351.html#gaab393018ca6f8fad04a815feb1796ce7", null ],
+    [ "HAL_TIM_IC_Start_DMA", "d1/dcd/a01351.html#gac3b7deffff43a8bdc3e2eea42115efff", null ],
+    [ "HAL_TIM_IC_Start_IT", "d1/dcd/a01351.html#gac0e3515f374ec6b9d30609cd683649d6", null ],
+    [ "HAL_TIM_IC_Stop", "d1/dcd/a01351.html#ga1b5edb103cb27dbd5380e9b24d12658f", null ],
+    [ "HAL_TIM_IC_Stop_DMA", "d1/dcd/a01351.html#ga8e7dc17f058ef9c826774436d68f80b5", null ],
+    [ "HAL_TIM_IC_Stop_IT", "d1/dcd/a01351.html#gaf5664e207667c99ef50378813056e5f6", null ]
 ];

@@ -1,5 +1,9 @@
 var a01241 =
 [
-    [ "channel", "d3/d07/a01241.html#aa0967939bfb313185c18cc470150b853", null ],
-    [ "handle", "d3/d07/a01241.html#a373f87e5f5c75c7a49f16724225066b1", null ]
+    [ "FLASH Exported Types", "d4/d45/a00791.html", "d4/d45/a00791" ],
+    [ "FLASH Exported Constants", "d2/d5a/a00792.html", "d2/d5a/a00792" ],
+    [ "FLASH Private Constants", "d8/db7/a00812.html", null ],
+    [ "FLASH Private Macros", "de/d9d/a00813.html", "de/d9d/a00813" ],
+    [ "FLASH Private Functions", "d8/d2d/a00815.html", "d8/d2d/a00815" ],
+    [ "FLASHEx_Exported_Functions", "dc/dd5/a01293.html", "dc/dd5/a01293" ]
 ];

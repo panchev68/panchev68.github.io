@@ -1,4 +1,5 @@
 var a00915 =
 [
-    [ "DeviceBase", "d1/d0b/a00919.html", "d1/d0b/a00919" ]
+    [ "PWREx Register alias address", "d6/d66/a00916.html", "d6/d66/a00916" ],
+    [ "PWRx CSR Register alias address", "d4/ddc/a00917.html", "d4/ddc/a00917" ]
 ];

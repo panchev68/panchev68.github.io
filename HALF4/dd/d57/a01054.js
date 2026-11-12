@@ -1,0 +1,5 @@
+var a01054 =
+[
+    [ "SMBUS_ADDRESSINGMODE_10BIT", "dd/d57/a01054.html#gac7037d3b88aa724853034de3701700bd", null ],
+    [ "SMBUS_ADDRESSINGMODE_7BIT", "dd/d57/a01054.html#ga630665bc86be7b93ace8777b26b092b9", null ]
+];

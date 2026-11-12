@@ -1,11 +1,14 @@
 var a01319 =
 [
-    [ "Config", "db/da8/a01323.html", "db/da8/a01323" ],
-    [ "Voltmeter", "d1/d72/a01319.html#a0f038c75a30b2d6cd8382c776fddd2bb", null ],
-    [ "getVoltage", "d1/d72/a01319.html#ac23395cb420c81ab42a23e604cf05f18", null ],
-    [ "handleValueChanged", "d1/d72/a01319.html#a0867be0757674c033a721efb796a8e39", null ],
-    [ "registerDevice", "d1/d72/a01319.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "d1/d72/a01319.html#aef6d6cecbcd23016ebff9b46c2cf3ce0", null ],
-    [ "DeviceManager::DeviceBase", "d1/d72/a01319.html#af5908117d248071190096967e686c5a3", null ],
-    [ "interpolator", "d1/d72/a01319.html#a5cabeda795635eeccd12383109ddf96c", null ]
+    [ "HAL_RCC_CSSCallback", "d1/d72/a01319.html#gaa05b9157de5a48617bd06eb6aafa68aa", null ],
+    [ "HAL_RCC_DisableCSS", "d1/d72/a01319.html#gac2f9cf8f56fd7b22c62ddf32aa5ee3fb", null ],
+    [ "HAL_RCC_EnableCSS", "d1/d72/a01319.html#gaa0f440ce71c18e95b12b2044cc044bea", null ],
+    [ "HAL_RCC_GetClockConfig", "d1/d72/a01319.html#gabc95375dfca279d88b9ded9d063d2323", null ],
+    [ "HAL_RCC_GetHCLKFreq", "d1/d72/a01319.html#ga38d6c5c7a5d8758849912c9aa0a2156d", null ],
+    [ "HAL_RCC_GetOscConfig", "d1/d72/a01319.html#gae2f9413fc447c2d7d6af3a8669c77b36", null ],
+    [ "HAL_RCC_GetPCLK1Freq", "d1/d72/a01319.html#gab3042d8ac5703ac696cabf0ee461c599", null ],
+    [ "HAL_RCC_GetPCLK2Freq", "d1/d72/a01319.html#gabbd5f8933a5ee05e4b3384e33026aca1", null ],
+    [ "HAL_RCC_GetSysClockFreq", "d1/d72/a01319.html#ga887cafe88b21a059061b077a1e3fa7d8", null ],
+    [ "HAL_RCC_MCOConfig", "d1/d72/a01319.html#ga9de46b9c4ecdb1a5e34136b051a6132c", null ],
+    [ "HAL_RCC_NMI_IRQHandler", "d1/d72/a01319.html#ga0c124cf403362750513cae7fb6e6b195", null ]
 ];

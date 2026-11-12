@@ -1,7 +1,16 @@
 var a00758 =
 [
-    [ "Lib::System::Version", "d3/d25/a02683.html", "d3/d25/a02683" ],
-    [ "Lib::System::Version::Base&lt; Derived &gt;", "d5/d25/a02687.html", "d5/d25/a02687" ],
-    [ "Lib::System::Version::Hardware", "dc/d8b/a02691.html", "dc/d8b/a02691" ],
-    [ "Lib::System::Version::Firmware", "de/dde/a02695.html", "de/dde/a02695" ]
+    [ "IS_DMA_BUFFER_SIZE", "d2/d4a/a00758.html#ga72ef4033bb3bc2cdfdbe579083b05e32", null ],
+    [ "IS_DMA_CHANNEL", "d2/d4a/a00758.html#gac7f4709d9244f25b853789d888a74d46", null ],
+    [ "IS_DMA_DIRECTION", "d2/d4a/a00758.html#gae2b02e8e823854bcd7c5746cdd29e70d", null ],
+    [ "IS_DMA_FIFO_MODE_STATE", "d2/d4a/a00758.html#gadb90a893aeb49fd4bc14af750af3837c", null ],
+    [ "IS_DMA_FIFO_THRESHOLD", "d2/d4a/a00758.html#gaeafc0d9e327d6e5b26cd37f6744b232f", null ],
+    [ "IS_DMA_MEMORY_BURST", "d2/d4a/a00758.html#ga921ebf06447dc036180fff50b7e4846a", null ],
+    [ "IS_DMA_MEMORY_DATA_SIZE", "d2/d4a/a00758.html#gac9e3748cebcb16d4ae4206d562bc804c", null ],
+    [ "IS_DMA_MEMORY_INC_STATE", "d2/d4a/a00758.html#gaa880f39d499d1e80449cf80381e4eb67", null ],
+    [ "IS_DMA_MODE", "d2/d4a/a00758.html#gad88ee5030574d6a573904378fb62c7ac", null ],
+    [ "IS_DMA_PERIPHERAL_BURST", "d2/d4a/a00758.html#ga7c60961178e2a32e9e364a220a8aca88", null ],
+    [ "IS_DMA_PERIPHERAL_DATA_SIZE", "d2/d4a/a00758.html#gad7916e0ae55cdf5efdfa68a09a028037", null ],
+    [ "IS_DMA_PERIPHERAL_INC_STATE", "d2/d4a/a00758.html#ga28762105b3f567c16ba79a47e68ff0fa", null ],
+    [ "IS_DMA_PRIORITY", "d2/d4a/a00758.html#gaa1cae2ab458948511596467c87cd02b6", null ]
 ];

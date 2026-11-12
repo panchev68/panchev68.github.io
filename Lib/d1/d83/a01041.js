@@ -1,5 +1,5 @@
 var a01041 =
 [
-    [ "nssPin", "d1/d83/a01041.html#a17d403b44dd249cb67c2cc77a8734e78", null ],
-    [ "spiHandle", "d1/d83/a01041.html#a64f95c007499d4922e5fbf9abcf0eb31", null ]
+    [ "SMARTCARD_NACK_DISABLE", "d1/d83/a01041.html#ga746a79736cf7c2f8478b6c00f7908eda", null ],
+    [ "SMARTCARD_NACK_ENABLE", "d1/d83/a01041.html#ga83d350ff558fc372bc2efc5b5a477147", null ]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>IAR Library: OSPIPortBase.hpp</title>
+<title>STM32CubeF4 HAL Driver MCU Component: stm32f4xx_hal_rtc_ex.c</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -27,9 +27,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">IAR Library<span id="projectnumber">&#160;3.08</span>
+   <div id="projectname">STM32CubeF4 HAL Driver MCU Component<span id="projectnumber">&#160;1.86</span>
    </div>
-   <div id="projectbrief">IAR  Library</div>
+   <div id="projectbrief">STM32CubeF4 HAL Driver MCU Component</div>
   </td>
  </tr>
  </tbody>
@@ -111,42 +111,126 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('d0/d29/a00470.
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">OSPIPortBase.hpp</div></div>
+  <div class="headertitle"><div class="title">stm32f4xx_hal_rtc_ex.c</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Handle-lifecycle policy shared by every OCTOSPI transfer mode, including blocking.  
+<p>Extended RTC HAL module driver. This file provides firmware functions to manage the following functionalities of the Real-Time Clock (RTC) Extended peripheral:  
 <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
-<div class="textblock"><p>Handle-lifecycle policy shared by every OCTOSPI transfer mode, including blocking. </p>
-<dl class="section version"><dt>Version</dt><dd>3.08.0 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>2026-10-16 </dd></dl>
-</div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for OSPIPortBase.hpp:</div>
+<div class="textblock"><p>Extended RTC HAL module driver. This file provides firmware functions to manage the following functionalities of the Real-Time Clock (RTC) Extended peripheral: </p>
+<dl class="section author"><dt>Author</dt><dd>MCD Application Team<ul>
+<li>RTC Timestamp functions</li>
+<li>RTC Tamper functions</li>
+<li>RTC Wakeup functions</li>
+<li>Extended Control functions</li>
+<li>Extended RTC features functions</li>
+</ul>
+</dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd></dd></dl>
+<p>Copyright (c) 2016 STMicroelectronics. All rights reserved.</p>
+<p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS.</p>
+<pre class="fragment">==============================================================================
+                      ##### How to use this driver #####
+==============================================================================
+[..]
+  (+) Enable the RTC domain access.
+  (+) Configure the RTC Prescaler (Asynchronous and Synchronous) and RTC hour
+      format using the HAL_RTC_Init() function.
+
+*** RTC Wakeup configuration ***
+================================
+[..]
+  (+) To configure the RTC Wakeup Clock source and Counter use the
+      HAL_RTCEx_SetWakeUpTimer() function.
+      You can also configure the RTC Wakeup timer in interrupt mode using the
+      HAL_RTCEx_SetWakeUpTimer_IT() function.
+  (+) To read the RTC Wakeup Counter register, use the HAL_RTCEx_GetWakeUpTimer()
+      function.
+
+*** Timestamp configuration ***
+===============================
+[..]
+  (+) To configure the RTC Timestamp use the HAL_RTCEx_SetTimeStamp() function.
+      You can also configure the RTC Timestamp with interrupt mode using the
+      HAL_RTCEx_SetTimeStamp_IT() function.
+  (+) To read the RTC Timestamp Time and Date register, use the
+      HAL_RTCEx_GetTimeStamp() function.
+  (+) The Timestamp alternate function can be mapped either to RTC_AF1 (PC13)
+      or RTC_AF2 (PI8) depending on the value of TSINSEL bit in RTC_TAFCR
+      register.
+      For STM32F446xx devices RTC_AF2 corresponds to pin PA0 and not to pin PI8.
+      The corresponding pin is also selected by HAL_RTCEx_SetTimeStamp()
+      or HAL_RTCEx_SetTimeStamp_IT() functions.
+
+*** Tamper configuration ***
+============================
+[..]
+  (+) To enable the RTC Tamper and configure the Tamper filter count, trigger
+      Edge or Level according to the Tamper filter value (if equal to 0 Edge
+      else Level), sampling frequency, precharge or discharge and Pull-UP use
+      the HAL_RTCEx_SetTamper() function.
+      You can configure RTC Tamper in interrupt mode using HAL_RTCEx_SetTamper_IT()
+      function.
+  (+) The TAMPER1 alternate function can be mapped either to RTC_AF1 (PC13)
+      or RTC_AF2 (PI8) depending on the value of TAMP1INSEL bit in RTC_TAFCR
+      register.
+      The corresponding pin is also selected by HAL_RTCEx_SetTamper()
+      or HAL_RTCEx_SetTamper_IT() functions.
+  (+) The TAMPER2 alternate function is mapped to RTC_AF2 (PI8).
+      For STM32F446xx devices RTC_AF2 corresponds to pin PA0 and not to pin PI8.
+
+*** Backup Data Registers configuration ***
+===========================================
+[..]
+  (+) To write to the RTC Backup Data registers, use the HAL_RTCEx_BKUPWrite()
+      function.
+  (+) To read the RTC Backup Data registers, use the HAL_RTCEx_BKUPRead()
+      function.
+
+*** Coarse Digital Calibration configuration ***
+================================================
+[..]
+  (+) The Coarse Digital Calibration can be used to compensate crystal inaccuracy
+      by setting the DCS bit in RTC_CALIBR register.
+  (+) When positive calibration is enabled (DCS = ‘0’), 2 asynchronous prescaler
+      clock cycles are added every minute during 2xDC minutes.
+      This causes the calendar to be updated sooner, thereby adjusting the
+      effective RTC frequency to be a bit higher.
+  (+) When negative calibration is enabled (DCS = ‘1’), 1 asynchronous prescaler
+      clock cycle is removed every minute during 2xDC minutes.
+      This causes the calendar to be updated later, thereby adjusting the
+      effective RTC frequency to be a bit lower.
+  (+) DC is configured through bits DC[4:0] of RTC_CALIBR register. This number
+      ranges from 0 to 31 corresponding to a time interval (2xDC) ranging from
+      0 to 62.
+  (+) In order to measure the clock deviation, a 512 Hz clock is output for
+      calibration.
+  (+) To configure the RTC Coarse Digital Calibration value and sign use the
+      HAL_RTCEx_SetCoarseCalib() function.
+
+*** Smooth Digital Calibration configuration ***
+================================================
+[..]
+  (+) RTC frequency can be digitally calibrated with a resolution of about
+      0.954 ppm with a range from -487.1 ppm to +488.5 ppm.
+      The correction of the frequency is performed using a series of small
+      adjustments (adding and/or subtracting individual RTCCLK pulses).
+  (+) The smooth digital calibration is performed during a cycle of about 2^20
+      RTCCLK pulses (or 32 seconds) when the input frequency is 32,768 Hz.
+      This cycle is maintained by a 20-bit counter clocked by RTCCLK.
+  (+) The smooth calibration register (RTC_CALR) specifies the number of RTCCLK
+      clock cycles to be masked during the 32-second cycle.
+  (+) To configure the RTC Smooth Digital Calibration value and the corresponding
+      calibration cycle period (32s,16s and 8s) use the HAL_RTCEx_SetSmoothCalib()
+      function.
+</pre> </div><div class="textblock"><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Include dependency graph for stm32f4xx_hal_rtc_ex.c:</div>
 <div id="dynsection-0-summary" class="dynsummary">
 </div>
 <div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d4b/a00471.svg" width="443" height="194"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d4/d4b/a00471.svg" width="208" height="194"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
-</div><div class="textblock"><div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>This graph shows which files directly or indirectly include this file:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d7/db5/a00472.svg" width="512" height="347"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:Lib_3A_3AHAL_3A_3AOSPIPortBase_3C_20T_5FDERIVED_20_3E" id="r_Lib_3A_3AHAL_3A_3AOSPIPortBase_3C_20T_5FDERIVED_20_3E"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d6/df4/a02115.html">Lib::HAL::OSPIPortBase&lt; T_DERIVED &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">CRTP base implementing the open/close/busy policy common to every "OSPIPort" mode.  <a href="../../d6/df4/a02115.html#details">More...</a><br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-namespaces" class="groupheader"><a id="namespaces" name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:Lib" id="r_Lib"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d2/da1/a00879.html">Lib</a></td></tr>
-<tr class="memdesc:d2/da1/a00879"><td class="mdescLeft">&#160;</td><td class="mdescRight">Root namespace for the IAR EWARM library. <br /></td></tr>
-<tr class="memitem:Lib_3A_3AHAL" id="r_Lib_3A_3AHAL"><td class="memItemLeft">namespace &#160;</td><td class="memItemRight"><a class="el" href="../../d3/dd1/a00914.html">Lib::HAL</a></td></tr>
-<tr class="memdesc:d3/dd1/a00914"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hardware abstraction layer for STM32F4xx peripherals. <br /></td></tr>
-</table>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>
@@ -159,7 +243,7 @@ Namespaces</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a href="../../dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a href="../../dir_60dee5c7276bc3cd6fcd1017695b942b.html">Lib</a></li><li class="navelem"><a href="../../dir_4ad11338be6ed64801f932656637dcad.html">HAL</a></li><li class="navelem"><a href="../../dir_ba55c1c0ded231066ee3ccec1543efe8.html">OSPI</a></li><li class="navelem"><a href="../../d0/d29/a00470.html">OSPIPortBase.hpp</a></li>
+    <li class="navelem"><a href="../../dir_e6bb53534ac0e427887cf7a94c0c004e.html">C:</a></li><li class="navelem"><a href="../../dir_9cdfc84494d65cbdf682cabecccc8157.html">stm32_hal</a></li><li class="navelem"><a href="../../dir_2aa8fa252254dd720a0378bbbe838e97.html">stm32f4xx-hal-driver-master</a></li><li class="navelem"><a href="../../dir_99b16bea5b9b33062f1ab3234a327223.html">stm32f4xx-hal-driver-master</a></li><li class="navelem"><a href="../../dir_9c23d26f9868ed87e0cb41b13fbb5248.html">Src</a></li><li class="navelem"><a href="../../d0/d29/a00470.html">stm32f4xx_hal_rtc_ex.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>

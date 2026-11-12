@@ -1,9 +1,8 @@
 var a00908 =
 [
-    [ "dimmerMaxValue", "d0/d85/a00908.html#a4f8b7a66b8c7a9f4517dade719803f4b", null ],
-    [ "dimmerMinValue", "d0/d85/a00908.html#af51bd0ae2fb6abc537b29f613ed0b1ad", null ],
-    [ "fadeStep", "d0/d85/a00908.html#a4b995f8dc4809e1442e1600da5a7fb7b", null ],
-    [ "sleepTimeout", "d0/d85/a00908.html#a7da153a96dbc9b64a78b1e5fc7e6691e", null ],
-    [ "timChannel", "d0/d85/a00908.html#a8c9b10f60c4b9df1e24f7d1ebe326a01", null ],
-    [ "timHandle", "d0/d85/a00908.html#aed3fbc1b2bf3d3d05cda60f56f97673f", null ]
+    [ "PWR_CR_OFFSET", "d0/d85/a00908.html#gafc4a9746ee5df183f01c6c9b2b193bf8", null ],
+    [ "PWR_CR_OFFSET_BB", "d0/d85/a00908.html#ga387e4e883d6bea5c2223adc42ee72daa", null ],
+    [ "PWR_CSR_OFFSET", "d0/d85/a00908.html#ga5108a7917314663531d70bdf05ea2698", null ],
+    [ "PWR_CSR_OFFSET_BB", "d0/d85/a00908.html#gaa9477acfcacc4610533df164c94ad6fd", null ],
+    [ "PWR_OFFSET", "d0/d85/a00908.html#ga7f88bce73931300319824f22578f90de", null ]
 ];

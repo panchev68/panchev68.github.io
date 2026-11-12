@@ -1,5 +1,6 @@
 var a01014 =
 [
-    [ "button", "d0/d56/a01014.html#a207c3491e9a6fee5d04d7f79026e642a", null ],
-    [ "handle", "d0/d56/a01014.html#a75774bfc0a226b392ad051cc0514697c", null ]
+    [ "RTC_TIMESTAMPONTAMPERDETECTION_DISABLE", "d0/d56/a01014.html#ga11e98cb1fff680cf391398c40925f891", null ],
+    [ "RTC_TIMESTAMPONTAMPERDETECTION_ENABLE", "d0/d56/a01014.html#ga5954385741ff0e2b250438c493bc0e36", null ],
+    [ "RTC_TIMESTAMPONTAMPERDETECTION_MASK", "d0/d56/a01014.html#ga5aa1d7b4e700731aec956cda74f84e58", null ]
 ];

@@ -1,4 +1,5 @@
 var a01097 =
 [
-    [ "ospi", "d1/dfa/a01097.html#ab63f02a17d4d1f80ae295f1955922795", null ]
+    [ "TIM_OCFAST_DISABLE", "d1/dfa/a01097.html#ga71429b63f2a6604171ccfd3a91ccf43a", null ],
+    [ "TIM_OCFAST_ENABLE", "d1/dfa/a01097.html#ga445a2c0633ac649e816cf7a16b716d61", null ]
 ];

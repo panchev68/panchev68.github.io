@@ -1,0 +1,5 @@
+var a00848 =
+[
+    [ "I2C_MEMADD_SIZE_16BIT", "d9/d30/a00848.html#ga5b8c4b7d245fd7ab998acf2c7edd61a4", null ],
+    [ "I2C_MEMADD_SIZE_8BIT", "d9/d30/a00848.html#ga44007b689fa80deeab22820ad0b2dc6d", null ]
+];

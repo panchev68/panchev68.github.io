@@ -1,9 +1,5 @@
 var a01480 =
 [
-    [ "Counter", "d1/d38/a01480.html#a979dd53107c70679957a49b352e309e4", null ],
-    [ "Counter", "d1/d38/a01480.html#aa0fcdac4118821433a18e704d608605d", null ],
-    [ "clear", "d1/d38/a01480.html#a5f4c68779359a4681b48228f57296c09", null ],
-    [ "operator uint32_t", "d1/d38/a01480.html#a32d48ad9be69d1fb44852223025c4efe", null ],
-    [ "operator++", "d1/d38/a01480.html#a4181ab4eec9ea6029e24513d09fd9174", null ],
-    [ "operator=", "d1/d38/a01480.html#aebee6561b906ea1271070b47c2610fe2", null ]
+    [ "Mode", "d1/d38/a01480.html#af692d691f0cb5871b319fd371fab34d8", null ],
+    [ "PVDLevel", "d1/d38/a01480.html#a540471bc6ac947fd8bc2c87f61d9faab", null ]
 ];

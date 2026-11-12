@@ -1,0 +1,7 @@
+var a01009 =
+[
+    [ "RTC_TAMPERTRIGGER_FALLINGEDGE", "d7/ded/a01009.html#gafdc500829e8f36346f1cbca1a52eb083", null ],
+    [ "RTC_TAMPERTRIGGER_HIGHLEVEL", "d7/ded/a01009.html#gae3a6644686f404fa94d23ccab6f5165b", null ],
+    [ "RTC_TAMPERTRIGGER_LOWLEVEL", "d7/ded/a01009.html#ga20c580db49e266f2295aeed5a6915b4e", null ],
+    [ "RTC_TAMPERTRIGGER_RISINGEDGE", "d7/ded/a01009.html#ga7956947a7b9350248051fc077a525474", null ]
+];

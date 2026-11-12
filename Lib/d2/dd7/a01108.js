@@ -1,5 +1,6 @@
 var a01108 =
 [
-    [ "baseAddress", "d2/dd7/a01108.html#ab922219fc16e46857f76b5a34c05ea47", null ],
-    [ "sizeBytes", "d2/dd7/a01108.html#a0bee61cd2a7be7f180c426bb8c9eee17", null ]
+    [ "TIM_ENCODERMODE_TI1", "d2/dd7/a01108.html#gaff047abefa78b0f0a7bbd0f648905d7d", null ],
+    [ "TIM_ENCODERMODE_TI12", "d2/dd7/a01108.html#ga8046f1021dc578551fcff88891239e67", null ],
+    [ "TIM_ENCODERMODE_TI2", "d2/dd7/a01108.html#ga9166e985a35358cb3ed942c2a36e018d", null ]
 ];

@@ -1,12 +1,15 @@
 var a01388 =
 [
-    [ "FreeFunctionPointer", "d0/d36/a01388.html#ae22c5663935235364bcc0825ab4d629f", null ],
-    [ "Invoker", "d0/d36/a01388.html#a8214768472d127afdfab5c89248b46d5", null ],
-    [ "Qualified", "d0/d36/a01388.html#ad27df83b5fa38c097b7679da335eb089", null ],
-    [ "invoke", "d0/d36/a01388.html#af0997f5f0114c07b2e7aca0f131c93a3", null ],
-    [ "isBound", "d0/d36/a01388.html#a154e2605e5586c699d9c48b4f7231ebe", null ],
-    [ "operator bool", "d0/d36/a01388.html#a3635f11b2444ac12c65990fa27343923", null ],
-    [ "operator()", "d0/d36/a01388.html#a3f8b7a79aa6ef03d3c550098f9edce1d", null ],
-    [ "operator==", "d0/d36/a01388.html#a267b146fdae7f078f2b0aa59079ca812", null ],
-    [ "reset", "d0/d36/a01388.html#af8010e435b8b1074e838687910e56e2f", null ]
+    [ "ClockPrescaler", "d0/d36/a01388.html#a7e49d0db9ef7db8806bbfa57a1bd73a6", null ],
+    [ "ContinuousConvMode", "d0/d36/a01388.html#a1fc1365e223886a079d7c673f0f90b56", null ],
+    [ "DataAlign", "d0/d36/a01388.html#af9ec9040d55aa68c23d92d174b464ac1", null ],
+    [ "DiscontinuousConvMode", "d0/d36/a01388.html#afb62fa7128d7c97d53d2eb170ad467eb", null ],
+    [ "DMAContinuousRequests", "d0/d36/a01388.html#a2c35c52d6f47c62915fa7d011e526510", null ],
+    [ "EOCSelection", "d0/d36/a01388.html#ae3eedd269c3acc6c6933e8a252c36e71", null ],
+    [ "ExternalTrigConv", "d0/d36/a01388.html#a47aba277f9d8f3c5774983de4ce9455b", null ],
+    [ "ExternalTrigConvEdge", "d0/d36/a01388.html#aeed14631d5f1d118a252ea24edd68ede", null ],
+    [ "NbrOfConversion", "d0/d36/a01388.html#aa72b0cc3e8dac3a30097cf12093c42a7", null ],
+    [ "NbrOfDiscConversion", "d0/d36/a01388.html#a5c0078be814bfe2608ae5758826eafb8", null ],
+    [ "Resolution", "d0/d36/a01388.html#abebb8d3277cb9a5aae72578076762f5d", null ],
+    [ "ScanConvMode", "d0/d36/a01388.html#a47cd689a52562a2481059a5d8ed82788", null ]
 ];

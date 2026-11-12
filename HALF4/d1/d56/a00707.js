@@ -1,0 +1,7 @@
+var a00707 =
+[
+    [ "ADC_DMAACCESSMODE_1", "d1/d56/a00707.html#gadb55bb780e7c0a58878287f205f88e33", null ],
+    [ "ADC_DMAACCESSMODE_2", "d1/d56/a00707.html#ga33b7e654725c8de70c9ca5a1e1b3d139", null ],
+    [ "ADC_DMAACCESSMODE_3", "d1/d56/a00707.html#ga2613348408ee2a5685f1d06f6f7780dc", null ],
+    [ "ADC_DMAACCESSMODE_DISABLED", "d1/d56/a00707.html#ga59163da6d23f587f951ce21d74542795", null ]
+];

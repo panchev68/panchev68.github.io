@@ -1,8 +1,15 @@
 var a00943 =
 [
-    [ "DeviceBase", "d1/ddd/a00943.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "d1/ddd/a00943.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "d1/ddd/a00943.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "registerDevice", "d1/ddd/a00943.html#a299662c9e9bdb346771579418056dccf", null ],
-    [ "setup", "d1/ddd/a00943.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "__HAL_RCC_DMA1_IS_CLK_DISABLED", "d1/ddd/a00943.html#gae89d94d6252c79e450623f69eb939ed6", null ],
+    [ "__HAL_RCC_DMA1_IS_CLK_ENABLED", "d1/ddd/a00943.html#gaab05e603c9cadd72e4b6397837b46cef", null ],
+    [ "__HAL_RCC_DMA2_IS_CLK_DISABLED", "d1/ddd/a00943.html#ga725d2a38d8519867922438d48a5885cf", null ],
+    [ "__HAL_RCC_DMA2_IS_CLK_ENABLED", "d1/ddd/a00943.html#gad0ccdaf669ea327e80c455db4dc36177", null ],
+    [ "__HAL_RCC_GPIOA_IS_CLK_DISABLED", "d1/ddd/a00943.html#ga2d73b007700fe1576c7965ce677148bd", null ],
+    [ "__HAL_RCC_GPIOA_IS_CLK_ENABLED", "d1/ddd/a00943.html#gad1edbd9407c814110f04c1a609a214e4", null ],
+    [ "__HAL_RCC_GPIOB_IS_CLK_DISABLED", "d1/ddd/a00943.html#ga9b9353035473ac5f144f6e5385c4bebb", null ],
+    [ "__HAL_RCC_GPIOB_IS_CLK_ENABLED", "d1/ddd/a00943.html#ga2fc8f9dc5f5b64c14c325c45ee301b4f", null ],
+    [ "__HAL_RCC_GPIOC_IS_CLK_DISABLED", "d1/ddd/a00943.html#ga5e939d98ecca025c028bd1d837b84c81", null ],
+    [ "__HAL_RCC_GPIOC_IS_CLK_ENABLED", "d1/ddd/a00943.html#ga528029c120a0154dfd7cfd6159e8debe", null ],
+    [ "__HAL_RCC_GPIOH_IS_CLK_DISABLED", "d1/ddd/a00943.html#ga9c405e3a8e5219c98d0262e18bd0eed9", null ],
+    [ "__HAL_RCC_GPIOH_IS_CLK_ENABLED", "d1/ddd/a00943.html#ga8e182ed43301e2586bc198a729b50436", null ]
 ];

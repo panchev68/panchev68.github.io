@@ -1,7 +1,7 @@
 var a01392 =
 [
-    [ "Digest", "d1/dcc/a01392.html#a177e084473b0593a7a7d9bf1e0dce133", null ],
-    [ "SHA256", "d1/dcc/a01392.html#a495e4d841b6752aecbcdaa9d1c805420", null ],
-    [ "finish", "d1/dcc/a01392.html#abcfe6df3f9c2f8197fd365f99e07551f", null ],
-    [ "update", "d1/dcc/a01392.html#a79e12cbf01846349b78a18c75338c38e", null ]
+    [ "Channel", "d1/dcc/a01392.html#a771e64a3695f61cb1cce4fd65e956f6b", null ],
+    [ "Offset", "d1/dcc/a01392.html#a481e92707be00870f495e8a63c6cc788", null ],
+    [ "Rank", "d1/dcc/a01392.html#a106e52a928aefb7778802bac0b75cf2d", null ],
+    [ "SamplingTime", "d1/dcc/a01392.html#ae9486a657d515b87e2c2853db59afaaa", null ]
 ];

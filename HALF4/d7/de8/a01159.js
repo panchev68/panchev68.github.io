@@ -1,0 +1,5 @@
+var a01159 =
+[
+    [ "UART_LINBREAKDETECTLENGTH_10B", "d7/de8/a01159.html#ga027616b7a36b36e0e51ffee947533624", null ],
+    [ "UART_LINBREAKDETECTLENGTH_11B", "d7/de8/a01159.html#ga2f66fcd37de7a3ca9e1101305f2e23e6", null ]
+];

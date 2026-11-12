@@ -1,14 +1,12 @@
 var a01552 =
 [
-    [ "SerialNumber", "d7/db6/a01556.html", "d7/db6/a01556" ],
-    [ "ackFailures", "d0/db9/a01552.html#aa36464587f33788505f069d1c46ec004", null ],
-    [ "ccaFailures", "d0/db9/a01552.html#a51e5f54e9e1224b2389b126cd7602d65", null ],
-    [ "channel", "d0/db9/a01552.html#a910133d925087a409f8f8357447b9e3a", null ],
-    [ "firmwareVersion", "d0/db9/a01552.html#a919225b632587966d3cdbd15ca30f0d3", null ],
-    [ "hardwareVersion", "d0/db9/a01552.html#a2efd702c930d16f10c2672244503d676", null ],
-    [ "nodeIdentifier", "d0/db9/a01552.html#a1980717ff0972ddb91d6d59e8bd1a38e", null ],
-    [ "panId", "d0/db9/a01552.html#ad1515643697ad647030e33ba97d79968", null ],
-    [ "serialNumber", "d0/db9/a01552.html#a5e4e85516315320363b69f902c64a5b7", null ],
-    [ "temperature", "d0/db9/a01552.html#aece1486ed1a9e85c4aa022f9634a3884", null ],
-    [ "voltage", "d0/db9/a01552.html#a9ee4423766190b01b3381ae41455bf2d", null ]
+    [ "ICFilter", "d0/db9/a01552.html#a883e69dec14d8bde9914906be1b04ad7", null ],
+    [ "ICPolarity", "d0/db9/a01552.html#a8589cf95218ea62604b845054b36b772", null ],
+    [ "ICSelection", "d0/db9/a01552.html#a9e8853f17e85393a869aa2ecb315f030", null ],
+    [ "OCIdleState", "d0/db9/a01552.html#aef11bcea1dbf3e3ddf2a4bbc2846bb1e", null ],
+    [ "OCMode", "d0/db9/a01552.html#af127f01162853e39ae616b43cc52b674", null ],
+    [ "OCNIdleState", "d0/db9/a01552.html#a37bc0a680d53458bf4c42ebb277b0c2c", null ],
+    [ "OCNPolarity", "d0/db9/a01552.html#a00deac6c3347b0482955d936351c6388", null ],
+    [ "OCPolarity", "d0/db9/a01552.html#a3028787ad41698072cbf70ddf1b6c984", null ],
+    [ "Pulse", "d0/db9/a01552.html#a4f1fbf6d60812c3194e9ee8a05f5cfa6", null ]
 ];

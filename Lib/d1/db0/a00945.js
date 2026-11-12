@@ -1,21 +1,17 @@
 var a00945 =
 [
-    [ "CurrentCorrection", "df/dc6/a00949.html", "df/dc6/a00949" ],
-    [ "Config", "d5/da3/a00953.html", "d5/da3/a00953" ],
-    [ "Polarity", "d1/db0/a00945.html#a12dbe47287cc8ea3e6057097e7679d5b", [
-      [ "SIGNED", "d1/db0/a00945.html#a12dbe47287cc8ea3e6057097e7679d5ba6898b46a1cde8a1572e2722c44c5ab07", null ],
-      [ "POSITIVE", "d1/db0/a00945.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58", null ],
-      [ "NEGATIVE", "d1/db0/a00945.html#a12dbe47287cc8ea3e6057097e7679d5ba50546bf973283065b6ccf09faf7a580a", null ]
-    ] ],
-    [ "INA219", "d1/db0/a00945.html#a46c4a6d79eb2edf43b8b0e8625771020", null ],
-    [ "INA219", "d1/db0/a00945.html#ac55a74a1a8fe3544f1f4df51dbae5d07", null ],
-    [ "INA219", "d1/db0/a00945.html#ae35991ea99aed69c1d8e50c315eccb0f", null ],
-    [ "enterSleepMode", "d1/db0/a00945.html#a203ec10d5e73d42a8a5a6a3878012e61", null ],
-    [ "exitSleepMode", "d1/db0/a00945.html#aa45a5bc29c59cb3057f7384cc2a96e64", null ],
-    [ "init", "d1/db0/a00945.html#a1b96174980d4785dbabfcaa110656cbe", null ],
-    [ "operator=", "d1/db0/a00945.html#a2b39cffcccaa479fe1c92078e0b9ba10", null ],
-    [ "operator=", "d1/db0/a00945.html#af97cdd50eb11dfd094357a230546d816", null ],
-    [ "readCurrent", "d1/db0/a00945.html#abb224ceec2374ac08e8ea58d3c898ab6", null ],
-    [ "readShuntVoltage", "d1/db0/a00945.html#a444400cf9229b85d7ea05bfd48ec5a7c", null ],
-    [ "readVoltage", "d1/db0/a00945.html#a1aa8cad61e1ccdb3899c6929726963fd", null ]
+    [ "__HAL_RCC_I2C1_IS_CLK_DISABLED", "d1/db0/a00945.html#ga8868ab331b4bb14a1d5cc55c9133e4de", null ],
+    [ "__HAL_RCC_I2C1_IS_CLK_ENABLED", "d1/db0/a00945.html#ga7570e5654fd61b44dabe0546e524c906", null ],
+    [ "__HAL_RCC_I2C2_IS_CLK_DISABLED", "d1/db0/a00945.html#gae051ecb26de5c5b44f1827923c9837a5", null ],
+    [ "__HAL_RCC_I2C2_IS_CLK_ENABLED", "d1/db0/a00945.html#ga2ae540056d72f4230da38c082b6c34c1", null ],
+    [ "__HAL_RCC_PWR_IS_CLK_DISABLED", "d1/db0/a00945.html#ga1019fdeb30eb4bcb23a0bea2278a94a2", null ],
+    [ "__HAL_RCC_PWR_IS_CLK_ENABLED", "d1/db0/a00945.html#ga850f4fd113303ed7322577ad023cf748", null ],
+    [ "__HAL_RCC_SPI2_IS_CLK_DISABLED", "d1/db0/a00945.html#gaab213cf8807d6e7e8b3867ffb404d763", null ],
+    [ "__HAL_RCC_SPI2_IS_CLK_ENABLED", "d1/db0/a00945.html#ga282522dda9557cf715be3ee13c031a5b", null ],
+    [ "__HAL_RCC_TIM5_IS_CLK_DISABLED", "d1/db0/a00945.html#gacbe7ae446991adf3d9d6102549a3faac", null ],
+    [ "__HAL_RCC_TIM5_IS_CLK_ENABLED", "d1/db0/a00945.html#ga76f0a16fed0812fbab8bf15621939c8b", null ],
+    [ "__HAL_RCC_USART2_IS_CLK_DISABLED", "d1/db0/a00945.html#ga61e4b1f3e82831cdc7508d4c38312eab", null ],
+    [ "__HAL_RCC_USART2_IS_CLK_ENABLED", "d1/db0/a00945.html#gad3bbe0639658ed2cc56f8328b26373ea", null ],
+    [ "__HAL_RCC_WWDG_IS_CLK_DISABLED", "d1/db0/a00945.html#ga21d4e081c859ddccd4492343743bb245", null ],
+    [ "__HAL_RCC_WWDG_IS_CLK_ENABLED", "d1/db0/a00945.html#ga9b26aff2638d1e0613b0ce0530f0cd48", null ]
 ];

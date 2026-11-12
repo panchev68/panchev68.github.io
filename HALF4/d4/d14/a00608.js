@@ -1,0 +1,5 @@
+var a00608 =
+[
+    [ "IRDA_ONE_BIT_SAMPLE_DISABLED", "d4/d14/a00608.html#ga6f70dd7c72bca98600a31c076319d651", null ],
+    [ "IRDA_ONE_BIT_SAMPLE_ENABLED", "d4/d14/a00608.html#gae1d975f79449d0fa7881f280ec5c403e", null ]
+];

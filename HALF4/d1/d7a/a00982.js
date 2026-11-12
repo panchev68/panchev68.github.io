@@ -1,0 +1,5 @@
+var a00982 =
+[
+    [ "RTC_OUTPUT_POLARITY_HIGH", "d1/d7a/a00982.html#ga093c938e6067080b264878bc99a43dd5", null ],
+    [ "RTC_OUTPUT_POLARITY_LOW", "d1/d7a/a00982.html#ga97a5745b07442aa338c2a3b81c93048b", null ]
+];

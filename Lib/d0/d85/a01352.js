@@ -1,12 +1,11 @@
 var a01352 =
 [
-    [ "SerialPortBase", "d0/d85/a01352.html#a6f9285be4401e0f7df8ea1becbb2d7bb", null ],
-    [ "~SerialPortBase", "d0/d85/a01352.html#a939b1f5c56a09ec0b061f5348d0f5b31", null ],
-    [ "close", "d0/d85/a01352.html#ad05a42d6c5ca51fd34d9ac4568ef4022", null ],
-    [ "isOpen", "d0/d85/a01352.html#a8a52c63b043300492be23bf0b0138f86", null ],
-    [ "open", "d0/d85/a01352.html#a171489520cfb8fc7063456a7e7e79d7c", null ],
-    [ "send", "d0/d85/a01352.html#a972c696d58984e3bae97fb6e0c2f6d41", null ],
-    [ "Master", "d0/d85/a01352.html#a34b85c36cc2386b553fcff72fc15a596", null ],
-    [ "Slave", "d0/d85/a01352.html#af2d503cce06191d01441adbba146c9f5", null ],
-    [ "onBufferReceive", "d0/d85/a01352.html#a30fda02c90a1a8338d516b1feb1fd793", null ]
+    [ "HAL_TIM_OnePulse_DeInit", "d0/d85/a01352.html#gae60b468b11199522c6c83a943439c7b7", null ],
+    [ "HAL_TIM_OnePulse_Init", "d0/d85/a01352.html#ga476d67a220c23ebdc69fac7b09dbaa72", null ],
+    [ "HAL_TIM_OnePulse_MspDeInit", "d0/d85/a01352.html#ga9b73c7135e8348613f30f3a4d84478e7", null ],
+    [ "HAL_TIM_OnePulse_MspInit", "d0/d85/a01352.html#ga6579726753cb2b769a21d10bec75219f", null ],
+    [ "HAL_TIM_OnePulse_Start", "d0/d85/a01352.html#ga40e43e4f2484df59079e0316d6a6fd23", null ],
+    [ "HAL_TIM_OnePulse_Start_IT", "d0/d85/a01352.html#gafcde302725d20c6f992f26660d491bb9", null ],
+    [ "HAL_TIM_OnePulse_Stop", "d0/d85/a01352.html#gac7744a2a063e8bf2909319d70fc764fd", null ],
+    [ "HAL_TIM_OnePulse_Stop_IT", "d0/d85/a01352.html#ga6bbce5414404228fde71dadd8d1cddc7", null ]
 ];

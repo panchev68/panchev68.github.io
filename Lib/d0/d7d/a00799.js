@@ -1,7 +1,5 @@
 var a00799 =
 [
-    [ "DeviceBase", "d0/d7d/a00799.html#a4608b4a9c0c8bf914b4d42b2f91da4db", null ],
-    [ "~DeviceBase", "d0/d7d/a00799.html#ad118d56861bbb2fd093bb2ff40ca82a8", null ],
-    [ "handleTickEvent", "d0/d7d/a00799.html#a3a024a69ffe1d880ec5fedbf8428726a", null ],
-    [ "setup", "d0/d7d/a00799.html#af06fe39cba15bd187e05a7593e41d35a", null ]
+    [ "OB_STOP_NO_RST", "d0/d7d/a00799.html#ga7344fe0ec25c5eb2d11db7c855325436", null ],
+    [ "OB_STOP_RST", "d0/d7d/a00799.html#gaef92c03b1f279c532bfa13d3bb074b57", null ]
 ];

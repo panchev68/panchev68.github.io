@@ -1,8 +1,11 @@
 var a00880 =
 [
-    [ "Config", "dd/d08/a00884.html", "dd/d08/a00884" ],
-    [ "Beep", "d1/d8f/a00880.html#ab7fc52bc381f9496a1cf35f629d1a944", null ],
-    [ "isPlaying", "d1/d8f/a00880.html#ac6552c090b310890de41a06ba77a7e68", null ],
-    [ "play", "d1/d8f/a00880.html#a32c179074f9b0739b9ac3e9ae7d8480a", null ],
-    [ "RTOS::TickClient< Beep >", "d1/d8f/a00880.html#a021b081c55c843fa9b7ba25effa04637", null ]
+    [ "IRDA_FLAG_FE", "d1/d8f/a00880.html#ga9cfd704788e477a3af6a5df18c957962", null ],
+    [ "IRDA_FLAG_IDLE", "d1/d8f/a00880.html#gac15abbde5b08303ceb59b77538e3fbfa", null ],
+    [ "IRDA_FLAG_NE", "d1/d8f/a00880.html#ga01d432c277dde71d06e3452881affadd", null ],
+    [ "IRDA_FLAG_ORE", "d1/d8f/a00880.html#gadd2f51365f80ae4ce344ba9eb6ab7b81", null ],
+    [ "IRDA_FLAG_PE", "d1/d8f/a00880.html#ga54e075e6ed11a2b9bd7776ebd049211b", null ],
+    [ "IRDA_FLAG_RXNE", "d1/d8f/a00880.html#ga044e8008f094da17c9c7371832079a73", null ],
+    [ "IRDA_FLAG_TC", "d1/d8f/a00880.html#gaea9a2c5c33c5fb8e0109801ba005712a", null ],
+    [ "IRDA_FLAG_TXE", "d1/d8f/a00880.html#ga88d22267566352225a9ec253d3976b0f", null ]
 ];

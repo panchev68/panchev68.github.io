@@ -1,0 +1,5 @@
+var a01098 =
+[
+    [ "TIM_OUTPUTNSTATE_DISABLE", "d5/d17/a01098.html#ga07bb7288fc4ed155301a3276908a23a0", null ],
+    [ "TIM_OUTPUTNSTATE_ENABLE", "d5/d17/a01098.html#ga3323d8c81a7f3940aa290d160dea3e0d", null ]
+];

@@ -1,6 +1,9 @@
 var a01496 =
 [
-    [ "operator uint64_t", "d1/dde/a01496.html#aebc72338217669721612422f138da4e6", null ],
-    [ "leastSignificant", "d1/dde/a01496.html#af020cae181d7b432faf85061911c84dd", null ],
-    [ "mostSignificant", "d1/dde/a01496.html#abd19bd98e154f92791c281037281c222", null ]
+    [ "AsynchPrediv", "d1/dde/a01496.html#a8666a1fe64fe25f9b951219561a07a95", null ],
+    [ "HourFormat", "d1/dde/a01496.html#aa7dff3583cd79a5a3f9868a56ffd31ee", null ],
+    [ "OutPut", "d1/dde/a01496.html#acd1593d55123feca6c3cae142134c294", null ],
+    [ "OutPutPolarity", "d1/dde/a01496.html#a14365da1f80863621341cf4a6a8d4e67", null ],
+    [ "OutPutType", "d1/dde/a01496.html#a2c4a2bd3cfae39882e657e653e45185a", null ],
+    [ "SynchPrediv", "d1/dde/a01496.html#ac27c42530b6ba86654ec476cd0d020fb", null ]
 ];

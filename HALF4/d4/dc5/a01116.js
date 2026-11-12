@@ -1,0 +1,8 @@
+var a01116 =
+[
+    [ "TIM_CLOCKPOLARITY_BOTHEDGE", "d4/dc5/a01116.html#ga89bf9a7962d09fb58ceae4d1e28e1c89", null ],
+    [ "TIM_CLOCKPOLARITY_FALLING", "d4/dc5/a01116.html#ga9c17ca08b6179792f5ced4e607808c0a", null ],
+    [ "TIM_CLOCKPOLARITY_INVERTED", "d4/dc5/a01116.html#gae4eb585c466c2b5709ae3795204e7d3f", null ],
+    [ "TIM_CLOCKPOLARITY_NONINVERTED", "d4/dc5/a01116.html#gaca342866be2f9364274584688c733b60", null ],
+    [ "TIM_CLOCKPOLARITY_RISING", "d4/dc5/a01116.html#ga13cc7002cfa5ee42607e1a3d85f77b10", null ]
+];

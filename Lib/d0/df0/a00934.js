@@ -1,7 +1,8 @@
 var a00934 =
 [
-    [ "Inputs", "d5/d54/a00938.html", "d5/d54/a00938" ],
-    [ "Outputs", "df/d12/a00942.html", "df/d12/a00942" ],
-    [ "inputs", "d0/df0/a00934.html#a83f591b4be154cb08f68588d557cfc3e", null ],
-    [ "outputs", "d0/df0/a00934.html#a3e42ca7231401f4f017eabd5f77bdd4e", null ]
+    [ "RCC_HCLK_DIV1", "d0/df0/a00934.html#ga8e3fcdef0e5d77bb61a52420fe1e9fbc", null ],
+    [ "RCC_HCLK_DIV16", "d0/df0/a00934.html#ga27ac27d48360121bc2dc68b99dc8845d", null ],
+    [ "RCC_HCLK_DIV2", "d0/df0/a00934.html#ga4d2ebcf280d85e8449a5fb7b994b5169", null ],
+    [ "RCC_HCLK_DIV4", "d0/df0/a00934.html#ga85b5f4fd936e22a3f4df5ed756f6e083", null ],
+    [ "RCC_HCLK_DIV8", "d0/df0/a00934.html#gadb18bc60e2c639cb59244bedb54f7bb3", null ]
 ];

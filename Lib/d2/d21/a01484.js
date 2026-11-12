@@ -1,16 +1,10 @@
 var a01484 =
 [
-    [ "Period", "d2/d21/a01484.html#a7f7af906ef5f495d7957fd7fe7349c71", null ],
-    [ "Period", "d2/d21/a01484.html#a8bc1db9ac5e84c7e42f9548a8d3e288a", null ],
-    [ "beginMeasurement", "d2/d21/a01484.html#a36bbf2f2c509a1d11eb9ae7f95c0b4ce", null ],
-    [ "clearMinMax", "d2/d21/a01484.html#a4b8e80addff577311c7f18d581c6a2f4", null ],
-    [ "endMeasurement", "d2/d21/a01484.html#a764b89843884696c66a1e499e466bb51", null ],
-    [ "getMaximum", "d2/d21/a01484.html#ad790a1b93a5c67dbc4d8c38e038f972e", null ],
-    [ "getMinimum", "d2/d21/a01484.html#aa1549dc6f6312b52fea31758d6dcc6ba", null ],
-    [ "getRawValue", "d2/d21/a01484.html#a9ff26a811598dade38bf9cb9a59e1b8f", null ],
-    [ "getValue", "d2/d21/a01484.html#a71da6e6c3fc829f3870dc4effdc01cb1", null ],
-    [ "operator uint32_t", "d2/d21/a01484.html#a0b8a0d37bcd05be8e1459ae918c09b94", null ],
-    [ "operator=", "d2/d21/a01484.html#a1a97d8d689212e349a8cbecb29d65f0a", null ],
-    [ "reset", "d2/d21/a01484.html#ae0d5ca7503e29010b4d318246a40ff5e", null ],
-    [ "stopMeasurement", "d2/d21/a01484.html#a4207cfc354a9e7da3ceb9ef0f63c10fa", null ]
+    [ "HSEState", "d2/d21/a01484.html#a7e05d6eec98ed8cdaba00ca3d167ff72", null ],
+    [ "HSICalibrationValue", "d2/d21/a01484.html#a9b2e48e452d0c334f2b9473216064560", null ],
+    [ "HSIState", "d2/d21/a01484.html#a39b62cae65fe7a251000354e5bba8cb6", null ],
+    [ "LSEState", "d2/d21/a01484.html#a7c1294e9407e69e80fe034caf35fe7ea", null ],
+    [ "LSIState", "d2/d21/a01484.html#a955de90db8882fde02c4fb59c7c000f0", null ],
+    [ "OscillatorType", "d2/d21/a01484.html#af9e7bc89cab81c1705d94c74c7a81088", null ],
+    [ "PLL", "d2/d21/a01484.html#af76de5ee86798f0c3a4c83c84dfa58be", null ]
 ];
