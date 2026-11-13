@@ -15,7 +15,7 @@ var searchData=
   ['pcdex_12',['PCDEx',['https://panchev68.github.io/HALF4/d6/d0f/a01256.html',1,'']]],
   ['period_20definitions_13',['RTCEx Smooth Calib Period Definitions',['https://panchev68.github.io/HALF4/d3/ded/a01017.html',1,'']]],
   ['periph_20clock_20selection_14',['RCC Periph Clock Selection',['https://panchev68.github.io/HALF4/d7/dfd/a00969.html',1,'']]],
-  ['peripheral_15',['Board Supported Peripheral',['https://panchev68.github.io/Lib/dd/de1/a00871.html',1,'']]],
+  ['peripheral_15',['Board Supported Peripheral',['https://panchev68.github.io/Lib/da/deb/a00985.html',1,'']]],
   ['peripheral_20burst_16',['DMA Peripheral burst',['https://panchev68.github.io/HALF4/d9/db0/a00750.html',1,'']]],
   ['peripheral_20clock_20enable_20disable_17',['Peripheral Clock Enable Disable',['https://panchev68.github.io/HALF4/df/d12/a00942.html',1,'AHB1 Peripheral Clock Enable Disable'],['https://panchev68.github.io/HALF4/d9/dce/a00944.html',1,'APB1 Peripheral Clock Enable Disable'],['https://panchev68.github.io/HALF4/da/d40/a00946.html',1,'APB2 Peripheral Clock Enable Disable']]],
   ['peripheral_20clock_20enable_20disable_20status_18',['Peripheral Clock Enable Disable Status',['https://panchev68.github.io/HALF4/d1/ddd/a00943.html',1,'AHB1 Peripheral Clock Enable Disable Status'],['https://panchev68.github.io/HALF4/d1/db0/a00945.html',1,'APB1 Peripheral Clock Enable Disable Status'],['https://panchev68.github.io/HALF4/d3/d29/a00947.html',1,'APB2 Peripheral Clock Enable Disable Status']]],

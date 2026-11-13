@@ -23,7 +23,7 @@ var searchData=
   ['bitset_20',['Dynamic Bitset.',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01656.html',1,'']]],
   ['blocking_20mode_20interrupt_21',['Non-Blocking mode Interrupt',['https://panchev68.github.io/HALF4/d7/d51/a01340.html',1,'']]],
   ['blocking_20mode_20polling_22',['Blocking mode Polling',['https://panchev68.github.io/HALF4/dd/d6e/a01339.html',1,'']]],
-  ['board_20supported_20peripheral_23',['Board Supported Peripheral',['https://panchev68.github.io/Lib/dd/de1/a00871.html',1,'']]],
+  ['board_20supported_20peripheral_23',['Board Supported Peripheral',['https://panchev68.github.io/Lib/da/deb/a00985.html',1,'']]],
   ['boolean_20operations_20classes_24',['Boolean Operations Classes',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01645.html',1,'']]],
   ['boot_25',['FLASH Dual Boot',['https://panchev68.github.io/HALF4/dd/d7e/a00809.html',1,'']]],
   ['bor_20reset_20level_26',['FLASH BOR Reset Level',['https://panchev68.github.io/HALF4/d7/d0a/a00801.html',1,'']]],

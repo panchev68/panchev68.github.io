@@ -9,12 +9,11 @@ var searchData=
   ['vector_6',['vector',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00251.html',1,'']]],
   ['vector_2etcc_7',['vector.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00791.html',1,'']]],
   ['version_2eh_8',['version.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00470.html',1,'']]],
-  ['version_2ehpp_9',['Version.hpp',['https://panchev68.github.io/Lib/d2/d4a/a00758.html',1,'']]],
-  ['versionbase_2ehpp_10',['VersionBase.hpp',['https://panchev68.github.io/Lib/d3/d4f/a00761.html',1,'']]],
-  ['voltmeter_2ehpp_11',['Voltmeter.hpp',['https://panchev68.github.io/Lib/df/dc8/a00122.html',1,'']]],
-  ['vscode_2ehpp_12',['vscode.hpp',['https://panchev68.github.io/Lib/d8/dba/a00773.html',1,'']]],
-  ['vstring_2eh_13',['vstring.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01238.html',1,'']]],
-  ['vstring_2etcc_14',['vstring.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01241.html',1,'']]],
-  ['vstring_5ffwd_2eh_15',['vstring_fwd.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01235.html',1,'']]],
-  ['vstring_5futil_2eh_16',['vstring_util.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01244.html',1,'']]]
+  ['version_2ehpp_9',['Version.hpp',['https://panchev68.github.io/Lib/db/d40/a00959.html',1,'']]],
+  ['versionbase_2ehpp_10',['VersionBase.hpp',['https://panchev68.github.io/Lib/df/d88/a00962.html',1,'']]],
+  ['voltmeter_2ehpp_11',['Voltmeter.hpp',['https://panchev68.github.io/Lib/d8/d23/a00326.html',1,'']]],
+  ['vstring_2eh_12',['vstring.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01238.html',1,'']]],
+  ['vstring_2etcc_13',['vstring.tcc',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01241.html',1,'']]],
+  ['vstring_5ffwd_2eh_14',['vstring_fwd.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01235.html',1,'']]],
+  ['vstring_5futil_2eh_15',['vstring_util.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01244.html',1,'']]]
 ];

@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['hal_2fcore_2fdevicemanager_2ehpp_0',['HAL/core/DeviceManager.hpp',['https://panchev68.github.io/Lib/d9/d68/a03658.html',1,'']]],
-  ['hal_2fgpio_2fport_2ehpp_1',['HAL/GPIO/Port.hpp',['https://panchev68.github.io/Lib/d4/df0/a03763.html',1,'']]],
-  ['haltimeout_2ehpp_2',['HalTimeout.hpp',['https://panchev68.github.io/Lib/dc/dc9/a00389.html',1,'']]],
-  ['hammingcode_2ehpp_3',['HammingCode.hpp',['https://panchev68.github.io/Lib/dc/d91/a00659.html',1,'']]],
-  ['handle_2ehpp_4',['Handle.hpp',['https://panchev68.github.io/Lib/da/d9c/a00413.html',1,'']]],
-  ['hardwareversion_2ehpp_5',['HardwareVersion.hpp',['https://panchev68.github.io/Lib/d4/dfa/a00746.html',1,'']]],
-  ['hash_2ehpp_6',['HASH.hpp',['https://panchev68.github.io/Lib/d1/d7e/a00434.html',1,'']]],
+  ['hal_2fcore_2fdevicemanager_2ehpp_0',['HAL/core/DeviceManager.hpp',['https://panchev68.github.io/Lib/d8/d75/a08343.html',1,'']]],
+  ['hal_2fgpio_2fport_2ehpp_1',['HAL/GPIO/Port.hpp',['https://panchev68.github.io/Lib/d3/d78/a08448.html',1,'']]],
+  ['haltimeout_2ehpp_2',['HalTimeout.hpp',['https://panchev68.github.io/Lib/d7/db1/a00590.html',1,'']]],
+  ['hammingcode_2ehpp_3',['HammingCode.hpp',['https://panchev68.github.io/Lib/d2/d5e/a00860.html',1,'']]],
+  ['handle_2ehpp_4',['Handle.hpp',['https://panchev68.github.io/Lib/d7/d80/a00614.html',1,'']]],
+  ['hardwareversion_2ehpp_5',['HardwareVersion.hpp',['https://panchev68.github.io/Lib/d3/d29/a00947.html',1,'']]],
+  ['hash_2ehpp_6',['HASH.hpp',['https://panchev68.github.io/Lib/d4/d10/a00635.html',1,'']]],
   ['hash_5fbytes_2eh_7',['hash_bytes.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00812.html',1,'']]],
   ['hash_5feq_5ffn_2ehpp_8',['hash_eq_fn.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01430.html',1,'']]],
   ['hash_5fexponential_5fsize_5fpolicy_5fimp_2ehpp_9',['hash_exponential_size_policy_imp.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01535.html',1,'']]],
@@ -18,12 +18,12 @@ var searchData=
   ['hash_5fprime_5fsize_5fpolicy_5fimp_2ehpp_15',['hash_prime_size_policy_imp.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01544.html',1,'']]],
   ['hash_5fset_16',['hash_set',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00908.html',1,'']]],
   ['hash_5fstandard_5fresize_5fpolicy_5fimp_2ehpp_17',['hash_standard_resize_policy_imp.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01547.html',1,'']]],
-  ['hashport_2dblock_2ehpp_18',['HASHPort-Block.hpp',['https://panchev68.github.io/Lib/dc/d2f/a00425.html',1,'']]],
-  ['hashport_2dit_2ehpp_19',['HASHPort-IT.hpp',['https://panchev68.github.io/Lib/d4/dd3/a00428.html',1,'']]],
-  ['hashportbase_2ehpp_20',['HASHPortBase.hpp',['https://panchev68.github.io/Lib/df/d70/a00431.html',1,'']]],
+  ['hashport_2dblock_2ehpp_18',['HASHPort-Block.hpp',['https://panchev68.github.io/Lib/d6/dfa/a00626.html',1,'']]],
+  ['hashport_2dit_2ehpp_19',['HASHPort-IT.hpp',['https://panchev68.github.io/Lib/da/dd1/a00629.html',1,'']]],
+  ['hashportbase_2ehpp_20',['HASHPortBase.hpp',['https://panchev68.github.io/Lib/d4/d2a/a00632.html',1,'']]],
   ['hashtable_5fpolicy_2eh_21',['hashtable_policy.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00572.html',1,'']]],
-  ['header_2ehpp_22',['Header.hpp',['https://panchev68.github.io/Lib/dd/d52/a00221.html',1,'']]],
+  ['header_2ehpp_22',['Header.hpp',['https://panchev68.github.io/Lib/dc/d2f/a00425.html',1,'']]],
   ['helper_5ffunctions_2eh_23',['helper_functions.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00926.html',1,'']]],
-  ['hex_2ehpp_24',['Hex.hpp',['https://panchev68.github.io/Lib/d5/d0a/a00602.html',1,'']]],
-  ['hexhelper_2ehpp_25',['HexHelper.hpp',['https://panchev68.github.io/Lib/d0/d1c/a00605.html',1,'']]]
+  ['hex_2ehpp_24',['Hex.hpp',['https://panchev68.github.io/Lib/d5/d72/a00803.html',1,'']]],
+  ['hexhelper_2ehpp_25',['HexHelper.hpp',['https://panchev68.github.io/Lib/d0/dad/a00806.html',1,'']]]
 ];

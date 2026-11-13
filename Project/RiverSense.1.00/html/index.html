@@ -114,19 +114,30 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Firmware of an autonomous river-level monitoring node on an STM32U575VGT6 (Cortex-M33, FreeRTOS).</p>
-<p>The node measures the distance to the water surface with an A02YYUW ultrasonic sensor and the water temperature with a DS18B20, and reports to the cloud over HTTPS through an A7670E 4G modem. A solar panel with a charger and an accumulator power it. Every external device is powered only while it is used, and the processor sleeps in STOP1 between measurements.</p>
-<p>The application is layered. <a class="el" href="d1/deb/namespace_a_p_p.html" title="APP">APP</a> holds the measurement cycle, the solar charger, the diagnostics, the clock, the site position and the cloud link. <a class="elRef" href="https://panchev68.github.io/Lib/dd/de1/a00871.html" title="Board Supported Peripheral">Board Supported Peripheral</a> holds the supply switches and the drivers of the external devices. <a class="elRef" href="https://panchev68.github.io/Lib/da/d98/a00870.html" title="Hardware Abstraction Layer">Hardware Abstraction Layer</a> holds one port singleton per CubeMX peripheral handle. Below them lie the CubeMX-generated code, the FreeRTOS support and the shared library in 'X:/Lib/IAR/inc/Lib'.</p>
-<p>Start with <a class="el" href="da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, the measurement cycle, and <a class="el" href="d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>, the solar charger. The entry point is 'startup()' in 'startup.cpp'. </p>
+<p>The node measures the distance to the water surface with an A02YYUW ultrasonic sensor and the water temperature with a DS18B20, and reports to the cloud over HTTPS through an A7670E 4G modem. A solar panel with a charger and an accumulator power it. Every external device is powered only while it is used, and the processor sleeps in STOP1 between measurements. The measurement period shortens after a rapid level change and lengthens when the accumulator is low; the modem is powered off after each report.</p>
+<p>The application is layered. <a class="el" href="d1/deb/namespace_a_p_p.html" title="APP">APP</a> holds the measurement cycle, the solar charger, the diagnostics, the clock, the site position, the cloud link and the cloud command interpreter. <a class="elRef" href="https://panchev68.github.io/Lib/da/deb/a00985.html" title="Board Supported Peripheral">Board Supported Peripheral</a> holds the supply switches and the drivers of the external devices. <a class="elRef" href="https://panchev68.github.io/Lib/d2/d4c/a00984.html" title="Hardware Abstraction Layer">Hardware Abstraction Layer</a> holds one port singleton per CubeMX peripheral handle. Below them lie the CubeMX-generated code, the FreeRTOS support and the shared library in 'X:/Lib/IAR/inc/Lib'.</p>
+<p>Start with <a class="el" href="da/df6/class_a_p_p_1_1_monitor.html" title="APP::Monitor">APP::Monitor</a>, the measurement cycle, and <a class="el" href="d2/db0/class_a_p_p_1_1_power_supply.html" title="APP::PowerSupply">APP::PowerSupply</a>, the solar charger. The entry point is 'startup()' in 'startup.cpp', run from the default FreeRTOS task after the scheduler starts. </p>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
+<!-- HTML footer for doxygen 1.18.0-->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="footer">Generated on <span class="timestamp"></span> for River Sense Control Firmware by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.18.0 </li>
   </ul>
 </div>
+<script type="text/javascript">
+// Hides the namespaces that come from the tag files ('[external]') in the Namespace List.
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('table.directory tr').forEach(function (row) {
+    if (row.querySelector('.entry') && row.querySelector('.entry').textContent.indexOf('[external]') !== -1) {
+      row.style.display = 'none';
+    }
+  });
+});
+</script>
 </body>
 </html>
