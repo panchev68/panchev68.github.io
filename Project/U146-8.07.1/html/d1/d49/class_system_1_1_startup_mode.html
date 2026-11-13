@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton that manages the device startup behaviour across resets. </p>
-<p>The startup mode is selected by writing a persistent magic word and performing a system reset, so the selected mode takes effect on the next boot. On construction the class reads the magic word to determine the active mode and resets it to the normal-mode sentinel to avoid repeated special boots. </p>
+<p>The startup mode is selected by writing a persistent magic word and performing a system reset, so the selected mode takes effect on the next boot. On construction the class reads the magic word to determine the active mode and resets it to the normal-mode sentinel to avoid repeated special boots. The magic word lives in a '__no_init' RAM variable, so it survives the reset. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-types" class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -138,7 +138,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a73e52bfba5dd1a6fe13a0dac098fd96a" id="r_a73e52bfba5dd1a6fe13a0dac098fd96a"><td class="memItemLeft">static StartupMode &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a73e52bfba5dd1a6fe13a0dac098fd96a">instance</a> () noexcept</td></tr>
-<tr class="memdesc:a73e52bfba5dd1a6fe13a0dac098fd96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the global 'StartupMode' instance.  <br /></td></tr>
+<tr class="memdesc:a73e52bfba5dd1a6fe13a0dac098fd96a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the global <a class="el" href="../../d1/d49/class_system_1_1_startup_mode.html" title="System::StartupMode">System::StartupMode</a> instance.  <br /></td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Member Enumeration Documentation</h2>
 <a id="ad496924c198cc57ee90a46752753cebe" name="ad496924c198cc57ee90a46752753cebe"></a>
@@ -198,7 +198,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Request a different startup mode and perform a system reset to apply it. </p>
-<p>If the requested mode differs from the current one, the corresponding magic word is written and a reset is triggered.</p>
+<p>If the requested mode differs from the current one, the corresponding magic word is written and a reset is triggered. The call does not return in that case; nothing happens when the requested mode equals the current one.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">newMode</td><td>Desired mode to enter after the reset. </td></tr>
@@ -234,7 +234,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Obtain the detected startup mode. </p>
-<dl class="section return"><dt>Returns</dt><dd>The current 'Mode' determined at boot. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The current <a class="el" href="#ad496924c198cc57ee90a46752753cebe" title="System::StartupMode::Mode">System::StartupMode::Mode</a> determined at boot. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#aa91b2faedf376ef934f5b163ccb7a1ab">getMode()</a>, and <a class="el" href="../../d8/de9/class_model_system.html#a6e51cac1f6c292a50a4d3b69e682ea03">ModelSystem::getStartupMode()</a>.</p>
 
@@ -263,7 +263,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Access the global 'StartupMode' instance. </p>
+<p>Access the global <a class="el" href="../../d1/d49/class_system_1_1_startup_mode.html" title="System::StartupMode">System::StartupMode</a> instance. </p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the singleton instance. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="../../d8/de9/class_model_system.html#a6e51cac1f6c292a50a4d3b69e682ea03">ModelSystem::getStartupMode()</a>, and <a class="el" href="../../d8/de9/class_model_system.html#a38610bb0812a4ede9817fcda7430e82b">ModelSystem::setStartupMode()</a>.</p>
@@ -294,7 +294,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Check whether the system is powered from USB. </p>
-<dl class="section return"><dt>Returns</dt><dd>'true' when USB power is present, 'false' otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> when USB power is present, <b>false</b> otherwise. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a687cd4b4f7810bf13dbf4c70db1a5d86">isPoweredByUsb()</a>.</p>
 

@@ -111,8 +111,8 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Singleton that manages a readiness event for system startup synchronization. </p>
-<p>Wraps a 'FreeRTOS::EventGroup' to signal and wait for the 'SYSTEM_IS_READY' flag. It is non-copyable and non-movable; the event group is released before the singleton is destroyed.</p>
-<dl class="section see"><dt>See also</dt><dd>FreeRTOS::EventGroup </dd></dl>
+<p>Wraps a Lib::FreeRTOS::EventGroup to signal and wait for the <b>SYSTEM_IS_READY</b> flag. It is non-copyable and non-movable; the event group is released before the singleton is destroyed.</p>
+<dl class="section see"><dt>See also</dt><dd>Lib::FreeRTOS::EventGroup </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aea3e7298dc1f0457ca2a70cbfeec7307" id="r_aea3e7298dc1f0457ca2a70cbfeec7307"><td class="memItemLeft">static StartupSync &amp;&#160;</td><td class="memItemRight"><a class="el" href="#aea3e7298dc1f0457ca2a70cbfeec7307">instance</a> () noexcept</td></tr>
-<tr class="memdesc:aea3e7298dc1f0457ca2a70cbfeec7307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton instance of the 'StartupSync' helper.  <br /></td></tr>
+<tr class="memdesc:aea3e7298dc1f0457ca2a70cbfeec7307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the singleton instance of the <a class="el" href="../../df/d8b/class_system_1_1_startup_sync.html" title="System::StartupSync">System::StartupSync</a> helper.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="aea3e7298dc1f0457ca2a70cbfeec7307" name="aea3e7298dc1f0457ca2a70cbfeec7307"></a>
@@ -150,8 +150,8 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Return the singleton instance of the 'StartupSync' helper. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the single 'StartupSync' instance. </dd></dl>
+<p>Return the singleton instance of the <a class="el" href="../../df/d8b/class_system_1_1_startup_sync.html" title="System::StartupSync">System::StartupSync</a> helper. </p>
+<dl class="section return"><dt>Returns</dt><dd>Reference to the single <a class="el" href="../../df/d8b/class_system_1_1_startup_sync.html" title="System::StartupSync">System::StartupSync</a> instance. </dd></dl>
 
 </div>
 </div>
@@ -207,14 +207,15 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Wait for the system ready event. </p>
-<p>Blocks until the 'SYSTEM_IS_READY' bit is set or the timeout elapses. The timeout is forwarded to 'FreeRTOS::EventGroup::wait()', so its units are those of that API.</p>
+<p>Blocks until the <b>SYSTEM_IS_READY</b> bit is set or the timeout elapses. The timeout is forwarded to Lib::FreeRTOS::EventGroup::wait() and is measured in RTOS ticks.</p>
+<dl class="section warning"><dt>Warning</dt><dd>The wait clears the bit on exit, so one <a class="el" href="#a99d18251a8f1b373eb203453f6bde903" title="System::StartupSync::signalSystemReady()">System::StartupSync::signalSystemReady()</a> releases only one successful waiter.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">timeout</td><td>Timeout value forwarded to the underlying event group. </td></tr>
+    <tr><td class="paramname">timeout</td><td>Maximum wait time in RTOS ticks. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>'true' if the readiness bit was observed before timeout, 'false' otherwise. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><b>true</b> if the readiness bit was observed before timeout, <b>false</b> otherwise. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#af7d1e8f9da15e9a4603857c192349d5f">waitForSystemReady()</a>.</p>
 

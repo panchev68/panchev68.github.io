@@ -111,14 +111,14 @@ document.addEventListener('DOMContentLoaded', codefold.init);
  <a href="#details">More...</a></p>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Description</h2>
 <div class="textblock"><p>Signal strength submodel. </p>
-<p>Samples the current signal strength on a fixed period, keeps a bounded history for graphing, and notifies 'Listener' when the value or its tracked minimum/maximum change. </p>
+<p>Samples the current signal strength on a fixed period, keeps a bounded history for graphing, and notifies <a class="el" href="../../da/df6/class_model_xbee_1_1_listener.html" title="ModelXbee::Listener">ModelXbee::Listener</a> when the value or its tracked minimum or maximum change. Values are percent, and <b>0</b> while the XBee is not connected. </p>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2d4f6e262b9df66ce47963271d26472" id="r_ab2d4f6e262b9df66ce47963271d26472"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ab2d4f6e262b9df66ce47963271d26472">SignalStrength</a> () noexcept</td></tr>
-<tr class="memdesc:ab2d4f6e262b9df66ce47963271d26472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor.  <br /></td></tr>
+<tr class="memdesc:ab2d4f6e262b9df66ce47963271d26472"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reserves storage for the graphing cache.  <br /></td></tr>
 <tr class="memitem:a3e8fd6ddc2b7c08f9b769a961d21e8f1" id="r_a3e8fd6ddc2b7c08f9b769a961d21e8f1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a3e8fd6ddc2b7c08f9b769a961d21e8f1">~SignalStrength</a> () noexcept=default</td></tr>
-<tr class="memdesc:a3e8fd6ddc2b7c08f9b769a961d21e8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default destructor.  <br /></td></tr>
+<tr class="memdesc:a3e8fd6ddc2b7c08f9b769a961d21e8f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the submodel.  <br /></td></tr>
 <tr class="memitem:afdaf96f6a4d0bd722d56bf9fc324e39f" id="r_afdaf96f6a4d0bd722d56bf9fc324e39f"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#afdaf96f6a4d0bd722d56bf9fc324e39f">getValue</a> () const noexcept</td></tr>
 <tr class="memdesc:afdaf96f6a4d0bd722d56bf9fc324e39f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current signal strength value.  <br /></td></tr>
 <tr class="memitem:a86cfbca05f4b419bac639843154acd45" id="r_a86cfbca05f4b419bac639843154acd45"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a86cfbca05f4b419bac639843154acd45">getMin</a> () const noexcept</td></tr>
@@ -161,7 +161,6 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default constructor. </p>
 <p>Reserves storage for the graphing cache. </p>
 
 <p class="reference">Referenced by <a class="el" href="#a3e8fd6ddc2b7c08f9b769a961d21e8f1">~SignalStrength()</a>.</p>
@@ -191,7 +190,7 @@ Static Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Default destructor. </p>
+<p>Destroys the submodel. </p>
 
 </div>
 </div>
@@ -220,6 +219,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the recent signal strength history prepared for graphing. </p>
+<p>The cache is rebuilt on every call; the returned reference stays valid until the next call.</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the ordered sample history, oldest first. </dd></dl>
 
 </div>
@@ -248,7 +248,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the maximum observed signal strength. </p>
-<dl class="section return"><dt>Returns</dt><dd>Maximum signal strength value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Maximum signal strength in percent. </dd></dl>
 
 </div>
 </div>
@@ -276,7 +276,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the minimum observed signal strength. </p>
-<dl class="section return"><dt>Returns</dt><dd>Minimum signal strength value. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Minimum signal strength in percent. </dd></dl>
 
 </div>
 </div>
@@ -304,7 +304,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns the current signal strength value. </p>
-<dl class="section return"><dt>Returns</dt><dd>Current signal strength. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Current signal strength in percent. </dd></dl>
 
 </div>
 </div>
@@ -332,7 +332,7 @@ Static Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Periodic update: samples the signal strength and reports changes. </p>
-<p>Notifies 'listener' about the value and about minimum/maximum changes.</p>
+<p>Runs once per <a class="el" href="#af25725301d2e790f37a3462997aa2670" title="ModelXbee::SignalStrength::UPDATE_PERIOD_DURATION">ModelXbee::SignalStrength::UPDATE_PERIOD_DURATION</a>. Notifies the listener of every sample through <a class="el" href="../../da/df6/class_model_xbee_1_1_listener.html#a948728b5536b89f020399611cb0b3b8c" title="ModelXbee::Listener::xbeeSignalStrengthAddDataPoint()">ModelXbee::Listener::xbeeSignalStrengthAddDataPoint()</a> and of changes of the value, minimum and maximum.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">listener</td><td>Listener to notify.</td></tr>
