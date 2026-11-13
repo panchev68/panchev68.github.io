@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.18.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>WCC Firmware: APP::PowerSupply Class Reference</title>
+<link rel="icon" href="../../senstate_icon_white_light_32.png" type="image/x-icon" />
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../dynsections.js"></script>
 <script type="text/javascript" src="../../codefolding.js"></script>
@@ -23,6 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="../../senstate_icon_white_light_64.png"/></td>
   <td id="projectalign">
    <div id="projectname">WCC Firmware<span id="projectnumber">&#160;1.00</span>
    </div>
@@ -116,13 +118,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>The charger also pauses itself for the night (see <b>isNightTime()</b> in 'PowerSupply.cpp'): once the RTC holds a synced time (the ESP32's 'SET_TIME') that falls before sunrise or at/after sunset, computed per day by <a class="elRef" href="https://panchev68.github.io/Lib/d1/d47/a05760.html" title="Lib::Helper::Sunset">Lib::Helper::Sunset</a> for the site position reported by the ESP32 (<a class="el" href="../../d6/dcf/class_a_p_p_1_1_com_module.html#a16624df3e29f9423305ad7e82d839be0" title="APP::ComModule::getLatitude()">APP::ComModule::getLatitude()</a> and <a class="el" href="../../d6/dcf/class_a_p_p_1_1_com_module.html#a80d392016b7c1d3f2fc65aa1de252c68" title="APP::ComModule::getLongitude()">APP::ComModule::getLongitude()</a>, 'SET_LOCATION') or, until that is received, the fixed <b>FALLBACK_LATITUDE</b> and <b>FALLBACK_LONGITUDE</b> (the geographic center of Bulgaria), it disables the charger, puts both INA219 monitors into their datasheet Power-Down mode (not just stops polling them; the TMP102 is simply left unpolled, it has no comparable low-power mode in this driver) and sleeps until day returns, then re-runs the bring-up. An unsynced clock never counts as night, so the charger keeps running until a sync actually confirms it.</p>
 <p>Outside that window, insufficient panel light is handled the same way: a panel voltage too low for the buck to regulate down to the accumulator charge limit (<b>MIN_PANEL_VOLTAGE_FOR_CHARGING</b>) also disables the charger and sleeps the INA219 monitors, then every <b>PANEL_IDLE_POLL_PERIOD</b> (5 min) briefly wakes just the solar one for one fresh reading (see <b>isPanelLightInsufficient()</b>) instead of running the full MPPT loop, until it recovers.</p>
 <p>The state, the task and the private helpers live in <b>Impl</b>, defined in 'PowerSupply.cpp'. </p>
-</div><div id="dynsection-0" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for APP::PowerSupply:</div>
-<div id="dynsection-0-summary" class="dynsummary">
-</div>
-<div id="dynsection-0-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../dc/d36/class_a_p_p_1_1_power_supply__coll__graph.svg" width="251" height="500"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-<table class="memberdecls">
+</div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:ChargeIdle" id="r_ChargeIdle"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/d3b/class_a_p_p_1_1_power_supply_1_1_charge_idle.html">ChargeIdle</a></td></tr>
@@ -184,12 +180,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Accumulator voltage, in volts; <b>0</b> until the first reading. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a927c1c71c5eeda145972222bdec3cabd">getAccumulatorVoltage()</a>.</p>
-<div id="dynsection-1" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary">
-</div>
-<div id="dynsection-1-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a927c1c71c5eeda145972222bdec3cabd_cgraph.svg" width="288" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -221,12 +211,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Charger output current, in amperes (positive); 0 at night, until the first reading or below ~20 mA. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a2d27fcf93fdd55dd0988351ed6d1ad11">getChargerCurrent()</a>.</p>
-<div id="dynsection-2" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary">
-</div>
-<div id="dynsection-2-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a2d27fcf93fdd55dd0988351ed6d1ad11_cgraph.svg" width="256" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -257,12 +241,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Charge voltage, in volts. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a135f9a8a65707fcd2e2e860b51dad45c">getChargeVoltage()</a>.</p>
-<div id="dynsection-3" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary">
-</div>
-<div id="dynsection-3-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a135f9a8a65707fcd2e2e860b51dad45c_cgraph.svg" width="248" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -321,12 +299,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> while idle for the night; always <b>false</b> with an unsynced RTC. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#acfe94962ccd24528c274dde395746a81">getIsNightIdle()</a>.</p>
-<div id="dynsection-4" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary">
-</div>
-<div id="dynsection-4-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_acfe94962ccd24528c274dde395746a81_cgraph.svg" width="288" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -357,12 +329,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> while idle for lack of light outside the night window. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a6513a9c5b0b6074ddf3fd8dd2fd509ad">getIsPanelIdle()</a>.</p>
-<div id="dynsection-5" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary">
-</div>
-<div id="dynsection-5-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a6513a9c5b0b6074ddf3fd8dd2fd509ad_cgraph.svg" width="288" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -394,12 +360,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> while the charger is actively stepping or idle for the night/insufficient light; <b>false</b> only while stuck retrying a failed bring-up. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a1519cc8b2fe5798dcf0db9a81dbfef29">getIsSensorsOk()</a>.</p>
-<div id="dynsection-6" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary">
-</div>
-<div id="dynsection-6-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a1519cc8b2fe5798dcf0db9a81dbfef29_cgraph.svg" width="288" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -430,12 +390,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Panel current, in amperes; <b>0</b> until the first reading. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a3f0559a25f72a91066d147106f6e40db">getPanelCurrent()</a>.</p>
-<div id="dynsection-7" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-7-summary" class="dynsummary">
-</div>
-<div id="dynsection-7-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a3f0559a25f72a91066d147106f6e40db_cgraph.svg" width="240" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -466,12 +420,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Panel voltage, in volts. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#a4692a900c57418ce3ac5b7ded07ddbff">getPanelVoltage()</a>.</p>
-<div id="dynsection-8" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-8-summary" class="dynsummary">
-</div>
-<div id="dynsection-8-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_a4692a900c57418ce3ac5b7ded07ddbff_cgraph.svg" width="240" height="82"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
@@ -530,12 +478,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><b>true</b> if the task is running. </dd></dl>
 
 <p class="reference">Referenced by <a class="el" href="#abb380ffc56d13591f5563a672e0f6698">start()</a>.</p>
-<div id="dynsection-9" class="dynheader closed"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
-<div id="dynsection-9-summary" class="dynsummary">
-</div>
-<div id="dynsection-9-content" class="dyncontent hidden">
-<div class="center"><iframe scrolling="no" loading="lazy" frameborder="0" src="../../d2/db0/class_a_p_p_1_1_power_supply_abb380ffc56d13591f5563a672e0f6698_cgraph.svg" width="216" height="64"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
 
 </div>
 </div>
