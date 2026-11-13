@@ -97,10 +97,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Shows signalling between a task and an ISR with a binary <a class="el" href="../../d4/d72/a06267.html" title="RTOS::Semaphore">RTOS::Semaphore</a>.</p>
 <p>Shows signalling between a task and an ISR with a binary RTOS::Semaphore.Covers opening the semaphore, a task waiting for an event with a timeout, and an interrupt handler that gives the semaphore from ISR context. The FromISR variant must not be called from a task, and the task variant must not be called from an ISR.</p>
 <dl class="section important"><dt>Important</dt><dd>Call <a class="el" href="../../dc/dc3/a05932.html#a4f3a14ce62c98f7ce5520ce3e91b2322" title="RTOS::Semaphore::open()">RTOS::Semaphore::open()</a> from task context before the interrupt is enabled.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="rtos_semaphore_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="semaphore_usage_open"></a>
-Creating the semaphore</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="semaphore_usage_open"></a>
+Creating the semaphore</h3>
 <p>The semaphore is created empty, so the first <a class="el" href="../../d7/d35/a05936.html#a0c09ee6fc8a221b811abbd57ac9d0071" title="RTOS::SemaphoreBase::take()">RTOS::SemaphoreBase::take()</a> blocks until the ISR gives it.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -114,8 +113,9 @@ Creating the semaphore</h2>
 <div class="ttc" id="aa00908_html"><div class="ttname"><a href="../../d0/d85/a00908.html">Semaphore.hpp</a></div><div class="ttdoc">RAII wrapper for FreeRTOS binary semaphores.</div></div>
 <div class="ttc" id="aa05932_html"><div class="ttname"><a href="../../dc/dc3/a05932.html">RTOS::Semaphore</a></div><div class="ttdoc">Binary semaphore resource manager for task and ISR synchronization.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:42</div></div>
 <div class="ttc" id="aa05932_html_a4f3a14ce62c98f7ce5520ce3e91b2322"><div class="ttname"><a href="../../dc/dc3/a05932.html#a4f3a14ce62c98f7ce5520ce3e91b2322">RTOS::Semaphore::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Allocates the native FreeRTOS binary semaphore handle, if not already open.</div><div class="ttdef"><b>Definition</b> Semaphore.hpp:115</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="semaphore_usage_isr"></a>
-Signalling from the interrupt</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="semaphore_usage_isr"></a>
+Signalling from the interrupt</h3>
 <p>The handler runs in ISR context, so it uses only the <a class="el" href="../../d7/d35/a05936.html#aa210564f44d72420fb519ca27f12d9a1" title="RTOS::SemaphoreBase::giveFromISR()">RTOS::SemaphoreBase::giveFromISR()</a> variant.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -126,8 +126,9 @@ Signalling from the interrupt</h2>
 <div class="line"><span class="keywordtype">void</span> EXTI_DataReady_Callback() noexcept {</div>
 <div class="line">    <span class="keyword">static_cast&lt;</span><span class="keywordtype">void</span><span class="keyword">&gt;</span>(dataReady.giveFromISR());</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="semaphore_usage_task"></a>
-Waiting in a task</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="semaphore_usage_task"></a>
+Waiting in a task</h3>
 <p><a class="el" href="../../dc/dc3/a05932.html#a4a7b4e66593bcbcf465ddf9458cee540" title="RTOS::Semaphore::takeMs()">RTOS::Semaphore::takeMs()</a> returns <b>false</b> when no event arrives within the timeout.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d0/d85/a00908.html">Lib/RTOS/FreeRTOS/Semaphore.hpp</a>&gt;</span></div>
 <div class="line"> </div>

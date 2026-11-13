@@ -97,10 +97,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.</p>
 <p>Demonstrates a short start-up click followed by a three-beep alarm on a buzzer driven by TIM1 channel 1.TIM1 is initialized by CubeMX; its prescaler and period set the tone, while the driver switches the channel to output-compare toggle mode on every beep. <a class="el" href="../../d0/d3d/a04332.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> returns at once and the sequence plays in the RTOS timer service task, so the task waits with <a class="el" href="../../d0/d3d/a04332.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> before queuing the next sequence: a <a class="el" href="../../d0/d3d/a04332.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> call made while one is still running returns <b>false</b> and is dropped.</p>
 <dl class="section important"><dt>Important</dt><dd>The RTOS timer service task must be running ('configUSE_TIMERS'), since every beep is timed from it.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_beep_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="beep_usage_alarm"></a>
-Start-up click and alarm</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="beep_usage_alarm"></a>
+Start-up click and alarm</h3>
 <p><a class="el" href="../../d0/d3d/a04332.html#a4bc5b3cc66d266518992ce5dc14973c5" title="Lib::BSP::Beep::play()">Lib::BSP::Beep::play()</a> takes the beep length in milliseconds, the repeat count and the pause between beeps in milliseconds. A call made while a sequence is still playing is dropped, so wait for <a class="el" href="../../d0/d3d/a04332.html#ac6552c090b310890de41a06ba77a7e68" title="Lib::BSP::Beep::isPlaying()">Lib::BSP::Beep::isPlaying()</a> to return <b>false</b> first.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/dc1/a00212.html">Lib/BSP/Beep/Beep.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dd/d08/a00884.html">Lib/RTOS/FreeRTOS/Kernel.hpp</a>&gt;</span></div>

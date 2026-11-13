@@ -97,17 +97,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Drives one PWM channel with <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>.</p>
 <p>Drives one PWM channel with <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a>. The wrapper starts and stops the channel and changes its duty cycle and period through the timer registers. It has no interrupt and no task wait, so every method is safe to call from task context; <a class="el" href="../../db/d7d/a05568.html#a4db830d0cdfdbd5ab01f959dd0653647" title="Lib::HAL::Timer::TimPwmOutput::setPulse()">Lib::HAL::Timer::TimPwmOutput::setPulse()</a> can also be called from an ISR, but it is not synchronized with other writers.</p>
 <p>The timer must already be configured by CubeMX in PWM mode on the chosen channel, including the prescaler and period. The wrapper does not call <b>HAL_TIM_PWM_Init()</b> and does not change the prescaler.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_timpwmoutput_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="timpwm_usage_hw"></a>
-Hardware and CubeMX assumptions</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
 <ul>
 <li>Timer (here 'TIM3') in PWM Generation mode on the channel ('TIM_CHANNEL_1'), with the output pin set as alternate function.</li>
 <li>The period (ARR) and prescaler are set in CubeMX; the wrapper only writes ARR through <a class="el" href="../../db/d7d/a05568.html#a3361b7c050046b52d03fbc351fcac5a8" title="Lib::HAL::Timer::TimPwmOutput::setPeriod()">Lib::HAL::Timer::TimPwmOutput::setPeriod()</a>.</li>
 <li>Only one <a class="el" href="../../d8/d44/a06217.html" title="Lib::HAL::Timer::TimPwmOutput">Lib::HAL::Timer::TimPwmOutput</a> per channel; two objects on the same channel fight over the same CCR register.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="timpwm_usage_basic"></a>
-Start with a duty cycle</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_basic"></a>
+Start with a duty cycle</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db9/a00725.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> startFan(<a id="_a0" name="_a0"></a><a class="code hl_structRef" target="_blank" href="https://panchev68.github.io/HALF4/d8/d22/a01584.html">TIM_HandleTypeDef</a> * timHandle) <span class="keyword">noexcept</span> {</div>
@@ -131,8 +131,9 @@ Start with a duty cycle</h2>
 <div class="ttc" id="aa05568_html_a3c2e8aa945f04a0c827147f62a2ccb5a"><div class="ttname"><a href="../../db/d7d/a05568.html#a3c2e8aa945f04a0c827147f62a2ccb5a">Lib::HAL::Timer::TimPwmOutput::close</a></div><div class="ttdeci">bool close() noexcept</div><div class="ttdoc">Stops the PWM waveform on the channel.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:117</div></div>
 <div class="ttc" id="aa05568_html_a4db830d0cdfdbd5ab01f959dd0653647"><div class="ttname"><a href="../../db/d7d/a05568.html#a4db830d0cdfdbd5ab01f959dd0653647">Lib::HAL::Timer::TimPwmOutput::setPulse</a></div><div class="ttdeci">void setPulse(uint32_t pulseValue) noexcept</div><div class="ttdoc">Sets the pulse duration in the channel&#39;s CCRx register.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:134</div></div>
 <div class="ttc" id="aa05568_html_ab30ea02f742bdd63bde16c03b3f780da"><div class="ttname"><a href="../../db/d7d/a05568.html#ab30ea02f742bdd63bde16c03b3f780da">Lib::HAL::Timer::TimPwmOutput::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Starts the PWM waveform on the channel.</div><div class="ttdef"><b>Definition</b> TimPwmOutput.hpp:104</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timpwm_usage_update"></a>
-Changing duty cycle and period at run time</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_update"></a>
+Changing duty cycle and period at run time</h3>
 <p>Writing the pulse width while the channel runs takes effect on the next update event only if the CubeMX configuration enables preload. Without preload the new value applies immediately, which can produce a short glitch.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/db9/a00725.html">Lib/HAL/TIM/TimPwmOutput.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -145,8 +146,9 @@ Changing duty cycle and period at run time</h2>
 <div class="line"><span class="keywordtype">void</span> setFrequency(<a class="code hl_class" href="../../db/d7d/a05568.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; fan, uint32_t periodTicks) <span class="keyword">noexcept</span> {</div>
 <div class="line">    fan.setPeriod(periodTicks);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timpwm_usage_error"></a>
-Error handling</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timpwm_usage_error"></a>
+Error handling</h3>
 <p><a class="el" href="../../db/d7d/a05568.html#ab30ea02f742bdd63bde16c03b3f780da" title="Lib::HAL::Timer::TimPwmOutput::open()">Lib::HAL::Timer::TimPwmOutput::open()</a> returns <b>false</b> when the HAL rejects the start request, typically because the handle is in an unexpected state or the channel was not configured in CubeMX. The wrapper does not retry.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> startOrReport(<a class="code hl_class" href="../../db/d7d/a05568.html">Lib::HAL::Timer::TimPwmOutput</a> &amp; output) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">if</span> (!output.open()) {</div>

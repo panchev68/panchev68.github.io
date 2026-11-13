@@ -96,10 +96,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <div class="contents">
 <p>Demonstrates two <a class="el" href="../../d1/d3d/a06161.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.</p>
 <p>Demonstrates two <a class="el" href="../../d1/d3d/a06161.html" title="Lib::BSP::INA219">Lib::BSP::INA219</a> monitors sharing one I2C bus and polled from a single task.The battery channel reports signed current, so power turns negative while charging. The motor channel uses <a class="el" href="../../d9/dd1/a04340.html#a12dbe47287cc8ea3e6057097e7679d5baab6c31432785221bae58327ef5f6ea58" title="Lib::BSP::INA219::Polarity::POSITIVE">Lib::BSP::INA219::Polarity::POSITIVE</a> with a 20 mA offset to hide noise around zero. A reading comes back as <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01662.html" title="std::nullopt">std::nullopt</a> on a bus failure or when the shunt ADC saturates. Both monitors are initialized before the task starts and then used only from that task, since the driver is not thread-safe. With 128-sample averaging each result takes tens of milliseconds, so polling faster than a few times per second gains nothing.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_ina219_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
-Battery and motor channels polled from one task</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="ina219_usage_task"></a>
+Battery and motor channels polled from one task</h3>
 <p><a class="el" href="../../d9/dd1/a04340.html#a1b96174980d4785dbabfcaa110656cbe" title="Lib::BSP::INA219::init()">Lib::BSP::INA219::init()</a> configures both monitors before the task starts. <a class="el" href="../../d9/dd1/a04340.html#a1aa8cad61e1ccdb3899c6929726963fd" title="Lib::BSP::INA219::readVoltage()">Lib::BSP::INA219::readVoltage()</a> and <a class="el" href="../../d9/dd1/a04340.html#abb224ceec2374ac08e8ea58d3c898ab6" title="Lib::BSP::INA219::readCurrent()">Lib::BSP::INA219::readCurrent()</a> each return <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a10574.html" title="std::optional">std::optional</a>, so check for a value before using it.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/dd5/a00215.html">Lib/BSP/CurrentAndPowerMonitor/INA219.hpp</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/ddd/a00653.html">Lib/HAL/I2C.hpp</a>&gt;</span></div>

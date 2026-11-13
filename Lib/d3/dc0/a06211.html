@@ -97,17 +97,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Measures the time of input edges with <a class="el" href="../../d3/dc0/a06211.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>.</p>
 <p>Measures the time of input edges with <a class="el" href="../../d3/dc0/a06211.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a>. The capture interrupt wakes the task blocked in <a class="el" href="../../d5/d8d/a05556.html#a2732cd4549f6b1ca08da0cbcb462f404" title="Lib::HAL::Timer::TimInputCapture::waitCapture()">Lib::HAL::Timer::TimInputCapture::waitCapture()</a>, and the task reads the captured counter value with <a class="el" href="../../d5/d8d/a05556.html#ac7f8fd84985b45a4db579b480aaf5251" title="Lib::HAL::Timer::TimInputCapture::getCapture()">Lib::HAL::Timer::TimInputCapture::getCapture()</a>. Call <a class="el" href="../../d5/d8d/a05556.html#add28b2f0b32350281b1f47c4e4e25e84" title="Lib::HAL::Timer::TimInputCapture::start()">Lib::HAL::Timer::TimInputCapture::start()</a> from that task, because it binds the task that will wait.</p>
 <p>The header defines the HAL callback <b>HAL_TIM_IC_CaptureCallback()</b> itself, so do not define it elsewhere. The ISR path only notifies the task; all reading and processing happen in the task, never in the ISR.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_timinputcapture_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="timic_usage_hw"></a>
-Hardware and CubeMX assumptions</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timic_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
 <ul>
 <li>Timer channel (here 'TIM2', 'TIM_CHANNEL_1') set to Input Capture direct mode, with the update and capture interrupt enabled in the NVIC.</li>
 <li>Input filter and edge polarity are set in CubeMX. The wrapper does not change them.</li>
 <li>One <a class="el" href="../../d3/dc0/a06211.html" title="Lib::HAL::Timer::TimInputCapture">Lib::HAL::Timer::TimInputCapture</a> per timer handle.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="timic_usage_measure"></a>
-Measuring edge timing in a task</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="timic_usage_measure"></a>
+Measuring edge timing in a task</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/d94/a00716.html">Lib/HAL/TIM/TimInputCapture.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
@@ -156,8 +156,9 @@ Measuring edge timing in a task</h2>
 <div class="ttc" id="aa05948_html"><div class="ttname"><a href="../../de/db2/a05948.html">RTOS::Task</a></div><div class="ttdoc">RAII-managed FreeRTOS task abstraction.</div><div class="ttdef"><b>Definition</b> Task.hpp:52</div></div>
 <div class="ttc" id="aa05952_html_a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8"><div class="ttname"><a href="../../db/d0b/a05952.html#a47d1302bb72530432eb0072fc7286e69a130fe1acdb318947dd3a0646975309f8">RTOS::Task::Priority::NORMAL</a></div><div class="ttdeci">@ NORMAL</div><div class="ttdoc">Default priority.</div><div class="ttdef"><b>Definition</b> Task.hpp:85</div></div>
 <div class="ttc" id="aa05968_html"><div class="ttname"><a href="../../dd/d44/a05968.html">RTOS::Task::Config</a></div><div class="ttdoc">Configuration parameters for task creation.</div><div class="ttdef"><b>Definition</b> Task.hpp:628</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="timic_usage_stop"></a>
-Stopping capture</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="timic_usage_stop"></a>
+Stopping capture</h3>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> stopMeasuring(<a class="code hl_class" href="../../d5/d8d/a05556.html">Lib::HAL::Timer::TimInputCapture</a> &amp; capture) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">if</span> (!capture.stop()) {</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>

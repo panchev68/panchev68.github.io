@@ -98,10 +98,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Reads, writes and erases a Winbond W25Q128JV serial flash on the OCTOSPI bus.The driver takes a shared 'Lib::HAL::OSPIPort&lt;Lib::HAL::DriverMode::IT&gt;' by reference and does not own it. Addresses are byte addresses within the 16 MB chip, and <a class="el" href="../../da/d6e/a04500.html#aff869cb6bde4f4f94493097c4c7e2da6" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector()</a> works on 4 KB sectors, so a write must be preceded by an erase of the sector it touches.</p>
 <dl class="section important"><dt>Important</dt><dd>Target: a part with OCTOSPI, such as STM32U5. The class is compiled only when 'HAL_OSPI_MODULE_ENABLED' is defined; on STM32F407 the whole class compiles to nothing.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Erasing and writing block the calling task while the chip is busy, which can take milliseconds. Do not call them from an ISR.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_flashmemory_ospi_w25q128jvsiq_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
-Open and identify</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_open"></a>
+Open and identify</h3>
 <p><a class="el" href="../../da/d6e/a04500.html#acc5fbed9faca7400c7d70130fbb74131" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::open()</a> checks that the chip answers with its JEDEC ID; <a class="el" href="../../da/d6e/a04500.html#a40a9ef783ecafece7202ae4ec39d4939" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent()</a> reports the same without re-initializing.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/BSP/FMEM/OSPI/W25Q128JVSIQ.hpp&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d8/d73/a00674.html">Lib/HAL/OSPI.hpp</a>&gt;</span></div>
@@ -124,8 +123,9 @@ Open and identify</h2>
 <div class="ttc" id="aa00674_html"><div class="ttname"><a href="../../d8/d73/a00674.html">OSPI.hpp</a></div><div class="ttdoc">Public umbrella include for the OCTOSPI subsystem.</div></div>
 <div class="ttc" id="aa04500_html"><div class="ttname"><a href="../../da/d6e/a04500.html">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ</a></div><div class="ttdoc">Quad-SPI (OCTOSPI) device driver for the Winbond W25Q128JVSIQ.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:78</div></div>
 <div class="ttc" id="aa04500_html_a40a9ef783ecafece7202ae4ec39d4939"><div class="ttname"><a href="../../da/d6e/a04500.html#a40a9ef783ecafece7202ae4ec39d4939">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::isPresent</a></div><div class="ttdeci">bool isPresent() const noexcept</div><div class="ttdoc">Checks whether the device is present and initialized.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:232</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
-Read and write</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_rw"></a>
+Read and write</h3>
 <p><a class="el" href="../../da/d6e/a04500.html#a48fee6a63474b5ad43a51157fcd0129a" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write()</a> programs pages of <b>256</b> bytes. The sector must be erased first, because programming can only clear bits.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/BSP/FMEM/OSPI/W25Q128JVSIQ.hpp&gt;</span></div>
 <div class="line"> </div>
@@ -152,8 +152,9 @@ Read and write</h2>
 <div class="ttc" id="aa04500_html_a48fee6a63474b5ad43a51157fcd0129a"><div class="ttname"><a href="../../da/d6e/a04500.html#a48fee6a63474b5ad43a51157fcd0129a">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::write</a></div><div class="ttdeci">bool write(uint32_t addr, const void *data, size_t size) noexcept</div><div class="ttdoc">Writes size bytes from data into device starting at addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:283</div></div>
 <div class="ttc" id="aa04500_html_abb4813e3ca50641c3bc3d1a367927ab8"><div class="ttname"><a href="../../da/d6e/a04500.html#abb4813e3ca50641c3bc3d1a367927ab8">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::read</a></div><div class="ttdeci">bool read(uint32_t addr, void *buffer, size_t size) noexcept</div><div class="ttdoc">Reads size bytes from device starting at addr into buffer.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:248</div></div>
 <div class="ttc" id="aa04500_html_aff869cb6bde4f4f94493097c4c7e2da6"><div class="ttname"><a href="../../da/d6e/a04500.html#aff869cb6bde4f4f94493097c4c7e2da6">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t addr) noexcept</div><div class="ttdoc">Erases the 4K sector that contains addr.</div><div class="ttdef"><b>Definition</b> OSPI/W25Q128JVSIQ.hpp:326</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
-Power down</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="w25q128_usage_power"></a>
+Power down</h3>
 <p><a class="el" href="../../da/d6e/a04500.html#a8a0d94550896c7062f6594cd0e532007" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::enterPowerDown()</a> lowers the standby current between accesses. Call <a class="el" href="../../da/d6e/a04500.html#a686c0c59ab4f223b15aefeeab43ca2bd" title="Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()">Lib::BSP::FMEM::OSPI::W25Q128JVSIQ::releasePowerDown()</a> before the next access.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Lib/BSP/FMEM/OSPI/W25Q128JVSIQ.hpp&gt;</span></div>
 <div class="line"> </div>

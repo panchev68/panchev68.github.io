@@ -99,10 +99,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Only the 'IT' and 'DMA' specializations exist. There is no 'BLOCKING' mode, because a USB endpoint transfer completes in a later interrupt, not inside a call. The lifecycle calls ( 'Lib::HAL::USBDevicePort::open()', 'Lib::HAL::USBDevicePort::start()', the endpoint calls and 'Lib::HAL::USBDevicePort::send()' / 'Lib::HAL::USBDevicePort::receive()' ) are task context only, while the event handler runs in interrupt context and must call only the interrupt-safe submit functions. The CubeMX 'OTG_FS_IRQHandler()' must call <b>HAL_PCD_IRQHandler()</b> for a device role and <b>HAL_HCD_IRQHandler()</b> for a host role.</p>
 <dl class="section important"><dt>Important</dt><dd>The device and host classes compile only when 'HAL_PCD_MODULE_ENABLED' and 'HAL_HCD_MODULE_ENABLED' are defined in the HAL configuration header. That header is not part of this repository, so the guards are unverified here. STM32F407 has the USB OTG controller, so the modules are expected to be available on that target.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Both specializations require 'USE_HAL_PCD_REGISTER_CALLBACKS' and 'USE_HAL_HCD_REGISTER_CALLBACKS' set to <b>1</b> in the HAL configuration header; otherwise the build stops with a compile-time error.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_usb_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="usb_usage_device"></a>
-Device role</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="usb_usage_device"></a>
+Device role</h3>
 <p>Set the event handler before 'Lib::HAL::USBDevicePort::start()'. The handler receives a 'context' pointer, a <a class="el" href="../../de/d02/a01026.html#a5d499d7d2a344d0473d62dcf724d9a12" title="Lib::HAL::USBDeviceEvent">Lib::HAL::USBDeviceEvent</a> and, for 'IN_COMPLETE' and 'OUT_COMPLETE', an endpoint number. For a 'SETUP' event the handler reads the request with 'Lib::HAL::USBDevicePort::getSetupPacket()'. Inside the handler use only 'Lib::HAL::USBDevicePort::submitSend()' and 'Lib::HAL::USBDevicePort::submitReceive()'; the buffers they reference must stay valid until the matching event arrives.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d96/a00782.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -167,8 +166,9 @@ Device role</h2>
 <div class="ttc" id="aa01610_html_ga2872cfa04b6162d31b737f1e21fefb3b"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga2872cfa04b6162d31b737f1e21fefb3b">std::chrono::seconds</a></div><div class="ttdeci">duration&lt; int64_t &gt; seconds</div></div>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
 <div class="ttc" id="aa01918_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01918.html">std::array</a></div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="usb_usage_dma"></a>
-Device role with DMA</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="usb_usage_dma"></a>
+Device role with DMA</h3>
 <p>The DMA specialization has the same API. The handle must be created with 'Init.dma_enable' set to <b>1</b>, and every buffer passed to the port must be 4-byte aligned and reachable by the DMA controller.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d96/a00782.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -184,8 +184,9 @@ Device role with DMA</h2>
 <div class="line"><span class="keywordtype">bool</span> sendDma(Lib::HAL::USBDevicePort&lt;Lib::HAL::DriverMode::DMA&gt; &amp; device) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">return</span> device.send(0x81U, std::span&lt;const uint8_t&gt;(dmaTx), <a class="code hl_typedefRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a>(100));</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="usb_usage_host"></a>
-Host role</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="usb_usage_host"></a>
+Host role</h3>
 <p>The host port opens the controller, starts it, waits for a device to attach, and resets the port. Each endpoint of the attached device gets a channel with 'Lib::HAL::USBHostPort::openChannel()'; after that 'Lib::HAL::USBHostPort::transfer()' moves data on it and returns a <a class="el" href="../../de/d02/a01026.html#a62152c846403f6b93d0f2e9ff14adafe" title="Lib::HAL::USBHostTransferResult">Lib::HAL::USBHostTransferResult</a>. The result 'NOT_READY' asks the caller to submit the same transfer again.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d96/a00782.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -231,8 +232,9 @@ Host role</h2>
 <div class="ttc" id="aa01026_html_a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350"><div class="ttname"><a href="../../de/d02/a01026.html#a62152c846403f6b93d0f2e9ff14adafea2ba22e58ca17bb728d522bba36cf8350">Lib::HAL::USBHostTransferResult::DONE</a></div><div class="ttdeci">@ DONE</div><div class="ttdoc">The transfer completed.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:84</div></div>
 <div class="ttc" id="aa01026_html_a8cde9e5e92df1421df294fcb1a50b4e7"><div class="ttname"><a href="../../de/d02/a01026.html#a8cde9e5e92df1421df294fcb1a50b4e7">Lib::HAL::USBSpeed</a></div><div class="ttdeci">USBSpeed</div><div class="ttdoc">Bus speed of a host channel, as the HAL &#39;HCD_SPEED_*&#39; macros encode it.</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:41</div></div>
 <div class="ttc" id="aa01026_html_ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130"><div class="ttname"><a href="../../de/d02/a01026.html#ae1783f3c88baf78f222c313659cf4a98ac861cd34025f9002df5912d623326130">Lib::HAL::USBEndpointType::CONTROL</a></div><div class="ttdeci">@ CONTROL</div><div class="ttdoc">Control transfers (endpoint 0).</div><div class="ttdef"><b>Definition</b> USBTypes.hpp:24</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="usb_usage_otg"></a>
-Dual-role OTG controller</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="usb_usage_otg"></a>
+Dual-role OTG controller</h3>
 <p><a class="el" href="../../d3/ddb/a05656.html" title="Lib::HAL::USBOtgPort">Lib::HAL::USBOtgPort</a> owns one device port and one host port over the same controller. Only one role is initialized at a time: <a class="el" href="../../d3/ddb/a05656.html#aec9af265280bdd162bad2fc3ab471564" title="Lib::HAL::USBOtgPort::setRole()">Lib::HAL::USBOtgPort::setRole()</a> deinitializes the old role before it opens the new one. The role is usually taken from the ID pin read by the caller, passed through <a class="el" href="../../d3/ddb/a05656.html#abc564dd159948064f407b82bb9f122bb" title="Lib::HAL::USBOtgPort::roleFromIdPin()">Lib::HAL::USBOtgPort::roleFromIdPin()</a>. The ports of the OTG class are the 'IT' specializations.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../da/d96/a00782.html">Lib/HAL/USB.hpp</a>&gt;</span></div>
 <div class="line"> </div>

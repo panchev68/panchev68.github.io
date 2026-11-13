@@ -98,17 +98,18 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Reads a UART byte stream with <a class="el" href="../../d3/d2f/a06207.html" title="Lib::HAL::StreamSerialPort">Lib::HAL::StreamSerialPort</a>, which receives one byte at a time in an interrupt and pushes it into an <a class="el" href="../../d2/def/a06271.html" title="RTOS::StreamBuffer">RTOS::StreamBuffer</a> that one task reads. Writes are blocking. The port wraps a CubeMX 'UART_HandleTypeDef' and does not configure the pins or the clock.</p>
 <p>Only one task may call <a class="el" href="../../d7/d33/a05576.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a> and <a class="el" href="../../d7/d33/a05576.html#ad313993195f0d6ea829d9c7b61df667f" title="Lib::HAL::StreamSerialPort::discardInput()">Lib::HAL::StreamSerialPort::discardInput()</a>; the stream buffer has a single reader. <a class="el" href="../../d7/d33/a05576.html#a0a35058ffe6e3bb6d1a5a9fb335c3588" title="Lib::HAL::StreamSerialPort::write()">Lib::HAL::StreamSerialPort::write()</a> is blocking and may be called from task context only. Up to four ports may be open at the same time, because the interrupt callback looks the port up by its handle.</p>
 <dl class="section important"><dt>Important</dt><dd>The class is compiled only when 'HAL_UART_MODULE_ENABLED' is defined in the HAL configuration header. That header is not part of this repository, so the guard is unverified here; on STM32F407 the UART module is available on the target.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_streamserialport_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="stream_usage_config"></a>
-Construction and lifecycle</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_config"></a>
+Construction and lifecycle</h3>
 <p>The 'Config' struct takes the CubeMX handle and the receive capacity in bytes. The constructor does not touch the hardware; <a class="el" href="../../d7/d33/a05576.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a> initializes the UART when it is still in the reset state, allocates the stream once, and arms the first one-byte reception. It returns <b>true</b> when the port is already open. <a class="el" href="../../d7/d33/a05576.html#af4d1dbc5fcd691c510918d277281ee6e" title="Lib::HAL::StreamSerialPort::close()">Lib::HAL::StreamSerialPort::close()</a> aborts the reception and de-initializes the UART, so its pins return to the analog state and a powered-down device is not back-fed through TX. The destructor closes an open port.</p>
 <p>The CubeMX init must set 'USE_HAL_UART_REGISTER_CALLBACKS' to <b>1</b>, because the port registers its own RX-complete and error callbacks.</p>
-<h2 class="doxsection"><a class="anchor" id="stream_usage_isr"></a>
-Interrupt hook</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_isr"></a>
+Interrupt hook</h3>
 <p>No application code runs in the interrupt. The CubeMX 'USART2_IRQHandler()' must call <b>HAL_UART_IRQHandler()</b> for the handle, which fires the callbacks registered by <a class="el" href="../../d7/d33/a05576.html#a1b052f09718429b991946fea7724f411" title="Lib::HAL::StreamSerialPort::open()">Lib::HAL::StreamSerialPort::open()</a>. Each received byte is sent to the stream from the interrupt context and a yield is requested when a higher-priority task woke up. A byte that does not fit is counted and can be read back with <a class="el" href="../../d7/d33/a05576.html#a32276aa918b5679e4f0e8df69175063f" title="Lib::HAL::StreamSerialPort::getDroppedCount()">Lib::HAL::StreamSerialPort::getDroppedCount()</a>.</p>
-<h2 class="doxsection"><a class="anchor" id="stream_usage_read"></a>
-Reading a frame</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_read"></a>
+Reading a frame</h3>
 <p><a class="el" href="../../d7/d33/a05576.html#a6ef7de0de72ebe36f7b4e1c63a4bd00a" title="Lib::HAL::StreamSerialPort::read()">Lib::HAL::StreamSerialPort::read()</a> copies up to the size of the span and returns the number of bytes received. It returns 0 on timeout or while the port is closed, so a caller that expects a frame loops until it has collected enough bytes or a deadline passed.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/df7/a00731.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -159,8 +160,9 @@ Reading a frame</h2>
 <div class="ttc" id="aa01610_html_ga510b3a5514412e7b2499beecba11620a"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01610.html#ga510b3a5514412e7b2499beecba11620a">std::chrono::milliseconds</a></div><div class="ttdeci">duration&lt; int64_t, milli &gt; milliseconds</div></div>
 <div class="ttc" id="aa01624_html_ga5f0b7200c4a68f9b939ae84060439707"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01624.html#ga5f0b7200c4a68f9b939ae84060439707">start</a></div><div class="ttdeci">size_t start() const</div></div>
 <div class="ttc" id="aa05576_html"><div class="ttname"><a href="../../d7/d33/a05576.html">Lib::HAL::StreamSerialPort</a></div><div class="ttdoc">UART port that receives continuously into a stream buffer and transmits by polling.</div><div class="ttdef"><b>Definition</b> StreamSerialPort.hpp:50</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="stream_usage_write"></a>
-Writing and resynchronizing</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="stream_usage_write"></a>
+Writing and resynchronizing</h3>
 <p><a class="el" href="../../d7/d33/a05576.html#a0a35058ffe6e3bb6d1a5a9fb335c3588" title="Lib::HAL::StreamSerialPort::write()">Lib::HAL::StreamSerialPort::write()</a> accepts a byte span or a <a class="elRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a02950.html" title="std::string_view">std::string_view</a> and returns <b>true</b> only when every byte was sent. Before a new exchange, <a class="el" href="../../d7/d33/a05576.html#ad313993195f0d6ea829d9c7b61df667f" title="Lib::HAL::StreamSerialPort::discardInput()">Lib::HAL::StreamSerialPort::discardInput()</a> drops bytes left from an earlier, unanswered message.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/df7/a00731.html">Lib/HAL/UART/StreamSerialPort.hpp</a>&gt;</span></div>
 <div class="line"> </div>

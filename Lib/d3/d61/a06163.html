@@ -98,10 +98,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Demonstrates a concrete SRAM class on top of the CRTP base, with a post-write hook, used from a task.The chip sits on FSMC bank 1, chip select NE3, so it appears at <b>0x68000000</b>. Offsets passed to <a class="el" href="../../d5/d6f/a04572.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> and <a class="el" href="../../d5/d6f/a04572.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> are relative to that base. The derived class shadows <b>onMemoryChanged()</b> to count writes and befriends the base so the hook can stay private.</p>
 <dl class="section important"><dt>Important</dt><dd>CubeMX 'MX_FSMC_Init()' must run before the first transfer.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>The hook runs with the mutex held and the mutex is not recursive: calling <a class="el" href="../../d5/d6f/a04572.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> or <a class="el" href="../../d5/d6f/a04572.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> from it deadlocks.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_bsp_is62wv51216_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="is62_usage_frame"></a>
-Write and read back a record from a task</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="is62_usage_frame"></a>
+Write and read back a record from a task</h3>
 <p>The derived class passes the base's <a class="el" href="../../d8/d2e/a04576.html" title="Lib::BSP::IS62WV51216::Config">Lib::BSP::IS62WV51216::Config</a> to the base constructor. <a class="el" href="../../d5/d6f/a04572.html#abb442f01943c59f8ce352f5f92d959b1" title="Lib::BSP::IS62WV51216::write()">Lib::BSP::IS62WV51216::write()</a> and <a class="el" href="../../d5/d6f/a04572.html#a71a6069370565b21f326cb1f4e446a71" title="Lib::BSP::IS62WV51216::read()">Lib::BSP::IS62WV51216::read()</a> take a span of bytes; the offset is relative to the base address.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d5/d42/a00269.html">Lib/BSP/RAM/IS62WV51216.hpp</a>&gt;</span></div>
 <div class="line"> </div>

@@ -97,47 +97,38 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Demonstrates hashing a message in one call and in pieces with the portable software engine, and with the STM32 HASH peripheral.</p>
 <p>Demonstrates hashing a message in one call and in pieces with the portable software engine, and with the STM32 HASH peripheral.The software engine needs no hardware and works in every project, so <a class="el" href="../../d1/d90/a06171.html" title="Lib::Crypto::SHA256">Lib::Crypto::SHA256</a> with empty angle brackets is the default choice. The hardware engine needs a device with the HASH peripheral, the module enabled in CubeMX ('HAL_HASH_MODULE_ENABLED') and a caller-owned <b>HASH_HandleTypeDef</b> such as <b>hhash</b>. The engine is never selected automatically, so every declaration names it explicitly. Both engines feed data through Lib::Crypto::SHA256::update() and end with Lib::Crypto::SHA256::finish().</p>
 <dl class="section warning"><dt>Warning</dt><dd>Call the hardware engine only from a task, never from an ISR, and use one instance for the lifetime of one digest: every call is a blocking HAL transaction on a shared peripheral.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_crypto_sha256_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="sha256_usage_software"></a>
-Hashing with the software engine</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="sha256_usage_software"></a>
+Hashing with the software engine</h3>
 <p>A one-shot call fits a message that is already in one buffer; the streaming form fits a message that arrives in pieces. Do not update a hasher after Lib::Crypto::SHA256::finish().</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span> #include &lt;span&gt;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d56/a01014.html">Lib::Crypto</a>;</div>
 <div class="line"> </div>
-<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashMessage(std::span&lt;const uint8_t&gt; message) {</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::hash</a>(message);</div>
+<div class="line"><a id="_a0" name="_a0"></a><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashMessage(std::span&lt;const uint8_t&gt; message) { <span class="keywordflow">return</span> <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::hash</a>(message);</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashPieces(std::span&lt;const uint8_t&gt; header, std::span&lt;const uint8_t&gt; body) {</div>
-<div class="line">    <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;</a> hasher;</div>
-<div class="line">    hasher.update(header);</div>
-<div class="line">    hasher.update(body);</div>
-<div class="line">    <span class="keywordflow">return</span> hasher.finish();</div>
+<div class="line"><a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;::Digest</a> hashPieces(std::span&lt;const uint8_t&gt; header, std::span&lt;const uint8_t&gt; body) { <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;&gt;</a> hasher;</div>
+<div class="line">hasher.update(header); hasher.update(body); <span class="keywordflow">return</span> hasher.finish();</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00194_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a></div></div>
 <div class="ttc" id="aa00305_html"><div class="ttname"><a href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a></div></div>
 <div class="ttc" id="aa00362_html"><div class="ttname"><a href="../../de/dd7/a00362.html">SHA256.hpp</a></div><div class="ttdoc">SHA-256 message digest (FIPS 180-4) with a portable software engine and an STM32 HASH peripheral engi...</div></div>
 <div class="ttc" id="aa01014_html"><div class="ttname"><a href="../../d0/d56/a01014.html">Lib::Crypto</a></div><div class="ttdoc">Cryptographic primitives and optional TLS/SSH client wrappers.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:19</div></div>
 <div class="ttc" id="aa04856_html"><div class="ttname"><a href="../../db/dde/a04856.html">Lib::Crypto::SHA256</a></div><div class="ttdoc">SHA-256 hasher; SHA256Engine lists the available implementations.</div><div class="ttdef"><b>Definition</b> SHA256.hpp:41</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="sha256_usage_hardware"></a>
-Hashing with the HASH peripheral</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="sha256_usage_hardware"></a>
+Hashing with the HASH peripheral</h3>
 <p>The peripheral accepts whole 32-bit words mid-stream, so the hasher buffers up to 3 trailing bytes of each update internally; any piece length works. Every step reports a HAL failure, after which the hasher must not be used again.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../de/dd7/a00362.html">Lib/Crypto/SHA256.hpp</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span></div>
-<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00194.html">span</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" target="_blank" href="http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00305.html">cstdint</a>&gt;</span> #include &lt;span&gt;</div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d56/a01014.html">Lib::Crypto</a>;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">bool</span> hashWithPeripheral(HASH_HandleTypeDef * handle, std::span&lt;const uint8_t&gt; message, <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;::Digest</a> &amp; digest) {</div>
-<div class="line">    <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;</a> hasher(handle);</div>
-<div class="line">    <span class="keywordflow">if</span> (!hasher.update(message)) {</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="keywordtype">bool</span> hashWithPeripheral(HASH_HandleTypeDef * handle, std::span&lt;const uint8_t&gt; message, <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;::Digest</a> &amp;</div>
+<div class="line">digest) { <a class="code hl_class" href="../../db/dde/a04856.html">SHA256&lt;SHA256Engine::HARDWARE&gt;</a> hasher(handle); <span class="keywordflow">if</span> (!hasher.update(message)) { <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> result = hasher.finish();</div>
 <div class="line">    <span class="keywordflow">if</span> (!result) {</div>

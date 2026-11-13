@@ -98,10 +98,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Starts the hardware Independent Watchdog (IWDG) with <a class="el" href="../../df/d83/a06193.html" title="Lib::HAL::IndependentWatchdog">Lib::HAL::IndependentWatchdog</a> and keeps it alive from a task.The wrapper does not own the CubeMX-generated handle; pass the <b>hiwdg</b> descriptor, which must outlive the instance. The prescaler and reload value are taken from that handle, so configure them in CubeMX before calling 'open()'. 'refresh()' is a single key-register write and is safe from task and ISR context.</p>
 <dl class="section important"><dt>Important</dt><dd>The IWDG is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is 'HAL_IWDG_MODULE_ENABLED'; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Once 'open()' succeeds the watchdog cannot be stopped until the next reset. If 'refresh()' is not called before the configured timeout expires, the MCU resets. Call 'open()' only after the start-up code that must run without a refresh has finished.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_independentwatchdog_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="iwdg_usage_start"></a>
-Start the watchdog</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="iwdg_usage_start"></a>
+Start the watchdog</h3>
 <p>'open()' returns <b>false</b> only when the HAL initialization or the lock sequence fails. In that case the watchdog is not running, so the firmware decides whether to continue unprotected or to restart.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -115,8 +114,9 @@ Start the watchdog</h2>
 <div class="ttc" id="aa01476_html"><div class="ttname"><a href="https://panchev68.github.io/HALF4/d0/d38/a01476.html">IWDG_HandleTypeDef</a></div></div>
 <div class="ttc" id="aa05464_html"><div class="ttname"><a href="../../d1/d22/a05464.html">Lib::HAL::IndependentWatchdog</a></div><div class="ttdoc">Controls the hardware Independent Watchdog; once started it cannot be stopped until the next reset.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:29</div></div>
 <div class="ttc" id="aa05464_html_aefbbf9853d59e4b287ed0df49e5f7cdd"><div class="ttname"><a href="../../d1/d22/a05464.html#aefbbf9853d59e4b287ed0df49e5f7cdd">Lib::HAL::IndependentWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware watchdog timer using the configuration held in the native handle.</div><div class="ttdef"><b>Definition</b> IndependentWatchdog.hpp:91</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="iwdg_usage_refresh"></a>
-Refresh from a supervisor task</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="iwdg_usage_refresh"></a>
+Refresh from a supervisor task</h3>
 <p>The refresh period must stay well below the timeout that the prescaler and reload value define. A supervisor task that refreshes only after every other task reports healthy keeps the watchdog meaningful; a refresh placed in an unconditional timer ISR would hide a blocked task.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/df2/a00656.html">Lib/HAL/IWDG/IndependentWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>

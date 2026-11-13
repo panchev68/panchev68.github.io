@@ -98,17 +98,17 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Arms a low-power timeout with <a class="el" href="../../d6/d4c/a06195.html" title="Lib::HAL::LPTimer">Lib::HAL::LPTimer</a> and waits for it from a task. <a class="el" href="../../d9/df0/a05540.html#af87c45b091cb7b10192ce86953eba07a" title="Lib::HAL::LPTimer::startTimeoutInterrupt()">Lib::HAL::LPTimer::startTimeoutInterrupt()</a> converts a millisecond timeout into a prescaled LPTIM period, and the autoreload match callback sets an event bit that <a class="el" href="../../d9/df0/a05540.html#a8f6329f1b312d263381f3738aacd64b8" title="Lib::HAL::LPTimer::waitForEvent()">Lib::HAL::LPTimer::waitForEvent()</a> waits on. <a class="el" href="../../d9/df0/a05540.html#a4fc71247da21a5d02602615eb66c4256" title="Lib::HAL::LPTimer::getElapsedRtosTicks()">Lib::HAL::LPTimer::getElapsedRtosTicks()</a> reports how much of the timeout has passed, for the RTOS tick count.</p>
 <p>The LPTIM interrupt path is handled by the class: its callback is registered with the HAL in <a class="el" href="../../d9/df0/a05540.html#a1a9d936e6ff40316674eb1bb6293d5eb" title="Lib::HAL::LPTimer::open()">Lib::HAL::LPTimer::open()</a>. The CubeMX-generated <b>LPTIM1_IRQHandler()</b> must still call <b>HAL_LPTIM_IRQHandler()</b> for that callback to run.</p>
 <dl class="section important"><dt>Important</dt><dd>This class is for STM32U5 targets. It requires the LPTIM peripheral and <b>USE_HAL_LPTIM_REGISTER_CALLBACKS</b> set to 1. It is also used by <a class="el" href="../../de/d45/a06261.html" title="RTOS::PowerManager">RTOS::PowerManager</a>, which is U5-only, so the same target restriction applies to tickless low-power sleep. On the STM32F407 target, the LPTIM peripheral does not exist, so the header compiles to nothing.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_lptimer_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="lptim_usage_hw"></a>
-Hardware and CubeMX assumptions</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_hw"></a>
+Hardware and CubeMX assumptions</h3>
 <ul>
 <li>LPTIM1 enabled in CubeMX with its clock source (LSE, LSI or MSIK) set; the frequency table inside the class must match the CubeMX clock tree.</li>
 <li>'USE_HAL_LPTIM_REGISTER_CALLBACKS' set to '1' in the HAL configuration header.</li>
 <li>Up to two instances (one per LPTIM handle). A third one asserts.</li>
 </ul>
-<h2 class="doxsection"><a class="anchor" id="lptim_usage_timeout"></a>
-Waiting for a timeout in a task</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_timeout"></a>
+Waiting for a timeout in a task</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d6a/a00704.html">Lib/HAL/TIM/LPTimer.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
@@ -133,14 +133,16 @@ Waiting for a timeout in a task</h2>
 <div class="ttc" id="aa00704_html"><div class="ttname"><a href="../../d4/d6a/a00704.html">LPTimer.hpp</a></div><div class="ttdoc">Low-power timer peripheral driver for STM32 architectures.</div></div>
 <div class="ttc" id="aa00974_html"><div class="ttname"><a href="../../df/dce/a00974.html">RTOS.hpp</a></div><div class="ttdoc">FreeRTOS C++ wrapper utilities and common RTOS component includes.</div></div>
 <div class="ttc" id="aa05540_html"><div class="ttname"><a href="../../d9/df0/a05540.html">Lib::HAL::LPTimer</a></div><div class="ttdoc">Manages LPTIM peripheral configuration and interrupt-driven timeout events.</div><div class="ttdef"><b>Definition</b> LPTimer.hpp:42</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="lptim_usage_ticks"></a>
-Converting elapsed time to RTOS ticks</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_ticks"></a>
+Converting elapsed time to RTOS ticks</h3>
 <p><a class="el" href="../../d9/df0/a05540.html#a4fc71247da21a5d02602615eb66c4256" title="Lib::HAL::LPTimer::getElapsedRtosTicks()">Lib::HAL::LPTimer::getElapsedRtosTicks()</a> returns the full armed timeout once the match fired, and the current counter scaled to RTOS ticks otherwise. Pass the same timeout (in milliseconds) that was armed.</p>
 <div class="fragment"><div class="line">uint32_t elapsedTicks(<span class="keyword">const</span> <a class="code hl_class" href="../../d9/df0/a05540.html">Lib::HAL::LPTimer</a> &amp; timer, uint32_t armedTimeoutMs) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">return</span> timer.getElapsedRtosTicks(armedTimeoutMs);</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="lptim_usage_close"></a>
-Closing</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="lptim_usage_close"></a>
+Closing</h3>
 <p><a class="el" href="../../d9/df0/a05540.html#a6295b01535aa1df83366d83b9426ff7d" title="Lib::HAL::LPTimer::close()">Lib::HAL::LPTimer::close()</a> deinitializes the LPTIM; the destructor calls it as well.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> shutdown(<a class="code hl_class" href="../../d9/df0/a05540.html">Lib::HAL::LPTimer</a> &amp; timer) <span class="keyword">noexcept</span> {</div>
 <div class="line">    <span class="keywordflow">if</span> (!timer.close()) {</div>

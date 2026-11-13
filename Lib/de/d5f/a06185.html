@@ -99,10 +99,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>The erase granularity and the programming width are chosen at compile time from the device macros: sectors where 'FLASH_TYPEERASE_SECTORS' is defined, pages where 'FLASH_TYPEERASE_PAGES' is defined, and word or doubleword programming where 'FLASH_TYPEPROGRAM_WORD' or 'FLASH_TYPEPROGRAM_DOUBLEWORD' is defined. On an unsupported device the method returns <b>false</b>.</p>
 <dl class="section important"><dt>Important</dt><dd>The module guard is 'HAL_FLASH_MODULE_ENABLED'; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it. On the STM32F407xx target the sector erase and word programming macros are available, so both methods are compiled in.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>An erase destroys the whole sector, including any code or constants stored in it. Never erase the sector that holds the running firmware, and keep the code that performs the erase and the write in RAM, because the CPU cannot fetch from flash while the operation runs. Writes can only clear bits, so a word must be erased before it is programmed to a value that sets bits.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_flashinterface_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="flash_usage_erase"></a>
-Erase a sector and program a block</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="flash_usage_erase"></a>
+Erase a sector and program a block</h3>
 <p><a class="el" href="../../da/dc0/a05392.html#a31fec472e71d387e0e9a5ade75e5ae24" title="Lib::HAL::FlashInterface::eraseSector()">Lib::HAL::FlashInterface::eraseSector()</a> takes the sector index and the voltage range that matches the supply voltage; use the HAL constant 'FLASH_VOLTAGE_RANGE_3' for 2.7 V to 3.6 V on the STM32F407xx. Program the data only after the erase returns <b>true</b>, and check each step.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d14/a00608.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -133,8 +132,9 @@ Erase a sector and program a block</h2>
 <div class="ttc" id="aa05392_html_a0f5c36a802a9b6cf15aacf3d104cb445"><div class="ttname"><a href="../../da/dc0/a05392.html#a0f5c36a802a9b6cf15aacf3d104cb445">Lib::HAL::FlashInterface::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the Flash control register so that erase and program operations are accepted.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:91</div></div>
 <div class="ttc" id="aa05392_html_a31fec472e71d387e0e9a5ade75e5ae24"><div class="ttname"><a href="../../da/dc0/a05392.html#a31fec472e71d387e0e9a5ade75e5ae24">Lib::HAL::FlashInterface::eraseSector</a></div><div class="ttdeci">bool eraseSector(uint32_t sectorIndex, uint32_t voltageRange) noexcept</div><div class="ttdoc">Erases one sector (sector-based families) or one page (page-based families).</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:115</div></div>
 <div class="ttc" id="aa05392_html_ae33402652ac23992b9eb28ed57ca35e8"><div class="ttname"><a href="../../da/dc0/a05392.html#ae33402652ac23992b9eb28ed57ca35e8">Lib::HAL::FlashInterface::writeBuffer</a></div><div class="ttdeci">bool writeBuffer(uint32_t startAddress, const uint32_t *dataPointer, uint32_t wordLength) noexcept</div><div class="ttdoc">Programs a buffer of 32-bit words into consecutive flash addresses.</div><div class="ttdef"><b>Definition</b> FlashInterface.hpp:181</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="flash_usage_word"></a>
-Program one word</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="flash_usage_word"></a>
+Program one word</h3>
 <p><a class="el" href="../../da/dc0/a05392.html#ad771befb1be3db0d319c46507a7896ca" title="Lib::HAL::FlashInterface::writeWord()">Lib::HAL::FlashInterface::writeWord()</a> asserts that the address is 4-byte aligned. On a device that programs doublewords, the class reads the neighbouring word and programs the pair, so the neighbour must already be erased or hold the value it had before.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d4/d14/a00608.html">Lib/HAL/Flash/FlashInterface.hpp</a>&gt;</span></div>
 <div class="line"> </div>

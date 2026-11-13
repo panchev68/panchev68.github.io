@@ -98,10 +98,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Reads and programs the one-time-programmable area of the flash with the singleton <a class="el" href="../../de/d62/a05492.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02" title="Lib::HAL::OTP::instance()">.The</a> region is reached through <a class="el" href="../../de/d62/a05492.html#acff397156950347f6f452dec2c94af43" title="Lib::HAL::OTP::read()">Lib::HAL::OTP::read()</a> and <a class="el" href="../../de/d62/a05492.html#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a>. <a class="el" href="../../de/d62/a05492.html#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a> is word-aligned, <a class="el" href="../../de/d62/a05492.html#a9bfc926572971cb1d61d71d98c1be86f" title="Lib::HAL::OTP::WORD_SIZE">Lib::HAL::OTP::WORD_SIZE</a> bytes at a time, and it can only clear bits: a bit programmed to zero cannot be set back, so the write is rejected when it would require that. Writing the value already stored returns <b>true</b> without touching the flash. Programming must be bracketed by <a class="el" href="../../de/d62/a05492.html#a220a07c58647557d8a81402260eacfb5" title="Lib::HAL::OTP::unlock()">Lib::HAL::OTP::unlock()</a> and <a class="el" href="../../de/d62/a05492.html#ab4c2e78575458526b83be6e259aa1f93" title="Lib::HAL::OTP::lock()">Lib::HAL::OTP::lock()</a>, because the flash controller is locked after reset.</p>
 <dl class="section important"><dt>Important</dt><dd>The OTP exists only on the STM32F4xx families that define 'FLASH_OTP_BASE'. On the STM32F407xx target the area is 528 bytes from 'FLASH_OTP_BASE' (0x1FFF7800) to 'FLASH_OTP_END' (0x1FFF7A0F). The module guard is 'HAL_FLASH_MODULE_ENABLED' together with 'FLASH_OTP_BASE'; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so the HAL guard is unverified here, although the STM32Cube template enables it.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Programmed bits cannot be erased, and the OTP is never erased, not even by a mass erase. Every write is permanent. The last 16 bytes of the area hold the lock bytes; programming them locks the corresponding blocks against further writes permanently, so do not write there unless that is the intent.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_otp_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="otp_usage_read"></a>
-Read a stored value</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="otp_usage_read"></a>
+Read a stored value</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de4/a00677.html">Lib/HAL/OTP/OTP.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line">uint32_t readSerialWord() noexcept {</div>
@@ -111,8 +110,9 @@ Read a stored value</h2>
 <div class="ttc" id="aa00677_html"><div class="ttname"><a href="../../dc/de4/a00677.html">OTP.hpp</a></div><div class="ttdoc">One-time-programmable storage area of the internal flash.</div></div>
 <div class="ttc" id="aa05492_html_a9286ffbdc5e9bf8a3a2f4e9fe958ae02"><div class="ttname"><a href="../../de/d62/a05492.html#a9286ffbdc5e9bf8a3a2f4e9fe958ae02">Lib::HAL::OTP::instance</a></div><div class="ttdeci">static OTP &amp; instance() noexcept</div><div class="ttdoc">Retrieves the singleton instance.</div><div class="ttdef"><b>Definition</b> OTP.hpp:49</div></div>
 <div class="ttc" id="aa05492_html_acff397156950347f6f452dec2c94af43"><div class="ttname"><a href="../../de/d62/a05492.html#acff397156950347f6f452dec2c94af43">Lib::HAL::OTP::read</a></div><div class="ttdeci">T read(uint32_t address) const noexcept</div><div class="ttdoc">Reads a trivially copyable value from the OTP region.</div><div class="ttdef"><b>Definition</b> OTP.hpp:144</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="otp_usage_write"></a>
-Program a word once</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="otp_usage_write"></a>
+Program a word once</h3>
 <p>The write sequence is unlock, program, lock. <a class="el" href="../../de/d62/a05492.html#a778b8e7ce12a4c0bdeed759cb2a79493" title="Lib::HAL::OTP::write()">Lib::HAL::OTP::write()</a> returns <b>false</b> when the address is outside the area or unaligned, when the new value needs a bit set to one that is already programmed to zero, or when the flash controller refuses the program. In every failure case the flash is left as it was, except for an interrupted program operation, which the hardware may have partly applied.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de4/a00677.html">Lib/HAL/OTP/OTP.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -132,8 +132,9 @@ Program a word once</h2>
 <div class="ttc" id="aa05492_html_a220a07c58647557d8a81402260eacfb5"><div class="ttname"><a href="../../de/d62/a05492.html#a220a07c58647557d8a81402260eacfb5">Lib::HAL::OTP::unlock</a></div><div class="ttdeci">bool unlock() noexcept</div><div class="ttdoc">Unlocks the flash controller so the region can be programmed.</div><div class="ttdef"><b>Definition</b> OTP.hpp:162</div></div>
 <div class="ttc" id="aa05492_html_a778b8e7ce12a4c0bdeed759cb2a79493"><div class="ttname"><a href="../../de/d62/a05492.html#a778b8e7ce12a4c0bdeed759cb2a79493">Lib::HAL::OTP::write</a></div><div class="ttdeci">bool write(uint32_t address, uint32_t value) noexcept</div><div class="ttdoc">Programs a single word.</div><div class="ttdef"><b>Definition</b> OTP.hpp:187</div></div>
 <div class="ttc" id="aa05492_html_ab4c2e78575458526b83be6e259aa1f93"><div class="ttname"><a href="../../de/d62/a05492.html#ab4c2e78575458526b83be6e259aa1f93">Lib::HAL::OTP::lock</a></div><div class="ttdeci">bool lock() noexcept</div><div class="ttdoc">Locks the flash controller again.</div><div class="ttdef"><b>Definition</b> OTP.hpp:171</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="otp_usage_bounds"></a>
-Check the region before use</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="otp_usage_bounds"></a>
+Check the region before use</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../dc/de4/a00677.html">Lib/HAL/OTP/OTP.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">bool</span> isInsideOtp(uint32_t address) <span class="keyword">noexcept</span> {</div>

@@ -98,10 +98,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Starts the hardware Window Watchdog (WWDG) with <a class="el" href="../../d6/d5f/a06225.html" title="Lib::HAL::WindowWatchdog">Lib::HAL::WindowWatchdog</a> and refreshes it from a periodic task.The wrapper does not own the CubeMX-generated handle; the pointer passed to the constructor must stay valid for the lifetime of the instance. Counter, prescaler and the initial window come from the handle, so configure them in CubeMX before calling 'open()'. Unlike the IWDG, the WWDG counts down only while its clock runs, and a refresh is accepted only inside the window.</p>
 <dl class="section important"><dt>Important</dt><dd>The WWDG is available on every STM32F4xx family, including the STM32F407xx target of this library. The module guard is 'HAL_WWDG_MODULE_ENABLED'; the project's 'stm32f4xx_hal_conf.h' is not in the repository, so that guard is unverified here, although the STM32Cube template enables it.</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>Once 'open()' succeeds the watchdog cannot be stopped until the next reset. A refresh issued before the window opens, or after the counter reaches zero, resets the MCU. 'refresh()' returns the status of the HAL call only; the HAL does not report an early refresh, so <b>true</b> does not prove the refresh was inside the window.</dd></dl>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_windowwatchdog_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="wwdg_usage_start"></a>
-Start and refresh</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="wwdg_usage_start"></a>
+Start and refresh</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/WWDG/WindowWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/dce/a00974.html">RTOS.hpp</a>&gt;</span></div>
@@ -130,8 +129,9 @@ Start and refresh</h2>
 <div class="ttc" id="aa05664_html"><div class="ttname"><a href="../../d0/d56/a05664.html">Lib::HAL::WindowWatchdog</a></div><div class="ttdoc">Controls the hardware Window Watchdog peripheral subsystem.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:31</div></div>
 <div class="ttc" id="aa05664_html_a5f510a61dd04e4f7b6fd5bb5fa5bd81f"><div class="ttname"><a href="../../d0/d56/a05664.html#a5f510a61dd04e4f7b6fd5bb5fa5bd81f">Lib::HAL::WindowWatchdog::open</a></div><div class="ttdeci">bool open() noexcept</div><div class="ttdoc">Initializes and starts the hardware window watchdog timer using preset configurations.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:96</div></div>
 <div class="ttc" id="aa05664_html_a8391a6219cf7a6f1a8e9e1383b0e115b"><div class="ttname"><a href="../../d0/d56/a05664.html#a8391a6219cf7a6f1a8e9e1383b0e115b">Lib::HAL::WindowWatchdog::refresh</a></div><div class="ttdeci">bool refresh() noexcept</div><div class="ttdoc">Refreshes the internal hardware counter to prevent system resets, respecting window boundaries.</div><div class="ttdef"><b>Definition</b> WindowWatchdog.hpp:109</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="wwdg_usage_window"></a>
-Narrow the refresh window at run time</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="wwdg_usage_window"></a>
+Narrow the refresh window at run time</h3>
 <p>'setWindow()' writes the window value into the handle and re-runs <b>HAL_WWDG_Init()</b>, which restarts the counter. Call it once, before the refresh task starts, so that the first refresh does not fall outside the new window.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d3/d00/a00785.html">Lib/HAL/WWDG/WindowWatchdog.hpp</a>&gt;</span></div>
 <div class="line"> </div>

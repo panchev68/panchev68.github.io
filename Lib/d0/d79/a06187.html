@@ -97,10 +97,9 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>Drives and reads single pins with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d8/d73/a05412.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>.</p>
 <p>Drives and reads single pins with <a class="el" href="../../d0/d79/a06187.html" title="Lib::HAL::GPIO::Output">Lib::HAL::GPIO::Output</a>, <a class="el" href="../../d8/d73/a05412.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a>. Each wrapper is bound to one <a class="el" href="../../da/df4/a05408.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a>, built from a CubeMX-generated pin pair through the 'PIN()' macro. None of these classes takes a transfer mode, so there is no <a class="el" href="../../de/d02/a01026.html#a031c16cd1ba2f466615bbfa2b2832ed0" title="Lib::HAL::DriverMode">Lib::HAL::DriverMode</a> parameter.</p>
 <p>The wrappers do not configure the pin: the mode, speed and pull are set by the CubeMX-generated 'MX_GPIO_Init()', which must run before any wrapper is used. Output and input calls are plain register accesses and are safe from an ISR. <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> is the exception, see its own subsection.</p>
-<h1 class="doxsection"><a class="anchor" id="lib_hal_gpio_usage"></a>
-Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="gpio_usage_handle"></a>
-Handle and the PIN() macro</h2>
+<hr  />
+<h3 class="doxsection"><a class="anchor" id="gpio_usage_handle"></a>
+Handle and the PIN() macro</h3>
 <p>'PIN(LED)' expands to a <a class="el" href="../../d4/d15/a05404.html" title="Lib::HAL::GPIO::PinConfig">Lib::HAL::GPIO::PinConfig</a> built from 'LED_GPIO_Port' and 'LED_Pin', the symbols CubeMX emits in 'main.h'. <a class="el" href="../../da/df4/a05408.html" title="Lib::HAL::GPIO::Handle">Lib::HAL::GPIO::Handle</a> converts implicitly from that value and must outlive every wrapper that refers to it. A default-constructed handle has no port, and the wrapper constructors assert on it.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -113,8 +112,9 @@ Handle and the PIN() macro</h2>
 <div class="ttc" id="aa00614_html_a45dbeff58bd7e046067745552ea8044c"><div class="ttname"><a href="../../d7/d80/a00614.html#a45dbeff58bd7e046067745552ea8044c">PIN</a></div><div class="ttdeci">#define PIN(p)</div><div class="ttdef"><b>Definition</b> Handle.hpp:25</div></div>
 <div class="ttc" id="aa00623_html"><div class="ttname"><a href="../../df/d6f/a00623.html">GPIO.hpp</a></div><div class="ttdoc">Public convenience aliases for the GPIO subsystem.</div></div>
 <div class="ttc" id="aa05408_html"><div class="ttname"><a href="../../da/df4/a05408.html">Lib::HAL::GPIO::Handle</a></div><div class="ttdoc">Lightweight wrapper for GPIO pin configuration providing typed access.</div><div class="ttdef"><b>Definition</b> Handle.hpp:50</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="gpio_usage_output"></a>
-Driving an output</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gpio_usage_output"></a>
+Driving an output</h3>
 <p><a class="el" href="../../d3/d7f/a05416.html#a52416b95040bffe9915b005b33bc3600" title="Lib::HAL::GPIO::Output::write()">Lib::HAL::GPIO::Output::write()</a> takes the logic level, <a class="el" href="../../d3/d7f/a05416.html#a9c5cb5ff477745ed6e0f36ae1eaa6e11" title="Lib::HAL::GPIO::Output::setHigh()">Lib::HAL::GPIO::Output::setHigh()</a> and <a class="el" href="../../d3/d7f/a05416.html#a0fc44f31312833d252e8aef8a1c4e361" title="Lib::HAL::GPIO::Output::setLow()">Lib::HAL::GPIO::Output::setLow()</a> are shorthands, and <a class="el" href="../../d3/d7f/a05416.html#ad11ab03ddf964b154331b7ffc708e4c2" title="Lib::HAL::GPIO::Output::toggle()">Lib::HAL::GPIO::Output::toggle()</a> inverts the current level. The class is non-copyable and non-movable, so keep it as a long-lived object.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -130,8 +130,9 @@ Driving an output</h2>
 <div class="line">    led.write(<span class="keyword">true</span>); <span class="comment">// Now high again.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aa05416_html"><div class="ttname"><a href="../../d3/d7f/a05416.html">Lib::HAL::GPIO::Output</a></div><div class="ttdoc">Represents a discrete hardware output pin capable of state driving and active reading.</div><div class="ttdef"><b>Definition</b> Output.hpp:35</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="gpio_usage_input"></a>
-Reading an input</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gpio_usage_input"></a>
+Reading an input</h3>
 <p><a class="el" href="../../d8/d73/a05412.html#acf9a806f75242814c40947cdc229ed24" title="Lib::HAL::GPIO::Input::read()">Lib::HAL::GPIO::Input::read()</a> returns <b>true</b> when the pin is high, and <a class="el" href="../../d8/d73/a05412.html#ac4819ceaa799d09422b2441ab37d1bf3" title="Lib::HAL::GPIO::Input::isHigh()">Lib::HAL::GPIO::Input::isHigh()</a> and <a class="el" href="../../d8/d73/a05412.html#aac45963cf0777027622bcfbd5773ad89" title="Lib::HAL::GPIO::Input::isLow()">Lib::HAL::GPIO::Input::isLow()</a> are named forms of the same read. The explicit 'bool' conversion operator also reads the pin.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
 <div class="line"> </div>
@@ -145,8 +146,9 @@ Reading an input</h2>
 <div class="line">    <span class="keywordflow">return</span> button.isLow(); <span class="comment">// Active-low button with a pull-up configured by CubeMX.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aa05412_html"><div class="ttname"><a href="../../d8/d73/a05412.html">Lib::HAL::GPIO::Input</a></div><div class="ttdoc">Represents a discrete hardware input pin mapped to a specific microcontroller port.</div><div class="ttdef"><b>Definition</b> Input.hpp:34</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="gpio_usage_exti"></a>
-Interrupt on an input pin</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gpio_usage_exti"></a>
+Interrupt on an input pin</h3>
 <p><a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> derives from <a class="el" href="../../d8/d73/a05412.html" title="Lib::HAL::GPIO::Input">Lib::HAL::GPIO::Input</a> and registers its pin with a shared dispatcher in its constructor, which asserts if the pin is already registered. The EXTI line and its edge are set by CubeMX, and the header provides the 'HAL_GPIO_EXTI_Callback()' family, so do not define those in user code.</p>
 <p>The bound callback is not run in the interrupt. The HAL callback only signals a shared worker task, which invokes the callback in task context, so the callback may use RTOS calls that are illegal from an ISR. A capturing lambda must be an lvalue that outlives the binding; a capture-less lambda or a function pointer can be passed directly.</p>
 <dl class="section warning"><dt>Warning</dt><dd>Each EXTI line can be claimed by one <a class="el" href="../../db/d21/a05396.html" title="Lib::HAL::GPIO::ExtInterrupt">Lib::HAL::GPIO::ExtInterrupt</a> at a time; a second one on the same pin asserts in its constructor.</dd></dl>
@@ -170,8 +172,9 @@ Interrupt on an input pin</h2>
 <div class="line">    button.unbindCallback();</div>
 <div class="line">}</div>
 <div class="ttc" id="aa05396_html"><div class="ttname"><a href="../../db/d21/a05396.html">Lib::HAL::GPIO::ExtInterrupt</a></div><div class="ttdoc">Handles hardware external line interrupts with centralized notification-driven dispatching.</div><div class="ttdef"><b>Definition</b> ExtInterrupt.hpp:50</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="gpio_usage_port"></a>
-Whole-port access</h2>
+</div><!-- fragment --><hr  />
+<h3 class="doxsection"><a class="anchor" id="gpio_usage_port"></a>
+Whole-port access</h3>
 <p><a class="el" href="../../dd/d1f/a05420.html" title="Lib::HAL::GPIO::Port">Lib::HAL::GPIO::Port</a> wraps one register block ('GPIOD' and so on) rather than a single pin. <a class="el" href="../../dd/d1f/a05420.html#a5cbf2a8c7874db91ada4dfec7e22aff1" title="Lib::HAL::GPIO::Port::setup()">Lib::HAL::GPIO::Port::setup()</a> passes a native 'GPIO_InitTypeDef' to 'HAL_GPIO_Init()', and <a class="el" href="../../dd/d1f/a05420.html#a0bb5fb3c7ba5bb8cb0144fe4ff1e57a0" title="Lib::HAL::GPIO::Port::write()">Lib::HAL::GPIO::Port::write()</a> and <a class="el" href="../../dd/d1f/a05420.html#adce8df0019ea415a350cf833ac481fc2" title="Lib::HAL::GPIO::Port::read()">Lib::HAL::GPIO::Port::read()</a> access the output and input data registers as one word. Use it only when several pins must change in one bus write; the pin wrappers above are the default.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../df/d6f/a00623.html">Lib/HAL/GPIO.hpp</a>&gt;</span></div>
 <div class="line"> </div>
