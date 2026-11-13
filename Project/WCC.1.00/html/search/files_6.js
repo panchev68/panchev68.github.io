@@ -22,8 +22,8 @@ var searchData=
   ['gp_5fhash_5ftable_5fmap_5f_2fresize_5fstore_5fhash_5ffn_5fimps_2ehpp_19',['gp_hash_table_map_/resize_store_hash_fn_imps.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a18476.html',1,'']]],
   ['gp_5fhash_5ftable_5fmap_5f_2ftrace_5ffn_5fimps_2ehpp_20',['gp_hash_table_map_/trace_fn_imps.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a18380.html',1,'']]],
   ['gp_5fht_5fmap_5f_2ehpp_21',['gp_ht_map_.hpp',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a01436.html',1,'']]],
-  ['gpio_2ehpp_22',['GPIO.hpp',['https://panchev68.github.io/Lib/db/d43/a00422.html',1,'']]],
-  ['group_2ehpp_23',['Group.hpp',['https://panchev68.github.io/Lib/df/d95/a00299.html',1,'']]],
+  ['gpio_2ehpp_22',['GPIO.hpp',['https://panchev68.github.io/Lib/df/d6f/a00623.html',1,'']]],
+  ['group_2ehpp_23',['Group.hpp',['https://panchev68.github.io/Lib/d4/de5/a00503.html',1,'']]],
   ['gslice_2eh_24',['gslice.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00563.html',1,'']]],
   ['gslice_5farray_2eh_25',['gslice_array.h',['http://gcc.gnu.org/onlinedocs/libstdc++/latest-doxygen/a00566.html',1,'']]]
 ];

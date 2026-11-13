@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['hal_0',['HAL',['https://panchev68.github.io/Lib/d5/d69/a00878.html',1,'']]],
+  ['hal_0',['HAL',['https://panchev68.github.io/Lib/d7/d76/a00992.html',1,'']]],
   ['hal_20adc_20aliased_20defines_20maintained_20for_20legacy_20purpose_1',['HAL ADC Aliased Defines maintained for legacy purpose',['https://panchev68.github.io/HALF4/d9/dad/a00591.html',1,'']]],
   ['hal_20adc_20aliased_20macros_20maintained_20for_20legacy_20purpose_2',['HAL ADC Aliased Macros maintained for legacy purpose',['https://panchev68.github.io/HALF4/d6/d08/a00646.html',1,'']]],
   ['hal_20can_20aliased_20defines_20maintained_20for_20legacy_20purpose_3',['HAL CAN Aliased Defines maintained for legacy purpose',['https://panchev68.github.io/HALF4/d2/d34/a00625.html',1,'']]],
