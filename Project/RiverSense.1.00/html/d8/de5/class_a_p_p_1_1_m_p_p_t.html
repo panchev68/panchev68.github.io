@@ -105,8 +105,6 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="../../de/d8c/class_a_p_p_1_1_m_p_p_t-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">APP::MPPT Class Reference<span class="mlabels"><span class="mlabel final">final</span></span></div></div>
 </div><!--header-->
@@ -119,7 +117,7 @@ document.addEventListener('DOMContentLoaded', codefold.init);
 <p>The outer loop (library MPPT, every <a class="el" href="#a428ad7acfea610955ce3a7c190800fc2" title="OUTER_LOOP_DIVIDER">OUTER_LOOP_DIVIDER</a> steps) computes the panel voltage setpoint; the inner loop (every <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> call) moves the DAC_OUT voltage injected into the buck feedback node until the measured panel voltage reaches that setpoint.</p>
 <p>The DAC current is summed into the FB node through R13 + R14, so a higher DAC voltage lowers the buck output voltage, unloads the panel and lets its voltage rise. Panel irradiance is not measured; it is estimated from the panel current relative to the MPP reference current. Divider of the WCC board hw2.00 (R15 from the output after the R9 shunt, R11 + R12 to GND through Q4, R13 + R14 from DAC_OUT):</p>
 <div class="fragment"><div class="line">Vout = Vfb * (1 + R15 / (R11 + R12) + R15 / (R13 + R14)) - Vdac * R15 / (R13 + R14)  ~  7.82 V - 1.32 * Vdac</div>
-</div><!-- fragment --><p><b>Singleton:</b> the charger has one buck, one DAC and one enable pin. The state, the hardware constants and the private helpers live in an <b>Impl</b> defined in the '.cpp', reached through <a class="el" href="#a4ef42a4a0a9023bf45539d934533c59e" title="impl()">impl()</a> (function-local static, no heap).</p>
+</div><!-- fragment --><p><b>Singleton:</b> the charger has one buck, one DAC and one enable pin. The state, the hardware constants and the private helpers live in an <b>Impl</b> defined in the '.cpp', reached through impl() (function-local static, no heap).</p>
 <dl class="section warning"><dt>Warning</dt><dd>Not thread-safe: <a class="el" href="#a1a0589375b746214f96bd8f5331faaf2" title="init()">init()</a>, <a class="el" href="#ab19c72f917c1832fb96af81fd7097291" title="step()">step()</a> and <a class="el" href="#a409d1aeb10fed97156d6dcf2c540d99d" title="disable()">disable()</a> must all run in the power supply task. </dd></dl>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
@@ -147,7 +145,7 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab215cc889fd52aa21334188b9ae93f89" id="r_ab215cc889fd52aa21334188b9ae93f89"><td class="memItemLeft">static <a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab215cc889fd52aa21334188b9ae93f89">instance</a> () noexcept</td></tr>
+<tr class="memitem:ab215cc889fd52aa21334188b9ae93f89" id="r_ab215cc889fd52aa21334188b9ae93f89"><td class="memItemLeft">static MPPT &amp;&#160;</td><td class="memItemRight"><a class="el" href="#ab215cc889fd52aa21334188b9ae93f89">instance</a> () noexcept</td></tr>
 <tr class="memdesc:ab215cc889fd52aa21334188b9ae93f89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the unique controller instance; does not touch the hardware.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
@@ -156,107 +154,7 @@ Static Public Attributes</h2></td></tr>
 <tr class="memdesc:a4dfaa47ad7a8a240bdc8e91a714de227"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recommended period between step() calls.  <br /></td></tr>
 <tr class="memitem:a428ad7acfea610955ce3a7c190800fc2" id="r_a428ad7acfea610955ce3a7c190800fc2"><td class="memItemLeft">static constexpr uint32_t&#160;</td><td class="memItemRight"><a class="el" href="#a428ad7acfea610955ce3a7c190800fc2">OUTER_LOOP_DIVIDER</a> = 10U</td></tr>
 <tr class="memdesc:a428ad7acfea610955ce3a7c190800fc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inner-loop steps per MPPT (outer loop) update.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-methods" class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ad81de8e19d7d73377ae4b0ebba0cbfad" id="r_ad81de8e19d7d73377ae4b0ebba0cbfad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> () noexcept=default</td></tr>
-<tr class="memdesc:ad81de8e19d7d73377ae4b0ebba0cbfad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the singleton; the state lives in <a class="el" href="#a4ef42a4a0a9023bf45539d934533c59e" title="impl()">impl()</a>.  <br /></td></tr>
-<tr class="memitem:a01779a889566e4f7274d4a5f48e5f32d" id="r_a01779a889566e4f7274d4a5f48e5f32d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a01779a889566e4f7274d4a5f48e5f32d">MPPT</a> (const MPPT &amp;)=delete</td></tr>
-<tr class="memdesc:a01779a889566e4f7274d4a5f48e5f32d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the charger DAC and enable pin.  <br /></td></tr>
-<tr class="memitem:acff3c047d82fd24566d4d35a3ed807bc" id="r_acff3c047d82fd24566d4d35a3ed807bc"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acff3c047d82fd24566d4d35a3ed807bc">MPPT</a> (MPPT &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:acff3c047d82fd24566d4d35a3ed807bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns the charger DAC and enable pin.  <br /></td></tr>
-<tr class="memitem:a6f196567dfc721d7843314e85ae9d692" id="r_a6f196567dfc721d7843314e85ae9d692"><td class="memItemLeft"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a6f196567dfc721d7843314e85ae9d692">operator=</a> (const <a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;)=delete</td></tr>
-<tr class="memdesc:a6f196567dfc721d7843314e85ae9d692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-copyable: owns the charger DAC and enable pin.  <br /></td></tr>
-<tr class="memitem:a645b51fe95a710cdbf95e9a63421bd94" id="r_a645b51fe95a710cdbf95e9a63421bd94"><td class="memItemLeft"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a645b51fe95a710cdbf95e9a63421bd94">operator=</a> (<a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;&amp;)=delete</td></tr>
-<tr class="memdesc:a645b51fe95a710cdbf95e9a63421bd94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-movable: owns the charger DAC and enable pin.  <br /></td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-pri-static-methods" class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a4ef42a4a0a9023bf45539d934533c59e" id="r_a4ef42a4a0a9023bf45539d934533c59e"><td class="memItemLeft">static Impl &amp;&#160;</td><td class="memItemRight"><a class="el" href="#a4ef42a4a0a9023bf45539d934533c59e">impl</a> () noexcept</td></tr>
-<tr class="memdesc:a4ef42a4a0a9023bf45539d934533c59e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the hidden state of the singleton.  <br /></td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad81de8e19d7d73377ae4b0ebba0cbfad" name="ad81de8e19d7d73377ae4b0ebba0cbfad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad81de8e19d7d73377ae4b0ebba0cbfad">&#9670;&#160;</a></span>MPPT() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">APP::MPPT::MPPT </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel default">default</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructs the singleton; the state lives in <a class="el" href="#a4ef42a4a0a9023bf45539d934533c59e" title="impl()">impl()</a>. </p>
-
-</div>
-</div>
-<a id="a01779a889566e4f7274d4a5f48e5f32d" name="a01779a889566e4f7274d4a5f48e5f32d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a01779a889566e4f7274d4a5f48e5f32d">&#9670;&#160;</a></span>MPPT() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">APP::MPPT::MPPT </td>
-          <td>(</td>
-          <td class="paramtype">const MPPT &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: owns the charger DAC and enable pin. </p>
-
-</div>
-</div>
-<a id="acff3c047d82fd24566d4d35a3ed807bc" name="acff3c047d82fd24566d4d35a3ed807bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acff3c047d82fd24566d4d35a3ed807bc">&#9670;&#160;</a></span>MPPT() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">APP::MPPT::MPPT </td>
-          <td>(</td>
-          <td class="paramtype">MPPT &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: owns the charger DAC and enable pin. </p>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
 <a id="a409d1aeb10fed97156d6dcf2c540d99d" name="a409d1aeb10fed97156d6dcf2c540d99d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a409d1aeb10fed97156d6dcf2c540d99d">&#9670;&#160;</a></span>disable()</h2>
@@ -483,34 +381,6 @@ Static Private Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4ef42a4a0a9023bf45539d934533c59e" name="a4ef42a4a0a9023bf45539d934533c59e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ef42a4a0a9023bf45539d934533c59e">&#9670;&#160;</a></span>impl()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Impl &amp; APP::MPPT::impl </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span><span class="mlabel nodiscard">nodiscard</span><span class="mlabel private">private</span><span class="mlabel noexcept">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns the hidden state of the singleton. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to the implementation. </dd></dl>
-
-</div>
-</div>
 <a id="a1a0589375b746214f96bd8f5331faaf2" name="a1a0589375b746214f96bd8f5331faaf2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a0589375b746214f96bd8f5331faaf2">&#9670;&#160;</a></span>init()</h2>
 
@@ -550,7 +420,7 @@ Static Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp; APP::MPPT::instance </td>
+          <td class="memname">MPPT &amp; APP::MPPT::instance </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -566,62 +436,6 @@ Static Private Member Functions</h2></td></tr>
 <p>Returns the unique controller instance; does not touch the hardware. </p>
 <p>The controller is wired to <a class="el" href="../../df/dfc/class_b_s_p_1_1_solar_panel.html" title="BSP::SolarPanel">BSP::SolarPanel</a>, <a class="el" href="../../da/d02/class_b_s_p_1_1_accumulator.html" title="BSP::Accumulator">BSP::Accumulator</a>, <a class="el" href="../../d9/dd1/class_b_s_p_1_1_t_m_p102.html" title="BSP::TMP102">BSP::TMP102</a> and <a class="el" href="../../d3/dd6/class_h_a_l_1_1_d_a_c1_port.html" title="HAL::DAC1Port">HAL::DAC1Port</a> instances.</p>
 <dl class="section return"><dt>Returns</dt><dd>Reference to the controller. </dd></dl>
-
-</div>
-</div>
-<a id="a6f196567dfc721d7843314e85ae9d692" name="a6f196567dfc721d7843314e85ae9d692"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f196567dfc721d7843314e85ae9d692">&#9670;&#160;</a></span>operator=() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp; APP::MPPT::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-copyable: owns the charger DAC and enable pin. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
-
-</div>
-</div>
-<a id="a645b51fe95a710cdbf95e9a63421bd94" name="a645b51fe95a710cdbf95e9a63421bd94"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a645b51fe95a710cdbf95e9a63421bd94">&#9670;&#160;</a></span>operator=() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp; APP::MPPT::operator= </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#ad81de8e19d7d73377ae4b0ebba0cbfad">MPPT</a> &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel private">private</span><span class="mlabel delete">delete</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Non-movable: owns the charger DAC and enable pin. </p>
-<dl class="section return"><dt>Returns</dt><dd>Reference to this instance. </dd></dl>
 
 </div>
 </div>
