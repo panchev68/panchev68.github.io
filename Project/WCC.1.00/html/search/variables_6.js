@@ -52,7 +52,7 @@ var searchData=
   ['freeheap_49',['freeHeap',['https://panchev68.github.io/Lib/d5/dd4/a05896.html#a944d10ce32d8114a8a1349e2582022bd',1,'RTOS::Kernel::MemoryInfo']]],
   ['frees_50',['frees',['https://panchev68.github.io/Lib/d5/dd4/a05896.html#ab89de264c4b68a7aa5588cc0c9a665c2',1,'RTOS::Kernel::MemoryInfo']]],
   ['frequency_5fhz_51',['FREQUENCY_HZ',['../d2/d5f/class_b_s_p_1_1_buzzer.html#a08967c2e7d183a3f8a74d7ce6ef54081',1,'BSP::Buzzer']]],
-  ['frequencyhz_52',['frequencyHz',['https://panchev68.github.io/Lib/d9/dda/a04740.html#a50257a628ef439fb965df1ee908f3e5e',1,'Lib::BSP::Ultrasonic::PGA460TPWRQ1::TransducerDiagnostics::frequencyHz'],['../d2/d5f/class_b_s_p_1_1_buzzer.html#a0df725015167c61a6ea0e1de925aa213',1,'BSP::Buzzer::frequencyHz']]],
+  ['frequencyhz_52',['frequencyHz',['https://panchev68.github.io/Lib/d9/dda/a04740.html#a50257a628ef439fb965df1ee908f3e5e',1,'Lib::BSP::Ultrasonic::PGA460TPWRQ1::TransducerDiagnostics']]],
   ['frmctr1_53',['FRMCTR1',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2ab9ed48ee87e9b2f956d4878c0c2d35f2',1,'Lib::BSP::Display']]],
   ['frmctr2_54',['FRMCTR2',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2a2714680554c0679f6bb5fbafeec3e22e',1,'Lib::BSP::Display']]],
   ['frmctr3_55',['FRMCTR3',['https://panchev68.github.io/Lib/dd/d48/a00995.html#aa079b641f0d5c91c7219aa446879acf2a2559f824e624d9cef40f1ee5c8327ce4',1,'Lib::BSP::Display']]],
